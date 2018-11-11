@@ -12,6 +12,9 @@ import '@stencil/core';
 
 export namespace Components {
 
+  interface WcsButton {}
+  interface WcsButtonAttributes extends StencilHTMLAttributes {}
+
   interface WcsCardBody {}
   interface WcsCardBodyAttributes extends StencilHTMLAttributes {}
 
@@ -21,15 +24,23 @@ export namespace Components {
 
 declare global {
   interface StencilElementInterfaces {
+    'WcsButton': Components.WcsButton;
     'WcsCardBody': Components.WcsCardBody;
     'WcsCard': Components.WcsCard;
   }
 
   interface StencilIntrinsicElements {
+    'wcs-button': Components.WcsButtonAttributes;
     'wcs-card-body': Components.WcsCardBodyAttributes;
     'wcs-card': Components.WcsCardAttributes;
   }
 
+
+  interface HTMLWcsButtonElement extends Components.WcsButton, HTMLStencilElement {}
+  var HTMLWcsButtonElement: {
+    prototype: HTMLWcsButtonElement;
+    new (): HTMLWcsButtonElement;
+  };
 
   interface HTMLWcsCardBodyElement extends Components.WcsCardBody, HTMLStencilElement {}
   var HTMLWcsCardBodyElement: {
@@ -44,11 +55,13 @@ declare global {
   };
 
   interface HTMLElementTagNameMap {
+    'wcs-button': HTMLWcsButtonElement
     'wcs-card-body': HTMLWcsCardBodyElement
     'wcs-card': HTMLWcsCardElement
   }
 
   interface ElementTagNameMap {
+    'wcs-button': HTMLWcsButtonElement;
     'wcs-card-body': HTMLWcsCardBodyElement;
     'wcs-card': HTMLWcsCardElement;
   }
