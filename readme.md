@@ -1,4 +1,4 @@
-# Web Components SNCF *Sandbox*
+# Web Components SNCF *(Sandbox state)*
 
 This is a sanbox project to investigate on the build pipeline, CI/CD, and different kind of testing.
 
