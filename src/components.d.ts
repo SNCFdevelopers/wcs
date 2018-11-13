@@ -12,8 +12,12 @@ import '@stencil/core';
 
 export namespace Components {
 
-  interface WcsButton {}
-  interface WcsButtonAttributes extends StencilHTMLAttributes {}
+  interface WcsButton {
+    'href': string;
+  }
+  interface WcsButtonAttributes extends StencilHTMLAttributes {
+    'href'?: string;
+  }
 
   interface WcsCardBody {}
   interface WcsCardBodyAttributes extends StencilHTMLAttributes {}
