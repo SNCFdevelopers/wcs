@@ -1,13 +1,20 @@
-import { Component, Prop } from '@stencil/core';
-
-export type ButtonType = 'button' | 'submit';
+import { Component, ComponentInterface, Prop } from '@stencil/core';
+import { ButtonType } from './button-type';
+import { Color, CssClassMap } from '../../interface';
 
 @Component({
     tag: 'wcs-button'
 })
-export class Button {
+export class Button implements ComponentInterface {
     @Prop() type: ButtonType = 'button';
     @Prop() href: string;
+    @Prop() color?: Color;
+
+    private createColorClass(color: Color | undefined | null): CssClassMap | undefined {
+        return (typeof color === 'string' && color.length > 0) ? {
+            [`btn-${color}`]: true
+        } : undefined;
+    }
 
     render() {
         const TagType = this.href !== undefined ? 'a' : 'button';
@@ -15,10 +22,17 @@ export class Button {
             ? { href: this.href }
             : { type: this.type };
 
+        const cssClass = {
+            class: {
+                'btn': true,
+                ...this.createColorClass(this.color) }
+        };
+
         return (
             <TagType
                 {...attrs}
-                class="btn btn-primary">
+                {...cssClass}
+            >
                 <slot />
             </TagType>
         );

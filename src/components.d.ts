@@ -8,15 +8,25 @@
 import '@stencil/core';
 
 
+import {
+  ButtonType,
+} from './components/button/button-type';
+import {
+  Color,
+} from './interface';
 
 
 export namespace Components {
 
   interface WcsButton {
+    'color'?: Color;
     'href': string;
+    'type': ButtonType;
   }
   interface WcsButtonAttributes extends StencilHTMLAttributes {
+    'color'?: Color;
     'href'?: string;
+    'type'?: ButtonType;
   }
 
   interface WcsCardBody {}
