@@ -6,9 +6,11 @@ import { Color, CssClassMap } from '../../interface';
     tag: 'wcs-button'
 })
 export class Button implements ComponentInterface {
-    @Prop() type: ButtonType = 'button';
+    @Prop({ mutable: true }) type: ButtonType = 'button';
     @Prop() href: string;
     @Prop() color?: Color;
+    @Prop({ reflectToAttr: true }) size?: 'small' | 'block';
+    @Prop({ reflectToAttr: true }) disabled = false;
 
     private createColorClass(color: Color | undefined | null): CssClassMap | undefined {
         return (typeof color === 'string' && color.length > 0) ? {
@@ -19,12 +21,13 @@ export class Button implements ComponentInterface {
     render() {
         const TagType = this.href !== undefined ? 'a' : 'button';
         const attrs = this.href !== undefined
-            ? { href: this.href }
+            ? { href: this.href, role: 'button' }
             : { type: this.type };
 
         const cssClass = {
             class: {
                 'btn': true,
+                [`btn-${this.size === 'small' ? 'sm' : this.size}`]: this.size !== undefined,
                 ...this.createColorClass(this.color) }
         };
 
@@ -32,6 +35,7 @@ export class Button implements ComponentInterface {
             <TagType
                 {...attrs}
                 {...cssClass}
+                {...this.disabled === true ? 'disabled' : null }
             >
                 <slot />
             </TagType>

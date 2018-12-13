@@ -20,12 +20,16 @@ export namespace Components {
 
   interface WcsButton {
     'color'?: Color;
+    'disabled': boolean;
     'href': string;
+    'size'?: 'small' | 'block';
     'type': ButtonType;
   }
   interface WcsButtonAttributes extends StencilHTMLAttributes {
     'color'?: Color;
+    'disabled'?: boolean;
     'href'?: string;
+    'size'?: 'small' | 'block';
     'type'?: ButtonType;
   }
 
