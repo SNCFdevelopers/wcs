@@ -9,14 +9,21 @@ import '@stencil/core';
 
 
 import {
-  ButtonType,
-} from './components/button/button-type';
-import {
   Color,
 } from './interface';
+import {
+  ButtonType,
+} from './components/button/button-type';
 
 
 export namespace Components {
+
+  interface WcsBadge {
+    'color'?: Color;
+  }
+  interface WcsBadgeAttributes extends StencilHTMLAttributes {
+    'color'?: Color;
+  }
 
   interface WcsButton {
     'color'?: Color;
@@ -38,21 +45,40 @@ export namespace Components {
 
   interface WcsCard {}
   interface WcsCardAttributes extends StencilHTMLAttributes {}
+
+  interface WcsIcon {
+    'icon': string;
+    'size': 'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px';
+  }
+  interface WcsIconAttributes extends StencilHTMLAttributes {
+    'icon'?: string;
+    'size'?: 'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px';
+  }
 }
 
 declare global {
   interface StencilElementInterfaces {
+    'WcsBadge': Components.WcsBadge;
     'WcsButton': Components.WcsButton;
     'WcsCardBody': Components.WcsCardBody;
     'WcsCard': Components.WcsCard;
+    'WcsIcon': Components.WcsIcon;
   }
 
   interface StencilIntrinsicElements {
+    'wcs-badge': Components.WcsBadgeAttributes;
     'wcs-button': Components.WcsButtonAttributes;
     'wcs-card-body': Components.WcsCardBodyAttributes;
     'wcs-card': Components.WcsCardAttributes;
+    'wcs-icon': Components.WcsIconAttributes;
   }
 
+
+  interface HTMLWcsBadgeElement extends Components.WcsBadge, HTMLStencilElement {}
+  var HTMLWcsBadgeElement: {
+    prototype: HTMLWcsBadgeElement;
+    new (): HTMLWcsBadgeElement;
+  };
 
   interface HTMLWcsButtonElement extends Components.WcsButton, HTMLStencilElement {}
   var HTMLWcsButtonElement: {
@@ -72,16 +98,26 @@ declare global {
     new (): HTMLWcsCardElement;
   };
 
+  interface HTMLWcsIconElement extends Components.WcsIcon, HTMLStencilElement {}
+  var HTMLWcsIconElement: {
+    prototype: HTMLWcsIconElement;
+    new (): HTMLWcsIconElement;
+  };
+
   interface HTMLElementTagNameMap {
+    'wcs-badge': HTMLWcsBadgeElement
     'wcs-button': HTMLWcsButtonElement
     'wcs-card-body': HTMLWcsCardBodyElement
     'wcs-card': HTMLWcsCardElement
+    'wcs-icon': HTMLWcsIconElement
   }
 
   interface ElementTagNameMap {
+    'wcs-badge': HTMLWcsBadgeElement;
     'wcs-button': HTMLWcsButtonElement;
     'wcs-card-body': HTMLWcsCardBodyElement;
     'wcs-card': HTMLWcsCardElement;
+    'wcs-icon': HTMLWcsIconElement;
   }
 
 

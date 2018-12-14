@@ -9,7 +9,7 @@ export class Button implements ComponentInterface {
     @Prop({ mutable: true }) type: ButtonType = 'button';
     @Prop() href: string;
     @Prop() color?: Color;
-    @Prop({ reflectToAttr: true }) size?: 'small' | 'block';
+    @Prop() size?: 'small' | 'block';
     @Prop({ reflectToAttr: true }) disabled = false;
 
     private createColorClass(color: Color | undefined | null): CssClassMap | undefined {
@@ -35,7 +35,7 @@ export class Button implements ComponentInterface {
             <TagType
                 {...attrs}
                 {...cssClass}
-                {...this.disabled === true ? 'disabled' : null }
+                {...this.disabled === true ? { disabled: true } : null}
             >
                 <slot />
             </TagType>
