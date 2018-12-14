@@ -20,9 +20,11 @@ export namespace Components {
 
   interface WcsBadge {
     'color'?: Color;
+    'srOnly': boolean;
   }
   interface WcsBadgeAttributes extends StencilHTMLAttributes {
     'color'?: Color;
+    'srOnly'?: boolean;
   }
 
   interface WcsButton {

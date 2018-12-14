@@ -6,7 +6,8 @@ import { Color, CssClassMap } from '../../interface';
     tag: 'wcs-badge'
 })
 export class Badge {
-    @Prop() color?: Color;
+    @Prop({ mutable: true }) color?: Color = 'primary';
+    @Prop({ reflectToAttr: true }) srOnly = false;
 
     private createColorClass(color: Color | undefined | null): CssClassMap | undefined {
         return (typeof color === 'string' && color.length > 0) ? {
@@ -15,15 +16,19 @@ export class Badge {
     }
 
     render() {
+        console.log(this.srOnly);
         const cssClass = {
             class: {
                 'badge': true,
+                'sr-only': this.srOnly,
                 ...this.createColorClass(this.color)
             }
         };
 
         return (
-            <span {...cssClass}>
+            <span
+                {...cssClass}
+            >
                 <slot />
             </span>
         );
