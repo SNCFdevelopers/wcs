@@ -1,8 +1,12 @@
 import { Config } from '@stencil/core';
+import { sass } from '@stencil/sass';
 
 export const config: Config = {
   namespace: 'wcs',
-  globalStyle: 'src/bootstrap-sncf.min.css',
+  globalStyle: 'src/style/wcs.global.scss',
+  plugins: [
+    sass()
+  ],
   outputTargets: [
     {
       type: 'dist'
