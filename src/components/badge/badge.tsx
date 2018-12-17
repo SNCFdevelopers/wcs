@@ -1,36 +1,26 @@
 import { Component, Prop } from '@stencil/core';
-import { Color, CssClassMap } from '../../interface';
-
+import { Color } from '../../interface';
+import { createColorClass } from '../../utils/theme';
 
 @Component({
-    tag: 'wcs-badge'
+    tag: 'wcs-badge',
+    styleUrl: 'badge.scss',
+    shadow: true
 })
 export class Badge {
-    @Prop({ mutable: true }) color?: Color = 'primary';
-    @Prop({ reflectToAttr: true }) srOnly = false;
+    @Prop({ mutable: true }) color: Color = 'primary';
 
-    private createColorClass(color: Color | undefined | null): CssClassMap | undefined {
-        return (typeof color === 'string' && color.length > 0) ? {
-            [`badge-${color}`]: true
-        } : undefined;
+    hostData() {
+        return {
+            class: {
+                ...createColorClass(this.color)
+            }
+        };
     }
 
     render() {
-        console.log(this.srOnly);
-        const cssClass = {
-            class: {
-                'badge': true,
-                'sr-only': this.srOnly,
-                ...this.createColorClass(this.color)
-            }
-        };
-
         return (
-            <span
-                {...cssClass}
-            >
-                <slot />
-            </span>
+            <slot/>
         );
     }
 }

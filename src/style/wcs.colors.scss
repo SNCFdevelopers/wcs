@@ -1,0 +1,67 @@
+$white: #fff !default;
+$blue: #0088ce !default;
+$purple: #6e1e78 !default;
+$pink: #a1006b !default;
+$red: #cd0037 !default;
+$orange: #e05206 !default;
+$yellow: #ffb612 !default;
+$green: #82be00 !default;
+$teal: #d2e100 !default;
+$cyan: #009aa6 !default;
+$gray: #333 !default;
+$gray-dark: #343a40 !default;
+
+$primary: $blue !default;
+$primary-dark: #0074af !default;
+$secondary: #4d4f53 !default;
+$success: $green !default;
+$info: $cyan !default;
+$warning: $yellow !default;
+$danger: $red !default;
+$light: #f2f2f2 !default;
+$dark: $gray-dark !default;
+
+$colors: (
+    primary: (
+        base: $primary, 
+        contrast: $white
+    ), 
+    secondary: ( 
+        base: $secondary, 
+        contrast: $white
+    ),
+    success: (
+        base: $success,
+        contrast: #212529
+    ),
+    info: (
+        base: $info,
+        contrast: $white
+    ),
+    danger: (
+        base: $danger,
+        contrast: $white
+    ),
+    warning: (
+        base: $warning,
+        contrast: #212529
+    ),
+    light: (
+        base: $light,
+        contrast: #212529                 
+    ),
+    dark: (
+        base: $dark,
+        contrast: $white      
+    )
+);
+
+
+@each $color-name, $color in $colors {
+    .wcs-background-#{$color-name} {
+        background-color: map-get($color, base);
+    }
+    .wcs-color-#{$color-name} {
+        color: map-get($color, contrast);
+    }
+}
