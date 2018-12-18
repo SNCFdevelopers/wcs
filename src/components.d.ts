@@ -10,6 +10,7 @@ import '@stencil/core';
 
 import {
   Color,
+  RippleType,
 } from './interface';
 import {
   ButtonType,
@@ -29,14 +30,16 @@ export namespace Components {
     'color'?: Color;
     'disabled': boolean;
     'href': string;
-    'size'?: 'small' | 'block';
+    'ripple': boolean;
+    'rippleType': RippleType;
     'type': ButtonType;
   }
   interface WcsButtonAttributes extends StencilHTMLAttributes {
     'color'?: Color;
     'disabled'?: boolean;
     'href'?: string;
-    'size'?: 'small' | 'block';
+    'ripple'?: boolean;
+    'rippleType'?: RippleType;
     'type'?: ButtonType;
   }
 

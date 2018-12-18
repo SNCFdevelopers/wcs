@@ -1,21 +1,28 @@
-import { Component, ComponentInterface, Prop } from '@stencil/core';
+import { Component, ComponentInterface, Element, Prop } from '@stencil/core';
 import { ButtonType } from './button-type';
-import { Color, CssClassMap } from '../../interface';
+import { Color, CssClassMap, RippleType } from '../../interface';
+import * as MDCRipple from '@material/ripple';
 
 @Component({
-    tag: 'wcs-button'
+    tag: 'wcs-button',
+    styleUrl: 'button.scss',
+    shadow: true
 })
 export class Button implements ComponentInterface {
+    @Element() private element: HTMLElement;
     @Prop({ mutable: true }) type: ButtonType = 'button';
     @Prop() href: string;
     @Prop() color?: Color;
-    @Prop() size?: 'small' | 'block';
     @Prop({ reflectToAttr: true }) disabled = false;
+    @Prop() ripple = false;
+    @Prop() rippleType: RippleType;
 
-    private createColorClass(color: Color | undefined | null): CssClassMap | undefined {
-        return (typeof color === 'string' && color.length > 0) ? {
-            [`btn-${color}`]: true
-        } : undefined;
+
+    private createColorClass(color: Color): CssClassMap {
+        return {
+            [`wcs-background-${color}-hover`]: true,
+            [`wcs-color-${color}`]: true
+        };
     }
 
     render() {
@@ -26,9 +33,9 @@ export class Button implements ComponentInterface {
 
         const cssClass = {
             class: {
-                'btn': true,
-                [`btn-${this.size === 'small' ? 'sm' : this.size}`]: this.size !== undefined,
-                ...this.createColorClass(this.color) }
+                'wcs-inner-button': true,
+                ...this.createColorClass(this.color)
+            }
         };
 
         return (
@@ -41,4 +48,10 @@ export class Button implements ComponentInterface {
             </TagType>
         );
     }
+    componentDidLoad() {
+        const surface = this.element.querySelector('.wcs-inner-button');
+        console.log(MDCRipple);
+        const ripple = new MDCRipple.MDCRipple(surface);
+        ripple.unbounded = false;
+      }
 }
