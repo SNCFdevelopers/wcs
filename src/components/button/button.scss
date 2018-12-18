@@ -1,6 +1,9 @@
 @import '../../style/wcs.global.scss';
+<<<<<<< HEAD
 @import '../../../node_modules/@material/ripple/mdc-ripple';
 
+=======
+>>>>>>> 5b22a9934fab4b346342120e4a21e123e8558852
 .wcs-inner-button {
   @include mdc-ripple-surface;
   @include mdc-ripple-radius-bounded;
@@ -25,4 +28,30 @@
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+
+.wcs-inner-button-small {
+    font-weight: 500;
+    padding: 0.125rem 1.25rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.4375rem;
+}
+
+.wcs-inner-button-block {
+    display: block;
+    width: 100%;
+}
+
+.wcs-disabled-button {
+    color: #b9b9b9;
+    background-color: #f2f2f2;
+    border-color: #f2f2f2;
+    opacity: 1;
+    cursor: default;
+    pointer-events: none;
+}
+
+a {
+    text-decoration: none;
 }
