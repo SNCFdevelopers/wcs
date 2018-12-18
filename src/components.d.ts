@@ -35,6 +35,10 @@ export namespace Components {
     'href': string;
     'ripple': boolean;
     'rippleType': RippleType;
+    /**
+    * This attribute specifies the size of the button. Setting this attribute will change the height and padding of a button.
+    */
+    'size': 'normal' | 'small' | 'block';
     'type': ButtonType;
   }
   interface WcsButtonAttributes extends StencilHTMLAttributes {
@@ -46,6 +50,10 @@ export namespace Components {
     'href'?: string;
     'ripple'?: boolean;
     'rippleType'?: RippleType;
+    /**
+    * This attribute specifies the size of the button. Setting this attribute will change the height and padding of a button.
+    */
+    'size'?: 'normal' | 'small' | 'block';
     'type'?: ButtonType;
   }
 

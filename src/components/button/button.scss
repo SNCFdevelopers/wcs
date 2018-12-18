@@ -20,6 +20,19 @@
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
 }
 
+.wcs-inner-button-small {
+    font-weight: 500;
+    padding: 0.125rem 1.25rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.4375rem;
+}
+
+.wcs-inner-button-block {
+    display: block;
+    width: 100%;
+}
+
 .wcs-disabled-button {
     color: #b9b9b9;
     background-color: #f2f2f2;
