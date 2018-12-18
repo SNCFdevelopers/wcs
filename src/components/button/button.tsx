@@ -13,6 +13,9 @@ export class Button implements ComponentInterface {
     @Prop({ mutable: true }) type: ButtonType = 'button';
     @Prop() href: string;
     @Prop() color?: Color;
+    /**
+     * Specify either the button is disable or not
+     */
     @Prop({ reflectToAttr: true }) disabled = false;
     @Prop() ripple = false;
     @Prop() rippleType: RippleType;
@@ -20,8 +23,9 @@ export class Button implements ComponentInterface {
 
     private createColorClass(color: Color): CssClassMap {
         return {
-            [`wcs-background-${color}-hover`]: true,
-            [`wcs-color-${color}`]: true
+            [`wcs-background-${color}-hover`]: !this.disabled,
+            [`wcs-color-${color}`]: !this.disabled,
+            [`wcs-disabled-button`]: this.disabled,
         };
     }
 

@@ -28,6 +28,9 @@ export namespace Components {
 
   interface WcsButton {
     'color'?: Color;
+    /**
+    * Specify either the button is disable or not
+    */
     'disabled': boolean;
     'href': string;
     'ripple': boolean;
@@ -36,6 +39,9 @@ export namespace Components {
   }
   interface WcsButtonAttributes extends StencilHTMLAttributes {
     'color'?: Color;
+    /**
+    * Specify either the button is disable or not
+    */
     'disabled'?: boolean;
     'href'?: string;
     'ripple'?: boolean;

@@ -1,5 +1,4 @@
 @import '../../style/wcs.global.scss';
-
 .wcs-inner-button {
     text-transform: none;
     margin: 0;
@@ -19,4 +18,17 @@
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+
+.wcs-disabled-button {
+    color: #b9b9b9;
+    background-color: #f2f2f2;
+    border-color: #f2f2f2;
+    opacity: 1;
+    cursor: default;
+    pointer-events: none;
+}
+
+a {
+    text-decoration: none;
 }
