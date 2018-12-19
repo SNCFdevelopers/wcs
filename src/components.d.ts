@@ -10,7 +10,6 @@ import '@stencil/core';
 
 import {
   Color,
-  RippleType,
 } from './interface';
 import {
   ButtonType,
@@ -27,33 +26,55 @@ export namespace Components {
   }
 
   interface WcsButton {
-    'color'?: Color;
     /**
-    * Specify either the button is disable or not
+    * Specify the button color.
+    */
+    'color': Color;
+    /**
+    * Specify wether the button is disabled or not.
     */
     'disabled': boolean;
-    'href': string;
+    /**
+    * Set a URL to point to. If specified use a `a` tag instead of `btn`.
+    */
+    'href'?: string;
+    /**
+    * Specify wether the button should have a ripple effect or not.
+    */
     'ripple': boolean;
-    'rippleType': RippleType;
     /**
     * This attribute specifies the size of the button. Setting this attribute will change the height and padding of a button.
     */
-    'size': 'normal' | 'small' | 'block';
+    'size': 'normal' | 'small' | 'block' | 'round';
+    /**
+    * Specify the button type.
+    */
     'type': ButtonType;
   }
   interface WcsButtonAttributes extends StencilHTMLAttributes {
+    /**
+    * Specify the button color.
+    */
     'color'?: Color;
     /**
-    * Specify either the button is disable or not
+    * Specify wether the button is disabled or not.
     */
     'disabled'?: boolean;
+    /**
+    * Set a URL to point to. If specified use a `a` tag instead of `btn`.
+    */
     'href'?: string;
+    /**
+    * Specify wether the button should have a ripple effect or not.
+    */
     'ripple'?: boolean;
-    'rippleType'?: RippleType;
     /**
     * This attribute specifies the size of the button. Setting this attribute will change the height and padding of a button.
     */
-    'size'?: 'normal' | 'small' | 'block';
+    'size'?: 'normal' | 'small' | 'block' | 'round';
+    /**
+    * Specify the button type.
+    */
     'type'?: ButtonType;
   }
 
