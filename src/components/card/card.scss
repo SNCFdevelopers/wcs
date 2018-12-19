@@ -1,0 +1,13 @@
+@import '@material/elevation/mdc-elevation';
+
+:host {
+  @include mdc-elevation(1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border-radius: 0.4375rem;
+}

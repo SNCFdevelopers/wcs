@@ -2,13 +2,11 @@ import { Component } from '@stencil/core';
 
 @Component({
   tag: 'wcs-card-body',
+  styleUrl: 'card-body.scss',
+  shadow: true
 })
 export class CardBody {
-  hostData() {
-    return {
-      class: {
-        'card-body': true,
-      }
-    };
+  render() {
+    return (<slot />);
   }
 }
