@@ -39,13 +39,13 @@ export namespace Components {
     */
     'href'?: string;
     /**
+    * This attribute specifies the size of the button. Setting this attribute will change the height and padding of a button.
+    */
+    'mode': 'normal' | 'small' | 'block' | 'icon-only' | 'round';
+    /**
     * Specify wether the button should have a ripple effect or not.
     */
     'ripple': boolean;
-    /**
-    * This attribute specifies the size of the button. Setting this attribute will change the height and padding of a button.
-    */
-    'size': 'normal' | 'small' | 'block' | 'round';
     /**
     * Specify the button type.
     */
@@ -65,13 +65,13 @@ export namespace Components {
     */
     'href'?: string;
     /**
+    * This attribute specifies the size of the button. Setting this attribute will change the height and padding of a button.
+    */
+    'mode'?: 'normal' | 'small' | 'block' | 'icon-only' | 'round';
+    /**
     * Specify wether the button should have a ripple effect or not.
     */
     'ripple'?: boolean;
-    /**
-    * This attribute specifies the size of the button. Setting this attribute will change the height and padding of a button.
-    */
-    'size'?: 'normal' | 'small' | 'block' | 'round';
     /**
     * Specify the button type.
     */

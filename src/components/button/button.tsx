@@ -44,7 +44,7 @@ export class Button implements ComponentInterface {
      * This attribute specifies the size of the button.
      * Setting this attribute will change the height and padding of a button.
      */
-    @Prop({ reflectToAttr: true }) size: 'normal' | 'small' | 'block' | 'round' = 'normal';
+    @Prop({ reflectToAttr: true }) mode: 'normal' | 'small' | 'block' | 'icon-only' | 'round' = 'normal';
 
     @Element() element: HTMLElement;
 
@@ -70,9 +70,10 @@ export class Button implements ComponentInterface {
             class: {
                 'wcs-inner-button': true,
                 'wcs-inner-button-disabled': this.disabled,
-                'wcs-inner-button-small': this.size === 'small',
-                'wcs-inner-button-block': this.size === 'block',
-                'wcs-inner-button-rounded': this.size === 'round',
+                'wcs-inner-button-small': this.mode === 'small',
+                'wcs-inner-button-block': this.mode === 'block',
+                'wcs-inner-button-icon-only': this.mode === 'icon-only',
+                'wcs-inner-button-rounded': this.mode === 'round',
                 ...this.createColorClasses(this.color)
             }
         };
