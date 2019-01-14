@@ -121,6 +121,17 @@ export namespace Components {
     */
     'value'?: number;
   }
+
+  interface WcsProgressRadial {
+    'showLabel': boolean;
+    'size': number;
+    'value': number;
+  }
+  interface WcsProgressRadialAttributes extends StencilHTMLAttributes {
+    'showLabel'?: boolean;
+    'size'?: number;
+    'value'?: number;
+  }
 }
 
 declare global {
@@ -131,6 +142,7 @@ declare global {
     'WcsCard': Components.WcsCard;
     'WcsIcon': Components.WcsIcon;
     'WcsProgressBar': Components.WcsProgressBar;
+    'WcsProgressRadial': Components.WcsProgressRadial;
   }
 
   interface StencilIntrinsicElements {
@@ -140,6 +152,7 @@ declare global {
     'wcs-card': Components.WcsCardAttributes;
     'wcs-icon': Components.WcsIconAttributes;
     'wcs-progress-bar': Components.WcsProgressBarAttributes;
+    'wcs-progress-radial': Components.WcsProgressRadialAttributes;
   }
 
 
@@ -179,6 +192,12 @@ declare global {
     new (): HTMLWcsProgressBarElement;
   };
 
+  interface HTMLWcsProgressRadialElement extends Components.WcsProgressRadial, HTMLStencilElement {}
+  var HTMLWcsProgressRadialElement: {
+    prototype: HTMLWcsProgressRadialElement;
+    new (): HTMLWcsProgressRadialElement;
+  };
+
   interface HTMLElementTagNameMap {
     'wcs-badge': HTMLWcsBadgeElement
     'wcs-button': HTMLWcsButtonElement
@@ -186,6 +205,7 @@ declare global {
     'wcs-card': HTMLWcsCardElement
     'wcs-icon': HTMLWcsIconElement
     'wcs-progress-bar': HTMLWcsProgressBarElement
+    'wcs-progress-radial': HTMLWcsProgressRadialElement
   }
 
   interface ElementTagNameMap {
@@ -195,6 +215,7 @@ declare global {
     'wcs-card': HTMLWcsCardElement;
     'wcs-icon': HTMLWcsIconElement;
     'wcs-progress-bar': HTMLWcsProgressBarElement;
+    'wcs-progress-radial': HTMLWcsProgressRadialElement;
   }
 
 

@@ -33,11 +33,10 @@ export class ProgressBar {
     return (
       <div class={this.rootClasses()} >
         <div class="progress-bar" style={style}>
-          {this.showLabel ?
+          {this.showLabel &&
             <span class="progress-label">
               {this.value}<sup>%</sup>
             </span>
-            : null
           }
         </div>
       </div>
