@@ -6,67 +6,132 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
   <title>Stencil Component Starter</title>
   <script src="/build/wcs.js"></script>
-  
+
   <link rel="stylesheet" href="/build/wcs.css">
 </head>
 
 <body style="margin: 8px;">
+  <style>
+    wcs-card {
+      margin-bottom: 16px;
+    }
+    wcs-card-body>h3 {
+      margin-top: 0;
+    }
 
+  </style>
+  <h2>Card</h2>
   <wcs-card>
     <wcs-card-body>
-      One card
+      <h3>Cardception</h3>
+      <wcs-card>
+        <wcs-card-body>
+          A card in a card.
+        </wcs-card-body>
+      </wcs-card>
     </wcs-card-body>
   </wcs-card>
-  <br />
-  <br />
-  <div style="display: grid; grid-gap: 8px;">
-    <wcs-button color="primary">Un bouton</wcs-button>
-    <wcs-button color="secondary">Un bouton</wcs-button>
-    <wcs-button color="success">Un bouton</wcs-button>
-    <wcs-button color="warning">Un bouton</wcs-button>
-    <wcs-button color="danger">Un bouton</wcs-button>
-    <wcs-button color="info">Un bouton</wcs-button>
-    <wcs-button color="light">Un bouton</wcs-button>
-    <wcs-button color="dark">Un bouton</wcs-button>
-    <wcs-button color="white">Un bouton</wcs-button>
-    <wcs-button color="primary" mode="round">45</wcs-button>
-    <wcs-button color="primary" mode="icon-only">ico</wcs-button>
-    <wcs-button color="primary" href="#">Un lien !</wcs-button>
-    <wcs-button color="primary" disabled>Un bouton désactivé</wcs-button>
+
+  <h2>Buttons</h2>
+  <wcs-card>
+    <wcs-card-body>
+      <h3>Standard</h3>
+      <wcs-button color="primary">Primary</wcs-button>
+      <wcs-button color="secondary">Secondary</wcs-button>
+      <wcs-button color="success">Success</wcs-button>
+      <wcs-button color="warning">Warning</wcs-button>
+      <wcs-button color="danger">Danger</wcs-button>
+      <wcs-button color="info">Info</wcs-button>
+      <wcs-button color="light">Light</wcs-button>
+      <wcs-button color="dark">Dark</wcs-button>
+      <wcs-button color="white">White</wcs-button>
+    </wcs-card-body>
+  </wcs-card>
+  <wcs-card>
+    <wcs-card-body>
+      <h3>Round</h3>
+      <wcs-button color="primary" mode="round">45</wcs-button>
+    </wcs-card-body>
+  </wcs-card>
+  <wcs-card>
+    <wcs-card-body>
+      <h3>Icon only</h3>
+      <wcs-button color="primary" mode="icon-only">ico</wcs-button>
+    </wcs-card-body>
+  </wcs-card>
+  <wcs-card>
+    <wcs-card-body>
+      <h3>Link</h3>
+      <wcs-button color="primary" href="#">Un lien !</wcs-button>
+    </wcs-card-body>
+  </wcs-card>
+  <wcs-card>
+    <wcs-card-body>
+      <h3>Disabled</h3>
+      <wcs-button color="primary" disabled>Un bouton désactivé</wcs-button>
+    </wcs-card-body>
+  </wcs-card>
+  <wcs-card>
+    <wcs-card-body>
+      <h3>Misc.</h3>
+      <wcs-button href="https://www.sncf.com/" color="primary">Un bouton non désactivé</wcs-button>
+      <wcs-button href="https://www.sncf.com/" color="primary" disabled>Un bouton a désactivé</wcs-button>
+      <wcs-button color="primary" mode="small">Un bouton plus petit</wcs-button>
+      <wcs-button color="primary" mode="block">Un grand bouton</wcs-button>
+    </wcs-card-body>
+  </wcs-card>
+
+  <div>
+    <h2>Badges</h2>
+    <wcs-card>
+      <wcs-card-body>
+        <h3>Standard</h3>
+        <wcs-badge color="primary">Primary</wcs-badge>
+        <wcs-badge color="secondary">Secondary</wcs-badge>
+        <wcs-badge color="success">Success</wcs-badge>
+        <wcs-badge color="danger">Danger</wcs-badge>
+        <wcs-badge color="warning">Warning</wcs-badge>
+        <wcs-badge color="info">Info</wcs-badge>
+        <wcs-badge color="light">Light</wcs-badge>
+        <wcs-badge color="dark">Dark</wcs-badge>
+      </wcs-card-body>
+    </wcs-card>
   </div>
 
-  <br />
-  <br />
+  <div>
+    <h2>Icons</h2>
+    <wcs-card>
+      <wcs-card-body>
+        <wcs-icon icon="checked" size="2x"></wcs-icon>
+      </wcs-card-body>
+    </wcs-card>
+  </div>
 
-  <wcs-button href="https://www.sncf.com/" color="primary">Un bouton non désactivé</wcs-button>
-  <wcs-button href="https://www.sncf.com/" color="primary" disabled>Un bouton a désactivé</wcs-button>
+  <div>
+    <h2>Progress bar</h2>
 
-  <br />
-  <br />
+    <wcs-card>
+      <wcs-card-body>
+        <h3>Standard</h3>
+        <wcs-progress-bar value="50"></wcs-progress-bar>
+      </wcs-card-body>
+    </wcs-card>
 
-  <wcs-button color="primary" mode="small">Un bouton plus petit</wcs-button>
+    <wcs-card>
+      <wcs-card-body>
+        <h3>With label</h3>
+        <wcs-progress-bar value="50" show-label="true"></wcs-progress-bar>
+      </wcs-card-body>
+    </wcs-card>
 
-  <br />
-  <br />
+    <wcs-card>
+      <wcs-card-body>
+        <h3>Small version</h3>
+        <wcs-progress-bar value="20" small></wcs-progress-bar>
+      </wcs-card-body>
+    </wcs-card>
+  </div>
 
-  <wcs-button color="primary" mode="block">Un grand bouton</wcs-button>
-
-  <br />
-  <br />
-
-  <wcs-badge color="primary">Primary</wcs-badge>
-  <wcs-badge color="secondary">Secondary</wcs-badge>
-  <wcs-badge color="success">Success</wcs-badge>
-  <wcs-badge color="danger">Danger</wcs-badge>
-  <wcs-badge color="warning">Warning</wcs-badge>
-  <wcs-badge color="info">Info</wcs-badge>
-  <wcs-badge color="light">Light</wcs-badge>
-  <wcs-badge color="dark">Dark</wcs-badge>
-  
-  <br />
-  <br />
-
-  <wcs-icon icon="checked" size="2x"></wcs-icon>
 </body>
 
 </html>

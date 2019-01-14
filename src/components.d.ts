@@ -92,6 +92,35 @@ export namespace Components {
     'icon'?: string;
     'size'?: 'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px';
   }
+
+  interface WcsProgressBar {
+    /**
+    * Whether it displays a label indicating the percentage of progress above the bar.
+    */
+    'showLabel': boolean;
+    /**
+    * Whether the component display the small version
+    */
+    'small': boolean;
+    /**
+    * The actual value of the progress. Ranging from 0 to 100.
+    */
+    'value': number;
+  }
+  interface WcsProgressBarAttributes extends StencilHTMLAttributes {
+    /**
+    * Whether it displays a label indicating the percentage of progress above the bar.
+    */
+    'showLabel'?: boolean;
+    /**
+    * Whether the component display the small version
+    */
+    'small'?: boolean;
+    /**
+    * The actual value of the progress. Ranging from 0 to 100.
+    */
+    'value'?: number;
+  }
 }
 
 declare global {
@@ -101,6 +130,7 @@ declare global {
     'WcsCardBody': Components.WcsCardBody;
     'WcsCard': Components.WcsCard;
     'WcsIcon': Components.WcsIcon;
+    'WcsProgressBar': Components.WcsProgressBar;
   }
 
   interface StencilIntrinsicElements {
@@ -109,6 +139,7 @@ declare global {
     'wcs-card-body': Components.WcsCardBodyAttributes;
     'wcs-card': Components.WcsCardAttributes;
     'wcs-icon': Components.WcsIconAttributes;
+    'wcs-progress-bar': Components.WcsProgressBarAttributes;
   }
 
 
@@ -142,12 +173,19 @@ declare global {
     new (): HTMLWcsIconElement;
   };
 
+  interface HTMLWcsProgressBarElement extends Components.WcsProgressBar, HTMLStencilElement {}
+  var HTMLWcsProgressBarElement: {
+    prototype: HTMLWcsProgressBarElement;
+    new (): HTMLWcsProgressBarElement;
+  };
+
   interface HTMLElementTagNameMap {
     'wcs-badge': HTMLWcsBadgeElement
     'wcs-button': HTMLWcsButtonElement
     'wcs-card-body': HTMLWcsCardBodyElement
     'wcs-card': HTMLWcsCardElement
     'wcs-icon': HTMLWcsIconElement
+    'wcs-progress-bar': HTMLWcsProgressBarElement
   }
 
   interface ElementTagNameMap {
@@ -156,6 +194,7 @@ declare global {
     'wcs-card-body': HTMLWcsCardBodyElement;
     'wcs-card': HTMLWcsCardElement;
     'wcs-icon': HTMLWcsIconElement;
+    'wcs-progress-bar': HTMLWcsProgressBarElement;
   }
 
 
