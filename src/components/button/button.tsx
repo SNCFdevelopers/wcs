@@ -1,9 +1,10 @@
-import { Component, ComponentInterface, Element, Prop } from '@stencil/core';
+import { Component, ComponentInterface, Element, Prop, Listen } from '@stencil/core';
 
 import MDCRipple from '@material/ripple';
 
 import { ButtonType } from './button-type';
 import { Color, CssClassMap } from '../../interface';
+import { hasShadowDom } from '../../utils/helpers';
 
 /**
  * Button component, can also be a link when specifying href.
@@ -14,6 +15,10 @@ import { Color, CssClassMap } from '../../interface';
     shadow: true
 })
 export class Button implements ComponentInterface {
+    @Element() el!: HTMLElement;
+
+    @Prop({ context: 'window' }) win!: Window;
+
     /**
      * Specify the button type.
      */
@@ -48,6 +53,25 @@ export class Button implements ComponentInterface {
 
     @Element() element: HTMLElement;
 
+    @Listen('click')
+    onClick(ev: Event) {
+        if (this.type !== 'button' && hasShadowDom(this.el)) {
+            // this button wants to specifically submit a form
+            // climb up the dom to see if we're in a <form>
+            // and if so, then use JS to submit it
+            const form = this.el.closest('form');
+            if (form) {
+                ev.preventDefault();
+
+                const fakeButton = this.win.document.createElement('button');
+                fakeButton.type = this.type;
+                fakeButton.style.display = 'none';
+                form.appendChild(fakeButton);
+                fakeButton.click();
+                fakeButton.remove();
+            }
+        }
+    }
     render() {
         const TagType = this.href !== undefined ? 'a' : 'button';
         const attrs = this.href !== undefined
