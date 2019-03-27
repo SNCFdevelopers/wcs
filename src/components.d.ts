@@ -132,6 +132,25 @@ export namespace Components {
     'size'?: number;
     'value'?: number;
   }
+
+  interface SelectOption {
+    'disabled': boolean;
+    'selected': boolean;
+    'value'?: any | null;
+  }
+  interface SelectOptionAttributes extends StencilHTMLAttributes {
+    'disabled'?: boolean;
+    /**
+    * Emitted when the select option loads.
+    */
+    'onWcsSelectOptionDidLoad'?: (event: CustomEvent<void>) => void;
+    /**
+    * Emitted when the select option unloads.
+    */
+    'onWcsSelectOptionDidUnload'?: (event: CustomEvent<void>) => void;
+    'selected'?: boolean;
+    'value'?: any | null;
+  }
 }
 
 declare global {
@@ -143,6 +162,7 @@ declare global {
     'WcsIcon': Components.WcsIcon;
     'WcsProgressBar': Components.WcsProgressBar;
     'WcsProgressRadial': Components.WcsProgressRadial;
+    'SelectOption': Components.SelectOption;
   }
 
   interface StencilIntrinsicElements {
@@ -153,6 +173,7 @@ declare global {
     'wcs-icon': Components.WcsIconAttributes;
     'wcs-progress-bar': Components.WcsProgressBarAttributes;
     'wcs-progress-radial': Components.WcsProgressRadialAttributes;
+    'select-option': Components.SelectOptionAttributes;
   }
 
 
@@ -198,6 +219,12 @@ declare global {
     new (): HTMLWcsProgressRadialElement;
   };
 
+  interface HTMLSelectOptionElement extends Components.SelectOption, HTMLStencilElement {}
+  var HTMLSelectOptionElement: {
+    prototype: HTMLSelectOptionElement;
+    new (): HTMLSelectOptionElement;
+  };
+
   interface HTMLElementTagNameMap {
     'wcs-badge': HTMLWcsBadgeElement
     'wcs-button': HTMLWcsButtonElement
@@ -206,6 +233,7 @@ declare global {
     'wcs-icon': HTMLWcsIconElement
     'wcs-progress-bar': HTMLWcsProgressBarElement
     'wcs-progress-radial': HTMLWcsProgressRadialElement
+    'select-option': HTMLSelectOptionElement
   }
 
   interface ElementTagNameMap {
@@ -216,6 +244,7 @@ declare global {
     'wcs-icon': HTMLWcsIconElement;
     'wcs-progress-bar': HTMLWcsProgressBarElement;
     'wcs-progress-radial': HTMLWcsProgressRadialElement;
+    'select-option': HTMLSelectOptionElement;
   }
 
 
