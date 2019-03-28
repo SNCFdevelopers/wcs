@@ -1,6 +1,5 @@
 import { Component, Element, Event, Prop, EventEmitter } from '@stencil/core';
 
-
 @Component({
     tag: 'select-option',
     styleUrl: 'select-option.scss'
@@ -41,10 +40,10 @@ export class SelectOption {
 
     hostData() {
         return {
-          'role': 'option',
-          'id': this.inputId
+            'role': 'option',
+            'id': this.inputId
         };
-      }
+    }
 }
 
 let selectOptionIds = 0;

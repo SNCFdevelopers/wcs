@@ -13,7 +13,7 @@ import {
 } from './interface';
 import {
   ButtonType,
-} from './components/button/button-type';
+} from './components/button/button-interface';
 
 
 export namespace Components {
