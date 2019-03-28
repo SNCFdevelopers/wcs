@@ -1,3 +1,15 @@
+@import '../../style/wcs.global.scss';
+
 :host {
-    display: none;
+    display: block;
+}
+
+.wcs-selection-option-container {
+    display: block;
+
+    &:hover {
+        color: $primary;
+    }
+
+    cursor: pointer;
 }

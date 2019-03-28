@@ -14,6 +14,13 @@ import {
 import {
   ButtonType,
 } from './components/button/button-type';
+import {
+  SelectChangeEventDetail,
+  SelectCompareFn,
+} from './components/select/select-interface';
+import {
+  EventEmitter,
+} from '@stencil/core';
 
 
 export namespace Components {
@@ -133,22 +140,106 @@ export namespace Components {
     'value'?: number;
   }
 
-  interface SelectOption {
+  interface WcsSelectOption {
+    /**
+    * Wether this option can be selected.
+    */
     'disabled': boolean;
+    /**
+    * Wether this option is selected.
+    */
     'selected': boolean;
+    /**
+    * This property should not be used, it is only meant for internal use.
+    */
+    'slot': string;
+    /**
+    * The options value, not necessarily what's displayed.
+    */
     'value'?: any | null;
   }
-  interface SelectOptionAttributes extends StencilHTMLAttributes {
+  interface WcsSelectOptionAttributes extends StencilHTMLAttributes {
+    /**
+    * Wether this option can be selected.
+    */
+    'disabled'?: boolean;
+    'onWcsSelectOptionClick'?: (event: CustomEvent<void>) => void;
+    /**
+    * Wether this option is selected.
+    */
+    'selected'?: boolean;
+    /**
+    * This property should not be used, it is only meant for internal use.
+    */
+    'slot'?: string;
+    /**
+    * The options value, not necessarily what's displayed.
+    */
+    'value'?: any | null;
+  }
+
+  interface WcsSelect {
+    /**
+    * A property name or function used to compare object values
+    */
+    'compareWith'?: string | SelectCompareFn | null;
+    /**
+    * If `true`, the user cannot interact with the select.
+    */
+    'disabled': boolean;
+    /**
+    * If `true`, the select can accept multiple values.
+    */
+    'multiple': boolean;
+    /**
+    * The name of the control, which is submitted with the form data.
+    */
+    'name'?: string;
+    /**
+    * The text to display when the select is empty.
+    */
+    'placeholder'?: string | null;
+    /**
+    * the value of the select.
+    */
+    'value'?: any | null;
+  }
+  interface WcsSelectAttributes extends StencilHTMLAttributes {
+    /**
+    * A property name or function used to compare object values
+    */
+    'compareWith'?: string | SelectCompareFn | null;
+    /**
+    * If `true`, the user cannot interact with the select.
+    */
     'disabled'?: boolean;
     /**
-    * Emitted when the select option loads.
+    * If `true`, the select can accept multiple values.
     */
-    'onWcsSelectOptionDidLoad'?: (event: CustomEvent<void>) => void;
+    'multiple'?: boolean;
     /**
-    * Emitted when the select option unloads.
+    * The name of the control, which is submitted with the form data.
     */
-    'onWcsSelectOptionDidUnload'?: (event: CustomEvent<void>) => void;
-    'selected'?: boolean;
+    'name'?: string;
+    /**
+    * Emitted when the select loses focus.
+    */
+    'onWcsBlur'?: (event: CustomEvent<void>) => void;
+    /**
+    * Emitted when the value has changed.
+    */
+    'onWcsChange'?: (event: CustomEvent<SelectChangeEventDetail>) => void;
+    /**
+    * Emitted when the select has focus.
+    */
+    'onWcsFocus'?: (event: CustomEvent<void>) => void;
+    /**
+    * The text to display when the select is empty.
+    */
+    'placeholder'?: string | null;
+    /**
+    * the value of the select.
+    */
     'value'?: any | null;
   }
 }
@@ -162,7 +253,8 @@ declare global {
     'WcsIcon': Components.WcsIcon;
     'WcsProgressBar': Components.WcsProgressBar;
     'WcsProgressRadial': Components.WcsProgressRadial;
-    'SelectOption': Components.SelectOption;
+    'WcsSelectOption': Components.WcsSelectOption;
+    'WcsSelect': Components.WcsSelect;
   }
 
   interface StencilIntrinsicElements {
@@ -173,7 +265,8 @@ declare global {
     'wcs-icon': Components.WcsIconAttributes;
     'wcs-progress-bar': Components.WcsProgressBarAttributes;
     'wcs-progress-radial': Components.WcsProgressRadialAttributes;
-    'select-option': Components.SelectOptionAttributes;
+    'wcs-select-option': Components.WcsSelectOptionAttributes;
+    'wcs-select': Components.WcsSelectAttributes;
   }
 
 
@@ -219,10 +312,16 @@ declare global {
     new (): HTMLWcsProgressRadialElement;
   };
 
-  interface HTMLSelectOptionElement extends Components.SelectOption, HTMLStencilElement {}
-  var HTMLSelectOptionElement: {
-    prototype: HTMLSelectOptionElement;
-    new (): HTMLSelectOptionElement;
+  interface HTMLWcsSelectOptionElement extends Components.WcsSelectOption, HTMLStencilElement {}
+  var HTMLWcsSelectOptionElement: {
+    prototype: HTMLWcsSelectOptionElement;
+    new (): HTMLWcsSelectOptionElement;
+  };
+
+  interface HTMLWcsSelectElement extends Components.WcsSelect, HTMLStencilElement {}
+  var HTMLWcsSelectElement: {
+    prototype: HTMLWcsSelectElement;
+    new (): HTMLWcsSelectElement;
   };
 
   interface HTMLElementTagNameMap {
@@ -233,7 +332,8 @@ declare global {
     'wcs-icon': HTMLWcsIconElement
     'wcs-progress-bar': HTMLWcsProgressBarElement
     'wcs-progress-radial': HTMLWcsProgressRadialElement
-    'select-option': HTMLSelectOptionElement
+    'wcs-select-option': HTMLWcsSelectOptionElement
+    'wcs-select': HTMLWcsSelectElement
   }
 
   interface ElementTagNameMap {
@@ -244,7 +344,8 @@ declare global {
     'wcs-icon': HTMLWcsIconElement;
     'wcs-progress-bar': HTMLWcsProgressBarElement;
     'wcs-progress-radial': HTMLWcsProgressRadialElement;
-    'select-option': HTMLSelectOptionElement;
+    'wcs-select-option': HTMLWcsSelectOptionElement;
+    'wcs-select': HTMLWcsSelectElement;
   }
 
 

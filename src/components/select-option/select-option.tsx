@@ -1,29 +1,38 @@
-import { Component, Element, Event, Prop, EventEmitter } from '@stencil/core';
+import { Component, Element, Event, Prop, EventEmitter, ComponentInterface } from '@stencil/core';
 
 
 @Component({
-    tag: 'select-option',
+    tag: 'wcs-select-option',
     styleUrl: 'select-option.scss'
 })
-export class SelectOption {
-    private inputId = `wcs-selopt-${selectOptionIds++}`;
+export class SelectOption implements ComponentInterface {
 
-    @Element() el!: HTMLElement;
+    @Element() el!: HTMLWcsSelectOptionElement;
+
+    /**
+     * Wether this option can be selected.
+     */
     @Prop() disabled = false;
+
+    /**
+     * Wether this option is selected.
+     */
     @Prop() selected = false;
+
+    /**
+     * The options value, not necessarily what's displayed.
+     */
     @Prop({ mutable: true }) value?: any | null;
 
     /**
-     * Emitted when the select option loads.
+     * This property should not be used,
+     * it is only meant for internal use.
      * @internal
+     * @ignore
      */
-    @Event() wcsSelectOptionDidLoad!: EventEmitter<void>;
+    @Prop({ reflectToAttr: true }) slot = 'wcs-select-option';
 
-    /**
-     * Emitted when the select option unloads.
-     * @internal
-     */
-    @Event() wcsSelectOptionDidUnload!: EventEmitter<void>;
+    @Event() wcsSelectOptionClick: EventEmitter<void>;
 
     componentWillLoad() {
         if (this.value === undefined) {
@@ -32,19 +41,16 @@ export class SelectOption {
     }
 
     componentDidLoad() {
-        this.wcsSelectOptionDidLoad.emit();
+        this.el.addEventListener('click', () =>
+            this.wcsSelectOptionClick.emit()
+        );
     }
 
-    componentDidUnload() {
-        this.wcsSelectOptionDidUnload.emit();
+    render() {
+        return (
+            <div class="wcs-selection-option-container">
+                <slot />
+            </div>
+        );
     }
-
-    hostData() {
-        return {
-          'role': 'option',
-          'id': this.inputId
-        };
-      }
 }
-
-let selectOptionIds = 0;
