@@ -2,7 +2,7 @@ import { Component, ComponentInterface, Element, Prop, Listen } from '@stencil/c
 
 import MDCRipple from '@material/ripple';
 
-import { ButtonType } from './button-type';
+import { ButtonType } from './button-interface';
 import { Color, CssClassMap } from '../../interface';
 import { hasShadowDom } from '../../utils/helpers';
 

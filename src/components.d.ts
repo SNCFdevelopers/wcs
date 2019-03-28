@@ -13,7 +13,7 @@ import {
 } from './interface';
 import {
   ButtonType,
-} from './components/button/button-type';
+} from './components/button/button-interface';
 import {
   SelectChangeEventDetail,
   SelectCompareFn,
@@ -87,9 +87,6 @@ export namespace Components {
 
   interface WcsCardBody {}
   interface WcsCardBodyAttributes extends StencilHTMLAttributes {}
-
-  interface WcsCard {}
-  interface WcsCardAttributes extends StencilHTMLAttributes {}
 
   interface WcsIcon {
     'icon': string;
@@ -249,7 +246,6 @@ declare global {
     'WcsBadge': Components.WcsBadge;
     'WcsButton': Components.WcsButton;
     'WcsCardBody': Components.WcsCardBody;
-    'WcsCard': Components.WcsCard;
     'WcsIcon': Components.WcsIcon;
     'WcsProgressBar': Components.WcsProgressBar;
     'WcsProgressRadial': Components.WcsProgressRadial;
@@ -261,7 +257,6 @@ declare global {
     'wcs-badge': Components.WcsBadgeAttributes;
     'wcs-button': Components.WcsButtonAttributes;
     'wcs-card-body': Components.WcsCardBodyAttributes;
-    'wcs-card': Components.WcsCardAttributes;
     'wcs-icon': Components.WcsIconAttributes;
     'wcs-progress-bar': Components.WcsProgressBarAttributes;
     'wcs-progress-radial': Components.WcsProgressRadialAttributes;
@@ -286,12 +281,6 @@ declare global {
   var HTMLWcsCardBodyElement: {
     prototype: HTMLWcsCardBodyElement;
     new (): HTMLWcsCardBodyElement;
-  };
-
-  interface HTMLWcsCardElement extends Components.WcsCard, HTMLStencilElement {}
-  var HTMLWcsCardElement: {
-    prototype: HTMLWcsCardElement;
-    new (): HTMLWcsCardElement;
   };
 
   interface HTMLWcsIconElement extends Components.WcsIcon, HTMLStencilElement {}
@@ -328,7 +317,6 @@ declare global {
     'wcs-badge': HTMLWcsBadgeElement
     'wcs-button': HTMLWcsButtonElement
     'wcs-card-body': HTMLWcsCardBodyElement
-    'wcs-card': HTMLWcsCardElement
     'wcs-icon': HTMLWcsIconElement
     'wcs-progress-bar': HTMLWcsProgressBarElement
     'wcs-progress-radial': HTMLWcsProgressRadialElement
@@ -340,7 +328,6 @@ declare global {
     'wcs-badge': HTMLWcsBadgeElement;
     'wcs-button': HTMLWcsButtonElement;
     'wcs-card-body': HTMLWcsCardBodyElement;
-    'wcs-card': HTMLWcsCardElement;
     'wcs-icon': HTMLWcsIconElement;
     'wcs-progress-bar': HTMLWcsProgressBarElement;
     'wcs-progress-radial': HTMLWcsProgressRadialElement;

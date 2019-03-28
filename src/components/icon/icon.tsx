@@ -1,6 +1,5 @@
 import { Component, Prop } from '@stencil/core';
 
-
 @Component({
     tag: 'wcs-icon'
 })
@@ -12,7 +11,8 @@ export class Icon {
         const cssClass = {
             class: {
                 [`icons-${this.icon}`]: true,
-                [`icons-size-${this.size}`]: true }
+                [`icons-size-${this.size}`]: true
+            }
         };
         return (
             <i {...cssClass}>
