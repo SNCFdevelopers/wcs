@@ -77,5 +77,15 @@ $border-radius: 0.4375rem;
 }
 
 .disabled {
-    // TODO:
+    .wcs-select-content,
+    .wcs-select-text {
+        cursor: default;
+        pointer-events: none;
+    }
+    .wcs-select-text {
+        color: $text-light;
+    }
+    .arrow {
+        fill: $text-medium;
+    }
 }

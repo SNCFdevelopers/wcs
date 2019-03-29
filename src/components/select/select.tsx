@@ -67,7 +67,11 @@ export class Select {
     }
 
     componentDidLoad() {
-        this.el.addEventListener('click', () => this.isExpanded = !this.isExpanded);
+        this.el.addEventListener('click', () => {
+            if (!this.disabled) {
+                this.isExpanded = !this.isExpanded;
+            }
+        });
         this.addRippleEffect();
         this.hasLoaded = true;
     }
@@ -113,7 +117,7 @@ export class Select {
     private wrapperClasses() {
         return (this.isExpanded ? 'is-expanded ' : '')
             + (this.hasValue ? ' has-value ' : '')
-            + (this.disabled ? ' disabled' : '')
+            + (this.disabled ? ' disabled ' : '')
             + 'wcs-select-wrapper';
     }
 
@@ -143,7 +147,7 @@ export class Select {
 const RightArrow: FunctionalComponent<{ up: boolean }> = ({ up }) => (
     <svg style={{ marginLeft: 'auto' }} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
         <style type="text/css">{`
-            .arrow {
+            .arrow-group {
                 transform-origin: 50% 50%;
                 transition: transform 175ms ease-in-out;
             }
@@ -154,8 +158,8 @@ const RightArrow: FunctionalComponent<{ up: boolean }> = ({ up }) => (
                 transform: scaleY(-1);
             }
         `}</style>
-        <g fill="none" class={(up ? 'up' : 'down') + ' arrow'} >
-            <path fill="black" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
+        <g fill="none" class={(up ? 'up' : 'down') + ' arrow-group'} >
+            <path class="arrow" fill="black" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
             <path d="M0 0h24v24H0z" fill="none" />
         </g>
     </svg>
