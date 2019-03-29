@@ -18,6 +18,9 @@ import {
   EventEmitter,
 } from '@stencil/core';
 import {
+  CheckboxChangeEventDetail,
+} from './components/checkbox/checkbox-interface';
+import {
   SelectOptionChosedEvent,
 } from './components/select-option/select-option-interface';
 import {
@@ -95,10 +98,24 @@ export namespace Components {
   interface WcsCardAttributes extends StencilHTMLAttributes {}
 
   interface WcsCheckbox {
+    /**
+    * If `true`, the checkbox is selected.
+    */
+    'checked': boolean;
     'name': any;
+    'value': any;
   }
   interface WcsCheckboxAttributes extends StencilHTMLAttributes {
+    /**
+    * If `true`, the checkbox is selected.
+    */
+    'checked'?: boolean;
     'name'?: any;
+    /**
+    * Emitted when the checked property has changed.
+    */
+    'onWcsChange'?: (event: CustomEvent<CheckboxChangeEventDetail>) => void;
+    'value'?: any;
   }
 
   interface WcsIcon {
