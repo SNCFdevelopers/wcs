@@ -94,8 +94,12 @@ export namespace Components {
   interface WcsCard {}
   interface WcsCardAttributes extends StencilHTMLAttributes {}
 
-  interface WcsCheckbox {}
-  interface WcsCheckboxAttributes extends StencilHTMLAttributes {}
+  interface WcsCheckbox {
+    'name': any;
+  }
+  interface WcsCheckboxAttributes extends StencilHTMLAttributes {
+    'name'?: any;
+  }
 
   interface WcsIcon {
     'icon': string;
