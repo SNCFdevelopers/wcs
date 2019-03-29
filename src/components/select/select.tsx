@@ -11,20 +11,17 @@ import MDCRipple from '@material/ripple';
 export class Select implements ComponentInterface {
     @Element() el!: HTMLWcsSelectElement;
 
-    /**
-     * Wether the select is expanded
-     */
+    /** Wether the select is expanded */
     @State() isExpanded = false;
 
-    /**
-     * Wether the component is fully loaded in the DOM.
-     */
+    /** Wether the component is fully loaded in the DOM. */
     @State() hasLoaded = false;
 
-    /**
-     * Text to display for the selected option, when no option is selected, the value is undefined.
-     */
+    /** Text to display for the selected option, when no option is selected, the value is undefined. */
     @State() displayText: string;
+
+    /** When the host is focused. */
+    @State() focused: boolean;
 
     /**
      * If `true`, the user cannot interact with the select.
@@ -94,13 +91,17 @@ export class Select implements ComponentInterface {
         this.displayText = event.detail.displayText;
     }
 
+    focusedAttributes() {
+        return !this.disabled ? { tabIndex: 0 } : {};
+    }
+
     render() {
         if (this.hasLoaded) {
             this.updateStyles();
         }
         return (
             <div class={this.wrapperClasses()}>
-                <div class="wcs-select-content">
+                <div class="wcs-select-content" {...this.focusedAttributes()}>
                     <label class="wcs-select-text">{this.hasValue
                         ? this.displayText
                         : this.placeholder
@@ -130,6 +131,13 @@ export class Select implements ComponentInterface {
         // Make the options container width the same width as everything.
         optionsEl.setAttribute('style', `width: calc(${this.el.getBoundingClientRect().width}px - 2.50rem - 2px);`);
         this.setMarginTopOnNotFirstOption(optionsEl);
+        const content = this.el.shadowRoot.querySelector<HTMLInputElement>('.wcs-select-content');
+        if (this.focused) {
+            // XXX: Use HTMLInputElement for focus() to exist
+            content.focus();
+        } else {
+            content.blur();
+        }
     }
 
     // XXX: Investigate if there is no way to do it with pure CSS.

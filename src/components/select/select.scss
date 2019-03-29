@@ -4,12 +4,23 @@
 @function wcs-border($color: $text-light) {
     @if $color {
         @return $color solid 1px;
-    } @else {
+    }
+
+    @else {
         @return $gray-text solid 1px;
     }
-};
+}
 
 $border-radius: var(--border-radius);
+
+:host {
+    outline: 0;
+}
+
+:host:focus {
+    outline: none;
+    background: red;
+}
 
 .wcs-select-wrapper {
     position: relative;
@@ -33,7 +44,16 @@ $border-radius: var(--border-radius);
     border: wcs-border(transparent);
     font-size: 1rem;
     line-height: 1.5;
+    outline: none;
     cursor: pointer;
+
+    &:hover {
+        border: wcs-border();
+    }
+    &:focus {
+        // FIXME: We see the border when normally clicking.
+        border: wcs-border($primary);
+    }
 }
 
 .wcs-select-options {
@@ -67,6 +87,7 @@ $border-radius: var(--border-radius);
         border-left: wcs-border();
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
+        border-bottom: none;
     }
 }
 
@@ -77,14 +98,17 @@ $border-radius: var(--border-radius);
 }
 
 .disabled {
+
     .wcs-select-content,
     .wcs-select-text {
         cursor: default;
         pointer-events: none;
     }
+
     .wcs-select-text {
         color: $text-disabled;
     }
+
     .arrow {
         fill: $text-medium;
     }
