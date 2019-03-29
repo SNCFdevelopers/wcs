@@ -1,7 +1,8 @@
-import { Component, Element, State, Prop, Event, EventEmitter, Watch } from '@stencil/core';
+import { Component, Element, State, Prop, Event, EventEmitter, Watch, Listen } from '@stencil/core';
 
 import { SelectCompareFn, SelectChangeEventDetail } from './select-interface';
 import MDCRipple from '@material/ripple';
+
 @Component({
     tag: 'wcs-select',
     styleUrl: 'select.scss',
@@ -9,10 +10,6 @@ import MDCRipple from '@material/ripple';
 })
 export class Select {
 
-    private addRippleEffect() {
-        const ripple = new MDCRipple.MDCRipple(this.el.shadowRoot.querySelector('.wcs-select-text'));
-        ripple.unbound = true;
-    }
     @Element() el!: HTMLWcsSelectElement;
 
     @State() isExpanded = false;
@@ -26,7 +23,7 @@ export class Select {
     /**
      * The text to display when the select is empty.
      */
-    @Prop() placeholder?: string | null;
+    @Prop({ mutable: true }) placeholder?: string | null;
 
     /**
      * The name of the control, which is submitted with the form data.
@@ -71,9 +68,13 @@ export class Select {
 
     @Watch('isExpanded')
     isExpandedChanged() {
-
         console.log(this.isExpanded);
         // TODO : Add css classes to show the select options
+    }
+
+    private addRippleEffect() {
+        const ripple = new MDCRipple.MDCRipple(this.el.shadowRoot.querySelector('.wcs-select-text'));
+        ripple.unbound = true;
     }
 
     componentDidLoad() {
@@ -88,6 +89,12 @@ export class Select {
                 'is-expanded': this.isExpanded
             }
         };
+    }
+
+    @Listen('wcsSelectOptionClick')
+    testing(event: CustomEvent) {
+        this.value = event.detail.value;
+        this.placeholder = event.detail.displayText;
     }
 
     render() {
