@@ -92,7 +92,7 @@ export class Select {
     }
 
     @Listen('wcsSelectOptionClick')
-    testing(event: CustomEvent) {
+    selectedOptionChanged(event: CustomEvent) {
         this.value = event.detail.value;
         this.placeholder = event.detail.displayText;
     }
