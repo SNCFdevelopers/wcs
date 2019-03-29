@@ -94,6 +94,15 @@ export namespace Components {
   interface WcsCard {}
   interface WcsCardAttributes extends StencilHTMLAttributes {}
 
+  interface WcsIcon {
+    'icon': string;
+    'size': 'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px';
+  }
+  interface WcsIconAttributes extends StencilHTMLAttributes {
+    'icon'?: string;
+    'size'?: 'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px';
+  }
+
   interface WcsProgressBar {
     /**
     * Whether it displays a label indicating the percentage of progress above the bar.
@@ -120,6 +129,17 @@ export namespace Components {
     /**
     * The actual value of the progress. Ranging from 0 to 100.
     */
+    'value'?: number;
+  }
+
+  interface WcsProgressRadial {
+    'showLabel': boolean;
+    'size': number;
+    'value': number;
+  }
+  interface WcsProgressRadialAttributes extends StencilHTMLAttributes {
+    'showLabel'?: boolean;
+    'size'?: number;
     'value'?: number;
   }
 
@@ -233,7 +253,9 @@ declare global {
     'WcsButton': Components.WcsButton;
     'WcsCardBody': Components.WcsCardBody;
     'WcsCard': Components.WcsCard;
+    'WcsIcon': Components.WcsIcon;
     'WcsProgressBar': Components.WcsProgressBar;
+    'WcsProgressRadial': Components.WcsProgressRadial;
     'WcsSelectOption': Components.WcsSelectOption;
     'WcsSelect': Components.WcsSelect;
   }
@@ -243,7 +265,9 @@ declare global {
     'wcs-button': Components.WcsButtonAttributes;
     'wcs-card-body': Components.WcsCardBodyAttributes;
     'wcs-card': Components.WcsCardAttributes;
+    'wcs-icon': Components.WcsIconAttributes;
     'wcs-progress-bar': Components.WcsProgressBarAttributes;
+    'wcs-progress-radial': Components.WcsProgressRadialAttributes;
     'wcs-select-option': Components.WcsSelectOptionAttributes;
     'wcs-select': Components.WcsSelectAttributes;
   }
@@ -273,10 +297,22 @@ declare global {
     new (): HTMLWcsCardElement;
   };
 
+  interface HTMLWcsIconElement extends Components.WcsIcon, HTMLStencilElement {}
+  var HTMLWcsIconElement: {
+    prototype: HTMLWcsIconElement;
+    new (): HTMLWcsIconElement;
+  };
+
   interface HTMLWcsProgressBarElement extends Components.WcsProgressBar, HTMLStencilElement {}
   var HTMLWcsProgressBarElement: {
     prototype: HTMLWcsProgressBarElement;
     new (): HTMLWcsProgressBarElement;
+  };
+
+  interface HTMLWcsProgressRadialElement extends Components.WcsProgressRadial, HTMLStencilElement {}
+  var HTMLWcsProgressRadialElement: {
+    prototype: HTMLWcsProgressRadialElement;
+    new (): HTMLWcsProgressRadialElement;
   };
 
   interface HTMLWcsSelectOptionElement extends Components.WcsSelectOption, HTMLStencilElement {}
@@ -296,7 +332,9 @@ declare global {
     'wcs-button': HTMLWcsButtonElement
     'wcs-card-body': HTMLWcsCardBodyElement
     'wcs-card': HTMLWcsCardElement
+    'wcs-icon': HTMLWcsIconElement
     'wcs-progress-bar': HTMLWcsProgressBarElement
+    'wcs-progress-radial': HTMLWcsProgressRadialElement
     'wcs-select-option': HTMLWcsSelectOptionElement
     'wcs-select': HTMLWcsSelectElement
   }
@@ -306,7 +344,9 @@ declare global {
     'wcs-button': HTMLWcsButtonElement;
     'wcs-card-body': HTMLWcsCardBodyElement;
     'wcs-card': HTMLWcsCardElement;
+    'wcs-icon': HTMLWcsIconElement;
     'wcs-progress-bar': HTMLWcsProgressBarElement;
+    'wcs-progress-radial': HTMLWcsProgressRadialElement;
     'wcs-select-option': HTMLWcsSelectOptionElement;
     'wcs-select': HTMLWcsSelectElement;
   }

@@ -88,6 +88,13 @@ export class Select {
         this.addRippleEffect();
     }
 
+    @Listen('window:click')
+    onWindowClickEvent(event: MouseEvent) {
+        if (event.target !== this.el) {
+            this.isExpanded = false;
+        }
+    }
+
     hostData() {
         return {
             'class': {
