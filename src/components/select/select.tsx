@@ -14,6 +14,11 @@ export class Select {
 
     @State() isExpanded = false;
     @State() hasLoaded = false;
+    /**
+     * Text to display for the selected option, when no option is selected, the value is undefined
+     */
+    @State() displayText: string;
+
 
     /**
      * If `true`, the user cannot interact with the select.
@@ -94,7 +99,7 @@ export class Select {
     @Listen('wcsSelectOptionClick')
     selectedOptionChanged(event: CustomEvent) {
         this.value = event.detail.value;
-        this.placeholder = event.detail.displayText;
+        this.displayText = event.detail.displayText;
     }
 
     render() {
@@ -105,7 +110,7 @@ export class Select {
         return (
             <div class={this.isExpanded ? 'is-expanded' : '' + ' wcs-select-wrapper'}>
                 <div class="wcs-select-text">
-                    <p>{this.placeholder}</p>
+                    <p>{this.displayText === undefined ? this.placeholder : this.displayText}</p>
                     <div></div>
                 </div>
                 <div class="wcs-select-options">
