@@ -1,6 +1,6 @@
 import { Component, Element, State, Prop, Event, EventEmitter, Watch, Listen, FunctionalComponent } from '@stencil/core';
 
-import { SelectCompareFn, SelectChangeEventDetail } from './select-interface';
+import { SelectChangeEventDetail } from './select-interface';
 import MDCRipple from '@material/ripple';
 
 @Component({
@@ -9,16 +9,22 @@ import MDCRipple from '@material/ripple';
     shadow: true
 })
 export class Select {
-
     @Element() el!: HTMLWcsSelectElement;
 
-    @State() isExpanded = false;
-    @State() hasLoaded = false;
     /**
-     * Text to display for the selected option, when no option is selected, the value is undefined
+     * Wether the select is expanded
+     */
+    @State() isExpanded = false;
+
+    /**
+     * Wether the component is fully loaded in the DOM.
+     */
+    @State() hasLoaded = false;
+
+    /**
+     * Text to display for the selected option, when no option is selected, the value is undefined.
      */
     @State() displayText: string;
-
 
     /**
      * If `true`, the user cannot interact with the select.
@@ -36,17 +42,7 @@ export class Select {
     @Prop() name?: string;
 
     /**
-     * If `true`, the select can accept multiple values.
-     */
-    @Prop() multiple = false;
-
-    /**
-     * A property name or function used to compare object values
-     */
-    @Prop() compareWith?: string | SelectCompareFn | null;
-
-    /**
-     * the value of the select.
+     * The currently selected value.
      */
     @Prop({ mutable: true }) value?: any | null;
 
@@ -64,28 +60,21 @@ export class Select {
      * Emitted when the select loses focus.
      */
     @Event() wcsBlur!: EventEmitter<void>;
-    didInit: boolean;
 
     @Watch('disabled')
     disabledChanged() {
-        // this.emitStyle();
-    }
-
-    @Watch('isExpanded')
-    isExpandedChanged() {
-        console.log(this.isExpanded);
-        // TODO : Add css classes to show the select options
-    }
-
-    private addRippleEffect() {
-        const ripple = new MDCRipple.MDCRipple(this.el.shadowRoot.querySelector('.wcs-select-text'));
-        ripple.unbound = true;
+        // TODO: remove ripple effect, grey out component
     }
 
     componentDidLoad() {
         this.el.addEventListener('click', () => this.isExpanded = !this.isExpanded);
-        this.hasLoaded = true;
         this.addRippleEffect();
+        this.hasLoaded = true;
+    }
+
+    private addRippleEffect() {
+        const ripple = new MDCRipple.MDCRipple(this.el.shadowRoot.querySelector('.wcs-select-content'));
+        ripple.unbound = true;
     }
 
     @Listen('window:click')
@@ -93,14 +82,6 @@ export class Select {
         if (event.target !== this.el) {
             this.isExpanded = false;
         }
-    }
-
-    hostData() {
-        return {
-            'class': {
-                'is-expanded': this.isExpanded
-            }
-        };
     }
 
     @Listen('wcsSelectOptionClick')
@@ -111,15 +92,15 @@ export class Select {
 
     render() {
         if (this.hasLoaded) {
-            const optionsEl = this.el.shadowRoot.querySelector('.wcs-select-options');
-            // Make the options container the same width as everything.
-            optionsEl.setAttribute('style', `width: calc(${this.el.offsetWidth}px - 2.50rem - 2px);`);
-            this.setMarginTopOnNotFirstOption(optionsEl);
+            this.updateStyles();
         }
         return (
-            <div class={this.isExpanded ? 'is-expanded' : '' + ' wcs-select-wrapper'}>
-                <div class="wcs-select-text">
-                    <p>{this.displayText === undefined ? this.placeholder : this.displayText}</p>
+            <div class={this.wrapperClasses()}>
+                <div class="wcs-select-content">
+                    <label class="wcs-select-text">{this.hasValue
+                        ? this.displayText
+                        : this.placeholder
+                    }</label>
                     <RightArrow up={this.isExpanded} />
                 </div>
                 <div class="wcs-select-options">
@@ -127,6 +108,24 @@ export class Select {
                 </div>
             </div>
         );
+    }
+
+    private wrapperClasses() {
+        return (this.isExpanded ? 'is-expanded ' : '')
+            + (this.hasValue ? ' has-value ' : '')
+            + (this.disabled ? ' disabled' : '')
+            + 'wcs-select-wrapper';
+    }
+
+    private get hasValue(): boolean {
+        return this.displayText !== undefined;
+    }
+
+    private updateStyles() {
+        const optionsEl = this.el.shadowRoot.querySelector('.wcs-select-options');
+        // Make the options container width the same width as everything.
+        optionsEl.setAttribute('style', `width: calc(${this.el.offsetWidth}px - 2.50rem - 2px);`);
+        this.setMarginTopOnNotFirstOption(optionsEl);
     }
 
     // XXX: Investigate if there is no way to do it with pure CSS.

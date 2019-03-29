@@ -1,0 +1,12 @@
+@import '@material/ripple/mdc-ripple';
+
+// TODO: make this configurable for the button to use it too
+@mixin ripple {
+    @include mdc-ripple-surface;
+    @include mdc-ripple-radius-bounded;
+    @include mdc-states-base-color(#999);
+    @include mdc-states-hover-opacity(.1);
+    @include mdc-states-focus-opacity(.2);
+    @include mdc-states-press-opacity(.3);
+    overflow: hidden;
+}

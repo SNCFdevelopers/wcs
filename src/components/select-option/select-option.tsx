@@ -34,7 +34,8 @@ export class SelectOption implements ComponentInterface {
 
     @Event({
         eventName: 'wcsSelectOptionClick',
-    }) wcsSelectOptionClick: EventEmitter<SelectOptionChosedEvent>;
+    })
+    wcsSelectOptionClick: EventEmitter<SelectOptionChosedEvent>;
 
     componentWillLoad() {
         if (this.value === undefined) {
@@ -53,6 +54,7 @@ export class SelectOption implements ComponentInterface {
 
     render() {
         return (
+            // TODO: Try to remove this div
             <div class="wcs-selection-option-container">
                 <slot />
             </div>

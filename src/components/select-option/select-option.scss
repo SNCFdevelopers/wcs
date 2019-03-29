@@ -6,10 +6,11 @@ wcs-select-option {
 
 .wcs-selection-option-container {
     display: block;
+    cursor: pointer;
+    font-weight: 500;
+    color: black;
 
     &:hover {
         color: $primary;
     }
-
-    cursor: pointer;
 }

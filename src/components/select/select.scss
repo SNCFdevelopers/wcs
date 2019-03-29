@@ -1,36 +1,59 @@
-@import '@material/ripple/mdc-ripple';
+@import '../../style/wcs.colors.scss';
+@import '../../style/wcs.ripple.scss';
 
-:host {
-    display: block;
-}
+@function wcs-border($color: #d7d7d7) {
+    @if $color {
+        @return $color solid 1px;
+    } @else {
+        @return #d7d7d7 solid 1px;
+    }
+};
+
+$border-radius: 0.4375rem;
 
 .wcs-select-wrapper {
     position: relative;
 }
 
 .wcs-select-text {
-    @include mdc-ripple-surface;
-    @include mdc-ripple-radius-bounded;
-    @include mdc-states-base-color(#999);
-    @include mdc-states-hover-opacity(.1);
-    @include mdc-states-focus-opacity(.2);
-    @include mdc-states-press-opacity(.3);
-    overflow: hidden;
-
-    display: flex;
-    background-color: #f2f2f2;
     padding: 0.65625rem 1.25rem;
+    font-weight: 500;
+    cursor: pointer;
+    color: #747678;
+    transition: color 175ms ease-in-out;
+}
+
+.wcs-select-content {
+    @include ripple;
+    display: flex;
+    align-items: center;
+    padding-right: 0.65625rem;
+    background-color: #f2f2f2;
+    border-radius: $border-radius;
+    border: wcs-border(transparent);
     font-size: 1rem;
     line-height: 1.5;
-    border-radius: 0.4375rem;
-    border: 1px solid transparent;
     cursor: pointer;
-    transition: color 175ms ease-in-out;
+}
 
-    p {
-        margin: 0;
-        color: #747678;
-    }
+.wcs-select-options {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    padding: 1.25rem;
+    margin: 0;
+
+    max-height: 22.5rem;
+    overflow-y: auto;
+
+    background-color: white;
+    color: #747678;
+
+    border-left: wcs-border();
+    border-right: wcs-border();
+    border-bottom: wcs-border();
+    border-bottom-right-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
 }
 
 .is-expanded {
@@ -38,27 +61,21 @@
         display: block;
     }
 
-    .wcs-select-text {
-        border-top: #d7d7d7 solid 1px;
-        border-right: #d7d7d7 solid 1px;
-        border-left: #d7d7d7 solid 1px;
+    .wcs-select-content {
+        border-top: wcs-border();
+        border-right: wcs-border();
+        border-left: wcs-border();
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
     }
 }
 
-.wcs-select-options {
-    z-index: 1;
-    display: none;
-    position: absolute;
-    background-color: white;
-    border-bottom: #d7d7d7 solid 1px;
-    border-left: #d7d7d7 solid 1px;
-    border-right: #d7d7d7 solid 1px;
-    border-bottom-right-radius: 0.4375rem;
-    border-bottom-left-radius: 0.4375rem;
-    max-height: 22.5rem;
-    padding: 1.25rem;
-    overflow-y: auto;
+.has-value {
+    .wcs-select-text {
+        color: $primary;
+    }
 }
 
+.disabled {
+    // TODO:
+}

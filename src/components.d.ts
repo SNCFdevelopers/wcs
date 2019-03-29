@@ -22,7 +22,6 @@ import {
 } from './components/select-option/select-option-interface';
 import {
   SelectChangeEventDetail,
-  SelectCompareFn,
 } from './components/select/select-interface';
 
 
@@ -182,17 +181,9 @@ export namespace Components {
 
   interface WcsSelect {
     /**
-    * A property name or function used to compare object values
-    */
-    'compareWith'?: string | SelectCompareFn | null;
-    /**
     * If `true`, the user cannot interact with the select.
     */
     'disabled': boolean;
-    /**
-    * If `true`, the select can accept multiple values.
-    */
-    'multiple': boolean;
     /**
     * The name of the control, which is submitted with the form data.
     */
@@ -202,23 +193,15 @@ export namespace Components {
     */
     'placeholder'?: string | null;
     /**
-    * the value of the select.
+    * The currently selected value.
     */
     'value'?: any | null;
   }
   interface WcsSelectAttributes extends StencilHTMLAttributes {
     /**
-    * A property name or function used to compare object values
-    */
-    'compareWith'?: string | SelectCompareFn | null;
-    /**
     * If `true`, the user cannot interact with the select.
     */
     'disabled'?: boolean;
-    /**
-    * If `true`, the select can accept multiple values.
-    */
-    'multiple'?: boolean;
     /**
     * The name of the control, which is submitted with the form data.
     */
@@ -240,7 +223,7 @@ export namespace Components {
     */
     'placeholder'?: string | null;
     /**
-    * the value of the select.
+    * The currently selected value.
     */
     'value'?: any | null;
   }
