@@ -1,4 +1,4 @@
-import { Component, Element, State, Prop, Event, EventEmitter, Watch, Listen } from '@stencil/core';
+import { Component, Element, State, Prop, Event, EventEmitter, Watch, Listen, FunctionalComponent } from '@stencil/core';
 
 import { SelectCompareFn, SelectChangeEventDetail } from './select-interface';
 import MDCRipple from '@material/ripple';
@@ -120,7 +120,7 @@ export class Select {
             <div class={this.isExpanded ? 'is-expanded' : '' + ' wcs-select-wrapper'}>
                 <div class="wcs-select-text">
                     <p>{this.displayText === undefined ? this.placeholder : this.displayText}</p>
-                    <div></div>
+                    <RightArrow up={this.isExpanded} />
                 </div>
                 <div class="wcs-select-options">
                     <slot name="wcs-select-option" />
@@ -140,3 +140,24 @@ export class Select {
             });
     }
 }
+
+const RightArrow: FunctionalComponent<{ up: boolean }> = ({ up }) => (
+    <svg style={{ marginLeft: 'auto' }} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <style type="text/css">{`
+            .arrow {
+                transform-origin: 50% 50%;
+                transition: transform 175ms ease-in-out;
+            }
+            .up {
+                transform: scaleY(1);
+            }
+            .down {
+                transform: scaleY(-1);
+            }
+        `}</style>
+        <g fill="none" class={(up ? 'up' : 'down') + ' arrow'} >
+            <path fill="black" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
+            <path d="M0 0h24v24H0z" fill="none" />
+        </g>
+    </svg>
+);
