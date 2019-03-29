@@ -124,7 +124,7 @@ export class Select {
     private updateStyles() {
         const optionsEl = this.el.shadowRoot.querySelector('.wcs-select-options');
         // Make the options container width the same width as everything.
-        optionsEl.setAttribute('style', `width: calc(${this.el.offsetWidth}px - 2.50rem - 2px);`);
+        optionsEl.setAttribute('style', `width: calc(${this.el.getBoundingClientRect().width}px - 2.50rem - 2px);`);
         this.setMarginTopOnNotFirstOption(optionsEl);
     }
 
