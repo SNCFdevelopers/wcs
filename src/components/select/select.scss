@@ -62,13 +62,3 @@
     overflow-y: auto;
 }
 
-.wcs-select-options {
-    >::slotted(*):not(:first-child) {
-        margin-top: 0.875rem;
-    }
-}
-:host {
-    ::slotted(*) {
-        background-color: red;
-    }
-}

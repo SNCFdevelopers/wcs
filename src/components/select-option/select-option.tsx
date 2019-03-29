@@ -1,7 +1,6 @@
 import { Component, Element, Event, Prop, EventEmitter, ComponentInterface } from '@stencil/core';
 import { SelectOptionChosedEvent } from './select-option-interface';
 
-
 @Component({
     tag: 'wcs-select-option',
     styleUrl: 'select-option.scss'

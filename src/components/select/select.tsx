@@ -111,8 +111,10 @@ export class Select {
 
     render() {
         if (this.hasLoaded) {
-            this.el.shadowRoot.querySelector('.wcs-select-options')
-                .setAttribute('style', `width: calc(${this.el.offsetWidth}px - 2.50rem - 2px);`);
+            const optionsEl = this.el.shadowRoot.querySelector('.wcs-select-options');
+            // Make the options container the same width as everything.
+            optionsEl.setAttribute('style', `width: calc(${this.el.offsetWidth}px - 2.50rem - 2px);`);
+            this.setMarginTopOnNotFirstOption(optionsEl);
         }
         return (
             <div class={this.isExpanded ? 'is-expanded' : '' + ' wcs-select-wrapper'}>
@@ -125,5 +127,16 @@ export class Select {
                 </div>
             </div>
         );
+    }
+
+    // XXX: Investigate if there is no way to do it with pure CSS.
+    private setMarginTopOnNotFirstOption(optionsEl: Element) {
+        optionsEl.querySelector('slot')
+            .assignedElements()
+            .forEach((opt, key) => {
+                if (key !== 0) {
+                    opt.setAttribute('style', `margin-top: 0.875rem;`);
+                }
+            });
     }
 }

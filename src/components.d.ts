@@ -175,10 +175,6 @@ export namespace Components {
     */
     'selected'?: boolean;
     /**
-    * This property should not be used, it is only meant for internal use.
-    */
-    'slot'?: string;
-    /**
     * The options value, not necessarily what's displayed.
     */
     'value'?: any | null;
