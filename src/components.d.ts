@@ -15,12 +15,15 @@ import {
   ButtonType,
 } from './components/button/button-interface';
 import {
+  EventEmitter,
+} from '@stencil/core';
+import {
+  SelectOptionChosedEvent,
+} from './components/select-option/select-option-interface';
+import {
   SelectChangeEventDetail,
   SelectCompareFn,
 } from './components/select/select-interface';
-import {
-  EventEmitter,
-} from '@stencil/core';
 
 
 export namespace Components {
@@ -163,7 +166,7 @@ export namespace Components {
     * Wether this option can be selected.
     */
     'disabled'?: boolean;
-    'onWcsSelectOptionClick'?: (event: CustomEvent<void>) => void;
+    'onWcsSelectOptionClick'?: (event: CustomEvent<SelectOptionChosedEvent>) => void;
     /**
     * Wether this option is selected.
     */

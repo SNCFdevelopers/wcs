@@ -1,7 +1,8 @@
-import { Component, Element, State, Prop, Event, EventEmitter, Watch } from '@stencil/core';
+import { Component, Element, State, Prop, Event, EventEmitter, Watch, Listen } from '@stencil/core';
 
 import { SelectCompareFn, SelectChangeEventDetail } from './select-interface';
 import MDCRipple from '@material/ripple';
+
 @Component({
     tag: 'wcs-select',
     styleUrl: 'select.scss',
@@ -9,14 +10,15 @@ import MDCRipple from '@material/ripple';
 })
 export class Select {
 
-    private addRippleEffect() {
-        const ripple = new MDCRipple.MDCRipple(this.el.shadowRoot.querySelector('.wcs-select-text'));
-        ripple.unbound = true;
-    }
     @Element() el!: HTMLWcsSelectElement;
 
     @State() isExpanded = false;
     @State() hasLoaded = false;
+    /**
+     * Text to display for the selected option, when no option is selected, the value is undefined
+     */
+    @State() displayText: string;
+
 
     /**
      * If `true`, the user cannot interact with the select.
@@ -26,7 +28,7 @@ export class Select {
     /**
      * The text to display when the select is empty.
      */
-    @Prop() placeholder?: string | null;
+    @Prop({ mutable: true }) placeholder?: string | null;
 
     /**
      * The name of the control, which is submitted with the form data.
@@ -71,9 +73,13 @@ export class Select {
 
     @Watch('isExpanded')
     isExpandedChanged() {
-
         console.log(this.isExpanded);
         // TODO : Add css classes to show the select options
+    }
+
+    private addRippleEffect() {
+        const ripple = new MDCRipple.MDCRipple(this.el.shadowRoot.querySelector('.wcs-select-text'));
+        ripple.unbound = true;
     }
 
     componentDidLoad() {
@@ -82,12 +88,25 @@ export class Select {
         this.addRippleEffect();
     }
 
+    @Listen('window:click')
+    onWindowClickEvent(event: MouseEvent) {
+        if (event.target !== this.el) {
+            this.isExpanded = false;
+        }
+    }
+
     hostData() {
         return {
             'class': {
                 'is-expanded': this.isExpanded
             }
         };
+    }
+
+    @Listen('wcsSelectOptionClick')
+    selectedOptionChanged(event: CustomEvent) {
+        this.value = event.detail.value;
+        this.displayText = event.detail.displayText;
     }
 
     render() {
@@ -100,7 +119,7 @@ export class Select {
         return (
             <div class={this.isExpanded ? 'is-expanded' : '' + ' wcs-select-wrapper'}>
                 <div class="wcs-select-text">
-                    <p>{this.placeholder}</p>
+                    <p>{this.displayText === undefined ? this.placeholder : this.displayText}</p>
                     <div></div>
                 </div>
                 <div class="wcs-select-options">

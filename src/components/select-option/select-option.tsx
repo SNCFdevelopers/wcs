@@ -1,5 +1,5 @@
 import { Component, Element, Event, Prop, EventEmitter, ComponentInterface } from '@stencil/core';
-
+import { SelectOptionChosedEvent } from './select-option-interface';
 
 @Component({
     tag: 'wcs-select-option',
@@ -22,7 +22,7 @@ export class SelectOption implements ComponentInterface {
     /**
      * The options value, not necessarily what's displayed.
      */
-    @Prop({ mutable: true }) value?: any | null;
+    @Prop({ mutable: true, reflectToAttr: true }) value?: any | null;
 
     /**
      * This property should not be used,
@@ -32,7 +32,9 @@ export class SelectOption implements ComponentInterface {
      */
     @Prop({ reflectToAttr: true }) slot = 'wcs-select-option';
 
-    @Event() wcsSelectOptionClick: EventEmitter<void>;
+    @Event({
+        eventName: 'wcsSelectOptionClick',
+    }) wcsSelectOptionClick: EventEmitter<SelectOptionChosedEvent>;
 
     componentWillLoad() {
         if (this.value === undefined) {
@@ -42,7 +44,10 @@ export class SelectOption implements ComponentInterface {
 
     componentDidLoad() {
         this.el.addEventListener('click', () =>
-            this.wcsSelectOptionClick.emit()
+            this.wcsSelectOptionClick.emit({
+                value: this.value,
+                displayText: this.el.getElementsByClassName('wcs-selection-option-container')[0].innerHTML
+            })
         );
     }
 
