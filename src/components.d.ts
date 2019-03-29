@@ -94,6 +94,9 @@ export namespace Components {
   interface WcsCard {}
   interface WcsCardAttributes extends StencilHTMLAttributes {}
 
+  interface WcsCheckbox {}
+  interface WcsCheckboxAttributes extends StencilHTMLAttributes {}
+
   interface WcsIcon {
     'icon': string;
     'size': 'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px';
@@ -253,6 +256,7 @@ declare global {
     'WcsButton': Components.WcsButton;
     'WcsCardBody': Components.WcsCardBody;
     'WcsCard': Components.WcsCard;
+    'WcsCheckbox': Components.WcsCheckbox;
     'WcsIcon': Components.WcsIcon;
     'WcsProgressBar': Components.WcsProgressBar;
     'WcsProgressRadial': Components.WcsProgressRadial;
@@ -265,6 +269,7 @@ declare global {
     'wcs-button': Components.WcsButtonAttributes;
     'wcs-card-body': Components.WcsCardBodyAttributes;
     'wcs-card': Components.WcsCardAttributes;
+    'wcs-checkbox': Components.WcsCheckboxAttributes;
     'wcs-icon': Components.WcsIconAttributes;
     'wcs-progress-bar': Components.WcsProgressBarAttributes;
     'wcs-progress-radial': Components.WcsProgressRadialAttributes;
@@ -295,6 +300,12 @@ declare global {
   var HTMLWcsCardElement: {
     prototype: HTMLWcsCardElement;
     new (): HTMLWcsCardElement;
+  };
+
+  interface HTMLWcsCheckboxElement extends Components.WcsCheckbox, HTMLStencilElement {}
+  var HTMLWcsCheckboxElement: {
+    prototype: HTMLWcsCheckboxElement;
+    new (): HTMLWcsCheckboxElement;
   };
 
   interface HTMLWcsIconElement extends Components.WcsIcon, HTMLStencilElement {}
@@ -332,6 +343,7 @@ declare global {
     'wcs-button': HTMLWcsButtonElement
     'wcs-card-body': HTMLWcsCardBodyElement
     'wcs-card': HTMLWcsCardElement
+    'wcs-checkbox': HTMLWcsCheckboxElement
     'wcs-icon': HTMLWcsIconElement
     'wcs-progress-bar': HTMLWcsProgressBarElement
     'wcs-progress-radial': HTMLWcsProgressRadialElement
@@ -344,6 +356,7 @@ declare global {
     'wcs-button': HTMLWcsButtonElement;
     'wcs-card-body': HTMLWcsCardBodyElement;
     'wcs-card': HTMLWcsCardElement;
+    'wcs-checkbox': HTMLWcsCheckboxElement;
     'wcs-icon': HTMLWcsIconElement;
     'wcs-progress-bar': HTMLWcsProgressBarElement;
     'wcs-progress-radial': HTMLWcsProgressRadialElement;
