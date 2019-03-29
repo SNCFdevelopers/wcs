@@ -1,4 +1,4 @@
-@import '../../style/wcs.global.scss';
+@import '../../style/wcs.colors.scss';
 
 wcs-select-option {
     display: block;
@@ -12,5 +12,12 @@ wcs-select-option {
 
     &:hover {
         color: $primary;
+    }
+}
+
+.disabled {
+    &.wcs-selection-option-container {
+        cursor: default;
+        color: $text-medium;
     }
 }

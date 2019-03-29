@@ -44,18 +44,24 @@ export class SelectOption implements ComponentInterface {
     }
 
     componentDidLoad() {
-        this.el.addEventListener('click', () =>
-            this.wcsSelectOptionClick.emit({
-                value: this.value,
-                displayText: this.el.getElementsByClassName('wcs-selection-option-container')[0].innerHTML
-            })
-        );
+        this.emitClickEvent();
+    }
+
+    private emitClickEvent() {
+        this.el.addEventListener('click', () => {
+            if (!this.disabled) {
+                this.wcsSelectOptionClick.emit({
+                    value: this.value,
+                    displayText: this.el.getElementsByClassName('wcs-selection-option-container')[0].innerHTML
+                });
+            }
+        });
     }
 
     render() {
         return (
             // TODO: Try to remove this div
-            <div class="wcs-selection-option-container">
+            <div class={(this.disabled ? 'disabled ' : '') + 'wcs-selection-option-container'}>
                 <slot />
             </div>
         );

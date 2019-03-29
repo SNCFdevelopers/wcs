@@ -1,11 +1,11 @@
 @import '../../style/wcs.colors.scss';
 @import '../../style/wcs.ripple.scss';
 
-@function wcs-border($color: #d7d7d7) {
+@function wcs-border($color: $text-light) {
     @if $color {
         @return $color solid 1px;
     } @else {
-        @return #d7d7d7 solid 1px;
+        @return $gray-text solid 1px;
     }
 };
 
@@ -19,7 +19,7 @@ $border-radius: 0.4375rem;
     padding: 0.65625rem 1.25rem;
     font-weight: 500;
     cursor: pointer;
-    color: #747678;
+    color: $text-medium;
     transition: color 175ms ease-in-out;
 }
 
@@ -28,7 +28,7 @@ $border-radius: 0.4375rem;
     display: flex;
     align-items: center;
     padding-right: 0.65625rem;
-    background-color: #f2f2f2;
+    background-color: $light;
     border-radius: $border-radius;
     border: wcs-border(transparent);
     font-size: 1rem;
@@ -47,7 +47,7 @@ $border-radius: 0.4375rem;
     overflow-y: auto;
 
     background-color: white;
-    color: #747678;
+    color: $text-medium;
 
     border-left: wcs-border();
     border-right: wcs-border();
