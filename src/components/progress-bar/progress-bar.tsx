@@ -1,4 +1,4 @@
-import { Component, Prop } from '@stencil/core';
+import { Component, Prop, ComponentInterface } from '@stencil/core';
 
 /**
  * Component displaying progress as a bar.
@@ -8,7 +8,7 @@ import { Component, Prop } from '@stencil/core';
   styleUrl: 'progress-bar.scss',
   shadow: true
 })
-export class ProgressBar {
+export class ProgressBar implements ComponentInterface {
   /**
    * Whether the component display the small version
    */

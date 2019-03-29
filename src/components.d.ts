@@ -31,9 +31,15 @@ import {
 export namespace Components {
 
   interface WcsBadge {
+    /**
+    * Select the badge color.
+    */
     'color': Color;
   }
   interface WcsBadgeAttributes extends StencilHTMLAttributes {
+    /**
+    * Select the badge color.
+    */
     'color'?: Color;
   }
 

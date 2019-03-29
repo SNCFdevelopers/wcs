@@ -1,4 +1,4 @@
-import { Component, Element, State, Prop, Event, EventEmitter, Watch, Listen, FunctionalComponent } from '@stencil/core';
+import { Component, Element, State, Prop, Event, EventEmitter, Watch, Listen, FunctionalComponent, ComponentInterface } from '@stencil/core';
 
 import { SelectChangeEventDetail } from './select-interface';
 import MDCRipple from '@material/ripple';
@@ -8,7 +8,7 @@ import MDCRipple from '@material/ripple';
     styleUrl: 'select.scss',
     shadow: true
 })
-export class Select {
+export class Select implements ComponentInterface {
     @Element() el!: HTMLWcsSelectElement;
 
     /**

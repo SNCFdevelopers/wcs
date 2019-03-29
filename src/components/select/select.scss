@@ -9,7 +9,7 @@
     }
 };
 
-$border-radius: 0.4375rem;
+$border-radius: var(--border-radius);
 
 .wcs-select-wrapper {
     position: relative;
@@ -29,7 +29,7 @@ $border-radius: 0.4375rem;
     align-items: center;
     padding-right: 0.65625rem;
     background-color: $light;
-    border-radius: $border-radius;
+    border-radius: var(--border-radius);
     border: wcs-border(transparent);
     font-size: 1rem;
     line-height: 1.5;
@@ -52,8 +52,8 @@ $border-radius: 0.4375rem;
     border-left: wcs-border();
     border-right: wcs-border();
     border-bottom: wcs-border();
-    border-bottom-right-radius: $border-radius;
-    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
 }
 
 .is-expanded {
@@ -83,7 +83,7 @@ $border-radius: 0.4375rem;
         pointer-events: none;
     }
     .wcs-select-text {
-        color: $text-light;
+        color: $text-disabled;
     }
     .arrow {
         fill: $text-medium;

@@ -1,17 +1,15 @@
-import { Component, Prop } from '@stencil/core';
+import { Component, Prop, ComponentInterface } from '@stencil/core';
 
 @Component({
     tag: 'wcs-progress-radial',
     styleUrl: 'progress-radial.scss',
     shadow: true
 })
-export class ProgressRadial {
+export class ProgressRadial implements ComponentInterface {
     @Prop() size = 120;
     @Prop() showLabel = false;
     @Prop() value = 0;
-    // stroke-dasharray: 339.292;
 
-    // stroke-dashoffset: 339.434;
     render() {
         const { size, halfSize } = { size: this.size, halfSize: this.size / 2 };
         return (

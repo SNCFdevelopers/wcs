@@ -14,6 +14,7 @@ export const config: Config = {
     sass({
       // Allows to write @import '@material/*' from scss
       // Typings are wrong so we have to add as any
+      // TODO: make it so we don't have to type full path for /style folder too.
       includePaths: glob.sync(
         path.join(__dirname, '**/node_modules/@material')
       ).map((dir) => path.dirname(dir))

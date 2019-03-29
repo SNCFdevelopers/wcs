@@ -1,11 +1,11 @@
-import { Component } from '@stencil/core';
+import { Component, ComponentInterface } from '@stencil/core';
 
 @Component({
     tag: 'wcs-card-body',
     styleUrl: 'card-body.scss',
     shadow: true
 })
-export class CardBody {
+export class CardBody implements ComponentInterface {
     render() {
         return (<slot />);
     }
