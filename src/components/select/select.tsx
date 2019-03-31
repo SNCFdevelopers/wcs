@@ -12,7 +12,7 @@ export class Select implements ComponentInterface {
     @Element() el!: HTMLWcsSelectElement;
 
     /** Wether the select is expanded */
-    @State() isExpanded = false;
+    @State() expanded = false;
 
     /** Wether the component is fully loaded in the DOM. */
     @State() hasLoaded = false;
@@ -58,30 +58,41 @@ export class Select implements ComponentInterface {
      */
     @Event() wcsBlur!: EventEmitter<void>;
 
+    private optionsEl!: HTMLElement;
+    private contentEl!: HTMLInputElement;
+
     @Watch('disabled')
     disabledChanged() {
         // TODO: remove ripple effect, grey out component
     }
 
     componentDidLoad() {
-        this.el.addEventListener('click', () => {
-            if (!this.disabled) {
-                this.isExpanded = !this.isExpanded;
-            }
-        });
+        this.optionsEl = this.el.shadowRoot.querySelector('.wcs-select-options');
+        this.contentEl = this.el.shadowRoot.querySelector('.wcs-select-content');
+        this.expandOnClick();
         this.addRippleEffect();
         this.hasLoaded = true;
     }
 
+    private expandOnClick() {
+        this.el.addEventListener('mousedown', () => {
+            if (!this.disabled) {
+                this.expanded = !this.expanded;
+            }
+        });
+    }
+
     private addRippleEffect() {
-        const ripple = new MDCRipple.MDCRipple(this.el.shadowRoot.querySelector('.wcs-select-content'));
+        // XXX: Unwrapped dependency over MDCRipple...
+        const ripple = new MDCRipple.MDCRipple(this.contentEl);
         ripple.unbound = true;
     }
 
     @Listen('window:click')
     onWindowClickEvent(event: MouseEvent) {
-        if (event.target !== this.el) {
-            this.isExpanded = false;
+        if (this.expanded
+            && event.target !== this.el) {
+            this.expanded = false;
         }
     }
 
@@ -98,6 +109,7 @@ export class Select implements ComponentInterface {
     render() {
         if (this.hasLoaded) {
             this.updateStyles();
+            this.updateFocus();
         }
         return (
             <div class={this.wrapperClasses()}>
@@ -106,7 +118,7 @@ export class Select implements ComponentInterface {
                         ? this.displayText
                         : this.placeholder
                     }</label>
-                    <RightArrow up={this.isExpanded} />
+                    <RightArrow up={this.expanded} />
                 </div>
                 <div class="wcs-select-options">
                     <slot name="wcs-select-option" />
@@ -116,7 +128,7 @@ export class Select implements ComponentInterface {
     }
 
     private wrapperClasses() {
-        return (this.isExpanded ? 'is-expanded ' : '')
+        return (this.expanded ? 'expanded ' : '')
             + (this.hasValue ? ' has-value ' : '')
             + (this.disabled ? ' disabled ' : '')
             + 'wcs-select-wrapper';
@@ -127,22 +139,24 @@ export class Select implements ComponentInterface {
     }
 
     private updateStyles() {
-        const optionsEl = this.el.shadowRoot.querySelector('.wcs-select-options');
         // Make the options container width the same width as everything.
-        optionsEl.setAttribute('style', `width: calc(${this.el.getBoundingClientRect().width}px - 2.50rem - 2px);`);
-        this.setMarginTopOnNotFirstOption(optionsEl);
-        const content = this.el.shadowRoot.querySelector<HTMLInputElement>('.wcs-select-content');
-        if (this.focused) {
-            // XXX: Use HTMLInputElement for focus() to exist
-            content.focus();
+        this.optionsEl.setAttribute('style', `width: calc(${this.el.getBoundingClientRect().width}px - 2.50rem - 2px);`);
+        this.setMarginTopOnNotFirstOption();
+    }
+
+    private updateFocus() {
+        if (this.focused && !this.expanded) {
+            // TODO: try not to set focus if it going to be expanded.
+            this.contentEl.focus();
         } else {
-            content.blur();
+            this.contentEl.blur();
         }
     }
 
     // XXX: Investigate if there is no way to do it with pure CSS.
-    private setMarginTopOnNotFirstOption(optionsEl: Element) {
-        optionsEl.querySelector('slot')
+    // It poses problem due to slot not allowing deep styling.
+    private setMarginTopOnNotFirstOption() {
+        this.optionsEl.querySelector('slot')
             .assignedElements()
             .forEach((opt, key) => {
                 if (key !== 0) {
