@@ -23,25 +23,19 @@ export class Select implements ComponentInterface {
     /** When the host is focused. */
     @State() focused: boolean;
 
-    /**
-     * If `true`, the user cannot interact with the select.
-     */
+    /** If `true`, the user cannot interact with the select. */
     @Prop() disabled = false;
 
-    /**
-     * The text to display when the select is empty.
-     */
+    /** The text to display when the select is empty. */
     @Prop({ mutable: true }) placeholder?: string | null;
 
-    /**
-     * The name of the control, which is submitted with the form data.
-     */
+    /** The name of the control, which is submitted with the form data. */
     @Prop() name?: string;
 
-    /**
-     * The currently selected value.
-     */
+    /** The currently selected value. */
     @Prop({ mutable: true }) value?: any | null;
+
+    @Prop({ context: 'window' }) window!: Window;
 
     /**
      * Emitted when the value has changed.
@@ -75,11 +69,43 @@ export class Select implements ComponentInterface {
     }
 
     private expandOnClick() {
+        /**
+         * Keyboard navigation:
+         * Focused:
+         * - Space => Expanded + First value focused
+         * Expanded:
+         * - Esc => !Expanded + All value not focusable
+         *
+         * Value:focused:
+         * - Enter => Select
+         */
         this.el.addEventListener('mousedown', () => {
             if (!this.disabled) {
-                this.expanded = !this.expanded;
+                if (this.expanded) {
+                    this.unExpand();
+                } else {
+                    this.expand();
+                }
             }
         });
+    }
+
+    private expand() {
+        this.window.addEventListener('keydown', this.unExpandOnEscape);
+        this.expanded = true;
+    }
+
+    // XXX: We use fat arrow to have a reference to the function and
+    // being able to unregister it from the events.
+    private unExpandOnEscape = (keyEvent: KeyboardEvent) => {
+        if (keyEvent.code === 'Escape') {
+            this.unExpand();
+        }
+    }
+
+    private unExpand() {
+        this.window.removeEventListener('keydown', this.unExpandOnEscape);
+        this.expanded = false;
     }
 
     private addRippleEffect() {
@@ -100,10 +126,6 @@ export class Select implements ComponentInterface {
     selectedOptionChanged(event: CustomEvent) {
         this.value = event.detail.value;
         this.displayText = event.detail.displayText;
-    }
-
-    focusedAttributes() {
-        return !this.disabled ? { tabIndex: 0 } : {};
     }
 
     render() {
@@ -151,6 +173,10 @@ export class Select implements ComponentInterface {
         } else {
             this.contentEl.blur();
         }
+    }
+
+    private focusedAttributes() {
+        return !this.disabled ? { tabIndex: 0 } : {};
     }
 
     // XXX: Investigate if there is no way to do it with pure CSS.
