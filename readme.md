@@ -13,7 +13,6 @@ It is built using stencil as a web component compiler, you can find the document
   - [Lightweight](#lightweight)
 - [Goal](#goal)
   - [Dumb components](#dumb-components)
-  - [Smart components](#smart-components)
   - [Advantages](#advantages)
 - [Getting Started](#getting-started)
   - [Tooling](#tooling)
@@ -21,6 +20,7 @@ It is built using stencil as a web component compiler, you can find the document
   - [Running the project](#running-the-project)
   - [Production build](#production-build)
   - [Launching the test suite](#launching-the-test-suite)
+- [Example usage](#example-usage)
 
 ## What's to be done
 
@@ -48,6 +48,8 @@ defineCustomElements(window);
 ```
 
 See the [**docs**](https://stenciljs.com/docs/framework-integration) !
+
+
 
 ### Simple and familiar API
 
@@ -77,37 +79,11 @@ The idea is that the user is free to use dumb components to gain time and readab
 <wcs-card>
 ```
 
-Or to use the bootstrap classes:
-
-```html
-<div class="card">
-  <div class="card-body">
-    Text inside the content
-  </div>
-</div>
-```
-
-Or even mixing them together:
-
-```html
-<wcs-card>
-  <img class="card-img-top" alt="Card top image" src="http://placebeard.it/267/128"/>
-  <wcs-card-content class="text-center">
-    Text inside the content
-  </wcs-card-content>
-<wcs-card>
-```
-
-### Smart components
-
-> **TODO**
-
 ### Advantages
 
 This allow two things:
 
 - More flexibility for the end user.
-- If this project is behind for whatever reason, you can still use bootstrap classes.
 
 ## Getting Started
 
@@ -132,7 +108,8 @@ npm install
 
 ```bash
 npm start
-# For browser compatibility you'll probably need to use this one instead:
+# For browser compatibility you'll probably need to use this one instead,
+# although it is recommended you turn on needed flags in your browser for faster build.
 npm start --es5
 ```
 
@@ -147,3 +124,7 @@ npm run build
 ```bash
 npm test
 ```
+
+## Example usage
+
+There is an example project using angular under the `example` folder.
