@@ -11,7 +11,7 @@ wcs-select-option {
     font-weight: 500;
     color: black;
 
-    &:focus {
+    &:hover,&.selected {
         color: $primary;
     }
 }

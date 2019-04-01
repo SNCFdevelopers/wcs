@@ -30,6 +30,9 @@ import {
 
 export namespace Components {
 
+  interface WcsApp {}
+  interface WcsAppAttributes extends StencilHTMLAttributes {}
+
   interface WcsBadge {
     /**
     * Select the badge color.
@@ -122,6 +125,9 @@ export namespace Components {
     'onWcsChange'?: (event: CustomEvent<CheckboxChangeEventDetail>) => void;
     'value'?: any;
   }
+
+  interface WcsHeader {}
+  interface WcsHeaderAttributes extends StencilHTMLAttributes {}
 
   interface WcsIcon {
     'icon': string;
@@ -254,35 +260,50 @@ export namespace Components {
     */
     'value'?: any | null;
   }
+
+  interface WcsSidebar {}
+  interface WcsSidebarAttributes extends StencilHTMLAttributes {}
 }
 
 declare global {
   interface StencilElementInterfaces {
+    'WcsApp': Components.WcsApp;
     'WcsBadge': Components.WcsBadge;
     'WcsButton': Components.WcsButton;
     'WcsCardBody': Components.WcsCardBody;
     'WcsCard': Components.WcsCard;
     'WcsCheckbox': Components.WcsCheckbox;
+    'WcsHeader': Components.WcsHeader;
     'WcsIcon': Components.WcsIcon;
     'WcsProgressBar': Components.WcsProgressBar;
     'WcsProgressRadial': Components.WcsProgressRadial;
     'WcsSelectOption': Components.WcsSelectOption;
     'WcsSelect': Components.WcsSelect;
+    'WcsSidebar': Components.WcsSidebar;
   }
 
   interface StencilIntrinsicElements {
+    'wcs-app': Components.WcsAppAttributes;
     'wcs-badge': Components.WcsBadgeAttributes;
     'wcs-button': Components.WcsButtonAttributes;
     'wcs-card-body': Components.WcsCardBodyAttributes;
     'wcs-card': Components.WcsCardAttributes;
     'wcs-checkbox': Components.WcsCheckboxAttributes;
+    'wcs-header': Components.WcsHeaderAttributes;
     'wcs-icon': Components.WcsIconAttributes;
     'wcs-progress-bar': Components.WcsProgressBarAttributes;
     'wcs-progress-radial': Components.WcsProgressRadialAttributes;
     'wcs-select-option': Components.WcsSelectOptionAttributes;
     'wcs-select': Components.WcsSelectAttributes;
+    'wcs-sidebar': Components.WcsSidebarAttributes;
   }
 
+
+  interface HTMLWcsAppElement extends Components.WcsApp, HTMLStencilElement {}
+  var HTMLWcsAppElement: {
+    prototype: HTMLWcsAppElement;
+    new (): HTMLWcsAppElement;
+  };
 
   interface HTMLWcsBadgeElement extends Components.WcsBadge, HTMLStencilElement {}
   var HTMLWcsBadgeElement: {
@@ -312,6 +333,12 @@ declare global {
   var HTMLWcsCheckboxElement: {
     prototype: HTMLWcsCheckboxElement;
     new (): HTMLWcsCheckboxElement;
+  };
+
+  interface HTMLWcsHeaderElement extends Components.WcsHeader, HTMLStencilElement {}
+  var HTMLWcsHeaderElement: {
+    prototype: HTMLWcsHeaderElement;
+    new (): HTMLWcsHeaderElement;
   };
 
   interface HTMLWcsIconElement extends Components.WcsIcon, HTMLStencilElement {}
@@ -344,30 +371,42 @@ declare global {
     new (): HTMLWcsSelectElement;
   };
 
+  interface HTMLWcsSidebarElement extends Components.WcsSidebar, HTMLStencilElement {}
+  var HTMLWcsSidebarElement: {
+    prototype: HTMLWcsSidebarElement;
+    new (): HTMLWcsSidebarElement;
+  };
+
   interface HTMLElementTagNameMap {
+    'wcs-app': HTMLWcsAppElement
     'wcs-badge': HTMLWcsBadgeElement
     'wcs-button': HTMLWcsButtonElement
     'wcs-card-body': HTMLWcsCardBodyElement
     'wcs-card': HTMLWcsCardElement
     'wcs-checkbox': HTMLWcsCheckboxElement
+    'wcs-header': HTMLWcsHeaderElement
     'wcs-icon': HTMLWcsIconElement
     'wcs-progress-bar': HTMLWcsProgressBarElement
     'wcs-progress-radial': HTMLWcsProgressRadialElement
     'wcs-select-option': HTMLWcsSelectOptionElement
     'wcs-select': HTMLWcsSelectElement
+    'wcs-sidebar': HTMLWcsSidebarElement
   }
 
   interface ElementTagNameMap {
+    'wcs-app': HTMLWcsAppElement;
     'wcs-badge': HTMLWcsBadgeElement;
     'wcs-button': HTMLWcsButtonElement;
     'wcs-card-body': HTMLWcsCardBodyElement;
     'wcs-card': HTMLWcsCardElement;
     'wcs-checkbox': HTMLWcsCheckboxElement;
+    'wcs-header': HTMLWcsHeaderElement;
     'wcs-icon': HTMLWcsIconElement;
     'wcs-progress-bar': HTMLWcsProgressBarElement;
     'wcs-progress-radial': HTMLWcsProgressRadialElement;
     'wcs-select-option': HTMLWcsSelectOptionElement;
     'wcs-select': HTMLWcsSelectElement;
+    'wcs-sidebar': HTMLWcsSidebarElement;
   }
 
 
