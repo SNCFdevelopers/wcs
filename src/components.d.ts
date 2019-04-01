@@ -186,7 +186,7 @@ export namespace Components {
     */
     'slot': string;
     /**
-    * The options value, not necessarily what's displayed.
+    * The option value, not what's displayed, use inner text instead.
     */
     'value'?: any | null;
   }
@@ -201,7 +201,7 @@ export namespace Components {
     */
     'selected'?: boolean;
     /**
-    * The options value, not necessarily what's displayed.
+    * The option value, not what's displayed, use inner text instead.
     */
     'value'?: any | null;
   }

@@ -1,8 +1,18 @@
-import { Component, Element, State, Prop, Event, EventEmitter, Watch, Listen, FunctionalComponent, ComponentInterface } from '@stencil/core';
+import { Component, Element, State, Prop, Event, EventEmitter, Listen, ComponentInterface } from '@stencil/core';
 
 import { SelectChangeEventDetail } from './select-interface';
 import MDCRipple from '@material/ripple';
+import { SelectArrow } from './select-arrow';
 
+/**
+ * Select component, use in conjuction with wcs-select-option.
+ *
+ * @example ```hmtl
+ *  <wcs-select>
+ *      <wcs-select-option value="1">One</wcs-select-option>
+ *  </wcs-select>```
+ * @todo Complete keyboard navigation.
+ */
 @Component({
     tag: 'wcs-select',
     styleUrl: 'select.scss',
@@ -35,50 +45,41 @@ export class Select implements ComponentInterface {
     /** The currently selected value. */
     @Prop({ mutable: true }) value?: any | null;
 
+    /** Reference to the window. */
     @Prop({ context: 'window' }) window!: Window;
 
-    /**
-     * Emitted when the value has changed.
-     */
+    /** Emitted when the value has changed. */
     @Event() wcsChange!: EventEmitter<SelectChangeEventDetail>;
 
-    /**
-     * Emitted when the select has focus.
-     */
+    /** Emitted when the select has focus. */
     @Event() wcsFocus!: EventEmitter<void>;
 
-    /**
-     * Emitted when the select loses focus.
-     */
+    /** Emitted when the select loses focus. */
     @Event() wcsBlur!: EventEmitter<void>;
 
-    private optionsEl!: HTMLElement;
-    private contentEl!: HTMLInputElement;
-
-    @Watch('disabled')
-    disabledChanged() {
-        // TODO: remove ripple effect, grey out component
-    }
+    private optionsEl!: HTMLDivElement;
+    private contentEl!: HTMLDivElement;
+    private wrapperEl!: HTMLInputElement;
 
     componentDidLoad() {
         this.optionsEl = this.el.shadowRoot.querySelector('.wcs-select-options');
         this.contentEl = this.el.shadowRoot.querySelector('.wcs-select-content');
+        this.wrapperEl = this.el.shadowRoot.querySelector('.wcs-select-wrapper');
         this.expandOnClick();
         this.addRippleEffect();
+        this.wrapperEl.addEventListener('focus', this.focus);
+        this.wrapperEl.addEventListener('blur', this.blur);
         this.hasLoaded = true;
     }
 
+    componentDidUnload() {
+        // XXX: to be sure we have no dangling listeners.
+        this.window.removeEventListener('keydown', this.handleExpandedKeyEvents);
+        this.wrapperEl.removeEventListener('focus', this.focus);
+        this.wrapperEl.addEventListener('blur', this.blur);
+    }
+
     private expandOnClick() {
-        /**
-         * Keyboard navigation:
-         * Focused:
-         * - Space => Expanded + First value focused
-         * Expanded:
-         * - Esc => !Expanded + All value not focusable
-         *
-         * Value:focused:
-         * - Enter => Select
-         */
         this.el.addEventListener('mousedown', () => {
             if (!this.disabled) {
                 if (this.expanded) {
@@ -91,21 +92,35 @@ export class Select implements ComponentInterface {
     }
 
     private expand() {
-        this.window.addEventListener('keydown', this.unExpandOnEscape);
+        this.window.addEventListener('keydown', this.handleExpandedKeyEvents);
+        // TODO: add focus on options and focus the first.
         this.expanded = true;
     }
 
     // XXX: We use fat arrow to have a reference to the function and
-    // being able to unregister it from the events.
-    private unExpandOnEscape = (keyEvent: KeyboardEvent) => {
+    // being able to unregister it later on.
+    private handleExpandedKeyEvents = (keyEvent: KeyboardEvent) => {
         if (keyEvent.code === 'Escape') {
             this.unExpand();
+        } else if (keyEvent.code === 'Tab') {
+            this.unExpand();
+            // XXX: so we preserve default select behavior, that is:
+            // When expanded, pressing tab only unexpand and does not blur
+            keyEvent.preventDefault();
+        } else if (keyEvent.code === 'ArrowDown') {
+            keyEvent.preventDefault();
+            console.log('ArrowDown');
+            // Select next value
+        } else if (keyEvent.code === 'ArrowUp') {
+            // Select previous value
+            console.log('ArrowUp');
+            keyEvent.preventDefault();
         }
     }
 
     private unExpand() {
-        this.window.removeEventListener('keydown', this.unExpandOnEscape);
         this.expanded = false;
+        this.window.removeEventListener('keydown', this.handleExpandedKeyEvents);
     }
 
     private addRippleEffect() {
@@ -118,7 +133,7 @@ export class Select implements ComponentInterface {
     onWindowClickEvent(event: MouseEvent) {
         if (this.expanded
             && event.target !== this.el) {
-            this.expanded = false;
+            this.unExpand();
         }
     }
 
@@ -126,27 +141,6 @@ export class Select implements ComponentInterface {
     selectedOptionChanged(event: CustomEvent) {
         this.value = event.detail.value;
         this.displayText = event.detail.displayText;
-    }
-
-    render() {
-        if (this.hasLoaded) {
-            this.updateStyles();
-            this.updateFocus();
-        }
-        return (
-            <div class={this.wrapperClasses()}>
-                <div class="wcs-select-content" {...this.focusedAttributes()}>
-                    <label class="wcs-select-text">{this.hasValue
-                        ? this.displayText
-                        : this.placeholder
-                    }</label>
-                    <RightArrow up={this.expanded} />
-                </div>
-                <div class="wcs-select-options">
-                    <slot name="wcs-select-option" />
-                </div>
-            </div>
-        );
     }
 
     private wrapperClasses() {
@@ -162,17 +156,39 @@ export class Select implements ComponentInterface {
 
     private updateStyles() {
         // Make the options container width the same width as everything.
-        this.optionsEl.setAttribute('style', `width: calc(${this.el.getBoundingClientRect().width}px - 2.50rem - 2px);`);
+        const padding = 1.25; // XXX: This doesn't use the css variable.
+        const borderSize = 1;
+        this.optionsEl.setAttribute(
+            'style',
+            `width: calc(${Math.ceil(this.el.getBoundingClientRect().width)}px - ${2 * padding}rem - ${2 * borderSize}px);`
+        );
         this.setMarginTopOnNotFirstOption();
     }
 
-    private updateFocus() {
-        if (this.focused && !this.expanded) {
-            // TODO: try not to set focus if it going to be expanded.
-            this.contentEl.focus();
-        } else {
-            this.contentEl.blur();
+    private focus = () => {
+        this.wrapperEl.focus();
+        this.wcsFocus.emit();
+        this.wrapperEl.addEventListener('keydown', this.handleFocusedKeyEvents);
+        console.log('Select focused');
+    }
+
+    private handleFocusedKeyEvents = (keyEvent: KeyboardEvent) => {
+        if (keyEvent.code === 'Escape') {
+            this.blur();
+        } else if (keyEvent.code === 'Space') {
+            this.expand();
+            // Focus on selected or first value.
+            // XXX: so the page doesn't scroll down.
+            keyEvent.preventDefault();
+            this.wrapperEl.removeEventListener('keydown', this.handleFocusedKeyEvents);
         }
+    }
+
+    private blur = () => {
+        this.wrapperEl.blur();
+        this.wcsBlur.emit();
+        this.wrapperEl.removeEventListener('keydown', this.handleFocusedKeyEvents);
+        console.log('Select blured');
     }
 
     private focusedAttributes() {
@@ -190,25 +206,25 @@ export class Select implements ComponentInterface {
                 }
             });
     }
+
+    render() {
+        if (this.hasLoaded) {
+            this.updateStyles();
+        }
+        return (
+            <div class={this.wrapperClasses()} {...this.focusedAttributes()}>
+                <div class="wcs-select-content">
+                    <label class="wcs-select-text">{this.hasValue
+                        ? this.displayText
+                        : this.placeholder
+                    }</label>
+                    <SelectArrow up={this.expanded} />
+                </div>
+                <div class="wcs-select-options">
+                    <slot name="wcs-select-option" />
+                </div>
+            </div>
+        );
+    }
 }
 
-const RightArrow: FunctionalComponent<{ up: boolean }> = ({ up }) => (
-    <svg style={{ marginLeft: 'auto' }} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-        <style type="text/css">{`
-            .arrow-group {
-                transform-origin: 50% 50%;
-                transition: transform 175ms ease-in-out;
-            }
-            .up {
-                transform: scaleY(1);
-            }
-            .down {
-                transform: scaleY(-1);
-            }
-        `}</style>
-        <g fill="none" class={(up ? 'up' : 'down') + ' arrow-group'} >
-            <path class="arrow" fill="black" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
-            <path d="M0 0h24v24H0z" fill="none" />
-        </g>
-    </svg>
-);

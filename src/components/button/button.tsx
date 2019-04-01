@@ -72,6 +72,7 @@ export class Button implements ComponentInterface {
             }
         }
     }
+
     render() {
         const TagType = this.href !== undefined ? 'a' : 'button';
         const attrs = this.href !== undefined

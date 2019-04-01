@@ -2,7 +2,9 @@
 @import 'wcs.fonts.scss';
 
 body {
-    --border-radius: 0.475rem;
+    --wcs-border-radius: 0.475rem;
+    --wcs-padding: 1.25rem;
+    --wcs-text-padding: 0.65625rem;
     @include font;
     font-weight: 400;
     font-family: var(--font-family-sans-serif)

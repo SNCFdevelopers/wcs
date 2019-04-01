@@ -19,19 +19,24 @@
             margin-bottom: 16px;
         }
 
-        wcs-card-body>h3 {
+        wcs-card-body>h3:first-child {
             margin-top: 0;
         }
+
     </style>
     <h2>Select</h2>
     <wcs-card>
         <wcs-card-body>
-            <h3>Normal select</h3>
-            <select name="lol" id="1">
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
+            <h3>Basic</h3>
+            <!--
+                For test purposes.
+                <select name="lol" id="1">
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                    <option value="Much">This is much</option>
+                </select>
+            -->
             <form>
                 <wcs-select placeholder="Le select">
                     <wcs-select-option value="1">One</wcs-select-option>
@@ -39,10 +44,6 @@
                     <wcs-select-option value="3">Three</wcs-select-option>
                 </wcs-select>
             </form>
-        </wcs-card-body>
-    </wcs-card>
-    <wcs-card>
-        <wcs-card-body>
             <h3>With disabled option</h3>
             <form>
                 <wcs-select placeholder="Le select">
@@ -51,11 +52,7 @@
                     <wcs-select-option value="3">Three</wcs-select-option>
                 </wcs-select>
             </form>
-        </wcs-card-body>
-    </wcs-card>
-    <wcs-card>
-        <wcs-card-body>
-            <h3>Disabled select</h3>
+            <h3>Disabled</h3>
             <form>
                 <wcs-select placeholder="Le select" disabled>
                     <wcs-select-option value="1">One</wcs-select-option>
@@ -69,10 +66,10 @@
     <wcs-card>
         <wcs-card-body>
             <h3>Normal chekbox</h3>
-            <wcs-checkbox>Normal checkbox</wcs-checkbox><br/>
-            <wcs-checkbox checked="true">Default checked checkbox</wcs-checkbox><br/>
-            <wcs-checkbox>Checkbox</wcs-checkbox><br/>
-            <wcs-checkbox>Checkbox</wcs-checkbox><br/>
+            <wcs-checkbox>Normal checkbox</wcs-checkbox><br />
+            <wcs-checkbox checked="true">Default checked checkbox</wcs-checkbox><br />
+            <wcs-checkbox>Checkbox</wcs-checkbox><br />
+            <wcs-checkbox>Checkbox</wcs-checkbox><br />
         </wcs-card-body>
     </wcs-card>
     <h2>Card</h2>
@@ -100,34 +97,14 @@
             <wcs-button color="light">Light</wcs-button>
             <wcs-button color="dark">Dark</wcs-button>
             <wcs-button color="white">White</wcs-button>
-        </wcs-card-body>
-    </wcs-card>
-    <wcs-card>
-        <wcs-card-body>
             <h3>Round</h3>
             <wcs-button color="primary" mode="round">45</wcs-button>
-        </wcs-card-body>
-    </wcs-card>
-    <wcs-card>
-        <wcs-card-body>
             <h3>Icon only</h3>
             <wcs-button color="primary" mode="icon-only">ico</wcs-button>
-        </wcs-card-body>
-    </wcs-card>
-    <wcs-card>
-        <wcs-card-body>
             <h3>Link</h3>
             <wcs-button color="primary" href="#">Un lien !</wcs-button>
-        </wcs-card-body>
-    </wcs-card>
-    <wcs-card>
-        <wcs-card-body>
             <h3>Disabled</h3>
             <wcs-button color="primary" disabled>Un bouton désactivé</wcs-button>
-        </wcs-card-body>
-    </wcs-card>
-    <wcs-card>
-        <wcs-card-body>
             <h3>Misc.</h3>
             <wcs-button href="https://www.sncf.com/" color="primary">Un bouton non désactivé</wcs-button>
             <wcs-button href="https://www.sncf.com/" color="primary" disabled>Un bouton a désactivé</wcs-button>
@@ -169,40 +146,17 @@
             <wcs-card-body>
                 <h3>Bar</h3>
                 <wcs-progress-bar value="50"></wcs-progress-bar>
-            </wcs-card-body>
-        </wcs-card>
-
-        <wcs-card>
-            <wcs-card-body>
                 <h3>Bar with label</h3>
                 <wcs-progress-bar value="50" show-label="true"></wcs-progress-bar>
-            </wcs-card-body>
-        </wcs-card>
-
-        <wcs-card>
-            <wcs-card-body>
                 <h3>Small bar</h3>
                 <wcs-progress-bar value="20" small></wcs-progress-bar>
-            </wcs-card-body>
-        </wcs-card>
-
-        <wcs-card>
-            <wcs-card-body>
                 <h3>Radial</h3>
                 <wcs-progress-radial value="20"></wcs-progress-radial>
-            </wcs-card-body>
-        </wcs-card>
-
-        <wcs-card>
-            <wcs-card-body>
                 <h3>Radial with label</h3>
                 <wcs-progress-radial value="20" show-label></wcs-progress-radial>
             </wcs-card-body>
         </wcs-card>
     </div>
-
-
-
 </body>
 
 </html>

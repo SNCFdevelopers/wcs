@@ -7,10 +7,11 @@ wcs-select-option {
 .wcs-selection-option-container {
     display: block;
     cursor: pointer;
+    user-select: none;
     font-weight: 500;
     color: black;
 
-    &:hover {
+    &:focus {
         color: $primary;
     }
 }
