@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type     |
-| -------- | --------- | ----------- | -------- |
-| `color`  | `color`   |             | `string` |
+| Property | Attribute | Description             | Type     | Default     |
+| -------- | --------- | ----------------------- | -------- | ----------- |
+| `color`  | `color`   | Select the badge color. | `string` | `'primary'` |
 
 
 ----------------------------------------------
