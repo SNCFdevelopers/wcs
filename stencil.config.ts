@@ -25,6 +25,9 @@ export const config: Config = {
       type: 'dist'
     },
     {
+      type: 'docs'
+    },
+    {
       type: 'www',
       serviceWorker: null
     }
