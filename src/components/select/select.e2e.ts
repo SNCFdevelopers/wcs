@@ -20,14 +20,17 @@ describe('select', () => {
              </wcs-select>
          `);
         const select = await page.find('wcs-select');
-        const option = await page.find('wcs-select >>> wcs-select-option[value="1"]');
+        const option: HTMLWcsSelectOptionElement = select.shadowRoot
+            .querySelector('.wcs-select-options')
+            .querySelector<HTMLSlotElement>('slot')
+            .assignedElements()[0] as any;
         const changeSpy = await select.spyOnEvent('wcsChange');
         // when
         await select.click(); // Expand
-        await option.click();
+        option.click();
         // Then
         expect(changeSpy).toHaveBeenCalledWith({ value: '1' });
-    })
+    });
     xit('should emit wcs-focus when focused', async () => {
         // Given
         const page = await newE2EPage();

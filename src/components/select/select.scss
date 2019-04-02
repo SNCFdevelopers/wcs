@@ -107,3 +107,7 @@ $border-radius: var(--wcs-border-radius);
         fill: $text-medium;
     }
 }
+
+.wcs-select-options::slotted(wcs-select-option)>[value="1"] {
+    display: none;
+}
