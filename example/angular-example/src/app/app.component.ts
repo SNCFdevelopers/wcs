@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { SelectChangeEventDetail } from '../../../../dist/types/interface';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,7 +13,7 @@ export class AppComponent {
   changeValues() {
     this.value = Math.floor(Math.random() * 100);
   }
-  onSelectChange(event: any) {
-    console.log(event);
+  onSelectChange(event: CustomEvent<SelectChangeEventDetail>) {
+    console.log(event.detail.value);
   }
 }

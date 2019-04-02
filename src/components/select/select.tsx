@@ -3,6 +3,7 @@ import { Component, Element, State, Prop, Event, EventEmitter, Listen, Component
 import { SelectChangeEventDetail } from './select-interface';
 import MDCRipple from '@material/ripple';
 import { SelectArrow } from './select-arrow';
+import { SelectOptionChosedEvent } from '../select-option/select-option-interface';
 
 /**
  * Select component, use in conjuction with wcs-select-option.
@@ -109,11 +110,9 @@ export class Select implements ComponentInterface {
             keyEvent.preventDefault();
         } else if (keyEvent.code === 'ArrowDown') {
             keyEvent.preventDefault();
-            console.log('ArrowDown');
             // Select next value
         } else if (keyEvent.code === 'ArrowUp') {
             // Select previous value
-            console.log('ArrowUp');
             keyEvent.preventDefault();
         }
     }
@@ -138,9 +137,10 @@ export class Select implements ComponentInterface {
     }
 
     @Listen('wcsSelectOptionClick')
-    selectedOptionChanged(event: CustomEvent) {
+    selectedOptionChanged(event: CustomEvent<SelectOptionChosedEvent>) {
         this.value = event.detail.value;
         this.displayText = event.detail.displayText;
+        this.wcsChange.emit({ value: event.detail.value });
     }
 
     private wrapperClasses() {
@@ -169,7 +169,6 @@ export class Select implements ComponentInterface {
         this.wrapperEl.focus();
         this.wcsFocus.emit();
         this.wrapperEl.addEventListener('keydown', this.handleFocusedKeyEvents);
-        console.log('Select focused');
     }
 
     private handleFocusedKeyEvents = (keyEvent: KeyboardEvent) => {
@@ -188,7 +187,6 @@ export class Select implements ComponentInterface {
         this.wrapperEl.blur();
         this.wcsBlur.emit();
         this.wrapperEl.removeEventListener('keydown', this.handleFocusedKeyEvents);
-        console.log('Select blured');
     }
 
     private focusedAttributes() {
