@@ -110,6 +110,7 @@ export namespace Components {
     * If `true`, the checkbox is selected.
     */
     'checked': boolean;
+    'indeterminate': false;
     'name': any;
     'value': any;
   }
@@ -118,6 +119,7 @@ export namespace Components {
     * If `true`, the checkbox is selected.
     */
     'checked'?: boolean;
+    'indeterminate'?: false;
     'name'?: any;
     /**
     * Emitted when the checked property has changed.

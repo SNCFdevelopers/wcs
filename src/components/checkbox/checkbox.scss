@@ -37,6 +37,18 @@
     border-radius: 3px;
 }
 
+.indeterminate {
+    background: $primary;
+    border-color: $primary;
+}
+
+/* .indeterminate:after {
+    background: $white;
+    display: block;
+    border: solid 12px red;
+    content: "";
+} */
+
 
 /* When the checkbox is checked, add a blue background */
 .container input:checked~.checkmark {
