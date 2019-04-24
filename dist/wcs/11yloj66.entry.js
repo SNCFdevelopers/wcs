@@ -1,0 +1,1 @@
+const s=window.wcs.h;class t{render(){return s("i",Object.assign({},{class:{[`icons-${this.icon}`]:!0,[`icons-size-${this.size}`]:!0}}))}static get is(){return"wcs-icon"}static get properties(){return{icon:{type:String,attr:"icon"},size:{type:String,attr:"size"}}}}export{t as WcsIcon};

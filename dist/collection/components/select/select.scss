@@ -1,0 +1,113 @@
+@import '../../style/wcs.colors.scss';
+@import '../../style/wcs.ripple.scss';
+
+@function wcs-border($color: $text-light) {
+    @if $color {
+        @return $color solid 1px;
+    }
+
+    @else {
+        @return $gray-text solid 1px;
+    }
+}
+
+$border-radius: var(--wcs-border-radius);
+
+.wcs-select-text {
+    padding: 0.65625rem 1.25rem;
+    font-weight: 500;
+    cursor: pointer;
+    color: $text-medium;
+    transition: color 175ms ease-in-out;
+}
+
+.wcs-select-content {
+    @include ripple;
+    display: flex;
+    align-items: center;
+    padding-right: var(--wcs-text-padding);
+    background-color: $light;
+    border-radius: var(--wcs-border-radius);
+    border: wcs-border(transparent);
+    font-size: 1rem;
+    line-height: 1.5;
+    cursor: pointer;
+
+    &:hover {
+        border: wcs-border();
+    }
+}
+
+.wcs-select-options {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    padding: var(--wcs-padding);
+    margin: 0;
+
+    max-height: 22.5rem;
+    overflow-y: auto;
+
+    background-color: white;
+    color: $text-medium;
+
+    border-left: wcs-border();
+    border-right: wcs-border();
+    border-bottom: wcs-border();
+    border-bottom-right-radius: var(--wcs-border-radius);
+    border-bottom-left-radius: var(--wcs-border-radius);
+}
+
+.expanded {
+    .wcs-select-options {
+        display: block;
+    }
+
+    .wcs-select-content {
+        border-top: wcs-border();
+        border-right: wcs-border();
+        border-left: wcs-border();
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-bottom: solid 1px transparent;
+    }
+}
+
+.wcs-select-wrapper {
+    position: relative;
+    outline: none;
+    user-select: none;
+
+    &:not(.expanded):focus {
+        .wcs-select-content {
+            border: wcs-border($primary);
+        }
+    }
+}
+
+.has-value {
+    .wcs-select-text {
+        color: $primary;
+    }
+}
+
+.disabled {
+
+    .wcs-select-content,
+    .wcs-select-text {
+        cursor: default;
+        pointer-events: none;
+    }
+
+    .wcs-select-text {
+        color: $text-disabled;
+    }
+
+    .arrow {
+        fill: $text-medium;
+    }
+}
+
+.wcs-select-options::slotted(wcs-select-option)>[value="1"] {
+    display: none;
+}

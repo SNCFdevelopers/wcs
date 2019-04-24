@@ -1,0 +1,28 @@
+@import '../../style/wcs.colors.scss';
+
+wcs-select-option {
+    display: block;
+}
+
+.wcs-selection-option-container {
+    display: block;
+    cursor: pointer;
+    user-select: none;
+    font-weight: 500;
+    color: black;
+
+    &:hover,&.selected {
+        color: $primary;
+    }
+}
+
+.disabled {
+    &.wcs-selection-option-container {
+        cursor: default;
+        color: $text-disabled;
+    }
+}
+
+.selected {
+    color: $primary;
+}
