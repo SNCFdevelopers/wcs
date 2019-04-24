@@ -26,6 +26,10 @@ import {
 import {
   SelectChangeEventDetail,
 } from './components/select/select-interface';
+import {
+  WcsTabsAlignment,
+  WcsTabsChangeEvent,
+} from './components/tabs/tabs-interface';
 
 
 export namespace Components {
@@ -265,6 +269,33 @@ export namespace Components {
 
   interface WcsSidebar {}
   interface WcsSidebarAttributes extends StencilHTMLAttributes {}
+
+  interface WcsTab {
+    /**
+    * This property should not be used, it is only meant for internal use.
+    */
+    'slot': string;
+  }
+  interface WcsTabAttributes extends StencilHTMLAttributes {}
+
+  interface WcsTabs {
+    'align': WcsTabsAlignment;
+    /**
+    * Current selected tab index
+    */
+    'selectedIndex': number;
+  }
+  interface WcsTabsAttributes extends StencilHTMLAttributes {
+    'align'?: WcsTabsAlignment;
+    /**
+    * Emitted when the selected tab change
+    */
+    'onWcsTabsChange'?: (event: CustomEvent<WcsTabsChangeEvent>) => void;
+    /**
+    * Current selected tab index
+    */
+    'selectedIndex'?: number;
+  }
 }
 
 declare global {
@@ -282,6 +313,8 @@ declare global {
     'WcsSelectOption': Components.WcsSelectOption;
     'WcsSelect': Components.WcsSelect;
     'WcsSidebar': Components.WcsSidebar;
+    'WcsTab': Components.WcsTab;
+    'WcsTabs': Components.WcsTabs;
   }
 
   interface StencilIntrinsicElements {
@@ -298,6 +331,8 @@ declare global {
     'wcs-select-option': Components.WcsSelectOptionAttributes;
     'wcs-select': Components.WcsSelectAttributes;
     'wcs-sidebar': Components.WcsSidebarAttributes;
+    'wcs-tab': Components.WcsTabAttributes;
+    'wcs-tabs': Components.WcsTabsAttributes;
   }
 
 
@@ -379,6 +414,18 @@ declare global {
     new (): HTMLWcsSidebarElement;
   };
 
+  interface HTMLWcsTabElement extends Components.WcsTab, HTMLStencilElement {}
+  var HTMLWcsTabElement: {
+    prototype: HTMLWcsTabElement;
+    new (): HTMLWcsTabElement;
+  };
+
+  interface HTMLWcsTabsElement extends Components.WcsTabs, HTMLStencilElement {}
+  var HTMLWcsTabsElement: {
+    prototype: HTMLWcsTabsElement;
+    new (): HTMLWcsTabsElement;
+  };
+
   interface HTMLElementTagNameMap {
     'wcs-app': HTMLWcsAppElement
     'wcs-badge': HTMLWcsBadgeElement
@@ -393,6 +440,8 @@ declare global {
     'wcs-select-option': HTMLWcsSelectOptionElement
     'wcs-select': HTMLWcsSelectElement
     'wcs-sidebar': HTMLWcsSidebarElement
+    'wcs-tab': HTMLWcsTabElement
+    'wcs-tabs': HTMLWcsTabsElement
   }
 
   interface ElementTagNameMap {
@@ -409,6 +458,8 @@ declare global {
     'wcs-select-option': HTMLWcsSelectOptionElement;
     'wcs-select': HTMLWcsSelectElement;
     'wcs-sidebar': HTMLWcsSidebarElement;
+    'wcs-tab': HTMLWcsTabElement;
+    'wcs-tabs': HTMLWcsTabsElement;
   }
 
 

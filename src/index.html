@@ -30,6 +30,7 @@
             <h1 slot="title">Web Component SNCF</h1>
         </wcs-header>
         <wcs-sidebar>
+            <a slot="link" href="#tab">Tab</a>
             <a slot="link" href="#select">Select</a>
             <a slot="link" href="#checkbox">Checkbox</a>
             <a slot="link" href="#card">Card</a>
@@ -39,6 +40,15 @@
             <a slot="link" href="#progress"></a>
         </wcs-sidebar>
         <main slot="content">
+            <h2><a id="tab"></a> Tab</h2>
+            <wcs-card>
+                <wcs-tabs>
+                    <wcs-tab header="One">Le contenu de la première</wcs-tab>
+                    <wcs-tab header="Two">Le deuxième <em>contenu</em></wcs-tab>
+                    <wcs-tab header="Three"><div style="border: solid 4px red;">Le troisème</div></wcs-tab>
+                    <wcs-tab header="Titre onglet">Contenu onglet</wcs-tab>
+                </wcs-tabs>
+            </wcs-card>
             <h2><a id="select"></a> Select</h2>
             <wcs-card>
                 <wcs-card-body>

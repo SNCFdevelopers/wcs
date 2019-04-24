@@ -16,7 +16,7 @@ export class Checkbox implements ComponentInterface {
 
     @Prop() value: any;
 
-    @Prop({reflectToAttr: true, mutable: true}) indeterminate: false;
+    @Prop({ reflectToAttr: true, mutable: true }) indeterminate: false;
 
     /**
      * If `true`, the checkbox is selected.
@@ -40,10 +40,11 @@ export class Checkbox implements ComponentInterface {
     render() {
         return (
             <label htmlFor={this.name} class="container">
-                <input onChange={(evt) => this.handleChange(evt)} checked={this.checked} class="wcs-checkbox" type="checkbox" name={this.name} id={this.name}></input>
+                <input onChange={(evt) => this.handleChange(evt)} checked={this.checked} class="wcs-checkbox"
+                       type="checkbox" name={this.name} id={this.name}></input>
                 <span class={'checkmark ' + (this.indeterminate ? 'indeterminate' : '')}></span>
                 <span class="text">
-                    <slot />
+                    <slot/>
                 </span>
             </label>
         );
