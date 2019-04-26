@@ -272,11 +272,20 @@ export namespace Components {
 
   interface WcsTab {
     /**
+    * The header you want to be displayed for this tab.
+    */
+    'header': string;
+    /**
     * This property should not be used, it is only meant for internal use.
     */
     'slot': string;
   }
-  interface WcsTabAttributes extends StencilHTMLAttributes {}
+  interface WcsTabAttributes extends StencilHTMLAttributes {
+    /**
+    * The header you want to be displayed for this tab.
+    */
+    'header'?: string;
+  }
 
   interface WcsTabs {
     'align': WcsTabsAlignment;
