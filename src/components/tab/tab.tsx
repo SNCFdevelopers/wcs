@@ -9,6 +9,12 @@ import { Component, Event, Prop, ComponentDidLoad, EventEmitter } from '@stencil
 })
 export class Tab implements ComponentDidLoad {
     /**
+     * The header you want to be displayed for this tab.
+     */
+    @Prop({ reflectToAttr: true, mutable: true })
+    header: string;
+
+    /**
      * This property should not be used,
      * it is only meant for internal use.
      * @internal

@@ -10,6 +10,8 @@ import { SelectChangeEventDetail } from '../../../../dist/types/interface';
 export class AppComponent {
   title = 'angular-example';
   value = 50;
+  headers = ['One', 'Two', 'Three'];
+
   changeValues() {
     this.value = Math.floor(Math.random() * 100);
   }
