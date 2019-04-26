@@ -5,6 +5,10 @@ import { ComponentDidLoad, EventEmitter } from '../../stencil.core';
  */
 export declare class Tab implements ComponentDidLoad {
     /**
+     * The header you want to be displayed for this tab.
+     */
+    header: string;
+    /**
      * This property should not be used,
      * it is only meant for internal use.
      * @internal

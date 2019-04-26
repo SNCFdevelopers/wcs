@@ -13,6 +13,12 @@ class Tab {
     static get is() { return "wcs-tab"; }
     static get encapsulation() { return "shadow"; }
     static get properties() { return {
+        "header": {
+            "type": String,
+            "attr": "header",
+            "reflectToAttr": true,
+            "mutable": true
+        },
         "slot": {
             "type": String,
             "attr": "slot",
