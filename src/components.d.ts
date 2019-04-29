@@ -144,6 +144,17 @@ export namespace Components {
     'size'?: 'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px';
   }
 
+  interface WcsInput {
+    'background': 'normal' | 'white';
+    'name': any;
+    'value': any;
+  }
+  interface WcsInputAttributes extends StencilHTMLAttributes {
+    'background'?: 'normal' | 'white';
+    'name'?: any;
+    'value'?: any;
+  }
+
   interface WcsProgressBar {
     /**
     * Whether it displays a label indicating the percentage of progress above the bar.
@@ -317,6 +328,7 @@ declare global {
     'WcsCheckbox': Components.WcsCheckbox;
     'WcsHeader': Components.WcsHeader;
     'WcsIcon': Components.WcsIcon;
+    'WcsInput': Components.WcsInput;
     'WcsProgressBar': Components.WcsProgressBar;
     'WcsProgressRadial': Components.WcsProgressRadial;
     'WcsSelectOption': Components.WcsSelectOption;
@@ -335,6 +347,7 @@ declare global {
     'wcs-checkbox': Components.WcsCheckboxAttributes;
     'wcs-header': Components.WcsHeaderAttributes;
     'wcs-icon': Components.WcsIconAttributes;
+    'wcs-input': Components.WcsInputAttributes;
     'wcs-progress-bar': Components.WcsProgressBarAttributes;
     'wcs-progress-radial': Components.WcsProgressRadialAttributes;
     'wcs-select-option': Components.WcsSelectOptionAttributes;
@@ -393,6 +406,12 @@ declare global {
     new (): HTMLWcsIconElement;
   };
 
+  interface HTMLWcsInputElement extends Components.WcsInput, HTMLStencilElement {}
+  var HTMLWcsInputElement: {
+    prototype: HTMLWcsInputElement;
+    new (): HTMLWcsInputElement;
+  };
+
   interface HTMLWcsProgressBarElement extends Components.WcsProgressBar, HTMLStencilElement {}
   var HTMLWcsProgressBarElement: {
     prototype: HTMLWcsProgressBarElement;
@@ -444,6 +463,7 @@ declare global {
     'wcs-checkbox': HTMLWcsCheckboxElement
     'wcs-header': HTMLWcsHeaderElement
     'wcs-icon': HTMLWcsIconElement
+    'wcs-input': HTMLWcsInputElement
     'wcs-progress-bar': HTMLWcsProgressBarElement
     'wcs-progress-radial': HTMLWcsProgressRadialElement
     'wcs-select-option': HTMLWcsSelectOptionElement
@@ -462,6 +482,7 @@ declare global {
     'wcs-checkbox': HTMLWcsCheckboxElement;
     'wcs-header': HTMLWcsHeaderElement;
     'wcs-icon': HTMLWcsIconElement;
+    'wcs-input': HTMLWcsInputElement;
     'wcs-progress-bar': HTMLWcsProgressBarElement;
     'wcs-progress-radial': HTMLWcsProgressRadialElement;
     'wcs-select-option': HTMLWcsSelectOptionElement;
