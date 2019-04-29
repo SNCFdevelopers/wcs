@@ -1,7 +1,7 @@
 import { Component, Element, State, Prop, Event, EventEmitter, Listen, ComponentInterface } from '@stencil/core';
 
 import { SelectChangeEventDetail } from './select-interface';
-import MDCRipple from '@material/ripple';
+import * as MDCRipple from '@material/ripple';
 import { SelectArrow } from './select-arrow';
 import { SelectOptionChosedEvent } from '../select-option/select-option-interface';
 
@@ -125,7 +125,7 @@ export class Select implements ComponentInterface {
     private addRippleEffect() {
         // XXX: Unwrapped dependency over MDCRipple...
         const ripple = new MDCRipple.MDCRipple(this.contentEl);
-        ripple.unbound = true;
+        ripple.unbounded = true;
     }
 
     @Listen('window:click')

@@ -1,6 +1,6 @@
 import { Component, ComponentInterface, Element, Prop, Listen } from '@stencil/core';
 
-import MDCRipple from '@material/ripple';
+import * as MDCRipple from '@material/ripple';
 
 import { ButtonType } from './button-interface';
 import { Color, CssClassMap } from '../../interface';
@@ -117,6 +117,6 @@ export class Button implements ComponentInterface {
 
     private addRippleEffect() {
         const ripple = new MDCRipple.MDCRipple(this.element.shadowRoot.querySelector('.wcs-inner-button'));
-        ripple.unbound = true;
+        ripple.unbounded = true;
     }
 }
