@@ -8,8 +8,13 @@ input {
     color: $primary;
     background-color: $light;
     background-clip: padding-box;
-    border: 0 solid $text-medium;
+    border: 1px solid $light;
     border-radius: 0.4375rem;
+}
+
+input:focus{
+    outline:0;
+    border: solid 1px $primary;
 }
 
 .white {
