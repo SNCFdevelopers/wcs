@@ -1,8 +1,8 @@
 @import '../../style/wcs.colors.scss';
-@import '@material/elevation/mdc-elevation';
+@import '../../style/wcs.elevation.scss';
 
 header {
-    @include mdc-elevation(4);
+    @include wcs-elevation(4);
     display: flex;
     align-items: center;
     background: $gray;
