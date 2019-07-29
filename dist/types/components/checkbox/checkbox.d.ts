@@ -1,4 +1,3 @@
-import '../../stencil.core';
 import { EventEmitter, ComponentInterface } from '../../stencil.core';
 import { CheckboxChangeEventDetail } from './checkbox-interface';
 export declare class Checkbox implements ComponentInterface {
@@ -16,5 +15,5 @@ export declare class Checkbox implements ComponentInterface {
      */
     wcsChange: EventEmitter<CheckboxChangeEventDetail>;
     handleChange(event: any): void;
-    render(): JSX.Element;
+    render(): any;
 }

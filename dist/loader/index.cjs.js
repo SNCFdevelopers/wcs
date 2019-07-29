@@ -1,1 +1,0 @@
-module.exports = require('../cjs/es5/wcs.define.js');

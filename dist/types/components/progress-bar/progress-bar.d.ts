@@ -1,4 +1,3 @@
-import '../../stencil.core';
 import { ComponentInterface } from '../../stencil.core';
 /**
  * Component displaying progress as a bar.
@@ -17,6 +16,6 @@ export declare class ProgressBar implements ComponentInterface {
      * Ranging from 0 to 100.
      */
     value: number;
-    render(): JSX.Element;
+    render(): any;
     rootClasses(): string;
 }

@@ -1,4 +1,3 @@
-import '../../stencil.core';
 import { ComponentInterface } from '../../stencil.core';
 import { ButtonType } from './button-interface';
 import { Color } from '../../interface';
@@ -34,9 +33,8 @@ export declare class Button implements ComponentInterface {
      * Setting this attribute will change the height and padding of a button.
      */
     mode: 'normal' | 'small' | 'block' | 'icon-only' | 'round';
-    element: HTMLElement;
     onClick(ev: Event): void;
-    render(): JSX.Element;
+    render(): any;
     private generateClasses;
     private createColorClasses;
     componentDidLoad(): void;

@@ -1,4 +1,4 @@
-import { Component, Prop, ComponentInterface } from '@stencil/core';
+import { Component, Prop, ComponentInterface, h } from '@stencil/core';
 
 @Component({
     tag: 'wcs-progress-radial',
@@ -34,8 +34,8 @@ export class ProgressRadial implements ComponentInterface {
 
     getSvgStyle() {
         return {
-            'stroke-dasharray': 339.292,
-            'stroke-dashoffset': 339.292 - (this.value / 100) * 339.292
+            'stroke-dasharray': '339.292',
+            'stroke-dashoffset': `${339.292 - (this.value / 100) * 339.292}`
         };
     }
 }

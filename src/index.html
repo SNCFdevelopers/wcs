@@ -5,184 +5,202 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
     <title>Web Component SNCF</title>
-    <script src="/build/wcs.js"></script>
+    <script type="module" src="/build/wcs.esm.js"></script>
+    <script nomodule src="/build/wcs.js"></script>
     <link rel="stylesheet" href="/build/wcs.css">
 </head>
 
 <body>
-    <style>
-       body {
-           margin: 0;
-           overflow-y: hidden;
-       }
-        wcs-card {
-            margin-bottom: 16px;
-        }
+<style>
+    body {
+        margin: 0;
+        overflow-y: hidden;
+    }
 
-        wcs-card-body>h3:first-child {
-            margin-top: 0;
-        }
+    wcs-card {
+        margin-bottom: 16px;
+    }
 
-    </style>
-    <wcs-app>
-        <wcs-header>
-            <img src="./assets/sncf-logo.png" alt="Logo SNCF" slot="logo">
-            <h1 slot="title">Web Component SNCF</h1>
-        </wcs-header>
-        <wcs-sidebar>
-            <a slot="link" href="#tab">Tab</a>
-            <a slot="link" href="#select">Select</a>
-            <a slot="link" href="#checkbox">Checkbox</a>
-            <a slot="link" href="#card">Card</a>
-            <a slot="link" href="#button">Button</a>
-            <a slot="link" href="#badge">Badge</a>
-            <a slot="link" href="#icon">Icon</a>
-            <a slot="link" href="#progress"></a>
-        </wcs-sidebar>
-        <main slot="content">
-            <h2><a id="tab"></a> Tab</h2>
-            <wcs-card>
-                <wcs-tabs>
-                    <wcs-tab header="One">Le contenu de la première</wcs-tab>
-                    <wcs-tab header="Two">Le deuxième <em>contenu</em></wcs-tab>
-                    <wcs-tab header="Three"><div style="border: solid 4px red;">Le troisème</div></wcs-tab>
-                    <wcs-tab header="Titre onglet">Contenu onglet</wcs-tab>
-                </wcs-tabs>
-            </wcs-card>
-            <h2><a id="select"></a> Select</h2>
-            <wcs-card>
-                <wcs-card-body>
-                    <h3>Basic</h3>
-                    <!--
-                    For test purposes.
-                    <select name="lol" id="1">
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                        <option value="Much">This is much</option>
-                    </select>
-                -->
-                    <form>
-                        <wcs-select placeholder="Le select">
-                            <wcs-select-option value="1">One</wcs-select-option>
-                            <wcs-select-option value="2">Two</wcs-select-option>
-                            <wcs-select-option value="3">Three</wcs-select-option>
-                        </wcs-select>
-                    </form>
-                    <h3>With disabled option</h3>
-                    <form>
-                        <wcs-select placeholder="Le select">
-                            <wcs-select-option value="1" disabled="true">One</wcs-select-option>
-                            <wcs-select-option value="2">Two</wcs-select-option>
-                            <wcs-select-option value="3">Three</wcs-select-option>
-                        </wcs-select>
-                    </form>
-                    <h3>Disabled</h3>
-                    <form>
-                        <wcs-select placeholder="Le select" disabled>
-                            <wcs-select-option value="1">One</wcs-select-option>
-                            <wcs-select-option value="2">Two</wcs-select-option>
-                            <wcs-select-option value="3">Three</wcs-select-option>
-                        </wcs-select>
-                    </form>
-                </wcs-card-body>
-            </wcs-card>
-            <h2><a id="checkbox"></a>Chekbox</h2>
-            <wcs-card>
-                <wcs-card-body>
-                    <h3>Normal chekbox</h3>
-                    <wcs-checkbox>Normal checkbox</wcs-checkbox><br />
-                    <wcs-checkbox checked="true">Default checked checkbox</wcs-checkbox><br />
-                    <wcs-checkbox>Checkbox</wcs-checkbox><br />
-                    <wcs-checkbox indeterminate="true">Checkbox indeterminate</wcs-checkbox><br />
-                </wcs-card-body>
-            </wcs-card>
-            <h2><a id="card"></a>Card</h2>
-            <wcs-card>
-                <wcs-card-body>
-                    <h3>Cardception</h3>
-                    <wcs-card>
-                        <wcs-card-body>
-                            A card in a card.
-                        </wcs-card-body>
-                    </wcs-card>
-                </wcs-card-body>
-            </wcs-card>
+    wcs-card-body > h3:first-child {
+        margin-top: 0;
+    }
 
-            <h2><a id="button"></a>Buttons</h2>
+</style>
+<wcs-app>
+    <wcs-header>
+        <img src="./assets/sncf-logo.png" alt="Logo SNCF" slot="logo">
+        <h1 slot="title">Web Component SNCF</h1>
+    </wcs-header>
+    <wcs-sidebar>
+        <a slot="link" href="#input">Input</a>
+        <a slot="link" href="#tab">Tab</a>
+        <a slot="link" href="#select">Select</a>
+        <a slot="link" href="#checkbox">Checkbox</a>
+        <a slot="link" href="#card">Card</a>
+        <a slot="link" href="#button">Button</a>
+        <a slot="link" href="#badge">Badge</a>
+        <a slot="link" href="#icon">Icon</a>
+        <a slot="link" href="#progress"></a>
+    </wcs-sidebar>
+    <main slot="content">
+        <h2><a id="input"></a>Input</h2>
+        <wcs-card>
+            <wcs-card-body>
+                <p>Démonstration dans une carte</p>
+                <wcs-input></wcs-input>
+            </wcs-card-body>
+        </wcs-card>
+        <p>Démonstration en dehors d'une carte (non supporté par le design system)</p>
+        <wcs-input background="white"></wcs-input>
+        <h2><a id="tab"></a> Tab</h2>
+        <wcs-card>
+            <wcs-tabs>
+                <wcs-tab header="One">Le contenu de la première</wcs-tab>
+                <wcs-tab header="Two">Le deuxième <em>contenu</em></wcs-tab>
+                <wcs-tab header="Three">
+                    <div style="border: solid 4px red;">Le troisème</div>
+                </wcs-tab>
+                <wcs-tab header="Titre onglet">Contenu onglet</wcs-tab>
+            </wcs-tabs>
+        </wcs-card>
+        <h2><a id="select"></a> Select</h2>
+        <wcs-card>
+            <wcs-card-body>
+                <h3>Basic</h3>
+                <!--
+                For test purposes.
+                <select name="lol" id="1">
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                    <option value="Much">This is much</option>
+                </select>
+            -->
+                <form>
+                    <wcs-select placeholder="Le select">
+                        <wcs-select-option value="1">One</wcs-select-option>
+                        <wcs-select-option value="2">Two</wcs-select-option>
+                        <wcs-select-option value="3">Three</wcs-select-option>
+                    </wcs-select>
+                </form>
+                <h3>With disabled option</h3>
+                <form>
+                    <wcs-select placeholder="Le select">
+                        <wcs-select-option value="1" disabled="true">One</wcs-select-option>
+                        <wcs-select-option value="2">Two</wcs-select-option>
+                        <wcs-select-option value="3">Three</wcs-select-option>
+                    </wcs-select>
+                </form>
+                <h3>Disabled</h3>
+                <form>
+                    <wcs-select placeholder="Le select" disabled>
+                        <wcs-select-option value="1">One</wcs-select-option>
+                        <wcs-select-option value="2">Two</wcs-select-option>
+                        <wcs-select-option value="3">Three</wcs-select-option>
+                    </wcs-select>
+                </form>
+            </wcs-card-body>
+        </wcs-card>
+        <h2><a id="checkbox"></a>Chekbox</h2>
+        <wcs-card>
+            <wcs-card-body>
+                <h3>Normal chekbox</h3>
+                <wcs-checkbox>Normal checkbox</wcs-checkbox>
+                <br/>
+                <wcs-checkbox checked="true">Default checked checkbox</wcs-checkbox>
+                <br/>
+                <wcs-checkbox>Checkbox</wcs-checkbox>
+                <br/>
+                <wcs-checkbox indeterminate="true">Checkbox indeterminate</wcs-checkbox>
+                <br/>
+            </wcs-card-body>
+        </wcs-card>
+        <h2><a id="card"></a>Card</h2>
+        <wcs-card>
+            <wcs-card-body>
+                <h3>Cardception</h3>
+                <wcs-card>
+                    <wcs-card-body>
+                        A card in a card.
+                    </wcs-card-body>
+                </wcs-card>
+            </wcs-card-body>
+        </wcs-card>
+
+        <h2><a id="button"></a>Buttons</h2>
+        <wcs-card>
+            <wcs-card-body>
+                <h3>Standard</h3>
+                <wcs-button color="primary">Primary</wcs-button>
+                <wcs-button color="secondary">Secondary</wcs-button>
+                <wcs-button color="success">Success</wcs-button>
+                <wcs-button color="warning">Warning</wcs-button>
+                <wcs-button color="danger">Danger</wcs-button>
+                <wcs-button color="info">Info</wcs-button>
+                <wcs-button color="light">Light</wcs-button>
+                <wcs-button color="dark">Dark</wcs-button>
+                <wcs-button color="white">White</wcs-button>
+                <h3>Round</h3>
+                <wcs-button color="primary" mode="round">45</wcs-button>
+                <h3>Icon only</h3>
+                <wcs-button color="primary" mode="icon-only">ico</wcs-button>
+                <h3>Link</h3>
+                <wcs-button color="primary" href="#">Un lien !</wcs-button>
+                <h3>Disabled</h3>
+                <wcs-button color="primary" disabled>Un bouton désactivé</wcs-button>
+                <h3>Misc.</h3>
+                <wcs-button href="https://www.sncf.com/" color="primary">Un bouton non désactivé</wcs-button>
+                <wcs-button href="https://www.sncf.com/" color="primary" disabled>Un bouton a désactivé</wcs-button>
+                <wcs-button color="primary" mode="small">Un bouton plus petit</wcs-button>
+                <wcs-button color="primary" mode="block">Un grand bouton</wcs-button>
+            </wcs-card-body>
+        </wcs-card>
+
+        <div>
+            <h2><a id="badge"></a>Badge</h2>
             <wcs-card>
                 <wcs-card-body>
                     <h3>Standard</h3>
-                    <wcs-button color="primary">Primary</wcs-button>
-                    <wcs-button color="secondary">Secondary</wcs-button>
-                    <wcs-button color="success">Success</wcs-button>
-                    <wcs-button color="warning">Warning</wcs-button>
-                    <wcs-button color="danger">Danger</wcs-button>
-                    <wcs-button color="info">Info</wcs-button>
-                    <wcs-button color="light">Light</wcs-button>
-                    <wcs-button color="dark">Dark</wcs-button>
-                    <wcs-button color="white">White</wcs-button>
-                    <h3>Round</h3>
-                    <wcs-button color="primary" mode="round">45</wcs-button>
-                    <h3>Icon only</h3>
-                    <wcs-button color="primary" mode="icon-only">ico</wcs-button>
-                    <h3>Link</h3>
-                    <wcs-button color="primary" href="#">Un lien !</wcs-button>
-                    <h3>Disabled</h3>
-                    <wcs-button color="primary" disabled>Un bouton désactivé</wcs-button>
-                    <h3>Misc.</h3>
-                    <wcs-button href="https://www.sncf.com/" color="primary">Un bouton non désactivé</wcs-button>
-                    <wcs-button href="https://www.sncf.com/" color="primary" disabled>Un bouton a désactivé</wcs-button>
-                    <wcs-button color="primary" mode="small">Un bouton plus petit</wcs-button>
-                    <wcs-button color="primary" mode="block">Un grand bouton</wcs-button>
+                    <wcs-badge color="primary">Primary</wcs-badge>
+                    <wcs-badge color="secondary">Secondary</wcs-badge>
+                    <wcs-badge color="success">Success</wcs-badge>
+                    <wcs-badge color="danger">Danger</wcs-badge>
+                    <wcs-badge color="warning">Warning</wcs-badge>
+                    <wcs-badge color="info">Info</wcs-badge>
+                    <wcs-badge color="light">Light</wcs-badge>
+                    <wcs-badge color="dark">Dark</wcs-badge>
                 </wcs-card-body>
             </wcs-card>
+        </div>
 
-            <div>
-                <h2><a id="badge"></a>Badge</h2>
-                <wcs-card>
-                    <wcs-card-body>
-                        <h3>Standard</h3>
-                        <wcs-badge color="primary">Primary</wcs-badge>
-                        <wcs-badge color="secondary">Secondary</wcs-badge>
-                        <wcs-badge color="success">Success</wcs-badge>
-                        <wcs-badge color="danger">Danger</wcs-badge>
-                        <wcs-badge color="warning">Warning</wcs-badge>
-                        <wcs-badge color="info">Info</wcs-badge>
-                        <wcs-badge color="light">Light</wcs-badge>
-                        <wcs-badge color="dark">Dark</wcs-badge>
-                    </wcs-card-body>
-                </wcs-card>
-            </div>
+        <div>
+            <h2><a id="icon"></a>Icon</h2>
+            <wcs-card>
+                <wcs-card-body>
+                    <wcs-icon icon="checked" size="2x"></wcs-icon>
+                </wcs-card-body>
+            </wcs-card>
+        </div>
 
-            <div>
-                <h2><a id="icon"></a>Icon</h2>
-                <wcs-card>
-                    <wcs-card-body>
-                        <wcs-icon icon="checked" size="2x"></wcs-icon>
-                    </wcs-card-body>
-                </wcs-card>
-            </div>
-
-            <div>
-                <h2><a id="progress"></a>Progress</h2>
-                <wcs-card>
-                    <wcs-card-body>
-                        <h3>Bar</h3>
-                        <wcs-progress-bar value="50"></wcs-progress-bar>
-                        <h3>Bar with label</h3>
-                        <wcs-progress-bar value="50" show-label="true"></wcs-progress-bar>
-                        <h3>Small bar</h3>
-                        <wcs-progress-bar value="20" small></wcs-progress-bar>
-                        <h3>Radial</h3>
-                        <wcs-progress-radial value="20"></wcs-progress-radial>
-                        <h3>Radial with label</h3>
-                        <wcs-progress-radial value="20" show-label></wcs-progress-radial>
-                    </wcs-card-body>
-                </wcs-card>
-            </div>
-        </main>
-    </wcs-app>
+        <div>
+            <h2><a id="progress"></a>Progress</h2>
+            <wcs-card>
+                <wcs-card-body>
+                    <h3>Bar</h3>
+                    <wcs-progress-bar value="50"></wcs-progress-bar>
+                    <h3>Bar with label</h3>
+                    <wcs-progress-bar value="50" show-label="true"></wcs-progress-bar>
+                    <h3>Small bar</h3>
+                    <wcs-progress-bar value="20" small></wcs-progress-bar>
+                    <h3>Radial</h3>
+                    <wcs-progress-radial value="20"></wcs-progress-radial>
+                    <h3>Radial with label</h3>
+                    <wcs-progress-radial value="20" show-label></wcs-progress-radial>
+                </wcs-card-body>
+            </wcs-card>
+        </div>
+    </main>
+</wcs-app>
 </body>
 
 </html>

@@ -1,98 +1,130 @@
 .wcs-background-primary {
-  background-color: #0088ce; }
+  background-color: #0088ce;
+}
 
 .wcs-color-primary {
-  color: #fff; }
+  color: #fff;
+}
 
 .wcs-background-primary-hover {
-  background-color: #0088ce; }
-  .wcs-background-primary-hover:hover {
-    background-color: #00a1f4;
-    border-color: #02a9ff; }
+  background-color: #0088ce;
+}
+.wcs-background-primary-hover:hover {
+  background-color: #00a1f4;
+  border-color: #02a9ff;
+}
 
 .wcs-background-secondary {
-  background-color: #4d4f53; }
+  background-color: #4d4f53;
+}
 
 .wcs-color-secondary {
-  color: #fff; }
+  color: #fff;
+}
 
 .wcs-background-secondary-hover {
-  background-color: #4d4f53; }
-  .wcs-background-secondary-hover:hover {
-    background-color: #5f6267;
-    border-color: #66686d; }
+  background-color: #4d4f53;
+}
+.wcs-background-secondary-hover:hover {
+  background-color: #5f6267;
+  border-color: #66686d;
+}
 
 .wcs-background-success {
-  background-color: #82be00; }
+  background-color: #82be00;
+}
 
 .wcs-color-success {
-  color: #212529; }
+  color: #212529;
+}
 
 .wcs-background-success-hover {
-  background-color: #82be00; }
-  .wcs-background-success-hover:hover {
-    background-color: #9ce400;
-    border-color: #a5f100; }
+  background-color: #82be00;
+}
+.wcs-background-success-hover:hover {
+  background-color: #9ce400;
+  border-color: #a5f100;
+}
 
 .wcs-background-info {
-  background-color: #009aa6; }
+  background-color: #009aa6;
+}
 
 .wcs-color-info {
-  color: #fff; }
+  color: #fff;
+}
 
 .wcs-background-info-hover {
-  background-color: #009aa6; }
-  .wcs-background-info-hover:hover {
-    background-color: #00bdcc;
-    border-color: #00c9d9; }
+  background-color: #009aa6;
+}
+.wcs-background-info-hover:hover {
+  background-color: #00bdcc;
+  border-color: #00c9d9;
+}
 
 .wcs-background-danger {
-  background-color: #cd0037; }
+  background-color: #cd0037;
+}
 
 .wcs-color-danger {
-  color: #fff; }
+  color: #fff;
+}
 
 .wcs-background-danger-hover {
-  background-color: #cd0037; }
-  .wcs-background-danger-hover:hover {
-    background-color: #f30041;
-    border-color: #ff0145; }
+  background-color: #cd0037;
+}
+.wcs-background-danger-hover:hover {
+  background-color: #f30041;
+  border-color: #ff0145;
+}
 
 .wcs-background-warning {
-  background-color: #ffb612; }
+  background-color: #ffb612;
+}
 
 .wcs-color-warning {
-  color: #212529; }
+  color: #212529;
+}
 
 .wcs-background-warning-hover {
-  background-color: #ffb612; }
-  .wcs-background-warning-hover:hover {
-    background-color: #ffc238;
-    border-color: #ffc645; }
+  background-color: #ffb612;
+}
+.wcs-background-warning-hover:hover {
+  background-color: #ffc238;
+  border-color: #ffc645;
+}
 
 .wcs-background-light {
-  background-color: #f2f2f2; }
+  background-color: #f2f2f2;
+}
 
 .wcs-color-light {
-  color: #212529; }
+  color: #212529;
+}
 
 .wcs-background-light-hover {
-  background-color: #f2f2f2; }
-  .wcs-background-light-hover:hover {
-    background-color: white;
-    border-color: white; }
+  background-color: #f2f2f2;
+}
+.wcs-background-light-hover:hover {
+  background-color: white;
+  border-color: white;
+}
 
 .wcs-background-dark {
-  background-color: #343a40; }
+  background-color: #343a40;
+}
 
 .wcs-color-dark {
-  color: #fff; }
+  color: #fff;
+}
 
 .wcs-background-dark-hover {
-  background-color: #343a40; }
-  .wcs-background-dark-hover:hover {
-    background-color: #454d55;
-    border-color: #4b545c; }
+  background-color: #343a40;
+}
+.wcs-background-dark-hover:hover {
+  background-color: #454d55;
+  border-color: #4b545c;
+}
 
 /* Customize the label (the container) */
 .container {
@@ -102,7 +134,8 @@
   cursor: pointer;
   font-size: 1rem;
   user-select: none;
-  font-weight: 500; }
+  font-weight: 500;
+}
 
 /* Hide the browser's default checkbox */
 .container input {
@@ -110,24 +143,28 @@
   opacity: 0;
   cursor: pointer;
   height: 0;
-  width: 0; }
+  width: 0;
+}
 
 .container:hover .checkmark {
-  border-color: #0088ce; }
-
+  border-color: #0088ce;
+}
 .container:hover .text {
-  color: #0088ce; }
+  color: #0088ce;
+}
 
 /* Create a custom checkbox */
 .checkmark {
   width: 1.125rem;
   height: 1.125rem;
   border: 2px solid #b9b9b9;
-  border-radius: 3px; }
+  border-radius: 3px;
+}
 
 .indeterminate {
   background: #0088ce;
-  border-color: #0088ce; }
+  border-color: #0088ce;
+}
 
 /* .indeterminate:after {
     background: $white;
@@ -138,17 +175,20 @@
 /* When the checkbox is checked, add a blue background */
 .container input:checked ~ .checkmark {
   background-color: #0088ce;
-  border-color: #0088ce; }
+  border-color: #0088ce;
+}
 
 /* Create the checkmark/indicator (hidden when not checked) */
 .checkmark:after {
   content: "";
   position: absolute;
-  display: none; }
+  display: none;
+}
 
 /* Show the checkmark when checked */
 .container input:checked ~ .checkmark:after {
-  display: block; }
+  display: block;
+}
 
 /* Style the checkmark/indicator */
 .container .checkmark:after {
@@ -160,13 +200,16 @@
   border-width: 0 3px 3px 0;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
-  transform: rotate(45deg); }
+  transform: rotate(45deg);
+}
 
 .container input:checked ~ .text {
-  color: #0088ce; }
+  color: #0088ce;
+}
 
 .text {
   color: #747678;
   margin-left: 6px;
   font-weight: 500;
-  line-height: 1.375; }
+  line-height: 1.375;
+}

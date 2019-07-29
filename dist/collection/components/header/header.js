@@ -1,3 +1,4 @@
+import { h } from "@stencil/core";
 export class Header {
     hostData() {
         return {
@@ -11,5 +12,10 @@ export class Header {
     }
     static get is() { return "wcs-header"; }
     static get encapsulation() { return "shadow"; }
-    static get style() { return "/**style-placeholder:wcs-header:**/"; }
+    static get originalStyleUrls() { return {
+        "$": ["header.scss"]
+    }; }
+    static get styleUrls() { return {
+        "$": ["header.css"]
+    }; }
 }

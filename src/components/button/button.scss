@@ -1,7 +1,8 @@
 @import '../../style/wcs.colors.scss';
+@import '../../style/wcs.elevation.scss';
 
+// TODO: get rid of this.
 @import '@material/ripple/mdc-ripple';
-@import '@material/elevation/mdc-elevation';
 
 .wcs-inner-button {
   @include mdc-ripple-surface;
@@ -24,7 +25,6 @@
   outline: 0;
   text-transform: none;
   margin: 0;
-  font-family: inherit;
   cursor: pointer;
   display: inline-block;
   font-weight: 500;
@@ -38,16 +38,16 @@
   line-height: 1.5;
   border-radius: var(--wcs-border-radius);
 
-  transition: color 0.28s ease-in-out,
-  background-color 0.28s ease-in-out,
-  mdc-elevation-transition-value();
+  transition: color 175ms ease-in-out,
+    background-color 175ms ease-in-out,
+   wcs-elevation-transition();
 
   &:focus {
-    @include mdc-elevation(1);
+    @include wcs-elevation(1);
   }
 
   &:hover {
-    @include mdc-elevation(2);
+    @include wcs-elevation(2);
   }
 
   &.wcs-inner-button-small {

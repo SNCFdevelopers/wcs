@@ -1,4 +1,3 @@
-import '../../stencil.core';
 import { ComponentInterface, EventEmitter } from '../../stencil.core';
 import { WcsTabsAlignment, WcsTabsChangeEvent } from './tabs-interface';
 /**
@@ -45,5 +44,5 @@ export declare class Tabs implements ComponentInterface {
     selectTab(index: number): void;
     getHeaderAlignClass(): "start" | "center" | "end";
     componentWillUpdate(): void;
-    render(): JSX.Element[];
+    render(): any[];
 }

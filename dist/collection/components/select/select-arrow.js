@@ -1,3 +1,4 @@
+import { h } from "@stencil/core";
 export const SelectArrow = ({ up }) => (h("svg", { style: { marginLeft: 'auto' }, xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24", viewBox: "0 0 24 24" },
     h("style", { type: "text/css" }, `
             .arrow-group {

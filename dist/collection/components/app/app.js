@@ -1,3 +1,4 @@
+import { h } from "@stencil/core";
 export class App {
     componentDidLoad() {
         const contentSlot = this.el.shadowRoot.querySelector('slot[name="content"]');
@@ -15,10 +16,11 @@ export class App {
     }
     static get is() { return "wcs-app"; }
     static get encapsulation() { return "shadow"; }
-    static get properties() { return {
-        "el": {
-            "elementRef": true
-        }
+    static get originalStyleUrls() { return {
+        "$": ["app.scss"]
     }; }
-    static get style() { return "/**style-placeholder:wcs-app:**/"; }
+    static get styleUrls() { return {
+        "$": ["app.css"]
+    }; }
+    static get elementRef() { return "el"; }
 }

@@ -1,4 +1,3 @@
-import '../../stencil.core';
 import { EventEmitter, ComponentInterface } from '../../stencil.core';
 import { SelectChangeEventDetail } from './select-interface';
 import { SelectOptionChosedEvent } from '../select-option/select-option-interface';
@@ -57,5 +56,5 @@ export declare class Select implements ComponentInterface {
     private blur;
     private focusedAttributes;
     private setMarginTopOnNotFirstOption;
-    render(): JSX.Element;
+    render(): any;
 }

@@ -9,7 +9,7 @@ import { newE2EPage } from '@stencil/core/testing';
  */
 
 describe('select', () => {
-    it('should select value correctly', async () => {
+    xit('should select value correctly', async () => {
         // Given
         const page = await newE2EPage();
         await page.setContent(`

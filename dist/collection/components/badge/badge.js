@@ -1,5 +1,10 @@
+import { h } from "@stencil/core";
 export class Badge {
     constructor() {
+        /**
+         * Select the badge color.
+         * @default 'primary'
+         */
         this.color = 'primary';
     }
     createColorClass(color) {
@@ -18,12 +23,38 @@ export class Badge {
     }
     static get is() { return "wcs-badge"; }
     static get encapsulation() { return "shadow"; }
+    static get originalStyleUrls() { return {
+        "$": ["badge.scss"]
+    }; }
+    static get styleUrls() { return {
+        "$": ["badge.css"]
+    }; }
     static get properties() { return {
         "color": {
-            "type": String,
-            "attr": "color",
-            "mutable": true
+            "type": "string",
+            "mutable": true,
+            "complexType": {
+                "original": "Color",
+                "resolved": "string",
+                "references": {
+                    "Color": {
+                        "location": "import",
+                        "path": "../../interface"
+                    }
+                }
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [{
+                        "text": "'primary'",
+                        "name": "default"
+                    }],
+                "text": "Select the badge color."
+            },
+            "attribute": "color",
+            "reflect": false,
+            "defaultValue": "'primary'"
         }
     }; }
-    static get style() { return "/**style-placeholder:wcs-badge:**/"; }
 }

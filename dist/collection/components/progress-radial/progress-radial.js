@@ -1,3 +1,4 @@
+import { h } from "@stencil/core";
 export class ProgressRadial {
     constructor() {
         this.size = 120;
@@ -19,25 +20,72 @@ export class ProgressRadial {
     }
     getSvgStyle() {
         return {
-            'stroke-dasharray': 339.292,
-            'stroke-dashoffset': 339.292 - (this.value / 100) * 339.292
+            'stroke-dasharray': '339.292',
+            'stroke-dashoffset': `${339.292 - (this.value / 100) * 339.292}`
         };
     }
     static get is() { return "wcs-progress-radial"; }
     static get encapsulation() { return "shadow"; }
+    static get originalStyleUrls() { return {
+        "$": ["progress-radial.scss"]
+    }; }
+    static get styleUrls() { return {
+        "$": ["progress-radial.css"]
+    }; }
     static get properties() { return {
-        "showLabel": {
-            "type": Boolean,
-            "attr": "show-label"
-        },
         "size": {
-            "type": Number,
-            "attr": "size"
+            "type": "number",
+            "mutable": false,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "size",
+            "reflect": false,
+            "defaultValue": "120"
+        },
+        "showLabel": {
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "show-label",
+            "reflect": false,
+            "defaultValue": "false"
         },
         "value": {
-            "type": Number,
-            "attr": "value"
+            "type": "number",
+            "mutable": false,
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "value",
+            "reflect": false,
+            "defaultValue": "0"
         }
     }; }
-    static get style() { return "/**style-placeholder:wcs-progress-radial:**/"; }
 }

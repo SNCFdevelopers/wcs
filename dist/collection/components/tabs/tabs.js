@@ -1,6 +1,27 @@
+import { h } from "@stencil/core";
+/**
+ * ### Features:
+ * - [ ] Switch between different tabs
+ * - [ ] Default selected value
+ * - [ ] Disabled tab
+ * - [ ] Customizing tab header
+ * - [x] Header alignment, left / center / right
+ * - [ ] Animation
+ * - [ ] Disable animation
+ * - [ ] Accessibility
+ *  - LEFT_ARROW    Move focus to previous tab
+ *  - RIGHT_ARROW    Move focus to next tab
+ *  - HOME    Move focus to first tab
+ *  - END    Move focus to last tab
+ *  - SPACE or ENTER    Switch to focused tab
+ * - [ ] Customize animation
+ */
 export class Tabs {
     constructor() {
         this.align = 'start';
+        /**
+         * Current selected tab index
+         */
         this.selectedIndex = 0;
         this.headers = [];
         this.didLoad = false;
@@ -16,6 +37,13 @@ export class Tabs {
             tabIndex: this.selectedIndex
         });
     }
+    /**
+     * XXX: Temporary fix waiting for two issues to be resolved:
+     * - https://github.com/ionic-team/stencil/issues/1261
+     * - https://github.com/ionic-team/stencil/issues/1130
+     *
+     * When resolved this should just be done once in the componentDidLoad method.
+     */
     refreshHeaders() {
         if (this.didLoad) {
             this.headers = this.tabsEl.querySelector('slot')
@@ -56,36 +84,89 @@ export class Tabs {
     }
     static get is() { return "wcs-tabs"; }
     static get encapsulation() { return "shadow"; }
+    static get originalStyleUrls() { return {
+        "$": ["tabs.scss"]
+    }; }
+    static get styleUrls() { return {
+        "$": ["tabs.css"]
+    }; }
     static get properties() { return {
         "align": {
-            "type": String,
-            "attr": "align",
-            "mutable": true
-        },
-        "el": {
-            "elementRef": true
-        },
-        "headers": {
-            "state": true
+            "type": "string",
+            "mutable": true,
+            "complexType": {
+                "original": "WcsTabsAlignment",
+                "resolved": "\"center\" | \"end\" | \"start\"",
+                "references": {
+                    "WcsTabsAlignment": {
+                        "location": "import",
+                        "path": "./tabs-interface"
+                    }
+                }
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "align",
+            "reflect": false,
+            "defaultValue": "'start'"
         },
         "selectedIndex": {
-            "type": Number,
-            "attr": "selected-index",
-            "reflectToAttr": true,
+            "type": "number",
             "mutable": true,
-            "watchCallbacks": ["selectedIndexChanged"]
+            "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": "Current selected tab index"
+            },
+            "attribute": "selected-index",
+            "reflect": true,
+            "defaultValue": "0"
         }
     }; }
+    static get states() { return {
+        "headers": {}
+    }; }
     static get events() { return [{
-            "name": "wcsTabsChange",
             "method": "wcsTabsChange",
+            "name": "wcsTabsChange",
             "bubbles": true,
             "cancelable": true,
-            "composed": true
+            "composed": true,
+            "docs": {
+                "tags": [],
+                "text": "Emitted when the selected tab change"
+            },
+            "complexType": {
+                "original": "WcsTabsChangeEvent",
+                "resolved": "WcsTabsChangeEvent",
+                "references": {
+                    "WcsTabsChangeEvent": {
+                        "location": "import",
+                        "path": "./tabs-interface"
+                    }
+                }
+            }
+        }]; }
+    static get elementRef() { return "el"; }
+    static get watchers() { return [{
+            "propName": "selectedIndex",
+            "methodName": "selectedIndexChanged"
         }]; }
     static get listeners() { return [{
             "name": "wcsTabDidLoad",
-            "method": "refreshHeaders"
+            "method": "refreshHeaders",
+            "target": undefined,
+            "capture": false,
+            "passive": false
         }]; }
-    static get style() { return "/**style-placeholder:wcs-tabs:**/"; }
 }

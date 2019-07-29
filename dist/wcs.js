@@ -1,1 +1,27 @@
-!function(e,t,s,r,c,n,i,o,a,u,d,l,p,h){for(d=e.wcs=e.wcs||{},(l=t.createElement("style")).innerHTML=a+"{visibility:hidden}.hydrated{visibility:inherit}",l.setAttribute("data-styles",""),p=t.head.querySelector("meta[charset]"),t.head.insertBefore(l,p?p.nextSibling:t.head.firstChild),function(e,t,s){(e["s-apps"]=e["s-apps"]||[]).push("wcs"),s.componentOnReady||(s.componentOnReady=function(){var t=this;function s(s){if(t.nodeName.indexOf("-")>0){for(var r=e["s-apps"],c=0,n=0;n<r.length;n++)if(e[r[n]].componentOnReady){if(e[r[n]].componentOnReady(t,s))return;c++}if(c<r.length)return void(e["s-cr"]=e["s-cr"]||[]).push([t,s])}s(null)}return e.Promise?new e.Promise(s):{then:s}})}(e,0,u),c=c||d.resourcesUrl,l=(p=t.querySelectorAll("script")).length-1;l>=0&&!(h=p[l]).src&&!h.hasAttribute("data-resources-url");l--);p=h.getAttribute("data-resources-url"),!c&&p&&(c=p),!c&&h.src&&(c=(p=h.src.split("/").slice(0,-1)).join("/")+(p.length?"/":"")+"wcs/"),l=t.createElement("script"),function(e,t,s,r){return!(t.search.indexOf("core=esm")>0)&&(!(!(t.search.indexOf("core=es5")>0||"file:"===t.protocol)&&e.customElements&&e.customElements.define&&e.fetch&&e.CSS&&e.CSS.supports&&e.CSS.supports("color","var(--c)")&&"noModule"in s)||function(e){try{return new Function('import("")'),!1}catch(e){}return!0}())}(e,e.location,l)?l.src=c+"wcs.jhqn4izh.js":(l.src=c+"wcs.rcpjbold.js",l.setAttribute("type","module"),l.setAttribute("crossorigin",!0)),l.setAttribute("data-resources-url",c),l.setAttribute("data-namespace","wcs"),t.head.appendChild(l)}(window,document,0,0,0,0,0,0,"wcs-app,wcs-badge,wcs-button,wcs-card,wcs-card-body,wcs-checkbox,wcs-header,wcs-icon,wcs-progress-bar,wcs-progress-radial,wcs-select,wcs-select-option,wcs-sidebar,wcs-tab,wcs-tabs",HTMLElement.prototype);
+
+(function(doc){
+  var scriptElm = doc.scripts[doc.scripts.length - 1];
+  var warn = ['[wcs] Deprecated script, please remove: ' + scriptElm.outerHTML];
+
+  warn.push('To improve performance it is recommended to set the differential scripts in the head as follows:')
+
+  var parts = scriptElm.src.split('/');
+  parts.pop();
+  parts.push('wcs');
+  var url = parts.join('/');
+
+  var scriptElm = doc.createElement('script');
+  scriptElm.setAttribute('type', 'module');
+  scriptElm.src = url + '/wcs.esm.js';
+  doc.head.appendChild(scriptElm);
+  warn.push(scriptElm.outerHTML);
+
+  scriptElm = doc.createElement('script');
+  scriptElm.setAttribute('nomodule', '');
+  scriptElm.src = url + '/wcs.js';
+  doc.head.appendChild(scriptElm);
+  warn.push(scriptElm.outerHTML);
+
+  console.warn(warn.join('\n'));
+
+})(document);

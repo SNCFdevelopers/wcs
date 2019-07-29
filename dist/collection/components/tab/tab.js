@@ -1,5 +1,15 @@
+import { h } from "@stencil/core";
+/**
+ *
+ */
 export class Tab {
     constructor() {
+        /**
+         * This property should not be used,
+         * it is only meant for internal use.
+         * @internal
+         * @ignore
+         */
         this.slot = 'wcs-tab';
     }
     componentDidLoad() {
@@ -12,22 +22,67 @@ export class Tab {
     static get encapsulation() { return "shadow"; }
     static get properties() { return {
         "header": {
-            "type": String,
-            "attr": "header",
-            "reflectToAttr": true,
-            "mutable": true
+            "type": "string",
+            "mutable": true,
+            "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": "The header you want to be displayed for this tab."
+            },
+            "attribute": "header",
+            "reflect": true
         },
         "slot": {
-            "type": String,
-            "attr": "slot",
-            "reflectToAttr": true
+            "type": "string",
+            "mutable": false,
+            "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [{
+                        "text": undefined,
+                        "name": "internal"
+                    }, {
+                        "text": undefined,
+                        "name": "ignore"
+                    }],
+                "text": "This property should not be used,\r\nit is only meant for internal use."
+            },
+            "attribute": "slot",
+            "reflect": true,
+            "defaultValue": "'wcs-tab'"
         }
     }; }
     static get events() { return [{
-            "name": "wcsTabDidLoad",
             "method": "wcsTabDidLoad",
+            "name": "wcsTabDidLoad",
             "bubbles": true,
             "cancelable": true,
-            "composed": true
+            "composed": true,
+            "docs": {
+                "tags": [{
+                        "text": undefined,
+                        "name": "internal"
+                    }, {
+                        "text": undefined,
+                        "name": "ignore"
+                    }],
+                "text": "XXX: Temporary fix, see tabs component"
+            },
+            "complexType": {
+                "original": "any",
+                "resolved": "any",
+                "references": {}
+            }
         }]; }
 }

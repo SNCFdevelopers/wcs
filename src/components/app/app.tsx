@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Element } from '@stencil/core';
+import { Component, ComponentInterface, Element, h } from '@stencil/core';
 
 
 @Component({
@@ -7,7 +7,7 @@ import { Component, ComponentInterface, Element } from '@stencil/core';
     shadow: true
 })
 export class App implements ComponentInterface {
-    @Element() el: HTMLWcsAppElement;
+    @Element() el!: HTMLWcsAppElement;
 
     componentDidLoad() {
         const contentSlot: HTMLSlotElement = this.el.shadowRoot.querySelector('slot[name="content"]');

@@ -1,7 +1,11 @@
+import { h } from "@stencil/core";
 export class Checkbox {
     constructor() {
         this.checkboxId = `wcs-checkbox-${checkboxIds++}`;
         this.name = this.checkboxId;
+        /**
+         * If `true`, the checkbox is selected.
+         */
         this.checked = false;
     }
     handleChange(event) {
@@ -21,37 +25,105 @@ export class Checkbox {
     }
     static get is() { return "wcs-checkbox"; }
     static get encapsulation() { return "shadow"; }
+    static get originalStyleUrls() { return {
+        "$": ["checkbox.scss"]
+    }; }
+    static get styleUrls() { return {
+        "$": ["checkbox.css"]
+    }; }
     static get properties() { return {
-        "checked": {
-            "type": Boolean,
-            "attr": "checked",
-            "mutable": true
-        },
-        "el": {
-            "elementRef": true
-        },
-        "indeterminate": {
-            "type": Boolean,
-            "attr": "indeterminate",
-            "reflectToAttr": true,
-            "mutable": true
-        },
         "name": {
-            "type": String,
-            "attr": "name"
+            "type": "string",
+            "mutable": false,
+            "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "name",
+            "reflect": false,
+            "defaultValue": "this.checkboxId"
         },
         "value": {
-            "type": "Any",
-            "attr": "value"
+            "type": "any",
+            "mutable": false,
+            "complexType": {
+                "original": "any",
+                "resolved": "any",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "value",
+            "reflect": false
+        },
+        "indeterminate": {
+            "type": "boolean",
+            "mutable": true,
+            "complexType": {
+                "original": "false",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "indeterminate",
+            "reflect": true
+        },
+        "checked": {
+            "type": "boolean",
+            "mutable": true,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": "If `true`, the checkbox is selected."
+            },
+            "attribute": "checked",
+            "reflect": false,
+            "defaultValue": "false"
         }
     }; }
     static get events() { return [{
-            "name": "wcsChange",
             "method": "wcsChange",
+            "name": "wcsChange",
             "bubbles": true,
             "cancelable": true,
-            "composed": true
+            "composed": true,
+            "docs": {
+                "tags": [],
+                "text": "Emitted when the checked property has changed."
+            },
+            "complexType": {
+                "original": "CheckboxChangeEventDetail",
+                "resolved": "CheckboxChangeEventDetail",
+                "references": {
+                    "CheckboxChangeEventDetail": {
+                        "location": "import",
+                        "path": "./checkbox-interface"
+                    }
+                }
+            }
         }]; }
-    static get style() { return "/**style-placeholder:wcs-checkbox:**/"; }
+    static get elementRef() { return "el"; }
 }
 let checkboxIds = 0;

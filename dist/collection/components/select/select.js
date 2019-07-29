@@ -1,22 +1,41 @@
-import MDCRipple from '@material/ripple';
+import { h } from "@stencil/core";
+import * as MDCRipple from '@material/ripple';
 import { SelectArrow } from './select-arrow';
+/**
+ * Select component, use in conjuction with wcs-select-option.
+ *
+ * @example ```hmtl
+ *  <wcs-select>
+ *      <wcs-select-option value="1">One</wcs-select-option>
+ *  </wcs-select>```
+ * @todo Complete keyboard navigation.
+ */
 export class Select {
     constructor() {
+        /** Wether the select is expanded */
         this.expanded = false;
+        /** Wether the component is fully loaded in the DOM. */
         this.hasLoaded = false;
+        /** If `true`, the user cannot interact with the select. */
         this.disabled = false;
+        // XXX: We use fat arrow to have a reference to the function and
+        // being able to unregister it later on.
         this.handleExpandedKeyEvents = (keyEvent) => {
             if (keyEvent.code === 'Escape') {
                 this.unExpand();
             }
             else if (keyEvent.code === 'Tab') {
                 this.unExpand();
+                // XXX: so we preserve default select behavior, that is:
+                // When expanded, pressing tab only unexpand and does not blur
                 keyEvent.preventDefault();
             }
             else if (keyEvent.code === 'ArrowDown') {
                 keyEvent.preventDefault();
+                // Select next value
             }
             else if (keyEvent.code === 'ArrowUp') {
+                // Select previous value
                 keyEvent.preventDefault();
             }
         };
@@ -31,6 +50,8 @@ export class Select {
             }
             else if (keyEvent.code === 'Space') {
                 this.expand();
+                // Focus on selected or first value.
+                // XXX: so the page doesn't scroll down.
                 keyEvent.preventDefault();
                 this.wrapperEl.removeEventListener('keydown', this.handleFocusedKeyEvents);
             }
@@ -52,6 +73,7 @@ export class Select {
         this.hasLoaded = true;
     }
     componentDidUnload() {
+        // XXX: to be sure we have no dangling listeners.
         this.window.removeEventListener('keydown', this.handleExpandedKeyEvents);
         this.wrapperEl.removeEventListener('focus', this.focus);
         this.wrapperEl.addEventListener('blur', this.blur);
@@ -70,6 +92,7 @@ export class Select {
     }
     expand() {
         this.window.addEventListener('keydown', this.handleExpandedKeyEvents);
+        // TODO: add focus on options and focus the first.
         this.expanded = true;
     }
     unExpand() {
@@ -77,8 +100,9 @@ export class Select {
         this.window.removeEventListener('keydown', this.handleExpandedKeyEvents);
     }
     addRippleEffect() {
+        // XXX: Unwrapped dependency over MDCRipple...
         const ripple = new MDCRipple.MDCRipple(this.contentEl);
-        ripple.unbound = true;
+        ripple.unbounded = true;
     }
     onWindowClickEvent(event) {
         if (this.expanded
@@ -101,7 +125,8 @@ export class Select {
         return this.displayText !== undefined;
     }
     updateStyles() {
-        const padding = 1.25;
+        // Make the options container width the same width as everything.
+        const padding = 1.25; // XXX: This doesn't use the css variable.
         const borderSize = 1;
         this.optionsEl.setAttribute('style', `width: calc(${Math.ceil(this.el.getBoundingClientRect().width)}px - ${2 * padding}rem - ${2 * borderSize}px);`);
         this.setMarginTopOnNotFirstOption();
@@ -109,6 +134,8 @@ export class Select {
     focusedAttributes() {
         return !this.disabled ? { tabIndex: 0 } : {};
     }
+    // XXX: Investigate if there is no way to do it with pure CSS.
+    // It poses problem due to slot not allowing deep styling.
     setMarginTopOnNotFirstOption() {
         this.optionsEl.querySelector('slot')
             .assignedElements()
@@ -133,69 +160,156 @@ export class Select {
     }
     static get is() { return "wcs-select"; }
     static get encapsulation() { return "shadow"; }
+    static get originalStyleUrls() { return {
+        "$": ["select.scss"]
+    }; }
+    static get styleUrls() { return {
+        "$": ["select.css"]
+    }; }
     static get properties() { return {
         "disabled": {
-            "type": Boolean,
-            "attr": "disabled"
-        },
-        "displayText": {
-            "state": true
-        },
-        "el": {
-            "elementRef": true
-        },
-        "expanded": {
-            "state": true
-        },
-        "focused": {
-            "state": true
-        },
-        "hasLoaded": {
-            "state": true
-        },
-        "name": {
-            "type": String,
-            "attr": "name"
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": "If `true`, the user cannot interact with the select."
+            },
+            "attribute": "disabled",
+            "reflect": false,
+            "defaultValue": "false"
         },
         "placeholder": {
-            "type": String,
-            "attr": "placeholder",
-            "mutable": true
+            "type": "string",
+            "mutable": true,
+            "complexType": {
+                "original": "string | null",
+                "resolved": "string",
+                "references": {}
+            },
+            "required": false,
+            "optional": true,
+            "docs": {
+                "tags": [],
+                "text": "The text to display when the select is empty."
+            },
+            "attribute": "placeholder",
+            "reflect": false
+        },
+        "name": {
+            "type": "string",
+            "mutable": false,
+            "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+            },
+            "required": false,
+            "optional": true,
+            "docs": {
+                "tags": [],
+                "text": "The name of the control, which is submitted with the form data."
+            },
+            "attribute": "name",
+            "reflect": false
         },
         "value": {
-            "type": "Any",
-            "attr": "value",
-            "mutable": true
-        },
-        "window": {
-            "context": "window"
+            "type": "any",
+            "mutable": true,
+            "complexType": {
+                "original": "any | null",
+                "resolved": "any",
+                "references": {}
+            },
+            "required": false,
+            "optional": true,
+            "docs": {
+                "tags": [],
+                "text": "The currently selected value."
+            },
+            "attribute": "value",
+            "reflect": false
         }
     }; }
-    static get events() { return [{
-            "name": "wcsChange",
-            "method": "wcsChange",
-            "bubbles": true,
-            "cancelable": true,
-            "composed": true
-        }, {
-            "name": "wcsFocus",
-            "method": "wcsFocus",
-            "bubbles": true,
-            "cancelable": true,
-            "composed": true
-        }, {
-            "name": "wcsBlur",
-            "method": "wcsBlur",
-            "bubbles": true,
-            "cancelable": true,
-            "composed": true
+    static get contextProps() { return [{
+            "name": "window",
+            "context": "window"
         }]; }
+    static get states() { return {
+        "expanded": {},
+        "hasLoaded": {},
+        "displayText": {},
+        "focused": {}
+    }; }
+    static get events() { return [{
+            "method": "wcsChange",
+            "name": "wcsChange",
+            "bubbles": true,
+            "cancelable": true,
+            "composed": true,
+            "docs": {
+                "tags": [],
+                "text": "Emitted when the value has changed."
+            },
+            "complexType": {
+                "original": "SelectChangeEventDetail",
+                "resolved": "SelectChangeEventDetail",
+                "references": {
+                    "SelectChangeEventDetail": {
+                        "location": "import",
+                        "path": "./select-interface"
+                    }
+                }
+            }
+        }, {
+            "method": "wcsFocus",
+            "name": "wcsFocus",
+            "bubbles": true,
+            "cancelable": true,
+            "composed": true,
+            "docs": {
+                "tags": [],
+                "text": "Emitted when the select has focus."
+            },
+            "complexType": {
+                "original": "void",
+                "resolved": "void",
+                "references": {}
+            }
+        }, {
+            "method": "wcsBlur",
+            "name": "wcsBlur",
+            "bubbles": true,
+            "cancelable": true,
+            "composed": true,
+            "docs": {
+                "tags": [],
+                "text": "Emitted when the select loses focus."
+            },
+            "complexType": {
+                "original": "void",
+                "resolved": "void",
+                "references": {}
+            }
+        }]; }
+    static get elementRef() { return "el"; }
     static get listeners() { return [{
-            "name": "window:click",
-            "method": "onWindowClickEvent"
+            "name": "click",
+            "method": "onWindowClickEvent",
+            "target": "window",
+            "capture": false,
+            "passive": false
         }, {
             "name": "wcsSelectOptionClick",
-            "method": "selectedOptionChanged"
+            "method": "selectedOptionChanged",
+            "target": undefined,
+            "capture": false,
+            "passive": false
         }]; }
-    static get style() { return "/**style-placeholder:wcs-select:**/"; }
 }

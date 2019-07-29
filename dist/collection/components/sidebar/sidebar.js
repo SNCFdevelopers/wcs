@@ -1,3 +1,4 @@
+import { h } from "@stencil/core";
 export class Sidebar {
     hostData() {
         return {
@@ -10,5 +11,10 @@ export class Sidebar {
     }
     static get is() { return "wcs-sidebar"; }
     static get encapsulation() { return "shadow"; }
-    static get style() { return "/**style-placeholder:wcs-sidebar:**/"; }
+    static get originalStyleUrls() { return {
+        "$": ["sidebar.scss"]
+    }; }
+    static get styleUrls() { return {
+        "$": ["sidebar.css"]
+    }; }
 }

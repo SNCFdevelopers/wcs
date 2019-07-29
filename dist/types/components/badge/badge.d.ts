@@ -1,4 +1,3 @@
-import '../../stencil.core';
 import { ComponentInterface } from '../../stencil.core';
 import { Color } from '../../interface';
 export declare class Badge implements ComponentInterface {
@@ -13,5 +12,5 @@ export declare class Badge implements ComponentInterface {
             [x: string]: boolean;
         };
     };
-    render(): JSX.Element;
+    render(): any;
 }

@@ -1,4 +1,3 @@
-import '../../stencil.core';
 import { ComponentDidLoad, EventEmitter } from '../../stencil.core';
 /**
  *
@@ -22,5 +21,5 @@ export declare class Tab implements ComponentDidLoad {
      */
     wcsTabDidLoad: EventEmitter;
     componentDidLoad(): void;
-    render(): JSX.Element;
+    render(): any;
 }

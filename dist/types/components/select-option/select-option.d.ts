@@ -1,4 +1,3 @@
-import '../../stencil.core';
 import { EventEmitter, ComponentInterface } from '../../stencil.core';
 import { SelectOptionChosedEvent } from './select-option-interface';
 /**
@@ -23,5 +22,5 @@ export declare class SelectOption implements ComponentInterface {
     componentWillLoad(): void;
     componentDidLoad(): void;
     private addClickEventListener;
-    render(): JSX.Element;
+    render(): any;
 }

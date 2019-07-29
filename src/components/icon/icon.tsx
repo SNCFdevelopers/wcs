@@ -1,4 +1,4 @@
-import { Component, Prop, ComponentInterface } from '@stencil/core';
+import { Component, Prop, ComponentInterface, h } from '@stencil/core';
 
 @Component({
     tag: 'wcs-icon'
