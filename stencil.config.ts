@@ -26,10 +26,11 @@ export const config: Config = {
     ],
     outputTargets: [
         {
-            type: 'dist'
+            type: 'dist',
+            esmLoaderPath: '../loader'
         },
         {
-            type: 'docs'
+            type: 'docs-readme'
         },
         {
             type: 'www',

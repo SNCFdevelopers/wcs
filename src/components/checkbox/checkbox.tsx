@@ -1,4 +1,4 @@
-import { Component, Prop, Event, Element, EventEmitter, ComponentInterface } from '@stencil/core';
+import { Component, Prop, Event, Element, EventEmitter, ComponentInterface, h } from '@stencil/core';
 import { CheckboxChangeEventDetail } from './checkbox-interface';
 
 

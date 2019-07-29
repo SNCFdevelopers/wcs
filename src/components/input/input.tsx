@@ -1,4 +1,4 @@
-import { Component, Element, Event, EventEmitter, Method, Prop, Watch } from '@stencil/core';
+import { Component, Element, Event, EventEmitter, Method, Prop, Watch, h } from '@stencil/core';
 import { InputChangeEventDetail, TextFieldTypes } from './input-interface';
 
 /**
@@ -182,7 +182,7 @@ export class Input {
      * `input.focus()`.
      */
     @Method()
-    setFocus() {
+    async setFocus() {
         if (this.nativeInput) {
             this.nativeInput.focus();
         }

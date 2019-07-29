@@ -1,4 +1,4 @@
-import { Component, Element, State, Prop, Event, EventEmitter, Listen, ComponentInterface } from '@stencil/core';
+import { Component, Element, State, Prop, Event, EventEmitter, Listen, ComponentInterface, h } from '@stencil/core';
 
 import { SelectChangeEventDetail } from './select-interface';
 import * as MDCRipple from '@material/ripple';
@@ -128,7 +128,7 @@ export class Select implements ComponentInterface {
         ripple.unbounded = true;
     }
 
-    @Listen('window:click')
+    @Listen('click', { target: 'window' })
     onWindowClickEvent(event: MouseEvent) {
         if (this.expanded
             && event.target !== this.el) {

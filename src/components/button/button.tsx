@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Element, Prop, Listen } from '@stencil/core';
+import { Component, ComponentInterface, Element, Prop, Listen, h } from '@stencil/core';
 
 import * as MDCRipple from '@material/ripple';
 
@@ -50,8 +50,6 @@ export class Button implements ComponentInterface {
      * Setting this attribute will change the height and padding of a button.
      */
     @Prop({ reflectToAttr: true }) mode: 'normal' | 'small' | 'block' | 'icon-only' | 'round' = 'normal';
-
-    @Element() element: HTMLElement;
 
     @Listen('click')
     onClick(ev: Event) {
@@ -116,7 +114,7 @@ export class Button implements ComponentInterface {
     }
 
     private addRippleEffect() {
-        const ripple = new MDCRipple.MDCRipple(this.element.shadowRoot.querySelector('.wcs-inner-button'));
+        const ripple = new MDCRipple.MDCRipple(this.el.shadowRoot.querySelector('.wcs-inner-button'));
         ripple.unbounded = true;
     }
 }
