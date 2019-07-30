@@ -68,9 +68,18 @@ export class Tabs implements ComponentInterface {
      */
     @Listen('wcsTabDidLoad') refreshHeaders() {
         if (this.didLoad) {
-            this.headers = this.tabsEl.querySelector('slot')
-                .assignedElements()
-                .map(x => x.getAttribute('header'));
+            const slot = this.tabsEl.querySelector('slot');
+            if (slot && slot.assignedElements) {
+                this.headers = slot.assignedElements()
+                    .map(x => x.getAttribute('header'));
+            }
+            else {
+                this.headers = [];
+                this.tabsEl.querySelectorAll('wcs-tab')
+                    .forEach(x => {
+                        this.headers.push(x.getAttribute('header'));
+                    });
+            }
         }
     }
 
@@ -90,14 +99,25 @@ export class Tabs implements ComponentInterface {
     }
 
     componentWillUpdate() {
-        this.tabsEl.querySelector('slot').assignedElements().forEach((el: HTMLWcsTabElement, idx) => {
-            if (idx !== this.selectedIndex) {
-                el.setAttribute('style', 'display: none;');
-            } else {
-                el.setAttribute('style', 'display: initial;');
-            }
+        const slot = this.tabsEl.querySelector('slot');
+        if (slot && slot.assignedElements) {
+            slot.assignedElements().forEach((el: HTMLWcsTabElement, idx) => {
+                if (idx !== this.selectedIndex) {
+                    el.setAttribute('style', 'display: none;');
+                } else {
+                    el.setAttribute('style', 'display: initial;');
+                }
+            });
         }
-        );
+        else {
+            this.tabsEl.querySelectorAll('wcs-tab').forEach((el: HTMLWcsTabElement, idx) => {
+                if (idx !== this.selectedIndex) {
+                    el.setAttribute('style', 'display: none;');
+                } else {
+                    el.setAttribute('style', 'display: initial;');
+                }
+            });
+        }
     }
 
     render() {

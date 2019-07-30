@@ -66,6 +66,13 @@ export class Select implements ComponentInterface {
         this.optionsEl = this.el.shadowRoot.querySelector('.wcs-select-options');
         this.contentEl = this.el.shadowRoot.querySelector('.wcs-select-content');
         this.wrapperEl = this.el.shadowRoot.querySelector('.wcs-select-wrapper');
+        if (this.optionsEl.querySelector('slot') === null) {
+            this.el.querySelectorAll('wcs-select-option')
+                .forEach(option => {
+                    this.el.removeChild(option);
+                    this.optionsEl.appendChild(option);
+                });
+        } 
         this.expandOnClick();
         this.addRippleEffect();
         this.wrapperEl.addEventListener('focus', this.focus);
@@ -131,7 +138,8 @@ export class Select implements ComponentInterface {
     @Listen('click', { target: 'window' })
     onWindowClickEvent(event: MouseEvent) {
         if (this.expanded
-            && event.target !== this.el) {
+            && (event.target !== this.el
+                && !(event.target instanceof Node && this.el.contains(event.target)))) {
             this.unExpand();
         }
     }
@@ -196,13 +204,24 @@ export class Select implements ComponentInterface {
     // XXX: Investigate if there is no way to do it with pure CSS.
     // It poses problem due to slot not allowing deep styling.
     private setMarginTopOnNotFirstOption() {
-        this.optionsEl.querySelector('slot')
-            .assignedElements()
-            .forEach((opt, key) => {
-                if (key !== 0) {
-                    opt.setAttribute('style', `margin-top: 0.875rem;`);
-                }
-            });
+        const slot = this.optionsEl.querySelector('slot');
+        if (slot && slot.assignedElements) {
+            this.optionsEl.querySelector('slot')
+                .assignedElements()
+                .forEach((opt, key) => {
+                    if (key !== 0) {
+                        opt.setAttribute('style', `padding-top: 0.875rem;`);
+                    }
+                });
+        }
+        else {
+            this.optionsEl.querySelectorAll('wcs-select-option')
+                .forEach((opt, key) => {
+                    if (key !== 0) {
+                        opt.setAttribute('style', `padding-top: 0.875rem;`);
+                    }
+                });
+        }
     }
 
     render() {

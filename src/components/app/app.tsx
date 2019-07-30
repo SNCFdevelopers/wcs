@@ -11,10 +11,12 @@ export class App implements ComponentInterface {
 
     componentDidLoad() {
         const contentSlot: HTMLSlotElement = this.el.shadowRoot.querySelector('slot[name="content"]');
-        const contentEl = contentSlot.assignedElements()[0];
-        contentEl.addEventListener('onscroll', (evt) => {
-            console.log(evt);
-        });
+        if (contentSlot && contentSlot.assignedElements) {
+            const contentEl = contentSlot.assignedElements()[0];
+            contentEl.addEventListener('onscroll', (evt) => {
+                console.log(evt);
+            });
+        }
     }
 
     render() {
