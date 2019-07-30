@@ -1786,13 +1786,6 @@ var Tabs = /** @class */ (function () {
             });
         }
         this.refreshHeaders();
-        if (this.tabsEl.querySelector('slot') === null) {
-            this.el.querySelectorAll('wcs-tab')
-                .forEach(function (tab) {
-                _this_1.el.removeChild(tab);
-                _this_1.tabsEl.appendChild(tab);
-            });
-        }
     };
     Tabs.prototype.selectedIndexChanged = function () {
         this.wcsTabsChange.emit({

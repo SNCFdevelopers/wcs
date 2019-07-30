@@ -57,13 +57,6 @@ export class Tabs implements ComponentInterface {
                 });
         }
         this.refreshHeaders();
-        if (this.tabsEl.querySelector('slot') === null) {
-            this.el.querySelectorAll('wcs-tab')
-                .forEach(tab => {
-                    this.el.removeChild(tab);
-                    this.tabsEl.appendChild(tab);
-                });
-        }
     }
 
     @Watch('selectedIndex')
