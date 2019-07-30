@@ -1778,7 +1778,8 @@ var Tabs = /** @class */ (function () {
         this.tabsEl = this.el.shadowRoot.querySelector('.wcs-tabs');
         this.didLoad = true;
         if (this.tabsEl.querySelector('slot') === null) {
-            this.el.querySelectorAll('wcs-tab')
+            Array.from(this.el.querySelectorAll('wcs-tab'))
+                .filter(function (node) { return node.parentNode !== _this_1.tabsEl; })
                 .forEach(function (tab) {
                 _this_1.el.removeChild(tab);
                 _this_1.tabsEl.appendChild(tab);
