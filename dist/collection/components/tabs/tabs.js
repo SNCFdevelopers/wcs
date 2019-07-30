@@ -29,6 +29,13 @@ export class Tabs {
     componentDidLoad() {
         this.tabsEl = this.el.shadowRoot.querySelector('.wcs-tabs');
         this.didLoad = true;
+        if (this.tabsEl.querySelector('slot') === null) {
+            this.el.querySelectorAll('wcs-tab')
+                .forEach(tab => {
+                this.el.removeChild(tab);
+                this.tabsEl.appendChild(tab);
+            });
+        }
         this.refreshHeaders();
         if (this.tabsEl.querySelector('slot') === null) {
             this.el.querySelectorAll('wcs-tab')
@@ -82,26 +89,17 @@ export class Tabs {
     }
     componentWillUpdate() {
         const slot = this.tabsEl.querySelector('slot');
-        if (slot && slot.assignedElements) {
-            slot.assignedElements().forEach((el, idx) => {
-                if (idx !== this.selectedIndex) {
-                    el.setAttribute('style', 'display: none;');
-                }
-                else {
-                    el.setAttribute('style', 'display: initial;');
-                }
-            });
-        }
-        else {
-            this.tabsEl.querySelectorAll('wcs-tab').forEach((el, idx) => {
-                if (idx !== this.selectedIndex) {
-                    el.setAttribute('style', 'display: none;');
-                }
-                else {
-                    el.setAttribute('style', 'display: initial;');
-                }
-            });
-        }
+        const tabs = slot && slot.assignedElements
+            ? slot.assignedElements()
+            : this.tabsEl.querySelectorAll('wcs-tab');
+        tabs.forEach((el, idx) => {
+            if (idx !== this.selectedIndex) {
+                el.setAttribute('style', 'display: none;');
+            }
+            else {
+                el.setAttribute('style', 'display: initial;');
+            }
+        });
     }
     render() {
         return [

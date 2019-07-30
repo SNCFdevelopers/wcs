@@ -48,6 +48,13 @@ export class Tabs implements ComponentInterface {
     componentDidLoad() {
         this.tabsEl = this.el.shadowRoot.querySelector('.wcs-tabs');
         this.didLoad = true;
+        if (this.tabsEl.querySelector('slot') === null) {
+            this.el.querySelectorAll('wcs-tab')
+                .forEach(tab => {
+                    this.el.removeChild(tab);
+                    this.tabsEl.appendChild(tab);
+                });
+        }
         this.refreshHeaders();
         if (this.tabsEl.querySelector('slot') === null) {
             this.el.querySelectorAll('wcs-tab')
@@ -106,38 +113,31 @@ export class Tabs implements ComponentInterface {
 
     componentWillUpdate() {
         const slot = this.tabsEl.querySelector('slot');
-        if (slot && slot.assignedElements) {
-            slot.assignedElements().forEach((el: HTMLWcsTabElement, idx) => {
-                if (idx !== this.selectedIndex) {
-                    el.setAttribute('style', 'display: none;');
-                } else {
-                    el.setAttribute('style', 'display: initial;');
-                }
-            });
-        }
-        else {
-            this.tabsEl.querySelectorAll('wcs-tab').forEach((el: HTMLWcsTabElement, idx) => {
-                if (idx !== this.selectedIndex) {
-                    el.setAttribute('style', 'display: none;');
-                } else {
-                    el.setAttribute('style', 'display: initial;');
-                }
-            });
-        }
+        const tabs = slot && slot.assignedElements
+            ? slot.assignedElements()
+            : this.tabsEl.querySelectorAll('wcs-tab');
+
+        tabs.forEach((el: HTMLWcsTabElement, idx) => {
+            if (idx !== this.selectedIndex) {
+                el.setAttribute('style', 'display: none;');
+            } else {
+                el.setAttribute('style', 'display: initial;');
+            }
+        });
     }
 
     render() {
         return [
             <ul class={'wcs-tabs-headers ' + this.getHeaderAlignClass()}>
-                {
-                    this.headers.map((header, idx) =>
+                {this.headers.map((header, idx) =>
                     <li class={'wcs-tab-header ' + (this.selectedIndex === idx ? 'active' : '')} onClick={() => this.selectTab(idx)}>
                         <span>{header}</span>
-                    </li>)
-                }
+                    </li>
+                )}
             </ul>,
             <div class="wcs-tabs">
                 <slot name="wcs-tab" />
-            </div>];
+            </div>
+        ];
     }
 }

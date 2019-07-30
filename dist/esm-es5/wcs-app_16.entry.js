@@ -1777,6 +1777,13 @@ var Tabs = /** @class */ (function () {
         var _this_1 = this;
         this.tabsEl = this.el.shadowRoot.querySelector('.wcs-tabs');
         this.didLoad = true;
+        if (this.tabsEl.querySelector('slot') === null) {
+            this.el.querySelectorAll('wcs-tab')
+                .forEach(function (tab) {
+                _this_1.el.removeChild(tab);
+                _this_1.tabsEl.appendChild(tab);
+            });
+        }
         this.refreshHeaders();
         if (this.tabsEl.querySelector('slot') === null) {
             this.el.querySelectorAll('wcs-tab')
@@ -1832,26 +1839,17 @@ var Tabs = /** @class */ (function () {
     Tabs.prototype.componentWillUpdate = function () {
         var _this_1 = this;
         var slot = this.tabsEl.querySelector('slot');
-        if (slot && slot.assignedElements) {
-            slot.assignedElements().forEach(function (el, idx) {
-                if (idx !== _this_1.selectedIndex) {
-                    el.setAttribute('style', 'display: none;');
-                }
-                else {
-                    el.setAttribute('style', 'display: initial;');
-                }
-            });
-        }
-        else {
-            this.tabsEl.querySelectorAll('wcs-tab').forEach(function (el, idx) {
-                if (idx !== _this_1.selectedIndex) {
-                    el.setAttribute('style', 'display: none;');
-                }
-                else {
-                    el.setAttribute('style', 'display: initial;');
-                }
-            });
-        }
+        var tabs = slot && slot.assignedElements
+            ? slot.assignedElements()
+            : this.tabsEl.querySelectorAll('wcs-tab');
+        tabs.forEach(function (el, idx) {
+            if (idx !== _this_1.selectedIndex) {
+                el.setAttribute('style', 'display: none;');
+            }
+            else {
+                el.setAttribute('style', 'display: initial;');
+            }
+        });
     };
     Tabs.prototype.render = function () {
         var _this_1 = this;
