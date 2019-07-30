@@ -82,7 +82,6 @@ export class Tabs implements ComponentInterface {
                     .map(x => x.getAttribute('header'));
             } else {
                 this.headers = [];
-                console.log(this.tabsEl.querySelectorAll('wcs-tab'));
                 this.tabsEl.querySelectorAll('wcs-tab')
                     .forEach(x => {
                         this.headers.push(x.getAttribute('header'));
