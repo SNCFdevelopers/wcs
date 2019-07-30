@@ -1,4 +1,4 @@
-import { Component, Element, Event, Prop, EventEmitter, ComponentInterface } from '@stencil/core';
+import { Component, Element, Event, Prop, EventEmitter, ComponentInterface, h } from '@stencil/core';
 import { SelectOptionChosedEvent } from './select-option-interface';
 
 /**

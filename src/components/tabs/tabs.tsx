@@ -1,4 +1,4 @@
-import { Component, Prop, Element, State, ComponentInterface, Listen, Event, EventEmitter, Watch } from '@stencil/core';
+import { Component, Prop, Element, State, ComponentInterface, Listen, Event, EventEmitter, Watch, h } from '@stencil/core';
 
 import { WcsTabsAlignment, WcsTabsChangeEvent } from './tabs-interface';
 
