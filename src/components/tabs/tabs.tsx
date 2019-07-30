@@ -72,8 +72,7 @@ export class Tabs implements ComponentInterface {
             if (slot && slot.assignedElements) {
                 this.headers = slot.assignedElements()
                     .map(x => x.getAttribute('header'));
-            }
-            else {
+            } else {
                 this.headers = [];
                 this.tabsEl.querySelectorAll('wcs-tab')
                     .forEach(x => {
