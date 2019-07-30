@@ -49,7 +49,8 @@ export class Tabs implements ComponentInterface {
         this.tabsEl = this.el.shadowRoot.querySelector('.wcs-tabs');
         this.didLoad = true;
         if (this.tabsEl.querySelector('slot') === null) {
-            this.el.querySelectorAll('wcs-tab')
+            Array.from(this.el.querySelectorAll('wcs-tab'))
+                .filter(node => node.parentNode != this.tabsEl)
                 .forEach(tab => {
                     this.el.removeChild(tab);
                     this.tabsEl.appendChild(tab);
@@ -81,6 +82,7 @@ export class Tabs implements ComponentInterface {
                     .map(x => x.getAttribute('header'));
             } else {
                 this.headers = [];
+                console.log(this.tabsEl.querySelectorAll('wcs-tab'));
                 this.tabsEl.querySelectorAll('wcs-tab')
                     .forEach(x => {
                         this.headers.push(x.getAttribute('header'));
