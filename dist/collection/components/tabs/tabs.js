@@ -30,6 +30,13 @@ export class Tabs {
         this.tabsEl = this.el.shadowRoot.querySelector('.wcs-tabs');
         this.didLoad = true;
         this.refreshHeaders();
+        if (this.tabsEl.querySelector('slot') === null) {
+            this.el.querySelectorAll('wcs-tab')
+                .forEach(tab => {
+                this.el.removeChild(tab);
+                this.tabsEl.appendChild(tab);
+            });
+        }
     }
     selectedIndexChanged() {
         this.wcsTabsChange.emit({

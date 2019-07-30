@@ -1774,9 +1774,17 @@ var Tabs = /** @class */ (function () {
         this.wcsTabsChange = createEvent(this, "wcsTabsChange", 7);
     }
     Tabs.prototype.componentDidLoad = function () {
+        var _this_1 = this;
         this.tabsEl = this.el.shadowRoot.querySelector('.wcs-tabs');
         this.didLoad = true;
         this.refreshHeaders();
+        if (this.tabsEl.querySelector('slot') === null) {
+            this.el.querySelectorAll('wcs-tab')
+                .forEach(function (tab) {
+                _this_1.el.removeChild(tab);
+                _this_1.tabsEl.appendChild(tab);
+            });
+        }
     };
     Tabs.prototype.selectedIndexChanged = function () {
         this.wcsTabsChange.emit({
