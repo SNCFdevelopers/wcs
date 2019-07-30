@@ -72,7 +72,7 @@ export class Select implements ComponentInterface {
                     this.el.removeChild(option);
                     this.optionsEl.appendChild(option);
                 });
-        } 
+        }
         this.expandOnClick();
         this.addRippleEffect();
         this.wrapperEl.addEventListener('focus', this.focus);
@@ -205,23 +205,17 @@ export class Select implements ComponentInterface {
     // It poses problem due to slot not allowing deep styling.
     private setMarginTopOnNotFirstOption() {
         const slot = this.optionsEl.querySelector('slot');
+        let options: Element[] | NodeListOf<HTMLWcsSelectOptionElement>;
         if (slot && slot.assignedElements) {
-            this.optionsEl.querySelector('slot')
-                .assignedElements()
-                .forEach((opt, key) => {
-                    if (key !== 0) {
-                        opt.setAttribute('style', `padding-top: 0.875rem;`);
-                    }
-                });
+            options = this.optionsEl.querySelector('slot').assignedElements();
+        } else {
+            options = this.optionsEl.querySelectorAll('wcs-select-option');
         }
-        else {
-            this.optionsEl.querySelectorAll('wcs-select-option')
-                .forEach((opt, key) => {
-                    if (key !== 0) {
-                        opt.setAttribute('style', `padding-top: 0.875rem;`);
-                    }
-                });
-        }
+        options.forEach((opt, key) => {
+            if (key !== 0) {
+                opt.setAttribute('style', `padding-top: 0.875rem;`);
+            }
+        });
     }
 
     render() {
