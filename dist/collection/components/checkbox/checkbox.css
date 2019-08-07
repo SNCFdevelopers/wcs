@@ -126,8 +126,12 @@
   border-color: #4b545c;
 }
 
-/* Customize the label (the container) */
-.container {
+.wcs-checkmark {
+  transition: background-color 225ms cubic-bezier(0.17, 0.84, 0.44, 1), color 225ms cubic-bezier(0.17, 0.84, 0.44, 1);
+}
+
+/* Customize the label (the wcs-container) */
+.wcs-container {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -138,7 +142,7 @@
 }
 
 /* Hide the browser's default checkbox */
-.container input {
+.wcs-container input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -146,15 +150,15 @@
   width: 0;
 }
 
-.container:hover .checkmark {
+.wcs-container:hover .wcs-checkmark {
   border-color: #0088ce;
 }
-.container:hover .text {
+.wcs-container:hover .text {
   color: #0088ce;
 }
 
 /* Create a custom checkbox */
-.checkmark {
+.wcs-checkmark {
   width: 1.125rem;
   height: 1.125rem;
   border: 2px solid #b9b9b9;
@@ -173,25 +177,25 @@
     content: "";
 } */
 /* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
+.wcs-container input:checked ~ .wcs-checkmark {
   background-color: #0088ce;
   border-color: #0088ce;
 }
 
-/* Create the checkmark/indicator (hidden when not checked) */
-.checkmark:after {
+/* Create the wcs-checkmark/indicator (hidden when not checked) */
+.wcs-checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
 
-/* Show the checkmark when checked */
-.container input:checked ~ .checkmark:after {
+/* Show the wcs-checkmark when checked */
+.wcs-container input:checked ~ .wcs-checkmark:after {
   display: block;
 }
 
-/* Style the checkmark/indicator */
-.container .checkmark:after {
+/* Style the wcs-checkmark/indicator */
+.wcs-container .wcs-checkmark:after {
   left: 7px;
   width: 5px;
   top: 3px;
@@ -203,7 +207,7 @@
   transform: rotate(45deg);
 }
 
-.container input:checked ~ .text {
+.wcs-container input:checked ~ .text {
   color: #0088ce;
 }
 

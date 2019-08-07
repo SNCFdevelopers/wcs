@@ -72,9 +72,11 @@ export namespace Components {
     * If `true`, the checkbox is selected.
     */
     'checked': boolean;
-    'indeterminate': false;
+    /**
+    * If `true` the checkbox is in indeterminate state.
+    */
+    'indeterminate': boolean;
     'name': string;
-    'value': any;
   }
   interface WcsHeader {}
   interface WcsIcon {
@@ -406,13 +408,15 @@ declare namespace LocalJSX {
     * If `true`, the checkbox is selected.
     */
     'checked'?: boolean;
-    'indeterminate'?: false;
+    /**
+    * If `true` the checkbox is in indeterminate state.
+    */
+    'indeterminate'?: boolean;
     'name'?: string;
     /**
     * Emitted when the checked property has changed.
     */
     'onWcsChange'?: (event: CustomEvent<CheckboxChangeEventDetail>) => void;
-    'value'?: any;
   }
   interface WcsHeader extends JSXBase.HTMLAttributes<HTMLWcsHeaderElement> {}
   interface WcsIcon extends JSXBase.HTMLAttributes<HTMLWcsIconElement> {

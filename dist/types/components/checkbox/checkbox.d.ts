@@ -4,8 +4,10 @@ export declare class Checkbox implements ComponentInterface {
     private checkboxId;
     el: HTMLElement;
     name: string;
-    value: any;
-    indeterminate: false;
+    /**
+     * If `true` the checkbox is in indeterminate state.
+     */
+    indeterminate: boolean;
     /**
      * If `true`, the checkbox is selected.
      */
@@ -14,6 +16,6 @@ export declare class Checkbox implements ComponentInterface {
      * Emitted when the checked property has changed.
      */
     wcsChange: EventEmitter<CheckboxChangeEventDetail>;
-    handleChange(event: any): void;
+    handleChange(_event: Event): void;
     render(): any;
 }

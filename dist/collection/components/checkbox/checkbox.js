@@ -4,22 +4,25 @@ export class Checkbox {
         this.checkboxId = `wcs-checkbox-${checkboxIds++}`;
         this.name = this.checkboxId;
         /**
+         * If `true` the checkbox is in indeterminate state.
+         */
+        this.indeterminate = false;
+        /**
          * If `true`, the checkbox is selected.
          */
         this.checked = false;
     }
-    handleChange(event) {
+    handleChange(_event) {
         this.indeterminate = false;
-        this.checked = event.path[0].checked;
+        this.checked = !this.checked;
         this.wcsChange.emit({
-            checked: this.checked,
-            value: this.value
+            checked: this.checked
         });
     }
     render() {
-        return (h("label", { htmlFor: this.name, class: "container" },
+        return (h("label", { htmlFor: this.name, class: "wcs-container" },
             h("input", { onChange: (evt) => this.handleChange(evt), checked: this.checked, class: "wcs-checkbox", type: "checkbox", name: this.name, id: this.name }),
-            h("span", { class: 'checkmark ' + (this.indeterminate ? 'indeterminate' : '') }),
+            h("span", { class: 'wcs-checkmark ' + (this.indeterminate ? 'indeterminate' : '') }),
             h("span", { class: "text" },
                 h("slot", null))));
     }
@@ -50,28 +53,11 @@ export class Checkbox {
             "reflect": false,
             "defaultValue": "this.checkboxId"
         },
-        "value": {
-            "type": "any",
-            "mutable": false,
-            "complexType": {
-                "original": "any",
-                "resolved": "any",
-                "references": {}
-            },
-            "required": false,
-            "optional": false,
-            "docs": {
-                "tags": [],
-                "text": ""
-            },
-            "attribute": "value",
-            "reflect": false
-        },
         "indeterminate": {
             "type": "boolean",
             "mutable": true,
             "complexType": {
-                "original": "false",
+                "original": "boolean",
                 "resolved": "boolean",
                 "references": {}
             },
@@ -79,10 +65,11 @@ export class Checkbox {
             "optional": false,
             "docs": {
                 "tags": [],
-                "text": ""
+                "text": "If `true` the checkbox is in indeterminate state."
             },
             "attribute": "indeterminate",
-            "reflect": true
+            "reflect": true,
+            "defaultValue": "false"
         },
         "checked": {
             "type": "boolean",
