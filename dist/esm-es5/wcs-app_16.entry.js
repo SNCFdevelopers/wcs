@@ -1198,22 +1198,25 @@ var Checkbox = /** @class */ (function () {
         this.checkboxId = "wcs-checkbox-" + checkboxIds++;
         this.name = this.checkboxId;
         /**
+         * If `true` the checkbox is in indeterminate state.
+         */
+        this.indeterminate = false;
+        /**
          * If `true`, the checkbox is selected.
          */
         this.checked = false;
         this.wcsChange = createEvent(this, "wcsChange", 7);
     }
-    Checkbox.prototype.handleChange = function (event) {
+    Checkbox.prototype.handleChange = function (_event) {
         this.indeterminate = false;
-        this.checked = event.path[0].checked;
+        this.checked = !this.checked;
         this.wcsChange.emit({
-            checked: this.checked,
-            value: this.value
+            checked: this.checked
         });
     };
     Checkbox.prototype.render = function () {
         var _this_1 = this;
-        return (h("label", { htmlFor: this.name, class: "container" }, h("input", { onChange: function (evt) { return _this_1.handleChange(evt); }, checked: this.checked, class: "wcs-checkbox", type: "checkbox", name: this.name, id: this.name }), h("span", { class: 'checkmark ' + (this.indeterminate ? 'indeterminate' : '') }), h("span", { class: "text" }, h("slot", null))));
+        return (h("label", { htmlFor: this.name, class: "wcs-container" }, h("input", { onChange: function (evt) { return _this_1.handleChange(evt); }, checked: this.checked, class: "wcs-checkbox", type: "checkbox", name: this.name, id: this.name }), h("span", { class: 'wcs-checkmark ' + (this.indeterminate ? 'indeterminate' : '') }), h("span", { class: "text" }, h("slot", null))));
     };
     Object.defineProperty(Checkbox.prototype, "el", {
         get: function () { return getElement(this); },
@@ -1221,7 +1224,7 @@ var Checkbox = /** @class */ (function () {
         configurable: true
     });
     Object.defineProperty(Checkbox, "style", {
-        get: function () { return ".wcs-background-primary{background-color:#0088ce}.wcs-color-primary{color:#fff}.wcs-background-primary-hover{background-color:#0088ce}.wcs-background-primary-hover:hover{background-color:#00a1f4;border-color:#02a9ff}.wcs-background-secondary{background-color:#4d4f53}.wcs-color-secondary{color:#fff}.wcs-background-secondary-hover{background-color:#4d4f53}.wcs-background-secondary-hover:hover{background-color:#5f6267;border-color:#66686d}.wcs-background-success{background-color:#82be00}.wcs-color-success{color:#212529}.wcs-background-success-hover{background-color:#82be00}.wcs-background-success-hover:hover{background-color:#9ce400;border-color:#a5f100}.wcs-background-info{background-color:#009aa6}.wcs-color-info{color:#fff}.wcs-background-info-hover{background-color:#009aa6}.wcs-background-info-hover:hover{background-color:#00bdcc;border-color:#00c9d9}.wcs-background-danger{background-color:#cd0037}.wcs-color-danger{color:#fff}.wcs-background-danger-hover{background-color:#cd0037}.wcs-background-danger-hover:hover{background-color:#f30041;border-color:#ff0145}.wcs-background-warning{background-color:#ffb612}.wcs-color-warning{color:#212529}.wcs-background-warning-hover{background-color:#ffb612}.wcs-background-warning-hover:hover{background-color:#ffc238;border-color:#ffc645}.wcs-background-light{background-color:#f2f2f2}.wcs-color-light{color:#212529}.wcs-background-light-hover{background-color:#f2f2f2}.wcs-background-light-hover:hover{background-color:#fff;border-color:#fff}.wcs-background-dark{background-color:#343a40}.wcs-color-dark{color:#fff}.wcs-background-dark-hover{background-color:#343a40}.wcs-background-dark-hover:hover{background-color:#454d55;border-color:#4b545c}.container{position:relative;display:-ms-inline-flexbox;display:inline-flex;-ms-flex-align:center;align-items:center;cursor:pointer;font-size:1rem;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;font-weight:500}.container input{position:absolute;opacity:0;cursor:pointer;height:0;width:0}.container:hover .checkmark{border-color:#0088ce}.container:hover .text{color:#0088ce}.checkmark{width:1.125rem;height:1.125rem;border:2px solid #b9b9b9;border-radius:3px}.indeterminate{background:#0088ce;border-color:#0088ce}.container input:checked~.checkmark{background-color:#0088ce;border-color:#0088ce}.checkmark:after{content:\"\";position:absolute;display:none}.container input:checked~.checkmark:after{display:block}.container .checkmark:after{left:7px;width:5px;top:3px;height:10px;border:solid #fff;border-width:0 3px 3px 0;-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}.container input:checked~.text{color:#0088ce}.text{color:#747678;margin-left:6px;font-weight:500;line-height:1.375}"; },
+        get: function () { return ".wcs-background-primary{background-color:#0088ce}.wcs-color-primary{color:#fff}.wcs-background-primary-hover{background-color:#0088ce}.wcs-background-primary-hover:hover{background-color:#00a1f4;border-color:#02a9ff}.wcs-background-secondary{background-color:#4d4f53}.wcs-color-secondary{color:#fff}.wcs-background-secondary-hover{background-color:#4d4f53}.wcs-background-secondary-hover:hover{background-color:#5f6267;border-color:#66686d}.wcs-background-success{background-color:#82be00}.wcs-color-success{color:#212529}.wcs-background-success-hover{background-color:#82be00}.wcs-background-success-hover:hover{background-color:#9ce400;border-color:#a5f100}.wcs-background-info{background-color:#009aa6}.wcs-color-info{color:#fff}.wcs-background-info-hover{background-color:#009aa6}.wcs-background-info-hover:hover{background-color:#00bdcc;border-color:#00c9d9}.wcs-background-danger{background-color:#cd0037}.wcs-color-danger{color:#fff}.wcs-background-danger-hover{background-color:#cd0037}.wcs-background-danger-hover:hover{background-color:#f30041;border-color:#ff0145}.wcs-background-warning{background-color:#ffb612}.wcs-color-warning{color:#212529}.wcs-background-warning-hover{background-color:#ffb612}.wcs-background-warning-hover:hover{background-color:#ffc238;border-color:#ffc645}.wcs-background-light{background-color:#f2f2f2}.wcs-color-light{color:#212529}.wcs-background-light-hover{background-color:#f2f2f2}.wcs-background-light-hover:hover{background-color:#fff;border-color:#fff}.wcs-background-dark{background-color:#343a40}.wcs-color-dark{color:#fff}.wcs-background-dark-hover{background-color:#343a40}.wcs-background-dark-hover:hover{background-color:#454d55;border-color:#4b545c}.wcs-checkmark{-webkit-transition:background-color 225ms cubic-bezier(.17,.84,.44,1),color 225ms cubic-bezier(.17,.84,.44,1);transition:background-color 225ms cubic-bezier(.17,.84,.44,1),color 225ms cubic-bezier(.17,.84,.44,1)}.wcs-container{position:relative;display:-ms-inline-flexbox;display:inline-flex;-ms-flex-align:center;align-items:center;cursor:pointer;font-size:1rem;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;font-weight:500}.wcs-container input{position:absolute;opacity:0;cursor:pointer;height:0;width:0}.wcs-container:hover .wcs-checkmark{border-color:#0088ce}.wcs-container:hover .text{color:#0088ce}.wcs-checkmark{width:1.125rem;height:1.125rem;border:2px solid #b9b9b9;border-radius:3px}.indeterminate{background:#0088ce;border-color:#0088ce}.wcs-container input:checked~.wcs-checkmark{background-color:#0088ce;border-color:#0088ce}.wcs-checkmark:after{content:\"\";position:absolute;display:none}.wcs-container input:checked~.wcs-checkmark:after{display:block}.wcs-container .wcs-checkmark:after{left:7px;width:5px;top:3px;height:10px;border:solid #fff;border-width:0 3px 3px 0;-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}.wcs-container input:checked~.text{color:#0088ce}.text{color:#747678;margin-left:6px;font-weight:500;line-height:1.375}"; },
         enumerable: true,
         configurable: true
     });
