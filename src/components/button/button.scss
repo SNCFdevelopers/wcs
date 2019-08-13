@@ -1,103 +1,103 @@
 @import '../../style/wcs.colors.scss';
 @import '../../style/wcs.elevation.scss';
-
 // TODO: get rid of this.
 @import '@material/ripple/mdc-ripple';
 
 .wcs-inner-button {
-  @include mdc-ripple-surface;
-  @include mdc-ripple-radius-bounded;
+    @include mdc-ripple-surface;
+    @include mdc-ripple-radius-bounded;
 
-  &:not(.wcs-color-white, .wcs-color-light) {
+    // Temporary fix for Ripple
+    //&:not(.wcs-color-white, .wcs-color-light) {
     @include mdc-states-base-color(white);
-  }
+    //}
 
-  &.wcs-color-white,
-  &.wcs-color-light {
-    @include mdc-states-base-color(#333);
-  }
+    &.wcs-color-white,
+    &.wcs-color-light {
+        @include mdc-states-base-color(#333);
+    }
 
-  @include mdc-states-hover-opacity(.1);
-  @include mdc-states-focus-opacity(.2);
-  @include mdc-states-press-opacity(.3);
+    @include mdc-states-hover-opacity(.1);
+    @include mdc-states-focus-opacity(.2);
+    @include mdc-states-press-opacity(.3);
 
-  overflow: hidden;
-  outline: 0;
-  text-transform: none;
-  margin: 0;
-  cursor: pointer;
-  display: inline-block;
-  font-weight: 500;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  user-select: none;
-  border: none;
-  padding: 0.59375rem 1.875rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  border-radius: var(--wcs-border-radius);
-
-  transition: color 175ms ease-in-out,
-    background-color 175ms ease-in-out,
-   wcs-elevation-transition();
-
-  &:focus {
-    @include wcs-elevation(1);
-  }
-
-  &:hover {
-    @include wcs-elevation(2);
-  }
-
-  &.wcs-inner-button-small {
+    overflow: hidden;
+    outline: 0;
+    text-transform: none;
+    margin: 0;
+    cursor: pointer;
+    display: inline-block;
     font-weight: 500;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: none;
+    padding: 0.59375rem 1.875rem;
     font-size: 1rem;
     line-height: 1.5;
-    padding: 0.125rem 1.25rem;
     border-radius: var(--wcs-border-radius);
-  }
 
-  &.wcs-inner-button-block {
-    display: block;
-    width: 100%;
-  }
+    transition: color 175ms ease-in-out,
+    background-color 175ms ease-in-out,
+    wcs-elevation-transition();
 
-  &.wcs-inner-button-icon-only {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    min-width: 3.125rem;
-    min-height: 2.8125rem;
-  }
+    &:focus {
+        @include wcs-elevation(1);
+    }
 
-  &.wcs-inner-button-rounded {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 50%;
-  }
+    &:hover {
+        @include wcs-elevation(2);
+    }
 
-  &.wcs-inner-button-disabled {
-    color: $text-disabled;
-    background-color: $light;
-    border-color: $light;
-    opacity: 1;
-    cursor: default;
-    pointer-events: none;
-  }
+    &.wcs-inner-button-small {
+        font-weight: 500;
+        font-size: 1rem;
+        line-height: 1.5;
+        padding: 0.125rem 1.25rem;
+        border-radius: var(--wcs-border-radius);
+    }
+
+    &.wcs-inner-button-block {
+        display: block;
+        width: 100%;
+    }
+
+    &.wcs-inner-button-icon-only {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        min-width: 3.125rem;
+        min-height: 2.8125rem;
+    }
+
+    &.wcs-inner-button-rounded {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+    }
+
+    &.wcs-inner-button-disabled {
+        color: $text-disabled;
+        background-color: $light;
+        border-color: $light;
+        opacity: 1;
+        cursor: default;
+        pointer-events: none;
+    }
 }
 
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 // Remove mozilla dotted outline on button and a
 button::-moz-focus-inner,
 a::-moz-focus-inner {
-  border: 0;
+    border: 0;
 }

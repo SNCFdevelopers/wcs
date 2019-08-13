@@ -115,6 +115,6 @@ export class Button implements ComponentInterface {
 
     private addRippleEffect() {
         const ripple = new MDCRipple.MDCRipple(this.el.shadowRoot.querySelector('.wcs-inner-button'));
-        ripple.unbounded = true;
+        ripple.unbounded = false;
     }
 }
