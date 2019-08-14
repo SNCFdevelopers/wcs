@@ -1,4 +1,14 @@
-import { Component, Element, State, Prop, Event, EventEmitter, Listen, ComponentInterface, h } from '@stencil/core';
+import {
+    Component,
+    Element,
+    State,
+    Prop,
+    Event,
+    EventEmitter,
+    Listen,
+    ComponentInterface,
+    h
+} from '@stencil/core';
 
 import { SelectChangeEventDetail } from './select-interface';
 import * as MDCRipple from '@material/ripple';
@@ -177,7 +187,7 @@ export class Select implements ComponentInterface {
         this.wrapperEl.focus();
         this.wcsFocus.emit();
         this.wrapperEl.addEventListener('keydown', this.handleFocusedKeyEvents);
-    }
+    };
 
     private handleFocusedKeyEvents = (keyEvent: KeyboardEvent) => {
         if (keyEvent.code === 'Escape') {
@@ -223,16 +233,16 @@ export class Select implements ComponentInterface {
             this.updateStyles();
         }
         return (
-            <div class={this.wrapperClasses()} {...this.focusedAttributes()}>
+            <div class={this.wrapperClasses()} {...this.focusedAttributes()} >
                 <div class="wcs-select-content">
                     <label class="wcs-select-text">{this.hasValue
                         ? this.displayText
                         : this.placeholder
                     }</label>
-                    <SelectArrow up={this.expanded} />
+                    <SelectArrow up={this.expanded}/>
                 </div>
                 <div class="wcs-select-options">
-                    <slot name="wcs-select-option" />
+                    <slot name="wcs-select-option"/>
                 </div>
             </div>
         );

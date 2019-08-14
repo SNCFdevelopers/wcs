@@ -4,9 +4,7 @@
 @function wcs-border($color: $text-light) {
     @if $color {
         @return $color solid 1px;
-    }
-
-    @else {
+    } @else {
         @return $gray-text solid 1px;
     }
 }
@@ -78,6 +76,7 @@ $border-radius: var(--wcs-border-radius);
     outline: none;
     user-select: none;
 
+
     &:not(.expanded):focus {
         .wcs-select-content {
             border: wcs-border($primary);
@@ -108,6 +107,6 @@ $border-radius: var(--wcs-border-radius);
     }
 }
 
-.wcs-select-options::slotted(wcs-select-option)>[value="1"] {
+.wcs-select-options::slotted(wcs-select-option) > [value="1"] {
     display: none;
 }

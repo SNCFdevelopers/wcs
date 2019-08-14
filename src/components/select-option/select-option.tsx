@@ -31,7 +31,7 @@ export class SelectOption implements ComponentInterface {
     @Event({
         eventName: 'wcsSelectOptionClick',
     })
-    // TODO: find a better name ?
+        // TODO: find a better name ?
     wcsSelectOptionClick: EventEmitter<SelectOptionChosedEvent>;
 
     componentWillLoad() {
@@ -65,7 +65,7 @@ export class SelectOption implements ComponentInterface {
         return (
             // TODO: Try to remove this div
             <div class={wrapperClasses + 'wcs-selection-option-container'}>
-                <slot />
+                <slot/>
             </div>
         );
     }

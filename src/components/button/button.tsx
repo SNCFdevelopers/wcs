@@ -43,7 +43,7 @@ export class Button implements ComponentInterface {
     /**
      * Specify wether the button should have a ripple effect or not.
      */
-    @Prop() ripple = false;
+    @Prop() ripple = true;
 
     /**
      * This attribute specifies the size of the button.
@@ -110,7 +110,9 @@ export class Button implements ComponentInterface {
     }
 
     componentDidLoad() {
-        this.addRippleEffect();
+        if (this.ripple) {
+            this.addRippleEffect();
+        }
     }
 
     private addRippleEffect() {

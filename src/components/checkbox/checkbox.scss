@@ -20,7 +20,7 @@
     width: 0;
 }
 
-.container:hover {
+.container:hover, input:focus {
     .checkmark {
         border-color: $primary;
     }
