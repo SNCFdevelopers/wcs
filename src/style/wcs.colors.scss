@@ -60,6 +60,9 @@ $colors: (
     )
 );
 
+/**
+ * Create css classes for each key in the color map.
+ */
 @each $color-name, $color in $colors {
     .wcs-background-#{$color-name} {
         background-color: map-get($color, base);
