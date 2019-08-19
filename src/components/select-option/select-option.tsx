@@ -46,8 +46,9 @@ export class SelectOption implements ComponentInterface {
     }
 
     private addClickEventListener() {
-        this.el.addEventListener('mousedown', () => {
+        this.el.addEventListener('mousedown', (evt) => {
             if (!this.disabled) {
+                evt.stopPropagation();
                 // We select inner HTML as it's what's passed into the slot.
                 const displayText = this.el.getElementsByClassName('wcs-selection-option-container')[0].innerHTML;
                 this.wcsSelectOptionClick.emit({

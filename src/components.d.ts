@@ -192,6 +192,10 @@ export namespace Components {
   }
   interface WcsSelect {
     /**
+    * Close the component.
+    */
+    'close': () => Promise<void>;
+    /**
     * If `true`, the user cannot interact with the select.
     */
     'disabled': boolean;
@@ -199,6 +203,10 @@ export namespace Components {
     * The name of the control, which is submitted with the form data.
     */
     'name'?: string;
+    /**
+    * Open the component.
+    */
+    'open': () => Promise<void>;
     /**
     * The text to display when the select is empty.
     */
