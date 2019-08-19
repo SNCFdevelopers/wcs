@@ -50,7 +50,7 @@ export class Tabs implements ComponentInterface {
         this.didLoad = true;
         if (this.tabsEl.querySelector('slot') === null) {
             Array.from(this.el.querySelectorAll('wcs-tab'))
-                .filter(node => node.parentNode != this.tabsEl)
+                .filter(node => node.parentNode !== this.tabsEl)
                 .forEach(tab => {
                     this.el.removeChild(tab);
                     this.tabsEl.appendChild(tab);
