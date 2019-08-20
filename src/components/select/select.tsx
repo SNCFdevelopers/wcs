@@ -125,10 +125,9 @@ export class Select implements ComponentInterface {
             initialState
         );
         this.stateService = interpret(stateMachine);
-        this.stateService.onTransition(transition => {
-            console.log(transition.value);
-        });
+        this.stateService.onTransition(transition => console.log(transition.value));
 
+        // XXX: Dirty fix to put the element in the right place if slot isn't defined (firefox < 63)
         if (this.optionsEl.querySelector('slot') === null) {
             this.el.querySelectorAll('wcs-select-option')
                 .forEach(option => {
@@ -152,10 +151,10 @@ export class Select implements ComponentInterface {
                 blurred: {
                     entry: ['blur'],
                     on: {
-                        CLOSE: 'closed',
-                        FOCUS: 'closed',
-                        OPEN: 'opened',
-                        CLICK: 'opened',
+                        CLOSE: { target: 'closed', cond: 'enabled' },
+                        FOCUS: { target: 'closed', cond: 'enabled' },
+                        OPEN: { target: 'opened', cond: 'enabled' },
+                        CLICK: { target: 'opened', cond: 'enabled' },
                     }
                 },
                 closed: {
@@ -164,7 +163,7 @@ export class Select implements ComponentInterface {
                         CLICK: 'opened',
                         OPEN: 'opened',
                         BLUR: 'blurred',
-                    }
+                    },
                 },
                 opened: {
                     entry: ['open'],
@@ -192,6 +191,7 @@ export class Select implements ComponentInterface {
                 },
                 blur: () => {
                     this.focused = false;
+                    this.expanded = false;
                 },
                 focus: () => {
                     this.focused = true;
@@ -206,6 +206,9 @@ export class Select implements ComponentInterface {
                         this.stateService.send('CLOSE');
                     }
                 }
+            },
+            guards: {
+                enabled: (context, _) => !context.isDisabled
             }
         };
     }
@@ -219,7 +222,7 @@ export class Select implements ComponentInterface {
 
 
     private addRippleEffect() {
-        // XXX: Unwrapped dependency over MDCRipple...
+        // TODO: wrap MDCRipple dependency so we can eventually write our own or at least decouple a bit.
         const ripple = new MDCRipple.MDCRipple(this.contentEl);
         ripple.unbounded = true;
     }
@@ -237,7 +240,7 @@ export class Select implements ComponentInterface {
     @Listen('click', { target: 'window' })
     onWindowClickEvent(event: MouseEvent) {
         const clickedOnSelectOrChildren = event.target instanceof Node && this.el.contains(event.target);
-        // TODO: Move in the state the machine the
+        // TODO: Move this logic in the state machine
         if (this.expanded && !clickedOnSelectOrChildren) {
             console.log('LAUNCH: ', 'window_click');
             this.stateService.send('BLUR');
