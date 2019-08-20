@@ -77,7 +77,7 @@ export class Select implements ComponentInterface {
     @Prop() name?: string;
 
     /** The currently selected value. */
-    @Prop({ mutable: true }) value?: any | null;
+    @Prop({ mutable: true, reflectToAttr: true }) value?: any | null;
 
     /** Reference to the window. */
     @Prop({ context: 'window' }) window!: Window;
