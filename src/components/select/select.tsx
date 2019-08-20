@@ -249,7 +249,7 @@ export class Select implements ComponentInterface {
         this.stateService.send({ type: 'OPTION_CLICKED', value: event.detail });
     }
     private focus = () => this.stateService.send('FOCUS');
-    private blur = () => { console.log('LAUNCH: ', 'component_blur'); this.stateService.send('BLUR'); }
+    private blur = () => { console.log('LAUNCH: ', 'component_blur'); this.stateService.send('BLUR'); };
 
     render() {
         if (this.hasLoaded) {
