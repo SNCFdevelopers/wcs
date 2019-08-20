@@ -104,7 +104,7 @@ export class Select implements ComponentInterface {
      */
     @Method()
     async close() {
-        this.stateService.send('OPEN');
+        this.stateService.send('CLOSE');
     }
 
     private stateService!: Interpreter<SelectContext, SelectStateSchema, SelectEvent>;
