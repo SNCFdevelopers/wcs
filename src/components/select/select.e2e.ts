@@ -192,6 +192,53 @@ describe('Select component', () => {
             // Then
             expect(select).toHaveClass('expanded');
         });
+
+        it(`Allows to select multiple values`, async () => {
+            // Given
+            const page = await newE2EPage();
+            await page.setContent(`
+                <wcs-select multiple>
+                    <wcs-select-option value="1">One</wcs-select-option>
+                    <wcs-select-option value="2">Two</wcs-select-option>
+                    <wcs-select-option value="3">Three</wcs-select-option>
+                </wcs-select>
+            `);
+            const select = await page.find('wcs-select');
+            const [opt1, opt2] = (await page.findAll('wcs-select > wcs-select-option'));
+
+            // When
+            await select.click();
+            await opt1.click();
+            await opt2.click();
+            await page.waitForChanges();
+
+            // Then
+            expect(select.getAttribute('value')).toEqual('[1, 2]');
+        });
+
+        it('Allows to unselect a value', async () => {
+            // Given
+            const page = await newE2EPage();
+            await page.setContent(`
+                <wcs-select multiple>
+                    <wcs-select-option value="1">One</wcs-select-option>
+                    <wcs-select-option value="2">Two</wcs-select-option>
+                    <wcs-select-option value="3">Three</wcs-select-option>
+                </wcs-select>
+            `);
+            const select = await page.find('wcs-select');
+            const [opt1, opt2] = (await page.findAll('wcs-select > wcs-select-option'));
+
+            // When
+            await select.click();
+            await opt1.click();
+            await opt2.click();
+            await opt1.click();
+            await page.waitForChanges();
+
+            // Then
+            expect(select.getAttribute('value')).toEqual('[2]');
+        });
         // TODO: it displays all values in the display separated by a comma
         // TODO: it allows to select multiple value
     });

@@ -34,11 +34,6 @@ type SelectEvent
     | { type: 'CLICK' }
     | { type: 'OPTION_CLICKED', value: SelectOptionChosedEvent };
 
-interface SelectContext {
-    selectedIds: number[];
-    isDisabled: boolean;
-}
-
 /**
  * Select component, use in conjuction with wcs-select-option.
  *
@@ -68,8 +63,6 @@ export class Select implements ComponentInterface {
     /** When the host is focused. */
     @State() focused: boolean;
 
-    /// PROPERTIES  ///
-
     /** The currently selected value. */
     @Prop({ mutable: true, reflect: true })
     value?: any | null;
@@ -81,16 +74,15 @@ export class Select implements ComponentInterface {
     /** If `true`, the user cannot interact with the select. */
     @Prop({ mutable: true }) disabled = false;
 
+    /** If `true`, the user can select multiple values at once. */
+    @Prop({ reflect: true }) multiple = false;
+
     /** The name of the control, which is submitted with the form data. */
     @Prop() name?: string;
 
     // FIXME: This seems to be deprecated.
     /** Reference to the window. */
     @Prop({ context: 'window' }) window!: Window;
-
-    /// PROPERTIES ///
-
-    /// EVENTS ///
 
     /** Emitted when the value has changed. */
     @Event() wcsChange!: EventEmitter<SelectChangeEventDetail>;
@@ -101,39 +93,37 @@ export class Select implements ComponentInterface {
     /** Emitted when the select loses focus. */
     @Event() wcsBlur!: EventEmitter<void>;
 
-    /// EVENTS ///
-
-    /**
-     * Open the component.
-     */
+    /** Open the component. */
     @Method()
     async open() {
         this.stateService.send('OPEN');
     }
 
-    /**
-     * Close the component.
-     */
+    /** Close the component. */
     @Method()
     async close() {
         this.stateService.send('CLOSE');
     }
 
-    private stateService!: Interpreter<SelectContext, SelectStateSchema, SelectEvent>;
+    private stateService!: Interpreter<any, SelectStateSchema, SelectEvent>;
 
     private optionsEl!: HTMLDivElement;
     private contentEl!: HTMLDivElement;
     private wrapperEl!: HTMLInputElement;
 
+    // Only used for multiples.
+    private values: SelectOptionChosedEvent[];
+
     componentDidLoad() {
         this.optionsEl = this.el.shadowRoot.querySelector('.wcs-select-options');
         this.contentEl = this.el.shadowRoot.querySelector('.wcs-select-content');
+        if (this.multiple) {
+            this.values = [];
+        }
 
-        const initialState: SelectContext = { isDisabled: this.disabled, selectedIds: this.value };
         const stateMachine = Machine(
             this.initMachineConfig(),
-            this.initMachineOptions(),
-            initialState
+            this.initMachineOptions()
         );
         this.stateService = interpret(stateMachine);
         this.stateService.onTransition(transition => console.log(transition.value));
@@ -152,7 +142,7 @@ export class Select implements ComponentInterface {
         this.stateService.start();
     }
 
-    private initMachineConfig(): MachineConfig<SelectContext, SelectStateSchema, SelectEvent> {
+    private initMachineConfig(): MachineConfig<any, SelectStateSchema, SelectEvent> {
         return {
             key: 'select',
             initial: 'blurred',
@@ -187,7 +177,7 @@ export class Select implements ComponentInterface {
         };
     }
 
-    private initMachineOptions(): Partial<MachineOptions<SelectContext, SelectEvent>> {
+    private initMachineOptions(): Partial<MachineOptions<any, SelectEvent>> {
         return {
             actions: {
                 open: () => {
@@ -207,17 +197,33 @@ export class Select implements ComponentInterface {
                 },
                 selectOption: (_, event) => {
                     if (event.type === 'OPTION_CLICKED') {
-                        console.log(event.value);
-                        this.value = event.value.value;
-                        this.displayText = event.value.displayText;
-                        this.wcsChange.emit(event.value);
-                        console.log('LAUNCH: ', 'select_option_close');
-                        this.stateService.send('CLOSE');
+                        if (this.multiple) {
+                            const index = this.values.findIndex(v => v.value === event.value.value);
+                            if (index === -1) {
+                                this.values.push(event.value);
+                            } else {
+                                this.values.splice(index, 1);
+                            }
+                            // TODO: Let user provide sorting function and use this if defined.
+                            // this.values = this.values.sort((a, b) => a.value - b.value);
+                            this.value = `[${this.values.map(v => v.value).join(', ')}]`;
+                            this.displayText = this.values.length !== 0
+                                ? this.values.map(v => v.displayText).join(', ')
+                                : undefined;
+                        } else {
+                            console.log(event.value);
+                            this.value = event.value.value;
+                            this.displayText = event.value.displayText;
+                            this.wcsChange.emit(event.value);
+                            console.log('LAUNCH: ', 'select_option_close');
+
+                            this.stateService.send('CLOSE');
+                        }
                     }
                 }
             },
             guards: {
-                enabled: (context, _) => !context.isDisabled
+                enabled: () => !this.disabled
             }
         };
     }
@@ -287,30 +293,11 @@ export class Select implements ComponentInterface {
 
     private updateStyles() {
         // Make the options container width the same width as everything.
-        const padding = 1.25; // XXX: This doesn't use the css variable.
         const borderSize = 1;
         this.optionsEl.setAttribute(
             'style',
-            `width: calc(${Math.ceil(this.el.getBoundingClientRect().width)}px - ${2 * padding}rem - ${2 * borderSize}px);`
+            `width: calc(${Math.ceil(this.el.getBoundingClientRect().width)}px - ${2 * borderSize}px);`
         );
-        this.setMarginTopOnNotFirstOption();
-    }
-
-    // XXX: Investigate if there is no way to do it with pure CSS.
-    // It poses problem due to slot not allowing deep styling.
-    private setMarginTopOnNotFirstOption() {
-        const slot = this.optionsEl.querySelector('slot');
-        let options: Element[] | NodeListOf<HTMLWcsSelectOptionElement>;
-        if (slot && slot.assignedElements) {
-            options = this.optionsEl.querySelector('slot').assignedElements();
-        } else {
-            options = this.optionsEl.querySelectorAll('wcs-select-option');
-        }
-        options.forEach((opt, key) => {
-            if (key !== 0) {
-                opt.setAttribute('style', `padding-top: 0.875rem;`);
-            }
-        });
     }
 
     private focusedAttributes() {

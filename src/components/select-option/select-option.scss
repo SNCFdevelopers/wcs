@@ -1,28 +1,33 @@
 @import '../../style/wcs.colors.scss';
+@import '../../style/wcs.ripple.scss';
 
 wcs-select-option {
+    @include ripple;
     display: block;
+    padding: 0 var(--wcs-padding);
+    height: 3rem;
+    line-height: 3rem;
 }
 
-.wcs-selection-option-container {
+wcs-select-option {
     display: block;
     cursor: pointer;
     user-select: none;
     font-weight: 500;
     color: black;
 
-    &:hover,&.selected {
+    &:hover,
+    &.selected {
         color: $primary;
+        background-color: $light;
     }
 }
 
-.disabled {
-    &.wcs-selection-option-container {
-        cursor: default;
-        color: $text-disabled;
-    }
+wcs-select-option[disabled] {
+    cursor: default;
+    color: $text-disabled;
 }
 
-.selected {
+wcs-select-option[selected] {
     color: $primary;
 }

@@ -1,4 +1,5 @@
 @import "../../style/wcs.colors.scss";
+@import "../../style/wcs.ripple.scss";
 
 .wcs-select-text {
     padding: 0.65625rem 1.25rem;
@@ -10,6 +11,7 @@
 }
 
 .wcs-select-content {
+    @include ripple;
     display: flex;
     align-items: center;
     padding-right: var(--wcs-text-padding);
@@ -30,7 +32,7 @@
     display: none;
     position: absolute;
     z-index: 1;
-    padding: var(--wcs-padding);
+    //padding: var(--wcs-padding);
     margin: 0;
 
     max-height: 22.5rem;
@@ -81,6 +83,14 @@
     .wcs-select-text {
         // FIXME: Replace with css variable
         color: $primary;
+    }
+}
+
+// Fix for multiple select
+:host([value="[]"]) {
+    .wcs-select-text {
+        // FIXME: Replace with css variable
+        color: $text-medium;
     }
 }
 
