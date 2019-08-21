@@ -8,7 +8,8 @@ import {
     Listen,
     ComponentInterface,
     Method,
-    h
+    h,
+    Host
 } from '@stencil/core';
 
 import { SelectChangeEventDetail } from './select-interface';
@@ -67,20 +68,29 @@ export class Select implements ComponentInterface {
     /** When the host is focused. */
     @State() focused: boolean;
 
-    /** If `true`, the user cannot interact with the select. */
-    @Prop() disabled = false;
+    /// PROPERTIES  ///
+
+    /** The currently selected value. */
+    @Prop({ mutable: true, reflect: true })
+    value?: any | null;
 
     /** The text to display when the select is empty. */
-    @Prop({ mutable: true }) placeholder?: string | null;
+    @Prop({ mutable: true, reflect: true })
+    placeholder?: string | null;
+
+    /** If `true`, the user cannot interact with the select. */
+    @Prop({ mutable: true }) disabled = false;
 
     /** The name of the control, which is submitted with the form data. */
     @Prop() name?: string;
 
-    /** The currently selected value. */
-    @Prop({ mutable: true, reflectToAttr: true }) value?: any | null;
-
+    // FIXME: This seems to be deprecated.
     /** Reference to the window. */
     @Prop({ context: 'window' }) window!: Window;
+
+    /// PROPERTIES ///
+
+    /// EVENTS ///
 
     /** Emitted when the value has changed. */
     @Event() wcsChange!: EventEmitter<SelectChangeEventDetail>;
@@ -90,6 +100,8 @@ export class Select implements ComponentInterface {
 
     /** Emitted when the select loses focus. */
     @Event() wcsBlur!: EventEmitter<void>;
+
+    /// EVENTS ///
 
     /**
      * Open the component.
@@ -116,7 +128,6 @@ export class Select implements ComponentInterface {
     componentDidLoad() {
         this.optionsEl = this.el.shadowRoot.querySelector('.wcs-select-options');
         this.contentEl = this.el.shadowRoot.querySelector('.wcs-select-content');
-        this.wrapperEl = this.el.shadowRoot.querySelector('.wcs-select-wrapper');
 
         const initialState: SelectContext = { isDisabled: this.disabled, selectedIds: this.value };
         const stateMachine = Machine(
@@ -137,8 +148,6 @@ export class Select implements ComponentInterface {
         }
 
         this.addRippleEffect();
-        this.wrapperEl.addEventListener('focus', this.focus);
-        this.wrapperEl.addEventListener('blur', this.blur);
         this.hasLoaded = true;
         this.stateService.start();
     }
@@ -251,15 +260,17 @@ export class Select implements ComponentInterface {
         console.log('LAUNCH: ', 'option_clicked');
         this.stateService.send({ type: 'OPTION_CLICKED', value: event.detail });
     }
-    private focus = () => this.stateService.send('FOCUS');
-    private blur = () => { console.log('LAUNCH: ', 'component_blur'); this.stateService.send('BLUR'); };
+    @Listen('focus')
+    focus() { this.stateService.send('FOCUS'); }
+    @Listen('blur')
+    blur() { console.log('LAUNCH: ', 'component_blur'); this.stateService.send('BLUR'); };
 
     render() {
         if (this.hasLoaded) {
             this.updateStyles();
         }
         return (
-            <div class={this.wrapperClasses()} {...this.focusedAttributes()} >
+            <Host class={this.expanded ? 'expanded ' : ''} {...this.focusedAttributes()}>
                 <div class="wcs-select-content">
                     <label class="wcs-select-text">{this.hasValue
                         ? this.displayText
@@ -270,7 +281,7 @@ export class Select implements ComponentInterface {
                 <div class="wcs-select-options">
                     <slot name="wcs-select-option" />
                 </div>
-            </div>
+            </Host>
         );
     }
 
@@ -300,13 +311,6 @@ export class Select implements ComponentInterface {
                 opt.setAttribute('style', `padding-top: 0.875rem;`);
             }
         });
-    }
-
-    private wrapperClasses() {
-        return (this.expanded ? 'expanded ' : '')
-            + (this.hasValue ? ' has-value ' : '')
-            + (this.disabled ? ' disabled ' : '')
-            + 'wcs-select-wrapper';
     }
 
     private focusedAttributes() {

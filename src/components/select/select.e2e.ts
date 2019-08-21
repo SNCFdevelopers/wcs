@@ -13,13 +13,12 @@ describe('Select component', () => {
             </wcs-select>
         `);
         const select = await page.find('wcs-select');
-        const wrapper = await page.find('wcs-select >>> .wcs-select-wrapper');
 
         // When
         await select.click();
 
         // Then
-        expect(wrapper).toHaveClass('expanded');
+        expect(select).toHaveClass('expanded');
     });
 
     it('Should open when using open method', async () => {
@@ -33,14 +32,13 @@ describe('Select component', () => {
             </wcs-select>
         `);
         const select = await page.find('wcs-select');
-        const wrapper = await page.find('wcs-select >>> .wcs-select-wrapper');
 
         // When
         await select.callMethod('open');
         await page.waitForChanges();
 
         // Then
-        expect(wrapper).toHaveClass('expanded');
+        expect(select).toHaveClass('expanded');
     });
 
     it('Should close when using close method', async () => {
@@ -54,7 +52,6 @@ describe('Select component', () => {
             </wcs-select>
         `);
         const select = await page.find('wcs-select');
-        const wrapper = await page.find('wcs-select >>> .wcs-select-wrapper');
 
         // When
         await select.click();
@@ -62,7 +59,7 @@ describe('Select component', () => {
         await page.waitForChanges();
 
         // Then
-        expect(wrapper).not.toHaveClass('expanded');
+        expect(select).not.toHaveClass('expanded');
     });
 
     it('Should close when user click outside', async () => {
@@ -77,7 +74,6 @@ describe('Select component', () => {
             <div class="somewhere-else"></div>
         `);
         const select = await page.find('wcs-select');
-        const wrapper = await page.find('wcs-select >>> .wcs-select-wrapper');
 
         // When
         await select.click();
@@ -86,10 +82,10 @@ describe('Select component', () => {
         await page.waitForChanges();
 
         // Then
-        expect(wrapper).not.toHaveClass('expanded');
+        expect(select).not.toHaveClass('expanded');
     });
 
-    it('Should handle option click', async () => {
+    it('Let us select a value and displays it correctly', async () => {
         // Given
         const page = await newE2EPage();
         await page.setContent(`
@@ -123,11 +119,11 @@ describe('Select component', () => {
                 <wcs-select-option value="3">Three</wcs-select-option>
             </wcs-select>
         `);
-        const wrapper = await page.find('wcs-select >>> .wcs-select-wrapper');
+        const select = await page.find('wcs-select');
 
         // When
-        await wrapper.focus();
-        const focusedEl = await page.find('wcs-select >>> .wcs-select-wrapper:focus');
+        await select.focus();
+        const focusedEl = await page.find('wcs-select:focus');
 
         // Then
         expect(focusedEl).toBeDefined();
@@ -145,13 +141,12 @@ describe('Select component', () => {
                 </wcs-select>
             `);
             const select = await page.find('wcs-select');
-            const wrapper = await page.find('wcs-select >>> .wcs-select-wrapper');
 
             // When
             await select.click();
 
             // Then
-            expect(wrapper).not.toHaveClass('expanded');
+            expect(select).not.toHaveClass('expanded');
         });
 
         it('Is not focusable when disabled', async () => {
@@ -164,16 +159,41 @@ describe('Select component', () => {
                     <wcs-select-option value="3">Three</wcs-select-option>
                 </wcs-select>
             `);
-            const wrapper = await page.find('wcs-select >>> .wcs-select-wrapper');
+            const select = await page.find('wcs-select');
 
             // When
-            await wrapper.focus();
-            const focusedEl = await page.find('wcs-select >>> .wcs-select-wrapper:focus');
+            await select.focus();
+            const focusedEl = await page.find('wcs-select:focus');
 
             // Then
             expect(focusedEl).toBeNull();
         });
     });
 
+    describe('Multiple', () => {
+        it(`Doesn't close when we select a value`, async () => {
+            // Given
+            const page = await newE2EPage();
+            await page.setContent(`
+                <wcs-select multiple>
+                    <wcs-select-option value="1">One</wcs-select-option>
+                    <wcs-select-option value="2">Two</wcs-select-option>
+                    <wcs-select-option value="3">Three</wcs-select-option>
+                </wcs-select>
+            `);
+            const select = await page.find('wcs-select');
+            const firstSelectOption = await page.find('wcs-select > wcs-select-option');
+
+            // When
+            await select.click();
+            await firstSelectOption.click();
+            await page.waitForChanges();
+
+            // Then
+            expect(select).toHaveClass('expanded');
+        });
+        // TODO: it displays all values in the display separated by a comma
+        // TODO: it allows to select multiple value
+    });
 });
 

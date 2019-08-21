@@ -1,38 +1,28 @@
-@import '../../style/wcs.colors.scss';
-@import '../../style/wcs.ripple.scss';
-
-@function wcs-border($color: $text-light) {
-    @if $color {
-        @return $color solid 1px;
-    } @else {
-        @return $gray-text solid 1px;
-    }
-}
-
-$border-radius: var(--wcs-border-radius);
+@import "../../style/wcs.colors.scss";
 
 .wcs-select-text {
     padding: 0.65625rem 1.25rem;
     font-weight: 500;
     cursor: pointer;
+    // FIXME: Replace with css variable
     color: $text-medium;
     transition: color 175ms ease-in-out;
 }
 
 .wcs-select-content {
-    @include ripple;
     display: flex;
     align-items: center;
     padding-right: var(--wcs-text-padding);
+    // FIXME: Replace with css variable
     background-color: $light;
     border-radius: var(--wcs-border-radius);
-    border: wcs-border(transparent);
+    border: transparent solid 1px;
     font-size: 1rem;
     line-height: 1.5;
     cursor: pointer;
 
     &:hover {
-        border: wcs-border();
+        border: $primary solid 1px;
     }
 }
 
@@ -47,51 +37,54 @@ $border-radius: var(--wcs-border-radius);
     overflow-y: auto;
 
     background-color: white;
+    // FIXME: Replace with css variable
     color: $text-medium;
+    border-left: $text-light solid 1px;
+    border-right: $text-light solid 1px;
+    border-bottom: $text-light solid 1px;
 
-    border-left: wcs-border();
-    border-right: wcs-border();
-    border-bottom: wcs-border();
     border-bottom-right-radius: var(--wcs-border-radius);
     border-bottom-left-radius: var(--wcs-border-radius);
 }
 
-.expanded {
+:host {
+    display: block;
+    position: relative;
+    outline: none;
+    user-select: none;
+}
+
+:host(.expanded) {
     .wcs-select-options {
         display: block;
     }
 
     .wcs-select-content {
-        border-top: wcs-border();
-        border-right: wcs-border();
-        border-left: wcs-border();
+        // FIXME: Replace with css variables
+        border-top: $text-light solid 1px;
+        border-right: $text-light solid 1px;
+        border-left: $text-light solid 1px;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
         border-bottom: solid 1px transparent;
     }
 }
 
-.wcs-select-wrapper {
-    position: relative;
-    outline: none;
-    user-select: none;
-
-
-    &:not(.expanded):focus {
-        .wcs-select-content {
-            border: wcs-border($primary);
-        }
+:host(:not(.expanded):focus) {
+    .wcs-select-content {
+        // FIXME: replace with css variables
+        border: $primary solid 1px;
     }
 }
 
-.has-value {
+:host([value]) {
     .wcs-select-text {
+        // FIXME: Replace with css variable
         color: $primary;
     }
 }
 
-.disabled {
-
+:host([disabled]) {
     .wcs-select-content,
     .wcs-select-text {
         cursor: default;
@@ -99,14 +92,12 @@ $border-radius: var(--wcs-border-radius);
     }
 
     .wcs-select-text {
+        // FIXME: Replace with css variable
         color: $text-disabled;
     }
 
     .arrow {
+        // FIXME: Replace with css variable
         fill: $text-medium;
     }
-}
-
-.wcs-select-options::slotted(wcs-select-option) > [value="1"] {
-    display: none;
 }
