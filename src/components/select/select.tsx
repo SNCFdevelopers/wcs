@@ -218,6 +218,10 @@ export class Select implements ComponentInterface {
         } else {
             this.handleNormalClick(event);
         }
+        console.log('La ça devrait marcher');
+        this.wcsChange.emit({
+            value: this.value
+        });
     }
 
     private handleClickOnMultiple(event: SelectOptionChosedEvent) {
@@ -225,9 +229,9 @@ export class Select implements ComponentInterface {
         if (index === -1) {
             const { value, displayText } = event;
             this.values.push({ value, displayText });
-            event.target.selected = true;
+            event.source.selected = true;
         } else {
-            event.target.selected = false;
+            event.source.selected = false;
             this.values.splice(index, 1);
         }
         // TODO: Let user provide sorting function and use this if defined.
@@ -243,10 +247,9 @@ export class Select implements ComponentInterface {
         this.optionsEl.querySelector('slot').assignedElements()
             .forEach((option: HTMLWcsSelectOptionElement) => { if (option.selected) option.selected = false; });
 
-        event.target.selected = true;
+        event.source.selected = true;
         this.value = event.value;
         this.displayText = event.displayText;
-        this.wcsChange.emit(event);
         this.stateService.send('CLOSE');
     }
 

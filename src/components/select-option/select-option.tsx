@@ -51,7 +51,7 @@ export class SelectOption implements ComponentInterface {
             // We select inner HTML as it's what's passed into the slot.
             const displayText = this.el.innerText;
             this.wcsSelectOptionClick.emit({
-                target: this.el,
+                source: this.el,
                 value: this.value,
                 displayText
             });

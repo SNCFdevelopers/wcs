@@ -4,5 +4,5 @@ export interface SelectOptionValue {
 }
 
 export interface SelectOptionChosedEvent extends SelectOptionValue {
-    target: HTMLWcsSelectOptionElement;
+    source: HTMLWcsSelectOptionElement;
 }

@@ -118,6 +118,28 @@ describe('Select component', () => {
         expect(focusedEl).toBeDefined();
     });
 
+    it(`Propagate wcsSelectChangeEvent when a new value is selected`, async () => {
+        // Given
+        const page = await newE2EPage({
+            html: `
+                <wcs-select>
+                    <wcs-select-option value="1">One</wcs-select-option>
+                </wcs-select>
+            `
+        });
+        const select = await page.find('wcs-select');
+        const opt = await page.find('wcs-select > wcs-select-option');
+        const changeSpy = await select.spyOnEvent('wcsChange');
+        // When
+        await select.click();
+        await opt.click();
+        await page.waitForChanges();
+
+        // Then
+        expect(changeSpy).toHaveReceivedEventTimes(1);
+        expect(changeSpy).toHaveReceivedEventDetail({ value: '1' });
+    });
+
     xit(`Can have pre-selected option`, async () => {
         // TODO:
     });
@@ -334,12 +356,28 @@ describe('Select component', () => {
             expect(option).toHaveAttribute('multiple');
         });
 
-        xit(`Allows to select multiple values`, async () => {
-            // TODO:
-        });
+        it(`Propagate event when values are select`, async () => {
+            // Given
+            const page = await newE2EPage();
+            await page.setContent(`
+                <wcs-select multiple>
+                    <wcs-select-option value="1">One</wcs-select-option>
+                    <wcs-select-option value="2">Two</wcs-select-option>
+                </wcs-select>
+            `);
+            const select = await page.find('wcs-select');
+            const option = await page.find('wcs-select > wcs-select-option');
+            const [opt1, opt2] = (await page.findAll('wcs-select > wcs-select-option'));
+            const changeSpy = await select.spyOnEvent('wcsChange');
 
-        xit(`Propagate event when values are select`, async () => {
-            // TODO:
+            // When
+            await select.click();
+            await opt1.click();
+            await opt2.click();
+
+            // Then
+            expect(changeSpy).toHaveReceivedEventTimes(2);
+            expect(changeSpy).toHaveReceivedEventDetail({ value: '[1, 2]' });
         });
     });
 });
