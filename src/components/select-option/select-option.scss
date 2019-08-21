@@ -12,8 +12,7 @@ wcs-select-option {
     font-weight: 500;
     color: black;
 
-    &:hover,
-    &.selected {
+    &:hover {
         color: $primary;
         background-color: $light;
     }
@@ -27,6 +26,7 @@ wcs-select-option[disabled] {
 
 wcs-select-option[selected] {
     color: $primary;
+    background-color: $light;
 }
 
 wcs-select-option[multiple] {

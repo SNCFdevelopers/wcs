@@ -218,7 +218,6 @@ export class Select implements ComponentInterface {
         } else {
             this.handleNormalClick(event);
         }
-        console.log('La ça devrait marcher');
         this.wcsChange.emit({
             value: this.value
         });
@@ -268,7 +267,7 @@ export class Select implements ComponentInterface {
         return this.displayText !== undefined;
     }
 
-    @Listen('mousedown', { target: 'parent' })
+    @Listen('mousedown')
     onMouseDown(_event: MouseEvent) {
         this.stateService.send('CLICK');
     }
@@ -287,7 +286,7 @@ export class Select implements ComponentInterface {
     }
     @Listen('focus')
     focus() { this.stateService.send('FOCUS'); }
-    @Listen('blur')
+    //@Listen('blur')
     blur() { this.stateService.send('BLUR'); }
 
     render() {

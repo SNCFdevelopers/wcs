@@ -366,7 +366,6 @@ describe('Select component', () => {
                 </wcs-select>
             `);
             const select = await page.find('wcs-select');
-            const option = await page.find('wcs-select > wcs-select-option');
             const [opt1, opt2] = (await page.findAll('wcs-select > wcs-select-option'));
             const changeSpy = await select.spyOnEvent('wcsChange');
 
