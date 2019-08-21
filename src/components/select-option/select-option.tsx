@@ -21,6 +21,14 @@ export class SelectOption implements ComponentInterface {
     /** The option value, not what's displayed, use inner text instead. */
     @Prop({ mutable: true, reflect: true }) value?: any;
 
+    /**
+     * This property musn't be set by hand, it is used by the `wcs-select` component.
+     * If you want a multiple select, set `multiple` attribute on the parent select instead.
+     * @internal
+     * @ignore
+     */
+    @Prop({ reflect: true }) multiple = false;
+
     @Event({
         eventName: 'wcsSelectOptionClick',
     })
@@ -43,6 +51,7 @@ export class SelectOption implements ComponentInterface {
             // We select inner HTML as it's what's passed into the slot.
             const displayText = this.el.innerText;
             this.wcsSelectOptionClick.emit({
+                target: this.el,
                 value: this.value,
                 displayText
             });
@@ -52,6 +61,9 @@ export class SelectOption implements ComponentInterface {
     render() {
         return (
             <Host slot="wcs-select-option">
+                {this.multiple &&
+                    <wcs-checkbox checked={this.selected}></wcs-checkbox>
+                }
                 <slot />
             </Host>
         );

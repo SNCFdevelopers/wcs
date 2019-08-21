@@ -15,7 +15,7 @@ import {
 import { SelectChangeEventDetail } from './select-interface';
 import * as MDCRipple from '@material/ripple';
 import { SelectArrow } from './select-arrow';
-import { SelectOptionChosedEvent } from '../select-option/select-option-interface';
+import { SelectOptionChosedEvent, SelectOptionValue } from '../select-option/select-option-interface';
 import { Machine, MachineConfig, interpret, Interpreter, MachineOptions } from 'xstate';
 
 interface SelectStateSchema {
@@ -109,10 +109,9 @@ export class Select implements ComponentInterface {
 
     private optionsEl!: HTMLDivElement;
     private contentEl!: HTMLDivElement;
-    private wrapperEl!: HTMLInputElement;
 
     // Only used for multiples.
-    private values: SelectOptionChosedEvent[];
+    private values: SelectOptionValue[];
 
     componentDidLoad() {
         this.optionsEl = this.el.shadowRoot.querySelector('.wcs-select-options');
@@ -126,7 +125,8 @@ export class Select implements ComponentInterface {
             this.initMachineOptions()
         );
         this.stateService = interpret(stateMachine);
-        this.stateService.onTransition(transition => console.log(transition.value));
+        // TODO: remove:
+        // this.stateService.onTransition(transition => console.log(transition.value));
 
         // XXX: Dirty fix to put the element in the right place if slot isn't defined (firefox < 63)
         if (this.optionsEl.querySelector('slot') === null) {
@@ -135,6 +135,11 @@ export class Select implements ComponentInterface {
                     this.el.removeChild(option);
                     this.optionsEl.appendChild(option);
                 });
+        }
+
+        if (this.multiple) {
+            this.optionsEl.querySelector('slot').assignedElements()
+                .forEach((opt: HTMLWcsSelectOptionElement) => opt.multiple = true);
         }
 
         this.addRippleEffect();
@@ -197,28 +202,7 @@ export class Select implements ComponentInterface {
                 },
                 selectOption: (_, event) => {
                     if (event.type === 'OPTION_CLICKED') {
-                        if (this.multiple) {
-                            const index = this.values.findIndex(v => v.value === event.value.value);
-                            if (index === -1) {
-                                this.values.push(event.value);
-                            } else {
-                                this.values.splice(index, 1);
-                            }
-                            // TODO: Let user provide sorting function and use this if defined.
-                            // this.values = this.values.sort((a, b) => a.value - b.value);
-                            this.value = `[${this.values.map(v => v.value).join(', ')}]`;
-                            this.displayText = this.values.length !== 0
-                                ? this.values.map(v => v.displayText).join(', ')
-                                : undefined;
-                        } else {
-                            console.log(event.value);
-                            this.value = event.value.value;
-                            this.displayText = event.value.displayText;
-                            this.wcsChange.emit(event.value);
-                            console.log('LAUNCH: ', 'select_option_close');
-
-                            this.stateService.send('CLOSE');
-                        }
+                        this.handleClickEvent(event.value);
                     }
                 }
             },
@@ -228,13 +212,47 @@ export class Select implements ComponentInterface {
         };
     }
 
-    componentDidUnload() {
-        // XXX: to be sure we have no dangling listeners.
-        this.wrapperEl.removeEventListener('focus', this.focus);
-        this.wrapperEl.addEventListener('blur', this.blur);
-        this.stateService.stop();
+    private handleClickEvent(event: SelectOptionChosedEvent) {
+        if (this.multiple) {
+            this.handleClickOnMultiple(event);
+        } else {
+            this.handleNormalClick(event);
+        }
     }
 
+    private handleClickOnMultiple(event: SelectOptionChosedEvent) {
+        const index = this.values.findIndex(v => v.value === event.value);
+        if (index === -1) {
+            const { value, displayText } = event;
+            this.values.push({ value, displayText });
+            event.target.selected = true;
+        } else {
+            event.target.selected = false;
+            this.values.splice(index, 1);
+        }
+        // TODO: Let user provide sorting function and use this if defined.
+        // this.values = this.values.sort((a, b) => a.value - b.value);
+        this.value = `[${this.values.map(v => v.value).join(', ')}]`;
+        this.displayText = this.values.length !== 0
+            ? this.values.map(v => v.displayText).join(', ')
+            : undefined;
+    }
+
+    private handleNormalClick(event: SelectOptionChosedEvent) {
+        // TODO: test if it works in firefox < 63
+        this.optionsEl.querySelector('slot').assignedElements()
+            .forEach((option: HTMLWcsSelectOptionElement) => { if (option.selected) option.selected = false; });
+
+        event.target.selected = true;
+        this.value = event.value;
+        this.displayText = event.displayText;
+        this.wcsChange.emit(event);
+        this.stateService.send('CLOSE');
+    }
+
+    componentDidUnload() {
+        this.stateService.stop();
+    }
 
     private addRippleEffect() {
         // TODO: wrap MDCRipple dependency so we can eventually write our own or at least decouple a bit.
@@ -243,12 +261,12 @@ export class Select implements ComponentInterface {
     }
 
     private get hasValue(): boolean {
+        // TODO: change this behavior.
         return this.displayText !== undefined;
     }
 
     @Listen('mousedown', { target: 'parent' })
     onMouseDown(_event: MouseEvent) {
-        console.log('LAUNCH: ', 'parent_mousedown');
         this.stateService.send('CLICK');
     }
 
@@ -257,19 +275,17 @@ export class Select implements ComponentInterface {
         const clickedOnSelectOrChildren = event.target instanceof Node && this.el.contains(event.target);
         // TODO: Move this logic in the state machine
         if (this.expanded && !clickedOnSelectOrChildren) {
-            console.log('LAUNCH: ', 'window_click');
             this.stateService.send('BLUR');
         }
     }
     @Listen('wcsSelectOptionClick')
     selectedOptionChanged(event: CustomEvent<SelectOptionChosedEvent>) {
-        console.log('LAUNCH: ', 'option_clicked');
         this.stateService.send({ type: 'OPTION_CLICKED', value: event.detail });
     }
     @Listen('focus')
     focus() { this.stateService.send('FOCUS'); }
     @Listen('blur')
-    blur() { console.log('LAUNCH: ', 'component_blur'); this.stateService.send('BLUR'); };
+    blur() { this.stateService.send('BLUR'); }
 
     render() {
         if (this.hasLoaded) {
@@ -294,6 +310,8 @@ export class Select implements ComponentInterface {
     private updateStyles() {
         // Make the options container width the same width as everything.
         const borderSize = 1;
+        // TODO: Consider using a mutation observer instead ?
+        // Be cautious as it may cause infinite loop with render ?
         this.optionsEl.setAttribute(
             'style',
             `width: calc(${Math.ceil(this.el.getBoundingClientRect().width)}px - ${2 * borderSize}px);`

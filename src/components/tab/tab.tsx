@@ -14,6 +14,7 @@ export class Tab implements ComponentDidLoad {
     @Prop({ reflectToAttr: true, mutable: true })
     header: string;
 
+    // TODO: Use host element instead
     /**
      * This property should not be used,
      * it is only meant for internal use.

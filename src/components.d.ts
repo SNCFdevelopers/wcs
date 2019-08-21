@@ -226,6 +226,11 @@ export namespace Components {
     */
     'disabled': boolean;
     /**
+    * This property musn't be set by hand, it is used by the `wcs-select` component. If you want a multiple select, set `multiple` attribute on the parent select instead.
+    * @ignore
+    */
+    'multiple': boolean;
+    /**
     * Wether this option is selected.
     */
     'selected': boolean;

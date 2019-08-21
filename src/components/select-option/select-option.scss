@@ -3,14 +3,10 @@
 
 wcs-select-option {
     @include ripple;
-    display: block;
+    display: flex;
     padding: 0 var(--wcs-padding);
     height: 3rem;
     line-height: 3rem;
-}
-
-wcs-select-option {
-    display: block;
     cursor: pointer;
     user-select: none;
     font-weight: 500;
@@ -25,9 +21,17 @@ wcs-select-option {
 
 wcs-select-option[disabled] {
     cursor: default;
+    pointer-events: none;
     color: $text-disabled;
 }
 
 wcs-select-option[selected] {
     color: $primary;
+}
+
+wcs-select-option[multiple] {
+    wcs-checkbox {
+        // Because 6px are left as of now from the empty span text.
+        margin-right: #{16 - 6}px;
+    }
 }

@@ -8,6 +8,10 @@
     // FIXME: Replace with css variable
     color: $text-medium;
     transition: color 175ms ease-in-out;
+    // Hide overflowing display text
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .wcs-select-content {
@@ -95,6 +99,7 @@
 }
 
 :host([disabled]) {
+
     .wcs-select-content,
     .wcs-select-text {
         cursor: default;
