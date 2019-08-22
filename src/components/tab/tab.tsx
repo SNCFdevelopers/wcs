@@ -1,4 +1,4 @@
-import { Component, Event, Prop, ComponentDidLoad, EventEmitter, h } from '@stencil/core';
+import { Component, Event, Prop, ComponentDidLoad, EventEmitter, h, Host } from '@stencil/core';
 
 /**
  *
@@ -15,14 +15,6 @@ export class Tab implements ComponentDidLoad {
     header: string;
 
     /**
-     * This property should not be used,
-     * it is only meant for internal use.
-     * @internal
-     * @ignore
-     */
-    @Prop({ reflectToAttr: true }) slot = 'wcs-tab';
-
-    /**
      * XXX: Temporary fix, see tabs component
      * @internal
      * @ignore
@@ -35,7 +27,9 @@ export class Tab implements ComponentDidLoad {
 
     render() {
         return (
-            <slot></slot>
+            <Host>
+                <slot></slot>
+            </Host>
         );
     }
 }
