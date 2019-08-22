@@ -1,3 +1,6 @@
+/**
+ * Create css classes for each key in the color map.
+ */
 .wcs-background-primary {
   background-color: #0088ce;
 }
@@ -317,7 +320,10 @@
   font-weight: 500;
   cursor: pointer;
   color: #747678;
-  transition: color 175ms ease-in-out;
+  transition: color 125ms ease-in;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .wcs-select-content {
@@ -404,15 +410,11 @@
 .wcs-select-content.mdc-ripple-upgraded {
   --mdc-ripple-fg-opacity: 0.3;
 }
-.wcs-select-content:hover {
-  border: #d7d7d7 solid 1px;
-}
 
 .wcs-select-options {
   display: none;
   position: absolute;
   z-index: 1;
-  padding: var(--wcs-padding);
   margin: 0;
   max-height: 22.5rem;
   overflow-y: auto;
@@ -425,43 +427,45 @@
   border-bottom-left-radius: var(--wcs-border-radius);
 }
 
-.expanded .wcs-select-options {
+:host {
+  display: block;
+  position: relative;
+  outline: none;
+  user-select: none;
+}
+
+:host(.expanded) .wcs-select-options {
   display: block;
 }
-.expanded .wcs-select-content {
+:host(.expanded) .wcs-select-content {
   border-top: #d7d7d7 solid 1px;
   border-right: #d7d7d7 solid 1px;
   border-left: #d7d7d7 solid 1px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  border-bottom: solid 1px transparent;
+  border-bottom: #d7d7d7 solid 1px;
 }
 
-.wcs-select-wrapper {
-  position: relative;
-  outline: none;
-  user-select: none;
-}
-.wcs-select-wrapper:not(.expanded):focus .wcs-select-content {
+:host(:not(.expanded):focus) .wcs-select-content {
   border: #0088ce solid 1px;
 }
 
-.has-value .wcs-select-text {
-  color: #0088ce;
+:host([value]) .wcs-select-text {
+  color: black;
 }
 
-.disabled .wcs-select-content,
-.disabled .wcs-select-text {
+:host([value="[]"]) .wcs-select-text {
+  color: #747678;
+}
+
+:host([disabled]) .wcs-select-content,
+:host([disabled]) .wcs-select-text {
   cursor: default;
   pointer-events: none;
 }
-.disabled .wcs-select-text {
+:host([disabled]) .wcs-select-text {
   color: #b9b9b9;
 }
-.disabled .arrow {
+:host([disabled]) .arrow {
   fill: #747678;
-}
-
-.wcs-select-options::slotted(wcs-select-option) > [value="1"] {
-  display: none;
 }

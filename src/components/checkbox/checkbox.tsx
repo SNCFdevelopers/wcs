@@ -1,7 +1,6 @@
 import { Component, Prop, Event, Element, EventEmitter, ComponentInterface, h } from '@stencil/core';
 import { CheckboxChangeEventDetail } from './checkbox-interface';
 
-
 @Component({
     tag: 'wcs-checkbox',
     styleUrl: 'checkbox.scss',

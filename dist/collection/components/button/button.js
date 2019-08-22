@@ -21,12 +21,14 @@ export class Button {
         /**
          * Specify wether the button should have a ripple effect or not.
          */
-        this.ripple = false;
+        this.ripple = true;
         /**
          * This attribute specifies the size of the button.
          * Setting this attribute will change the height and padding of a button.
          */
         this.mode = 'normal';
+        /** Specify wether the button should have background color or not. */
+        this.clear = false;
     }
     onClick(ev) {
         if (this.type !== 'button' && hasShadowDom(this.el)) {
@@ -65,11 +67,13 @@ export class Button {
         };
     }
     componentDidLoad() {
-        this.addRippleEffect();
+        if (this.ripple) {
+            this.addRippleEffect();
+        }
     }
     addRippleEffect() {
         const ripple = new MDCRipple.MDCRipple(this.el.shadowRoot.querySelector('.wcs-inner-button'));
-        ripple.unbounded = true;
+        ripple.unbounded = false;
     }
     static get is() { return "wcs-button"; }
     static get encapsulation() { return "shadow"; }
@@ -177,7 +181,7 @@ export class Button {
             },
             "attribute": "ripple",
             "reflect": false,
-            "defaultValue": "false"
+            "defaultValue": "true"
         },
         "mode": {
             "type": "string",
@@ -196,6 +200,24 @@ export class Button {
             "attribute": "mode",
             "reflect": true,
             "defaultValue": "'normal'"
+        },
+        "clear": {
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": "Specify wether the button should have background color or not."
+            },
+            "attribute": "clear",
+            "reflect": true,
+            "defaultValue": "false"
         }
     }; }
     static get contextProps() { return [{

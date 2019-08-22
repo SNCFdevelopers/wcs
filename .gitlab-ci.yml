@@ -1,6 +1,9 @@
+image: markhobson/node-chrome
+before_script:
+    - npm install
+cache:
+    paths:
+        - node_modules/
 test:
-    image: node
-    before_script:
-        - npm install
     script:
         - npm test

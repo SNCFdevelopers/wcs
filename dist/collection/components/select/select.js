@@ -1,6 +1,7 @@
-import { h } from "@stencil/core";
+import { h, Host } from "@stencil/core";
 import * as MDCRipple from '@material/ripple';
 import { SelectArrow } from './select-arrow';
+import { Machine, interpret } from 'xstate';
 /**
  * Select component, use in conjuction with wcs-select-option.
  *
@@ -18,152 +19,174 @@ export class Select {
         this.hasLoaded = false;
         /** If `true`, the user cannot interact with the select. */
         this.disabled = false;
-        // XXX: We use fat arrow to have a reference to the function and
-        // being able to unregister it later on.
-        this.handleExpandedKeyEvents = (keyEvent) => {
-            if (keyEvent.code === 'Escape') {
-                this.unExpand();
-            }
-            else if (keyEvent.code === 'Tab') {
-                this.unExpand();
-                // XXX: so we preserve default select behavior, that is:
-                // When expanded, pressing tab only unexpand and does not blur
-                keyEvent.preventDefault();
-            }
-            else if (keyEvent.code === 'ArrowDown') {
-                keyEvent.preventDefault();
-                // Select next value
-            }
-            else if (keyEvent.code === 'ArrowUp') {
-                // Select previous value
-                keyEvent.preventDefault();
-            }
-        };
-        this.focus = () => {
-            this.wrapperEl.focus();
-            this.wcsFocus.emit();
-            this.wrapperEl.addEventListener('keydown', this.handleFocusedKeyEvents);
-        };
-        this.handleFocusedKeyEvents = (keyEvent) => {
-            if (keyEvent.code === 'Escape') {
-                this.blur();
-            }
-            else if (keyEvent.code === 'Space') {
-                this.expand();
-                // Focus on selected or first value.
-                // XXX: so the page doesn't scroll down.
-                keyEvent.preventDefault();
-                this.wrapperEl.removeEventListener('keydown', this.handleFocusedKeyEvents);
-            }
-        };
-        this.blur = () => {
-            this.wrapperEl.blur();
-            this.wcsBlur.emit();
-            this.wrapperEl.removeEventListener('keydown', this.handleFocusedKeyEvents);
-        };
+        /** If `true`, the user can select multiple values at once. */
+        this.multiple = false;
+    }
+    /** Open the component. */
+    async open() {
+        this.stateService.send('OPEN');
+    }
+    /** Close the component. */
+    async close() {
+        this.stateService.send('CLOSE');
     }
     componentDidLoad() {
         this.optionsEl = this.el.shadowRoot.querySelector('.wcs-select-options');
         this.contentEl = this.el.shadowRoot.querySelector('.wcs-select-content');
-        this.wrapperEl = this.el.shadowRoot.querySelector('.wcs-select-wrapper');
-        if (this.optionsEl.querySelector('slot') === null) {
-            this.el.querySelectorAll('wcs-select-option')
-                .forEach(option => {
-                this.el.removeChild(option);
-                this.optionsEl.appendChild(option);
-            });
+        const stateMachine = Machine(this.initMachineConfig(), this.initMachineOptions());
+        this.stateService = interpret(stateMachine);
+        if (this.multiple) {
+            this.values = [];
+            this.options
+                .forEach((opt) => opt.multiple = true);
         }
-        this.expandOnClick();
         this.addRippleEffect();
-        this.wrapperEl.addEventListener('focus', this.focus);
-        this.wrapperEl.addEventListener('blur', this.blur);
+        // TODO: is this still usefull for anything ?
         this.hasLoaded = true;
+        this.stateService.start();
     }
-    componentDidUnload() {
-        // XXX: to be sure we have no dangling listeners.
-        this.window.removeEventListener('keydown', this.handleExpandedKeyEvents);
-        this.wrapperEl.removeEventListener('focus', this.focus);
-        this.wrapperEl.addEventListener('blur', this.blur);
+    get options() {
+        const opts = this.optionsEl.querySelectorAll('wcs-select-option');
+        return opts.length !== 0
+            ? opts
+            : this.optionsEl.querySelector('slot').assignedElements();
     }
-    expandOnClick() {
-        this.el.addEventListener('mousedown', () => {
-            if (!this.disabled) {
-                if (this.expanded) {
-                    this.unExpand();
-                }
-                else {
-                    this.expand();
-                }
+    initMachineConfig() {
+        return {
+            key: 'select',
+            initial: 'blurred',
+            states: {
+                blurred: {
+                    entry: ['blur'],
+                    on: {
+                        CLOSE: { target: 'closed', cond: 'enabled' },
+                        FOCUS: { target: 'closed', cond: 'enabled' },
+                        OPEN: { target: 'opened', cond: 'enabled' },
+                        CLICK: { target: 'opened', cond: 'enabled' },
+                    }
+                },
+                closed: {
+                    entry: ['close'],
+                    on: {
+                        CLICK: 'opened',
+                        OPEN: 'opened',
+                        BLUR: 'blurred',
+                    },
+                },
+                opened: {
+                    entry: ['open'],
+                    on: {
+                        CLICK: 'closed',
+                        CLOSE: 'closed',
+                        BLUR: 'blurred',
+                        OPTION_CLICKED: { actions: ['selectOption'] }
+                    },
+                },
             }
+        };
+    }
+    initMachineOptions() {
+        return {
+            actions: {
+                open: () => {
+                    this.expanded = true;
+                    this.focused = true;
+                },
+                close: () => {
+                    this.focused = true;
+                    this.expanded = false;
+                },
+                blur: () => {
+                    this.focused = false;
+                    this.expanded = false;
+                },
+                focus: () => {
+                    this.focused = true;
+                },
+                selectOption: (_, event) => {
+                    if (event.type === 'OPTION_CLICKED') {
+                        this.handleClickEvent(event.value);
+                    }
+                }
+            },
+            guards: {
+                enabled: () => !this.disabled
+            }
+        };
+    }
+    handleClickEvent(event) {
+        if (this.multiple) {
+            this.handleClickOnMultiple(event);
+        }
+        else {
+            this.handleNormalClick(event);
+        }
+        this.wcsChange.emit({
+            value: this.value
         });
     }
-    expand() {
-        this.window.addEventListener('keydown', this.handleExpandedKeyEvents);
-        // TODO: add focus on options and focus the first.
-        this.expanded = true;
+    handleClickOnMultiple(event) {
+        const index = this.values.findIndex(v => v.value === event.value);
+        if (index === -1) {
+            const { value, displayText } = event;
+            this.values.push({ value, displayText });
+            event.source.selected = true;
+        }
+        else {
+            event.source.selected = false;
+            this.values.splice(index, 1);
+        }
+        // TODO: Let user provide sorting function and use this if defined.
+        // this.values = this.values.sort((a, b) => a.value - b.value);
+        this.value = `[${this.values.map(v => v.value).join(', ')}]`;
+        this.displayText = this.values.length !== 0
+            ? this.values.map(v => v.displayText).join(', ')
+            : undefined;
     }
-    unExpand() {
-        this.expanded = false;
-        this.window.removeEventListener('keydown', this.handleExpandedKeyEvents);
+    handleNormalClick(event) {
+        // Reset other options to false if they were selected.
+        this.options
+            .forEach(option => {
+            if (option.selected)
+                option.selected = false;
+        });
+        event.source.selected = true;
+        this.value = event.value;
+        this.displayText = event.displayText;
+        this.stateService.send('CLOSE');
+    }
+    componentDidUnload() {
+        this.stateService.stop();
     }
     addRippleEffect() {
-        // XXX: Unwrapped dependency over MDCRipple...
+        // TODO: wrap MDCRipple dependency so we can eventually write our own or at least decouple a bit.
         const ripple = new MDCRipple.MDCRipple(this.contentEl);
         ripple.unbounded = true;
     }
+    get hasValue() {
+        // TODO: change this behavior.
+        return this.displayText !== undefined;
+    }
+    onMouseDown(_event) {
+        this.stateService.send('CLICK');
+    }
     onWindowClickEvent(event) {
-        if (this.expanded
-            && (event.target !== this.el
-                && !(event.target instanceof Node && this.el.contains(event.target)))) {
-            this.unExpand();
+        const clickedOnSelectOrChildren = event.target instanceof Node && this.el.contains(event.target);
+        // TODO: Move this logic in the state machine
+        if (this.expanded && !clickedOnSelectOrChildren) {
+            this.stateService.send('BLUR');
         }
     }
     selectedOptionChanged(event) {
-        this.value = event.detail.value;
-        this.displayText = event.detail.displayText;
-        this.wcsChange.emit({ value: event.detail.value });
+        this.stateService.send({ type: 'OPTION_CLICKED', value: event.detail });
     }
-    wrapperClasses() {
-        return (this.expanded ? 'expanded ' : '')
-            + (this.hasValue ? ' has-value ' : '')
-            + (this.disabled ? ' disabled ' : '')
-            + 'wcs-select-wrapper';
-    }
-    get hasValue() {
-        return this.displayText !== undefined;
-    }
-    updateStyles() {
-        // Make the options container width the same width as everything.
-        const padding = 1.25; // XXX: This doesn't use the css variable.
-        const borderSize = 1;
-        this.optionsEl.setAttribute('style', `width: calc(${Math.ceil(this.el.getBoundingClientRect().width)}px - ${2 * padding}rem - ${2 * borderSize}px);`);
-        this.setMarginTopOnNotFirstOption();
-    }
-    focusedAttributes() {
-        return !this.disabled ? { tabIndex: 0 } : {};
-    }
-    // XXX: Investigate if there is no way to do it with pure CSS.
-    // It poses problem due to slot not allowing deep styling.
-    setMarginTopOnNotFirstOption() {
-        const slot = this.optionsEl.querySelector('slot');
-        let options;
-        if (slot && slot.assignedElements) {
-            options = this.optionsEl.querySelector('slot').assignedElements();
-        }
-        else {
-            options = this.optionsEl.querySelectorAll('wcs-select-option');
-        }
-        options.forEach((opt, key) => {
-            if (key !== 0) {
-                opt.setAttribute('style', `padding-top: 0.875rem;`);
-            }
-        });
-    }
+    focus() { this.stateService.send('FOCUS'); }
+    blur() { this.stateService.send('BLUR'); }
     render() {
         if (this.hasLoaded) {
             this.updateStyles();
         }
-        return (h("div", Object.assign({ class: this.wrapperClasses() }, this.focusedAttributes()),
+        return (h(Host, Object.assign({ class: this.expanded ? 'expanded ' : '' }, this.focusedAttributes()),
             h("div", { class: "wcs-select-content" },
                 h("label", { class: "wcs-select-text" }, this.hasValue
                     ? this.displayText
@@ -171,6 +194,16 @@ export class Select {
                 h(SelectArrow, { up: this.expanded })),
             h("div", { class: "wcs-select-options" },
                 h("slot", { name: "wcs-select-option" }))));
+    }
+    updateStyles() {
+        // Make the options container width the same width as everything.
+        const borderSize = 1;
+        // TODO: Consider using a mutation observer to rerender the size each time ?
+        // Be cautious as it may cause infinite loop with render ?
+        this.optionsEl.setAttribute('style', `width: calc(${Math.ceil(this.el.getBoundingClientRect().width)}px - ${2 * borderSize}px);`);
+    }
+    focusedAttributes() {
+        return !this.disabled ? { tabIndex: 0 } : {};
     }
     static get is() { return "wcs-select"; }
     static get encapsulation() { return "shadow"; }
@@ -181,23 +214,22 @@ export class Select {
         "$": ["select.css"]
     }; }
     static get properties() { return {
-        "disabled": {
-            "type": "boolean",
-            "mutable": false,
+        "value": {
+            "type": "any",
+            "mutable": true,
             "complexType": {
-                "original": "boolean",
-                "resolved": "boolean",
+                "original": "any | null",
+                "resolved": "any",
                 "references": {}
             },
             "required": false,
-            "optional": false,
+            "optional": true,
             "docs": {
                 "tags": [],
-                "text": "If `true`, the user cannot interact with the select."
+                "text": "The currently selected value."
             },
-            "attribute": "disabled",
-            "reflect": false,
-            "defaultValue": "false"
+            "attribute": "value",
+            "reflect": true
         },
         "placeholder": {
             "type": "string",
@@ -214,7 +246,43 @@ export class Select {
                 "text": "The text to display when the select is empty."
             },
             "attribute": "placeholder",
-            "reflect": false
+            "reflect": true
+        },
+        "disabled": {
+            "type": "boolean",
+            "mutable": true,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": "If `true`, the user cannot interact with the select."
+            },
+            "attribute": "disabled",
+            "reflect": false,
+            "defaultValue": "false"
+        },
+        "multiple": {
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": "If `true`, the user can select multiple values at once."
+            },
+            "attribute": "multiple",
+            "reflect": true,
+            "defaultValue": "false"
         },
         "name": {
             "type": "string",
@@ -231,23 +299,6 @@ export class Select {
                 "text": "The name of the control, which is submitted with the form data."
             },
             "attribute": "name",
-            "reflect": false
-        },
-        "value": {
-            "type": "any",
-            "mutable": true,
-            "complexType": {
-                "original": "any | null",
-                "resolved": "any",
-                "references": {}
-            },
-            "required": false,
-            "optional": true,
-            "docs": {
-                "tags": [],
-                "text": "The currently selected value."
-            },
-            "attribute": "value",
             "reflect": false
         }
     }; }
@@ -312,8 +363,48 @@ export class Select {
                 "references": {}
             }
         }]; }
+    static get methods() { return {
+        "open": {
+            "complexType": {
+                "signature": "() => Promise<void>",
+                "parameters": [],
+                "references": {
+                    "Promise": {
+                        "location": "global"
+                    }
+                },
+                "return": "Promise<void>"
+            },
+            "docs": {
+                "text": "Open the component.",
+                "tags": []
+            }
+        },
+        "close": {
+            "complexType": {
+                "signature": "() => Promise<void>",
+                "parameters": [],
+                "references": {
+                    "Promise": {
+                        "location": "global"
+                    }
+                },
+                "return": "Promise<void>"
+            },
+            "docs": {
+                "text": "Close the component.",
+                "tags": []
+            }
+        }
+    }; }
     static get elementRef() { return "el"; }
     static get listeners() { return [{
+            "name": "mousedown",
+            "method": "onMouseDown",
+            "target": undefined,
+            "capture": false,
+            "passive": true
+        }, {
             "name": "click",
             "method": "onWindowClickEvent",
             "target": "window",
@@ -322,6 +413,18 @@ export class Select {
         }, {
             "name": "wcsSelectOptionClick",
             "method": "selectedOptionChanged",
+            "target": undefined,
+            "capture": false,
+            "passive": false
+        }, {
+            "name": "focus",
+            "method": "focus",
+            "target": undefined,
+            "capture": false,
+            "passive": false
+        }, {
+            "name": "blur",
+            "method": "blur",
             "target": undefined,
             "capture": false,
             "passive": false

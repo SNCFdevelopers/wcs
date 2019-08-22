@@ -1,22 +1,15 @@
-import { h } from "@stencil/core";
+import { h, Host } from "@stencil/core";
 /**
- *
+ * Tab content component.
+ * Use this component to specify the content of a component.
  */
 export class Tab {
-    constructor() {
-        /**
-         * This property should not be used,
-         * it is only meant for internal use.
-         * @internal
-         * @ignore
-         */
-        this.slot = 'wcs-tab';
-    }
     componentDidLoad() {
         this.wcsTabDidLoad.emit();
     }
     render() {
-        return (h("slot", null));
+        return (h(Host, null,
+            h("slot", null)));
     }
     static get is() { return "wcs-tab"; }
     static get encapsulation() { return "shadow"; }
@@ -37,30 +30,6 @@ export class Tab {
             },
             "attribute": "header",
             "reflect": true
-        },
-        "slot": {
-            "type": "string",
-            "mutable": false,
-            "complexType": {
-                "original": "string",
-                "resolved": "string",
-                "references": {}
-            },
-            "required": false,
-            "optional": false,
-            "docs": {
-                "tags": [{
-                        "text": undefined,
-                        "name": "internal"
-                    }, {
-                        "text": undefined,
-                        "name": "ignore"
-                    }],
-                "text": "This property should not be used,\r\nit is only meant for internal use."
-            },
-            "attribute": "slot",
-            "reflect": true,
-            "defaultValue": "'wcs-tab'"
         }
     }; }
     static get events() { return [{

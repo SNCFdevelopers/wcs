@@ -24,7 +24,7 @@
     width: 0;
 }
 
-.wcs-container:hover {
+.wcs-container:hover, input:focus {
     .wcs-checkmark {
         border-color: $primary;
     }
@@ -70,14 +70,17 @@
 
 /* Show the wcs-checkmark when checked */
 .wcs-container input:checked~.wcs-checkmark:after {
-    display: block;
+    display: flex;
+}
+
+:host {
+    display: flex;
 }
 
 /* Style the wcs-checkmark/indicator */
 .wcs-container .wcs-checkmark:after {
     left: 7px;
     width: 5px;
-    top: 3px;
     height: 10px;
     border: solid white;
     border-width: 0 3px 3px 0;

@@ -43,13 +43,16 @@ export class Button implements ComponentInterface {
     /**
      * Specify wether the button should have a ripple effect or not.
      */
-    @Prop() ripple = false;
+    @Prop() ripple = true;
 
     /**
      * This attribute specifies the size of the button.
      * Setting this attribute will change the height and padding of a button.
      */
-    @Prop({ reflectToAttr: true }) mode: 'normal' | 'small' | 'block' | 'icon-only' | 'round' = 'normal';
+    @Prop({ reflect: true }) mode: 'normal' | 'small' | 'block' | 'icon-only' | 'round' = 'normal';
+
+    /** Specify wether the button should have background color or not. */
+    @Prop({ reflect: true }) clear = false;
 
     @Listen('click')
     onClick(ev: Event) {
@@ -110,11 +113,13 @@ export class Button implements ComponentInterface {
     }
 
     componentDidLoad() {
-        this.addRippleEffect();
+        if (this.ripple) {
+            this.addRippleEffect();
+        }
     }
 
     private addRippleEffect() {
         const ripple = new MDCRipple.MDCRipple(this.el.shadowRoot.querySelector('.wcs-inner-button'));
-        ripple.unbounded = true;
+        ripple.unbounded = false;
     }
 }

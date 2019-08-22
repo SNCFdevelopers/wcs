@@ -1,4 +1,18 @@
 import { h } from "@stencil/core";
+/* <svg style="display: block;height: 24px;" width="24" height="24" viewbox="0 0 100 100">
+    <style>
+        polyline {
+            stroke: black;
+        stroke-linecap: round;
+        stroke-width: 10px;
+    }
+
+                        </style>
+    <polyline fill="none" points="20,65 50,35 80,65">
+        <animate attributename="points" dur="375ms" repeatcount="indefinite" to="20,65 50,35 80,65"
+            from="20,35 50,65 80,35"></animate>
+    </polyline>
+</svg> */
 export const SelectArrow = ({ up }) => (h("svg", { style: { marginLeft: 'auto' }, xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24", viewBox: "0 0 24 24" },
     h("style", { type: "text/css" }, `
             .arrow-group {

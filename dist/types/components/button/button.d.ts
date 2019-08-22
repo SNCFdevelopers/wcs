@@ -33,6 +33,8 @@ export declare class Button implements ComponentInterface {
      * Setting this attribute will change the height and padding of a button.
      */
     mode: 'normal' | 'small' | 'block' | 'icon-only' | 'round';
+    /** Specify wether the button should have background color or not. */
+    clear: boolean;
     onClick(ev: Event): void;
     render(): any;
     private generateClasses;

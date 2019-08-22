@@ -20,14 +20,16 @@ export declare class Select implements ComponentInterface {
     displayText: string;
     /** When the host is focused. */
     focused: boolean;
-    /** If `true`, the user cannot interact with the select. */
-    disabled: boolean;
-    /** The text to display when the select is empty. */
-    placeholder?: string | null;
-    /** The name of the control, which is submitted with the form data. */
-    name?: string;
     /** The currently selected value. */
     value?: any | null;
+    /** The text to display when the select is empty. */
+    placeholder?: string | null;
+    /** If `true`, the user cannot interact with the select. */
+    disabled: boolean;
+    /** If `true`, the user can select multiple values at once. */
+    multiple: boolean;
+    /** The name of the control, which is submitted with the form data. */
+    name?: string;
     /** Reference to the window. */
     window: Window;
     /** Emitted when the value has changed. */
@@ -36,25 +38,30 @@ export declare class Select implements ComponentInterface {
     wcsFocus: EventEmitter<void>;
     /** Emitted when the select loses focus. */
     wcsBlur: EventEmitter<void>;
+    /** Open the component. */
+    open(): Promise<void>;
+    /** Close the component. */
+    close(): Promise<void>;
+    private stateService;
     private optionsEl;
     private contentEl;
-    private wrapperEl;
+    private values;
     componentDidLoad(): void;
+    private readonly options;
+    private initMachineConfig;
+    private initMachineOptions;
+    private handleClickEvent;
+    private handleClickOnMultiple;
+    private handleNormalClick;
     componentDidUnload(): void;
-    private expandOnClick;
-    private expand;
-    private handleExpandedKeyEvents;
-    private unExpand;
     private addRippleEffect;
+    private readonly hasValue;
+    onMouseDown(_event: MouseEvent): void;
     onWindowClickEvent(event: MouseEvent): void;
     selectedOptionChanged(event: CustomEvent<SelectOptionChosedEvent>): void;
-    private wrapperClasses;
-    private readonly hasValue;
-    private updateStyles;
-    private focus;
-    private handleFocusedKeyEvents;
-    private blur;
-    private focusedAttributes;
-    private setMarginTopOnNotFirstOption;
+    focus(): void;
+    blur(): void;
     render(): any;
+    private updateStyles;
+    private focusedAttributes;
 }

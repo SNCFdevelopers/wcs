@@ -21,6 +21,19 @@
 | `wcsSelectOptionClick` |             | `CustomEvent<SelectOptionChosedEvent>` |
 
 
+## Dependencies
+
+### Depends on
+
+- [wcs-checkbox](..\checkbox)
+
+### Graph
+```mermaid
+graph TD;
+  wcs-select-option --> wcs-checkbox
+  style wcs-select-option fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
