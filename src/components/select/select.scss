@@ -1,22 +1,17 @@
-@import '../../style/wcs.colors.scss';
-@import '../../style/wcs.ripple.scss';
-
-@function wcs-border($color: $text-light) {
-    @if $color {
-        @return $color solid 1px;
-    } @else {
-        @return $gray-text solid 1px;
-    }
-}
-
-$border-radius: var(--wcs-border-radius);
+@import "../../style/wcs.colors.scss";
+@import "../../style/wcs.ripple.scss";
 
 .wcs-select-text {
     padding: 0.65625rem 1.25rem;
     font-weight: 500;
     cursor: pointer;
+    // FIXME: Replace with css variable
     color: $text-medium;
-    transition: color 175ms ease-in-out;
+    transition: color 125ms ease-in;
+    // Hide overflowing display text
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .wcs-select-content {
@@ -24,73 +19,84 @@ $border-radius: var(--wcs-border-radius);
     display: flex;
     align-items: center;
     padding-right: var(--wcs-text-padding);
+    // FIXME: Replace with css variable
     background-color: $light;
     border-radius: var(--wcs-border-radius);
-    border: wcs-border(transparent);
+    border: transparent solid 1px;
     font-size: 1rem;
     line-height: 1.5;
     cursor: pointer;
-
-    &:hover {
-        border: wcs-border();
-    }
 }
 
 .wcs-select-options {
     display: none;
     position: absolute;
     z-index: 1;
-    padding: var(--wcs-padding);
     margin: 0;
 
     max-height: 22.5rem;
     overflow-y: auto;
 
     background-color: white;
+    // FIXME: Replace with css variable
     color: $text-medium;
+    border-left: $text-light solid 1px;
+    border-right: $text-light solid 1px;
+    border-bottom: $text-light solid 1px;
 
-    border-left: wcs-border();
-    border-right: wcs-border();
-    border-bottom: wcs-border();
     border-bottom-right-radius: var(--wcs-border-radius);
     border-bottom-left-radius: var(--wcs-border-radius);
+    // transform: scaleY(0) translateY(-100%);
+    // transition: transform 175ms cubic-bezier(0, 1, 0.5, 1);
 }
 
-.expanded {
-    .wcs-select-options {
-        display: block;
-    }
-
-    .wcs-select-content {
-        border-top: wcs-border();
-        border-right: wcs-border();
-        border-left: wcs-border();
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-        border-bottom: solid 1px transparent;
-    }
-}
-
-.wcs-select-wrapper {
+:host {
+    display: block;
     position: relative;
     outline: none;
     user-select: none;
+}
 
+:host(.expanded) {
+    .wcs-select-options {
+        display: block;
+        // transform: scaleY(1) translateY(0%);
+    }
 
-    &:not(.expanded):focus {
-        .wcs-select-content {
-            border: wcs-border($primary);
-        }
+    .wcs-select-content {
+        // FIXME: Replace with css variables
+        border-top: $text-light solid 1px;
+        border-right: $text-light solid 1px;
+        border-left: $text-light solid 1px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-bottom: $text-light solid 1px;
     }
 }
 
-.has-value {
+:host(:not(.expanded):focus) {
+    .wcs-select-content {
+        // FIXME: replace with css  variables
+        border: $primary solid 1px;
+    }
+}
+
+:host([value]) {
     .wcs-select-text {
-        color: $primary;
+        // FIXME: Replace with css variable
+        color: $black;
     }
 }
 
-.disabled {
+// Fix for multiple select
+:host([value="[]"]) {
+    .wcs-select-text {
+        // FIXME: Replace with css variable
+        color: $text-medium;
+    }
+}
+
+:host([disabled]) {
 
     .wcs-select-content,
     .wcs-select-text {
@@ -99,14 +105,12 @@ $border-radius: var(--wcs-border-radius);
     }
 
     .wcs-select-text {
+        // FIXME: Replace with css variable
         color: $text-disabled;
     }
 
     .arrow {
+        // FIXME: Replace with css variable
         fill: $text-medium;
     }
-}
-
-.wcs-select-options::slotted(wcs-select-option) > [value="1"] {
-    display: none;
 }

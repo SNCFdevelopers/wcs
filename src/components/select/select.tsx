@@ -7,13 +7,32 @@ import {
     EventEmitter,
     Listen,
     ComponentInterface,
-    h
+    Method,
+    h,
+    Host
 } from '@stencil/core';
 
 import { SelectChangeEventDetail } from './select-interface';
 import * as MDCRipple from '@material/ripple';
 import { SelectArrow } from './select-arrow';
-import { SelectOptionChosedEvent } from '../select-option/select-option-interface';
+import { SelectOptionChosedEvent, SelectOptionValue } from '../select-option/select-option-interface';
+import { Machine, MachineConfig, interpret, Interpreter, MachineOptions } from 'xstate';
+
+interface SelectStateSchema {
+    states: {
+        blurred: {};
+        closed: {};
+        opened: {};
+    };
+}
+
+type SelectEvent
+    = { type: 'OPEN' }
+    | { type: 'CLOSE' }
+    | { type: 'BLUR' }
+    | { type: 'FOCUS' }
+    | { type: 'CLICK' }
+    | { type: 'OPTION_CLICKED', value: SelectOptionChosedEvent };
 
 /**
  * Select component, use in conjuction with wcs-select-option.
@@ -44,18 +63,24 @@ export class Select implements ComponentInterface {
     /** When the host is focused. */
     @State() focused: boolean;
 
-    /** If `true`, the user cannot interact with the select. */
-    @Prop() disabled = false;
+    /** The currently selected value. */
+    @Prop({ mutable: true, reflect: true })
+    value?: any | null;
 
     /** The text to display when the select is empty. */
-    @Prop({ mutable: true }) placeholder?: string | null;
+    @Prop({ mutable: true, reflect: true })
+    placeholder?: string | null;
+
+    /** If `true`, the user cannot interact with the select. */
+    @Prop({ mutable: true }) disabled = false;
+
+    /** If `true`, the user can select multiple values at once. */
+    @Prop({ reflect: true }) multiple = false;
 
     /** The name of the control, which is submitted with the form data. */
     @Prop() name?: string;
 
-    /** The currently selected value. */
-    @Prop({ mutable: true }) value?: any | null;
-
+    // FIXME: This seems to be deprecated.
     /** Reference to the window. */
     @Prop({ context: 'window' }) window!: Window;
 
@@ -68,184 +93,231 @@ export class Select implements ComponentInterface {
     /** Emitted when the select loses focus. */
     @Event() wcsBlur!: EventEmitter<void>;
 
+    /** Open the component. */
+    @Method()
+    async open() {
+        this.stateService.send('OPEN');
+    }
+
+    /** Close the component. */
+    @Method()
+    async close() {
+        this.stateService.send('CLOSE');
+    }
+
+    private stateService!: Interpreter<any, SelectStateSchema, SelectEvent>;
+
     private optionsEl!: HTMLDivElement;
     private contentEl!: HTMLDivElement;
-    private wrapperEl!: HTMLInputElement;
+
+    // Only used for multiples.
+    private values: SelectOptionValue[];
 
     componentDidLoad() {
         this.optionsEl = this.el.shadowRoot.querySelector('.wcs-select-options');
         this.contentEl = this.el.shadowRoot.querySelector('.wcs-select-content');
-        this.wrapperEl = this.el.shadowRoot.querySelector('.wcs-select-wrapper');
-        if (this.optionsEl.querySelector('slot') === null) {
-            this.el.querySelectorAll('wcs-select-option')
-                .forEach(option => {
-                    this.el.removeChild(option);
-                    this.optionsEl.appendChild(option);
-                });
+
+        const stateMachine = Machine(
+            this.initMachineConfig(),
+            this.initMachineOptions()
+        );
+        this.stateService = interpret(stateMachine);
+
+        if (this.multiple) {
+            this.values = [];
+            this.options
+                .forEach((opt: HTMLWcsSelectOptionElement) => opt.multiple = true);
         }
-        this.expandOnClick();
+
         this.addRippleEffect();
-        this.wrapperEl.addEventListener('focus', this.focus);
-        this.wrapperEl.addEventListener('blur', this.blur);
+        // TODO: is this still usefull for anything ?
         this.hasLoaded = true;
+        this.stateService.start();
     }
 
-    componentDidUnload() {
-        // XXX: to be sure we have no dangling listeners.
-        this.window.removeEventListener('keydown', this.handleExpandedKeyEvents);
-        this.wrapperEl.removeEventListener('focus', this.focus);
-        this.wrapperEl.addEventListener('blur', this.blur);
+    private get options() {
+        const opts = this.optionsEl.querySelectorAll('wcs-select-option');
+        return opts.length !== 0
+            ? opts
+            : this.optionsEl.querySelector('slot').assignedElements();
     }
 
-    private expandOnClick() {
-        this.el.addEventListener('mousedown', () => {
-            if (!this.disabled) {
-                if (this.expanded) {
-                    this.unExpand();
-                } else {
-                    this.expand();
-                }
+    private initMachineConfig(): MachineConfig<any, SelectStateSchema, SelectEvent> {
+        return {
+            key: 'select',
+            initial: 'blurred',
+            states: {
+                blurred: {
+                    entry: ['blur'],
+                    on: {
+                        CLOSE: { target: 'closed', cond: 'enabled' },
+                        FOCUS: { target: 'closed', cond: 'enabled' },
+                        OPEN: { target: 'opened', cond: 'enabled' },
+                        CLICK: { target: 'opened', cond: 'enabled' },
+                    }
+                },
+                closed: {
+                    entry: ['close'],
+                    on: {
+                        CLICK: 'opened',
+                        OPEN: 'opened',
+                        BLUR: 'blurred',
+                    },
+                },
+                opened: {
+                    entry: ['open'],
+                    on: {
+                        CLICK: 'closed',
+                        CLOSE: 'closed',
+                        BLUR: 'blurred',
+                        OPTION_CLICKED: { actions: ['selectOption'] }
+                    },
+                },
             }
+        };
+    }
+
+    private initMachineOptions(): Partial<MachineOptions<any, SelectEvent>> {
+        return {
+            actions: {
+                open: () => {
+                    this.expanded = true;
+                    this.focused = true;
+                },
+                close: () => {
+                    this.focused = true;
+                    this.expanded = false;
+                },
+                blur: () => {
+                    this.focused = false;
+                    this.expanded = false;
+                },
+                focus: () => {
+                    this.focused = true;
+                },
+                selectOption: (_, event) => {
+                    if (event.type === 'OPTION_CLICKED') {
+                        this.handleClickEvent(event.value);
+                    }
+                }
+            },
+            guards: {
+                enabled: () => !this.disabled
+            }
+        };
+    }
+
+    private handleClickEvent(event: SelectOptionChosedEvent) {
+        if (this.multiple) {
+            this.handleClickOnMultiple(event);
+        } else {
+            this.handleNormalClick(event);
+        }
+        this.wcsChange.emit({
+            value: this.value
         });
     }
 
-    private expand() {
-        this.window.addEventListener('keydown', this.handleExpandedKeyEvents);
-        // TODO: add focus on options and focus the first.
-        this.expanded = true;
-    }
-
-    // XXX: We use fat arrow to have a reference to the function and
-    // being able to unregister it later on.
-    private handleExpandedKeyEvents = (keyEvent: KeyboardEvent) => {
-        if (keyEvent.code === 'Escape') {
-            this.unExpand();
-        } else if (keyEvent.code === 'Tab') {
-            this.unExpand();
-            // XXX: so we preserve default select behavior, that is:
-            // When expanded, pressing tab only unexpand and does not blur
-            keyEvent.preventDefault();
-        } else if (keyEvent.code === 'ArrowDown') {
-            keyEvent.preventDefault();
-            // Select next value
-        } else if (keyEvent.code === 'ArrowUp') {
-            // Select previous value
-            keyEvent.preventDefault();
+    private handleClickOnMultiple(event: SelectOptionChosedEvent) {
+        const index = this.values.findIndex(v => v.value === event.value);
+        if (index === -1) {
+            const { value, displayText } = event;
+            this.values.push({ value, displayText });
+            event.source.selected = true;
+        } else {
+            event.source.selected = false;
+            this.values.splice(index, 1);
         }
+        // TODO: Let user provide sorting function and use this if defined.
+        // this.values = this.values.sort((a, b) => a.value - b.value);
+        this.value = `[${this.values.map(v => v.value).join(', ')}]`;
+        this.displayText = this.values.length !== 0
+            ? this.values.map(v => v.displayText).join(', ')
+            : undefined;
     }
 
-    private unExpand() {
-        this.expanded = false;
-        this.window.removeEventListener('keydown', this.handleExpandedKeyEvents);
+    private handleNormalClick(event: SelectOptionChosedEvent) {
+        // Reset other options to false if they were selected.
+        this.options
+            .forEach(option => {
+                if (option.selected) option.selected = false;
+            });
+
+        event.source.selected = true;
+        this.value = event.value;
+        this.displayText = event.displayText;
+        this.stateService.send('CLOSE');
+    }
+
+    componentDidUnload() {
+        this.stateService.stop();
     }
 
     private addRippleEffect() {
-        // XXX: Unwrapped dependency over MDCRipple...
+        // TODO: wrap MDCRipple dependency so we can eventually write our own or at least decouple a bit.
         const ripple = new MDCRipple.MDCRipple(this.contentEl);
         ripple.unbounded = true;
     }
 
-    @Listen('click', { target: 'window' })
-    onWindowClickEvent(event: MouseEvent) {
-        if (this.expanded
-            && (event.target !== this.el
-                && !(event.target instanceof Node && this.el.contains(event.target)))) {
-            this.unExpand();
-        }
-    }
-
-    @Listen('wcsSelectOptionClick')
-    selectedOptionChanged(event: CustomEvent<SelectOptionChosedEvent>) {
-        this.value = event.detail.value;
-        this.displayText = event.detail.displayText;
-        this.wcsChange.emit({ value: event.detail.value });
-    }
-
-    private wrapperClasses() {
-        return (this.expanded ? 'expanded ' : '')
-            + (this.hasValue ? ' has-value ' : '')
-            + (this.disabled ? ' disabled ' : '')
-            + 'wcs-select-wrapper';
-    }
-
     private get hasValue(): boolean {
+        // TODO: change this behavior.
         return this.displayText !== undefined;
     }
 
-    private updateStyles() {
-        // Make the options container width the same width as everything.
-        const padding = 1.25; // XXX: This doesn't use the css variable.
-        const borderSize = 1;
-        this.optionsEl.setAttribute(
-            'style',
-            `width: calc(${Math.ceil(this.el.getBoundingClientRect().width)}px - ${2 * padding}rem - ${2 * borderSize}px);`
-        );
-        this.setMarginTopOnNotFirstOption();
+    @Listen('mousedown')
+    onMouseDown(_event: MouseEvent) {
+        this.stateService.send('CLICK');
     }
 
-    private focus = () => {
-        this.wrapperEl.focus();
-        this.wcsFocus.emit();
-        this.wrapperEl.addEventListener('keydown', this.handleFocusedKeyEvents);
-    };
-
-    private handleFocusedKeyEvents = (keyEvent: KeyboardEvent) => {
-        if (keyEvent.code === 'Escape') {
-            this.blur();
-        } else if (keyEvent.code === 'Space') {
-            this.expand();
-            // Focus on selected or first value.
-            // XXX: so the page doesn't scroll down.
-            keyEvent.preventDefault();
-            this.wrapperEl.removeEventListener('keydown', this.handleFocusedKeyEvents);
+    @Listen('click', { target: 'window' })
+    onWindowClickEvent(event: MouseEvent) {
+        const clickedOnSelectOrChildren = event.target instanceof Node && this.el.contains(event.target);
+        // TODO: Move this logic in the state machine
+        if (this.expanded && !clickedOnSelectOrChildren) {
+            this.stateService.send('BLUR');
         }
     }
-
-    private blur = () => {
-        this.wrapperEl.blur();
-        this.wcsBlur.emit();
-        this.wrapperEl.removeEventListener('keydown', this.handleFocusedKeyEvents);
+    @Listen('wcsSelectOptionClick')
+    selectedOptionChanged(event: CustomEvent<SelectOptionChosedEvent>) {
+        this.stateService.send({ type: 'OPTION_CLICKED', value: event.detail });
     }
-
-    private focusedAttributes() {
-        return !this.disabled ? { tabIndex: 0 } : {};
-    }
-
-    // XXX: Investigate if there is no way to do it with pure CSS.
-    // It poses problem due to slot not allowing deep styling.
-    private setMarginTopOnNotFirstOption() {
-        const slot = this.optionsEl.querySelector('slot');
-        let options: Element[] | NodeListOf<HTMLWcsSelectOptionElement>;
-        if (slot && slot.assignedElements) {
-            options = this.optionsEl.querySelector('slot').assignedElements();
-        } else {
-            options = this.optionsEl.querySelectorAll('wcs-select-option');
-        }
-        options.forEach((opt, key) => {
-            if (key !== 0) {
-                opt.setAttribute('style', `padding-top: 0.875rem;`);
-            }
-        });
-    }
+    @Listen('focus')
+    focus() { this.stateService.send('FOCUS'); }
+    @Listen('blur')
+    blur() { this.stateService.send('BLUR'); }
 
     render() {
         if (this.hasLoaded) {
             this.updateStyles();
         }
         return (
-            <div class={this.wrapperClasses()} {...this.focusedAttributes()} >
+            <Host class={this.expanded ? 'expanded ' : ''} {...this.focusedAttributes()}>
                 <div class="wcs-select-content">
                     <label class="wcs-select-text">{this.hasValue
                         ? this.displayText
                         : this.placeholder
                     }</label>
-                    <SelectArrow up={this.expanded}/>
+                    <SelectArrow up={this.expanded} />
                 </div>
                 <div class="wcs-select-options">
-                    <slot name="wcs-select-option"/>
+                    <slot name="wcs-select-option" />
                 </div>
-            </div>
+            </Host>
         );
     }
-}
 
+    private updateStyles() {
+        // Make the options container width the same width as everything.
+        const borderSize = 1;
+        // TODO: Consider using a mutation observer to rerender the size each time ?
+        // Be cautious as it may cause infinite loop with render ?
+        this.optionsEl.setAttribute(
+            'style',
+            `width: calc(${Math.ceil(this.el.getBoundingClientRect().width)}px - ${2 * borderSize}px);`
+        );
+    }
+
+    private focusedAttributes() {
+        return !this.disabled ? { tabIndex: 0 } : {};
+    }
+}

@@ -196,13 +196,25 @@ export namespace Components {
   }
   interface WcsSelect {
     /**
+    * Close the component.
+    */
+    'close': () => Promise<void>;
+    /**
     * If `true`, the user cannot interact with the select.
     */
     'disabled': boolean;
     /**
+    * If `true`, the user can select multiple values at once.
+    */
+    'multiple': boolean;
+    /**
     * The name of the control, which is submitted with the form data.
     */
     'name'?: string;
+    /**
+    * Open the component.
+    */
+    'open': () => Promise<void>;
     /**
     * The text to display when the select is empty.
     */
@@ -218,18 +230,18 @@ export namespace Components {
     */
     'disabled': boolean;
     /**
+    * This property musn't be set by hand, it is used by the `wcs-select` component. If you want a multiple select, set `multiple` attribute on the parent select instead.
+    * @ignore
+    */
+    'multiple': boolean;
+    /**
     * Wether this option is selected.
     */
     'selected': boolean;
     /**
-    * This property should not be used, it is only meant for internal use.
-    * @ignore
-    */
-    'slot': string;
-    /**
     * The option value, not what's displayed, use inner text instead.
     */
-    'value'?: any | null;
+    'value'?: any;
   }
   interface WcsSidebar {}
   interface WcsTab {
@@ -537,6 +549,10 @@ declare namespace LocalJSX {
     */
     'disabled'?: boolean;
     /**
+    * If `true`, the user can select multiple values at once.
+    */
+    'multiple'?: boolean;
+    /**
     * The name of the control, which is submitted with the form data.
     */
     'name'?: string;
@@ -574,7 +590,7 @@ declare namespace LocalJSX {
     /**
     * The option value, not what's displayed, use inner text instead.
     */
-    'value'?: any | null;
+    'value'?: any;
   }
   interface WcsSidebar extends JSXBase.HTMLAttributes<HTMLWcsSidebarElement> {}
   interface WcsTab extends JSXBase.HTMLAttributes<HTMLWcsTabElement> {
