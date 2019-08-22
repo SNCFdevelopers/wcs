@@ -1,7 +1,8 @@
 import { Component, Event, Prop, ComponentDidLoad, EventEmitter, h } from '@stencil/core';
 
 /**
- *
+ * Tab content component.
+ * Use this component to specify the content of a component.
  */
 @Component({
     tag: 'wcs-tab',

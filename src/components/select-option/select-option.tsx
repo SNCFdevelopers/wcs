@@ -3,7 +3,7 @@ import { SelectOptionChosedEvent } from './select-option-interface';
 import * as MDCRipple from '@material/ripple';
 
 /**
- * Select option component, use in conjuction with wcs-select.
+ * Select option component, use in conjunction with wcs-select.
  */
 @Component({
     tag: 'wcs-select-option',

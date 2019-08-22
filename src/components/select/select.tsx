@@ -39,7 +39,7 @@ type SelectEvent
  *
  * @example ```hmtl
  *  <wcs-select>
- *       <wcs-select-option value="1">One</wcs-select-option>
+ *      <wcs-select-option value="1">One</wcs-select-option>
  *  </wcs-select>```
  * @todo Complete keyboard navigation.
  */
