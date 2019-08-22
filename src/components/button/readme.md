@@ -104,6 +104,19 @@
 | `type`     | `type`     | Specify the button type.                                            | `"button" \| "submit"`                       | `'button'`  |
 
 
+## Dependencies
+
+### Used by
+
+ - [wcs-dropdown](../dropdown)
+
+### Graph
+```mermaid
+graph TD;
+  wcs-dropdown --> wcs-button
+  style wcs-button fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

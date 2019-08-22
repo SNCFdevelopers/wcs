@@ -84,10 +84,12 @@ async function updateIndex(filesPath) {
         <h1>${name}</h1>
         <wcs-card>
             <wcs-tabs>
-                <wcs-tab header="Examples">
-                    ${examples}
+                <wcs-tab header="Examples" class="normal-padding">
+                        ${examples}
                 </wcs-tab>
-                <wcs-tab header="API">${api}</wcs-tab>
+                <wcs-tab header="API" class="normal-padding">
+                        ${api}
+                </wcs-tab>
             </wcs-tabs>
         </wcs-card>`;
     }));
