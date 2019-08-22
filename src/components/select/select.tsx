@@ -116,7 +116,7 @@ export class Select implements ComponentInterface {
     componentDidLoad() {
         this.optionsEl = this.el.shadowRoot.querySelector('.wcs-select-options');
         this.contentEl = this.el.shadowRoot.querySelector('.wcs-select-content');
-  
+
         const stateMachine = Machine(
             this.initMachineConfig(),
             this.initMachineOptions()
@@ -237,10 +237,10 @@ export class Select implements ComponentInterface {
     }
 
     private handleNormalClick(event: SelectOptionChosedEvent) {
+        // Reset other options to false if they were selected.
         this.options
-            .forEach(option => { 
-                console.log(option);
-                if (option.selected) option.selected = false; 
+            .forEach(option => {
+                if (option.selected) option.selected = false;
             });
 
         event.source.selected = true;
