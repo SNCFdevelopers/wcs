@@ -116,35 +116,30 @@ export class Select implements ComponentInterface {
     componentDidLoad() {
         this.optionsEl = this.el.shadowRoot.querySelector('.wcs-select-options');
         this.contentEl = this.el.shadowRoot.querySelector('.wcs-select-content');
-        if (this.multiple) {
-            this.values = [];
-        }
-
+  
         const stateMachine = Machine(
             this.initMachineConfig(),
             this.initMachineOptions()
         );
         this.stateService = interpret(stateMachine);
-        // TODO: remove:
-        // this.stateService.onTransition(transition => console.log(transition.value));
-
-        // XXX: Dirty fix to put the element in the right place if slot isn't defined (firefox < 63)
-        if (this.optionsEl.querySelector('slot') === null) {
-            this.el.querySelectorAll('wcs-select-option')
-                .forEach(option => {
-                    this.el.removeChild(option);
-                    this.optionsEl.appendChild(option);
-                });
-        }
 
         if (this.multiple) {
-            this.optionsEl.querySelector('slot').assignedElements()
+            this.values = [];
+            this.options
                 .forEach((opt: HTMLWcsSelectOptionElement) => opt.multiple = true);
         }
 
         this.addRippleEffect();
+        // TODO: is this still usefull for anything ?
         this.hasLoaded = true;
         this.stateService.start();
+    }
+
+    private get options() {
+        const opts = this.optionsEl.querySelectorAll('wcs-select-option');
+        return opts.length !== 0
+            ? opts
+            : this.optionsEl.querySelector('slot').assignedElements();
     }
 
     private initMachineConfig(): MachineConfig<any, SelectStateSchema, SelectEvent> {
@@ -242,9 +237,11 @@ export class Select implements ComponentInterface {
     }
 
     private handleNormalClick(event: SelectOptionChosedEvent) {
-        // TODO: test if it works in firefox < 63
-        this.optionsEl.querySelector('slot').assignedElements()
-            .forEach((option: HTMLWcsSelectOptionElement) => { if (option.selected) option.selected = false; });
+        this.options
+            .forEach(option => { 
+                console.log(option);
+                if (option.selected) option.selected = false; 
+            });
 
         event.source.selected = true;
         this.value = event.value;
@@ -286,7 +283,7 @@ export class Select implements ComponentInterface {
     }
     @Listen('focus')
     focus() { this.stateService.send('FOCUS'); }
-    //@Listen('blur')
+    @Listen('blur')
     blur() { this.stateService.send('BLUR'); }
 
     render() {
@@ -312,7 +309,7 @@ export class Select implements ComponentInterface {
     private updateStyles() {
         // Make the options container width the same width as everything.
         const borderSize = 1;
-        // TODO: Consider using a mutation observer instead ?
+        // TODO: Consider using a mutation observer to rerender the size each time ?
         // Be cautious as it may cause infinite loop with render ?
         this.optionsEl.setAttribute(
             'style',
