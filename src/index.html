@@ -119,8 +119,7 @@
             </wcs-card>
 
             <h2><a id="button"></a>Buttons</h2>
-            <wcs-card>
-                <wcs-card-body>
+            <wcs-card-body>
                     <h3>Standard</h3>
                     <wcs-button color="primary">Primary</wcs-button>
                     <wcs-button color="secondary">Secondary</wcs-button>
@@ -128,26 +127,52 @@
                     <wcs-button color="warning">Warning</wcs-button>
                     <wcs-button color="danger">Danger</wcs-button>
                     <wcs-button color="info">Info</wcs-button>
-                    <wcs-button color="light">Light</wcs-button>
                     <wcs-button color="dark">Dark</wcs-button>
                     <wcs-button color="white">White</wcs-button>
+                    <wcs-button color="primary" disabled>Disabled</wcs-button>
+                    <h3>Clear</h3>
+                    <wcs-button clear color="primary">Primary</wcs-button>
+                    <wcs-button clear color="secondary">Secondary</wcs-button>
+                    <wcs-button clear color="success">Success</wcs-button>
+                    <wcs-button clear color="warning">Warning</wcs-button>
+                    <wcs-button clear color="danger">Danger</wcs-button>
+                    <wcs-button clear color="info">Info</wcs-button>
+                    <wcs-button clear color="dark">Dark</wcs-button>
+                    <wcs-button clear color="white">White</wcs-button>
+                    <wcs-button color="primary" clear disabled>Disabled</wcs-button>
+                    <h3>Stroked</h3>
+                    <wcs-button stroked color="primary">Primary</wcs-button>
+                    <wcs-button stroked color="secondary">Secondary</wcs-button>
+                    <wcs-button stroked color="success">Success</wcs-button>
+                    <wcs-button stroked color="warning">Warning</wcs-button>
+                    <wcs-button stroked color="danger">Danger</wcs-button>
+                    <wcs-button stroked color="info">Info</wcs-button>
+                    <wcs-button stroked color="dark">Dark</wcs-button>
+                    <wcs-button stroked color="white">White</wcs-button>
+                    <wcs-button color="primary" stroked disabled>Disabled</wcs-button>
+
                     <h3>Round</h3>
-                    <wcs-button color="primary" mode="round">45</wcs-button>
+                    <wcs-button mode="round" color="primary">Primary</wcs-button>
+                    <wcs-button mode="round" color="primary" clear>Primary</wcs-button>
+                    <wcs-button mode="round" color="primary" stroked>Primary</wcs-button>
+                    <wcs-button mode="round" color="primary" disabled>X</wcs-button>
                     <h3>Icon only</h3>
                     <wcs-button color="primary" mode="icon-only">ico</wcs-button>
+                    <wcs-button color="primary" clear mode="icon-only">ico</wcs-button>
+                    <wcs-button color="primary" stroked mode="icon-only">ico</wcs-button>
+                    <wcs-button color="primary" disabled mode="icon-only">X</wcs-button>
                     <h3>Link</h3>
                     <wcs-button color="primary" href="#">Un lien !</wcs-button>
-                    <h3>Disabled</h3>
-                    <wcs-button color="primary" disabled>Un bouton désactivé</wcs-button>
-                    <h3>Misc.</h3>
-                    <wcs-button href="https://www.sncf.com/" color="primary">Un bouton non désactivé</wcs-button>
-                    <wcs-button href="https://www.sncf.com/" color="primary" disabled>Un bouton a désactivé</wcs-button>
-                    <wcs-button color="primary" mode="small">Un bouton plus petit</wcs-button>
-                    <br />
-                    <br />
+                    <h3>Small</h3>
+                    <wcs-button color="primary" mode="small">Small</wcs-button>
+                    <wcs-button color="primary" clear mode="small">Small</wcs-button>
+                    <wcs-button color="primary" stroked mode="small">Small</wcs-button>
+                    <wcs-button color="primary" stroked disabled mode="small">Disabled</wcs-button>
+                    <h3>Block</h3>
                     <wcs-button color="primary" mode="block">Un grand bouton</wcs-button>
                 </wcs-card-body>
             </wcs-card>
+
 
             <div>
                 <h2><a id="badge"></a>Badge</h2>

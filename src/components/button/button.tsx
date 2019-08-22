@@ -49,7 +49,10 @@ export class Button implements ComponentInterface {
      * This attribute specifies the size of the button.
      * Setting this attribute will change the height and padding of a button.
      */
-    @Prop({ reflectToAttr: true }) mode: 'normal' | 'small' | 'block' | 'icon-only' | 'round' = 'normal';
+    @Prop({ reflect: true }) mode: 'normal' | 'small' | 'block' | 'icon-only' | 'round' = 'normal';
+
+    /** Specify wether the button should have background color or not. */
+    @Prop({ reflect: true }) clear = false;
 
     @Listen('click')
     onClick(ev: Event) {

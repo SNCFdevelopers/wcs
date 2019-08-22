@@ -1,16 +1,128 @@
 @import '../../style/wcs.colors.scss';
 @import '../../style/wcs.elevation.scss';
+@import '../../style/wcs.fonts.scss';
 // TODO: get rid of this.
 @import '@material/ripple/mdc-ripple';
+
+:host([clear]) {
+    .wcs-inner-button {
+        background: transparent;
+        box-shadow: none;
+
+        &.wcs-color-primary {
+            @include mdc-states-base-color($primary);
+            color: $primary;
+        }
+
+        &.wcs-color-success {
+            @include mdc-states-base-color($success);
+            color: $success;
+        }
+
+        &.wcs-color-secondary {
+            @include mdc-states-base-color($secondary);
+            color: $secondary;
+        }
+
+        &.wcs-color-info {
+            @include mdc-states-base-color($info);
+            color: $info;
+        }
+
+        &.wcs-color-danger {
+            @include mdc-states-base-color($danger);
+            color: $danger;
+        }
+
+        &.wcs-color-warning {
+            @include mdc-states-base-color($warning);
+            color: $warning;
+        }
+
+        &.wcs-color-dark {
+            @include mdc-states-base-color($dark);
+            color: $dark;
+        }
+    }
+}
+
+:host([stroked]) {
+    .wcs-inner-button {
+        border: solid 1px #d7d7d7;
+        background: transparent;
+        box-shadow: none;
+
+        &.wcs-color-primary {
+            @include mdc-states-base-color($primary);
+            color: $primary;
+
+            // &:focus {
+                border-color: $primary;
+            // }
+        }
+
+        &.wcs-color-success {
+            @include mdc-states-base-color($success);
+            color: $success;
+
+            // &:focus {
+                border-color: $success;
+            // }
+        }
+
+        &.wcs-color-secondary {
+            @include mdc-states-base-color($secondary);
+            color: $secondary;
+
+            // &:focus {
+                border-color: $secondary;
+            // }
+        }
+
+        &.wcs-color-info {
+            @include mdc-states-base-color($info);
+            color: $info;
+
+            // &:focus {
+                border-color: $info;
+            // }
+        }
+
+        &.wcs-color-danger {
+            @include mdc-states-base-color($danger);
+            color: $danger;
+
+            // &:focus {
+                border-color: $danger;
+            // }
+        }
+
+        &.wcs-color-warning {
+            @include mdc-states-base-color($warning);
+            color: $warning;
+
+            // &:focus {
+                border-color: $warning;
+            // }
+        }
+
+        &.wcs-color-dark {
+            @include mdc-states-base-color($dark);
+            color: $dark;
+
+            // &:focus {
+                border-color: $dark;
+            // }
+        }
+    }
+}
 
 .wcs-inner-button {
     @include mdc-ripple-surface;
     @include mdc-ripple-radius-bounded;
 
     // Temporary fix for Ripple
-    //&:not(.wcs-color-white, .wcs-color-light) {
     @include mdc-states-base-color(white);
-    //}
 
     &.wcs-color-white,
     &.wcs-color-light {
@@ -20,6 +132,8 @@
     @include mdc-states-hover-opacity(.1);
     @include mdc-states-focus-opacity(.2);
     @include mdc-states-press-opacity(.3);
+
+    font-family: Avenir;
 
     overflow: hidden;
     outline: 0;

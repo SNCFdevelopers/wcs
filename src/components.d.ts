@@ -41,6 +41,10 @@ export namespace Components {
   }
   interface WcsButton {
     /**
+    * Specify wether the button should have background color or not.
+    */
+    'clear': boolean;
+    /**
     * Specify the button color.
     */
     'color': Color;
@@ -388,6 +392,10 @@ declare namespace LocalJSX {
     'color'?: Color;
   }
   interface WcsButton extends JSXBase.HTMLAttributes<HTMLWcsButtonElement> {
+    /**
+    * Specify wether the button should have background color or not.
+    */
+    'clear'?: boolean;
     /**
     * Specify the button color.
     */
