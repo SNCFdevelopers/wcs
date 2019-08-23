@@ -7,9 +7,6 @@
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 import {
-  Color,
-} from './interface';
-import {
   ButtonType,
 } from './components/button/button-interface';
 import {
@@ -32,22 +29,8 @@ import {
 
 export namespace Components {
   interface WcsApp {}
-  interface WcsBadge {
-    /**
-    * Select the badge color.
-    * @default 'primary'
-    */
-    'color': Color;
-  }
+  interface WcsBadge {}
   interface WcsButton {
-    /**
-    * Specify wether the button should have background color or not.
-    */
-    'clear': boolean;
-    /**
-    * Specify the button color.
-    */
-    'color': Color;
     /**
     * Specify wether the button is disabled or not.
     */
@@ -249,11 +232,6 @@ export namespace Components {
     * The header you want to be displayed for this tab.
     */
     'header': string;
-    /**
-    * This property should not be used, it is only meant for internal use.
-    * @ignore
-    */
-    'slot': string;
   }
   interface WcsTabs {
     'align': WcsTabsAlignment;
@@ -384,22 +362,8 @@ declare global {
 
 declare namespace LocalJSX {
   interface WcsApp extends JSXBase.HTMLAttributes<HTMLWcsAppElement> {}
-  interface WcsBadge extends JSXBase.HTMLAttributes<HTMLWcsBadgeElement> {
-    /**
-    * Select the badge color.
-    * @default 'primary'
-    */
-    'color'?: Color;
-  }
+  interface WcsBadge extends JSXBase.HTMLAttributes<HTMLWcsBadgeElement> {}
   interface WcsButton extends JSXBase.HTMLAttributes<HTMLWcsButtonElement> {
-    /**
-    * Specify wether the button should have background color or not.
-    */
-    'clear'?: boolean;
-    /**
-    * Specify the button color.
-    */
-    'color'?: Color;
     /**
     * Specify wether the button is disabled or not.
     */

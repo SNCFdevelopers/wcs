@@ -1,4 +1,3 @@
-@import '../../style/wcs.colors.scss';
 
 .wcs-checkmark {
     transition: background-color 225ms cubic-bezier(.17, .84, .44, 1), color 225ms cubic-bezier(.17, .84, .44, 1);
@@ -26,11 +25,11 @@
 
 .wcs-container:hover, input:focus {
     .wcs-checkmark {
-        border-color: $primary;
+        border-color: var(--primary);
     }
 
     .text {
-        color: $primary;
+        color: var(--primary);
     }
 }
 
@@ -43,8 +42,8 @@
 }
 
 .indeterminate {
-    background: $primary;
-    border-color: $primary;
+    background: var(--primary);
+    border-color: var(--primary);
 }
 
 /* .indeterminate:after {
@@ -57,8 +56,8 @@
 
 /* When the checkbox is checked, add a blue background */
 .wcs-container input:checked~.wcs-checkmark {
-    background-color: $primary;
-    border-color: $primary;
+    background-color: var(--primary);
+    border-color: var(--primary);
 }
 
 /* Create the wcs-checkmark/indicator (hidden when not checked) */
@@ -90,11 +89,11 @@
 }
 
 .wcs-container input:checked~.text {
-    color: $primary;
+    color: var(--primary);
 }
 
 .text {
-    color: $text-medium;
+    color: var(--text-medium);
     margin-left: 6px;
     font-weight: 500;
     line-height: 1.375;

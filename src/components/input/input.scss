@@ -1,23 +1,20 @@
-@import "../../style/wcs.colors";
-
 input {
     display: block;
     padding: 0.65625rem 1.25rem;
     font-size: 1rem;
     line-height: 1.5;
-    color: $primary;
-    background-color: $light;
+    color: var(--primary);
+    background-color: var(--light);
     background-clip: padding-box;
-    border: 1px solid $light;
+    border: 1px solid var(--light);
     border-radius: 0.4375rem;
 }
 
 input:focus{
     outline:0;
-    border: solid 1px $primary;
+    border: solid 1px var(--primary);
 }
 
 .white {
-
-    background-color: $white;
+    background-color: var(--white);
 }
