@@ -53,7 +53,7 @@
 
     &::before,
     &::after {
-        background-color: var(--contrast);
+        background-color: var(--contrast, var(--white, white));
     }
 
     @include mdc-states-hover-opacity(.1);
@@ -63,10 +63,8 @@
     // FIXME:
     font-family: Avenir;
 
-    background-color: var(--base, --primary);
-    color: var(--contrast, --white);
-    --mdc-theme-primary: blue;
-    --mdc-theme-secondary: red;
+    background-color: var(--base, var(--primary));
+    color: var(--contrast, var(--white));
     overflow: hidden;
     outline: 0;
     text-transform: none;
