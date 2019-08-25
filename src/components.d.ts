@@ -249,11 +249,6 @@ export namespace Components {
     * The header you want to be displayed for this tab.
     */
     'header': string;
-    /**
-    * This property should not be used, it is only meant for internal use.
-    * @ignore
-    */
-    'slot': string;
   }
   interface WcsTabs {
     'align': WcsTabsAlignment;

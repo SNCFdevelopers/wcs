@@ -1,9 +1,24 @@
-image: markhobson/node-chrome
-before_script:
-    - npm install
-cache:
-    paths:
-        - node_modules/
+stages:
+    - test
+    - deploy
 test:
-    script:
-        - npm test
+    image: markhobson/node-chrome
+    stage: test
+    before_script:
+        - npm install
+    cache:
+        paths:
+            - node_modules/
+    test:
+        script:
+            - npm test
+deploy:
+    image: node:latest
+    pages:
+        script:
+            - npm run-script build
+        artifacts:
+            paths:
+                - www
+        only:
+            - develop
