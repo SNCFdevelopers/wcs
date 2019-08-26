@@ -1,7 +1,12 @@
-@import '../../style/wcs.colors.scss';
+:host {
+    --wcs-checkbox-border-color: var(--text-medium);
+    --wcs-checkbox-text-color: var(--black);
+    display: flex;
+}
 
 .wcs-checkmark {
-    transition: background-color 225ms cubic-bezier(.17, .84, .44, 1), color 225ms cubic-bezier(.17, .84, .44, 1);
+    transition: background-color 225ms cubic-bezier(.17, .84, .44, 1),
+        color 225ms cubic-bezier(.17, .84, .44, 1);
 }
 
 /* Customize the label (the wcs-container) */
@@ -24,41 +29,32 @@
     width: 0;
 }
 
-.wcs-container:hover, input:focus {
-    .wcs-checkmark {
-        border-color: $primary;
-    }
+.wcs-container:hover,
+input:focus {
+    --wcs-checkbox-border-color: var(--primary);
 
-    .text {
-        color: $primary;
-    }
+    --wcs-checkbox-text-color: var(--primary);
 }
 
 /* Create a custom checkbox */
 .wcs-checkmark {
     width: 1.125rem;
     height: 1.125rem;
-    border: 2px solid #b9b9b9;
+    border: 2px solid var(--wcs-checkbox-border-color);
     border-radius: 3px;
 }
 
-.indeterminate {
-    background: $primary;
-    border-color: $primary;
+:host([indeterminate]) {
+    .wcs-checkmark {
+        --wcs-checkbox-border-color: var(--primary);
+        background: var(--primary);
+    }
 }
-
-/* .indeterminate:after {
-    background: $white;
-    display: block;
-    border: solid 12px red;
-    content: "";
-} */
-
 
 /* When the checkbox is checked, add a blue background */
 .wcs-container input:checked~.wcs-checkmark {
-    background-color: $primary;
-    border-color: $primary;
+    background-color: var(--primary);
+    --wcs-checkbox-border-color: var(--primary);
 }
 
 /* Create the wcs-checkmark/indicator (hidden when not checked) */
@@ -73,16 +69,14 @@
     display: flex;
 }
 
-:host {
-    display: flex;
-}
+
 
 /* Style the wcs-checkmark/indicator */
 .wcs-container .wcs-checkmark:after {
     left: 7px;
     width: 5px;
     height: 10px;
-    border: solid white;
+    border: solid var(--white, white);
     border-width: 0 3px 3px 0;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
@@ -90,11 +84,11 @@
 }
 
 .wcs-container input:checked~.text {
-    color: $primary;
+    --wcs-checkbox-text-color: var(--primary);
 }
 
 .text {
-    color: $text-medium;
+    color: var(--wcs-checkbox-text-color);
     margin-left: 6px;
     font-weight: 500;
     line-height: 1.375;

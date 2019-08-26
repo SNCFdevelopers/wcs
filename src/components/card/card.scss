@@ -1,5 +1,4 @@
 @import '../../style/wcs.elevation.scss';
-@import '../../style/wcs.colors.scss';
 
 :host {
   @include wcs-elevation(2);
@@ -8,7 +7,7 @@
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: $white;
+  background-color: var(--white);
   background-clip: border-box;
   border-radius: var(--wcs-border-radius);
 }

@@ -1,11 +1,10 @@
-@import '../../style/wcs.colors.scss';
 @import '../../style/wcs.elevation.scss';
 
 header {
     @include wcs-elevation(4);
     display: flex;
     align-items: center;
-    background: $gray;
+    background: var(--gray);
     padding: 8px;
     height: calc(64px - 16px);
     position: sticky;
@@ -20,7 +19,7 @@ header {
 }
 
 ::slotted(h1) {
-    color: $white;
+    color: var(--white);
     margin: 0;
     font-weight: 500;
     font-size: 1.5rem;

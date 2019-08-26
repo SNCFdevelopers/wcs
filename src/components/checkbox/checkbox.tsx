@@ -1,4 +1,4 @@
-import { Component, Prop, Event, Element, EventEmitter, ComponentInterface, h } from '@stencil/core';
+import { Component, Prop, Event, Element, EventEmitter, ComponentInterface, h, Host } from '@stencil/core';
 import { CheckboxChangeEventDetail } from './checkbox-interface';
 
 
@@ -17,7 +17,7 @@ export class Checkbox implements ComponentInterface {
     /**
      * If `true` the checkbox is in indeterminate state.
      */
-    @Prop({ reflectToAttr: true, mutable: true }) indeterminate = false;
+    @Prop({ reflect: true, mutable: true }) indeterminate = false;
 
     /**
      * If `true`, the checkbox is selected.
@@ -39,14 +39,21 @@ export class Checkbox implements ComponentInterface {
 
     render() {
         return (
-            <label htmlFor={this.name} class="wcs-container">
-                <input onChange={(evt) => this.handleChange(evt)} checked={this.checked} class="wcs-checkbox"
-                    type="checkbox" name={this.name} id={this.name}></input>
-                <span class={'wcs-checkmark ' + (this.indeterminate ? 'indeterminate' : '')}></span>
-                <span class="text">
-                    <slot />
-                </span>
-            </label>
+            <Host>
+                <label htmlFor={this.name} class="wcs-container">
+                    <input onChange={(evt) => this.handleChange(evt)}
+                        checked={this.checked}
+                        class="wcs-checkbox"
+                        type="checkbox"
+                        name={this.name}
+                        id={this.name}>
+                    </input>
+                    <span class="wcs-checkmark"></span>
+                    <span class="text">
+                        <slot />
+                    </span>
+                </label>
+            </Host>
         );
     }
 }
