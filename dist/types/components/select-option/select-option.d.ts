@@ -20,6 +20,7 @@ export declare class SelectOption implements ComponentInterface {
     multiple: boolean;
     wcsSelectOptionClick: EventEmitter<SelectOptionChosedEvent>;
     componentWillLoad(): void;
+    componentDidLoad(): void;
     onMouseDown(event: MouseEvent): void;
     render(): any;
 }

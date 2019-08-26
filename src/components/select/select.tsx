@@ -256,7 +256,7 @@ export class Select implements ComponentInterface {
     private addRippleEffect() {
         // TODO: wrap MDCRipple dependency so we can eventually write our own or at least decouple a bit.
         const ripple = new MDCRipple.MDCRipple(this.contentEl);
-        ripple.unbounded = true;
+        ripple.unbounded = false;
     }
 
     private get hasValue(): boolean {
@@ -313,7 +313,7 @@ export class Select implements ComponentInterface {
         // Be cautious as it may cause infinite loop with render ?
         this.optionsEl.setAttribute(
             'style',
-            `width: calc(${Math.ceil(this.el.getBoundingClientRect().width)}px - ${2 * borderSize}px);`
+            `width: ${Math.ceil(this.el.getBoundingClientRect().width - 2 * borderSize)}px;`
         );
     }
 

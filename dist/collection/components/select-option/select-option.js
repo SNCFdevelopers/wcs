@@ -22,6 +22,8 @@ export class SelectOption {
             // If no value was given we use the text content instead.
             this.value = this.el.innerText || '';
         }
+    }
+    componentDidLoad() {
         const ripple = new MDCRipple.MDCRipple(this.el);
         ripple.unbounded = true;
     }

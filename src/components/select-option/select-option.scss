@@ -1,4 +1,3 @@
-@import '../../style/wcs.colors.scss';
 @import '../../style/wcs.ripple.scss';
 
 wcs-select-option {
@@ -13,20 +12,20 @@ wcs-select-option {
     color: black;
 
     &:hover {
-        color: $primary;
-        background-color: $light;
+        color: var(--primary);
+        background-color: var(--light);
     }
 }
 
 wcs-select-option[disabled] {
     cursor: default;
     pointer-events: none;
-    color: $text-disabled;
+    color: var(--text-disabled);
 }
 
 wcs-select-option[selected] {
-    color: $primary;
-    background-color: $light;
+    color: var(--primary);
+    background-color: var(--light);
 }
 
 wcs-select-option[multiple] {

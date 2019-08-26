@@ -11,10 +11,6 @@ export class Button {
          */
         this.type = 'button';
         /**
-         * Specify the button color.
-         */
-        this.color = 'primary';
-        /**
          * Specify wether the button is disabled or not.
          */
         this.disabled = false;
@@ -27,8 +23,6 @@ export class Button {
          * Setting this attribute will change the height and padding of a button.
          */
         this.mode = 'normal';
-        /** Specify wether the button should have background color or not. */
-        this.clear = false;
     }
     onClick(ev) {
         if (this.type !== 'button' && hasShadowDom(this.el)) {
@@ -57,13 +51,13 @@ export class Button {
     }
     generateClasses() {
         return {
-            class: Object.assign({ 'wcs-inner-button': true, 'wcs-inner-button-disabled': this.disabled, 'wcs-inner-button-small': this.mode === 'small', 'wcs-inner-button-block': this.mode === 'block', 'wcs-inner-button-icon-only': this.mode === 'icon-only', 'wcs-inner-button-rounded': this.mode === 'round' }, this.createColorClasses(this.color))
-        };
-    }
-    createColorClasses(color) {
-        return {
-            [`wcs-background-${color}-hover`]: !this.disabled,
-            [`wcs-color-${color}`]: !this.disabled
+            class: {
+                'wcs-inner-button': true,
+                'wcs-inner-button-small': this.mode === 'small',
+                'wcs-inner-button-block': this.mode === 'block',
+                'wcs-inner-button-icon-only': this.mode === 'icon-only',
+                'wcs-inner-button-rounded': this.mode === 'round',
+            }
         };
     }
     componentDidLoad() {
@@ -124,29 +118,6 @@ export class Button {
             "attribute": "href",
             "reflect": false
         },
-        "color": {
-            "type": "string",
-            "mutable": false,
-            "complexType": {
-                "original": "Color",
-                "resolved": "string",
-                "references": {
-                    "Color": {
-                        "location": "import",
-                        "path": "../../interface"
-                    }
-                }
-            },
-            "required": false,
-            "optional": false,
-            "docs": {
-                "tags": [],
-                "text": "Specify the button color."
-            },
-            "attribute": "color",
-            "reflect": false,
-            "defaultValue": "'primary'"
-        },
         "disabled": {
             "type": "boolean",
             "mutable": false,
@@ -200,24 +171,6 @@ export class Button {
             "attribute": "mode",
             "reflect": true,
             "defaultValue": "'normal'"
-        },
-        "clear": {
-            "type": "boolean",
-            "mutable": false,
-            "complexType": {
-                "original": "boolean",
-                "resolved": "boolean",
-                "references": {}
-            },
-            "required": false,
-            "optional": false,
-            "docs": {
-                "tags": [],
-                "text": "Specify wether the button should have background color or not."
-            },
-            "attribute": "clear",
-            "reflect": true,
-            "defaultValue": "false"
         }
     }; }
     static get contextProps() { return [{

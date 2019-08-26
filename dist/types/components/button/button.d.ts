@@ -1,6 +1,5 @@
 import { ComponentInterface } from '../../stencil.core';
 import { ButtonType } from './button-interface';
-import { Color } from '../../interface';
 /**
  * Button component, can also be a link when specifying href.
  */
@@ -17,10 +16,6 @@ export declare class Button implements ComponentInterface {
      */
     href?: string;
     /**
-     * Specify the button color.
-     */
-    color: Color;
-    /**
      * Specify wether the button is disabled or not.
      */
     disabled: boolean;
@@ -33,12 +28,9 @@ export declare class Button implements ComponentInterface {
      * Setting this attribute will change the height and padding of a button.
      */
     mode: 'normal' | 'small' | 'block' | 'icon-only' | 'round';
-    /** Specify wether the button should have background color or not. */
-    clear: boolean;
     onClick(ev: Event): void;
     render(): any;
     private generateClasses;
-    private createColorClasses;
     componentDidLoad(): void;
     private addRippleEffect;
 }

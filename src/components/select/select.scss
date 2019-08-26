@@ -1,12 +1,10 @@
-@import "../../style/wcs.colors.scss";
 @import "../../style/wcs.ripple.scss";
 
 .wcs-select-text {
     padding: 0.65625rem 1.25rem;
     font-weight: 500;
     cursor: pointer;
-    // FIXME: Replace with css variable
-    color: $text-medium;
+    color: var(--text-medium);
     transition: color 125ms ease-in;
     // Hide overflowing display text
     white-space: nowrap;
@@ -19,8 +17,7 @@
     display: flex;
     align-items: center;
     padding-right: var(--wcs-text-padding);
-    // FIXME: Replace with css variable
-    background-color: $light;
+    background-color: var(--light);
     border-radius: var(--wcs-border-radius);
     border: transparent solid 1px;
     font-size: 1rem;
@@ -37,12 +34,11 @@
     max-height: 22.5rem;
     overflow-y: auto;
 
-    background-color: white;
-    // FIXME: Replace with css variable
-    color: $text-medium;
-    border-left: $text-light solid 1px;
-    border-right: $text-light solid 1px;
-    border-bottom: $text-light solid 1px;
+    background-color: var(--white);
+    color: var(--text-medium);
+    border-left: var(--text-light) solid 1px;
+    border-right: var(--text-light) solid 1px;
+    border-bottom: var(--text-light) solid 1px;
 
     border-bottom-right-radius: var(--wcs-border-radius);
     border-bottom-left-radius: var(--wcs-border-radius);
@@ -64,35 +60,31 @@
     }
 
     .wcs-select-content {
-        // FIXME: Replace with css variables
-        border-top: $text-light solid 1px;
-        border-right: $text-light solid 1px;
-        border-left: $text-light solid 1px;
+        border-top: var(--text-light) solid 1px;
+        border-right: var(--text-light) solid 1px;
+        border-left: var(--text-light) solid 1px;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
-        border-bottom: $text-light solid 1px;
+        border-bottom: var(--text-light) solid 1px;
     }
 }
 
 :host(:not(.expanded):focus) {
     .wcs-select-content {
-        // FIXME: replace with css  variables
-        border: $primary solid 1px;
+        border: var(--primary) solid 1px;
     }
 }
 
 :host([value]) {
     .wcs-select-text {
-        // FIXME: Replace with css variable
-        color: $black;
+        color: var(--black);
     }
 }
 
 // Fix for multiple select
 :host([value="[]"]) {
     .wcs-select-text {
-        // FIXME: Replace with css variable
-        color: $text-medium;
+        color: var(--text-medium);
     }
 }
 
@@ -105,12 +97,10 @@
     }
 
     .wcs-select-text {
-        // FIXME: Replace with css variable
-        color: $text-disabled;
+        color: var(--text-disabled);
     }
 
     .arrow {
-        // FIXME: Replace with css variable
-        fill: $text-medium;
+        fill: var(--text-medium);
     }
 }

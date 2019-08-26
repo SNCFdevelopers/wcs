@@ -1,132 +1,7 @@
-/**
- * Create css classes for each key in the color map.
- */
-.wcs-background-primary {
-  background-color: #0088ce;
-}
-
-.wcs-color-primary {
-  color: #fff;
-}
-
-.wcs-background-primary-hover {
-  background-color: #0088ce;
-}
-.wcs-background-primary-hover:hover {
-  background-color: #00a1f4;
-  border-color: #02a9ff;
-}
-
-.wcs-background-secondary {
-  background-color: #4d4f53;
-}
-
-.wcs-color-secondary {
-  color: #fff;
-}
-
-.wcs-background-secondary-hover {
-  background-color: #4d4f53;
-}
-.wcs-background-secondary-hover:hover {
-  background-color: #5f6267;
-  border-color: #66686d;
-}
-
-.wcs-background-success {
-  background-color: #82be00;
-}
-
-.wcs-color-success {
-  color: #212529;
-}
-
-.wcs-background-success-hover {
-  background-color: #82be00;
-}
-.wcs-background-success-hover:hover {
-  background-color: #9ce400;
-  border-color: #a5f100;
-}
-
-.wcs-background-info {
-  background-color: #009aa6;
-}
-
-.wcs-color-info {
-  color: #fff;
-}
-
-.wcs-background-info-hover {
-  background-color: #009aa6;
-}
-.wcs-background-info-hover:hover {
-  background-color: #00bdcc;
-  border-color: #00c9d9;
-}
-
-.wcs-background-danger {
-  background-color: #cd0037;
-}
-
-.wcs-color-danger {
-  color: #fff;
-}
-
-.wcs-background-danger-hover {
-  background-color: #cd0037;
-}
-.wcs-background-danger-hover:hover {
-  background-color: #f30041;
-  border-color: #ff0145;
-}
-
-.wcs-background-warning {
-  background-color: #ffb612;
-}
-
-.wcs-color-warning {
-  color: #212529;
-}
-
-.wcs-background-warning-hover {
-  background-color: #ffb612;
-}
-.wcs-background-warning-hover:hover {
-  background-color: #ffc238;
-  border-color: #ffc645;
-}
-
-.wcs-background-light {
-  background-color: #f2f2f2;
-}
-
-.wcs-color-light {
-  color: #212529;
-}
-
-.wcs-background-light-hover {
-  background-color: #f2f2f2;
-}
-.wcs-background-light-hover:hover {
-  background-color: white;
-  border-color: white;
-}
-
-.wcs-background-dark {
-  background-color: #343a40;
-}
-
-.wcs-color-dark {
-  color: #fff;
-}
-
-.wcs-background-dark-hover {
-  background-color: #343a40;
-}
-.wcs-background-dark-hover:hover {
-  background-color: #454d55;
-  border-color: #4b545c;
+:host {
+  --wcs-checkbox-border-color: var(--text-medium);
+  --wcs-checkbox-text-color: var(--black);
+  display: flex;
 }
 
 .wcs-checkmark {
@@ -153,36 +28,29 @@
   width: 0;
 }
 
-.wcs-container:hover .wcs-checkmark, input:focus .wcs-checkmark {
-  border-color: #0088ce;
-}
-.wcs-container:hover .text, input:focus .text {
-  color: #0088ce;
+.wcs-container:hover,
+input:focus {
+  --wcs-checkbox-border-color: var(--primary);
+  --wcs-checkbox-text-color: var(--primary);
 }
 
 /* Create a custom checkbox */
 .wcs-checkmark {
   width: 1.125rem;
   height: 1.125rem;
-  border: 2px solid #b9b9b9;
+  border: 2px solid var(--wcs-checkbox-border-color);
   border-radius: 3px;
 }
 
-.indeterminate {
-  background: #0088ce;
-  border-color: #0088ce;
+:host([indeterminate]) .wcs-checkmark {
+  --wcs-checkbox-border-color: var(--primary);
+  background: var(--primary);
 }
 
-/* .indeterminate:after {
-    background: $white;
-    display: block;
-    border: solid 12px red;
-    content: "";
-} */
 /* When the checkbox is checked, add a blue background */
 .wcs-container input:checked ~ .wcs-checkmark {
-  background-color: #0088ce;
-  border-color: #0088ce;
+  background-color: var(--primary);
+  --wcs-checkbox-border-color: var(--primary);
 }
 
 /* Create the wcs-checkmark/indicator (hidden when not checked) */
@@ -197,16 +65,12 @@
   display: flex;
 }
 
-:host {
-  display: flex;
-}
-
 /* Style the wcs-checkmark/indicator */
 .wcs-container .wcs-checkmark:after {
   left: 7px;
   width: 5px;
   height: 10px;
-  border: solid white;
+  border: solid var(--white, white);
   border-width: 0 3px 3px 0;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -214,11 +78,11 @@
 }
 
 .wcs-container input:checked ~ .text {
-  color: #0088ce;
+  --wcs-checkbox-text-color: var(--primary);
 }
 
 .text {
-  color: #747678;
+  color: var(--wcs-checkbox-text-color);
   margin-left: 6px;
   font-weight: 500;
   line-height: 1.375;

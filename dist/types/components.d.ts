@@ -7,9 +7,6 @@
 
 import { HTMLStencilElement, JSXBase } from './stencil.core';
 import {
-  Color,
-} from './interface';
-import {
   ButtonType,
 } from './components/button/button-interface';
 import {
@@ -32,22 +29,8 @@ import {
 
 export namespace Components {
   interface WcsApp {}
-  interface WcsBadge {
-    /**
-    * Select the badge color.
-    * @default 'primary'
-    */
-    'color': Color;
-  }
+  interface WcsBadge {}
   interface WcsButton {
-    /**
-    * Specify wether the button should have background color or not.
-    */
-    'clear': boolean;
-    /**
-    * Specify the button color.
-    */
-    'color': Color;
     /**
     * Specify wether the button is disabled or not.
     */
@@ -379,22 +362,8 @@ declare global {
 
 declare namespace LocalJSX {
   interface WcsApp extends JSXBase.HTMLAttributes<HTMLWcsAppElement> {}
-  interface WcsBadge extends JSXBase.HTMLAttributes<HTMLWcsBadgeElement> {
-    /**
-    * Select the badge color.
-    * @default 'primary'
-    */
-    'color'?: Color;
-  }
+  interface WcsBadge extends JSXBase.HTMLAttributes<HTMLWcsBadgeElement> {}
   interface WcsButton extends JSXBase.HTMLAttributes<HTMLWcsButtonElement> {
-    /**
-    * Specify wether the button should have background color or not.
-    */
-    'clear'?: boolean;
-    /**
-    * Specify the button color.
-    */
-    'color'?: Color;
     /**
     * Specify wether the button is disabled or not.
     */

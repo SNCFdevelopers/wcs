@@ -161,7 +161,7 @@ export class Select {
     addRippleEffect() {
         // TODO: wrap MDCRipple dependency so we can eventually write our own or at least decouple a bit.
         const ripple = new MDCRipple.MDCRipple(this.contentEl);
-        ripple.unbounded = true;
+        ripple.unbounded = false;
     }
     get hasValue() {
         // TODO: change this behavior.
@@ -200,7 +200,7 @@ export class Select {
         const borderSize = 1;
         // TODO: Consider using a mutation observer to rerender the size each time ?
         // Be cautious as it may cause infinite loop with render ?
-        this.optionsEl.setAttribute('style', `width: calc(${Math.ceil(this.el.getBoundingClientRect().width)}px - ${2 * borderSize}px);`);
+        this.optionsEl.setAttribute('style', `width: ${Math.ceil(this.el.getBoundingClientRect().width - 2 * borderSize)}px;`);
     }
     focusedAttributes() {
         return !this.disabled ? { tabIndex: 0 } : {};

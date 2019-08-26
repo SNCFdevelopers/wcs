@@ -1,4 +1,4 @@
-import { h } from "@stencil/core";
+import { h, Host } from "@stencil/core";
 export class Checkbox {
     constructor() {
         this.checkboxId = `wcs-checkbox-${checkboxIds++}`;
@@ -20,11 +20,12 @@ export class Checkbox {
         });
     }
     render() {
-        return (h("label", { htmlFor: this.name, class: "wcs-container" },
-            h("input", { onChange: (evt) => this.handleChange(evt), checked: this.checked, class: "wcs-checkbox", type: "checkbox", name: this.name, id: this.name }),
-            h("span", { class: 'wcs-checkmark ' + (this.indeterminate ? 'indeterminate' : '') }),
-            h("span", { class: "text" },
-                h("slot", null))));
+        return (h(Host, null,
+            h("label", { htmlFor: this.name, class: "wcs-container" },
+                h("input", { onChange: (evt) => this.handleChange(evt), checked: this.checked, class: "wcs-checkbox", type: "checkbox", name: this.name, id: this.name }),
+                h("span", { class: "wcs-checkmark" }),
+                h("span", { class: "text" },
+                    h("slot", null)))));
     }
     static get is() { return "wcs-checkbox"; }
     static get encapsulation() { return "shadow"; }

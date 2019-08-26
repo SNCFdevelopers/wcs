@@ -8,7 +8,7 @@ export class Tab {
         this.wcsTabDidLoad.emit();
     }
     render() {
-        return (h(Host, null,
+        return (h(Host, { slot: "wcs-tab" },
             h("slot", null)));
     }
     static get is() { return "wcs-tab"; }

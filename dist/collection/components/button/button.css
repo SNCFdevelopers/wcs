@@ -1,134 +1,3 @@
-/**
- * Create css classes for each key in the color map.
- */
-.wcs-background-primary {
-  background-color: #0088ce;
-}
-
-.wcs-color-primary {
-  color: #fff;
-}
-
-.wcs-background-primary-hover {
-  background-color: #0088ce;
-}
-.wcs-background-primary-hover:hover {
-  background-color: #00a1f4;
-  border-color: #02a9ff;
-}
-
-.wcs-background-secondary {
-  background-color: #4d4f53;
-}
-
-.wcs-color-secondary {
-  color: #fff;
-}
-
-.wcs-background-secondary-hover {
-  background-color: #4d4f53;
-}
-.wcs-background-secondary-hover:hover {
-  background-color: #5f6267;
-  border-color: #66686d;
-}
-
-.wcs-background-success {
-  background-color: #82be00;
-}
-
-.wcs-color-success {
-  color: #212529;
-}
-
-.wcs-background-success-hover {
-  background-color: #82be00;
-}
-.wcs-background-success-hover:hover {
-  background-color: #9ce400;
-  border-color: #a5f100;
-}
-
-.wcs-background-info {
-  background-color: #009aa6;
-}
-
-.wcs-color-info {
-  color: #fff;
-}
-
-.wcs-background-info-hover {
-  background-color: #009aa6;
-}
-.wcs-background-info-hover:hover {
-  background-color: #00bdcc;
-  border-color: #00c9d9;
-}
-
-.wcs-background-danger {
-  background-color: #cd0037;
-}
-
-.wcs-color-danger {
-  color: #fff;
-}
-
-.wcs-background-danger-hover {
-  background-color: #cd0037;
-}
-.wcs-background-danger-hover:hover {
-  background-color: #f30041;
-  border-color: #ff0145;
-}
-
-.wcs-background-warning {
-  background-color: #ffb612;
-}
-
-.wcs-color-warning {
-  color: #212529;
-}
-
-.wcs-background-warning-hover {
-  background-color: #ffb612;
-}
-.wcs-background-warning-hover:hover {
-  background-color: #ffc238;
-  border-color: #ffc645;
-}
-
-.wcs-background-light {
-  background-color: #f2f2f2;
-}
-
-.wcs-color-light {
-  color: #212529;
-}
-
-.wcs-background-light-hover {
-  background-color: #f2f2f2;
-}
-.wcs-background-light-hover:hover {
-  background-color: white;
-  border-color: white;
-}
-
-.wcs-background-dark {
-  background-color: #343a40;
-}
-
-.wcs-color-dark {
-  color: #fff;
-}
-
-.wcs-background-dark-hover {
-  background-color: #343a40;
-}
-.wcs-background-dark-hover:hover {
-  background-color: #454d55;
-  border-color: #4b545c;
-}
-
 @font-face {
   font-family: Avenir;
   src: url("/assets/fonts/avenir-lighter.woff");
@@ -335,106 +204,36 @@
   --mdc-ripple-fg-opacity: 0.12;
 }
 
-:host([clear]) .wcs-inner-button {
-  background: transparent;
+:host([clear]) .wcs-inner-button,
+:host([stroked]) .wcs-inner-button {
+  background-color: transparent;
   box-shadow: none;
+  color: var(--base);
 }
-:host([clear]) .wcs-inner-button.wcs-color-primary {
-  color: #0088ce;
-}
-:host([clear]) .wcs-inner-button.wcs-color-primary::before, :host([clear]) .wcs-inner-button.wcs-color-primary::after {
-  background-color: #0088ce;
-}
-:host([clear]) .wcs-inner-button.wcs-color-success {
-  color: #82be00;
-}
-:host([clear]) .wcs-inner-button.wcs-color-success::before, :host([clear]) .wcs-inner-button.wcs-color-success::after {
-  background-color: #82be00;
-}
-:host([clear]) .wcs-inner-button.wcs-color-secondary {
-  color: #4d4f53;
-}
-:host([clear]) .wcs-inner-button.wcs-color-secondary::before, :host([clear]) .wcs-inner-button.wcs-color-secondary::after {
-  background-color: #4d4f53;
-}
-:host([clear]) .wcs-inner-button.wcs-color-info {
-  color: #009aa6;
-}
-:host([clear]) .wcs-inner-button.wcs-color-info::before, :host([clear]) .wcs-inner-button.wcs-color-info::after {
-  background-color: #009aa6;
-}
-:host([clear]) .wcs-inner-button.wcs-color-danger {
-  color: #cd0037;
-}
-:host([clear]) .wcs-inner-button.wcs-color-danger::before, :host([clear]) .wcs-inner-button.wcs-color-danger::after {
-  background-color: #cd0037;
-}
-:host([clear]) .wcs-inner-button.wcs-color-warning {
-  color: #ffb612;
-}
-:host([clear]) .wcs-inner-button.wcs-color-warning::before, :host([clear]) .wcs-inner-button.wcs-color-warning::after {
-  background-color: #ffb612;
-}
-:host([clear]) .wcs-inner-button.wcs-color-dark {
-  color: #343a40;
-}
-:host([clear]) .wcs-inner-button.wcs-color-dark::before, :host([clear]) .wcs-inner-button.wcs-color-dark::after {
-  background-color: #343a40;
+:host([clear]) .wcs-inner-button::before, :host([clear]) .wcs-inner-button::after,
+:host([stroked]) .wcs-inner-button::before,
+:host([stroked]) .wcs-inner-button::after {
+  background-color: var(--base);
 }
 
 :host([stroked]) .wcs-inner-button {
-  border: solid 1px #d7d7d7;
-  background: transparent;
-  box-shadow: none;
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--base);
 }
-:host([stroked]) .wcs-inner-button.wcs-color-primary {
-  color: #0088ce;
-  border-color: #0088ce;
+
+:host([disabled]) .wcs-inner-button {
+  color: var(--text-disabled);
+  background-color: var(--light);
+  border-color: var(--light);
+  opacity: 1;
+  cursor: default;
+  pointer-events: none;
 }
-:host([stroked]) .wcs-inner-button.wcs-color-primary::before, :host([stroked]) .wcs-inner-button.wcs-color-primary::after {
-  background-color: #0088ce;
-}
-:host([stroked]) .wcs-inner-button.wcs-color-success {
-  color: #82be00;
-  border-color: #82be00;
-}
-:host([stroked]) .wcs-inner-button.wcs-color-success::before, :host([stroked]) .wcs-inner-button.wcs-color-success::after {
-  background-color: #82be00;
-}
-:host([stroked]) .wcs-inner-button.wcs-color-secondary {
-  color: #4d4f53;
-  border-color: #4d4f53;
-}
-:host([stroked]) .wcs-inner-button.wcs-color-secondary::before, :host([stroked]) .wcs-inner-button.wcs-color-secondary::after {
-  background-color: #4d4f53;
-}
-:host([stroked]) .wcs-inner-button.wcs-color-info {
-  color: #009aa6;
-  border-color: #009aa6;
-}
-:host([stroked]) .wcs-inner-button.wcs-color-info::before, :host([stroked]) .wcs-inner-button.wcs-color-info::after {
-  background-color: #009aa6;
-}
-:host([stroked]) .wcs-inner-button.wcs-color-danger {
-  color: #cd0037;
-  border-color: #cd0037;
-}
-:host([stroked]) .wcs-inner-button.wcs-color-danger::before, :host([stroked]) .wcs-inner-button.wcs-color-danger::after {
-  background-color: #cd0037;
-}
-:host([stroked]) .wcs-inner-button.wcs-color-warning {
-  color: #ffb612;
-  border-color: #ffb612;
-}
-:host([stroked]) .wcs-inner-button.wcs-color-warning::before, :host([stroked]) .wcs-inner-button.wcs-color-warning::after {
-  background-color: #ffb612;
-}
-:host([stroked]) .wcs-inner-button.wcs-color-dark {
-  color: #343a40;
-  border-color: #343a40;
-}
-:host([stroked]) .wcs-inner-button.wcs-color-dark::before, :host([stroked]) .wcs-inner-button.wcs-color-dark::after {
-  background-color: #343a40;
+
+:host([clear][disabled]) .wcs-inner-button,
+:host([stroked][disabled]) .wcs-inner-button {
+  background-color: transparent;
 }
 
 .wcs-inner-button {
@@ -447,6 +246,8 @@
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   will-change: transform, opacity;
   font-family: Avenir;
+  background-color: var(--base, var(--primary));
+  color: var(--contrast, var(--white));
   overflow: hidden;
   outline: 0;
   text-transform: none;
@@ -512,8 +313,8 @@
 .wcs-inner-button::before, .wcs-inner-button::after {
   background-color: white;
 }
-.wcs-inner-button.wcs-color-white::before, .wcs-inner-button.wcs-color-white::after, .wcs-inner-button.wcs-color-light::before, .wcs-inner-button.wcs-color-light::after {
-  background-color: #333;
+.wcs-inner-button::before, .wcs-inner-button::after {
+  background-color: var(--contrast, var(--white, white));
 }
 .wcs-inner-button:hover::before {
   opacity: 0.1;
@@ -566,15 +367,6 @@
   height: 2.5rem;
   border-radius: 50%;
 }
-.wcs-inner-button.wcs-inner-button-disabled {
-  color: #b9b9b9;
-  background-color: #f2f2f2;
-  border-color: #f2f2f2;
-  opacity: 1;
-  cursor: default;
-  pointer-events: none;
-}
-
 a {
   text-decoration: none;
 }
