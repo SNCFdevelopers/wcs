@@ -29,7 +29,7 @@ export class Tab implements ComponentDidLoad {
 
     render() {
         return (
-            <Host>
+            <Host slot="wcs-tab">
                 <slot></slot>
             </Host>
         );

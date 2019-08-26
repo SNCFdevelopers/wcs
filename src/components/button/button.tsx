@@ -3,7 +3,6 @@ import { Component, ComponentInterface, Element, Prop, Listen, h } from '@stenci
 import * as MDCRipple from '@material/ripple';
 
 import { ButtonType } from './button-interface';
-import { Color, CssClassMap } from '../../interface';
 import { hasShadowDom } from '../../utils/helpers';
 
 /**
@@ -31,11 +30,6 @@ export class Button implements ComponentInterface {
     @Prop() href?: string;
 
     /**
-     * Specify the button color.
-     */
-    @Prop() color: Color = 'primary';
-
-    /**
      * Specify wether the button is disabled or not.
      */
     @Prop({ reflectToAttr: true }) disabled = false;
@@ -50,9 +44,6 @@ export class Button implements ComponentInterface {
      * Setting this attribute will change the height and padding of a button.
      */
     @Prop({ reflect: true }) mode: 'normal' | 'small' | 'block' | 'icon-only' | 'round' = 'normal';
-
-    /** Specify wether the button should have background color or not. */
-    @Prop({ reflect: true }) clear = false;
 
     @Listen('click')
     onClick(ev: Event) {
@@ -95,20 +86,11 @@ export class Button implements ComponentInterface {
         return {
             class: {
                 'wcs-inner-button': true,
-                'wcs-inner-button-disabled': this.disabled,
                 'wcs-inner-button-small': this.mode === 'small',
                 'wcs-inner-button-block': this.mode === 'block',
                 'wcs-inner-button-icon-only': this.mode === 'icon-only',
                 'wcs-inner-button-rounded': this.mode === 'round',
-                ...this.createColorClasses(this.color)
             }
-        };
-    }
-
-    private createColorClasses(color: Color): CssClassMap {
-        return {
-            [`wcs-background-${color}-hover`]: !this.disabled,
-            [`wcs-color-${color}`]: !this.disabled
         };
     }
 
