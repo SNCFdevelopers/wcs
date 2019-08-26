@@ -3,18 +3,18 @@ input {
     padding: 0.65625rem 1.25rem;
     font-size: 1rem;
     line-height: 1.5;
-    color: var(--primary);
-    background-color: var(--light);
+    color: var(--wcs-primary);
+    background-color: var(--wcs-light);
     background-clip: padding-box;
-    border: 1px solid var(--light);
+    border: 1px solid var(--wcs-light);
     border-radius: 0.4375rem;
 }
 
 input:focus{
     outline:0;
-    border: solid 1px var(--primary);
+    border: solid 1px var(--wcs-primary);
 }
 
 .white {
-    background-color: var(--white);
+    background-color: var(--wcs-white);
 }

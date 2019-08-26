@@ -1,65 +1,39 @@
-:root {
-    --white: white;
-    --light: #f2f2f2;
-    --gray-light: #4d4f53;
-    --gray: #333;
-    --gray-dark: #343a40;
-    --gray-darker: #212529;
-    --black: black;
-
-    --text-light: #d7d7d7;
-    --text-disabled: #b9b9b9;
-    --text-medium: #747678;
-
-    --blue: #0088CE;
-    --purple: #6e1e78;
-    --pink: #a1006b;
-    --red: #cd0037;
-    --orange: #e05206;
-    --yellow: #ffb612;
-    --green: #82be00;
-    --teal: #d2e100;
-    --cyan: #009aa6;
-
-    --primary: var(--blue);
+.wcs-primary {
+    --wcs-base: var(--wcs-primary);
+    --wcs-contrast: var(--wcs-white);
 }
 
-.primary {
-    --base: var(--primary);
-    --contrast: var(--white);
+.wcs-secondary {
+    --wcs-base: var(--wcs-gray-light);
+    --wcs-contrast: var(--wcs-white);
 }
 
-.secondary {
-    --base: var(--gray-light);
-    --contrast: var(--white);
+.wcs-success {
+    --wcs-base: var(--wcs-green);
+    --wcs-contrast: var(--wcs-gray-darker);
 }
 
-.success {
-    --base: var(--green);
-    --contrast: var(--gray-darker);
+.wcs-warning {
+    --wcs-base: var(--wcs-yellow);
+    --wcs-contrast: var(--wcs-gray-darker);
 }
 
-.warning {
-    --base: var(--yellow);
-    --contrast: var(--gray-darker);
+.wcs-info {
+    --wcs-base: var(--wcs-cyan);
+    --wcs-contrast: var(--wcs-white);
 }
 
-.info {
-    --base: var(--cyan);
-    --contrast: var(--white);
+.wcs-danger {
+    --wcs-base: var(--wcs-red);
+    --wcs-contrast: var(--wcs-white);
 }
 
-.danger {
-    --base: var(--red);
-    --contrast: var(--white);
+.wcs-dark {
+    --wcs-base: var(--wcs-gray-dark);
+    --wcs-contrast: var(--wcs-white);
 }
 
-.dark {
-    --base: var(--gray-dark);
-    --contrast: var(--white);
-}
-
-.light {
-    --base: var(--light);
-    --contrast: var(--gray-darker);
+.wcs-light {
+    --wcs-base: var(--wcs-light);
+    --wcs-contrast: var(--wcs-gray-darker);
 }

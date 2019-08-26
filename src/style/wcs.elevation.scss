@@ -1,3 +1,4 @@
+// TODO: Generate these as class that changes the wcs-box-shadow variable
 @mixin wcs-elevation($dp) {
     @if $dp==0 {
         box-shadow: none
@@ -37,6 +38,7 @@
     }
 }
 
+// TODO: move to css variable somehow ?
 @function wcs-elevation-transition() {
     @return box-shadow 175ms cubic-bezier(0.4, 0, 0.2, 1);
 }

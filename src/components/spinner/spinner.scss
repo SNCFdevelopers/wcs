@@ -20,13 +20,13 @@
 }
 
 :host([mode=border]) {
-    border: 0.25em solid var(--base);
+    border: 0.25em solid var(--wcs-base);
     border-right-color: transparent;
     animation: wcs-spinner-border .75s linear infinite;
 }
 
 :host([mode=growing]) {
-    background-color: var(--base);
+    background-color: var(--wcs-base);
     opacity: 0;
     animation: wcs-spinner-grow .75s linear infinite;
 }

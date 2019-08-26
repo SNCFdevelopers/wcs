@@ -12,20 +12,20 @@ wcs-select-option {
     color: black;
 
     &:hover {
-        color: var(--primary);
-        background-color: var(--light);
+        color: var(--wcs-primary);
+        background-color: var(--wcs-light);
     }
 }
 
 wcs-select-option[disabled] {
     cursor: default;
     pointer-events: none;
-    color: var(--text-disabled);
+    color: var(--wcs-text-disabled);
 }
 
 wcs-select-option[selected] {
-    color: var(--primary);
-    background-color: var(--light);
+    color: var(--wcs-primary);
+    background-color: var(--wcs-light);
 }
 
 wcs-select-option[multiple] {
