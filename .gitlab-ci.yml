@@ -1,6 +1,7 @@
 stages:
     - test
     - deploy
+
 test:
     image: markhobson/node-chrome
     stage: test
@@ -9,16 +10,22 @@ test:
     cache:
         paths:
             - node_modules/
-    test:
-        script:
-            - npm test
+    script:
+        - npm test
+
 deploy:
-    image: node:latest
-    pages:
-        script:
-            - npm run-script build
-        artifacts:
-            paths:
-                - www
-        only:
-            - develop
+    image: node
+    stage: deploy
+    before_script:
+        - npm install
+    only:
+        - develop
+    cache:
+        paths:
+            - node_modules/
+
+    script:
+        - npm run-script build
+    artifacts:
+        paths:
+            - www
