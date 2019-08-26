@@ -13,7 +13,6 @@ export const config: Config = {
         rootDir: './src',
         testPathIgnorePatterns: ['/node_modules/', '/dist/', '/example/'],
         browserArgs: ['--no-sandbox', '--disable-setuid-sandbox'],
-        
     },
     globalStyle: 'src/style/wcs.global.scss',
     plugins: [
@@ -36,6 +35,7 @@ export const config: Config = {
         },
         {
             type: 'www',
+            dir: 'public',
             serviceWorker: null
         }
     ]
