@@ -13,7 +13,7 @@ test:
     script:
         - npm test
 
-deploy:
+pages:
     image: node
     stage: deploy
     before_script:
