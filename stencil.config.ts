@@ -35,7 +35,6 @@ export const config: Config = {
         },
         {
             type: 'www',
-            baseUrl: 'https://sncf.gitlab.io/wcs-ci/',
             serviceWorker: null
         }
     ]

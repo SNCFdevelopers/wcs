@@ -24,7 +24,7 @@ build:
             - www/
     script:
         - npm install
-        - npm run build
+        - npm run build -- --baseUrl="https://sncf.gitlab.io/wcs-ci/"
     cache:
         paths:
             - node_modules/
