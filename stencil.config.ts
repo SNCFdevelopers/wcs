@@ -35,7 +35,6 @@ export const config: Config = {
         },
         {
             type: 'www',
-            dir: 'public',
             serviceWorker: null
         }
     ]

@@ -1,5 +1,6 @@
 stages:
     - test
+    - build
     - deploy
 
 test:
@@ -13,18 +14,34 @@ test:
     script:
         - npm test
 
-pages:
-    image: node
-    stage: deploy
-    before_script:
+build:
+    image: node:latest
+    stage: build
+    only: develop
+    artifacts:
+        paths:
+            - www/
+    script:
         - npm install
+        - npm run build
+    cache:
+        paths:
+            - node_modules/
+
+
+
+pages:
+    image: node:latest
+    stage: deploy
+    dependencies:
+        - app-build
     only:
         - develop
     cache:
         paths:
             - node_modules/
     script:
-        - npm run build -- --baseUrl="wcs-ci"
+        - mv www/ public/
     artifacts:
         paths:
             - public
