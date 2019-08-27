@@ -24,7 +24,7 @@ pages:
         paths:
             - node_modules/
     script:
-        - npm run-script build
+        - npm run build -- --baseUrl="/wcs-ci"
     artifacts:
         paths:
             - public
