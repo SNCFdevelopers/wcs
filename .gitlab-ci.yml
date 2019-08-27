@@ -17,7 +17,8 @@ test:
 build:
     image: node:latest
     stage: build
-    only: develop
+    only:
+        - develop
     artifacts:
         paths:
             - www/
@@ -28,13 +29,11 @@ build:
         paths:
             - node_modules/
 
-
-
 pages:
     image: node:latest
     stage: deploy
     dependencies:
-        - app-build
+        - build
     only:
         - develop
     cache:
