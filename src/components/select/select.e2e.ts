@@ -1,5 +1,4 @@
 import { newE2EPage } from '@stencil/core/testing';
-import { SSL_OP_MICROSOFT_BIG_SSLV3_BUFFER } from 'constants';
 
 describe('Select component', () => {
     // TODO: Add test about default selected value
@@ -268,7 +267,7 @@ describe('Select component', () => {
             expect(select).toHaveClass('expanded');
         });
 
-        it(`Allows to select multiple values`, async () => {
+        it(`Allows to select multiple values NEW VERSION`, async () => {
             // Given
             const page = await newE2EPage();
             await page.setContent(`
@@ -278,6 +277,8 @@ describe('Select component', () => {
                 </wcs-select>
             `);
             const select = await page.find('wcs-select');
+            const changeSpy = await select.spyOnEvent('wcsChange');
+
             const [opt1, opt2] = (await page.findAll('wcs-select > wcs-select-option'));
 
             // When
@@ -287,10 +288,14 @@ describe('Select component', () => {
             await page.waitForChanges();
 
             // Then
-            expect(select.getAttribute('value')).toEqual('[1, 2]');
+            // Then
+            expect(changeSpy).toHaveReceivedEventTimes(2);
+            expect(changeSpy).toHaveReceivedEventDetail({ value: ['1', '2'] });
+
         });
 
-        it('Allows to unselect a value', async () => {
+
+        it('Allows to unselect a value NEW VERSION', async () => {
             // Given
             const page = await newE2EPage();
             await page.setContent(`
@@ -301,6 +306,7 @@ describe('Select component', () => {
                 </wcs-select>
             `);
             const select = await page.find('wcs-select');
+            const changeSpy = await select.spyOnEvent('wcsChange');
             const [opt1, opt2] = (await page.findAll('wcs-select > wcs-select-option'));
 
             // When
@@ -311,9 +317,9 @@ describe('Select component', () => {
             await page.waitForChanges();
 
             // Then
-            expect(select.getAttribute('value')).toEqual('[2]');
+            expect(changeSpy).toHaveReceivedEventTimes(3);
+            expect(changeSpy).toHaveReceivedEventDetail({ value: ['2'] });
         });
-
         it(`Displays all values separated by a comma`, async () => {
             // Given
             const page = await newE2EPage();
@@ -356,6 +362,7 @@ describe('Select component', () => {
             expect(option).toHaveAttribute('multiple');
         });
 
+
         it(`Propagate event when values are select`, async () => {
             // Given
             const page = await newE2EPage();
@@ -376,7 +383,7 @@ describe('Select component', () => {
 
             // Then
             expect(changeSpy).toHaveReceivedEventTimes(2);
-            expect(changeSpy).toHaveReceivedEventDetail({ value: '[1, 2]' });
+            expect(changeSpy).toHaveReceivedEventDetail({ value: ['1', '2'] });
         });
     });
 });
