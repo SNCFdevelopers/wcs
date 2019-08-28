@@ -1,0 +1,58 @@
+:host {
+    --wcs-form-field-border-radius-left: var(--wcs-border-radius);
+    --wcs-form-field-border-radius-right: var(--wcs-border-radius);
+
+    display: flex;
+}
+
+
+
+// Base input style
+::slotted(input) {
+    font-family: var(--wcs-font-sans-serif);
+    color: var(--wcs-primary);
+    background-color: var(--wcs-light);
+    border: 1px solid var(--wcs-light);
+    border-radius: var(--wcs-form-field-border-radius-left)
+    var(--wcs-form-field-border-radius-right)
+    var(--wcs-form-field-border-radius-right)
+    var(--wcs-form-field-border-radius-left);
+
+    display: block;
+    padding: calc(var(--wcs-padding) / 2) var(--wcs-padding);
+    font-size: 1rem;
+    line-height: 1.5;
+    background-clip: padding-box;
+}
+
+// Focused input style
+::slotted(input:focus) {
+    outline: 0;
+    border: solid 1px var(--wcs-primary);
+}
+
+// Make input square on left side if there is a prefix
+:host(.has-prefix) {
+    --wcs-form-field-border-radius-left: 0;
+}
+
+// Make input square on right side if there is a suffix
+:host(.has-suffix) {
+    --wcs-form-field-border-radius-right: 0;
+}
+
+// Prefixed select
+::slotted(wcs-select) {
+    --wcs-select-border-radius: var(--wcs-border-radius) 0 0 var(--wcs-border-radius);
+    --wcs-select-background-color: var(--wcs-gray-light);
+    --wcs-select-value-color: var(--wcs-white);
+    --wcs-select-placeholder-color: var(--wcs-white);
+    --wcs-select-border-color: var(--wcs-gray-light);
+    // TODO: remove
+    width: 148px;
+}
+
+// Make button square on left side
+::slotted([slot=suffix]) {
+    --wcs-button-border-radius: 0 var(--wcs-border-radius) var(--wcs-border-radius) 0;
+}

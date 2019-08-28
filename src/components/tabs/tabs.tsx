@@ -38,7 +38,7 @@ export class Tabs implements ComponentInterface {
      */
     @Event() wcsTabsChange: EventEmitter<WcsTabsChangeEvent>;
 
-    @Element() el!: HTMLWcsSelectElement;
+    @Element() el!: HTMLWcsTabsElement;
 
     @State() headers: string[] = [];
 

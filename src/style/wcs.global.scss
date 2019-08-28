@@ -47,3 +47,17 @@ body {
     font-weight: 400;
     font-family: var(--wcs-font-sans-serif)
 }
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+::placeholder {
+    color: var(--wcs-text-medium);
+    opacity: 1;
+    font-weight: normal;
+    font-style: italic;
+}
