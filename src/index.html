@@ -42,6 +42,7 @@
         <h1 slot="title">Web Component SNCF</h1>
     </wcs-header>
     <wcs-sidebar>
+        <a slot="link" href="#spinner"></a>
         <a slot="link" href="#input">Input</a>
         <a slot="link" href="#tab">Tab</a>
         <a slot="link" href="#select">Select</a>
@@ -53,6 +54,34 @@
         <a slot="link" href="#progress"></a>
     </wcs-sidebar>
     <main slot="content">
+
+
+        <h2><a id="spinner"></a>Spinner</h2>
+        <wcs-card>
+            <wcs-card-body>
+                <h3>Border spinner</h3>
+                <wcs-spinner class="primary"></wcs-spinner>
+                <wcs-spinner class="secondary"></wcs-spinner>
+                <wcs-spinner class="success"></wcs-spinner>
+                <wcs-spinner class="warning"></wcs-spinner>
+                <wcs-spinner class="danger"></wcs-spinner>
+                <wcs-spinner class="info"></wcs-spinner>
+                <wcs-spinner class="dark"></wcs-spinner>
+                <wcs-spinner class="light"></wcs-spinner>
+                <h3>Growing spinner</h3>
+                <wcs-spinner mode="growing" class="primary"></wcs-spinner>
+                <wcs-spinner mode="growing" class="secondary"></wcs-spinner>
+                <wcs-spinner mode="growing" class="success"></wcs-spinner>
+                <wcs-spinner mode="growing" class="warning"></wcs-spinner>
+                <wcs-spinner mode="growing" class="danger"></wcs-spinner>
+                <wcs-spinner mode="growing" class="info"></wcs-spinner>
+                <wcs-spinner mode="growing" class="dark"></wcs-spinner>
+                <wcs-spinner mode="growing" class="light"></wcs-spinner>
+
+            </wcs-card-body>
+        </wcs-card>
+
+
         <h2><a id="input"></a>Input</h2>
         <wcs-card>
             <wcs-card-body>
