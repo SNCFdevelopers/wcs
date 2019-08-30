@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, h, Prop } from '@stencil/core';
+import { Component, ComponentInterface, Prop } from '@stencil/core';
 
 @Component({
     tag: 'wcs-spinner',
@@ -10,20 +10,5 @@ export class Spinner implements ComponentInterface {
      * Indicates the spinner display mode.
      * Accepted values: `border` or `growing`
      */
-    @Prop({ mutable: true, reflectToAttr: true }) mode: 'border' | 'growing' = 'border';
-
-    private createSpinnerModeClasses() {
-        if (this.mode === 'border') {
-            return 'wcs-spinner-border';
-        } else if (this.mode === 'growing') {
-            return 'wcs-spinner-grow';
-        }
-    }
-
-    render() {
-        return (
-            <div class={this.createSpinnerModeClasses()}></div>
-
-        );
-    }
+    @Prop({ mutable: true, reflect: true }) mode: 'border' | 'growing' = 'border';
 }

@@ -2,18 +2,6 @@
     to { transform: rotate(360deg); }
 }
 
-.wcs-spinner-border {
-    display: inline-block;
-    width: 2rem;
-    height: 2rem;
-    vertical-align: text-bottom;
-    border: 0.25em solid var(--base);
-    border-right-color: transparent;
-    border-radius: 50%;
-    animation: wcs-spinner-border .75s linear infinite;
-}
-
-
 @keyframes wcs-spinner-grow {
     0% {
         transform: scale(0);
@@ -23,13 +11,22 @@
     }
 }
 
-.wcs-spinner-grow {
+:host{
     display: inline-block;
     width: 2rem;
     height: 2rem;
     vertical-align: text-bottom;
-    background-color: var(--base);
     border-radius: 50%;
+}
+
+:host([mode=border]) {
+    border: 0.25em solid var(--base);
+    border-right-color: transparent;
+    animation: wcs-spinner-border .75s linear infinite;
+}
+
+:host([mode=growing]) {
+    background-color: var(--base);
     opacity: 0;
     animation: wcs-spinner-grow .75s linear infinite;
 }
