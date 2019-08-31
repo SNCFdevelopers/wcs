@@ -227,6 +227,12 @@ export namespace Components {
     'value'?: any;
   }
   interface WcsSidebar {}
+  interface WcsSpinner {
+    /**
+    * Indicates the spinner display mode. Accepted values: `border` or `growing`
+    */
+    'mode': 'border' | 'growing';
+  }
   interface WcsTab {
     /**
     * The header you want to be displayed for this tab.
@@ -329,6 +335,12 @@ declare global {
     new (): HTMLWcsSidebarElement;
   };
 
+  interface HTMLWcsSpinnerElement extends Components.WcsSpinner, HTMLStencilElement {}
+  var HTMLWcsSpinnerElement: {
+    prototype: HTMLWcsSpinnerElement;
+    new (): HTMLWcsSpinnerElement;
+  };
+
   interface HTMLWcsTabElement extends Components.WcsTab, HTMLStencilElement {}
   var HTMLWcsTabElement: {
     prototype: HTMLWcsTabElement;
@@ -355,6 +367,7 @@ declare global {
     'wcs-select': HTMLWcsSelectElement;
     'wcs-select-option': HTMLWcsSelectOptionElement;
     'wcs-sidebar': HTMLWcsSidebarElement;
+    'wcs-spinner': HTMLWcsSpinnerElement;
     'wcs-tab': HTMLWcsTabElement;
     'wcs-tabs': HTMLWcsTabsElement;
   }
@@ -557,6 +570,12 @@ declare namespace LocalJSX {
     'value'?: any;
   }
   interface WcsSidebar extends JSXBase.HTMLAttributes<HTMLWcsSidebarElement> {}
+  interface WcsSpinner extends JSXBase.HTMLAttributes<HTMLWcsSpinnerElement> {
+    /**
+    * Indicates the spinner display mode. Accepted values: `border` or `growing`
+    */
+    'mode'?: 'border' | 'growing';
+  }
   interface WcsTab extends JSXBase.HTMLAttributes<HTMLWcsTabElement> {
     /**
     * The header you want to be displayed for this tab.
@@ -590,6 +609,7 @@ declare namespace LocalJSX {
     'wcs-select': WcsSelect;
     'wcs-select-option': WcsSelectOption;
     'wcs-sidebar': WcsSidebar;
+    'wcs-spinner': WcsSpinner;
     'wcs-tab': WcsTab;
     'wcs-tabs': WcsTabs;
   }
