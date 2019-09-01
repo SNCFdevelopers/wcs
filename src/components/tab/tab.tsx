@@ -12,7 +12,7 @@ export class Tab implements ComponentDidLoad {
     /**
      * The header you want to be displayed for this tab.
      */
-    @Prop({ reflectToAttr: true, mutable: true })
+    @Prop({ reflect: true, mutable: true })
     header: string;
 
     // TODO: Use host element instead

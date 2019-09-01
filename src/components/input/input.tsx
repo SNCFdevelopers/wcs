@@ -21,9 +21,9 @@ export class Input {
      */
     @Prop() name: string = this.inputId;
 
-    @Prop({ reflectToAttr: true }) background: 'normal' | 'white' = 'normal';
+    @Prop({ reflect: true }) background: 'normal' | 'white' = 'normal';
 
-    @Prop({ reflectToAttr: true, mutable: true }) value: string | null = '';
+    @Prop({ reflect: true, mutable: true }) value: string | null = '';
 
     /**
      * Indicates whether and how the text value should be automatically capitalized as it is entered/edited by the user.

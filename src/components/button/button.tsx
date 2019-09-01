@@ -32,7 +32,7 @@ export class Button implements ComponentInterface {
     /**
      * Specify wether the button is disabled or not.
      */
-    @Prop({ reflectToAttr: true }) disabled = false;
+    @Prop({ reflect: true }) disabled = false;
 
     /**
      * Specify wether the button should have a ripple effect or not.

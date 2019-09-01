@@ -33,7 +33,7 @@ export class Tabs implements ComponentInterface {
     /**
      * Current selected tab index
      */
-    @Prop({ reflectToAttr: true, mutable: true }) selectedIndex = 0;
+    @Prop({ reflect: true, mutable: true }) selectedIndex = 0;
 
     @State() headers: string[] = [];
 
