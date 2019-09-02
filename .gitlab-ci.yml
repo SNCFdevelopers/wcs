@@ -51,11 +51,11 @@ publish:
     image: node:12.9-alpine
     stage: deploy
     only:
-        refs:
-            - tags
-            - master
+        - tags
+    except:
+        - /^(?!master).+@/ 
     dependencies:
         - build
     script:
-        - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}'>.npmrc
+        - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
         - npm publish
