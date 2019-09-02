@@ -1,0 +1,95 @@
+:host {
+    --wcs-checkbox-border-color: var(--text-medium);
+    --wcs-checkbox-text-color: var(--black);
+    display: flex;
+}
+
+.wcs-checkmark {
+    transition: background-color 225ms cubic-bezier(.17, .84, .44, 1),
+        color 225ms cubic-bezier(.17, .84, .44, 1);
+}
+
+/* Customize the label (the wcs-container) */
+.wcs-container {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1rem;
+    user-select: none;
+    font-weight: 500;
+}
+
+/* Hide the browser's default checkbox */
+.wcs-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.wcs-container:hover,
+input:focus {
+    --wcs-checkbox-border-color: var(--primary);
+
+    --wcs-checkbox-text-color: var(--primary);
+}
+
+/* Create a custom checkbox */
+.wcs-checkmark {
+    width: 1.125rem;
+    height: 1.125rem;
+    border: 2px solid var(--wcs-checkbox-border-color);
+    border-radius: 3px;
+}
+
+:host([indeterminate]) {
+    .wcs-checkmark {
+        --wcs-checkbox-border-color: var(--primary);
+        background: var(--primary);
+    }
+}
+
+/* When the checkbox is checked, add a blue background */
+.wcs-container input:checked~.wcs-checkmark {
+    background-color: var(--primary);
+    --wcs-checkbox-border-color: var(--primary);
+}
+
+/* Create the wcs-checkmark/indicator (hidden when not checked) */
+.wcs-checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the wcs-checkmark when checked */
+.wcs-container input:checked~.wcs-checkmark:after {
+    display: flex;
+}
+
+
+
+/* Style the wcs-checkmark/indicator */
+.wcs-container .wcs-checkmark:after {
+    left: 7px;
+    width: 5px;
+    height: 10px;
+    border: solid var(--white, white);
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.wcs-container input:checked~.text {
+    --wcs-checkbox-text-color: var(--primary);
+}
+
+.text {
+    color: var(--wcs-checkbox-text-color);
+    margin-left: 6px;
+    font-weight: 500;
+    line-height: 1.375;
+}

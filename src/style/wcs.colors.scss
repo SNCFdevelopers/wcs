@@ -1,67 +1,65 @@
-$white: #fff !default;
-$blue: #0088ce !default;
-$purple: #6e1e78 !default;
-$pink: #a1006b !default;
-$red: #cd0037 !default;
-$orange: #e05206 !default;
-$yellow: #ffb612 !default;
-$green: #82be00 !default;
-$teal: #d2e100 !default;
-$cyan: #009aa6 !default;
-$gray: #333 !default;
-$gray-dark: #343a40 !default;
+:root {
+    --white: white;
+    --light: #f2f2f2;
+    --gray-light: #4d4f53;
+    --gray: #333;
+    --gray-dark: #343a40;
+    --gray-darker: #212529;
+    --black: black;
 
-$primary: $blue !default;
-$primary-dark: #0074af !default;
-$secondary: #4d4f53 !default;
-$success: $green !default;
-$info: $cyan !default;
-$warning: $yellow !default;
-$danger: $red !default;
-$light: #f2f2f2 !default;
-$dark: $gray-dark !default;
+    --text-light: #d7d7d7;
+    --text-disabled: #b9b9b9;
+    --text-medium: #747678;
 
-$colors: (
-    primary: (
-        base: $primary, 
-        contrast: $white
-    ), 
-    secondary: ( 
-        base: $secondary, 
-        contrast: $white
-    ),
-    success: (
-        base: $success,
-        contrast: #212529
-    ),
-    info: (
-        base: $info,
-        contrast: $white
-    ),
-    danger: (
-        base: $danger,
-        contrast: $white
-    ),
-    warning: (
-        base: $warning,
-        contrast: #212529
-    ),
-    light: (
-        base: $light,
-        contrast: #212529                 
-    ),
-    dark: (
-        base: $dark,
-        contrast: $white      
-    )
-);
+    --blue: #0088CE;
+    --purple: #6e1e78;
+    --pink: #a1006b;
+    --red: #cd0037;
+    --orange: #e05206;
+    --yellow: #ffb612;
+    --green: #82be00;
+    --teal: #d2e100;
+    --cyan: #009aa6;
 
+    --primary: var(--blue);
+}
 
-@each $color-name, $color in $colors {
-    .wcs-background-#{$color-name} {
-        background-color: map-get($color, base);
-    }
-    .wcs-color-#{$color-name} {
-        color: map-get($color, contrast);
-    }
+.primary {
+    --base: var(--primary);
+    --contrast: var(--white);
+}
+
+.secondary {
+    --base: var(--gray-light);
+    --contrast: var(--white);
+}
+
+.success {
+    --base: var(--green);
+    --contrast: var(--gray-darker);
+}
+
+.warning {
+    --base: var(--yellow);
+    --contrast: var(--gray-darker);
+}
+
+.info {
+    --base: var(--cyan);
+    --contrast: var(--white);
+}
+
+.danger {
+    --base: var(--red);
+    --contrast: var(--white);
+}
+
+.dark {
+    --base: var(--gray-dark);
+    --contrast: var(--white);
+}
+
+.light {
+    --base: var(--light);
+    --contrast: var(--gray-darker);
 }

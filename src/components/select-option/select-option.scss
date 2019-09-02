@@ -1,0 +1,36 @@
+@import '../../style/wcs.ripple.scss';
+
+wcs-select-option {
+    @include ripple;
+    display: flex;
+    padding: 0 var(--wcs-padding);
+    height: 3rem;
+    line-height: 3rem;
+    cursor: pointer;
+    user-select: none;
+    font-weight: 500;
+    color: black;
+
+    &:hover {
+        color: var(--primary);
+        background-color: var(--light);
+    }
+}
+
+wcs-select-option[disabled] {
+    cursor: default;
+    pointer-events: none;
+    color: var(--text-disabled);
+}
+
+wcs-select-option[selected] {
+    color: var(--primary);
+    background-color: var(--light);
+}
+
+wcs-select-option[multiple] {
+    wcs-checkbox {
+        // Because 6px are left as of now from the empty span text.
+        margin-right: #{16 - 6}px;
+    }
+}

@@ -1,0 +1,13 @@
+@import '../../style/wcs.elevation.scss';
+
+:host {
+  @include wcs-elevation(2);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: var(--white);
+  background-clip: border-box;
+  border-radius: var(--wcs-border-radius);
+}

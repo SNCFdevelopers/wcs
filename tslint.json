@@ -1,13 +1,24 @@
 {
-  "extends": "tslint-ionic-rules",
-  "rules": {
-    "ban-comma-operator": false,
-    "no-empty": [true, "allow-empty-catch"],
-    "no-floating-promises": true,
-    "no-import-side-effect": false,
-    "no-var-keyword": false,
-    "no-var-requires": false,
-    "prefer-conditional-expression": false,
-    "linebreak-style": [true, "CRLF"]
-  }
+    "extends": "tslint-ionic-rules",
+    "rules": {
+        "ban-comma-operator": false,
+        "no-empty": [
+            true,
+            "allow-empty-catch"
+        ],
+        "no-console": [
+            true
+        ],
+        "no-floating-promises": true,
+        "no-import-side-effect": false,
+        "no-internal-module": false,
+        "no-var-keyword": false,
+        "no-var-requires": false,
+        "prefer-conditional-expression": false,
+        "ordered-imports": false,
+        "linebreak-style": [
+            true,
+            "CRLF"
+        ]
+    }
 }

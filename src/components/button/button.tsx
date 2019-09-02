@@ -1,21 +1,68 @@
-import { Component, ComponentInterface, Prop } from '@stencil/core';
-import { ButtonType } from './button-type';
-import { Color, CssClassMap } from '../../interface';
+import { Component, ComponentInterface, Element, Prop, Listen, h } from '@stencil/core';
 
+import * as MDCRipple from '@material/ripple';
+
+import { ButtonType } from './button-interface';
+import { hasShadowDom } from '../../utils/helpers';
+
+/**
+ * Button component, can also be a link when specifying href.
+ */
 @Component({
-    tag: 'wcs-button'
+    tag: 'wcs-button',
+    styleUrl: 'button.scss',
+    shadow: true
 })
 export class Button implements ComponentInterface {
-    @Prop({ mutable: true }) type: ButtonType = 'button';
-    @Prop() href: string;
-    @Prop() color?: Color;
-    @Prop() size?: 'small' | 'block';
-    @Prop({ reflectToAttr: true }) disabled = false;
+    @Element() el!: HTMLElement;
 
-    private createColorClass(color: Color | undefined | null): CssClassMap | undefined {
-        return (typeof color === 'string' && color.length > 0) ? {
-            [`btn-${color}`]: true
-        } : undefined;
+    @Prop({ context: 'window' }) win!: Window;
+
+    /**
+     * Specify the button type.
+     */
+    @Prop({ mutable: true }) type: ButtonType = 'button';
+
+    /**
+     * Set a URL to point to.
+     * If specified use a `a` tag instead of `btn`.
+     */
+    @Prop() href?: string;
+
+    /**
+     * Specify wether the button is disabled or not.
+     */
+    @Prop({ reflect: true }) disabled = false;
+
+    /**
+     * Specify wether the button should have a ripple effect or not.
+     */
+    @Prop() ripple = true;
+
+    /**
+     * This attribute specifies the size of the button.
+     * Setting this attribute will change the height and padding of a button.
+     */
+    @Prop({ reflect: true }) mode: 'normal' | 'small' | 'block' | 'icon-only' | 'round' = 'normal';
+
+    @Listen('click')
+    onClick(ev: Event) {
+        if (this.type !== 'button' && hasShadowDom(this.el)) {
+            // this button wants to specifically submit a form
+            // climb up the dom to see if we're in a <form>
+            // and if so, then use JS to submit it
+            const form = this.el.closest('form');
+            if (form) {
+                ev.preventDefault();
+
+                const fakeButton = this.win.document.createElement('button');
+                fakeButton.type = this.type;
+                fakeButton.style.display = 'none';
+                form.appendChild(fakeButton);
+                fakeButton.click();
+                fakeButton.remove();
+            }
+        }
     }
 
     render() {
@@ -24,21 +71,37 @@ export class Button implements ComponentInterface {
             ? { href: this.href, role: 'button' }
             : { type: this.type };
 
-        const cssClass = {
-            class: {
-                'btn': true,
-                [`btn-${this.size === 'small' ? 'sm' : this.size}`]: this.size !== undefined,
-                ...this.createColorClass(this.color) }
-        };
-
         return (
             <TagType
                 {...attrs}
-                {...cssClass}
+                {...this.generateClasses()}
                 {...this.disabled === true ? { disabled: true } : null}
             >
                 <slot />
             </TagType>
         );
+    }
+
+    private generateClasses() {
+        return {
+            class: {
+                'wcs-inner-button': true,
+                'wcs-inner-button-small': this.mode === 'small',
+                'wcs-inner-button-block': this.mode === 'block',
+                'wcs-inner-button-icon-only': this.mode === 'icon-only',
+                'wcs-inner-button-rounded': this.mode === 'round',
+            }
+        };
+    }
+
+    componentDidLoad() {
+        if (this.ripple) {
+            this.addRippleEffect();
+        }
+    }
+
+    private addRippleEffect() {
+        const ripple = new MDCRipple.MDCRipple(this.el.shadowRoot.querySelector('.wcs-inner-button'));
+        ripple.unbounded = false;
     }
 }

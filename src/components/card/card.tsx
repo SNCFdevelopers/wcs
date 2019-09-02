@@ -1,20 +1,14 @@
-import { Component } from '@stencil/core';
+import { Component, ComponentInterface, h } from '@stencil/core';
 
 @Component({
-  tag: 'wcs-card',
-  shadow: true
+    tag: 'wcs-card',
+    styleUrl: 'card.scss',
+    shadow: true
 })
-export class Card {
-  hostData() {
-    return {
-      class: {
-        'card': true
-      }
-    };
-  }
-
-  render() {
-    return (
-      <slot />)
-  }
+export class Card implements ComponentInterface {
+    render() {
+        return (
+            <slot />
+        );
+    }
 }
