@@ -22,6 +22,8 @@ build:
     artifacts:
         paths:
             - www/
+            - loader/
+            - dist/
     script:
         - npm install
         - npm run build
@@ -46,10 +48,12 @@ pages:
             - public
 
 publish:
+    image: node:12.9-alpine
     stage: deploy
     only:
-        - tags
-        - master
+        refs:
+            - tags
+            - master
     dependencies:
         - build
     script:
