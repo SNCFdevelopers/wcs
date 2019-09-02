@@ -1,5 +1,5 @@
 {
-    "name": "wcs",
+    "name": "wcs-temporary",
     "version": "0.3.0",
     "description": "Web components SNCF",
     "main": "dist/index.js",
@@ -34,13 +34,14 @@
         "tslint": "5.16.0",
         "tslint-ionic-rules": "0.0.21"
     },
+    "dependencies": {
+        "xstate": "^4.6.7"
+    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/SNCFDevelopers/wcs-sandbox"
     },
     "author": "SNCF",
-    "license": "MIT",
-    "dependencies": {
-        "xstate": "^4.6.7"
-    }
+    "private": false,
+    "license": "MIT"
 }
