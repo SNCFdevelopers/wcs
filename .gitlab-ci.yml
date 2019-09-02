@@ -15,7 +15,7 @@ test:
         - npm test
 
 build:
-    image: node:latest
+    image: node:12.9-alpine
     stage: build
     only:
         - develop
@@ -30,7 +30,7 @@ build:
             - node_modules/
 
 pages:
-    image: node:latest
+    image: node:12.9-alpine
     stage: deploy
     dependencies:
         - build
@@ -44,3 +44,14 @@ pages:
     artifacts:
         paths:
             - public
+
+publish:
+    stage: deploy
+    only:
+        - tags
+        - master
+    dependencies:
+        - build
+    script:
+        - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}'>.npmrc
+        - npm publish

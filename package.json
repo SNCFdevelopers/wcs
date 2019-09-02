@@ -19,7 +19,8 @@
         "build:docs": "stencil build --docs",
         "start": "stencil build --dev --watch --serve",
         "test": "stencil test --spec --e2e",
-        "test:watch": "stencil test --spec --e2e --watchAll"
+        "test:watch": "stencil test --spec --e2e --watchAll",
+        "postversion": "git push --follow-tags"
     },
     "devDependencies": {
         "@material/ripple": "1.1.0",
