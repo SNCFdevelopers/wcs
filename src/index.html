@@ -39,6 +39,14 @@
             margin: 8px;
         }
 
+        wcs-tab {
+            margin: 16px;
+        }
+
+        .tab-container {
+            /** So focused background doesn't overflow on the border radius of the cards */
+            overflow-x: hidden;
+        }
     </style>
     <wcs-app>
         <wcs-header>
@@ -95,14 +103,40 @@
             </wcs-card>
             <p>Démonstration en dehors d'une carte (non supporté par le design system)</p>
             <wcs-input background="white"></wcs-input>
-            <h2><a id="tab"></a> Tab</h2>
-            <wcs-card>
+            <h2><a id="tab"></a> Tab - Basic</h2>
+            <wcs-card class="tab-container">
                 <wcs-tabs>
                     <wcs-tab header="One">Le contenu de la première</wcs-tab>
                     <wcs-tab header="Two">Le deuxième <em>contenu</em></wcs-tab>
-                    <wcs-tab header="Three">
-                        <div style="border: solid 4px red;">Le troisème</div>
-                    </wcs-tab>
+                    <wcs-tab header="Three">Le troisème</wcs-tab>
+                    <wcs-tab header="Titre onglet">Contenu onglet</wcs-tab>
+                </wcs-tabs>
+            </wcs-card>
+            <h2>Tab - Scrollable</h2>
+            <wcs-card class="tab-container">
+                <wcs-tabs>
+                    <wcs-tab header="One">Le contenu de la première</wcs-tab>
+                    <wcs-tab header="Two">Le deuxième <em>contenu</em></wcs-tab>
+                    <wcs-tab header="Three">Le troisème</wcs-tab>
+                    <wcs-tab header="Titre onglet">Contenu onglet</wcs-tab>
+                    <wcs-tab header="One">Le contenu de la première</wcs-tab>
+                    <wcs-tab header="Two">Le deuxième <em>contenu</em></wcs-tab>
+                    <wcs-tab header="Three">Le troisème</wcs-tab>
+                    <wcs-tab header="Titre onglet">Contenu onglet</wcs-tab> <wcs-tab header="One">Le contenu de la première</wcs-tab>
+                    <wcs-tab header="Two">Le deuxième <em>contenu</em></wcs-tab>
+                    <wcs-tab header="Three">Le troisème</wcs-tab>
+                    <wcs-tab header="Titre onglet">Contenu onglet</wcs-tab>
+                    <wcs-tab header="One">Le contenu de la première</wcs-tab>
+                    <wcs-tab header="Two">Le deuxième <em>contenu</em></wcs-tab>
+                    <wcs-tab header="Three">Le troisème</wcs-tab>
+                    <wcs-tab header="Titre onglet">Contenu onglet</wcs-tab>
+                    <wcs-tab header="One">Le contenu de la première</wcs-tab>
+                    <wcs-tab header="Two">Le deuxième <em>contenu</em></wcs-tab>
+                    <wcs-tab header="Three">Le troisème</wcs-tab>
+                    <wcs-tab header="Titre onglet">Contenu onglet</wcs-tab>
+                    <wcs-tab header="One">Le contenu de la première</wcs-tab>
+                    <wcs-tab header="Two">Le deuxième <em>contenu</em></wcs-tab>
+                    <wcs-tab header="Three">Le troisème</wcs-tab>
                     <wcs-tab header="Titre onglet">Contenu onglet</wcs-tab>
                 </wcs-tabs>
             </wcs-card>

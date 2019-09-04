@@ -1,4 +1,4 @@
-import { Component, Prop, Element, State, ComponentInterface, Listen, Event, EventEmitter, Watch, h } from '@stencil/core';
+import { Component, Prop, Element, State, ComponentInterface, Event, EventEmitter, Watch, h } from '@stencil/core';
 
 import { WcsTabsAlignment, WcsTabsChangeEvent } from './tabs-interface';
 
@@ -26,109 +26,101 @@ import { WcsTabsAlignment, WcsTabsChangeEvent } from './tabs-interface';
 }
 )
 export class Tabs implements ComponentInterface {
-    @Element() el !: HTMLWcsSelectElement;
 
-    @Prop({ mutable: true }) align: WcsTabsAlignment = 'start';
+    @Prop({ mutable: true, reflect: true }) align: WcsTabsAlignment = 'start';
 
     /**
      * Current selected tab index
      */
     @Prop({ reflect: true, mutable: true }) selectedIndex = 0;
 
-    @State() headers: string[] = [];
-
     /**
      * Emitted when the selected tab change
      */
     @Event() wcsTabsChange: EventEmitter<WcsTabsChangeEvent>;
 
-    private didLoad = false;
-    private tabsEl !: HTMLElement;
+    @Element() el!: HTMLWcsSelectElement;
+
+    @State() headers: string[] = [];
 
     componentDidLoad() {
-        this.tabsEl = this.el.shadowRoot.querySelector('.wcs-tabs');
-        this.didLoad = true;
-        if (this.tabsEl.querySelector('slot') === null) {
-            Array.from(this.el.querySelectorAll('wcs-tab'))
-                .filter(node => node.parentNode !== this.tabsEl)
-                .forEach(tab => {
-                    this.el.removeChild(tab);
-                    this.tabsEl.appendChild(tab);
-                });
-        }
+        this.putTabsInCorrectDivIfTheyAreNot();
         this.refreshHeaders();
     }
 
+    // XXX: Firefox < 63
+    private putTabsInCorrectDivIfTheyAreNot() {
+        const tabDiv = this.el.shadowRoot.querySelector('.wcs-tabs');
+        if (tabDiv.querySelector('slot') === null) {
+            Array.from(this.el.querySelectorAll('wcs-tab'))
+                .filter(node => node.parentNode !== tabDiv)
+                .forEach(tab => {
+                    this.el.removeChild(tab);
+                    tabDiv.appendChild(tab);
+                });
+        }
+    }
+
     @Watch('selectedIndex')
-    selectedIndexChanged(): void {
+    selectedIndexChanged(_newValue: boolean, _oldValue: boolean) {
         this.wcsTabsChange.emit({
             tabName: this.headers[this.selectedIndex],
             tabIndex: this.selectedIndex
         });
     }
 
-    /**
-     * XXX: Temporary fix waiting for two issues to be resolved:
-     * - https://github.com/ionic-team/stencil/issues/1261
-     * - https://github.com/ionic-team/stencil/issues/1130
-     *
-     * When resolved this should just be done once in the componentDidLoad method.
-     */
-    @Listen('wcsTabDidLoad') refreshHeaders() {
-        if (this.didLoad) {
-            const slot = this.tabsEl.querySelector('slot');
-            if (slot && slot.assignedElements) {
-                this.headers = slot.assignedElements()
-                    .map(x => x.getAttribute('header'));
-            } else {
-                this.headers = [];
-                this.tabsEl.querySelectorAll('wcs-tab')
-                    .forEach(x => {
-                        this.headers.push(x.getAttribute('header'));
-                    });
-            }
+    handleKeyDown(ev: KeyboardEvent, tabIndex: number) {
+        if (ev.key === ' ' || ev.key === 'Enter') {
+            this.selectedIndex = tabIndex;
+            ev.preventDefault();
         }
     }
 
-    selectTab(index: number) {
+    private refreshHeaders() {
+        this.headers = [];
+        this.tabs
+            .forEach(x => {
+                this.headers.push(x.getAttribute('header'));
+            });
+    }
+
+    private get tabs() {
+        const tabs = this.el.querySelectorAll('wcs-tab');
+        return tabs.length !== 0
+            ? tabs
+            : this.el.querySelector('slot').assignedElements() as unknown as NodeListOf<HTMLWcsTabElement>;
+    }
+
+    private selectTab(index: number) {
         this.selectedIndex = index;
     }
 
-    getHeaderAlignClass() {
-        switch (this.align) {
-            case 'start':
-                return 'start';
-            case 'end':
-                return 'end';
-            case 'center':
-                return 'center';
-        }
-    }
-
     componentWillUpdate() {
-        const slot = this.tabsEl.querySelector('slot');
-        const tabs = slot && slot.assignedElements
-            ? slot.assignedElements()
-            : this.tabsEl.querySelectorAll('wcs-tab');
-
-        tabs.forEach((el: HTMLWcsTabElement, idx) => {
+        this.tabs.forEach((el: HTMLWcsTabElement, idx) => {
             if (idx !== this.selectedIndex) {
                 el.setAttribute('style', 'display: none;');
             } else {
-                el.setAttribute('style', 'display: initial;');
+                el.setAttribute('style', 'display: block;');
             }
         });
+        this.el.shadowRoot.querySelector('.wcs-tabs-headers > .wcs-ink-bar')
+            .setAttribute('style', `left: calc((var(--wcs-tabs-width) + 2 * var(--wcs-tabs-padding-horizontal)) * ${this.selectedIndex})`);
     }
 
     render() {
         return [
-            <ul class={'wcs-tabs-headers ' + this.getHeaderAlignClass()}>
+            <div class="wcs-tabs-headers">
                 {this.headers.map((header, idx) =>
-                    <li class={'wcs-tab-header ' + (this.selectedIndex === idx ? 'active' : '')} onClick={() => this.selectTab(idx)}>
+                    <div class={'wcs-tab-header ' + (this.selectedIndex === idx ? 'active' : '')}
+                        onClick={() => this.selectTab(idx)}
+                        onKeyDown={evt => this.handleKeyDown(evt, idx)}
+                        tabIndex={0}
+                    >
                         <span>{header}</span>
-                    </li>
+                    </div>
                 )}
-            </ul>,
+                <div class="wcs-ink-bar"></div>
+            </div>,
             <div class="wcs-tabs">
                 <slot name="wcs-tab" />
             </div>
