@@ -9,6 +9,7 @@
     --wcs-button-color: var(--wcs-contrast, var(--wcs-white, white));
     --wcs-button-background-color: var(--wcs-base, var(--wcs-primary, #0088CE));
     --wcs-button-ripple-color: var(--wcs-contrast, var(--wcs-white, white));
+    --wcs-button-border-radius: var(--wcs-border-radius);
 }
 
 :host([clear]),
@@ -69,7 +70,7 @@
     background-color: var(--wcs-button-background-color);
     color: var(--wcs-button-color);
     padding: var(--wcs-button-padding);
-    border-radius: var(--wcs-border-radius);
+    border-radius: var(--wcs-button-border-radius);
     overflow: hidden;
     outline: 0;
     text-transform: none;
@@ -120,7 +121,7 @@
 
 .wcs-inner-button-rounded {
     --wcs-button-padding: 0;
-    --wcs-border-radius: 8px;
+    --wcs-button-border-radius: 8px;
     display: inline-flex;
     align-items: center;
     justify-content: center;

@@ -108,14 +108,14 @@ export class Select implements ComponentInterface {
     private stateService!: Interpreter<any, SelectStateSchema, SelectEvent>;
 
     private optionsEl!: HTMLDivElement;
-    private contentEl!: HTMLDivElement;
+    private controlEl!: HTMLDivElement;
 
     // Only used for multiples.
     private values: SelectOptionValue[];
 
     componentDidLoad() {
         this.optionsEl = this.el.shadowRoot.querySelector('.wcs-select-options');
-        this.contentEl = this.el.shadowRoot.querySelector('.wcs-select-content');
+        this.controlEl = this.el.shadowRoot.querySelector('.wcs-select-control');
 
         const stateMachine = Machine(
             this.initMachineConfig(),
@@ -282,7 +282,7 @@ export class Select implements ComponentInterface {
 
     private addRippleEffect() {
         // TODO: wrap MDCRipple dependency so we can eventually write our own or at least decouple a bit.
-        const ripple = new MDCRipple.MDCRipple(this.contentEl);
+        const ripple = new MDCRipple.MDCRipple(this.controlEl);
         ripple.unbounded = false;
     }
 
@@ -322,11 +322,11 @@ export class Select implements ComponentInterface {
         }
         return (
             <Host class={this.expanded ? 'expanded ' : ''} {...this.focusedAttributes()}>
-                <div class="wcs-select-content">
-                    <label class="wcs-select-text">{this.hasValue
-                        ? this.displayText
-                        : this.placeholder
-                    }</label>
+                <div class="wcs-select-control">
+                    {this.hasValue
+                        ? <label class="wcs-select-value">{this.displayText}</label>
+                        : <label class="wcs-select-placeholder">{this.placeholder}</label>
+                    }
                     <SelectArrow up={this.expanded} />
                 </div>
                 <div class="wcs-select-options">
