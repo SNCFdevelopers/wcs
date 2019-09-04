@@ -12,282 +12,283 @@
 </head>
 
 <body>
-<style>
-    body {
-        margin: 0;
-        overflow-y: hidden;
-    }
+    <style>
+        body {
+            margin: 0;
+            overflow-y: hidden;
+        }
 
-    wcs-card {
-        margin-bottom: 16px;
-    }
+        wcs-card {
+            margin-bottom: 16px;
+        }
 
-    wcs-card-body > h3:first-child {
-        margin-top: 0;
-    }
+        wcs-card-body>h3:first-child {
+            margin-top: 0;
+        }
 
-    wcs-select {
-        max-width: 250px;
-    }
+        wcs-select {
+            max-width: 250px;
+        }
 
-    wcs-button {
-        display: inline-block;
-        margin: 8px;
-    }
-    wcs-spinner {
-        margin: 8px;
-    }
+        wcs-button {
+            display: inline-block;
+            margin: 8px;
+        }
 
-</style>
-<wcs-app>
-    <wcs-header>
-        <img src="./assets/sncf-logo.png" alt="Logo SNCF" slot="logo">
-        <h1 slot="title">Web Component SNCF</h1>
-    </wcs-header>
-    <wcs-sidebar>
-        <a slot="link" href="#spinner"></a>
-        <a slot="link" href="#input">Input</a>
-        <a slot="link" href="#tab">Tab</a>
-        <a slot="link" href="#select">Select</a>
-        <a slot="link" href="#checkbox">Checkbox</a>
-        <a slot="link" href="#card">Card</a>
-        <a slot="link" href="#button">Button</a>
-        <a slot="link" href="#badge">Badge</a>
-        <a slot="link" href="#icon">Icon</a>
-        <a slot="link" href="#progress"></a>
-    </wcs-sidebar>
-    <main slot="content">
+        wcs-spinner {
+            margin: 8px;
+        }
 
-
-        <h2><a id="spinner"></a>Spinner</h2>
-        <wcs-card>
-            <wcs-card-body>
-                <h3>Border spinner</h3>
-                <wcs-spinner class="primary"></wcs-spinner>
-                <wcs-spinner class="secondary"></wcs-spinner>
-                <wcs-spinner class="success"></wcs-spinner>
-                <wcs-spinner class="warning"></wcs-spinner>
-                <wcs-spinner class="danger"></wcs-spinner>
-                <wcs-spinner class="info"></wcs-spinner>
-                <wcs-spinner class="dark"></wcs-spinner>
-                <wcs-spinner class="light"></wcs-spinner>
-                <h3>Growing spinner</h3>
-                <wcs-spinner mode="growing" class="primary"></wcs-spinner>
-                <wcs-spinner mode="growing" class="secondary"></wcs-spinner>
-                <wcs-spinner mode="growing" class="success"></wcs-spinner>
-                <wcs-spinner mode="growing" class="warning"></wcs-spinner>
-                <wcs-spinner mode="growing" class="danger"></wcs-spinner>
-                <wcs-spinner mode="growing" class="info"></wcs-spinner>
-                <wcs-spinner mode="growing" class="dark"></wcs-spinner>
-                <wcs-spinner mode="growing" class="light"></wcs-spinner>
-
-            </wcs-card-body>
-        </wcs-card>
+    </style>
+    <wcs-app>
+        <wcs-header>
+            <img src="./assets/sncf-logo.png" alt="Logo SNCF" slot="logo">
+            <h1 slot="title">Web Component SNCF</h1>
+        </wcs-header>
+        <wcs-sidebar>
+            <a slot="link" href="#spinner"></a>
+            <a slot="link" href="#input">Input</a>
+            <a slot="link" href="#tab">Tab</a>
+            <a slot="link" href="#select">Select</a>
+            <a slot="link" href="#checkbox">Checkbox</a>
+            <a slot="link" href="#card">Card</a>
+            <a slot="link" href="#button">Button</a>
+            <a slot="link" href="#badge">Badge</a>
+            <a slot="link" href="#icon">Icon</a>
+            <a slot="link" href="#progress"></a>
+        </wcs-sidebar>
+        <main slot="content">
 
 
-        <h2><a id="input"></a>Input</h2>
-        <wcs-card>
-            <wcs-card-body>
-                <p>Démonstration dans une carte</p>
-                <wcs-input></wcs-input>
-            </wcs-card-body>
-        </wcs-card>
-        <p>Démonstration en dehors d'une carte (non supporté par le design system)</p>
-        <wcs-input background="white"></wcs-input>
-        <h2><a id="tab"></a> Tab</h2>
-        <wcs-card>
-            <wcs-tabs>
-                <wcs-tab header="One">Le contenu de la première</wcs-tab>
-                <wcs-tab header="Two">Le deuxième <em>contenu</em></wcs-tab>
-                <wcs-tab header="Three">
-                    <div style="border: solid 4px red;">Le troisème</div>
-                </wcs-tab>
-                <wcs-tab header="Titre onglet">Contenu onglet</wcs-tab>
-            </wcs-tabs>
-        </wcs-card>
-        <h2><a id="select"></a> Select</h2>
-        <wcs-card>
-            <wcs-card-body>
-                <h3>Basic</h3>
-                <wcs-select placeholder="Le select">
-                    <wcs-select-option value="1">One</wcs-select-option>
-                    <wcs-select-option value="2">Two</wcs-select-option>
-                    <wcs-select-option value="3">Three</wcs-select-option>
-                </wcs-select>
-                <h3>With disabled option</h3>
-                <wcs-select placeholder="Le select">
-                    <wcs-select-option value="1" disabled="true">One</wcs-select-option>
-                    <wcs-select-option value="2">Two</wcs-select-option>
-                    <wcs-select-option value="3">Three</wcs-select-option>
-                </wcs-select>
-                <h3>Disabled</h3>
-                <wcs-select placeholder="Le select" disabled>
-                    <wcs-select-option value="1">One</wcs-select-option>
-                    <wcs-select-option value="2">Two</wcs-select-option>
-                    <wcs-select-option value="3">Three</wcs-select-option>
-                </wcs-select>
-                <h3>Multiple</h3>
-                <wcs-select placeholder="Le select" multiple>
-                    <wcs-select-option value="1">One</wcs-select-option>
-                    <wcs-select-option value="2">Two</wcs-select-option>
-                    <wcs-select-option value="3">Three</wcs-select-option>
-                </wcs-select>
-            </wcs-card-body>
-        </wcs-card>
-        <h2><a id="checkbox"></a>Chekbox</h2>
-        <wcs-card>
-            <wcs-card-body>
-                <h3>Normal chekbox</h3>
-                <wcs-checkbox>Normal checkbox</wcs-checkbox>
-                <br/>
-                <wcs-checkbox checked="true">Default checked checkbox</wcs-checkbox>
-                <br/>
-                <wcs-checkbox>Checkbox</wcs-checkbox>
-                <br/>
-                <wcs-checkbox indeterminate="true">Checkbox indeterminate</wcs-checkbox>
-                <br/>
-            </wcs-card-body>
-        </wcs-card>
-        <h2><a id="card"></a>Card</h2>
-        <wcs-card>
-            <wcs-card-body>
-                <h3>Cardception</h3>
-                <wcs-card>
-                    <wcs-card-body>
-                        A card in a card.
-                    </wcs-card-body>
-                </wcs-card>
-            </wcs-card-body>
-        </wcs-card>
+            <h2><a id="spinner"></a>Spinner</h2>
+            <wcs-card>
+                <wcs-card-body>
+                    <h3>Border spinner</h3>
+                    <wcs-spinner class="wcs-primary"></wcs-spinner>
+                    <wcs-spinner class="wcs-secondary"></wcs-spinner>
+                    <wcs-spinner class="wcs-success"></wcs-spinner>
+                    <wcs-spinner class="wcs-warning"></wcs-spinner>
+                    <wcs-spinner class="wcs-danger"></wcs-spinner>
+                    <wcs-spinner class="wcs-info"></wcs-spinner>
+                    <wcs-spinner class="wcs-dark"></wcs-spinner>
+                    <wcs-spinner class="wcs-light"></wcs-spinner>
+                    <h3>Growing spinner</h3>
+                    <wcs-spinner mode="growing" class="wcs-primary"></wcs-spinner>
+                    <wcs-spinner mode="growing" class="wcs-secondary"></wcs-spinner>
+                    <wcs-spinner mode="growing" class="wcs-success"></wcs-spinner>
+                    <wcs-spinner mode="growing" class="wcs-warning"></wcs-spinner>
+                    <wcs-spinner mode="growing" class="wcs-danger"></wcs-spinner>
+                    <wcs-spinner mode="growing" class="wcs-info"></wcs-spinner>
+                    <wcs-spinner mode="growing" class="wcs-dark"></wcs-spinner>
+                    <wcs-spinner mode="growing" class="wcs-light"></wcs-spinner>
 
-        <h2><a id="button"></a>Buttons</h2>
-        <wcs-card>
-            <wcs-card-body>
-                <h3>Standard</h3>
-                <wcs-button class="primary">Primary</wcs-button>
-                <wcs-button class="secondary">Secondary</wcs-button>
-                <wcs-button class="success">Success</wcs-button>
-                <wcs-button class="warning">Warning</wcs-button>
-                <wcs-button class="danger">Danger</wcs-button>
-                <wcs-button class="info">Info</wcs-button>
-                <wcs-button class="dark">Dark</wcs-button>
-                <wcs-button class="light">Light</wcs-button>
-                <wcs-button class="primary" disabled>Disabled</wcs-button>
-                <h3>Clear</h3>
-                <wcs-button clear class="primary">Primary</wcs-button>
-                <wcs-button clear class="secondary">Secondary</wcs-button>
-                <wcs-button clear class="success">Success</wcs-button>
-                <wcs-button clear class="warning">Warning</wcs-button>
-                <wcs-button clear class="danger">Danger</wcs-button>
-                <wcs-button clear class="info">Info</wcs-button>
-                <wcs-button clear class="dark">Dark</wcs-button>
-                <wcs-button class="primary" clear disabled>Disabled</wcs-button>
-                <h3>Stroked</h3>
-                <wcs-button stroked class="primary">Primary</wcs-button>
-                <wcs-button stroked class="secondary">Secondary</wcs-button>
-                <wcs-button stroked class="success">Success</wcs-button>
-                <wcs-button stroked class="warning">Warning</wcs-button>
-                <wcs-button stroked class="danger">Danger</wcs-button>
-                <wcs-button stroked class="info">Info</wcs-button>
-                <wcs-button stroked class="dark">Dark</wcs-button>
-                <wcs-button class="primary" stroked disabled>Disabled</wcs-button>
-
-                <h3>Round</h3>
-                <wcs-button mode="round" class="primary"><i class="material-icons">
-                    accessibility_new
-                </i></wcs-button>
-                <wcs-button mode="round" class="primary" clear><i class="material-icons">
-                    accessibility_new
-                </i></wcs-button>
-                <wcs-button mode="round" class="primary" stroked>
-                    <i class="material-icons">accessibility_new</i>
-                </wcs-button>
-                <wcs-button mode="round" class="primary" disabled>
-                    <i class="material-icons">accessibility_new</i>
-                </wcs-button>
-                <h3>Icon only</h3>
-                <wcs-button class="primary" mode="icon-only">
-                    <i class="material-icons">accessibility_new</i>
-                </wcs-button>
-                <wcs-button class="primary" clear mode="icon-only">
-                    <i class="material-icons">accessibility_new</i>
-                </wcs-button>
-                <wcs-button class="primary" stroked mode="icon-only">
-                    <i class="material-icons">accessibility_new</i>
-                </wcs-button>
-                <wcs-button class="primary" disabled mode="icon-only">
-                    <i class="material-icons">accessibility_new</i>
-                </wcs-button>
-                <h3>Link</h3>
-                <wcs-button class="primary" href="#">Un lien !</wcs-button>
-                <h3>Small</h3>
-                <wcs-button class="primary" mode="small">Small</wcs-button>
-                <wcs-button class="primary" clear mode="small">Small</wcs-button>
-                <wcs-button class="primary" stroked mode="small">Small</wcs-button>
-                <wcs-button class="primary" stroked disabled mode="small">Disabled</wcs-button>
-                <h3>Block</h3>
-                <wcs-button class="primary" mode="block">Un grand bouton</wcs-button>
-            </wcs-card-body>
-        </wcs-card>
+                </wcs-card-body>
+            </wcs-card>
 
 
-        <div>
-            <h2><a id="badge"></a>Badge</h2>
+            <h2><a id="input"></a>Input</h2>
+            <wcs-card>
+                <wcs-card-body>
+                    <p>Démonstration dans une carte</p>
+                    <wcs-input></wcs-input>
+                </wcs-card-body>
+            </wcs-card>
+            <p>Démonstration en dehors d'une carte (non supporté par le design system)</p>
+            <wcs-input background="white"></wcs-input>
+            <h2><a id="tab"></a> Tab</h2>
+            <wcs-card>
+                <wcs-tabs>
+                    <wcs-tab header="One">Le contenu de la première</wcs-tab>
+                    <wcs-tab header="Two">Le deuxième <em>contenu</em></wcs-tab>
+                    <wcs-tab header="Three">
+                        <div style="border: solid 4px red;">Le troisème</div>
+                    </wcs-tab>
+                    <wcs-tab header="Titre onglet">Contenu onglet</wcs-tab>
+                </wcs-tabs>
+            </wcs-card>
+            <h2><a id="select"></a> Select</h2>
+            <wcs-card>
+                <wcs-card-body>
+                    <h3>Basic</h3>
+                    <wcs-select placeholder="Le select">
+                        <wcs-select-option value="1">One</wcs-select-option>
+                        <wcs-select-option value="2">Two</wcs-select-option>
+                        <wcs-select-option value="3">Three</wcs-select-option>
+                    </wcs-select>
+                    <h3>With disabled option</h3>
+                    <wcs-select placeholder="Le select">
+                        <wcs-select-option value="1" disabled="true">One</wcs-select-option>
+                        <wcs-select-option value="2">Two</wcs-select-option>
+                        <wcs-select-option value="3">Three</wcs-select-option>
+                    </wcs-select>
+                    <h3>Disabled</h3>
+                    <wcs-select placeholder="Le select" disabled>
+                        <wcs-select-option value="1">One</wcs-select-option>
+                        <wcs-select-option value="2">Two</wcs-select-option>
+                        <wcs-select-option value="3">Three</wcs-select-option>
+                    </wcs-select>
+                    <h3>Multiple</h3>
+                    <wcs-select placeholder="Le select" multiple>
+                        <wcs-select-option value="1">One</wcs-select-option>
+                        <wcs-select-option value="2">Two</wcs-select-option>
+                        <wcs-select-option value="3">Three</wcs-select-option>
+                    </wcs-select>
+                </wcs-card-body>
+            </wcs-card>
+            <h2><a id="checkbox"></a>Chekbox</h2>
+            <wcs-card>
+                <wcs-card-body>
+                    <h3>Normal chekbox</h3>
+                    <wcs-checkbox>Normal checkbox</wcs-checkbox>
+                    <br />
+                    <wcs-checkbox checked="true">Default checked checkbox</wcs-checkbox>
+                    <br />
+                    <wcs-checkbox>Checkbox</wcs-checkbox>
+                    <br />
+                    <wcs-checkbox indeterminate="true">Checkbox indeterminate</wcs-checkbox>
+                    <br />
+                </wcs-card-body>
+            </wcs-card>
+            <h2><a id="card"></a>Card</h2>
+            <wcs-card>
+                <wcs-card-body>
+                    <h3>Cardception</h3>
+                    <wcs-card>
+                        <wcs-card-body>
+                            A card in a card.
+                        </wcs-card-body>
+                    </wcs-card>
+                </wcs-card-body>
+            </wcs-card>
+
+            <h2><a id="button"></a>Buttons</h2>
             <wcs-card>
                 <wcs-card-body>
                     <h3>Standard</h3>
-                    <wcs-badge class="primary">Primary</wcs-badge>
-                    <wcs-badge class="secondary">Secondary</wcs-badge>
-                    <wcs-badge class="success">Success</wcs-badge>
-                    <wcs-badge class="danger">Danger</wcs-badge>
-                    <wcs-badge class="warning">Warning</wcs-badge>
-                    <wcs-badge class="info">Info</wcs-badge>
-                    <wcs-badge class="light">Light</wcs-badge>
-                    <wcs-badge class="dark">Dark</wcs-badge>
-                </wcs-card-body>
-            </wcs-card>
-        </div>
+                    <wcs-button class="wcs-primary">Primary</wcs-button>
+                    <wcs-button class="wcs-secondary">Secondary</wcs-button>
+                    <wcs-button class="wcs-success">Success</wcs-button>
+                    <wcs-button class="wcs-warning">Warning</wcs-button>
+                    <wcs-button class="wcs-danger">Danger</wcs-button>
+                    <wcs-button class="wcs-info">Info</wcs-button>
+                    <wcs-button class="wcs-dark">Dark</wcs-button>
+                    <wcs-button class="wcs-light">Light</wcs-button>
+                    <wcs-button class="wcs-primary" disabled>Disabled</wcs-button>
+                    <h3>Clear</h3>
+                    <wcs-button clear class="wcs-primary">Primary</wcs-button>
+                    <wcs-button clear class="wcs-secondary">Secondary</wcs-button>
+                    <wcs-button clear class="wcs-success">Success</wcs-button>
+                    <wcs-button clear class="wcs-warning">Warning</wcs-button>
+                    <wcs-button clear class="wcs-danger">Danger</wcs-button>
+                    <wcs-button clear class="wcs-info">Info</wcs-button>
+                    <wcs-button clear class="wcs-dark">Dark</wcs-button>
+                    <wcs-button class="wcs-primary" clear disabled>Disabled</wcs-button>
+                    <h3>Stroked</h3>
+                    <wcs-button stroked class="wcs-primary">Primary</wcs-button>
+                    <wcs-button stroked class="wcs-secondary">Secondary</wcs-button>
+                    <wcs-button stroked class="wcs-success">Success</wcs-button>
+                    <wcs-button stroked class="wcs-warning">Warning</wcs-button>
+                    <wcs-button stroked class="wcs-danger">Danger</wcs-button>
+                    <wcs-button stroked class="wcs-info">Info</wcs-button>
+                    <wcs-button stroked class="wcs-dark">Dark</wcs-button>
+                    <wcs-button class="wcs-primary" stroked disabled>Disabled</wcs-button>
 
-        <div>
-            <h2><a id="icon"></a>Icon</h2>
-            <wcs-card>
-                <wcs-card-body>
-                    <wcs-icon icon="checked" size="2x"></wcs-icon>
-                </wcs-card-body>
-            </wcs-card>
-        </div>
-
-        <div>
-            <h2><a id="progress"></a>Progress</h2>
-            <wcs-card>
-                <wcs-card-body>
-                    <h3>Bar</h3>
-                    <wcs-button stroked class="primary" style="position: absolute; right: 16px; bottom: 16px;"
-                                id="progress-button">Change values
+                    <h3>Round</h3>
+                    <wcs-button mode="round" class="wcs-primary"><i class="material-icons">
+                            accessibility_new
+                        </i></wcs-button>
+                    <wcs-button mode="round" class="wcs-primary" clear><i class="material-icons">
+                            accessibility_new
+                        </i></wcs-button>
+                    <wcs-button mode="round" class="wcs-primary" stroked>
+                        <i class="material-icons">accessibility_new</i>
                     </wcs-button>
-                    <wcs-progress-bar value="50"></wcs-progress-bar>
-                    <h3>Bar with label</h3>
-                    <wcs-progress-bar value="50" show-label="true"></wcs-progress-bar>
-                    <h3>Small bar</h3>
-                    <wcs-progress-bar value="20" small></wcs-progress-bar>
-                    <h3>Radial</h3>
-                    <wcs-progress-radial value="20"></wcs-progress-radial>
-                    <h3>Radial with label</h3>
-                    <wcs-progress-radial value="20" show-label></wcs-progress-radial>
-                    <script>
-                        document.querySelector('#progress-button').addEventListener('click', () => {
-                            document.querySelectorAll('wcs-progress-bar')
-                                .forEach(p => p.setAttribute('value', Math.ceil(Math.random() * 100)));
-                            document.querySelectorAll('wcs-progress-radial')
-                                .forEach(p => p.setAttribute('value', Math.ceil(Math.random() * 100)));
-                        });
-
-                    </script>
+                    <wcs-button mode="round" class="wcs-primary" disabled>
+                        <i class="material-icons">accessibility_new</i>
+                    </wcs-button>
+                    <h3>Icon only</h3>
+                    <wcs-button class="wcs-primary" mode="icon-only">
+                        <i class="material-icons">accessibility_new</i>
+                    </wcs-button>
+                    <wcs-button class="wcs-primary" clear mode="icon-only">
+                        <i class="material-icons">accessibility_new</i>
+                    </wcs-button>
+                    <wcs-button class="wcs-primary" stroked mode="icon-only">
+                        <i class="material-icons">accessibility_new</i>
+                    </wcs-button>
+                    <wcs-button class="wcs-primary" disabled mode="icon-only">
+                        <i class="material-icons">accessibility_new</i>
+                    </wcs-button>
+                    <h3>Link</h3>
+                    <wcs-button class="wcs-primary" href="#">Un lien !</wcs-button>
+                    <h3>Small</h3>
+                    <wcs-button class="wcs-primary" mode="small">Small</wcs-button>
+                    <wcs-button class="wcs-primary" clear mode="small">Small</wcs-button>
+                    <wcs-button class="wcs-primary" stroked mode="small">Small</wcs-button>
+                    <wcs-button class="wcs-primary" stroked disabled mode="small">Disabled</wcs-button>
+                    <h3>Block</h3>
+                    <wcs-button class="wcs-primary" mode="block">Un grand bouton</wcs-button>
                 </wcs-card-body>
             </wcs-card>
-        </div>
-    </main>
-</wcs-app>
+
+
+            <div>
+                <h2><a id="badge"></a>Badge</h2>
+                <wcs-card>
+                    <wcs-card-body>
+                        <h3>Standard</h3>
+                        <wcs-badge class="wcs-primary">Primary</wcs-badge>
+                        <wcs-badge class="wcs-secondary">Secondary</wcs-badge>
+                        <wcs-badge class="wcs-success">Success</wcs-badge>
+                        <wcs-badge class="wcs-danger">Danger</wcs-badge>
+                        <wcs-badge class="wcs-warning">Warning</wcs-badge>
+                        <wcs-badge class="wcs-info">Info</wcs-badge>
+                        <wcs-badge class="wcs-light">Light</wcs-badge>
+                        <wcs-badge class="wcs-dark">Dark</wcs-badge>
+                    </wcs-card-body>
+                </wcs-card>
+            </div>
+
+            <div>
+                <h2><a id="icon"></a>Icon</h2>
+                <wcs-card>
+                    <wcs-card-body>
+                        <wcs-icon icon="checked" size="2x"></wcs-icon>
+                    </wcs-card-body>
+                </wcs-card>
+            </div>
+
+            <div>
+                <h2><a id="progress"></a>Progress</h2>
+                <wcs-card>
+                    <wcs-card-body>
+                        <h3>Bar</h3>
+                        <wcs-button stroked class="wcs-primary" style="position: absolute; right: 16px; bottom: 16px;"
+                            id="progress-button">Change values
+                        </wcs-button>
+                        <wcs-progress-bar value="50"></wcs-progress-bar>
+                        <h3>Bar with label</h3>
+                        <wcs-progress-bar value="50" show-label="true"></wcs-progress-bar>
+                        <h3>Small bar</h3>
+                        <wcs-progress-bar value="20" small></wcs-progress-bar>
+                        <h3>Radial</h3>
+                        <wcs-progress-radial value="20"></wcs-progress-radial>
+                        <h3>Radial with label</h3>
+                        <wcs-progress-radial value="20" show-label></wcs-progress-radial>
+                        <script>
+                            document.querySelector('#progress-button').addEventListener('click', () => {
+                                document.querySelectorAll('wcs-progress-bar')
+                                    .forEach(p => p.setAttribute('value', Math.ceil(Math.random() * 100)));
+                                document.querySelectorAll('wcs-progress-radial')
+                                    .forEach(p => p.setAttribute('value', Math.ceil(Math.random() * 100)));
+                            });
+
+                        </script>
+                    </wcs-card-body>
+                </wcs-card>
+            </div>
+        </main>
+    </wcs-app>
 </body>
 
 </html>

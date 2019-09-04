@@ -1,10 +1,17 @@
 @import "../../style/wcs.ripple.scss";
 
+:host {
+    display: block;
+    position: relative;
+    outline: none;
+    user-select: none;
+}
+
 .wcs-select-text {
     padding: 0.65625rem 1.25rem;
     font-weight: 500;
     cursor: pointer;
-    color: var(--text-medium);
+    color: var(--wcs-text-medium);
     transition: color 125ms ease-in;
     // Hide overflowing display text
     white-space: nowrap;
@@ -17,7 +24,7 @@
     display: flex;
     align-items: center;
     padding-right: var(--wcs-text-padding);
-    background-color: var(--light);
+    background-color: var(--wcs-light);
     border-radius: var(--wcs-border-radius);
     border: transparent solid 1px;
     font-size: 1rem;
@@ -34,23 +41,16 @@
     max-height: 22.5rem;
     overflow-y: auto;
 
-    background-color: var(--white);
-    color: var(--text-medium);
-    border-left: var(--text-light) solid 1px;
-    border-right: var(--text-light) solid 1px;
-    border-bottom: var(--text-light) solid 1px;
+    background-color: var(--wcs-white);
+    color: var(--wcs-text-medium);
+    border-left: var(--wcs-text-light) solid 1px;
+    border-right: var(--wcs-text-light) solid 1px;
+    border-bottom: var(--wcs-text-light) solid 1px;
 
     border-bottom-right-radius: var(--wcs-border-radius);
     border-bottom-left-radius: var(--wcs-border-radius);
     // transform: scaleY(0) translateY(-100%);
     // transition: transform 175ms cubic-bezier(0, 1, 0.5, 1);
-}
-
-:host {
-    display: block;
-    position: relative;
-    outline: none;
-    user-select: none;
 }
 
 :host(.expanded) {
@@ -60,31 +60,28 @@
     }
 
     .wcs-select-content {
-        border-top: var(--text-light) solid 1px;
-        border-right: var(--text-light) solid 1px;
-        border-left: var(--text-light) solid 1px;
+        border: var(--wcs-text-light) solid 1px;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
-        border-bottom: var(--text-light) solid 1px;
     }
 }
 
 :host(:not(.expanded):focus) {
     .wcs-select-content {
-        border: var(--primary) solid 1px;
+        border: var(--wcs-primary) solid 1px;
     }
 }
 
 :host([value]) {
     .wcs-select-text {
-        color: var(--black);
+        color: var(--wcs-black);
     }
 }
 
 // Fix for multiple select
 :host([value="[]"]) {
     .wcs-select-text {
-        color: var(--text-medium);
+        color: var(--wcs-text-medium);
     }
 }
 
@@ -97,10 +94,10 @@
     }
 
     .wcs-select-text {
-        color: var(--text-disabled);
+        color: var(--wcs-text-disabled);
     }
 
     .arrow {
-        fill: var(--text-medium);
+        fill: var(--wcs-text-medium);
     }
 }

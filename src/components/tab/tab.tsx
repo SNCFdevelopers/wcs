@@ -15,7 +15,6 @@ export class Tab implements ComponentDidLoad {
     @Prop({ reflect: true, mutable: true })
     header: string;
 
-    // TODO: Use host element instead
     /**
      * XXX: Temporary fix, see tabs component
      * @internal
@@ -23,6 +22,7 @@ export class Tab implements ComponentDidLoad {
      */
     @Event() wcsTabDidLoad: EventEmitter;
 
+    // TODO: Test if this is still necessary
     componentDidLoad() {
         this.wcsTabDidLoad.emit();
     }

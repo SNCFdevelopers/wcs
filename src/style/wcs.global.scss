@@ -2,14 +2,48 @@
 @import 'wcs.fonts.scss';
 
 :root {
-    --wcs-border-radius: 0.475rem;
-    --wcs-padding: 1.25rem;
-    --wcs-text-padding: 0.65625rem;
+    // TODO: prefix all variables and make their name according to the real palette
+    --wcs-white: white;
+    --wcs-light: #f2f2f2;
+    --wcs-gray-light: #4d4f53;
+    --wcs-gray: #333;
+    --wcs-gray-dark: #343a40;
+    --wcs-gray-darker: #212529;
+    --wcs-black: black;
+
+    --wcs-text-light: #d7d7d7;
+    --wcs-text-disabled: #b9b9b9;
+    --wcs-text-medium: #747678;
+
+    --wcs-blue: #0088CE;
+    --wcs-purple: #6e1e78;
+    --wcs-pink: #a1006b;
+    --wcs-red: #cd0037;
+    --wcs-orange: #e05206;
+    --wcs-yellow: #ffb612;
+    --wcs-green: #82be00;
+    --wcs-teal: #d2e100;
+    --wcs-cyan: #009aa6;
+
+
+    --wcs-primary: var(--wcs-blue);
+    // Default base and contrast color
+    --wcs-base: var(--wcs-primary);
+    --wcs-contrast: var(--wcs-white);
+
+    // FONT
+    --wcs-font-sans-serif: Avenir, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --wcs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+    // Other properties
+    --wcs-border-radius: 8px;
+    --wcs-padding: 16px;
+    --wcs-text-padding: 8px;
+    // Should be moved in wcs-tabs
     --wcs-tabs-headers-border-bottom: 1px solid #ebebeb;
 }
 
 body {
-    @include font;
     font-weight: 400;
-    font-family: var(--font-family-sans-serif)
+    font-family: var(--wcs-font-sans-serif)
 }
