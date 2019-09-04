@@ -158,6 +158,7 @@ export namespace Components {
     'type': TextFieldTypes;
     'value': string | null;
   }
+  interface WcsInputGroup {}
   interface WcsProgressBar {
     /**
     * Whether it displays a label indicating the percentage of progress above the bar.
@@ -305,6 +306,12 @@ declare global {
     new (): HTMLWcsInputElement;
   };
 
+  interface HTMLWcsInputGroupElement extends Components.WcsInputGroup, HTMLStencilElement {}
+  var HTMLWcsInputGroupElement: {
+    prototype: HTMLWcsInputGroupElement;
+    new (): HTMLWcsInputGroupElement;
+  };
+
   interface HTMLWcsProgressBarElement extends Components.WcsProgressBar, HTMLStencilElement {}
   var HTMLWcsProgressBarElement: {
     prototype: HTMLWcsProgressBarElement;
@@ -362,6 +369,7 @@ declare global {
     'wcs-header': HTMLWcsHeaderElement;
     'wcs-icon': HTMLWcsIconElement;
     'wcs-input': HTMLWcsInputElement;
+    'wcs-input-group': HTMLWcsInputGroupElement;
     'wcs-progress-bar': HTMLWcsProgressBarElement;
     'wcs-progress-radial': HTMLWcsProgressRadialElement;
     'wcs-select': HTMLWcsSelectElement;
@@ -501,6 +509,7 @@ declare namespace LocalJSX {
     'type'?: TextFieldTypes;
     'value'?: string | null;
   }
+  interface WcsInputGroup extends JSXBase.HTMLAttributes<HTMLWcsInputGroupElement> {}
   interface WcsProgressBar extends JSXBase.HTMLAttributes<HTMLWcsProgressBarElement> {
     /**
     * Whether it displays a label indicating the percentage of progress above the bar.
@@ -604,6 +613,7 @@ declare namespace LocalJSX {
     'wcs-header': WcsHeader;
     'wcs-icon': WcsIcon;
     'wcs-input': WcsInput;
+    'wcs-input-group': WcsInputGroup;
     'wcs-progress-bar': WcsProgressBar;
     'wcs-progress-radial': WcsProgressRadial;
     'wcs-select': WcsSelect;

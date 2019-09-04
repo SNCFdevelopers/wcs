@@ -25,7 +25,7 @@
 
 ### Used by
 
- - [wcs-select-option](..\select-option)
+ - [wcs-select-option](../select-option)
 
 ### Graph
 ```mermaid

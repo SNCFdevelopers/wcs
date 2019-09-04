@@ -8,10 +8,10 @@
     <script type="module" src="./build/wcs.esm.js"></script>
     <script nomodule src="./build/wcs.js"></script>
     <link rel="stylesheet" href="./build/wcs.css">
-    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
 </head>
 
 <body>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" lazyload>
     <style>
         body {
             margin: 0;
@@ -316,6 +316,27 @@
   wcs-select-option --&gt; wcs-checkbox
   style wcs-checkbox fill:#f9f,stroke:#333,stroke-width:4px
 </code></pre>
+<hr>
+<p><em>Built with <a href="https://stenciljs.com/">StencilJS</a></em></p>
+
+<h1>Input group</h1>
+<h2>Examples</h2><wcs-card>
+    <wcs-card-body>
+        <wcs-input-group>
+            <wcs-select slot="prefix" placeholder="Le select" multiple>
+                <wcs-select-option value="1">One</wcs-select-option>
+                <wcs-select-option value="2">Two</wcs-select-option>
+                <wcs-select-option value="3">Three</wcs-select-option>
+            </wcs-select>
+            <wcs-input placeholder="L'input"></wcs-input>
+            <wcs-button mode="icon-only" slot="suffix" ripple="false">
+                <i class="material-icons">search</i>
+            </wcs-button>
+        </wcs-input-group>
+    </wcs-card-body>
+</wcs-card>
+
+<!-- Auto Generated Below -->
 <hr>
 <p><em>Built with <a href="https://stenciljs.com/">StencilJS</a></em></p>
 

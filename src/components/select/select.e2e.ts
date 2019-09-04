@@ -87,11 +87,12 @@ describe('Select component', () => {
         `);
         const select = await page.find('wcs-select');
         const firstSelectOption = await page.find('wcs-select > wcs-select-option');
-        const label = await page.find('wcs-select >>> .wcs-select-text');
+        const label = await page.find('wcs-select >>> label');
 
         // When
         await select.click();
         await firstSelectOption.click();
+        await page.waitForChanges();
 
         // Then
         expect(select).toHaveAttribute('value');
@@ -332,7 +333,7 @@ describe('Select component', () => {
             `);
             const select = await page.find('wcs-select');
             const [opt1, opt2, opt3] = (await page.findAll('wcs-select > wcs-select-option'));
-            const label = await page.find('wcs-select >>> .wcs-select-text');
+            const label = await page.find('wcs-select >>> label');
 
             // When
             await select.click();

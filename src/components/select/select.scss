@@ -1,17 +1,70 @@
 @import "../../style/wcs.ripple.scss";
 
 :host {
+    --wcs-select-border-radius: var(--wcs-border-radius);
+    --wcs-select-background-color: var(--wcs-light);
+    --wcs-select-placeholder-color: var(--wcs-text-medium);
+    --wcs-select-value-color: var(--wcs-black);
+    --wcs-select-border-color: transparent;
+
     display: block;
     position: relative;
     outline: none;
     user-select: none;
+
+    // So the arrow on the right doesn't shrink when text overflows.
+    svg {
+        flex-shrink: 0;
+    }
+
+    .arrow {
+        fill: var(--wcs-select-value-color);
+    }
 }
 
-.wcs-select-text {
+:host(.expanded) {
+    --wcs-select-border-color: var(--wcs-text-light);
+
+    .wcs-select-options {
+        display: block;
+    }
+
+    .wcs-select-control {
+        border: var(--wcs-select-border-color) solid 1px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+}
+
+// Focused not expanded
+:host(:not(.expanded):focus) {
+    .wcs-select-control {
+        border: var(--wcs-primary) solid 1px;
+    }
+}
+
+:host([disabled]) {
+
+    .wcs-select-control,
+    label {
+        cursor: default;
+        pointer-events: none;
+    }
+
+    label {
+        color: var(--wcs-text-disabled);
+    }
+
+    .arrow {
+        fill: var(--wcs-text-medium);
+    }
+}
+
+label {
     padding: 0.65625rem 1.25rem;
     font-weight: 500;
     cursor: pointer;
-    color: var(--wcs-text-medium);
+    color: var(--wcs-select-color);
     transition: color 125ms ease-in;
     // Hide overflowing display text
     white-space: nowrap;
@@ -19,17 +72,26 @@
     text-overflow: ellipsis;
 }
 
-.wcs-select-content {
+.wcs-select-control {
     @include ripple;
     display: flex;
     align-items: center;
     padding-right: var(--wcs-text-padding);
-    background-color: var(--wcs-light);
-    border-radius: var(--wcs-border-radius);
-    border: transparent solid 1px;
+    background-color: var(--wcs-select-background-color);
+    border-radius: var(--wcs-select-border-radius);
+    border: var(--wcs-select-border-color) solid 1px;
     font-size: 1rem;
     line-height: 1.5;
     cursor: pointer;
+}
+
+.wcs-select-placeholder {
+    color: var(--wcs-select-placeholder-color);
+    font-style: italic;
+}
+
+.wcs-select-value {
+    color: var(--wcs-select-value-color);
 }
 
 .wcs-select-options {
@@ -43,61 +105,10 @@
 
     background-color: var(--wcs-white);
     color: var(--wcs-text-medium);
-    border-left: var(--wcs-text-light) solid 1px;
-    border-right: var(--wcs-text-light) solid 1px;
-    border-bottom: var(--wcs-text-light) solid 1px;
+    border-left: var(--wcs-select-border-color) solid 1px;
+    border-right: var(--wcs-select-border-color) solid 1px;
+    border-bottom: var(--wcs-select-border-color) solid 1px;
 
     border-bottom-right-radius: var(--wcs-border-radius);
     border-bottom-left-radius: var(--wcs-border-radius);
-    // transform: scaleY(0) translateY(-100%);
-    // transition: transform 175ms cubic-bezier(0, 1, 0.5, 1);
-}
-
-:host(.expanded) {
-    .wcs-select-options {
-        display: block;
-        // transform: scaleY(1) translateY(0%);
-    }
-
-    .wcs-select-content {
-        border: var(--wcs-text-light) solid 1px;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-    }
-}
-
-:host(:not(.expanded):focus) {
-    .wcs-select-content {
-        border: var(--wcs-primary) solid 1px;
-    }
-}
-
-:host([value]) {
-    .wcs-select-text {
-        color: var(--wcs-black);
-    }
-}
-
-// Fix for multiple select
-:host([value="[]"]) {
-    .wcs-select-text {
-        color: var(--wcs-text-medium);
-    }
-}
-
-:host([disabled]) {
-
-    .wcs-select-content,
-    .wcs-select-text {
-        cursor: default;
-        pointer-events: none;
-    }
-
-    .wcs-select-text {
-        color: var(--wcs-text-disabled);
-    }
-
-    .arrow {
-        fill: var(--wcs-text-medium);
-    }
 }
