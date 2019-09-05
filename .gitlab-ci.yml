@@ -24,7 +24,7 @@ build:
     stage: build
     only:
         - develop
-        - master
+        - tags
     artifacts:
         paths:
             - www/
