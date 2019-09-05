@@ -230,7 +230,7 @@ export class Select implements ComponentInterface {
         }
         // TODO: Let user provide sorting function and use this if defined.
         // this.values = this.values.sort((a, b) => a.value - b.value);
-        this.value = `[${this.values.map(v => v.value).join(', ')}]`;
+        this.value = this.values.map(v => v.value);
         this.displayText = this.values.length !== 0
             ? this.values.map(v => v.displayText).join(', ')
             : undefined;
@@ -320,4 +320,5 @@ export class Select implements ComponentInterface {
     private focusedAttributes() {
         return !this.disabled ? { tabIndex: 0 } : {};
     }
+
 }
