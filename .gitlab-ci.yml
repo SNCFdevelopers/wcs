@@ -1,61 +1,63 @@
 stages:
-    - test
-    - build
+    # - test
+    # - build
     - deploy
 
-test:
-    image: markhobson/node-chrome
-    stage: test
-    before_script:
-        - npm install
-    cache:
-        paths:
-            - node_modules/
-    script:
-        - npm test
+# test:
+#     image: markhobson/node-chrome
+#     stage: test
+#     before_script:
+#         - npm install
+#     cache:
+#         paths:
+#             - node_modules/
+#     script:
+#         - npm test
 
-build:
-    image: node:12.9-alpine
-    stage: build
-    only:
-        - develop
-    artifacts:
-        paths:
-            - www/
-            - loader/
-            - dist/
-    script:
-        - npm install
-        - npm run build
-    cache:
-        paths:
-            - node_modules/
+# build:
+#     image: node:12.9-alpine
+#     stage: build
+#     only:
+#         - develop
+#     artifacts:
+#         paths:
+#             - www/
+#             - loader/
+#             - dist/
+#     script:
+#         - npm install
+#         - npm run build
+#     cache:
+#         paths:
+#             - node_modules/
 
-pages:
-    image: node:12.9-alpine
-    stage: deploy
-    dependencies:
-        - build
-    only:
-        - develop
-    cache:
-        paths:
-            - node_modules/
-    script:
-        - mv www/ public/
-    artifacts:
-        paths:
-            - public
+# pages:
+#     image: node:12.9-alpine
+#     stage: deploy
+#     dependencies:
+#         - build
+#     only:
+#         - develop
+#     cache:
+#         paths:
+#             - node_modules/
+#     script:
+#         - mv www/ public/
+#     artifacts:
+#         paths:
+#             - public
 
 publish:
     image: node:12.9-alpine
     stage: deploy
-    only:
-        - tags
-    except:
-        - /^(?!master).+@/ 
-    dependencies:
-        - build
+    # only:
+        # - tags
+    # except:
+        # - /^(?!master).+@/ 
+    # dependencies:
+        # - build
     script:
-        - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
-        - npm publish
+        - echo "$NPM_TOKEN"
+        - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+        - cat ~/.npmrc
+        # - npm publish
