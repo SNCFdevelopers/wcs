@@ -1,46 +1,29 @@
-# Changelog
+<a name="0.5.4"></a>
+## [0.5.4](https://github.com/SNCFDevelopers/wcs-sandbox/compare/v0.1.0...v0.5.4) (2019-09-05)
 
-All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+### Bug Fixes
 
-## [0.0.3 - 0.0.6]
+* **button:** Avenir font doesn't work on gitlab pages ([9535295](https://github.com/SNCFDevelopers/wcs-sandbox/commit/9535295))
+* [#61](https://github.com/SNCFDevelopers/wcs-sandbox/issues/61) replace deprecated reflectToAttr ([1a1a7d8](https://github.com/SNCFDevelopers/wcs-sandbox/commit/1a1a7d8))
+* Add private to pkg.json ([346a4f8](https://github.com/SNCFDevelopers/wcs-sandbox/commit/346a4f8))
+* checkbox for ff < 63 ([4e60171](https://github.com/SNCFDevelopers/wcs-sandbox/commit/4e60171))
+* **select:** Emit values as a real array ([476fdd0](https://github.com/SNCFDevelopers/wcs-sandbox/commit/476fdd0))
+* **tab:** Remove prop slot ([46d6870](https://github.com/SNCFDevelopers/wcs-sandbox/commit/46d6870))
 
-### Fixed
 
-- Compatibility for firefox < 63
-  - Tab
-  - Select
+### Features
 
-## [0.0.2]
+* **css:** Better css variables handling ([12e9db4](https://github.com/SNCFDevelopers/wcs-sandbox/commit/12e9db4))
+* **css:** Css variables ([70580f4](https://github.com/SNCFDevelopers/wcs-sandbox/commit/70580f4))
+* **select:** Multiple select ([#38](https://github.com/SNCFDevelopers/wcs-sandbox/issues/38)) ([74aa887](https://github.com/SNCFDevelopers/wcs-sandbox/commit/74aa887))
+* **spinner:** first version ([c2d5b1a](https://github.com/SNCFDevelopers/wcs-sandbox/commit/c2d5b1a))
+* **tabs:** fix [#54](https://github.com/SNCFDevelopers/wcs-sandbox/issues/54), fix [#37](https://github.com/SNCFDevelopers/wcs-sandbox/issues/37), fix [#36](https://github.com/SNCFDevelopers/wcs-sandbox/issues/36) ([#63](https://github.com/SNCFDevelopers/wcs-sandbox/issues/63)) ([3b21caa](https://github.com/SNCFDevelopers/wcs-sandbox/commit/3b21caa))
 
-### Changed
 
-- Upgraded to stencil 1.0
 
-## [0.0.1]
+<a name="0.0.7"></a>
+## 0.0.7 (2019-07-30)
 
-### Added
 
-- Components
-  - App shell
-    - Header
-    - Sidebar
-  - Badge
-  - Button
-  - Card
-    - Card body
-  - Checkbox
-  - Icon
-  - Progress bar
-  - Progress radial
-  - Select
-  - Tabs
-  - Tooltip
-- Styling
-  - A few CSS variables
-- Examples
-  - Angular
-  - React (Not yet working)
-  - Vue
+
