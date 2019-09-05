@@ -1,18 +1,18 @@
 stages:
-    # - test
+    - test
     - build
     - deploy
 
-# test:
-#     image: markhobson/node-chrome
-#     stage: test
-#     before_script:
-#         - npm install
-#     cache:
-#         paths:
-#             - node_modules/
-#     script:
-#         - npm test
+test:
+    image: markhobson/node-chrome
+    stage: test
+    before_script:
+        - npm install
+    cache:
+        paths:
+            - node_modules/
+    script:
+        - npm test
 
 build:
     image: node:12.9-alpine
@@ -31,21 +31,21 @@ build:
         paths:
             - node_modules/
 
-# pages:
-#     image: node:12.9-alpine
-#     stage: deploy
-#     dependencies:
-#         - build
-#     only:
-#         - develop
-#     cache:
-#         paths:
-#             - node_modules/
-#     script:
-#         - mv www/ public/
-#     artifacts:
-#         paths:
-#             - public
+pages:
+    image: node:12.9-alpine
+    stage: deploy
+    dependencies:
+        - build
+    only:
+        - develop
+    cache:
+        paths:
+            - node_modules/
+    script:
+        - mv www/ public/
+    artifacts:
+        paths:
+            - public
 
 publish:
     image: node:12.9-alpine
@@ -57,5 +57,5 @@ publish:
     dependencies:
         - build
     script:
-        - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+        - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
         - npm publish
