@@ -53,10 +53,9 @@ publish:
     only:
         - tags
     except:
-        - /^(?!master).+@/ 
+        - /^(?!master).+@/
     dependencies:
         - build
     script:
-        - echo "$FAKE_TOKEN"
-        - echo "//registry.npmjs.org/:_authToken=${FAKE_TOKEN}" > .npmrc
+        - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
         - npm publish
