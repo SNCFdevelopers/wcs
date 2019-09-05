@@ -1,5 +1,5 @@
 stages:
-    - test
+    # - test
     - build
     - deploy
 
@@ -14,13 +14,11 @@ cache:
 before_script:
     - npm install
 
-test:
-    image: markhobson/node-chrome
-    stage: test
-    before_script:
-        - npm install
-    script:
-        - npm test
+# test:
+#     image: markhobson/node-chrome
+#     stage: test
+#     script:
+#         - npm test
 
 build:
     stage: build
@@ -40,11 +38,11 @@ pages:
         - build
     only:
         - develop
-    script:
-        - mv www/ public/
     artifacts:
         paths:
             - public
+    script:
+        - mv www/ public/
 
 publish:
     stage: deploy
