@@ -57,7 +57,7 @@ publish:
     # dependencies:
         # - build
     script:
-        - echo "$NPM_TOKEN"
-        - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+        - echo "$FAKE_TOKEN"
+        - echo "//registry.npmjs.org/:_authToken=$FAKE_TOKEN" > ~/.npmrc
         - cat ~/.npmrc
         # - npm publish
