@@ -1,58 +1,70 @@
-
-:host{
-    margin-top: 0.5rem !important;
+:host {
+    --wcs-tabs-width: 64px;
+    --wcs-tabs-padding-horizontal: 16px;
+    --wcs-tabs-padding-vertical: 8px;
 }
+
+:host([align=start]) .wcs-tabs-headers {
+    justify-content: start;
+}
+
+:host([align=end]) .wcs-tabs-headers {
+    justify-content: end;
+}
+
+:host([align=center]) .wcs-tabs-headers {
+    justify-content: center;
+}
+
 .wcs-tabs-headers {
+    overflow-x: auto;
     display: flex;
-    list-style: none;
-    padding-left: 0;
+    position: relative;
     border-bottom: var(--wcs-tabs-headers-border-bottom);
-    margin: 0px;
-    padding-bottom: 14px;
-    user-select: none;
-    &.center {
-        justify-content: center;
-    }
-    &.end {
-        justify-content: end;
-    }
-    &.start {
-        justify-content: start;
-    }
 }
 
 .wcs-tab-header {
+    width: var(--wcs-tabs-width);
+    padding: var(--wcs-tabs-padding-vertical) var(--wcs-tabs-padding-horizontal);
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    outline: none;
+
     span {
-        color: var(--secondary);
+        text-align: center;
+        color: var(--wcs-text-disabled);
         font-size: 1rem;
         font-weight: 400;
-        line-height: 1.375;
-        padding-top: 0.25rem;
-        padding-bottom: 1rem;
     }
-    padding-right: 1.5rem;
-    cursor: pointer;
+
+    &:focus,
+    &:hover {
+        span {
+            color: var(--wcs-primary);
+        }
+
+        background: var(--wcs-light)
+    }
 }
 
-.wcs-tab-header:hover>span {
-    color: var(--primary);
+.wcs-ink-bar {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    border-radius: 4px;
+    width: calc(var(--wcs-tabs-width) + 2 * var(--wcs-tabs-padding-horizontal));
+    transition: .5s cubic-bezier(.35, 0, .25, 1);
+    background-color: var(--wcs-primary);
 }
 
 .active {
     span {
         font-weight: 500;
-        color: var(--primary);
+        color: var(--wcs-primary);
         position: relative;
-        &:after {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 0.3125rem;
-            content: "";
-            background-color: var(--primary);
-            border-radius: 3px;
-        }
     }
-
 }

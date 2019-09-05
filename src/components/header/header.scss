@@ -4,7 +4,7 @@ header {
     @include wcs-elevation(4);
     display: flex;
     align-items: center;
-    background: var(--gray);
+    background: var(--wcs-gray);
     padding: 8px 8px 8px 16px;
     height: calc(64px - 16px);
     position: sticky;
@@ -19,7 +19,7 @@ header {
 }
 
 ::slotted(h1) {
-    color: var(--white);
+    color: var(--wcs-white);
     margin: 0;
     font-weight: 500;
     font-size: 1.5rem;

@@ -1,4 +1,4 @@
-import { Component, Event, Prop, ComponentDidLoad, EventEmitter, h, Host } from '@stencil/core';
+import { Component, Prop, h, Host } from '@stencil/core';
 
 /**
  * Tab content component.
@@ -8,24 +8,12 @@ import { Component, Event, Prop, ComponentDidLoad, EventEmitter, h, Host } from 
     tag: 'wcs-tab',
     shadow: true,
 })
-export class Tab implements ComponentDidLoad {
+export class Tab {
     /**
      * The header you want to be displayed for this tab.
      */
     @Prop({ reflect: true, mutable: true })
     header: string;
-
-    // TODO: Use host element instead
-    /**
-     * XXX: Temporary fix, see tabs component
-     * @internal
-     * @ignore
-     */
-    @Event() wcsTabDidLoad: EventEmitter;
-
-    componentDidLoad() {
-        this.wcsTabDidLoad.emit();
-    }
 
     render() {
         return (
