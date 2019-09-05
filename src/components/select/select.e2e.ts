@@ -267,7 +267,7 @@ describe('Select component', () => {
             expect(select).toHaveClass('expanded');
         });
 
-        it(`Allows to select multiple values NEW VERSION`, async () => {
+        it(`Allows to select multiple values`, async () => {
             // Given
             const page = await newE2EPage();
             await page.setContent(`
@@ -295,7 +295,7 @@ describe('Select component', () => {
         });
 
 
-        it('Allows to unselect a value NEW VERSION', async () => {
+        it('Allows to unselect a value', async () => {
             // Given
             const page = await newE2EPage();
             await page.setContent(`
@@ -361,7 +361,6 @@ describe('Select component', () => {
             // Then
             expect(option).toHaveAttribute('multiple');
         });
-
 
         it(`Propagate event when values are select`, async () => {
             // Given
