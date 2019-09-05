@@ -56,4 +56,5 @@ publish:
         - build
     script:
         - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
+        - tree dist
         - npm publish
