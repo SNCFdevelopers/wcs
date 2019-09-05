@@ -3,19 +3,26 @@ stages:
     - build
     - deploy
 
+image: node:12.9-alpine
+
+# Cache modules in between jobs
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+
+before_script:
+    - npm install
+
 test:
     image: markhobson/node-chrome
     stage: test
     before_script:
         - npm install
-    cache:
-        paths:
-            - node_modules/
     script:
         - npm test
 
 build:
-    image: node:12.9-alpine
     stage: build
     only:
         - develop
@@ -25,22 +32,14 @@ build:
             - loader/
             - dist/
     script:
-        - npm install
         - npm run build
-    cache:
-        paths:
-            - node_modules/
 
 pages:
-    image: node:12.9-alpine
     stage: deploy
     dependencies:
         - build
     only:
         - develop
-    cache:
-        paths:
-            - node_modules/
     script:
         - mv www/ public/
     artifacts:
@@ -48,7 +47,6 @@ pages:
             - public
 
 publish:
-    image: node:12.9-alpine
     stage: deploy
     only:
         - tags
