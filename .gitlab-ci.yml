@@ -43,7 +43,7 @@ pages:
         paths:
             - public
     script:
-        - mv www/ public/
+        - mv www/ public/${CI_COMMIT_REF_NAME}/
 
 publish:
     stage: deploy
