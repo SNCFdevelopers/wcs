@@ -43,7 +43,7 @@ pages:
         paths:
             - public
     script:
-        - mkdir public/$CI_COMMIT_REF_NAME/
+        - mkdir -p public/$CI_COMMIT_REF_NAME/
         - mv www/ public/$CI_COMMIT_REF_NAME/
 
 publish:
