@@ -1,6 +1,6 @@
-# wcs-checkbox
+# Checkbox
 
-
+## Examples
 
 <!-- Auto Generated Below -->
 

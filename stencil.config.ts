@@ -6,6 +6,10 @@ import glob from 'glob';
 
 export const config: Config = {
     namespace: 'wcs',
+    excludeSrc: [
+        '.md$',
+        '.html$'
+    ],
     nodeResolve: {
         browser: true
     },
