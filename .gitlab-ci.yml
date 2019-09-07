@@ -23,7 +23,6 @@ test:
 build:
     stage: build
     only:
-        - develop
         - tags
     artifacts:
         expire_in: 4 days
