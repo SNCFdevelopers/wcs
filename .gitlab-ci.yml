@@ -26,6 +26,7 @@ build:
         - develop
         - tags
     artifacts:
+        expire_in: 4 days
         paths:
             - www/
             - loader/
@@ -40,6 +41,7 @@ pages:
     only:
         - develop
     artifacts:
+        expire_in: 4 days
         paths:
             - public
     script:
