@@ -44,7 +44,7 @@ pages:
             - public
     script:
         - mkdir -p public/$CI_COMMIT_REF_NAME/
-        - cd www && mv * .[^.]* public/$CI_COMMIT_REF_NAME/
+        - mv www public/$CI_COMMIT_REF_NAME/
 
 publish:
     stage: deploy
