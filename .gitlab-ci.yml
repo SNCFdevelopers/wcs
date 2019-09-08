@@ -22,8 +22,6 @@ test:
 
 build:
     stage: build
-    only:
-        - tags
     artifacts:
         expire_in: 4 days
         paths:
