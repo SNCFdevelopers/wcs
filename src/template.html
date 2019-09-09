@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+    <title>Web Component SNCF</title>
+    <script type="module" src="./build/wcs.esm.js"></script>
+    <script nomodule src="./build/wcs.js"></script>
+    <link rel="stylesheet" href="./build/wcs.css">
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+</head>
+
+<body>
+    <style>
+        body {
+            margin: 0;
+            overflow-y: hidden;
+        }
+
+        main {
+            overflow-y: scroll;
+            height: calc(100vh - 84px);
+            padding: 0 100px;
+        }
+
+        h1:not(:first-of-type) {
+            margin-top: 64px;
+        }
+
+        wcs-card {
+            margin-bottom: 16px;
+        }
+
+        wcs-card-body>h3:first-child {
+            margin-top: 0;
+        }
+
+        td {
+            margin-right: 32px;
+        }
+
+    </style>
+    <wcs-header>
+        <img src="./assets/sncf-logo.png" alt="Logo SNCF" slot="logo">
+        <h1 slot="title">Web Component SNCF</h1>
+    </wcs-header>
+    <main slot="content">
+        <!--Import-->
+    </main>
+</body>
+
+</html>

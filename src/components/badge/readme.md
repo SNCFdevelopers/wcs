@@ -1,5 +1,6 @@
-# wcs-badge
+# Badge
 
+## Examples
 
 
 <!-- Auto Generated Below -->

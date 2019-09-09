@@ -1,6 +1,6 @@
-# wcs-tabs
+# Tabs
 
-
+## Examples
 
 <!-- Auto Generated Below -->
 

@@ -1,6 +1,6 @@
-# wcs-spinner
+# Spinner
 
-
+## Examples
 
 <!-- Auto Generated Below -->
 
