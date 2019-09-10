@@ -125,8 +125,6 @@ export class Select implements ComponentInterface {
 
         if (this.multiple) {
             this.values = [];
-            this.options
-                .forEach((opt: HTMLWcsSelectOptionElement) => opt.multiple = true);
         }
 
         this.addRippleEffect();
@@ -135,14 +133,25 @@ export class Select implements ComponentInterface {
         this.stateService.start();
     }
 
+    componentDidRender() {
+        if (this.multiple) {
+            this.options
+                .forEach((opt: HTMLWcsSelectOptionElement) => opt.multiple = true);
+        }
+    }
+
     private get options() {
         const opts = this.optionsEl.querySelectorAll('wcs-select-option');
+        const slot = this.optionsEl.querySelector('slot');
         return opts.length !== 0
             ? opts
-            : this.optionsEl.querySelector('slot').assignedElements();
+            : slot !== null
+                ? slot.assignedElements()
+                : [];
     }
 
     private initMachineConfig(): MachineConfig<any, SelectStateSchema, SelectEvent> {
+        // TODO: move this to const
         return {
             key: 'select',
             initial: 'blurred',
@@ -277,12 +286,15 @@ export class Select implements ComponentInterface {
             this.stateService.send('BLUR');
         }
     }
+
     @Listen('wcsSelectOptionClick')
     selectedOptionChanged(event: CustomEvent<SelectOptionChosedEvent>) {
         this.stateService.send({ type: 'OPTION_CLICKED', value: event.detail });
     }
+
     @Listen('focus')
     focus() { this.stateService.send('FOCUS'); }
+
     @Listen('blur')
     blur() { this.stateService.send('BLUR'); }
 
