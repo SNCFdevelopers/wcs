@@ -27,7 +27,7 @@ export class SelectOption implements ComponentInterface {
      * @internal
      * @ignore
      */
-    @Prop({ reflect: true }) multiple = false;
+    @Prop({ reflect: true, mutable: true }) multiple = false;
 
     @Event({
         eventName: 'wcsSelectOptionClick',
