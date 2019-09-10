@@ -35,6 +35,8 @@ pages:
     stage: deploy
     dependencies:
         - build
+    only:
+        - develop
     artifacts:
         expire_in: 4 days
         paths:
