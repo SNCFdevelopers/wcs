@@ -131,9 +131,27 @@ export class Select implements ComponentInterface {
         // TODO: is this still usefull for anything ?
         this.hasLoaded = true;
         this.stateService.start();
+        this.fixForFirefox63AndBelow();
     }
 
-    componentDidRender() {
+    private fixForFirefox63AndBelow() {
+        if (this.optionsEl.querySelector('slot') === null) {
+            const observer = new MutationObserver((mutationsList) => {
+                for (const mutation of mutationsList) {
+                    if (mutation.type === 'childList') {
+                        Array.from(this.el.querySelectorAll('.wcs-select-options + wcs-select-option'))
+                            .forEach(option => {
+                                this.el.removeChild(option);
+                                this.optionsEl.appendChild(option);
+                            });
+                    }
+                }
+            });
+            observer.observe(this.el, { childList: true });
+        }
+    }
+
+    componentWillUpdate() {
         if (this.multiple) {
             this.options
                 .forEach((opt: HTMLWcsSelectOptionElement) => opt.multiple = true);
@@ -325,7 +343,7 @@ export class Select implements ComponentInterface {
         // Be cautious as it may cause infinite loop with render ?
         this.optionsEl.setAttribute(
             'style',
-            `width: ${Math.ceil(this.el.getBoundingClientRect().width - 2 * borderSize)}px;`
+            `width: ${Math.ceil(this.el.offsetWidth - 2 * borderSize)}px;`
         );
     }
 
