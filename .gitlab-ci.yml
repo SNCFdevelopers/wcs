@@ -42,12 +42,8 @@ pages:
         paths:
             - public
     script:
-<<<<<<< HEAD
-        - mv www/ public/
-=======
         - mkdir -p public/$CI_COMMIT_REF_NAME/
         - mv www/* public/$CI_COMMIT_REF_NAME/
->>>>>>> origin/develop
 
 publish:
     stage: deploy
