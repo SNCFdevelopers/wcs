@@ -14,18 +14,16 @@ cache:
 before_script:
     - npm install
 
-# test:
-#     image: markhobson/node-chrome
-#     stage: test
-#     script:
-#         - npm test
+test:
+    image: markhobson/node-chrome
+    stage: test
+    script:
+        - npm test
 
 build:
     stage: build
-    only:
-        - develop
-        - tags
     artifacts:
+        expire_in: 4 days
         paths:
             - www/
             - loader/
@@ -40,10 +38,16 @@ pages:
     only:
         - develop
     artifacts:
+        expire_in: 4 days
         paths:
             - public
     script:
+<<<<<<< HEAD
         - mv www/ public/
+=======
+        - mkdir -p public/$CI_COMMIT_REF_NAME/
+        - mv www/* public/$CI_COMMIT_REF_NAME/
+>>>>>>> origin/develop
 
 publish:
     stage: deploy
