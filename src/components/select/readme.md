@@ -1,6 +1,80 @@
 # Select
 
-## Examples
+## Basic
+
+```html
+<wcs-select placeholder="Le select">
+    <wcs-select-option value="1">One</wcs-select-option>
+    <wcs-select-option value="2">Two</wcs-select-option>
+    <wcs-select-option value="3">Three</wcs-select-option>
+</wcs-select>
+```
+
+## With disabled option
+
+```html
+<wcs-select placeholder="Le select">
+    <wcs-select-option value="1" disabled="true">One</wcs-select-option>
+    <wcs-select-option value="2">Two</wcs-select-option>
+    <wcs-select-option value="3">Three</wcs-select-option>
+</wcs-select>
+```
+
+## Disabled
+
+```html
+<wcs-select placeholder="Le select" disabled>
+    <wcs-select-option value="1">One</wcs-select-option>
+    <wcs-select-option value="2">Two</wcs-select-option>
+    <wcs-select-option value="3">Three</wcs-select-option>
+</wcs-select>
+```
+
+## Multiple
+
+```html
+<wcs-select placeholder="Le select" multiple>
+    <wcs-select-option value="1">One</wcs-select-option>
+    <wcs-select-option value="2">Two</wcs-select-option>
+    <wcs-select-option value="3">Three</wcs-select-option>
+</wcs-select>
+```
+
+## Lazy loaded options
+
+```html
+<wcs-select id="lazy-loaded-select" placeholder="Le select" multiple>
+    <wcs-select-option value="1">One</wcs-select-option>
+    <wcs-select-option value="2">Two</wcs-select-option>
+    <wcs-select-option value="3">Three</wcs-select-option>
+</wcs-select>
+```
+
+<wcs-button id="lazy-loaded-sel-button" stroked class="primary">Add option</wcs-button>
+
+<script>
+    const lazyLoadedSelect = document.querySelector('#lazy-loaded-select');
+    const button = document.querySelector('#lazy-loaded-sel-button');
+    let id = 4;
+    button.addEventListener('click', () => {
+        const opt = document.createElement('wcs-select-option');
+        opt.setAttribute('value', id++)
+        opt.appendChild(document.createTextNode(id.toString()));
+        lazyLoadedSelect.appendChild(opt);
+    });
+</script>
+
+<style>
+    wcs-select {
+        max-width: 250px;
+    }
+    #lazy-loaded-select {
+        width: 200px;
+        margin-right: 16px;
+        display: inline-block;
+    }
+</style>
+
 
 <!-- Auto Generated Below -->
 

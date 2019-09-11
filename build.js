@@ -6,8 +6,20 @@ const fs = require('fs');
 const chokidar = require('chokidar');
 const process = require('process');
 const mem = require('mem');
+const hljs = require('highlight.js');
+const html = require('highlight.js/lib/languages/htmlbars');
+hljs.registerLanguage('language-html', html);
 const md = require('markdown-it')({
-    html: true
+    html: true,
+    highlight: function (str, lang) {
+        if (lang && hljs.getLanguage(lang)) {
+            try {
+                return hljs.highlight(lang, str).value;
+            } catch (__) { }
+        }
+
+        return ''; // use external default escaping
+    }
 });
 
 const render = mem(content => md.render(content))
@@ -16,6 +28,7 @@ const render = mem(content => md.render(content))
  * @returns {Promise<string[]>} All the file names with the given extension
  * @param {import("fs").PathLike} basePath
  * @param {string} extension
+ * @param {string} filter
  */
 async function allFilesWithExtension(basePath, extension, filter) {
     let filesByDir = await Promise.all((await fs.promises.readdir(basePath))
@@ -25,7 +38,7 @@ async function allFilesWithExtension(basePath, extension, filter) {
                 return [];
             }
             return file.isDirectory()
-                ? await allFilesWithExtension(basePath + name + '/', extension)
+                ? await allFilesWithExtension(basePath + name + '/', extension, filter)
                 : name.endsWith(extension)
                     ? [basePath + name]
                     : [];
@@ -37,16 +50,6 @@ async function allFilesWithExtension(basePath, extension, filter) {
         });
     }
     return filesByDir;
-}
-
-/**
- * @param {string[]} paths
- * @returns {Promise<string[]>}
- */
-async function toFileContent(paths) {
-    return await Promise.all(
-        paths.map(async path => (await fs.promises.readFile(path)).toString())
-    );
 }
 
 function insertAfter(string, tag, insertSubString) {
@@ -68,9 +71,24 @@ async function updateIndex(filesPath) {
 
     const examplesP = await Promise.all(filesPath.map(async path => {
         const readme = (await fs.promises.readFile(path.replace('example.html', 'readme.md'))).toString();
-        const readmeHTML = render(readme);
-        const example = (await fs.promises.readFile(path)).toString();
-        return insertAfter(readmeHTML, '<h2>Examples</h2>', example);
+        const readmeHTML = render(readme.replace(/```html([\S\s]*?)```/gmu, '```html$1```\n$1'));
+        const name = readmeHTML.match(/<h1>(.*)<\/h1>/)[0];
+        const [doc, api] = readmeHTML.split('<!-- Auto Generated Below -->');
+
+        if (name === '<h1>Tabs</h1>') {
+            console.dir(doc.replace(/<h1>(.*)<\/h1>/, ''));
+        }
+
+        return `
+        ${name}
+        <wcs-card>
+            <wcs-tabs>
+                <wcs-tab header="Examples">
+                    ${doc.replace(/<h1>(.*)<\/h1>/, '')}
+                </wcs-tab>
+                <wcs-tab header="API">${api}</wcs-tab>
+            </wcs-tabs>
+        </wcs-card>`;
     }));
     const examples = examplesP.reduce((acc, cur) => acc + cur + '\r\n', '');
     const index = (await fs.promises.readFile('./src/template.html')).toString();
@@ -98,13 +116,12 @@ function getFilterComponentName() {
 
 async function watchBuild() {
     let filterComponentArgument = getFilterComponentName();
-    const files = await allFilesWithExtension('./src/components/', '.html', filterComponentArgument);
+    const files = await allFilesWithExtension('./src/components/', '.md', filterComponentArgument);
     console.log('Watching files:');
     files.sort().forEach(f => console.log(' - ' + f));
     const watcher = chokidar.watch([
         ...files.sort(),
-        'src/template.html',
-        'src/components/**/*.md'
+        'src/template.html'
     ]);
     watcher.on('ready', () => updateIndex(files));
     watcher.on('change', () => updateIndex(files));

@@ -1,7 +1,8 @@
 # Input
 
-## Examples
-
+```html
+<wcs-input></wcs-input>
+```
 
 <!-- Auto Generated Below -->
 

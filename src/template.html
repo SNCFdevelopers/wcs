@@ -8,39 +8,11 @@
     <script type="module" src="./build/wcs.esm.js"></script>
     <script nomodule src="./build/wcs.js"></script>
     <link rel="stylesheet" href="./build/wcs.css">
+    <link rel="stylesheet" href="./assets/style.css">
 </head>
 
 <body>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" lazyload>
-    <style>
-        body {
-            margin: 0;
-            overflow-y: hidden;
-        }
-
-        main {
-            overflow-y: scroll;
-            height: calc(100vh - 84px);
-            padding: 0 100px;
-        }
-
-        h1:not(:first-of-type) {
-            margin-top: 64px;
-        }
-
-        wcs-card {
-            margin-bottom: 16px;
-        }
-
-        wcs-card-body>h3:first-child {
-            margin-top: 0;
-        }
-
-        td {
-            margin-right: 32px;
-        }
-
-    </style>
     <wcs-header>
         <img src="./assets/sncf-logo.png" alt="Logo SNCF" slot="logo">
         <h1 slot="title">Web Component SNCF</h1>

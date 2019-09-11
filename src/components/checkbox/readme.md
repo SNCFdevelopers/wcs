@@ -1,9 +1,13 @@
 # Checkbox
 
-## Examples
+```html
+<wcs-checkbox>Normal checkbox</wcs-checkbox>
+<wcs-checkbox checked="true">Default checked checkbox</wcs-checkbox>
+<wcs-checkbox>Checkbox</wcs-checkbox>
+<wcs-checkbox indeterminate="true">Checkbox indeterminate</wcs-checkbox>
+```
 
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
