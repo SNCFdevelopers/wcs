@@ -15,3 +15,8 @@ There will be documentation up and running soon, as of now you can simply refer 
 
 If you have any question, don't hesitate to fill an issue !
 
+## CLI Commands
+
+For development phases the command `npm start` accepts an argument that filters the documentation rendering on a single component using the parameter `--filter <componentName>`
+
+Example : `npm start -- --filter dropdown`

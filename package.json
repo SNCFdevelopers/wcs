@@ -20,7 +20,7 @@
         "build": "node build.js && stencil build",
         "watch:stencil": "stencil build --dev --serve --watch",
         "watch:examples": "node build.js --watch",
-        "start": "concurrently npm:watch:*",
+        "start": "node run.js",
         "test": "stencil test --spec --e2e",
         "test:watch": "stencil test --spec --e2e --watchAll",
         "postversion": "git push --follow-tags"
