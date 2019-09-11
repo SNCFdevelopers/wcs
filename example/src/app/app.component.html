@@ -1,0 +1,8 @@
+<wcs-card>
+  <wcs-card-body>
+      <wcs-select id="lazy-loaded-select" placeholder="Le select" multiple>
+          <wcs-select-option *ngFor="let opt of options" [value]="opt.value">{{ opt.name }}</wcs-select-option>
+      </wcs-select>
+      <wcs-button (click)="addOptions()" stroked class="primary">Add option</wcs-button>
+  </wcs-card-body>
+</wcs-card>

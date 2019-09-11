@@ -24,7 +24,7 @@ import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
 // Add this line:
-import { defineCustomElements } from 'wcs/loader';
+import { defineCustomElements, applyPolyfills } from 'wcs/loader';
 
 if (environment.production) {
   enableProdMode();
@@ -33,7 +33,9 @@ if (environment.production) {
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
 // Add this line:
-defineCustomElements(window);
+applyPolyfills.then(() => {
+  defineCustomElements(window);
+});
 ```
 ```ts
 /// src/app/app.module.ts
@@ -61,5 +63,5 @@ export class AppModule { }
 /// src/styles.scss
 /* You can add global styles to this file, and also import other style files */
 // Add this line:
-@import 'wcs/wcs.css';
+@import 'wcs/dist/wcs/wcs.css';
 ```

@@ -139,10 +139,12 @@ export class Select implements ComponentInterface {
             const observer = new MutationObserver((mutationsList) => {
                 for (const mutation of mutationsList) {
                     if (mutation.type === 'childList') {
-                        Array.from(this.el.querySelectorAll('.wcs-select-options + wcs-select-option'))
+                        Array.from(this.el.querySelectorAll('wcs-select-option'))
                             .forEach(option => {
-                                this.el.removeChild(option);
-                                this.optionsEl.appendChild(option);
+                                if (option.parentNode === this.el) {
+                                    this.el.removeChild(option);
+                                    this.optionsEl.appendChild(option);
+                                }
                             });
                     }
                 }
