@@ -8,6 +8,8 @@
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 import {
   ButtonType,
+  WcsButtonMode,
+  WcsButtonShape,
 } from './components/button/button-interface';
 import {
   CheckboxChangeEventDetail,
@@ -40,13 +42,22 @@ export namespace Components {
     */
     'href'?: string;
     /**
-    * This attribute specifies the size of the button. Setting this attribute will change the height and padding of a button.
+    * Specifies whether the button content is an icon.
+    * @default false
     */
-    'mode': 'normal' | 'small' | 'block' | 'icon-only' | 'round';
+    'icon': boolean;
+    /**
+    * This attribute specify the appearance of the button.
+    */
+    'mode': WcsButtonMode;
     /**
     * Specify wether the button should have a ripple effect or not.
     */
     'ripple': boolean;
+    /**
+    * Specify the shape of the button. Setting this attribute will change the height and padding of a button.
+    */
+    'shape': WcsButtonShape;
     /**
     * Specify the button type.
     */
@@ -394,13 +405,22 @@ declare namespace LocalJSX {
     */
     'href'?: string;
     /**
-    * This attribute specifies the size of the button. Setting this attribute will change the height and padding of a button.
+    * Specifies whether the button content is an icon.
+    * @default false
     */
-    'mode'?: 'normal' | 'small' | 'block' | 'icon-only' | 'round';
+    'icon'?: boolean;
+    /**
+    * This attribute specify the appearance of the button.
+    */
+    'mode'?: WcsButtonMode;
     /**
     * Specify wether the button should have a ripple effect or not.
     */
     'ripple'?: boolean;
+    /**
+    * Specify the shape of the button. Setting this attribute will change the height and padding of a button.
+    */
+    'shape'?: WcsButtonShape;
     /**
     * Specify the button type.
     */

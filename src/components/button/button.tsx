@@ -2,7 +2,7 @@ import { Component, ComponentInterface, Element, Prop, Listen, h } from '@stenci
 
 import * as MDCRipple from '@material/ripple';
 
-import { ButtonType } from './button-interface';
+import { ButtonType, WcsButtonMode, WcsButtonShape } from './button-interface';
 import { hasShadowDom } from '../../utils/helpers';
 
 /**
@@ -40,10 +40,21 @@ export class Button implements ComponentInterface {
     @Prop() ripple = true;
 
     /**
-     * This attribute specifies the size of the button.
+     * Specify the shape of the button.
      * Setting this attribute will change the height and padding of a button.
      */
-    @Prop({ reflect: true }) mode: 'normal' | 'small' | 'block' | 'icon-only' | 'round' = 'normal';
+    @Prop({ reflect: true }) shape: WcsButtonShape = 'normal';
+
+    /**
+     * This attribute specify the appearance of the button.
+     */
+    @Prop({ reflect: true }) mode: WcsButtonMode = 'plain';
+
+    /**
+     * Specifies whether the button content is an icon.
+     * @default false
+     */
+    @Prop({ reflect: true }) icon: boolean = false;
 
     @Listen('click')
     onClick(ev: Event) {
@@ -77,7 +88,7 @@ export class Button implements ComponentInterface {
                 {...this.generateClasses()}
                 {...this.disabled === true ? { disabled: true } : null}
             >
-                <slot />
+                <slot/>
             </TagType>
         );
     }
@@ -86,10 +97,9 @@ export class Button implements ComponentInterface {
         return {
             class: {
                 'wcs-inner-button': true,
-                'wcs-inner-button-small': this.mode === 'small',
-                'wcs-inner-button-block': this.mode === 'block',
-                'wcs-inner-button-icon-only': this.mode === 'icon-only',
-                'wcs-inner-button-rounded': this.mode === 'round',
+                'wcs-inner-button-small': this.shape === 'small',
+                'wcs-inner-button-icon-only': this.icon,
+                'wcs-inner-button-rounded': this.shape === 'round',
             }
         };
     }

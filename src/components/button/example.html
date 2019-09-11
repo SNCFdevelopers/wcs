@@ -1,98 +1,104 @@
 <h3>Basic</h3>
-<wcs-card>
-    <wcs-card-body>
-        <wcs-button class="wcs-primary">Primary</wcs-button>
-        <wcs-button class="wcs-secondary">Secondary</wcs-button>
-        <wcs-button class="wcs-success">Success</wcs-button>
-        <wcs-button class="wcs-warning">Warning</wcs-button>
-        <wcs-button class="wcs-danger">Danger</wcs-button>
-        <wcs-button class="wcs-info">Info</wcs-button>
-        <wcs-button class="wcs-dark">Dark</wcs-button>
-        <wcs-button class="wcs-light">Light</wcs-button>
-        <wcs-button class="wcs-primary" disabled>Disabled</wcs-button>
-    </wcs-card-body>
-</wcs-card>
+<style>
+    #button-demo wcs-button {
+        margin: 4px;
+    }
+</style>
+<div id="button-demo">
+    <wcs-card>
+        <wcs-card-body>
+            <wcs-button class="wcs-primary">Primary</wcs-button>
+            <wcs-button class="wcs-secondary">Secondary</wcs-button>
+            <wcs-button class="wcs-success">Success</wcs-button>
+            <wcs-button class="wcs-warning">Warning</wcs-button>
+            <wcs-button class="wcs-danger">Danger</wcs-button>
+            <wcs-button class="wcs-info">Info</wcs-button>
+            <wcs-button class="wcs-dark">Dark</wcs-button>
+            <wcs-button class="wcs-light">Light</wcs-button>
+            <wcs-button class="wcs-primary" disabled>Disabled</wcs-button>
+        </wcs-card-body>
+    </wcs-card>
 
-<h3>Clear</h3>
-<wcs-card>
-    <wcs-card-body>
-        <wcs-button clear class="wcs-primary">Primary</wcs-button>
-        <wcs-button clear class="wcs-secondary">Secondary</wcs-button>
-        <wcs-button clear class="wcs-success">Success</wcs-button>
-        <wcs-button clear class="wcs-warning">Warning</wcs-button>
-        <wcs-button clear class="wcs-danger">Danger</wcs-button>
-        <wcs-button clear class="wcs-info">Info</wcs-button>
-        <wcs-button clear class="wcs-dark">Dark</wcs-button>
-        <wcs-button class="wcs-primary" clear disabled>Disabled</wcs-button>
+    <h3>Clear</h3>
+    <wcs-card>
+        <wcs-card-body>
+            <wcs-button mode="clear" class="wcs-primary">Primary</wcs-button>
+            <wcs-button mode="clear" class="wcs-secondary">Secondary</wcs-button>
+            <wcs-button mode="clear" class="wcs-success">Success</wcs-button>
+            <wcs-button mode="clear" class="wcs-warning">Warning</wcs-button>
+            <wcs-button mode="clear" class="wcs-danger">Danger</wcs-button>
+            <wcs-button mode="clear" class="wcs-info">Info</wcs-button>
+            <wcs-button mode="clear" class="wcs-dark">Dark</wcs-button>
+            <wcs-button mode="clear" class="wcs-primary" disabled>Disabled</wcs-button>
+        </wcs-card-body>
+    </wcs-card>
 
-    </wcs-card-body>
-</wcs-card>
+    <h3>Stroked</h3>
+    <wcs-card>
+        <wcs-card-body>
+            <wcs-button mode="stroked" class="wcs-primary">Primary</wcs-button>
+            <wcs-button mode="stroked" class="wcs-secondary">Secondary</wcs-button>
+            <wcs-button mode="stroked" class="wcs-success">Success</wcs-button>
+            <wcs-button mode="stroked" class="wcs-warning">Warning</wcs-button>
+            <wcs-button mode="stroked" class="wcs-danger">Danger</wcs-button>
+            <wcs-button mode="stroked" class="wcs-info">Info</wcs-button>
+            <wcs-button mode="stroked" class="wcs-dark">Dark</wcs-button>
+            <wcs-button mode="stroked" class="wcs-primary" disabled>Disabled</wcs-button>
+        </wcs-card-body>
+    </wcs-card>
 
-<h3>Stroked</h3>
-<wcs-card>
-    <wcs-card-body>
-        <wcs-button stroked class="wcs-primary">Primary</wcs-button>
-        <wcs-button stroked class="wcs-secondary">Secondary</wcs-button>
-        <wcs-button stroked class="wcs-success">Success</wcs-button>
-        <wcs-button stroked class="wcs-warning">Warning</wcs-button>
-        <wcs-button stroked class="wcs-danger">Danger</wcs-button>
-        <wcs-button stroked class="wcs-info">Info</wcs-button>
-        <wcs-button stroked class="wcs-dark">Dark</wcs-button>
-        <wcs-button class="wcs-primary" stroked disabled>Disabled</wcs-button>
-    </wcs-card-body>
-</wcs-card>
+    <h3>Round</h3>
+    <wcs-card>
+        <wcs-card-body>
+            <wcs-button shape="round" class="wcs-primary" icon>
+                <i class="material-icons">accessibility_new</i>
+            </wcs-button>
+            <wcs-button shape="round" mode="clear" class="wcs-primary" icon>
+                <i class="material-icons">accessibility_new</i>
+            </wcs-button>
+            <wcs-button shape="round" mode="stroked" class="wcs-primary" icon>
+                <i class="material-icons">accessibility_new</i>
+            </wcs-button>
+            <wcs-button shape="round" class="wcs-primary" disabled icon>
+                <i class="material-icons">accessibility_new</i>
+            </wcs-button>
+        </wcs-card-body>
+    </wcs-card>
 
-<h3>Round</h3>
-<wcs-card>
-    <wcs-card-body>
-        <wcs-button mode="round" class="wcs-primary"><i class="material-icons">
-                accessibility_new
-            </i></wcs-button>
-        <wcs-button mode="round" class="wcs-primary" clear><i class="material-icons">
-                accessibility_new
-            </i></wcs-button>
-        <wcs-button mode="round" class="wcs-primary" stroked>
-            <i class="material-icons">accessibility_new</i>
-        </wcs-button>
-        <wcs-button mode="round" class="wcs-primary" disabled>
-            <i class="material-icons">accessibility_new</i>
-        </wcs-button>
-    </wcs-card-body>
-</wcs-card>
+    <h3>Icon only</h3>
+    <wcs-card>
+        <wcs-card-body>
+            <wcs-button class="wcs-primary" icon>
+                <i class="material-icons">accessibility_new</i>
+            </wcs-button>
+            <wcs-button class="wcs-primary" mode="clear" icon>
+                <i class="material-icons">accessibility_new</i>
+            </wcs-button>
+            <wcs-button class="wcs-primary" mode="stroked" icon>
+                <i class="material-icons">accessibility_new</i>
+            </wcs-button>
+            <wcs-button class="wcs-primary" disabled icon>
+                <i class="material-icons">accessibility_new</i>
+            </wcs-button>
+        </wcs-card-body>
+    </wcs-card>
 
-<h3>Icon only</h3>
-<wcs-card>
-    <wcs-card-body>
-        <wcs-button class="wcs-primary" mode="icon-only">
-            <i class="material-icons">accessibility_new</i>
-        </wcs-button>
-        <wcs-button class="wcs-primary" clear mode="icon-only">
-            <i class="material-icons">accessibility_new</i>
-        </wcs-button>
-        <wcs-button class="wcs-primary" stroked mode="icon-only">
-            <i class="material-icons">accessibility_new</i>
-        </wcs-button>
-        <wcs-button class="wcs-primary" disabled mode="icon-only">
-            <i class="material-icons">accessibility_new</i>
-        </wcs-button>
-    </wcs-card-body>
-</wcs-card>
+    <h3>Link</h3>
+    <wcs-card>
+        <wcs-card-body>
 
-<h3>Link</h3>
-<wcs-card>
-    <wcs-card-body>
+            <wcs-button class="wcs-primary" href="#">Un lien !</wcs-button>
+        </wcs-card-body>
+    </wcs-card>
 
-        <wcs-button class="wcs-primary" href="#">Un lien !</wcs-button>
-    </wcs-card-body>
-</wcs-card>
+    <h3>Small</h3>
+    <wcs-card>
+        <wcs-card-body>
 
-<h3>Small</h3>
-<wcs-card>
-    <wcs-card-body>
-
-        <wcs-button class="wcs-primary" mode="small">Small</wcs-button>
-        <wcs-button class="wcs-primary" clear mode="small">Small</wcs-button>
-        <wcs-button class="wcs-primary" stroked mode="small">Small</wcs-button>
-        <wcs-button class="wcs-primary" stroked disabled mode="small">Disabled</wcs-button>
-    </wcs-card-body>
-</wcs-card>
+            <wcs-button class="wcs-primary" shape="small">Small</wcs-button>
+            <wcs-button class="wcs-primary" mode="clear" shape="small">Small</wcs-button>
+            <wcs-button class="wcs-primary" mode="stroked" shape="small">Small</wcs-button>
+            <wcs-button class="wcs-primary" stroked disabled shape="small">Disabled</wcs-button>
+        </wcs-card-body>
+    </wcs-card>
+</div>
