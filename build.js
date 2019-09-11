@@ -17,8 +17,8 @@ const render = mem(content => md.render(content))
  * @param {import("fs").PathLike} basePath
  * @param {string} extension
  */
-async function allFilesWithExtension(basePath, extension) {
-    const filesByDir = await Promise.all((await fs.promises.readdir(basePath))
+async function allFilesWithExtension(basePath, extension, filter) {
+    let filesByDir = await Promise.all((await fs.promises.readdir(basePath))
         .map(async name => {
             const file = await fs.promises.stat(basePath + name);
             if (name[0] === '.') {
@@ -30,7 +30,13 @@ async function allFilesWithExtension(basePath, extension) {
                     ? [basePath + name]
                     : [];
         }));
-    return filesByDir.reduce((curr, acc) => [...acc, ...curr], []);
+    filesByDir = filesByDir.reduce((curr, acc) => [...acc, ...curr], []);
+    if (filter != null) {
+        filesByDir = filesByDir.filter(x => {
+            return x.includes('/' + filter + '/');
+        });
+    }
+    return filesByDir;
 }
 
 /**
@@ -77,8 +83,22 @@ async function updateIndex(filesPath) {
     console.log('Rewrite finished in: %d %dms', end[0], end[1] / 100000);
 }
 
+/**
+ * return null if no filter are specifies in arguments
+ */
+function getFilterComponentName() {
+    let filterComponentName = null;
+    for (let i = 0; i < process.argv.length; i++) {
+        if (process.argv[i] == "--filter") {
+            filterComponentName = process.argv[i + 1];
+        }
+    }
+    return filterComponentName;
+}
+
 async function watchBuild() {
-    const files = await allFilesWithExtension('./src/components/', '.html');
+    let filterComponentArgument = getFilterComponentName();
+    const files = await allFilesWithExtension('./src/components/', '.html', filterComponentArgument);
     console.log('Watching files:');
     files.sort().forEach(f => console.log(' - ' + f));
     const watcher = chokidar.watch([
