@@ -105,9 +105,23 @@
 }
 
 :host([shape='round']) {
-    .wcs-inner-button{
+    .wcs-inner-button {
         --wcs-button-padding: 0;
         --wcs-button-border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        min-width: 2.8125rem;
+        min-height: 2.8125rem;
+    }
+}
+
+:host([shape='square']) {
+    .wcs-inner-button {
+        --wcs-button-padding: 0;
+        --wcs-button-border-radius: var(--wcs-border-radius);
         display: inline-flex;
         align-items: center;
         justify-content: center;
