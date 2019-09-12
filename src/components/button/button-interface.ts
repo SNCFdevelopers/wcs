@@ -1,4 +1,4 @@
-export type ButtonType = 'button' | 'submit';
+export type ButtonType = 'wcs-button' | 'wcs-submit';
 
 export type WcsButtonShape = 'normal' | 'small' | 'round' | 'square';
 

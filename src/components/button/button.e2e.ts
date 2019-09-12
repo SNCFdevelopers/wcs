@@ -8,7 +8,7 @@ describe('button', () => {
         const page = await newE2EPage();
         await page.setContent(`
             <form>
-                <wcs-button class="wcs-primary" type="submit"></wcs-button>
+                <wcs-button class="wcs-primary" type="wcs-submit"></wcs-button>
             </form>
         `);
         const form = await page.find('form');

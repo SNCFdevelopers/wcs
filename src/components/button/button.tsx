@@ -21,7 +21,7 @@ export class Button implements ComponentInterface {
     /**
      * Specify the button type.
      */
-    @Prop({ mutable: true }) type: ButtonType = 'button';
+    @Prop({ mutable: true }) type: ButtonType = 'wcs-button';
 
     /**
      * Set a URL to point to.
@@ -41,7 +41,6 @@ export class Button implements ComponentInterface {
 
     /**
      * Specify the shape of the button.
-     * Setting this attribute will change the height and padding of a button.
      */
     @Prop({ reflect: true }) shape: WcsButtonShape = 'normal';
 
@@ -50,15 +49,9 @@ export class Button implements ComponentInterface {
      */
     @Prop({ reflect: true }) mode: WcsButtonMode = 'plain';
 
-    /**
-     * Specifies whether the button content is an icon.
-     * @default false
-     */
-    @Prop({ reflect: true }) icon: boolean = false;
-
     @Listen('click')
     onClick(ev: Event) {
-        if (this.type !== 'button' && hasShadowDom(this.el)) {
+        if (this.type !== 'wcs-button' && hasShadowDom(this.el)) {
             // this button wants to specifically submit a form
             // climb up the dom to see if we're in a <form>
             // and if so, then use JS to submit it
@@ -85,23 +78,12 @@ export class Button implements ComponentInterface {
         return (
             <TagType
                 {...attrs}
-                {...this.generateClasses()}
+                class="wcs-inner-button"
                 {...this.disabled === true ? { disabled: true } : null}
             >
                 <slot/>
             </TagType>
         );
-    }
-
-    private generateClasses() {
-        return {
-            class: {
-                'wcs-inner-button': true,
-                'wcs-inner-button-small': this.shape === 'small',
-                'wcs-inner-button-icon-only': this.icon,
-                'wcs-inner-button-rounded': this.shape === 'round',
-            }
-        };
     }
 
     componentDidLoad() {

@@ -100,27 +100,22 @@
 
 }
 
-.wcs-inner-button-small {
+:host([shape='small']) {
     --wcs-button-padding: 2px 16px;
 }
 
-.wcs-inner-button-icon-only {
-    --wcs-button-padding: 0;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 3.125rem;
-    min-height: 2.8125rem;
-}
-
-.wcs-inner-button-rounded {
-    --wcs-button-padding: 0;
-    --wcs-button-border-radius: 8px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.5rem;
-    height: 2.5rem;
+:host([shape='round']) {
+    .wcs-inner-button{
+        --wcs-button-padding: 0;
+        --wcs-button-border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        min-width: 2.8125rem;
+        min-height: 2.8125rem;
+    }
 }
 
 a {

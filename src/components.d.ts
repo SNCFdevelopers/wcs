@@ -42,11 +42,6 @@ export namespace Components {
     */
     'href'?: string;
     /**
-    * Specifies whether the button content is an icon.
-    * @default false
-    */
-    'icon': boolean;
-    /**
     * This attribute specify the appearance of the button.
     */
     'mode': WcsButtonMode;
@@ -55,7 +50,7 @@ export namespace Components {
     */
     'ripple': boolean;
     /**
-    * Specify the shape of the button. Setting this attribute will change the height and padding of a button.
+    * Specify the shape of the button.
     */
     'shape': WcsButtonShape;
     /**
@@ -405,11 +400,6 @@ declare namespace LocalJSX {
     */
     'href'?: string;
     /**
-    * Specifies whether the button content is an icon.
-    * @default false
-    */
-    'icon'?: boolean;
-    /**
     * This attribute specify the appearance of the button.
     */
     'mode'?: WcsButtonMode;
@@ -418,7 +408,7 @@ declare namespace LocalJSX {
     */
     'ripple'?: boolean;
     /**
-    * Specify the shape of the button. Setting this attribute will change the height and padding of a button.
+    * Specify the shape of the button.
     */
     'shape'?: WcsButtonShape;
     /**
