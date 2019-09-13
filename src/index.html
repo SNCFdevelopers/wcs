@@ -19,26 +19,12 @@
     </wcs-header>
     <main slot="content">
         <!--Import-->
-        <h1>App</h1>
-        <wcs-card>
-            <wcs-tabs>
-                <wcs-tab header="Examples">
-                    
-
-                </wcs-tab>
-                <wcs-tab header="API">
-<hr>
-<p><em>Built with <a href="https://stenciljs.com/">StencilJS</a></em></p>
-</wcs-tab>
-            </wcs-tabs>
-        </wcs-card>
 
         <h1>Badge</h1>
         <wcs-card>
             <wcs-tabs>
                 <wcs-tab header="Examples">
-                    
-<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">wcs-badge</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-primary"</span>&gt;</span>Primary<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-badge</span>&gt;</span>
+                    <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">wcs-badge</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-primary"</span>&gt;</span>Primary<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-badge</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">wcs-badge</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-secondary"</span>&gt;</span>Secondary<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-badge</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">wcs-badge</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-success"</span>&gt;</span>Success<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-badge</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">wcs-badge</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-danger"</span>&gt;</span>Danger<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-badge</span>&gt;</span>
@@ -55,7 +41,6 @@
 <wcs-badge class="wcs-info">Info</wcs-badge>
 <wcs-badge class="wcs-light">Light</wcs-badge>
 <wcs-badge class="wcs-dark">Dark</wcs-badge></p>
-
                 </wcs-tab>
                 <wcs-tab header="API">
 <hr>
@@ -68,8 +53,7 @@
         <wcs-card>
             <wcs-tabs>
                 <wcs-tab header="Examples">
-                    
-<h3>Basic</h3>
+                    <h3>Basic</h3>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-primary"</span>&gt;</span>Primary<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-secondary"</span>&gt;</span>Secondary<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-success"</span>&gt;</span>Success<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
@@ -90,91 +74,91 @@
 <wcs-button class="wcs-light">Light</wcs-button>
 <wcs-button class="wcs-primary" disabled>Disabled</wcs-button></p>
 <h3>Clear</h3>
-<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">clear</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-primary"</span>&gt;</span>Primary<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">clear</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-secondary"</span>&gt;</span>Secondary<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">clear</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-success"</span>&gt;</span>Success<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">clear</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-warning"</span>&gt;</span>Warning<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">clear</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-danger"</span>&gt;</span>Danger<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">clear</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-info"</span>&gt;</span>Info<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">clear</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-dark"</span>&gt;</span>Dark<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-primary"</span> <span class="hljs-attr">clear</span> <span class="hljs-attr">disabled</span>&gt;</span>Disabled<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">"clear"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-primary"</span>&gt;</span>Primary<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">"clear"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-secondary"</span>&gt;</span>Secondary<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">"clear"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-success"</span>&gt;</span>Success<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">"clear"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-warning"</span>&gt;</span>Warning<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">"clear"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-danger"</span>&gt;</span>Danger<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">"clear"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-info"</span>&gt;</span>Info<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">"clear"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-dark"</span>&gt;</span>Dark<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">"clear"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-primary"</span> <span class="hljs-attr">disabled</span>&gt;</span>Disabled<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
 </code></pre>
-<p><wcs-button clear class="wcs-primary">Primary</wcs-button>
-<wcs-button clear class="wcs-secondary">Secondary</wcs-button>
-<wcs-button clear class="wcs-success">Success</wcs-button>
-<wcs-button clear class="wcs-warning">Warning</wcs-button>
-<wcs-button clear class="wcs-danger">Danger</wcs-button>
-<wcs-button clear class="wcs-info">Info</wcs-button>
-<wcs-button clear class="wcs-dark">Dark</wcs-button>
-<wcs-button class="wcs-primary" clear disabled>Disabled</wcs-button></p>
+<p><wcs-button mode="clear" class="wcs-primary">Primary</wcs-button>
+<wcs-button mode="clear" class="wcs-secondary">Secondary</wcs-button>
+<wcs-button mode="clear" class="wcs-success">Success</wcs-button>
+<wcs-button mode="clear" class="wcs-warning">Warning</wcs-button>
+<wcs-button mode="clear" class="wcs-danger">Danger</wcs-button>
+<wcs-button mode="clear" class="wcs-info">Info</wcs-button>
+<wcs-button mode="clear" class="wcs-dark">Dark</wcs-button>
+<wcs-button mode="clear" class="wcs-primary" disabled>Disabled</wcs-button></p>
 <h3>Stroked</h3>
-<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">stroked</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-primary"</span>&gt;</span>Primary<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">stroked</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-secondary"</span>&gt;</span>Secondary<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">stroked</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-success"</span>&gt;</span>Success<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">stroked</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-warning"</span>&gt;</span>Warning<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">stroked</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-danger"</span>&gt;</span>Danger<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">stroked</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-info"</span>&gt;</span>Info<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">stroked</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-dark"</span>&gt;</span>Dark<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-primary"</span> <span class="hljs-attr">stroked</span> <span class="hljs-attr">disabled</span>&gt;</span>Disabled<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">"stroked"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-primary"</span>&gt;</span>Primary<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">"stroked"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-secondary"</span>&gt;</span>Secondary<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">"stroked"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-success"</span>&gt;</span>Success<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">"stroked"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-warning"</span>&gt;</span>Warning<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">"stroked"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-danger"</span>&gt;</span>Danger<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">"stroked"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-info"</span>&gt;</span>Info<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">"stroked"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-dark"</span>&gt;</span>Dark<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">"stroked"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-primary"</span> <span class="hljs-attr">disabled</span>&gt;</span>Disabled<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
 </code></pre>
-<p><wcs-button stroked class="wcs-primary">Primary</wcs-button>
-<wcs-button stroked class="wcs-secondary">Secondary</wcs-button>
-<wcs-button stroked class="wcs-success">Success</wcs-button>
-<wcs-button stroked class="wcs-warning">Warning</wcs-button>
-<wcs-button stroked class="wcs-danger">Danger</wcs-button>
-<wcs-button stroked class="wcs-info">Info</wcs-button>
-<wcs-button stroked class="wcs-dark">Dark</wcs-button>
-<wcs-button class="wcs-primary" stroked disabled>Disabled</wcs-button></p>
+<p><wcs-button mode="stroked" class="wcs-primary">Primary</wcs-button>
+<wcs-button mode="stroked" class="wcs-secondary">Secondary</wcs-button>
+<wcs-button mode="stroked" class="wcs-success">Success</wcs-button>
+<wcs-button mode="stroked" class="wcs-warning">Warning</wcs-button>
+<wcs-button mode="stroked" class="wcs-danger">Danger</wcs-button>
+<wcs-button mode="stroked" class="wcs-info">Info</wcs-button>
+<wcs-button mode="stroked" class="wcs-dark">Dark</wcs-button>
+<wcs-button mode="stroked" class="wcs-primary" disabled>Disabled</wcs-button></p>
 <h3>Round</h3>
-<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">"round"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-primary"</span>&gt;</span>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">shape</span>=<span class="hljs-string">"round"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-primary"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"material-icons"</span>&gt;</span>accessibility_new<span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">"round"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-primary"</span> <span class="hljs-attr">clear</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">shape</span>=<span class="hljs-string">"round"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-primary"</span> <span class="hljs-attr">clear</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"material-icons"</span>&gt;</span>accessibility_new<span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">"round"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-primary"</span> <span class="hljs-attr">stroked</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">shape</span>=<span class="hljs-string">"round"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-primary"</span> <span class="hljs-attr">stroked</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"material-icons"</span>&gt;</span>accessibility_new<span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">"round"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-primary"</span> <span class="hljs-attr">disabled</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">shape</span>=<span class="hljs-string">"round"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-primary"</span> <span class="hljs-attr">disabled</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"material-icons"</span>&gt;</span>accessibility_new<span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
 </code></pre>
-<wcs-button mode="round" class="wcs-primary">
+<wcs-button shape="round" class="wcs-primary">
     <i class="material-icons">accessibility_new</i>
 </wcs-button>
-<wcs-button mode="round" class="wcs-primary" clear>
+<wcs-button shape="round" class="wcs-primary" clear>
     <i class="material-icons">accessibility_new</i>
 </wcs-button>
-<wcs-button mode="round" class="wcs-primary" stroked>
+<wcs-button shape="round" class="wcs-primary" stroked>
     <i class="material-icons">accessibility_new</i>
 </wcs-button>
-<wcs-button mode="round" class="wcs-primary" disabled>
+<wcs-button shape="round" class="wcs-primary" disabled>
     <i class="material-icons">accessibility_new</i>
 </wcs-button>
 <h3>Icon only</h3>
-<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-primary"</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">"icon-only"</span>&gt;</span>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-primary"</span> <span class="hljs-attr">shape</span>=<span class="hljs-string">"square"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"material-icons"</span>&gt;</span>accessibility_new<span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-primary"</span> <span class="hljs-attr">clear</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">"icon-only"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-primary"</span> <span class="hljs-attr">clear</span> <span class="hljs-attr">shape</span>=<span class="hljs-string">"square"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"material-icons"</span>&gt;</span>accessibility_new<span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-primary"</span> <span class="hljs-attr">stroked</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">"icon-only"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-primary"</span> <span class="hljs-attr">stroked</span> <span class="hljs-attr">shape</span>=<span class="hljs-string">"square"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"material-icons"</span>&gt;</span>accessibility_new<span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-primary"</span> <span class="hljs-attr">disabled</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">"icon-only"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-primary"</span> <span class="hljs-attr">disabled</span> <span class="hljs-attr">shape</span>=<span class="hljs-string">"square"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"material-icons"</span>&gt;</span>accessibility_new<span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
 </code></pre>
-<wcs-button class="wcs-primary" mode="icon-only">
+<wcs-button class="wcs-primary" shape="square">
     <i class="material-icons">accessibility_new</i>
 </wcs-button>
-<wcs-button class="wcs-primary" clear mode="icon-only">
+<wcs-button class="wcs-primary" clear shape="square">
     <i class="material-icons">accessibility_new</i>
 </wcs-button>
-<wcs-button class="wcs-primary" stroked mode="icon-only">
+<wcs-button class="wcs-primary" stroked shape="square">
     <i class="material-icons">accessibility_new</i>
 </wcs-button>
-<wcs-button class="wcs-primary" disabled mode="icon-only">
+<wcs-button class="wcs-primary" disabled shape="square">
     <i class="material-icons">accessibility_new</i>
 </wcs-button>
 <h3>Link</h3>
@@ -182,16 +166,15 @@
 </code></pre>
 <p><wcs-button class="wcs-primary" href="#">Un lien !</wcs-button></p>
 <h3>Small</h3>
-<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-primary"</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">"small"</span>&gt;</span>Small<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-primary"</span> <span class="hljs-attr">clear</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">"small"</span>&gt;</span>Small<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-primary"</span> <span class="hljs-attr">stroked</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">"small"</span>&gt;</span>Small<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-primary"</span> <span class="hljs-attr">stroked</span> <span class="hljs-attr">disabled</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">"small"</span>&gt;</span>Disabled<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-primary"</span> <span class="hljs-attr">shape</span>=<span class="hljs-string">"small"</span>&gt;</span>Small<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-primary"</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">"clear"</span> <span class="hljs-attr">shape</span>=<span class="hljs-string">"small"</span>&gt;</span>Small<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-primary"</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">"stroked"</span> <span class="hljs-attr">shape</span>=<span class="hljs-string">"small"</span>&gt;</span>Small<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-primary"</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">"stroked"</span> <span class="hljs-attr">disabled</span> <span class="hljs-attr">shape</span>=<span class="hljs-string">"small"</span>&gt;</span>Disabled<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
 </code></pre>
-<p><wcs-button class="wcs-primary" mode="small">Small</wcs-button>
-<wcs-button class="wcs-primary" clear mode="small">Small</wcs-button>
-<wcs-button class="wcs-primary" stroked mode="small">Small</wcs-button>
-<wcs-button class="wcs-primary" stroked disabled mode="small">Disabled</wcs-button></p>
-
+<p><wcs-button class="wcs-primary" shape="small">Small</wcs-button>
+<wcs-button class="wcs-primary" mode="clear" shape="small">Small</wcs-button>
+<wcs-button class="wcs-primary" mode="stroked" shape="small">Small</wcs-button>
+<wcs-button class="wcs-primary" mode="stroked" disabled shape="small">Disabled</wcs-button></p>
                 </wcs-tab>
                 <wcs-tab header="API">
 <h2>Properties</h2>
@@ -256,26 +239,12 @@
             </wcs-tabs>
         </wcs-card>
 
-        <h1>Card body</h1>
-        <wcs-card>
-            <wcs-tabs>
-                <wcs-tab header="Examples">
-                    
-
-                </wcs-tab>
-                <wcs-tab header="API">
-<hr>
-<p><em>Built with <a href="https://stenciljs.com/">StencilJS</a></em></p>
-</wcs-tab>
-            </wcs-tabs>
-        </wcs-card>
 
         <h1>Card</h1>
         <wcs-card>
             <wcs-tabs>
                 <wcs-tab header="Examples">
-                    
-<h2>Basic</h2>
+                    <h2>Basic</h2>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">wcs-card</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">wcs-card-body</span>&gt;</span>
         Card-ception
@@ -295,7 +264,6 @@
 <wcs-card>
     There is no padding !
 </wcs-card>
-
                 </wcs-tab>
                 <wcs-tab header="API">
 <hr>
@@ -308,8 +276,7 @@
         <wcs-card>
             <wcs-tabs>
                 <wcs-tab header="Examples">
-                    
-<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">wcs-checkbox</span>&gt;</span>Normal checkbox<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-checkbox</span>&gt;</span>
+                    <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">wcs-checkbox</span>&gt;</span>Normal checkbox<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-checkbox</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">wcs-checkbox</span> <span class="hljs-attr">checked</span>=<span class="hljs-string">"true"</span>&gt;</span>Default checked checkbox<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-checkbox</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">wcs-checkbox</span>&gt;</span>Checkbox<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-checkbox</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">wcs-checkbox</span> <span class="hljs-attr">indeterminate</span>=<span class="hljs-string">"true"</span>&gt;</span>Checkbox indeterminate<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-checkbox</span>&gt;</span>
@@ -318,7 +285,6 @@
 <wcs-checkbox checked="true">Default checked checkbox</wcs-checkbox>
 <wcs-checkbox>Checkbox</wcs-checkbox>
 <wcs-checkbox indeterminate="true">Checkbox indeterminate</wcs-checkbox></p>
-
                 </wcs-tab>
                 <wcs-tab header="API">
 <h2>Properties</h2>
@@ -389,68 +355,13 @@
             </wcs-tabs>
         </wcs-card>
 
-        <h1>Header</h1>
-        <wcs-card>
-            <wcs-tabs>
-                <wcs-tab header="Examples">
-                    
 
-                </wcs-tab>
-                <wcs-tab header="API">
-<hr>
-<p><em>Built with <a href="https://stenciljs.com/">StencilJS</a></em></p>
-</wcs-tab>
-            </wcs-tabs>
-        </wcs-card>
-
-        <h1>Icon</h1>
-        <wcs-card>
-            <wcs-tabs>
-                <wcs-tab header="Examples">
-                    
-
-                </wcs-tab>
-                <wcs-tab header="API">
-<h2>Properties</h2>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Attribute</th>
-<th>Description</th>
-<th>Type</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>icon</code></td>
-<td><code>icon</code></td>
-<td></td>
-<td><code>string</code></td>
-<td><code>undefined</code></td>
-</tr>
-<tr>
-<td><code>size</code></td>
-<td><code>size</code></td>
-<td></td>
-<td><code>&quot;140px&quot; \| &quot;1x&quot; \| &quot;1x2&quot; \| &quot;1x5&quot; \| &quot;1x7&quot; \| &quot;2x&quot; \| &quot;30px&quot; \| &quot;3x&quot; \| &quot;50px&quot; \| &quot;66px&quot; \| &quot;90px&quot; \| &quot;96px&quot; \| &quot;x5&quot; \| &quot;x75&quot;</code></td>
-<td><code>undefined</code></td>
-</tr>
-</tbody>
-</table>
-<hr>
-<p><em>Built with <a href="https://stenciljs.com/">StencilJS</a></em></p>
-</wcs-tab>
-            </wcs-tabs>
-        </wcs-card>
 
         <h1>Input group</h1>
         <wcs-card>
             <wcs-tabs>
                 <wcs-tab header="Examples">
-                    
-<h2>Examples</h2>
+                    <h2>Examples</h2>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">wcs-input-group</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">wcs-select</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"prefix"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Le select"</span> <span class="hljs-attr">multiple</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">wcs-select-option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"1"</span>&gt;</span>One<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-select-option</span>&gt;</span>
@@ -458,7 +369,7 @@
         <span class="hljs-tag">&lt;<span class="hljs-name">wcs-select-option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"3"</span>&gt;</span>Three<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-select-option</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">wcs-select</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">wcs-input</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"L'input"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">wcs-input</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">"icon-only"</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"suffix"</span> <span class="hljs-attr">ripple</span>=<span class="hljs-string">"false"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">wcs-button</span> <span class="hljs-attr">shape</span>=<span class="hljs-string">"square"</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"suffix"</span> <span class="hljs-attr">ripple</span>=<span class="hljs-string">"false"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"material-icons"</span>&gt;</span>search<span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">wcs-button</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">wcs-input-group</span>&gt;</span>
@@ -470,11 +381,10 @@
         <wcs-select-option value="3">Three</wcs-select-option>
     </wcs-select>
     <wcs-input placeholder="L'input"></wcs-input>
-    <wcs-button mode="icon-only" slot="suffix" ripple="false">
+    <wcs-button shape="square" slot="suffix" ripple="false">
         <i class="material-icons">search</i>
     </wcs-button>
 </wcs-input-group>
-
                 </wcs-tab>
                 <wcs-tab header="API">
 <hr>
@@ -487,11 +397,9 @@
         <wcs-card>
             <wcs-tabs>
                 <wcs-tab header="Examples">
-                    
-<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">wcs-input</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">wcs-input</span>&gt;</span>
+                    <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">wcs-input</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">wcs-input</span>&gt;</span>
 </code></pre>
 <p><wcs-input></wcs-input></p>
-
                 </wcs-tab>
                 <wcs-tab header="API">
 <h2>Properties</h2>
@@ -692,8 +600,7 @@
         <wcs-card>
             <wcs-tabs>
                 <wcs-tab header="Examples">
-                    
-<h2>Basic</h2>
+                    <h2>Basic</h2>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">wcs-progress-bar</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"50"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">wcs-progress-bar</span>&gt;</span>
 </code></pre>
 <p><wcs-progress-bar value="50"></wcs-progress-bar></p>
@@ -705,7 +612,7 @@
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">wcs-progress-bar</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"20"</span> <span class="hljs-attr">small</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">wcs-progress-bar</span>&gt;</span>
 </code></pre>
 <p><wcs-progress-bar value="20" small></wcs-progress-bar></p>
-<p><wcs-button stroked class="wcs-primary" style="position: absolute; right: 16px; bottom: 16px;"
+<p><wcs-button mode="stroked" class="wcs-primary" style="position: absolute; right: 16px; bottom: 16px;"
     id="progress-bar-button">
 Change values
 </wcs-button></p>
@@ -715,7 +622,6 @@ Change values
             .forEach(p => p.setAttribute('value', Math.ceil(Math.random() * 100)));
     });
 </script>
-
                 </wcs-tab>
                 <wcs-tab header="API">
 <h2>Properties</h2>
@@ -763,8 +669,7 @@ Change values
         <wcs-card>
             <wcs-tabs>
                 <wcs-tab header="Examples">
-                    
-<h2>Basic</h2>
+                    <h2>Basic</h2>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">wcs-progress-radial</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"20"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">wcs-progress-radial</span>&gt;</span>
 </code></pre>
 <p><wcs-progress-radial value="20"></wcs-progress-radial></p>
@@ -772,7 +677,7 @@ Change values
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">wcs-progress-radial</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"20"</span> <span class="hljs-attr">show-label</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">wcs-progress-radial</span>&gt;</span>
 </code></pre>
 <p><wcs-progress-radial value="20" show-label></wcs-progress-radial></p>
-<p><wcs-button stroked class="wcs-primary" style="position: absolute; right: 16px; bottom: 16px;"
+<p><wcs-button mode="stroked" class="wcs-primary" style="position: absolute; right: 16px; bottom: 16px;"
     id="progress-radial-button">
 Change values
 </wcs-button></p>
@@ -782,7 +687,6 @@ Change values
             .forEach(p => p.setAttribute('value', Math.ceil(Math.random() * 100)));
     });
 </script>
-
                 </wcs-tab>
                 <wcs-tab header="API">
 <h2>Properties</h2>
@@ -826,88 +730,12 @@ Change values
             </wcs-tabs>
         </wcs-card>
 
-        <h1>Select option</h1>
-        <wcs-card>
-            <wcs-tabs>
-                <wcs-tab header="Examples">
-                    
-
-                </wcs-tab>
-                <wcs-tab header="API">
-<h2>Properties</h2>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Attribute</th>
-<th>Description</th>
-<th>Type</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>disabled</code></td>
-<td><code>disabled</code></td>
-<td>Wether this option can be selected.</td>
-<td><code>boolean</code></td>
-<td><code>false</code></td>
-</tr>
-<tr>
-<td><code>selected</code></td>
-<td><code>selected</code></td>
-<td>Wether this option is selected.</td>
-<td><code>boolean</code></td>
-<td><code>false</code></td>
-</tr>
-<tr>
-<td><code>value</code></td>
-<td><code>value</code></td>
-<td>The option value, not what's displayed, use inner text instead.</td>
-<td><code>any</code></td>
-<td><code>undefined</code></td>
-</tr>
-</tbody>
-</table>
-<h2>Events</h2>
-<table>
-<thead>
-<tr>
-<th>Event</th>
-<th>Description</th>
-<th>Type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>wcsSelectOptionClick</code></td>
-<td></td>
-<td><code>CustomEvent&lt;SelectOptionChosedEvent&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<h2>Dependencies</h2>
-<h3>Depends on</h3>
-<ul>
-<li><a href="..%5Ccheckbox">wcs-checkbox</a></li>
-</ul>
-<h3>Graph</h3>
-<pre><code class="language-mermaid">graph TD;
-  wcs-select-option --&gt; wcs-checkbox
-  style wcs-select-option fill:#f9f,stroke:#333,stroke-width:4px
-</code></pre>
-<hr>
-<p><em>Built with <a href="https://stenciljs.com/">StencilJS</a></em></p>
-</wcs-tab>
-            </wcs-tabs>
-        </wcs-card>
 
         <h1>Select</h1>
         <wcs-card>
             <wcs-tabs>
                 <wcs-tab header="Examples">
-                    
-<h2>Basic</h2>
+                    <h2>Basic</h2>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">wcs-select</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Le select"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">wcs-select-option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"1"</span>&gt;</span>One<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-select-option</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">wcs-select-option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"2"</span>&gt;</span>Two<span class="hljs-tag">&lt;/<span class="hljs-name">wcs-select-option</span>&gt;</span>
@@ -967,7 +795,7 @@ Change values
     <wcs-select-option value="2">Two</wcs-select-option>
     <wcs-select-option value="3">Three</wcs-select-option>
 </wcs-select>
-<p><wcs-button id="lazy-loaded-sel-button" stroked class="primary">Add option</wcs-button></p>
+<p><wcs-button id="lazy-loaded-sel-button" mode="stroked" class="primary">Add option</wcs-button></p>
 <script>
     const lazyLoadedSelect = document.querySelector('#lazy-loaded-select');
     const button = document.querySelector('#lazy-loaded-sel-button');
@@ -989,7 +817,6 @@ Change values
         display: inline-block;
     }
 </style>
-
                 </wcs-tab>
                 <wcs-tab header="API">
 <h2>Properties</h2>
@@ -1083,26 +910,12 @@ Change values
             </wcs-tabs>
         </wcs-card>
 
-        <h1>Sidebar</h1>
-        <wcs-card>
-            <wcs-tabs>
-                <wcs-tab header="Examples">
-                    
-
-                </wcs-tab>
-                <wcs-tab header="API">
-<hr>
-<p><em>Built with <a href="https://stenciljs.com/">StencilJS</a></em></p>
-</wcs-tab>
-            </wcs-tabs>
-        </wcs-card>
 
         <h1>Spinner</h1>
         <wcs-card>
             <wcs-tabs>
                 <wcs-tab header="Examples">
-                    
-<h2>Basic</h2>
+                    <h2>Basic</h2>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">wcs-spinner</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-primary"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">wcs-spinner</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">wcs-spinner</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-secondary"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">wcs-spinner</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">wcs-spinner</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wcs-success"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">wcs-spinner</span>&gt;</span>
@@ -1143,7 +956,6 @@ Change values
         margin: 8px;
     }
 </style>
-
                 </wcs-tab>
                 <wcs-tab header="API">
 <h2>Properties</h2>
@@ -1173,47 +985,12 @@ Change values
             </wcs-tabs>
         </wcs-card>
 
-        <h1>Tab</h1>
-        <wcs-card>
-            <wcs-tabs>
-                <wcs-tab header="Examples">
-                    
-
-                </wcs-tab>
-                <wcs-tab header="API">
-<h2>Properties</h2>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Attribute</th>
-<th>Description</th>
-<th>Type</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>header</code></td>
-<td><code>header</code></td>
-<td>The header you want to be displayed for this tab.</td>
-<td><code>string</code></td>
-<td><code>undefined</code></td>
-</tr>
-</tbody>
-</table>
-<hr>
-<p><em>Built with <a href="https://stenciljs.com/">StencilJS</a></em></p>
-</wcs-tab>
-            </wcs-tabs>
-        </wcs-card>
 
         <h1>Tabs</h1>
         <wcs-card>
             <wcs-tabs>
                 <wcs-tab header="Examples">
-                    
-<h2>Basic</h2>
+                    <h2>Basic</h2>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">wcs-card</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">wcs-tabs</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">wcs-tab</span> <span class="hljs-attr">header</span>=<span class="hljs-string">"A header !"</span>&gt;</span>
@@ -1295,7 +1072,6 @@ Change values
         overflow-x: hidden;
     }
 </style>
-
                 </wcs-tab>
                 <wcs-tab header="API">
 <h2>Properties</h2>

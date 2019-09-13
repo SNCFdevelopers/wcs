@@ -54,8 +54,10 @@ export class Tabs implements ComponentInterface {
             Array.from(this.el.querySelectorAll('wcs-tab'))
                 .filter(node => node.parentNode !== tabDiv)
                 .forEach(tab => {
-                    this.el.removeChild(tab);
-                    tabDiv.appendChild(tab);
+                    if (tab.parentElement.isEqualNode(this.el)) {
+                        this.el.removeChild(tab);
+                        tabDiv.appendChild(tab);
+                    }
                 });
         }
     }
