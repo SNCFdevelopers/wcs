@@ -2,7 +2,7 @@ import { Component, ComponentInterface, Element, Prop, Listen, h } from '@stenci
 
 import * as MDCRipple from '@material/ripple';
 
-import { ButtonType } from './button-interface';
+import { WcsButtonType, WcsButtonMode, WcsButtonShape } from './button-interface';
 import { hasShadowDom } from '../../utils/helpers';
 
 /**
@@ -21,7 +21,7 @@ export class Button implements ComponentInterface {
     /**
      * Specify the button type.
      */
-    @Prop({ mutable: true }) type: ButtonType = 'button';
+    @Prop({ mutable: true }) type: WcsButtonType = 'button';
 
     /**
      * Set a URL to point to.
@@ -40,10 +40,14 @@ export class Button implements ComponentInterface {
     @Prop() ripple = true;
 
     /**
-     * This attribute specifies the size of the button.
-     * Setting this attribute will change the height and padding of a button.
+     * Specify the shape of the button.
      */
-    @Prop({ reflect: true }) mode: 'normal' | 'small' | 'block' | 'icon-only' | 'round' = 'normal';
+    @Prop({ reflect: true }) shape: WcsButtonShape = 'normal';
+
+    /**
+     * This attribute specify the appearance of the button.
+     */
+    @Prop({ reflect: true }) mode: WcsButtonMode = 'plain';
 
     @Listen('click')
     onClick(ev: Event) {
@@ -74,24 +78,12 @@ export class Button implements ComponentInterface {
         return (
             <TagType
                 {...attrs}
-                {...this.generateClasses()}
+                class="wcs-inner-button"
                 {...this.disabled === true ? { disabled: true } : null}
             >
-                <slot />
+                <slot/>
             </TagType>
         );
-    }
-
-    private generateClasses() {
-        return {
-            class: {
-                'wcs-inner-button': true,
-                'wcs-inner-button-small': this.mode === 'small',
-                'wcs-inner-button-block': this.mode === 'block',
-                'wcs-inner-button-icon-only': this.mode === 'icon-only',
-                'wcs-inner-button-rounded': this.mode === 'round',
-            }
-        };
     }
 
     componentDidLoad() {
