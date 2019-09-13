@@ -61,7 +61,7 @@
 }
 
 label {
-    padding: 0.65625rem 1.25rem;
+    padding: calc(var(--wcs-padding) / 2) var(--wcs-padding);
     font-weight: 500;
     cursor: pointer;
     color: var(--wcs-select-color);
