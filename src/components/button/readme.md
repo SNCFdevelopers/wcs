@@ -18,42 +18,42 @@
 ### Clear
 
 ```html
-<wcs-button clear class="wcs-primary">Primary</wcs-button>
-<wcs-button clear class="wcs-secondary">Secondary</wcs-button>
-<wcs-button clear class="wcs-success">Success</wcs-button>
-<wcs-button clear class="wcs-warning">Warning</wcs-button>
-<wcs-button clear class="wcs-danger">Danger</wcs-button>
-<wcs-button clear class="wcs-info">Info</wcs-button>
-<wcs-button clear class="wcs-dark">Dark</wcs-button>
-<wcs-button class="wcs-primary" clear disabled>Disabled</wcs-button>
+<wcs-button mode="clear" class="wcs-primary">Primary</wcs-button>
+<wcs-button mode="clear" class="wcs-secondary">Secondary</wcs-button>
+<wcs-button mode="clear" class="wcs-success">Success</wcs-button>
+<wcs-button mode="clear" class="wcs-warning">Warning</wcs-button>
+<wcs-button mode="clear" class="wcs-danger">Danger</wcs-button>
+<wcs-button mode="clear" class="wcs-info">Info</wcs-button>
+<wcs-button mode="clear" class="wcs-dark">Dark</wcs-button>
+<wcs-button mode="clear" class="wcs-primary" disabled>Disabled</wcs-button>
 ```
 
 ### Stroked
 
 ```html
-<wcs-button stroked class="wcs-primary">Primary</wcs-button>
-<wcs-button stroked class="wcs-secondary">Secondary</wcs-button>
-<wcs-button stroked class="wcs-success">Success</wcs-button>
-<wcs-button stroked class="wcs-warning">Warning</wcs-button>
-<wcs-button stroked class="wcs-danger">Danger</wcs-button>
-<wcs-button stroked class="wcs-info">Info</wcs-button>
-<wcs-button stroked class="wcs-dark">Dark</wcs-button>
-<wcs-button class="wcs-primary" stroked disabled>Disabled</wcs-button>
+<wcs-button mode="stroked" class="wcs-primary">Primary</wcs-button>
+<wcs-button mode="stroked" class="wcs-secondary">Secondary</wcs-button>
+<wcs-button mode="stroked" class="wcs-success">Success</wcs-button>
+<wcs-button mode="stroked" class="wcs-warning">Warning</wcs-button>
+<wcs-button mode="stroked" class="wcs-danger">Danger</wcs-button>
+<wcs-button mode="stroked" class="wcs-info">Info</wcs-button>
+<wcs-button mode="stroked" class="wcs-dark">Dark</wcs-button>
+<wcs-button mode="stroked" class="wcs-primary" disabled>Disabled</wcs-button>
 ```
 
 ### Round
 
 ```html
-<wcs-button mode="round" class="wcs-primary">
+<wcs-button shape="round" class="wcs-primary">
     <i class="material-icons">accessibility_new</i>
 </wcs-button>
-<wcs-button mode="round" class="wcs-primary" clear>
+<wcs-button shape="round" class="wcs-primary" clear>
     <i class="material-icons">accessibility_new</i>
 </wcs-button>
-<wcs-button mode="round" class="wcs-primary" stroked>
+<wcs-button shape="round" class="wcs-primary" stroked>
     <i class="material-icons">accessibility_new</i>
 </wcs-button>
-<wcs-button mode="round" class="wcs-primary" disabled>
+<wcs-button shape="round" class="wcs-primary" disabled>
     <i class="material-icons">accessibility_new</i>
 </wcs-button>
 ```
@@ -61,16 +61,16 @@
 ### Icon only
 
 ```html
-<wcs-button class="wcs-primary" mode="icon-only">
+<wcs-button class="wcs-primary" shape="square">
     <i class="material-icons">accessibility_new</i>
 </wcs-button>
-<wcs-button class="wcs-primary" clear mode="icon-only">
+<wcs-button class="wcs-primary" clear shape="square">
     <i class="material-icons">accessibility_new</i>
 </wcs-button>
-<wcs-button class="wcs-primary" stroked mode="icon-only">
+<wcs-button class="wcs-primary" stroked shape="square">
     <i class="material-icons">accessibility_new</i>
 </wcs-button>
-<wcs-button class="wcs-primary" disabled mode="icon-only">
+<wcs-button class="wcs-primary" disabled shape="square">
     <i class="material-icons">accessibility_new</i>
 </wcs-button>
 ```
@@ -84,10 +84,10 @@
 ### Small
 
 ```html
-<wcs-button class="wcs-primary" mode="small">Small</wcs-button>
-<wcs-button class="wcs-primary" clear mode="small">Small</wcs-button>
-<wcs-button class="wcs-primary" stroked mode="small">Small</wcs-button>
-<wcs-button class="wcs-primary" stroked disabled mode="small">Disabled</wcs-button>
+<wcs-button class="wcs-primary" shape="small">Small</wcs-button>
+<wcs-button class="wcs-primary" mode="clear" shape="small">Small</wcs-button>
+<wcs-button class="wcs-primary" mode="stroked" shape="small">Small</wcs-button>
+<wcs-button class="wcs-primary" mode="stroked" disabled shape="small">Disabled</wcs-button>
 ```
 
 <!-- Auto Generated Below -->

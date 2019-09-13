@@ -18,7 +18,7 @@
 <wcs-progress-bar value="20" small></wcs-progress-bar>
 ```
 
-<wcs-button stroked class="wcs-primary" style="position: absolute; right: 16px; bottom: 16px;"
+<wcs-button mode="stroked" class="wcs-primary" style="position: absolute; right: 16px; bottom: 16px;"
     id="progress-bar-button">
     Change values
 </wcs-button>

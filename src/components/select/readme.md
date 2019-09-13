@@ -50,7 +50,7 @@
 </wcs-select>
 ```
 
-<wcs-button id="lazy-loaded-sel-button" stroked class="primary">Add option</wcs-button>
+<wcs-button id="lazy-loaded-sel-button" mode="stroked" class="primary">Add option</wcs-button>
 
 <script>
     const lazyLoadedSelect = document.querySelector('#lazy-loaded-select');

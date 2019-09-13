@@ -72,19 +72,20 @@ async function updateIndex(filesPath) {
     const examplesP = await Promise.all(filesPath.map(async path => {
         const readme = (await fs.promises.readFile(path.replace('example.html', 'readme.md'))).toString();
         const readmeHTML = render(readme.replace(/```html([\S\s]*?)```/gmu, '```html$1```\n$1'));
-        const name = readmeHTML.match(/<h1>(.*)<\/h1>/)[0];
+        const name = readmeHTML.match(/<h1>(.*)<\/h1>/)[1];
         const [doc, api] = readmeHTML.split('<!-- Auto Generated Below -->');
 
-        if (name === '<h1>Tabs</h1>') {
-            console.dir(doc.replace(/<h1>(.*)<\/h1>/, ''));
+        const examples = doc.replace(/<h1>(.*)<\/h1>/, '').trim();
+        if (examples.length < 30) {
+            console.log(`Generating none for ${name}, examples are empty`);
+            return '';
         }
-
         return `
-        ${name}
+        <h1>${name}</h1>
         <wcs-card>
             <wcs-tabs>
                 <wcs-tab header="Examples">
-                    ${doc.replace(/<h1>(.*)<\/h1>/, '')}
+                    ${examples}
                 </wcs-tab>
                 <wcs-tab header="API">${api}</wcs-tab>
             </wcs-tabs>
