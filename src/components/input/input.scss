@@ -7,9 +7,9 @@ input {
     background-color: var(--wcs-light);
     border: 1px solid var(--wcs-light);
     border-radius: var(--wcs-input-border-radius);
-    
+
     display: block;
-    padding: 0.65625rem 1.25rem;
+    padding: calc(var(--wcs-padding) / 2) var(--wcs-padding);
     font-size: 1rem;
     line-height: 1.5;
     background-clip: padding-box;
