@@ -7,9 +7,9 @@
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 import {
-  ButtonType,
   WcsButtonMode,
   WcsButtonShape,
+  WcsButtonType,
 } from './components/button/button-interface';
 import {
   CheckboxChangeEventDetail,
@@ -56,7 +56,7 @@ export namespace Components {
     /**
     * Specify the button type.
     */
-    'type': ButtonType;
+    'type': WcsButtonType;
   }
   interface WcsCard {}
   interface WcsCardBody {}
@@ -414,7 +414,7 @@ declare namespace LocalJSX {
     /**
     * Specify the button type.
     */
-    'type'?: ButtonType;
+    'type'?: WcsButtonType;
   }
   interface WcsCard extends JSXBase.HTMLAttributes<HTMLWcsCardElement> {}
   interface WcsCardBody extends JSXBase.HTMLAttributes<HTMLWcsCardBodyElement> {}

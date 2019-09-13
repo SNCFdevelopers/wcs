@@ -2,7 +2,7 @@ import { Component, ComponentInterface, Element, Prop, Listen, h } from '@stenci
 
 import * as MDCRipple from '@material/ripple';
 
-import { ButtonType, WcsButtonMode, WcsButtonShape } from './button-interface';
+import { WcsButtonType, WcsButtonMode, WcsButtonShape } from './button-interface';
 import { hasShadowDom } from '../../utils/helpers';
 
 /**
@@ -21,7 +21,7 @@ export class Button implements ComponentInterface {
     /**
      * Specify the button type.
      */
-    @Prop({ mutable: true }) type: ButtonType = 'wcs-button';
+    @Prop({ mutable: true }) type: WcsButtonType = 'button';
 
     /**
      * Set a URL to point to.
@@ -51,7 +51,7 @@ export class Button implements ComponentInterface {
 
     @Listen('click')
     onClick(ev: Event) {
-        if (this.type !== 'wcs-button' && hasShadowDom(this.el)) {
+        if (this.type !== 'button' && hasShadowDom(this.el)) {
             // this button wants to specifically submit a form
             // climb up the dom to see if we're in a <form>
             // and if so, then use JS to submit it
