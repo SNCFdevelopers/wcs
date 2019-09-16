@@ -17,7 +17,6 @@ import * as MDCRipple from '@material/ripple';
 import { SelectArrow } from './select-arrow';
 import { SelectOptionChosedEvent, SelectOptionValue } from '../select-option/select-option-interface';
 import { Machine, MachineConfig, interpret, Interpreter, MachineOptions } from 'xstate';
-
 interface SelectStateSchema {
     states: {
         blurred: {};
@@ -131,27 +130,34 @@ export class Select implements ComponentInterface {
         // TODO: is this still usefull for anything ?
         this.hasLoaded = true;
         this.stateService.start();
-        this.fixForFirefox63AndBelow();
-    }
-
-    private fixForFirefox63AndBelow() {
         if (this.optionsEl.querySelector('slot') === null) {
-            const observer = new MutationObserver((mutationsList) => {
-                for (const mutation of mutationsList) {
-                    if (mutation.type === 'childList') {
-                        Array.from(this.el.querySelectorAll('wcs-select-option'))
-                            .forEach(option => {
-                                if (option.parentNode === this.el) {
-                                    this.el.removeChild(option);
-                                    this.optionsEl.appendChild(option);
-                                }
-                            });
-                    }
-                }
-            });
-            observer.observe(this.el, { childList: true });
+            this.replaceOptions_firefoxBefore63();
+            this.listenDomUpdate_firefoxBefore63();
         }
     }
+
+    private replaceOptions_firefoxBefore63() {
+        Array.from(this.el.querySelectorAll('wcs-select-option'))
+            .forEach(option => {
+                if (option.parentNode === this.el) {
+                    this.el.removeChild(option);
+                    this.optionsEl.appendChild(option);
+                }
+            });
+    }
+
+    private listenDomUpdate_firefoxBefore63() {
+        const observer = new MutationObserver((mutationsList) => {
+            for (const mutation of mutationsList) {
+                if (mutation.type === 'childList') {
+                    this.replaceOptions_firefoxBefore63();
+                }
+            }
+        });
+        observer.observe(this.el, { childList: true });
+    }
+
+
 
     componentWillUpdate() {
         if (this.multiple) {
