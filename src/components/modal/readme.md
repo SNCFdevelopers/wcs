@@ -1,14 +1,12 @@
-# wcs-modal
+# Modal
 
 ```html
-
-<wcs-modal>
+<wcs-modal show="true">
     <div slot="wcs-modal-header">Modal title</div>
     Voulez-vous quittez la page ? 
     <br/>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a cursus mi. Nullam et sem mi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce sollicitudin pellentesque libero nec elementum.
 </wcs-modal>
-
 ```
 
 

@@ -25,7 +25,7 @@ export class Modal {
                         <h5>
                             <slot name="wcs-modal-header"></slot>
                         </h5>
-                        <wcs-button shape="round" mode="stroked" class="wcs-dark">
+                        <wcs-button shape="round" mode="stroked" class="wcs-dark" onClick={($event) => this.onCloseButtonClick($event)}>
                             <i class="material-icons">close</i>
                         </wcs-button>
                     </div>
@@ -38,5 +38,9 @@ export class Modal {
                 </div>
             </host>
         );
+    }
+
+    private onCloseButtonClick(_: MouseEvent) {
+        this.show = false;
     }
 }
