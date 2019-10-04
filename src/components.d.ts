@@ -180,6 +180,7 @@ export namespace Components {
     * Displays the modal
     */
     'show': boolean;
+    'showCloseButton': boolean;
   }
   interface WcsProgressBar {
     /**
@@ -571,9 +572,14 @@ declare namespace LocalJSX {
     */
     'backdrop'?: boolean;
     /**
+    * Triggered when the user leaves the dialog with the closing button.
+    */
+    'onWcs-dialog-closed'?: (event: CustomEvent<void>) => void;
+    /**
     * Displays the modal
     */
     'show'?: boolean;
+    'showCloseButton'?: boolean;
   }
   interface WcsProgressBar extends JSXBase.HTMLAttributes<HTMLWcsProgressBarElement> {
     /**
