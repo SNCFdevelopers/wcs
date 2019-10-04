@@ -171,6 +171,16 @@ export namespace Components {
     'value': string | null;
   }
   interface WcsInputGroup {}
+  interface WcsModal {
+    /**
+    * Specifies whether the component should display a backdrop on the entire page
+    */
+    'backdrop': boolean;
+    /**
+    * Displays the modal
+    */
+    'show': boolean;
+  }
   interface WcsProgressBar {
     /**
     * Whether it displays a label indicating the percentage of progress above the bar.
@@ -336,6 +346,12 @@ declare global {
     new (): HTMLWcsInputGroupElement;
   };
 
+  interface HTMLWcsModalElement extends Components.WcsModal, HTMLStencilElement {}
+  var HTMLWcsModalElement: {
+    prototype: HTMLWcsModalElement;
+    new (): HTMLWcsModalElement;
+  };
+
   interface HTMLWcsProgressBarElement extends Components.WcsProgressBar, HTMLStencilElement {}
   var HTMLWcsProgressBarElement: {
     prototype: HTMLWcsProgressBarElement;
@@ -396,6 +412,7 @@ declare global {
     'wcs-icon': HTMLWcsIconElement;
     'wcs-input': HTMLWcsInputElement;
     'wcs-input-group': HTMLWcsInputGroupElement;
+    'wcs-modal': HTMLWcsModalElement;
     'wcs-progress-bar': HTMLWcsProgressBarElement;
     'wcs-progress-radial': HTMLWcsProgressRadialElement;
     'wcs-select': HTMLWcsSelectElement;
@@ -548,6 +565,16 @@ declare namespace LocalJSX {
     'value'?: string | null;
   }
   interface WcsInputGroup extends JSXBase.HTMLAttributes<HTMLWcsInputGroupElement> {}
+  interface WcsModal extends JSXBase.HTMLAttributes<HTMLWcsModalElement> {
+    /**
+    * Specifies whether the component should display a backdrop on the entire page
+    */
+    'backdrop'?: boolean;
+    /**
+    * Displays the modal
+    */
+    'show'?: boolean;
+  }
   interface WcsProgressBar extends JSXBase.HTMLAttributes<HTMLWcsProgressBarElement> {
     /**
     * Whether it displays a label indicating the percentage of progress above the bar.
@@ -654,6 +681,7 @@ declare namespace LocalJSX {
     'wcs-icon': WcsIcon;
     'wcs-input': WcsInput;
     'wcs-input-group': WcsInputGroup;
+    'wcs-modal': WcsModal;
     'wcs-progress-bar': WcsProgressBar;
     'wcs-progress-radial': WcsProgressRadial;
     'wcs-select': WcsSelect;

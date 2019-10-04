@@ -1,0 +1,79 @@
+:host {
+    --saas-fix-modal: rgba(var(--wcs-black), 0.5);
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+}
+
+:host([show]) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    display: block;
+}
+
+/**
+Backdrop
+ */
+:host([backdrop]) {
+    .wcs-modal-backdrop {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        opacity: 0.4;
+        background-color: var(--wcs-black);
+    }
+}
+
+.wcs-modal-backdrop {
+    display: none;
+}
+
+
+/**
+Modal window
+ */
+.wcs-modal {
+    position: fixed;
+    top: 50%;
+    min-width: 400px;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+    max-width: 480px;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 0 solid rgba(0, 0, 0, 0.2);
+    border-radius: 0.4375rem;
+    outline: 0;
+    z-index: 20000;
+
+    display: block;
+    padding: 1.375rem 1.875rem 1.875rem 1.875rem;
+}
+
+.wcs-modal-header {
+    h5 {
+        font-size: 24px;
+        font-weight: 400;
+        margin: 0;
+    }
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.wcs-modal-content {
+    font-weight: 400;
+    font-size: 16px;
+}
