@@ -2,6 +2,10 @@
 This project is the web component implementation of the SNCF's design system.  
 It is built using stencil.
 
+## Dev requirements
+
+- Minimum node version : 10.16
+
 ## Status
 This project is still under heavy development therefore it is not yet released.
 
