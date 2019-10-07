@@ -9,6 +9,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property        | Attribute       | Description                                       | Type      | Default           |
@@ -29,7 +30,7 @@
 
 ### Used by
 
- - [wcs-select-option](..\select-option)
+ - [wcs-select-option](../select-option)
 
 ### Graph
 ```mermaid

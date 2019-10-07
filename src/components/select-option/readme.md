@@ -25,7 +25,7 @@
 
 ### Depends on
 
-- [wcs-checkbox](..\checkbox)
+- [wcs-checkbox](../checkbox)
 
 ### Graph
 ```mermaid

@@ -71,6 +71,12 @@ export namespace Components {
     'indeterminate': boolean;
     'name': string;
   }
+  interface WcsDropdown {
+    'disabled': boolean;
+    'mode': WcsButtonMode;
+    'shape': WcsButtonShape;
+  }
+  interface WcsDropdownItem {}
   interface WcsHeader {}
   interface WcsIcon {
     'icon': string;
@@ -294,6 +300,18 @@ declare global {
     new (): HTMLWcsCheckboxElement;
   };
 
+  interface HTMLWcsDropdownElement extends Components.WcsDropdown, HTMLStencilElement {}
+  var HTMLWcsDropdownElement: {
+    prototype: HTMLWcsDropdownElement;
+    new (): HTMLWcsDropdownElement;
+  };
+
+  interface HTMLWcsDropdownItemElement extends Components.WcsDropdownItem, HTMLStencilElement {}
+  var HTMLWcsDropdownItemElement: {
+    prototype: HTMLWcsDropdownItemElement;
+    new (): HTMLWcsDropdownItemElement;
+  };
+
   interface HTMLWcsHeaderElement extends Components.WcsHeader, HTMLStencilElement {}
   var HTMLWcsHeaderElement: {
     prototype: HTMLWcsHeaderElement;
@@ -372,6 +390,8 @@ declare global {
     'wcs-card': HTMLWcsCardElement;
     'wcs-card-body': HTMLWcsCardBodyElement;
     'wcs-checkbox': HTMLWcsCheckboxElement;
+    'wcs-dropdown': HTMLWcsDropdownElement;
+    'wcs-dropdown-item': HTMLWcsDropdownItemElement;
     'wcs-header': HTMLWcsHeaderElement;
     'wcs-icon': HTMLWcsIconElement;
     'wcs-input': HTMLWcsInputElement;
@@ -432,6 +452,14 @@ declare namespace LocalJSX {
     * Emitted when the checked property has changed.
     */
     'onWcsChange'?: (event: CustomEvent<CheckboxChangeEventDetail>) => void;
+  }
+  interface WcsDropdown extends JSXBase.HTMLAttributes<HTMLWcsDropdownElement> {
+    'disabled'?: boolean;
+    'mode'?: WcsButtonMode;
+    'shape'?: WcsButtonShape;
+  }
+  interface WcsDropdownItem extends JSXBase.HTMLAttributes<HTMLWcsDropdownItemElement> {
+    'onWcsDropdownItemClick'?: (event: CustomEvent<void>) => void;
   }
   interface WcsHeader extends JSXBase.HTMLAttributes<HTMLWcsHeaderElement> {}
   interface WcsIcon extends JSXBase.HTMLAttributes<HTMLWcsIconElement> {
@@ -620,6 +648,8 @@ declare namespace LocalJSX {
     'wcs-card': WcsCard;
     'wcs-card-body': WcsCardBody;
     'wcs-checkbox': WcsCheckbox;
+    'wcs-dropdown': WcsDropdown;
+    'wcs-dropdown-item': WcsDropdownItem;
     'wcs-header': WcsHeader;
     'wcs-icon': WcsIcon;
     'wcs-input': WcsInput;

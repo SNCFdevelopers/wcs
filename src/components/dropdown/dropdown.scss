@@ -1,0 +1,66 @@
+:host {
+    display: inline-flex;
+    flex-direction: row;
+    position: relative;
+    flex-flow: row-reverse;
+}
+
+:host([shape=small]) {
+    .show {
+        top: 48px !important;
+    }
+}
+
+.wcs-button-content-wrapper {
+    display: flex;
+}
+
+.popover {
+    display: none;
+    border: 1px solid #d7d7d7;
+    border-radius: var(--wcs-border-radius);
+    white-space: nowrap;
+}
+
+.popover::before, .popover::after {
+    position: absolute;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    content: " ";
+    border: solid transparent;
+    z-index: 1000;
+}
+
+.popover::before {
+    border-color: rgba(216, 216, 216, 0);
+    border-width: 0.625rem;
+    right: 1.0625rem;
+    margin-left: -0.625rem;
+    bottom: 100%;
+    border-bottom-color: #d7d7d7;
+}
+
+.popover::after {
+    border-color: rgba(255, 255, 255, 0);
+    border-width: 9px;
+    right: 1.125rem;
+    margin-left: -0.5625rem;
+    bottom: 100%;
+    border-bottom-color: #fff;
+}
+
+.show {
+    z-index: 1000;
+    display: block;
+    flex-direction: column;
+    position: absolute;
+    background-color: var(--wcs-white);
+    top: 58px;
+}
+
+// XXX: So that item hover background does not overflow
+.container {
+    border-radius: inherit;
+    overflow: hidden;
+}
