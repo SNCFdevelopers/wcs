@@ -30,6 +30,7 @@ import {
 } from './components/tabs/tabs-interface';
 
 export namespace Components {
+  interface WcsActionBar {}
   interface WcsApp {}
   interface WcsBadge {}
   interface WcsButton {
@@ -275,6 +276,12 @@ export namespace Components {
 declare global {
 
 
+  interface HTMLWcsActionBarElement extends Components.WcsActionBar, HTMLStencilElement {}
+  var HTMLWcsActionBarElement: {
+    prototype: HTMLWcsActionBarElement;
+    new (): HTMLWcsActionBarElement;
+  };
+
   interface HTMLWcsAppElement extends Components.WcsApp, HTMLStencilElement {}
   var HTMLWcsAppElement: {
     prototype: HTMLWcsAppElement;
@@ -401,6 +408,7 @@ declare global {
     new (): HTMLWcsTabsElement;
   };
   interface HTMLElementTagNameMap {
+    'wcs-action-bar': HTMLWcsActionBarElement;
     'wcs-app': HTMLWcsAppElement;
     'wcs-badge': HTMLWcsBadgeElement;
     'wcs-button': HTMLWcsButtonElement;
@@ -426,6 +434,7 @@ declare global {
 }
 
 declare namespace LocalJSX {
+  interface WcsActionBar extends JSXBase.HTMLAttributes<HTMLWcsActionBarElement> {}
   interface WcsApp extends JSXBase.HTMLAttributes<HTMLWcsAppElement> {}
   interface WcsBadge extends JSXBase.HTMLAttributes<HTMLWcsBadgeElement> {}
   interface WcsButton extends JSXBase.HTMLAttributes<HTMLWcsButtonElement> {
@@ -675,6 +684,7 @@ declare namespace LocalJSX {
   }
 
   interface IntrinsicElements {
+    'wcs-action-bar': WcsActionBar;
     'wcs-app': WcsApp;
     'wcs-badge': WcsBadge;
     'wcs-button': WcsButton;
