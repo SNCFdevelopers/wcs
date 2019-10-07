@@ -130,7 +130,6 @@ async function watchBuild() {
     watcher.on('change', () => updateIndex(files));
     if (process.argv[2] !== '--watch') {
         watcher.close();
-    } else {
         updateIndex(files);
     }
 }
