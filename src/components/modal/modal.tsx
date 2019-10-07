@@ -41,7 +41,6 @@ export class Modal {
                             </wcs-button>) : ('')
                         }
 
-
                     </div>
                     <div class="wcs-modal-content">
                         <slot></slot>
