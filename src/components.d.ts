@@ -30,6 +30,7 @@ import {
 } from './components/tabs/tabs-interface';
 
 export namespace Components {
+  interface WcsActionBar {}
   interface WcsApp {}
   interface WcsBadge {}
   interface WcsButton {
@@ -171,6 +172,17 @@ export namespace Components {
     'value': string | null;
   }
   interface WcsInputGroup {}
+  interface WcsModal {
+    /**
+    * Specifies whether the component should display a backdrop on the entire page
+    */
+    'backdrop': boolean;
+    /**
+    * Displays the modal
+    */
+    'show': boolean;
+    'showCloseButton': boolean;
+  }
   interface WcsProgressBar {
     /**
     * Whether it displays a label indicating the percentage of progress above the bar.
@@ -264,6 +276,12 @@ export namespace Components {
 declare global {
 
 
+  interface HTMLWcsActionBarElement extends Components.WcsActionBar, HTMLStencilElement {}
+  var HTMLWcsActionBarElement: {
+    prototype: HTMLWcsActionBarElement;
+    new (): HTMLWcsActionBarElement;
+  };
+
   interface HTMLWcsAppElement extends Components.WcsApp, HTMLStencilElement {}
   var HTMLWcsAppElement: {
     prototype: HTMLWcsAppElement;
@@ -336,6 +354,12 @@ declare global {
     new (): HTMLWcsInputGroupElement;
   };
 
+  interface HTMLWcsModalElement extends Components.WcsModal, HTMLStencilElement {}
+  var HTMLWcsModalElement: {
+    prototype: HTMLWcsModalElement;
+    new (): HTMLWcsModalElement;
+  };
+
   interface HTMLWcsProgressBarElement extends Components.WcsProgressBar, HTMLStencilElement {}
   var HTMLWcsProgressBarElement: {
     prototype: HTMLWcsProgressBarElement;
@@ -384,6 +408,7 @@ declare global {
     new (): HTMLWcsTabsElement;
   };
   interface HTMLElementTagNameMap {
+    'wcs-action-bar': HTMLWcsActionBarElement;
     'wcs-app': HTMLWcsAppElement;
     'wcs-badge': HTMLWcsBadgeElement;
     'wcs-button': HTMLWcsButtonElement;
@@ -396,6 +421,7 @@ declare global {
     'wcs-icon': HTMLWcsIconElement;
     'wcs-input': HTMLWcsInputElement;
     'wcs-input-group': HTMLWcsInputGroupElement;
+    'wcs-modal': HTMLWcsModalElement;
     'wcs-progress-bar': HTMLWcsProgressBarElement;
     'wcs-progress-radial': HTMLWcsProgressRadialElement;
     'wcs-select': HTMLWcsSelectElement;
@@ -408,6 +434,7 @@ declare global {
 }
 
 declare namespace LocalJSX {
+  interface WcsActionBar extends JSXBase.HTMLAttributes<HTMLWcsActionBarElement> {}
   interface WcsApp extends JSXBase.HTMLAttributes<HTMLWcsAppElement> {}
   interface WcsBadge extends JSXBase.HTMLAttributes<HTMLWcsBadgeElement> {}
   interface WcsButton extends JSXBase.HTMLAttributes<HTMLWcsButtonElement> {
@@ -548,6 +575,21 @@ declare namespace LocalJSX {
     'value'?: string | null;
   }
   interface WcsInputGroup extends JSXBase.HTMLAttributes<HTMLWcsInputGroupElement> {}
+  interface WcsModal extends JSXBase.HTMLAttributes<HTMLWcsModalElement> {
+    /**
+    * Specifies whether the component should display a backdrop on the entire page
+    */
+    'backdrop'?: boolean;
+    /**
+    * Triggered when the user leaves the dialog with the closing button.
+    */
+    'onWcs-dialog-closed'?: (event: CustomEvent<void>) => void;
+    /**
+    * Displays the modal
+    */
+    'show'?: boolean;
+    'showCloseButton'?: boolean;
+  }
   interface WcsProgressBar extends JSXBase.HTMLAttributes<HTMLWcsProgressBarElement> {
     /**
     * Whether it displays a label indicating the percentage of progress above the bar.
@@ -642,6 +684,7 @@ declare namespace LocalJSX {
   }
 
   interface IntrinsicElements {
+    'wcs-action-bar': WcsActionBar;
     'wcs-app': WcsApp;
     'wcs-badge': WcsBadge;
     'wcs-button': WcsButton;
@@ -654,6 +697,7 @@ declare namespace LocalJSX {
     'wcs-icon': WcsIcon;
     'wcs-input': WcsInput;
     'wcs-input-group': WcsInputGroup;
+    'wcs-modal': WcsModal;
     'wcs-progress-bar': WcsProgressBar;
     'wcs-progress-radial': WcsProgressRadial;
     'wcs-select': WcsSelect;

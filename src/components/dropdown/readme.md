@@ -41,9 +41,11 @@ dropdown.
 
 ## Properties
 
-| Property   | Attribute  | Description | Type      | Default |
-| ---------- | ---------- | ----------- | --------- | ------- |
-| `disabled` | `disabled` |             | `boolean` | `false` |
+| Property   | Attribute  | Description | Type                                         | Default     |
+| ---------- | ---------- | ----------- | -------------------------------------------- | ----------- |
+| `disabled` | `disabled` |             | `boolean`                                    | `false`     |
+| `mode`     | `mode`     |             | `"clear" \| "plain" \| "stroked"`            | `'stroked'` |
+| `shape`    | `shape`    |             | `"normal" \| "round" \| "small" \| "square"` | `'normal'`  |
 
 
 ## Dependencies
