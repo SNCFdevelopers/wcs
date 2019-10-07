@@ -22,23 +22,32 @@
 
 ## Properties
 
-| Property   | Attribute  | Description                                                                  | Type      | Default |
-| ---------- | ---------- | ---------------------------------------------------------------------------- | --------- | ------- |
-| `backdrop` | `backdrop` | Specifies whether the component should display a backdrop on the entire page | `boolean` | `true`  |
+| Property          | Attribute           | Description                                                                  | Type      | Default |
+| ----------------- | ------------------- | ---------------------------------------------------------------------------- | --------- | ------- |
+| `backdrop`        | `backdrop`          | Specifies whether the component should display a backdrop on the entire page | `boolean` | `true`  |
+| `show`            | `show`              | Displays the modal                                                           | `boolean` | `true`  |
+| `showCloseButton` | `show-close-button` |                                                                              | `boolean` | `true`  |
 
 
-## Methods
+## Events
 
-### `show() => Promise<void>`
-
-
-
-#### Returns
-
-Type: `Promise<void>`
+| Event               | Description                                                        | Type                |
+| ------------------- | ------------------------------------------------------------------ | ------------------- |
+| `wcs-dialog-closed` | Triggered when the user leaves the dialog with the closing button. | `CustomEvent<void>` |
 
 
+## Dependencies
 
+### Depends on
+
+- [wcs-button](../button)
+
+### Graph
+```mermaid
+graph TD;
+  wcs-modal --> wcs-button
+  style wcs-modal fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 
