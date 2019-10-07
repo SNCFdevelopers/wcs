@@ -15,7 +15,8 @@ const md = require('markdown-it')({
         if (lang && hljs.getLanguage(lang)) {
             try {
                 return hljs.highlight(lang, str).value;
-            } catch (__) { }
+            } catch (__) {
+            }
         }
 
         return ''; // use external default escaping
@@ -98,7 +99,7 @@ async function updateIndex(filesPath) {
 
     const newContent = insertAfter(index, '<!--Import-->', examples);
     await fs.promises.writeFile('./src/index.html', newContent);
-
+    console.log('ici');
     // Logging
     const end = process.hrtime(start);
     console.log('Rewrite finished in: %d %dms', end[0], end[1] / 100000);
@@ -130,6 +131,8 @@ async function watchBuild() {
     watcher.on('change', () => updateIndex(files));
     if (process.argv[2] !== '--watch') {
         watcher.close();
+    } else {
+        updateIndex(files);
     }
 }
 
