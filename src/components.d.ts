@@ -25,6 +25,9 @@ import {
   SelectOptionChosedEvent,
 } from './components/select-option/select-option-interface';
 import {
+  SwitchChangeEventDetail,
+} from './components/switch/switch-interface';
+import {
   WcsTabsAlignment,
   WcsTabsChangeEvent,
 } from './components/tabs/tabs-interface';
@@ -258,6 +261,13 @@ export namespace Components {
     */
     'mode': 'border' | 'growing';
   }
+  interface WcsSwitch {
+    /**
+    * If `true`, the switch is selected.
+    */
+    'checked': boolean;
+    'name': string;
+  }
   interface WcsTab {
     /**
     * The header you want to be displayed for this tab.
@@ -396,6 +406,12 @@ declare global {
     new (): HTMLWcsSpinnerElement;
   };
 
+  interface HTMLWcsSwitchElement extends Components.WcsSwitch, HTMLStencilElement {}
+  var HTMLWcsSwitchElement: {
+    prototype: HTMLWcsSwitchElement;
+    new (): HTMLWcsSwitchElement;
+  };
+
   interface HTMLWcsTabElement extends Components.WcsTab, HTMLStencilElement {}
   var HTMLWcsTabElement: {
     prototype: HTMLWcsTabElement;
@@ -428,6 +444,7 @@ declare global {
     'wcs-select-option': HTMLWcsSelectOptionElement;
     'wcs-sidebar': HTMLWcsSidebarElement;
     'wcs-spinner': HTMLWcsSpinnerElement;
+    'wcs-switch': HTMLWcsSwitchElement;
     'wcs-tab': HTMLWcsTabElement;
     'wcs-tabs': HTMLWcsTabsElement;
   }
@@ -665,6 +682,17 @@ declare namespace LocalJSX {
     */
     'mode'?: 'border' | 'growing';
   }
+  interface WcsSwitch extends JSXBase.HTMLAttributes<HTMLWcsSwitchElement> {
+    /**
+    * If `true`, the switch is selected.
+    */
+    'checked'?: boolean;
+    'name'?: string;
+    /**
+    * Emitted when the checked property has changed.
+    */
+    'onWcsChange'?: (event: CustomEvent<SwitchChangeEventDetail>) => void;
+  }
   interface WcsTab extends JSXBase.HTMLAttributes<HTMLWcsTabElement> {
     /**
     * The header you want to be displayed for this tab.
@@ -704,6 +732,7 @@ declare namespace LocalJSX {
     'wcs-select-option': WcsSelectOption;
     'wcs-sidebar': WcsSidebar;
     'wcs-spinner': WcsSpinner;
+    'wcs-switch': WcsSwitch;
     'wcs-tab': WcsTab;
     'wcs-tabs': WcsTabs;
   }
