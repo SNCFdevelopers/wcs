@@ -183,6 +183,13 @@ export namespace Components {
     'show': boolean;
     'showCloseButton': boolean;
   }
+  interface WcsNav {}
+  interface WcsNavItem {
+    /**
+    * This attribute specify the text of the item.
+    */
+    'text': string;
+  }
   interface WcsProgressBar {
     /**
     * Whether it displays a label indicating the percentage of progress above the bar.
@@ -360,6 +367,18 @@ declare global {
     new (): HTMLWcsModalElement;
   };
 
+  interface HTMLWcsNavElement extends Components.WcsNav, HTMLStencilElement {}
+  var HTMLWcsNavElement: {
+    prototype: HTMLWcsNavElement;
+    new (): HTMLWcsNavElement;
+  };
+
+  interface HTMLWcsNavItemElement extends Components.WcsNavItem, HTMLStencilElement {}
+  var HTMLWcsNavItemElement: {
+    prototype: HTMLWcsNavItemElement;
+    new (): HTMLWcsNavItemElement;
+  };
+
   interface HTMLWcsProgressBarElement extends Components.WcsProgressBar, HTMLStencilElement {}
   var HTMLWcsProgressBarElement: {
     prototype: HTMLWcsProgressBarElement;
@@ -422,6 +441,8 @@ declare global {
     'wcs-input': HTMLWcsInputElement;
     'wcs-input-group': HTMLWcsInputGroupElement;
     'wcs-modal': HTMLWcsModalElement;
+    'wcs-nav': HTMLWcsNavElement;
+    'wcs-nav-item': HTMLWcsNavItemElement;
     'wcs-progress-bar': HTMLWcsProgressBarElement;
     'wcs-progress-radial': HTMLWcsProgressRadialElement;
     'wcs-select': HTMLWcsSelectElement;
@@ -590,6 +611,13 @@ declare namespace LocalJSX {
     'show'?: boolean;
     'showCloseButton'?: boolean;
   }
+  interface WcsNav extends JSXBase.HTMLAttributes<HTMLWcsNavElement> {}
+  interface WcsNavItem extends JSXBase.HTMLAttributes<HTMLWcsNavItemElement> {
+    /**
+    * This attribute specify the text of the item.
+    */
+    'text'?: string;
+  }
   interface WcsProgressBar extends JSXBase.HTMLAttributes<HTMLWcsProgressBarElement> {
     /**
     * Whether it displays a label indicating the percentage of progress above the bar.
@@ -698,6 +726,8 @@ declare namespace LocalJSX {
     'wcs-input': WcsInput;
     'wcs-input-group': WcsInputGroup;
     'wcs-modal': WcsModal;
+    'wcs-nav': WcsNav;
+    'wcs-nav-item': WcsNavItem;
     'wcs-progress-bar': WcsProgressBar;
     'wcs-progress-radial': WcsProgressRadial;
     'wcs-select': WcsSelect;
