@@ -1,0 +1,39 @@
+@import '../../style/wcs.breakpoints';
+
+nav {
+    background-color: var(--wcs-primary);
+    display: flex;
+    position: relative;
+    z-index: 1055;
+    left: 0;
+    top: 0;
+    flex-direction: column;
+    width: 6.25rem;
+    // FIXME: not correct height
+    height: 100vh;
+
+    @include for-tablet-landscape-down {
+        flex-direction: row;
+        background-color: var(--wcs-light);
+        border-top: 1px solid #d8d8d8;
+        bottom: 0;
+        width: 100%;
+        height: 3.25rem;
+    }
+}
+
+::slotted(wcs-nav-item) {
+    @include for-tablet-landscape-down {
+        flex: 1;
+    }
+}
+
+// Place bottom items at the bottom
+slot[name=bottom],
+// Same for ff < 63
+wcs-nav-item:not([slot=bottom]) + wcs-nav-item[slot=bottom] {
+    @include for-desktop-up {
+        display: block;
+        margin-top: auto;
+    }
+}
