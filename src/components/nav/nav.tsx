@@ -9,12 +9,9 @@ export class Nav implements ComponentInterface {
         return (
             <Host>
                 <nav class="wcs-nav-container">
-                    <ul class="wcs-nav-top">
+                    <ul class="wcs-nav">
                         <slot />
                     </ul>
-                    <wcs-nav-item text="Support" class="wcs-nav-bottom d-none d-lg-block">
-                        <i class="material-icons icons icons-size-1x5">chat</i>
-                    </wcs-nav-item>
                 </nav>
             </Host>
         );
