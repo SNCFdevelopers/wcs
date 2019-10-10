@@ -1,10 +1,11 @@
 # Modal
 
-```html
+## Modal with backdrop and close button
 
+```html
 <wcs-button onclick="getElementById('modal-1').setAttribute('show', true)" id="btn-modal-1-show">Afficher la boîte de dialogue</wcs-button>
 
-<wcs-modal show="false" id="modal-1">
+<wcs-modal id="modal-1" show-close-button="true">
     <div slot="wcs-modal-header">Modal title</div>
     Voulez-vous quittez la page ? 
     <br/>
@@ -16,6 +17,41 @@
 </wcs-modal>
 ```
 
+## Modal without backdrop
+
+```html
+<wcs-button onclick="getElementById('modal-2').setAttribute('show', true)" id="btn-modal-2-show">Afficher la boîte de dialogue</wcs-button>
+
+<wcs-modal id="modal-2" backdrop="false" show-close-button="true">
+    <div slot="wcs-modal-header">Modal title</div>
+    Voulez-vous quittez la page ? 
+    <br/>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a cursus mi. Nullam et sem mi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce sollicitudin pellentesque libero nec elementum.
+    <div slot="wcs-modal-actions">
+        <wcs-button class="wcs-dark" mode="stroked">C'est non</wcs-button>
+        <wcs-button>J'accepte</wcs-button>
+    </div>
+</wcs-modal>
+```
+
+## Modal without close button
+
+```html
+<wcs-button onclick="getElementById('modal-3').setAttribute('show', true)" id="btn-modal-3-show">Afficher la boîte de dialogue</wcs-button>
+
+<wcs-modal id="modal-3">
+    <div slot="wcs-modal-header">Modal title</div>
+    Voulez-vous quittez la page ? 
+    <br/>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a cursus mi. Nullam et sem mi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce sollicitudin pellentesque libero nec elementum.
+    <div slot="wcs-modal-actions">
+        <wcs-button onclick="getElementById('modal-3').setAttribute('show', false)" class="wcs-dark" mode="stroked">C'est non</wcs-button>
+        <wcs-button onclick="getElementById('modal-3').setAttribute('show', false)">J'accepte</wcs-button>
+    </div>
+</wcs-modal>
+```
+
+
 
 <!-- Auto Generated Below -->
 
@@ -25,8 +61,8 @@
 | Property          | Attribute           | Description                                                                  | Type      | Default |
 | ----------------- | ------------------- | ---------------------------------------------------------------------------- | --------- | ------- |
 | `backdrop`        | `backdrop`          | Specifies whether the component should display a backdrop on the entire page | `boolean` | `true`  |
-| `show`            | `show`              | Displays the modal                                                           | `boolean` | `true`  |
-| `showCloseButton` | `show-close-button` |                                                                              | `boolean` | `true`  |
+| `show`            | `show`              | Displays the modal                                                           | `boolean` | `false` |
+| `showCloseButton` | `show-close-button` | Specifies whether the component should a close button                        | `boolean` | `false` |
 
 
 ## Events
