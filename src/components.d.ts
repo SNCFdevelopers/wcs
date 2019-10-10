@@ -19,6 +19,9 @@ import {
   TextFieldTypes,
 } from './components/input/input-interface';
 import {
+  WcsNavItemPosition,
+} from './components/nav-item/nav-item-interface';
+import {
   SelectChangeEventDetail,
 } from './components/select/select-interface';
 import {
@@ -185,6 +188,10 @@ export namespace Components {
   }
   interface WcsNav {}
   interface WcsNavItem {
+    /**
+    * This attribute specify the position of the item.
+    */
+    'position': WcsNavItemPosition;
     /**
     * This attribute specify the text of the item.
     */
@@ -613,6 +620,10 @@ declare namespace LocalJSX {
   }
   interface WcsNav extends JSXBase.HTMLAttributes<HTMLWcsNavElement> {}
   interface WcsNavItem extends JSXBase.HTMLAttributes<HTMLWcsNavItemElement> {
+    /**
+    * This attribute specify the position of the item.
+    */
+    'position'?: WcsNavItemPosition;
     /**
     * This attribute specify the text of the item.
     */
