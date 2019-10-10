@@ -92,6 +92,9 @@ export namespace Components {
     * Displays the modal
     */
     'show': boolean;
+    /**
+    * Specifies whether the component should a close button
+    */
     'showCloseButton': boolean;
   }
   interface WcsProgressBar {
@@ -425,6 +428,9 @@ declare namespace LocalJSX {
     * Displays the modal
     */
     'show'?: boolean;
+    /**
+    * Specifies whether the component should a close button
+    */
     'showCloseButton'?: boolean;
   }
   interface WcsProgressBar extends JSXBase.HTMLAttributes<HTMLWcsProgressBarElement> {

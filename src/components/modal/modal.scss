@@ -1,4 +1,4 @@
-:host {
+wcs-modal {
     --saas-fix-modal: rgba(var(--wcs-black), 0.5);
     z-index: 999;
     position: fixed;
@@ -9,7 +9,7 @@
     display: none;
 }
 
-:host([show]) {
+wcs-modal[show] {
     display: block;
     width: 100%;
     height: 100%;
@@ -20,7 +20,7 @@
 /**
 Backdrop
  */
-:host([backdrop]) {
+wcs-modal[backdrop] {
     .wcs-modal-backdrop {
         display: block;
         position: fixed;
@@ -41,7 +41,7 @@ Backdrop
 /**
 Modal window
  */
-.wcs-modal {
+.wcs-modal-container {
     position: fixed;
     top: 50%;
     min-width: 400px;
@@ -81,4 +81,5 @@ Modal window
 
 .wcs-modal-actions {
     margin-top: 20px;
+    float: right;
 }

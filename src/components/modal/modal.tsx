@@ -1,9 +1,9 @@
-import { Component, Event, EventEmitter, h, Prop } from '@stencil/core';
+import { Component, Event, EventEmitter, h, Host, Prop } from '@stencil/core';
 
 @Component({
     tag: 'wcs-modal',
     styleUrl: 'modal.scss',
-    shadow: true,
+    shadow: false,
 })
 export class Modal {
     /**
@@ -14,7 +14,7 @@ export class Modal {
     /**
      * Displays the modal
      */
-    @Prop({ reflect: true, mutable: true }) show: boolean = true;
+    @Prop({ reflect: true, mutable: true }) show: boolean = false;
 
     /**
      * Triggered when the user leaves the dialog with the closing button.
@@ -23,22 +23,25 @@ export class Modal {
         eventName: 'wcs-dialog-closed'
     }) wcsDialogClosed: EventEmitter<void>;
 
-    @Prop({ reflect: true, mutable: false }) showCloseButton: boolean = true;
+    /**
+     * Specifies whether the component should a close button
+     */
+    @Prop({ reflect: true, mutable: false }) showCloseButton: boolean = false;
 
     render() {
         return (
-            <host>
+            <Host>
                 <div class="wcs-modal-backdrop"></div>
-                <div class="wcs-modal">
+                <div class="wcs-modal-container">
                     <div class="wcs-modal-header">
                         <h5>
                             <slot name="wcs-modal-header"></slot>
                         </h5>
-                        {this.showCloseButton ? (
+                        {this.showCloseButton && (
                             <wcs-button shape="round" mode="stroked" class="wcs-dark"
                                         onClick={($event) => this.onCloseButtonClick($event)}>
                                 <i class="material-icons">close</i>
-                            </wcs-button>) : ('')
+                            </wcs-button>)
                         }
 
                     </div>
@@ -49,7 +52,7 @@ export class Modal {
                         <slot name="wcs-modal-actions"></slot>
                     </div>
                 </div>
-            </host>
+            </Host>
         );
     }
 
