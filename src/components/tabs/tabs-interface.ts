@@ -1,6 +1,6 @@
 export type WcsTabsAlignment = 'start' | 'center' | 'end';
 
-export interface WcsTabsChangeEvent {
+export interface WcsTabChangeEvent {
     tabName: string;
     tabIndex: number;
 }

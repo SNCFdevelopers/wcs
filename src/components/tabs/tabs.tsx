@@ -1,23 +1,18 @@
-import { Component, Prop, Element, State, ComponentInterface, Event, EventEmitter, Watch, h, Host } from '@stencil/core';
+import { Component, Prop, Element, State, ComponentInterface, Event, EventEmitter, Watch, h, Host, Listen } from '@stencil/core';
 
-import { WcsTabsAlignment, WcsTabsChangeEvent } from './tabs-interface';
+import { WcsTabsAlignment, WcsTabChangeEvent } from './tabs-interface';
 
 /**
- * ### Features:
- * - [ ] Switch between different tabs
- * - [ ] Default selected value
- * - [ ] Disabled tab
- * - [ ] Customizing tab header
- * - [x] Header alignment, left / center / right
- * - [ ] Animation
- * - [ ] Disable animation
- * - [ ] Accessibility
- *  - LEFT_ARROW    Move focus to previous tab
- *  - RIGHT_ARROW    Move focus to next tab
- *  - HOME    Move focus to first tab
- *  - END    Move focus to last tab
- *  - SPACE or ENTER    Switch to focused tab
- * - [ ] Customize animation
+ * Tabs component to switch between tab content.
+ * Use in conjuction with `wcs-tab`.
+ *
+ * @example
+ * ```html
+ * <wcs-tabs>
+ *    <wcs-tab header="One">The content !</wcs-tab>
+ *    <wcs-tab header="Two">More content !</wcs-tab>
+ * </wcs-tabs>
+ * ```
  */
 @Component({
     tag: 'wcs-tabs',
@@ -25,22 +20,38 @@ import { WcsTabsAlignment, WcsTabsChangeEvent } from './tabs-interface';
     shadow: true,
 })
 export class Tabs implements ComponentInterface {
-
+    /**
+     * Tab headers alignment.
+     */
     @Prop({ mutable: true, reflect: true }) align: WcsTabsAlignment = 'start';
 
     /**
-     * Current selected tab index
+     * Current selected tab index.
+     * Starts at 0.
      */
     @Prop({ reflect: true, mutable: true }) selectedIndex = 0;
 
     /**
-     * Emitted when the selected tab change
+     * Emitted when the selected tab change.
      */
-    @Event() wcsTabsChange: EventEmitter<WcsTabsChangeEvent>;
+    @Event() tabChange!: EventEmitter<WcsTabChangeEvent>;
 
     @Element() el!: HTMLWcsTabsElement;
 
     @State() headers: string[] = [];
+
+    @Watch('selectedIndex')
+    selectedIndexChanged(_newValue: boolean, _oldValue: boolean) {
+        this.tabChange.emit({
+            tabName: this.headers[this.selectedIndex],
+            tabIndex: this.selectedIndex
+        });
+    }
+
+    @Listen('tabLoaded')
+    onTabLoaded() {
+        this.refreshHeaders();
+    }
 
     componentDidLoad() {
         this.putTabsInCorrectDivIfTheyAreNot();
@@ -62,18 +73,33 @@ export class Tabs implements ComponentInterface {
         }
     }
 
-    @Watch('selectedIndex')
-    selectedIndexChanged(_newValue: boolean, _oldValue: boolean) {
-        this.wcsTabsChange.emit({
-            tabName: this.headers[this.selectedIndex],
-            tabIndex: this.selectedIndex
-        });
-    }
-
     handleKeyDown(ev: KeyboardEvent, tabIndex: number) {
-        if (ev.key === ' ' || ev.key === 'Enter') {
-            this.selectedIndex = tabIndex;
-            ev.preventDefault();
+        const target = ev.target as HTMLDivElement;
+        switch (ev.key) {
+            case ' ':
+            case 'Enter': {
+                this.selectedIndex = tabIndex;
+                ev.preventDefault();
+                break;
+            }
+            case 'ArrowLeft': {
+                if (target.previousElementSibling
+                    && target.previousElementSibling.classList.contains('wcs-tab-header')
+                ) {
+                    (target.previousElementSibling as HTMLDivElement).focus();
+                    ev.preventDefault();
+                }
+                break;
+            }
+            case 'ArrowRight': {
+                if (target.nextElementSibling
+                    && target.nextElementSibling.classList.contains('wcs-tab-header')
+                ) {
+                    (target.nextElementSibling as HTMLDivElement).focus();
+                    ev.preventDefault();
+                }
+                break;
+            }
         }
     }
 
@@ -104,34 +130,44 @@ export class Tabs implements ComponentInterface {
     }
 
     componentWillUpdate() {
-        this.tabs.forEach((el: HTMLWcsTabElement, idx) => {
+        this.updateTabVisibility();
+        this.moveInkBar();
+    }
+
+    private updateTabVisibility() {
+        this.tabs.forEach((el: HTMLWcsTabElement, idx: number) => {
             if (idx !== this.selectedIndex) {
                 el.setAttribute('style', 'display: none;');
             } else {
                 el.setAttribute('style', 'display: block;');
             }
         });
+    }
+
+    private moveInkBar() {
         this.el.shadowRoot.querySelector('.wcs-tabs-headers > .wcs-ink-bar')
             .setAttribute('style', `left: calc((var(--wcs-tabs-width) + 2 * var(--wcs-tabs-padding-horizontal)) * ${this.selectedIndex})`);
     }
 
     render() {
-        return (<Host>
-            <div class="wcs-tabs-headers">
-                {this.headers.map((header, idx) =>
-                    <div class={'wcs-tab-header ' + (this.selectedIndex === idx ? 'active' : '')}
-                        onClick={() => this.selectTab(idx)}
-                        onKeyDown={evt => this.handleKeyDown(evt, idx)}
-                        tabIndex={0}
-                    >
-                        <span>{header}</span>
-                    </div>
-                )}
-                <div class="wcs-ink-bar"></div>
-            </div>
-            <div class="wcs-tabs">
-                <slot name="wcs-tab" />
-            </div>
-        </Host>);
+        return (
+            <Host>
+                <div class="wcs-tabs-headers">
+                    {this.headers.map((header, idx) =>
+                        <div class={'wcs-tab-header ' + (this.selectedIndex === idx ? 'active' : '')}
+                            onClick={() => this.selectTab(idx)}
+                            onKeyDown={evt => this.handleKeyDown(evt, idx)}
+                            tabIndex={0}
+                        >
+                            <span>{header}</span>
+                        </div>
+                    )}
+                    <div class="wcs-ink-bar"></div>
+                </div>
+                <div class="wcs-tabs">
+                    <slot name="wcs-tab" />
+                </div>
+            </Host>
+        );
     }
 }

@@ -1,4 +1,4 @@
-import { Component, Prop, h, Host } from '@stencil/core';
+import { Component, Prop, h, Host, Event, EventEmitter } from '@stencil/core';
 
 /**
  * Tab content component.
@@ -14,6 +14,19 @@ export class Tab {
      */
     @Prop({ reflect: true, mutable: true })
     header: string;
+
+    // TODO: See if there is a solution that doesn't pollute the API.
+    /**
+     * Do not use, meant for internal use only.
+     * @inner
+     * @ignore
+     */
+    @Event()
+    tabLoaded!: EventEmitter<void>;
+
+    componentDidLoad() {
+        this.tabLoaded.emit();
+    }
 
     render() {
         return (
