@@ -22,12 +22,19 @@ wcs-card {
     margin-bottom: 16px;
 }
 
-wcs-card-body > h3:first-child {
+wcs-card-body>h3:first-child {
     margin-top: 0;
 }
 
 td {
     margin-right: 32px;
+}
+
+pre {
+    overflow-x: auto;
+    background: var(--wcs-light);
+    border-radius: var(--wcs-border-radius);
+    padding: 16px;
 }
 
 /*
