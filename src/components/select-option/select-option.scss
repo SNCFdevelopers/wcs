@@ -31,7 +31,13 @@ wcs-select-option[selected] {
 
 wcs-select-option[multiple] {
     wcs-checkbox {
+        pointer-events: none;
         // Because 6px are left as of now from the empty span text.
         margin-right: #{16 - 6}px;
+    }
+    &:hover{
+        wcs-checkbox {
+            --wcs-checkbox-border-color: var(--wcs-primary);
+        }
     }
 }
