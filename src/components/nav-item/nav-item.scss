@@ -2,6 +2,46 @@
 
 wcs-nav-item {
     display: block;
+
+    a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        text-align: center;
+        background-color: transparent;
+        border: none;
+        text-decoration: none;
+        transition: color 0.15s ease-in-out,
+        background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out,
+        box-shadow 0.15s ease-in-out;
+        height: 5rem;
+        font-size: 0.75rem;
+        color: var(--wcs-white);
+
+        &:not(.active) {
+            border-bottom: 1px solid rgba(255, 255, 255, .2);
+        }
+
+        @include for-tablet-landscape-down {
+            display: flex;
+            flex: 1;
+            height: 3.25rem;
+            font-size: 0.625rem;
+            color: var(--wcs-text-medium);
+        }
+    }
+
+    i {
+        margin-bottom: 0.5rem;
+        display: inline-block;
+        @include for-tablet-landscape-down {
+            margin-bottom: 0.25rem;
+            display: inline-block;
+        }
+    }
 }
 
 wcs-nav-item[slot=bottom] {
@@ -18,45 +58,7 @@ wcs-nav-item[slot=bottom] {
 }
 
 
-a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    text-align: center;
-    background-color: transparent;
-    border: none;
-    text-decoration: none;
-    transition: color 0.15s ease-in-out,
-    background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out,
-    box-shadow 0.15s ease-in-out;
-    height: 5rem;
-    font-size: 0.75rem;
-    color: var(--wcs-white);
 
-    &:not(.active) {
-        border-bottom: 1px solid rgba(255, 255, 255, .2);
-    }
-
-    @include for-tablet-landscape-down {
-        display: flex;
-        flex: 1;
-        height: 3.25rem;
-        font-size: 0.625rem;
-        color: var(--wcs-text-medium);
-    }
-}
-
-i {
-    margin-bottom: 0.5rem;
-    display: inline-block;
-    @include for-tablet-landscape-down {
-        margin-bottom: 0.25rem;
-        display: inline-block;
-    }
-}
 
 // TODO: There should maybe be a different style for focused, hovered and active
 wcs-nav-item[active],

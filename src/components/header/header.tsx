@@ -12,11 +12,13 @@ export class Header implements ComponentInterface {
             'slot': 'header'
         };
     }
+
     render() {
         return (
             <header>
                 <slot name="logo"/>
                 <slot name="title"/>
+                <slot name="actions"/>
             </header>
         );
     }

@@ -107,6 +107,8 @@
         background-color: var(--wcs-button-ripple-color);
     }
 
+    display: flex;
+    align-content: center;
     font-family: var(--wcs-font-sans-serif);
     background-color: var(--wcs-button-background-color);
     color: var(--wcs-button-color);
@@ -118,7 +120,6 @@
     text-transform: none;
     margin: 0;
     cursor: pointer;
-    display: inline-block;
     font-weight: 500;
     text-align: center;
     white-space: nowrap;

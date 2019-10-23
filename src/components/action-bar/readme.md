@@ -6,7 +6,7 @@
         Titre
         <div slot="actions">
             <wcs-button mode="stroked" shape="small">Action</wcs-button>
-            <wcs-dropdown class="wcs-primary" shape="small">
+            <wcs-dropdown class="wcs-primary" shape="small" style="margin-left: 8px;">
                 <div slot="placeholder">Dropdown</div>
                 <wcs-dropdown-item>Un</wcs-dropdown-item>
                 <wcs-dropdown-item>Deux</wcs-dropdown-item>
@@ -15,7 +15,6 @@
         </div>
     </wcs-action-bar>
 </div>
-
 ```
 
 <!-- Auto Generated Below -->

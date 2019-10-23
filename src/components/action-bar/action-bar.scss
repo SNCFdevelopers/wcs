@@ -1,4 +1,4 @@
-:host{
+:host {
     padding: 0px var(--wcs-padding);
     height: 80px;
     background-color: var(--wcs-white);
@@ -7,9 +7,13 @@
     align-items: center;
     justify-content: space-between;
 
-    h1{
+    h1 {
         font-weight: 400;
         line-height: 1.25;
         color: var(--wcs-gray);
     }
+}
+
+::slotted([slot=actions]) {
+    display: flex;
 }

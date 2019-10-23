@@ -7,8 +7,6 @@ header {
     background: var(--wcs-gray);
     padding: 8px 8px 8px 16px;
     height: calc(64px - 16px);
-    position: sticky;
-    top: 0;
     z-index: 1;
 }
 
@@ -23,4 +21,8 @@ header {
     margin: 0;
     font-weight: 500;
     font-size: 1.5rem;
+}
+
+::slotted([slot=actions]) {
+    margin-left: auto;
 }
