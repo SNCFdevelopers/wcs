@@ -21,6 +21,10 @@ There is an example projects under `example` folder for angular.
 
 If you have any question, don't hesitate to fill an issue !
 
+### Install in an angular project
+
+> TODO
+
 ## Contributing
 
 ### Bug, Feature request, etc...
