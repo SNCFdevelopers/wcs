@@ -12,14 +12,15 @@ import {
     Host
 } from '@stencil/core';
 
-import { SelectChangeEventDetail } from './select-interface';
 import * as MDCRipple from '@material/ripple';
+import { Machine, MachineConfig, interpret, Interpreter, MachineOptions } from 'xstate';
+
+import { SelectChangeEventDetail } from './select-interface';
 import { SelectArrow } from './select-arrow';
 import { SelectOptionChosedEvent, SelectOptionValue } from '../select-option/select-option-interface';
-import { Machine, MachineConfig, interpret, Interpreter, MachineOptions } from 'xstate';
+
 interface SelectStateSchema {
     states: {
-        blurred: {};
         closed: {};
         opened: {};
     };
@@ -28,8 +29,6 @@ interface SelectStateSchema {
 type SelectEvent
     = { type: 'OPEN' }
     | { type: 'CLOSE' }
-    | { type: 'BLUR' }
-    | { type: 'FOCUS' }
     | { type: 'CLICK' }
     | { type: 'OPTION_CLICKED', value: SelectOptionChosedEvent };
 
@@ -127,13 +126,13 @@ export class Select implements ComponentInterface {
         }
 
         this.addRippleEffect();
-        // TODO: is this still usefull for anything ?
-        this.hasLoaded = true;
         this.stateService.start();
         if (this.optionsEl.querySelector('slot') === null) {
             this.replaceOptions_firefoxBefore63();
             this.listenDomUpdate_firefoxBefore63();
         }
+        // TODO: is this still usefull for anything ?
+        this.hasLoaded = true;
     }
 
     private replaceOptions_firefoxBefore63() {
@@ -157,8 +156,6 @@ export class Select implements ComponentInterface {
         observer.observe(this.el, { childList: true });
     }
 
-
-
     componentWillUpdate() {
         if (this.multiple) {
             this.options
@@ -180,23 +177,13 @@ export class Select implements ComponentInterface {
         // TODO: move this to const
         return {
             key: 'select',
-            initial: 'blurred',
+            initial: 'closed',
             states: {
-                blurred: {
-                    entry: ['blur'],
-                    on: {
-                        CLOSE: { target: 'closed', cond: 'enabled' },
-                        FOCUS: { target: 'closed', cond: 'enabled' },
-                        OPEN: { target: 'opened', cond: 'enabled' },
-                        CLICK: { target: 'opened', cond: 'enabled' },
-                    }
-                },
                 closed: {
                     entry: ['close'],
                     on: {
                         CLICK: 'opened',
                         OPEN: 'opened',
-                        BLUR: 'blurred',
                     },
                 },
                 opened: {
@@ -204,7 +191,6 @@ export class Select implements ComponentInterface {
                     on: {
                         CLICK: 'closed',
                         CLOSE: 'closed',
-                        BLUR: 'blurred',
                         OPTION_CLICKED: { actions: ['selectOption'] }
                     },
                 },
@@ -216,19 +202,14 @@ export class Select implements ComponentInterface {
         return {
             actions: {
                 open: () => {
-                    this.expanded = true;
-                    this.focused = true;
+                    if (!this.disabled) {
+                        this.expanded = true;
+                        this.focused = true;
+                    }
                 },
                 close: () => {
                     this.focused = true;
                     this.expanded = false;
-                },
-                blur: () => {
-                    this.focused = false;
-                    this.expanded = false;
-                },
-                focus: () => {
-                    this.focused = true;
                 },
                 selectOption: (_, event) => {
                     if (event.type === 'OPTION_CLICKED') {
@@ -308,8 +289,9 @@ export class Select implements ComponentInterface {
     onWindowClickEvent(event: MouseEvent) {
         const clickedOnSelectOrChildren = event.target instanceof Node && this.el.contains(event.target);
         // TODO: Move this logic in the state machine
+        // FIXME: Doesnt work with single + disabled option
         if (this.expanded && !clickedOnSelectOrChildren) {
-            this.stateService.send('BLUR');
+            this.stateService.send('CLOSE');
         }
     }
 
@@ -317,12 +299,6 @@ export class Select implements ComponentInterface {
     selectedOptionChanged(event: CustomEvent<SelectOptionChosedEvent>) {
         this.stateService.send({ type: 'OPTION_CLICKED', value: event.detail });
     }
-
-    @Listen('focus')
-    focus() { this.stateService.send('FOCUS'); }
-
-    @Listen('blur')
-    blur() { this.stateService.send('BLUR'); }
 
     render() {
         if (this.hasLoaded) {
