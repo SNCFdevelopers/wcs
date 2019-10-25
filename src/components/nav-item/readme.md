@@ -6,10 +6,10 @@
 
 ## Properties
 
-| Property   | Attribute  | Description                                      | Type                | Default |
-| ---------- | ---------- | ------------------------------------------------ | ------------------- | ------- |
-| `position` | `position` | This attribute specify the position of the item. | `"bottom" \| "top"` | `'top'` |
-| `text`     | `text`     | This attribute specify the text of the item.     | `string`            | `''`    |
+| Property | Attribute | Description                                                                                              | Type      | Default |
+| -------- | --------- | -------------------------------------------------------------------------------------------------------- | --------- | ------- |
+| `active` | `active`  | Wether this item is the current selected one. Use this when a user was routed to the corresponding page. | `boolean` | `false` |
+| `text`   | `text`    | This attribute specify the text of the item.                                                             | `string`  | `''`    |
 
 
 ----------------------------------------------

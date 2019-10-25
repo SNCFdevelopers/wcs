@@ -1,0 +1,55 @@
+:host {
+    --wcs-tooltip-border-top-offset: 0px;
+    --wcs-tooltip-border-left-offset: 0px;
+
+    display: flex;
+    align-items: center;
+    border-radius: var(--wcs-border-radius);
+    background: var(--wcs-black);
+    color: var(--wcs-white);
+    font-size: 14px;
+    padding: 4px 8px;
+    position: absolute;
+    transition: opacity ease-in 175ms;
+    pointer-events: none;
+    z-index: 100;
+}
+
+:host(.hide) {
+    opacity: 0;
+}
+
+:host(.show) {
+    opacity: 1;
+}
+
+:host::before {
+    border: solid 6px transparent;
+    pointer-events: none;
+    position: absolute;
+    z-index: 1000;
+    content: " ";
+    width: 0;
+    height: 0;
+}
+
+:host([position=bottom])::before {
+    border-bottom-color: var(--wcs-black);
+    bottom: 100%;
+    margin-left: var(--wcs-tooltip-border-left-offset);
+}
+:host([position=top])::before {
+    border-top-color: var(--wcs-black);
+    top: 100%;
+    margin-left: var(--wcs-tooltip-border-left-offset);
+}
+:host([position=left])::before {
+    border-left-color: var(--wcs-black);
+    left: 100%;
+    top: var(--wcs-tooltip-border-top-offset);
+}
+:host([position=right])::before {
+    border-right-color: var(--wcs-black);
+    right: 100%;
+    top: var(--wcs-tooltip-border-top-offset);
+}

@@ -17,6 +17,24 @@
     <wcs-select-option value="1" disabled="true">One</wcs-select-option>
     <wcs-select-option value="2">Two</wcs-select-option>
     <wcs-select-option value="3">Three</wcs-select-option>
+<wcs-select-option value="2">Two</wcs-select-option>
+    <wcs-select-option value="3">Three</wcs-select-option>
+<wcs-select-option value="2">Two</wcs-select-option>
+    <wcs-select-option value="3">Three</wcs-select-option>
+<wcs-select-option value="2">Two</wcs-select-option>
+    <wcs-select-option value="3">Three</wcs-select-option>
+<wcs-select-option value="2">Two</wcs-select-option>
+    <wcs-select-option value="3">Three</wcs-select-option>
+<wcs-select-option value="2">Two</wcs-select-option>
+    <wcs-select-option value="3">Three</wcs-select-option>
+<wcs-select-option value="2">Two</wcs-select-option>
+    <wcs-select-option value="3">Three</wcs-select-option>
+<wcs-select-option value="2">Two</wcs-select-option>
+    <wcs-select-option value="3">Three</wcs-select-option>
+<wcs-select-option value="2">Two</wcs-select-option>
+    <wcs-select-option value="3">Three</wcs-select-option>
+<wcs-select-option value="2">Two</wcs-select-option>
+    <wcs-select-option value="3">Three</wcs-select-option>
 </wcs-select>
 ```
 
