@@ -12,12 +12,13 @@
 /* Customize the label (the wcs-container) */
 .wcs-container {
     position: relative;
-    display: inline-flex;
-    align-items: center;
     cursor: pointer;
     font-size: 1rem;
     user-select: none;
     font-weight: 500;
+    display: flex;
+    flex-direction: row;
+    align-items: start;
 }
 
 /* Hide the browser's default checkbox */

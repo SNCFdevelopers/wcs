@@ -1,10 +1,12 @@
 # Checkbox
 
 ```html
-<wcs-checkbox>Normal checkbox</wcs-checkbox>
-<wcs-checkbox checked="true">Default checked checkbox</wcs-checkbox>
-<wcs-checkbox>Checkbox</wcs-checkbox>
-<wcs-checkbox indeterminate="true">Checkbox indeterminate</wcs-checkbox>
+<wcs-checkbox style="margin: 16px 0px;">Normal checkbox</wcs-checkbox>
+<wcs-checkbox style="margin: 16px 0px;" checked="true">Default checked checkbox</wcs-checkbox>
+<wcs-checkbox style="margin: 16px 0px;">Checkbox</wcs-checkbox>
+<wcs-checkbox style="margin: 16px 0px;" indeterminate="true">Checkbox indeterminate</wcs-checkbox>
+<wcs-checkbox style="margin: 16px 0px;" checked="true">Multiline checkbox<br /><small>lorem ipsum dolor sit amet consectetuer adipiscing elit</small></wcs-checkbox>
+<wcs-checkbox style="margin: 16px 0px;" checked="true">Multiline<br /><small>lorem ipsum dolor sit amet consectetuer adipiscing elit</small></wcs-checkbox>
 ```
 
 <!-- Auto Generated Below -->
