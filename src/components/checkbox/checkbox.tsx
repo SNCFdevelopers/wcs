@@ -41,15 +41,15 @@ export class Checkbox implements ComponentInterface {
             <Host>
                 <label htmlFor={this.name} class="wcs-container">
                     <input onChange={(evt) => this.handleChange(evt)}
-                        checked={this.checked}
-                        class="wcs-checkbox"
-                        type="checkbox"
-                        name={this.name}
-                        id={this.name}>
+                           checked={this.checked}
+                           class="wcs-checkbox"
+                           type="checkbox"
+                           name={this.name}
+                           id={this.name}>
                     </input>
                     <span class="wcs-checkmark"></span>
                     <span class="text">
-                        <slot />
+                        <slot/>
                     </span>
                 </label>
             </Host>
