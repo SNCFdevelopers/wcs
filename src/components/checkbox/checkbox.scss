@@ -17,9 +17,27 @@
     user-select: none;
     font-weight: 500;
     display: flex;
-    flex-direction: row;
-    align-items: start;
 }
+
+/* Let the user choose the alignment of the checkbox with the label text */
+:host([label-alignment="top"]){
+    .wcs-container {
+        align-items: start;
+    }
+}
+
+:host([label-alignment="center"]){
+    .wcs-container {
+        align-items: center;
+    }
+}
+
+:host([label-alignment="bottom"]){
+    .wcs-container {
+        align-items: flex-end;
+    }
+}
+
 
 /* Hide the browser's default checkbox */
 .wcs-container input {

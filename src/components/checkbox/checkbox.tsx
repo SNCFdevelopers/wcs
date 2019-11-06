@@ -1,5 +1,5 @@
 import { Component, Prop, Event, Element, EventEmitter, ComponentInterface, h, Host } from '@stencil/core';
-import { CheckboxChangeEventDetail } from './checkbox-interface';
+import { CheckboxChangeEventDetail, CheckboxLabelAlignment } from './checkbox-interface';
 
 @Component({
     tag: 'wcs-checkbox',
@@ -22,6 +22,11 @@ export class Checkbox implements ComponentInterface {
      * If `true`, the checkbox is selected.
      */
     @Prop({ mutable: true }) checked = false;
+
+    /**
+     * Specifie the alignment of the checkbox with the label content
+     */
+    @Prop({ mutable: true, reflect: true }) labelAlignment: CheckboxLabelAlignment = 'center';
 
     /**
      * Emitted when the checked property has changed.
