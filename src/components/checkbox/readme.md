@@ -20,12 +20,12 @@
 
 ## Properties
 
-| Property         | Attribute         | Description                                          | Type                            | Default           |
-| ---------------- | ----------------- | ---------------------------------------------------- | ------------------------------- | ----------------- |
-| `checked`        | `checked`         | If `true`, the checkbox is selected.                 | `boolean`                       | `false`           |
-| `indeterminate`  | `indeterminate`   | If `true` the checkbox is in indeterminate state.    | `boolean`                       | `false`           |
-| `labelAlignment` | `label-alignment` | Specifie the alignment of the checkbox with the text | `"bottom" \| "center" \| "top"` | `'center'`        |
-| `name`           | `name`            |                                                      | `string`                        | `this.checkboxId` |
+| Property         | Attribute         | Description                                                   | Type                            | Default           |
+| ---------------- | ----------------- | ------------------------------------------------------------- | ------------------------------- | ----------------- |
+| `checked`        | `checked`         | If `true`, the checkbox is selected.                          | `boolean`                       | `false`           |
+| `indeterminate`  | `indeterminate`   | If `true` the checkbox is in indeterminate state.             | `boolean`                       | `false`           |
+| `labelAlignment` | `label-alignment` | Specifie the alignment of the checkbox with the label content | `"bottom" \| "center" \| "top"` | `'center'`        |
+| `name`           | `name`            |                                                               | `string`                        | `this.checkboxId` |
 
 
 ## Events

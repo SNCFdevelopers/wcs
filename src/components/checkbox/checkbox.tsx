@@ -24,7 +24,7 @@ export class Checkbox implements ComponentInterface {
     @Prop({ mutable: true }) checked = false;
 
     /**
-     * Specifie the alignment of the checkbox with the text
+     * Specifie the alignment of the checkbox with the label content
      */
     @Prop({ mutable: true, reflect: true }) labelAlignment: CheckboxLabelAlignment = 'center';
 
