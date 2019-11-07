@@ -18,6 +18,7 @@ import { Machine, MachineConfig, interpret, Interpreter, MachineOptions } from '
 import { SelectChangeEventDetail } from './select-interface';
 import { SelectArrow } from './select-arrow';
 import { SelectOptionChosedEvent, SelectOptionValue } from '../select-option/select-option-interface';
+import { isElement } from '../../utils/helpers';
 
 interface SelectStateSchema {
     states: {
@@ -281,8 +282,14 @@ export class Select implements ComponentInterface {
     }
 
     @Listen('mousedown')
-    onMouseDown(_event: MouseEvent) {
-        this.stateService.send('CLICK');
+    onMouseDown(event: MouseEvent) {
+        const clickOnScroll = isElement(event.target)
+            && (event.offsetX > event.target.clientWidth
+            || event.offsetY > event.target.clientHeight);
+
+        if (!clickOnScroll) {
+            this.stateService.send('CLICK');
+        }
     }
 
     @Listen('click', { target: 'window' })
