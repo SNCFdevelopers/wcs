@@ -9,15 +9,17 @@
     "types": "dist/types/components.d.ts",
     "collection": "dist/collection/collection-manifest.json",
     "collection:main": "dist/collection/index.js",
-    "unpkg": "dist/stencil-starter-project-name/stencil-starter-project-name.js",
+    "unpkg": "dist/wcs/wcs.js",
     "files": [
         "dist/",
-        "loader/"
+        "loader/",
+        "schematics/"
     ],
     "scripts": {
         "build:stencil": "stencil build",
         "build:examples": "node build.js",
-        "build": "node build.js && stencil build",
+        "build:schematics": "node_modules/.bin/tsc -p schematics/tsconfig.json",
+        "build": "node build.js && stencil build && npm run build:schematics",
         "watch:stencil": "stencil build --dev --serve --watch",
         "watch:examples": "node build.js --watch",
         "start": "node run.js",
@@ -26,12 +28,17 @@
         "postversion": "git push --follow-tags"
     },
     "devDependencies": {
+        "@angular-devkit/core": "^8.3.18",
+        "@angular-devkit/schematics": "^8.3.18",
+        "@angular/cdk": "^8.2.3",
         "@material/ripple": "1.1.0",
+        "@schematics/angular": "^8.3.18",
         "@stencil/core": "1.7.2",
         "@stencil/sass": "1.1.0",
         "@types/dom-inputevent": "^1.0.5",
         "@types/jest": "24.0.19",
         "@types/puppeteer": "1.20.2",
+        "chalk": "^3.0.0",
         "chokidar": "^3.2.2",
         "concurrently": "^5.0.0",
         "glob": "^7.1.4",
@@ -43,6 +50,9 @@
         "puppeteer": "1.20.0",
         "tslint": "^5.20.0",
         "tslint-ionic-rules": "^0.0.21",
+        "typescript": "~3.5.3"
+    },
+    "dependencies": {
         "xstate": "^4.6.7"
     },
     "repository": {
@@ -51,5 +61,6 @@
     },
     "author": "SNCF",
     "private": false,
-    "license": "MIT"
+    "license": "MIT",
+    "schematics": "./schematics/collection.json"
 }

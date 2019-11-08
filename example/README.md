@@ -1,67 +1,27 @@
-# Angular WCS demo project.
+# Example
 
-This is a demo project integrating wcs.  
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.18.
 
-Things to do for the project to work:
-- [ ] npm install @scnf/wcs
-- [ ] copy assets folder like so:
-  - fonts
-    - avenir-black.woff
-    - avenir-book.woff
-    - avenir-ligther.woff
-    - avenir-medium.woff
-  - sncf-logo.png
-- [ ] Edit files like below  
+## Development server
 
-> All `wcs` imports are replaced by `../../../dist` in this project because we use the local build rather than downloading from npm.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-```ts
-/// src/main.ts
-import { enableProdMode } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+## Code scaffolding
 
-import { AppModule } from './app/app.module';
-import { environment } from './environments/environment';
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-// Add this line:
-import { defineCustomElements, applyPolyfills } from 'wcs/loader';
+## Build
 
-if (environment.production) {
-  enableProdMode();
-}
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
-// Add this line:
-applyPolyfills.then(() => {
-  defineCustomElements(window);
-});
-```
-```ts
-/// src/app/app.module.ts
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+## Running unit tests
 
-import { AppComponent } from './app.component';
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
-  // Add this line:
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
+## Running end-to-end tests
 
-```
-```scss
-/// src/styles.scss
-/* You can add global styles to this file, and also import other style files */
-// Add this line:
-@import 'wcs/dist/wcs/wcs.css';
-```
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
