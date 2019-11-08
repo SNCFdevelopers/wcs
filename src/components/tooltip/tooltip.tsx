@@ -1,10 +1,12 @@
 import { Component, ComponentInterface, h, Host, Prop, Element } from '@stencil/core';
 
 import { WcsTooltipPosition } from './tooltip-interface';
+import { getOverlay } from '../../utils/overlay';
 
 @Component({
     tag: 'wcs-tooltip',
-    styleUrls: ['tooltip.scss'],
+    // styles are imported globally for now as the content of the tooltip is detached
+    // and reattached in the overlay
     shadow: true,
 })
 export class Tooltip implements ComponentInterface {
@@ -29,7 +31,7 @@ export class Tooltip implements ComponentInterface {
     @Element()
     private el!: HTMLWcsTooltipElement;
 
-    before!: CSSStyleDeclaration;
+    content: HTMLDivElement;
     target: Element;
 
     componentWillLoad() {
@@ -38,7 +40,6 @@ export class Tooltip implements ComponentInterface {
             throw new Error(`Cannot find element with corresponding id: ${this.for}`);
         }
         this.target = target;
-        this.before = window.getComputedStyle(this.el, '::before');
 
         this.listen('mouseenter', 'show');
         this.listen('focus', 'show');
@@ -51,79 +52,83 @@ export class Tooltip implements ComponentInterface {
         this.target.addEventListener(eventName, () => {
             this.updatePosition();
             if (className === 'hide') {
-                this.el.classList.replace('show', 'hide');
+                this.content.classList.replace('show', 'hide');
             } else {
-                this.el.classList.replace('hide', 'show');
+                this.content.classList.replace('hide', 'show');
             }
         });
     }
 
     componentDidRender() {
+        const overlay = getOverlay();
+        this.content = this.el.shadowRoot.querySelector('.wcs-tooltip-content');
+        const nodes = this.el.shadowRoot.querySelector('slot').assignedNodes();
+        this.content.remove();
+        overlay.appendChild(this.content);
+        nodes.forEach(n => this.content.appendChild(n.cloneNode(true)));
         this.updatePosition();
     }
 
     updatePosition() {
-        if (!this.target || !this.el.offsetParent) {
+        // Function taken and adapted from https://github.com/PolymerElements/paper-tooltip/blob/master/paper-tooltip.js
+        // Thanks ! :-)
+        if (!this.target || !this.content.offsetParent) {
             return;
         }
 
-        const parentRect = this.el.offsetParent.getBoundingClientRect();
+        const parentRect = this.content.offsetParent.getBoundingClientRect();
         const targetRect = this.target.getBoundingClientRect();
-        const thisRect = this.el.getBoundingClientRect();
+        const thisRect = this.content.getBoundingClientRect();
         const borderWidth = 6;
         const horizontalCenterOffset = (targetRect.width - thisRect.width) / 2;
         const verticalCenterOffset = (targetRect.height - thisRect.height) / 2;
         const targetLeft = targetRect.left - parentRect.left;
         const targetTop = targetRect.top - parentRect.top;
-        const innerDimensions = this.innerDimensions(this.el);
-        let leftBorderOffset = innerDimensions.width / 2 - borderWidth / 2;
-        let topBorderOffset = innerDimensions.height / 2 - borderWidth / 2;
         let tooltipLeft: number;
         let tooltipTop: number;
         switch (this.position) {
             case 'top':
-                topBorderOffset = 0;
                 tooltipLeft = targetLeft + horizontalCenterOffset;
                 tooltipTop = targetTop - thisRect.height - borderWidth;
                 break;
             case 'bottom':
-                topBorderOffset = 0;
                 tooltipLeft = targetLeft + horizontalCenterOffset;
                 tooltipTop = targetTop + targetRect.height + borderWidth;
                 break;
             case 'left':
-                leftBorderOffset = 0;
                 tooltipLeft = targetLeft - thisRect.width - borderWidth;
                 tooltipTop = targetTop + verticalCenterOffset;
                 break;
             case 'right':
-                leftBorderOffset = 0;
                 tooltipLeft = targetLeft + targetRect.width + borderWidth;
                 tooltipTop = targetTop + verticalCenterOffset;
                 break;
         }
 
-        this.el.style.setProperty('--wcs-tooltip-border-top-offset', topBorderOffset + 'px');
-        this.el.style.setProperty('--wcs-tooltip-border-left-offset', leftBorderOffset + 'px');
-        this.el.style.left = tooltipLeft + 'px';
-        this.el.style.top = tooltipTop + 'px';
-    }
-
-    innerDimensions(element: Element) {
-        const computedStyle = getComputedStyle(element);
-
-        let height = element.clientHeight; // height with padding
-        let width = element.clientWidth; // width with padding
-
-        height -= parseFloat(computedStyle.paddingTop) + parseFloat(computedStyle.paddingBottom);
-        width -= parseFloat(computedStyle.paddingLeft) + parseFloat(computedStyle.paddingRight);
-        return { height, width };
+        // Clip to the left/right side.
+        if (parentRect.left + tooltipLeft + thisRect.width > window.innerWidth) {
+            this.content.style.right = '0px';
+            this.content.style.left = 'auto';
+        } else {
+            this.content.style.left = Math.max(0, tooltipLeft) + 'px';
+            this.content.style.right = 'auto';
+        }
+        // Clip the top/bottom side.
+        if (parentRect.top + tooltipTop + thisRect.height > window.innerHeight) {
+            this.content.style.bottom = (parentRect.height - targetTop) + 'px';
+            this.content.style.top = 'auto';
+        } else {
+            this.content.style.top = Math.max(-parentRect.top, tooltipTop) + 'px';
+            this.content.style.bottom = 'auto';
+        }
     }
 
     render() {
         return (
-            <Host class="hide">
-                <slot/>
+            <Host>
+                <div class="wcs-tooltip-content hide">
+                    <slot />
+                </div>
             </Host>
         );
     }

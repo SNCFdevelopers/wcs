@@ -2,6 +2,17 @@ body {
     margin: 0;
     overflow-y: hidden;
     background-color: #f2f2f2;
+    display: grid;
+    grid-template-areas: "header header" "nav content";
+    height: 100vh;
+}
+
+wcs-header {
+    grid-area: header;
+}
+
+wcs-nav {
+    grid-area: nav;
 }
 
 table {
@@ -9,6 +20,7 @@ table {
 }
 
 main {
+    grid-area: content;
     overflow-y: scroll;
     height: calc(100vh - 84px);
     padding: 0 100px;
@@ -37,6 +49,7 @@ pre {
     padding: 16px;
 }
 
+/* TODO: extract to own file */
 /*
 Visual Studio-like style based on original C# coloring by Jason Diamond <jason@diamond.name>
 */
