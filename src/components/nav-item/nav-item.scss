@@ -2,6 +2,7 @@
 
 wcs-nav-item {
     display: block;
+    cursor: pointer;
 
     a {
         display: flex;
@@ -14,9 +15,9 @@ wcs-nav-item {
         border: none;
         text-decoration: none;
         transition: color 0.15s ease-in-out,
-        background-color 0.15s ease-in-out,
-        border-color 0.15s ease-in-out,
-        box-shadow 0.15s ease-in-out;
+            background-color 0.15s ease-in-out,
+            border-color 0.15s ease-in-out,
+            box-shadow 0.15s ease-in-out;
         height: 5rem;
         font-size: 0.75rem;
         color: var(--wcs-white);
@@ -56,9 +57,6 @@ wcs-nav-item[slot=bottom] {
 .wcs-nav-item-text {
     font-weight: 500;
 }
-
-
-
 
 // TODO: There should maybe be a different style for focused, hovered and active
 wcs-nav-item[active],
