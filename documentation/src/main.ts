@@ -4,9 +4,17 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
+import { defineCustomElements, applyPolyfills } from 'wcs-temporary/loader';
+
 if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+applyPolyfills().then(async () => {
+  try {
+    await defineCustomElements(window);
+    await platformBrowserDynamic().bootstrapModule(AppModule);
+  } catch (error) {
+    console.error(error);
+  }
+});
