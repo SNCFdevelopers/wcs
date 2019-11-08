@@ -3,54 +3,51 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
+    <wcs-header>
+      <img slot="logo" src="./assets/sncf-logo.png" alt="Logo SNCF" >
+      <h1 slot="title">Votre superbe application</h1>
+      <div slot="actions">
+          <wcs-button class="wcs-light" mode="clear"><span>Connexion</span><i class="material-icons">person_outline</i></wcs-button>
+      </div>
+    </wcs-header>
+    <wcs-nav>
+      <wcs-nav-item text="Example">
+        <i class="material-icons">train</i>
+      </wcs-nav-item>
+    </wcs-nav>
+    <main>
+      <!--<router-outlet></router-outlet>-->
       <wcs-card>
-          <wcs-card-body>
-              <wcs-select id="lazy-loaded-select" placeholder="Le select" multiple>
-                  <wcs-select-option *ngFor="let opt of options" [value]="opt.value">{{ opt.name }}</wcs-select-option>
-              </wcs-select>
-              <wcs-button (click)="addOptions()" mode="stroked" class="primary">Add option</wcs-button>
-          </wcs-card-body>
+        <wcs-card-body>
+          <p>This application was bootstrapped using:
+          </p>
+          <pre><code>ng add wcs-temporary</code></pre>
+        </wcs-card-body>
       </wcs-card>
-      <wcs-card>
-          <wcs-card-body>
-              <wcs-form-field>
-                  <input [(ngModel)]="inputValue"/>
-              </wcs-form-field>
-              <wcs-form-field>
-                  <input [(ngModel)]="inputValue"/>
-                  <wcs-button shape="square" slot="suffix"><i class="material-icons">person</i></wcs-button>
-              </wcs-form-field>
-              <wcs-form-field>
-                  <wcs-select placeholder="Et ouais">
-                      <wcs-select-option *ngFor="let opt of options" [value]="opt.value">{{ opt.name }}</wcs-select-option>
-                  </wcs-select>
-                  <input [(ngModel)]="inputValue"/>
-                  <wcs-button shape="square" slot="suffix"><i class="material-icons">person</i></wcs-button>
-              </wcs-form-field>
-          </wcs-card-body>
-      </wcs-card>
+    </main>
   `,
-  styles: [
-      `
-      wcs-form-field {
-          margin-bottom: 8px;
-      }
-      input {
-          width: 100%;
-      }
-      `
-  ]
+  styles: [`
+    :host {
+      display: grid;
+      grid-template-areas: "header header" "nav content";
+      grid-template-columns: auto 1fr;
+      height: 100vh;
+      overflow-y: hidden;
+    }
+    main {
+      grid-area: content;
+      padding: 16px;
+      overflow-y: auto;
+      height: calc(100vh - 64px - 16px - 16px);
+    }
+    wcs-nav {
+      grid-area: nav;
+    }
+    wcs-header {
+      grid-area: header;
+    }
+  `]
 })
 export class AppComponent {
-  id = 2;
-  inputValue = `lol`;
-
-  options: { value: string, name: string }[] = [{
-    name: '1', value: '1'
-  }];
-
-  addOptions() {
-    this.options.push({ name: this.id.toString(), value: this.id.toString() });
-    this.id++;
-  }
+  title = 'example';
 }
