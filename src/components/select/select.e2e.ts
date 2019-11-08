@@ -1,7 +1,6 @@
 import { newE2EPage } from '@stencil/core/testing';
 
 describe('Select component', () => {
-    // TODO: Add test about default selected value
     it('Expands when clicked', async () => {
         // Given
         const page = await newE2EPage();

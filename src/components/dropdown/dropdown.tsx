@@ -53,7 +53,8 @@ export class Dropdown implements ComponentInterface {
     @Listen('click', { target: 'window' })
     onWindowClickEvent(event: MouseEvent) {
         // TODO: Extract to utils
-        const clickedOnDropdownOrChildren = event.target instanceof Node && this.el.contains(event.target);
+        const clickedOnDropdownOrChildren = event.target instanceof Node
+            && this.el.contains(event.target);
         if (this.expanded && !clickedOnDropdownOrChildren) {
             this.expanded = false;
         }
