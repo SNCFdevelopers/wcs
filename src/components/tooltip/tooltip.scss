@@ -1,9 +1,7 @@
-:host {
-    --wcs-tooltip-border-top-offset: 0px;
-    --wcs-tooltip-border-left-offset: 0px;
-
+.wcs-tooltip-content {
     display: flex;
     align-items: center;
+    max-width: 60vw;
     border-radius: var(--wcs-border-radius);
     background: var(--wcs-black);
     color: var(--wcs-white);
@@ -15,15 +13,15 @@
     z-index: 100;
 }
 
-:host(.hide) {
+.wcs-tooltip-content.hide {
     opacity: 0;
 }
 
-:host(.show) {
+.wcs-tooltip-content.show {
     opacity: 1;
 }
 
-:host::before {
+.wcs-tooltip-content::before {
     border: solid 6px transparent;
     pointer-events: none;
     position: absolute;
@@ -33,22 +31,25 @@
     height: 0;
 }
 
-:host([position=bottom])::before {
+.wcs-tooltip-content[position=bottom]::before {
     border-bottom-color: var(--wcs-black);
     bottom: 100%;
     margin-left: var(--wcs-tooltip-border-left-offset);
 }
-:host([position=top])::before {
+
+.wcs-tooltip-content[position=top]::before {
     border-top-color: var(--wcs-black);
     top: 100%;
     margin-left: var(--wcs-tooltip-border-left-offset);
 }
-:host([position=left])::before {
+
+.wcs-tooltip-content[position=left]::before {
     border-left-color: var(--wcs-black);
     left: 100%;
     top: var(--wcs-tooltip-border-top-offset);
 }
-:host([position=right])::before {
+
+.wcs-tooltip-content[position=right]::before {
     border-right-color: var(--wcs-black);
     right: 100%;
     top: var(--wcs-tooltip-border-top-offset);

@@ -18,7 +18,7 @@ export const config: Config = {
         testPathIgnorePatterns: ['/node_modules/', '/dist/', '/example/'],
         browserArgs: ['--no-sandbox', '--disable-setuid-sandbox'],
     },
-    globalStyle: 'src/style/wcs.global.scss',
+    globalStyle: 'src/style/global.scss',
     plugins: [
         sass({
             // Allows to write @import '@material/*' from scss

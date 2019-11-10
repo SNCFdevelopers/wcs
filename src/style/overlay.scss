@@ -1,0 +1,12 @@
+@import '../components/tooltip/tooltip.scss';
+
+$over9999: 9999999;
+
+.wcs-overlay {
+    height: 100vh;
+    width: 100vw;
+    pointer-events: none;
+    top: 0;
+    position: absolute;
+    z-index: $over9999;
+}

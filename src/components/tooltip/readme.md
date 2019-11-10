@@ -8,7 +8,9 @@
 <wcs-button shape="small" id="top">Top</wcs-button>
 <wcs-tooltip for="top" position="top">A tooltip!</wcs-tooltip>
 <wcs-button shape="small" id="left">Left</wcs-button>
-<wcs-tooltip for="left" position="left">To the left!</wcs-tooltip>
+<wcs-tooltip for="left" position="left">
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam repellat, illum molestias iusto eveniet ullam voluptate at est soluta iure, quos unde, ipsa dolores error a nihil rerum nesciunt delectus.
+</wcs-tooltip>
 ```
 
 <!-- Auto Generated Below -->
