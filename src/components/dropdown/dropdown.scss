@@ -5,9 +5,16 @@
     flex-flow: row-reverse;
 }
 
+wcs-button {
+    --wcs-button-padding: 8px 10px 8px 16px;
+}
+
 :host([shape=small]) {
     .show {
         top: 48px !important;
+    }
+    wcs-button {
+        --wcs-button-padding: 2px 10px 2px 16px;
     }
 }
 

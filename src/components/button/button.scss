@@ -37,9 +37,9 @@
 }
 
 :host([shape=round]) {
+    --wcs-button-padding: 0;
+    --wcs-button-border-radius: 50%;
     .wcs-inner-button {
-        --wcs-button-padding: 0;
-        --wcs-button-border-radius: 50%;
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -49,8 +49,8 @@
 }
 
 :host([shape=square]) {
+    --wcs-button-padding: 0;
     .wcs-inner-button {
-        --wcs-button-padding: 0;
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -60,16 +60,11 @@
 }
 
 :host([shape=normal]) {
-    .wcs-inner-button {
-        // As we have no border with this button
-        // And we need to keep the same size for all of them
-        padding: calc(var(--wcs-padding) / 2 + 1px) calc(var(--wcs-padding));
-    }
+    --wcs-button-padding: calc(var(--wcs-padding) / 2 + 1px) calc(var(--wcs-padding));
 }
 
 :host([mode=stroked]) {
     .wcs-inner-button {
-        padding: var(--wcs-button-padding);
         border-width: 1px;
         border-style: solid;
         border-color: var(--wcs-base);
