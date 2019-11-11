@@ -27,8 +27,12 @@ table {
 main {
     grid-area: content;
     overflow-y: scroll;
-    height: calc(100vh - 84px);
-    padding: 0 100px;
+    height: calc(100vh - 64px - 32px);
+    padding: 16px;
+}
+
+main.content {
+    max-width: 1000px;
 }
 
 h1:not(:first-of-type) {
