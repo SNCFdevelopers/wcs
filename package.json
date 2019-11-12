@@ -28,17 +28,12 @@
         "postversion": "git push --follow-tags"
     },
     "devDependencies": {
-        "@angular-devkit/core": "^8.3.18",
-        "@angular-devkit/schematics": "^8.3.18",
-        "@angular/cdk": "^8.2.3",
         "@material/ripple": "1.1.0",
-        "@schematics/angular": "^8.3.18",
         "@stencil/core": "1.7.2",
         "@stencil/sass": "1.1.0",
         "@types/dom-inputevent": "^1.0.5",
         "@types/jest": "24.0.19",
         "@types/puppeteer": "1.20.2",
-        "chalk": "^3.0.0",
         "chokidar": "^3.2.2",
         "concurrently": "^5.0.0",
         "glob": "^7.1.4",
@@ -48,11 +43,19 @@
         "markdown-it": "^10.0.0",
         "mem": "^5.1.1",
         "puppeteer": "1.20.0",
+        "rollup": "^1.26.5",
+        "rollup-plugin-typescript": "^1.0.1",
+        "tslib": "^1.10.0",
         "tslint": "^5.20.0",
         "tslint-ionic-rules": "^0.0.21",
         "typescript": "~3.5.3"
     },
     "dependencies": {
+        "@angular/cdk": "^8.2.3",
+        "@angular-devkit/core": "^8.3.18",
+        "@angular-devkit/schematics": "^8.3.18",
+        "@schematics/angular": "^8.3.18",
+        "chalk": "^3.0.0",
         "xstate": "^4.6.7"
     },
     "repository": {
