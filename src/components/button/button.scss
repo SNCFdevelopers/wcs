@@ -15,6 +15,10 @@
 
 :host([mode=clear]) {
     --wcs-button-border-color: transparent;
+
+    .wcs-inner-button {
+        box-shadow: none;
+    }
 }
 
 :host([mode=clear]),
@@ -23,8 +27,6 @@
     --wcs-button-background-color: transparent;
 
     .wcs-inner-button {
-        box-shadow: none;
-
         &::before,
         &::after {
             --wcs-button-ripple-color: var(--wcs-base);
@@ -65,9 +67,7 @@
 
 :host([mode=stroked]) {
     .wcs-inner-button {
-        border-width: 1px;
-        border-style: solid;
-        border-color: var(--wcs-base);
+        box-shadow: inset 0 0 0 1px var(--wcs-button-border-color);
     }
 }
 
@@ -76,7 +76,8 @@
     --wcs-button-background-color: var(--wcs-light);
 
     .wcs-inner-button {
-        border-color: var(--wcs-light);
+        // Fix for stroked button
+        --wcs-button-border-color: var(--wcs-light);
         opacity: 1;
         cursor: default;
         pointer-events: none;

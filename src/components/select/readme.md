@@ -157,6 +157,16 @@ Type: `Promise<void>`
 
 
 
+### `setSelectedValue(selectedValue: any) => Promise<void>`
+
+Change the currently selected values.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
 
 ----------------------------------------------
 
