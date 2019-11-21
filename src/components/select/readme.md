@@ -58,6 +58,24 @@
 </wcs-select>
 ```
 
+## Programatically select values
+
+```html
+<wcs-select id="select-values" placeholder="Le select" multiple>
+    <wcs-select-option value="1">One</wcs-select-option>
+    <wcs-select-option value="2">Two</wcs-select-option>
+    <wcs-select-option value="3">Three</wcs-select-option>
+</wcs-select>
+```
+<wcs-button id="p-sel-button" mode="stroked" class="primary">Select values</wcs-button>
+<script>
+    const pSelect = document.querySelector('#select-values');
+    const pButton = document.querySelector('#p-sel-button');
+    pButton.addEventListener('click', () => {
+        pSelect.setSelectedValue(['2','3']);
+    });
+</script>
+
 ## Lazy loaded options
 
 ```html

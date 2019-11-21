@@ -33,6 +33,27 @@ type SelectEvent
     | { type: 'CLICK' }
     | { type: 'OPTION_CLICKED', value: SelectOptionChosedEvent };
 
+const SELECT_MACHINE_CONFIG: MachineConfig<any, SelectStateSchema, SelectEvent> = {
+    key: 'select',
+    initial: 'closed',
+    states: {
+        closed: {
+            entry: ['close'],
+            on: {
+                CLICK: 'opened',
+                OPEN: 'opened',
+            },
+        },
+        opened: {
+            entry: ['open'],
+            on: {
+                CLICK: 'closed',
+                CLOSE: 'closed',
+                OPTION_CLICKED: { actions: ['selectOption'] }
+            },
+        },
+    }
+};
 /**
  * Select component, use in conjuction with wcs-select-option.
  *
@@ -48,19 +69,31 @@ type SelectEvent
     shadow: true
 })
 export class Select implements ComponentInterface {
+    private stateService!: Interpreter<any, SelectStateSchema, SelectEvent>;
+
+    private optionsEl!: HTMLDivElement;
+    private controlEl!: HTMLDivElement;
+
+    // Only used for multiples.
+    private values: SelectOptionValue[];
+
     @Element() el!: HTMLWcsSelectElement;
 
     /** Wether the select is expanded */
-    @State() expanded = false;
+    @State()
+    expanded = false;
 
     /** Wether the component is fully loaded in the DOM. */
-    @State() hasLoaded = false;
+    @State()
+    hasLoaded = false;
 
     /** Text to display for the selected option, when no option is selected, the value is undefined. */
-    @State() displayText: string;
+    @State()
+    displayText: string;
 
     /** When the host is focused. */
-    @State() focused: boolean;
+    @State()
+    focused: boolean;
 
     /** The currently selected value. */
     @Prop({ mutable: true, reflect: true })
@@ -71,17 +104,21 @@ export class Select implements ComponentInterface {
     placeholder?: string | null;
 
     /** If `true`, the user cannot interact with the select. */
-    @Prop({ mutable: true }) disabled = false;
+    @Prop({ mutable: true })
+    disabled = false;
 
     /** If `true`, the user can select multiple values at once. */
-    @Prop({ reflect: true }) multiple = false;
+    @Prop({ reflect: true })
+    multiple = false;
 
     /** The name of the control, which is submitted with the form data. */
-    @Prop() name?: string;
+    @Prop()
+    name?: string;
 
     // FIXME: This seems to be deprecated.
     /** Reference to the window. */
-    @Prop({ context: 'window' }) window!: Window;
+    @Prop({ context: 'window' })
+    window!: Window;
 
     /** Emitted when the value has changed. */
     @Event() wcsChange!: EventEmitter<SelectChangeEventDetail>;
@@ -104,20 +141,45 @@ export class Select implements ComponentInterface {
         this.stateService.send('CLOSE');
     }
 
-    private stateService!: Interpreter<any, SelectStateSchema, SelectEvent>;
-
-    private optionsEl!: HTMLDivElement;
-    private controlEl!: HTMLDivElement;
-
-    // Only used for multiples.
-    private values: SelectOptionValue[];
+    /**
+     * Change the currently selected values.
+     *
+     * @param selectedValue The new selected value(s).
+     */
+    @Method()
+    async setSelectedValue(selectedValue: any | any[]) {
+        // Should also test if multiple
+        if (this.multiple && Array.isArray(selectedValue)) {
+            this.values = [];
+            this.options.forEach((opt: HTMLWcsSelectOptionElement) => {
+                const isSelected = selectedValue.includes(opt.value);
+                if (isSelected) {
+                    this.values.push({ value: opt.value, displayText: opt.innerText });
+                }
+                return opt.selected = isSelected;
+            });
+            this.updateValueWithValues();
+        } else {
+            this.options.forEach((opt: HTMLWcsSelectOptionElement) => {
+                const isSelected = opt.value === selectedValue;
+                if (isSelected) {
+                    this.value = opt.value;
+                    this.displayText = opt.innerText;
+                }
+                return opt.selected = isSelected;
+            });
+        }
+        this.wcsChange.emit({
+            value: this.value
+        });
+    }
 
     componentDidLoad() {
         this.optionsEl = this.el.shadowRoot.querySelector('.wcs-select-options');
         this.controlEl = this.el.shadowRoot.querySelector('.wcs-select-control');
 
         const stateMachine = Machine(
-            this.initMachineConfig(),
+            SELECT_MACHINE_CONFIG,
             this.initMachineOptions()
         );
         this.stateService = interpret(stateMachine);
@@ -170,33 +232,8 @@ export class Select implements ComponentInterface {
         return opts.length !== 0
             ? opts
             : slot !== null
-                ? slot.assignedElements()
+                ? slot.assignedElements() as HTMLWcsSelectOptionElement[]
                 : [];
-    }
-
-    private initMachineConfig(): MachineConfig<any, SelectStateSchema, SelectEvent> {
-        // TODO: move this to const
-        return {
-            key: 'select',
-            initial: 'closed',
-            states: {
-                closed: {
-                    entry: ['close'],
-                    on: {
-                        CLICK: 'opened',
-                        OPEN: 'opened',
-                    },
-                },
-                opened: {
-                    entry: ['open'],
-                    on: {
-                        CLICK: 'closed',
-                        CLOSE: 'closed',
-                        OPTION_CLICKED: { actions: ['selectOption'] }
-                    },
-                },
-            }
-        };
     }
 
     private initMachineOptions(): Partial<MachineOptions<any, SelectEvent>> {
@@ -247,6 +284,10 @@ export class Select implements ComponentInterface {
         }
         // TODO: Let user provide sorting function and use this if defined.
         // this.values = this.values.sort((a, b) => a.value - b.value);
+        this.updateValueWithValues();
+    }
+
+    private updateValueWithValues() {
         this.value = this.values.map(v => v.value);
         this.displayText = this.values.length !== 0
             ? this.values.map(v => v.displayText).join(', ')
@@ -285,7 +326,7 @@ export class Select implements ComponentInterface {
     onMouseDown(event: MouseEvent) {
         const clickOnScroll = isElement(event.target)
             && (event.offsetX > event.target.clientWidth
-            || event.offsetY > event.target.clientHeight);
+                || event.offsetY > event.target.clientHeight);
 
         if (!clickOnScroll) {
             this.stateService.send('CLICK');

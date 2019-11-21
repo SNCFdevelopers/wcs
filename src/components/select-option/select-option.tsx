@@ -41,6 +41,7 @@ export class SelectOption implements ComponentInterface {
             this.value = this.el.innerText || '';
         }
     }
+
     componentDidLoad() {
         const ripple = new MDCRipple.MDCRipple(this.el);
         ripple.unbounded = true;

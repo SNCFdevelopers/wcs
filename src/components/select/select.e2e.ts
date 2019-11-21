@@ -99,6 +99,48 @@ describe('Select component', () => {
         expect(label.innerText).toBe('One');
     });
 
+    describe('setSelectedValue', () => {
+        it('Let user change selected value programatically', async () => {
+            // Given
+            const page = await newE2EPage();
+            await page.setContent(`
+                <wcs-select>
+                    <wcs-select-option value="1"></wcs-select-option>
+                    <wcs-select-option value="2"></wcs-select-option>
+                </wcs-select>
+            `);
+            const select = await page.find('wcs-select');
+            const changeSpy = await select.spyOnEvent('wcsChange');
+            // When
+            await select.callMethod('setSelectedValue', '2');
+            await page.waitForChanges();
+            // Then
+            expect(changeSpy).toHaveReceivedEventTimes(1);
+            expect(changeSpy).toHaveReceivedEventDetail({ value: '2' });
+        });
+
+        it('Let user change selected values programatically', async () => {
+            // Given
+            const page = await newE2EPage();
+            await page.setContent(`
+                <wcs-select multiple>
+                    <wcs-select-option value="1"></wcs-select-option>
+                    <wcs-select-option value="2"></wcs-select-option>
+                    <wcs-select-option value="3"></wcs-select-option>
+                </wcs-select>
+            `);
+            const select = await page.find('wcs-select');
+            const changeSpy = await select.spyOnEvent('wcsChange');
+            // When
+            await select.callMethod('setSelectedValue', ['2', '3']);
+            await page.waitForChanges();
+            // Then
+            expect(changeSpy).toHaveReceivedEventTimes(1);
+            expect(changeSpy).toHaveReceivedEventDetail({ value: ['2', '3'] });
+        });
+    });
+
+
     it('Is focusable', async () => {
         // Given
         const page = await newE2EPage();
@@ -278,7 +320,6 @@ describe('Select component', () => {
             `);
             const select = await page.find('wcs-select');
             const changeSpy = await select.spyOnEvent('wcsChange');
-
             const [opt1, opt2] = (await page.findAll('wcs-select > wcs-select-option'));
 
             // When
@@ -288,10 +329,8 @@ describe('Select component', () => {
             await page.waitForChanges();
 
             // Then
-            // Then
             expect(changeSpy).toHaveReceivedEventTimes(2);
             expect(changeSpy).toHaveReceivedEventDetail({ value: ['1', '2'] });
-
         });
 
 
