@@ -19,7 +19,7 @@ const POLYFILLS_STRING =
 const MODULE_IMPORTS = `import { applyPolyfills, defineCustomElements } from 'wcs-temporary/loader';\n`;
 
 export function ngAdd(_options: any): Rule {
-    return async (tree: Tree, context: SchematicContext) => {
+    return (tree: Tree, context: SchematicContext): Rule => {
         addPackageToPackageJson(tree, 'wcs-temporary', wcsVersion);
         importStyles(tree);
         defineCustomElements(tree);
