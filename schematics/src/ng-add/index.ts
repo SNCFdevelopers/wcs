@@ -90,7 +90,7 @@ function importStyles(tree: Tree) {
     }
 
     const styleFile = buffer.toString();
-    const insertion = `@import '~wcs-temporary/dist/wcs/wcs.css;\n`;
+    const insertion = `@import '~wcs-temporary/dist/wcs/wcs.css';\n`;
 
     if (styleFile.includes(insertion)) {
         return;
