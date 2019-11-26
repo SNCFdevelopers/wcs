@@ -3,14 +3,10 @@
 nav {
     background-color: var(--wcs-primary);
     display: flex;
-    position: relative;
     z-index: 1055;
-    left: 0;
-    top: 0;
     flex-direction: column;
     width: 6.25rem;
-    // FIXME: not correct height
-    height: 100vh;
+    height: 100%;
 
     @include for-tablet-landscape-down {
         flex-direction: row;
