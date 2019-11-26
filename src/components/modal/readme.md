@@ -3,55 +3,59 @@
 ## Modal with backdrop and close button
 
 ```html
-<wcs-button onclick="getElementById('modal-1').setAttribute('show', true)" id="btn-modal-1-show">Afficher la boîte de dialogue</wcs-button>
-
 <wcs-modal id="modal-1" show-close-button="true">
-    <div slot="wcs-modal-header">Modal title</div>
-    Voulez-vous quittez la page ? 
+    <div slot="header">Modal title</div>
+    Voulez-vous quittez la page ?
     <br/>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a cursus mi. Nullam et sem mi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce sollicitudin pellentesque libero nec elementum.
-    <div slot="wcs-modal-actions">
+    <div slot="actions">
         <wcs-button class="wcs-dark" mode="stroked">C'est non</wcs-button>
         <wcs-button>J'accepte</wcs-button>
     </div>
 </wcs-modal>
 ```
+
+<wcs-button onclick="getElementById('modal-1').setAttribute('show', true)" id="btn-modal-1-show">
+    Afficher la boîte de dialogue
+</wcs-button>
 
 ## Modal without backdrop
 
 ```html
-<wcs-button onclick="getElementById('modal-2').setAttribute('show', true)" id="btn-modal-2-show">Afficher la boîte de dialogue</wcs-button>
-
 <wcs-modal id="modal-2" backdrop="false" show-close-button="true">
-    <div slot="wcs-modal-header">Modal title</div>
+    <div slot="header">Modal title</div>
     Voulez-vous quittez la page ? 
     <br/>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a cursus mi. Nullam et sem mi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce sollicitudin pellentesque libero nec elementum.
-    <div slot="wcs-modal-actions">
+    <div slot="actions">
         <wcs-button class="wcs-dark" mode="stroked">C'est non</wcs-button>
         <wcs-button>J'accepte</wcs-button>
     </div>
 </wcs-modal>
 ```
 
+<wcs-button onclick="getElementById('modal-2').setAttribute('show', true)" id="btn-modal-2-show">
+    Afficher la boîte de dialogue
+</wcs-button>
+
 ## Modal without close button
 
 ```html
-<wcs-button onclick="getElementById('modal-3').setAttribute('show', true)" id="btn-modal-3-show">Afficher la boîte de dialogue</wcs-button>
-
 <wcs-modal id="modal-3">
-    <div slot="wcs-modal-header">Modal title</div>
+    <div slot="header">Modal title</div>
     Voulez-vous quittez la page ? 
     <br/>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a cursus mi. Nullam et sem mi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce sollicitudin pellentesque libero nec elementum.
-    <div slot="wcs-modal-actions">
+    <div slot="actions">
         <wcs-button onclick="getElementById('modal-3').setAttribute('show', false)" class="wcs-dark" mode="stroked">C'est non</wcs-button>
         <wcs-button onclick="getElementById('modal-3').setAttribute('show', false)">J'accepte</wcs-button>
     </div>
 </wcs-modal>
 ```
 
-
+<wcs-button onclick="getElementById('modal-3').setAttribute('show', true)" id="btn-modal-3-show">
+    Afficher la boîte de dialogue
+</wcs-button>
 
 <!-- Auto Generated Below -->
 
@@ -67,9 +71,9 @@
 
 ## Events
 
-| Event               | Description                                                        | Type                |
-| ------------------- | ------------------------------------------------------------------ | ------------------- |
-| `wcs-dialog-closed` | Triggered when the user leaves the dialog with the closing button. | `CustomEvent<void>` |
+| Event             | Description                                                        | Type                |
+| ----------------- | ------------------------------------------------------------------ | ------------------- |
+| `wcsDialogClosed` | Triggered when the user leaves the dialog with the closing button. | `CustomEvent<void>` |
 
 
 ## Dependencies
