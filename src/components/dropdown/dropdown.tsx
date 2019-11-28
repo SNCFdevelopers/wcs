@@ -42,7 +42,19 @@ export class Dropdown implements ComponentInterface {
         const buttonWrapper = this.el.shadowRoot.querySelector('wcs-button').shadowRoot.querySelector('button');
         const buttonTextColor = window.getComputedStyle(buttonWrapper).color;
         (this.el.shadowRoot.querySelector('.arrow') as HTMLElement).style.fill = buttonTextColor;
+        this.fixForFirefoxBelow63();
+    }
 
+    private fixForFirefoxBelow63() {
+        // If the items appear out of the slot we place them back
+        const items = this.el.querySelectorAll('wcs-dropdown-item');
+        const container = this.el.querySelector('.container');
+        if (items.length > 0 && container) {
+            items.forEach(i => {
+                this.el.removeChild(i);
+                container.appendChild(i);
+            });
+        }
     }
 
     private onButtonClick(e: MouseEvent): void {

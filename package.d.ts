@@ -1,0 +1,66 @@
+declare const _exports: {
+    "name": string;
+    "version": string;
+    "description": string;
+    "main": string;
+    "module": string;
+    "es2015": string;
+    "es2017": string;
+    "types": string;
+    "collection": string;
+    "collection:main": string;
+    "unpkg": string;
+    "files": string[];
+    "scripts": {
+        "build:stencil": string;
+        "build:examples": string;
+        "build:schematics": string;
+        "build": string;
+        "watch:stencil": string;
+        "watch:examples": string;
+        "start": string;
+        "test": string;
+        "test:watch": string;
+        "postversion": string;
+    };
+    "devDependencies": {
+        "@material/ripple": string;
+        "@stencil/core": string;
+        "@stencil/sass": string;
+        "@types/dom-inputevent": string;
+        "@types/jest": string;
+        "@types/puppeteer": string;
+        "chokidar": string;
+        "concurrently": string;
+        "glob": string;
+        "highlight.js": string;
+        "jest": string;
+        "jest-cli": string;
+        "markdown-it": string;
+        "mem": string;
+        "puppeteer": string;
+        "rollup": string;
+        "rollup-plugin-typescript": string;
+        "tslib": string;
+        "tslint": string;
+        "tslint-ionic-rules": string;
+        "typescript": string;
+    };
+    "dependencies": {
+        "@angular/cdk": string;
+        "@angular-devkit/core": string;
+        "@angular-devkit/schematics": string;
+        "@schematics/angular": string;
+        "chalk": string;
+        "xstate": string;
+    };
+    "repository": {
+        "type": string;
+        "url": string;
+    };
+    "author": string;
+    "private": boolean;
+    "license": string;
+    "schematics": string;
+};
+export = _exports;

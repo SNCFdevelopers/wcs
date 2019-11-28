@@ -4,6 +4,7 @@ body {
     background-color: #f2f2f2;
     display: grid;
     grid-template-areas: "header header" "nav content";
+    grid-template-columns: min-content auto;
     height: 100vh;
 }
 
