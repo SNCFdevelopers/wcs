@@ -62,10 +62,12 @@ export class Tooltip implements ComponentInterface {
     componentDidRender() {
         const overlay = getOverlay();
         this.content = this.el.shadowRoot.querySelector('.wcs-tooltip-content');
-        const nodes = this.el.shadowRoot.querySelector('slot').assignedNodes();
+        const nodes = this.el.shadowRoot.querySelector('slot')
+                      ? this.el.shadowRoot.querySelector('slot').assignedNodes()
+                      : this.content.querySelectorAll('*');
+        nodes.forEach(n => this.content.appendChild(n.cloneNode(true)));
         this.content.remove();
         overlay.appendChild(this.content);
-        nodes.forEach(n => this.content.appendChild(n.cloneNode(true)));
         this.updatePosition();
     }
 
@@ -123,11 +125,17 @@ export class Tooltip implements ComponentInterface {
         }
     }
 
+    disconnectedCallback() {
+        // TODO: this gets called only at the component creation in ff < 63
+        // const overlay = getOverlay();
+        // overlay.removeChild(this.content);
+    }
+
     render() {
         return (
             <Host>
                 <div class="wcs-tooltip-content hide">
-                    <slot />
+                    <slot/>
                 </div>
             </Host>
         );
