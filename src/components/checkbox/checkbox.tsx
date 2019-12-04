@@ -21,7 +21,7 @@ export class Checkbox implements ComponentInterface {
     /**
      * If `true`, the checkbox is selected.
      */
-    @Prop({ mutable: true }) checked = false;
+    @Prop({ reflect:true, mutable: true }) checked = false;
 
     /**
      * Specifie the alignment of the checkbox with the label content
