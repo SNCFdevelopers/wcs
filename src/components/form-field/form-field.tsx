@@ -4,6 +4,7 @@ import { Component, ComponentInterface, Element, h, Host, State } from '@stencil
  * TODO:
  * - [ ] Suffix button style
  * - [ ] Resize select correctly
+ * - [ ] Text area
  */
 @Component({
     tag: 'wcs-form-field',
@@ -16,9 +17,21 @@ export class FormField implements ComponentInterface {
     @State() hasPrefix = false;
     @State() hasSuffix = false;
 
-    componentDidLoad() {
+    componentWillLoad() {
         this.hasSuffix = this.el.querySelector('wcs-button') !== null;
         this.hasPrefix = this.el.querySelector('wcs-select') !== null;
+
+        this.addRequiredMarkerToLabel();
+    }
+
+    private addRequiredMarkerToLabel() {
+        const label = this.el.querySelector('wcs-label');
+        const isRequired = (this.el.querySelector('input') || this.el.querySelector('wcs-select'))
+            .hasAttribute('required');
+
+        if (isRequired && label) {
+            label.setAttribute('required', 'true');
+        }
     }
 
     render() {
@@ -32,9 +45,13 @@ export class FormField implements ComponentInterface {
 
         return (
             <Host class={classes}>
-                <slot name="prefix"/>
-                <slot/>
-                <slot name="suffix"/>
+                <slot name="label" />
+                <div class="input-container">
+                    <slot name="prefix" />
+                    <slot />
+                    <slot name="suffix" />
+                </div>
+                <slot name="messages" />
             </Host>
         );
     }

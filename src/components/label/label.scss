@@ -1,0 +1,10 @@
+:host {
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+:host([required])::after {
+    font-weight: 500;
+    color: var(--wcs-red);
+    content: "*";
+}
