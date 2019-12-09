@@ -6,8 +6,8 @@ dropdown.
 ## Classic
 
 ```html
-<wcs-dropdown class="wcs-primary">
-    <div slot="placeholder">Dropdown</div>
+<wcs-dropdown>
+    <span slot="placeholder">Dropdown</span>
     <wcs-dropdown-item>Un</wcs-dropdown-item>
     <wcs-dropdown-item>Deux</wcs-dropdown-item>
     <wcs-dropdown-item>Trois</wcs-dropdown-item>
@@ -17,7 +17,7 @@ dropdown.
 ## Plain button
 
 ```html
-<wcs-dropdown class="wcs-primary" mode="plain">
+<wcs-dropdown mode="plain">
     <div slot="placeholder">Dropdown</div>
     <wcs-dropdown-item>Action</wcs-dropdown-item>
     <wcs-dropdown-item>Deuxième action</wcs-dropdown-item>
@@ -28,7 +28,7 @@ dropdown.
 ## Small
 
 ```html
-<wcs-dropdown class="wcs-primary" shape="small">
+<wcs-dropdown shape="small">
     <div slot="placeholder">Dropdown</div>
     <wcs-dropdown-item>Un</wcs-dropdown-item>
     <wcs-dropdown-item>Deux</wcs-dropdown-item>
