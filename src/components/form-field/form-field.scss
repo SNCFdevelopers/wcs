@@ -2,21 +2,23 @@
     --wcs-form-field-border-radius-left: var(--wcs-border-radius);
     --wcs-form-field-border-radius-right: var(--wcs-border-radius);
 
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.input-container {
     display: flex;
 }
 
-
-
 // Base input style
 ::slotted(input) {
+    height: 24px;
+    width: 100%;
     font-family: var(--wcs-font-sans-serif);
     color: var(--wcs-primary);
     background-color: var(--wcs-light);
     border: 1px solid var(--wcs-light);
-    border-radius: var(--wcs-form-field-border-radius-left)
-    var(--wcs-form-field-border-radius-right)
-    var(--wcs-form-field-border-radius-right)
-    var(--wcs-form-field-border-radius-left);
+    border-radius: var(--wcs-form-field-border-radius-left) var(--wcs-form-field-border-radius-right) var(--wcs-form-field-border-radius-right) var(--wcs-form-field-border-radius-left);
 
     display: block;
     padding: calc(var(--wcs-padding) / 2) var(--wcs-padding);
@@ -25,10 +27,21 @@
     background-clip: padding-box;
 }
 
+::slotted(wcs-select:not([slot=prefix])) {
+    width: 100%;
+}
+
 // Focused input style
 ::slotted(input:focus) {
     outline: 0;
     border: solid 1px var(--wcs-primary);
+    box-shadow: none;
+}
+
+// Label style
+::slotted(label) {
+    font-weight: 500;
+    margin-bottom: 8px;
 }
 
 // Make input square on left side if there is a prefix
@@ -42,7 +55,7 @@
 }
 
 // Prefixed select
-::slotted(wcs-select) {
+::slotted([slot=prefix]) {
     --wcs-select-border-radius: var(--wcs-border-radius) 0 0 var(--wcs-border-radius);
     --wcs-select-background-color: var(--wcs-gray-light);
     --wcs-select-value-color: var(--wcs-white);
