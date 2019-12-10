@@ -22,15 +22,29 @@ export class FormField implements ComponentInterface {
         this.hasPrefix = this.el.querySelector('wcs-select') !== null;
 
         this.addRequiredMarkerToLabel();
+        this.applyAutosizingToTextArea();
     }
 
     private addRequiredMarkerToLabel() {
         const label = this.el.querySelector('wcs-label');
-        const isRequired = (this.el.querySelector('input') || this.el.querySelector('wcs-select'))
+        const isRequired = (this.el.querySelector('input')
+            || this.el.querySelector('wcs-select')
+            || this.el.querySelector('textarea'))
             .hasAttribute('required');
 
         if (isRequired && label) {
             label.setAttribute('required', 'true');
+        }
+    }
+
+    private applyAutosizingToTextArea() {
+        const textarea = this.el.querySelector('textarea');
+        if (textarea && textarea.hasAttribute('autogrow')) {
+            textarea.style.overflow = 'hidden';
+            textarea.addEventListener('keyup', () => {
+                textarea.style.height = 'auto';
+                textarea.style.height = textarea.scrollHeight + 'px';
+            });
         }
     }
 

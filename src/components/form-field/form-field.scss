@@ -11,8 +11,8 @@
 }
 
 // Base input style
-::slotted(input) {
-    height: 24px;
+::slotted(textarea), ::slotted(input) {
+    box-sizing: border-box;
     width: 100%;
     font-family: var(--wcs-font-sans-serif);
     color: var(--wcs-primary);
@@ -27,12 +27,23 @@
     background-clip: padding-box;
 }
 
+::slotted(input) {
+    height: 42px;
+}
+
+::slotted(textarea) {
+    padding: var(--wcs-padding);
+    min-height: 10rem;
+    overflow: auto;
+    resize: vertical;
+}
+
 ::slotted(wcs-select:not([slot=prefix])) {
     width: 100%;
 }
 
 // Focused input style
-::slotted(input:focus) {
+::slotted(input:focus), ::slotted(textarea:focus) {
     outline: 0;
     border: solid 1px var(--wcs-primary);
     box-shadow: none;

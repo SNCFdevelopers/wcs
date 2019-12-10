@@ -4,13 +4,35 @@ Form fields component wraps the native input element and add some more functionn
 
 ## Wrapped component
 
-You can use the `form-field` to wrap an `input` or a `wcs-select`.
+You can use the `form-field` to wrap an `input`, a `text-area`, or a `wcs-select`.
+
+### Input 
 
 ```html
 <wcs-form-field>
     <input placeholder="John doe"/>
 </wcs-form-field>
+```
 
+### Textarea
+
+```html
+<wcs-form-field>
+    <textarea placeholder="John doe"></textarea>
+</wcs-form-field>
+```
+
+You can add `autogrow` to the textarea if you want it to grow with your text.
+
+```html
+<wcs-form-field>
+    <textarea placeholder="John doe" autogrow></textarea>
+</wcs-form-field>
+```
+
+### Select
+
+```html
 <wcs-form-field>
     <wcs-select placeholder="Select a country" required>
         <wcs-select-option>France</wcs-select-option>
