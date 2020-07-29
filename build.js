@@ -23,7 +23,7 @@ const md = require('markdown-it')({
     }
 });
 
-const render = mem(content => md.render(content))
+const render = mem(content => md.render(content));
 
 /**
  * @returns {Promise<string[]>} All the file names with the given extension
