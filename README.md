@@ -9,6 +9,10 @@ This project is still under heavy development therefore it is not yet released. 
 
 We plan to release first version in **January 2020**.
 
+## Known issues
+
+Select and select options size behavior, especially with multiple select. As of now we recommend setting a fixed width on the select to prevent resizing from happening. A stale branch `fix-select-options-size` contains some work to fix it, but it is abandonned for now.
+
 ## Documentation
 
 There is documentation available at https://sncf.gitlab.io/wcs-ci/develop/. It is only available for the develop branch though as the project remains unreleased.
