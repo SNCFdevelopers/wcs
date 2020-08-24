@@ -27,9 +27,11 @@ There is an example projects under `example` folder for angular.
 
 If you have any question, don't hesitate to fill an issue !
 
-### Install in an angular project
+### Install in your project
 
-> TODO
+StencilJS offers many integrations with different JS frameworks.
+
+You can refer to their official documentation to add WCS to your project : https://stenciljs.com/docs/overview
 
 ## Contributing
 
