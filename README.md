@@ -3,6 +3,8 @@
 This project is the web component implementation of the [SNCF design system](https://designmetier-bootstrap.sncf.fr/).  
 It is built using [stencil](https://github.com/ionic-team/stencil).
 
+If you are reading this documentation about Github, only the development branch is updated at the moment. We use a GitLab project for WCS development and releases.
+
 ## Roadmap
 
 This project is still under heavy development therefore it is not yet released. It is being used internally as of now.
