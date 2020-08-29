@@ -3,7 +3,7 @@ stages:
     - build
     - deploy
 
-image: node:12.9-alpine
+image: node:14-alpine
 
 # Cache modules in between jobs
 cache:
