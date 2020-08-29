@@ -9,7 +9,7 @@ If you read this documentation on Github, only the development branch is updated
 
 This project is still under heavy development therefore it is not yet released. It is being used internally as of now.
 
-We plan to release first version in **January 2020**.
+We plan to release first version in **december 2020**.
 
 ## Known issues
 
