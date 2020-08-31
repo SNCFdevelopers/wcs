@@ -33,6 +33,34 @@ StencilJS offers many integrations with different JS frameworks.
 
 You can refer to their official documentation to add WCS to your project : https://stenciljs.com/docs/overview
 
+After added wcs dependencies, you must add font faces Avenir like so :
+
+```css
+@font-face {
+    font-family: Avenir;
+    src: url("your-custom-path/avenir-lighter.woff");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Avenir;
+    src: url("your-custom-path/avenir-book.woff");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Avenir;
+    src: url("your-custom-path/avenir-medium.woff");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Avenir;
+    src: url("your-custom-path/avenir-black.woff");
+    font-weight: 900;
+}
+```
+
 ## Contributing
 
 ### Bug, Feature request, etc...
