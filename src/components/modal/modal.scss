@@ -44,11 +44,11 @@ Modal window
 .wcs-modal-container {
     position: fixed;
     top: 50%;
-    min-width: 400px;
     left: 50%;
+    min-width: 400px;
+    max-width: 480px;
     /* bring your own prefixes */
     transform: translate(-50%, -50%);
-    max-width: 480px;
     pointer-events: auto;
     background-color: #fff;
     background-clip: padding-box;

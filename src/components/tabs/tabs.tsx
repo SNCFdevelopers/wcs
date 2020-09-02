@@ -115,9 +115,7 @@ export class Tabs implements ComponentInterface {
         const tabsEl = this.el.shadowRoot.querySelector('.wcs-tabs');
         // FIXME: problem with this selector being too greedy in ff < 63
         const tabs = this.el.shadowRoot.querySelectorAll('.wcs-tabs > wcs-tab');
-        if (tabs.length > 5) {
-            this.el.childNodes.forEach(console.log);
-        }
+
         return tabs.length !== 0
             ? tabs
             : tabsEl.querySelector('slot')

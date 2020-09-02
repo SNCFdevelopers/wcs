@@ -47,13 +47,28 @@
     <br/>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a cursus mi. Nullam et sem mi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce sollicitudin pellentesque libero nec elementum.
     <div slot="actions">
-        <wcs-button onclick="getElementById('modal-3').setAttribute('show', false)" class="wcs-dark" mode="stroked">C'est non</wcs-button>
-        <wcs-button onclick="getElementById('modal-3').setAttribute('show', false)">J'accepte</wcs-button>
+        <wcs-button onclick="getElementById('modal-3').removeAttribute('show')" class="wcs-dark" mode="stroked">C'est non</wcs-button>
+        <wcs-button onclick="getElementById('modal-3').removeAttribute('show')">J'accepte</wcs-button>
     </div>
 </wcs-modal>
 ```
 
 <wcs-button onclick="getElementById('modal-3').setAttribute('show', true)" id="btn-modal-3-show">
+    Afficher la boîte de dialogue
+</wcs-button>
+
+## Modal without actions
+
+```html
+<wcs-modal id="modal-4" show-close-button>
+    <div slot="header">Modal title</div>
+    Une modale avec du contenu uniquement mais pas d'actions.
+    <br/>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a cursus mi. Nullam et sem mi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce sollicitudin pellentesque libero nec elementum.
+</wcs-modal>
+```
+
+<wcs-button onclick="getElementById('modal-4').setAttribute('show', true)" id="btn-modal-3-show">
     Afficher la boîte de dialogue
 </wcs-button>
 
