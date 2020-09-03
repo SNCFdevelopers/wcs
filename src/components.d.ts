@@ -105,10 +105,6 @@ export namespace Components {
     }
     interface WcsNavItem {
         /**
-          * Wether this item is the current selected one. Use this when a user was routed to the corresponding page.
-         */
-        "active": boolean;
-        /**
           * Attributes mapped to a <a> tag.  Don't forget to specify [routerLink] if using in conjuction with angular router.
          */
         "href": string;
@@ -525,10 +521,6 @@ declare namespace LocalJSX {
     interface WcsNav {
     }
     interface WcsNavItem {
-        /**
-          * Wether this item is the current selected one. Use this when a user was routed to the corresponding page.
-         */
-        "active"?: boolean;
         /**
           * Attributes mapped to a <a> tag.  Don't forget to specify [routerLink] if using in conjuction with angular router.
          */
