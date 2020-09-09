@@ -4,7 +4,7 @@
     --wcs-select-border-radius: var(--wcs-border-radius);
     --wcs-select-background-color: var(--wcs-light);
     --wcs-select-placeholder-color: var(--wcs-text-medium);
-    --wcs-select-value-color: var(--wcs-black);
+    --wcs-select-value-color: var(--wcs-primary);
     --wcs-select-border-color: transparent;
 
     display: block;
@@ -92,6 +92,7 @@ label {
 
 .wcs-select-value {
     color: var(--wcs-select-value-color);
+    font-weight: var(--wcs-font-weight-form-value) ;
 }
 
 .wcs-select-options {
