@@ -25,9 +25,11 @@
         "start": "node run.js",
         "test": "stencil test --spec --e2e",
         "test:watch": "stencil test --spec --e2e --watchAll",
-        "postversion": "git push --follow-tags"
+        "postversion": "git push --follow-tags",
+        "updateVersion": "node release.js"
     },
     "devDependencies": {
+        "@angular/cli": "^10.1.1",
         "@material/ripple": "1.1.0",
         "@stencil/core": "^1.17.3",
         "@stencil/sass": "^1.3.2",

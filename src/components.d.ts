@@ -158,11 +158,6 @@ export namespace Components {
          */
         "placeholder"?: string | null;
         /**
-          * Change the currently selected values.
-          * @param selectedValue The new selected value(s).
-         */
-        "setSelectedValue": (selectedValue: any | any[]) => Promise<void>;
-        /**
           * The currently selected value.
          */
         "value"?: any | null;

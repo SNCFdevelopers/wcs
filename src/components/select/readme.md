@@ -3,7 +3,7 @@
 ## Basic
 
 ```html
-<wcs-select placeholder="Le select">
+<wcs-select placeholder="Le select" id="leselectg">
     <wcs-select-option value="1">One</wcs-select-option>
     <wcs-select-option value="2">Two</wcs-select-option>
     <wcs-select-option value="3">Three</wcs-select-option>
@@ -66,15 +66,26 @@
     <wcs-select-option value="2">Two</wcs-select-option>
     <wcs-select-option value="3">Three</wcs-select-option>
 </wcs-select>
-```
+
 <wcs-button id="p-sel-button" mode="stroked" class="primary">Select values</wcs-button>
 <script>
     const pSelect = document.querySelector('#select-values');
     const pButton = document.querySelector('#p-sel-button');
     pButton.addEventListener('click', () => {
-        pSelect.setSelectedValue(['2','3']);
+        pSelect.setAttribute('value', ['1', '2']);
     });
 </script>
+```
+
+## Initial select values
+
+```html
+<wcs-select placeholder="Le select" value="1, 2" multiple>
+    <wcs-select-option value="1">One</wcs-select-option>
+    <wcs-select-option value="2">Two</wcs-select-option>
+    <wcs-select-option value="3">Three</wcs-select-option>
+</wcs-select>
+```
 
 ## Lazy loaded options
 
@@ -84,7 +95,6 @@
     <wcs-select-option value="2">Two</wcs-select-option>
     <wcs-select-option value="3">Three</wcs-select-option>
 </wcs-select>
-```
 
 <wcs-button id="lazy-loaded-sel-button" mode="stroked" class="primary">Add option</wcs-button>
 
@@ -94,12 +104,18 @@
     let id = 4;
     button.addEventListener('click', () => {
         const opt = document.createElement('wcs-select-option');
-        opt.setAttribute('value', id++)
+        opt.setAttribute('value', id++);
         opt.appendChild(document.createTextNode(id.toString()));
         lazyLoadedSelect.appendChild(opt);
     });
 </script>
+```
 
+## Known issues
+
+It is strongly recommended to add a width size to the select.
+
+```html
 <style>
     wcs-select {
         max-width: 250px;
@@ -110,6 +126,7 @@
         display: inline-block;
     }
 </style>
+```
 
 
 <!-- Auto Generated Below -->
@@ -150,16 +167,6 @@ Type: `Promise<void>`
 ### `open() => Promise<void>`
 
 Open the component.
-
-#### Returns
-
-Type: `Promise<void>`
-
-
-
-### `setSelectedValue(selectedValue: any | any[]) => Promise<void>`
-
-Change the currently selected values.
 
 #### Returns
 

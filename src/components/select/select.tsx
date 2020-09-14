@@ -9,7 +9,7 @@ import {
     ComponentInterface,
     Method,
     h,
-    Host
+    Host, Watch
 } from '@stencil/core';
 
 import * as MDCRipple from '@material/ripple';
@@ -54,6 +54,7 @@ const SELECT_MACHINE_CONFIG: MachineConfig<any, SelectStateSchema, SelectEvent> 
         },
     }
 };
+
 /**
  * Select component, use in conjuction with wcs-select-option.
  *
@@ -141,37 +142,40 @@ export class Select implements ComponentInterface {
         this.stateService.send('CLOSE');
     }
 
-    /**
-     * Change the currently selected values.
-     *
-     * @param selectedValue The new selected value(s).
-     */
-    @Method()
-    async setSelectedValue(selectedValue: any | any[]) {
-        // Should also test if multiple
-        if (this.multiple && Array.isArray(selectedValue)) {
+    @Watch('value')
+    onValueChangeHandler(newValue: any) {
+        this.updateSelectedValue(newValue);
+        this.emitChange(this.value);
+    }
+
+    private updateSelectedValue(value: any) {
+        if (this.multiple) {
+            if (!Array.isArray(value)) {
+                value = value.split(',').map(String).map(x => x.trim());
+            } else {
+                value = value.map(String);
+            }
             this.values = [];
             this.options.forEach((opt: HTMLWcsSelectOptionElement) => {
-                const isSelected = selectedValue.includes(opt.value);
+
+                const isSelected = value.includes(opt.value);
                 if (isSelected) {
                     this.values.push({ value: opt.value, displayText: opt.innerText });
                 }
-                return opt.selected = isSelected;
+                opt.selected = isSelected;
             });
-            this.updateValueWithValues();
+            this.displayText = this.values.length !== 0
+                ? this.values.map(v => v.displayText).join(', ')
+                : undefined;
         } else {
             this.options.forEach((opt: HTMLWcsSelectOptionElement) => {
-                const isSelected = opt.value === selectedValue;
+                const isSelected = opt.value === value;
                 if (isSelected) {
-                    this.value = opt.value;
                     this.displayText = opt.innerText;
                 }
-                return opt.selected = isSelected;
+                opt.selected = isSelected;
             });
         }
-        this.wcsChange.emit({
-            value: this.value
-        });
     }
 
     componentDidLoad() {
@@ -194,8 +198,18 @@ export class Select implements ComponentInterface {
             this.replaceOptions_firefoxBefore63();
             this.listenDomUpdate_firefoxBefore63();
         }
+
+        if (this.value !== undefined) {
+            this.updateSelectedValue(this.value);
+        }
         // TODO: is this still usefull for anything ?
         this.hasLoaded = true;
+    }
+
+    private emitChange(newValue: any): void {
+        this.wcsChange.emit({
+            value: newValue
+        });
     }
 
     private replaceOptions_firefoxBefore63() {
@@ -267,9 +281,6 @@ export class Select implements ComponentInterface {
         } else {
             this.handleNormalClick(event);
         }
-        this.wcsChange.emit({
-            value: this.value
-        });
     }
 
     private handleClickOnMultiple(event: SelectOptionChosedEvent) {
@@ -359,10 +370,10 @@ export class Select implements ComponentInterface {
                         ? <label class="wcs-select-value">{this.displayText}</label>
                         : <label class="wcs-select-placeholder">{this.placeholder}</label>
                     }
-                    <SelectArrow up={this.expanded} />
+                    <SelectArrow up={this.expanded}/>
                 </div>
                 <div class="wcs-select-options">
-                    <slot name="wcs-select-option" />
+                    <slot name="wcs-select-option"/>
                 </div>
             </Host>
         );

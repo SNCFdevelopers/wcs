@@ -112,7 +112,7 @@ describe('Select component', () => {
             const select = await page.find('wcs-select');
             const changeSpy = await select.spyOnEvent('wcsChange');
             // When
-            await select.callMethod('setSelectedValue', '2');
+            await select.setAttribute('value', '2');
             await page.waitForChanges();
             // Then
             expect(changeSpy).toHaveReceivedEventTimes(1);
@@ -132,11 +132,12 @@ describe('Select component', () => {
             const select = await page.find('wcs-select');
             const changeSpy = await select.spyOnEvent('wcsChange');
             // When
-            await select.callMethod('setSelectedValue', ['2', '3']);
+            const newValue = [2, 3];
+            await select.setAttribute('value', newValue);
             await page.waitForChanges();
             // Then
             expect(changeSpy).toHaveReceivedEventTimes(1);
-            expect(changeSpy).toHaveReceivedEventDetail({ value: ['2', '3'] });
+            expect(changeSpy).toHaveReceivedEventDetail({ value: newValue.toString() });
         });
     });
 

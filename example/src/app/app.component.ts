@@ -24,6 +24,7 @@ import { Component } from '@angular/core';
           <pre><code>ng add wcs-temporary</code></pre>
         </wcs-card-body>
       </wcs-card>
+      <app-select-example></app-select-example>
     </main>
   `,
   styles: [`
