@@ -16,11 +16,11 @@ const POLYFILLS_STRING =
     defineCustomElements(window);
 });\n`;
 
-const MODULE_IMPORTS = `import { applyPolyfills, defineCustomElements } from 'wcs-temporary/loader';\n`;
+const MODULE_IMPORTS = `import { applyPolyfills, defineCustomElements } from 'wcs-core/loader';\n`;
 
 export function ngAdd(_options: any): Rule {
     return (tree: Tree, context: SchematicContext): Rule => {
-        addPackageToPackageJson(tree, 'wcs-temporary', wcsVersion);
+        addPackageToPackageJson(tree, 'wcs-core', wcsVersion);
         importStyles(tree);
         defineCustomElements(tree);
         addCustomElementsSchema(tree);
@@ -90,7 +90,7 @@ function importStyles(tree: Tree) {
     }
 
     const styleFile = buffer.toString();
-    const insertion = `@import '~wcs-temporary/dist/wcs/wcs.css';\n`;
+    const insertion = `@import '~wcs-core/dist/wcs/wcs.css';\n`;
 
     if (styleFile.includes(insertion)) {
         return;

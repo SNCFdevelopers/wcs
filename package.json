@@ -1,5 +1,5 @@
 {
-    "name": "wcs-temporary",
+    "name": "wcs-core",
     "version": "1.0.1",
     "description": "Web components SNCF",
     "main": "dist/index.js",
@@ -26,7 +26,7 @@
         "test": "stencil test --spec --e2e",
         "test:watch": "stencil test --spec --e2e --watchAll",
         "postversion": "git push --follow-tags",
-        "updateVersion": "node release.js"
+        "updateVersion": "node update-version.js"
     },
     "devDependencies": {
         "@angular/cli": "^10.1.1",

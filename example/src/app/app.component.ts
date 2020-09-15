@@ -21,7 +21,7 @@ import { Component } from '@angular/core';
         <wcs-card-body>
           <p>This application was bootstrapped using:
           </p>
-          <pre><code>ng add wcs-temporary</code></pre>
+          <pre><code>ng add wcs-core</code></pre>
         </wcs-card-body>
       </wcs-card>
       <app-select-example></app-select-example>

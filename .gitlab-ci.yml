@@ -10,9 +10,11 @@ cache:
   key: ${CI_COMMIT_REF_SLUG}
   paths:
     - node_modules/
+    - angular/node_modules/
 
 before_script:
     - npm install
+    - cd angular/ && npm install && cd ../
 
 test:
     image: markhobson/node-chrome
@@ -29,8 +31,10 @@ build:
             - loader/
             - schematics/
             - dist/
+            - angular/projects/wcs-angular/dist/
     script:
         - npm run build
+        - cd angular/ && npm run build
 
 pages:
     stage: deploy
@@ -57,3 +61,4 @@ publish:
     script:
         - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
         - npm publish
+        - cd angular/wcs-angular/ && npm publish
