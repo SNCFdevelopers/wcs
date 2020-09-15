@@ -1,6 +1,6 @@
 {
     "name": "wcs-core",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Web components SNCF",
     "main": "dist/index.js",
     "module": "dist/index.mjs",
@@ -25,7 +25,6 @@
         "start": "node run.js",
         "test": "stencil test --spec --e2e",
         "test:watch": "stencil test --spec --e2e --watchAll",
-        "postversion": "git push --follow-tags",
         "updateVersion": "node update-version.js"
     },
     "devDependencies": {

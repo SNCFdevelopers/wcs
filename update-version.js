@@ -1,4 +1,6 @@
 const {exec} = require("child_process");
+const execSync = require('child_process').execSync;
+
 
 /**
  * return null if no version are specifies in arguments
@@ -23,37 +25,19 @@ function updatePackage(path, newVersion, commit) {
     let args = '';
     if (!commit) {
         args = '--no-git-tag-version ';
-    } else {
-        console.log('[INFO] enable git tag, add changes');
-        exec(`git add .`, {
-            cwd: './'
-        }, handleExecResult());
     }
     console.log(`[exec command] npm version ${args}${newVersion}`);
-    exec(`npm version ${args}${newVersion}`, {
+    console.log(execSync(`npm version ${args}${newVersion}`, {
         cwd: path
-    }, handleExecResult());
+    }).toString());
 }
 
 function commitAndTag(version){
-    const commandToExec = `git add . && git tag ${version} && git commit -m "release v${version}"`;
+    const commandToExec = `git add . && git tag v${version} && git commit -m "release v${version}" && git push --follow-tags`;
     console.log(`[EXEC] ${commandToExec}`);
-    exec(commandToExec, {
+    console.log(execSync(commandToExec, {
         cwd: './'
-    }, handleExecResult());
-}
-function handleExecResult() {
-    return (error, stdout, stderr) => {
-        if (error) {
-            console.log(`error: ${error.message}`);
-            return;
-        }
-        if (stderr) {
-            console.log(`stderr: ${stderr}`);
-            return;
-        }
-        console.log(`stdout: ${stdout}`);
-    };
+    }).toString());
 }
 
 /**
