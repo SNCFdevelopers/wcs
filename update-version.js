@@ -33,7 +33,7 @@ function updatePackage(path, newVersion, commit) {
 }
 
 function commitAndTag(version){
-    const commandToExec = `git add . && git tag v${version} && git commit -m "release v${version}" && git push --follow-tags`;
+    const commandToExec = `git add . && git tag -a ${version} -m ${version} && git commit -m "release ${version}" && git push --follow-tags`;
     console.log(`[EXEC] ${commandToExec}`);
     console.log(execSync(commandToExec, {
         cwd: './'
