@@ -31,7 +31,7 @@ build:
             - loader/
             - schematics/
             - dist/
-            - angular/projects/wcs-angular/dist/
+            - angular/dist/wcs-angular/
     script:
         - npm run build
         - cd angular/ && npm run build
