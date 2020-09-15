@@ -107,7 +107,7 @@ git checkout master
 # Merge latest changes
 git merge develop
 # Do the release, we use semantic versioning for choosing release number
-npm version <major|minor|patch>
+npm run updateVersion -- --version <major|minor|patch>
 # Go on develop
 git checkout develop
 # Merge the release
