@@ -10,13 +10,20 @@
     display: flex;
 }
 
+::slotted(textarea) {
+    font-family: var(--wcs-font-sans-serif) !important;
+    font-weight: var(--wcs-font-weight-form-value) !important;
+    line-height: 1.5 !important;
+    font-size: 1rem !important;
+}
+
 // Base input style
-::slotted(input) {
-    height: 24px;
+::slotted(input), ::slotted(textarea) {
+    min-height: 24px;
     width: 100%;
     font-family: var(--wcs-font-sans-serif);
     color: var(--wcs-primary);
-    font-weight: var(--wcs-font-weight-form-value);
+    font-weight: var(--wcs-font-weight-form-value) !important;
     background-color: var(--wcs-light);
     border: 1px solid var(--wcs-light);
     border-radius: var(--wcs-form-field-border-radius-left) var(--wcs-form-field-border-radius-right) var(--wcs-form-field-border-radius-right) var(--wcs-form-field-border-radius-left);
@@ -33,7 +40,7 @@
 }
 
 // Focused input style
-::slotted(input:focus) {
+::slotted(input:focus), ::slotted(textarea:focus) {
     outline: 0;
     border: solid 1px var(--wcs-primary);
     box-shadow: none;
