@@ -25,7 +25,8 @@
         "start": "node run.js",
         "test": "stencil test --spec --e2e",
         "test:watch": "stencil test --spec --e2e --watchAll",
-        "updateVersion": "node update-version.js"
+        "update-version": "node scripts/update-version.js",
+        "update-develop": "node scripts/update-develop-from-master.js"
     },
     "devDependencies": {
         "@angular/cli": "^10.1.1",
