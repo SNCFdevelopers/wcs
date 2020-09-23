@@ -87,6 +87,12 @@ export namespace Components {
     interface WcsLabel {
         "required": boolean;
     }
+    interface WcsListItem {
+    }
+    interface WcsListItemProperties {
+    }
+    interface WcsListItemProperty {
+    }
     interface WcsModal {
         /**
           * Specifies whether the component should display a backdrop on the entire page
@@ -313,6 +319,24 @@ declare global {
         prototype: HTMLWcsLabelElement;
         new (): HTMLWcsLabelElement;
     };
+    interface HTMLWcsListItemElement extends Components.WcsListItem, HTMLStencilElement {
+    }
+    var HTMLWcsListItemElement: {
+        prototype: HTMLWcsListItemElement;
+        new (): HTMLWcsListItemElement;
+    };
+    interface HTMLWcsListItemPropertiesElement extends Components.WcsListItemProperties, HTMLStencilElement {
+    }
+    var HTMLWcsListItemPropertiesElement: {
+        prototype: HTMLWcsListItemPropertiesElement;
+        new (): HTMLWcsListItemPropertiesElement;
+    };
+    interface HTMLWcsListItemPropertyElement extends Components.WcsListItemProperty, HTMLStencilElement {
+    }
+    var HTMLWcsListItemPropertyElement: {
+        prototype: HTMLWcsListItemPropertyElement;
+        new (): HTMLWcsListItemPropertyElement;
+    };
     interface HTMLWcsModalElement extends Components.WcsModal, HTMLStencilElement {
     }
     var HTMLWcsModalElement: {
@@ -401,6 +425,9 @@ declare global {
         "wcs-hint": HTMLWcsHintElement;
         "wcs-icon": HTMLWcsIconElement;
         "wcs-label": HTMLWcsLabelElement;
+        "wcs-list-item": HTMLWcsListItemElement;
+        "wcs-list-item-properties": HTMLWcsListItemPropertiesElement;
+        "wcs-list-item-property": HTMLWcsListItemPropertyElement;
         "wcs-modal": HTMLWcsModalElement;
         "wcs-nav": HTMLWcsNavElement;
         "wcs-nav-item": HTMLWcsNavItemElement;
@@ -494,6 +521,12 @@ declare namespace LocalJSX {
     }
     interface WcsLabel {
         "required"?: boolean;
+    }
+    interface WcsListItem {
+    }
+    interface WcsListItemProperties {
+    }
+    interface WcsListItemProperty {
     }
     interface WcsModal {
         /**
@@ -668,6 +701,9 @@ declare namespace LocalJSX {
         "wcs-hint": WcsHint;
         "wcs-icon": WcsIcon;
         "wcs-label": WcsLabel;
+        "wcs-list-item": WcsListItem;
+        "wcs-list-item-properties": WcsListItemProperties;
+        "wcs-list-item-property": WcsListItemProperty;
         "wcs-modal": WcsModal;
         "wcs-nav": WcsNav;
         "wcs-nav-item": WcsNavItem;
@@ -701,6 +737,9 @@ declare module "@stencil/core" {
             "wcs-hint": LocalJSX.WcsHint & JSXBase.HTMLAttributes<HTMLWcsHintElement>;
             "wcs-icon": LocalJSX.WcsIcon & JSXBase.HTMLAttributes<HTMLWcsIconElement>;
             "wcs-label": LocalJSX.WcsLabel & JSXBase.HTMLAttributes<HTMLWcsLabelElement>;
+            "wcs-list-item": LocalJSX.WcsListItem & JSXBase.HTMLAttributes<HTMLWcsListItemElement>;
+            "wcs-list-item-properties": LocalJSX.WcsListItemProperties & JSXBase.HTMLAttributes<HTMLWcsListItemPropertiesElement>;
+            "wcs-list-item-property": LocalJSX.WcsListItemProperty & JSXBase.HTMLAttributes<HTMLWcsListItemPropertyElement>;
             "wcs-modal": LocalJSX.WcsModal & JSXBase.HTMLAttributes<HTMLWcsModalElement>;
             "wcs-nav": LocalJSX.WcsNav & JSXBase.HTMLAttributes<HTMLWcsNavElement>;
             "wcs-nav-item": LocalJSX.WcsNavItem & JSXBase.HTMLAttributes<HTMLWcsNavItemElement>;

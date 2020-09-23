@@ -1,0 +1,40 @@
+:host {
+    padding: var(--wcs-padding);
+    border: solid 1px var(--wcs-text-light);
+    display: flex;
+    margin-bottom: -1px;
+    background-color: var(--wcs-white);
+}
+
+:host(:hover) {
+    background-color: var(--wcs-light);
+    transition: 0.175s;
+}
+
+::slotted([slot=title]) {
+    color: var(--wcs-gray);
+    font-weight: 700;
+    line-height: 1.2;
+    font-family: inherit;
+    margin-bottom: 0.5rem;
+}
+
+::slotted([slot=icon]) {
+    color: var(--wcs-gray-light);
+    margin-right: 16px;
+}
+
+::slotted([slot=actions]) {
+    margin-left: 8px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
