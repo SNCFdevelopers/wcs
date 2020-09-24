@@ -117,9 +117,6 @@ It is strongly recommended to add a width size to the select.
 
 ```html
 <style>
-    wcs-select {
-        max-width: 250px;
-    }
     #lazy-loaded-select {
         width: 200px;
         margin-right: 16px;
