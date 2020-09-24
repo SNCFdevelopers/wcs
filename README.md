@@ -17,7 +17,7 @@ Select and select options size behavior, especially with multiple select. As of 
 
 ## Documentation
 
-There is documentation available at https://sncf.gitlab.io/wcs-ci/develop/. It is only available for the develop branch though as the project remains unreleased.
+There is documentation available at https://sncf.gitlab.io/wcs/develop/. It is only available for the develop branch though as the project remains unreleased.
 
 For a specific component you can also look under src/components/<the-component-you-want-the-doc-for>/README.md.
     
@@ -107,7 +107,7 @@ git checkout master
 # Merge latest changes
 git merge develop
 # Do the release, we use semantic versioning for choosing release number
-npm run updateVersion -- --version <major|minor|patch>
+npm run update-version -- --version <major|minor|patch>
 # Go on develop
 git checkout develop
 # Merge the release
