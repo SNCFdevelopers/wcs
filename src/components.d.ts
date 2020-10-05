@@ -74,6 +74,10 @@ export namespace Components {
     interface WcsError {
     }
     interface WcsFormField {
+        /**
+          * Specifies whether the form field is in an error state. Displays the field border in red and the message contained in the wcs-error component
+         */
+        "isError": boolean;
     }
     interface WcsHeader {
     }
@@ -509,6 +513,10 @@ declare namespace LocalJSX {
     interface WcsError {
     }
     interface WcsFormField {
+        /**
+          * Specifies whether the form field is in an error state. Displays the field border in red and the message contained in the wcs-error component
+         */
+        "isError"?: boolean;
     }
     interface WcsHeader {
     }

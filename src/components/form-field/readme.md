@@ -32,22 +32,40 @@ You can also add labels, hints and error messages.
 
 ```html
 <wcs-form-field>
+    <wcs-label>Is error ?</wcs-label>
+    <wcs-switch id="error-switch-1" checked="true"></wcs-switch>
+</wcs-form-field>
+<br/>
+<wcs-form-field>
     <wcs-label>Input with a hint</wcs-label>
     <input placeholder="L'input" required/>
     <wcs-hint>Normal hint</wcs-hint>
 </wcs-form-field>
 
-<wcs-form-field>
-    <wcs-label>Input with a hint</wcs-label>
-    <input placeholder="L'input" required/>
-    <wcs-hint>Smaller hint</wcs-hint>
+<wcs-form-field id="form-field-ex-1" is-error>
+    <wcs-label>Error with hint</wcs-label>
+    <input placeholder="L'input"/>
+    <wcs-hint>Normal hint</wcs-hint>
+    <wcs-error>Error message</wcs-error>
 </wcs-form-field>
 
-<wcs-form-field>
-    <wcs-label>Input with an error mesage</wcs-label>
+<wcs-form-field id="form-field-ex-2" is-error>
+    <wcs-label>Input with an error message</wcs-label>
     <input placeholder="L'input"/>
     <wcs-error>What an error!</wcs-error>
 </wcs-form-field>
+
+<script>
+document.getElementById('error-switch-1').addEventListener('wcsChange', ($event) => {
+    if($event.detail.checked) { 
+        document.getElementById('form-field-ex-1').setAttribute('is-error', "true")
+        document.getElementById('form-field-ex-2').setAttribute('is-error', "true")
+    } else {
+        document.getElementById('form-field-ex-1').removeAttribute('is-error')
+        document.getElementById('form-field-ex-2').removeAttribute('is-error')
+    }
+});
+</script>
 ```
 
 ## With a select and a button
@@ -98,6 +116,13 @@ Or only a select.
 
 
 <!-- Auto Generated Below -->
+
+
+## Properties
+
+| Property  | Attribute  | Description                                                                                                                                  | Type      | Default |
+| --------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------- |
+| `isError` | `is-error` | Specifies whether the form field is in an error state. Displays the field border in red and the message contained in the wcs-error component | `boolean` | `false` |
 
 
 ----------------------------------------------

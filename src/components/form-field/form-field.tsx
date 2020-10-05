@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Element, h, Host, State } from '@stencil/core';
+import { Component, ComponentInterface, Element, h, Host, Prop, State } from '@stencil/core';
 
 /**
  * TODO:
@@ -13,6 +13,11 @@ import { Component, ComponentInterface, Element, h, Host, State } from '@stencil
 })
 export class FormField implements ComponentInterface {
     @Element() el!: HTMLWcsFormFieldElement;
+
+    /**
+     * Specifies whether the form field is in an error state. Displays the field border in red and the message contained in the wcs-error component
+     */
+    @Prop({mutable: true, reflect: true}) isError = false;
 
     @State() hasPrefix = false;
     @State() hasSuffix = false;
@@ -36,6 +41,7 @@ export class FormField implements ComponentInterface {
 
     render() {
         let classes = '';
+        const isError = this.isError;
         if (this.hasSuffix) {
             classes += ' has-suffix';
         }
@@ -45,13 +51,16 @@ export class FormField implements ComponentInterface {
 
         return (
             <Host class={classes}>
-                <slot name="label" />
+                <slot name="label"/>
                 <div class="input-container">
-                    <slot name="prefix" />
-                    <slot />
-                    <slot name="suffix" />
+                    <slot name="prefix"/>
+                    <slot/>
+                    <slot name="suffix"/>
                 </div>
-                <slot name="messages" />
+                {
+                    isError ? (<slot name="error"/>) : ''
+                }
+                <slot name="messages"/>
             </Host>
         );
     }

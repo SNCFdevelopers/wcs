@@ -6,6 +6,12 @@
     flex-direction: column;
 }
 
+:host([is-error]) {
+    ::slotted(input), ::slotted(textarea) {
+        border: 1px solid var(--wcs-red);
+    }
+}
+
 .input-container {
     display: flex;
 }
