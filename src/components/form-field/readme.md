@@ -74,7 +74,7 @@ Integrate it with a select and a button.
 
 ```html
 <wcs-form-field>
-    <wcs-select slot="prefix" placeholder="Country" multiple>
+    <wcs-select id="form-field-ex-3" slot="prefix" placeholder="Country" multiple>
         <wcs-select-option>France</wcs-select-option>
         <wcs-select-option>Germany</wcs-select-option>
         <wcs-select-option>Japan</wcs-select-option>
@@ -84,6 +84,13 @@ Integrate it with a select and a button.
         <i class="material-icons">search</i>
     </wcs-button>
 </wcs-form-field>
+
+<style>
+#form-field-ex-3 {
+    max-width: 200px;
+    min-width: 200px;
+}
+</style>
 ```
 
 ## With a button
