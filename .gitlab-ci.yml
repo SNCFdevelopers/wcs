@@ -17,7 +17,7 @@ before_script:
     - cd angular/ && npm install && cd ../
 
 test:
-    image: markhobson/node-chrome
+    image: buildkite/puppeteer
     stage: test
     script:
         - npm test
