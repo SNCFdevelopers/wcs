@@ -76,6 +76,12 @@ export namespace Components {
     }
     interface WcsError {
     }
+    interface WcsField {
+    }
+    interface WcsFieldContent {
+    }
+    interface WcsFieldHeader {
+    }
     interface WcsFormField {
         /**
           * Specifies whether the form field is in an error state. Displays the field border in red and the message contained in the wcs-error component
@@ -302,6 +308,24 @@ declare global {
         prototype: HTMLWcsErrorElement;
         new (): HTMLWcsErrorElement;
     };
+    interface HTMLWcsFieldElement extends Components.WcsField, HTMLStencilElement {
+    }
+    var HTMLWcsFieldElement: {
+        prototype: HTMLWcsFieldElement;
+        new (): HTMLWcsFieldElement;
+    };
+    interface HTMLWcsFieldContentElement extends Components.WcsFieldContent, HTMLStencilElement {
+    }
+    var HTMLWcsFieldContentElement: {
+        prototype: HTMLWcsFieldContentElement;
+        new (): HTMLWcsFieldContentElement;
+    };
+    interface HTMLWcsFieldHeaderElement extends Components.WcsFieldHeader, HTMLStencilElement {
+    }
+    var HTMLWcsFieldHeaderElement: {
+        prototype: HTMLWcsFieldHeaderElement;
+        new (): HTMLWcsFieldHeaderElement;
+    };
     interface HTMLWcsFormFieldElement extends Components.WcsFormField, HTMLStencilElement {
     }
     var HTMLWcsFormFieldElement: {
@@ -434,6 +458,9 @@ declare global {
         "wcs-dropdown": HTMLWcsDropdownElement;
         "wcs-dropdown-item": HTMLWcsDropdownItemElement;
         "wcs-error": HTMLWcsErrorElement;
+        "wcs-field": HTMLWcsFieldElement;
+        "wcs-field-content": HTMLWcsFieldContentElement;
+        "wcs-field-header": HTMLWcsFieldHeaderElement;
         "wcs-form-field": HTMLWcsFormFieldElement;
         "wcs-header": HTMLWcsHeaderElement;
         "wcs-hint": HTMLWcsHintElement;
@@ -524,6 +551,12 @@ declare namespace LocalJSX {
         "onWcsDropdownItemClick"?: (event: CustomEvent<void>) => void;
     }
     interface WcsError {
+    }
+    interface WcsField {
+    }
+    interface WcsFieldContent {
+    }
+    interface WcsFieldHeader {
     }
     interface WcsFormField {
         /**
@@ -718,6 +751,9 @@ declare namespace LocalJSX {
         "wcs-dropdown": WcsDropdown;
         "wcs-dropdown-item": WcsDropdownItem;
         "wcs-error": WcsError;
+        "wcs-field": WcsField;
+        "wcs-field-content": WcsFieldContent;
+        "wcs-field-header": WcsFieldHeader;
         "wcs-form-field": WcsFormField;
         "wcs-header": WcsHeader;
         "wcs-hint": WcsHint;
@@ -755,6 +791,9 @@ declare module "@stencil/core" {
             "wcs-dropdown": LocalJSX.WcsDropdown & JSXBase.HTMLAttributes<HTMLWcsDropdownElement>;
             "wcs-dropdown-item": LocalJSX.WcsDropdownItem & JSXBase.HTMLAttributes<HTMLWcsDropdownItemElement>;
             "wcs-error": LocalJSX.WcsError & JSXBase.HTMLAttributes<HTMLWcsErrorElement>;
+            "wcs-field": LocalJSX.WcsField & JSXBase.HTMLAttributes<HTMLWcsFieldElement>;
+            "wcs-field-content": LocalJSX.WcsFieldContent & JSXBase.HTMLAttributes<HTMLWcsFieldContentElement>;
+            "wcs-field-header": LocalJSX.WcsFieldHeader & JSXBase.HTMLAttributes<HTMLWcsFieldHeaderElement>;
             "wcs-form-field": LocalJSX.WcsFormField & JSXBase.HTMLAttributes<HTMLWcsFormFieldElement>;
             "wcs-header": LocalJSX.WcsHeader & JSXBase.HTMLAttributes<HTMLWcsHeaderElement>;
             "wcs-hint": LocalJSX.WcsHint & JSXBase.HTMLAttributes<HTMLWcsHintElement>;
