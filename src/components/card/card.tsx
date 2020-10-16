@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, h } from '@stencil/core';
+import { Component, ComponentInterface, h, Prop } from '@stencil/core';
 
 @Component({
     tag: 'wcs-card',
@@ -6,6 +6,10 @@ import { Component, ComponentInterface, h } from '@stencil/core';
     shadow: true
 })
 export class Card implements ComponentInterface {
+    @Prop({reflect: true, mutable: true})
+    mode: 'flat' | 'raised' = 'raised';
+
+
     render() {
         return (
             <slot />

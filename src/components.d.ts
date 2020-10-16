@@ -46,6 +46,7 @@ export namespace Components {
         "type": WcsButtonType;
     }
     interface WcsCard {
+        "mode": 'flat' | 'raised';
     }
     interface WcsCardBody {
     }
@@ -63,6 +64,8 @@ export namespace Components {
          */
         "labelAlignment": CheckboxLabelAlignment;
         "name": string;
+    }
+    interface WcsDivider {
     }
     interface WcsDropdown {
         "disabled": boolean;
@@ -275,6 +278,12 @@ declare global {
         prototype: HTMLWcsCheckboxElement;
         new (): HTMLWcsCheckboxElement;
     };
+    interface HTMLWcsDividerElement extends Components.WcsDivider, HTMLStencilElement {
+    }
+    var HTMLWcsDividerElement: {
+        prototype: HTMLWcsDividerElement;
+        new (): HTMLWcsDividerElement;
+    };
     interface HTMLWcsDropdownElement extends Components.WcsDropdown, HTMLStencilElement {
     }
     var HTMLWcsDropdownElement: {
@@ -421,6 +430,7 @@ declare global {
         "wcs-card": HTMLWcsCardElement;
         "wcs-card-body": HTMLWcsCardBodyElement;
         "wcs-checkbox": HTMLWcsCheckboxElement;
+        "wcs-divider": HTMLWcsDividerElement;
         "wcs-dropdown": HTMLWcsDropdownElement;
         "wcs-dropdown-item": HTMLWcsDropdownItemElement;
         "wcs-error": HTMLWcsErrorElement;
@@ -480,6 +490,7 @@ declare namespace LocalJSX {
         "type"?: WcsButtonType;
     }
     interface WcsCard {
+        "mode"?: 'flat' | 'raised';
     }
     interface WcsCardBody {
     }
@@ -501,6 +512,8 @@ declare namespace LocalJSX {
           * Emitted when the checked property has changed.
          */
         "onWcsChange"?: (event: CustomEvent<CheckboxChangeEventDetail>) => void;
+    }
+    interface WcsDivider {
     }
     interface WcsDropdown {
         "disabled"?: boolean;
@@ -701,6 +714,7 @@ declare namespace LocalJSX {
         "wcs-card": WcsCard;
         "wcs-card-body": WcsCardBody;
         "wcs-checkbox": WcsCheckbox;
+        "wcs-divider": WcsDivider;
         "wcs-dropdown": WcsDropdown;
         "wcs-dropdown-item": WcsDropdownItem;
         "wcs-error": WcsError;
@@ -737,6 +751,7 @@ declare module "@stencil/core" {
             "wcs-card": LocalJSX.WcsCard & JSXBase.HTMLAttributes<HTMLWcsCardElement>;
             "wcs-card-body": LocalJSX.WcsCardBody & JSXBase.HTMLAttributes<HTMLWcsCardBodyElement>;
             "wcs-checkbox": LocalJSX.WcsCheckbox & JSXBase.HTMLAttributes<HTMLWcsCheckboxElement>;
+            "wcs-divider": LocalJSX.WcsDivider & JSXBase.HTMLAttributes<HTMLWcsDividerElement>;
             "wcs-dropdown": LocalJSX.WcsDropdown & JSXBase.HTMLAttributes<HTMLWcsDropdownElement>;
             "wcs-dropdown-item": LocalJSX.WcsDropdownItem & JSXBase.HTMLAttributes<HTMLWcsDropdownItemElement>;
             "wcs-error": LocalJSX.WcsError & JSXBase.HTMLAttributes<HTMLWcsErrorElement>;

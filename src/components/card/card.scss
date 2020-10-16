@@ -1,13 +1,20 @@
 @import '../../style/elevation.scss';
 
 :host {
-  @include wcs-elevation(2);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  word-wrap: break-word;
-  background-color: var(--wcs-white);
-  background-clip: border-box;
-  border-radius: var(--wcs-border-radius);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-clip: border-box;
+    border-radius: var(--wcs-border-radius);
+    background-color: var(--wcs-white);
+}
+
+:host([mode="raised"]) {
+    @include wcs-elevation(2);
+}
+
+:host([mode="flat"]) {
+    border: solid 1px var(--wcs-text-light);
 }
