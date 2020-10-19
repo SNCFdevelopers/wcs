@@ -11,6 +11,24 @@ body {
     height: 100vh;
 }
 
+@media screen and (max-width: 1200px) {
+    body {
+        grid-template-areas: "header" "content" "nav";
+    }
+}
+
+.component-navigation {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
+    justify-items: center;
+}
+.component-navigation > wcs-button {
+    width: 100%;
+}
+
 wcs-header {
     grid-area: header;
 }

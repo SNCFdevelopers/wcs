@@ -5,6 +5,13 @@ It is built using [stencil](https://github.com/ionic-team/stencil).
 
 If you read this documentation on Github, only the development branch is updated at the moment. We use a GitLab project for WCS development and releases.
 
+## Packages
+
+Here is the list of published npm packages and their goal :
+
+- `wcs-core` contains the web components compiled with StencilJS [![npm version](https://badge.fury.io/js/wcs-core.svg)](https://badge.fury.io/js/wcs-core)
+- `wcs-angular` angular integrations (value accessors, ...)[![npm version](https://badge.fury.io/js/wcs-angular.svg)](https://badge.fury.io/js/wcs-angular)
+
 ## Roadmap
 
 This project is still under heavy development therefore it is not yet released. It is being used internally as of now.

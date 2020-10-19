@@ -69,6 +69,7 @@ function getInsertIndex(fileContent, tag) {
 async function updateIndex(filesPath) {
     const start = process.hrtime();
     console.log('Updating files...');
+    const componentsName = [];
 
     const examplesP = await Promise.all(filesPath.map(async path => {
         const readme = (await fs.promises.readFile(path.replace('example.html', 'readme.md'))).toString();
@@ -81,8 +82,11 @@ async function updateIndex(filesPath) {
             console.log(`Generating none for ${name}, examples are empty`);
             return '';
         }
+
+        componentsName.push(name);
+
         return `
-        <h1>${name}</h1>
+        <h1 id="${name}">${name}</h1>
         <wcs-card>
             <wcs-tabs>
                 <wcs-tab header="Examples" class="normal-padding">
@@ -94,10 +98,16 @@ async function updateIndex(filesPath) {
             </wcs-tabs>
         </wcs-card>`;
     }));
+
+    const componentNavigationItems = componentsName.map(name => {
+        return `<wcs-button mode="stroked" class="wcs-secondary" href="#${name}">${name}</wcs-button>`;
+    });
+
     const examples = examplesP.reduce((acc, cur) => acc + cur + '\r\n', '');
     const index = (await fs.promises.readFile('./src/template.html')).toString();
 
-    const newContent = insertAfter(index, '<!--Import-->', examples);
+    let newContent = insertAfter(index, '<!-- Components navigation-->', componentNavigationItems.reduce((acc, cur) => acc + cur + '\r\n'));
+    newContent = insertAfter(newContent, '<!--Import-->', examples);
     await fs.promises.writeFile('./src/index.html', newContent);
     // Logging
     const end = process.hrtime(start);
