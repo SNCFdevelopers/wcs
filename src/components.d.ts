@@ -77,10 +77,6 @@ export namespace Components {
     interface WcsError {
     }
     interface WcsField {
-        /**
-          * true if the field has no data. If the attribute is true, then the content of the wcs-content component is clearer and should contain a message indicating that no data is available for this field.
-         */
-        "isEmpty": boolean;
     }
     interface WcsFieldContent {
     }
@@ -557,10 +553,6 @@ declare namespace LocalJSX {
     interface WcsError {
     }
     interface WcsField {
-        /**
-          * true if the field has no data. If the attribute is true, then the content of the wcs-content component is clearer and should contain a message indicating that no data is available for this field.
-         */
-        "isEmpty"?: boolean;
     }
     interface WcsFieldContent {
     }

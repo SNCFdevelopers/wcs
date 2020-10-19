@@ -13,3 +13,8 @@ This component can be used to display the details of an entity. It is built arou
 ```
 
 <!-- Auto Generated Below -->
+
+
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*
