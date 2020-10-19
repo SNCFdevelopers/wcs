@@ -293,8 +293,6 @@ export class Select implements ComponentInterface {
             event.source.selected = false;
             this.values.splice(index, 1);
         }
-        // TODO: Let user provide sorting function and use this if defined.
-        // this.values = this.values.sort((a, b) => a.value - b.value);
         this.updateValueWithValues();
     }
 

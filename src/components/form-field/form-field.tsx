@@ -3,8 +3,6 @@ import { Component, ComponentInterface, Element, h, Host, Prop, State } from '@s
 /**
  * TODO:
  * - [ ] Suffix button style
- * - [ ] Resize select correctly
- * - [ ] Text area
  */
 @Component({
     tag: 'wcs-form-field',
