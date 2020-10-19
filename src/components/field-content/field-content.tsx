@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, h, Host, } from '@stencil/core';
+import { Component, ComponentInterface, h, Host } from '@stencil/core';
 
 @Component({
     tag: 'wcs-field-content',
@@ -7,7 +7,9 @@ import { Component, ComponentInterface, h, Host, } from '@stencil/core';
 export class FieldContent implements ComponentInterface {
     render() {
         return (
-            <Host slot="content"><slot/></Host>
+            <Host slot="content">
+                <slot/>
+            </Host>
         );
     }
 }

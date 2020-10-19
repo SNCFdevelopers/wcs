@@ -15,3 +15,9 @@
     font-weight: 400;
     color: var(--wcs-gray-light);
 }
+
+:host([empty]){
+    ::slotted([slot=content]) {
+        color: var(--wcs-text-disabled);
+    }
+}
