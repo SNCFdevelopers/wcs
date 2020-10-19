@@ -16,7 +16,7 @@
     color: var(--wcs-gray-light);
 }
 
-:host([empty]){
+:host([isEmpty]){
     ::slotted([slot=content]) {
         color: var(--wcs-text-disabled);
     }
