@@ -15,9 +15,3 @@
     font-weight: 400;
     color: var(--wcs-gray-light);
 }
-
-:host([isEmpty]){
-    ::slotted([slot=content]) {
-        color: var(--wcs-text-disabled);
-    }
-}

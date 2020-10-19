@@ -10,10 +10,6 @@ This component can be used to display the details of an entity. It is built arou
     <wcs-field-header>Autre label</wcs-field-header>
     <wcs-field-content>In hac habitasse platea dictumst.</wcs-field-content>
 </wcs-field>
-<wcs-field isEmpty>
-    <wcs-field-header>Encore un autre</wcs-field-header>
-    <wcs-field-content>Curabitur rutrum dui quis diam molestie, sed dapibus magna volutpat.</wcs-field-content>
-</wcs-field>
 ```
 
 <!-- Auto Generated Below -->
