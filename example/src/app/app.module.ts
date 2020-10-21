@@ -6,16 +6,19 @@ import { AppComponent } from './app.component';
 import { SelectExampleComponent } from './select-example/select-example.component';
 import { FormsModule } from '@angular/forms';
 import { WcsAngularModule } from 'wcs-angular';
+import { RadioGroupExampleComponent } from './radio-group/radio-group-example.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SelectExampleComponent,
+    RadioGroupExampleComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    WcsAngularModule,
     WcsAngularModule
   ],
   providers: [],

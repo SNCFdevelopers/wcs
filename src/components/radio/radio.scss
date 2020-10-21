@@ -1,0 +1,99 @@
+:host([mode=radio]) {
+    input {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+        box-sizing: border-box;
+        padding: 0;
+    }
+
+    label {
+        padding: 0.125rem 0 0;
+        margin-bottom: 0;
+        color: var(--wcs-text-medium);
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+        font-weight: 500 !important;
+        transition: 0.175s ease-in-out;
+
+        &:before {
+            transition: 0.175s ease-in-out;
+            border-radius: 50%;
+            margin-right: var(--wcs-base-margin);
+            border: 2px solid var(--wcs-text-disabled);
+            position: relative;
+            display: inline-block;
+            top: 3px;
+            width: 1.125rem;
+            height: 1.125rem;
+            pointer-events: none;
+            content: "";
+            background-color: var(--wcs-white);
+            box-sizing: border-box;
+        }
+
+        &:after {
+            transition: 0.175s ease-in-out;
+            position: relative;
+            width: 1.125rem;
+            height: 1.125rem;
+            content: "";
+            background: no-repeat 50% / 50% 50%;
+        }
+    }
+}
+
+:host([mode=radio][checked]) {
+    label {
+        color: var(--wcs-primary);
+
+        &:before {
+            border-color: var(--wcs-primary);
+            background-color: var(--wcs-primary);
+        }
+    }
+}
+
+:host([mode=radio]:hover) {
+    label {
+        color: var(--wcs-primary);
+
+        &:before {
+            border-color: var(--wcs-primary);
+        }
+    }
+}
+
+
+:host([mode=option]) {
+    padding: var(--wcs-base-margin) calc(var(--wcs-base-margin) / 2);
+    font-weight: 500 !important;
+
+    input {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+        box-sizing: border-box;
+        padding: 0;
+    }
+
+    label {
+        padding: 0.375rem 1.25rem 0.3125rem;
+        margin-bottom: 0;
+        color: var(--wcs-white);
+        white-space: nowrap;
+        cursor: pointer;
+        border-radius: 0.4375rem;
+
+    }
+}
+
+:host([mode=option][checked]) {
+
+    label {
+        font-weight: 500 !important;
+        color: var(--wcs-primary);
+        background-color: var(--wcs-white);
+    }
+}

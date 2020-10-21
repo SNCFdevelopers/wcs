@@ -15,7 +15,7 @@ export class FormField implements ComponentInterface {
     /**
      * Specifies whether the form field is in an error state. Displays the field border in red and the message contained in the wcs-error component
      */
-    @Prop({mutable: true, reflect: true}) isError = false;
+    @Prop({ mutable: true, reflect: true }) isError = false;
 
     @State() hasPrefix = false;
     @State() hasSuffix = false;
@@ -29,7 +29,10 @@ export class FormField implements ComponentInterface {
 
     private addRequiredMarkerToLabel() {
         const label = this.el.querySelector('wcs-label');
-        const isRequired = (this.el.querySelector('input') || this.el.querySelector('wcs-select') || this.el.querySelector('textarea'))
+        const isRequired = (this.el.querySelector('input')
+            || this.el.querySelector('wcs-select')
+            || this.el.querySelector('textarea')
+            || this.el.querySelector('wcs-radio-group'))
             .hasAttribute('required');
 
         if (isRequired && label) {

@@ -1,0 +1,26 @@
+:host {
+    display: flex;
+}
+
+:host([mode=radio]) {
+    flex-direction: column;
+    ::slotted([slot=option]:first-child) {
+        margin-top: 0;
+    }
+
+    ::slotted([slot=option]:last-child) {
+        margin-bottom: 0;
+    }
+
+    ::slotted([slot=options]) {
+        margin-top: calc(var(--wcs-base-margin) / 2);
+        margin-bottom: calc(var(--wcs-base-margin) / 2);
+    }
+}
+:host([mode=option]) {
+    display: inline-flex;
+    flex-direction: row;
+    padding: calc(var(--wcs-base-margin) / 2);
+    background-color: #4d4f53;
+    border-radius: 0.6875rem;
+}

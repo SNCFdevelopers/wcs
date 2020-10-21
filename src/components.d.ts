@@ -7,6 +7,8 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { WcsButtonMode, WcsButtonShape, WcsButtonType } from "./components/button/button-interface";
 import { CheckboxChangeEventDetail, CheckboxLabelAlignment } from "./components/checkbox/checkbox-interface";
+import { RadioChosedEvent } from "./components/radio/radio-interface";
+import { RadioGroupChangeEventDetail } from "./components/radio-group/radio-group-interface";
 import { SelectChangeEventDetail } from "./components/select/select-interface";
 import { SelectOptionChosedEvent } from "./components/select-option/select-option-interface";
 import { SwitchChangeEventDetail } from "./components/switch/switch-interface";
@@ -150,6 +152,24 @@ export namespace Components {
         "showLabel": boolean;
         "size": number;
         "value": number;
+    }
+    interface WcsRadio {
+        /**
+          * If `true`, the radio is selected.
+         */
+        "checked": boolean;
+        /**
+          * If `true`, the user cannot interact with the radio.
+         */
+        "disabled": boolean;
+        "label": string;
+        "mode": 'radio' | 'option';
+        "value": any | any[] | undefined | null;
+    }
+    interface WcsRadioGroup {
+        "mode": 'radio' | 'option';
+        "name": any;
+        "value": any | any[] | undefined | null;
     }
     interface WcsSelect {
         /**
@@ -404,6 +424,18 @@ declare global {
         prototype: HTMLWcsProgressRadialElement;
         new (): HTMLWcsProgressRadialElement;
     };
+    interface HTMLWcsRadioElement extends Components.WcsRadio, HTMLStencilElement {
+    }
+    var HTMLWcsRadioElement: {
+        prototype: HTMLWcsRadioElement;
+        new (): HTMLWcsRadioElement;
+    };
+    interface HTMLWcsRadioGroupElement extends Components.WcsRadioGroup, HTMLStencilElement {
+    }
+    var HTMLWcsRadioGroupElement: {
+        prototype: HTMLWcsRadioGroupElement;
+        new (): HTMLWcsRadioGroupElement;
+    };
     interface HTMLWcsSelectElement extends Components.WcsSelect, HTMLStencilElement {
     }
     var HTMLWcsSelectElement: {
@@ -474,6 +506,8 @@ declare global {
         "wcs-nav-item": HTMLWcsNavItemElement;
         "wcs-progress-bar": HTMLWcsProgressBarElement;
         "wcs-progress-radial": HTMLWcsProgressRadialElement;
+        "wcs-radio": HTMLWcsRadioElement;
+        "wcs-radio-group": HTMLWcsRadioGroupElement;
         "wcs-select": HTMLWcsSelectElement;
         "wcs-select-option": HTMLWcsSelectOptionElement;
         "wcs-spinner": HTMLWcsSpinnerElement;
@@ -631,6 +665,29 @@ declare namespace LocalJSX {
         "size"?: number;
         "value"?: number;
     }
+    interface WcsRadio {
+        /**
+          * If `true`, the radio is selected.
+         */
+        "checked"?: boolean;
+        /**
+          * If `true`, the user cannot interact with the radio.
+         */
+        "disabled"?: boolean;
+        "label"?: string;
+        "mode"?: 'radio' | 'option';
+        "onWcsRadioClick"?: (event: CustomEvent<RadioChosedEvent>) => void;
+        "value"?: any | any[] | undefined | null;
+    }
+    interface WcsRadioGroup {
+        "mode"?: 'radio' | 'option';
+        "name"?: any;
+        /**
+          * Emitted when the value has changed.
+         */
+        "onWcsChange"?: (event: CustomEvent<RadioGroupChangeEventDetail>) => void;
+        "value"?: any | any[] | undefined | null;
+    }
     interface WcsSelect {
         /**
           * If `true`, the user cannot interact with the select.
@@ -767,6 +824,8 @@ declare namespace LocalJSX {
         "wcs-nav-item": WcsNavItem;
         "wcs-progress-bar": WcsProgressBar;
         "wcs-progress-radial": WcsProgressRadial;
+        "wcs-radio": WcsRadio;
+        "wcs-radio-group": WcsRadioGroup;
         "wcs-select": WcsSelect;
         "wcs-select-option": WcsSelectOption;
         "wcs-spinner": WcsSpinner;
@@ -807,6 +866,8 @@ declare module "@stencil/core" {
             "wcs-nav-item": LocalJSX.WcsNavItem & JSXBase.HTMLAttributes<HTMLWcsNavItemElement>;
             "wcs-progress-bar": LocalJSX.WcsProgressBar & JSXBase.HTMLAttributes<HTMLWcsProgressBarElement>;
             "wcs-progress-radial": LocalJSX.WcsProgressRadial & JSXBase.HTMLAttributes<HTMLWcsProgressRadialElement>;
+            "wcs-radio": LocalJSX.WcsRadio & JSXBase.HTMLAttributes<HTMLWcsRadioElement>;
+            "wcs-radio-group": LocalJSX.WcsRadioGroup & JSXBase.HTMLAttributes<HTMLWcsRadioGroupElement>;
             "wcs-select": LocalJSX.WcsSelect & JSXBase.HTMLAttributes<HTMLWcsSelectElement>;
             "wcs-select-option": LocalJSX.WcsSelectOption & JSXBase.HTMLAttributes<HTMLWcsSelectOptionElement>;
             "wcs-spinner": LocalJSX.WcsSpinner & JSXBase.HTMLAttributes<HTMLWcsSpinnerElement>;

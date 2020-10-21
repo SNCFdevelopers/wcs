@@ -20,6 +20,16 @@ You can use the `form-field` to wrap an `input`, `textarea` or a `wcs-select`.
         <wcs-select-option>Japan</wcs-select-option>
     </wcs-select>
 </wcs-form-field>
+<p>Radio group</p>
+<wcs-form-field>
+    <wcs-radio-group name="SA">
+      <wcs-radio label="SNCF" value="1"></wcs-radio>
+      <wcs-radio label="SNCF Réseau" value="2"></wcs-radio>
+      <wcs-radio label="SNCF Voyageurs" value="3"></wcs-radio>
+      <wcs-radio label="Gares & Connexions" value="4"></wcs-radio>
+    </wcs-radio-group>
+</wcs-form-field>
+
 <p>Text area :</p>
 <wcs-form-field>
     <textarea placeholder="Type your message" rows="6" cols="80"></textarea>
@@ -55,14 +65,28 @@ You can also add labels, hints and error messages.
     <wcs-error>What an error!</wcs-error>
 </wcs-form-field>
 
+<wcs-form-field is-error id="form-field-ex-3">
+    <wcs-label>Radio group input label</wcs-label>
+    <wcs-radio-group name="SA">
+      <wcs-radio label="SNCF" value="1"></wcs-radio>
+      <wcs-radio label="SNCF Réseau" value="2"></wcs-radio>
+      <wcs-radio label="SNCF Voyageurs" value="3"></wcs-radio>
+      <wcs-radio label="Gares & Connexions" value="4"></wcs-radio>
+    </wcs-radio-group>
+    <wcs-hint>Normal hint</wcs-hint>
+    <wcs-error>Error message</wcs-error>
+</wcs-form-field>
+
 <script>
 document.getElementById('error-switch-1').addEventListener('wcsChange', ($event) => {
     if($event.detail.checked) { 
         document.getElementById('form-field-ex-1').setAttribute('is-error', "true")
         document.getElementById('form-field-ex-2').setAttribute('is-error', "true")
+        document.getElementById('form-field-ex-3').setAttribute('is-error', "true")
     } else {
         document.getElementById('form-field-ex-1').removeAttribute('is-error')
         document.getElementById('form-field-ex-2').removeAttribute('is-error')
+        document.getElementById('form-field-ex-3').removeAttribute('is-error')
     }
 });
 </script>
