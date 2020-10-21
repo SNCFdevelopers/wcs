@@ -29,7 +29,7 @@ export class FormField implements ComponentInterface {
 
     private addRequiredMarkerToLabel() {
         const label = this.el.querySelector('wcs-label');
-        const isRequired = (this.el.querySelector('input') || this.el.querySelector('wcs-select'))
+        const isRequired = (this.el.querySelector('input') || this.el.querySelector('wcs-select') || this.el.querySelector('textarea'))
             .hasAttribute('required');
 
         if (isRequired && label) {
