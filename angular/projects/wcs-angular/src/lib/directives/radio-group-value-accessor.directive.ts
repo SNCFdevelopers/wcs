@@ -21,7 +21,6 @@ export class RadioGroupValueAccessor implements ControlValueAccessor {
 
   constructor(protected injector: Injector, protected el: ElementRef) {
     this.el.nativeElement.addEventListener('wcsChange', (event: CustomEvent<RadioGroupChangeEventDetail>) => {
-      console.log(event);
       this.onChange(event.detail.value);
     });
   }
@@ -39,7 +38,6 @@ export class RadioGroupValueAccessor implements ControlValueAccessor {
 
   /**
    * Not implemented for now
-   * @param fn
    */
   // tslint:disable-next-line:typedef
   registerOnTouched(fn) {

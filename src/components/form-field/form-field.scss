@@ -23,6 +23,10 @@
     font-size: 1rem !important;
 }
 
+::slotted(wcs-radio-group) {
+    margin-left: var(--wcs-base-margin);
+}
+
 // Base input style
 ::slotted(input), ::slotted(textarea) {
     min-height: 24px;

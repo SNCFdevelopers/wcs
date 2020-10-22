@@ -51,20 +51,20 @@ You can also add labels, hints and error messages.
     <input placeholder="L'input" required/>
     <wcs-hint>Normal hint</wcs-hint>
 </wcs-form-field>
-
+<br/>
 <wcs-form-field id="form-field-ex-1" is-error>
     <wcs-label>Error with hint</wcs-label>
     <input placeholder="L'input"/>
     <wcs-hint>Normal hint</wcs-hint>
     <wcs-error>Error message</wcs-error>
 </wcs-form-field>
-
+<br/>
 <wcs-form-field id="form-field-ex-2" is-error>
     <wcs-label>Input with an error message</wcs-label>
     <input placeholder="L'input"/>
     <wcs-error>What an error!</wcs-error>
 </wcs-form-field>
-
+<br/>
 <wcs-form-field is-error id="form-field-ex-3">
     <wcs-label>Radio group input label</wcs-label>
     <wcs-radio-group name="SA">
