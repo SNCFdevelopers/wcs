@@ -46,11 +46,13 @@ You can also add labels, hints and error messages.
     <wcs-switch id="error-switch-1" checked="true"></wcs-switch>
 </wcs-form-field>
 <br/>
+<br/>
 <wcs-form-field>
     <wcs-label>Input with a hint</wcs-label>
     <input placeholder="L'input" required/>
     <wcs-hint>Normal hint</wcs-hint>
 </wcs-form-field>
+<br/>
 <br/>
 <wcs-form-field id="form-field-ex-1" is-error>
     <wcs-label>Error with hint</wcs-label>
@@ -59,15 +61,30 @@ You can also add labels, hints and error messages.
     <wcs-error>Error message</wcs-error>
 </wcs-form-field>
 <br/>
+<br/>
 <wcs-form-field id="form-field-ex-2" is-error>
     <wcs-label>Input with an error message</wcs-label>
     <input placeholder="L'input"/>
     <wcs-error>What an error!</wcs-error>
 </wcs-form-field>
 <br/>
+<br/>
 <wcs-form-field is-error id="form-field-ex-3">
     <wcs-label>Radio group input label</wcs-label>
     <wcs-radio-group name="SA">
+      <wcs-radio label="SNCF" value="1"></wcs-radio>
+      <wcs-radio label="SNCF Réseau" value="2"></wcs-radio>
+      <wcs-radio label="SNCF Voyageurs" value="3"></wcs-radio>
+      <wcs-radio label="Gares & Connexions" value="4"></wcs-radio>
+    </wcs-radio-group>
+    <wcs-hint>Normal hint</wcs-hint>
+    <wcs-error>Error message</wcs-error>
+</wcs-form-field>
+<br/>
+<br/>
+<wcs-form-field is-error id="form-field-ex-4">
+    <wcs-label>Radio group input label</wcs-label>
+    <wcs-radio-group name="SA" mode="option">
       <wcs-radio label="SNCF" value="1"></wcs-radio>
       <wcs-radio label="SNCF Réseau" value="2"></wcs-radio>
       <wcs-radio label="SNCF Voyageurs" value="3"></wcs-radio>
@@ -83,10 +100,12 @@ document.getElementById('error-switch-1').addEventListener('wcsChange', ($event)
         document.getElementById('form-field-ex-1').setAttribute('is-error', "true")
         document.getElementById('form-field-ex-2').setAttribute('is-error', "true")
         document.getElementById('form-field-ex-3').setAttribute('is-error', "true")
+        document.getElementById('form-field-ex-4').setAttribute('is-error', "true")
     } else {
         document.getElementById('form-field-ex-1').removeAttribute('is-error')
         document.getElementById('form-field-ex-2').removeAttribute('is-error')
         document.getElementById('form-field-ex-3').removeAttribute('is-error')
+        document.getElementById('form-field-ex-4').removeAttribute('is-error')
     }
 });
 </script>

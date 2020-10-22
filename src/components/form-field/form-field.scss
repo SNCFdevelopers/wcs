@@ -27,6 +27,10 @@
     margin-left: var(--wcs-base-margin);
 }
 
+::slotted(wcs-radio-group[mode=option]) {
+    margin-left: 0;
+}
+
 // Base input style
 ::slotted(input), ::slotted(textarea) {
     min-height: 24px;
