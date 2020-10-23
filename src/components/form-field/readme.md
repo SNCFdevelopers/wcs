@@ -6,22 +6,43 @@ Form fields component wraps the native input element and add some more functionn
 
 You can use the `form-field` to wrap an `input`, `textarea` or a `wcs-select`.
 
+for non supported slotted component, you can use the `required` attribute to tell the form-field that it is required.
+It will add a red star after the label of the form field.
+
 ```html
-<p>Input :</p>
 <wcs-form-field>
+    <wcs-label>Input</wcs-label>
     <input placeholder="John doe"/>
 </wcs-form-field>
+```
 
-<p>Select :</p>
+```html
 <wcs-form-field>
+    <wcs-label>Select</wcs-label>
     <wcs-select placeholder="Select a country" required>
         <wcs-select-option>France</wcs-select-option>
         <wcs-select-option>Germany</wcs-select-option>
         <wcs-select-option>Japan</wcs-select-option>
     </wcs-select>
 </wcs-form-field>
-<p>Radio group</p>
+```
+
+```html
+<wcs-form-field required="true">
+   <wcs-label>Required with custom component</wcs-label>
+    <datalist id="ice-cream-flavors">
+        <option value="Chocolate">
+        <option value="Coconut">
+        <option value="Mint">
+        <option value="Strawberry">
+        <option value="Vanilla">
+    </datalist>
+</wcs-form-field>
+```
+
+```html
 <wcs-form-field>
+    <wcs-label>Radio group</wcs-label>
     <wcs-radio-group name="SA">
       <wcs-radio label="SNCF" value="1"></wcs-radio>
       <wcs-radio label="SNCF Réseau" value="2"></wcs-radio>
@@ -29,9 +50,11 @@ You can use the `form-field` to wrap an `input`, `textarea` or a `wcs-select`.
       <wcs-radio label="Gares & Connexions" value="4"></wcs-radio>
     </wcs-radio-group>
 </wcs-form-field>
+```
 
-<p>Text area :</p>
+```html
 <wcs-form-field>
+    <wcs-label>Text area :</wcs-label>
     <textarea placeholder="Type your message" rows="6" cols="80"></textarea>
 </wcs-form-field>
 ```
@@ -170,9 +193,10 @@ Or only a select.
 
 ## Properties
 
-| Property  | Attribute  | Description                                                                                                                                  | Type      | Default |
-| --------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------- |
-| `isError` | `is-error` | Specifies whether the form field is in an error state. Displays the field border in red and the message contained in the wcs-error component | `boolean` | `false` |
+| Property   | Attribute  | Description                                                                                                                                  | Type      | Default     |
+| ---------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `isError`  | `is-error` | Specifies whether the form field is in an error state. Displays the field border in red and the message contained in the wcs-error component | `boolean` | `false`     |
+| `required` | `required` | Specifies whether the form field is required or not.                                                                                         | `any`     | `undefined` |
 
 
 ----------------------------------------------

@@ -89,6 +89,10 @@ export namespace Components {
           * Specifies whether the form field is in an error state. Displays the field border in red and the message contained in the wcs-error component
          */
         "isError": boolean;
+        /**
+          * Specifies whether the form field is required or not.
+         */
+        "required": any;
     }
     interface WcsHeader {
     }
@@ -597,6 +601,10 @@ declare namespace LocalJSX {
           * Specifies whether the form field is in an error state. Displays the field border in red and the message contained in the wcs-error component
          */
         "isError"?: boolean;
+        /**
+          * Specifies whether the form field is required or not.
+         */
+        "required"?: any;
     }
     interface WcsHeader {
     }
