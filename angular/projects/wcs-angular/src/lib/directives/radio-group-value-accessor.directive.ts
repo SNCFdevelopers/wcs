@@ -28,7 +28,11 @@ export class RadioGroupValueAccessor implements ControlValueAccessor {
   // tslint:disable-next-line:typedef
   writeValue(value) {
     this.value = value;
-    this.el.nativeElement.setAttribute('value', this.value);
+    if (value) {
+      this.el.nativeElement.setAttribute('value', this.value);
+    } else {
+      this.el.nativeElement.removeAttribute('value');
+    }
   }
 
   // tslint:disable-next-line:typedef
