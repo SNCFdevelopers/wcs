@@ -149,6 +149,10 @@ export class Select implements ComponentInterface {
     }
 
     private updateSelectedValue(value: any) {
+        // If no value is passed, the select is reset.
+        if (!value) {
+            this.reset();
+        }
         if (this.multiple) {
             if (!Array.isArray(value)) {
                 value = value.split(',').map(String).map(x => x.trim());
@@ -176,6 +180,18 @@ export class Select implements ComponentInterface {
                 opt.selected = isSelected;
             });
         }
+    }
+
+    /**
+     * Reset the select: unselects all options for multiple mode and displays the placeholder
+     * @private
+     */
+    private reset() {
+        this.values = [];
+        this.displayText = undefined;
+        this.options.forEach((opt: HTMLWcsSelectOptionElement) => {
+            opt.selected = false;
+        });
     }
 
     componentDidLoad() {

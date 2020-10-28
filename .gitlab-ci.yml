@@ -6,11 +6,11 @@ stages:
 image: node:14-alpine
 
 # Cache modules in between jobs
-cache:
-  key: ${CI_COMMIT_REF_SLUG}
-  paths:
-    - node_modules/
-    - angular/node_modules/
+# cache:
+#   key: ${CI_COMMIT_REF_SLUG}
+#   paths:
+#     - node_modules/
+#     - angular/node_modules/
 
 before_script:
     - npm install
