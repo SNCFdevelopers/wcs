@@ -72,7 +72,7 @@
     const pSelect = document.querySelector('#select-values');
     const pButton = document.querySelector('#p-sel-button');
     pButton.addEventListener('click', () => {
-        pSelect.setAttribute('value', ['1', '2']);
+        pSelect.value = ['1', '2'];
     });
 </script>
 ```

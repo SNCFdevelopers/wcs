@@ -76,7 +76,7 @@ describe('Select component', () => {
         expect(select).not.toHaveClass('expanded');
     });
 
-    it('Let us select a value and displays it correctly', async () => {
+    it('Let us select a value and fire event correctly', async () => {
         // Given
         const page = await newE2EPage();
         await page.setContent(`
@@ -87,6 +87,7 @@ describe('Select component', () => {
         const select = await page.find('wcs-select');
         const firstSelectOption = await page.find('wcs-select > wcs-select-option');
         const label = await page.find('wcs-select >>> label');
+        const changeSpy = await select.spyOnEvent('wcsChange');
 
         // When
         await select.click();
@@ -94,8 +95,8 @@ describe('Select component', () => {
         await page.waitForChanges();
 
         // Then
-        expect(select).toHaveAttribute('value');
-        expect(select.getAttribute('value')).toBe('1');
+        expect(changeSpy).toHaveReceivedEventTimes(1);
+        expect(changeSpy).toHaveReceivedEventDetail({ value: '1' });
         expect(label.innerText).toBe('One');
     });
 
@@ -112,7 +113,7 @@ describe('Select component', () => {
             const select = await page.find('wcs-select');
             const changeSpy = await select.spyOnEvent('wcsChange');
             // When
-            await select.setAttribute('value', '2');
+            await select.setProperty('value', '2');
             await page.waitForChanges();
             // Then
             expect(changeSpy).toHaveReceivedEventTimes(1);
@@ -133,11 +134,11 @@ describe('Select component', () => {
             const changeSpy = await select.spyOnEvent('wcsChange');
             // When
             const newValue = [2, 3];
-            await select.setAttribute('value', newValue);
+            await select.setProperty('value', newValue);
             await page.waitForChanges();
             // Then
             expect(changeSpy).toHaveReceivedEventTimes(1);
-            expect(changeSpy).toHaveReceivedEventDetail({ value: newValue.toString() });
+            expect(changeSpy).toHaveReceivedEventDetail({ value: newValue });
         });
     });
 

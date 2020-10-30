@@ -21,12 +21,13 @@ import {Component, OnInit} from '@angular/core';
         </wcs-select>
         <h3>Set value</h3>
         <wcs-select placeholder="Le select" [(ngModel)]="random" name="sel-763">
-          <wcs-select-option value="1">One</wcs-select-option>
-          <wcs-select-option value="2">Two</wcs-select-option>
-          <wcs-select-option value="3">Three</wcs-select-option>
+          <wcs-select-option [value]="1">One</wcs-select-option>
+          <wcs-select-option [value]="2">Two</wcs-select-option>
+          <wcs-select-option [value]="3">Three</wcs-select-option>
         </wcs-select>
         <br/>
         <wcs-button class="primary" mode="stroked" (click)="onRandomButtonClick()">Set random value</wcs-button>
+        <wcs-button class="primary" mode="stroked" (click)="onResetButtonClick()">Reset</wcs-button>
       </wcs-card-body>
     </wcs-card>
   `,
@@ -46,5 +47,10 @@ export class SelectExampleComponent {
 
   onRandomButtonClick() {
     this.random = this.randomIntFromInterval(1, 3);
+  }
+
+  onResetButtonClick() {
+    this.binding = null;
+    this.random = null;
   }
 }

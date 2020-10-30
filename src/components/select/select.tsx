@@ -97,7 +97,7 @@ export class Select implements ComponentInterface {
     focused: boolean;
 
     /** The currently selected value. */
-    @Prop({ mutable: true, reflect: true })
+    @Prop({ mutable: true })
     value?: any | null;
 
     /** The text to display when the select is empty. */
@@ -155,25 +155,27 @@ export class Select implements ComponentInterface {
         }
         if (this.multiple) {
             if (!Array.isArray(value)) {
-                value = value.split(',').map(String).map(x => x.trim());
+                value = JSON.parse(value);
             } else {
                 value = value.map(String);
             }
+
             this.values = [];
             this.options.forEach((opt: HTMLWcsSelectOptionElement) => {
-
-                const isSelected = value.includes(opt.value);
+                const isSelected = value ? value.includes(opt.value) : false;
                 if (isSelected) {
                     this.values.push({ value: opt.value, displayText: opt.innerText });
                 }
                 opt.selected = isSelected;
             });
+            // update select placeholder text
             this.displayText = this.values.length !== 0
                 ? this.values.map(v => v.displayText).join(', ')
                 : undefined;
         } else {
             this.options.forEach((opt: HTMLWcsSelectOptionElement) => {
-                const isSelected = opt.value === value;
+                // tslint:disable-next-line:triple-equals
+                const isSelected = opt.value == value;
                 if (isSelected) {
                     this.displayText = opt.innerText;
                 }
