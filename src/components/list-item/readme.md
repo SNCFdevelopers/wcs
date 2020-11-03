@@ -20,7 +20,7 @@
     </wcs-list-item-properties>
     <div slot="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet libero scelerisque lacus feugiat, in elementum nisi mollis. Duis nulla ipsum, aliquet eu sapien nec, maximus finibus enim. Nullam quis dui hendrerit, semper quam ut, faucibus felis. Cras auctor lobortis tellus, vel volutpat quam ultrices vitae. Sed rhoncus volutpat venenatis. Etiam sed molestie magna. Vivamus congue odio et elit pellentesque, a dictum risus bibendum. Phasellus gravida auctor mattis.</div>
 </wcs-list-item>
-<wcs-list-item>
+<wcs-list-item activated>
     <span slot="icon" class="material-icons">description</span>
     <div slot="title">Un titre</div>
     <div slot="actions">        
@@ -66,6 +66,13 @@
 ```
 
 <!-- Auto Generated Below -->
+
+
+## Properties
+
+| Property    | Attribute   | Description                                                             | Type      | Default |
+| ----------- | ----------- | ----------------------------------------------------------------------- | --------- | ------- |
+| `activated` | `activated` | True if the item is active. Adds a background color that highlights it. | `boolean` | `false` |
 
 
 ----------------------------------------------

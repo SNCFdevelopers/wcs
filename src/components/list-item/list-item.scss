@@ -6,7 +6,7 @@
     background-color: var(--wcs-white);
 }
 
-:host(:hover) {
+:host(:hover), :host([activated]) {
     background-color: var(--wcs-light);
     transition: 0.175s;
 }

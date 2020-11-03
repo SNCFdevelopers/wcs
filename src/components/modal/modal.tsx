@@ -1,4 +1,4 @@
-import { Component, Event, EventEmitter, h, Host, Prop } from '@stencil/core';
+import { Component, Event, EventEmitter, h, Host, Listen, Prop } from '@stencil/core';
 
 @Component({
     tag: 'wcs-modal',
@@ -9,12 +9,12 @@ export class Modal {
     /**
      * Specifies whether the component should display a backdrop on the entire page
      */
-    @Prop({reflect: true, mutable: false}) backdrop: boolean = true;
+    @Prop({ reflect: true, mutable: false }) backdrop: boolean = true;
 
     /**
      * Displays the modal
      */
-    @Prop({reflect: true, mutable: true}) show: boolean = false;
+    @Prop({ reflect: true, mutable: true }) show: boolean = false;
 
     /**
      * Triggered when the user leaves the dialog with the closing button.
@@ -22,9 +22,10 @@ export class Modal {
     @Event() wcsDialogClosed: EventEmitter<void>;
 
     /**
-     * Specifies whether the component should a close button
+     * Specifies whether the component should display a close button.
+     * if false, it won't close the modal when the escape key is pressed.
      */
-    @Prop({reflect: true, mutable: false}) showCloseButton: boolean = false;
+    @Prop({ reflect: true, mutable: false }) showCloseButton: boolean = false;
 
     render() {
         return (
@@ -54,7 +55,19 @@ export class Modal {
         );
     }
 
+    @Listen('keydown', { target: 'document' })
+    // @ts-ignore
+    private onKeyDown(event: KeyboardEvent) {
+        if (this.showCloseButton && event.key === 'Escape') {
+            this.close();
+        }
+    }
+
     private onCloseButtonClick(_: MouseEvent) {
+        this.close();
+    }
+
+    private close() {
         this.show = false;
         this.wcsDialogClosed.emit();
     }

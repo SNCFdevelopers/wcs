@@ -107,6 +107,10 @@ export namespace Components {
         "required": boolean;
     }
     interface WcsListItem {
+        /**
+          * True if the item is active. Adds a background color that highlights it.
+         */
+        "activated": boolean;
     }
     interface WcsListItemProperties {
     }
@@ -122,7 +126,7 @@ export namespace Components {
          */
         "show": boolean;
         /**
-          * Specifies whether the component should a close button
+          * Specifies whether the component should display a close button. if false, it won't close the modal when the escape key is pressed.
          */
         "showCloseButton": boolean;
     }
@@ -619,6 +623,10 @@ declare namespace LocalJSX {
         "required"?: boolean;
     }
     interface WcsListItem {
+        /**
+          * True if the item is active. Adds a background color that highlights it.
+         */
+        "activated"?: boolean;
     }
     interface WcsListItemProperties {
     }
@@ -638,7 +646,7 @@ declare namespace LocalJSX {
          */
         "show"?: boolean;
         /**
-          * Specifies whether the component should a close button
+          * Specifies whether the component should display a close button. if false, it won't close the modal when the escape key is pressed.
          */
         "showCloseButton"?: boolean;
     }

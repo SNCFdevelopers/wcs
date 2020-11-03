@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, h, Host } from '@stencil/core';
+import { Component, ComponentInterface, h, Host, Prop } from '@stencil/core';
 
 @Component({
     tag: 'wcs-list-item',
@@ -6,6 +6,11 @@ import { Component, ComponentInterface, h, Host } from '@stencil/core';
     shadow: true
 })
 export class ListItem implements ComponentInterface {
+    /**
+     * True if the item is active. Adds a background color that highlights it.
+     */
+    @Prop({ mutable: true }) activated: boolean = false;
+
     render() {
         return (
             <Host>

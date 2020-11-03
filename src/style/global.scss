@@ -47,7 +47,9 @@
 
 body {
     font-weight: 400;
-    font-family: var(--wcs-font-sans-serif)
+    font-family: var(--wcs-font-sans-serif);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 button,
