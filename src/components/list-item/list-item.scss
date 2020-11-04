@@ -6,9 +6,13 @@
     background-color: var(--wcs-white);
 }
 
-:host(:hover), :host([activated]) {
+:host(:hover) {
     background-color: var(--wcs-light);
     transition: 0.175s;
+}
+
+:host([activated]) {
+    background-color: var(--wcs-light);
 }
 
 ::slotted([slot=title]) {
