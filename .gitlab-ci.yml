@@ -17,12 +17,14 @@ before_script:
     - cd angular/ && npm install && cd ../
 
 test:
+    tags: sncf-runner-1
     image: buildkite/puppeteer
     stage: test
     script:
         - npm test
 
 build:
+    tags: sncf-runner-1
     stage: build
     artifacts:
         expire_in: 4 days
@@ -37,6 +39,7 @@ build:
         - cd angular/ && npm run build
 
 pages:
+    tags: gitlab-org
     stage: deploy
     dependencies:
         - build
@@ -51,6 +54,7 @@ pages:
         - mv www/* public/$CI_COMMIT_REF_NAME/
 
 publish:
+    tags: sncf-runner-1
     stage: deploy
     only:
         - tags
