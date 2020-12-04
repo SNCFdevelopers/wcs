@@ -42,6 +42,46 @@
           }
         }
       }
+    },
+    "wcs-formly": {
+      "projectType": "library",
+      "root": "projects/wcs-formly",
+      "sourceRoot": "projects/wcs-formly/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/wcs-formly/tsconfig.lib.json",
+            "project": "projects/wcs-formly/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/wcs-formly/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/wcs-formly/src/test.ts",
+            "tsConfig": "projects/wcs-formly/tsconfig.spec.json",
+            "karmaConfig": "projects/wcs-formly/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/wcs-formly/tsconfig.lib.json",
+              "projects/wcs-formly/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "wcs-angular"
 }
