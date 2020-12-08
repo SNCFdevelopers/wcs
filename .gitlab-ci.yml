@@ -71,4 +71,4 @@ publish:
         - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
         - npm publish
         - cd angular/dist/wcs-angular/ && echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc && npm publish
-        - cd angular/dist/wcs-formly/ && echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc && npm publish
+        - cd .. && cd wcs-formly/ && echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc && npm publish
