@@ -46,6 +46,7 @@ function commitAndTag(version){
  */
 function updateAllPackages(newVersion) {
     updatePackage('./angular/projects/wcs-angular', newVersion, false);
+    updatePackage('./angular/projects/wcs-formly', newVersion, false);
     updatePackage('./', newVersion, false);
     commitAndTag(newVersion);
 }
