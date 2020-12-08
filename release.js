@@ -20,6 +20,7 @@ function updateVersionForPackage(packagePath, newVersion) {
 function updateVersions(newVersion) {
     updateVersionForPackage('./', newVersion);
     updateVersionForPackage('./angular/projects/wcs-angular/', newVersion);
+    updateVersionForPackage('./angular/projects/wcs-formly/', newVersion);
 }
 
 /**
