@@ -39,7 +39,9 @@ build:
             - angular/dist/wcs-formly/
     script:
         - npm run build
-        - cd angular/ && npm run build
+        - cd angular/
+        - npm run build wcs-angular
+        - npm run build wcs-formly
 
 pages:
     tags:
