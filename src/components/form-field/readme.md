@@ -28,9 +28,9 @@ It will add a red star after the label of the form field.
 ```
 
 ```html
-<wcs-form-field required="true">
+<wcs-form-field>
    <wcs-label>Required with custom component</wcs-label>
-    <datalist id="ice-cream-flavors">
+    <datalist required id="ice-cream-flavors">
         <option value="Chocolate">
         <option value="Coconut">
         <option value="Mint">
@@ -193,10 +193,9 @@ Or only a select.
 
 ## Properties
 
-| Property   | Attribute  | Description                                                                                                                                  | Type      | Default     |
-| ---------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
-| `isError`  | `is-error` | Specifies whether the form field is in an error state. Displays the field border in red and the message contained in the wcs-error component | `boolean` | `false`     |
-| `required` | `required` | Specifies whether the form field is required or not.                                                                                         | `any`     | `undefined` |
+| Property  | Attribute  | Description                                                                                                                                  | Type      | Default |
+| --------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------- |
+| `isError` | `is-error` | Specifies whether the form field is in an error state. Displays the field border in red and the message contained in the wcs-error component | `boolean` | `false` |
 
 
 ----------------------------------------------

@@ -15,14 +15,11 @@ export class FormField implements ComponentInterface {
     /**
      * Specifies whether the form field is in an error state. Displays the field border in red and the message contained in the wcs-error component
      */
-    @Prop({ mutable: true, reflect: true }) isError = false;
-    /**
-     * Specifies whether the form field is required or not.
-     */
-    @Prop({ mutable: true, reflect: true }) required;
+    @Prop({mutable: true, reflect: true}) isError = false;
 
     @State() hasPrefix = false;
     @State() hasSuffix = false;
+    private observer: MutationObserver;
 
     componentWillLoad() {
         this.hasSuffix = this.el.querySelector('wcs-button') !== null;
@@ -34,18 +31,35 @@ export class FormField implements ComponentInterface {
     private addRequiredMarkerToLabel() {
         const label = this.el.querySelector('wcs-label');
         // TODO: deprecate this in favor of the 'required' component attribute
-        const isRequired = (this.el.querySelector('input')
+        const spiedElement = this.el.querySelector('input')
             || this.el.querySelector('wcs-select')
             || this.el.querySelector('textarea')
-            || this.el.querySelector('wcs-radio-group'))
-            ?.hasAttribute('required');
+            || this.el.querySelector('wcs-radio-group');
 
-        if (isRequired && label) {
-            this.required = true;
-            label.setAttribute('required', 'true');
-        } else if (this.required) {
-            label.setAttribute('required', 'true');
+        this.observer = new MutationObserver(mutations => {
+            const requiredAttMutation = mutations.filter(m => m.attributeName === 'required')[0];
+            if (requiredAttMutation) {
+                this.updateLabelRequiredFlag(spiedElement?.hasAttribute('required'), label);
+            }
+        });
+        if (spiedElement) {
+            this.observer.observe(spiedElement, {attributes: true});
         }
+
+        const isRequired = spiedElement?.hasAttribute('required');
+        this.updateLabelRequiredFlag(isRequired, label);
+    }
+
+    private updateLabelRequiredFlag(isRequired: boolean, label: Element) {
+        if (isRequired && label) {
+            label.setAttribute('required', 'true');
+        } else if (!isRequired && label) {
+            label.removeAttribute('required');
+        }
+    }
+
+    disconnectedCallback() {
+        this.observer.disconnect();
     }
 
     render() {
