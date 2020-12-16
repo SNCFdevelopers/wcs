@@ -263,7 +263,7 @@ export class Select implements ComponentInterface {
         const slot = this.optionsEl?.querySelector('slot');
         if (opts && opts.length !== 0) {
             return opts;
-        } else if (slot !== null) {
+        } else if (slot) {
             return slot.assignedElements() as HTMLWcsSelectOptionElement[];
         } else {
             return [];
