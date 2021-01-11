@@ -11,6 +11,7 @@ Here is the list of published npm packages and their goal :
 
 - `wcs-core` contains the web components compiled with StencilJS [![npm version](https://badge.fury.io/js/wcs-core.svg)](https://badge.fury.io/js/wcs-core)
 - `wcs-angular` angular integrations (value accessors, ...)[![npm version](https://badge.fury.io/js/wcs-angular.svg)](https://badge.fury.io/js/wcs-angular)
+- `wcs-formly` Angular Formly integration for WCS [![npm version](https://badge.fury.io/js/wcs-formly.svg)](https://badge.fury.io/js/wcs-formly)
 
 ## Roadmap
 
@@ -67,6 +68,38 @@ After added wcs dependencies, you must add font faces Avenir like so :
     font-weight: 900;
 }
 ```
+
+#### Example with Angular
+
+Install `wcs-core` and `wcs-angular` packages.
+
+```
+npm install wcs-core wcs-angular
+```
+
+Include wcs-core refering to this documentation : https://stenciljs.com/docs/angular
+
+Add the `WcsAngular` module to your App module.
+
+```ts
+@NgModule({
+  ...
+  imports: [
+    ...
+    WcsAngularModule // add the module
+  ],
+  ...
+})
+export class AppModule { }
+```
+
+Import the wcs stylesheet (for example in the styles.scss), if you don't use scss, you can include it in the `angular.json` file (in the architect build config, key: `styles`)
+
+```scss
+@import "~wcs-core/dist/wcs/wcs.css";
+```
+
+You're ready! (Don't forget to add font-faces 😉)
 
 ## Contributing
 
