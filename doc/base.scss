@@ -1,0 +1,80 @@
+
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+// FIXME: temporary fix for firefox < 63 header not being tall enough
+header.sc-wcs-header {
+  height: 64px !important;
+}
+
+html {
+  background-color: #f2f2f2;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+html, body, h1, h2, h3, h4, h5 {
+  font-family: var(--wcs-font-sans-serif);
+}
+
+h2 {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #333;
+}
+
+.hidden {
+  display: none;
+}
+
+hr {
+  border-bottom: 0;
+  border-top: solid 1px var(--wcs-light);
+}
+
+.link {
+  color: var(--wcs-primary);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  &:hover {
+    color: #0074af;
+  }
+}
+
+@font-face {
+  font-family: Avenir;
+  src: url("/assets/fonts/avenir-lighter.woff");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: Avenir;
+  src: url("/assets/fonts/avenir-book.woff");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Avenir;
+  src: url("/assets/fonts/avenir-medium.woff");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: Avenir;
+  src: url("/assets/fonts/avenir-black.woff");
+  font-weight: 900;
+}
+

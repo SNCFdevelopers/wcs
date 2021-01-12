@@ -99,6 +99,8 @@ Import the wcs stylesheet (for example in the styles.scss), if you don't use scs
 @import "~wcs-core/dist/wcs/wcs.css";
 ```
 
+We provide a base stylesheet in [/doc/base.scss](./doc/base.scss)
+
 You're ready! (Don't forget to add font-faces 😉)
 
 ## Contributing
