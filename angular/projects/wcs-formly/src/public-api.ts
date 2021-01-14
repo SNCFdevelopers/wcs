@@ -6,4 +6,6 @@ export * from './lib/formly-wcs-field-input.component';
 export * from './lib/formly-wcs-field-radio.component';
 export * from './lib/formly-wcs-field-select.component';
 export * from './lib/formly-wcs-field-textarea.component';
+export * from './lib/formly-wcs-field-checkbox.component';
+export * from './lib/formly-wcs-field-switch.component';
 export * from './lib/wcs-formly.module';

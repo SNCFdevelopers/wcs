@@ -8,6 +8,8 @@ import { FormlySelectModule } from '@ngx-formly/core/select';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormlyModule } from '@ngx-formly/core';
+import { FormlyWcsFieldCheckboxComponent } from './formly-wcs-field-checkbox.component';
+import { FormlyWcsFieldSwitchComponent } from './formly-wcs-field-switch.component';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { FormlyModule } from '@ngx-formly/core';
     FormlyWcsFieldInputComponent,
     FormlyWcsFieldRadioComponent,
     FormlyWcsFieldSelectComponent,
-    FormlyWcsFieldTextareaComponent
+    FormlyWcsFieldTextareaComponent,
+    FormlyWcsFieldCheckboxComponent,
+    FormlyWcsFieldSwitchComponent
   ],
   imports: [
     FormlySelectModule,
@@ -58,6 +62,14 @@ import { FormlyModule } from '@ngx-formly/core';
           name: 'select',
           component: FormlyWcsFieldSelectComponent,
         },
+        {
+          name: 'checkbox',
+          component: FormlyWcsFieldCheckboxComponent,
+        },
+        {
+          name: 'switch',
+          component: FormlyWcsFieldSwitchComponent,
+        }
       ],
     }),
     WcsAngularModule
@@ -66,7 +78,9 @@ import { FormlyModule } from '@ngx-formly/core';
     FormlyWcsFieldInputComponent,
     FormlyWcsFieldRadioComponent,
     FormlyWcsFieldSelectComponent,
-    FormlyWcsFieldTextareaComponent
+    FormlyWcsFieldTextareaComponent,
+    FormlyWcsFieldCheckboxComponent,
+    FormlyWcsFieldSwitchComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
