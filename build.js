@@ -106,7 +106,7 @@ async function updateIndex(filesPath) {
     const examples = examplesP.reduce((acc, cur) => acc + cur + '\r\n', '');
     const index = (await fs.promises.readFile('./src/template.html')).toString();
 
-    let newContent = insertAfter(index, '<!-- Components navigation-->', componentNavigationItems.reduce((acc, cur) => acc + cur + '\r\n'));
+    let newContent = insertAfter(index, '<!--Components-navigation-->', componentNavigationItems.reduce((acc, cur) => acc + cur + '\r\n'));
     newContent = insertAfter(newContent, '<!--Import-->', examples);
     await fs.promises.writeFile('./src/index.html', newContent);
     // Logging

@@ -6,14 +6,19 @@ body {
     overflow-y: hidden;
     background-color: #f2f2f2;
     display: grid;
-    grid-template-areas: "header header" "nav content";
-    grid-template-columns: min-content auto;
+    grid-template-areas:
+        "header header"
+        "nav content";
+    grid-template-columns: min-content 1fr;
+    grid-template-rows: min-content 1fr;
     height: 100vh;
 }
 
 @media screen and (max-width: 1200px) {
     body {
-        grid-template-areas: "header" "content" "nav";
+        grid-template-areas: "header" "content";
+        grid-template-rows: min-content 1fr;
+        grid-template-columns: 1fr;
     }
 }
 
@@ -25,6 +30,7 @@ body {
     grid-row-gap: 16px;
     justify-items: center;
 }
+
 .component-navigation > wcs-button {
     width: 100%;
 }
@@ -48,8 +54,8 @@ table {
 
 main {
     grid-area: content;
-    overflow-y: scroll;
     height: calc(100vh - 64px - 32px);
+    overflow-y: scroll;
     padding: 16px;
 }
 

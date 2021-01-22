@@ -7,6 +7,12 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { WcsButtonMode, WcsButtonShape, WcsButtonType } from "./components/button/button-interface";
 import { CheckboxChangeEventDetail, CheckboxLabelAlignment } from "./components/checkbox/checkbox-interface";
+import { Comparator, OneDArray, TCell, TColumn, TData, TDataArrayRow, TDataObjectRow } from "gridjs/dist/src/types";
+import { ComponentChild } from "preact";
+import { PaginationConfig } from "gridjs/dist/src/view/plugin/pagination";
+import { GenericSortConfig } from "gridjs/dist/src/view/plugin/sort/sort";
+import { SearchConfig } from "gridjs/dist/src/view/plugin/search/search";
+import { Row } from "gridjs";
 import { RadioChosedEvent } from "./components/radio/radio-interface";
 import { RadioGroupChangeEventDetail } from "./components/radio-group/radio-group-interface";
 import { SelectChangeEventDetail } from "./components/select/select-interface";
@@ -89,6 +95,73 @@ export namespace Components {
           * Specifies whether the form field is in an error state. Displays the field border in red and the message contained in the wcs-error component
          */
         "isError": boolean;
+    }
+    interface WcsGrid {
+        "autoWidth": boolean;
+        /**
+          * Allows you to configure the columns manually.  If you provide a value for this attribute, the wcs-grid-column components will not be used (but please, don't!).
+         */
+        "columns": OneDArray<TColumn | string | ComponentChild>;
+        /**
+          * Allows you to set the table data in JS. This option is taken into account only if no table element is present in the component slot.  This attribute must not be used beside an html table in the slot. In this case, no guarantees can be given on the component behaviour's
+         */
+        "data": TData | (() => TData) | (() => Promise<TData>);
+        /**
+          * fixes the table header to the top of the table
+         */
+        "fixedHeader": boolean;
+        /**
+          * sets the height of the table
+         */
+        "height": string;
+        "pagination": PaginationConfig;
+        /**
+          * To enable or disable the global search plugin see: https://gridjs.io/docs/config/search
+         */
+        "search": SearchConfig | boolean;
+        /**
+          * To enable the sorting plugin. Sort has two config objects: - Generic config: to enable sort for all columns, enable multi column sort, server-side integration, etc. - Column specific config: to enable sort on a specific column, to set custom comparator function, etc. see : https://gridjs.io/docs/config/sort
+         */
+        "sort": GenericSortConfig | boolean;
+        "width": string;
+    }
+    interface WcsGridColumn {
+        /**
+          * Cell default data
+         */
+        "data"?: ((row: TDataArrayRow | TDataObjectRow) => TCell) | TCell;
+        /**
+          * column ID
+         */
+        "fieldId"?: string;
+        /**
+          * To keep the header visible during a scroll
+         */
+        "fixedHeader"?: boolean;
+        /**
+          * custom cell formatting
+         */
+        "formatter"?: (cell: TCell, row: Row, column: TColumn) => ComponentChild;
+        /**
+          * to show/hide the column
+         */
+        "hiddenColumn"?: boolean;
+        /**
+          * column name
+         */
+        "name"?: string | ComponentChild;
+        /**
+          * to enable/disable sort
+         */
+        "sort"?: boolean;
+        /**
+          * to provide a custom sort function
+         */
+        "sortCompareFn"?: Comparator<TCell>;
+        /**
+          * width of the column
+         */
+        "width"?: string;
     }
     interface WcsHeader {
     }
@@ -356,6 +429,18 @@ declare global {
         prototype: HTMLWcsFormFieldElement;
         new (): HTMLWcsFormFieldElement;
     };
+    interface HTMLWcsGridElement extends Components.WcsGrid, HTMLStencilElement {
+    }
+    var HTMLWcsGridElement: {
+        prototype: HTMLWcsGridElement;
+        new (): HTMLWcsGridElement;
+    };
+    interface HTMLWcsGridColumnElement extends Components.WcsGridColumn, HTMLStencilElement {
+    }
+    var HTMLWcsGridColumnElement: {
+        prototype: HTMLWcsGridColumnElement;
+        new (): HTMLWcsGridColumnElement;
+    };
     interface HTMLWcsHeaderElement extends Components.WcsHeader, HTMLStencilElement {
     }
     var HTMLWcsHeaderElement: {
@@ -498,6 +583,8 @@ declare global {
         "wcs-field-content": HTMLWcsFieldContentElement;
         "wcs-field-header": HTMLWcsFieldHeaderElement;
         "wcs-form-field": HTMLWcsFormFieldElement;
+        "wcs-grid": HTMLWcsGridElement;
+        "wcs-grid-column": HTMLWcsGridColumnElement;
         "wcs-header": HTMLWcsHeaderElement;
         "wcs-hint": HTMLWcsHintElement;
         "wcs-icon": HTMLWcsIconElement;
@@ -601,6 +688,73 @@ declare namespace LocalJSX {
           * Specifies whether the form field is in an error state. Displays the field border in red and the message contained in the wcs-error component
          */
         "isError"?: boolean;
+    }
+    interface WcsGrid {
+        "autoWidth"?: boolean;
+        /**
+          * Allows you to configure the columns manually.  If you provide a value for this attribute, the wcs-grid-column components will not be used (but please, don't!).
+         */
+        "columns"?: OneDArray<TColumn | string | ComponentChild>;
+        /**
+          * Allows you to set the table data in JS. This option is taken into account only if no table element is present in the component slot.  This attribute must not be used beside an html table in the slot. In this case, no guarantees can be given on the component behaviour's
+         */
+        "data"?: TData | (() => TData) | (() => Promise<TData>);
+        /**
+          * fixes the table header to the top of the table
+         */
+        "fixedHeader"?: boolean;
+        /**
+          * sets the height of the table
+         */
+        "height"?: string;
+        "pagination"?: PaginationConfig;
+        /**
+          * To enable or disable the global search plugin see: https://gridjs.io/docs/config/search
+         */
+        "search"?: SearchConfig | boolean;
+        /**
+          * To enable the sorting plugin. Sort has two config objects: - Generic config: to enable sort for all columns, enable multi column sort, server-side integration, etc. - Column specific config: to enable sort on a specific column, to set custom comparator function, etc. see : https://gridjs.io/docs/config/sort
+         */
+        "sort"?: GenericSortConfig | boolean;
+        "width"?: string;
+    }
+    interface WcsGridColumn {
+        /**
+          * Cell default data
+         */
+        "data"?: ((row: TDataArrayRow | TDataObjectRow) => TCell) | TCell;
+        /**
+          * column ID
+         */
+        "fieldId"?: string;
+        /**
+          * To keep the header visible during a scroll
+         */
+        "fixedHeader"?: boolean;
+        /**
+          * custom cell formatting
+         */
+        "formatter"?: (cell: TCell, row: Row, column: TColumn) => ComponentChild;
+        /**
+          * to show/hide the column
+         */
+        "hiddenColumn"?: boolean;
+        /**
+          * column name
+         */
+        "name"?: string | ComponentChild;
+        /**
+          * to enable/disable sort
+         */
+        "sort"?: boolean;
+        /**
+          * to provide a custom sort function
+         */
+        "sortCompareFn"?: Comparator<TCell>;
+        /**
+          * width of the column
+         */
+        "width"?: string;
     }
     interface WcsHeader {
     }
@@ -820,6 +974,8 @@ declare namespace LocalJSX {
         "wcs-field-content": WcsFieldContent;
         "wcs-field-header": WcsFieldHeader;
         "wcs-form-field": WcsFormField;
+        "wcs-grid": WcsGrid;
+        "wcs-grid-column": WcsGridColumn;
         "wcs-header": WcsHeader;
         "wcs-hint": WcsHint;
         "wcs-icon": WcsIcon;
@@ -862,6 +1018,8 @@ declare module "@stencil/core" {
             "wcs-field-content": LocalJSX.WcsFieldContent & JSXBase.HTMLAttributes<HTMLWcsFieldContentElement>;
             "wcs-field-header": LocalJSX.WcsFieldHeader & JSXBase.HTMLAttributes<HTMLWcsFieldHeaderElement>;
             "wcs-form-field": LocalJSX.WcsFormField & JSXBase.HTMLAttributes<HTMLWcsFormFieldElement>;
+            "wcs-grid": LocalJSX.WcsGrid & JSXBase.HTMLAttributes<HTMLWcsGridElement>;
+            "wcs-grid-column": LocalJSX.WcsGridColumn & JSXBase.HTMLAttributes<HTMLWcsGridColumnElement>;
             "wcs-header": LocalJSX.WcsHeader & JSXBase.HTMLAttributes<HTMLWcsHeaderElement>;
             "wcs-hint": LocalJSX.WcsHint & JSXBase.HTMLAttributes<HTMLWcsHintElement>;
             "wcs-icon": LocalJSX.WcsIcon & JSXBase.HTMLAttributes<HTMLWcsIconElement>;
