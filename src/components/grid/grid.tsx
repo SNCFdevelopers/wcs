@@ -53,10 +53,12 @@ export class Grid implements ComponentInterface {
 
     @Watch('data')
     watchHandler(newValue: TData | (() => TData) | (() => Promise<TData>)) {
-        this.gridJS.updateConfig({
-            data: newValue
-        });
-        this.gridJS.forceRender();
+        if (this.gridJS) {
+            this.gridJS.updateConfig({
+                data: newValue
+            });
+            this.gridJS.forceRender();
+        }
     }
 
     componentDidLoad(): Promise<void> | void {
