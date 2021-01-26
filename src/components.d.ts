@@ -185,6 +185,12 @@ export namespace Components {
     }
     interface WcsListItemProperty {
     }
+    interface WcsMatIcon {
+        /**
+          * Use the icon name from Material Icons
+         */
+        "icon": string;
+    }
     interface WcsModal {
         /**
           * Specifies whether the component should display a backdrop on the entire page
@@ -483,6 +489,12 @@ declare global {
         prototype: HTMLWcsListItemPropertyElement;
         new (): HTMLWcsListItemPropertyElement;
     };
+    interface HTMLWcsMatIconElement extends Components.WcsMatIcon, HTMLStencilElement {
+    }
+    var HTMLWcsMatIconElement: {
+        prototype: HTMLWcsMatIconElement;
+        new (): HTMLWcsMatIconElement;
+    };
     interface HTMLWcsModalElement extends Components.WcsModal, HTMLStencilElement {
     }
     var HTMLWcsModalElement: {
@@ -592,6 +604,7 @@ declare global {
         "wcs-list-item": HTMLWcsListItemElement;
         "wcs-list-item-properties": HTMLWcsListItemPropertiesElement;
         "wcs-list-item-property": HTMLWcsListItemPropertyElement;
+        "wcs-mat-icon": HTMLWcsMatIconElement;
         "wcs-modal": HTMLWcsModalElement;
         "wcs-nav": HTMLWcsNavElement;
         "wcs-nav-item": HTMLWcsNavItemElement;
@@ -777,6 +790,12 @@ declare namespace LocalJSX {
     interface WcsListItemProperties {
     }
     interface WcsListItemProperty {
+    }
+    interface WcsMatIcon {
+        /**
+          * Use the icon name from Material Icons
+         */
+        "icon"?: string;
     }
     interface WcsModal {
         /**
@@ -983,6 +1002,7 @@ declare namespace LocalJSX {
         "wcs-list-item": WcsListItem;
         "wcs-list-item-properties": WcsListItemProperties;
         "wcs-list-item-property": WcsListItemProperty;
+        "wcs-mat-icon": WcsMatIcon;
         "wcs-modal": WcsModal;
         "wcs-nav": WcsNav;
         "wcs-nav-item": WcsNavItem;
@@ -1027,6 +1047,7 @@ declare module "@stencil/core" {
             "wcs-list-item": LocalJSX.WcsListItem & JSXBase.HTMLAttributes<HTMLWcsListItemElement>;
             "wcs-list-item-properties": LocalJSX.WcsListItemProperties & JSXBase.HTMLAttributes<HTMLWcsListItemPropertiesElement>;
             "wcs-list-item-property": LocalJSX.WcsListItemProperty & JSXBase.HTMLAttributes<HTMLWcsListItemPropertyElement>;
+            "wcs-mat-icon": LocalJSX.WcsMatIcon & JSXBase.HTMLAttributes<HTMLWcsMatIconElement>;
             "wcs-modal": LocalJSX.WcsModal & JSXBase.HTMLAttributes<HTMLWcsModalElement>;
             "wcs-nav": LocalJSX.WcsNav & JSXBase.HTMLAttributes<HTMLWcsNavElement>;
             "wcs-nav-item": LocalJSX.WcsNavItem & JSXBase.HTMLAttributes<HTMLWcsNavItemElement>;
