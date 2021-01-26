@@ -7,12 +7,14 @@ import { SelectExampleComponent } from './select-example/select-example.componen
 import { FormsModule } from '@angular/forms';
 import { WcsAngularModule } from 'wcs-angular';
 import { RadioGroupExampleComponent } from './radio-group/radio-group-example.component';
+import { GridExampleComponent } from './grid-example/grid-example.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SelectExampleComponent,
     RadioGroupExampleComponent,
+    GridExampleComponent,
   ],
   imports: [
     BrowserModule,

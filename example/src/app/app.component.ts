@@ -24,6 +24,7 @@ import { Component } from '@angular/core';
           <pre><code>ng add wcs-core</code></pre>
         </wcs-card-body>
       </wcs-card>
+      <app-grid-example></app-grid-example>
       <app-select-example></app-select-example>
       <app-radio-group-example></app-radio-group-example>
     </main>
