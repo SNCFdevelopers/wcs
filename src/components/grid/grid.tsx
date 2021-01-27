@@ -85,6 +85,37 @@ export class Grid implements ComponentInterface {
 
     }
 
+    private buildLanguageFor(language: string) {
+        const frLanguage = {
+            search: {
+                placeholder: 'Tapez un mot-clé...',
+            },
+            sort: {
+                sortAsc: 'Trier par ordre croissant',
+                sortDesc: 'Trier par ordre décroissant',
+            },
+            pagination: {
+                previous: 'Précédent',
+                next: 'Suivant',
+                navigate: (page, pages) => `Page ${page} sur ${pages}`,
+                page: (page) => `Page ${page}`,
+                showing: '',
+                of: 'sur',
+                to: '-',
+                results: '',
+            },
+            loading: 'Chargement...',
+            noRecordsFound: 'Aucun résultat n\'a été trouvé',
+            error: 'Une erreur s\'est produite lors de la récupération des données',
+        };
+
+        switch (language) {
+            case 'fr':
+                return frLanguage;
+            default:
+                return frLanguage;
+        }
+    }
 
     private buildUserConfigFromComponentsAndHtmlTable(): UserConfig {
         this.tableRef = this.el.querySelector('table') as any as HTMLTableElement;
@@ -100,6 +131,7 @@ export class Grid implements ComponentInterface {
             fixedHeader: this.fixedHeader,
             pagination: this.pagination,
             sort: this.sort,
+            language: this.buildLanguageFor('fr')
         };
         return userConfig;
     }
