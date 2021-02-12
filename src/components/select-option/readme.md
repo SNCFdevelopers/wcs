@@ -23,6 +23,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [wcs-grid-pagination](../grid-pagination)
+
 ### Depends on
 
 - [wcs-checkbox](../checkbox)
@@ -31,6 +35,7 @@
 ```mermaid
 graph TD;
   wcs-select-option --> wcs-checkbox
+  wcs-grid-pagination --> wcs-select-option
   style wcs-select-option fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -172,6 +172,19 @@ Type: `Promise<void>`
 
 
 
+## Dependencies
+
+### Used by
+
+ - [wcs-grid-pagination](../grid-pagination)
+
+### Graph
+```mermaid
+graph TD;
+  wcs-grid-pagination --> wcs-select
+  style wcs-select fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

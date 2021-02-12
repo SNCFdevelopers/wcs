@@ -34,3 +34,6 @@ npm test
 npm run test:watch
 ```
 
+## Resources
+
+- https://www.joshmorony.com/understanding-jsx-for-stencil-js-applications/

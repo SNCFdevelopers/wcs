@@ -39,11 +39,13 @@
 
 ### Used by
 
+ - [wcs-grid](../grid)
  - [wcs-select-option](../select-option)
 
 ### Graph
 ```mermaid
 graph TD;
+  wcs-grid --> wcs-checkbox
   wcs-select-option --> wcs-checkbox
   style wcs-checkbox fill:#f9f,stroke:#333,stroke-width:4px
 ```

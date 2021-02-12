@@ -23,6 +23,19 @@
 | `wcsRadioClick` |             | `CustomEvent<RadioChosedEvent>` |
 
 
+## Dependencies
+
+### Used by
+
+ - [wcs-grid](../grid)
+
+### Graph
+```mermaid
+graph TD;
+  wcs-grid --> wcs-radio
+  style wcs-radio fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

@@ -1,31 +1,28 @@
-@import "~gridjs/dist/theme/mermaid.css";
-
 :host {
-    td {
-        color: var(--wcs-gray-light);
-        border-color: var(--wcs-text-light);
-        border-right: none;
-        border-left: none;
-        font-size: 16px;
-        line-height: calc(var(--wcs-padding)*2);
-        padding: calc(var(--wcs-padding)/2) calc(var(--wcs-padding));
-    }
-
+    display: block;
+    --wcs-grid-highlight-color: var(--wcs-light);
     th {
         background-color: var(--wcs-light);
-        color: var(--wcs-gray-dark);
-        padding: calc(var(--wcs-padding)/1.5) calc(var(--wcs-padding));
-        border-color: var(--wcs-text-light);
-        font-weight: 500;
+        border-bottom: solid 1px var(--wcs-text-light);
     }
-
-    .gridjs-container {
-        padding: 0;
+    th:not(:first-child) {
+        border-left: solid 1px var(--wcs-text-light);
     }
-
-    .gridjs-wrapper {
-        border: none;
-        border-radius: 0px;
-        box-shadow: none;
+    table {
+        width: 100%;
+        border-spacing: 0;
+    }
+    td {
+        border-bottom: solid 1px var(--wcs-text-light);
+        color: var(--wcs-gray-light);
+        margin: 0;
+        padding: calc(var(--wcs-padding) / 2) var(--wcs-padding);
+    }
+    .wcs-grid-selection-column {
+        padding: calc(var(--wcs-padding) / 2) var(--wcs-padding);
+        width: 40px;
+    }
+    tr.selected {
+        background-color: var(--wcs-grid-highlight-color);
     }
 }

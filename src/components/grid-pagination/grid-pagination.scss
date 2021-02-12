@@ -1,0 +1,26 @@
+:host {
+    display: block;
+    border-style: solid none none;
+    border-width: 1px;
+    border-color: var(--wcs-text-light);
+}
+
+.container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: space-between;
+    color: var(--wcs-text-medium);
+}
+
+.available-page-sizes {
+    width: 80px;
+}
+
+.page-management, .page-size, .items-count {
+    display: flex;
+    align-items: center;
+}
+
+.pagination-arrow {
+    display: flex;
+}

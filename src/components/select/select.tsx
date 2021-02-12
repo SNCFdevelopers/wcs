@@ -121,6 +121,8 @@ export class Select implements ComponentInterface {
     @Prop({ context: 'window' })
     window!: Window;
 
+    @State() overlayDirection : 'bottom' | 'top' = 'bottom';
+
     /** Emitted when the value has changed. */
     @Event() wcsChange!: EventEmitter<SelectChangeEventDetail>;
 
@@ -275,6 +277,7 @@ export class Select implements ComponentInterface {
             actions: {
                 open: () => {
                     if (!this.disabled) {
+                        this.updateOverlayDirection();
                         this.expanded = true;
                         this.focused = true;
                     }
@@ -293,6 +296,32 @@ export class Select implements ComponentInterface {
                 enabled: () => !this.disabled
             }
         };
+    }
+
+    /**
+     * This method controls whether or not the overlay has enough space to be displayed
+     * at the bottom of the select component.
+     *
+     * It compute the size of the expended select by adding the theoretical dimensions of the
+     * overlay calculated from the number of options plus the initial select size.
+     * @private
+     */
+    private updateOverlayDirection() {
+        const selectBounding = this.el.getBoundingClientRect();
+        // Maximum size of the overlay is 360px, otherwise the size is calculated from the number of options
+        const optionsOverlaySize = this.options.length > 8 ? 360 + 1 : this.options.length * 42 + 1;
+        const remainingHeightAfterOpen = window.innerHeight - (selectBounding.y + selectBounding.height + optionsOverlaySize);
+        // There are not enough pixels to open the overlay below the component
+        if (remainingHeightAfterOpen < 0) {
+            this.overlayDirection = 'top';
+        } else {
+            this.overlayDirection = 'bottom';
+        }
+        /**
+         * TODO:
+         *  - utiliser une propriété en plus pour la configuration manuelle ?
+         *  - ne pas passer par un reflect mais par une classe settté en JS
+         */
     }
 
     private handleClickEvent(event: SelectOptionChosedEvent) {
@@ -364,7 +393,9 @@ export class Select implements ComponentInterface {
 
     @Listen('click', { target: 'window' })
     onWindowClickEvent(event: MouseEvent) {
-        const clickedOnSelectOrChildren = event.target instanceof Node && this.el.contains(event.target);
+        // We search in the full path of the event, because if a select is used in another web component,
+        // the event captured by the windows will target the parent web component and not the select.
+        const clickedOnSelectOrChildren = event.composedPath().map(x => (x as HTMLElement).nodeName).indexOf('WCS-SELECT') !== -1;
         // TODO: Move this logic in the state machine
         // FIXME: Doesnt work with single + disabled option
         if (this.expanded && !clickedOnSelectOrChildren) {

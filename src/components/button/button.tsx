@@ -51,6 +51,9 @@ export class Button implements ComponentInterface {
 
     @Listen('click')
     onClick(ev: Event) {
+        if (this.disabled) {
+            ev.stopImmediatePropagation();
+        }
         if (this.type !== 'button' && hasShadowDom(this.el)) {
             // this button wants to specifically submit a form
             // climb up the dom to see if we're in a <form>

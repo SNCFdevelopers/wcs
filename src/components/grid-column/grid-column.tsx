@@ -1,54 +1,61 @@
-import { Component, ComponentInterface, h, Host, Prop } from '@stencil/core';
-import { Comparator, TCell, TColumn, TDataArrayRow, TDataObjectRow } from 'gridjs/dist/src/types';
-import { ComponentChild } from 'preact';
-import { Row } from 'gridjs';
+import {
+    Component,
+    ComponentInterface,
+    Event,
+    EventEmitter,
+    h,
+    Host,
+    Prop,
+    Element
+} from '@stencil/core';
+import {
+    WcsSortOrder,
+    WcsSortFn,
+    WcsGridColumnSortChangeEventDetails,
+    WcsCellFormatter
+} from '../grid/grid-interface';
+import { GridSortArrow } from './grid-sort-arrow';
 
 @Component({
     tag: 'wcs-grid-column',
-    shadow: true,
+    styleUrl: 'grid-column.scss',
+    shadow: true
 })
 export class GridColumn implements ComponentInterface {
+    @Element() el: HTMLWcsGridColumnElement;
+    @Prop() path: string;
+    @Prop() name: string;
+    @Prop() sort: boolean = false;
+    @Prop() sortFn: WcsSortFn;
+    @Prop() formatter: WcsCellFormatter;
+    @Prop({ mutable: true, reflect: true }) sortOrder: WcsSortOrder = 'none';
     /**
-     * column ID
+     * Set the column <th> element width
      */
-    @Prop() fieldId?: string;
-    /**
-     * Cell default data
-     */
-    @Prop() data?: ((row: TDataArrayRow | TDataObjectRow) => TCell) | TCell;
-    /**
-     * column name
-     */
-    @Prop() name?: string | ComponentChild;
-    /**
-     * width of the column
-     */
-    @Prop() width?: string;
-    /**
-     * to enable/disable sort
-     */
-    @Prop() sort?: boolean;
-    /**
-     * to provide a custom sort function
-     */
-    @Prop() sortCompareFn?: Comparator<TCell>;
-    /**
-     * To keep the header visible during a scroll
-     */
-    @Prop() fixedHeader?: boolean;
-    /**
-     * to show/hide the column
-     */
-    @Prop() hiddenColumn?: boolean;
-    /**
-     * custom cell formatting
-     */
-    @Prop() formatter?: (cell: TCell, row: Row, column: TColumn) => ComponentChild;
+    @Prop() width: string;
+    @Event() wcsSortChange!: EventEmitter<WcsGridColumnSortChangeEventDetails>;
+
+    emitSortConfig() {
+        this.wcsSortChange.emit({
+            column: this.el,
+            order: this.sortOrder,
+            sortFn: this.sortFn
+        });
+    }
 
     render(): any {
+        return (<Host onClick={this.onSortClick.bind(this)} slot="grid-column" style={{ display: 'contents' }}>
+            <th style={{width: this.width}}>
+                <div class="grid-column-th-content">
+                    <span>{this.name}</span>
+                    <GridSortArrow state={this.sortOrder}></GridSortArrow>
+                </div>
+            </th>
+        </Host>)
+    }
 
-        return (
-            <Host></Host>
-        )
+    private onSortClick() {
+        this.sortOrder = this.sortOrder === 'none' || this.sortOrder === 'desc' ? 'asc' : 'desc';
+        this.emitSortConfig();
     }
 }

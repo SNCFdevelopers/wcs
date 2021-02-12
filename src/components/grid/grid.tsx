@@ -1,201 +1,249 @@
-import { Component, ComponentInterface, Element, h, Host, Prop, State, Watch } from '@stencil/core';
-import { Grid as GridJS } from 'gridjs';
-import { OneDArray, TColumn, TData } from 'gridjs/dist/src/types';
-import { ComponentChild } from 'preact';
-import { PaginationConfig } from 'gridjs/dist/src/view/plugin/pagination';
-import { GenericSortConfig } from 'gridjs/dist/src/view/plugin/sort/sort';
-import { SearchConfig } from 'gridjs/dist/src/view/plugin/search/search';
-import { UserConfig } from 'gridjs/dist/src/config';
+import {
+    Component,
+    ComponentDidLoad,
+    ComponentInterface,
+    Element,
+    Event,
+    EventEmitter,
+    h,
+    Host,
+    Listen,
+    Prop,
+    State,
+    VNode,
+    Watch
+} from '@stencil/core';
+import {
+    getSortOrderInteger,
+    HyperFunc,
+    WcsGridAllRowSelectedEventDetails,
+    WcsGridCell,
+    WcsGridColumnSortChangeEventDetails,
+    WcsGridPaginationChangeEventDetails,
+    WcsGridRow,
+    WcsGridRowData,
+    WcsGridRowSelectedEventDetails,
+    WcsGridSelectionConfig
+} from './grid-interface';
+import _ from 'lodash';
 
 @Component({
     tag: 'wcs-grid',
     styleUrl: 'grid.scss',
-    shadow: true,
+    shadow: true
 })
-export class Grid implements ComponentInterface {
+export class Grid implements ComponentInterface, ComponentDidLoad {
     @Element() el!: HTMLWcsGridElement;
     /**
-     * Allows you to configure the columns manually.
-     *
-     * If you provide a value for this attribute, the wcs-grid-column components will not be used (but please, don't!).
+     * True to manage sort and pagination with a backend server, default: false
      */
-    @Prop({mutable: true}) columns: OneDArray<TColumn | string | ComponentChild>;
+    @Prop() serverMode: boolean;
+    @Prop() data: any[];
     /**
-     * Allows you to set the table data in JS. This option is taken into account only if no table element is present
-     * in the component slot.
-     *
-     * This attribute must not be used beside an html table in the slot. In this case, no guarantees can be given on the
-     * component behaviour's
+     * Used to manage grid's row selection
      */
-    @Prop({mutable: true}) data: TData | (() => TData) | (() => Promise<TData>);
-    @Prop() autoWidth: boolean = true;
-    @Prop() width: string = '100%';
-    /** sets the height of the table */
-    @Prop() height: string = 'auto';
-    @Prop() pagination: PaginationConfig;
+    @Prop() selection: WcsGridSelectionConfig = 'none';
+    @Prop() wcsGridPaginationId: string;
+    @State() columns: HTMLWcsGridColumnElement[];
+    @State() paginationEl: HTMLWcsGridPaginationElement;
     /**
-     * To enable the sorting plugin. Sort has two config objects:
-     * - Generic config: to enable sort for all columns, enable multi column sort, server-side integration, etc.
-     * - Column specific config: to enable sort on a specific column, to set custom comparator function, etc.
-     * see : https://gridjs.io/docs/config/sort
+     * Rows to display, contains user data and meta data
      */
-    @Prop() sort: GenericSortConfig | boolean;
+    @State() rows: WcsGridRow[] = [];
     /**
-     * To enable or disable the global search plugin
-     * see: https://gridjs.io/docs/config/search
+     * Event emitted when a row is selected or unselected
      */
-    @Prop() search: SearchConfig | boolean;
-    /** fixes the table header to the top of the table */
-    @Prop() fixedHeader: boolean;
-
-    @State() tableRef: HTMLTableElement;
-    private gridJS: GridJS;
+    @Event() wcsGridSelectionChange!: EventEmitter<WcsGridRowSelectedEventDetails>;
+    /**
+     * Event emitted when all rows are selected or unselected
+     */
+    @Event() wcsGridAllSelectionChange!: EventEmitter<WcsGridAllRowSelectedEventDetails>;
 
     @Watch('data')
-    watchHandler(newValue: TData | (() => TData) | (() => Promise<TData>)) {
-        if (this.gridJS) {
-            this.gridJS.updateConfig({
-                data: newValue
-            });
-            this.gridJS.forceRender();
-        }
+    onDataChange(newValue: any[]): void {
+        this.updateGridRows(newValue);
     }
 
-    componentDidLoad(): Promise<void> | void {
-        this.extractUserConfigFromWcsComponents();
-        const userConfig = this.buildUserConfigFromComponentsAndHtmlTable();
-
-        this.gridJS = new GridJS(userConfig);
-        this.gridJS.render(this.el.shadowRoot.getElementById('grid-wrapper'));
-
-        if (this.tableRef) {
-            this.mergeUserConfigAndHtmlDatasourceConfig();
-
-            const observer = new MutationObserver((_) => {
-                this.gridJS.updateConfig({
-                    from: this.tableRef
-                });
-                this.mergeUserConfigAndHtmlDatasourceConfig();
-                this.gridJS.forceRender();
-            });
-
-            const slots = this.el.querySelector('table');
-            observer.observe(slots, {attributes: true, childList: true, subtree: true, characterData: true});
-        }
-
+    private wcsGridRowToWcsGridRowData(row: WcsGridRow): WcsGridRowData {
+        return { selected: row.selected, page: row.page, data: row.data };
     }
 
-    private buildLanguageFor(language: string) {
-        const frLanguage = {
-            search: {
-                placeholder: 'Tapez un mot-clé...',
-            },
-            sort: {
-                sortAsc: 'Trier par ordre croissant',
-                sortDesc: 'Trier par ordre décroissant',
-            },
-            pagination: {
-                previous: 'Précédent',
-                next: 'Suivant',
-                navigate: (page, pages) => `Page ${page} sur ${pages}`,
-                page: (page) => `Page ${page}`,
-                showing: '',
-                of: 'sur',
-                to: '-',
-                results: '',
-            },
-            loading: 'Chargement...',
-            noRecordsFound: 'Aucun résultat n\'a été trouvé',
-            error: 'Une erreur s\'est produite lors de la récupération des données',
-        };
-
-        switch (language) {
-            case 'fr':
-                return frLanguage;
-            default:
-                return frLanguage;
-        }
-    }
-
-    private buildUserConfigFromComponentsAndHtmlTable(): UserConfig {
-        this.tableRef = this.el.querySelector('table') as any as HTMLTableElement;
-
-        const userConfig: UserConfig = {
-            columns: this.columns,
-            from: this.tableRef,
-            data: this.data,
-            search: this.search,
-            autoWidth: this.autoWidth,
-            width: this.width,
-            height: this.height,
-            fixedHeader: this.fixedHeader,
-            pagination: this.pagination,
-            sort: this.sort,
-            language: this.buildLanguageFor('fr')
-        };
-        return userConfig;
-    }
-
-    private extractUserConfigFromWcsComponents() {
-        // If the user has not defined the columns himself, they are configured from the wcs-grid-column.
-        if (!this.columns) {
-            const gridColumnElements = Array.from(this.el.querySelectorAll('wcs-grid-column') as any as HTMLWcsGridColumnElement[]);
-            if (gridColumnElements.length > 0) {
-                this.columns = gridColumnElements.map(
-                    wcsGridColumn => {
-                        return {
-                            id: wcsGridColumn.fieldId,
-                            data: wcsGridColumn.data,
-                            name: wcsGridColumn.name,
-                            width: wcsGridColumn.width,
-                            sort: {
-                                enabled: wcsGridColumn.sort,
-                                compare: wcsGridColumn.sortCompareFn
-                            },
-                            fixedHeader: wcsGridColumn.fixedHeader,
-                            hidden: wcsGridColumn.hiddenColumn,
-                            formatter: wcsGridColumn.formatter
-                        }
-                    });
+    private updateGridRows(data: any[]): void {
+        const rows: WcsGridRow[] = [];
+        for (let i = 0; i < data.length; i++) {
+            const row: WcsGridRow = {
+                data: data[i],
+                selected: false,
+                cells: []
+            };
+            for (const column of this.columns) {
+                row.cells.push({
+                    content: data[i][column.path],
+                    column,
+                    formatter: column.formatter
+                })
             }
+            rows.push(row);
         }
+        this.rows = rows;
+        this.updatePageIndex();
+    }
+
+    componentDidLoad(): void {
+        this.columns = this.getGridColumnsFromTemplate();
+        this.paginationEl = this.wcsGridPaginationId
+            ? document.getElementById(this.wcsGridPaginationId) as HTMLWcsGridPaginationElement
+            : this.getGridPaginationsFromTemplate()[0];
+        this.updateGridRows(this.data);
+    }
+
+    private getGridColumnsFromTemplate(): HTMLWcsGridColumnElement[] {
+        const slotted = this.el.shadowRoot.querySelector('slot[name="grid-column"]') as HTMLSlotElement;
+        return slotted.assignedElements() as any as HTMLWcsGridColumnElement[];
+    }
+
+    private getGridPaginationsFromTemplate(): HTMLWcsGridPaginationElement[] {
+        const slotted = this.el.shadowRoot.querySelector('slot[name="grid-pagination"]') as HTMLSlotElement;
+        return slotted.assignedElements() as any as HTMLWcsGridPaginationElement[];
+    }
+
+    @Listen('wcsSortChange')
+    sortChangeEventHandler(event: CustomEvent<WcsGridColumnSortChangeEventDetails>): void {
+        if (this.serverMode) return;
+        // We keep only one active sort column
+        this.columns.filter(c => c !== event.detail.column).forEach(c => c.sortOrder = 'none');
+        if (event.detail.sortFn) {
+            this.rows = _.cloneDeep(this.rows)
+                .sort((a: any, b: any) => event.detail.sortFn(a.data, b.data) * getSortOrderInteger(event.detail.order));
+        } else {
+            this.rows = _.cloneDeep(this.rows)
+                .sort((a: any, b: any) => {
+                    const path = event.detail.column.path;
+                    return ((a.data[path] < b.data[path]) ? -1 : (a.data[path] > b.data[path]) ? 1 : 0) * getSortOrderInteger(event.detail.order);
+                });
+        }
+        this.updatePageIndex();
     }
 
     /**
-     * If the user has redefined parameters for some columns of the html table, we merge them
-     * with the configuration generated by GridJS
-     * @private
+     * Update the page's number of all rows
      */
-    private mergeUserConfigAndHtmlDatasourceConfig() {
-        // XXX: It's a temporary hack around the JSGrid API
-        //
-        // https://github.com/grid-js/gridjs/blob/42520949ae060f41fc5923e78177a06f23e306cf/packages/gridjs/src/header.ts#L228
-        // https://github.com/grid-js/gridjs/blob/42520949ae060f41fc5923e78177a06f23e306cf/packages/gridjs/src/header.ts#L259
-        //
-        // It would be necessary either to retrieve the attributes on the html elements directly (header.ts#L259),
-        // or to allow merging the user config and the deduced configuration from the table element (header.ts#L228).
-        //
-        // A PR should be done to correct.
-        //
-        // The user chose to use a html table as the data source,
-        // we add the possibility to configure the columns as needed.
-        for (const column of this.gridJS.config.header.columns) {
-            const userConfigColumn: TColumn = this.columns?.find((uc: TColumn) => uc.id === column.id) as TColumn;
-            if (userConfigColumn) {
-                column.name = userConfigColumn.name ? userConfigColumn.name : column.name;
-                column.width = userConfigColumn.width ? userConfigColumn.width : column.width;
-                column.sort = userConfigColumn.sort ? userConfigColumn.sort : column.sort;
-                column.fixedHeader = userConfigColumn.fixedHeader ? userConfigColumn.fixedHeader : column.fixedHeader;
-                column.hidden = userConfigColumn.hidden ? userConfigColumn.hidden : column.hidden;
-                column.formatter = userConfigColumn.formatter ? userConfigColumn.formatter : column.formatter;
+    private updatePageIndex(): void {
+        if (!this.serverMode && this.paginationEl) {
+            if (this.paginationEl.currentPage + 1 > this.paginationEl.pageCount) {
+                this.paginationEl.currentPage = this.paginationEl.pageCount - 1;
             }
+
+            this.paginationEl.itemsCount = this.data.length;
+            this.paginationEl.pageCount = Math.ceil(this.data.length / this.paginationEl.pageSize);
+
+            const rows = _.cloneDeep(this.rows);
+            rows.forEach((row: WcsGridRow, index: number) =>
+                row.page = Math.floor(index / this.paginationEl.pageSize)
+            );
+            this.rows = [...rows];
         }
+    }
+
+    @Listen('wcsGridPaginationChange')
+    paginationChangeEventHandler(): void {
+        this.onPaginationChange();
+    }
+
+    @Listen('wcsGridPaginationChange', { target: 'window' })
+    paginationChangeEventHandlerOutside(event: CustomEvent<WcsGridPaginationChangeEventDetails>): void {
+        if (this.wcsGridPaginationId && this.wcsGridPaginationId === (event.target as HTMLElement).id) {
+            this.onPaginationChange();
+        }
+    }
+
+    private onPaginationChange(): void {
+        if (this.serverMode) return;
+        this.updatePageIndex();
+    }
+
+    private onRowSelection(row: WcsGridRow): void {
+        if (this.selection === 'single') {
+            this.rows.map(r => r.selected = false);
+        }
+        row.selected = !row.selected;
+        this.wcsGridSelectionChange.emit({ row: this.wcsGridRowToWcsGridRowData(row) });
+        this.rows = _.cloneDeep(this.rows);
+    }
+
+    private selectAllRows(): void {
+        const selected = this.allRowsAreSelected() ? false : true;
+        this.rows.map(r => r.selected = selected);
+        this.wcsGridAllSelectionChange.emit({ rows: selected ? this.rows.map(row => this.wcsGridRowToWcsGridRowData(row)) : [] });
+        this.rows = _.cloneDeep(this.rows);
+    }
+
+    private allRowsAreSelected(): boolean {
+        return this.rows.filter(row => row.selected).length === this.rows.length;
+    }
+
+    renderSelectionColumn(row: WcsGridRow): any {
+        switch (this.selection) {
+            case 'none':
+                return;
+            case 'single':
+                return <td>
+                    <wcs-radio checked={row.selected} onWcsRadioClick={this.onRowSelection.bind(this, row)} />
+                </td>;
+            case 'multiple':
+                return <td>
+                    <wcs-checkbox checked={row.selected} onWcsChange={this.onRowSelection.bind(this, row)} />
+                </td>;
+        }
+    }
+
+    private getCellContent(row: WcsGridRow, cell: WcsGridCell): HTMLElement | HTMLElement[] | string | void {
+        if (cell.formatter) {
+            return cell.formatter(
+                (h as unknown) as HyperFunc<VNode>,
+                cell.column,
+                this.wcsGridRowToWcsGridRowData(row)
+            );
+        }
+        return cell.content;
     }
 
     render(): any {
-        return (<Host>
-            <div id="grid-wrapper"/>
-            <slot/>
-        </Host>);
+        return (
+            <Host>
+                <table>
+                    <thead>
+                        {
+                            this.selection === 'none' ? ''
+                                : <th class="wcs-grid-selection-column">
+                                    {
+                                        this.selection === 'single' ? '' : <wcs-checkbox checked={this.allRowsAreSelected()} onWcsChange={this.selectAllRows.bind(this)} />
+                                    }
+                                </th>
+                        }
+                        <slot name="grid-column"></slot>
+                    </thead>
+                    <tbody>
+                        {
+                            this.rows
+                                ?.filter(row => this.serverMode || row.page === this.paginationEl.currentPage)
+                                .map(row =>
+                                    <tr class={row.selected ? 'selected' : ''}>
+                                        {this.renderSelectionColumn(row)}
+                                        {row.cells?.map(cell => <td>{this.getCellContent(row, cell)}</td>)}
+                                    </tr>
+                                )
+                        }
+                    </tbody>
+                </table>
+                <slot name="grid-pagination"></slot>
+            </Host>
+        );
     }
 }
+
+/**
+ * Pour resize le tableau
+ * https://www.brainbell.com/javascript/making-resizable-table-js.htmls
+ *
+ */
