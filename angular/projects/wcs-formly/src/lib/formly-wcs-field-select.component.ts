@@ -15,7 +15,7 @@ import { FieldType } from '@ngx-formly/core';
         [attr.placeholder]="to.placeholder"
         [formControl]="formControl"
         [attr.multiple]="to.multiple"
-        [attr.disabled]="to.readonly">
+        [attr.disabled]="to.readonly ? true : null">
         <wcs-select-option
           *ngFor="let option of to.options | formlySelectOptions: field | async; let i = index"
           [value]="option.value">{{option.label}}</wcs-select-option>
