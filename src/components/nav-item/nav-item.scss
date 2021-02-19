@@ -15,12 +15,12 @@ wcs-nav-item {
         border: none;
         text-decoration: none;
         transition: color 0.15s ease-in-out,
-            background-color 0.15s ease-in-out,
-            border-color 0.15s ease-in-out,
-            box-shadow 0.15s ease-in-out;
+        background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out,
+        box-shadow 0.15s ease-in-out;
         height: 5rem;
         font-size: 0.75rem;
-        color: var(--wcs-white);
+        color: var(--wcs-contrast);
 
         &:not(.active) {
             border-bottom: 1px solid rgba(255, 255, 255, .2);
@@ -58,12 +58,11 @@ wcs-nav-item[slot=bottom] {
     font-weight: 500;
 }
 
-// TODO: There should maybe be a different style for focused, hovered and active
 .active,
 wcs-nav-item:hover,
 wcs-nav-item:focus-within {
-    // FIXME: Where does that color come from ?
-    background-color: #0074af;
+    background-color: rgb(var(--wcs-primary));
+    backdrop-filter: brightness(85%);
     @include for-tablet-landscape-down {
         a {
             color: var(--wcs-primary);

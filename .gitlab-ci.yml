@@ -19,7 +19,7 @@ before_script:
 test:
     tags:
         - sncf-runner-1
-    image: buildkite/puppeteer
+    image: buildkite/puppeteer:5.2.1
     stage: test
     script:
         - npm test
