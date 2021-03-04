@@ -94,6 +94,10 @@ export namespace Components {
     interface WcsGrid {
         "data": any[];
         /**
+          * Flag to display spinner during data loading
+         */
+        "loading": boolean;
+        /**
           * Used to manage grid's row selection
          */
         "selection": WcsGridSelectionConfig;
@@ -670,6 +674,10 @@ declare namespace LocalJSX {
     }
     interface WcsGrid {
         "data"?: any[];
+        /**
+          * Flag to display spinner during data loading
+         */
+        "loading"?: boolean;
         /**
           * Event emitted when all rows are selected or unselected
          */

@@ -40,6 +40,10 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
     @Prop() serverMode: boolean;
     @Prop() data: any[];
     /**
+     * Flag to display spinner during data loading
+     */
+    @Prop() loading: boolean;
+    /**
      * Used to manage grid's row selection
      */
     @Prop() selection: WcsGridSelectionConfig = 'none';
@@ -70,23 +74,25 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
 
     private updateGridRows(data: any[]): void {
         const rows: WcsGridRow[] = [];
-        for (let i = 0; i < data.length; i++) {
-            const row: WcsGridRow = {
-                data: data[i],
-                selected: false,
-                cells: []
-            };
-            for (const column of this.columns) {
-                row.cells.push({
-                    content: data[i][column.path],
-                    column,
-                    formatter: column.formatter
-                })
+        if (data) {
+            for (let i = 0; i < data.length; i++) {
+                const row: WcsGridRow = {
+                    data: data[i],
+                    selected: false,
+                    cells: []
+                };
+                for (const column of this.columns) {
+                    row.cells.push({
+                        content: data[i][column.path],
+                        column,
+                        formatter: column.formatter
+                    })
+                }
+                rows.push(row);
             }
-            rows.push(row);
+            this.rows = rows;
+            this.updatePageIndex();
         }
-        this.rows = rows;
-        this.updatePageIndex();
     }
 
     componentDidLoad(): void {
@@ -172,14 +178,23 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
     }
 
     private selectAllRows(): void {
+        const rows = this.getRowsForCurrentPage();
         const selected = this.allRowsAreSelected() ? false : true;
-        this.rows.map(r => r.selected = selected);
-        this.wcsGridAllSelectionChange.emit({ rows: selected ? this.rows.map(row => this.wcsGridRowToWcsGridRowData(row)) : [] });
+        rows.map(r => r.selected = selected);
+        this.wcsGridAllSelectionChange.emit({ rows: selected ? rows.map(row => this.wcsGridRowToWcsGridRowData(row)) : [] });
         this.rows = _.cloneDeep(this.rows);
     }
 
     private allRowsAreSelected(): boolean {
-        return this.rows.filter(row => row.selected).length === this.rows.length;
+        const rows = this.getRowsForCurrentPage();
+        return rows.length > 0 && rows.filter(row => row.selected).length === rows.length;
+    }
+
+    private getRowsForCurrentPage(): WcsGridRow[] {
+        if (this.paginationEl) {
+            return this.rows.filter(row => row.page === this.paginationEl.currentPage);
+        }
+        return this.rows;
     }
 
     renderSelectionColumn(row: WcsGridRow): any {
@@ -208,34 +223,49 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
         return cell.content;
     }
 
+    private totalColumnCount() {
+        if (!this.columns) {
+            return 0;
+        }
+        return this.columns.length + (this.selection === 'none' ? 0 : 1);
+    }
+
     render(): any {
         return (
             <Host>
-                <table>
-                    <thead>
-                        {
-                            this.selection === 'none' ? ''
-                                : <th class="wcs-grid-selection-column">
-                                    {
-                                        this.selection === 'single' ? '' : <wcs-checkbox checked={this.allRowsAreSelected()} onWcsChange={this.selectAllRows.bind(this)} />
-                                    }
-                                </th>
-                        }
-                        <slot name="grid-column"></slot>
-                    </thead>
-                    <tbody>
-                        {
-                            this.rows
-                                ?.filter(row => this.serverMode || !this.paginationEl || row.page === this.paginationEl.currentPage)
-                                .map(row =>
-                                    <tr class={row.selected ? 'selected' : ''}>
-                                        {this.renderSelectionColumn(row)}
-                                        {row.cells?.map(cell => <td>{this.getCellContent(row, cell)}</td>)}
+                {
+                    <table>
+                        <thead>
+                            {
+                                this.selection === 'none' ? ''
+                                    : <th class="wcs-grid-selection-column">
+                                        {
+                                            this.selection === 'single' ? '' : <wcs-checkbox checked={this.allRowsAreSelected()} onWcsChange={this.selectAllRows.bind(this)} />
+                                        }
+                                    </th>
+                            }
+                            <slot name="grid-column"></slot>
+                        </thead>
+                        <tbody>
+                            {
+                                this.loading
+                                    ? <tr>
+                                        <td colSpan={this.totalColumnCount()} class="loading">
+                                            <wcs-spinner></wcs-spinner>
+                                        </td>
                                     </tr>
-                                )
-                        }
-                    </tbody>
-                </table>
+                                    : this.rows
+                                        ?.filter(row => this.serverMode || !this.paginationEl || row.page === this.paginationEl.currentPage)
+                                        .map(row =>
+                                            <tr class={row.selected ? 'selected' : ''}>
+                                                {this.renderSelectionColumn(row)}
+                                                {row.cells?.map(cell => <td>{this.getCellContent(row, cell)}</td>)}
+                                            </tr>
+                                        )
+                            }
+                        </tbody>
+                    </table>
+                }
                 <slot name="grid-pagination"></slot>
             </Host>
         );

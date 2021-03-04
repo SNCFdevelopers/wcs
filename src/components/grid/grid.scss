@@ -3,7 +3,6 @@
     --wcs-grid-highlight-color: var(--wcs-light);
     th {
         background-color: var(--wcs-light);
-        border-bottom: solid 1px var(--wcs-text-light);
     }
     th:not(:first-child) {
         border-left: solid 1px var(--wcs-text-light);
@@ -13,10 +12,12 @@
         border-spacing: 0;
     }
     td {
-        border-bottom: solid 1px var(--wcs-text-light);
         color: var(--wcs-gray-light);
         margin: 0;
         padding: calc(var(--wcs-padding) / 2) var(--wcs-padding);
+    }
+    tr:not(:last-child) td {
+        border-bottom: solid 1px var(--wcs-text-light);
     }
     .wcs-grid-selection-column {
         padding: calc(var(--wcs-padding) / 2) var(--wcs-padding);
@@ -24,5 +25,8 @@
     }
     tr.selected {
         background-color: var(--wcs-grid-highlight-color);
+    }
+    .loading {
+        text-align: center;
     }
 }
