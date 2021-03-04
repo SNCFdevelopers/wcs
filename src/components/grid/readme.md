@@ -16,14 +16,14 @@
     <!-- <wcs-grid-pagination id="grid-pagination" page-size="2" items-count="2000" page-count="20" current-page="0"></wcs-grid-pagination> -->
 </wcs-grid>
 
-<wcs-grid-pagination id="grid-pagination" page-size="2" items-count="2000" page-count="20" current-page="0"></wcs-grid-pagination>
+<!-- <wcs-grid-pagination id="grid-pagination" page-size="2" items-count="2000" page-count="20" current-page="0"></wcs-grid-pagination> -->
 
 
 ```
 
 <script>
     let wcsGridPagination = document.getElementById('grid-pagination');
-    wcsGridPagination.availablePageSizes = [2, 4, 6];
+    //wcsGridPagination.availablePageSizes = [2, 4, 6];
     /*wcsGridPagination.addEventListener('wcsGridPaginationChange', function (event) {
         console.log(event.detail);
         wcsGrid1.data = [{

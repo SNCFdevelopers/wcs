@@ -226,7 +226,7 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
                     <tbody>
                         {
                             this.rows
-                                ?.filter(row => this.serverMode || row.page === this.paginationEl.currentPage)
+                                ?.filter(row => this.serverMode || !this.paginationEl || row.page === this.paginationEl.currentPage)
                                 .map(row =>
                                     <tr class={row.selected ? 'selected' : ''}>
                                         {this.renderSelectionColumn(row)}
