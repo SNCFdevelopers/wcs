@@ -74,7 +74,7 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
 
     private updateGridRows(data: any[]): void {
         const rows: WcsGridRow[] = [];
-        if (data) {
+        if (data && this.columns) {
             for (let i = 0; i < data.length; i++) {
                 const row: WcsGridRow = {
                     data: data[i],
