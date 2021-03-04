@@ -307,9 +307,13 @@ export class Select implements ComponentInterface {
      * @private
      */
     private updateOverlayDirection() {
+        // We retrieve values from CSS variables
+        const overlayMaxHeight = +getComputedStyle(this.el).getPropertyValue('--wcs-select-overlay-max-height').replace(/\D/g,'');
+        const optionSize = +getComputedStyle(this.el).getPropertyValue('--wcs-select-option-height').replace(/\D/g,'');
         const selectBounding = this.el.getBoundingClientRect();
+        const maxOptionsCount = Math.floor(overlayMaxHeight / optionSize);
         // Maximum size of the overlay is 360px, otherwise the size is calculated from the number of options
-        const optionsOverlaySize = this.options.length > 8 ? 360 + 1 : this.options.length * 42 + 1;
+        const optionsOverlaySize = this.options.length > maxOptionsCount ? overlayMaxHeight + 1 : this.options.length * optionSize + 1;
         const remainingHeightAfterOpen = window.innerHeight - (selectBounding.y + selectBounding.height + optionsOverlaySize);
         // There are not enough pixels to open the overlay below the component
         if (remainingHeightAfterOpen < 0) {
@@ -317,11 +321,6 @@ export class Select implements ComponentInterface {
         } else {
             this.overlayDirection = 'bottom';
         }
-        /**
-         * TODO:
-         *  - utiliser une propriété en plus pour la configuration manuelle ?
-         *  - ne pas passer par un reflect mais par une classe settté en JS
-         */
     }
 
     private handleClickEvent(event: SelectOptionChosedEvent) {
@@ -413,7 +412,7 @@ export class Select implements ComponentInterface {
             this.updateStyles();
         }
         return (
-            <Host class={this.expanded ? 'expanded ' : ''} {...this.focusedAttributes()}>
+            <Host class={this.expanded ? 'expanded ' : ''} overlayDirection={this.overlayDirection} {...this.focusedAttributes()}>
                 <div class="wcs-select-control">
                     {this.hasValue
                         ? <label class="wcs-select-value">{this.displayText}</label>

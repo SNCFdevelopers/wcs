@@ -4,7 +4,7 @@ wcs-select-option {
     @include ripple;
     display: flex;
     padding: 0 var(--wcs-padding);
-    height: 42px;
+    height: var(--wcs-select-option-height);
     line-height: 42px;
     cursor: pointer;
     user-select: none;
