@@ -61,8 +61,11 @@ wcs-nav-item[slot=bottom] {
 .active,
 wcs-nav-item:hover,
 wcs-nav-item:focus-within {
+    background-blend-mode: multiply;
+    background-color: rgba(0,0,0,0.15);
+/*
     background-color: rgb(var(--wcs-primary));
-    backdrop-filter: brightness(85%);
+    backdrop-filter: brightness(85%);*/
     @include for-tablet-landscape-down {
         a {
             color: var(--wcs-primary);
