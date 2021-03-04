@@ -19,6 +19,13 @@
 <wcs-grid-pagination id="grid-pagination" page-size="2" items-count="2000" page-count="20" current-page="0"></wcs-grid-pagination>
 
 
+<wcs-grid id="grid-2" selection="multiple" >
+    <wcs-grid-column id="grid-column-1" name="Prénom" path="person.first_name"></wcs-grid-column>
+    <wcs-grid-column id="grid-column-2" name="Nom" path="person.last_name"></wcs-grid-column>
+    <wcs-grid-column id="grid-column-2" name="Lien" path="link"></wcs-grid-column>
+</wcs-grid>
+
+
 ```
 
 <script>
@@ -106,6 +113,35 @@
         ];
         wcsGrid1.loading = false;
     }, 3000);
+
+    let wcsGrid2 = document.getElementById('grid-2');
+    wcsGrid2.data = [{
+      "person": {
+        "first_name": "Yevette",
+        "last_name": "Houlridge"
+      },
+      "link": "http://telegraph.co.uk"
+    }, {
+      "person": {
+        "first_name": "Donella",
+        "last_name": "Lievesley"
+      },
+      "link": "http://shutterfly.com"
+    }, {
+      "person": {
+        "first_name": "Candida",
+        "last_name": "Petrillo"
+      },
+      "link": "https://bbb.org"
+    }, {
+      "person": {
+        "first_name": "Bail",
+        "last_name": "Vevers"
+      },
+      "link": "https://nba.com"
+    }];
+
+
 </script>
 
 <!-- Auto Generated Below -->

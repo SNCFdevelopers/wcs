@@ -83,7 +83,7 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
                 };
                 for (const column of this.columns) {
                     row.cells.push({
-                        content: data[i][column.path],
+                        content: _.get(data[i], column.path),
                         column,
                         formatter: column.formatter
                     })
@@ -125,7 +125,7 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
             this.rows = _.cloneDeep(this.rows)
                 .sort((a: any, b: any) => {
                     const path = event.detail.column.path;
-                    return ((a.data[path] < b.data[path]) ? -1 : (a.data[path] > b.data[path]) ? 1 : 0) * getSortOrderInteger(event.detail.order);
+                    return ((_.get(a.data, path) < _.get(b.data, path)) ? -1 : (_.get(a.data, path) > _.get(b.data, path)) ? 1 : 0) * getSortOrderInteger(event.detail.order);
                 });
         }
         this.updatePageIndex();
