@@ -10,22 +10,17 @@
 
 ```html
 
-<wcs-grid id="grid-1" selection="single" wcs-grid-pagination-id="grid-pagination">
+<wcs-grid id="grid-1" selection-config="single" wcs-grid-pagination-id="grid-pagination">
     <wcs-grid-column id="grid-column-1" name="Prénom" path="first_name" sort></wcs-grid-column>
     <wcs-grid-column id="grid-column-2" name="Nom" path="last_name" sort></wcs-grid-column>
     <!-- <wcs-grid-pagination id="grid-pagination" page-size="2" items-count="2000" page-count="20" current-page="0"></wcs-grid-pagination> -->
 </wcs-grid>
 
-<wcs-grid-pagination id="grid-pagination" page-size="2" items-count="2000" page-count="20" current-page="0"></wcs-grid-pagination>
-
-
-<wcs-grid id="grid-2" selection="multiple" >
-    <wcs-grid-column id="grid-column-1" name="Prénom" path="person.first_name"></wcs-grid-column>
-    <wcs-grid-column id="grid-column-2" name="Nom" path="person.last_name"></wcs-grid-column>
-    <wcs-grid-column id="grid-column-2" name="Lien" path="link"></wcs-grid-column>
+<wcs-grid id="grid-2">
+    <wcs-grid-column name="Prénom" path="person.first_name"></wcs-grid-column>
+    <wcs-grid-column name="Nom" path="person.last_name"></wcs-grid-column>
+    <wcs-grid-column name="Lien" path="link"></wcs-grid-column>
 </wcs-grid>
-
-
 ```
 
 <script>
@@ -144,8 +139,55 @@
 
 </script>
 
-<!-- Auto Generated Below -->
+## Selection
 
+You can assign an item selection with the `selectedItems` property.
+If the selection mode is set to multiple, the value must be an array, otherwise a single item.
+
+The values are compared with the `_.equals()` function of loadash.
+
+When the selection changes, the `wcsGridSelectionChange` event contains the details of the rows selected by the user.
+
+```html
+<wcs-grid id="grid-3" selection-config="multiple">
+    <wcs-grid-column name="Prénom" path="first_name"></wcs-grid-column>
+    <wcs-grid-column name="Nom" path="last_name"></wcs-grid-column>
+    <wcs-grid-column name="Email" path="email"></wcs-grid-column>
+</wcs-grid>
+
+<script>
+    let wcsGrid3 = document.getElementById('grid-3');
+    wcsGrid3.data = [{
+        "first_name": "Janot",
+        "last_name": "Gillean",
+        "email": "jgillean0@ocn.ne.jp"
+    }, {
+        "first_name": "Zacherie",
+        "last_name": "Purple",
+        "email": "zpurple1@nih.gov"
+    }, {
+        "first_name": "Vin",
+        "last_name": "Hacking",
+        "email": "vhacking2@shinystat.com"
+    }, {
+        "first_name": "Kevon",
+        "last_name": "Millsap",
+        "email": "kmillsap3@istockphoto.com"
+    }];
+    wcsGrid3.selectedItems = [{
+        "first_name": "Vin",
+        "last_name": "Hacking",
+        "email": "vhacking2@shinystat.com"
+    }, {
+        "first_name": "Kevon",
+        "last_name": "Millsap",
+        "email": "kmillsap3@istockphoto.com"
+    }];
+</script>
+```
+
+
+<!-- Auto Generated Below -->
 
 ## Properties
 
@@ -157,14 +199,12 @@
 | `serverMode`          | `server-mode`            | True to manage sort and pagination with a backend server, default: false | `boolean`                          | `undefined` |
 | `wcsGridPaginationId` | `wcs-grid-pagination-id` |                                                                          | `string`                           | `undefined` |
 
-
 ## Events
 
 | Event                       | Description                                            | Type                                             |
 | --------------------------- | ------------------------------------------------------ | ------------------------------------------------ |
 | `wcsGridAllSelectionChange` | Event emitted when all rows are selected or unselected | `CustomEvent<WcsGridAllRowSelectedEventDetails>` |
 | `wcsGridSelectionChange`    | Event emitted when a row is selected or unselected     | `CustomEvent<WcsGridRowSelectedEventDetails>`    |
-
 
 ## Dependencies
 
@@ -175,6 +215,7 @@
 - [wcs-spinner](../spinner)
 
 ### Graph
+
 ```mermaid
 graph TD;
   wcs-grid --> wcs-radio

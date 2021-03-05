@@ -110,9 +110,13 @@ export namespace Components {
          */
         "loading": boolean;
         /**
+          * Set the selected items
+         */
+        "selectedItems": any | any[];
+        /**
           * Used to manage grid's row selection
          */
-        "selection": WcsGridSelectionConfig;
+        "selectionConfig": WcsGridSelectionConfig;
         /**
           * True to manage sort and pagination with a backend server, default: false
          */
@@ -719,9 +723,13 @@ declare namespace LocalJSX {
          */
         "onWcsGridSelectionChange"?: (event: CustomEvent<WcsGridRowSelectedEventDetails>) => void;
         /**
+          * Set the selected items
+         */
+        "selectedItems"?: any | any[];
+        /**
           * Used to manage grid's row selection
          */
-        "selection"?: WcsGridSelectionConfig;
+        "selectionConfig"?: WcsGridSelectionConfig;
         /**
           * True to manage sort and pagination with a backend server, default: false
          */

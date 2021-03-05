@@ -47,7 +47,11 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
     /**
      * Used to manage grid's row selection
      */
-    @Prop() selection: WcsGridSelectionConfig = 'none';
+    @Prop() selectionConfig: WcsGridSelectionConfig = 'none';
+    /**
+     * Set the selected items
+     */
+    @Prop() selectedItems: any | any[] = [];
     @Prop() wcsGridPaginationId: string;
     @State() columns: HTMLWcsGridColumnElement[];
     @State() paginationEl: HTMLWcsGridPaginationElement;
@@ -69,8 +73,33 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
         this.updateGridRows(newValue);
     }
 
+    @Watch('selectedItems')
+    onSelectedItemsPropertyChange(newValue: any | any[]) {
+        this.updateSelectionWithValues(newValue);
+    }
+
+    private updateSelectionWithValues(values: any | any[]) {
+        if (this.selectionConfig === 'single') {
+            this.rows.map(r => r.selected = false);
+            for (const row of this.rows) {
+                if (_.isEqual(row.data, values)) {
+                    row.selected = true;
+                    break; // only one line can be selected
+                }
+            }
+        } else if (this.selectionConfig === 'multiple') {
+            this.rows.map(r => r.selected = false);
+            for (const row of this.rows) {
+                if (values.find(x => _.isEqual(x, row.data))) {
+                    row.selected = true;
+                }
+            }
+        }
+        this.rows = _.cloneDeep(this.rows);
+    }
+
     private wcsGridRowToWcsGridRowData(row: WcsGridRow): WcsGridRowData {
-        return { selected: row.selected, page: row.page, data: row.data };
+        return {selected: row.selected, page: row.page, data: row.data};
     }
 
     private updateGridRows(data: any[]): void {
@@ -103,6 +132,9 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
             ? document.getElementById(this.wcsGridPaginationId) as HTMLWcsGridPaginationElement
             : this.getGridPaginationsFromTemplate()[0];
         this.updateGridRows(this.data);
+        if (this.selectedItems) {
+            this.updateSelectionWithValues(this.selectedItems);
+        }
     }
 
     private getGridColumnsFromTemplate(): HTMLWcsGridColumnElement[] {
@@ -160,7 +192,7 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
         this.onPaginationChange();
     }
 
-    @Listen('wcsGridPaginationChange', { target: 'window' })
+    @Listen('wcsGridPaginationChange', {target: 'window'})
     paginationChangeEventHandlerOutside(event: CustomEvent<WcsGridPaginationChangeEventDetails>): void {
         if (this.wcsGridPaginationId && this.wcsGridPaginationId === (event.target as HTMLElement).id) {
             this.onPaginationChange();
@@ -173,11 +205,11 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
     }
 
     private onRowSelection(row: WcsGridRow): void {
-        if (this.selection === 'single') {
+        if (this.selectionConfig === 'single') {
             this.rows.filter(r => r.uuid !== row.uuid).map(r => r.selected = false);
         }
         row.selected = !row.selected;
-        this.wcsGridSelectionChange.emit({ row: this.wcsGridRowToWcsGridRowData(row) });
+        this.wcsGridSelectionChange.emit({row: this.wcsGridRowToWcsGridRowData(row)});
         this.rows = _.cloneDeep(this.rows);
     }
 
@@ -185,7 +217,7 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
         const rows = this.getRowsForCurrentPage();
         const selected = this.allRowsAreSelected() ? false : true;
         rows.map(r => r.selected = selected);
-        this.wcsGridAllSelectionChange.emit({ rows: selected ? rows.map(row => this.wcsGridRowToWcsGridRowData(row)) : [] });
+        this.wcsGridAllSelectionChange.emit({rows: selected ? rows.map(row => this.wcsGridRowToWcsGridRowData(row)) : []});
         this.rows = _.cloneDeep(this.rows);
     }
 
@@ -202,16 +234,16 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
     }
 
     renderSelectionColumn(row: WcsGridRow): any {
-        switch (this.selection) {
+        switch (this.selectionConfig) {
             case 'none':
                 return;
             case 'single':
                 return <td>
-                    <wcs-radio checked={row.selected} onClick={this.onRowSelection.bind(this, row)} />
+                    <wcs-radio checked={row.selected} onClick={this.onRowSelection.bind(this, row)}/>
                 </td>;
             case 'multiple':
                 return <td>
-                    <wcs-checkbox checked={row.selected} onWcsChange={this.onRowSelection.bind(this, row)} />
+                    <wcs-checkbox checked={row.selected} onWcsChange={this.onRowSelection.bind(this, row)}/>
                 </td>;
         }
     }
@@ -231,7 +263,7 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
         if (!this.columns) {
             return 0;
         }
-        return this.columns.length + (this.selection === 'none' ? 0 : 1);
+        return this.columns.length + (this.selectionConfig === 'none' ? 0 : 1);
     }
 
     render(): any {
@@ -240,33 +272,35 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
                 {
                     <table>
                         <thead>
-                            {
-                                this.selection === 'none' ? ''
-                                    : <th class="wcs-grid-selection-column">
-                                        {
-                                            this.selection === 'single' ? '' : <wcs-checkbox checked={this.allRowsAreSelected()} onWcsChange={this.selectAllRows.bind(this)} />
-                                        }
-                                    </th>
-                            }
-                            <slot name="grid-column"></slot>
+                        {
+                            this.selectionConfig === 'none' ? ''
+                                : <th class="wcs-grid-selection-column">
+                                    {
+                                        this.selectionConfig === 'single' ? '' :
+                                            <wcs-checkbox checked={this.allRowsAreSelected()}
+                                                          onWcsChange={this.selectAllRows.bind(this)}/>
+                                    }
+                                </th>
+                        }
+                        <slot name="grid-column"></slot>
                         </thead>
                         <tbody>
-                            {
-                                this.loading
-                                    ? <tr>
-                                        <td colSpan={this.totalColumnCount()} class="loading">
-                                            <wcs-spinner></wcs-spinner>
-                                        </td>
-                                    </tr>
-                                    : this.rows
-                                        ?.filter(row => this.serverMode || !this.paginationEl || row.page === this.paginationEl.currentPage)
-                                        .map(row =>
-                                            <tr class={row.selected ? 'selected' : ''}>
-                                                {this.renderSelectionColumn(row)}
-                                                {row.cells?.map(cell => <td>{this.getCellContent(row, cell)}</td>)}
-                                            </tr>
-                                        )
-                            }
+                        {
+                            this.loading
+                                ? <tr>
+                                    <td colSpan={this.totalColumnCount()} class="loading">
+                                        <wcs-spinner></wcs-spinner>
+                                    </td>
+                                </tr>
+                                : this.rows
+                                    ?.filter(row => this.serverMode || !this.paginationEl || row.page === this.paginationEl.currentPage)
+                                    .map(row =>
+                                        <tr class={row.selected ? 'selected' : ''}>
+                                            {this.renderSelectionColumn(row)}
+                                            {row.cells?.map(cell => <td>{this.getCellContent(row, cell)}</td>)}
+                                        </tr>
+                                    )
+                        }
                         </tbody>
                     </table>
                 }
