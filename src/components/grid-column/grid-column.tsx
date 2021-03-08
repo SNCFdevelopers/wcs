@@ -36,6 +36,7 @@ export class GridColumn implements ComponentInterface {
     @Event() wcsSortChange!: EventEmitter<WcsGridColumnSortChangeEventDetails>;
 
     emitSortConfig() {
+        if (!this.sort) return;
         this.wcsSortChange.emit({
             column: this.el,
             order: this.sortOrder,
@@ -45,10 +46,12 @@ export class GridColumn implements ComponentInterface {
 
     render(): any {
         return (<Host onClick={this.onSortClick.bind(this)} slot="grid-column" style={{ display: 'contents' }}>
-            <th style={{width: this.width}}>
+            <th style={{width: this.width}} class={this.sort ? 'pointer' : ''}>
                 <div class="grid-column-th-content">
                     <span>{this.name}</span>
-                    <GridSortArrow state={this.sortOrder}></GridSortArrow>
+                    {
+                        this.sort ? <GridSortArrow state={this.sortOrder}/> : ''
+                    }
                 </div>
             </th>
         </Host>)

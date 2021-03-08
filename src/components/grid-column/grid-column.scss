@@ -5,7 +5,6 @@
         border-left: solid 1px var(--wcs-text-light);
         padding: calc(var(--wcs-padding) / 2) var(--wcs-padding);
         text-align: left;
-        cursor: pointer;
         .grid-column-th-content {
             display: inline-flex;
             flex-direction: row;
@@ -13,6 +12,10 @@
                 user-select: none;
             }
         }
+    }
+
+    .pointer {
+        cursor: pointer;
     }
 }
 
