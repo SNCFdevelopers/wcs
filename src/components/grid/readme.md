@@ -45,9 +45,9 @@
         wcsGridPagination.currentPage = 8;
     });*/
     let wcsGridColumn1 = document.getElementById('grid-column-1');
-    wcsGridColumn1.sortFn = (a, b) => {
-        if(a.first_name < b.first_name) { return 1; }
-        if(a.first_name > b.first_name) { return -1; }
+    wcsGridColumn1.sortFn = (a, b, column) => {
+        if(a[column.path] < b[column.path]) { return 1; }
+        if(a[column.path] > b[column.path]) { return -1; }
         return 0;
     };
     wcsGridColumn1.formatter = (createElement, column, rowData) => {

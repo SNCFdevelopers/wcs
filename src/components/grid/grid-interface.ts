@@ -2,7 +2,7 @@ import { VNode } from '@stencil/core';
 
 export type WcsGridSelectionConfig = 'none' | 'single' | 'multiple';
 
-export type WcsSortFn = (a: any, b: any) => -1 | 0 | 1;
+export type WcsSortFn = (a: any, b: any, column: HTMLWcsGridColumnElement) => -1 | 0 | 1;
 
 export type WcsCellFormatter = (_h: HyperFunc<VNode>, column: HTMLWcsGridColumnElement, rowData: WcsGridRowData) => HTMLElement | HTMLElement[];
 

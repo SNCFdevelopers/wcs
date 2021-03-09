@@ -122,7 +122,7 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
         this.columns.filter(c => c !== event.detail.column).forEach(c => c.sortOrder = 'none');
         if (event.detail.sortFn) {
             this.rows = _.cloneDeep(this.rows)
-                .sort((a: any, b: any) => event.detail.sortFn(a.data, b.data) * getSortOrderInteger(event.detail.order));
+                .sort((a: any, b: any) => event.detail.sortFn(a.data, b.data, event.detail.column) * getSortOrderInteger(event.detail.order));
         } else {
             this.rows = _.cloneDeep(this.rows)
                 .sort((a: any, b: any) => {
