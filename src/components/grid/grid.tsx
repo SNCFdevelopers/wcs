@@ -117,9 +117,11 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
 
     @Listen('wcsSortChange')
     sortChangeEventHandler(event: CustomEvent<WcsGridColumnSortChangeEventDetails>): void {
-        if (this.serverMode) return;
         // We keep only one active sort column
         this.columns.filter(c => c !== event.detail.column).forEach(c => c.sortOrder = 'none');
+
+        if (this.serverMode) return;
+
         if (event.detail.sortFn) {
             this.rows = _.cloneDeep(this.rows)
                 .sort((a: any, b: any) => event.detail.sortFn(a.data, b.data, event.detail.column) * getSortOrderInteger(event.detail.order));
