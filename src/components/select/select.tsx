@@ -116,11 +116,6 @@ export class Select implements ComponentInterface {
     @Prop()
     name?: string;
 
-    // FIXME: This seems to be deprecated.
-    /** Reference to the window. */
-    @Prop({ context: 'window' })
-    window!: Window;
-
     @State() overlayDirection : 'bottom' | 'top' = 'bottom';
 
     /** Emitted when the value has changed. */
@@ -364,7 +359,7 @@ export class Select implements ComponentInterface {
         this.stateService.send('CLOSE');
     }
 
-    componentDidUnload() {
+    disconnectedCallback() {
         this.stateService.stop();
     }
 

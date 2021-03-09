@@ -152,7 +152,7 @@
 | Property              | Attribute                | Description                                                              | Type                               | Default     |
 | --------------------- | ------------------------ | ------------------------------------------------------------------------ | ---------------------------------- | ----------- |
 | `data`                | --                       |                                                                          | `any[]`                            | `undefined` |
-| `loading`             | `loading`                |                                                                          | `boolean`                          | `undefined` |
+| `loading`             | `loading`                | Flag to display spinner during data loading                              | `boolean`                          | `undefined` |
 | `selection`           | `selection`              | Used to manage grid's row selection                                      | `"multiple" \| "none" \| "single"` | `'none'`    |
 | `serverMode`          | `server-mode`            | True to manage sort and pagination with a backend server, default: false | `boolean`                          | `undefined` |
 | `wcsGridPaginationId` | `wcs-grid-pagination-id` |                                                                          | `string`                           | `undefined` |

@@ -16,8 +16,6 @@ import { hasShadowDom } from '../../utils/helpers';
 export class Button implements ComponentInterface {
     @Element() el!: HTMLElement;
 
-    @Prop({ context: 'window' }) win!: Window;
-
     /**
      * Specify the button type.
      */
@@ -62,7 +60,7 @@ export class Button implements ComponentInterface {
             if (form) {
                 ev.preventDefault();
 
-                const fakeButton = this.win.document.createElement('button');
+                const fakeButton = window.document.createElement('button');
                 fakeButton.type = this.type;
                 fakeButton.style.display = 'none';
                 form.appendChild(fakeButton);
