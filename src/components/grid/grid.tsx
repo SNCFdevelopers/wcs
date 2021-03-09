@@ -26,6 +26,7 @@ import {
     WcsGridSelectionConfig
 } from './grid-interface';
 import _ from 'lodash';
+import { v4 as uuid } from 'uuid';
 
 @Component({
     tag: 'wcs-grid',
@@ -77,6 +78,7 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
         if (data && this.columns) {
             for (let i = 0; i < data.length; i++) {
                 const row: WcsGridRow = {
+                    uuid: uuid(),
                     data: data[i],
                     selected: false,
                     cells: []
@@ -170,7 +172,7 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
 
     private onRowSelection(row: WcsGridRow): void {
         if (this.selection === 'single') {
-            this.rows.map(r => r.selected = false);
+            this.rows.filter(r => r.uuid !== row.uuid).map(r => r.selected = false);
         }
         row.selected = !row.selected;
         this.wcsGridSelectionChange.emit({ row: this.wcsGridRowToWcsGridRowData(row) });
@@ -203,7 +205,7 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
                 return;
             case 'single':
                 return <td>
-                    <wcs-radio checked={row.selected} onWcsRadioClick={this.onRowSelection.bind(this, row)} />
+                    <wcs-radio checked={row.selected} onClick={this.onRowSelection.bind(this, row)} />
                 </td>;
             case 'multiple':
                 return <td>

@@ -10,7 +10,7 @@
 
 ```html
 
-<wcs-grid id="grid-1" selection="multiple" wcs-grid-pagination-id="grid-pagination">
+<wcs-grid id="grid-1" selection="single" wcs-grid-pagination-id="grid-pagination">
     <wcs-grid-column id="grid-column-1" name="Prénom" path="first_name" sort></wcs-grid-column>
     <wcs-grid-column id="grid-column-2" name="Nom" path="last_name" sort></wcs-grid-column>
     <!-- <wcs-grid-pagination id="grid-pagination" page-size="2" items-count="2000" page-count="20" current-page="0"></wcs-grid-pagination> -->

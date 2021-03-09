@@ -22,6 +22,7 @@ export class Radio implements ComponentInterface {
      * If `true`, the user cannot interact with the radio.
      */
     @Prop({ mutable: true }) disabled = false;
+    // FIXME renommer l'évènement c'est pas un onclick mais un onchange
     @Event({eventName: 'wcsRadioClick' }) wcsRadioClick: EventEmitter<RadioChosedEvent>
 
     componentWillLoad(): Promise<void> | void {

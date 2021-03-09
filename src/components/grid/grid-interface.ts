@@ -45,6 +45,7 @@ export function getSortOrderInteger(sortOrder: WcsSortOrder) {
 }
 
 export interface WcsGridRow {
+    uuid: string;
     page?: number;
     selected?: boolean;
     data?: any;
