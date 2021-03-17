@@ -19,7 +19,7 @@ import { RadioChosedEvent } from '../radio/radio-interface';
     shadow: true
 })
 export class RadioGroup implements ComponentInterface {
-    @Prop({ reflect: true, mutable: true }) value: any | any[] | undefined | null;
+    @Prop() value: any | any[] | undefined | null;
     @Prop({ reflect: true, mutable: false }) name;
     @Prop({ reflect: true, mutable: false }) mode: 'radio' | 'option' = 'radio';
     @Element() el!: HTMLWcsRadioGroupElement;
@@ -30,9 +30,6 @@ export class RadioGroup implements ComponentInterface {
     @Watch('value')
     onValueChangeHandler(newValue: any) {
         this.updateOptionsState(newValue, true);
-        this.wcsChange.emit({
-            value: this.value
-        });
     }
 
     componentDidLoad() {
@@ -58,8 +55,10 @@ export class RadioGroup implements ComponentInterface {
 
     @Listen('wcsRadioClick')
     selectedOptionChanged(event: CustomEvent<RadioChosedEvent>) {
-        this.value = event.detail.value.toString();
         this.updateOptionsState(event.detail.value, false);
+        this.wcsChange.emit({
+            value: event.detail.value
+        })
     }
 
     private updateOptionsState(value: string, markAsChecked: boolean) {
