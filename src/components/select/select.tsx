@@ -151,13 +151,12 @@ export class Select implements ComponentInterface {
             this.reset();
         }
         if (this.multiple) {
+            // If user don't give an array, we provide one
             if (!Array.isArray(value)) {
-                value = JSON.parse(value);
-            } else {
-                value = value.map(String);
+                value = [value];
             }
-
             this.values = [];
+
             this.options.forEach((opt: HTMLWcsSelectOptionElement) => {
                 const isSelected = value ? value.includes(opt.value) : false;
                 if (isSelected) {

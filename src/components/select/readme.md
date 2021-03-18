@@ -51,7 +51,7 @@
 ## Multiple
 
 ```html
-<wcs-select placeholder="Le select" multiple>
+<wcs-select placeholder="Le select" multiple >
     <wcs-select-option value="1">One</wcs-select-option>
     <wcs-select-option value="2">Two</wcs-select-option>
     <wcs-select-option value="3">Three</wcs-select-option>

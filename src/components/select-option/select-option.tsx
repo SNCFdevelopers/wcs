@@ -19,7 +19,7 @@ export class SelectOption implements ComponentInterface {
     @Prop({ mutable: true, reflect: true }) selected = false;
 
     /** The option value, not what's displayed, use inner text instead. */
-    @Prop({ mutable: true, reflect: true }) value?: any;
+    @Prop() value?: any;
 
     /**
      * This property musn't be set by hand, it is used by the `wcs-select` component.

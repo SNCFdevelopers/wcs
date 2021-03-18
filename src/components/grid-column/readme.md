@@ -13,7 +13,7 @@
 | `name`      | `name`       |                                   | `string`                                                                                                            | `undefined` |
 | `path`      | `path`       |                                   | `string`                                                                                                            | `undefined` |
 | `sort`      | `sort`       |                                   | `boolean`                                                                                                           | `false`     |
-| `sortFn`    | --           |                                   | `(a: any, b: any) => 0 \| 1 \| -1`                                                                                  | `undefined` |
+| `sortFn`    | --           |                                   | `(a: any, b: any, column: HTMLWcsGridColumnElement) => 0 \| 1 \| -1`                                                | `undefined` |
 | `sortOrder` | `sort-order` |                                   | `"asc" \| "desc" \| "none"`                                                                                         | `'none'`    |
 | `width`     | `width`      | Set the column <th> element width | `string`                                                                                                            | `undefined` |
 
