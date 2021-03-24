@@ -1,14 +1,36 @@
 :host {
+    --wcs-form-field-icon-color: var(--wcs-text-medium);
     --wcs-form-field-border-radius-left: var(--wcs-border-radius);
     --wcs-form-field-border-radius-right: var(--wcs-border-radius);
 
     display: inline-flex;
     flex-direction: column;
+
+    wcs-mat-icon {
+        display: inline;
+        width: 0;
+        position: relative;
+        top: 9px;
+        left: 8px;
+        color: var(--wcs-form-field-icon-color);
+    }
 }
 
 :host([is-error]) {
     ::slotted(input), ::slotted(textarea) {
         border: 1px solid var(--wcs-red);
+    }
+}
+
+:host([icon]) {
+    ::slotted(input), ::slotted(textarea) {
+        padding-left: 36px;
+    }
+}
+
+:host(:host:focus-within) {
+    wcs-mat-icon {
+        color: var(--wcs-primary);
     }
 }
 

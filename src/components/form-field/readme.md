@@ -6,10 +6,11 @@ Form fields component wraps the native input element and add some more functionn
 
 You can use the `form-field` to wrap an `input`, `textarea` or a `wcs-select`.
 
-for non supported slotted component, you can use the `required` attribute to tell the form-field that it is required.
-It will add a red star after the label of the form field.
+for non supported slotted component, you can use the `required` attribute to tell the form-field that it is required. It
+will add a red star after the label of the form field.
 
 ```html
+
 <wcs-form-field>
     <wcs-label>Input</wcs-label>
     <input placeholder="John doe"/>
@@ -17,6 +18,7 @@ It will add a red star after the label of the form field.
 ```
 
 ```html
+
 <wcs-form-field>
     <wcs-label>Select</wcs-label>
     <wcs-select placeholder="Select a country" required>
@@ -28,8 +30,9 @@ It will add a red star after the label of the form field.
 ```
 
 ```html
+
 <wcs-form-field>
-   <wcs-label>Required with custom component</wcs-label>
+    <wcs-label>Required with custom component</wcs-label>
     <datalist required id="ice-cream-flavors">
         <option value="Chocolate">
         <option value="Coconut">
@@ -41,18 +44,20 @@ It will add a red star after the label of the form field.
 ```
 
 ```html
+
 <wcs-form-field>
     <wcs-label>Radio group</wcs-label>
     <wcs-radio-group name="SA">
-      <wcs-radio label="SNCF" value="1"></wcs-radio>
-      <wcs-radio label="SNCF Réseau" value="2"></wcs-radio>
-      <wcs-radio label="SNCF Voyageurs" value="3"></wcs-radio>
-      <wcs-radio label="Gares & Connexions" value="4"></wcs-radio>
+        <wcs-radio label="SNCF" value="1"></wcs-radio>
+        <wcs-radio label="SNCF Réseau" value="2"></wcs-radio>
+        <wcs-radio label="SNCF Voyageurs" value="3"></wcs-radio>
+        <wcs-radio label="Gares & Connexions" value="4"></wcs-radio>
     </wcs-radio-group>
 </wcs-form-field>
 ```
 
 ```html
+
 <wcs-form-field>
     <wcs-label>Text area :</wcs-label>
     <textarea placeholder="Type your message" rows="6" cols="80"></textarea>
@@ -64,6 +69,7 @@ It will add a red star after the label of the form field.
 You can also add labels, hints and error messages.
 
 ```html
+
 <wcs-form-field>
     <wcs-label>Is error ?</wcs-label>
     <wcs-switch id="error-switch-1" checked="true"></wcs-switch>
@@ -95,10 +101,10 @@ You can also add labels, hints and error messages.
 <wcs-form-field is-error id="form-field-ex-3">
     <wcs-label>Radio group input label</wcs-label>
     <wcs-radio-group name="SA">
-      <wcs-radio label="SNCF" value="1"></wcs-radio>
-      <wcs-radio label="SNCF Réseau" value="2"></wcs-radio>
-      <wcs-radio label="SNCF Voyageurs" value="3"></wcs-radio>
-      <wcs-radio label="Gares & Connexions" value="4"></wcs-radio>
+        <wcs-radio label="SNCF" value="1"></wcs-radio>
+        <wcs-radio label="SNCF Réseau" value="2"></wcs-radio>
+        <wcs-radio label="SNCF Voyageurs" value="3"></wcs-radio>
+        <wcs-radio label="Gares & Connexions" value="4"></wcs-radio>
     </wcs-radio-group>
     <wcs-hint>Normal hint</wcs-hint>
     <wcs-error>Error message</wcs-error>
@@ -108,29 +114,29 @@ You can also add labels, hints and error messages.
 <wcs-form-field is-error id="form-field-ex-4">
     <wcs-label>Radio group input label</wcs-label>
     <wcs-radio-group name="SA" mode="option">
-      <wcs-radio label="SNCF" value="1"></wcs-radio>
-      <wcs-radio label="SNCF Réseau" value="2"></wcs-radio>
-      <wcs-radio label="SNCF Voyageurs" value="3"></wcs-radio>
-      <wcs-radio label="Gares & Connexions" value="4"></wcs-radio>
+        <wcs-radio label="SNCF" value="1"></wcs-radio>
+        <wcs-radio label="SNCF Réseau" value="2"></wcs-radio>
+        <wcs-radio label="SNCF Voyageurs" value="3"></wcs-radio>
+        <wcs-radio label="Gares & Connexions" value="4"></wcs-radio>
     </wcs-radio-group>
     <wcs-hint>Normal hint</wcs-hint>
     <wcs-error>Error message</wcs-error>
 </wcs-form-field>
 
 <script>
-document.getElementById('error-switch-1').addEventListener('wcsChange', ($event) => {
-    if($event.detail.checked) { 
-        document.getElementById('form-field-ex-1').setAttribute('is-error', "true")
-        document.getElementById('form-field-ex-2').setAttribute('is-error', "true")
-        document.getElementById('form-field-ex-3').setAttribute('is-error', "true")
-        document.getElementById('form-field-ex-4').setAttribute('is-error', "true")
-    } else {
-        document.getElementById('form-field-ex-1').removeAttribute('is-error')
-        document.getElementById('form-field-ex-2').removeAttribute('is-error')
-        document.getElementById('form-field-ex-3').removeAttribute('is-error')
-        document.getElementById('form-field-ex-4').removeAttribute('is-error')
-    }
-});
+    document.getElementById('error-switch-1').addEventListener('wcsChange', ($event) => {
+        if ($event.detail.checked) {
+            document.getElementById('form-field-ex-1').setAttribute('is-error', "true")
+            document.getElementById('form-field-ex-2').setAttribute('is-error', "true")
+            document.getElementById('form-field-ex-3').setAttribute('is-error', "true")
+            document.getElementById('form-field-ex-4').setAttribute('is-error', "true")
+        } else {
+            document.getElementById('form-field-ex-1').removeAttribute('is-error')
+            document.getElementById('form-field-ex-2').removeAttribute('is-error')
+            document.getElementById('form-field-ex-3').removeAttribute('is-error')
+            document.getElementById('form-field-ex-4').removeAttribute('is-error')
+        }
+    });
 </script>
 ```
 
@@ -139,6 +145,7 @@ document.getElementById('error-switch-1').addEventListener('wcsChange', ($event)
 Integrate it with a select and a button.
 
 ```html
+
 <wcs-form-field>
     <wcs-select id="form-field-ex-3" slot="prefix" placeholder="Country" multiple>
         <wcs-select-option>France</wcs-select-option>
@@ -152,10 +159,10 @@ Integrate it with a select and a button.
 </wcs-form-field>
 
 <style>
-#form-field-ex-3 {
-    max-width: 200px;
-    min-width: 200px;
-}
+    #form-field-ex-3 {
+        max-width: 200px;
+        min-width: 200px;
+    }
 </style>
 ```
 
@@ -164,6 +171,7 @@ Integrate it with a select and a button.
 Only a button.
 
 ```html
+
 <wcs-form-field>
     <input placeholder="Region"/>
     <wcs-button shape="square" slot="suffix" ripple="false">
@@ -177,6 +185,7 @@ Only a button.
 Or only a select.
 
 ```html
+
 <wcs-form-field>
     <wcs-select slot="prefix" placeholder="Country" multiple>
         <wcs-select-option>France</wcs-select-option>
@@ -187,16 +196,66 @@ Or only a select.
 </wcs-form-field>
 ```
 
+## Field with icons
+
+You can add icons to input or textarea form fields. If your form-field does not contain such fields, the icon prop will
+be ignored.
+
+The icon is added before the field content.
+
+You can change the color of the icon when the field is not focused with the following CSS
+variable `--wcs-form-field-icon-color`. When the field is focused, the icon is colored with the `--wcs-primary` color.
+
+```html
+
+<wcs-form-field icon="search">
+    <wcs-label>Input</wcs-label>
+    <input placeholder="John doe"/>
+</wcs-form-field>
+<wcs-form-field icon="favorite">
+    <wcs-label>Input</wcs-label>
+    <input placeholder="John doe"/>
+</wcs-form-field>
+
+<wcs-form-field icon="home">
+    <wcs-label>Input</wcs-label>
+    <input placeholder="John doe"/>
+</wcs-form-field>
+<wcs-form-field icon="announcement">
+    <wcs-label>Input</wcs-label>
+    <input placeholder="John doe"/>
+</wcs-form-field>
+<br/>
+<br/>
+<wcs-form-field icon="speaker_notes">
+    <wcs-label>Textarea with icon</wcs-label>
+    <textarea placeholder="John doe"></textarea>
+</wcs-form-field>
+```
 
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property  | Attribute  | Description                                                                                                                                  | Type      | Default |
-| --------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------- |
-| `isError` | `is-error` | Specifies whether the form field is in an error state. Displays the field border in red and the message contained in the wcs-error component | `boolean` | `false` |
+| Property  | Attribute  | Description                                                                                                                                  | Type      | Default     |
+| --------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `icon`    | `icon`     | Name of the material icon to add to the field                                                                                                | `any`     | `undefined` |
+| `isError` | `is-error` | Specifies whether the form field is in an error state. Displays the field border in red and the message contained in the wcs-error component | `boolean` | `false`     |
 
+
+## Dependencies
+
+### Depends on
+
+- [wcs-mat-icon](../mat-icon)
+
+### Graph
+```mermaid
+graph TD;
+  wcs-form-field --> wcs-mat-icon
+  style wcs-form-field fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

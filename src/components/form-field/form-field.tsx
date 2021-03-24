@@ -17,6 +17,11 @@ export class FormField implements ComponentInterface {
      */
     @Prop({mutable: true, reflect: true}) isError = false;
 
+    /**
+     * Name of the material icon to add to the field
+     */
+    @Prop() icon;
+
     @State() hasPrefix = false;
     @State() hasSuffix = false;
     private observer: MutationObserver;
@@ -26,6 +31,17 @@ export class FormField implements ComponentInterface {
         this.hasPrefix = this.el.querySelector('wcs-select') !== null;
 
         this.addRequiredMarkerToLabel();
+    }
+
+    /**
+     * This function return true if the form field contains an element with tagName matches a value of the types param
+     * @param types
+     * @private
+     */
+    private inputIsOfType(...types: string[]): boolean {
+        for (const type of types) {
+            if (this.el.getElementsByTagName(type).length !== 0) return true;
+        }
     }
 
     private addRequiredMarkerToLabel() {
@@ -50,6 +66,7 @@ export class FormField implements ComponentInterface {
         this.updateLabelRequiredFlag(isRequired, label);
     }
 
+
     private updateLabelRequiredFlag(isRequired: boolean, label: Element) {
         if (isRequired && label) {
             label.setAttribute('required', 'true');
@@ -65,6 +82,7 @@ export class FormField implements ComponentInterface {
     render() {
         let classes = '';
         const isError = this.isError;
+
         if (this.hasSuffix) {
             classes += ' has-suffix';
         }
@@ -72,11 +90,18 @@ export class FormField implements ComponentInterface {
             classes += ' has-prefix';
         }
 
+        let icon;
+        // We only support icon on input and textarea form field
+        if (this.icon && this.inputIsOfType('input', 'textarea')) {
+            icon = <wcs-mat-icon icon={this.icon} size="m"></wcs-mat-icon>
+        }
+
         return (
             <Host class={classes}>
                 <slot name="label"/>
                 <div class="input-container">
                     <slot name="prefix"/>
+                    {icon ? icon : null}
                     <slot/>
                     <slot name="suffix"/>
                 </div>
