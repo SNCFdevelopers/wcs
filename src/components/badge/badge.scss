@@ -1,4 +1,5 @@
 :host {
+    --wcs-badge-ligther-percentage: 20;
     display: inline-block;
     padding: 0.313rem 1.5rem;
     font-size: 0.875rem;
@@ -10,4 +11,12 @@
     border-radius: 0.75rem;
     color: var(--wcs-contrast);
     background-color: var(--wcs-base);
+}
+
+:host([color=lighter]) {
+    opacity: calc((100 - var(--wcs-badge-ligther-percentage)) / 100);
+}
+
+:host([mode=rounded]){
+    border-radius: 6px;
 }

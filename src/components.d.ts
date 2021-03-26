@@ -21,6 +21,14 @@ export namespace Components {
     interface WcsApp {
     }
     interface WcsBadge {
+        /**
+          * Allows you to change the color of the badge to make it less bright (based on the color chosen by the CSS class).
+         */
+        "color": 'initial' | 'lighter';
+        /**
+          * Define the shape of the badge
+         */
+        "shape": 'normal' | 'rounded';
     }
     interface WcsButton {
         /**
@@ -605,6 +613,14 @@ declare namespace LocalJSX {
     interface WcsApp {
     }
     interface WcsBadge {
+        /**
+          * Allows you to change the color of the badge to make it less bright (based on the color chosen by the CSS class).
+         */
+        "color"?: 'initial' | 'lighter';
+        /**
+          * Define the shape of the badge
+         */
+        "shape"?: 'normal' | 'rounded';
     }
     interface WcsButton {
         /**
