@@ -162,6 +162,10 @@ export namespace Components {
     }
     interface WcsMatIcon {
         /**
+          * Family of the icon
+         */
+        "family": 'filled' | 'outlined' | 'twotone' | 'rounded' | 'sharp';
+        /**
           * Use the icon name from Material Icons
          */
         "icon": string;
@@ -768,6 +772,10 @@ declare namespace LocalJSX {
     interface WcsListItemProperty {
     }
     interface WcsMatIcon {
+        /**
+          * Family of the icon
+         */
+        "family"?: 'filled' | 'outlined' | 'twotone' | 'rounded' | 'sharp';
         /**
           * Use the icon name from Material Icons
          */
