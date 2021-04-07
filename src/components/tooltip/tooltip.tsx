@@ -50,12 +50,12 @@ export class Tooltip implements ComponentInterface {
 
     listen(eventName: string, className: 'hide' | 'show') {
         this.target.addEventListener(eventName, () => {
-            this.updatePosition();
             if (className === 'hide') {
                 this.content.classList.replace('show', 'hide');
             } else {
                 this.content.classList.replace('hide', 'show');
             }
+            this.updatePosition();
         });
     }
 

@@ -13,11 +13,11 @@
 }
 
 .wcs-tooltip-content.hide {
-    opacity: 0;
+    display: none;
 }
 
 .wcs-tooltip-content.show {
-    opacity: 1;
+    display: inline-block;
 }
 
 .wcs-tooltip-content::before {
