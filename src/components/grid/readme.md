@@ -2,11 +2,41 @@
 
 ## Available CSS Variables
 
-|   Name                           | Description                 |
-|:---------------------------------|:----------------------------|
-| `--wcs-grid-highlight-color`     | Color for selected rows     |
+|   Name                           | Description                         |
+|:---------------------------------|:------------------------------------|
+| `--wcs-grid-highlight-color`     | Color for selected rows             |
+| `--wcs-grid-column-border-left`  | Left border of all grid headers     |
 
 ## Basic
+
+```html
+<wcs-grid id="grid-simple-1">
+    <wcs-grid-column name="Prénom" path="first_name" sort></wcs-grid-column>
+    <wcs-grid-column name="Nom" path="last_name" sort></wcs-grid-column>
+    <wcs-grid-column name="Email" path="email" sort></wcs-grid-column>
+    <wcs-grid-column name="Adresse IP" path="ip_address" sort></wcs-grid-column>
+</wcs-grid>
+<script>
+let wcsGridSimple1 = document.getElementById('grid-simple-1');
+wcsGridSimple1.data = [
+    {
+        "id": 1,
+        "first_name": "Mozes",
+        "last_name": "Daleman",
+        "email": "mdaleman0@dropbox.com",
+        "ip_address": "14.151.191.92"
+    }, {
+        "id": 2,
+        "first_name": "Humbert",
+        "last_name": "Hegge",
+        "email": "hhegge1@soup.io",
+        "ip_address": "141.127.144.144"
+    }
+]
+</script>
+```
+
+## Selection & pagination
 
 ```html
 

@@ -1,32 +1,53 @@
 :host {
     display: block;
     --wcs-grid-highlight-color: var(--wcs-light);
+
     th {
         background-color: var(--wcs-light);
     }
+
     th:not(:first-child) {
         border-left: solid 1px var(--wcs-text-light);
     }
+
+    // Remove the border for the first column
+    ::slotted([slot=grid-column]:first-child) {
+        --wcs-grid-column-border-left: none;
+    }
+
     table {
         width: 100%;
         border-spacing: 0;
     }
+
     td {
         color: var(--wcs-gray-light);
         margin: 0;
         padding: calc(var(--wcs-padding) / 2) var(--wcs-padding);
     }
+
     tr:not(:last-child) td {
         border-bottom: solid 1px var(--wcs-text-light);
     }
+
     .wcs-grid-selection-column {
         padding: calc(var(--wcs-padding) / 2) var(--wcs-padding);
         width: 40px;
     }
+
     tr.selected {
         background-color: var(--wcs-grid-highlight-color);
     }
+
     .loading {
         text-align: center;
+    }
+}
+
+// If the grid displays a selection column, we set the border on the
+// first data column (which has been disabled in :host)
+:host([selection]) {
+    ::slotted([slot=grid-column]:first-child) {
+        --wcs-grid-column-border-left: solid 1px var(--wcs-text-light) !important;
     }
 }

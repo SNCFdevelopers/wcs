@@ -1,8 +1,9 @@
 :host {
+    --wcs-grid-column-border-left: solid 1px var(--wcs-text-light);
     th {
         color: var(--wcs-gray-dark);
         background-color: var(--wcs-light);
-        border-left: solid 1px var(--wcs-text-light);
+        border-left: var(--wcs-grid-column-border-left);
         padding: calc(var(--wcs-padding) / 2) var(--wcs-padding);
         text-align: left;
         .grid-column-th-content {
