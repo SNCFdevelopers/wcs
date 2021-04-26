@@ -397,6 +397,10 @@ export class Select implements ComponentInterface {
         this.stateService.send({ type: 'OPTION_CLICKED', value: event.detail });
     }
 
+    onSlotchange() {
+        this.updateSelectedValue(this.value);
+    }
+
     render() {
         if (this.hasLoaded) {
             this.updateStyles();
@@ -411,7 +415,7 @@ export class Select implements ComponentInterface {
                     <SelectArrow up={this.expanded}/>
                 </div>
                 <div class="wcs-select-options">
-                    <slot name="wcs-select-option"/>
+                    <slot name="wcs-select-option" onSlotchange={this.onSlotchange.bind(this)}/>
                 </div>
             </Host>
         );

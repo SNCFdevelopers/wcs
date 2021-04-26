@@ -102,13 +102,14 @@
     const lazyLoadedSelect = document.querySelector('#lazy-loaded-select');
     const button = document.querySelector('#lazy-loaded-sel-button');
     let id = 3;
+    lazyLoadedSelect.value = 4;
     button.addEventListener('click', () => {
         const opt = document.createElement('wcs-select-option');
         //opt.setAttribute('value', ++id);
         opt.value = ++id;
         opt.appendChild(document.createTextNode(id.toString()));
         lazyLoadedSelect.appendChild(opt);
-        lazyLoadedSelect.value=id;
+        //lazyLoadedSelect.value=id;
     });
 </script>
 ```
