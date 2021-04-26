@@ -255,15 +255,11 @@ export class Select implements ComponentInterface {
     }
 
     private get options() {
-        const opts = this.optionsEl?.querySelectorAll('wcs-select-option');
-        const slot = this.optionsEl?.querySelector('slot');
+        const opts = this.el?.querySelectorAll('wcs-select-option');
         if (opts && opts.length !== 0) {
-            return opts;
-        } else if (slot) {
-            return slot.assignedElements() as HTMLWcsSelectOptionElement[];
-        } else {
-            return [];
+            return opts as any as HTMLWcsSelectOptionElement[];
         }
+        return [];
     }
 
     private initMachineOptions(): Partial<MachineOptions<any, SelectEvent>> {
