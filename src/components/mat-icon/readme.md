@@ -30,10 +30,11 @@ In this case you can use the Mat-icon with its integrated material stylesheet.
 
 ## Properties
 
-| Property | Attribute | Description                           | Type                        | Default     |
-| -------- | --------- | ------------------------------------- | --------------------------- | ----------- |
-| `icon`   | `icon`    | Use the icon name from Material Icons | `string`                    | `undefined` |
-| `size`   | `size`    | Size of the icon                      | `"l" \| "m" \| "s" \| "xl"` | `'m'`       |
+| Property | Attribute | Description                           | Type                                                          | Default     |
+| -------- | --------- | ------------------------------------- | ------------------------------------------------------------- | ----------- |
+| `family` | `family`  | Family of the icon                    | `"filled" \| "outlined" \| "rounded" \| "sharp" \| "twotone"` | `'filled'`  |
+| `icon`   | `icon`    | Use the icon name from Material Icons | `string`                                                      | `undefined` |
+| `size`   | `size`    | Size of the icon                      | `"l" \| "m" \| "s" \| "xl"`                                   | `'m'`       |
 
 
 ## Dependencies

@@ -215,7 +215,7 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
 
     private selectAllRows(): void {
         const rows = this.getRowsForCurrentPage();
-        const selected = this.allRowsAreSelected() ? false : true;
+        const selected = !this.allRowsAreSelected();
         rows.map(r => r.selected = selected);
         this.wcsGridAllSelectionChange.emit({rows: selected ? rows.map(row => this.wcsGridRowToWcsGridRowData(row)) : []});
         this.rows = _.cloneDeep(this.rows);
@@ -297,7 +297,7 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
                                     .map(row =>
                                         <tr class={row.selected ? 'selected' : ''}>
                                             {this.renderSelectionColumn(row)}
-                                            {row.cells?.map(cell => <td>{this.getCellContent(row, cell)}</td>)}
+                                            {row.cells?.map(cell => <td part={cell.column.path + '-column'}>{this.getCellContent(row, cell)}</td>)}
                                         </tr>
                                     )
                         }
