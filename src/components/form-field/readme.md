@@ -10,10 +10,9 @@ for non supported slotted component, you can use the `required` attribute to tel
 will add a red star after the label of the form field.
 
 ```html
-
 <wcs-form-field>
     <wcs-label>Input</wcs-label>
-    <input placeholder="John doe"/>
+    <wcs-input placeholder="John doe" ></wcs-input>
 </wcs-form-field>
 ```
 
@@ -60,7 +59,7 @@ will add a red star after the label of the form field.
 
 <wcs-form-field>
     <wcs-label>Text area :</wcs-label>
-    <textarea placeholder="Type your message" rows="6" cols="80"></textarea>
+    <wcs-textarea placeholder="Type your message" rows="6" cols="80"></wcs-textarea>
 </wcs-form-field>
 ```
 
@@ -78,22 +77,22 @@ You can also add labels, hints and error messages.
 <br/>
 <wcs-form-field>
     <wcs-label>Input with a hint</wcs-label>
-    <input placeholder="L'input" required/>
+    <wcs-input placeholder="L'input" required></wcs-input>
     <wcs-hint>Normal hint</wcs-hint>
 </wcs-form-field>
 <br/>
 <br/>
 <wcs-form-field id="form-field-ex-1" is-error>
-    <wcs-label>Error with hint</wcs-label>
-    <input placeholder="L'input"/>
+    <wcs-label>Error with hint and error message</wcs-label>
+    <wcs-input placeholder="L'input"></wcs-input>
     <wcs-hint>Normal hint</wcs-hint>
     <wcs-error>Error message</wcs-error>
 </wcs-form-field>
 <br/>
 <br/>
 <wcs-form-field id="form-field-ex-2" is-error>
-    <wcs-label>Input with an error message</wcs-label>
-    <input placeholder="L'input"/>
+    <wcs-label>Textarea with an error message</wcs-label>
+    <wcs-textarea placeholder="L'input"></wcs-textarea>
     <wcs-error>What an error!</wcs-error>
 </wcs-form-field>
 <br/>
@@ -152,7 +151,7 @@ Integrate it with a select and a button.
         <wcs-select-option>Germany</wcs-select-option>
         <wcs-select-option>Japan</wcs-select-option>
     </wcs-select>
-    <input placeholder="Region"/>
+    <wcs-input placeholder="Region"></wcs-input>
     <wcs-button shape="square" slot="suffix" ripple="false">
         <i class="material-icons">search</i>
     </wcs-button>
@@ -173,7 +172,7 @@ Only a button.
 ```html
 
 <wcs-form-field>
-    <input placeholder="Region"/>
+    <wcs-input placeholder="Region"></wcs-input>
     <wcs-button shape="square" slot="suffix" ripple="false">
         <i class="material-icons">search</i>
     </wcs-button>
@@ -192,44 +191,38 @@ Or only a select.
         <wcs-select-option>Germany</wcs-select-option>
         <wcs-select-option>Japan</wcs-select-option>
     </wcs-select>
-    <input placeholder="Region"/>
+    <wcs-input placeholder="Region"></wcs-input>
 </wcs-form-field>
 ```
 
 ## Field with icons
 
-You can add icons to input or textarea form fields. If your form-field does not contain such fields, the icon prop will
-be ignored.
-
-The icon is added before the field content.
-
-You can change the color of the icon when the field is not focused with the following CSS
-variable `--wcs-form-field-icon-color`. When the field is focused, the icon is colored with the `--wcs-primary` color.
+You can add icons to input or textarea form fields.
 
 ```html
 
-<wcs-form-field icon="search">
+<wcs-form-field>
     <wcs-label>Input</wcs-label>
-    <input placeholder="John doe"/>
+    <wcs-input icon="search" placeholder="John doe"></wcs-input>
 </wcs-form-field>
-<wcs-form-field icon="favorite">
+<wcs-form-field>
     <wcs-label>Input</wcs-label>
-    <input placeholder="John doe"/>
+    <wcs-input icon="favorite" placeholder="John doe"></wcs-input>
 </wcs-form-field>
 
-<wcs-form-field icon="home">
+<wcs-form-field>
     <wcs-label>Input</wcs-label>
-    <input placeholder="John doe"/>
+    <wcs-input icon="home" placeholder="John doe"></wcs-input>
 </wcs-form-field>
-<wcs-form-field icon="announcement">
+<wcs-form-field>
     <wcs-label>Input</wcs-label>
-    <input placeholder="John doe"/>
+    <wcs-input icon="announcement" placeholder="John doe"></wcs-input>
 </wcs-form-field>
 <br/>
 <br/>
 <wcs-form-field icon="speaker_notes">
     <wcs-label>Textarea with icon</wcs-label>
-    <textarea placeholder="John doe"></textarea>
+    <wcs-textarea placeholder="John doe"></wcs-textarea>
 </wcs-form-field>
 ```
 
@@ -243,19 +236,6 @@ variable `--wcs-form-field-icon-color`. When the field is focused, the icon is c
 | `icon`    | `icon`     | Name of the material icon to add to the field                                                                                                | `any`     | `undefined` |
 | `isError` | `is-error` | Specifies whether the form field is in an error state. Displays the field border in red and the message contained in the wcs-error component | `boolean` | `false`     |
 
-
-## Dependencies
-
-### Depends on
-
-- [wcs-mat-icon](../mat-icon)
-
-### Graph
-```mermaid
-graph TD;
-  wcs-form-field --> wcs-mat-icon
-  style wcs-form-field fill:#f9f,stroke:#333,stroke-width:4px
-```
 
 ----------------------------------------------
 

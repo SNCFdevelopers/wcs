@@ -9,8 +9,8 @@ import { FieldType } from '@ngx-formly/core';
       <wcs-label *ngIf="to.label && to.hideLabel !== true" [attr.for]="id">
         {{ to.label }}
       </wcs-label>
-      <input [placeholder]="to.placeholder" [type]="type" [formControl]="formControl" [formlyAttributes]="field"
-             [attr.required]="to.required && to.hideRequiredMarker !== true"/>
+      <wcs-input [placeholder]="to.placeholder" [type]="type" [formControl]="formControl" [formlyAttributes]="field"
+                 [attr.required]="to.required && to.hideRequiredMarker !== true"></wcs-input>
       <wcs-error *ngIf="showError">
         <formly-validation-message #error [field]="field"></formly-validation-message>
       </wcs-error>

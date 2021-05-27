@@ -9,14 +9,14 @@ import { FieldType } from '@ngx-formly/core';
       <wcs-label *ngIf="to.label && to.hideLabel !== true" [attr.for]="id">
         {{ to.label }}
       </wcs-label>
-      <textarea
+      <wcs-textarea
         [formControl]="formControl"
         [cols]="to.cols"
         [rows]="to.rows"
         [formlyAttributes]="field"
         [placeholder]="to.placeholder"
         [attr.required]="to.required">
-      </textarea>
+      </wcs-textarea>
       <wcs-error *ngIf="showError">
         <formly-validation-message #error [field]="field"></formly-validation-message>
       </wcs-error>

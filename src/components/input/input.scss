@@ -1,0 +1,55 @@
+:host {
+    --wcs-input-icon-color: var(--wcs-text-medium);
+    --wcs-internal-input-border-radius-left: var(--wcs-input-border-radius-left, var(--wcs-border-radius));
+    --wcs-internal-input-border-radius-right: var(--wcs-input-border-radius-right, var(--wcs-border-radius));
+    display: flex;
+    width: 100%;
+    border-radius: var(--wcs-internal-input-border-radius-left) var(--wcs-internal-input-border-radius-right) var(--wcs-internal-input-border-radius-right) var(--wcs-internal-input-border-radius-left);
+    background-color: var(--wcs-light);
+    border: 1px solid var(--wcs-light);
+    background-clip: padding-box;
+
+    ::placeholder {
+        font-weight: 400;
+        font-style: italic;
+    }
+
+    input {
+        overflow: hidden;
+        box-sizing: border-box;
+        min-height: 24px;
+        width: 100%;
+        background-color: transparent;
+        font-family: var(--wcs-font-sans-serif);
+        color: var(--wcs-primary);
+        font-weight: var(--wcs-font-weight-form-value) !important;
+        border: none;
+        padding: calc(var(--wcs-padding) / 2) var(--wcs-padding);
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    input:focus {
+        box-shadow: none;
+        outline: 0;
+    }
+
+
+    wcs-mat-icon {
+        position: relative;
+        margin-top: 8px;
+        margin-left: 8px;
+        margin-right: -8px;
+    }
+}
+
+:host([state=error]) {
+    border-color: var(--wcs-red);
+}
+
+:host(:focus-within) {
+    border: solid 1px var(--wcs-primary);
+    wcs-mat-icon {
+        color: var(--wcs-primary);
+    }
+}

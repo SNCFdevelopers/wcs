@@ -41,12 +41,14 @@ In this case you can use the Mat-icon with its integrated material stylesheet.
 
 ### Used by
 
- - [wcs-form-field](../form-field)
+ - [wcs-input](../input)
+ - [wcs-textarea](../textarea)
 
 ### Graph
 ```mermaid
 graph TD;
-  wcs-form-field --> wcs-mat-icon
+  wcs-input --> wcs-mat-icon
+  wcs-textarea --> wcs-mat-icon
   style wcs-mat-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

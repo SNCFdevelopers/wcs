@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { WcsAngularModule } from 'wcs-angular';
 import { RadioGroupExampleComponent } from './radio-group/radio-group-example.component';
 import { GridExampleComponent } from './grid-example/grid-example.component';
+import { InputExampleComponent } from './input-example/input-example.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +16,12 @@ import { GridExampleComponent } from './grid-example/grid-example.component';
     SelectExampleComponent,
     RadioGroupExampleComponent,
     GridExampleComponent,
+    InputExampleComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    WcsAngularModule,
     WcsAngularModule
   ],
   providers: [],

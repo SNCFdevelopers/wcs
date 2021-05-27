@@ -17,13 +17,7 @@ import { Component } from '@angular/core';
     </wcs-nav>
     <main>
       <!--<router-outlet></router-outlet>-->
-      <wcs-card>
-        <wcs-card-body>
-          <p>This application was bootstrapped using:
-          </p>
-          <pre><code>ng add wcs-core</code></pre>
-        </wcs-card-body>
-      </wcs-card>
+      <app-input-example></app-input-example>
       <app-grid-example></app-grid-example>
       <app-select-example></app-select-example>
       <app-radio-group-example></app-radio-group-example>

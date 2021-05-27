@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Element, h, Host, Prop, State } from '@stencil/core';
+import { Component, ComponentInterface, Element, h, Host, Prop, State, Watch } from '@stencil/core';
 
 /**
  * TODO:
@@ -24,6 +24,8 @@ export class FormField implements ComponentInterface {
 
     @State() hasPrefix = false;
     @State() hasSuffix = false;
+    @State() spiedElement: HTMLElement;
+
     private observer: MutationObserver;
 
     componentWillLoad() {
@@ -31,6 +33,23 @@ export class FormField implements ComponentInterface {
         this.hasPrefix = this.el.querySelector('wcs-select') !== null;
 
         this.addRequiredMarkerToLabel();
+        this.updateErrorStateOnInput(this.isError);
+    }
+
+    @Watch('isError')
+    // @ts-ignore
+    private isErrorChange(newValue: boolean) {
+        this.updateErrorStateOnInput(newValue);
+    }
+
+    private updateErrorStateOnInput(newValue: boolean) {
+        if (this.spiedElementIsOfType('wcs-input', 'wcs-textarea')) {
+            if (newValue) {
+                this.spiedElement.setAttribute('state', 'error');
+            } else {
+                this.spiedElement.setAttribute('state', 'undefined');
+            }
+        }
     }
 
     /**
@@ -38,31 +57,33 @@ export class FormField implements ComponentInterface {
      * @param types
      * @private
      */
-    private inputIsOfType(...types: string[]): boolean {
+    private spiedElementIsOfType(...types: string[]): boolean {
         for (const type of types) {
-            if (this.el.getElementsByTagName(type).length !== 0) return true;
+            if (this.spiedElement?.tagName === type.toUpperCase()) return true;
         }
+        return false
     }
+
 
     private addRequiredMarkerToLabel() {
         const label = this.el.querySelector('wcs-label');
         // TODO: deprecate this in favor of the 'required' component attribute
-        const spiedElement = this.el.querySelector('input')
+        this.spiedElement = this.el.querySelector('wcs-input')
             || this.el.querySelector('wcs-select')
-            || this.el.querySelector('textarea')
+            || this.el.querySelector('wcs-textarea')
             || this.el.querySelector('wcs-radio-group');
 
         this.observer = new MutationObserver(mutations => {
             const requiredAttMutation = mutations.filter(m => m.attributeName === 'required')[0];
             if (requiredAttMutation) {
-                this.updateLabelRequiredFlag(spiedElement?.hasAttribute('required'), label);
+                this.updateLabelRequiredFlag(this.spiedElement?.hasAttribute('required'), label);
             }
         });
-        if (spiedElement) {
-            this.observer.observe(spiedElement, {attributes: true});
+        if (this.spiedElement) {
+            this.observer.observe(this.spiedElement, {attributes: true});
         }
 
-        const isRequired = spiedElement?.hasAttribute('required');
+        const isRequired = this.spiedElement?.hasAttribute('required');
         this.updateLabelRequiredFlag(isRequired, label);
     }
 
@@ -89,19 +110,11 @@ export class FormField implements ComponentInterface {
         if (this.hasPrefix) {
             classes += ' has-prefix';
         }
-
-        let icon;
-        // We only support icon on input and textarea form field
-        if (this.icon && this.inputIsOfType('input', 'textarea')) {
-            icon = <wcs-mat-icon icon={this.icon} size="m"></wcs-mat-icon>
-        }
-
         return (
             <Host class={classes}>
                 <slot name="label"/>
                 <div class="input-container">
                     <slot name="prefix"/>
-                    {icon ? icon : null}
                     <slot/>
                     <slot name="suffix"/>
                 </div>

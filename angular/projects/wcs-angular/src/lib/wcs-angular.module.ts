@@ -3,12 +3,14 @@ import { SelectValueAccessor } from './directives/select-value-accessor.directiv
 import { RadioGroupValueAccessor } from './directives/radio-group-value-accessor.directive';
 import { CheckboxValueAccessorDirective } from './directives/checkbox-value-accessor.directive';
 import { SwitchValueAccessorDirective } from './directives/switch-value-accessor.directive';
+import { InputValueAccessorDirective } from './directives/input-value-accessor.directive';
+import { TextareaValueAccessorDirective } from './directives/textarea-value-accessor.directive';
 
 
 @NgModule({
-  declarations: [SelectValueAccessor, RadioGroupValueAccessor, CheckboxValueAccessorDirective, SwitchValueAccessorDirective],
+  declarations: [InputValueAccessorDirective, TextareaValueAccessorDirective, SelectValueAccessor, RadioGroupValueAccessor, CheckboxValueAccessorDirective, SwitchValueAccessorDirective],
   imports: [],
-  exports: [SelectValueAccessor, RadioGroupValueAccessor, CheckboxValueAccessorDirective, SwitchValueAccessorDirective]
+  exports: [InputValueAccessorDirective, TextareaValueAccessorDirective, SelectValueAccessor, RadioGroupValueAccessor, CheckboxValueAccessorDirective, SwitchValueAccessorDirective]
 })
 export class WcsAngularModule {
 }

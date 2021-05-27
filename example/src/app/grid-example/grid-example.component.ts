@@ -6,6 +6,7 @@ import { VNode } from '../../../../dist/types/stencil-public-runtime';
 @Component({
   selector: 'app-grid-example',
   template: `
+    <h2>Grid</h2>
     <wcs-grid id="grid-1" [data]="fonctionsSsiReference">
       <wcs-grid-column path="label"
                        name="Label"

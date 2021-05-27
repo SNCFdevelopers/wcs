@@ -5,44 +5,10 @@
 
     display: inline-flex;
     flex-direction: column;
-
-    wcs-mat-icon {
-        display: inline;
-        width: 0;
-        position: relative;
-        top: 9px;
-        left: 8px;
-        color: var(--wcs-form-field-icon-color);
-    }
-}
-
-:host([is-error]) {
-    ::slotted(input), ::slotted(textarea) {
-        border: 1px solid var(--wcs-red);
-    }
-}
-
-:host([icon]) {
-    ::slotted(input), ::slotted(textarea) {
-        padding-left: 36px;
-    }
-}
-
-:host(:host:focus-within) {
-    wcs-mat-icon {
-        color: var(--wcs-primary);
-    }
 }
 
 .input-container {
     display: flex;
-}
-
-::slotted(textarea) {
-    font-family: var(--wcs-font-sans-serif) !important;
-    font-weight: var(--wcs-font-weight-form-value) !important;
-    line-height: 1.5 !important;
-    font-size: 1rem !important;
 }
 
 ::slotted(wcs-radio-group) {
@@ -53,33 +19,8 @@
     margin-left: 0;
 }
 
-// Base input style
-::slotted(input), ::slotted(textarea) {
-    min-height: 24px;
-    width: 100%;
-    font-family: var(--wcs-font-sans-serif);
-    color: var(--wcs-primary);
-    font-weight: var(--wcs-font-weight-form-value) !important;
-    background-color: var(--wcs-light);
-    border: 1px solid var(--wcs-light);
-    border-radius: var(--wcs-form-field-border-radius-left) var(--wcs-form-field-border-radius-right) var(--wcs-form-field-border-radius-right) var(--wcs-form-field-border-radius-left);
-
-    display: block;
-    padding: calc(var(--wcs-padding) / 2) var(--wcs-padding);
-    font-size: 1rem;
-    line-height: 1.5;
-    background-clip: padding-box;
-}
-
 ::slotted(wcs-select:not([slot=prefix])) {
     width: 100%;
-}
-
-// Focused input style
-::slotted(input:focus), ::slotted(textarea:focus) {
-    outline: 0;
-    border: solid 1px var(--wcs-primary);
-    box-shadow: none;
 }
 
 // Label style
@@ -90,12 +31,12 @@
 
 // Make input square on left side if there is a prefix
 :host(.has-prefix) {
-    --wcs-form-field-border-radius-left: 0;
+    --wcs-input-border-radius-left: 0;
 }
 
 // Make input square on right side if there is a suffix
 :host(.has-suffix) {
-    --wcs-form-field-border-radius-right: 0;
+    --wcs-input-border-radius-right: 0;
 }
 
 // Prefixed select
