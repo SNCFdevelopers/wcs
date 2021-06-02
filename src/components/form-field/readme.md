@@ -31,20 +31,6 @@ will add a red star after the label of the form field.
 ```html
 
 <wcs-form-field>
-    <wcs-label>Required with custom component</wcs-label>
-    <datalist required id="ice-cream-flavors">
-        <option value="Chocolate">
-        <option value="Coconut">
-        <option value="Mint">
-        <option value="Strawberry">
-        <option value="Vanilla">
-    </datalist>
-</wcs-form-field>
-```
-
-```html
-
-<wcs-form-field>
     <wcs-label>Radio group</wcs-label>
     <wcs-radio-group name="SA">
         <wcs-radio label="SNCF" value="1"></wcs-radio>
@@ -236,6 +222,19 @@ You can add icons to input or textarea form fields.
 | `icon`    | `icon`     | Name of the material icon to add to the field                                                                                                | `any`     | `undefined` |
 | `isError` | `is-error` | Specifies whether the form field is in an error state. Displays the field border in red and the message contained in the wcs-error component | `boolean` | `false`     |
 
+
+## Dependencies
+
+### Used by
+
+ - [wcs-editable-field](../editable-field)
+
+### Graph
+```mermaid
+graph TD;
+  wcs-editable-field --> wcs-form-field
+  style wcs-form-field fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

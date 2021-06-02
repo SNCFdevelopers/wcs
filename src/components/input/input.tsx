@@ -172,9 +172,9 @@ export class Input implements ComponentInterface {
     @Prop() spellcheck = false;
 
     /**
-     * Specifies the state of the input. By default the input is in an undefined state but it is possible to set it to 'error' state if the data given by the user is not valid.
+     * Specifies the state of the input. By default the input is in an normal state but you can to set it to 'error' state if the data given by the user is not valid.
      */
-    @Prop({reflect: true}) state: 'undefined' | 'error' = 'undefined';
+    @Prop({reflect: true}) state: 'initial' | 'error' = 'initial';
 
     /**
      * Works with the min and max attributes to limit the increments at which a value can be set.

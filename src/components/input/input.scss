@@ -44,7 +44,7 @@
 }
 
 :host([state=error]) {
-    border-color: var(--wcs-red);
+    border-color: var(--wcs-red) !important;
 }
 
 :host(:focus-within) {

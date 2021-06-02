@@ -24,7 +24,7 @@ export class FormField implements ComponentInterface {
 
     @State() hasPrefix = false;
     @State() hasSuffix = false;
-    @State() spiedElement: HTMLElement;
+    @State() spiedElement: Element;
 
     private observer: MutationObserver;
 
@@ -32,9 +32,11 @@ export class FormField implements ComponentInterface {
         this.hasSuffix = this.el.querySelector('wcs-button') !== null;
         this.hasPrefix = this.el.querySelector('wcs-select') !== null;
 
+        this.initSpiedElement(true);
         this.addRequiredMarkerToLabel();
         this.updateErrorStateOnInput(this.isError);
     }
+
 
     @Watch('isError')
     // @ts-ignore
@@ -47,7 +49,7 @@ export class FormField implements ComponentInterface {
             if (newValue) {
                 this.spiedElement.setAttribute('state', 'error');
             } else {
-                this.spiedElement.setAttribute('state', 'undefined');
+                this.spiedElement.setAttribute('state', 'initial');
             }
         }
     }
@@ -66,13 +68,8 @@ export class FormField implements ComponentInterface {
 
 
     private addRequiredMarkerToLabel() {
-        const label = this.el.querySelector('wcs-label');
         // TODO: deprecate this in favor of the 'required' component attribute
-        this.spiedElement = this.el.querySelector('wcs-input')
-            || this.el.querySelector('wcs-select')
-            || this.el.querySelector('wcs-textarea')
-            || this.el.querySelector('wcs-radio-group');
-
+        const label = this.el.querySelector('wcs-label');
         this.observer = new MutationObserver(mutations => {
             const requiredAttMutation = mutations.filter(m => m.attributeName === 'required')[0];
             if (requiredAttMutation) {
@@ -87,6 +84,28 @@ export class FormField implements ComponentInterface {
         this.updateLabelRequiredFlag(isRequired, label);
     }
 
+
+    private initSpiedElement(willLoad: boolean) {
+        const messageIfSpiedElementIsNull = 'You must use the form field with one of the following components: wcs-input, wcs-select, wcs-textarea, wcs-radio-group.';
+        if (willLoad) {
+            this.spiedElement = this.el.querySelector('wcs-input')
+                || this.el.querySelector('wcs-select')
+                || this.el.querySelector('wcs-textarea')
+                || this.el.querySelector('wcs-radio-group')
+                || this.el.querySelector('wcs-switch');
+            if (!this.spiedElement) {
+                throw new Error(messageIfSpiedElementIsNull);
+            }
+        } else {
+            this.spiedElement = (this.el.shadowRoot.querySelector('slot:not([name])') as HTMLSlotElement)?.assignedElements()[0];
+            if (!this.spiedElement) throw new Error(messageIfSpiedElementIsNull);
+            if (['wcs-input', 'wcs-select', 'wcs-textarea', 'wcs-radio-group', 'wcs-switch']
+                .map(x => x.toUpperCase())
+                .indexOf(this.spiedElement.tagName) === -1) {
+                throw new Error(messageIfSpiedElementIsNull + ' Component ' + this.spiedElement.tagName + ' not supported.');
+            }
+        }
+    }
 
     private updateLabelRequiredFlag(isRequired: boolean, label: Element) {
         if (isRequired && label) {
@@ -115,7 +134,7 @@ export class FormField implements ComponentInterface {
                 <slot name="label"/>
                 <div class="input-container">
                     <slot name="prefix"/>
-                    <slot/>
+                    <slot onSlotchange={() => this.onFormInputSlotChange()}/>
                     <slot name="suffix"/>
                 </div>
                 {
@@ -124,5 +143,11 @@ export class FormField implements ComponentInterface {
                 <slot name="messages"/>
             </Host>
         );
+    }
+
+    private onFormInputSlotChange() {
+        this.initSpiedElement(false);
+        this.addRequiredMarkerToLabel();
+        this.updateErrorStateOnInput(this.isError);
     }
 }

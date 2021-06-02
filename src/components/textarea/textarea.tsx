@@ -129,9 +129,9 @@ export class Input implements ComponentInterface {
     @Prop() spellcheck = false;
 
     /**
-     * Specifies the state of the input. By default the input is in an undefined state but it is possible to set it to 'error' state if the data given by the user is not valid.
+     * Specifies the state of the input. By default the input is in an initial state but you can set it to 'error' state if the data given by the user is not valid.
      */
-    @Prop({reflect: true}) state: 'undefined' | 'error' = 'undefined';
+    @Prop({reflect: true}) state: 'initial' | 'error' = 'initial';
 
     /**
      * The visible width of the text control, in average character widths. If it is specified, it must be a positive integer.

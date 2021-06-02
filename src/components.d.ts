@@ -7,6 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { WcsButtonMode, WcsButtonShape, WcsButtonType } from "./components/button/button-interface";
 import { CheckboxChangeEventDetail, CheckboxLabelAlignment } from "./components/checkbox/checkbox-interface";
+import { EditableComponentUpdateEvent, FormatFn, ValidateFn } from "./components/editable-field/editable-field-interface";
 import { WcsCellFormatter, WcsGridAllRowSelectedEventDetails, WcsGridColumnSortChangeEventDetails, WcsGridPaginationChangeEventDetails, WcsGridRowSelectedEventDetails, WcsGridSelectionConfig, WcsSortFn, WcsSortOrder } from "./components/grid/grid-interface";
 import { AutocompleteTypes, InputChangeEventDetail, TextFieldTypes } from "./components/input/input-interface";
 import { RadioChosedEvent } from "./components/radio/radio-interface";
@@ -86,6 +87,36 @@ export namespace Components {
         "shape": WcsButtonShape;
     }
     interface WcsDropdownItem {
+    }
+    interface WcsEditableField {
+        /**
+          * Error message displayed under the field if validation failed.
+         */
+        "errorMsg": string;
+        /**
+          * Function used to format the value
+         */
+        "formatFn": FormatFn<any>;
+        /**
+          * Label of the field
+         */
+        "label": string;
+        /**
+          * Specify whether the field is editable or not
+         */
+        "readonly": boolean;
+        /**
+          * Specifies which component is used for editing
+         */
+        "type": 'input' | 'textarea' | 'select';
+        /**
+          * Function to customize the validation of the data during the update
+         */
+        "validateFn": ValidateFn<any>;
+        /**
+          * Initial value of the field
+         */
+        "value": any;
     }
     interface WcsError {
     }
@@ -267,9 +298,9 @@ export namespace Components {
          */
         "spellcheck": boolean;
         /**
-          * Specifies the state of the input. By default the input is in an undefined state but it is possible to set it to 'error' state if the data given by the user is not valid.
+          * Specifies the state of the input. By default the input is in an normal state but you can to set it to 'error' state if the data given by the user is not valid.
          */
-        "state": 'undefined' | 'error';
+        "state": 'initial' | 'error';
         /**
           * Works with the min and max attributes to limit the increments at which a value can be set. Possible values are: `"any"` or a positive floating point number.
          */
@@ -541,9 +572,9 @@ export namespace Components {
          */
         "spellcheck": boolean;
         /**
-          * Specifies the state of the input. By default the input is in an undefined state but it is possible to set it to 'error' state if the data given by the user is not valid.
+          * Specifies the state of the input. By default the input is in an initial state but you can set it to 'error' state if the data given by the user is not valid.
          */
-        "state": 'undefined' | 'error';
+        "state": 'initial' | 'error';
         /**
           * The value of the textarea.
          */
@@ -625,6 +656,12 @@ declare global {
     var HTMLWcsDropdownItemElement: {
         prototype: HTMLWcsDropdownItemElement;
         new (): HTMLWcsDropdownItemElement;
+    };
+    interface HTMLWcsEditableFieldElement extends Components.WcsEditableField, HTMLStencilElement {
+    }
+    var HTMLWcsEditableFieldElement: {
+        prototype: HTMLWcsEditableFieldElement;
+        new (): HTMLWcsEditableFieldElement;
     };
     interface HTMLWcsErrorElement extends Components.WcsError, HTMLStencilElement {
     }
@@ -829,6 +866,7 @@ declare global {
         "wcs-divider": HTMLWcsDividerElement;
         "wcs-dropdown": HTMLWcsDropdownElement;
         "wcs-dropdown-item": HTMLWcsDropdownItemElement;
+        "wcs-editable-field": HTMLWcsEditableFieldElement;
         "wcs-error": HTMLWcsErrorElement;
         "wcs-field": HTMLWcsFieldElement;
         "wcs-field-content": HTMLWcsFieldContentElement;
@@ -937,6 +975,40 @@ declare namespace LocalJSX {
     }
     interface WcsDropdownItem {
         "onWcsDropdownItemClick"?: (event: CustomEvent<void>) => void;
+    }
+    interface WcsEditableField {
+        /**
+          * Error message displayed under the field if validation failed.
+         */
+        "errorMsg"?: string;
+        /**
+          * Function used to format the value
+         */
+        "formatFn"?: FormatFn<any>;
+        /**
+          * Label of the field
+         */
+        "label": string;
+        /**
+          * event called at each (valid) update of the field.
+         */
+        "onWcsChange"?: (event: CustomEvent<EditableComponentUpdateEvent<any>>) => void;
+        /**
+          * Specify whether the field is editable or not
+         */
+        "readonly"?: boolean;
+        /**
+          * Specifies which component is used for editing
+         */
+        "type"?: 'input' | 'textarea' | 'select';
+        /**
+          * Function to customize the validation of the data during the update
+         */
+        "validateFn"?: ValidateFn<any>;
+        /**
+          * Initial value of the field
+         */
+        "value"?: any;
     }
     interface WcsError {
     }
@@ -1132,9 +1204,9 @@ declare namespace LocalJSX {
          */
         "spellcheck"?: boolean;
         /**
-          * Specifies the state of the input. By default the input is in an undefined state but it is possible to set it to 'error' state if the data given by the user is not valid.
+          * Specifies the state of the input. By default the input is in an normal state but you can to set it to 'error' state if the data given by the user is not valid.
          */
-        "state"?: 'undefined' | 'error';
+        "state"?: 'initial' | 'error';
         /**
           * Works with the min and max attributes to limit the increments at which a value can be set. Possible values are: `"any"` or a positive floating point number.
          */
@@ -1438,9 +1510,9 @@ declare namespace LocalJSX {
          */
         "spellcheck"?: boolean;
         /**
-          * Specifies the state of the input. By default the input is in an undefined state but it is possible to set it to 'error' state if the data given by the user is not valid.
+          * Specifies the state of the input. By default the input is in an initial state but you can set it to 'error' state if the data given by the user is not valid.
          */
-        "state"?: 'undefined' | 'error';
+        "state"?: 'initial' | 'error';
         /**
           * The value of the textarea.
          */
@@ -1472,6 +1544,7 @@ declare namespace LocalJSX {
         "wcs-divider": WcsDivider;
         "wcs-dropdown": WcsDropdown;
         "wcs-dropdown-item": WcsDropdownItem;
+        "wcs-editable-field": WcsEditableField;
         "wcs-error": WcsError;
         "wcs-field": WcsField;
         "wcs-field-content": WcsFieldContent;
@@ -1520,6 +1593,7 @@ declare module "@stencil/core" {
             "wcs-divider": LocalJSX.WcsDivider & JSXBase.HTMLAttributes<HTMLWcsDividerElement>;
             "wcs-dropdown": LocalJSX.WcsDropdown & JSXBase.HTMLAttributes<HTMLWcsDropdownElement>;
             "wcs-dropdown-item": LocalJSX.WcsDropdownItem & JSXBase.HTMLAttributes<HTMLWcsDropdownItemElement>;
+            "wcs-editable-field": LocalJSX.WcsEditableField & JSXBase.HTMLAttributes<HTMLWcsEditableFieldElement>;
             "wcs-error": LocalJSX.WcsError & JSXBase.HTMLAttributes<HTMLWcsErrorElement>;
             "wcs-field": LocalJSX.WcsField & JSXBase.HTMLAttributes<HTMLWcsFieldElement>;
             "wcs-field-content": LocalJSX.WcsFieldContent & JSXBase.HTMLAttributes<HTMLWcsFieldContentElement>;
