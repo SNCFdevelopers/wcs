@@ -4,10 +4,12 @@
     margin-top: var(--wcs-base-margin);
     margin-bottom: calc(var(--wcs-base-margin) * 2);
 }
-::slotted([slot=header]) {
+::slotted([slot=label]) {
     font-size: 1rem;
-    font-weight: var(--wcs-font-weight-form-value);
-    color: var(--wcs-gray);
+    line-height: 1.375;
+    font-weight: 500;
+    margin-bottom: calc(var(--wcs-base-margin) / 2);
+    color: var(--wcs-gray-light);
 }
 
 ::slotted([slot=content]) {

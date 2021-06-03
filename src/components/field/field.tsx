@@ -9,7 +9,7 @@ export class Field implements ComponentInterface {
     render() {
         return (
             <Host>
-                <slot name="header"/>
+                <slot name="label"/>
                 <slot name="content"/>
             </Host>
         );

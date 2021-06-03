@@ -1,13 +1,13 @@
 import { Component, ComponentInterface, h, Host, } from '@stencil/core';
 
 @Component({
-    tag: 'wcs-field-header',
+    tag: 'wcs-field-label',
     shadow: true
 })
-export class FieldHeader implements ComponentInterface {
+export class FieldLabel implements ComponentInterface {
     render() {
         return (
-            <Host slot="header"><slot /></Host>
+            <Host slot="label"><slot /></Host>
         );
     }
 }

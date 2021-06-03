@@ -124,7 +124,7 @@ export namespace Components {
     }
     interface WcsFieldContent {
     }
-    interface WcsFieldHeader {
+    interface WcsFieldLabel {
     }
     interface WcsFormField {
         /**
@@ -681,11 +681,11 @@ declare global {
         prototype: HTMLWcsFieldContentElement;
         new (): HTMLWcsFieldContentElement;
     };
-    interface HTMLWcsFieldHeaderElement extends Components.WcsFieldHeader, HTMLStencilElement {
+    interface HTMLWcsFieldLabelElement extends Components.WcsFieldLabel, HTMLStencilElement {
     }
-    var HTMLWcsFieldHeaderElement: {
-        prototype: HTMLWcsFieldHeaderElement;
-        new (): HTMLWcsFieldHeaderElement;
+    var HTMLWcsFieldLabelElement: {
+        prototype: HTMLWcsFieldLabelElement;
+        new (): HTMLWcsFieldLabelElement;
     };
     interface HTMLWcsFormFieldElement extends Components.WcsFormField, HTMLStencilElement {
     }
@@ -870,7 +870,7 @@ declare global {
         "wcs-error": HTMLWcsErrorElement;
         "wcs-field": HTMLWcsFieldElement;
         "wcs-field-content": HTMLWcsFieldContentElement;
-        "wcs-field-header": HTMLWcsFieldHeaderElement;
+        "wcs-field-label": HTMLWcsFieldLabelElement;
         "wcs-form-field": HTMLWcsFormFieldElement;
         "wcs-grid": HTMLWcsGridElement;
         "wcs-grid-column": HTMLWcsGridColumnElement;
@@ -1016,7 +1016,7 @@ declare namespace LocalJSX {
     }
     interface WcsFieldContent {
     }
-    interface WcsFieldHeader {
+    interface WcsFieldLabel {
     }
     interface WcsFormField {
         /**
@@ -1548,7 +1548,7 @@ declare namespace LocalJSX {
         "wcs-error": WcsError;
         "wcs-field": WcsField;
         "wcs-field-content": WcsFieldContent;
-        "wcs-field-header": WcsFieldHeader;
+        "wcs-field-label": WcsFieldLabel;
         "wcs-form-field": WcsFormField;
         "wcs-grid": WcsGrid;
         "wcs-grid-column": WcsGridColumn;
@@ -1597,7 +1597,7 @@ declare module "@stencil/core" {
             "wcs-error": LocalJSX.WcsError & JSXBase.HTMLAttributes<HTMLWcsErrorElement>;
             "wcs-field": LocalJSX.WcsField & JSXBase.HTMLAttributes<HTMLWcsFieldElement>;
             "wcs-field-content": LocalJSX.WcsFieldContent & JSXBase.HTMLAttributes<HTMLWcsFieldContentElement>;
-            "wcs-field-header": LocalJSX.WcsFieldHeader & JSXBase.HTMLAttributes<HTMLWcsFieldHeaderElement>;
+            "wcs-field-label": LocalJSX.WcsFieldLabel & JSXBase.HTMLAttributes<HTMLWcsFieldLabelElement>;
             "wcs-form-field": LocalJSX.WcsFormField & JSXBase.HTMLAttributes<HTMLWcsFormFieldElement>;
             "wcs-grid": LocalJSX.WcsGrid & JSXBase.HTMLAttributes<HTMLWcsGridElement>;
             "wcs-grid-column": LocalJSX.WcsGridColumn & JSXBase.HTMLAttributes<HTMLWcsGridColumnElement>;
