@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.1]
+
+### Fixed
+
+- `wcs-form-field`: Following the update of the form field, an error was thrown if the slotted component was not in a
+  fixed list of supported components. This was a problem for some applications that wrapped the components or created
+  components on their side. This error has been removed, and a warning has been added.
+
 ## [2.0.0]
 
 ### Breaking changes
@@ -15,10 +23,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-- wcs-editable-field : new component for inline data editing. for the moment the component supports the following components
-  - wcs-input
-  - wcs-text-area
-  - wcs-select
+- wcs-editable-field : new component for inline data editing. for the moment the component supports the following
+  components
+    - wcs-input
+    - wcs-text-area
+    - wcs-select
 - wcs-input
 - wcs-textarea
 
