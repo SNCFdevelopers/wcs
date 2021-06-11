@@ -31,8 +31,10 @@ export class FormField implements ComponentInterface {
     componentWillLoad() {
         this.hasSuffix = this.el.querySelector('wcs-button') !== null;
         this.hasPrefix = this.el.querySelector('wcs-select') !== null;
+    }
 
-        this.initSpiedElement(true);
+    componentDidLoad() {
+        this.initSpiedElement();
         this.addRequiredMarkerToLabel();
         this.updateErrorStateOnInput(this.isError);
     }
@@ -85,25 +87,15 @@ export class FormField implements ComponentInterface {
     }
 
 
-    private initSpiedElement(willLoad: boolean) {
-        const messageIfSpiedElementIsNull = 'You must use the form field with one of the following components: wcs-input, wcs-select, wcs-textarea, wcs-radio-group.';
-        if (willLoad) {
-            this.spiedElement = this.el.querySelector('wcs-input')
-                || this.el.querySelector('wcs-select')
-                || this.el.querySelector('wcs-textarea')
-                || this.el.querySelector('wcs-radio-group')
-                || this.el.querySelector('wcs-switch');
-            if (!this.spiedElement) {
-                throw new Error(messageIfSpiedElementIsNull);
-            }
-        } else {
-            this.spiedElement = (this.el.shadowRoot.querySelector('slot:not([name])') as HTMLSlotElement)?.assignedElements()[0];
-            if (!this.spiedElement) throw new Error(messageIfSpiedElementIsNull);
-            if (['wcs-input', 'wcs-select', 'wcs-textarea', 'wcs-radio-group', 'wcs-switch']
-                .map(x => x.toUpperCase())
-                .indexOf(this.spiedElement.tagName) === -1) {
-                throw new Error(messageIfSpiedElementIsNull + ' Component ' + this.spiedElement.tagName + ' not supported.');
-            }
+    private initSpiedElement() {
+        const SUPPORTED_COMPONENTS = ['wcs-input', 'wcs-select', 'wcs-textarea', 'wcs-radio-group', 'wcs-switch', 'wcs-checkbox'];
+        this.spiedElement = (this.el.shadowRoot.querySelector('slot:not([name])') as HTMLSlotElement)?.assignedElements()[0];
+        if (!this.spiedElement) throw new Error('You must provide a slotted element in form field');
+        if (SUPPORTED_COMPONENTS
+            .map(x => x.toUpperCase())
+            .indexOf(this.spiedElement.tagName) === -1) {
+            // tslint:disable-next-line:no-console
+            console.warn('form-field component support ' + SUPPORTED_COMPONENTS.toString() + '. Some features may not work with the provided component (component ' + this.spiedElement.tagName + ' not natively supported).');
         }
     }
 
@@ -146,7 +138,7 @@ export class FormField implements ComponentInterface {
     }
 
     private onFormInputSlotChange() {
-        this.initSpiedElement(false);
+        this.initSpiedElement();
         this.addRequiredMarkerToLabel();
         this.updateErrorStateOnInput(this.isError);
     }
