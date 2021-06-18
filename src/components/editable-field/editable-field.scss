@@ -1,9 +1,10 @@
-:Host {
+:host {
     display: block;
 
     .display-none {
         display: none !important;
     }
+
     .label {
         margin-bottom: var(--wcs-base-margin);
         font-weight: 500;
@@ -21,6 +22,7 @@
         wcs-mat-icon {
             display: none;
         }
+
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -34,17 +36,6 @@
         padding: calc(0.5 * var(--wcs-padding)) var(--wcs-padding);
         transition: 0.175s all;
         border: solid 1px transparent;
-    }
-
-    .display-container:hover {
-        wcs-mat-icon {
-            display: flex;
-            align-items: center;
-        }
-
-        color: var(--wcs-primary);
-        cursor: pointer;
-        border: solid 1px var(--wcs-primary);
     }
 
     .load-container {
@@ -64,5 +55,28 @@
     wcs-spinner {
         height: 16px;
         width: 16px;
+    }
+
+    .readonly-icon {
+        fill: var(--wcs-text-medium);
+    }
+}
+
+:host([readonly]) {
+    .display-container {
+        color: var(--wcs-gray-light);
+    }
+}
+
+:host(:not([readonly])) {
+    .display-container:hover {
+        wcs-mat-icon {
+            display: flex;
+            align-items: center;
+        }
+
+        color: var(--wcs-primary);
+        cursor: pointer;
+        border: solid 1px var(--wcs-primary);
     }
 }

@@ -62,6 +62,16 @@ This component is not present in the SNCF design system specifications, so we tr
 </script>
 ```
 
+## Readonly
+
+If the readonly attribute is added, the component will not be editable and no interaction will be proposed.
+
+```html
+<wcs-editable-field label="Nom du champ" value="Initial value" readonly>
+    <wcs-input></wcs-input>
+</wcs-editable-field>
+```
+
 
 <!-- Auto Generated Below -->
 

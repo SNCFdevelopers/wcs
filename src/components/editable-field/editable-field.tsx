@@ -213,7 +213,7 @@ export class EditableField implements ComponentInterface {
     }
 
     private onDisplayContainerClick() {
-        if (this.currentState === EditableComponentState.DISPLAY) {
+        if (this.currentState === EditableComponentState.DISPLAY && this.readonly === false) {
             this.currentState = EditableComponentState.EDIT;
             this.ignoreNextChangeEvent = true;
             this.spiedElement['value'] = this.currentValue;
@@ -241,6 +241,19 @@ export class EditableField implements ComponentInterface {
                     onClick={() => this.onDisplayContainerClick()}>
                     {this.formatFn ? this.formatFn(this.value) : this.value}
                     <wcs-mat-icon icon="edit" size="s"></wcs-mat-icon>
+                    {this.readonly ? (
+                        <svg xmlns="http://www.w3.org/2000/svg" width="27" height="25" viewBox="0 0 27 25"
+                             class="readonly-icon">
+                            <path d="M26.79,25.05H1.21a.73.73,0,0,0,0,1.45H26.79a.73.73,0,0,0,0-1.45Z"
+                                  transform="translate(-0.5 -1.5)"/>
+                            <path
+                                d="M19.8,8.87h-.61V6.73a5.23,5.23,0,0,0-10.46,0V8.87H8.2a1.63,1.63,0,0,0-1.63,1.62V21.32A1.62,1.62,0,0,0,8.2,22.94H19.8a1.62,1.62,0,0,0,1.63-1.62V10.49A1.63,1.63,0,0,0,19.8,8.87ZM10.93,6.73a3,3,0,1,1,6.06,0V8.87H10.93Zm3,14.15a5,5,0,1,1,5-5A5,5,0,0,1,14,20.88Z"
+                                transform="translate(-0.5 -1.5)"/>
+                            <path
+                                d="M14,12.62a3.29,3.29,0,1,0,3.29,3.29A3.29,3.29,0,0,0,14,12.62Zm0,4.75a1.47,1.47,0,1,1,1.47-1.46A1.46,1.46,0,0,1,14,17.37Z"
+                                transform="translate(-0.5 -1.5)"/>
+                        </svg>
+                    ) : null}
                 </div>
                 <div
                     class={'load-container ' + (this.currentState !== EditableComponentState.LOAD ? 'display-none' : '')}>
