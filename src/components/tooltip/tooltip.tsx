@@ -35,7 +35,7 @@ export class Tooltip implements ComponentInterface {
     target: Element;
 
     componentWillLoad() {
-        const target = document.querySelector(`#${this.for}`);
+        const target = document.getElementById(this.for);
         if (target === null) {
             throw new Error(`Cannot find element with corresponding id: ${this.for}`);
         }

@@ -1,8 +1,8 @@
 # Tooltip
 
 ```html
-<wcs-button shape="small" id="bottom">Bottom</wcs-button>
-<wcs-tooltip for="bottom">A tooltip!</wcs-tooltip>
+<wcs-button shape="small" id="1-bottom">Bottom</wcs-button>
+<wcs-tooltip for="1-bottom">A tooltip!</wcs-tooltip>
 <wcs-button shape="small" id="right">Right</wcs-button>
 <wcs-tooltip for="right" position="right">A tooltip!</wcs-tooltip>
 <wcs-button shape="small" id="top">Top</wcs-button>
