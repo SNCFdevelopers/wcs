@@ -1,6 +1,7 @@
 @import "../../style/ripple.scss";
 
 :host {
+    --wcs-select-ligther-percentage: 40;
     --wcs-select-border-radius: var(--wcs-border-radius);
     --wcs-select-background-color: var(--wcs-light);
     --wcs-select-placeholder-color: var(--wcs-text-medium);
@@ -21,6 +22,15 @@
 
     .arrow {
         fill: var(--wcs-select-value-color);
+    }
+
+    .chip {
+        fill: var(--wcs-contrast);
+        opacity: calc((100 - var(--wcs-select-ligther-percentage)) / 100);
+
+        &:hover {
+            opacity: 100;
+        }
     }
 }
 
@@ -87,6 +97,12 @@ label {
     text-overflow: ellipsis;
 }
 
+:host([chips]) {
+    .wcs-select-control {
+        flex-wrap: wrap;
+    }
+}
+
 .wcs-select-control {
     @include ripple;
     display: flex;
@@ -111,11 +127,21 @@ label {
     font-weight: var(--wcs-font-weight-form-value);
 }
 
+.wcs-select-chip {
+    color: var(--wcs-contrast);
+    background-color: var(--wcs-base);
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    margin: calc(var(--wcs-base-margin)/2);
+    padding: calc(calc(var(--wcs-padding) - 8px) / 2) var(--wcs-padding);
+    overflow: initial;
+}
+
 :host([overlaydirection="top"]) {
     .wcs-select-options {
         -webkit-transform: translateY(-100%);
         transform: translateY(-100%);
-        margin-top: -42px;
         border-left: var(--wcs-select-border-color) solid 1px;
         border-right: var(--wcs-select-border-color) solid 1px;
         border-top: var(--wcs-select-border-color) solid 1px;

@@ -21,6 +21,12 @@ export class SelectOption implements ComponentInterface {
     /** The option value, not what's displayed, use inner text instead. */
     @Prop() value?: any;
 
+    /** Chip's displayed text color. */
+    @Prop() chipColor?: string;
+
+    /** Chip's background color. */
+    @Prop() chipBackgroundColor?: string;
+
     /**
      * This property musn't be set by hand, it is used by the `wcs-select` component.
      * If you want a multiple select, set `multiple` attribute on the parent select instead.

@@ -406,6 +406,10 @@ export namespace Components {
     }
     interface WcsSelect {
         /**
+          * If `true`, selected items are shown in chips mode.
+         */
+        "chips": boolean;
+        /**
           * Close the component.
          */
         "close": () => Promise<void>;
@@ -435,6 +439,14 @@ export namespace Components {
         "value"?: any | null;
     }
     interface WcsSelectOption {
+        /**
+          * Chip's background color.
+         */
+        "chipBackgroundColor"?: string;
+        /**
+          * Chip's displayed text color.
+         */
+        "chipColor"?: string;
         /**
           * Wether this option can be selected.
          */
@@ -1321,6 +1333,10 @@ declare namespace LocalJSX {
     }
     interface WcsSelect {
         /**
+          * If `true`, selected items are shown in chips mode.
+         */
+        "chips"?: boolean;
+        /**
           * If `true`, the user cannot interact with the select.
          */
         "disabled"?: boolean;
@@ -1354,6 +1370,14 @@ declare namespace LocalJSX {
         "value"?: any | null;
     }
     interface WcsSelectOption {
+        /**
+          * Chip's background color.
+         */
+        "chipBackgroundColor"?: string;
+        /**
+          * Chip's displayed text color.
+         */
+        "chipColor"?: string;
         /**
           * Wether this option can be selected.
          */

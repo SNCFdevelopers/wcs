@@ -58,6 +58,22 @@
 </wcs-select>
 ```
 
+## Multiple with chips mode
+
+```html
+<wcs-select placeholder="Le select" multiple chips>
+    <wcs-select-option value="1">One</wcs-select-option>
+    <wcs-select-option value="2" chip-background-color="blue">Two</wcs-select-option>
+    <wcs-select-option id="chipRed" value="3">Three</wcs-select-option>
+    <wcs-select-option value="4" chip-color="black" chip-background-color="#FAF025FF">Four</wcs-select-option>
+</wcs-select>
+
+<script>
+    const option = document.querySelector('#chipRed');
+    option.chipBackgroundColor = getComputedStyle(option).getPropertyValue('--wcs-red');
+</script>
+```
+
 ## Programatically select values
 
 ```html

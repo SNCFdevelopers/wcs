@@ -1,24 +1,26 @@
 import {
     Component,
+    ComponentInterface,
     Element,
-    State,
-    Prop,
     Event,
     EventEmitter,
-    Listen,
-    ComponentInterface,
-    Method,
     h,
-    Host, Watch
+    Host,
+    Listen,
+    Method,
+    Prop,
+    State,
+    Watch
 } from '@stencil/core';
 
 import * as MDCRipple from '@material/ripple';
-import { Machine, MachineConfig, interpret, Interpreter, MachineOptions } from 'xstate';
+import { interpret, Interpreter, Machine, MachineConfig, MachineOptions } from 'xstate';
 
 import { SelectChangeEventDetail } from './select-interface';
 import { SelectArrow } from './select-arrow';
 import { SelectOptionChosedEvent, SelectOptionValue } from '../select-option/select-option-interface';
 import { isElement } from '../../utils/helpers';
+import { SelectChips } from './select-chips';
 
 interface SelectStateSchema {
     states: {
@@ -42,6 +44,7 @@ const SELECT_MACHINE_CONFIG: MachineConfig<any, SelectStateSchema, SelectEvent> 
             on: {
                 CLICK: 'opened',
                 OPEN: 'opened',
+                OPTION_CLICKED: {actions: ['selectOption']}
             },
         },
         opened: {
@@ -49,7 +52,7 @@ const SELECT_MACHINE_CONFIG: MachineConfig<any, SelectStateSchema, SelectEvent> 
             on: {
                 CLICK: 'closed',
                 CLOSE: 'closed',
-                OPTION_CLICKED: { actions: ['selectOption'] }
+                OPTION_CLICKED: {actions: ['selectOption']}
             },
         },
     }
@@ -97,26 +100,30 @@ export class Select implements ComponentInterface {
     focused: boolean;
 
     /** The currently selected value. */
-    @Prop({ mutable: true })
+    @Prop({mutable: true})
     value?: any | null;
 
     /** The text to display when the select is empty. */
-    @Prop({ mutable: true, reflect: true })
+    @Prop({mutable: true, reflect: true})
     placeholder?: string | null;
 
     /** If `true`, the user cannot interact with the select. */
-    @Prop({ mutable: true })
+    @Prop({mutable: true})
     disabled = false;
 
     /** If `true`, the user can select multiple values at once. */
-    @Prop({ reflect: true })
+    @Prop({reflect: true})
     multiple = false;
+
+    /** If `true`, selected items are shown in chips mode. */
+    @Prop({reflect: true})
+    chips = false;
 
     /** The name of the control, which is submitted with the form data. */
     @Prop()
     name?: string;
 
-    @State() overlayDirection : 'bottom' | 'top' = 'bottom';
+    @State() overlayDirection: 'bottom' | 'top' = 'bottom';
 
     /** Emitted when the value has changed. */
     @Event() wcsChange!: EventEmitter<SelectChangeEventDetail>;
@@ -160,7 +167,12 @@ export class Select implements ComponentInterface {
             this.options.forEach((opt: HTMLWcsSelectOptionElement) => {
                 const isSelected = value ? value.includes(opt.value) : false;
                 if (isSelected) {
-                    this.values.push({ value: opt.value, displayText: opt.innerText });
+                    this.values.push({
+                        value: opt.value,
+                        displayText: opt.innerText,
+                        chipColor: opt.chipColor,
+                        chipBackgroundColor: opt.chipBackgroundColor
+                    });
                 }
                 opt.selected = isSelected;
             });
@@ -244,7 +256,7 @@ export class Select implements ComponentInterface {
                 }
             }
         });
-        observer.observe(this.el, { childList: true });
+        observer.observe(this.el, {childList: true});
     }
 
     componentWillUpdate() {
@@ -254,7 +266,7 @@ export class Select implements ComponentInterface {
         }
     }
 
-    private get options() {
+    private get options(): HTMLWcsSelectOptionElement[] {
         const opts = this.el?.querySelectorAll('wcs-select-option');
         if (opts && opts.length !== 0) {
             return opts as any as HTMLWcsSelectOptionElement[];
@@ -298,8 +310,8 @@ export class Select implements ComponentInterface {
      */
     private updateOverlayDirection() {
         // We retrieve values from CSS variables
-        const overlayMaxHeight = +getComputedStyle(this.el).getPropertyValue('--wcs-select-overlay-max-height').replace(/\D/g,'');
-        const optionSize = +getComputedStyle(this.el).getPropertyValue('--wcs-select-option-height').replace(/\D/g,'');
+        const overlayMaxHeight = +getComputedStyle(this.el).getPropertyValue('--wcs-select-overlay-max-height').replace(/\D/g, '');
+        const optionSize = +getComputedStyle(this.el).getPropertyValue('--wcs-select-option-height').replace(/\D/g, '');
         const selectBounding = this.el.getBoundingClientRect();
         const maxOptionsCount = Math.floor(overlayMaxHeight / optionSize);
         // Maximum size of the overlay is 360px, otherwise the size is calculated from the number of options
@@ -310,6 +322,16 @@ export class Select implements ComponentInterface {
             this.overlayDirection = 'top';
         } else {
             this.overlayDirection = 'bottom';
+        }
+    }
+
+    private updateOverlayMargin() {
+        if (this.controlEl && this.optionsEl) {
+            if (this.overlayDirection === 'top') {
+                this.optionsEl.style.marginTop = '-' + this.controlEl.getBoundingClientRect().height + 'px';
+            } else {
+                this.optionsEl.style.marginTop = '0';
+            }
         }
     }
 
@@ -324,8 +346,8 @@ export class Select implements ComponentInterface {
     private handleClickOnMultiple(event: SelectOptionChosedEvent) {
         const index = this.values.findIndex(v => v.value === event.value);
         if (index === -1) {
-            const { value, displayText } = event;
-            this.values.push({ value, displayText });
+            const {value, displayText, chipColor, chipBackgroundColor} = event;
+            this.values.push({value, displayText, chipColor, chipBackgroundColor});
             event.source.selected = true;
         } else {
             event.source.selected = false;
@@ -375,12 +397,19 @@ export class Select implements ComponentInterface {
             && (event.offsetX > event.target.clientWidth
                 || event.offsetY > event.target.clientHeight);
 
-        if (!clickOnScroll) {
+        const clickOnRemoveChip = event.composedPath()
+            .filter(x => {
+                const el = (x as HTMLElement);
+                return el.nodeName === 'svg' && el.classList.contains('chip');
+            })
+            .length > 0;
+
+        if (!clickOnScroll && !clickOnRemoveChip) {
             this.stateService.send('CLICK');
         }
     }
 
-    @Listen('click', { target: 'window' })
+    @Listen('click', {target: 'window'})
     onWindowClickEvent(event: MouseEvent) {
         // We search in the full path of the event, because if a select is used in another web component,
         // the event captured by the windows will target the parent web component and not the select.
@@ -394,22 +423,44 @@ export class Select implements ComponentInterface {
 
     @Listen('wcsSelectOptionClick')
     selectedOptionChanged(event: CustomEvent<SelectOptionChosedEvent>) {
-        this.stateService.send({ type: 'OPTION_CLICKED', value: event.detail });
+        this.sendOptionClickedToStateMachine(event.detail);
+    }
+
+    sendOptionClickedToStateMachine(event: SelectOptionChosedEvent) {
+        this.stateService.send({type: 'OPTION_CLICKED', value: event});
     }
 
     onSlotchange() {
         this.updateSelectedValue(this.value);
     }
 
+    removeChip(v: SelectOptionValue) {
+        this.options
+            .forEach(opt => {
+                if (opt.value === v.value) {
+                    this.sendOptionClickedToStateMachine({
+                        ...v,
+                        source: opt
+                    });
+                }
+            });
+    }
+
     render() {
         if (this.hasLoaded) {
             this.updateStyles();
         }
+        this.updateOverlayMargin();
         return (
-            <Host class={this.expanded ? 'expanded ' : ''} overlayDirection={this.overlayDirection} {...this.focusedAttributes()}>
+            <Host class={this.expanded ? 'expanded ' : ''}
+                  overlayDirection={this.overlayDirection} {...this.focusedAttributes()}>
                 <div class="wcs-select-control">
                     {this.hasValue
-                        ? <label class="wcs-select-value">{this.displayText}</label>
+                        ? (this.chips ?
+                            this.values.map((option: SelectOptionValue) =>
+                                <SelectChips option={option} onRemove={this.removeChip.bind(this)}/>
+                            )
+                            : <label class="wcs-select-value">{this.displayText}</label>)
                         : <label class="wcs-select-placeholder">{this.placeholder}</label>
                     }
                     <SelectArrow up={this.expanded}/>
@@ -433,7 +484,7 @@ export class Select implements ComponentInterface {
     }
 
     private focusedAttributes() {
-        return !this.disabled ? { tabIndex: 0 } : {};
+        return !this.disabled ? {tabIndex: 0} : {};
     }
 
 }
