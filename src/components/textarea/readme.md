@@ -51,6 +51,16 @@
 
 ## Methods
 
+### `fitContent() => Promise<void>`
+
+This method make the textarea automatically adopt the size of the content without a scroll bar
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
 ### `getInputElement() => Promise<HTMLTextAreaElement>`
 
 Returns the native `<textarea>` element used under the hood.

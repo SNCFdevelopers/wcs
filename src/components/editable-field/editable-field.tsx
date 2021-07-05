@@ -221,14 +221,15 @@ export class EditableField implements ComponentInterface {
                 this.isError = !this.validateFn(this.currentValue);
             }
             // We wait until the element is displayed on the page otherwise the focus does not work
-            const DELAY_FOR_CSS_RENDER = 20;
+            const DELAY_FOR_RENDER = 20;
             setTimeout(() => {
                 if (this.type === 'input') {
-                    (this.spiedElement as HTMLWcsTextareaElement).setFocus();
+                    (this.spiedElement as HTMLWcsInputElement).setFocus();
                 } else if (this.type === 'textarea') {
+                    (this.spiedElement as HTMLWcsTextareaElement).fitContent();
                     (this.spiedElement as HTMLWcsTextareaElement).setFocus();
                 }
-            }, DELAY_FOR_CSS_RENDER)
+            }, DELAY_FOR_RENDER)
         }
     }
 
@@ -242,7 +243,7 @@ export class EditableField implements ComponentInterface {
                     {this.formatFn ? this.formatFn(this.value) : this.value}
                     <wcs-mat-icon icon="edit" size="s"></wcs-mat-icon>
                     {this.readonly ? (
-                        <svg xmlns="http://www.w3.org/2000/svg" width="27" height="25" viewBox="0 0 27 25"
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="24" viewBox="0 0 27 25"
                              class="readonly-icon">
                             <path d="M26.79,25.05H1.21a.73.73,0,0,0,0,1.45H26.79a.73.73,0,0,0,0-1.45Z"
                                   transform="translate(-0.5 -1.5)"/>

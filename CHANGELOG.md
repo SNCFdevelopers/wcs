@@ -10,9 +10,12 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 
 - `wcs-select`: Added support for the chips attribute to display multi selected values in chips mode
+- `textarea`: Added a method to force the textarea to adopt the content size
 
 ### Fixed
 
+- `editable-field`: Fix bad display in fields with several lines of text.
+- `editable-field`: Fix textarea autogrow behaviour
 - `wcs-tooltip`: Id starting by a number is not a valid CCS selector (it has to be escaped). It's a problem if an
   application use a tooltip on an element with an id starting by a number. We fix this without using CSS selector
   to find the element.

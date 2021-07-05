@@ -22,14 +22,13 @@
         wcs-mat-icon {
             display: none;
         }
-
+        white-space: pre;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        white-space: pre;
         background-color: var(--wcs-light);
         border-radius: var(--wcs-border-radius);
-        font-style: 1rem;
+        font-size: 1rem;
         line-height: 1.5;
         font-weight: 500;
         color: var(--wcs-gray);
@@ -39,17 +38,19 @@
     }
 
     .load-container {
+        white-space: pre;
         display: flex;
         justify-content: space-between;
         background-color: var(--wcs-light);
         border-radius: var(--wcs-border-radius);
-        font-style: 1rem;
+        font-size: 1rem;
         line-height: 1.5;
         font-weight: 500;
         color: var(--wcs-gray);
         padding: calc(0.5 * var(--wcs-padding)) var(--wcs-padding);
         transition: 0.175s all;
         border: solid 1px transparent;
+        align-items: center;
     }
 
     wcs-spinner {
@@ -74,7 +75,6 @@
             display: flex;
             align-items: center;
         }
-
         color: var(--wcs-primary);
         cursor: pointer;
         border: solid 1px var(--wcs-primary);

@@ -532,6 +532,10 @@ export namespace Components {
          */
         "fireFocusEvents": boolean;
         /**
+          * This method make the textarea automatically adopt the size of the content without a scroll bar
+         */
+        "fitContent": () => Promise<void>;
+        /**
           * Returns the native `<textarea>` element used under the hood.
          */
         "getInputElement": () => Promise<HTMLTextAreaElement>;
@@ -1421,7 +1425,7 @@ declare namespace LocalJSX {
         "header"?: string;
         /**
           * Do not use, meant for internal use only.
-          * @inner 
+          * @inner
           * @ignore
          */
         "onTabLoaded"?: (event: CustomEvent<void>) => void;

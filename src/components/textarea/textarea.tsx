@@ -228,6 +228,14 @@ export class Input implements ComponentInterface {
     }
 
     /**
+     * This method make the textarea automatically adopt the size of the content without a scroll bar
+     */
+    @Method()
+    async fitContent() {
+        raf(() => this.runAutoGrow());
+    }
+
+    /**
      * Sets focus on the native `textarea` in `wcs-textarea`. Use this method instead of the global
      * `textarea.focus()`.
      */
