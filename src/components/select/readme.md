@@ -152,6 +152,7 @@ It is strongly recommended to add a width size to the select.
 
 | Property      | Attribute     | Description                                                     | Type      | Default     |
 | ------------- | ------------- | --------------------------------------------------------------- | --------- | ----------- |
+| `chips`       | `chips`       | If `true`, selected items are shown in chips mode.              | `boolean` | `false`     |
 | `disabled`    | `disabled`    | If `true`, the user cannot interact with the select.            | `boolean` | `false`     |
 | `multiple`    | `multiple`    | If `true`, the user can select multiple values at once.         | `boolean` | `false`     |
 | `name`        | `name`        | The name of the control, which is submitted with the form data. | `string`  | `undefined` |

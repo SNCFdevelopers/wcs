@@ -1425,7 +1425,7 @@ declare namespace LocalJSX {
         "header"?: string;
         /**
           * Do not use, meant for internal use only.
-          * @inner
+          * @inner 
           * @ignore
          */
         "onTabLoaded"?: (event: CustomEvent<void>) => void;
