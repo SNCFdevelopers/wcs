@@ -414,6 +414,10 @@ export namespace Components {
          */
         "close": () => Promise<void>;
         /**
+          * Function used to compare options, default : deep comparison.
+         */
+        "compareWith"?: (optionValue: any, selectedValue: any) => boolean;
+        /**
           * If `true`, the user cannot interact with the select.
          */
         "disabled": boolean;
@@ -1340,6 +1344,10 @@ declare namespace LocalJSX {
           * If `true`, selected items are shown in chips mode.
          */
         "chips"?: boolean;
+        /**
+          * Function used to compare options, default : deep comparison.
+         */
+        "compareWith"?: (optionValue: any, selectedValue: any) => boolean;
         /**
           * If `true`, the user cannot interact with the select.
          */

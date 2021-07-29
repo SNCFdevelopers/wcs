@@ -13,6 +13,8 @@ import {
     Watch
 } from '@stencil/core';
 
+import _ from 'lodash';
+
 import * as MDCRipple from '@material/ripple';
 import { interpret, Interpreter, Machine, MachineConfig, MachineOptions } from 'xstate';
 
@@ -123,6 +125,10 @@ export class Select implements ComponentInterface {
     @Prop()
     name?: string;
 
+    /** Function used to compare options, default : deep comparison. */
+    @Prop()
+    compareWith?: (optionValue: any, selectedValue: any) => boolean = (optionValue, selectedValue) => _.isEqual(optionValue, selectedValue);
+
     @State() overlayDirection: 'bottom' | 'top' = 'bottom';
 
     /** Emitted when the value has changed. */
@@ -165,7 +171,9 @@ export class Select implements ComponentInterface {
             this.values = [];
 
             this.options.forEach((opt: HTMLWcsSelectOptionElement) => {
-                const isSelected = value ? value.includes(opt.value) : false;
+                const isSelected = value ?
+                    value.findIndex(v => this.compareWith(opt.value, v)) !== -1
+                    : false;
                 if (isSelected) {
                     this.values.push({
                         value: opt.value,
@@ -182,8 +190,7 @@ export class Select implements ComponentInterface {
                 : undefined;
         } else {
             this.options.forEach((opt: HTMLWcsSelectOptionElement) => {
-                // tslint:disable-next-line:triple-equals
-                const isSelected = opt.value == value;
+                const isSelected = this.compareWith(opt.value, value);
                 if (isSelected) {
                     this.displayText = opt.innerText;
                 }

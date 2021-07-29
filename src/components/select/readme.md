@@ -10,6 +10,24 @@
 </wcs-select>
 ```
 
+## Basic object
+
+```html
+<wcs-select id="basic-object">
+    <wcs-select-option id="basic-object-opt1">One</wcs-select-option>
+    <wcs-select-option id="basic-object-opt2">Two</wcs-select-option>
+    <wcs-select-option id="basic-object-opt3">Three</wcs-select-option>
+</wcs-select>
+
+<script>
+    document.querySelector('#basic-object-opt1').value = {id: 1, label: 'label'};
+    document.querySelector('#basic-object-opt2').value = {id: 2, label: 'label'};
+    document.querySelector('#basic-object-opt3').value = {id: 3, label: 'label'};
+    const pSelect = document.querySelector('#basic-object');
+    pSelect.value = {id: 2, label: 'label'};
+</script>
+```
+
 ## With disabled option
 
 ```html
@@ -56,6 +74,24 @@
     <wcs-select-option value="2">Two</wcs-select-option>
     <wcs-select-option value="3">Three</wcs-select-option>
 </wcs-select>
+```
+
+## Multiple object
+
+```html
+<wcs-select id="basic-object-multiple" multiple>
+    <wcs-select-option id="basic-object-multiple-opt1">One</wcs-select-option>
+    <wcs-select-option id="basic-object-multiple-opt2">Two</wcs-select-option>
+    <wcs-select-option id="basic-object-multiple-opt3">Three</wcs-select-option>
+</wcs-select>
+
+<script>
+    document.querySelector('#basic-object-multiple-opt1').value = {id: 1, label: 'label'};
+    document.querySelector('#basic-object-multiple-opt2').value = {id: 2, label: 'label'};
+    document.querySelector('#basic-object-multiple-opt3').value = {id: 3, label: 'label'};
+    const pSelectMultiple = document.querySelector('#basic-object-multiple');
+    pSelectMultiple.value = [{id: 2, label: 'label'}, {id: 3, label: 'label'}];
+</script>
 ```
 
 ## Multiple with chips mode

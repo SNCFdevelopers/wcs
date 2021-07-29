@@ -5,9 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.2.1]
+## [2.3.0]
 
-### Fix
+### Added
+
+- `select`: Added method to compare options with selected options (by default : deep comparison between object)
+
+### Fixed
 
 - `editable-field`: fix the display of null values, array values (for multiple select) and error states on input and textarea
 
