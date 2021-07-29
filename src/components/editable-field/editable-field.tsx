@@ -152,12 +152,12 @@ export class EditableField implements ComponentInterface {
             } else {
                 this.isError = this.validateFn ? !this.validateFn(this.currentValue) : false;
                 if (!this.isError) {
+                    this.currentState = EditableComponentState.LOAD;
                     this.wcsChange.emit({
                         newValue: this.currentValue,
                         successHandler: () => this.forceDisplayStateAndValidate(),
                         errorhandler: () => this.errorHandler()
                     });
-                    this.currentState = EditableComponentState.LOAD;
                 }
             }
         }
