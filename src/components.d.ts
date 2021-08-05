@@ -136,6 +136,18 @@ export namespace Components {
          */
         "isError": boolean;
     }
+    interface WcsGalactic {
+        /**
+          * Title to display in the bar
+         */
+        "title": string;
+    }
+    interface WcsGalacticMenu {
+        /**
+          * Text to be displayed in the galactic bar
+         */
+        "text": string;
+    }
     interface WcsGrid {
         "data": any[];
         /**
@@ -713,6 +725,18 @@ declare global {
         prototype: HTMLWcsFormFieldElement;
         new (): HTMLWcsFormFieldElement;
     };
+    interface HTMLWcsGalacticElement extends Components.WcsGalactic, HTMLStencilElement {
+    }
+    var HTMLWcsGalacticElement: {
+        prototype: HTMLWcsGalacticElement;
+        new (): HTMLWcsGalacticElement;
+    };
+    interface HTMLWcsGalacticMenuElement extends Components.WcsGalacticMenu, HTMLStencilElement {
+    }
+    var HTMLWcsGalacticMenuElement: {
+        prototype: HTMLWcsGalacticMenuElement;
+        new (): HTMLWcsGalacticMenuElement;
+    };
     interface HTMLWcsGridElement extends Components.WcsGrid, HTMLStencilElement {
     }
     var HTMLWcsGridElement: {
@@ -892,6 +916,8 @@ declare global {
         "wcs-field-content": HTMLWcsFieldContentElement;
         "wcs-field-label": HTMLWcsFieldLabelElement;
         "wcs-form-field": HTMLWcsFormFieldElement;
+        "wcs-galactic": HTMLWcsGalacticElement;
+        "wcs-galactic-menu": HTMLWcsGalacticMenuElement;
         "wcs-grid": HTMLWcsGridElement;
         "wcs-grid-column": HTMLWcsGridColumnElement;
         "wcs-grid-pagination": HTMLWcsGridPaginationElement;
@@ -1047,6 +1073,18 @@ declare namespace LocalJSX {
           * Specifies whether the form field is in an error state. Displays the field border in red and the message contained in the wcs-error component
          */
         "isError"?: boolean;
+    }
+    interface WcsGalactic {
+        /**
+          * Title to display in the bar
+         */
+        "title"?: string;
+    }
+    interface WcsGalacticMenu {
+        /**
+          * Text to be displayed in the galactic bar
+         */
+        "text"?: string;
     }
     interface WcsGrid {
         "data"?: any[];
@@ -1586,6 +1624,8 @@ declare namespace LocalJSX {
         "wcs-field-content": WcsFieldContent;
         "wcs-field-label": WcsFieldLabel;
         "wcs-form-field": WcsFormField;
+        "wcs-galactic": WcsGalactic;
+        "wcs-galactic-menu": WcsGalacticMenu;
         "wcs-grid": WcsGrid;
         "wcs-grid-column": WcsGridColumn;
         "wcs-grid-pagination": WcsGridPagination;
@@ -1635,6 +1675,8 @@ declare module "@stencil/core" {
             "wcs-field-content": LocalJSX.WcsFieldContent & JSXBase.HTMLAttributes<HTMLWcsFieldContentElement>;
             "wcs-field-label": LocalJSX.WcsFieldLabel & JSXBase.HTMLAttributes<HTMLWcsFieldLabelElement>;
             "wcs-form-field": LocalJSX.WcsFormField & JSXBase.HTMLAttributes<HTMLWcsFormFieldElement>;
+            "wcs-galactic": LocalJSX.WcsGalactic & JSXBase.HTMLAttributes<HTMLWcsGalacticElement>;
+            "wcs-galactic-menu": LocalJSX.WcsGalacticMenu & JSXBase.HTMLAttributes<HTMLWcsGalacticMenuElement>;
             "wcs-grid": LocalJSX.WcsGrid & JSXBase.HTMLAttributes<HTMLWcsGridElement>;
             "wcs-grid-column": LocalJSX.WcsGridColumn & JSXBase.HTMLAttributes<HTMLWcsGridColumnElement>;
             "wcs-grid-pagination": LocalJSX.WcsGridPagination & JSXBase.HTMLAttributes<HTMLWcsGridPaginationElement>;

@@ -40,8 +40,16 @@ div[slot=actions] > wcs-button > img {
 
 table {
     width: 100%;
+    border-spacing: 0;
 }
+th {
+    color: var(--wcs-gray-dark) !important;
+    text-align: left;
 
+}
+td {
+    border-top: solid 1px var(--wcs-gray);
+}
 main {
     grid-area: content;
     height: calc(100vh - 64px);

@@ -202,14 +202,15 @@ It is strongly recommended to add a width size to the select.
 
 ## Properties
 
-| Property      | Attribute     | Description                                                     | Type      | Default     |
-| ------------- | ------------- | --------------------------------------------------------------- | --------- | ----------- |
-| `chips`       | `chips`       | If `true`, selected items are shown in chips mode.              | `boolean` | `false`     |
-| `disabled`    | `disabled`    | If `true`, the user cannot interact with the select.            | `boolean` | `false`     |
-| `multiple`    | `multiple`    | If `true`, the user can select multiple values at once.         | `boolean` | `false`     |
-| `name`        | `name`        | The name of the control, which is submitted with the form data. | `string`  | `undefined` |
-| `placeholder` | `placeholder` | The text to display when the select is empty.                   | `string`  | `undefined` |
-| `value`       | `value`       | The currently selected value.                                   | `any`     | `undefined` |
+| Property      | Attribute     | Description                                                     | Type                                                | Default                                                                 |
+| ------------- | ------------- | --------------------------------------------------------------- | --------------------------------------------------- | ----------------------------------------------------------------------- |
+| `chips`       | `chips`       | If `true`, selected items are shown in chips mode.              | `boolean`                                           | `false`                                                                 |
+| `compareWith` | --            | Function used to compare options, default : deep comparison.    | `(optionValue: any, selectedValue: any) => boolean` | `(optionValue, selectedValue) => _.isEqual(optionValue, selectedValue)` |
+| `disabled`    | `disabled`    | If `true`, the user cannot interact with the select.            | `boolean`                                           | `false`                                                                 |
+| `multiple`    | `multiple`    | If `true`, the user can select multiple values at once.         | `boolean`                                           | `false`                                                                 |
+| `name`        | `name`        | The name of the control, which is submitted with the form data. | `string`                                            | `undefined`                                                             |
+| `placeholder` | `placeholder` | The text to display when the select is empty.                   | `string`                                            | `undefined`                                                             |
+| `value`       | `value`       | The currently selected value.                                   | `any`                                               | `undefined`                                                             |
 
 
 ## Events

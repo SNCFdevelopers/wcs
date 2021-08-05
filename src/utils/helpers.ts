@@ -74,3 +74,11 @@ export const raf = (h: any) => {
     }
     return setTimeout(h);
 };
+
+/**
+ * Return true if the mouseEvent click is inside the given HTML element
+ */
+export const clickInsideElement = (event: MouseEvent, element: HTMLElement): boolean => {
+    return event.x >= element.getBoundingClientRect().x && event.x <= element.getBoundingClientRect().x + element.getBoundingClientRect().width
+        && event.y >= element.getBoundingClientRect().y && event.y <= element.getBoundingClientRect().y + element.getBoundingClientRect().height;
+}

@@ -9,6 +9,13 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+- `galactic`: Adding the galactic navigation bar
+- `galactic-menu`: Added a menu component for the galactic navigation bar
+
+## [2.3.0]
+
+### Added
+
 - `select`: Added method to compare options with selected options (by default : deep comparison between object)
 
 ### Fixed
