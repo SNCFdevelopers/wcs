@@ -110,6 +110,22 @@
 </script>
 ```
 
+## Multiple with chips mode disabled
+
+```html
+<wcs-select id="chipsDisabled" placeholder="Le select" multiple chips disabled>
+    <wcs-select-option value="1">One</wcs-select-option>
+    <wcs-select-option value="2">Two</wcs-select-option>
+    <wcs-select-option value="3">Three</wcs-select-option>
+    <wcs-select-option value="4">Four</wcs-select-option>
+</wcs-select>
+
+<script>
+    const pChipsDisabled = document.querySelector('#chipsDisabled');
+    pChipsDisabled.value = ['2', '3'];
+</script>
+```
+
 ## Programatically select values
 
 ```html

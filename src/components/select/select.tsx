@@ -465,7 +465,7 @@ export class Select implements ComponentInterface {
                     {this.hasValue
                         ? (this.chips ?
                             this.values.map((option: SelectOptionValue) =>
-                                <SelectChips option={option} onRemove={this.removeChip.bind(this)}/>
+                                <SelectChips disabled={this.disabled} option={option} onRemove={this.removeChip.bind(this)}/>
                             )
                             : <label class="wcs-select-value">{this.displayText}</label>)
                         : <label class="wcs-select-placeholder">{this.placeholder}</label>
