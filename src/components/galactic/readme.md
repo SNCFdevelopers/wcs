@@ -5,7 +5,7 @@
 This component replaces the vertical navbar for sites and applications that use the communication design system
 
 ```html
-<wcs-galactic title="NomSuperApp est un site SNCF">
+<wcs-galactic text="NomSuperApp est un site SNCF">
     <wcs-galactic-menu text="Jean Dupont">
         <div style="margin-bottom: 8px"><a href="#" style="text-decoration: none; color: var(--wcs-white)">CGU</a></div>
         <div style="margin-bottom: 8px"><a href="#" style="text-decoration: none; color: var(--wcs-white)">À Propos</a></div>
@@ -20,9 +20,9 @@ This component replaces the vertical navbar for sites and applications that use 
 
 ## Properties
 
-| Property | Attribute | Description                 | Type     | Default     |
-| -------- | --------- | --------------------------- | -------- | ----------- |
-| `title`  | `title`   | Title to display in the bar | `string` | `undefined` |
+| Property | Attribute | Description                | Type     | Default     |
+| -------- | --------- | -------------------------- | -------- | ----------- |
+| `text`   | `text`    | Text to display in the bar | `string` | `undefined` |
 
 
 ----------------------------------------------

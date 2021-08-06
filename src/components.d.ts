@@ -138,9 +138,9 @@ export namespace Components {
     }
     interface WcsGalactic {
         /**
-          * Title to display in the bar
+          * Text to display in the bar
          */
-        "title": string;
+        "text": string;
     }
     interface WcsGalacticMenu {
         /**
@@ -1076,9 +1076,9 @@ declare namespace LocalJSX {
     }
     interface WcsGalactic {
         /**
-          * Title to display in the bar
+          * Text to display in the bar
          */
-        "title"?: string;
+        "text"?: string;
     }
     interface WcsGalacticMenu {
         /**

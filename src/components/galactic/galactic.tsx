@@ -7,8 +7,8 @@ import { Component, ComponentInterface, Host, h, Prop, Element, State } from '@s
 })
 export class Galactic implements ComponentInterface {
     @Element() el: HTMLWcsGalacticElement;
-    /** Title to display in the bar */
-    @Prop() title: string;
+    /** Text to display in the bar */
+    @Prop() text: string;
     @State() show: boolean = false;
 
 
@@ -20,7 +20,7 @@ export class Galactic implements ComponentInterface {
                             src={SNCF_BASE64_SVG_LOGO}
                             id="sncf-logo"
                             alt="Logo SNCF"/>
-                        <span>{this.title}</span>
+                        <span>{this.text}</span>
                     </div>
                     <div class="menu">
                         <slot/>
