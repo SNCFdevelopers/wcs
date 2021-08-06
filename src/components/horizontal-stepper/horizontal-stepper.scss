@@ -1,0 +1,70 @@
+:host {
+    display: block;
+
+    .steps {
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+    }
+
+    .graphic-step {
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+        align-items: center;
+    }
+
+    .graphic-step[data-first] {
+        flex: 0;
+    }
+
+    wcs-progress-bar {
+        --wcs-internal-progress-bar-border-radius: 0;
+        flex: 1;
+        margin: 0 -1px;
+    }
+
+    .label-container {
+        justify-content: space-between;
+        display: flex;
+        flex-direction: row;
+        margin-top: var(--wcs-base-margin);
+    }
+
+    .label-container > * {
+        width: 100%;
+        text-align: center;
+        flex: 1;
+        color: var(--wcs-text-medium);
+        font-weight: 500;
+
+    }
+
+    .label-container > *[data-disable] {
+        color: var(--wcs-text-light);
+    }
+
+    .label-container > *[data-current] {
+        color: var(--wcs-primary);
+    }
+
+    .label-container > div[data-first] {
+        margin-left: 20px;
+        text-align: left;
+        flex: 0.5;
+    }
+
+    .label-container > div[data-first] > span {
+        margin-left: -20px;
+    }
+
+    .label-container > div[data-last] {
+        margin-right: 20px;
+        text-align: right;
+        flex: 0.5;
+    }
+
+    .label-container > div[data-last] > span {
+        margin-right: -20px;
+    }
+}

@@ -1,3 +1,8 @@
+:host {
+    --wcs-internal-progress-bar-border-radius: var(--wcs-progress-bar-border-radius,0.3125rem);
+    --wcs-internal-progress-bar-border-radius-small: var(--wcs-progress-bar-border-radius-small,0.15625rem);
+    --wcs-internal-progress-bar-animation-duration: var(--wcs-progress-bar-animation-duration,0.375s);
+}
 .progress {
   display: flex;
   height: 0.625rem;
@@ -6,7 +11,7 @@
   background-color: #fff;
   background-image: linear-gradient(90deg, #e1ded9 50%, transparent 50%);
   background-size: 0.25rem 0.625rem;
-  border-radius: 0.3125rem;
+  border-radius: var(--wcs-internal-progress-bar-border-radius);
 
   &.has-label {
     margin-top: 2.375rem;
@@ -18,7 +23,7 @@
     background-color: #fff;
     background-image: none;
     background-size: auto;
-    border-radius: 0.15625rem;
+    border-radius: var(--wcs-internal-progress-bar-border-radius-small);
   }
 
   // FIXME: Temporary fix so the label doesn't appear before the bar
@@ -35,8 +40,8 @@
   color: #4d4f53;
   text-align: center;
   background-color: var(--wcs-primary);
-  border-radius: 0.3125rem;
-  transition: width 0.375s ease-out;
+  border-radius: var(--wcs-internal-progress-bar-border-radius);
+  transition: width var(--wcs-internal-progress-bar-animation-duration) ease-out;
 }
 
 .progress-label {

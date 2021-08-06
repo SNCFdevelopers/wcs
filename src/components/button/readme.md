@@ -109,12 +109,14 @@
 ### Used by
 
  - [wcs-dropdown](../dropdown)
+ - [wcs-horizontal-stepper](../horizontal-stepper)
  - [wcs-modal](../modal)
 
 ### Graph
 ```mermaid
 graph TD;
   wcs-dropdown --> wcs-button
+  wcs-horizontal-stepper --> wcs-button
   wcs-modal --> wcs-button
   style wcs-button fill:#f9f,stroke:#333,stroke-width:4px
 ```

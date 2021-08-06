@@ -9,7 +9,9 @@ import { WcsButtonMode, WcsButtonShape, WcsButtonType } from "./components/butto
 import { CheckboxChangeEventDetail, CheckboxLabelAlignment } from "./components/checkbox/checkbox-interface";
 import { EditableComponentUpdateEvent, FormatFn, ValidateFn } from "./components/editable-field/editable-field-interface";
 import { WcsCellFormatter, WcsGridAllRowSelectedEventDetails, WcsGridColumnSortChangeEventDetails, WcsGridPaginationChangeEventDetails, WcsGridRowSelectedEventDetails, WcsGridSelectionConfig, WcsSortFn, WcsSortOrder } from "./components/grid/grid-interface";
+import { HorizontalStepClickEvent, HorizontalStepConfig } from "./components/horizontal-stepper/horizontal-stepper-interface";
 import { AutocompleteTypes, InputChangeEventDetail, TextFieldTypes } from "./components/input/input-interface";
+import { MaterialIconFamily } from "./components/mat-icon/mat-icon-interface";
 import { RadioChosedEvent } from "./components/radio/radio-interface";
 import { RadioGroupChangeEventDetail } from "./components/radio-group/radio-group-interface";
 import { SelectChangeEventDetail } from "./components/select/select-interface";
@@ -192,6 +194,20 @@ export namespace Components {
     interface WcsHint {
         "small": boolean;
     }
+    interface WcsHorizontalStepper {
+        /**
+          * index of the active step. The index corresponds to the index of the step in the 'steps' list
+         */
+        "currentStep": number;
+        /**
+          * Specifies if the stepper is in linear mode (the user can only click on the next step) or non-linear (the user can click on any step)
+         */
+        "mode": 'linear' | 'nonLinear';
+        /**
+          * steps to display
+         */
+        "steps": HorizontalStepConfig[];
+    }
     interface WcsIcon {
         "icon": string;
         "size": 'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px';
@@ -343,7 +359,7 @@ export namespace Components {
         /**
           * Family of the icon
          */
-        "family": 'filled' | 'outlined' | 'twotone' | 'rounded' | 'sharp';
+        "family": MaterialIconFamily;
         /**
           * Use the icon name from Material Icons
          */
@@ -767,6 +783,12 @@ declare global {
         prototype: HTMLWcsHintElement;
         new (): HTMLWcsHintElement;
     };
+    interface HTMLWcsHorizontalStepperElement extends Components.WcsHorizontalStepper, HTMLStencilElement {
+    }
+    var HTMLWcsHorizontalStepperElement: {
+        prototype: HTMLWcsHorizontalStepperElement;
+        new (): HTMLWcsHorizontalStepperElement;
+    };
     interface HTMLWcsIconElement extends Components.WcsIcon, HTMLStencilElement {
     }
     var HTMLWcsIconElement: {
@@ -923,6 +945,7 @@ declare global {
         "wcs-grid-pagination": HTMLWcsGridPaginationElement;
         "wcs-header": HTMLWcsHeaderElement;
         "wcs-hint": HTMLWcsHintElement;
+        "wcs-horizontal-stepper": HTMLWcsHorizontalStepperElement;
         "wcs-icon": HTMLWcsIconElement;
         "wcs-input": HTMLWcsInputElement;
         "wcs-label": HTMLWcsLabelElement;
@@ -1140,6 +1163,24 @@ declare namespace LocalJSX {
     interface WcsHint {
         "small"?: boolean;
     }
+    interface WcsHorizontalStepper {
+        /**
+          * index of the active step. The index corresponds to the index of the step in the 'steps' list
+         */
+        "currentStep"?: number;
+        /**
+          * Specifies if the stepper is in linear mode (the user can only click on the next step) or non-linear (the user can click on any step)
+         */
+        "mode"?: 'linear' | 'nonLinear';
+        /**
+          * Emits when the user selects a new step.
+         */
+        "onWcsHorizontalStepClick"?: (event: CustomEvent<HorizontalStepClickEvent>) => void;
+        /**
+          * steps to display
+         */
+        "steps"?: HorizontalStepConfig[];
+    }
     interface WcsIcon {
         "icon"?: string;
         "size"?: 'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px';
@@ -1295,7 +1336,7 @@ declare namespace LocalJSX {
         /**
           * Family of the icon
          */
-        "family"?: 'filled' | 'outlined' | 'twotone' | 'rounded' | 'sharp';
+        "family"?: MaterialIconFamily;
         /**
           * Use the icon name from Material Icons
          */
@@ -1631,6 +1672,7 @@ declare namespace LocalJSX {
         "wcs-grid-pagination": WcsGridPagination;
         "wcs-header": WcsHeader;
         "wcs-hint": WcsHint;
+        "wcs-horizontal-stepper": WcsHorizontalStepper;
         "wcs-icon": WcsIcon;
         "wcs-input": WcsInput;
         "wcs-label": WcsLabel;
@@ -1682,6 +1724,7 @@ declare module "@stencil/core" {
             "wcs-grid-pagination": LocalJSX.WcsGridPagination & JSXBase.HTMLAttributes<HTMLWcsGridPaginationElement>;
             "wcs-header": LocalJSX.WcsHeader & JSXBase.HTMLAttributes<HTMLWcsHeaderElement>;
             "wcs-hint": LocalJSX.WcsHint & JSXBase.HTMLAttributes<HTMLWcsHintElement>;
+            "wcs-horizontal-stepper": LocalJSX.WcsHorizontalStepper & JSXBase.HTMLAttributes<HTMLWcsHorizontalStepperElement>;
             "wcs-icon": LocalJSX.WcsIcon & JSXBase.HTMLAttributes<HTMLWcsIconElement>;
             "wcs-input": LocalJSX.WcsInput & JSXBase.HTMLAttributes<HTMLWcsInputElement>;
             "wcs-label": LocalJSX.WcsLabel & JSXBase.HTMLAttributes<HTMLWcsLabelElement>;
