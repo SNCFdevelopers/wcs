@@ -6,11 +6,11 @@ This component replaces the vertical navbar for sites and applications that use 
 
 ```html
 <wcs-galactic text="NomSuperApp est un site SNCF">
-    <wcs-galactic-menu text="Jean Dupont">
+    <wcs-galactic-menu text="TOUT SNCF">
         <div style="margin-bottom: 8px"><a href="#" style="text-decoration: none; color: var(--wcs-white)">CGU</a></div>
         <div style="margin-bottom: 8px"><a href="#" style="text-decoration: none; color: var(--wcs-white)">À Propos</a></div>
         <div style="margin-bottom: 8px"><a href="#" style="text-decoration: none; color: var(--wcs-white)">Un autre lien</a></div>
-        <wcs-button shape="small">Déconnexion</wcs-button>
+        <wcs-button shape="small">Un bouton</wcs-button>
     </wcs-galactic-menu>
 </wcs-galactic>
 ```

@@ -8,18 +8,17 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## Unreleased
 
 ### Added
--`horizontal-stepper`: Add horizontal stepper component
--`progress-bar`: Add a CSS variable to change the duration of animations and the border radius
 
-### Fixed
--`mat-icon`: change display block to flex for host element
-
-## [2.3.0]
-
-### Added
-
+- `horizontal-stepper`: Add horizontal stepper component
+- `progress-bar`: Add a CSS variable to change the duration of animations and the border radius
 - `galactic`: Adding the galactic navigation bar
 - `galactic-menu`: Added a menu component for the galactic navigation bar
+- `com-nav` : Added communication navbar and subcomponents (`submenu`, `category`)
+
+
+### Fixed
+
+-`mat-icon`: change display block to flex for host element
 
 ## [2.3.0]
 

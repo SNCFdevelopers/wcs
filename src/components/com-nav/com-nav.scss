@@ -1,0 +1,61 @@
+:host {
+    display: block;
+    position: relative;
+    height: 75px;
+    border-bottom: solid 1px var(--wcs-text-light);
+
+    .container {
+        margin: 0 auto;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: var(--wcs-com-content-max-width);
+    }
+
+    .container-left {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    .app-name {
+        font-weight: 300;
+        font-size: 1.5rem;
+        line-height: 1.25;
+        color: var(--wcs-gray);
+    }
+
+    .menu-bar {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        margin-left: 50px;
+
+        ::slotted(*:not(:first-child)) {
+            margin-left: 40px;
+        }
+    }
+
+    ::slotted(a) {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        font-size: 16px;
+        cursor: pointer;
+        font-weight: 500;
+        color: var(--wcs-gray);
+        text-decoration: none;
+    }
+
+    ::slotted(a):after {
+        font-family: icons;
+        padding-left: var(--wcs-base-margin);
+        font-size: 0.6rem;
+        content: "\f107";
+        line-height: 1;
+        box-sizing: border-box;
+    }
+}

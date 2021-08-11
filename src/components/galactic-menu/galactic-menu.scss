@@ -6,6 +6,7 @@
 }
 #menu[data-show] {
     display: block;
+    z-index: 9999;
 }
 #menu[data-popper-placement^='top'] > #arrow {
     bottom: -4px;

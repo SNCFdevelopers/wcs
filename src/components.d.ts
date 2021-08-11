@@ -81,6 +81,9 @@ export namespace Components {
         "labelAlignment": CheckboxLabelAlignment;
         "name": string;
     }
+    interface WcsComNav {
+        "appName": string;
+    }
     interface WcsDivider {
     }
     interface WcsDropdown {
@@ -693,6 +696,12 @@ declare global {
         prototype: HTMLWcsCheckboxElement;
         new (): HTMLWcsCheckboxElement;
     };
+    interface HTMLWcsComNavElement extends Components.WcsComNav, HTMLStencilElement {
+    }
+    var HTMLWcsComNavElement: {
+        prototype: HTMLWcsComNavElement;
+        new (): HTMLWcsComNavElement;
+    };
     interface HTMLWcsDividerElement extends Components.WcsDivider, HTMLStencilElement {
     }
     var HTMLWcsDividerElement: {
@@ -935,6 +944,7 @@ declare global {
         "wcs-card": HTMLWcsCardElement;
         "wcs-card-body": HTMLWcsCardBodyElement;
         "wcs-checkbox": HTMLWcsCheckboxElement;
+        "wcs-com-nav": HTMLWcsComNavElement;
         "wcs-divider": HTMLWcsDividerElement;
         "wcs-dropdown": HTMLWcsDropdownElement;
         "wcs-dropdown-item": HTMLWcsDropdownItemElement;
@@ -1040,6 +1050,9 @@ declare namespace LocalJSX {
           * Emitted when the checked property has changed.
          */
         "onWcsChange"?: (event: CustomEvent<CheckboxChangeEventDetail>) => void;
+    }
+    interface WcsComNav {
+        "appName"?: string;
     }
     interface WcsDivider {
     }
@@ -1666,6 +1679,7 @@ declare namespace LocalJSX {
         "wcs-card": WcsCard;
         "wcs-card-body": WcsCardBody;
         "wcs-checkbox": WcsCheckbox;
+        "wcs-com-nav": WcsComNav;
         "wcs-divider": WcsDivider;
         "wcs-dropdown": WcsDropdown;
         "wcs-dropdown-item": WcsDropdownItem;
@@ -1718,6 +1732,7 @@ declare module "@stencil/core" {
             "wcs-card": LocalJSX.WcsCard & JSXBase.HTMLAttributes<HTMLWcsCardElement>;
             "wcs-card-body": LocalJSX.WcsCardBody & JSXBase.HTMLAttributes<HTMLWcsCardBodyElement>;
             "wcs-checkbox": LocalJSX.WcsCheckbox & JSXBase.HTMLAttributes<HTMLWcsCheckboxElement>;
+            "wcs-com-nav": LocalJSX.WcsComNav & JSXBase.HTMLAttributes<HTMLWcsComNavElement>;
             "wcs-divider": LocalJSX.WcsDivider & JSXBase.HTMLAttributes<HTMLWcsDividerElement>;
             "wcs-dropdown": LocalJSX.WcsDropdown & JSXBase.HTMLAttributes<HTMLWcsDropdownElement>;
             "wcs-dropdown-item": LocalJSX.WcsDropdownItem & JSXBase.HTMLAttributes<HTMLWcsDropdownItemElement>;
