@@ -196,6 +196,10 @@ export namespace Components {
     }
     interface WcsHorizontalStepper {
         /**
+          * Specifies whether a check should be displayed when a step is passed.
+         */
+        "checkOnComplete": boolean;
+        /**
           * index of the active step. The index corresponds to the index of the step in the 'steps' list
          */
         "currentStep": number;
@@ -203,6 +207,8 @@ export namespace Components {
           * Specifies if the stepper is in linear mode (the user can only click on the next step) or non-linear (the user can click on any step)
          */
         "mode": 'linear' | 'nonLinear';
+        "next": () => Promise<void>;
+        "previous": () => Promise<void>;
         /**
           * steps to display
          */
@@ -1164,6 +1170,10 @@ declare namespace LocalJSX {
         "small"?: boolean;
     }
     interface WcsHorizontalStepper {
+        /**
+          * Specifies whether a check should be displayed when a step is passed.
+         */
+        "checkOnComplete"?: boolean;
         /**
           * index of the active step. The index corresponds to the index of the step in the 'steps' list
          */

@@ -44,6 +44,7 @@ Change values
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property    | Attribute    | Description                                                                      | Type      | Default |
@@ -52,14 +53,14 @@ Change values
 | `small`     | `small`      | Whether the component display the small version                                  | `boolean` | `false` |
 | `value`     | `value`      | The actual value of the progress. Ranging from 0 to 100.                         | `number`  | `0`     |
 
+
 ## Dependencies
 
 ### Used by
 
-- [wcs-horizontal-stepper](../horizontal-stepper)
+ - [wcs-horizontal-stepper](../horizontal-stepper)
 
 ### Graph
-
 ```mermaid
 graph TD;
   wcs-horizontal-stepper --> wcs-progress-bar
