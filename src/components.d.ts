@@ -7,6 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { WcsButtonMode, WcsButtonShape, WcsButtonType } from "./components/button/button-interface";
 import { CheckboxChangeEventDetail, CheckboxLabelAlignment } from "./components/checkbox/checkbox-interface";
+import { CategoryOpenedEventDetail, MenuOpenedEventDetail } from "./components/com-nav/com-nav-interface";
 import { EditableComponentUpdateEvent, FormatFn, ValidateFn } from "./components/editable-field/editable-field-interface";
 import { WcsCellFormatter, WcsGridAllRowSelectedEventDetails, WcsGridColumnSortChangeEventDetails, WcsGridPaginationChangeEventDetails, WcsGridRowSelectedEventDetails, WcsGridSelectionConfig, WcsSortFn, WcsSortOrder } from "./components/grid/grid-interface";
 import { HorizontalStepClickEvent, HorizontalStepConfig } from "./components/horizontal-stepper/horizontal-stepper-interface";
@@ -83,6 +84,30 @@ export namespace Components {
     }
     interface WcsComNav {
         "appName": string;
+    }
+    interface WcsComNavCategory {
+        /**
+          * Close the category
+         */
+        "close": () => Promise<void>;
+        "label": string;
+        /**
+          * Opens the category
+         */
+        "open": () => Promise<void>;
+    }
+    interface WcsComNavSubmenu {
+        /**
+          * Close the menu
+         */
+        "close": () => Promise<void>;
+        "label": string;
+        /**
+          * Opens the menu
+         */
+        "open": () => Promise<void>;
+        "panelDescription": string;
+        "panelTitle": string;
     }
     interface WcsDivider {
     }
@@ -702,6 +727,18 @@ declare global {
         prototype: HTMLWcsComNavElement;
         new (): HTMLWcsComNavElement;
     };
+    interface HTMLWcsComNavCategoryElement extends Components.WcsComNavCategory, HTMLStencilElement {
+    }
+    var HTMLWcsComNavCategoryElement: {
+        prototype: HTMLWcsComNavCategoryElement;
+        new (): HTMLWcsComNavCategoryElement;
+    };
+    interface HTMLWcsComNavSubmenuElement extends Components.WcsComNavSubmenu, HTMLStencilElement {
+    }
+    var HTMLWcsComNavSubmenuElement: {
+        prototype: HTMLWcsComNavSubmenuElement;
+        new (): HTMLWcsComNavSubmenuElement;
+    };
     interface HTMLWcsDividerElement extends Components.WcsDivider, HTMLStencilElement {
     }
     var HTMLWcsDividerElement: {
@@ -945,6 +982,8 @@ declare global {
         "wcs-card-body": HTMLWcsCardBodyElement;
         "wcs-checkbox": HTMLWcsCheckboxElement;
         "wcs-com-nav": HTMLWcsComNavElement;
+        "wcs-com-nav-category": HTMLWcsComNavCategoryElement;
+        "wcs-com-nav-submenu": HTMLWcsComNavSubmenuElement;
         "wcs-divider": HTMLWcsDividerElement;
         "wcs-dropdown": HTMLWcsDropdownElement;
         "wcs-dropdown-item": HTMLWcsDropdownItemElement;
@@ -1053,6 +1092,16 @@ declare namespace LocalJSX {
     }
     interface WcsComNav {
         "appName"?: string;
+    }
+    interface WcsComNavCategory {
+        "label"?: string;
+        "onWcsCategoryOpened"?: (event: CustomEvent<CategoryOpenedEventDetail>) => void;
+    }
+    interface WcsComNavSubmenu {
+        "label"?: string;
+        "onWcsSubmenuOpened"?: (event: CustomEvent<MenuOpenedEventDetail>) => void;
+        "panelDescription"?: string;
+        "panelTitle"?: string;
     }
     interface WcsDivider {
     }
@@ -1680,6 +1729,8 @@ declare namespace LocalJSX {
         "wcs-card-body": WcsCardBody;
         "wcs-checkbox": WcsCheckbox;
         "wcs-com-nav": WcsComNav;
+        "wcs-com-nav-category": WcsComNavCategory;
+        "wcs-com-nav-submenu": WcsComNavSubmenu;
         "wcs-divider": WcsDivider;
         "wcs-dropdown": WcsDropdown;
         "wcs-dropdown-item": WcsDropdownItem;
@@ -1733,6 +1784,8 @@ declare module "@stencil/core" {
             "wcs-card-body": LocalJSX.WcsCardBody & JSXBase.HTMLAttributes<HTMLWcsCardBodyElement>;
             "wcs-checkbox": LocalJSX.WcsCheckbox & JSXBase.HTMLAttributes<HTMLWcsCheckboxElement>;
             "wcs-com-nav": LocalJSX.WcsComNav & JSXBase.HTMLAttributes<HTMLWcsComNavElement>;
+            "wcs-com-nav-category": LocalJSX.WcsComNavCategory & JSXBase.HTMLAttributes<HTMLWcsComNavCategoryElement>;
+            "wcs-com-nav-submenu": LocalJSX.WcsComNavSubmenu & JSXBase.HTMLAttributes<HTMLWcsComNavSubmenuElement>;
             "wcs-divider": LocalJSX.WcsDivider & JSXBase.HTMLAttributes<HTMLWcsDividerElement>;
             "wcs-dropdown": LocalJSX.WcsDropdown & JSXBase.HTMLAttributes<HTMLWcsDropdownElement>;
             "wcs-dropdown-item": LocalJSX.WcsDropdownItem & JSXBase.HTMLAttributes<HTMLWcsDropdownItemElement>;
