@@ -41,7 +41,7 @@ StencilJS offers many integrations with different JS frameworks.
 
 You can refer to their official documentation to add WCS to your project : https://stenciljs.com/docs/overview
 
-After added wcs dependencies, you must add font faces Avenir like so :
+After added wcs dependencies, you must add Avenir and icons font faces like so :
 
 ```css
 @font-face {
@@ -66,6 +66,14 @@ After added wcs dependencies, you must add font faces Avenir like so :
     font-family: Avenir;
     src: url("your-custom-path/avenir-black.woff");
     font-weight: 900;
+}
+@font-face {
+    font-family: "icons";
+    src: url("your-custom-path/icons.eot?#iefix") format("embedded-opentype"),
+    url("your-custom-path/icons.woff2") format("woff2"),
+    url("your-custom-path/icons.woff") format("woff"),
+    url("your-custom-path/icons.ttf") format("truetype"),
+    url("your-custom-path/icons.svg#icons") format("svg");
 }
 ```
 
