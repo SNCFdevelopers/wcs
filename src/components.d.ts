@@ -156,6 +156,8 @@ export namespace Components {
     }
     interface WcsFieldLabel {
     }
+    interface WcsFooter {
+    }
     interface WcsFormField {
         /**
           * Name of the material icon to add to the field
@@ -787,6 +789,12 @@ declare global {
         prototype: HTMLWcsFieldLabelElement;
         new (): HTMLWcsFieldLabelElement;
     };
+    interface HTMLWcsFooterElement extends Components.WcsFooter, HTMLStencilElement {
+    }
+    var HTMLWcsFooterElement: {
+        prototype: HTMLWcsFooterElement;
+        new (): HTMLWcsFooterElement;
+    };
     interface HTMLWcsFormFieldElement extends Components.WcsFormField, HTMLStencilElement {
     }
     var HTMLWcsFormFieldElement: {
@@ -992,6 +1000,7 @@ declare global {
         "wcs-field": HTMLWcsFieldElement;
         "wcs-field-content": HTMLWcsFieldContentElement;
         "wcs-field-label": HTMLWcsFieldLabelElement;
+        "wcs-footer": HTMLWcsFooterElement;
         "wcs-form-field": HTMLWcsFormFieldElement;
         "wcs-galactic": HTMLWcsGalacticElement;
         "wcs-galactic-menu": HTMLWcsGalacticMenuElement;
@@ -1154,6 +1163,8 @@ declare namespace LocalJSX {
     interface WcsFieldContent {
     }
     interface WcsFieldLabel {
+    }
+    interface WcsFooter {
     }
     interface WcsFormField {
         /**
@@ -1739,6 +1750,7 @@ declare namespace LocalJSX {
         "wcs-field": WcsField;
         "wcs-field-content": WcsFieldContent;
         "wcs-field-label": WcsFieldLabel;
+        "wcs-footer": WcsFooter;
         "wcs-form-field": WcsFormField;
         "wcs-galactic": WcsGalactic;
         "wcs-galactic-menu": WcsGalacticMenu;
@@ -1794,6 +1806,7 @@ declare module "@stencil/core" {
             "wcs-field": LocalJSX.WcsField & JSXBase.HTMLAttributes<HTMLWcsFieldElement>;
             "wcs-field-content": LocalJSX.WcsFieldContent & JSXBase.HTMLAttributes<HTMLWcsFieldContentElement>;
             "wcs-field-label": LocalJSX.WcsFieldLabel & JSXBase.HTMLAttributes<HTMLWcsFieldLabelElement>;
+            "wcs-footer": LocalJSX.WcsFooter & JSXBase.HTMLAttributes<HTMLWcsFooterElement>;
             "wcs-form-field": LocalJSX.WcsFormField & JSXBase.HTMLAttributes<HTMLWcsFormFieldElement>;
             "wcs-galactic": LocalJSX.WcsGalactic & JSXBase.HTMLAttributes<HTMLWcsGalacticElement>;
             "wcs-galactic-menu": LocalJSX.WcsGalacticMenu & JSXBase.HTMLAttributes<HTMLWcsGalacticMenuElement>;
