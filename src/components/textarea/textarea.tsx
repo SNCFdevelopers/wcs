@@ -24,7 +24,7 @@ import { TextareaChangeEventDetail } from './textarea-interface';
     styleUrl: 'textarea.scss',
     shadow: true,
 })
-export class Input implements ComponentInterface {
+export class Textarea implements ComponentInterface {
     private nativeInput?: HTMLTextAreaElement;
     private inputId = `wcs-textarea-${textareaIds++}`;
     private didBlurAfterEdit = false;
