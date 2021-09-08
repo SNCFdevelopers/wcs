@@ -5,10 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SelectExampleComponent } from './select-example/select-example.component';
 import { FormsModule } from '@angular/forms';
-import { WcsAngularModule } from 'wcs-angular';
 import { RadioGroupExampleComponent } from './radio-group/radio-group-example.component';
 import { GridExampleComponent } from './grid-example/grid-example.component';
 import { InputExampleComponent } from './input-example/input-example.component';
+import { WcsAngularModule } from 'wcs-angular';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,7 @@ import { InputExampleComponent } from './input-example/input-example.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    WcsAngularModule
+    WcsAngularModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

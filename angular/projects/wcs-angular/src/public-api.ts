@@ -9,3 +9,5 @@ export * from './lib/directives/checkbox-value-accessor.directive';
 export * from './lib/directives/switch-value-accessor.directive';
 export * from './lib/directives/input-value-accessor.directive';
 export * from './lib/directives/textarea-value-accessor.directive';
+
+export * from './lib/proxies';

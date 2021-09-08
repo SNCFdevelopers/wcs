@@ -3,6 +3,7 @@ import { sass } from '@stencil/sass';
 
 import path from 'path';
 import glob from 'glob';
+import { angularOutputTarget } from '@stencil/angular-output-target';
 
 export const config: Config = {
     namespace: 'wcs',
@@ -26,6 +27,10 @@ export const config: Config = {
         } as any)
     ],
     outputTargets: [
+        angularOutputTarget({
+            componentCorePackage: 'wcs-core',
+            directivesProxyFile: './angular/projects/wcs-angular/src/lib/proxies.ts'
+        }),
         {
             type: 'dist',
             esmLoaderPath: '../loader',
