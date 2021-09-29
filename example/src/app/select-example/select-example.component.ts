@@ -8,9 +8,9 @@ import {Component, OnInit} from '@angular/core';
       <wcs-card-body>
         <h3>Valeur par défaut</h3>
         <wcs-select placeholder="Le select" [value]="value" name="sel-30" multiple>
-          <wcs-select-option value="1">One</wcs-select-option>
-          <wcs-select-option value="2">Two</wcs-select-option>
-          <wcs-select-option value="3">Three</wcs-select-option>
+          <wcs-select-option [value]="1">One</wcs-select-option>
+          <wcs-select-option [value]="2">Two</wcs-select-option>
+          <wcs-select-option [value]="3">Three</wcs-select-option>
         </wcs-select>
         <h3>Binding</h3>
         <p>Selected values : {{binding}}</p>

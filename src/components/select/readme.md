@@ -137,10 +137,10 @@
 
 <wcs-button id="p-sel-button" mode="stroked" class="primary">Select values</wcs-button>
 <script>
-    const pSelect = document.querySelector('#select-values');
-    const pButton = document.querySelector('#p-sel-button');
+    const pSelect1 = document.getElementById('select-values');
+    const pButton = document.getElementById('p-sel-button');
     pButton.addEventListener('click', () => {
-        pSelect.value = ['1', '2'];
+        pSelect1.value = ['1', '2'];
     });
 </script>
 ```
