@@ -551,6 +551,7 @@ export namespace Components {
           * The header you want to be displayed for this tab.
          */
         "header": string;
+        "itemKey": any;
     }
     interface WcsTabs {
         /**
@@ -558,9 +559,14 @@ export namespace Components {
          */
         "align": WcsTabsAlignment;
         /**
+          * Whether to skip rendering the tabpanel with the content of the selected tab. Use this prop if you plan to separately render the tab content.
+         */
+        "headersOnly": boolean;
+        /**
           * Current selected tab index. Starts at 0.
          */
         "selectedIndex": number;
+        "selectedKey": any;
     }
     interface WcsTextarea {
         /**
@@ -1593,6 +1599,7 @@ declare namespace LocalJSX {
           * The header you want to be displayed for this tab.
          */
         "header"?: string;
+        "itemKey"?: any;
         /**
           * Do not use, meant for internal use only.
           * @inner 
@@ -1606,6 +1613,10 @@ declare namespace LocalJSX {
          */
         "align"?: WcsTabsAlignment;
         /**
+          * Whether to skip rendering the tabpanel with the content of the selected tab. Use this prop if you plan to separately render the tab content.
+         */
+        "headersOnly"?: boolean;
+        /**
           * Emitted when the selected tab change.
          */
         "onTabChange"?: (event: CustomEvent<WcsTabChangeEvent>) => void;
@@ -1613,6 +1624,7 @@ declare namespace LocalJSX {
           * Current selected tab index. Starts at 0.
          */
         "selectedIndex"?: number;
+        "selectedKey"?: any;
     }
     interface WcsTextarea {
         /**

@@ -5,9 +5,10 @@
 
 ## Properties
 
-| Property | Attribute | Description                                       | Type     | Default     |
-| -------- | --------- | ------------------------------------------------- | -------- | ----------- |
-| `header` | `header`  | The header you want to be displayed for this tab. | `string` | `undefined` |
+| Property  | Attribute  | Description                                       | Type     | Default     |
+| --------- | ---------- | ------------------------------------------------- | -------- | ----------- |
+| `header`  | `header`   | The header you want to be displayed for this tab. | `string` | `undefined` |
+| `itemKey` | `item-key` |                                                   | `any`    | `undefined` |
 
 
 ## Events

@@ -1,4 +1,16 @@
-import { Component, Prop, Element, State, ComponentInterface, Event, EventEmitter, Watch, h, Host, Listen } from '@stencil/core';
+import {
+    Component,
+    Prop,
+    Element,
+    State,
+    ComponentInterface,
+    Event,
+    EventEmitter,
+    Watch,
+    h,
+    Host,
+    Listen
+} from '@stencil/core';
 
 import { WcsTabsAlignment, WcsTabChangeEvent } from './tabs-interface';
 
@@ -23,15 +35,24 @@ export class Tabs implements ComponentInterface {
     /**
      * Tab headers alignment.
      */
-    @Prop({ mutable: true, reflect: true }) align: WcsTabsAlignment = 'start';
+    @Prop({mutable: true, reflect: true}) align: WcsTabsAlignment = 'start';
 
     /**
      * Current selected tab index.
      * Starts at 0.
      */
-    @Prop({ reflect: true, mutable: true }) selectedIndex = 0;
+    @Prop() selectedIndex = 0;
+
+    @Prop() selectedKey: any;
 
     /**
+     * Whether to skip rendering the tabpanel with the content of the selected tab. Use this prop if you plan to
+     * separately render the tab content.
+     */
+    @Prop() headersOnly: boolean = false;
+
+    /**
+     *
      * Emitted when the selected tab change.
      */
     @Event() tabChange!: EventEmitter<WcsTabChangeEvent>;
@@ -40,12 +61,33 @@ export class Tabs implements ComponentInterface {
 
     @State() headers: string[] = [];
 
+    @State() currentActiveTabIndex = 0;
+
     @Watch('selectedIndex')
-    selectedIndexChanged(_newValue: boolean, _oldValue: boolean) {
+    selectedIndexChanged(newValue: number) {
+        this.currentActiveTabIndex = newValue;
+    }
+
+    @Watch('selectedKey')
+    selectedTabkeyChanged(newValue: any) {
+        this.updateCurrentActiveIndexByTabKey(newValue);
+    }
+
+    private emitActiveTabChange() {
         this.tabChange.emit({
-            tabName: this.headers[this.selectedIndex],
-            tabIndex: this.selectedIndex
+            tabName: this.headers[this.currentActiveTabIndex],
+            tabIndex: this.currentActiveTabIndex,
+            selectedKey: this.tabs[this.currentActiveTabIndex].itemKey
         });
+    }
+
+    private updateCurrentActiveIndexByTabKey(newValue: any) {
+        for (let i = 0; i < this.tabs.length; i++) {
+            const tab = this.tabs[i];
+            if (tab.itemKey === newValue) {
+                this.currentActiveTabIndex = i;
+            }
+        }
     }
 
     @Listen('tabLoaded')
@@ -56,6 +98,12 @@ export class Tabs implements ComponentInterface {
     componentDidLoad() {
         this.putTabsInCorrectDivIfTheyAreNot();
         this.refreshHeaders();
+        if (this.selectedIndex) {
+            this.currentActiveTabIndex = this.selectedIndex;
+        }
+        if (this.selectedKey) {
+            this.updateCurrentActiveIndexByTabKey(this.selectedKey);
+        }
     }
 
     // XXX: Firefox < 63
@@ -78,7 +126,8 @@ export class Tabs implements ComponentInterface {
         switch (ev.key) {
             case ' ':
             case 'Enter': {
-                this.selectedIndex = tabIndex;
+                this.currentActiveTabIndex = tabIndex;
+                this.emitActiveTabChange();
                 ev.preventDefault();
                 break;
             }
@@ -123,18 +172,22 @@ export class Tabs implements ComponentInterface {
                 : [];
     }
 
-    private selectTab(index: number) {
-        this.selectedIndex = index;
+    private selectTabAndEmitChangeEvent(index: number) {
+        this.currentActiveTabIndex = index;
+        this.emitActiveTabChange()
     }
 
     componentWillUpdate() {
-        this.updateTabVisibility();
-        this.moveInkBar();
+        if (!this.headersOnly) {
+            this.updateTabVisibility();
+        } else {
+            this.hideAllTabsContent();
+        }
     }
 
     private updateTabVisibility() {
         this.tabs.forEach((el: HTMLWcsTabElement, idx: number) => {
-            if (idx !== this.selectedIndex) {
+            if (idx !== this.currentActiveTabIndex) {
                 el.setAttribute('style', 'display: none;');
             } else {
                 el.setAttribute('style', 'display: block;');
@@ -142,9 +195,8 @@ export class Tabs implements ComponentInterface {
         });
     }
 
-    private moveInkBar() {
-        this.el.shadowRoot.querySelector('.wcs-tabs-headers > .wcs-ink-bar')
-            .setAttribute('style', `left: calc((var(--wcs-tabs-width) + 2 * var(--wcs-tabs-padding-horizontal)) * ${this.selectedIndex})`);
+    private hideAllTabsContent() {
+        this.tabs.forEach((el: HTMLWcsTabElement) => el.setAttribute('style', 'display: none;'));
     }
 
     render() {
@@ -152,18 +204,17 @@ export class Tabs implements ComponentInterface {
             <Host>
                 <div class="wcs-tabs-headers">
                     {this.headers.map((header, idx) =>
-                        <div class={'wcs-tab-header ' + (this.selectedIndex === idx ? 'active' : '')}
-                            onClick={() => this.selectTab(idx)}
-                            onKeyDown={evt => this.handleKeyDown(evt, idx)}
-                            tabIndex={0}
+                        <div class={'wcs-tab-header ' + (this.currentActiveTabIndex === idx ? 'active' : '')}
+                             onClick={() => this.selectTabAndEmitChangeEvent(idx)}
+                             onKeyDown={evt => this.handleKeyDown(evt, idx)}
+                             tabIndex={idx}
                         >
                             <span>{header}</span>
                         </div>
                     )}
-                    <div class="wcs-ink-bar"></div>
                 </div>
                 <div class="wcs-tabs">
-                    <slot name="wcs-tab" />
+                    <slot name="wcs-tab"/>
                 </div>
             </Host>
         );

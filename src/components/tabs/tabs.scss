@@ -1,7 +1,5 @@
 :host {
-    --wcs-tabs-width: 64px;
-    --wcs-tabs-padding-horizontal: 16px;
-    --wcs-tabs-padding-vertical: 8px;
+    --wcs-tabs-padding-bottom: 16px;
 }
 
 :host([align=start]) .wcs-tabs-headers {
@@ -17,6 +15,7 @@
 }
 
 .wcs-tabs-headers {
+    padding-top: 4px;
     overflow-x: auto;
     display: flex;
     position: relative;
@@ -24,8 +23,7 @@
 }
 
 .wcs-tab-header {
-    width: var(--wcs-tabs-width);
-    padding: var(--wcs-tabs-padding-vertical) var(--wcs-tabs-padding-horizontal);
+    padding: 8px 24px 16px 0;
     display: flex;
     flex-shrink: 0;
     align-items: center;
@@ -40,31 +38,30 @@
         font-weight: 400;
     }
 
+
     &:focus,
     &:hover {
         span {
             color: var(--wcs-primary);
         }
-
-        background: var(--wcs-light)
     }
 }
 
-.wcs-ink-bar {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 3px;
-    border-radius: 4px;
-    width: calc(var(--wcs-tabs-width) + 2 * var(--wcs-tabs-padding-horizontal));
-    transition: .5s cubic-bezier(.35, 0, .25, 1);
-    background-color: var(--wcs-primary);
-}
 
 .active {
     span {
         font-weight: 500;
         color: var(--wcs-primary);
         position: relative;
+    }
+    span::after {
+        position: absolute;
+        bottom: calc(var(--wcs-tabs-padding-bottom) * -1);
+        left: 0;
+        width: 100%;
+        height: 0.3125rem;
+        content: "";
+        background-color: #0088ce;
+        border-radius: 3px;
     }
 }

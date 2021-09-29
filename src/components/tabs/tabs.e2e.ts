@@ -1,4 +1,5 @@
 import { newE2EPage } from '@stencil/core/testing';
+import { findFocusedNode } from '../../utils/tests';
 
 describe('Tabs component', () => {
     it('Display only first tab if none are preselected', async () => {
@@ -32,8 +33,7 @@ describe('Tabs component', () => {
         expect(await tab1.isVisible()).toBe(false);
         expect(await tab2.isVisible()).toBe(true);
     });
-    // FIXME: Works only in watch mode...
-    xit('Accept and render new tabs after creation', async () => {
+    it('Accept and render new tabs after creation', async () => {
         // Given
         const page = await newE2EPage();
         await page.setContent(`
@@ -51,15 +51,45 @@ describe('Tabs component', () => {
             tab.appendChild(text);
             tabsEl.appendChild(tab);
         });
+        await page.waitForChanges();
         const [, , h3] = await page.findAll('wcs-tabs>>>.wcs-tab-header');
         const [, , t3] = await page.findAll('wcs-tab');
         // Expect
         expect(h3).toBeDefined();
         expect(t3.innerText).toEqual('Three');
     });
-    xit('Disabled tab', async () => {
-
-    });
+    describe('SelectedKey prop', () => {
+        it('should accept a default selected key', async () => {
+            const page = await newE2EPage();
+            await page.setContent(`
+                <wcs-tabs selected-key="custom-2">
+                    <wcs-tab item-key="custom-1">One</wcs-tab>
+                    <wcs-tab item-key="custom-2">Two</wcs-tab>
+                </wcs-tabs>
+            `);
+            const [tab1, tab2] = await page.findAll('wcs-tab');
+            expect(await tab1.isVisible()).toBe(false);
+            expect(await tab2.isVisible()).toBe(true);
+        });
+        it('Allows to change selected tab via prop after creation', async () => {
+            // Given
+            const page = await newE2EPage();
+            await page.setContent(`
+                <wcs-tabs selected-key="a">
+                    <wcs-tab item-key="a">One</wcs-tab>
+                    <wcs-tab item-key="b">Two</wcs-tab>
+                </wcs-tabs>
+            `);
+            const tabs = await page.find('wcs-tabs');
+            const [tab1, tab2] = await page.findAll('wcs-tab');
+            // When
+            tabs.setProperty('selectedKey', 'b');
+            await page.waitForChanges();
+            // Then
+            expect(await tab1.isVisible()).toBe(false);
+            expect(await tab2.isVisible()).toBe(true);
+        });
+    })
     describe('SelectedIndex prop', () => {
         it('Accept a default selected tab', async () => {
             // Given
@@ -112,25 +142,7 @@ describe('Tabs component', () => {
             await page.waitForChanges();
             // Then
             expect(tabsSpy).toHaveReceivedEventTimes(1);
-            expect(tabsSpy).toHaveReceivedEventDetail({ tabName: '2', tabIndex: 1 });
-        });
-        it('Fires when selectedIndex prop changes', async () => {
-            // Given
-            const page = await newE2EPage();
-            await page.setContent(`
-                <wcs-tabs>
-                    <wcs-tab header="1">One</wcs-tab>
-                    <wcs-tab header="2">Two</wcs-tab>
-                </wcs-tabs>
-            `);
-            const tabs = await page.find('wcs-tabs');
-            const tabsSpy = await tabs.spyOnEvent('tabChange');
-            // When
-            tabs.setProperty('selectedIndex', 1);
-            await page.waitForChanges();
-            // Then
-            expect(tabsSpy).toHaveReceivedEventTimes(1);
-            expect(tabsSpy).toHaveReceivedEventDetail({ tabName: '2', tabIndex: 1 });
+            expect(tabsSpy).toHaveReceivedEventDetail({tabName: '2', tabIndex: 1});
         });
     });
     describe('Keyboard navigation', () => {
@@ -145,11 +157,14 @@ describe('Tabs component', () => {
             `);
             const [, h2] = await page.findAll('wcs-tabs>>>.wcs-tab-header');
             const tabs = await page.find('wcs-tabs');
+            const tabsSpy = await tabs.spyOnEvent('tabChange');
+
             // When
             await h2.focus();
             await page.keyboard.press('Enter');
             // Then
-            expect(await tabs.getProperty('selectedIndex')).toEqual(1);
+            expect(tabsSpy).toHaveReceivedEventTimes(1);
+            expect(tabsSpy).toHaveReceivedEventDetail({tabName: '2', tabIndex: 1});
         });
         it('Change selected tab with space', async () => {
             // Given
@@ -162,13 +177,15 @@ describe('Tabs component', () => {
             `);
             const [, h2] = await page.findAll('wcs-tabs>>>.wcs-tab-header');
             const tabs = await page.find('wcs-tabs');
+            const tabsSpy = await tabs.spyOnEvent('tabChange');
             // When
             await h2.focus();
             await page.keyboard.press('Space');
             // Then
-            expect(await tabs.getProperty('selectedIndex')).toEqual(1);
+            expect(tabsSpy).toHaveReceivedEventTimes(1);
+            expect(tabsSpy).toHaveReceivedEventDetail({tabName: '2', tabIndex: 1});
         });
-        xit('Move focus with keyboard arrows', async () => {
+        it('Move focus with keyboard arrows', async () => {
             // Given
             const page = await newE2EPage();
             await page.setContent(`
@@ -182,11 +199,10 @@ describe('Tabs component', () => {
             await h1.focus();
             await h1.press('ArrowRight');
             await page.waitForChanges();
-            const focusedHeader = await page.evaluate(() => {
-                return (document.activeElement as HTMLDivElement).innerText;
-            });
+            const accessibilitySnapshot = await page.accessibility.snapshot();
+            const focusedNode = findFocusedNode(accessibilitySnapshot);
             // Then
-            expect(focusedHeader).toEqual('2');
+            expect(focusedNode.name).toEqual('2');
         });
     });
 });

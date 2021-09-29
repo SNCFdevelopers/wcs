@@ -921,13 +921,13 @@ export class WcsSwitch {
 import { Tab as ITab } from 'wcs-core/dist/types/components/tab/tab';
 export declare interface WcsTab extends Components.WcsTab {}
 @ProxyCmp({
-  inputs: ['header']
+  inputs: ['header', 'itemKey']
 })
 @Component({
   selector: 'wcs-tab',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['header'],
+  inputs: ['header', 'itemKey'],
   outputs: ['tabLoaded']
 })
 export class WcsTab {
@@ -944,17 +944,18 @@ export class WcsTab {
 import { Tabs as ITabs } from 'wcs-core/dist/types/components/tabs/tabs';
 export declare interface WcsTabs extends Components.WcsTabs {}
 @ProxyCmp({
-  inputs: ['align', 'selectedIndex']
+  inputs: ['align', 'headersOnly', 'selectedIndex', 'selectedKey']
 })
 @Component({
   selector: 'wcs-tabs',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['align', 'selectedIndex'],
+  inputs: ['align', 'headersOnly', 'selectedIndex', 'selectedKey'],
   outputs: ['tabChange']
 })
 export class WcsTabs {
-  /** Emitted when the selected tab change. */
+  /** 
+Emitted when the selected tab change. */
   tabChange!: ITabs['tabChange'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {

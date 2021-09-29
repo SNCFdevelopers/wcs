@@ -9,6 +9,17 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+- `tabs`: match SNCF Design System specifications and add support for headers only mode
+- `wcs-angular`: add automatic generation of proxy components
+
+### Fixed
+
+- `textarea`: rename component class to match component selector
+
+## [2.4.0]
+
+### Added
+
 - `horizontal-stepper`: Add horizontal stepper component
 - `progress-bar`: Add a CSS variable to change the duration of animations and the border radius
 - `galactic`: Add galactic navigation bar

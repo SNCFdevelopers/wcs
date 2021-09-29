@@ -15,6 +15,8 @@ export class Tab {
     @Prop({ reflect: true, mutable: true })
     header: string;
 
+    @Prop() itemKey: any;
+
     // TODO: See if there is a solution that doesn't pollute the API.
     /**
      * Do not use, meant for internal use only.
