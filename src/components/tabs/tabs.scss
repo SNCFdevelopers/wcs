@@ -19,7 +19,12 @@
     overflow-x: auto;
     display: flex;
     position: relative;
-    border-bottom: var(--wcs-tabs-headers-border-bottom);
+}
+
+:host([gutter]) {
+    .wcs-tabs-headers {
+        border-bottom: var(--wcs-tabs-headers-border-bottom);
+    }
 }
 
 .wcs-tab-header {
@@ -54,6 +59,7 @@
         color: var(--wcs-primary);
         position: relative;
     }
+
     span::after {
         position: absolute;
         bottom: calc(var(--wcs-tabs-padding-bottom) * -1);

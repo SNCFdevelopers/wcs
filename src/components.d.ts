@@ -23,6 +23,10 @@ import { TextareaChangeEventDetail } from "./components/textarea/textarea-interf
 import { WcsTooltipPosition } from "./components/tooltip/tooltip-interface";
 export namespace Components {
     interface WcsActionBar {
+        /**
+          * Determines if the action bar should have a border at the bottom. You should not use this property if a gutter is already present on tabs
+         */
+        "gutter": boolean;
     }
     interface WcsApp {
     }
@@ -559,6 +563,10 @@ export namespace Components {
          */
         "align": WcsTabsAlignment;
         /**
+          * Determines if tabs header should have a border at the bottom
+         */
+        "gutter": boolean;
+        /**
           * Whether to skip rendering the tabpanel with the content of the selected tab. Use this prop if you plan to separately render the tab content.
          */
         "headersOnly": boolean;
@@ -1042,6 +1050,10 @@ declare global {
 }
 declare namespace LocalJSX {
     interface WcsActionBar {
+        /**
+          * Determines if the action bar should have a border at the bottom. You should not use this property if a gutter is already present on tabs
+         */
+        "gutter"?: boolean;
     }
     interface WcsApp {
     }
@@ -1612,6 +1624,10 @@ declare namespace LocalJSX {
           * Tab headers alignment.
          */
         "align"?: WcsTabsAlignment;
+        /**
+          * Determines if tabs header should have a border at the bottom
+         */
+        "gutter"?: boolean;
         /**
           * Whether to skip rendering the tabpanel with the content of the selected tab. Use this prop if you plan to separately render the tab content.
          */

@@ -50,6 +50,8 @@ export class Tabs implements ComponentInterface {
      * separately render the tab content.
      */
     @Prop() headersOnly: boolean = false;
+    /** Determines if tabs header should have a border at the bottom */
+    @Prop() gutter: boolean;
 
     /**
      *

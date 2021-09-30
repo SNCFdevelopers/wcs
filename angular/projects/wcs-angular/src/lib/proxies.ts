@@ -7,11 +7,14 @@ import { Components } from 'wcs-core';
 
 
 export declare interface WcsActionBar extends Components.WcsActionBar {}
-
+@ProxyCmp({
+  inputs: ['gutter']
+})
 @Component({
   selector: 'wcs-action-bar',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  inputs: ['gutter']
 })
 export class WcsActionBar {
   protected el: HTMLElement;
@@ -944,13 +947,13 @@ export class WcsTab {
 import { Tabs as ITabs } from 'wcs-core/dist/types/components/tabs/tabs';
 export declare interface WcsTabs extends Components.WcsTabs {}
 @ProxyCmp({
-  inputs: ['align', 'headersOnly', 'selectedIndex', 'selectedKey']
+  inputs: ['align', 'gutter', 'headersOnly', 'selectedIndex', 'selectedKey']
 })
 @Component({
   selector: 'wcs-tabs',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['align', 'headersOnly', 'selectedIndex', 'selectedKey'],
+  inputs: ['align', 'gutter', 'headersOnly', 'selectedIndex', 'selectedKey'],
   outputs: ['tabChange']
 })
 export class WcsTabs {

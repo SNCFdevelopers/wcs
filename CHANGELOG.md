@@ -10,6 +10,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 
 - `tabs`: match SNCF Design System specifications and add support for headers only mode
+- `tabs`: add support for gutter
+- `action-bar`: add support for tabs
 - `wcs-angular`: add automatic generation of proxy components
 
 ### Fixed
