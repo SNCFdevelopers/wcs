@@ -7,6 +7,12 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
 
+## [2.5.1]
+
+### Fixed
+
+- `wcs-angular`: update component proxies to support angular v12 strict template (https://github.com/ionic-team/stencil-ds-output-targets/issues/155)
+
 ## [2.5.0]
 
 ### Added
