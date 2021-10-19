@@ -38,7 +38,7 @@ export class EditableField implements ComponentInterface {
     /**
      * event called at each (valid) update of the field.
      */
-    @Event() wcsChange!: EventEmitter<EditableComponentUpdateEvent<any>>;
+    @Event() wcsChange!: EventEmitter<EditableComponentUpdateEvent>;
     /**
      * Specify whether the field is editable or not
      */

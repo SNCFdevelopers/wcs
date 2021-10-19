@@ -1,6 +1,6 @@
 /* tslint:disable */
 /* auto-generated angular directive proxies */
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, NgZone } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, NgZone } from '@angular/core';
 import { ProxyCmp, proxyOutputs } from './angular-component-lib/utils';
 
 import { Components } from 'wcs-core';
@@ -113,7 +113,7 @@ export class WcsCardBody {
   }
 }
 
-import { Checkbox as ICheckbox } from 'wcs-core/dist/types/components/checkbox/checkbox';
+import { CheckboxChangeEventDetail as ICheckboxCheckboxChangeEventDetail } from 'wcs-core/dist/types/components/checkbox/checkbox-interface';
 export declare interface WcsCheckbox extends Components.WcsCheckbox {}
 @ProxyCmp({
   inputs: ['checked', 'indeterminate', 'labelAlignment', 'name']
@@ -127,7 +127,7 @@ export declare interface WcsCheckbox extends Components.WcsCheckbox {}
 })
 export class WcsCheckbox {
   /** Emitted when the checked property has changed. */
-  wcsChange!: ICheckbox['wcsChange'];
+  wcsChange!: EventEmitter<CustomEvent<ICheckboxCheckboxChangeEventDetail>>;
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -155,7 +155,7 @@ export class WcsComNav {
   }
 }
 
-import { ComNavCategory as IComNavCategory } from 'wcs-core/dist/types/components/com-nav-category/com-nav-category';
+import { CategoryOpenedEventDetail as IComNavCategoryCategoryOpenedEventDetail } from 'wcs-core/dist/types/components/com-nav/com-nav-interface';
 export declare interface WcsComNavCategory extends Components.WcsComNavCategory {}
 @ProxyCmp({
   inputs: ['label'],
@@ -170,7 +170,7 @@ export declare interface WcsComNavCategory extends Components.WcsComNavCategory 
 })
 export class WcsComNavCategory {
   /**  */
-  wcsCategoryOpened!: IComNavCategory['wcsCategoryOpened'];
+  wcsCategoryOpened!: EventEmitter<CustomEvent<IComNavCategoryCategoryOpenedEventDetail>>;
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -179,7 +179,7 @@ export class WcsComNavCategory {
   }
 }
 
-import { ComNavSubmenu as IComNavSubmenu } from 'wcs-core/dist/types/components/com-nav-submenu/com-nav-submenu';
+import { MenuOpenedEventDetail as IComNavSubmenuMenuOpenedEventDetail } from 'wcs-core/dist/types/components/com-nav/com-nav-interface';
 export declare interface WcsComNavSubmenu extends Components.WcsComNavSubmenu {}
 @ProxyCmp({
   inputs: ['label', 'panelDescription', 'panelTitle'],
@@ -194,7 +194,7 @@ export declare interface WcsComNavSubmenu extends Components.WcsComNavSubmenu {}
 })
 export class WcsComNavSubmenu {
   /**  */
-  wcsSubmenuOpened!: IComNavSubmenu['wcsSubmenuOpened'];
+  wcsSubmenuOpened!: EventEmitter<CustomEvent<IComNavSubmenuMenuOpenedEventDetail>>;
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -238,7 +238,7 @@ export class WcsDropdown {
   }
 }
 
-import { DropdownItem as IDropdownItem } from 'wcs-core/dist/types/components/dropdown-item/dropdown-item';
+
 export declare interface WcsDropdownItem extends Components.WcsDropdownItem {}
 
 @Component({
@@ -249,7 +249,7 @@ export declare interface WcsDropdownItem extends Components.WcsDropdownItem {}
 })
 export class WcsDropdownItem {
   /**  */
-  wcsDropdownItemClick!: IDropdownItem['wcsDropdownItemClick'];
+  wcsDropdownItemClick!: EventEmitter<CustomEvent<void>>;
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -258,7 +258,7 @@ export class WcsDropdownItem {
   }
 }
 
-import { EditableField as IEditableField } from 'wcs-core/dist/types/components/editable-field/editable-field';
+import { EditableComponentUpdateEvent as IEditableFieldEditableComponentUpdateEvent } from 'wcs-core/dist/types/components/editable-field/editable-field-interface';
 export declare interface WcsEditableField extends Components.WcsEditableField {}
 @ProxyCmp({
   inputs: ['errorMsg', 'formatFn', 'label', 'readonly', 'type', 'validateFn', 'value']
@@ -272,7 +272,7 @@ export declare interface WcsEditableField extends Components.WcsEditableField {}
 })
 export class WcsEditableField {
   /** event called at each (valid) update of the field. */
-  wcsChange!: IEditableField['wcsChange'];
+  wcsChange!: EventEmitter<CustomEvent<IEditableFieldEditableComponentUpdateEvent>>;
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -418,7 +418,8 @@ export class WcsGalacticMenu {
   }
 }
 
-import { Grid as IGrid } from 'wcs-core/dist/types/components/grid/grid';
+import { WcsGridRowSelectedEventDetails as IGridWcsGridRowSelectedEventDetails } from 'wcs-core/dist/types/components/grid/grid-interface';
+import { WcsGridAllRowSelectedEventDetails as IGridWcsGridAllRowSelectedEventDetails } from 'wcs-core/dist/types/components/grid/grid-interface';
 export declare interface WcsGrid extends Components.WcsGrid {}
 @ProxyCmp({
   inputs: ['data', 'loading', 'selectedItems', 'selectionConfig', 'serverMode', 'wcsGridPaginationId']
@@ -432,9 +433,9 @@ export declare interface WcsGrid extends Components.WcsGrid {}
 })
 export class WcsGrid {
   /** Event emitted when a row is selected or unselected */
-  wcsGridSelectionChange!: IGrid['wcsGridSelectionChange'];
+  wcsGridSelectionChange!: EventEmitter<CustomEvent<IGridWcsGridRowSelectedEventDetails>>;
   /** Event emitted when all rows are selected or unselected */
-  wcsGridAllSelectionChange!: IGrid['wcsGridAllSelectionChange'];
+  wcsGridAllSelectionChange!: EventEmitter<CustomEvent<IGridWcsGridAllRowSelectedEventDetails>>;
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -443,7 +444,7 @@ export class WcsGrid {
   }
 }
 
-import { GridColumn as IGridColumn } from 'wcs-core/dist/types/components/grid-column/grid-column';
+import { WcsGridColumnSortChangeEventDetails as IGridColumnWcsGridColumnSortChangeEventDetails } from 'wcs-core/dist/types/components/grid/grid-interface';
 export declare interface WcsGridColumn extends Components.WcsGridColumn {}
 @ProxyCmp({
   inputs: ['formatter', 'name', 'path', 'sort', 'sortFn', 'sortOrder', 'width']
@@ -457,7 +458,7 @@ export declare interface WcsGridColumn extends Components.WcsGridColumn {}
 })
 export class WcsGridColumn {
   /**  */
-  wcsSortChange!: IGridColumn['wcsSortChange'];
+  wcsSortChange!: EventEmitter<CustomEvent<IGridColumnWcsGridColumnSortChangeEventDetails>>;
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -466,7 +467,7 @@ export class WcsGridColumn {
   }
 }
 
-import { GridPagination as IGridPagination } from 'wcs-core/dist/types/components/grid-pagination/grid-pagination';
+import { WcsGridPaginationChangeEventDetails as IGridPaginationWcsGridPaginationChangeEventDetails } from 'wcs-core/dist/types/components/grid/grid-interface';
 export declare interface WcsGridPagination extends Components.WcsGridPagination {}
 @ProxyCmp({
   inputs: ['availablePageSizes', 'currentPage', 'itemsCount', 'pageCount', 'pageSize']
@@ -480,7 +481,7 @@ export declare interface WcsGridPagination extends Components.WcsGridPagination 
 })
 export class WcsGridPagination {
   /**  */
-  wcsGridPaginationChange!: IGridPagination['wcsGridPaginationChange'];
+  wcsGridPaginationChange!: EventEmitter<CustomEvent<IGridPaginationWcsGridPaginationChangeEventDetails>>;
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -524,7 +525,7 @@ export class WcsHint {
   }
 }
 
-import { HorizontalStepper as IHorizontalStepper } from 'wcs-core/dist/types/components/horizontal-stepper/horizontal-stepper';
+import { HorizontalStepClickEvent as IHorizontalStepperHorizontalStepClickEvent } from 'wcs-core/dist/types/components/horizontal-stepper/horizontal-stepper-interface';
 export declare interface WcsHorizontalStepper extends Components.WcsHorizontalStepper {}
 @ProxyCmp({
   inputs: ['checkOnComplete', 'currentStep', 'mode', 'steps'],
@@ -539,7 +540,7 @@ export declare interface WcsHorizontalStepper extends Components.WcsHorizontalSt
 })
 export class WcsHorizontalStepper {
   /** Emits when the user selects a new step. */
-  wcsHorizontalStepClick!: IHorizontalStepper['wcsHorizontalStepClick'];
+  wcsHorizontalStepClick!: EventEmitter<CustomEvent<IHorizontalStepperHorizontalStepClickEvent>>;
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -567,7 +568,7 @@ export class WcsIcon {
   }
 }
 
-import { Input as IInput } from 'wcs-core/dist/types/components/input/input';
+import { InputChangeEventDetail as IInputInputChangeEventDetail } from 'wcs-core/dist/types/components/input/input-interface';
 export declare interface WcsInput extends Components.WcsInput {}
 @ProxyCmp({
   inputs: ['accept', 'autocapitalize', 'autocomplete', 'autocorrect', 'autofocus', 'clearInput', 'clearOnEdit', 'debounce', 'disabled', 'enterkeyhint', 'icon', 'inputmode', 'max', 'maxlength', 'min', 'minlength', 'multiple', 'name', 'pattern', 'placeholder', 'readonly', 'required', 'size', 'spellcheck', 'state', 'step', 'type', 'value'],
@@ -582,13 +583,13 @@ export declare interface WcsInput extends Components.WcsInput {}
 })
 export class WcsInput {
   /** Emitted when a keyboard input occurred. */
-  wcsInput!: IInput['wcsInput'];
+  wcsInput!: EventEmitter<CustomEvent<KeyboardEvent>>;
   /** Emitted when the value has changed. */
-  wcsChange!: IInput['wcsChange'];
+  wcsChange!: EventEmitter<CustomEvent<IInputInputChangeEventDetail>>;
   /** Emitted when the input loses focus. */
-  wcsBlur!: IInput['wcsBlur'];
+  wcsBlur!: EventEmitter<CustomEvent<FocusEvent>>;
   /** Emitted when the input has focus. */
-  wcsFocus!: IInput['wcsFocus'];
+  wcsFocus!: EventEmitter<CustomEvent<FocusEvent>>;
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -686,7 +687,7 @@ export class WcsMatIcon {
   }
 }
 
-import { Modal as IModal } from 'wcs-core/dist/types/components/modal/modal';
+
 export declare interface WcsModal extends Components.WcsModal {}
 @ProxyCmp({
   inputs: ['backdrop', 'show', 'showCloseButton']
@@ -700,7 +701,7 @@ export declare interface WcsModal extends Components.WcsModal {}
 })
 export class WcsModal {
   /** Triggered when the user leaves the dialog with the closing button. */
-  wcsDialogClosed!: IModal['wcsDialogClosed'];
+  wcsDialogClosed!: EventEmitter<CustomEvent<void>>;
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -782,7 +783,7 @@ export class WcsProgressRadial {
   }
 }
 
-import { Radio as IRadio } from 'wcs-core/dist/types/components/radio/radio.component';
+import { RadioChosedEvent as IRadioRadioChosedEvent } from 'wcs-core/dist/types/components/radio/radio-interface';
 export declare interface WcsRadio extends Components.WcsRadio {}
 @ProxyCmp({
   inputs: ['checked', 'disabled', 'label', 'mode', 'value']
@@ -796,7 +797,7 @@ export declare interface WcsRadio extends Components.WcsRadio {}
 })
 export class WcsRadio {
   /**  */
-  wcsRadioClick!: IRadio['wcsRadioClick'];
+  wcsRadioClick!: EventEmitter<CustomEvent<IRadioRadioChosedEvent>>;
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -805,7 +806,7 @@ export class WcsRadio {
   }
 }
 
-import { RadioGroup as IRadioGroup } from 'wcs-core/dist/types/components/radio-group/radio-group';
+import { RadioGroupChangeEventDetail as IRadioGroupRadioGroupChangeEventDetail } from 'wcs-core/dist/types/components/radio-group/radio-group-interface';
 export declare interface WcsRadioGroup extends Components.WcsRadioGroup {}
 @ProxyCmp({
   inputs: ['mode', 'name', 'value']
@@ -819,7 +820,7 @@ export declare interface WcsRadioGroup extends Components.WcsRadioGroup {}
 })
 export class WcsRadioGroup {
   /** Emitted when the value has changed. */
-  wcsChange!: IRadioGroup['wcsChange'];
+  wcsChange!: EventEmitter<CustomEvent<IRadioGroupRadioGroupChangeEventDetail>>;
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -828,7 +829,7 @@ export class WcsRadioGroup {
   }
 }
 
-import { Select as ISelect } from 'wcs-core/dist/types/components/select/select';
+import { SelectChangeEventDetail as ISelectSelectChangeEventDetail } from 'wcs-core/dist/types/components/select/select-interface';
 export declare interface WcsSelect extends Components.WcsSelect {}
 @ProxyCmp({
   inputs: ['chips', 'compareWith', 'disabled', 'multiple', 'name', 'placeholder', 'value'],
@@ -843,11 +844,11 @@ export declare interface WcsSelect extends Components.WcsSelect {}
 })
 export class WcsSelect {
   /** Emitted when the value has changed. */
-  wcsChange!: ISelect['wcsChange'];
+  wcsChange!: EventEmitter<CustomEvent<ISelectSelectChangeEventDetail>>;
   /** Emitted when the select has focus. */
-  wcsFocus!: ISelect['wcsFocus'];
+  wcsFocus!: EventEmitter<CustomEvent<void>>;
   /** Emitted when the select loses focus. */
-  wcsBlur!: ISelect['wcsBlur'];
+  wcsBlur!: EventEmitter<CustomEvent<void>>;
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -856,7 +857,7 @@ export class WcsSelect {
   }
 }
 
-import { SelectOption as ISelectOption } from 'wcs-core/dist/types/components/select-option/select-option';
+import { SelectOptionChosedEvent as ISelectOptionSelectOptionChosedEvent } from 'wcs-core/dist/types/components/select-option/select-option-interface';
 export declare interface WcsSelectOption extends Components.WcsSelectOption {}
 @ProxyCmp({
   inputs: ['chipBackgroundColor', 'chipColor', 'disabled', 'selected', 'value']
@@ -870,7 +871,7 @@ export declare interface WcsSelectOption extends Components.WcsSelectOption {}
 })
 export class WcsSelectOption {
   /**  */
-  wcsSelectOptionClick!: ISelectOption['wcsSelectOptionClick'];
+  wcsSelectOptionClick!: EventEmitter<CustomEvent<ISelectOptionSelectOptionChosedEvent>>;
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -898,7 +899,7 @@ export class WcsSpinner {
   }
 }
 
-import { Switch as ISwitch } from 'wcs-core/dist/types/components/switch/switch';
+import { SwitchChangeEventDetail as ISwitchSwitchChangeEventDetail } from 'wcs-core/dist/types/components/switch/switch-interface';
 export declare interface WcsSwitch extends Components.WcsSwitch {}
 @ProxyCmp({
   inputs: ['checked', 'name']
@@ -912,7 +913,7 @@ export declare interface WcsSwitch extends Components.WcsSwitch {}
 })
 export class WcsSwitch {
   /** Emitted when the checked property has changed. */
-  wcsChange!: ISwitch['wcsChange'];
+  wcsChange!: EventEmitter<CustomEvent<ISwitchSwitchChangeEventDetail>>;
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -921,7 +922,7 @@ export class WcsSwitch {
   }
 }
 
-import { Tab as ITab } from 'wcs-core/dist/types/components/tab/tab';
+
 export declare interface WcsTab extends Components.WcsTab {}
 @ProxyCmp({
   inputs: ['header', 'itemKey']
@@ -935,7 +936,7 @@ export declare interface WcsTab extends Components.WcsTab {}
 })
 export class WcsTab {
   /** Do not use, meant for internal use only. @inner undefined,@ignore undefined*/
-  tabLoaded!: ITab['tabLoaded'];
+  tabLoaded!: EventEmitter<CustomEvent<void>>;
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -944,7 +945,7 @@ export class WcsTab {
   }
 }
 
-import { Tabs as ITabs } from 'wcs-core/dist/types/components/tabs/tabs';
+import { WcsTabChangeEvent as ITabsWcsTabChangeEvent } from 'wcs-core/dist/types/components/tabs/tabs-interface';
 export declare interface WcsTabs extends Components.WcsTabs {}
 @ProxyCmp({
   inputs: ['align', 'gutter', 'headersOnly', 'selectedIndex', 'selectedKey']
@@ -959,7 +960,7 @@ export declare interface WcsTabs extends Components.WcsTabs {}
 export class WcsTabs {
   /** 
 Emitted when the selected tab change. */
-  tabChange!: ITabs['tabChange'];
+  tabChange!: EventEmitter<CustomEvent<ITabsWcsTabChangeEvent>>;
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -968,7 +969,7 @@ Emitted when the selected tab change. */
   }
 }
 
-import { Textarea as ITextarea } from 'wcs-core/dist/types/components/textarea/textarea';
+import { TextareaChangeEventDetail as ITextareaTextareaChangeEventDetail } from 'wcs-core/dist/types/components/textarea/textarea-interface';
 export declare interface WcsTextarea extends Components.WcsTextarea {}
 @ProxyCmp({
   inputs: ['autoGrow', 'autocapitalize', 'autofocus', 'clearOnEdit', 'cols', 'debounce', 'disabled', 'enterkeyhint', 'icon', 'inputmode', 'maxlength', 'minlength', 'name', 'placeholder', 'readonly', 'required', 'rows', 'spellcheck', 'state', 'value', 'wrap'],
@@ -983,13 +984,13 @@ export declare interface WcsTextarea extends Components.WcsTextarea {}
 })
 export class WcsTextarea {
   /** Emitted when the input value has changed. */
-  wcsChange!: ITextarea['wcsChange'];
+  wcsChange!: EventEmitter<CustomEvent<ITextareaTextareaChangeEventDetail>>;
   /** Emitted when a keyboard input occurred. */
-  wcsInput!: ITextarea['wcsInput'];
+  wcsInput!: EventEmitter<CustomEvent<KeyboardEvent>>;
   /** Emitted when the input loses focus. */
-  wcsBlur!: ITextarea['wcsBlur'];
+  wcsBlur!: EventEmitter<CustomEvent<FocusEvent>>;
   /** Emitted when the input has focus. */
-  wcsFocus!: ITextarea['wcsFocus'];
+  wcsFocus!: EventEmitter<CustomEvent<FocusEvent>>;
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();

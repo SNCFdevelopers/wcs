@@ -1156,7 +1156,7 @@ declare namespace LocalJSX {
         /**
           * event called at each (valid) update of the field.
          */
-        "onWcsChange"?: (event: CustomEvent<EditableComponentUpdateEvent<any>>) => void;
+        "onWcsChange"?: (event: CustomEvent<EditableComponentUpdateEvent>) => void;
         /**
           * Specify whether the field is editable or not
          */

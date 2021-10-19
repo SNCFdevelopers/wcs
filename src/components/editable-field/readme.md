@@ -91,9 +91,9 @@ If the readonly attribute is added, the component will not be editable and no in
 
 ## Events
 
-| Event       | Description                                       | Type                                             |
-| ----------- | ------------------------------------------------- | ------------------------------------------------ |
-| `wcsChange` | event called at each (valid) update of the field. | `CustomEvent<EditableComponentUpdateEvent<any>>` |
+| Event       | Description                                       | Type                                        |
+| ----------- | ------------------------------------------------- | ------------------------------------------- |
+| `wcsChange` | event called at each (valid) update of the field. | `CustomEvent<EditableComponentUpdateEvent>` |
 
 
 ## Dependencies
