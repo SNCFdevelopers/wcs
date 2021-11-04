@@ -5,7 +5,7 @@ stages:
 
 image: node:14-alpine
 
-# Cache modules in between jobs
+# Cache modules in between jobs: https://docs.gitlab.com/ee/ci/caching/#cache-nodejs-dependencies
 # cache:
 #   key: ${CI_COMMIT_REF_SLUG}
 #   paths:
@@ -15,6 +15,7 @@ image: node:14-alpine
 cache:
     paths:
         - doc_cache
+
 before_script:
     - npm install
     - cd angular/ && npm install && cd ../
@@ -34,9 +35,8 @@ build:
     artifacts:
         expire_in: 4 days
         paths:
-            - www/
+            - storybook-static/
             - loader/
-            - schematics/
             - dist/
             - angular/dist/wcs-angular/
             - angular/dist/wcs-formly/
@@ -61,8 +61,8 @@ pages:
             - public
     script:
         - mkdir -p doc_cache/$CI_COMMIT_REF_NAME/
-        - rm -rf doc_cache/$CI_COMMIT_BRANCH/*
-        - cp -r www/* doc_cache/$CI_COMMIT_REF_NAME/
+        - rm -rf doc_cache/$CI_COMMIT_REF_NAME/*
+        - cp -r storybook-static/* doc_cache/$CI_COMMIT_REF_NAME/
         - cp -r doc_cache public
 
 publish:

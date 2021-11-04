@@ -12,38 +12,43 @@
     "unpkg": "dist/wcs/wcs.js",
     "files": [
         "dist/",
-        "loader/",
-        "schematics/"
+        "loader/"
     ],
     "scripts": {
         "build:stencil": "stencil build",
-        "build:examples": "node build.js",
-        "build:schematics": "node_modules/.bin/tsc -p schematics/tsconfig.json",
-        "build": "node build.js && stencil build && npm run build:schematics",
-        "watch:stencil": "stencil build --dev --serve --watch",
-        "watch:examples": "node build.js --watch",
-        "start": "node run.js",
+        "build": "stencil build && npm run build-storybook",
+        "watch:stencil": "stencil build --dev --watch",
+        "start": "stencil build && concurrently --names \"Stencil,Storybook\" -c \"bgBlue.bold,bgMagenta.bold\" \"stencil build --dev --watch\" \"npm run storybook\"",
         "test": "stencil test --spec --e2e",
         "test:watch": "stencil test --spec --e2e --watchAll",
         "update-version": "node scripts/update-version.js",
-        "update-develop": "node scripts/update-develop-from-master.js"
+        "update-develop": "node scripts/update-develop-from-master.js",
+        "storybook": "start-storybook -s ./dist/wcs,./src/assets/fonts -p 6006",
+        "build-storybook": "build-storybook -s ./dist/wcs,./src/assets/fonts"
     },
     "devDependencies": {
         "@angular/cli": "^10.1.1",
+        "@babel/core": "^7.16.0",
         "@material/ripple": "1.1.0",
         "@stencil/angular-output-target": "0.1.0",
         "@stencil/core": "2.6.0",
         "@stencil/sass": "1.4.1",
+        "@storybook/addon-actions": "^6.3.12",
+        "@storybook/addon-essentials": "^6.3.12",
+        "@storybook/addon-links": "^6.3.12",
+        "@storybook/web-components": "^6.3.12",
         "@types/dom-inputevent": "^1.0.5",
         "@types/glob": "^7.1.3",
         "@types/jest": "26.0.7",
         "@types/puppeteer": "^3.0.1",
+        "babel-loader": "^8.2.3",
         "chokidar": "^3.4.1",
         "concurrently": "^5.2.0",
         "glob": "^7.1.6",
         "highlight.js": "^10.1.2",
         "jest": "^26.1.0",
         "jest-cli": "^26.1.0",
+        "lit-html": "^2.0.1",
         "markdown-it": "^11.0.0",
         "mem": "^6.1.0",
         "puppeteer": "^5.2.1",
@@ -52,14 +57,11 @@
         "tslib": "^2.0.0",
         "tslint": "^6.1.2",
         "tslint-ionic-rules": "^0.0.21",
-        "typescript": "~3.9.7"
+        "typescript": "~3.9.7",
+        "webpack-watch-files-plugin": "^1.2.0"
     },
     "dependencies": {
-        "@angular-devkit/core": "^10.0.4",
-        "@angular-devkit/schematics": "^10.0.4",
-        "@angular/cdk": "^10.1.1",
         "@popperjs/core": "^2.9.3",
-        "@schematics/angular": "^10.0.4",
         "chalk": "^4.1.0",
         "lodash": "^4.17.21",
         "uuid": "^8.3.2",
@@ -71,6 +73,5 @@
     },
     "author": "SNCF",
     "private": false,
-    "license": "MIT",
-    "schematics": "./schematics/collection.json"
+    "license": "MIT"
 }
