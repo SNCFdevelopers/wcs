@@ -12,6 +12,9 @@ image: node:14-alpine
 #     - node_modules/
 #     - angular/node_modules/
 
+cache:
+    paths:
+        - doc_cache
 before_script:
     - npm install
     - cd angular/ && npm install && cd ../
@@ -57,10 +60,10 @@ pages:
         paths:
             - public
     script:
-        - mkdir -p cache/$CI_COMMIT_REF_NAME/
-        - rm -rf cache/$CI_COMMIT_BRANCH/*
-        - cp -r www/* cache/$CI_COMMIT_REF_NAME/
-        - cp -r cache public
+        - mkdir -p doc_cache/$CI_COMMIT_REF_NAME/
+        - rm -rf doc_cache/$CI_COMMIT_BRANCH/*
+        - cp -r www/* doc_cache/$CI_COMMIT_REF_NAME/
+        - cp -r doc_cache public
 
 publish:
     tags:
