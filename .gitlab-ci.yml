@@ -57,8 +57,10 @@ pages:
         paths:
             - public
     script:
-        - mkdir -p public/$CI_COMMIT_REF_NAME/
-        - mv www/* public/$CI_COMMIT_REF_NAME/
+        - mkdir -p cache/$CI_COMMIT_REF_NAME/
+        - rm -rf cache/$CI_COMMIT_BRANCH/*
+        - cp -r www/* cache/$CI_COMMIT_REF_NAME/
+        - cp -r cache public
 
 publish:
     tags:
