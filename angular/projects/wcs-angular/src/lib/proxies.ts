@@ -166,16 +166,18 @@ export declare interface WcsComNavCategory extends Components.WcsComNavCategory 
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['label'],
-  outputs: ['wcsCategoryOpened']
+  outputs: ['wcsCategoryOpened', 'wcsCategoryItemClicked']
 })
 export class WcsComNavCategory {
   /**  */
   wcsCategoryOpened!: EventEmitter<CustomEvent<IComNavCategoryCategoryOpenedEventDetail>>;
+  /**  */
+  wcsCategoryItemClicked!: EventEmitter<CustomEvent<MouseEvent>>;
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['wcsCategoryOpened']);
+    proxyOutputs(this, this.el, ['wcsCategoryOpened', 'wcsCategoryItemClicked']);
   }
 }
 

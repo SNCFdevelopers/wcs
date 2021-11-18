@@ -7,7 +7,8 @@ module.exports = {
     ],
     "addons": [
         "@storybook/addon-links",
-        "@storybook/addon-essentials"
+        "@storybook/addon-essentials",
+        "@storybook/addon-docs"
     ],
     async webpackFinal(config) {
         config.plugins.push(new WatchExternalFilesPlugin({

@@ -22,6 +22,7 @@ export class ComNavCategory implements ComponentInterface {
     @Prop() label: string;
     @State() categoryOpen: boolean = false;
     @Event() wcsCategoryOpened: EventEmitter<CategoryOpenedEventDetail>;
+    @Event() wcsCategoryItemClicked: EventEmitter<MouseEvent>;
 
     @Listen('click', {target: 'window'})
     onWindowClickEvent(_: MouseEvent) {
@@ -60,12 +61,25 @@ export class ComNavCategory implements ComponentInterface {
         this.wcsCategoryOpened.emit({categoryElement: this.el})
     }
 
+
+    /**
+     * Close the category and fire item click if we detect a mouse click on a slotted `a` element.
+     * @param evt
+     * @private
+     */
+    private handleItemClick(evt: MouseEvent) {
+        if ((evt.target as HTMLElement).tagName === 'A') {
+            this.close();
+            this.wcsCategoryItemClicked.emit(evt);
+        }
+    }
+
     render(): any {
         return (
             <Host onClick={evt => this.onClick(evt)}>
                 <div class="label-container" data-open={this.categoryOpen}
                      onClick={_ => this.categoryOpen = !this.categoryOpen}><span class="label">{this.label}</span></div>
-                <div class="item-container" data-open={this.categoryOpen}>
+                <div class="item-container" data-open={this.categoryOpen} onClick={(evt) => this.handleItemClick(evt)}>
                     <slot/>
                 </div>
             </Host>

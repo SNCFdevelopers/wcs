@@ -67,6 +67,26 @@ export class ComNavSubmenu implements ComponentInterface {
         this.wcsSubmenuOpened.emit({menuElement: this.el})
     }
 
+
+    private handleMenuItemsClick(evt: MouseEvent) {
+        if ((evt.target as HTMLElement).tagName === 'A') {
+            this.close();
+        }
+    }
+
+    /**
+     * handle category item click to close the submenu
+     * @param _
+     * @private
+     */
+    @Listen('wcsCategoryItemClicked')
+    // @ts-ignore
+    private wcsCategoryItemClickedHandler(_: CustomEvent<MouseEvent>) {
+        // If a category item is clicked, we close the submenu drawer;
+        this.close();
+    }
+
+
     render(): any {
         return (
             <Host onClick={evt => this.onClick(evt)}>
@@ -81,7 +101,7 @@ export class ComNavSubmenu implements ComponentInterface {
                                 <h3>{this.panelTitle}</h3>
                                 <p>{this.panelDescription}</p>
                             </div>
-                            <div class="menu-items">
+                            <div class="menu-items" onClick={(evt) => this.handleMenuItemsClick(evt)}>
                                 <slot/>
                             </div>
                         </div>

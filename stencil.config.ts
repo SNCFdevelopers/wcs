@@ -4,6 +4,7 @@ import { sass } from '@stencil/sass';
 import path from 'path';
 import glob from 'glob';
 import { angularOutputTarget } from '@stencil/angular-output-target';
+import { generateCustomElementsJson } from './scripts/custom-elements-output-storybook';
 
 export const config: Config = {
     namespace: 'wcs',
@@ -37,6 +38,10 @@ export const config: Config = {
         },
         {
             type: 'docs-readme'
-        }
+        },
+        {
+            type: 'docs-custom',
+            generator: generateCustomElementsJson
+        },
     ]
 };

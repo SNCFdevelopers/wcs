@@ -14,9 +14,10 @@
 
 ## Events
 
-| Event               | Description | Type                                     |
-| ------------------- | ----------- | ---------------------------------------- |
-| `wcsCategoryOpened` |             | `CustomEvent<CategoryOpenedEventDetail>` |
+| Event                    | Description | Type                                     |
+| ------------------------ | ----------- | ---------------------------------------- |
+| `wcsCategoryItemClicked` |             | `CustomEvent<MouseEvent>`                |
+| `wcsCategoryOpened`      |             | `CustomEvent<CategoryOpenedEventDetail>` |
 
 
 ## Methods

@@ -1122,6 +1122,7 @@ declare namespace LocalJSX {
     }
     interface WcsComNavCategory {
         "label"?: string;
+        "onWcsCategoryItemClicked"?: (event: CustomEvent<MouseEvent>) => void;
         "onWcsCategoryOpened"?: (event: CustomEvent<CategoryOpenedEventDetail>) => void;
     }
     interface WcsComNavSubmenu {
