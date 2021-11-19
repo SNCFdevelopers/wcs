@@ -1,8 +1,8 @@
-import { Component, ComponentInterface, Element, Prop, Listen, h } from '@stencil/core';
+import { Component, ComponentInterface, Element, h, Listen, Prop, Watch } from '@stencil/core';
 
-import * as MDCRipple from '@material/ripple';
+import { MDCRipple } from '@material/ripple';
 
-import { WcsButtonType, WcsButtonMode, WcsButtonShape } from './button-interface';
+import { WcsButtonMode, WcsButtonShape, WcsButtonType } from './button-interface';
 import { hasShadowDom } from '../../utils/helpers';
 
 /**
@@ -36,6 +36,7 @@ export class Button implements ComponentInterface {
      * Specify wether the button should have a ripple effect or not.
      */
     @Prop() ripple = true;
+    mdcRipple: MDCRipple;
 
     /**
      * Specify the shape of the button.
@@ -70,6 +71,27 @@ export class Button implements ComponentInterface {
         }
     }
 
+    componentDidLoad() {
+        this.mdcRipple = new MDCRipple(this.el.shadowRoot.querySelector('.wcs-inner-button'));
+    }
+
+    private enabledRippleEffect() {
+        this.mdcRipple.disabled = false;
+    }
+
+    private disabledRippleEffect() {
+        this.mdcRipple.disabled = true;
+    }
+
+    @Watch('ripple')
+    onRippleChange(): void {
+        if (this.ripple) {
+            this.enabledRippleEffect();
+        } else {
+            this.disabledRippleEffect();
+        }
+    }
+
     render() {
         const TagType = this.href !== undefined ? 'a' : 'button';
         const attrs = this.href !== undefined
@@ -85,16 +107,5 @@ export class Button implements ComponentInterface {
                 <slot/>
             </TagType>
         );
-    }
-
-    componentDidLoad() {
-        if (this.ripple) {
-            this.addRippleEffect();
-        }
-    }
-
-    private addRippleEffect() {
-        const ripple = new MDCRipple.MDCRipple(this.el.shadowRoot.querySelector('.wcs-inner-button'));
-        ripple.unbounded = false;
     }
 }
