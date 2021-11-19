@@ -33,6 +33,7 @@ export class GridColumn implements ComponentInterface {
      * Set the column <th> element width
      */
     @Prop() width: string;
+    @Prop() customCells: boolean = false;
     @Event() wcsSortChange!: EventEmitter<WcsGridColumnSortChangeEventDetails>;
 
     emitSortConfig() {

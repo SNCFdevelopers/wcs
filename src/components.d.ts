@@ -191,6 +191,10 @@ export namespace Components {
          */
         "loading": boolean;
         /**
+          * Name of the object's key that will be used to display the cells whose keyValue attribute matches to the object's value for this key.
+         */
+        "rowIdPath": string;
+        /**
           * Set the selected items
          */
         "selectedItems": any | any[];
@@ -205,6 +209,7 @@ export namespace Components {
         "wcsGridPaginationId": string;
     }
     interface WcsGridColumn {
+        "customCells": boolean;
         "formatter": WcsCellFormatter;
         "name": string;
         "path": string;
@@ -215,6 +220,16 @@ export namespace Components {
           * Set the column <th> element width
          */
         "width": string;
+    }
+    interface WcsGridCustomCell {
+        /**
+          * ID of the column for which to render the cell
+         */
+        "columnId": string;
+        /**
+          * Key value of the object rendered for the cell's row
+         */
+        "rowId": any;
     }
     interface WcsGridPagination {
         "availablePageSizes": number[];
@@ -839,6 +854,12 @@ declare global {
         prototype: HTMLWcsGridColumnElement;
         new (): HTMLWcsGridColumnElement;
     };
+    interface HTMLWcsGridCustomCellElement extends Components.WcsGridCustomCell, HTMLStencilElement {
+    }
+    var HTMLWcsGridCustomCellElement: {
+        prototype: HTMLWcsGridCustomCellElement;
+        new (): HTMLWcsGridCustomCellElement;
+    };
     interface HTMLWcsGridPaginationElement extends Components.WcsGridPagination, HTMLStencilElement {
     }
     var HTMLWcsGridPaginationElement: {
@@ -1020,6 +1041,7 @@ declare global {
         "wcs-galactic-menu": HTMLWcsGalacticMenuElement;
         "wcs-grid": HTMLWcsGridElement;
         "wcs-grid-column": HTMLWcsGridColumnElement;
+        "wcs-grid-custom-cell": HTMLWcsGridCustomCellElement;
         "wcs-grid-pagination": HTMLWcsGridPaginationElement;
         "wcs-header": HTMLWcsHeaderElement;
         "wcs-hint": HTMLWcsHintElement;
@@ -1222,6 +1244,10 @@ declare namespace LocalJSX {
          */
         "onWcsGridSelectionChange"?: (event: CustomEvent<WcsGridRowSelectedEventDetails>) => void;
         /**
+          * Name of the object's key that will be used to display the cells whose keyValue attribute matches to the object's value for this key.
+         */
+        "rowIdPath"?: string;
+        /**
           * Set the selected items
          */
         "selectedItems"?: any | any[];
@@ -1236,6 +1262,7 @@ declare namespace LocalJSX {
         "wcsGridPaginationId"?: string;
     }
     interface WcsGridColumn {
+        "customCells"?: boolean;
         "formatter"?: WcsCellFormatter;
         "name"?: string;
         "onWcsSortChange"?: (event: CustomEvent<WcsGridColumnSortChangeEventDetails>) => void;
@@ -1247,6 +1274,16 @@ declare namespace LocalJSX {
           * Set the column <th> element width
          */
         "width"?: string;
+    }
+    interface WcsGridCustomCell {
+        /**
+          * ID of the column for which to render the cell
+         */
+        "columnId"?: string;
+        /**
+          * Key value of the object rendered for the cell's row
+         */
+        "rowId"?: any;
     }
     interface WcsGridPagination {
         "availablePageSizes"?: number[];
@@ -1785,6 +1822,7 @@ declare namespace LocalJSX {
         "wcs-galactic-menu": WcsGalacticMenu;
         "wcs-grid": WcsGrid;
         "wcs-grid-column": WcsGridColumn;
+        "wcs-grid-custom-cell": WcsGridCustomCell;
         "wcs-grid-pagination": WcsGridPagination;
         "wcs-header": WcsHeader;
         "wcs-hint": WcsHint;
@@ -1841,6 +1879,7 @@ declare module "@stencil/core" {
             "wcs-galactic-menu": LocalJSX.WcsGalacticMenu & JSXBase.HTMLAttributes<HTMLWcsGalacticMenuElement>;
             "wcs-grid": LocalJSX.WcsGrid & JSXBase.HTMLAttributes<HTMLWcsGridElement>;
             "wcs-grid-column": LocalJSX.WcsGridColumn & JSXBase.HTMLAttributes<HTMLWcsGridColumnElement>;
+            "wcs-grid-custom-cell": LocalJSX.WcsGridCustomCell & JSXBase.HTMLAttributes<HTMLWcsGridCustomCellElement>;
             "wcs-grid-pagination": LocalJSX.WcsGridPagination & JSXBase.HTMLAttributes<HTMLWcsGridPaginationElement>;
             "wcs-header": LocalJSX.WcsHeader & JSXBase.HTMLAttributes<HTMLWcsHeaderElement>;
             "wcs-hint": LocalJSX.WcsHint & JSXBase.HTMLAttributes<HTMLWcsHintElement>;

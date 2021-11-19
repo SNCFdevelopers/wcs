@@ -424,13 +424,13 @@ import { WcsGridRowSelectedEventDetails as IGridWcsGridRowSelectedEventDetails }
 import { WcsGridAllRowSelectedEventDetails as IGridWcsGridAllRowSelectedEventDetails } from 'wcs-core/dist/types/components/grid/grid-interface';
 export declare interface WcsGrid extends Components.WcsGrid {}
 @ProxyCmp({
-  inputs: ['data', 'loading', 'selectedItems', 'selectionConfig', 'serverMode', 'wcsGridPaginationId']
+  inputs: ['data', 'loading', 'rowIdPath', 'selectedItems', 'selectionConfig', 'serverMode', 'wcsGridPaginationId']
 })
 @Component({
   selector: 'wcs-grid',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['data', 'loading', 'selectedItems', 'selectionConfig', 'serverMode', 'wcsGridPaginationId'],
+  inputs: ['data', 'loading', 'rowIdPath', 'selectedItems', 'selectionConfig', 'serverMode', 'wcsGridPaginationId'],
   outputs: ['wcsGridSelectionChange', 'wcsGridAllSelectionChange']
 })
 export class WcsGrid {
@@ -449,13 +449,13 @@ export class WcsGrid {
 import { WcsGridColumnSortChangeEventDetails as IGridColumnWcsGridColumnSortChangeEventDetails } from 'wcs-core/dist/types/components/grid/grid-interface';
 export declare interface WcsGridColumn extends Components.WcsGridColumn {}
 @ProxyCmp({
-  inputs: ['formatter', 'name', 'path', 'sort', 'sortFn', 'sortOrder', 'width']
+  inputs: ['customCells', 'formatter', 'name', 'path', 'sort', 'sortFn', 'sortOrder', 'width']
 })
 @Component({
   selector: 'wcs-grid-column',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['formatter', 'name', 'path', 'sort', 'sortFn', 'sortOrder', 'width'],
+  inputs: ['customCells', 'formatter', 'name', 'path', 'sort', 'sortFn', 'sortOrder', 'width'],
   outputs: ['wcsSortChange']
 })
 export class WcsGridColumn {
@@ -466,6 +466,25 @@ export class WcsGridColumn {
     c.detach();
     this.el = r.nativeElement;
     proxyOutputs(this, this.el, ['wcsSortChange']);
+  }
+}
+
+
+export declare interface WcsGridCustomCell extends Components.WcsGridCustomCell {}
+@ProxyCmp({
+  inputs: ['columnId', 'rowId']
+})
+@Component({
+  selector: 'wcs-grid-custom-cell',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['columnId', 'rowId']
+})
+export class WcsGridCustomCell {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
   }
 }
 

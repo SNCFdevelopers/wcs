@@ -53,6 +53,11 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
      */
     @Prop() selectedItems: any | any[] = [];
     @Prop() wcsGridPaginationId: string;
+    /**
+     * Name of the object's key that will be used to display the cells whose keyValue attribute matches to the
+     * object's value for this key.
+     */
+    @Prop() rowIdPath: string;
     @State() columns: HTMLWcsGridColumnElement[];
     @State() paginationEl: HTMLWcsGridPaginationElement;
     /**
@@ -209,7 +214,9 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
             this.rows.filter(r => r.uuid !== row.uuid).map(r => r.selected = false);
         }
         row.selected = !row.selected;
-        this.wcsGridSelectionChange.emit({row: this.wcsGridRowToWcsGridRowData(row)});
+        if (this.selectionConfig !== 'single' || row.selected) {
+            this.wcsGridSelectionChange.emit({row: this.wcsGridRowToWcsGridRowData(row)});
+        }
         this.rows = _.cloneDeep(this.rows);
     }
 
@@ -295,10 +302,7 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
                                 : this.rows
                                     ?.filter(row => this.serverMode || !this.paginationEl || row.page === this.paginationEl.currentPage)
                                     .map(row =>
-                                        <tr class={row.selected ? 'selected' : ''}>
-                                            {this.renderSelectionColumn(row)}
-                                            {row.cells?.map(cell => <td part={cell.column.path + '-column'}>{this.getCellContent(row, cell)}</td>)}
-                                        </tr>
+                                        this.renderRow(row)
                                     )
                         }
                         </tbody>
@@ -307,6 +311,17 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
                 <slot name="grid-pagination"></slot>
             </Host>
         );
+    }
+
+    private renderRow(row: WcsGridRow) {
+        return <tr class={row.selected ? 'selected' : ''}>
+            {this.renderSelectionColumn(row)}
+            {row.cells?.map(cell =>
+                cell.column.customCells
+                    ? (<td><slot name={cell.column.id + '-' + row.data[this.rowIdPath]} /></td>)
+                    : (<td part={cell.column.path + '-column'}>{this.getCellContent(row, cell)}</td>)
+            )}
+        </tr>;
     }
 }
 

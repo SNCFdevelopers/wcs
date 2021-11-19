@@ -1,7 +1,9 @@
 import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
 
+// @ts-ignore
 import path from 'path';
+// @ts-ignore
 import glob from 'glob';
 import { angularOutputTarget } from '@stencil/angular-output-target';
 import { generateCustomElementsJson } from './scripts/custom-elements-output-storybook';

@@ -10,9 +10,9 @@
 | Property             | Attribute      | Description | Type       | Default                      |
 | -------------------- | -------------- | ----------- | ---------- | ---------------------------- |
 | `availablePageSizes` | --             |             | `number[]` | `[10, 20, 50]`               |
-| `currentPage`        | `current-page` |             | `number`   | `1`                          |
+| `currentPage`        | `current-page` |             | `number`   | `0`                          |
 | `itemsCount`         | `items-count`  |             | `number`   | `0`                          |
-| `pageCount`          | `page-count`   |             | `number`   | `0`                          |
+| `pageCount`          | `page-count`   |             | `number`   | `1`                          |
 | `pageSize`           | `page-size`    |             | `number`   | `this.availablePageSizes[0]` |
 
 

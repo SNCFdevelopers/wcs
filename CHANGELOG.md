@@ -7,6 +7,24 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
 
+### Added
+
+- **grid**: add support for custom cell rendering with slot (`wcs-grid-custom-cell`)
+- **doc**: migrate existing documentation to storybook
+
+### Changed
+
+- **stencil**: migrate to v2.10.x
+
+### Fixed
+
+- **Communication Navbar**: close navbar when user click on a link (`a`) slotted element in submenu and category
+
+### Removed
+
+- **angular schematics**: remove Angular schematics support (`ng add wcs` is no longer supported) 
+
+
 ## [2.5.1]
 
 ### Fixed

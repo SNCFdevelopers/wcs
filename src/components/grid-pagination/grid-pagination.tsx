@@ -20,10 +20,10 @@ import { GridPaginationArrow } from './grid-pagination-arrow';
 export class GridPagination implements ComponentInterface {
     @Element() el!: HTMLWcsGridPaginationElement;
     @Prop() availablePageSizes: number[] = [10, 20, 50];
-    @Prop() currentPage: number = 1;
+    @Prop() currentPage: number = 0;
     @Prop() pageSize: number = this.availablePageSizes[0];
     @Prop() itemsCount: number = 0;
-    @Prop() pageCount: number = 0;
+    @Prop() pageCount: number = 1;
     @Event() wcsGridPaginationChange!: EventEmitter<WcsGridPaginationChangeEventDetails>;
 
     private lastPage(): void {

@@ -776,6 +776,12 @@
           "required": false
         },
         {
+          "name": "row-id-path",
+          "type": "string",
+          "description": "Name of the object's key that will be used to display the cells whose keyValue attribute matches to the\r\nobject's value for this key.",
+          "required": false
+        },
+        {
           "name": "selected-items",
           "type": "any",
           "description": "Set the selected items",
@@ -813,6 +819,12 @@
           "name": "loading",
           "type": "boolean",
           "description": "Flag to display spinner during data loading",
+          "required": false
+        },
+        {
+          "name": "rowIdPath",
+          "type": "string",
+          "description": "Name of the object's key that will be used to display the cells whose keyValue attribute matches to the\r\nobject's value for this key.",
           "required": false
         },
         {
@@ -863,6 +875,13 @@
       "description": "",
       "attributes": [
         {
+          "name": "custom-cells",
+          "type": "boolean",
+          "description": "",
+          "defaultValue": "false",
+          "required": false
+        },
+        {
           "name": "name",
           "type": "string",
           "description": "",
@@ -896,6 +915,13 @@
         }
       ],
       "properties": [
+        {
+          "name": "customCells",
+          "type": "boolean",
+          "description": "",
+          "defaultValue": "false",
+          "required": false
+        },
         {
           "name": "formatter",
           "type": "(_h: HyperFunc<VNode>, column: HTMLWcsGridColumnElement, rowData: WcsGridRowData) => HTMLElement | HTMLElement[]",
@@ -953,6 +979,44 @@
       "cssParts": []
     },
     {
+      "name": "wcs-grid-custom-cell",
+      "path": "./src/components/grid-custom-cell/grid-custom-cell.tsx",
+      "description": "",
+      "attributes": [
+        {
+          "name": "column-id",
+          "type": "string",
+          "description": "ID of the column for which to render the cell",
+          "required": false
+        },
+        {
+          "name": "row-id",
+          "type": "any",
+          "description": "Key value of the object rendered for the cell's row",
+          "required": false
+        }
+      ],
+      "properties": [
+        {
+          "name": "columnId",
+          "type": "string",
+          "description": "ID of the column for which to render the cell",
+          "required": false
+        },
+        {
+          "name": "rowId",
+          "type": "any",
+          "description": "Key value of the object rendered for the cell's row",
+          "required": false
+        }
+      ],
+      "events": [],
+      "methods": [],
+      "slots": [],
+      "cssProperties": [],
+      "cssParts": []
+    },
+    {
       "name": "wcs-grid-pagination",
       "path": "./src/components/grid-pagination/grid-pagination.tsx",
       "description": "",
@@ -961,7 +1025,7 @@
           "name": "current-page",
           "type": "number",
           "description": "",
-          "defaultValue": "1",
+          "defaultValue": "0",
           "required": false
         },
         {
@@ -975,7 +1039,7 @@
           "name": "page-count",
           "type": "number",
           "description": "",
-          "defaultValue": "0",
+          "defaultValue": "1",
           "required": false
         },
         {
@@ -998,7 +1062,7 @@
           "name": "currentPage",
           "type": "number",
           "description": "",
-          "defaultValue": "1",
+          "defaultValue": "0",
           "required": false
         },
         {
@@ -1012,7 +1076,7 @@
           "name": "pageCount",
           "type": "number",
           "description": "",
-          "defaultValue": "0",
+          "defaultValue": "1",
           "required": false
         },
         {
