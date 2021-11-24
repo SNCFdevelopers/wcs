@@ -10,6 +10,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 
 - **grid**: add support for custom cell rendering with slot (`wcs-grid-custom-cell`)
+- **grid**: add support to hide columns
 - **doc**: migrate existing documentation to storybook
 
 ### Changed

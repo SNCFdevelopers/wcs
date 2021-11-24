@@ -1,14 +1,19 @@
 :host {
     --wcs-grid-column-border-left: solid 1px var(--wcs-text-light);
+
+    display: contents;
+
     th {
         color: var(--wcs-gray-dark);
         background-color: var(--wcs-light);
         border-left: var(--wcs-grid-column-border-left);
         padding: calc(var(--wcs-padding) / 2) var(--wcs-padding);
         text-align: left;
+
         .grid-column-th-content {
             display: inline-flex;
             flex-direction: row;
+
             span {
                 user-select: none;
             }
@@ -25,6 +30,7 @@
         transform: scaleY(1);
     }
 }
+
 :host([sort-order="desc"]) {
     img {
         transform: scaleY(-1);
@@ -35,9 +41,14 @@
     img {
         display: none;
     }
+
     th:hover {
         img {
             display: inline-block;
         }
     }
+}
+
+:host([hidden]) {
+    display: none !important;
 }

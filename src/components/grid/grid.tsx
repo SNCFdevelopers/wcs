@@ -4,7 +4,7 @@ import {
     ComponentInterface,
     Element,
     Event,
-    EventEmitter,
+    EventEmitter, forceUpdate,
     h,
     Host,
     Listen,
@@ -81,6 +81,13 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
     @Watch('selectedItems')
     onSelectedItemsPropertyChange(newValue: any | any[]) {
         this.updateSelectionWithValues(newValue);
+    }
+
+    @Listen('wcsHiddenChange')
+    onHiddenColumnChange(): void {
+        // We use forceUpdate because the fact of hiding a column or not does not modify the internal structure of the grid (WcsGridRow).
+        // Hide a column only impacts the way it is rendered but the grid-column remains in the dom and in our internal model.
+        forceUpdate(this);
     }
 
     private updateSelectionWithValues(values: any | any[]) {
@@ -316,10 +323,16 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
     private renderRow(row: WcsGridRow) {
         return <tr class={row.selected ? 'selected' : ''}>
             {this.renderSelectionColumn(row)}
-            {row.cells?.map(cell =>
-                cell.column.customCells
-                    ? (<td><slot name={cell.column.id + '-' + row.data[this.rowIdPath]} /></td>)
-                    : (<td part={cell.column.path + '-column'}>{this.getCellContent(row, cell)}</td>)
+            {row.cells?.map(cell => {
+                    if (cell.column.hidden) {
+                        return;
+                    }
+                    return cell.column.customCells
+                        ? (<td>
+                            <slot name={cell.column.id + '-' + row.data[this.rowIdPath]}/>
+                        </td>)
+                        : (<td part={cell.column.path + '-column'}>{this.getCellContent(row, cell)}</td>)
+                }
             )}
         </tr>;
     }

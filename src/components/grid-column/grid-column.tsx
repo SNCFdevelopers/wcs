@@ -6,7 +6,7 @@ import {
     h,
     Host,
     Prop,
-    Element
+    Element, Watch
 } from '@stencil/core';
 import {
     WcsSortOrder,
@@ -34,7 +34,14 @@ export class GridColumn implements ComponentInterface {
      */
     @Prop() width: string;
     @Prop() customCells: boolean = false;
+    @Prop() hidden: boolean = false;
     @Event() wcsSortChange!: EventEmitter<WcsGridColumnSortChangeEventDetails>;
+    @Event() wcsHiddenChange!: EventEmitter<boolean>;
+
+    @Watch('hidden')
+    parseMyObjectProp(newValue: boolean) {
+        this.wcsHiddenChange.emit(newValue);
+    }
 
     emitSortConfig() {
         if (!this.sort) return;
@@ -46,7 +53,7 @@ export class GridColumn implements ComponentInterface {
     }
 
     render(): any {
-        return (<Host onClick={this.onSortClick.bind(this)} slot="grid-column" style={{ display: 'contents' }}>
+        return (<Host onClick={this.onSortClick.bind(this)} slot="grid-column">
             <th style={{width: this.width}} class={this.sort ? 'pointer' : ''}>
                 <div class="grid-column-th-content">
                     <span>{this.name}</span>

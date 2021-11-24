@@ -211,6 +211,7 @@ export namespace Components {
     interface WcsGridColumn {
         "customCells": boolean;
         "formatter": WcsCellFormatter;
+        "hidden": boolean;
         "name": string;
         "path": string;
         "sort": boolean;
@@ -1264,7 +1265,9 @@ declare namespace LocalJSX {
     interface WcsGridColumn {
         "customCells"?: boolean;
         "formatter"?: WcsCellFormatter;
+        "hidden"?: boolean;
         "name"?: string;
+        "onWcsHiddenChange"?: (event: CustomEvent<boolean>) => void;
         "onWcsSortChange"?: (event: CustomEvent<WcsGridColumnSortChangeEventDetails>) => void;
         "path"?: string;
         "sort"?: boolean;

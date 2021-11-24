@@ -5,6 +5,8 @@ import gridDoc from './grid-documentation.md';
 // @ts-ignore
 import cellStylingStoryDocumentation from './cell-styling-story-documentation.md';
 // @ts-ignore
+import hiddenColumnStoryDocumentation from './hiddenColumnStoryDocumentation.md';
+// @ts-ignore
 import multiSelectionStoryDocumentation from './multi-selection-story-documentation.md';
 import {
     WcsCellFormatter, WcsGridColumnSortChangeEventDetails,
@@ -12,13 +14,13 @@ import {
     WcsGridSelectionConfig
 } from '../../src/components/grid/grid-interface';
 
-const Template: Story<Partial<{ data: any[], selectionConfig: WcsGridSelectionConfig, loading: boolean, selectedItems: any[] }>> = (args) => html`
+const Template: Story<Partial<{ data: any[], selectionConfig: WcsGridSelectionConfig, loading: boolean, selectedItems: any[], hideEmailColumn: boolean, hideIpColumn: boolean }>> = (args) => html`
     <wcs-grid id="grid-simple-1" selection-config=${args.selectionConfig} .selectedItems=${args.selectedItems}
               ?loading="${args.loading}" .data=${args.data}>
         <wcs-grid-column name="Prénom" path="first_name" sort></wcs-grid-column>
         <wcs-grid-column name="Nom" path="last_name" sort></wcs-grid-column>
-        <wcs-grid-column name="Email" path="email" sort></wcs-grid-column>
-        <wcs-grid-column name="Adresse IP" path="ip_address" sort></wcs-grid-column>
+        <wcs-grid-column name="Email" path="email" sort ?hidden=${args.hideEmailColumn}></wcs-grid-column>
+        <wcs-grid-column name="Adresse IP" path="ip_address" sort ?hidden=${args.hideIpColumn}></wcs-grid-column>
     </wcs-grid>
 `;
 
@@ -31,7 +33,8 @@ export default {
                 'wcsGridSelectionChange',
                 'wcsGridAllSelectionChange',
                 'wcsGridPaginationChange',
-                'wcsSortChange'
+                'wcsSortChange',
+                'wcsHiddenChange'
             ]
         },
         docs: {
@@ -145,6 +148,26 @@ export const CustomCell = CustomCellTemplate.bind({});
 CustomCell.args = {
     data: sampleData
 };
+
+/**************************************************************************
+ *                         Hidden column                                  *
+ **************************************************************************/
+
+export const HiddenColumn = Template.bind({});
+HiddenColumn.parameters = {
+    docs: {
+        description: {
+            story: hiddenColumnStoryDocumentation,
+        },
+    },
+};
+HiddenColumn.args = {
+    data: sampleData,
+    selectionConfig: 'none',
+    hideEmailColumn: false,
+    hideIpColumn: true
+};
+
 
 /**************************************************************************
  *                         Cell Styling                                   *
