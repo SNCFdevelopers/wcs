@@ -1,6 +1,7 @@
-@import '@material/ripple/mdc-ripple';
+@import '~@material/ripple/mdc-ripple';
 
 // TODO: make this configurable for the button to use it too
+// TODO: use SCSS modules https://material.io/develop/web/supporting/ripple
 @mixin ripple {
     @include mdc-ripple-surface;
     @include mdc-ripple-radius-bounded;

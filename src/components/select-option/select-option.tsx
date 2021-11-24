@@ -1,6 +1,6 @@
 import { Component, Element, Event, Prop, EventEmitter, ComponentInterface, h, Host, Listen } from '@stencil/core';
 import { SelectOptionChosedEvent } from './select-option-interface';
-import * as MDCRipple from '@material/ripple';
+import { MDCRipple } from '@material/ripple';
 
 /**
  * Select option component, use in conjunction with wcs-select.
@@ -35,6 +35,8 @@ export class SelectOption implements ComponentInterface {
      */
     @Prop({ reflect: true, mutable: true }) multiple = false;
 
+    mdcRipple: MDCRipple;
+
     @Event({
         eventName: 'wcsSelectOptionClick',
     })
@@ -49,8 +51,7 @@ export class SelectOption implements ComponentInterface {
     }
 
     componentDidLoad() {
-        const ripple = new MDCRipple.MDCRipple(this.el);
-        ripple.unbounded = true;
+        this.mdcRipple = new MDCRipple(this.el);
     }
 
     @Listen('mousedown')

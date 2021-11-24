@@ -1,6 +1,6 @@
 @import '../../style/elevation.scss';
 // TODO: get rid of this.
-@import '@material/ripple/mdc-ripple';
+@import '~@material/ripple/mdc-ripple';
 
 :host {
     display: inline-block;
@@ -89,12 +89,12 @@
 }
 
 .wcs-inner-button {
-    @include mdc-ripple-surface;
-    @include mdc-ripple-radius-bounded;
-    @include mdc-states-hover-opacity(.1);
-    @include mdc-states-focus-opacity(.2);
-    @include mdc-states-press-opacity(.3);
-    @include mdc-states-base-color(white);
+   @include mdc-ripple-surface;
+   @include mdc-ripple-radius-bounded;
+   @include mdc-states-hover-opacity(.1);
+   @include mdc-states-focus-opacity(.2);
+   @include mdc-states-press-opacity(.3);
+   @include mdc-states-base-color(white);
 
     // This property is used to set the ripple color
     &::before,

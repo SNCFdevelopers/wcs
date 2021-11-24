@@ -14,8 +14,6 @@ import {
 } from '@stencil/core';
 
 import _ from 'lodash';
-
-import * as MDCRipple from '@material/ripple';
 import { interpret, Interpreter, Machine, MachineConfig, MachineOptions } from 'xstate';
 
 import { SelectChangeEventDetail } from './select-interface';
@@ -23,6 +21,7 @@ import { SelectArrow } from './select-arrow';
 import { SelectOptionChosedEvent, SelectOptionValue } from '../select-option/select-option-interface';
 import { isElement } from '../../utils/helpers';
 import { SelectChips } from './select-chips';
+import { MDCRipple } from '@material/ripple';
 
 interface SelectStateSchema {
     states: {
@@ -389,7 +388,7 @@ export class Select implements ComponentInterface {
 
     private addRippleEffect() {
         // TODO: wrap MDCRipple dependency so we can eventually write our own or at least decouple a bit.
-        const ripple = new MDCRipple.MDCRipple(this.controlEl);
+        const ripple = new MDCRipple(this.controlEl);
         ripple.unbounded = false;
     }
 
