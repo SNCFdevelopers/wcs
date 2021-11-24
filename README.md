@@ -25,7 +25,7 @@ Select and select options size behavior, especially with multiple select. As of 
 
 ## Documentation
 
-There is documentation available at https://sncf.gitlab.io/wcs/develop/. It is only available for the develop branch though as the project remains unreleased.
+There is documentation available at https://sncf.gitlab.io/wcs/master/. It is only available for the develop branch though as the project remains unreleased.
 
 For a specific component you can also look under src/components/<the-component-you-want-the-doc-for>/README.md.
     

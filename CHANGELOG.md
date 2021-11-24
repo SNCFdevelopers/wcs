@@ -8,6 +8,15 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## Unreleased
 
 ### Added
+### Changed
+### Deprecated
+### Removed
+### Fixed
+### Security
+
+## [2.6.0] - 2021-11-24
+
+### Added
 
 - **grid**: add support for custom cell rendering with slot (`wcs-grid-custom-cell`)
 - **grid**: add support to hide columns
