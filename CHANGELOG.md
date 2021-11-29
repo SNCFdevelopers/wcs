@@ -8,10 +8,25 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## Unreleased
 
 ### Added
+
+- **dropdown**: add overlay placement attribute
+
 ### Changed
+
+- **dropdown**: use PopperJS for dropdown overlay positioning
+
 ### Deprecated
+
+
+
 ### Removed
+
+
+
 ### Fixed
+
+- **dropdown**: Fix disabled attribute that did not work
+
 ### Security
 
 ## [2.6.0] - 2021-11-24

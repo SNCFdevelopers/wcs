@@ -1,51 +1,16 @@
 # Dropdown
 
-The dropdown component use a wcs-button under the hood, so you can use the same css classes as the button to style the 
-dropdown.
-
-## Classic
-
-```html
-<wcs-dropdown>
-    <span slot="placeholder">Dropdown</span>
-    <wcs-dropdown-item>Un</wcs-dropdown-item>
-    <wcs-dropdown-item>Deux</wcs-dropdown-item>
-    <wcs-dropdown-item>Trois</wcs-dropdown-item>
-</wcs-dropdown>
-```
-
-## Plain button
-
-```html
-<wcs-dropdown mode="plain">
-    <div slot="placeholder">Dropdown</div>
-    <wcs-dropdown-item>Action</wcs-dropdown-item>
-    <wcs-dropdown-item>Deuxième action</wcs-dropdown-item>
-    <wcs-dropdown-item>Troisième action avec un long titre</wcs-dropdown-item>
-</wcs-dropdown>
-```
-
-## Small
-
-```html
-<wcs-dropdown shape="small">
-    <div slot="placeholder">Dropdown</div>
-    <wcs-dropdown-item>Un</wcs-dropdown-item>
-    <wcs-dropdown-item>Deux</wcs-dropdown-item>
-    <wcs-dropdown-item>Trois</wcs-dropdown-item>
-</wcs-dropdown>
-```
-
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property   | Attribute  | Description | Type                                         | Default     |
-| ---------- | ---------- | ----------- | -------------------------------------------- | ----------- |
-| `disabled` | `disabled` |             | `boolean`                                    | `false`     |
-| `mode`     | `mode`     |             | `"clear" \| "plain" \| "stroked"`            | `'stroked'` |
-| `shape`    | `shape`    |             | `"normal" \| "round" \| "small" \| "square"` | `'normal'`  |
+| Property    | Attribute   | Description                                               | Type                                                                                                                                                                                                         | Default        |
+| ----------- | ----------- | --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------- |
+| `disabled`  | `disabled`  | Specifies whether the dropdown button is clickable or not | `boolean`                                                                                                                                                                                                    | `false`        |
+| `mode`      | `mode`      | Dropdown's button mode                                    | `"clear" \| "plain" \| "stroked"`                                                                                                                                                                            | `'stroked'`    |
+| `placement` | `placement` | placement of the dropdown's popover                       | `"auto" \| "auto-end" \| "auto-start" \| "bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"` | `'bottom-end'` |
+| `shape`     | `shape`     | Dropdown's button shape                                   | `"normal" \| "round" \| "small" \| "square"`                                                                                                                                                                 | `'normal'`     |
 
 
 ## Dependencies

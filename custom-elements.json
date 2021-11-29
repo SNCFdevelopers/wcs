@@ -445,26 +445,33 @@
     {
       "name": "wcs-dropdown",
       "path": "./src/components/dropdown/dropdown.tsx",
-      "description": "Dropdown component.",
+      "description": "",
       "attributes": [
         {
           "name": "disabled",
           "type": "boolean",
-          "description": "",
+          "description": "Specifies whether the dropdown button is clickable or not",
           "defaultValue": "false",
           "required": false
         },
         {
           "name": "mode",
           "type": "\"clear\" | \"plain\" | \"stroked\"",
-          "description": "",
+          "description": "Dropdown's button mode",
           "defaultValue": "'stroked'",
+          "required": false
+        },
+        {
+          "name": "placement",
+          "type": "\"auto\" | \"auto-end\" | \"auto-start\" | \"bottom\" | \"bottom-end\" | \"bottom-start\" | \"left\" | \"left-end\" | \"left-start\" | \"right\" | \"right-end\" | \"right-start\" | \"top\" | \"top-end\" | \"top-start\"",
+          "description": "placement of the dropdown's popover",
+          "defaultValue": "'bottom-end'",
           "required": false
         },
         {
           "name": "shape",
           "type": "\"normal\" | \"round\" | \"small\" | \"square\"",
-          "description": "",
+          "description": "Dropdown's button shape",
           "defaultValue": "'normal'",
           "required": false
         }
@@ -473,25 +480,56 @@
         {
           "name": "disabled",
           "type": "boolean",
-          "description": "",
+          "description": "Specifies whether the dropdown button is clickable or not",
           "defaultValue": "false",
           "required": false
         },
         {
           "name": "mode",
           "type": "\"clear\" | \"plain\" | \"stroked\"",
-          "description": "",
+          "description": "Dropdown's button mode",
           "defaultValue": "'stroked'",
+          "required": false
+        },
+        {
+          "name": "placement",
+          "type": "\"auto\" | \"auto-end\" | \"auto-start\" | \"bottom\" | \"bottom-end\" | \"bottom-start\" | \"left\" | \"left-end\" | \"left-start\" | \"right\" | \"right-end\" | \"right-start\" | \"top\" | \"top-end\" | \"top-start\"",
+          "description": "placement of the dropdown's popover",
+          "defaultValue": "'bottom-end'",
           "required": false
         },
         {
           "name": "shape",
           "type": "\"normal\" | \"round\" | \"small\" | \"square\"",
-          "description": "",
+          "description": "Dropdown's button shape",
           "defaultValue": "'normal'",
           "required": false
         }
       ],
+      "events": [],
+      "methods": [],
+      "slots": [],
+      "cssProperties": [],
+      "cssParts": []
+    },
+    {
+      "name": "wcs-dropdown-divider",
+      "path": "./src/components/dropdown-divider/dropdown-divider.tsx",
+      "description": "",
+      "attributes": [],
+      "properties": [],
+      "events": [],
+      "methods": [],
+      "slots": [],
+      "cssProperties": [],
+      "cssParts": []
+    },
+    {
+      "name": "wcs-dropdown-header",
+      "path": "./src/components/dropdown-header/dropdown-header.tsx",
+      "description": "Add a header for actions in any dropdown menu.",
+      "attributes": [],
+      "properties": [],
       "events": [],
       "methods": [],
       "slots": [],
@@ -882,6 +920,13 @@
           "required": false
         },
         {
+          "name": "hidden",
+          "type": "boolean",
+          "description": "",
+          "defaultValue": "false",
+          "required": false
+        },
+        {
           "name": "name",
           "type": "string",
           "description": "",
@@ -929,6 +974,13 @@
           "required": false
         },
         {
+          "name": "hidden",
+          "type": "boolean",
+          "description": "",
+          "defaultValue": "false",
+          "required": false
+        },
+        {
           "name": "name",
           "type": "string",
           "description": "",
@@ -968,6 +1020,10 @@
         }
       ],
       "events": [
+        {
+          "name": "wcsHiddenChange",
+          "description": ""
+        },
         {
           "name": "wcsSortChange",
           "description": ""

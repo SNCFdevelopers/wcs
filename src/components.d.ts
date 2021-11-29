@@ -8,6 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { WcsButtonMode, WcsButtonShape, WcsButtonType } from "./components/button/button-interface";
 import { CheckboxChangeEventDetail, CheckboxLabelAlignment } from "./components/checkbox/checkbox-interface";
 import { CategoryOpenedEventDetail, MenuOpenedEventDetail } from "./components/com-nav/com-nav-interface";
+import { WcsDropdownPlacement } from "./components/dropdown/dropdown-interface";
 import { EditableComponentUpdateEvent, FormatFn, ValidateFn } from "./components/editable-field/editable-field-interface";
 import { WcsCellFormatter, WcsGridAllRowSelectedEventDetails, WcsGridColumnSortChangeEventDetails, WcsGridPaginationChangeEventDetails, WcsGridRowSelectedEventDetails, WcsGridSelectionConfig, WcsSortFn, WcsSortOrder } from "./components/grid/grid-interface";
 import { HorizontalStepClickEvent, HorizontalStepConfig } from "./components/horizontal-stepper/horizontal-stepper-interface";
@@ -116,9 +117,26 @@ export namespace Components {
     interface WcsDivider {
     }
     interface WcsDropdown {
+        /**
+          * Specifies whether the dropdown button is clickable or not
+         */
         "disabled": boolean;
+        /**
+          * Dropdown's button mode
+         */
         "mode": WcsButtonMode;
+        /**
+          * placement of the dropdown's popover
+         */
+        "placement": WcsDropdownPlacement;
+        /**
+          * Dropdown's button shape
+         */
         "shape": WcsButtonShape;
+    }
+    interface WcsDropdownDivider {
+    }
+    interface WcsDropdownHeader {
     }
     interface WcsDropdownItem {
     }
@@ -783,6 +801,18 @@ declare global {
         prototype: HTMLWcsDropdownElement;
         new (): HTMLWcsDropdownElement;
     };
+    interface HTMLWcsDropdownDividerElement extends Components.WcsDropdownDivider, HTMLStencilElement {
+    }
+    var HTMLWcsDropdownDividerElement: {
+        prototype: HTMLWcsDropdownDividerElement;
+        new (): HTMLWcsDropdownDividerElement;
+    };
+    interface HTMLWcsDropdownHeaderElement extends Components.WcsDropdownHeader, HTMLStencilElement {
+    }
+    var HTMLWcsDropdownHeaderElement: {
+        prototype: HTMLWcsDropdownHeaderElement;
+        new (): HTMLWcsDropdownHeaderElement;
+    };
     interface HTMLWcsDropdownItemElement extends Components.WcsDropdownItem, HTMLStencilElement {
     }
     var HTMLWcsDropdownItemElement: {
@@ -1030,6 +1060,8 @@ declare global {
         "wcs-com-nav-submenu": HTMLWcsComNavSubmenuElement;
         "wcs-divider": HTMLWcsDividerElement;
         "wcs-dropdown": HTMLWcsDropdownElement;
+        "wcs-dropdown-divider": HTMLWcsDropdownDividerElement;
+        "wcs-dropdown-header": HTMLWcsDropdownHeaderElement;
         "wcs-dropdown-item": HTMLWcsDropdownItemElement;
         "wcs-editable-field": HTMLWcsEditableFieldElement;
         "wcs-error": HTMLWcsErrorElement;
@@ -1157,9 +1189,26 @@ declare namespace LocalJSX {
     interface WcsDivider {
     }
     interface WcsDropdown {
+        /**
+          * Specifies whether the dropdown button is clickable or not
+         */
         "disabled"?: boolean;
+        /**
+          * Dropdown's button mode
+         */
         "mode"?: WcsButtonMode;
+        /**
+          * placement of the dropdown's popover
+         */
+        "placement"?: WcsDropdownPlacement;
+        /**
+          * Dropdown's button shape
+         */
         "shape"?: WcsButtonShape;
+    }
+    interface WcsDropdownDivider {
+    }
+    interface WcsDropdownHeader {
     }
     interface WcsDropdownItem {
         "onWcsDropdownItemClick"?: (event: CustomEvent<void>) => void;
@@ -1813,6 +1862,8 @@ declare namespace LocalJSX {
         "wcs-com-nav-submenu": WcsComNavSubmenu;
         "wcs-divider": WcsDivider;
         "wcs-dropdown": WcsDropdown;
+        "wcs-dropdown-divider": WcsDropdownDivider;
+        "wcs-dropdown-header": WcsDropdownHeader;
         "wcs-dropdown-item": WcsDropdownItem;
         "wcs-editable-field": WcsEditableField;
         "wcs-error": WcsError;
@@ -1870,6 +1921,8 @@ declare module "@stencil/core" {
             "wcs-com-nav-submenu": LocalJSX.WcsComNavSubmenu & JSXBase.HTMLAttributes<HTMLWcsComNavSubmenuElement>;
             "wcs-divider": LocalJSX.WcsDivider & JSXBase.HTMLAttributes<HTMLWcsDividerElement>;
             "wcs-dropdown": LocalJSX.WcsDropdown & JSXBase.HTMLAttributes<HTMLWcsDropdownElement>;
+            "wcs-dropdown-divider": LocalJSX.WcsDropdownDivider & JSXBase.HTMLAttributes<HTMLWcsDropdownDividerElement>;
+            "wcs-dropdown-header": LocalJSX.WcsDropdownHeader & JSXBase.HTMLAttributes<HTMLWcsDropdownHeaderElement>;
             "wcs-dropdown-item": LocalJSX.WcsDropdownItem & JSXBase.HTMLAttributes<HTMLWcsDropdownItemElement>;
             "wcs-editable-field": LocalJSX.WcsEditableField & JSXBase.HTMLAttributes<HTMLWcsEditableFieldElement>;
             "wcs-error": LocalJSX.WcsError & JSXBase.HTMLAttributes<HTMLWcsErrorElement>;

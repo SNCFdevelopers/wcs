@@ -18,7 +18,7 @@ export class DropdownItem implements ComponentInterface {
     render() {
         return (
             <Host slot="item">
-                <slot></slot>
+                <slot />
             </Host>
         );
     }

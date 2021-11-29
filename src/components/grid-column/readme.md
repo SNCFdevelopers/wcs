@@ -11,6 +11,7 @@
 | ------------- | -------------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ----------- |
 | `customCells` | `custom-cells` |                                   | `boolean`                                                                                                           | `false`     |
 | `formatter`   | --             |                                   | `(_h: HyperFunc<VNode>, column: HTMLWcsGridColumnElement, rowData: WcsGridRowData) => HTMLElement \| HTMLElement[]` | `undefined` |
+| `hidden`      | `hidden`       |                                   | `boolean`                                                                                                           | `false`     |
 | `name`        | `name`         |                                   | `string`                                                                                                            | `undefined` |
 | `path`        | `path`         |                                   | `string`                                                                                                            | `undefined` |
 | `sort`        | `sort`         |                                   | `boolean`                                                                                                           | `false`     |
@@ -21,9 +22,10 @@
 
 ## Events
 
-| Event           | Description | Type                                               |
-| --------------- | ----------- | -------------------------------------------------- |
-| `wcsSortChange` |             | `CustomEvent<WcsGridColumnSortChangeEventDetails>` |
+| Event             | Description | Type                                               |
+| ----------------- | ----------- | -------------------------------------------------- |
+| `wcsHiddenChange` |             | `CustomEvent<boolean>`                             |
+| `wcsSortChange`   |             | `CustomEvent<WcsGridColumnSortChangeEventDetails>` |
 
 
 ----------------------------------------------

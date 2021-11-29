@@ -1,27 +1,14 @@
 import {
     Component,
     ComponentInterface, Element,
-    h, Host, Listen, Prop, State
+    h, Host, Listen, Prop, State, Watch
 } from '@stencil/core';
 import { SelectArrow } from '../select/select-arrow';
 
 import { WcsButtonMode, WcsButtonShape } from '../button/button-interface';
+import { createPopper, Instance } from '@popperjs/core';
+import { WcsDropdownPlacement } from './dropdown-interface';
 
-/**
- * Dropdown component.
- *
- * @example ```hmtl
- *   <wcs-dropdown>
- *       <div slot="placeholder"></div>
- *       <div slot="items">
- *           <wcs-dropdown-header></wcs-dropdown-header>
- *           <wcs-divider></wcs-divider>
- *           <wcs-dropdown-item></wcs-dropdown-item>
- *      </div>
- *   </wcs-dropdown>
- * ```
- * @todo Complete keyboard navigation.
- */
 @Component({
     tag: 'wcs-dropdown',
     styleUrl: 'dropdown.scss',
@@ -30,17 +17,50 @@ import { WcsButtonMode, WcsButtonShape } from '../button/button-interface';
 export class Dropdown implements ComponentInterface {
     @Element() el: HTMLWcsDropdownElement;
 
+    /** Dropdown's button mode */
     @Prop() mode: WcsButtonMode = 'stroked';
 
+    /** Dropdown's button shape */
     @Prop() shape: WcsButtonShape = 'normal';
 
+    /** Specifies whether the dropdown button is clickable or not */
     @Prop() disabled: boolean = false;
+
+    /** placement of the dropdown's popover */
+    @Prop() placement: WcsDropdownPlacement = 'bottom-end';
 
     @State() expanded = false;
 
+
+    private popper: Instance;
+
+    @Watch('placement')
+    protected placementChange() {
+        this.popper.setOptions({
+            ...this.popper.state.options,
+            placement: this.placement
+        }).then(_ => this.popper.update());
+    }
+
     componentDidLoad() {
-        const buttonWrapper = this.el.shadowRoot.querySelector('wcs-button').shadowRoot.querySelector('button');
+        const wcsButtonElement = this.el.shadowRoot.querySelector('wcs-button');
+        const buttonWrapper = wcsButtonElement.shadowRoot.querySelector('button');
         const buttonTextColor = window.getComputedStyle(buttonWrapper).color;
+        const popoverDiv = this.el.shadowRoot.querySelector('.popover') as HTMLElement;
+
+
+        this.popper = createPopper(wcsButtonElement, popoverDiv, {
+            placement: this.placement,
+            modifiers: [
+                {
+                    name: 'offset',
+                    options: {
+                        offset: [0, 8]
+                    }
+                }
+            ]
+        });
+
         (this.el.shadowRoot.querySelector('.arrow') as HTMLElement).style.fill = buttonTextColor;
         this.fixForFirefoxBelow63();
     }
@@ -62,7 +82,7 @@ export class Dropdown implements ComponentInterface {
         this.expanded = !this.expanded;
     }
 
-    @Listen('click', { target: 'window' })
+    @Listen('click', {target: 'window'})
     onWindowClickEvent(event: MouseEvent) {
         // TODO: Extract to utils
         const clickedOnDropdownOrChildren = event.target instanceof Node
@@ -73,20 +93,28 @@ export class Dropdown implements ComponentInterface {
     }
 
     @Listen('wcsDropdownItemClick')
-    dropdownItemClick(_: CustomEvent<any>) {
+    dropdownItemClick(_: CustomEvent<void>) {
         this.expanded = false;
+    }
+
+    componentDidRender() {
+        if (this.popper) {
+            this.popper.update();
+        }
     }
 
     render() {
         return (
             <Host>
-                <wcs-button mode={this.mode} shape={this.shape} onClick={($event) => this.onButtonClick($event)}>
+                <wcs-button mode={this.mode} shape={this.shape} disabled={this.disabled}
+                            onClick={($event) => this.onButtonClick($event)}>
                     <div class="wcs-button-content-wrapper">
                         <slot name="placeholder"/>
                         <SelectArrow up={this.expanded}/>
                     </div>
                 </wcs-button>
                 <div class={(this.expanded ? 'show ' : '') + 'popover'}>
+                    <div id="arrow" data-popper-arrow/>
                     <div class="container">
                         <slot name="item"/>
                     </div>

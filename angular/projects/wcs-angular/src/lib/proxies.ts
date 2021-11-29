@@ -224,15 +224,47 @@ export class WcsDivider {
 
 export declare interface WcsDropdown extends Components.WcsDropdown {}
 @ProxyCmp({
-  inputs: ['disabled', 'mode', 'shape']
+  inputs: ['disabled', 'mode', 'placement', 'shape']
 })
 @Component({
   selector: 'wcs-dropdown',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['disabled', 'mode', 'shape']
+  inputs: ['disabled', 'mode', 'placement', 'shape']
 })
 export class WcsDropdown {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface WcsDropdownDivider extends Components.WcsDropdownDivider {}
+
+@Component({
+  selector: 'wcs-dropdown-divider',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>'
+})
+export class WcsDropdownDivider {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface WcsDropdownHeader extends Components.WcsDropdownHeader {}
+
+@Component({
+  selector: 'wcs-dropdown-header',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>'
+})
+export class WcsDropdownHeader {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -449,23 +481,25 @@ export class WcsGrid {
 import { WcsGridColumnSortChangeEventDetails as IGridColumnWcsGridColumnSortChangeEventDetails } from 'wcs-core/dist/types/components/grid/grid-interface';
 export declare interface WcsGridColumn extends Components.WcsGridColumn {}
 @ProxyCmp({
-  inputs: ['customCells', 'formatter', 'name', 'path', 'sort', 'sortFn', 'sortOrder', 'width']
+  inputs: ['customCells', 'formatter', 'hidden', 'name', 'path', 'sort', 'sortFn', 'sortOrder', 'width']
 })
 @Component({
   selector: 'wcs-grid-column',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['customCells', 'formatter', 'name', 'path', 'sort', 'sortFn', 'sortOrder', 'width'],
-  outputs: ['wcsSortChange']
+  inputs: ['customCells', 'formatter', 'hidden', 'name', 'path', 'sort', 'sortFn', 'sortOrder', 'width'],
+  outputs: ['wcsSortChange', 'wcsHiddenChange']
 })
 export class WcsGridColumn {
   /**  */
   wcsSortChange!: EventEmitter<CustomEvent<IGridColumnWcsGridColumnSortChangeEventDetails>>;
+  /**  */
+  wcsHiddenChange!: EventEmitter<CustomEvent<boolean>>;
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['wcsSortChange']);
+    proxyOutputs(this, this.el, ['wcsSortChange', 'wcsHiddenChange']);
   }
 }
 
