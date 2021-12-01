@@ -28,7 +28,7 @@ export class GridColumn implements ComponentInterface {
     @Prop() sort: boolean = false;
     @Prop() sortFn: WcsSortFn;
     @Prop() formatter: WcsCellFormatter;
-    @Prop({ mutable: true, reflect: true }) sortOrder: WcsSortOrder = 'none';
+    @Prop({mutable: true}) sortOrder: WcsSortOrder = 'none';
     /**
      * Set the column <th> element width
      */
@@ -41,6 +41,11 @@ export class GridColumn implements ComponentInterface {
     @Watch('hidden')
     parseMyObjectProp(newValue: boolean) {
         this.wcsHiddenChange.emit(newValue);
+    }
+
+    @Watch('sortOrder')
+    sortOrderChange(_: WcsSortOrder) {
+        this.emitSortConfig();
     }
 
     emitSortConfig() {

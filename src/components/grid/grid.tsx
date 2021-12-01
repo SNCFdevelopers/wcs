@@ -147,6 +147,20 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
         if (this.selectedItems) {
             this.updateSelectionWithValues(this.selectedItems);
         }
+        this.applyInitialSortConfig();
+    }
+
+    /**
+     * Handle existing column's filters (defined before the grid is instantiated)
+     * @private
+     */
+    private applyInitialSortConfig() {
+        const [first, ...other] = this.columns.filter(c => c.sortOrder !== 'none');
+        // We keep only one active sorted column
+        other?.forEach(o => o.sortOrder = 'none');
+        if (first && !this.serverMode) {
+            this.sortBy(first);
+        }
     }
 
     private getGridColumnsFromTemplate(): HTMLWcsGridColumnElement[] {
@@ -161,22 +175,30 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
 
     @Listen('wcsSortChange')
     sortChangeEventHandler(event: CustomEvent<WcsGridColumnSortChangeEventDetails>): void {
+        if (event.detail.order === 'none') return;
         // We keep only one active sort column
         this.columns.filter(c => c !== event.detail.column).forEach(c => c.sortOrder = 'none');
-
         if (this.serverMode) return;
+        this.sortBy(event.detail.column);
+        this.updatePageIndex();
+    }
 
-        if (event.detail.sortFn) {
+    /**
+     * Sorts the grid rows according to the given column's configuration
+     * @param colmun Column from which to extract the sorting configuration
+     * @private
+     */
+    private sortBy(colmun: HTMLWcsGridColumnElement) {
+        if (colmun.sortFn) {
             this.rows = _.cloneDeep(this.rows)
-                .sort((a: any, b: any) => event.detail.sortFn(a.data, b.data, event.detail.column) * getSortOrderInteger(event.detail.order));
+                .sort((a: any, b: any) => colmun.sortFn(a.data, b.data, colmun) * getSortOrderInteger(colmun.sortOrder));
         } else {
             this.rows = _.cloneDeep(this.rows)
                 .sort((a: any, b: any) => {
-                    const path = event.detail.column.path;
-                    return ((_.get(a.data, path) < _.get(b.data, path)) ? -1 : (_.get(a.data, path) > _.get(b.data, path)) ? 1 : 0) * getSortOrderInteger(event.detail.order);
+                    const path = colmun.path;
+                    return ((_.get(a.data, path) < _.get(b.data, path)) ? -1 : (_.get(a.data, path) > _.get(b.data, path)) ? 1 : 0) * getSortOrderInteger(colmun.sortOrder);
                 });
         }
-        this.updatePageIndex();
     }
 
     /**

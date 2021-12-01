@@ -26,6 +26,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Fixed
 
 - **dropdown**: Fix disabled attribute that did not work
+- **grid**: initial sort order attribute
 
 ### Security
 

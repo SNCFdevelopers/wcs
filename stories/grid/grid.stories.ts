@@ -11,14 +11,14 @@ import multiSelectionStoryDocumentation from './multi-selection-story-documentat
 import {
     WcsCellFormatter, WcsGridColumnSortChangeEventDetails,
     WcsGridPaginationChangeEventDetails,
-    WcsGridSelectionConfig
+    WcsGridSelectionConfig, WcsSortOrder
 } from '../../src/components/grid/grid-interface';
 
-const Template: Story<Partial<{ data: any[], selectionConfig: WcsGridSelectionConfig, loading: boolean, selectedItems: any[], hideEmailColumn: boolean, hideIpColumn: boolean }>> = (args) => html`
+const Template: Story<Partial<{ data: any[], selectionConfig: WcsGridSelectionConfig, loading: boolean, selectedItems: any[], hideEmailColumn: boolean, hideIpColumn: boolean, initialSortConfig: WcsSortOrder }>> = (args) => html`
     <wcs-grid id="grid-simple-1" selection-config=${args.selectionConfig} .selectedItems=${args.selectedItems}
               ?loading="${args.loading}" .data=${args.data}>
         <wcs-grid-column name="Prénom" path="first_name" sort></wcs-grid-column>
-        <wcs-grid-column name="Nom" path="last_name" sort></wcs-grid-column>
+        <wcs-grid-column name="Nom" path="last_name" sort sort-order=${args.initialSortConfig}></wcs-grid-column>
         <wcs-grid-column name="Email" path="email" sort ?hidden=${args.hideEmailColumn}></wcs-grid-column>
         <wcs-grid-column name="Adresse IP" path="ip_address" sort ?hidden=${args.hideIpColumn}></wcs-grid-column>
     </wcs-grid>
@@ -168,6 +168,17 @@ HiddenColumn.args = {
     hideIpColumn: true
 };
 
+
+/**************************************************************************
+ *                         Initial Sort Config                            *
+ **************************************************************************/
+
+export const InitialSortConfig = Template.bind({});
+InitialSortConfig.args = {
+    data: sampleData,
+    selectionConfig: 'none',
+    initialSortConfig: 'asc'
+};
 
 /**************************************************************************
  *                         Cell Styling                                   *
