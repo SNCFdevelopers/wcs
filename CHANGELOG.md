@@ -11,6 +11,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - **dropdown**: add overlay placement attribute
 - **dropdown**: add no-arrow attribute to hide the arrow in dropdown button
+- **angular/formly**: add disabled attribute support for field template options
 
 ### Changed
 
