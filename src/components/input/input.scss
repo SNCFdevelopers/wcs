@@ -47,8 +47,15 @@
     border-color: var(--wcs-red) !important;
 }
 
+:host([disabled]) {
+    input {
+        color: var(--wcs-text-disabled);
+    }
+}
+
 :host(:focus-within) {
     border: solid 1px var(--wcs-primary);
+
     wcs-mat-icon {
         color: var(--wcs-primary);
     }

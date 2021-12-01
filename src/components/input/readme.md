@@ -1,21 +1,5 @@
 # Input
 
-```html
-<wcs-input id="input-demo-1"></wcs-input>
-
-<wcs-button id="input-demo-1-button" class="wcs-primary" mode="clear" shape="small">Set focus</wcs-button>
-
-<wcs-input icon="search" state="error"></wcs-input>
-
-<wcs-input icon="verified"></wcs-input>
-
-<script>
-    document.getElementById('input-demo-1-button').addEventListener('click', () => {
-       document.getElementById('input-demo-1').setFocus();
-    });
-</script>
-```
-
 <!-- Auto Generated Below -->
 
 

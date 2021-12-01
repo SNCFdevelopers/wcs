@@ -1,0 +1,47 @@
+import { Meta, Story } from '@storybook/web-components';
+import { html } from 'lit-html';
+import { TextFieldTypes } from '../../src/components/input/input-interface';
+
+export default {
+    title: 'Example/Input',
+    component: 'wcs-input',
+    parameters: {
+        actions: {
+            handles: [
+                'wcsBlur',
+                'wcsChange',
+                'wcsFocus',
+                'wcsInput'
+            ]
+        }
+    }
+} as Meta;
+
+const Template: Story<Partial<{state: 'initial' | 'error', icon: string, type: TextFieldTypes, disabled, value: string | number}>> = (args) => html`
+    <wcs-input id="input-demo-1" state=${args.state} icon=${args.icon} type=${args.type} ?disabled=${args.disabled} value=${args.value}></wcs-input>
+`;
+
+export const Default = Template.bind({});
+Default.args = {};
+
+export const WithPrefixIcon = Template.bind({});
+WithPrefixIcon.args = {
+    icon: 'verified'
+};
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+    disabled: true,
+    value: 'Champ non modifiable'
+};
+
+export const Date = Template.bind({});
+Date.args = {
+    type: 'date'
+};
+
+export const Password = Template.bind({});
+Password.args = {
+    type: 'password',
+    value: 'superpassword'
+};
