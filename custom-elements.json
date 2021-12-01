@@ -462,6 +462,13 @@
           "required": false
         },
         {
+          "name": "no-arrow",
+          "type": "boolean",
+          "description": "Hides the arrow in the button",
+          "defaultValue": "false",
+          "required": false
+        },
+        {
           "name": "placement",
           "type": "\"auto\" | \"auto-end\" | \"auto-start\" | \"bottom\" | \"bottom-end\" | \"bottom-start\" | \"left\" | \"left-end\" | \"left-start\" | \"right\" | \"right-end\" | \"right-start\" | \"top\" | \"top-end\" | \"top-start\"",
           "description": "placement of the dropdown's popover",
@@ -489,6 +496,13 @@
           "type": "\"clear\" | \"plain\" | \"stroked\"",
           "description": "Dropdown's button mode",
           "defaultValue": "'stroked'",
+          "required": false
+        },
+        {
+          "name": "noArrow",
+          "type": "boolean",
+          "description": "Hides the arrow in the button",
+          "defaultValue": "false",
           "required": false
         },
         {

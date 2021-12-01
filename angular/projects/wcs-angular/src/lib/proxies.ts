@@ -224,13 +224,13 @@ export class WcsDivider {
 
 export declare interface WcsDropdown extends Components.WcsDropdown {}
 @ProxyCmp({
-  inputs: ['disabled', 'mode', 'placement', 'shape']
+  inputs: ['disabled', 'mode', 'noArrow', 'placement', 'shape']
 })
 @Component({
   selector: 'wcs-dropdown',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['disabled', 'mode', 'placement', 'shape']
+  inputs: ['disabled', 'mode', 'noArrow', 'placement', 'shape']
 })
 export class WcsDropdown {
   protected el: HTMLElement;

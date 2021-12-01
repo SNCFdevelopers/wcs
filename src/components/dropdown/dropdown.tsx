@@ -4,10 +4,11 @@ import {
     h, Host, Listen, Prop, State, Watch
 } from '@stencil/core';
 import { SelectArrow } from '../select/select-arrow';
-
 import { WcsButtonMode, WcsButtonShape } from '../button/button-interface';
 import { createPopper, Instance } from '@popperjs/core';
 import { WcsDropdownPlacement } from './dropdown-interface';
+import { clickTargetIsElementOrChildren } from '../../utils/helpers';
+
 
 @Component({
     tag: 'wcs-dropdown',
@@ -16,6 +17,9 @@ import { WcsDropdownPlacement } from './dropdown-interface';
 })
 export class Dropdown implements ComponentInterface {
     @Element() el: HTMLWcsDropdownElement;
+
+    /** Hides the arrow in the button */
+    @Prop() noArrow: boolean = false;
 
     /** Dropdown's button mode */
     @Prop() mode: WcsButtonMode = 'stroked';
@@ -34,6 +38,8 @@ export class Dropdown implements ComponentInterface {
 
     private popper: Instance;
 
+    private buttonTextColor: string;
+
     @Watch('placement')
     protected placementChange() {
         this.popper.setOptions({
@@ -45,7 +51,7 @@ export class Dropdown implements ComponentInterface {
     componentDidLoad() {
         const wcsButtonElement = this.el.shadowRoot.querySelector('wcs-button');
         const buttonWrapper = wcsButtonElement.shadowRoot.querySelector('button');
-        const buttonTextColor = window.getComputedStyle(buttonWrapper).color;
+        this.buttonTextColor = window.getComputedStyle(buttonWrapper).color;
         const popoverDiv = this.el.shadowRoot.querySelector('.popover') as HTMLElement;
 
 
@@ -61,7 +67,7 @@ export class Dropdown implements ComponentInterface {
             ]
         });
 
-        (this.el.shadowRoot.querySelector('.arrow') as HTMLElement).style.fill = buttonTextColor;
+        (this.el.shadowRoot.querySelector('.arrow') as HTMLElement).style.fill = this.buttonTextColor;
         this.fixForFirefoxBelow63();
     }
 
@@ -77,16 +83,13 @@ export class Dropdown implements ComponentInterface {
         }
     }
 
-    private onButtonClick(e: MouseEvent): void {
-        e.stopPropagation();
+    private onButtonClick(_: MouseEvent): void {
         this.expanded = !this.expanded;
     }
 
     @Listen('click', {target: 'window'})
     onWindowClickEvent(event: MouseEvent) {
-        // TODO: Extract to utils
-        const clickedOnDropdownOrChildren = event.target instanceof Node
-            && this.el.contains(event.target);
+        const clickedOnDropdownOrChildren = clickTargetIsElementOrChildren(event, this.el);
         if (this.expanded && !clickedOnDropdownOrChildren) {
             this.expanded = false;
         }
@@ -101,6 +104,9 @@ export class Dropdown implements ComponentInterface {
         if (this.popper) {
             this.popper.update();
         }
+        if (!this.noArrow) {
+            (this.el.shadowRoot.querySelector('.arrow') as HTMLElement).style.fill = this.buttonTextColor;
+        }
     }
 
     render() {
@@ -110,7 +116,7 @@ export class Dropdown implements ComponentInterface {
                             onClick={($event) => this.onButtonClick($event)}>
                     <div class="wcs-button-content-wrapper">
                         <slot name="placeholder"/>
-                        <SelectArrow up={this.expanded}/>
+                        {this.noArrow ? null : (<SelectArrow up={this.expanded}/>)}
                     </div>
                 </wcs-button>
                 <div class={(this.expanded ? 'show ' : '') + 'popover'}>

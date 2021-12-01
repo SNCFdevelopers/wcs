@@ -10,6 +10,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 
 - **dropdown**: add overlay placement attribute
+- **dropdown**: add no-arrow attribute to hide the arrow in dropdown button
 
 ### Changed
 
@@ -26,6 +27,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Fixed
 
 - **dropdown**: Fix disabled attribute that did not work
+- **dropdown**: Dropdown overlay closes when click on another dropdown instance
 - **grid**: initial sort order attribute
 
 ### Security

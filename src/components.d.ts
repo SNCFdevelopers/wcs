@@ -126,6 +126,10 @@ export namespace Components {
          */
         "mode": WcsButtonMode;
         /**
+          * Hides the arrow in the button
+         */
+        "noArrow": boolean;
+        /**
           * placement of the dropdown's popover
          */
         "placement": WcsDropdownPlacement;
@@ -1197,6 +1201,10 @@ declare namespace LocalJSX {
           * Dropdown's button mode
          */
         "mode"?: WcsButtonMode;
+        /**
+          * Hides the arrow in the button
+         */
+        "noArrow"?: boolean;
         /**
           * placement of the dropdown's popover
          */

@@ -27,10 +27,10 @@ export default {
     }
 } as Meta;
 
-const Template: Story<Partial<{ disabled: boolean, mode: WcsButtonMode, shape: WcsButtonShape, placement: WcsDropdownPlacement }>> = (args) => html`
+const Template: Story<Partial<{ disabled: boolean, mode: WcsButtonMode, shape: WcsButtonShape, placement: WcsDropdownPlacement, noArrow: boolean }>> = (args) => html`
     <div style="height: 250px"></div>  <!-- tag to let the overlay display properly -->
     <div style="display: flex; width: 100%; align-items: center; justify-content: center">
-        <wcs-dropdown ?disabled=${args.disabled} mode=${args.mode} shape=${args.shape} placement=${args.placement}>
+        <wcs-dropdown ?disabled=${args.disabled} mode=${args.mode} shape=${args.shape} placement=${args.placement} ?no-arrow=${args.noArrow}>
             <span slot="placeholder">Dropdown</span>
             <wcs-dropdown-item>Premier item</wcs-dropdown-item>
             <wcs-dropdown-header>ACTION HEADER</wcs-dropdown-header>

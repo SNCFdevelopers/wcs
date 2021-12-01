@@ -82,3 +82,9 @@ export const clickInsideElement = (event: MouseEvent, element: HTMLElement): boo
     return event.x >= element.getBoundingClientRect().x && event.x <= element.getBoundingClientRect().x + element.getBoundingClientRect().width
         && event.y >= element.getBoundingClientRect().y && event.y <= element.getBoundingClientRect().y + element.getBoundingClientRect().height;
 }
+
+
+export const clickTargetIsElementOrChildren = (mouseEvent: MouseEvent, element: HTMLElement) => {
+    return mouseEvent.target instanceof Node
+        && element.contains(mouseEvent.target);
+}
