@@ -1,8 +1,5 @@
 # Switch
 
-```html
-<wcs-switch></wcs-switch>
-```
 
 <!-- Auto Generated Below -->
 

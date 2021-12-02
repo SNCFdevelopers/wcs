@@ -33,6 +33,22 @@ For a specific component you can also look under src/components/<the-component-y
 
 There is an example projects under `example` folder for angular.
 
+Step to start the example project :
+```shell
+# wcs-core build
+npm install
+npm run build
+# angular build (use --watch option to watch files)
+cd angular
+npm install
+ng build --project wcs-angular
+ng build --project wcs-formly
+# start example
+cd ../example
+npm install
+ng serve
+```
+
 If you have any question, don't hesitate to fill an issue !
 
 ### Install in your project
