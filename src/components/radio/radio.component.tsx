@@ -52,6 +52,7 @@ export class Radio implements ComponentInterface {
                     type="radio"
                     value={this.value}
                     checked={this.checked}
+                    disabled={this.disabled}
                     aria-disabled={this.disabled ? 'true' : null}
                     aria-checked={`${this.checked}`}/>
                 <label htmlFor={`${this.inputId}`}>{this.label}</label>

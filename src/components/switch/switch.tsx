@@ -16,7 +16,7 @@ export class Switch implements ComponentInterface {
     /**
      * If `true`, the switch is selected.
      */
-    @Prop({ mutable: true }) checked = false;
+    @Prop({reflect: true}) checked = false;
 
     /**
      * Emitted when the checked property has changed.
@@ -26,7 +26,12 @@ export class Switch implements ComponentInterface {
     /**
      * Specifie the alignment of the switch with the label content
      */
-    @Prop({ reflect: true }) labelAlignment: SwitchLabelAlignment = 'center';
+    @Prop({reflect: true}) labelAlignment: SwitchLabelAlignment = 'center';
+
+    /**
+     * Specify wether the switch is disabled or not.
+     */
+    @Prop() disabled: boolean = false;
 
     toggleChange(_event: Event) {
         this.checked = !this.checked;
@@ -38,19 +43,20 @@ export class Switch implements ComponentInterface {
     render() {
         return (
             <Host>
-                 <label htmlFor={this.name} class="wcs-container">
+                <label htmlFor={this.name} class="wcs-container" aria-disabled={this.disabled}>
                     <input onChange={(evt) => this.toggleChange(evt)}
-                        checked={this.checked}
-                        class="wcs-switch"
-                        type="checkbox"
-                        name={this.name}
-                        id={this.name}>
+                           checked={this.checked}
+                           class="wcs-switch"
+                           type="checkbox"
+                           name={this.name}
+                           disabled={this.disabled}
+                           id={this.name}>
                     </input>
                     <span class="wcs-checkmark"></span>
                     <span class="text">
                         <slot/>
                     </span>
-                 </label>
+                </label>
             </Host>
         );
     }

@@ -4,6 +4,11 @@
     display: flex;
 }
 
+:host([disabled]) {
+    --wcs-checkbox-border-color: var(--wcs-light);
+    --wcs-checkbox-text-color: var(--wcs-text-disabled);
+}
+
 .wcs-checkmark {
     transition: background-color 225ms cubic-bezier(.17, .84, .44, 1),
         color 225ms cubic-bezier(.17, .84, .44, 1);
@@ -12,11 +17,14 @@
 /* Customize the label (the wcs-container) */
 .wcs-container {
     position: relative;
-    cursor: pointer;
     font-size: 1rem;
     user-select: none;
     font-weight: 500;
     display: flex;
+}
+
+.wcs-container:not([aria-disabled]) {
+    cursor: pointer;
 }
 
 /* Let the user choose the alignment of the checkbox with the label text */
@@ -38,18 +46,15 @@
     }
 }
 
-
 /* Hide the browser's default checkbox */
 .wcs-container input {
     position: absolute;
     opacity: 0;
-    cursor: pointer;
     height: 0;
     width: 0;
 }
 
-.wcs-container:hover,
-input:focus {
+.wcs-container:hover:not([aria-disabled]), input:focus {
     --wcs-checkbox-border-color: var(--wcs-primary);
 
     --wcs-checkbox-text-color: var(--wcs-primary);
@@ -71,9 +76,13 @@ input:focus {
 }
 
 /* When the checkbox is checked, add a blue background */
-.wcs-container input:checked~.wcs-checkmark {
+.wcs-container:not([aria-disabled]) input:checked~.wcs-checkmark {
     background-color: var(--wcs-primary);
     --wcs-checkbox-border-color: var(--wcs-primary);
+}
+.wcs-container[aria-disabled] input:checked~.wcs-checkmark {
+    background-color: var(--wcs-light);
+    --wcs-checkbox-border-color: var(--wcs-light);
 }
 
 /* Create the wcs-checkmark/indicator (hidden when not checked) */
@@ -102,7 +111,7 @@ input:focus {
     transform: rotate(45deg);
 }
 
-.wcs-container input:checked~.text {
+.wcs-container:not([aria-disabled]) input:checked~.text {
     --wcs-checkbox-text-color: var(--wcs-primary);
 }
 

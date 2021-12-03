@@ -15,7 +15,7 @@ import { HorizontalStepClickEvent, HorizontalStepConfig } from "./components/hor
 import { AutocompleteTypes, InputChangeEventDetail, TextFieldTypes } from "./components/input/input-interface";
 import { MaterialIconFamily } from "./components/mat-icon/mat-icon-interface";
 import { RadioChosedEvent } from "./components/radio/radio-interface";
-import { RadioGroupChangeEventDetail } from "./components/radio-group/radio-group-interface";
+import { RadioGroupChangeEventDetail, RadioGroupMode } from "./components/radio-group/radio-group-interface";
 import { SelectChangeEventDetail } from "./components/select/select-interface";
 import { SelectOptionChosedEvent } from "./components/select-option/select-option-interface";
 import { SwitchChangeEventDetail, SwitchLabelAlignment } from "./components/switch/switch-interface";
@@ -77,6 +77,10 @@ export namespace Components {
           * If `true`, the checkbox is selected.
          */
         "checked": boolean;
+        /**
+          * Specify wether the checkbox is disabled or not.
+         */
+        "disabled": boolean;
         /**
           * If `true` the checkbox is in indeterminate state.
          */
@@ -506,7 +510,7 @@ export namespace Components {
         "value": any | any[] | undefined | null;
     }
     interface WcsRadioGroup {
-        "mode": 'radio' | 'option';
+        "mode": RadioGroupMode;
         "name": any;
         "value": any | any[] | undefined | null;
     }
@@ -586,6 +590,10 @@ export namespace Components {
           * If `true`, the switch is selected.
          */
         "checked": boolean;
+        /**
+          * Specify wether the switch is disabled or not.
+         */
+        "disabled": boolean;
         /**
           * Specifie the alignment of the switch with the label content
          */
@@ -1167,6 +1175,10 @@ declare namespace LocalJSX {
          */
         "checked"?: boolean;
         /**
+          * Specify wether the checkbox is disabled or not.
+         */
+        "disabled"?: boolean;
+        /**
           * If `true` the checkbox is in indeterminate state.
          */
         "indeterminate"?: boolean;
@@ -1613,7 +1625,7 @@ declare namespace LocalJSX {
         "value"?: any | any[] | undefined | null;
     }
     interface WcsRadioGroup {
-        "mode"?: 'radio' | 'option';
+        "mode"?: RadioGroupMode;
         "name"?: any;
         /**
           * Emitted when the value has changed.
@@ -1702,6 +1714,10 @@ declare namespace LocalJSX {
           * If `true`, the switch is selected.
          */
         "checked"?: boolean;
+        /**
+          * Specify wether the switch is disabled or not.
+         */
+        "disabled"?: boolean;
         /**
           * Specifie the alignment of the switch with the label content
          */

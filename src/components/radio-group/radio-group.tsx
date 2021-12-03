@@ -10,7 +10,7 @@ import {
     Prop,
     Watch
 } from '@stencil/core';
-import { RadioGroupChangeEventDetail } from './radio-group-interface';
+import { RadioGroupChangeEventDetail, RadioGroupMode } from './radio-group-interface';
 import { RadioChosedEvent } from '../radio/radio-interface';
 
 @Component({
@@ -21,7 +21,7 @@ import { RadioChosedEvent } from '../radio/radio-interface';
 export class RadioGroup implements ComponentInterface {
     @Prop() value: any | any[] | undefined | null;
     @Prop({ reflect: true, mutable: false }) name;
-    @Prop({ reflect: true, mutable: false }) mode: 'radio' | 'option' = 'radio';
+    @Prop({ reflect: true, mutable: false }) mode: RadioGroupMode = 'radio';
     @Element() el!: HTMLWcsRadioGroupElement;
 
     /** Emitted when the value has changed. */

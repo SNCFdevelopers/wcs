@@ -14,8 +14,11 @@ export default {
     },
 } as Meta;
 
-const Template: Story<Partial<{ checked: boolean, name: string, label: string, labelAlignment: SwitchLabelAlignment }>> = (args) => html`
-    <wcs-switch ?checked=${args.checked} name=${args.name} label-alignment=${args.labelAlignment}>
+const Template: Story<Partial<{ checked: boolean, name: string, label: string, labelAlignment: SwitchLabelAlignment, disabled: boolean }>> = (args) => html`
+    <wcs-switch ?checked=${args.checked}
+                name=${args.name}
+                label-alignment=${args.labelAlignment}
+                ?disabled=${args.disabled}>
         ${args.label}
     </wcs-switch>
 `;
@@ -25,5 +28,15 @@ Default.args = {
     checked: false,
     name: 'switch-id',
     label: 'Un switch',
-    labelAlignment: 'center'
+    labelAlignment: 'center',
+    disabled: false
+};
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+    checked: false,
+    name: 'switch-id',
+    label: 'Un switch',
+    labelAlignment: 'center',
+    disabled: true
 };

@@ -1,12 +1,5 @@
 # Textarea
 
-```html
-<wcs-textarea></wcs-textarea>
-
-<wcs-textarea icon="search"></wcs-textarea>
-
-<wcs-textarea icon="home" auto-grow placeholder="Un placeholder"></wcs-textarea>
-```
 
 
 <!-- Auto Generated Below -->

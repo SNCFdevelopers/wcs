@@ -10,6 +10,10 @@
     display: flex;
 }
 
+:host([disabled]) {
+    --wcs-switch-text-color: var(--wcs-text-disabled);
+}
+
 /* Customize the label (the wcs-container) */
 .wcs-container {
     position: relative;
@@ -18,19 +22,19 @@
 }
 
 /* Let the user choose the alignment of the checkbox with the label text */
-:host([label-alignment="top"]){
+:host([label-alignment="top"]) {
     .wcs-container {
         align-items: start;
     }
 }
 
-:host([label-alignment="center"]){
+:host([label-alignment="center"]) {
     .wcs-container {
         align-items: center;
     }
 }
 
-:host([label-alignment="bottom"]){
+:host([label-alignment="bottom"]) {
     .wcs-container {
         align-items: flex-end;
     }
@@ -40,7 +44,6 @@
 .wcs-container input {
     position: absolute;
     opacity: 0;
-    cursor: pointer;
     height: 0;
     width: 0;
 }
@@ -52,7 +55,7 @@
     line-height: 1.375;
 }
 
-.wcs-container input:checked ~ .text {
+.wcs-container:not([aria-disabled]) input:checked ~ .text {
     --wcs-switch-text-color: var(--wcs-primary);
 }
 
@@ -71,6 +74,26 @@
     background-color: var(--wcs-switch-bullet-color-initial);
 }
 
+:host([disabled]:not([checked])) {
+    .wcs-checkmark::before {
+        background-color: var(--wcs-text-disabled);
+    }
+
+    .wcs-checkmark {
+        background-color: var(--wcs-light);
+    }
+}
+
+:host([disabled][checked]) {
+    .wcs-checkmark::before {
+        background-color: var(--wcs-white);
+    }
+
+    .wcs-checkmark {
+        background-color: var(--wcs-text-disabled);
+    }
+}
+
 .wcs-checkmark {
     top: 0;
     right: 0;
@@ -78,12 +101,15 @@
     left: 0;
     width: 3rem;
     height: 1.5rem;
-    cursor: pointer;
     border-radius: 0.75rem;
     background-color: var(--wcs-switch-background-color-initial);
 }
 
-.wcs-container:hover {
+.wcs-container:not([aria-disabled]) {
+    cursor: pointer;
+}
+
+.wcs-container:hover:not([aria-disabled]) {
     --wcs-switch-text-color: var(--wcs-primary);
 }
 

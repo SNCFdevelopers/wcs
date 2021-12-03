@@ -7,7 +7,6 @@
         padding: 0.125rem 0 0;
         margin-bottom: 0;
         color: var(--wcs-text-medium);
-        cursor: pointer;
         background-color: transparent;
         border: none;
         font-weight: 500 !important;
@@ -40,6 +39,18 @@
     }
 }
 
+:host([mode=radio][disabled]) {
+    label {
+        color: var(--wcs-text-disabled);
+    }
+}
+
+:host([mode=radio]:not([disabled])) {
+    label {
+        cursor: pointer;
+    }
+}
+
 :host([mode=radio][checked]) {
     label {
         color: var(--wcs-primary);
@@ -51,7 +62,7 @@
     }
 }
 
-:host([mode=radio]:hover) {
+:host([mode=radio]:hover):not([disabled]) {
     label {
         color: var(--wcs-primary);
 
@@ -79,17 +90,27 @@
         margin-bottom: 0;
         color: var(--wcs-white);
         white-space: nowrap;
-        cursor: pointer;
         border-radius: 0.4375rem;
 
     }
 }
 
 :host([mode=option][checked]) {
-
     label {
         font-weight: 500 !important;
         color: var(--wcs-primary);
         background-color: var(--wcs-white);
+    }
+}
+
+:host([mode=option][disabled]) {
+    label {
+        color: var(--wcs-text-disabled);
+    }
+}
+
+:host([mode=option]:not([disabled])) {
+    label {
+        cursor: pointer;
     }
 }

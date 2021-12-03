@@ -21,12 +21,17 @@ export class Checkbox implements ComponentInterface {
     /**
      * If `true`, the checkbox is selected.
      */
-    @Prop({ reflect:true, mutable: true }) checked = false;
+    @Prop({ reflect: true, mutable: true }) checked = false;
 
     /**
      * Specifie the alignment of the checkbox with the label content
      */
     @Prop({ mutable: true, reflect: true }) labelAlignment: CheckboxLabelAlignment = 'center';
+
+    /**
+     * Specify wether the checkbox is disabled or not.
+     */
+    @Prop() disabled: boolean = false;
 
     /**
      * Emitted when the checked property has changed.
@@ -44,12 +49,13 @@ export class Checkbox implements ComponentInterface {
     render() {
         return (
             <Host>
-                <label htmlFor={this.name} class="wcs-container">
+                <label htmlFor={this.name} class="wcs-container" aria-disabled={this.disabled}>
                     <input onChange={(evt) => this.handleChange(evt)}
                            checked={this.checked}
                            class="wcs-checkbox"
                            type="checkbox"
                            name={this.name}
+                           disabled={this.disabled}
                            id={this.name}>
                     </input>
                     <span class="wcs-checkmark"></span>

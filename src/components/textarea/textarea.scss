@@ -45,6 +45,12 @@
     }
 }
 
+:host([disabled]) {
+    textarea {
+        color: var(--wcs-text-disabled);
+    }
+}
+
 :host([state=error]) {
     border-color: var(--wcs-red) !important;
 }

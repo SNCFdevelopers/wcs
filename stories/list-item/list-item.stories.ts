@@ -14,8 +14,8 @@ export default {
         }
     },
     subcomponents: {
-        'WcsListItemProperties': 'WcsListItemProperties',
-        'WcsListItemProperty': 'WcsListItemProperty'
+        'WcsListItemProperties': 'wcs-list-item-properties',
+        'WcsListItemProperty': 'wcs-list-item-property'
     }
 } as Meta;
 
