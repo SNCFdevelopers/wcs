@@ -18,7 +18,7 @@ import { RadioChosedEvent } from "./components/radio/radio-interface";
 import { RadioGroupChangeEventDetail } from "./components/radio-group/radio-group-interface";
 import { SelectChangeEventDetail } from "./components/select/select-interface";
 import { SelectOptionChosedEvent } from "./components/select-option/select-option-interface";
-import { SwitchChangeEventDetail } from "./components/switch/switch-interface";
+import { SwitchChangeEventDetail, SwitchLabelAlignment } from "./components/switch/switch-interface";
 import { WcsTabChangeEvent, WcsTabsAlignment } from "./components/tabs/tabs-interface";
 import { TextareaChangeEventDetail } from "./components/textarea/textarea-interface";
 import { WcsTooltipPosition } from "./components/tooltip/tooltip-interface";
@@ -586,6 +586,10 @@ export namespace Components {
           * If `true`, the switch is selected.
          */
         "checked": boolean;
+        /**
+          * Specifie the alignment of the switch with the label content
+         */
+        "labelAlignment": SwitchLabelAlignment;
         "name": string;
     }
     interface WcsTab {
@@ -1698,6 +1702,10 @@ declare namespace LocalJSX {
           * If `true`, the switch is selected.
          */
         "checked"?: boolean;
+        /**
+          * Specifie the alignment of the switch with the label content
+         */
+        "labelAlignment"?: SwitchLabelAlignment;
         "name"?: string;
         /**
           * Emitted when the checked property has changed.

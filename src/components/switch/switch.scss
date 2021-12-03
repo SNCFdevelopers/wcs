@@ -5,16 +5,35 @@
     --wcs-switch-bullet-color-initial: var(--wcs-switch-background-color-final);
     --wcs-switch-bullet-color-final: var(--wcs-switch-background-color-initial);
 
+    --wcs-switch-text-color: var(--wcs-black);
+
     display: flex;
 }
 
 /* Customize the label (the wcs-container) */
 .wcs-container {
     position: relative;
-    display: inline-block;
-    width: 3rem;
-    height: 1.5rem;
+    display: flex;
     margin-bottom: 0;
+}
+
+/* Let the user choose the alignment of the checkbox with the label text */
+:host([label-alignment="top"]){
+    .wcs-container {
+        align-items: start;
+    }
+}
+
+:host([label-alignment="center"]){
+    .wcs-container {
+        align-items: center;
+    }
+}
+
+:host([label-alignment="bottom"]){
+    .wcs-container {
+        align-items: flex-end;
+    }
 }
 
 /* Hide the browser's default switch */
@@ -26,21 +45,20 @@
     width: 0;
 }
 
-/* Create a custom switch */
-.wcs-switch, .text {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
+.text {
+    color: var(--wcs-switch-text-color);
+    margin-left: 6px;
+    font-weight: 500;
+    line-height: 1.375;
 }
 
-.wcs-checkmark::before, .wcs-checkmark {
-     position: absolute;
-     transition: all .15s ease-out;
+.wcs-container input:checked ~ .text {
+    --wcs-switch-text-color: var(--wcs-primary);
+}
+
+.wcs-checkmark::before {
+    position: absolute;
+    transition: all .15s ease-out;
 }
 
 .wcs-checkmark::before {
@@ -58,14 +76,20 @@
     right: 0;
     bottom: 0;
     left: 0;
+    width: 3rem;
+    height: 1.5rem;
     cursor: pointer;
     border-radius: 0.75rem;
     background-color: var(--wcs-switch-background-color-initial);
 }
 
+.wcs-container:hover {
+    --wcs-switch-text-color: var(--wcs-primary);
+}
+
 /* When the switch is checked, change the bullet to grey */
 input:not([disabled]):checked + .wcs-checkmark::before,
-.wcs-container:hover input:not([disabled]) + .wcs-checkmark::before, 
+.wcs-container:hover input:not([disabled]) + .wcs-checkmark::before,
 .wcs-container:focus input:not([disabled]) + .wcs-checkmark::before {
     background-color: var(--wcs-switch-bullet-color-final);
 }

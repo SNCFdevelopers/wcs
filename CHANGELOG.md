@@ -31,6 +31,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **dropdown**: Dropdown overlay closes when click on another dropdown instance
 - **grid**: initial sort order attribute
 - **input**: add disabled styles
+- **switch**: display label if present
 
 ### Security
 

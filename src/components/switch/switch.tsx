@@ -1,5 +1,5 @@
-import { Component, Prop, Event, Element, EventEmitter, ComponentInterface, h, Host } from '@stencil/core';
-import { SwitchChangeEventDetail } from './switch-interface';
+import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Prop } from '@stencil/core';
+import { SwitchChangeEventDetail, SwitchLabelAlignment } from './switch-interface';
 
 @Component({
     tag: 'wcs-switch',
@@ -23,6 +23,11 @@ export class Switch implements ComponentInterface {
      */
     @Event() wcsChange!: EventEmitter<SwitchChangeEventDetail>;
 
+    /**
+     * Specifie the alignment of the switch with the label content
+     */
+    @Prop({ reflect: true }) labelAlignment: SwitchLabelAlignment = 'center';
+
     toggleChange(_event: Event) {
         this.checked = !this.checked;
         this.wcsChange.emit({
@@ -34,9 +39,6 @@ export class Switch implements ComponentInterface {
         return (
             <Host>
                  <label htmlFor={this.name} class="wcs-container">
-                    <span class="text">
-                        <slot />
-                    </span>
                     <input onChange={(evt) => this.toggleChange(evt)}
                         checked={this.checked}
                         class="wcs-switch"
@@ -45,6 +47,9 @@ export class Switch implements ComponentInterface {
                         id={this.name}>
                     </input>
                     <span class="wcs-checkmark"></span>
+                    <span class="text">
+                        <slot/>
+                    </span>
                  </label>
             </Host>
         );
