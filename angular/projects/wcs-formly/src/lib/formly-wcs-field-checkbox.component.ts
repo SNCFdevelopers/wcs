@@ -8,6 +8,7 @@ import { FieldType } from '@ngx-formly/core';
     <wcs-form-field [attr.is-error]="showError ? true : null">
       <wcs-checkbox
         [id]="to.id"
+        [attr.disabled]="to.disabled ? true : null"
         [formControl]="formControl">{{to.label}}</wcs-checkbox>
       <wcs-error *ngIf="showError">
         <formly-validation-message #error [field]="field"></formly-validation-message>

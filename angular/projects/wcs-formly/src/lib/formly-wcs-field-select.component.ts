@@ -11,13 +11,14 @@ import { FieldType } from '@ngx-formly/core';
       </wcs-label>
       <wcs-select
         [id]="to.id"
-        [attr.required]="to.required && to.hideRequiredMarker !== true"
+        [attr.required]="(to.required && to.hideRequiredMarker !== true) ? true : null"
         [attr.placeholder]="to.placeholder"
         [formControl]="formControl"
         [attr.multiple]="to.multiple"
-        [attr.disabled]="to.readonly ? true : null">
+        [attr.disabled]="to.disabled ? true : null">
         <wcs-select-option
           *ngFor="let option of to.options | formlySelectOptions: field | async; let i = index"
+          [attr.disabled]="option.disabled ? true : null"
           [value]="option.value">{{option.label}}</wcs-select-option>
       </wcs-select>
       <wcs-error *ngIf="showError">

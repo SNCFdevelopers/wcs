@@ -3,14 +3,14 @@ import { FormlyFieldConfig } from '@ngx-formly/core';
 import { FormGroup } from '@angular/forms';
 import { Subject } from 'rxjs';
 
-type FormlyOption = { value: string, label: string };
+type Option = { value: string, label: string, disabled: boolean };
 
 @Component({
   selector: 'app-formly-example',
   template: `
     <h2>Formly</h2>
-    <wcs-switch [checked]="disabled" (wcsChange)="toggleDisabled()"></wcs-switch>Disabled
-    <wcs-switch [checked]="required" (wcsChange)="toggleRequired()"></wcs-switch>Required
+    <wcs-switch [checked]="disabled" (wcsChange)="toggleDisabled()">Disabled</wcs-switch>
+    <wcs-switch [checked]="required" (wcsChange)="toggleRequired()">Required</wcs-switch>
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <formly-form class="formly" [form]="form" [fields]="fields" [model]="model"></formly-form>
       <wcs-button type="submit">
@@ -28,19 +28,22 @@ type FormlyOption = { value: string, label: string };
 })
 export class FormlyExampleComponent implements OnInit {
 
-  private options: FormlyOption[] = [
+  private options: Option[] = [
     {
       value: '1',
-      label: 'Première valeur'
+      label: 'Première valeur',
+      disabled: false
     }, {
       value: '2',
-      label: 'Deuxième valeur'
+      label: 'Deuxième valeur',
+      disabled: true
     }, {
       value: '3',
-      label: 'Troisième valeur'
+      label: 'Troisième valeur',
+      disabled: false
     }
   ];
-  private asynchronousOptionsSubject = new Subject<FormlyOption[]>();
+  private asynchronousOptionsSubject = new Subject<Option[]>();
 
   disabled = false;
   required = false;

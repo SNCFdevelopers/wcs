@@ -3,15 +3,17 @@ import { FieldType } from '@ngx-formly/core';
 
 @Component({
   // tslint:disable-next-line:component-selector
-  selector: 'formly-wcs-field-checkbox',
+  selector: 'formly-wcs-field-switch',
   template: `
     <wcs-form-field [attr.is-error]="showError ? true : null">
-      <wcs-label *ngIf="to.label && to.hideLabel !== true" [attr.for]="id">
-        {{ to.label }}
-      </wcs-label>
       <wcs-switch
         [id]="to.id"
-        [formControl]="formControl"></wcs-switch>
+        [attr.disabled]="to.disabled ? true : null"
+        [formControl]="formControl">
+        <span *ngIf="to.label && to.hideLabel !== true" [attr.for]="id">
+          {{ to.label }}
+        </span>
+      </wcs-switch>
       <wcs-error *ngIf="showError">
         <formly-validation-message #error [field]="field"></formly-validation-message>
       </wcs-error>

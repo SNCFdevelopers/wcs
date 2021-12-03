@@ -17,6 +17,7 @@ import { FieldType } from '@ngx-formly/core';
         <wcs-radio
           *ngFor="let option of to.options | formlySelectOptions: field | async; let i = index"
           [id]="option.value"
+          [attr.disabled]="to.disabled || option.disabled ? true : null"
           [value]="option.value"
           [label]="option.label"></wcs-radio>
       </wcs-radio-group>

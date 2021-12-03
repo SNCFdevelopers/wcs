@@ -220,12 +220,19 @@
     {
       "name": "wcs-checkbox",
       "path": "./src/components/checkbox/checkbox.tsx",
-      "description": "```html\r\n<wcs-checkbox style=\"margin: 16px 0px;\">Normal checkbox</wcs-checkbox>\r\n<wcs-checkbox style=\"margin: 16px 0px;\" checked=\"true\">Default checked checkbox</wcs-checkbox>\r\n<wcs-checkbox style=\"margin: 16px 0px;\">Checkbox</wcs-checkbox>\r\n<wcs-checkbox style=\"margin: 16px 0px;\" indeterminate=\"true\">Checkbox indeterminate</wcs-checkbox>\r\n```",
+      "description": "",
       "attributes": [
         {
           "name": "checked",
           "type": "boolean",
           "description": "If `true`, the checkbox is selected.",
+          "defaultValue": "false",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "Specify wether the checkbox is disabled or not.",
           "defaultValue": "false",
           "required": false
         },
@@ -256,6 +263,13 @@
           "name": "checked",
           "type": "boolean",
           "description": "If `true`, the checkbox is selected.",
+          "defaultValue": "false",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "Specify wether the checkbox is disabled or not.",
           "defaultValue": "false",
           "required": false
         },
@@ -2175,7 +2189,7 @@
     {
       "name": "wcs-radio-group",
       "path": "./src/components/radio-group/radio-group.tsx",
-      "description": "Radio buttons are often used in forms or for other functions that let users select only one option from a list. With radio buttons, users cannot make multiple selections from options suggested (as they can with check boxes).\r\n\r\n```html\r\n<wcs-radio-group>\r\n  <wcs-radio label=\"SNCF\" value=\"1\"></wcs-radio>\r\n  <wcs-radio label=\"SNCF Réseau\" value=\"2\"></wcs-radio>\r\n  <wcs-radio label=\"SNCF Voyageurs\" value=\"3\"></wcs-radio>\r\n  <wcs-radio label=\"Gares & Connexions\" value=\"4\"></wcs-radio>\r\n</wcs-radio-group>\r\n```",
+      "description": "",
       "attributes": [
         {
           "name": "mode",
@@ -2476,6 +2490,20 @@
           "required": false
         },
         {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "Specify wether the switch is disabled or not.",
+          "defaultValue": "false",
+          "required": false
+        },
+        {
+          "name": "label-alignment",
+          "type": "\"bottom\" | \"center\" | \"top\"",
+          "description": "Specifie the alignment of the switch with the label content",
+          "defaultValue": "'center'",
+          "required": false
+        },
+        {
           "name": "name",
           "type": "string",
           "description": "",
@@ -2489,6 +2517,20 @@
           "type": "boolean",
           "description": "If `true`, the switch is selected.",
           "defaultValue": "false",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "Specify wether the switch is disabled or not.",
+          "defaultValue": "false",
+          "required": false
+        },
+        {
+          "name": "labelAlignment",
+          "type": "\"bottom\" | \"center\" | \"top\"",
+          "description": "Specifie the alignment of the switch with the label content",
+          "defaultValue": "'center'",
           "required": false
         },
         {

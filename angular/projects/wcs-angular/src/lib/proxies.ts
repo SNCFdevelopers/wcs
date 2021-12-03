@@ -110,8 +110,8 @@ export class WcsCardBody {
 }
 export declare interface WcsCheckbox extends Components.WcsCheckbox {
 }
-@ProxyCmp({ inputs: ["checked", "indeterminate", "labelAlignment", "name"] })
-@Component({ selector: "wcs-checkbox", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["checked", "indeterminate", "labelAlignment", "name"] })
+@ProxyCmp({ inputs: ["checked", "disabled", "indeterminate", "labelAlignment", "name"] })
+@Component({ selector: "wcs-checkbox", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["checked", "disabled", "indeterminate", "labelAlignment", "name"] })
 export class WcsCheckbox {
   wcsChange!: EventEmitter<CustomEvent>;
   protected el: HTMLElement;
@@ -597,8 +597,8 @@ export class WcsSpinner {
 }
 export declare interface WcsSwitch extends Components.WcsSwitch {
 }
-@ProxyCmp({ inputs: ["checked", "name"] })
-@Component({ selector: "wcs-switch", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["checked", "name"] })
+@ProxyCmp({ inputs: ["checked", "disabled", "labelAlignment", "name"] })
+@Component({ selector: "wcs-switch", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["checked", "disabled", "labelAlignment", "name"] })
 export class WcsSwitch {
   wcsChange!: EventEmitter<CustomEvent>;
   protected el: HTMLElement;
