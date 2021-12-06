@@ -19,10 +19,14 @@ type Option = { value: string, label: string, disabled: boolean };
     </form>
   `,
   styles: [`
+    form {
+      width: 500px;
+    }
+
     .formly {
       display: flex;
       flex-direction: column;
-      row-gap: 40px;
+      row-gap: 16px;
     }
   `]
 })

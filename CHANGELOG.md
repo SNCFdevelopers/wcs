@@ -17,6 +17,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Changed
 
 - **dropdown**: use PopperJS for dropdown overlay positioning
+- **form-field**: change `display: inline-flex` to `display: flex`
 
 ### Deprecated
 
