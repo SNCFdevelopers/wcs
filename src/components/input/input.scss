@@ -41,20 +41,74 @@
         margin-left: 8px;
         margin-right: -8px;
     }
+
+    .prefix, .suffix {
+        color: var(--wcs-white);
+        display: flex;
+        white-space: nowrap;
+        align-items: center;
+        padding: 0 calc(var(--wcs-padding) / 2);
+        font-weight: var(--wcs-font-weight-form-value) !important;
+        background-color: var(--wcs-text-disabled);
+    }
+
+    .prefix {
+        border-radius: var(--wcs-internal-input-border-radius-left) 0 0 var(--wcs-internal-input-border-radius-left);
+        margin: -1px 0 -1px -1px;
+        border-left: solid 1px transparent;
+        border-top: solid 1px transparent;
+        border-bottom: solid 1px transparent;
+    }
+
+    .suffix {
+        border-radius: 0 var(--wcs-internal-input-border-radius-right) var(--wcs-internal-input-border-radius-right) 0;
+        margin: -1px -1px -1px 0px;
+        border-right: solid 1px transparent;
+        border-top: solid 1px transparent;
+        border-bottom: solid 1px transparent;
+    }
 }
 
 :host([state=error]) {
     border-color: var(--wcs-red) !important;
 }
 
+:host([data-has-prefix]) {
+    input {
+        padding-left: calc(var(--wcs-padding) / 2);
+    }
+}
+
+:host([data-has-suffix]) {
+    input {
+        padding-left: calc(var(--wcs-padding) / 2);
+    }
+}
+
 :host([disabled]) {
     input {
         color: var(--wcs-text-disabled);
+    }
+
+    .prefix, .suffix {
+        color: var(--wcs-light);
     }
 }
 
 :host(:focus-within) {
     border: solid 1px var(--wcs-primary);
+
+    .prefix {
+        border-left: solid 1px var(--wcs-primary);
+        border-top: solid 1px var(--wcs-primary);
+        border-bottom: solid 1px var(--wcs-primary);
+    }
+
+    .suffix {
+        border-right: solid 1px var(--wcs-primary);
+        border-top: solid 1px var(--wcs-primary);
+        border-bottom: solid 1px var(--wcs-primary);
+    }
 
     wcs-mat-icon {
         color: var(--wcs-primary);

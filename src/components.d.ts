@@ -384,6 +384,10 @@ export namespace Components {
          */
         "placeholder"?: string | null;
         /**
+          * Prefix displayed before the text field contents. This is not included in the value.
+         */
+        "prefixLabel": string;
+        /**
           * If `true`, the user cannot modify the value.
          */
         "readonly": boolean;
@@ -415,6 +419,10 @@ export namespace Components {
           * Works with the min and max attributes to limit the increments at which a value can be set. Possible values are: `"any"` or a positive floating point number.
          */
         "step"?: string;
+        /**
+          * Suffix displayed after the text field contents. This is not included in the value.
+         */
+        "suffixLabel": string;
         /**
           * The type of control to display. The default type is text.
          */
@@ -1502,6 +1510,10 @@ declare namespace LocalJSX {
          */
         "placeholder"?: string | null;
         /**
+          * Prefix displayed before the text field contents. This is not included in the value.
+         */
+        "prefixLabel"?: string;
+        /**
           * If `true`, the user cannot modify the value.
          */
         "readonly"?: boolean;
@@ -1525,6 +1537,10 @@ declare namespace LocalJSX {
           * Works with the min and max attributes to limit the increments at which a value can be set. Possible values are: `"any"` or a positive floating point number.
          */
         "step"?: string;
+        /**
+          * Suffix displayed after the text field contents. This is not included in the value.
+         */
+        "suffixLabel"?: string;
         /**
           * The type of control to display. The default type is text.
          */

@@ -17,8 +17,8 @@ export default {
     }
 } as Meta;
 
-const Template: Story<Partial<{state: 'initial' | 'error', icon: string, type: TextFieldTypes, disabled, value: string | number}>> = (args) => html`
-    <wcs-input id="input-demo-1" state=${args.state} icon=${args.icon} type=${args.type} ?disabled=${args.disabled} value=${args.value}></wcs-input>
+const Template: Story<Partial<{state: 'initial' | 'error', icon: string, type: TextFieldTypes, disabled, value: string | number, prefixLabel: string, suffixLabel: string}>> = (args) => html`
+    <wcs-input id="input-demo-1" state=${args.state} icon=${args.icon} type=${args.type} ?disabled=${args.disabled} value=${args.value} prefix-label=${args.prefixLabel} suffix-label=${args.suffixLabel}></wcs-input>
 `;
 
 export const Default = Template.bind({});
@@ -44,4 +44,11 @@ export const Password = Template.bind({});
 Password.args = {
     type: 'password',
     value: 'superpassword'
+};
+
+
+export const PrefixSuffixLabel = Template.bind({});
+PrefixSuffixLabel.args = {
+    prefixLabel: 'https://',
+    suffixLabel: '.sncf'
 };

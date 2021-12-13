@@ -87,6 +87,16 @@ export class Input implements ComponentInterface {
      */
     @Prop() debounce = 0;
 
+    /**
+     * Prefix displayed before the text field contents. This is not included in the value.
+     */
+    @Prop() prefixLabel: string;
+
+    /**
+     * Suffix displayed after the text field contents. This is not included in the value.
+     */
+    @Prop() suffixLabel: string;
+
     @Watch('debounce')
     protected debounceChanged() {
         this.wcsChange = debounceEvent(this.wcsChange, this.debounce);
@@ -372,7 +382,10 @@ export class Input implements ComponentInterface {
         return (
             <Host
                 aria-disabled={this.disabled ? 'true' : null}
+                data-has-prefix={!!this.prefixLabel}
+                data-has-suffix={!!this.suffixLabel}
             >
+                {this.prefixLabel ? (<span class="prefix">{this.prefixLabel}</span>) : null}
                 {this.icon ? (<wcs-mat-icon icon={this.icon} size="m"></wcs-mat-icon>) : null}
                 <input
                     class="native-input"
@@ -407,6 +420,7 @@ export class Input implements ComponentInterface {
                     onKeyDown={this.onKeydown}
                     {...this.inheritedAttributes}
                 />
+                {this.suffixLabel ? (<span class="suffix">{this.suffixLabel}</span>) : null}
             </Host>
         );
     }
