@@ -1470,6 +1470,12 @@
           "required": false
         },
         {
+          "name": "prefix-label",
+          "type": "string",
+          "description": "Prefix displayed before the text field contents. This is not included in the value.",
+          "required": false
+        },
+        {
           "name": "readonly",
           "type": "boolean",
           "description": "If `true`, the user cannot modify the value.",
@@ -1507,6 +1513,12 @@
           "name": "step",
           "type": "string",
           "description": "Works with the min and max attributes to limit the increments at which a value can be set.\r\nPossible values are: `\"any\"` or a positive floating point number.",
+          "required": false
+        },
+        {
+          "name": "suffix-label",
+          "type": "string",
+          "description": "Suffix displayed after the text field contents. This is not included in the value.",
           "required": false
         },
         {
@@ -1654,6 +1666,12 @@
           "required": false
         },
         {
+          "name": "prefixLabel",
+          "type": "string",
+          "description": "Prefix displayed before the text field contents. This is not included in the value.",
+          "required": false
+        },
+        {
           "name": "readonly",
           "type": "boolean",
           "description": "If `true`, the user cannot modify the value.",
@@ -1691,6 +1709,12 @@
           "name": "step",
           "type": "string",
           "description": "Works with the min and max attributes to limit the increments at which a value can be set.\r\nPossible values are: `\"any\"` or a positive floating point number.",
+          "required": false
+        },
+        {
+          "name": "suffixLabel",
+          "type": "string",
+          "description": "Suffix displayed after the text field contents. This is not included in the value.",
           "required": false
         },
         {

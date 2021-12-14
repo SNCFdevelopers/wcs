@@ -8,6 +8,21 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## Unreleased
 
 ### Added
+for new features.
+### Changed
+for changes in existing functionality.
+### Deprecated
+for soon-to-be removed features.
+### Removed
+for now removed features.
+### Fixed
+for any bug fixes.
+### Security
+in case of vulnerabilities.
+
+## [2.7.0] - 2021-12-14
+
+### Added
 
 - **dropdown**: add overlay placement attribute
 - **dropdown**: add no-arrow attribute to hide the arrow in dropdown button
@@ -20,14 +35,6 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **dropdown**: use PopperJS for dropdown overlay positioning
 - **form-field**: change `display: inline-flex` to `display: flex`
 
-### Deprecated
-
-
-
-### Removed
-
-
-
 ### Fixed
 
 - **dropdown**: Fix disabled attribute that did not work
@@ -36,8 +43,6 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **input**: add disabled styles
 - **switch**: display label if present
 - **radio** **checkbox**: fix disabled attribute
-
-### Security
 
 ## [2.6.0] - 2021-11-24
 

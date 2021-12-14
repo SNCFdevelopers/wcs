@@ -407,8 +407,8 @@ export class WcsIcon {
 }
 export declare interface WcsInput extends Components.WcsInput {
 }
-@ProxyCmp({ inputs: ["accept", "autocapitalize", "autocomplete", "autocorrect", "autofocus", "clearInput", "clearOnEdit", "debounce", "disabled", "enterkeyhint", "icon", "inputmode", "max", "maxlength", "min", "minlength", "multiple", "name", "pattern", "placeholder", "readonly", "required", "size", "spellcheck", "state", "step", "type", "value"], "methods": ["setFocus", "getInputElement"] })
-@Component({ selector: "wcs-input", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["accept", "autocapitalize", "autocomplete", "autocorrect", "autofocus", "clearInput", "clearOnEdit", "debounce", "disabled", "enterkeyhint", "icon", "inputmode", "max", "maxlength", "min", "minlength", "multiple", "name", "pattern", "placeholder", "readonly", "required", "size", "spellcheck", "state", "step", "type", "value"] })
+@ProxyCmp({ inputs: ["accept", "autocapitalize", "autocomplete", "autocorrect", "autofocus", "clearInput", "clearOnEdit", "debounce", "disabled", "enterkeyhint", "icon", "inputmode", "max", "maxlength", "min", "minlength", "multiple", "name", "pattern", "placeholder", "prefixLabel", "readonly", "required", "size", "spellcheck", "state", "step", "suffixLabel", "type", "value"], "methods": ["setFocus", "getInputElement"] })
+@Component({ selector: "wcs-input", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["accept", "autocapitalize", "autocomplete", "autocorrect", "autofocus", "clearInput", "clearOnEdit", "debounce", "disabled", "enterkeyhint", "icon", "inputmode", "max", "maxlength", "min", "minlength", "multiple", "name", "pattern", "placeholder", "prefixLabel", "readonly", "required", "size", "spellcheck", "state", "step", "suffixLabel", "type", "value"] })
 export class WcsInput {
   wcsInput!: EventEmitter<CustomEvent>;
   wcsChange!: EventEmitter<CustomEvent>;
