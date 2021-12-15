@@ -11,6 +11,8 @@ import { FieldType } from '@ngx-formly/core';
       </wcs-label>
       <wcs-input [placeholder]="to.placeholder" [type]="type" [formControl]="formControl" [formlyAttributes]="field"
                  [attr.disabled]="to.disabled"
+                 [prefixLabel]="to.prefixLabel"
+                 [suffixLabel]="to.suffixLabel"
                  [attr.required]="to.required && to.hideRequiredMarker !== true"></wcs-input>
       <wcs-error *ngIf="showError">
         <formly-validation-message #error [field]="field"></formly-validation-message>

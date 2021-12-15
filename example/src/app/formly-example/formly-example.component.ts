@@ -69,6 +69,8 @@ export class FormlyExampleComponent implements OnInit {
       type: 'input',
       templateOptions: {
         label: 'Champ de type input',
+        prefixLabel: 'prefix',
+        suffixLabel: 'suffix',
         placeholder: 'Placeholder'
       },
       expressionProperties: {
