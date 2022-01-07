@@ -8,16 +8,28 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## Unreleased
 
 ### Added
+
 for new features.
+
 ### Changed
-for changes in existing functionality.
+
+- **tooltip:** redesign of the tooltip and migrate to tippy.js library. the API of the previous versions remain
+  compatible with the new API which has only added new attributes / methods.
+
 ### Deprecated
+
 for soon-to-be removed features.
+
 ### Removed
+
 for now removed features.
+
 ### Fixed
+
 for any bug fixes.
+
 ### Security
+
 in case of vulnerabilities.
 
 ## [2.7.0] - 2021-12-14
@@ -62,14 +74,14 @@ in case of vulnerabilities.
 
 ### Removed
 
-- **angular schematics**: remove Angular schematics support (`ng add wcs` is no longer supported) 
-
+- **angular schematics**: remove Angular schematics support (`ng add wcs` is no longer supported)
 
 ## [2.5.1]
 
 ### Fixed
 
-- `wcs-angular`: update component proxies to support angular v12 strict template (https://github.com/ionic-team/stencil-ds-output-targets/issues/155)
+- `wcs-angular`: update component proxies to support angular v12 strict
+  template (https://github.com/ionic-team/stencil-ds-output-targets/issues/155)
 
 ## [2.5.0]
 
@@ -97,7 +109,6 @@ in case of vulnerabilities.
 - `com-nav` : Add communication navbar and subcomponents (`submenu`, `category`)
 - `footer`: Add footer component
 
-
 ### Fixed
 
 -`mat-icon`: change display block to flex for host element
@@ -110,7 +121,8 @@ in case of vulnerabilities.
 
 ### Fixed
 
-- `editable-field`: fix the display of null values, array values (for multiple select) and error states on input and textarea
+- `editable-field`: fix the display of null values, array values (for multiple select) and error states on input and
+  textarea
 
 ## [2.2.0]
 
@@ -124,8 +136,8 @@ in case of vulnerabilities.
 - `editable-field`: Fix bad display in fields with several lines of text.
 - `editable-field`: Fix textarea autogrow behaviour
 - `wcs-tooltip`: Id starting by a number is not a valid CCS selector (it has to be escaped). It's a problem if an
-  application use a tooltip on an element with an id starting by a number. We fix this without using CSS selector
-  to find the element.
+  application use a tooltip on an element with an id starting by a number. We fix this without using CSS selector to
+  find the element.
 
 ## [2.1.0]
 
@@ -198,3 +210,29 @@ in case of vulnerabilities.
     - Angular
     - React (Not yet working)
     - Vue
+
+## Changelog template
+
+### Added
+
+for new features.
+
+### Changed
+
+for changes in existing functionality.
+
+### Deprecated
+
+for soon-to-be removed features.
+
+### Removed
+
+for now removed features.
+
+### Fixed
+
+for any bug fixes.
+
+### Security
+
+in case of vulnerabilities.

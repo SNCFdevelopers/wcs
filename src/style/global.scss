@@ -1,5 +1,7 @@
 @import 'colors.scss';
 @import 'overlay.scss';
+@import 'tooltip.scss';
+@import "~tippy.js/dist/tippy.css"; // For tooltip component
 
 :root {
     // TODO: prefix all variables and make their name according to the real palette
@@ -64,3 +66,4 @@ select {
     font-weight: normal;
     font-style: italic;
 }
+

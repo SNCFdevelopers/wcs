@@ -3030,12 +3030,40 @@
     {
       "name": "wcs-tooltip",
       "path": "./src/components/tooltip/tooltip.tsx",
-      "description": "```html\r\n<wcs-button shape=\"small\" id=\"1-bottom\">Bottom</wcs-button>\r\n<wcs-tooltip for=\"1-bottom\">A tooltip!</wcs-tooltip>\r\n<wcs-button shape=\"small\" id=\"right\">Right</wcs-button>\r\n<wcs-tooltip for=\"right\" position=\"right\">A tooltip!</wcs-tooltip>\r\n<wcs-button shape=\"small\" id=\"top\">Top</wcs-button>\r\n<wcs-tooltip for=\"top\" position=\"top\">A tooltip!</wcs-tooltip>\r\n<wcs-button shape=\"small\" id=\"left\">Left</wcs-button>\r\n<wcs-tooltip for=\"left\" position=\"left\">\r\n    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam repellat, illum molestias iusto eveniet ullam voluptate at est soluta iure, quos unde, ipsa dolores error a nihil rerum nesciunt delectus.\r\n</wcs-tooltip>\r\n```",
+      "description": "Tooltips are used to provide additional information for features available on the website. These can improve the user\r\nexperience or simply show additional information. Tooltips appear when the user rolls over or clicks on them\r\n(for longer content).\r\n\r\nNote that this component is based on the Tippy.js library : https://atomiks.github.io/tippyjs/",
       "attributes": [
+        {
+          "name": "delay",
+          "type": "[number, number] | number",
+          "description": "Delay in ms once a trigger event is fired before the tooltip shows or hides.\r\n\r\nYou can provide an array with two values to define a different duration for show and hide.\r\n\r\n`[showDelay, hideDelay]`\r\n\r\nUse null to use default value.",
+          "defaultValue": "0",
+          "required": false
+        },
+        {
+          "name": "duration",
+          "type": "[number, number] | number",
+          "description": "Duration in ms of the transition animation.",
+          "defaultValue": "[300, 250]",
+          "required": false
+        },
         {
           "name": "for",
           "type": "string",
-          "description": "The **id** of the element the tooltip's going to describe.",
+          "description": "The **id** of the element the tooltip's going to describe.\r\n\r\nThis property cannot be modified after initialization.",
+          "required": false
+        },
+        {
+          "name": "interactive",
+          "type": "boolean",
+          "description": "Determines if the tooltip has interactive content inside of it, so that it can be hovered over and clicked inside\r\nwithout hiding.",
+          "defaultValue": "false",
+          "required": false
+        },
+        {
+          "name": "max-width",
+          "type": "number | string",
+          "description": "Specifies the maximum width of the tooltip. Useful to prevent it from being too horizontally wide to read.\r\n\r\nIf the viewport's width is smaller than maxWidth, core CSS ensures the tippy remains smaller than the screen.",
+          "defaultValue": "350",
           "required": false
         },
         {
@@ -3043,14 +3071,56 @@
           "type": "\"bottom\" | \"left\" | \"right\" | \"top\"",
           "description": "Where the tooltip is going to show relative to the element it's describing.",
           "defaultValue": "'bottom'",
+          "required": false
+        },
+        {
+          "name": "theme",
+          "type": "string",
+          "description": "Allows you to change the theme used by tippy.\r\n\r\nThe WCS theme is used by default and uses the WCS CSS variables.\r\n\r\nYou can create a theme by following this documentation and choosing a custom name :\r\nhttps://atomiks.github.io/tippyjs/v6/themes/",
+          "defaultValue": "'wcs'",
+          "required": false
+        },
+        {
+          "name": "trigger",
+          "type": "string",
+          "description": "Determines the events that cause the tooltip to show. Multiple event names are separated by spaces.\r\n\r\nSee: https://atomiks.github.io/tippyjs/v6/all-props/#trigger",
+          "defaultValue": "'mouseenter focus'",
           "required": false
         }
       ],
       "properties": [
         {
+          "name": "delay",
+          "type": "[number, number] | number",
+          "description": "Delay in ms once a trigger event is fired before the tooltip shows or hides.\r\n\r\nYou can provide an array with two values to define a different duration for show and hide.\r\n\r\n`[showDelay, hideDelay]`\r\n\r\nUse null to use default value.",
+          "defaultValue": "0",
+          "required": false
+        },
+        {
+          "name": "duration",
+          "type": "[number, number] | number",
+          "description": "Duration in ms of the transition animation.",
+          "defaultValue": "[300, 250]",
+          "required": false
+        },
+        {
           "name": "for",
           "type": "string",
-          "description": "The **id** of the element the tooltip's going to describe.",
+          "description": "The **id** of the element the tooltip's going to describe.\r\n\r\nThis property cannot be modified after initialization.",
+          "required": false
+        },
+        {
+          "name": "interactive",
+          "type": "boolean",
+          "description": "Determines if the tooltip has interactive content inside of it, so that it can be hovered over and clicked inside\r\nwithout hiding.",
+          "defaultValue": "false",
+          "required": false
+        },
+        {
+          "name": "maxWidth",
+          "type": "number | string",
+          "description": "Specifies the maximum width of the tooltip. Useful to prevent it from being too horizontally wide to read.\r\n\r\nIf the viewport's width is smaller than maxWidth, core CSS ensures the tippy remains smaller than the screen.",
+          "defaultValue": "350",
           "required": false
         },
         {
@@ -3059,10 +3129,45 @@
           "description": "Where the tooltip is going to show relative to the element it's describing.",
           "defaultValue": "'bottom'",
           "required": false
+        },
+        {
+          "name": "theme",
+          "type": "string",
+          "description": "Allows you to change the theme used by tippy.\r\n\r\nThe WCS theme is used by default and uses the WCS CSS variables.\r\n\r\nYou can create a theme by following this documentation and choosing a custom name :\r\nhttps://atomiks.github.io/tippyjs/v6/themes/",
+          "defaultValue": "'wcs'",
+          "required": false
+        },
+        {
+          "name": "trigger",
+          "type": "string",
+          "description": "Determines the events that cause the tooltip to show. Multiple event names are separated by spaces.\r\n\r\nSee: https://atomiks.github.io/tippyjs/v6/all-props/#trigger",
+          "defaultValue": "'mouseenter focus'",
+          "required": false
         }
       ],
       "events": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "disable",
+          "description": "Temporarily prevent the tooltip from showing or hiding",
+          "signature": "disable() => Promise<void>"
+        },
+        {
+          "name": "enable",
+          "description": "Re-enable a disabled tooltip",
+          "signature": "enable() => Promise<void>"
+        },
+        {
+          "name": "hide",
+          "description": "Programmatically hide the tooltip",
+          "signature": "hide() => Promise<void>"
+        },
+        {
+          "name": "show",
+          "description": "Programmatically show the tooltip",
+          "signature": "show() => Promise<void>"
+        }
+      ],
       "slots": [],
       "cssProperties": [],
       "cssParts": []

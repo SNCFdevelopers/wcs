@@ -742,14 +742,54 @@ export namespace Components {
     }
     interface WcsTooltip {
         /**
-          * The **id** of the element the tooltip's going to describe.
+          * Delay in ms once a trigger event is fired before the tooltip shows or hides.  You can provide an array with two values to define a different duration for show and hide.  `[showDelay, hideDelay]`  Use null to use default value.
+         */
+        "delay": number | [number, number];
+        /**
+          * Temporarily prevent the tooltip from showing or hiding
+         */
+        "disable": () => Promise<void>;
+        /**
+          * Duration in ms of the transition animation.
+         */
+        "duration": number | [number, number];
+        /**
+          * Re-enable a disabled tooltip
+         */
+        "enable": () => Promise<void>;
+        /**
+          * The **id** of the element the tooltip's going to describe.  This property cannot be modified after initialization.
           * @example ```html <span id="tooltiped">Some content</span> <wcs-tooltip for="tooltiped">A tooltip!</wcs-tooltip> ```
          */
         "for": string;
         /**
+          * Programmatically hide the tooltip
+         */
+        "hide": () => Promise<void>;
+        /**
+          * Determines if the tooltip has interactive content inside of it, so that it can be hovered over and clicked inside without hiding.
+         */
+        "interactive": boolean;
+        /**
+          * Specifies the maximum width of the tooltip. Useful to prevent it from being too horizontally wide to read.  If the viewport's width is smaller than maxWidth, core CSS ensures the tippy remains smaller than the screen.
+         */
+        "maxWidth": string | number;
+        /**
           * Where the tooltip is going to show relative to the element it's describing.
          */
         "position": WcsTooltipPosition;
+        /**
+          * Programmatically show the tooltip
+         */
+        "show": () => Promise<void>;
+        /**
+          * Allows you to change the theme used by tippy.  The WCS theme is used by default and uses the WCS CSS variables.  You can create a theme by following this documentation and choosing a custom name : https://atomiks.github.io/tippyjs/v6/themes/
+         */
+        "theme": string;
+        /**
+          * Determines the events that cause the tooltip to show. Multiple event names are separated by spaces.  See: https://atomiks.github.io/tippyjs/v6/all-props/#trigger
+         */
+        "trigger": string;
     }
 }
 declare global {
@@ -1888,14 +1928,38 @@ declare namespace LocalJSX {
     }
     interface WcsTooltip {
         /**
-          * The **id** of the element the tooltip's going to describe.
+          * Delay in ms once a trigger event is fired before the tooltip shows or hides.  You can provide an array with two values to define a different duration for show and hide.  `[showDelay, hideDelay]`  Use null to use default value.
+         */
+        "delay"?: number | [number, number];
+        /**
+          * Duration in ms of the transition animation.
+         */
+        "duration"?: number | [number, number];
+        /**
+          * The **id** of the element the tooltip's going to describe.  This property cannot be modified after initialization.
           * @example ```html <span id="tooltiped">Some content</span> <wcs-tooltip for="tooltiped">A tooltip!</wcs-tooltip> ```
          */
         "for"?: string;
         /**
+          * Determines if the tooltip has interactive content inside of it, so that it can be hovered over and clicked inside without hiding.
+         */
+        "interactive"?: boolean;
+        /**
+          * Specifies the maximum width of the tooltip. Useful to prevent it from being too horizontally wide to read.  If the viewport's width is smaller than maxWidth, core CSS ensures the tippy remains smaller than the screen.
+         */
+        "maxWidth"?: string | number;
+        /**
           * Where the tooltip is going to show relative to the element it's describing.
          */
         "position"?: WcsTooltipPosition;
+        /**
+          * Allows you to change the theme used by tippy.  The WCS theme is used by default and uses the WCS CSS variables.  You can create a theme by following this documentation and choosing a custom name : https://atomiks.github.io/tippyjs/v6/themes/
+         */
+        "theme"?: string;
+        /**
+          * Determines the events that cause the tooltip to show. Multiple event names are separated by spaces.  See: https://atomiks.github.io/tippyjs/v6/all-props/#trigger
+         */
+        "trigger"?: string;
     }
     interface IntrinsicElements {
         "wcs-action-bar": WcsActionBar;

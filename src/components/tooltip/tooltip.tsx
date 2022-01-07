@@ -1,17 +1,32 @@
-import { Component, ComponentInterface, h, Host, Prop, Element } from '@stencil/core';
-
+import { Component, ComponentInterface, h, Host, Prop, Element, Watch, Method } from '@stencil/core';
 import { WcsTooltipPosition } from './tooltip-interface';
-import { getOverlay } from '../../utils/overlay';
 
+// We use the Tippy.js library for the tooltip. At first by using directly the styles of tippy because
+// the design system does not specify any spec for the tooltips.
+//
+// In a second time, if a need of customization is felt, it will be possible to use the lib in a
+// "Headless" mode where the rendering of the tooltip will be entirely in our charge, without
+// modifications in the API : https://atomiks.github.io/tippyjs/v6/headless-tippy/
+import tippy, { Instance, Props } from 'tippy.js';
+
+/**
+ * Tooltips are used to provide additional information for features available on the website. These can improve the user
+ * experience or simply show additional information. Tooltips appear when the user rolls over or clicks on them
+ * (for longer content).
+ *
+ * Note that this component is based on the Tippy.js library : https://atomiks.github.io/tippyjs/
+ */
 @Component({
     tag: 'wcs-tooltip',
-    // styles are imported globally for now as the content of the tooltip is detached
-    // and reattached in the overlay
     shadow: true,
+    // Tippy stylesheet and specific styles are imported in the global tooltip.scss file
+    styleUrl: 'tooltip.scss'
 })
 export class Tooltip implements ComponentInterface {
     /**
      * The **id** of the element the tooltip's going to describe.
+     *
+     * This property cannot be modified after initialization.
      *
      * @example
      * ```html
@@ -19,125 +34,155 @@ export class Tooltip implements ComponentInterface {
      * <wcs-tooltip for="tooltiped">A tooltip!</wcs-tooltip>
      * ```
      */
-    @Prop({ mutable: false, reflect: true })
+    @Prop({mutable: false})
     for: string;
 
     /**
      * Where the tooltip is going to show relative to the element it's describing.
      */
-    @Prop({ reflect: true })
+    @Prop({reflect: true})
     position: WcsTooltipPosition = 'bottom';
 
+    /**
+     * Determines if the tooltip has interactive content inside of it, so that it can be hovered over and clicked inside
+     * without hiding.
+     */
+    @Prop()
+    interactive: boolean = false;
+
+    /**
+     * Specifies the maximum width of the tooltip. Useful to prevent it from being too horizontally wide to read.
+     *
+     * If the viewport's width is smaller than maxWidth, core CSS ensures the tippy remains smaller than the screen.
+     */
+    @Prop()
+    maxWidth: string | number = 350;
+
+    /**
+     * Delay in ms once a trigger event is fired before the tooltip shows or hides.
+     *
+     * You can provide an array with two values to define a different duration for show and hide.
+     *
+     * `[showDelay, hideDelay]`
+     *
+     * Use null to use default value.
+     */
+    @Prop()
+    delay: number | [number, number] = 0;
+
+    /**
+     * Duration in ms of the transition animation.
+     */
+    @Prop()
+    duration: number | [number, number] = [300, 250];
+
+    /**
+     * Determines the events that cause the tooltip to show. Multiple event names are separated by spaces.
+     *
+     * See: https://atomiks.github.io/tippyjs/v6/all-props/#trigger
+     */
+    @Prop()
+    trigger: string = 'mouseenter focus';
+
+    /**
+     * Allows you to change the theme used by tippy.
+     *
+     * The WCS theme is used by default and uses the WCS CSS variables.
+     *
+     * You can create a theme by following this documentation and choosing a custom name :
+     * https://atomiks.github.io/tippyjs/v6/themes/
+     */
+    @Prop()
+    theme: string = 'wcs';
+
     @Element()
-    private el!: HTMLWcsTooltipElement;
+    private el: HTMLWcsTooltipElement;
 
-    content: HTMLDivElement;
-    target: Element;
+    tippyInstance: Instance<Props>;
 
-    componentWillLoad() {
-        const target = document.getElementById(this.for);
-        if (target === null) {
-            throw new Error(`Cannot find element with corresponding id: ${this.for}`);
-        }
-        this.target = target;
-
-        this.listen('mouseenter', 'show');
-        this.listen('focus', 'show');
-        this.listen('mouseleave', 'hide');
-        this.listen('blur', 'hide');
-        this.listen('tap', 'hide');
-    }
-
-    listen(eventName: string, className: 'hide' | 'show') {
-        this.target.addEventListener(eventName, () => {
-            if (className === 'hide') {
-                this.content.classList.replace('show', 'hide');
-            } else {
-                this.content.classList.replace('hide', 'show');
-            }
-            this.updatePosition();
+    componentWillLoad(): Promise<void> | void {
+        this.tippyInstance = tippy(document.getElementById(this.for), {
+            theme: this.theme,
+            allowHTML: true,
+            content: this.el.innerHTML,
+            maxWidth: this.maxWidth,
+            placement: this.position,
+            delay: this.delay,
+            duration: this.duration,
+            interactive: this.interactive,
+            trigger: this.trigger
         });
     }
 
-    componentDidRender() {
-        const overlay = getOverlay();
-        this.content = this.el.shadowRoot.querySelector('.wcs-tooltip-content');
-        const nodes = this.el.shadowRoot.querySelector('slot')
-                      ? this.el.shadowRoot.querySelector('slot').assignedNodes()
-                      : this.content.querySelectorAll('*');
-        nodes.forEach(n => this.content.appendChild(n.cloneNode(true)));
-        this.content.remove();
-        overlay.appendChild(this.content);
-        this.updatePosition();
+    @Watch('interactive')
+    @Watch('position')
+    @Watch('maxWidth')
+    @Watch('theme')
+    @Watch('delay')
+    @Watch('duration')
+    @Watch('trigger')
+    // @ts-ignore
+    private updateProps() {
+        this.tippyInstance.setProps({
+            interactive: this.interactive,
+            placement: this.position,
+            maxWidth: this.maxWidth,
+            theme: this.theme,
+            delay: this.delay,
+            duration: this.duration,
+            trigger: this.trigger
+        })
     }
 
-    updatePosition() {
-        // Function taken and adapted from https://github.com/PolymerElements/paper-tooltip/blob/master/paper-tooltip.js
-        // Thanks ! :-)
-        if (!this.target || !this.content.offsetParent) {
-            return;
-        }
+    private updateTippyContent() {
+        this.tippyInstance.setProps({
+            content: this.el.innerHTML
+        })
+    }
 
-        const parentRect = this.content.offsetParent.getBoundingClientRect();
-        const targetRect = this.target.getBoundingClientRect();
-        const thisRect = this.content.getBoundingClientRect();
-        const borderWidth = 6;
-        const horizontalCenterOffset = (targetRect.width - thisRect.width) / 2;
-        const verticalCenterOffset = (targetRect.height - thisRect.height) / 2;
-        const targetLeft = targetRect.left - parentRect.left;
-        const targetTop = targetRect.top - parentRect.top;
-        let tooltipLeft: number;
-        let tooltipTop: number;
-        switch (this.position) {
-            case 'top':
-                tooltipLeft = targetLeft + horizontalCenterOffset;
-                tooltipTop = targetTop - thisRect.height - borderWidth;
-                break;
-            case 'bottom':
-                tooltipLeft = targetLeft + horizontalCenterOffset;
-                tooltipTop = targetTop + targetRect.height + borderWidth;
-                break;
-            case 'left':
-                tooltipLeft = targetLeft - thisRect.width - borderWidth;
-                tooltipTop = targetTop + verticalCenterOffset;
-                break;
-            case 'right':
-                tooltipLeft = targetLeft + targetRect.width + borderWidth;
-                tooltipTop = targetTop + verticalCenterOffset;
-                break;
-        }
+    /**
+     * Programmatically hide the tooltip
+     */
+    @Method()
+    hide() {
+        this.tippyInstance.hide();
+    }
 
-        // Clip to the left/right side.
-        if (parentRect.left + tooltipLeft + thisRect.width > window.innerWidth) {
-            this.content.style.right = '0px';
-            this.content.style.left = 'auto';
-        } else {
-            this.content.style.left = Math.max(0, tooltipLeft) + 'px';
-            this.content.style.right = 'auto';
-        }
-        // Clip the top/bottom side.
-        if (parentRect.top + tooltipTop + thisRect.height > window.innerHeight) {
-            this.content.style.bottom = (parentRect.height - targetTop) + 'px';
-            this.content.style.top = 'auto';
-        } else {
-            this.content.style.top = Math.max(-parentRect.top, tooltipTop) + 'px';
-            this.content.style.bottom = 'auto';
-        }
+    /**
+     * Programmatically show the tooltip
+     */
+    @Method()
+    show() {
+        this.tippyInstance.show();
+    }
+
+    /**
+     * Temporarily prevent the tooltip from showing or hiding
+     */
+    @Method()
+    disable() {
+        this.tippyInstance.disable();
+    }
+
+    /**
+     * Re-enable a disabled tooltip
+     */
+    @Method()
+    enable() {
+        this.tippyInstance.enable();
     }
 
     disconnectedCallback() {
-        // TODO: this gets called only at the component creation in ff < 63
-        // const overlay = getOverlay();
-        // overlay.removeChild(this.content);
+        this.tippyInstance.destroy();
     }
 
     render() {
         return (
             <Host>
-                <div class="wcs-tooltip-content hide">
-                    <slot/>
-                </div>
+                <slot onSlotchange={_ => this.updateTippyContent()}/>
             </Host>
         );
     }
+
+
 }

@@ -1,0 +1,17 @@
+.tippy-box[data-theme~='wcs'] {
+    background-color: var(--wcs-black);
+    color: var(--wcs-white);
+}
+
+.tippy-box[data-theme~='wcs'][data-placement^='top'] > .tippy-arrow::before {
+    border-top-color: var(--wcs-black);
+}
+.tippy-box[data-theme~='wcs'][data-placement^='bottom'] > .tippy-arrow::before {
+    border-bottom-color: var(--wcs-black);
+}
+.tippy-box[data-theme~='wcs'][data-placement^='left'] > .tippy-arrow::before {
+    border-left-color: var(--wcs-black);
+}
+.tippy-box[data-theme~='wcs'][data-placement^='right'] > .tippy-arrow::before {
+    border-right-color: var(--wcs-black);
+}
