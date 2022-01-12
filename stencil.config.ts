@@ -6,6 +6,7 @@ import path from 'path';
 // @ts-ignore
 import glob from 'glob';
 import { generateCustomElementsJson } from './scripts/custom-elements-output-storybook';
+import { angularOutputTarget } from '@stencil/angular-output-target';
 
 export const config: Config = {
     namespace: 'wcs',
@@ -29,11 +30,10 @@ export const config: Config = {
         } as any)
     ],
     outputTargets: [
-        {
-            type: 'angular',
+        angularOutputTarget({
             componentCorePackage: 'wcs-core',
             directivesProxyFile: './angular/projects/wcs-angular/src/lib/proxies.ts'
-        },
+        }),
         {
             type: 'dist',
             esmLoaderPath: '../loader',

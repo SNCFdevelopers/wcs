@@ -61,7 +61,8 @@ export class AppComponent {
   title = 'example';
   selectedTab: string = DEFAULT_TAB_KEY;
 
-  tabChange($event: CustomEvent<WcsTabChangeEvent>) {
-    this.selectedTab = $event.detail.selectedKey;
+  // TODO don't use any type when issue will be closed : https://github.com/ionic-team/stencil-ds-output-targets/issues/219
+  tabChange($event: any) {
+    this.selectedTab = ($event as CustomEvent<WcsTabChangeEvent>).detail.selectedKey;
   }
 }
