@@ -1,4 +1,4 @@
-import { Component, Prop, ComponentInterface, h } from '@stencil/core';
+import { Component, ComponentInterface, h, Prop } from '@stencil/core';
 
 /**
  * Component displaying progress as a bar.
@@ -12,18 +12,18 @@ export class ProgressBar implements ComponentInterface {
   /**
    * Whether the component display the small version
    */
-  @Prop({ mutable: true }) small = false;
+  @Prop() small: boolean = false;
 
   /**
    * Whether it displays a label indicating the percentage of progress above the bar.
    */
-  @Prop({ mutable: true }) showLabel = false;
+  @Prop() showLabel: boolean = false;
 
   /**
    * The actual value of the progress.
    * Ranging from 0 to 100.
    */
-  @Prop({ mutable: true }) value = 0;
+  @Prop() value: number = 0;
 
   render() {
     const style = {
