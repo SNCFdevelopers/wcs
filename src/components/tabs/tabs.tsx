@@ -35,13 +35,13 @@ export class Tabs implements ComponentInterface {
     /**
      * Tab headers alignment.
      */
-    @Prop({mutable: true, reflect: true}) align: WcsTabsAlignment = 'start';
+    @Prop({reflect: true}) align: WcsTabsAlignment = 'start';
 
     /**
      * Current selected tab index.
      * Starts at 0.
      */
-    @Prop() selectedIndex = 0;
+    @Prop() selectedIndex: number = 0;
 
     @Prop() selectedKey: any;
 
