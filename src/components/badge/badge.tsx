@@ -1,4 +1,5 @@
 import { Component, ComponentInterface, h, Prop } from '@stencil/core';
+import { BadgeColor, BadgeShape } from './badge-interface';
 
 @Component({
     tag: 'wcs-badge',
@@ -9,11 +10,11 @@ export class Badge implements ComponentInterface {
     /**
      * Define the shape of the badge
      */
-    @Prop() shape: 'normal' | 'rounded' = 'normal';
+    @Prop() shape: BadgeShape = 'normal';
     /**
      * Allows you to change the color of the badge to make it less bright (based on the color chosen by the CSS class).
      */
-    @Prop() color: 'initial' | 'lighter' = 'initial';
+    @Prop() color: BadgeColor = 'initial';
 
     render() {
         return (

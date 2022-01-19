@@ -5,6 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { BadgeColor, BadgeShape } from "./components/badge/badge-interface";
 import { WcsButtonMode, WcsButtonShape, WcsButtonType } from "./components/button/button-interface";
 import { CheckboxChangeEventDetail, CheckboxLabelAlignment } from "./components/checkbox/checkbox-interface";
 import { CategoryOpenedEventDetail, MenuOpenedEventDetail } from "./components/com-nav/com-nav-interface";
@@ -36,11 +37,11 @@ export namespace Components {
         /**
           * Allows you to change the color of the badge to make it less bright (based on the color chosen by the CSS class).
          */
-        "color": 'initial' | 'lighter';
+        "color": BadgeColor;
         /**
           * Define the shape of the badge
          */
-        "shape": 'normal' | 'rounded';
+        "shape": BadgeShape;
     }
     interface WcsButton {
         /**
@@ -1181,11 +1182,11 @@ declare namespace LocalJSX {
         /**
           * Allows you to change the color of the badge to make it less bright (based on the color chosen by the CSS class).
          */
-        "color"?: 'initial' | 'lighter';
+        "color"?: BadgeColor;
         /**
           * Define the shape of the badge
          */
-        "shape"?: 'normal' | 'rounded';
+        "shape"?: BadgeShape;
     }
     interface WcsButton {
         /**
