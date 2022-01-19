@@ -6,9 +6,9 @@ import { Component, Prop, ComponentInterface, h } from '@stencil/core';
     shadow: true
 })
 export class ProgressRadial implements ComponentInterface {
-    @Prop() size = 120;
-    @Prop() showLabel = false;
-    @Prop() value = 0;
+    @Prop() size: number = 120;
+    @Prop() showLabel: boolean = false;
+    @Prop() value: number = 0;
 
     render() {
         const { size, halfSize } = { size: this.size, halfSize: this.size / 2 };
