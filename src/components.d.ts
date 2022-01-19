@@ -18,6 +18,7 @@ import { RadioGroupChangeEventDetail, RadioGroupMode } from "./components/radio-
 import { RadioChosedEvent } from "./components/radio/radio-interface";
 import { SelectChangeEventDetail } from "./components/select/select-interface";
 import { SelectOptionChosedEvent } from "./components/select-option/select-option-interface";
+import { WcsSpinnerMode } from "./components/spinner/spinner-interface";
 import { SwitchChangeEventDetail, SwitchLabelAlignment } from "./components/switch/switch-interface";
 import { WcsTabChangeEvent, WcsTabsAlignment } from "./components/tabs/tabs-interface";
 import { TextareaChangeEventDetail } from "./components/textarea/textarea-interface";
@@ -591,7 +592,7 @@ export namespace Components {
         /**
           * Indicates the spinner display mode. Accepted values: `border` or `growing`
          */
-        "mode": 'border' | 'growing';
+        "mode": WcsSpinnerMode;
     }
     interface WcsSwitch {
         /**
@@ -1763,7 +1764,7 @@ declare namespace LocalJSX {
         /**
           * Indicates the spinner display mode. Accepted values: `border` or `growing`
          */
-        "mode"?: 'border' | 'growing';
+        "mode"?: WcsSpinnerMode;
     }
     interface WcsSwitch {
         /**

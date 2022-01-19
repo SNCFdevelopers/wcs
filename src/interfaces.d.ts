@@ -12,6 +12,7 @@ export * from './components/radio/radio-interface';
 export * from './components/radio-group/radio-group-interface';
 export * from './components/select/select-interface';
 export * from './components/select-option/select-option-interface';
+export * from './components/spinner/spinner-interface';
 export * from './components/switch/switch-interface';
 export * from './components/tabs/tabs-interface';
 export * from './components/textarea/textarea-interface';
