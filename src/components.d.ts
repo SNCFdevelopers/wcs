@@ -7,6 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { BadgeColor, BadgeShape } from "./components/badge/badge-interface";
 import { WcsButtonMode, WcsButtonShape, WcsButtonType } from "./components/button/button-interface";
+import { CardMode } from "./components/card/card-interface";
 import { CheckboxChangeEventDetail, CheckboxLabelAlignment } from "./components/checkbox/checkbox-interface";
 import { CategoryOpenedEventDetail, MenuOpenedEventDetail } from "./components/com-nav/com-nav-interface";
 import { WcsDropdownPlacement } from "./components/dropdown/dropdown-interface";
@@ -70,7 +71,7 @@ export namespace Components {
         "type": WcsButtonType;
     }
     interface WcsCard {
-        "mode": 'flat' | 'raised';
+        "mode": CardMode;
     }
     interface WcsCardBody {
     }
@@ -1215,7 +1216,7 @@ declare namespace LocalJSX {
         "type"?: WcsButtonType;
     }
     interface WcsCard {
-        "mode"?: 'flat' | 'raised';
+        "mode"?: CardMode;
     }
     interface WcsCardBody {
     }

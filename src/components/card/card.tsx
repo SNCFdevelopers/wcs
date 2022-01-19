@@ -1,4 +1,5 @@
 import { Component, ComponentInterface, h, Prop } from '@stencil/core';
+import { CardMode } from './card-interface';
 
 @Component({
     tag: 'wcs-card',
@@ -7,12 +8,12 @@ import { Component, ComponentInterface, h, Prop } from '@stencil/core';
 })
 export class Card implements ComponentInterface {
     @Prop({reflect: true, mutable: true})
-    mode: 'flat' | 'raised' = 'raised';
+    mode: CardMode = 'raised';
 
 
     render() {
         return (
-            <slot />
+            <slot/>
         );
     }
 }

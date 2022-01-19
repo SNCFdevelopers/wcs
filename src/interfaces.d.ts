@@ -1,6 +1,7 @@
 export * from './components';
 export * from './components/badge/badge-interface';
 export * from './components/button/button-interface';
+export * from './components/card/card-interface';
 export * from './components/checkbox/checkbox-interface';
 export * from './components/com-nav/com-nav-interface';
 export * from './components/dropdown/dropdown-interface';
