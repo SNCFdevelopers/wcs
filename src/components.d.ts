@@ -11,7 +11,7 @@ import { CardMode } from "./components/card/card-interface";
 import { CheckboxChangeEventDetail, CheckboxLabelAlignment } from "./components/checkbox/checkbox-interface";
 import { CategoryOpenedEventDetail, MenuOpenedEventDetail } from "./components/com-nav/com-nav-interface";
 import { WcsDropdownPlacement } from "./components/dropdown/dropdown-interface";
-import { EditableComponentUpdateEvent, FormatFn, ValidateFn } from "./components/editable-field/editable-field-interface";
+import { EditableComponentUpdateEvent, EditableFieldType, FormatFn, ValidateFn } from "./components/editable-field/editable-field-interface";
 import { WcsCellFormatter, WcsGridAllRowSelectedEventDetails, WcsGridColumnSortChangeEventDetails, WcsGridPaginationChangeEventDetails, WcsGridRowSelectedEventDetails, WcsGridSelectionConfig, WcsSortFn, WcsSortOrder } from "./components/grid/grid-interface";
 import { HorizontalStepClickEvent, HorizontalStepConfig, HorizontalStepperMode } from "./components/horizontal-stepper/horizontal-stepper-interface";
 import { AutocompleteTypes, InputChangeEventDetail, TextFieldTypes } from "./components/input/input-interface";
@@ -171,7 +171,7 @@ export namespace Components {
         /**
           * Specifies which component is used for editing
          */
-        "type": 'input' | 'textarea' | 'select';
+        "type": EditableFieldType;
         /**
           * Function to customize the validation of the data during the update
          */
@@ -1312,7 +1312,7 @@ declare namespace LocalJSX {
         /**
           * Specifies which component is used for editing
          */
-        "type"?: 'input' | 'textarea' | 'select';
+        "type"?: EditableFieldType;
         /**
           * Function to customize the validation of the data during the update
          */

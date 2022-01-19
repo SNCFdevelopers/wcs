@@ -10,7 +10,7 @@ import {
     Element,
     Watch, Listen
 } from '@stencil/core';
-import { EditableComponentUpdateEvent, FormatFn, ValidateFn } from './editable-field-interface';
+import { EditableComponentUpdateEvent, EditableFieldType, FormatFn, ValidateFn } from './editable-field-interface';
 
 enum EditableComponentState {
     DISPLAY,
@@ -30,7 +30,7 @@ export class EditableField implements ComponentInterface {
     /**
      * Specifies which component is used for editing
      */
-    @Prop() type: 'input' | 'textarea' | 'select' = 'input';
+    @Prop() type: EditableFieldType = 'input';
     /**
      * Label of the field
      */

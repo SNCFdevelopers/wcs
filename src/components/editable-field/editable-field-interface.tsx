@@ -10,3 +10,5 @@ export interface EditableComponentUpdateEvent {
     successHandler: () => void;
     errorhandler: () => void;
 }
+
+export type EditableFieldType = 'input' | 'textarea' | 'select';
