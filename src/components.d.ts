@@ -14,8 +14,8 @@ import { WcsCellFormatter, WcsGridAllRowSelectedEventDetails, WcsGridColumnSortC
 import { HorizontalStepClickEvent, HorizontalStepConfig } from "./components/horizontal-stepper/horizontal-stepper-interface";
 import { AutocompleteTypes, InputChangeEventDetail, TextFieldTypes } from "./components/input/input-interface";
 import { MaterialIconFamily, MaterialIconSize } from "./components/mat-icon/mat-icon-interface";
-import { RadioChosedEvent } from "./components/radio/radio-interface";
 import { RadioGroupChangeEventDetail, RadioGroupMode } from "./components/radio-group/radio-group-interface";
+import { RadioChosedEvent } from "./components/radio/radio-interface";
 import { SelectChangeEventDetail } from "./components/select/select-interface";
 import { SelectOptionChosedEvent } from "./components/select-option/select-option-interface";
 import { SwitchChangeEventDetail, SwitchLabelAlignment } from "./components/switch/switch-interface";
@@ -1792,7 +1792,7 @@ declare namespace LocalJSX {
         "itemKey"?: any;
         /**
           * Do not use, meant for internal use only.
-          * @inner
+          * @inner 
           * @ignore
          */
         "onTabLoaded"?: (event: CustomEvent<void>) => void;
