@@ -144,7 +144,7 @@ export class Tooltip implements ComponentInterface {
      * Programmatically hide the tooltip
      */
     @Method()
-    hide() {
+    async hide() {
         this.tippyInstance.hide();
     }
 
@@ -152,7 +152,7 @@ export class Tooltip implements ComponentInterface {
      * Programmatically show the tooltip
      */
     @Method()
-    show() {
+    async show() {
         this.tippyInstance.show();
     }
 
@@ -160,7 +160,7 @@ export class Tooltip implements ComponentInterface {
      * Temporarily prevent the tooltip from showing or hiding
      */
     @Method()
-    disable() {
+    async disable() {
         this.tippyInstance.disable();
     }
 
@@ -168,7 +168,7 @@ export class Tooltip implements ComponentInterface {
      * Re-enable a disabled tooltip
      */
     @Method()
-    enable() {
+    async enable() {
         this.tippyInstance.enable();
     }
 
