@@ -13,9 +13,9 @@ import { EditableComponentUpdateEvent, FormatFn, ValidateFn } from "./components
 import { WcsCellFormatter, WcsGridAllRowSelectedEventDetails, WcsGridColumnSortChangeEventDetails, WcsGridPaginationChangeEventDetails, WcsGridRowSelectedEventDetails, WcsGridSelectionConfig, WcsSortFn, WcsSortOrder } from "./components/grid/grid-interface";
 import { HorizontalStepClickEvent, HorizontalStepConfig } from "./components/horizontal-stepper/horizontal-stepper-interface";
 import { AutocompleteTypes, InputChangeEventDetail, TextFieldTypes } from "./components/input/input-interface";
-import { MaterialIconFamily } from "./components/mat-icon/mat-icon-interface";
-import { RadioGroupChangeEventDetail, RadioGroupMode } from "./components/radio-group/radio-group-interface";
+import { MaterialIconFamily, MaterialIconSize } from "./components/mat-icon/mat-icon-interface";
 import { RadioChosedEvent } from "./components/radio/radio-interface";
+import { RadioGroupChangeEventDetail, RadioGroupMode } from "./components/radio-group/radio-group-interface";
 import { SelectChangeEventDetail } from "./components/select/select-interface";
 import { SelectOptionChosedEvent } from "./components/select-option/select-option-interface";
 import { SwitchChangeEventDetail, SwitchLabelAlignment } from "./components/switch/switch-interface";
@@ -457,7 +457,7 @@ export namespace Components {
         /**
           * Size of the icon
          */
-        "size": 's' | 'm' | 'l' | 'xl';
+        "size": MaterialIconSize;
     }
     interface WcsModal {
         /**
@@ -1615,7 +1615,7 @@ declare namespace LocalJSX {
         /**
           * Size of the icon
          */
-        "size"?: 's' | 'm' | 'l' | 'xl';
+        "size"?: MaterialIconSize;
     }
     interface WcsModal {
         /**
@@ -1792,7 +1792,7 @@ declare namespace LocalJSX {
         "itemKey"?: any;
         /**
           * Do not use, meant for internal use only.
-          * @inner 
+          * @inner
           * @ignore
          */
         "onTabLoaded"?: (event: CustomEvent<void>) => void;

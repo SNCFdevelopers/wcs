@@ -1,5 +1,5 @@
 import { Component, ComponentInterface, h, Host, Prop, State, Watch } from '@stencil/core';
-import { MaterialIconFamily } from './mat-icon-interface';
+import { MaterialIconFamily, MaterialIconSize } from './mat-icon-interface';
 
 @Component({
     tag: 'wcs-mat-icon',
@@ -14,7 +14,7 @@ export class MatIcon implements ComponentInterface {
     /**
      * Size of the icon
      */
-    @Prop() size: 's' | 'm' | 'l' | 'xl' = 'm';
+    @Prop() size: MaterialIconSize = 'm';
     /**
      * Family of the icon
      */

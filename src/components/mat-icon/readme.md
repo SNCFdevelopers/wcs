@@ -1,30 +1,5 @@
 # Material Icon
 
-A component used to display Material Icon, can be usefull when used in wcs-grid.
-
-When used directly in an other Web Component, the global CSS stylesheet doesn't apply to material-icons.
-In this case you can use the Mat-icon with its integrated material stylesheet.
-
-```html
-<wcs-mat-icon size="s" icon="info"></wcs-mat-icon>
-```
-
-```html
-<wcs-mat-icon size="m" icon="info" family="outlined"></wcs-mat-icon>
-```
-
-```html
-<wcs-mat-icon size="l" icon="info" family="twotone"></wcs-mat-icon>
-```
-
-```html
-<wcs-mat-icon size="xl" icon="info" family="rounded"></wcs-mat-icon>
-```
-
-```html
-<wcs-mat-icon size="s" icon="info" family="sharp"></wcs-mat-icon>
-```
-
 <!-- Auto Generated Below -->
 
 
