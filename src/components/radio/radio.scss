@@ -1,31 +1,24 @@
-:host([mode=radio]) {
+:host([mode=radio]),
+:host([mode=horizontal]) {
     input {
         display: none;
     }
 
     label {
-        padding: 0.125rem 0 0;
         margin-bottom: 0;
         color: var(--wcs-text-medium);
         background-color: transparent;
-        border: none;
         font-weight: 500 !important;
-        transition: 0.175s ease-in-out;
 
         &:before {
-            transition: 0.175s ease-in-out;
             border-radius: 50%;
-            margin-right: var(--wcs-base-margin);
             border: 2px solid var(--wcs-text-disabled);
             position: relative;
-            display: inline-block;
-            top: 3px;
             width: 1.125rem;
             height: 1.125rem;
             pointer-events: none;
             content: "";
             background-color: var(--wcs-white);
-            box-sizing: border-box;
         }
 
         &:after {
@@ -39,19 +32,20 @@
     }
 }
 
-:host([mode=radio][disabled]) {
+:host([disabled]) {
     label {
         color: var(--wcs-text-disabled);
     }
 }
 
-:host([mode=radio]:not([disabled])) {
+:host(:not([disabled])) {
     label {
         cursor: pointer;
     }
 }
 
-:host([mode=radio][checked]) {
+:host([mode=radio][checked]),
+:host([mode=horizontal][checked]) {
     label {
         color: var(--wcs-primary);
 
@@ -62,7 +56,8 @@
     }
 }
 
-:host([mode=radio]:hover):not([disabled]) {
+:host([mode=radio]:hover):not([disabled]),
+:host([mode=horizontal]:hover):not([disabled]) {
     label {
         color: var(--wcs-primary);
 
@@ -72,6 +67,32 @@
     }
 }
 
+:host([mode=radio]) {
+    label {
+        padding: 0.125rem 0 0;
+        border: none;
+        transition: 0.175s ease-in-out;
+
+        &:before {
+            transition: 0.175s ease-in-out;
+            margin-right: var(--wcs-base-margin);
+            display: inline-block;
+            top: 3px;
+            box-sizing: border-box;
+        }
+    }
+}
+
+:host([mode=horizontal]) {
+    label {
+        &:before {
+            transition: background-color 0.175s ease-in-out;
+            margin: auto auto var(--wcs-base-margin);
+            display: block;
+
+        }
+    }
+}
 
 :host([mode=option]) {
     padding: var(--wcs-base-margin) calc(var(--wcs-base-margin) / 2);
@@ -91,7 +112,6 @@
         color: var(--wcs-white);
         white-space: nowrap;
         border-radius: 0.4375rem;
-
     }
 }
 
@@ -100,17 +120,5 @@
         font-weight: 500 !important;
         color: var(--wcs-primary);
         background-color: var(--wcs-white);
-    }
-}
-
-:host([mode=option][disabled]) {
-    label {
-        color: var(--wcs-text-disabled);
-    }
-}
-
-:host([mode=option]:not([disabled])) {
-    label {
-        cursor: pointer;
     }
 }

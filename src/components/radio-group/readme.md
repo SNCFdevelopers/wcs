@@ -6,11 +6,11 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type                  | Default     |
-| -------- | --------- | ----------- | --------------------- | ----------- |
-| `mode`   | `mode`    |             | `"option" \| "radio"` | `'radio'`   |
-| `name`   | `name`    |             | `any`                 | `undefined` |
-| `value`  | `value`   |             | `any`                 | `undefined` |
+| Property | Attribute | Description | Type                                  | Default     |
+| -------- | --------- | ----------- | ------------------------------------- | ----------- |
+| `mode`   | `mode`    |             | `"horizontal" \| "option" \| "radio"` | `'radio'`   |
+| `name`   | `name`    |             | `any`                                 | `undefined` |
+| `value`  | `value`   |             | `any`                                 | `undefined` |
 
 
 ## Events

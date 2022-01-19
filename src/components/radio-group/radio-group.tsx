@@ -20,8 +20,8 @@ import { RadioChosedEvent } from '../radio/radio-interface';
 })
 export class RadioGroup implements ComponentInterface {
     @Prop() value: any | any[] | undefined | null;
-    @Prop({ reflect: true, mutable: false }) name;
-    @Prop({ reflect: true, mutable: false }) mode: RadioGroupMode = 'radio';
+    @Prop({reflect: true, mutable: false}) name;
+    @Prop({reflect: true, mutable: false}) mode: RadioGroupMode = 'radio';
     @Element() el!: HTMLWcsRadioGroupElement;
 
     /** Emitted when the value has changed. */
@@ -36,9 +36,9 @@ export class RadioGroup implements ComponentInterface {
         if (this.value) {
             this.updateOptionsState(this.value, true);
         }
-        if (this.mode === 'option') {
+        if (this.mode === 'option' || this.mode === 'horizontal') {
             for (const option of this.options) {
-                option.mode = 'option';
+                option.mode = this.mode;
             }
         }
     }

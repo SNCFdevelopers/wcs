@@ -7,13 +7,13 @@
 
 ## Properties
 
-| Property   | Attribute  | Description                                         | Type                  | Default     |
-| ---------- | ---------- | --------------------------------------------------- | --------------------- | ----------- |
-| `checked`  | `checked`  | If `true`, the radio is selected.                   | `boolean`             | `false`     |
-| `disabled` | `disabled` | If `true`, the user cannot interact with the radio. | `boolean`             | `false`     |
-| `label`    | `label`    |                                                     | `string`              | `undefined` |
-| `mode`     | `mode`     |                                                     | `"option" \| "radio"` | `'radio'`   |
-| `value`    | `value`    |                                                     | `any`                 | `undefined` |
+| Property   | Attribute  | Description                                         | Type                                  | Default     |
+| ---------- | ---------- | --------------------------------------------------- | ------------------------------------- | ----------- |
+| `checked`  | `checked`  | If `true`, the radio is selected.                   | `boolean`                             | `false`     |
+| `disabled` | `disabled` | If `true`, the user cannot interact with the radio. | `boolean`                             | `false`     |
+| `label`    | `label`    |                                                     | `string`                              | `undefined` |
+| `mode`     | `mode`     |                                                     | `"horizontal" \| "option" \| "radio"` | `'radio'`   |
+| `value`    | `value`    |                                                     | `any`                                 | `undefined` |
 
 
 ## Events

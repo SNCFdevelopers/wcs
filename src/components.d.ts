@@ -14,8 +14,8 @@ import { WcsCellFormatter, WcsGridAllRowSelectedEventDetails, WcsGridColumnSortC
 import { HorizontalStepClickEvent, HorizontalStepConfig } from "./components/horizontal-stepper/horizontal-stepper-interface";
 import { AutocompleteTypes, InputChangeEventDetail, TextFieldTypes } from "./components/input/input-interface";
 import { MaterialIconFamily } from "./components/mat-icon/mat-icon-interface";
-import { RadioChosedEvent } from "./components/radio/radio-interface";
 import { RadioGroupChangeEventDetail, RadioGroupMode } from "./components/radio-group/radio-group-interface";
+import { RadioChosedEvent } from "./components/radio/radio-interface";
 import { SelectChangeEventDetail } from "./components/select/select-interface";
 import { SelectOptionChosedEvent } from "./components/select-option/select-option-interface";
 import { SwitchChangeEventDetail, SwitchLabelAlignment } from "./components/switch/switch-interface";
@@ -514,7 +514,7 @@ export namespace Components {
          */
         "disabled": boolean;
         "label": string;
-        "mode": 'radio' | 'option';
+        "mode": RadioGroupMode;
         "value": any | any[] | undefined | null;
     }
     interface WcsRadioGroup {
@@ -1676,7 +1676,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         "label"?: string;
-        "mode"?: 'radio' | 'option';
+        "mode"?: RadioGroupMode;
         "onWcsRadioClick"?: (event: CustomEvent<RadioChosedEvent>) => void;
         "value"?: any | any[] | undefined | null;
     }

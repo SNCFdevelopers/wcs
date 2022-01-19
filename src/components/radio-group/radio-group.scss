@@ -4,6 +4,7 @@
 
 :host([mode=radio]) {
     flex-direction: column;
+
     ::slotted([slot=option]:first-child) {
         margin-top: 0;
     }
@@ -17,10 +18,15 @@
         margin-bottom: calc(var(--wcs-base-margin) / 2);
     }
 }
+
 :host([mode=option]) {
     display: inline-flex;
     flex-direction: row;
     padding: calc(var(--wcs-base-margin) / 2);
     background-color: #4d4f53;
     border-radius: 0.6875rem;
+}
+
+:host([mode=horizontal]) {
+    justify-content: space-between;
 }

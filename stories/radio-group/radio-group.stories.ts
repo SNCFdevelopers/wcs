@@ -56,3 +56,15 @@ OptionModeDisabled.args = {
     disabled: true,
     mode: 'option'
 };
+
+export const HorizontalMode = Template.bind({});
+HorizontalMode.args = {
+    disabled: false,
+    mode: 'horizontal'
+};
+
+export const HorizontalModeDisabled = Template.bind({});
+HorizontalModeDisabled.args = {
+    disabled: true,
+    mode: 'horizontal'
+};

@@ -1,5 +1,6 @@
 import { Component, ComponentInterface, h, Host, Prop, Element, Event, EventEmitter } from '@stencil/core';
 import { RadioChosedEvent } from './radio-interface';
+import { RadioGroupMode } from '../radio-group/radio-group-interface';
 
 @Component({
     tag: 'wcs-radio',
@@ -10,7 +11,7 @@ export class Radio implements ComponentInterface {
     private inputId = `wcs-rb-${radioButtonIds++}`;
     private inputEl: HTMLInputElement;
     @Element() el!: HTMLWcsRadioElement;
-    @Prop({ reflect: true, mutable: false }) mode: 'radio' | 'option' = 'radio';
+    @Prop({ reflect: true, mutable: false }) mode: RadioGroupMode = 'radio';
 
     @Prop({ mutable: true, reflect: true }) value: any | any[] | undefined | null;
     @Prop({ mutable: true, reflect: true }) label: string;
