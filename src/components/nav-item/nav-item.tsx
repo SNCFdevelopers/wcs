@@ -16,7 +16,7 @@ export class NavItem implements ComponentInterface {
      *
      * Don't forget to specify [routerLink] if using in conjuction with angular router.
      */
-    @Prop({reflect: true, mutable: true})
+    @Prop({reflect: true})
     href: string;
 
     render() {
