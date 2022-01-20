@@ -21,9 +21,9 @@ export default {
         }
     },
     subcomponents: {
-        'WcsDropdownItem': 'WcsDropdownItem',
-        'WcsDropdownHeader': 'WcsDropdownHeader',
-        'WcsDropdownDivider': 'WcsDropdownDivider',
+        'WcsDropdownItem': 'wcs-dropdown-item',
+        'WcsDropdownHeader': 'wcs-dropdown-header',
+        'WcsDropdownDivider': 'wcs-dropdown-divider',
     }
 } as Meta;
 
