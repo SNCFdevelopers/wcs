@@ -9,12 +9,12 @@ export class Modal {
     /**
      * Specifies whether the component should display a backdrop on the entire page
      */
-    @Prop({ reflect: true, mutable: false }) backdrop: boolean = true;
+    @Prop({ reflect: true }) withoutBackdrop: boolean = false;
 
     /**
      * Displays the modal
      */
-    @Prop({ reflect: true, mutable: true }) show: boolean = false;
+    @Prop({ reflect: true }) show: boolean = false;
 
     /**
      * Triggered when the user leaves the dialog with the closing button.
@@ -25,7 +25,7 @@ export class Modal {
      * Specifies whether the component should display a close button.
      * if false, it won't close the modal when the escape key is pressed.
      */
-    @Prop({ reflect: true, mutable: false }) showCloseButton: boolean = false;
+    @Prop({ reflect: true }) showCloseButton: boolean = false;
 
     render() {
         return (

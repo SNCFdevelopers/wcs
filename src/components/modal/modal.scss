@@ -20,21 +20,25 @@ wcs-modal[show] {
 /**
 Backdrop
  */
-wcs-modal[backdrop] {
+wcs-modal[without-backdrop] {
     .wcs-modal-backdrop {
-        display: block;
-        position: fixed;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        opacity: 0.4;
-        background-color: var(--wcs-black);
+        display: none;
+    }
+
+    .wcs-modal-container {
+        border: solid 1px var(--wcs-text-light);
     }
 }
 
 .wcs-modal-backdrop {
-    display: none;
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0.4;
+    background-color: var(--wcs-black);
 }
 
 

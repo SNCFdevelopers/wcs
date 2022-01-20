@@ -464,10 +464,6 @@ export namespace Components {
     }
     interface WcsModal {
         /**
-          * Specifies whether the component should display a backdrop on the entire page
-         */
-        "backdrop": boolean;
-        /**
           * Displays the modal
          */
         "show": boolean;
@@ -475,6 +471,10 @@ export namespace Components {
           * Specifies whether the component should display a close button. if false, it won't close the modal when the escape key is pressed.
          */
         "showCloseButton": boolean;
+        /**
+          * Specifies whether the component should display a backdrop on the entire page
+         */
+        "withoutBackdrop": boolean;
     }
     interface WcsNav {
     }
@@ -1622,10 +1622,6 @@ declare namespace LocalJSX {
     }
     interface WcsModal {
         /**
-          * Specifies whether the component should display a backdrop on the entire page
-         */
-        "backdrop"?: boolean;
-        /**
           * Triggered when the user leaves the dialog with the closing button.
          */
         "onWcsDialogClosed"?: (event: CustomEvent<void>) => void;
@@ -1637,6 +1633,10 @@ declare namespace LocalJSX {
           * Specifies whether the component should display a close button. if false, it won't close the modal when the escape key is pressed.
          */
         "showCloseButton"?: boolean;
+        /**
+          * Specifies whether the component should display a backdrop on the entire page
+         */
+        "withoutBackdrop"?: boolean;
     }
     interface WcsNav {
     }

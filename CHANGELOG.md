@@ -15,6 +15,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - **tooltip:** redesign of the tooltip and migrate to tippy.js library. the API of the previous versions remain
   compatible with the new API which has only added new attributes / methods.
+- ⚠ **modal:** change `backdrop` property in `withoutBackdrop` wich is false by default (inversion of the condition)
 
 ### Deprecated
 
