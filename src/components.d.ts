@@ -13,7 +13,7 @@ import { CategoryOpenedEventDetail, MenuOpenedEventDetail } from "./components/c
 import { WcsDropdownPlacement } from "./components/dropdown/dropdown-interface";
 import { EditableComponentUpdateEvent, FormatFn, ValidateFn } from "./components/editable-field/editable-field-interface";
 import { WcsCellFormatter, WcsGridAllRowSelectedEventDetails, WcsGridColumnSortChangeEventDetails, WcsGridPaginationChangeEventDetails, WcsGridRowSelectedEventDetails, WcsGridSelectionConfig, WcsSortFn, WcsSortOrder } from "./components/grid/grid-interface";
-import { HorizontalStepClickEvent, HorizontalStepConfig } from "./components/horizontal-stepper/horizontal-stepper-interface";
+import { HorizontalStepClickEvent, HorizontalStepConfig, HorizontalStepperMode } from "./components/horizontal-stepper/horizontal-stepper-interface";
 import { AutocompleteTypes, InputChangeEventDetail, TextFieldTypes } from "./components/input/input-interface";
 import { MaterialIconFamily, MaterialIconSize } from "./components/mat-icon/mat-icon-interface";
 import { RadioGroupChangeEventDetail, RadioGroupMode } from "./components/radio-group/radio-group-interface";
@@ -285,7 +285,7 @@ export namespace Components {
         /**
           * Specifies if the stepper is in linear mode (the user can only click on the next step) or non-linear (the user can click on any step)
          */
-        "mode": 'linear' | 'nonLinear';
+        "mode": HorizontalStepperMode;
         "next": () => Promise<void>;
         "previous": () => Promise<void>;
         /**
@@ -1437,7 +1437,7 @@ declare namespace LocalJSX {
         /**
           * Specifies if the stepper is in linear mode (the user can only click on the next step) or non-linear (the user can click on any step)
          */
-        "mode"?: 'linear' | 'nonLinear';
+        "mode"?: HorizontalStepperMode;
         /**
           * Emits when the user selects a new step.
          */

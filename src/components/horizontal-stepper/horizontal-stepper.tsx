@@ -10,7 +10,7 @@ import {
     Event, Watch, Method
 } from '@stencil/core';
 import { WcsButtonMode } from '../button/button-interface';
-import { HorizontalStepClickEvent, HorizontalStepConfig } from './horizontal-stepper-interface';
+import { HorizontalStepClickEvent, HorizontalStepConfig, HorizontalStepperMode } from './horizontal-stepper-interface';
 import { HorizontalStep } from './horizontal-step';
 
 @Component({
@@ -32,7 +32,7 @@ export class HorizontalStepper implements ComponentInterface {
      * Specifies if the stepper is in linear mode (the user can only click on the next step)
      * or non-linear (the user can click on any step)
      */
-    @Prop() mode: 'linear' | 'nonLinear' = 'nonLinear';
+    @Prop() mode: HorizontalStepperMode = 'nonLinear';
     /**
      * Specifies whether a check should be displayed when a step is passed.
      */

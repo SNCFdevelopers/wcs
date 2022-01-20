@@ -14,6 +14,8 @@ export interface HorizontalStepConfig {
     button: StepButton;
 }
 
+export type HorizontalStepperMode = 'linear' | 'nonLinear';
+
 export type StepButton = StepIconButton | StepTextButton;
 
 export interface StepIconButton {
