@@ -17,11 +17,6 @@ export class FormField implements ComponentInterface {
      */
     @Prop({mutable: true, reflect: true}) isError = false;
 
-    /**
-     * Name of the material icon to add to the field
-     */
-    @Prop() icon;
-
     @State() hasPrefix = false;
     @State() hasSuffix = false;
     @State() spiedElement: Element;

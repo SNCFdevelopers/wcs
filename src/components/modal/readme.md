@@ -26,9 +26,9 @@
 
 | Property          | Attribute           | Description                                                                                                                       | Type      | Default |
 | ----------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------- | ------- |
-| `backdrop`        | `backdrop`          | Specifies whether the component should display a backdrop on the entire page                                                      | `boolean` | `true`  |
 | `show`            | `show`              | Displays the modal                                                                                                                | `boolean` | `false` |
 | `showCloseButton` | `show-close-button` | Specifies whether the component should display a close button. if false, it won't close the modal when the escape key is pressed. | `boolean` | `false` |
+| `withoutBackdrop` | `without-backdrop`  | Specifies whether the component should display a backdrop on the entire page                                                      | `boolean` | `false` |
 
 
 ## Events

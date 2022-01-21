@@ -693,7 +693,7 @@
     {
       "name": "wcs-field",
       "path": "./src/components/field/field.tsx",
-      "description": "This component can be used to display the details of an entity. It is built around the label and the content of the field\r\n\r\n```html\r\n<wcs-field>\r\n    <wcs-field-label>Le nom du champs</wcs-field-label>\r\n    <wcs-field-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec massa mi, hendrerit dictum dui sed, porttitor ullamcorper diam.</wcs-field-content>\r\n</wcs-field>\r\n<wcs-field>\r\n    <wcs-field-label>Autre label</wcs-field-label>\r\n    <wcs-field-content>In hac habitasse platea dictumst.</wcs-field-content>\r\n</wcs-field>\r\n```",
+      "description": "",
       "attributes": [],
       "properties": [],
       "events": [],
@@ -744,12 +744,6 @@
       "description": "TODO:\r\n- [ ] Suffix button style",
       "attributes": [
         {
-          "name": "icon",
-          "type": "any",
-          "description": "Name of the material icon to add to the field",
-          "required": false
-        },
-        {
           "name": "is-error",
           "type": "boolean",
           "description": "Specifies whether the form field is in an error state. Displays the field border in red and the message contained in the wcs-error component",
@@ -758,12 +752,6 @@
         }
       ],
       "properties": [
-        {
-          "name": "icon",
-          "type": "any",
-          "description": "Name of the material icon to add to the field",
-          "required": false
-        },
         {
           "name": "isError",
           "type": "boolean",
@@ -781,7 +769,7 @@
     {
       "name": "wcs-galactic",
       "path": "./src/components/galactic/galactic.tsx",
-      "description": "*Part of communication design system*\r\n\r\nThis component replaces the vertical navbar for sites and applications that use the communication design system\r\n\r\n```html\r\n<wcs-galactic text=\"NomSuperApp est un site SNCF\">\r\n    <wcs-galactic-menu text=\"TOUT SNCF\">\r\n        <div style=\"margin-bottom: 8px\"><a href=\"#\" style=\"text-decoration: none; color: var(--wcs-white)\">CGU</a></div>\r\n        <div style=\"margin-bottom: 8px\"><a href=\"#\" style=\"text-decoration: none; color: var(--wcs-white)\">À Propos</a></div>\r\n        <div style=\"margin-bottom: 8px\"><a href=\"#\" style=\"text-decoration: none; color: var(--wcs-white)\">Un autre lien</a></div>\r\n        <wcs-button shape=\"small\">Un bouton</wcs-button>\r\n    </wcs-galactic-menu>\r\n</wcs-galactic>\r\n```",
+      "description": "",
       "attributes": [
         {
           "name": "text",
@@ -1906,13 +1894,6 @@
       "description": "",
       "attributes": [
         {
-          "name": "backdrop",
-          "type": "boolean",
-          "description": "Specifies whether the component should display a backdrop on the entire page",
-          "defaultValue": "true",
-          "required": false
-        },
-        {
           "name": "show",
           "type": "boolean",
           "description": "Displays the modal",
@@ -1925,16 +1906,16 @@
           "description": "Specifies whether the component should display a close button.\r\nif false, it won't close the modal when the escape key is pressed.",
           "defaultValue": "false",
           "required": false
+        },
+        {
+          "name": "without-backdrop",
+          "type": "boolean",
+          "description": "Specifies whether the component should display a backdrop on the entire page",
+          "defaultValue": "false",
+          "required": false
         }
       ],
       "properties": [
-        {
-          "name": "backdrop",
-          "type": "boolean",
-          "description": "Specifies whether the component should display a backdrop on the entire page",
-          "defaultValue": "true",
-          "required": false
-        },
         {
           "name": "show",
           "type": "boolean",
@@ -1946,6 +1927,13 @@
           "name": "showCloseButton",
           "type": "boolean",
           "description": "Specifies whether the component should display a close button.\r\nif false, it won't close the modal when the escape key is pressed.",
+          "defaultValue": "false",
+          "required": false
+        },
+        {
+          "name": "withoutBackdrop",
+          "type": "boolean",
+          "description": "Specifies whether the component should display a backdrop on the entire page",
           "defaultValue": "false",
           "required": false
         }

@@ -472,13 +472,13 @@ export declare interface WcsFormField extends Components.WcsFormField {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['icon', 'isError']
+  inputs: ['isError']
 })
 @Component({
   selector: 'wcs-form-field',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['icon', 'isError']
+  inputs: ['isError']
 })
 export class WcsFormField {
   protected el: HTMLElement;
@@ -887,13 +887,13 @@ export declare interface WcsModal extends Components.WcsModal {
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['backdrop', 'show', 'showCloseButton']
+  inputs: ['show', 'showCloseButton', 'withoutBackdrop']
 })
 @Component({
   selector: 'wcs-modal',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['backdrop', 'show', 'showCloseButton']
+  inputs: ['show', 'showCloseButton', 'withoutBackdrop']
 })
 export class WcsModal {
   protected el: HTMLElement;

@@ -193,10 +193,6 @@ export namespace Components {
     }
     interface WcsFormField {
         /**
-          * Name of the material icon to add to the field
-         */
-        "icon": any;
-        /**
           * Specifies whether the form field is in an error state. Displays the field border in red and the message contained in the wcs-error component
          */
         "isError": boolean;
@@ -1333,10 +1329,6 @@ declare namespace LocalJSX {
     interface WcsFooter {
     }
     interface WcsFormField {
-        /**
-          * Name of the material icon to add to the field
-         */
-        "icon"?: any;
         /**
           * Specifies whether the form field is in an error state. Displays the field border in red and the message contained in the wcs-error component
          */
