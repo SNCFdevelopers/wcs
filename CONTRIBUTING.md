@@ -37,3 +37,10 @@ npm run test:watch
 ## Resources
 
 - https://www.joshmorony.com/understanding-jsx-for-stencil-js-applications/
+
+- https://developer.microsoft.com/en-us/fluentui#/controls/web
+- https://www.carbondesignsystem.com/
+- https://clarity.design/
+- https://material.angular.io/components/categories
+- https://mui.com/components/
+- https://vaadin.com/docs/latest/ds/components

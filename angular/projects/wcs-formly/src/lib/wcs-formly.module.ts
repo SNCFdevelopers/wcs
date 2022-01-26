@@ -10,6 +10,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyWcsFieldCheckboxComponent } from './formly-wcs-field-checkbox.component';
 import { FormlyWcsFieldSwitchComponent } from './formly-wcs-field-switch.component';
+import { FormlyWcsFieldWrapperComponent } from './formly-wcs-field-wrapper.component';
+import { FormlyWcsBooleanFieldWrapperComponent } from './formly-wcs-boolean-field-wrapper.component';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { FormlyWcsFieldSwitchComponent } from './formly-wcs-field-switch.compone
     FormlyWcsFieldSelectComponent,
     FormlyWcsFieldTextareaComponent,
     FormlyWcsFieldCheckboxComponent,
-    FormlyWcsFieldSwitchComponent
+    FormlyWcsFieldSwitchComponent,
+    FormlyWcsFieldWrapperComponent,
+    FormlyWcsBooleanFieldWrapperComponent
   ],
   imports: [
     FormlySelectModule,
@@ -80,7 +84,9 @@ import { FormlyWcsFieldSwitchComponent } from './formly-wcs-field-switch.compone
     FormlyWcsFieldSelectComponent,
     FormlyWcsFieldTextareaComponent,
     FormlyWcsFieldCheckboxComponent,
-    FormlyWcsFieldSwitchComponent
+    FormlyWcsFieldSwitchComponent,
+    FormlyWcsFieldWrapperComponent,
+    FormlyWcsBooleanFieldWrapperComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

@@ -5,20 +5,13 @@ import { FieldType } from '@ngx-formly/core';
   // tslint:disable-next-line:component-selector
   selector: 'formly-wcs-field-input',
   template: `
-    <wcs-form-field [attr.is-error]="showError ? true : null">
-      <wcs-label *ngIf="to.label && to.hideLabel !== true" [attr.for]="id">
-        {{ to.label }}
-      </wcs-label>
-      <wcs-input [placeholder]="to.placeholder" [type]="type" [formControl]="formControl" [formlyAttributes]="field"
-                 [attr.disabled]="to.disabled"
-                 [prefixLabel]="to.prefixLabel"
-                 [suffixLabel]="to.suffixLabel"
-                 [attr.required]="to.required && to.hideRequiredMarker !== true"></wcs-input>
-      <wcs-error *ngIf="showError">
-        <formly-validation-message #error [field]="field"></formly-validation-message>
-      </wcs-error>
-      <wcs-hint *ngIf="to.description">{{ to.description }}</wcs-hint>
-    </wcs-form-field>
+    <formly-wcs-field-wrapper [field]="field" [id]="id" [showError]="showError" [to]="to">
+    <wcs-input [placeholder]="to.placeholder" [type]="type" [formControl]="formControl" [formlyAttributes]="field"
+               [attr.disabled]="to.disabled"
+               [prefixLabel]="to.prefixLabel"
+               [suffixLabel]="to.suffixLabel"
+               [attr.required]="to.required && to.hideRequiredMarker !== true"></wcs-input>
+    </formly-wcs-field-wrapper>
   `,
   styles: []
 })

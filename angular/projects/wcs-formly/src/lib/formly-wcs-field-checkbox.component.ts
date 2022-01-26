@@ -5,16 +5,12 @@ import { FieldType } from '@ngx-formly/core';
   // tslint:disable-next-line:component-selector
   selector: 'formly-wcs-field-checkbox',
   template: `
-    <wcs-form-field [attr.is-error]="showError ? true : null">
+    <formly-wcs-boolean-field-wrapper [field]="field" [id]="id" [showError]="showError" [to]="to">
       <wcs-checkbox
         [id]="to.id"
         [attr.disabled]="to.disabled ? true : null"
         [formControl]="formControl">{{to.label}}</wcs-checkbox>
-      <wcs-error *ngIf="showError">
-        <formly-validation-message #error [field]="field"></formly-validation-message>
-      </wcs-error>
-      <wcs-hint *ngIf="to.description">{{ to.description }}</wcs-hint>
-    </wcs-form-field>
+    </formly-wcs-boolean-field-wrapper>
   `,
   styles: []
 })

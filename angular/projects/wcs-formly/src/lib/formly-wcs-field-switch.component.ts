@@ -5,7 +5,7 @@ import { FieldType } from '@ngx-formly/core';
   // tslint:disable-next-line:component-selector
   selector: 'formly-wcs-field-switch',
   template: `
-    <wcs-form-field [attr.is-error]="showError ? true : null">
+    <formly-wcs-boolean-field-wrapper [field]="field" [id]="id" [showError]="showError" [to]="to">
       <wcs-switch
         [id]="to.id"
         [attr.disabled]="to.disabled ? true : null"
@@ -14,11 +14,7 @@ import { FieldType } from '@ngx-formly/core';
           {{ to.label }}
         </span>
       </wcs-switch>
-      <wcs-error *ngIf="showError">
-        <formly-validation-message #error [field]="field"></formly-validation-message>
-      </wcs-error>
-      <wcs-hint *ngIf="to.description">{{ to.description }}</wcs-hint>
-    </wcs-form-field>
+    </formly-wcs-boolean-field-wrapper>
   `,
   styles: []
 })

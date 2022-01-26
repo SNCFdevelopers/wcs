@@ -155,6 +155,20 @@ export class FormlyExampleComponent implements OnInit {
       }
     },
     {
+      id: 'fieldInputText',
+      key: 'fieldInputText',
+      type: 'input',
+      templateOptions: {
+        label: 'Champ de type input',
+        placeholder: 'L\'input',
+        tooltip: 'Une aide dans un tooltip'
+      },
+      expressionProperties: {
+        'templateOptions.disabled': () => this.disabled,
+        'templateOptions.required': () => this.required
+      }
+    },
+    {
       id: 'fieldTextArea',
       key: 'fieldTextArea',
       type: 'textarea',

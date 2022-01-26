@@ -5,10 +5,7 @@ import { FieldType } from '@ngx-formly/core';
   // tslint:disable-next-line:component-selector
   selector: 'app-formly-wcs-field-textarea',
   template: `
-    <wcs-form-field [attr.is-error]="showError ? true : null">
-      <wcs-label *ngIf="to.label && to.hideLabel !== true" [attr.for]="id">
-        {{ to.label }}
-      </wcs-label>
+    <formly-wcs-field-wrapper [field]="field" [id]="id" [showError]="showError" [to]="to">
       <wcs-textarea
         [formControl]="formControl"
         [cols]="to.cols"
@@ -17,11 +14,7 @@ import { FieldType } from '@ngx-formly/core';
         [placeholder]="to.placeholder"
         [attr.required]="to.required">
       </wcs-textarea>
-      <wcs-error *ngIf="showError">
-        <formly-validation-message #error [field]="field"></formly-validation-message>
-      </wcs-error>
-      <wcs-hint *ngIf="to.description">{{ to.description }}</wcs-hint>
-    </wcs-form-field>
+    </formly-wcs-field-wrapper>
   `,
 })
 export class FormlyWcsFieldTextareaComponent extends FieldType {

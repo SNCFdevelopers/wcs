@@ -10,6 +10,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 
 - **radio-group**: add `horizontal` mode
+- **wcs-formly**: add the `tooltip` property in templateOptions, it adds a tooltip to the corresponding field's label
+- **form-field**: add a tooltip example in documentation using `wcs-mat-icon` and `wcs-tooltip`
 
 ### Changed
 

@@ -2,9 +2,10 @@ import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
 // @ts-ignore
 import formFieldDocumentation from './form-field-documentation.md';
-
+// @ts-ignore
+import tooltipOnLabelDocumentation from './tooltip-on-label-documentation.md'
 export default {
-    title: 'Example/FormField',
+    title: 'Example/Form Field',
     component: 'wcs-form-field',
     parameters: {
         docs: {
@@ -139,3 +140,30 @@ const SelectButtonTemplate: Story<Partial<FormFieldStoriesParams>> = (args) => h
 `;
 export const PrefixSuffixGroup = SelectButtonTemplate.bind({});
 PrefixSuffixGroup.args = {};
+
+const TooltipOnLabelTemplate: Story<Partial<FormFieldStoriesParams>> = (args) => html`
+    <wcs-form-field ?is-error=${args.isError}>
+        <wcs-label>
+            Enter your name
+            <wcs-mat-icon size="s" icon="help" id="help"></wcs-mat-icon>
+        </wcs-label>
+        <wcs-tooltip for="help" position="right">Logoden biniou degemer mat an penn ar bed c’har, se seizh sae Kernev
+            diwezhañ foenn goulenn yac’h dad, kastell pegen stivell dre chokolad Montroulez plijet.
+        </wcs-tooltip>
+        <wcs-input placeholder="John doe"></wcs-input>
+        <wcs-hint>A name is something that describe a person, like you can call the person by his name, you get it?
+        </wcs-hint>
+        <wcs-error>Your name is not valid, please do the needful following <a
+            href="https://www.service-public.fr/particuliers/vosdroits/F1656">this</a>.
+        </wcs-error>
+    </wcs-form-field>
+`;
+export const TooltipOnLabel = TooltipOnLabelTemplate.bind({});
+TooltipOnLabel.parameters = {
+    docs: {
+        description: {
+            story: tooltipOnLabelDocumentation,
+        },
+    },
+};
+TooltipOnLabel.args = {};
