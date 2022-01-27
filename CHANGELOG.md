@@ -31,7 +31,7 @@ for any bug fixes.
 
 in case of vulnerabilities.
 
-## [2.8.0] - 2022-27-01
+## [2.8.0] - 2022-01-27
 
 ### Added
 
