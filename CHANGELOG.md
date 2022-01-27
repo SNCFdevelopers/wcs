@@ -9,15 +9,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-- **radio-group**: add `horizontal` mode
-- **wcs-formly**: add the `tooltip` property in templateOptions, it adds a tooltip to the corresponding field's label
-- **form-field**: add a tooltip example in documentation using `wcs-mat-icon` and `wcs-tooltip`
+for new features.
 
 ### Changed
 
-- **tooltip:** redesign of the tooltip and migrate to tippy.js library. the API of the previous versions remain
-  compatible with the new API which has only added new attributes / methods.
-- ⚠ **modal:** change `backdrop` property in `withoutBackdrop` wich is false by default (inversion of the condition)
+for changes in existing functionality.
 
 ### Deprecated
 
@@ -34,6 +30,20 @@ for any bug fixes.
 ### Security
 
 in case of vulnerabilities.
+
+## [2.8.0] - 2022-27-01
+
+### Added
+
+- **radio-group**: add `horizontal` mode
+- **wcs-formly**: add the `tooltip` property in templateOptions, it adds a tooltip to the corresponding field's label
+- **form-field**: add a tooltip example in documentation using `wcs-mat-icon` and `wcs-tooltip`
+
+### Changed
+
+- **tooltip:** redesign of the tooltip and migrate to tippy.js library. the API of the previous versions remain
+  compatible with the new API which has only added new attributes / methods.
+- ⚠ **modal:** change `backdrop` property in `withoutBackdrop` wich is false by default (inversion of the condition)
 
 ## [2.7.0] - 2021-12-14
 
