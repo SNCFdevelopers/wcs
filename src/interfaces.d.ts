@@ -10,6 +10,7 @@ export * from './components/grid/grid-interface';
 export * from './components/horizontal-stepper/horizontal-stepper-interface';
 export * from './components/input/input-interface';
 export * from './components/mat-icon/mat-icon-interface';
+export * from './components/modal/modal-interface';
 export * from './components/radio/radio-interface';
 export * from './components/radio-group/radio-group-interface';
 export * from './components/select/select-interface';

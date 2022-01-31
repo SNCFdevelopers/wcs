@@ -1908,6 +1908,13 @@
           "required": false
         },
         {
+          "name": "size",
+          "type": "\"l\" | \"m\" | \"s\" | \"xl\"",
+          "description": "There are multiple sizes for modals. The default size is medium (m), however other sizes are available. Select the\r\nsize best suited for the content and screen size displaying the modal. Remember to test responsiveness.",
+          "defaultValue": "'m'",
+          "required": false
+        },
+        {
           "name": "without-backdrop",
           "type": "boolean",
           "description": "Specifies whether the component should display a backdrop on the entire page",
@@ -1928,6 +1935,13 @@
           "type": "boolean",
           "description": "Specifies whether the component should display a close button.\r\nif false, it won't close the modal when the escape key is pressed.",
           "defaultValue": "false",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "\"l\" | \"m\" | \"s\" | \"xl\"",
+          "description": "There are multiple sizes for modals. The default size is medium (m), however other sizes are available. Select the\r\nsize best suited for the content and screen size displaying the modal. Remember to test responsiveness.",
+          "defaultValue": "'m'",
           "required": false
         },
         {

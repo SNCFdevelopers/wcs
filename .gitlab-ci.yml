@@ -71,8 +71,6 @@ publish:
     stage: deploy
     only:
         - tags
-    except:
-        - /^(?!master).+@/
     dependencies:
         - build
     script:

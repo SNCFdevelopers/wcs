@@ -16,6 +16,7 @@ import { WcsCellFormatter, WcsGridAllRowSelectedEventDetails, WcsGridColumnSortC
 import { HorizontalStepClickEvent, HorizontalStepConfig, HorizontalStepperMode } from "./components/horizontal-stepper/horizontal-stepper-interface";
 import { AutocompleteTypes, InputChangeEventDetail, TextFieldTypes } from "./components/input/input-interface";
 import { MaterialIconFamily, MaterialIconSize } from "./components/mat-icon/mat-icon-interface";
+import { ModalSize } from "./components/modal/modal-interface";
 import { RadioGroupChangeEventDetail, RadioGroupMode } from "./components/radio-group/radio-group-interface";
 import { RadioChosedEvent } from "./components/radio/radio-interface";
 import { SelectChangeEventDetail } from "./components/select/select-interface";
@@ -467,6 +468,10 @@ export namespace Components {
           * Specifies whether the component should display a close button. if false, it won't close the modal when the escape key is pressed.
          */
         "showCloseButton": boolean;
+        /**
+          * There are multiple sizes for modals. The default size is medium (m), however other sizes are available. Select the size best suited for the content and screen size displaying the modal. Remember to test responsiveness.
+         */
+        "size": ModalSize;
         /**
           * Specifies whether the component should display a backdrop on the entire page
          */
@@ -1625,6 +1630,10 @@ declare namespace LocalJSX {
           * Specifies whether the component should display a close button. if false, it won't close the modal when the escape key is pressed.
          */
         "showCloseButton"?: boolean;
+        /**
+          * There are multiple sizes for modals. The default size is medium (m), however other sizes are available. Select the size best suited for the content and screen size displaying the modal. Remember to test responsiveness.
+         */
+        "size"?: ModalSize;
         /**
           * Specifies whether the component should display a backdrop on the entire page
          */

@@ -24,11 +24,12 @@
 
 ## Properties
 
-| Property          | Attribute           | Description                                                                                                                       | Type      | Default |
-| ----------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------- | ------- |
-| `show`            | `show`              | Displays the modal                                                                                                                | `boolean` | `false` |
-| `showCloseButton` | `show-close-button` | Specifies whether the component should display a close button. if false, it won't close the modal when the escape key is pressed. | `boolean` | `false` |
-| `withoutBackdrop` | `without-backdrop`  | Specifies whether the component should display a backdrop on the entire page                                                      | `boolean` | `false` |
+| Property          | Attribute           | Description                                                                                                                                                                                                                | Type                        | Default |
+| ----------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- | ------- |
+| `show`            | `show`              | Displays the modal                                                                                                                                                                                                         | `boolean`                   | `false` |
+| `showCloseButton` | `show-close-button` | Specifies whether the component should display a close button. if false, it won't close the modal when the escape key is pressed.                                                                                          | `boolean`                   | `false` |
+| `size`            | `size`              | There are multiple sizes for modals. The default size is medium (m), however other sizes are available. Select the size best suited for the content and screen size displaying the modal. Remember to test responsiveness. | `"l" \| "m" \| "s" \| "xl"` | `'m'`   |
+| `withoutBackdrop` | `without-backdrop`  | Specifies whether the component should display a backdrop on the entire page                                                                                                                                               | `boolean`                   | `false` |
 
 
 ## Events
