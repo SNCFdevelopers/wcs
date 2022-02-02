@@ -10,7 +10,8 @@ import { VNode } from '../../../../dist/types/stencil-public-runtime';
     <wcs-grid id="grid-1" [data]="fonctionsSsiReference">
       <wcs-grid-column path="label"
                        name="Label"
-                       sort></wcs-grid-column>
+                       sort
+                       (wcsSortChange)="onSortChange($event)"></wcs-grid-column>
       <wcs-grid-column path="surbrillance"
                        name="Surbrillance"
                        [formatter]="surbrillanceFormatter"></wcs-grid-column>
@@ -30,27 +31,27 @@ export class GridExampleComponent implements OnInit {
 
   ngOnInit(): void {
     setTimeout(() => this.fonctionsSsiReference = [
-      {
-        label: 'test1',
-        surbrillance: false,
-        id: '1'
-      },
-      {
-        label: 'test2',
-        surbrillance: true,
-        id: '2'
-      },
-      {
-        label: 'test3',
-        surbrillance: false,
-        id: '3'
-      },
-      {
-        label: 'test4',
-        surbrillance: true,
-        id: '4'
-      },
-    ]
+        {
+          label: 'test1',
+          surbrillance: false,
+          id: '1'
+        },
+        {
+          label: 'test2',
+          surbrillance: true,
+          id: '2'
+        },
+        {
+          label: 'test3',
+          surbrillance: false,
+          id: '3'
+        },
+        {
+          label: 'test4',
+          surbrillance: true,
+          id: '4'
+        },
+      ]
       , 3000);
   }
 
@@ -67,6 +68,11 @@ export class GridExampleComponent implements OnInit {
     }, createElement('wcs-mat-icon', {
       icon: 'create'
     }));
+  }
+
+  // TODO don't use any type when issue will be closed : https://github.com/ionic-team/stencil-ds-output-targets/issues/219
+  onSortChange($event: any) {
+    console.log($event);
   }
 
 }

@@ -25,7 +25,7 @@ for now removed features.
 
 ### Fixed
 
-for any bug fixes.
+- **grid-column**: event `wcsSortChange` was trigger twice
 
 ### Security
 

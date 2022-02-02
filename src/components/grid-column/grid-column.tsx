@@ -1,19 +1,5 @@
-import {
-    Component,
-    ComponentInterface,
-    Event,
-    EventEmitter,
-    h,
-    Host,
-    Prop,
-    Element, Watch
-} from '@stencil/core';
-import {
-    WcsSortOrder,
-    WcsSortFn,
-    WcsGridColumnSortChangeEventDetails,
-    WcsCellFormatter
-} from '../grid/grid-interface';
+import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Prop, Watch } from '@stencil/core';
+import { WcsCellFormatter, WcsGridColumnSortChangeEventDetails, WcsSortFn, WcsSortOrder } from '../grid/grid-interface';
 import { GridSortArrow } from './grid-sort-arrow';
 
 @Component({
@@ -71,7 +57,7 @@ export class GridColumn implements ComponentInterface {
     }
 
     private onSortClick() {
+        // @Watch on sortOrder property will trigger wcsSortChange event
         this.sortOrder = this.sortOrder === 'none' || this.sortOrder === 'desc' ? 'asc' : 'desc';
-        this.emitSortConfig();
     }
 }
