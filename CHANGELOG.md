@@ -13,7 +13,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
-for changes in existing functionality.
+- **radio-group**: change radio group height to 40px to fit button size when attribute `mode="option"`
 
 ### Deprecated
 
