@@ -3,7 +3,7 @@ import { FormlyFieldConfig } from '@ngx-formly/core';
 import { FormGroup } from '@angular/forms';
 import { Subject } from 'rxjs';
 
-type Option = { value: string, label: string, disabled: boolean };
+type Option = { value: string, label: string, disabled: boolean, class: string };
 
 @Component({
   selector: 'app-formly-example',
@@ -36,15 +36,18 @@ export class FormlyExampleComponent implements OnInit {
     {
       value: '1',
       label: 'Première valeur',
-      disabled: false
+      disabled: false,
+      class: 'value1'
     }, {
       value: '2',
       label: 'Deuxième valeur',
-      disabled: true
+      disabled: true,
+      class: 'value2'
     }, {
       value: '3',
       label: 'Troisième valeur',
-      disabled: false
+      disabled: false,
+      class: 'value3'
     }
   ];
   private asynchronousOptionsSubject = new Subject<Option[]>();
@@ -95,6 +98,22 @@ export class FormlyExampleComponent implements OnInit {
       key: 'fieldRadio',
       type: 'radio',
       templateOptions: {
+        label: 'Champ de type radio',
+        options: this.options
+      },
+      expressionProperties: {
+        'templateOptions.disabled': () => this.disabled,
+        'templateOptions.required': () => this.required
+      }
+    },
+    {
+      id: 'fieldRadioHorizontal',
+      key: 'fieldRadioHorizontal',
+      type: 'radio',
+      templateOptions: {
+        attributes: {
+          mode: 'horizontal'
+        },
         label: 'Champ de type radio',
         options: this.options
       },

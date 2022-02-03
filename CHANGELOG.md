@@ -14,6 +14,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Changed
 
 - **radio-group**: change radio group height to 40px to fit button size when attribute `mode="option"`
+- **formly**: change `formlySelectOptions` pipe to `wcsFormlyOptions` pipe in `select` and `radio` formly component in order to add any
+  options in templateOptions. In this case we add the `class` option to add css class for select option and radio.
 
 ### Deprecated
 

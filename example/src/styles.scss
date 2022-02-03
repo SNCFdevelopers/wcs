@@ -4,6 +4,7 @@
 body {
   margin: 0;
 }
+
 @font-face {
   font-family: Avenir;
   src: url("../../src/assets/fonts/avenir-lighter.woff");
@@ -26,4 +27,17 @@ body {
   font-family: Avenir;
   src: url("../../src/assets/fonts/avenir-black.woff");
   font-weight: 900;
+}
+
+// Examples for class passed in template option of formly radio
+.value1 {
+  --wcs-primary: var(--wcs-green);
+}
+
+.value2 {
+  --wcs-primary: var(--wcs-orange);
+}
+
+.value3 {
+  --wcs-primary: var(--wcs-red);
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FieldType } from '@ngx-formly/core';
 
 @Component({
@@ -14,9 +14,10 @@ import { FieldType } from '@ngx-formly/core';
         [attr.multiple]="to.multiple"
         [attr.disabled]="to.disabled ? true : null">
         <wcs-select-option
-          *ngFor="let option of to.options | formlySelectOptions: field | async; let i = index"
+          *ngFor="let option of to.options | wcsFormlyOptions | async; let i = index"
           [attr.disabled]="option.disabled ? true : null"
-          [value]="option.value">{{option.label}}</wcs-select-option>
+          [value]="option.value"
+          [ngClass]="option.class">{{option.label}}</wcs-select-option>
       </wcs-select>
     </formly-wcs-field-wrapper>
   `,
