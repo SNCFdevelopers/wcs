@@ -163,6 +163,8 @@ npm test
 
 ### Doing a release
 
+Don't forget to update the changelog.
+
 ```sh
 # Make sure you're on develop branch
 git checkout develop

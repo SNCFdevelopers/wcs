@@ -9,13 +9,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-- **modal**: add size param
+for new features.
 
 ### Changed
 
-- **radio-group**: change radio group height to 40px to fit button size when attribute `mode="option"`
-- **formly**: change `formlySelectOptions` pipe to `wcsFormlyOptions` pipe in `select` and `radio` formly component in order to add any
-  options in templateOptions. In this case we add the `class` option to add css class for select option and radio.
+for changes in existing functionality.
 
 ### Deprecated
 
@@ -27,13 +25,29 @@ for now removed features.
 
 ### Fixed
 
-- **grid-column**: event `wcsSortChange` was trigger twice
-- **stenciljs**: upgrade compiler version to 2.13.0, it will fix ~~the Y2K bug~~ the crash of some web components in
-  some obscure situations (please, don't ask).
+for any bug fixes.
 
 ### Security
 
 in case of vulnerabilities.
+
+## [2.9.0] - 2022-02-03
+
+### Added
+
+- **modal**: add size param
+
+### Changed
+
+- **radio-group**: change radio group height to 40px to fit button size when attribute `mode="option"`
+- **formly**: change `formlySelectOptions` pipe to `wcsFormlyOptions` pipe in `select` and `radio` formly component in order to add any
+  options in templateOptions. In this case we add the `class` option to add css class for select option and radio.
+
+### Fixed
+
+- **grid-column**: event `wcsSortChange` was trigger twice
+- **stenciljs**: upgrade compiler version to 2.13.0, it will fix ~~the Y2K bug~~ the crash of some web components in
+  some obscure situations (please, don't ask).
 
 ## [2.8.0] - 2022-01-27
 
