@@ -26,6 +26,8 @@ for now removed features.
 ### Fixed
 
 - **grid-column**: event `wcsSortChange` was trigger twice
+- **stenciljs**: upgrade compiler version to 2.13.0, it will fix ~~the Y2K bug~~ the crash of some web components in
+  some obscure situations (please, don't ask).
 
 ### Security
 
