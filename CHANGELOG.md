@@ -9,15 +9,37 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+for new features.
+
+### Changed
+
+for changes in existing functionality.
+
+### Deprecated
+
+for soon-to-be removed features.
+
+### Removed
+
+for now removed features.
+
+### Fixed
+
+for any bug fixes.
+
+### Security
+
+in case of vulnerabilities.
+
+## [2.10.0] - 2022-02-04
+
+### Added
+
 - **formly**: add styling support for `form-field` child elements
 
 ### Fixed
 
 - **form-field**: fix random infinite loop when wcs-label is considered as form field input
-
-### Security
-
-in case of vulnerabilities.
 
 ## [2.9.0] - 2022-02-03
 
@@ -34,8 +56,7 @@ in case of vulnerabilities.
 ### Fixed
 
 - **grid-column**: event `wcsSortChange` was trigger twice
-- **stenciljs**: upgrade compiler version to 2.13.0, it will fix ~~the Y2K bug~~ the crash of some web components in
-  some obscure situations (please, don't ask).
+- **stenciljs**: upgrade compiler version to 2.13.0
 
 ## [2.8.0] - 2022-01-27
 
