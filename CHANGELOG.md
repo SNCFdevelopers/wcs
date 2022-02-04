@@ -25,7 +25,7 @@ for now removed features.
 
 ### Fixed
 
-for any bug fixes.
+- **form-field**: fix random infinite loop when wcs-label is considered as form field input
 
 ### Security
 

@@ -85,22 +85,21 @@ export class FormField implements ComponentInterface {
     private initSpiedElement() {
         const SUPPORTED_COMPONENTS = ['wcs-input', 'wcs-select', 'wcs-textarea', 'wcs-radio-group', 'wcs-switch', 'wcs-checkbox'];
 
-        this.spiedElement = (this.el.shadowRoot.querySelector('slot:not([name])') as HTMLSlotElement)?.assignedElements()[0];
+        this.spiedElement = (this.el.shadowRoot.querySelector('slot:not([name])') as HTMLSlotElement)
+            ?.assignedElements()
+            .filter(n => [...SUPPORTED_COMPONENTS, 'SLOT'].map(x => x.toUpperCase()).indexOf(n.nodeName) !== -1)[0];
 
         // If the component is used in another web component
-        if (this.spiedElement.tagName === 'SLOT') {
+        if (this.spiedElement?.tagName === 'SLOT') {
             this.spiedElement = ((this.spiedElement as HTMLSlotElement)
                 .assignedElements()
                 .filter(n => SUPPORTED_COMPONENTS.map(x => x.toUpperCase()).indexOf(n.nodeName) !== -1)[0]) as HTMLElement;
         }
 
-        if (!this.spiedElement) throw new Error('You must provide a slotted element in form field');
-
-        if (SUPPORTED_COMPONENTS
-            .map(x => x.toUpperCase())
-            .indexOf(this.spiedElement.tagName) === -1) {
+        if (!this.spiedElement) {
             // tslint:disable-next-line:no-console
-            console.warn('form-field component support ' + SUPPORTED_COMPONENTS.toString() + '. Some features may not work with the provided component (component ' + this.spiedElement.tagName + ' not natively supported).');
+            console.warn('Form-field component support only ' + SUPPORTED_COMPONENTS.toString() + '. Some features may not work with the provided component.');
+            return;
         }
     }
 
