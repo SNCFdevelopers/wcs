@@ -9,19 +9,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-for new features.
-
-### Changed
-
-for changes in existing functionality.
-
-### Deprecated
-
-for soon-to-be removed features.
-
-### Removed
-
-for now removed features.
+- **formly**: add styling support for `form-field` child elements
 
 ### Fixed
 

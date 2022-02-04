@@ -12,6 +12,7 @@ import { WcsAngularModule } from 'wcs-angular';
 import { FormlyExampleComponent } from './formly-example/formly-example.component';
 import { FormlyModule } from '@ngx-formly/core';
 import { WcsFormlyModule } from 'wcs-formly';
+import { FormlyStylingExampleComponent } from './formly-example/formly-styling-example.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { WcsFormlyModule } from 'wcs-formly';
     RadioGroupExampleComponent,
     GridExampleComponent,
     InputExampleComponent,
-    FormlyExampleComponent
+    FormlyExampleComponent,
+    FormlyStylingExampleComponent
   ],
   imports: [
     BrowserModule,

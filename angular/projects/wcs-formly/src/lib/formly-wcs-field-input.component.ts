@@ -10,7 +10,8 @@ import { FieldType } from '@ngx-formly/core';
                [attr.disabled]="to.disabled"
                [prefixLabel]="to.prefixLabel"
                [suffixLabel]="to.suffixLabel"
-               [attr.required]="to.required && to.hideRequiredMarker !== true"></wcs-input>
+               [attr.required]="to.required && to.hideRequiredMarker !== true"
+               [ngStyle]="to.styles?.input"></wcs-input>
     </formly-wcs-field-wrapper>
   `,
   styles: []

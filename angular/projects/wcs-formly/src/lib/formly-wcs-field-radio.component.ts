@@ -10,7 +10,8 @@ import { FieldType } from '@ngx-formly/core';
         [attr.mode]="to?.attributes?.mode"
         [attr.required]="to.required && to.hideRequiredMarker !== true"
         [formControl]="formControl"
-        [formlyAttributes]="field">
+        [formlyAttributes]="field"
+        [ngStyle]="to.styles?.input">
         <wcs-radio
           *ngFor="let option of to.options | wcsFormlyOptions | async; let i = index"
           [id]="option.value"

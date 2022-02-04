@@ -24,16 +24,16 @@ import { FormlyFieldConfig } from '@ngx-formly/core/lib/components/formly.field.
   selector: 'formly-wcs-field-wrapper',
   template: `
     <wcs-form-field [attr.is-error]="showError ? true : null">
-      <wcs-label *ngIf="to.label && to.hideLabel !== true" [attr.for]="id">
+      <wcs-label *ngIf="to.label && to.hideLabel !== true" [attr.for]="id" [ngStyle]="to.styles?.label">
         {{ to.label }}
         <wcs-mat-icon [id]="id + '-icon'" *ngIf="to.tooltip" icon="help" size="s"></wcs-mat-icon>
       </wcs-label>
       <wcs-tooltip *ngIf="to.tooltip" [for]="id + '-icon'" position="right">{{to.tooltip}}</wcs-tooltip>
       <ng-content></ng-content>
-      <wcs-error *ngIf="showError">
+      <wcs-error *ngIf="showError" [ngStyle]="to.styles?.error">
         <formly-validation-message #error [field]="field"></formly-validation-message>
       </wcs-error>
-      <wcs-hint *ngIf="to.description">{{ to.description }}</wcs-hint>
+      <wcs-hint *ngIf="to.description" [ngStyle]="to.styles?.hint">{{ to.description }}</wcs-hint>
     </wcs-form-field>
   `
 })

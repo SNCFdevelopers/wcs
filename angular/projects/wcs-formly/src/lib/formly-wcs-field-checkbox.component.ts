@@ -9,7 +9,8 @@ import { FieldType } from '@ngx-formly/core';
       <wcs-checkbox
         [id]="to.id"
         [attr.disabled]="to.disabled ? true : null"
-        [formControl]="formControl">{{to.label}}</wcs-checkbox>
+        [formControl]="formControl"
+        [ngStyle]="to.styles?.input">{{to.label}}</wcs-checkbox>
     </formly-wcs-boolean-field-wrapper>
   `,
   styles: []

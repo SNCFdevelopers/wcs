@@ -11,10 +11,10 @@ import { FormlyFieldConfig } from '@ngx-formly/core/lib/components/formly.field.
   template: `
     <wcs-form-field [attr.is-error]="showError ? true : null">
       <ng-content></ng-content>
-      <wcs-error *ngIf="showError">
+      <wcs-error *ngIf="showError" [ngStyle]="to.styles?.error">
         <formly-validation-message #error [field]="field"></formly-validation-message>
       </wcs-error>
-      <wcs-hint *ngIf="to.description">{{ to.description }}</wcs-hint>
+      <wcs-hint *ngIf="to.description" [ngStyle]="to.styles?.hint">{{ to.description }}</wcs-hint>
     </wcs-form-field>
   `
 })

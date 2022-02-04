@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { WcsTabChangeEvent } from '../../../src/components/tabs/tabs-interface';
 
-const DEFAULT_TAB_KEY = 'formly';
+const DEFAULT_TAB_KEY = 'formly-styling';
 
 @Component({
   selector: 'app-root',
@@ -25,6 +25,7 @@ const DEFAULT_TAB_KEY = 'formly';
         <wcs-tab itemKey="select" header="Select"></wcs-tab>
         <wcs-tab itemKey="radio" header="Radio"></wcs-tab>
         <wcs-tab itemKey="formly" header="Formly"></wcs-tab>
+        <wcs-tab itemKey="formly-styling" header="Formly Styling"></wcs-tab>
       </wcs-tabs>
       <ng-container [ngSwitch]="selectedTab">
         <app-input-example *ngSwitchCase="'input'"></app-input-example>
@@ -32,6 +33,7 @@ const DEFAULT_TAB_KEY = 'formly';
         <app-select-example *ngSwitchCase="'select'"></app-select-example>
         <app-radio-group-example *ngSwitchCase="'radio'"></app-radio-group-example>
         <app-formly-example *ngSwitchCase="'formly'"></app-formly-example>
+        <app-formly-styling-example *ngSwitchCase="'formly-styling'"></app-formly-styling-example>
       </ng-container>
     </main>
   `,

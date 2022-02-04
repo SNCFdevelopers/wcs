@@ -9,7 +9,8 @@ import { FieldType } from '@ngx-formly/core';
       <wcs-switch
         [id]="to.id"
         [attr.disabled]="to.disabled ? true : null"
-        [formControl]="formControl">
+        [formControl]="formControl"
+        [ngStyle]="to.styles?.input">
         <span *ngIf="to.label && to.hideLabel !== true" [attr.for]="id">
           {{ to.label }}
         </span>

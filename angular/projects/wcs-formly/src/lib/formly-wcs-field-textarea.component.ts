@@ -12,7 +12,8 @@ import { FieldType } from '@ngx-formly/core';
         [rows]="to.rows"
         [formlyAttributes]="field"
         [placeholder]="to.placeholder"
-        [attr.required]="to.required">
+        [attr.required]="to.required"
+        [ngStyle]="to.styles?.input">
       </wcs-textarea>
     </formly-wcs-field-wrapper>
   `,

@@ -3,7 +3,7 @@ import { FormlyFieldConfig } from '@ngx-formly/core';
 import { FormGroup } from '@angular/forms';
 import { Subject } from 'rxjs';
 
-type Option = { value: string, label: string, disabled: boolean, class: string };
+type Option = { value: string, label: string, disabled: boolean};
 
 @Component({
   selector: 'app-formly-example',
@@ -36,18 +36,15 @@ export class FormlyExampleComponent implements OnInit {
     {
       value: '1',
       label: 'Première valeur',
-      disabled: false,
-      class: 'value1'
+      disabled: false
     }, {
       value: '2',
       label: 'Deuxième valeur',
-      disabled: true,
-      class: 'value2'
+      disabled: true
     }, {
       value: '3',
       label: 'Troisième valeur',
-      disabled: false,
-      class: 'value3'
+      disabled: false
     }
   ];
   private asynchronousOptionsSubject = new Subject<Option[]>();
