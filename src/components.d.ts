@@ -27,6 +27,16 @@ import { WcsTabChangeEvent, WcsTabsAlignment } from "./components/tabs/tabs-inte
 import { TextareaChangeEventDetail } from "./components/textarea/textarea-interface";
 import { WcsTooltipPosition } from "./components/tooltip/tooltip-interface";
 export namespace Components {
+    interface WcsAccordion {
+    }
+    interface WcsAccordionContent {
+    }
+    interface WcsAccordionHeader {
+    }
+    interface WcsAccordionPanel {
+        "close": () => Promise<void>;
+        "open": boolean;
+    }
     interface WcsActionBar {
         /**
           * Determines if the action bar should have a border at the bottom. You should not use this property if a gutter is already present on tabs
@@ -797,6 +807,30 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLWcsAccordionElement extends Components.WcsAccordion, HTMLStencilElement {
+    }
+    var HTMLWcsAccordionElement: {
+        prototype: HTMLWcsAccordionElement;
+        new (): HTMLWcsAccordionElement;
+    };
+    interface HTMLWcsAccordionContentElement extends Components.WcsAccordionContent, HTMLStencilElement {
+    }
+    var HTMLWcsAccordionContentElement: {
+        prototype: HTMLWcsAccordionContentElement;
+        new (): HTMLWcsAccordionContentElement;
+    };
+    interface HTMLWcsAccordionHeaderElement extends Components.WcsAccordionHeader, HTMLStencilElement {
+    }
+    var HTMLWcsAccordionHeaderElement: {
+        prototype: HTMLWcsAccordionHeaderElement;
+        new (): HTMLWcsAccordionHeaderElement;
+    };
+    interface HTMLWcsAccordionPanelElement extends Components.WcsAccordionPanel, HTMLStencilElement {
+    }
+    var HTMLWcsAccordionPanelElement: {
+        prototype: HTMLWcsAccordionPanelElement;
+        new (): HTMLWcsAccordionPanelElement;
+    };
     interface HTMLWcsActionBarElement extends Components.WcsActionBar, HTMLStencilElement {
     }
     var HTMLWcsActionBarElement: {
@@ -1116,6 +1150,10 @@ declare global {
         new (): HTMLWcsTooltipElement;
     };
     interface HTMLElementTagNameMap {
+        "wcs-accordion": HTMLWcsAccordionElement;
+        "wcs-accordion-content": HTMLWcsAccordionContentElement;
+        "wcs-accordion-header": HTMLWcsAccordionHeaderElement;
+        "wcs-accordion-panel": HTMLWcsAccordionPanelElement;
         "wcs-action-bar": HTMLWcsActionBarElement;
         "wcs-app": HTMLWcsAppElement;
         "wcs-badge": HTMLWcsBadgeElement;
@@ -1172,6 +1210,16 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface WcsAccordion {
+    }
+    interface WcsAccordionContent {
+    }
+    interface WcsAccordionHeader {
+    }
+    interface WcsAccordionPanel {
+        "onWcsOpenChange"?: (event: CustomEvent<boolean>) => void;
+        "open"?: boolean;
+    }
     interface WcsActionBar {
         /**
           * Determines if the action bar should have a border at the bottom. You should not use this property if a gutter is already present on tabs
@@ -1966,6 +2014,10 @@ declare namespace LocalJSX {
         "trigger"?: string;
     }
     interface IntrinsicElements {
+        "wcs-accordion": WcsAccordion;
+        "wcs-accordion-content": WcsAccordionContent;
+        "wcs-accordion-header": WcsAccordionHeader;
+        "wcs-accordion-panel": WcsAccordionPanel;
         "wcs-action-bar": WcsActionBar;
         "wcs-app": WcsApp;
         "wcs-badge": WcsBadge;
@@ -2025,6 +2077,10 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "wcs-accordion": LocalJSX.WcsAccordion & JSXBase.HTMLAttributes<HTMLWcsAccordionElement>;
+            "wcs-accordion-content": LocalJSX.WcsAccordionContent & JSXBase.HTMLAttributes<HTMLWcsAccordionContentElement>;
+            "wcs-accordion-header": LocalJSX.WcsAccordionHeader & JSXBase.HTMLAttributes<HTMLWcsAccordionHeaderElement>;
+            "wcs-accordion-panel": LocalJSX.WcsAccordionPanel & JSXBase.HTMLAttributes<HTMLWcsAccordionPanelElement>;
             "wcs-action-bar": LocalJSX.WcsActionBar & JSXBase.HTMLAttributes<HTMLWcsActionBarElement>;
             "wcs-app": LocalJSX.WcsApp & JSXBase.HTMLAttributes<HTMLWcsAppElement>;
             "wcs-badge": LocalJSX.WcsBadge & JSXBase.HTMLAttributes<HTMLWcsBadgeElement>;
