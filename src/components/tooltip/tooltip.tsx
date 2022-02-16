@@ -95,6 +95,19 @@ export class Tooltip implements ComponentInterface {
     @Prop()
     theme: string = 'wcs';
 
+    /**
+     * You can use this property instead of the slot API to affect content in the tooltip.
+     *
+     * This makes it easier to manage the update if the tooltip contains elements that are not mutated when their
+     * content changes. Indeed, if the slot is used, the tooltip is updated only if the structure of the slotted DOM
+     * changes (the DOM must be mutated).
+     *
+     * The two APIs are not mutually exclusive, if both are filled in (the prop + the slot) the rendering will first
+     * display the content of this property and then the slotted elements.
+     */
+    @Prop()
+    content: string;
+
     @Element()
     private el: HTMLWcsTooltipElement;
 
@@ -104,7 +117,7 @@ export class Tooltip implements ComponentInterface {
         this.tippyInstance = tippy(document.getElementById(this.for), {
             theme: this.theme,
             allowHTML: true,
-            content: this.el.innerHTML,
+            content: this.getTooltipContentFromPropAndSlot(),
             maxWidth: this.maxWidth,
             placement: this.position,
             delay: this.delay,
@@ -112,6 +125,13 @@ export class Tooltip implements ComponentInterface {
             interactive: this.interactive,
             trigger: this.trigger
         });
+    }
+
+    private getTooltipContentFromPropAndSlot() {
+        if (this.content) {
+            return this.content + this.el.innerHTML;
+        }
+        return this.el.innerHTML;
     }
 
     @Watch('interactive')
@@ -134,9 +154,10 @@ export class Tooltip implements ComponentInterface {
         })
     }
 
+    @Watch('content')
     private updateTippyContent() {
         this.tippyInstance.setProps({
-            content: this.el.innerHTML
+            content: this.getTooltipContentFromPropAndSlot()
         })
     }
 

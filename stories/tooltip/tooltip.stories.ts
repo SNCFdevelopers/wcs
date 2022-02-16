@@ -11,7 +11,7 @@ export default {
     component: 'wcs-tooltip'
 } as Meta;
 
-const Template: Story<Partial<{ position: WcsTooltipPosition, tooltipInnerHtml: string, interactive: boolean, maxWidth: string | number, theme: string, delay: number | [number, number], duration: number | [number, number], trigger: string }>> = (args) => {
+const Template: Story<Partial<{ content: string, position: WcsTooltipPosition, tooltipInnerHtml: string, interactive: boolean, maxWidth: string | number, theme: string, delay: number | [number, number], duration: number | [number, number], trigger: string }>> = (args) => {
     const tooltip_unique_element_id_idx = tooltip_unique_element_id++; // use to generate a unique button id for each story (doc-only)
     return html`
     <div style="padding: 50px 0 0 200px;"><!-- div to add space for the tooltip to demonstrate the positioning property -->
@@ -23,6 +23,7 @@ const Template: Story<Partial<{ position: WcsTooltipPosition, tooltipInnerHtml: 
             theme=${ifDefined(args.theme)}
             .delay=${ifDefined(args.delay)}
             .duration=${ifDefined(args.duration)}
+            content=${ifDefined(args.content)}
             trigger=${ifDefined(args.trigger)}
             position=${ifDefined(args.position)}>
             ${unsafeHTML(args.tooltipInnerHtml)}
@@ -57,6 +58,11 @@ export const Left = Template.bind({});
 Left.args = {
     position: 'left',
     tooltipInnerHtml: 'Tooltip content'
+};
+
+export const TextContentProp = Template.bind({});
+TextContentProp.args = {
+    content: 'Sample text content'
 };
 
 export const Interactive = Template.bind({});

@@ -9,7 +9,9 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-- **accordion**: Add components related to accordions (`wcs-accordion`, `wcs-accordion-panel`, `wcs-accordion-header`, `wcs-accordion-content`)
+- **accordion**: Add components related to accordions (`wcs-accordion`, `wcs-accordion-panel`, `wcs-accordion-header`
+  , `wcs-accordion-content`)
+- **tooltip**: Add the "content" property to make integration easier with non-immutable APIs
 
 ### Changed
 
@@ -50,8 +52,9 @@ in case of vulnerabilities.
 ### Changed
 
 - **radio-group**: change radio group height to 40px to fit button size when attribute `mode="option"`
-- **formly**: change `formlySelectOptions` pipe to `wcsFormlyOptions` pipe in `select` and `radio` formly component in order to add any
-  options in templateOptions. In this case we add the `class` option to add css class for select option and radio.
+- **formly**: change `formlySelectOptions` pipe to `wcsFormlyOptions` pipe in `select` and `radio` formly component in
+  order to add any options in templateOptions. In this case we add the `class` option to add css class for select option
+  and radio.
 
 ### Fixed
 

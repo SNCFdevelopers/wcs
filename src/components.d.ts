@@ -756,6 +756,10 @@ export namespace Components {
     }
     interface WcsTooltip {
         /**
+          * You can use this property instead of the slot API to affect content in the tooltip.  This makes it easier to manage the update if the tooltip contains elements that are not mutated when their content changes. Indeed, if the slot is used, the tooltip is updated only if the structure of the slotted DOM changes (the DOM must be mutated).  The two APIs are not mutually exclusive, if both are filled in (the prop + the slot) the rendering will first display the content of this property and then the slotted elements.
+         */
+        "content": string;
+        /**
           * Delay in ms once a trigger event is fired before the tooltip shows or hides.  You can provide an array with two values to define a different duration for show and hide.  `[showDelay, hideDelay]`  Use null to use default value.
          */
         "delay": number | [number, number];
@@ -1979,6 +1983,10 @@ declare namespace LocalJSX {
         "wrap"?: 'hard' | 'soft' | 'off';
     }
     interface WcsTooltip {
+        /**
+          * You can use this property instead of the slot API to affect content in the tooltip.  This makes it easier to manage the update if the tooltip contains elements that are not mutated when their content changes. Indeed, if the slot is used, the tooltip is updated only if the structure of the slotted DOM changes (the DOM must be mutated).  The two APIs are not mutually exclusive, if both are filled in (the prop + the slot) the rendering will first display the content of this property and then the slotted elements.
+         */
+        "content"?: string;
         /**
           * Delay in ms once a trigger event is fired before the tooltip shows or hides.  You can provide an array with two values to define a different duration for show and hide.  `[showDelay, hideDelay]`  Use null to use default value.
          */

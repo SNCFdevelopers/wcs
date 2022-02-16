@@ -8,6 +8,92 @@ import { Components } from 'wcs-core';
 
 
 
+export declare interface WcsAccordion extends Components.WcsAccordion {}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined
+})
+@Component({
+  selector: 'wcs-accordion',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>'
+})
+export class WcsAccordion {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface WcsAccordionContent extends Components.WcsAccordionContent {}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined
+})
+@Component({
+  selector: 'wcs-accordion-content',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>'
+})
+export class WcsAccordionContent {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface WcsAccordionHeader extends Components.WcsAccordionHeader {}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined
+})
+@Component({
+  selector: 'wcs-accordion-header',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>'
+})
+export class WcsAccordionHeader {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface WcsAccordionPanel extends Components.WcsAccordionPanel {
+  /**
+   *  
+   */
+  wcsOpenChange: EventEmitter<CustomEvent<boolean>>;
+
+}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined,
+  inputs: ['open'],
+  methods: ['close']
+})
+@Component({
+  selector: 'wcs-accordion-panel',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['open']
+})
+export class WcsAccordionPanel {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['wcsOpenChange']);
+  }
+}
+
+
 export declare interface WcsActionBar extends Components.WcsActionBar {}
 
 @ProxyCmp({
@@ -1259,14 +1345,14 @@ export declare interface WcsTooltip extends Components.WcsTooltip {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['delay', 'duration', 'for', 'interactive', 'maxWidth', 'position', 'theme', 'trigger'],
+  inputs: ['content', 'delay', 'duration', 'for', 'interactive', 'maxWidth', 'position', 'theme', 'trigger'],
   methods: ['hide', 'show', 'disable', 'enable']
 })
 @Component({
   selector: 'wcs-tooltip',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['delay', 'duration', 'for', 'interactive', 'maxWidth', 'position', 'theme', 'trigger']
+  inputs: ['content', 'delay', 'duration', 'for', 'interactive', 'maxWidth', 'position', 'theme', 'trigger']
 })
 export class WcsTooltip {
   protected el: HTMLElement;
