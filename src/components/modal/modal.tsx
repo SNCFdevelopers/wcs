@@ -46,7 +46,7 @@ export class Modal {
                         {this.showCloseButton && (
                             <wcs-button shape="round" mode="clear" class="wcs-dark"
                                         onClick={($event) => this.onCloseButtonClick($event)}>
-                                <i class="material-icons">close</i>
+                                <wcs-mat-icon icon="close"></wcs-mat-icon>
                             </wcs-button>)
                         }
 

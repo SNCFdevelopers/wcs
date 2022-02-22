@@ -27,7 +27,7 @@ for now removed features.
 
 ### Fixed
 
-for any bug fixes.
+- **modal**: Use `wcs-mat-icon` component instead of material class for button close
 
 ### Security
 
