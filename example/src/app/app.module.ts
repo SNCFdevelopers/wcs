@@ -13,6 +13,7 @@ import { FormlyExampleComponent } from './formly-example/formly-example.componen
 import { FormlyModule } from '@ngx-formly/core';
 import { WcsFormlyModule } from 'wcs-formly';
 import { FormlyStylingExampleComponent } from './formly-example/formly-styling-example.component';
+import { ModalExampleComponent } from './modal-example/modal-example.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FormlyStylingExampleComponent } from './formly-example/formly-styling-e
     GridExampleComponent,
     InputExampleComponent,
     FormlyExampleComponent,
-    FormlyStylingExampleComponent
+    FormlyStylingExampleComponent,
+    ModalExampleComponent
   ],
   imports: [
     BrowserModule,

@@ -26,6 +26,7 @@ const DEFAULT_TAB_KEY = 'formly-styling';
         <wcs-tab itemKey="radio" header="Radio"></wcs-tab>
         <wcs-tab itemKey="formly" header="Formly"></wcs-tab>
         <wcs-tab itemKey="formly-styling" header="Formly Styling"></wcs-tab>
+        <wcs-tab itemKey="modal" header="Modal"></wcs-tab>
       </wcs-tabs>
       <ng-container [ngSwitch]="selectedTab">
         <app-input-example *ngSwitchCase="'input'"></app-input-example>
@@ -34,6 +35,7 @@ const DEFAULT_TAB_KEY = 'formly-styling';
         <app-radio-group-example *ngSwitchCase="'radio'"></app-radio-group-example>
         <app-formly-example *ngSwitchCase="'formly'"></app-formly-example>
         <app-formly-styling-example *ngSwitchCase="'formly-styling'"></app-formly-styling-example>
+        <app-modal-example *ngSwitchCase="'modal'"></app-modal-example>
       </ng-container>
     </main>
   `,

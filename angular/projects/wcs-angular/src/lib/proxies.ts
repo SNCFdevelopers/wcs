@@ -973,13 +973,13 @@ export declare interface WcsModal extends Components.WcsModal {
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['show', 'showCloseButton', 'size', 'withoutBackdrop']
+  inputs: ['hideActions', 'show', 'showCloseButton', 'size', 'withoutBackdrop']
 })
 @Component({
   selector: 'wcs-modal',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['show', 'showCloseButton', 'size', 'withoutBackdrop']
+  inputs: ['hideActions', 'show', 'showCloseButton', 'size', 'withoutBackdrop']
 })
 export class WcsModal {
   protected el: HTMLElement;

@@ -12,6 +12,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **accordion**: Add components related to accordions (`wcs-accordion`, `wcs-accordion-panel`, `wcs-accordion-header`
   , `wcs-accordion-content`)
 - **tooltip**: Add the "content" property to make integration easier with non-immutable APIs
+- **modal**: Add `hideActions` property which is false by default (useful when you want to hide the action slot and the associated margin)
 
 ### Changed
 
@@ -73,7 +74,7 @@ in case of vulnerabilities.
 
 - **tooltip:** redesign of the tooltip and migrate to tippy.js library. the API of the previous versions remain
   compatible with the new API which has only added new attributes / methods.
-- ⚠ **modal:** change `backdrop` property in `withoutBackdrop` wich is false by default (inversion of the condition)
+- ⚠ **modal:** change `backdrop` property in `withoutBackdrop` which is false by default (inversion of the condition)
 
 ## [2.7.0] - 2021-12-14
 

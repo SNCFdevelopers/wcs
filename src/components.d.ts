@@ -471,6 +471,10 @@ export namespace Components {
     }
     interface WcsModal {
         /**
+          * Specifies whether the component should hide the actions slot or not
+         */
+        "hideActions": boolean;
+        /**
           * Displays the modal
          */
         "show": boolean;
@@ -1670,6 +1674,10 @@ declare namespace LocalJSX {
         "size"?: MaterialIconSize;
     }
     interface WcsModal {
+        /**
+          * Specifies whether the component should hide the actions slot or not
+         */
+        "hideActions"?: boolean;
         /**
           * Triggered when the user leaves the dialog with the closing button.
          */

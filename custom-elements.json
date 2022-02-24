@@ -1969,6 +1969,13 @@
       "description": "",
       "attributes": [
         {
+          "name": "hide-actions",
+          "type": "boolean",
+          "description": "Specifies whether the component should hide the actions slot or not",
+          "defaultValue": "false",
+          "required": false
+        },
+        {
           "name": "show",
           "type": "boolean",
           "description": "Displays the modal",
@@ -1998,6 +2005,13 @@
         }
       ],
       "properties": [
+        {
+          "name": "hideActions",
+          "type": "boolean",
+          "description": "Specifies whether the component should hide the actions slot or not",
+          "defaultValue": "false",
+          "required": false
+        },
         {
           "name": "show",
           "type": "boolean",

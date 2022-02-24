@@ -34,6 +34,11 @@ export class Modal {
      */
     @Prop() size: ModalSize = 'm';
 
+    /**
+     * Specifies whether the component should hide the actions slot or not
+     */
+    @Prop({reflect: true}) hideActions: boolean = false;
+
     render() {
         return (
             <Host>
@@ -54,9 +59,11 @@ export class Modal {
                     <div class="wcs-modal-content">
                         <slot></slot>
                     </div>
-                    <div class="wcs-modal-actions">
-                        <slot name="actions"></slot>
-                    </div>
+                    {!this.hideActions && (
+                        <div class="wcs-modal-actions">
+                            <slot name="actions"></slot>
+                        </div>)
+                    }
                 </div>
             </Host>
         );

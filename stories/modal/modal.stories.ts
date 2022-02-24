@@ -16,7 +16,7 @@ export default {
     }
 } as Meta;
 
-const Template: Story<Partial<{ withoutBackdrop: boolean, show: boolean, showCloseButton: boolean, size: ModalSize }>> = (args) => {
+const Template: Story<Partial<{ withoutBackdrop: boolean, show: boolean, showCloseButton: boolean, size: ModalSize, hideActions: boolean }>> = (args) => {
     // FIXME
     // @ts-ignore
     const modalRef = createRef<HTMLWcsModalElement>();
@@ -29,7 +29,8 @@ const Template: Story<Partial<{ withoutBackdrop: boolean, show: boolean, showClo
                    ${ref(modalRef)}
                    ?without-backdrop=${args.withoutBackdrop}
                    ?show-close-button=${args.showCloseButton}
-                   size=${ifDefined(args.size)}>
+                   size=${ifDefined(args.size)}
+                   ?hide-actions=${args.hideActions}>
             <div slot="header">Titre de la modale</div>
             Voulez-vous quittez la page ?
             <p>
@@ -52,38 +53,31 @@ const Template: Story<Partial<{ withoutBackdrop: boolean, show: boolean, showClo
 
 export const Default = Template.bind({});
 Default.args = {
-    show: true,
+    show: false,
     showCloseButton: true
 };
 
 export const WithoutBackdrop = Template.bind({});
 WithoutBackdrop.args = {
-    show: true,
+    show: false,
     withoutBackdrop: true,
     showCloseButton: true
 };
 
 export const WithoutCloseButton = Template.bind({});
 WithoutCloseButton.args = {
-    show: true,
+    show: false,
     showCloseButton: false
 };
 
-const TemplateWithoutActions: Story<Partial<{}>> = (_) => html`
-    <wcs-modal show show-close-button>
-        <div slot="header">Titre de la modale</div>
-        Une modale avec du contenu uniquement mais pas d'actions.
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a cursus mi. Nullam et sem mi. Interdum et
-            malesuada fames ac ante ipsum primis in faucibus. Fusce sollicitudin pellentesque libero nec elementum.
-        </p>
-    </wcs-modal>
-`;
+export const WithoutActions = Template.bind({});
+WithoutActions.args = {
+    show: false,
+    showCloseButton: true,
+    hideActions: true
+};
 
-export const WithoutActions = TemplateWithoutActions.bind({});
-WithoutActions.args = {};
-
-const SizeTemplate: Story<Partial<{ withoutBackdrop: boolean, show: boolean, showCloseButton: boolean, size: ModalSize }>> = (args) => html`
+const SizeTemplate: Story<Partial<{ withoutBackdrop: boolean, show: boolean, showCloseButton: boolean, size: ModalSize, hideActions: boolean }>> = (args) => html`
     <p>For this story, the size param is not configurable, it is set manually for each button to easily show all
         the different available sizes.</p>
     ${Template({...args, show: false, size: 's'})}
