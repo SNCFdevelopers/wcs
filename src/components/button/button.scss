@@ -35,6 +35,10 @@
 
 :host([shape=small]) {
     --wcs-button-padding: 2px 16px;
+    .wcs-inner-button {
+        min-width: var(--wcs-button-min-width, unset);
+        min-height: var(--wcs-button-min-height, unset);
+    }
 }
 
 :host([shape=round]) {
@@ -44,8 +48,8 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        min-width: 42px;
-        min-height: 42px;
+        min-width: var(--wcs-button-min-width, 42px);
+        min-height: var(--wcs-button-min-height, 42px);
     }
 }
 
@@ -55,13 +59,17 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        min-width: 42px;
-        min-height: 42px;
+        min-width: var(--wcs-button-min-width, 42px);
+        min-height: var(--wcs-button-min-height, 42px);
     }
 }
 
 :host([shape=normal]) {
     --wcs-button-padding: calc(var(--wcs-padding) / 2 + 1px) calc(var(--wcs-padding));
+    .wcs-inner-button {
+        min-width: var(--wcs-button-min-width, unset);
+        min-height: var(--wcs-button-min-height, unset);
+    }
 }
 
 :host([mode=stroked]) {
