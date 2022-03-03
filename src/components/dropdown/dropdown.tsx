@@ -67,7 +67,9 @@ export class Dropdown implements ComponentInterface {
             ]
         });
 
-        (this.el.shadowRoot.querySelector('.arrow') as HTMLElement).style.fill = this.buttonTextColor;
+        if (!this.noArrow) {
+            (this.el.shadowRoot.querySelector('.arrow') as HTMLElement).style.fill = this.buttonTextColor;
+        }
         this.fixForFirefoxBelow63();
     }
 

@@ -276,7 +276,7 @@ for now removed features.
 
 ### Fixed
 
-for any bug fixes.
+- **dropdown**: fix error in console when `noArrow` flag is true
 
 ### Security
 

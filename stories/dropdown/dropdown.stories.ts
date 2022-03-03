@@ -50,3 +50,12 @@ Default.args = {
     mode: 'plain',
     shape: 'normal'
 };
+
+export const WithoutArrow = Template.bind({});
+WithoutArrow.args = {
+    disabled: false,
+    placement: 'bottom-end',
+    mode: 'plain',
+    noArrow: true,
+    shape: 'normal'
+};
