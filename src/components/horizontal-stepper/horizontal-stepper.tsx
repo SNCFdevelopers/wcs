@@ -1,13 +1,15 @@
 import {
     Component,
     ComponentInterface,
-    Host,
-    h,
-    State,
-    Prop,
     Element,
+    Event,
     EventEmitter,
-    Event, Watch, Method
+    h,
+    Host,
+    Method,
+    Prop,
+    State,
+    Watch
 } from '@stencil/core';
 import { WcsButtonMode } from '../button/button-interface';
 import { HorizontalStepClickEvent, HorizontalStepConfig, HorizontalStepperMode } from './horizontal-stepper-interface';
@@ -54,16 +56,19 @@ export class HorizontalStepper implements ComponentInterface {
     @Watch('currentStep')
     // @ts-ignore
     private onCurrentStepChange(newValue: number, oldValue: number) {
-        const stepInterval = Math.abs(oldValue - newValue);
-        this.el.style.setProperty('--wcs-progress-bar-animation-duration', 375 / stepInterval + 'ms');
-        if (newValue !== oldValue) {
-            for (let i = 0; i < stepInterval; i++) {
-                setTimeout(() => {
-                    this.internalCurrentStep -= (oldValue - newValue) > 0 ? 1 : -1;
-                    if (i === stepInterval - 1) {
-                        this.el.style.removeProperty('--wcs-progress-bar-animation-duration');
-                    }
-                }, (i * (375 / stepInterval)));
+        //Check if the function is called before the component has finished its initialization in which case we do nothing
+        if (this.internalCurrentStep !== undefined) {
+            const stepInterval = Math.abs(oldValue - newValue);
+            this.el.style.setProperty('--wcs-progress-bar-animation-duration', 375 / stepInterval + 'ms');
+            if (newValue !== oldValue) {
+                for (let i = 0; i < stepInterval; i++) {
+                    setTimeout(() => {
+                        this.internalCurrentStep -= (oldValue - newValue) > 0 ? 1 : -1;
+                        if (i === stepInterval - 1) {
+                            this.el.style.removeProperty('--wcs-progress-bar-animation-duration');
+                        }
+                    }, (i * (375 / stepInterval)));
+                }
             }
         }
     }

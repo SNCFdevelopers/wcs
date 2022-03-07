@@ -20,6 +20,7 @@
  - [wcs-galactic-menu](../galactic-menu)
  - [wcs-horizontal-stepper](../horizontal-stepper)
  - [wcs-input](../input)
+ - [wcs-modal](../modal)
  - [wcs-textarea](../textarea)
 
 ### Graph
@@ -29,6 +30,7 @@ graph TD;
   wcs-galactic-menu --> wcs-mat-icon
   wcs-horizontal-stepper --> wcs-mat-icon
   wcs-input --> wcs-mat-icon
+  wcs-modal --> wcs-mat-icon
   wcs-textarea --> wcs-mat-icon
   style wcs-mat-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```

@@ -45,11 +45,13 @@
 ### Depends on
 
 - [wcs-button](../button)
+- [wcs-mat-icon](../mat-icon)
 
 ### Graph
 ```mermaid
 graph TD;
   wcs-modal --> wcs-button
+  wcs-modal --> wcs-mat-icon
   style wcs-modal fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

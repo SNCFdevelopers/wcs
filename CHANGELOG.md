@@ -29,6 +29,7 @@ for now removed features.
 ### Fixed
 
 - **modal**: Use `wcs-mat-icon` component instead of material class for button close
+- **horizontal-stepper**: Add a check to ignore a function if the component is not initialized
 
 ### Security
 
