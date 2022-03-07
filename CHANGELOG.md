@@ -30,6 +30,8 @@ for now removed features.
 
 - **modal**: Use `wcs-mat-icon` component instead of material class for button close
 - **horizontal-stepper**: Add a check to ignore a function if the component is not initialized
+- **docs**: add current-step property binding to horizontal-stepper story
+- **dropdown**: fix error in console when noArrow flag is true
 
 ### Security
 
@@ -276,7 +278,7 @@ for now removed features.
 
 ### Fixed
 
-- **dropdown**: fix error in console when `noArrow` flag is true
+for any bug fixes.
 
 ### Security
 

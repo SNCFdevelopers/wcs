@@ -7,6 +7,7 @@ import {
 } from '../../src/components/horizontal-stepper/horizontal-stepper-interface';
 import { createRef, ref } from 'lit-html/directives/ref';
 import { HorizontalStepper } from '../../src/components/horizontal-stepper/horizontal-stepper';
+import { ifDefined } from 'lit-html/directives/if-defined';
 
 export default {
     title: 'Example/HorizontalStepper',
@@ -20,11 +21,13 @@ export default {
     }
 } as Meta;
 
-
 const horizontalStepperRef = createRef();
 
-const Template: Story<Partial<{ checkOnComplete: boolean, mode: HorizontalStepperMode, steps: HorizontalStepConfig[] }>> = (args) => html`
-    <wcs-horizontal-stepper ?check-on-complete=${args.checkOnComplete} mode=${args.mode} .steps=${args.steps}
+const Template: Story<Partial<{ checkOnComplete: boolean, mode: HorizontalStepperMode, steps: HorizontalStepConfig[], currentStep: number }>> = (args) => html`
+    <wcs-horizontal-stepper ?check-on-complete=${args.checkOnComplete}
+                            current-step=${ifDefined(args.currentStep)}
+                            mode=${args.mode}
+                            .steps=${args.steps}
                             id="horizontal-stepper"
                             ${ref(horizontalStepperRef)}
                             @wcsHorizontalStepClick=${stepClickHandler}></wcs-horizontal-stepper>
