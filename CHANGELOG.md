@@ -32,6 +32,7 @@ for now removed features.
 - **horizontal-stepper**: Add a check to ignore a function if the component is not initialized
 - **docs**: add current-step property binding to horizontal-stepper story
 - **dropdown**: fix error in console when noArrow flag is true
+- **mat-icon**: fix icon to be verticaly centered in mat-icon (especially when a wcs-mat-icon is in a wcs-button)
 
 ### Security
 
