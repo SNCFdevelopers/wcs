@@ -1,5 +1,4 @@
 wcs-modal {
-    --saas-fix-modal: rgba(var(--wcs-black), 0.5);
     z-index: 999;
     position: fixed;
     top: 0;
@@ -7,60 +6,43 @@ wcs-modal {
     left: 0;
     right: 0;
     display: none;
+    background: rgba(0, 0, 0, 0.4);
 }
 
 wcs-modal[show] {
-    display: block;
-    width: 100%;
-    height: 100%;
-    opacity: 1;
-    display: block;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
 }
 
 /**
 Backdrop
  */
 wcs-modal[without-backdrop] {
-    .wcs-modal-backdrop {
-        display: none;
-    }
+    background-color: unset;
 
     .wcs-modal-container {
         border: solid 1px var(--wcs-text-light);
     }
 }
 
-.wcs-modal-backdrop {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    opacity: 0.4;
-    background-color: var(--wcs-black);
-}
-
-
 /**
 Modal window
  */
 .wcs-modal-container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    box-sizing: border-box;
-    max-width: 100%;
-    /* bring your own prefixes */
-    transform: translate(-50%, -50%);
-    pointer-events: auto;
+    max-height: var(--wcs-modal-max-height, 80%);
     background-color: #fff;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto 1fr auto;
+    box-sizing: border-box;
+    pointer-events: auto;
     background-clip: padding-box;
     border: 0 solid rgba(0, 0, 0, 0.2);
     border-radius: 0.4375rem;
-    outline: 0;
     z-index: 20000;
-    display: block;
     padding: 1.375rem 1.875rem 1.875rem 1.875rem;
 }
 
@@ -96,9 +78,11 @@ Modal window
 .wcs-modal-content {
     font-weight: 400;
     font-size: 16px;
+    overflow-y: auto;
 }
 
 .wcs-modal-actions {
     margin-top: 20px;
-    float: right;
+    display: flex;
+    justify-content: flex-end;
 }

@@ -14,6 +14,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **tooltip**: Add the "content" property to make integration easier with non-immutable APIs
 - **modal**: Add `hideActions` property which is false by default (useful when you want to hide the action slot and the associated margin)
 - **button**: Add css variables `--wcs-button-min-width` and `--wcs-button-min-height` that can be used to specify any width or height for buttons
+- **modal**: Add css variable `--wcs-modal-max-height` that can be used to specify a max-height for the modal (default is 80%)
 
 ### Changed
 
@@ -34,6 +35,7 @@ for now removed features.
 - **docs**: add current-step property binding to horizontal-stepper story
 - **dropdown**: fix error in console when noArrow flag is true
 - **mat-icon**: fix icon to be verticaly centered in mat-icon (especially when a wcs-mat-icon is in a wcs-button)
+- **modal**: update css and template to set a max-height and a scroll bar when the modal content takes too much space
 
 ### Security
 

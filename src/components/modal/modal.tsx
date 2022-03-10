@@ -42,7 +42,6 @@ export class Modal {
     render() {
         return (
             <Host>
-                <div class="wcs-modal-backdrop"></div>
                 <div class="wcs-modal-container" data-size={this.size}>
                     <div class="wcs-modal-header">
                         <h5>
