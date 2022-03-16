@@ -12,13 +12,17 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **accordion**: Add components related to accordions (`wcs-accordion`, `wcs-accordion-panel`, `wcs-accordion-header`
   , `wcs-accordion-content`)
 - **tooltip**: Add the "content" property to make integration easier with non-immutable APIs
-- **modal**: Add `hideActions` property which is false by default (useful when you want to hide the action slot and the associated margin)
-- **button**: Add css variables `--wcs-button-min-width` and `--wcs-button-min-height` that can be used to specify any width or height for buttons
-- **modal**: Add css variable `--wcs-modal-max-height` that can be used to specify a max-height for the modal (default is 80%)
+- **modal**: Add `hideActions` property which is false by default (useful when you want to hide the action slot and the
+  associated margin)
+- **button**: Add css variables `--wcs-button-min-width` and `--wcs-button-min-height` that can be used to specify any
+  width or height for buttons
+- **modal**: Add css variable `--wcs-modal-max-height` that can be used to specify a max-height for the modal (default
+  is 80%)
 
 ### Changed
 
-for changes in existing functionality.
+- **versioning**: migrate Angular dependencies to superior or equals selector and fix peerDependencies of angular-formly
+  package
 
 ### Deprecated
 

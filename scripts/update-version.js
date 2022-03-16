@@ -1,5 +1,6 @@
 const {exec} = require("child_process");
 const execSync = require('child_process').execSync;
+const fs = require('fs');
 
 
 /**
@@ -13,6 +14,13 @@ function getVersionParam() {
         }
     }
     return versionParam;
+}
+
+function updateDependencyFor(packageFilePath, dependencyName, newVersion, isPeerDependency) {
+    const fileContent = fs.readFileSync(packageFilePath);
+    const packageContent = JSON.parse(fileContent);
+    packageContent[isPeerDependency ? 'peerDependencies' : 'dependencies'][dependencyName] = newVersion;
+    fs.writeFileSync(packageFilePath, JSON.stringify(packageContent, null, 2));
 }
 
 /**
@@ -32,7 +40,7 @@ function updatePackage(path, newVersion, commit) {
     }).toString());
 }
 
-function commitAndTag(version){
+function commitAndTag(version) {
     const commandToExec = `git add . && git commit -m "release ${version}" && git tag -a ${version} -m ${version} && git push --follow-tags`;
     console.log(`[EXEC] ${commandToExec}`);
     console.log(execSync(commandToExec, {
@@ -45,9 +53,18 @@ function commitAndTag(version){
  * @param newVersion new version number
  */
 function updateAllPackages(newVersion) {
+    // Update wcs-angular package
     updatePackage('./angular/projects/wcs-angular', newVersion, false);
+    updateDependencyFor('./angular/projects/wcs-angular/package.json', 'wcs-core', newVersion, true);
+
+    // Update wcs-formly package
     updatePackage('./angular/projects/wcs-formly', newVersion, false);
+    updateDependencyFor('./angular/projects/wcs-formly/package.json', 'wcs-core', newVersion, true);
+    updateDependencyFor('./angular/projects/wcs-formly/package.json', 'wcs-angular', newVersion, true);
+
+    // Update wcs-core package
     updatePackage('./', newVersion, false);
+
     commitAndTag(newVersion);
 }
 
