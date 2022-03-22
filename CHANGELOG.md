@@ -9,6 +9,32 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+for new features.
+
+### Changed
+
+for changes in existing functionality.
+
+### Deprecated
+
+for soon-to-be removed features.
+
+### Removed
+
+for now removed features.
+
+### Fixed
+
+for any bug fixes.
+
+### Security
+
+in case of vulnerabilities.
+
+## [2.11.0] - 2022-03-22
+
+### Added
+
 - **accordion**: Add components related to accordions (`wcs-accordion`, `wcs-accordion-panel`, `wcs-accordion-header`
   , `wcs-accordion-content`)
 - **tooltip**: Add the "content" property to make integration easier with non-immutable APIs
@@ -24,14 +50,6 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **versioning**: migrate Angular dependencies to superior or equals selector and fix peerDependencies of angular-formly
   package
 
-### Deprecated
-
-for soon-to-be removed features.
-
-### Removed
-
-for now removed features.
-
 ### Fixed
 
 - **modal**: Use `wcs-mat-icon` component instead of material class for button close
@@ -40,10 +58,6 @@ for now removed features.
 - **dropdown**: fix error in console when noArrow flag is true
 - **mat-icon**: fix icon to be verticaly centered in mat-icon (especially when a wcs-mat-icon is in a wcs-button)
 - **modal**: update css and template to set a max-height and a scroll bar when the modal content takes too much space
-
-### Security
-
-in case of vulnerabilities.
 
 ## [2.10.0] - 2022-02-04
 
