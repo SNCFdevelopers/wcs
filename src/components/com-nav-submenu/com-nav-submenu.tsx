@@ -97,7 +97,7 @@ export class ComNavSubmenu implements ComponentInterface {
                 <div class="drawer" data-open={this.menuOpen}>
                     <div class="drawer-container">
                         <div class="drawer-content">
-                            <div>
+                            <div class="drawer-description">
                                 <h3>{this.panelTitle}</h3>
                                 <p>{this.panelDescription}</p>
                             </div>

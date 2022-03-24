@@ -5,13 +5,12 @@
     border-bottom: solid 1px var(--wcs-text-light);
 
     .container {
-        margin: 0 auto;
+        margin: 0 calc(3 * var(--wcs-base-margin));
         height: 100%;
         display: flex;
         align-items: center;
         flex-direction: row;
         justify-content: space-between;
-        max-width: var(--wcs-com-content-max-width);
     }
 
     .container-left {
@@ -21,25 +20,26 @@
         flex-direction: row;
     }
 
+    .container-right {
+        display: flex;
+        align-items: center;
+    }
+
     .app-name {
-        font-weight: 300;
+        font-weight: 400;
         font-size: 1.5rem;
         line-height: 1.25;
         color: var(--wcs-gray);
     }
 
     .menu-bar {
-        display: flex;
-        align-items: center;
-        height: 100%;
-        margin-left: 50px;
-
-        ::slotted(*:not(:first-child)) {
-            margin-left: 40px;
-        }
+        display: none;
     }
 
     ::slotted(a) {
+        padding-top: calc(1.5 * var(--wcs-base-margin));
+        padding-bottom: calc(1.5 * var(--wcs-base-margin));
+        padding-left: calc(3 * var(--wcs-base-margin));
         display: flex;
         align-items: center;
         height: 100%;
@@ -57,5 +57,73 @@
         content: "\f107";
         line-height: 1;
         box-sizing: border-box;
+    }
+
+    #mobile-menu-icon {
+        height: 24px;
+        padding-left: calc(2 * var(--wcs-base-margin));
+        margin-left: var(--wcs-base-margin);
+        border-left: solid 1px var(--wcs-text-light);
+    }
+
+    #mobile-menu-icon:after {
+        font-family: icons;
+        font-size: 24px;
+        cursor: pointer;
+        content: "\f198";
+        line-height: 1;
+        box-sizing: border-box;
+    }
+        #mobile-menu-icon[data-mobile-open]:after {
+            content: "\f129";
+        }
+    .mobile-overlay {
+        display: none;
+    }
+
+    .mobile-overlay[data-mobile-open] {
+        padding-top: calc(2 * var(--wcs-base-margin));
+        padding-bottom: calc(2 * var(--wcs-base-margin));
+        position: relative;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: block;
+        z-index: 9999;
+        background-color: var(--wcs-white);
+    }
+}
+
+@media screen and (min-width: 576px) {
+    :host {
+        .container {
+            margin: 0 auto;
+            max-width: var(--wcs-com-content-max-width);
+        }
+
+        .menu-bar {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            margin-left: 50px;
+
+            ::slotted(*:not(:first-child)) {
+                margin-left: 40px;
+            }
+        }
+
+        #mobile-menu-icon {
+            display: none;
+        }
+
+        .mobile-overlay {
+            display: none !important;
+        }
+
+        ::slotted(a) {
+            padding-top: unset;
+            padding-bottom: unset;
+            padding-left: unset;
+        }
     }
 }

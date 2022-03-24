@@ -1,11 +1,12 @@
-:host {
+:host{
     display: block;
-
-    .item-container:not([data-open]) {
-        display: none;
+    padding-bottom: var(--wcs-padding);
+    .label-container {
+        display: block;
+        padding-left: calc(9 * var(--wcs-base-margin));
+        color: var(--wcs-gray);
     }
-
-    .label:after {
+    ::slotted(a):after {
         font-family: icons;
         padding-left: var(--wcs-base-margin);
         font-size: 0.6rem;
@@ -13,44 +14,28 @@
         line-height: 1;
         box-sizing: border-box;
     }
-    .label-container{
-        cursor: pointer;
-        user-select: none;
-        display: flex;
-        align-items: center;
-    }
 
-    .label-container[data-open]:after {
-        position: absolute;
-        left: calc(calc(calc(100% / 2) + calc(var(--wcs-com-content-max-width) / 8)) - calc(1.125rem / 2));
-        z-index: 2;
+    ::slotted(a) {
         display: block;
-        width: 1.125rem;
-        height: 1.125rem;
-        content: "";
-        background-color: var(--wcs-primary);
-        transform: rotate(45deg);
+        cursor: pointer;
+        text-decoration: none;
+        font-size: 16px;
+        color: var(--wcs-gray);
+        padding-left: calc(12 * var(--wcs-base-margin));
+        padding-top: calc(1.5 * var(--wcs-base-margin));
+        padding-bottom: calc(1.5 * var(--wcs-base-margin));
     }
+}
 
-    .item-container[data-open] {
-        position: absolute;
-        left: calc(calc(100% / 2) + calc(var(--wcs-com-content-max-width) / 8));
-        top: 0;
-        right: 0;
-        padding: 50px 0 50px 50px;
-        background-blend-mode: multiply;
-        background-color: rgba(0, 0, 0, 0.15);
-        box-sizing: border-box;
-        height: calc(100%);
-        display: flex;
-        flex-direction: column;
-        align-items: start;
+@media screen and (min-width: 576px) {
+    :host {
+        padding-bottom: unset;
 
-        ::slotted(a:not(:first-child)) {
-            margin-top: 24px;
+        .item-container:not([data-open]) {
+            display: none;
         }
 
-        ::slotted(a):after {
+        .label:after {
             font-family: icons;
             padding-left: var(--wcs-base-margin);
             font-size: 0.6rem;
@@ -59,11 +44,51 @@
             box-sizing: border-box;
         }
 
-        ::slotted(a) {
+        .label-container {
             cursor: pointer;
-            text-decoration: none;
-            font-size: 16px;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            padding-left: unset;
             color: var(--wcs-white);
+        }
+
+        .label-container[data-open]:after {
+            position: absolute;
+            left: calc(calc(calc(100% / 2) + calc(var(--wcs-com-content-max-width) / 8)) - calc(1.125rem / 2));
+            z-index: 2;
+            display: block;
+            width: 1.125rem;
+            height: 1.125rem;
+            content: "";
+            background-color: var(--wcs-primary);
+            transform: rotate(45deg);
+        }
+
+        .item-container[data-open] {
+            position: absolute;
+            left: calc(calc(100% / 2) + calc(var(--wcs-com-content-max-width) / 8));
+            top: 0;
+            right: 0;
+            padding: 50px 0 50px 50px;
+            background-blend-mode: multiply;
+            background-color: rgba(0, 0, 0, 0.15);
+            box-sizing: border-box;
+            height: calc(100%);
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+
+            ::slotted(a:not(:first-child)) {
+                margin-top: 24px;
+            }
+            ::slotted(a) {
+                display: unset;
+                color: var(--wcs-white);
+                padding-left: unset;
+                padding-top: unset;
+                padding-bottom: unset;
+            }
         }
     }
 }

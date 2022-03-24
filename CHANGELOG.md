@@ -13,7 +13,7 @@ for new features.
 
 ### Changed
 
-for changes in existing functionality.
+- **com-nav**: add mobile styles for communication nav bar.
 
 ### Deprecated
 
