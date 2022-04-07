@@ -14,6 +14,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Changed
 
 - **com-nav**: add mobile styles for communication nav bar.
+- **core**: remove tslint and migrate to eslint
 
 ### Deprecated
 

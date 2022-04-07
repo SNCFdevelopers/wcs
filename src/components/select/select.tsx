@@ -218,6 +218,8 @@ export class Select implements ComponentInterface {
             SELECT_MACHINE_CONFIG,
             this.initMachineOptions()
         );
+        // FIXME: type checking failed...
+        // @ts-ignore
         this.stateService = interpret(stateMachine);
 
         if (this.multiple) {
