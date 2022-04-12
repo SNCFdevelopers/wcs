@@ -9,12 +9,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-- **input**: add support for file type
+for new features.
 
 ### Changed
 
-- **com-nav**: add mobile styles for communication nav bar.
-- **core**: remove tslint and migrate to eslint
+for changes in existing functionality.
 
 ### Deprecated
 
@@ -31,6 +30,17 @@ for any bug fixes.
 ### Security
 
 in case of vulnerabilities.
+
+## [2.12.0] - 2022-04-12
+
+### Added
+
+- **input**: add support for file type
+
+### Changed
+
+- **com-nav**: add mobile styles for communication nav bar.
+- **core**: remove tslint and migrate to eslint
 
 ## [2.11.0] - 2022-03-22
 
