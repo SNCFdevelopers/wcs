@@ -3,7 +3,7 @@ stages:
     - build
     - deploy
 
-image: node:14-alpine
+image: node:16-alpine
 
 # Cache modules in between jobs: https://docs.gitlab.com/ee/ci/caching/#cache-nodejs-dependencies
 # cache:
