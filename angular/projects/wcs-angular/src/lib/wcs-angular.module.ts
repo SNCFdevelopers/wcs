@@ -6,6 +6,7 @@ import { SwitchValueAccessorDirective } from './directives/switch-value-accessor
 import { InputValueAccessorDirective } from './directives/input-value-accessor.directive';
 import { TextareaValueAccessorDirective } from './directives/textarea-value-accessor.directive';
 import {
+  WcsAccordion, WcsAccordionContent, WcsAccordionHeader, WcsAccordionPanel,
   WcsActionBar,
   WcsApp,
   WcsBadge,
@@ -17,7 +18,7 @@ import {
   WcsComNavCategory,
   WcsComNavSubmenu,
   WcsDivider,
-  WcsDropdown,
+  WcsDropdown, WcsDropdownDivider, WcsDropdownHeader,
   WcsDropdownItem,
   WcsEditableField,
   WcsError,
@@ -29,7 +30,7 @@ import {
   WcsGalactic,
   WcsGalacticMenu,
   WcsGrid,
-  WcsGridColumn,
+  WcsGridColumn, WcsGridCustomCell,
   WcsGridPagination,
   WcsHeader,
   WcsHint,
@@ -60,6 +61,10 @@ import {
 
 const DECLARATIONS = [
   WcsActionBar,
+  WcsAccordion,
+  WcsAccordionContent,
+  WcsAccordionHeader,
+  WcsAccordionPanel,
   WcsApp,
   WcsBadge,
   WcsButton,
@@ -71,6 +76,8 @@ const DECLARATIONS = [
   WcsComNavSubmenu,
   WcsDivider,
   WcsDropdown,
+  WcsDropdownDivider,
+  WcsDropdownHeader,
   WcsDropdownItem,
   WcsEditableField,
   WcsError,
@@ -83,6 +90,7 @@ const DECLARATIONS = [
   WcsGalacticMenu,
   WcsGrid,
   WcsGridColumn,
+  WcsGridCustomCell,
   WcsGridPagination,
   WcsHeader,
   WcsHint,

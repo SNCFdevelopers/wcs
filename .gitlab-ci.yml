@@ -43,8 +43,8 @@ build:
     script:
         - npm run build
         - cd angular/
-        - npm run build wcs-angular
-        - npm run build wcs-formly
+        - npm run build --configuration production wcs-angular
+        - npm run build --configuration production wcs-formly
 
 pages:
     tags:
@@ -65,7 +65,8 @@ pages:
         - cp -r storybook-static/* doc_cache/$CI_COMMIT_REF_NAME/
         - cp -r doc_cache public
 
-publish:
+# PUBLISH PACKAGES FOR TAGS
+publish-wcs-core:
     tags:
         - sncf-runner-1
     stage: deploy
@@ -74,7 +75,24 @@ publish:
     dependencies:
         - build
     script:
-        - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
-        - npm publish
+        - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc && npm publish
+publish-wcs-angular:
+    tags:
+        - sncf-runner-1
+    stage: deploy
+    only:
+        - tags
+    dependencies:
+        - build
+    script:
         - cd angular/dist/wcs-angular/ && echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc && npm publish
-        - cd .. && cd wcs-formly/ && echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc && npm publish
+publish-wcs-formly:
+    tags:
+        - sncf-runner-1
+    stage: deploy
+    only:
+        - tags
+    dependencies:
+        - build
+    script:
+        - cd angular/dist/wcs-formly/ && echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc && npm publish

@@ -31,16 +31,28 @@ for any bug fixes.
 
 in case of vulnerabilities.
 
+## [2.12.1] - 2022-04-13
+
+### Added
+
+- **wcs-angular**: Add missing proxies for WcsAccordion, WcsAccordionContent, WcsAccordionHeader, WcsAccordionPanel,
+  WcsDropdownDivider, WcsDropdownHeader and WcsGridCustomCell web components
+
+### Changed
+
+- **ci**: Parallelization of publish jobs for npm to be able to restart them in case of error
+- **ci**: Build and publish angular libraries with production configuration
+
 ## [2.12.0] - 2022-04-12
 
 ### Added
 
-- **input**: add support for file type
+- **input**: Add support for file type
 
 ### Changed
 
-- **com-nav**: add mobile styles for communication nav bar.
-- **core**: remove tslint and migrate to eslint
+- **com-nav**: Add mobile styles for communication nav bar.
+- **core**: Remove tslint and migrate to eslint
 
 ## [2.11.0] - 2022-03-22
 
