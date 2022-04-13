@@ -43,8 +43,8 @@ build:
     script:
         - npm run build
         - cd angular/
-        - npm run build --configuration production wcs-angular
-        - npm run build --configuration production wcs-formly
+        - npm run build:wcs-angular
+        - npm run build:wcs-formly
 
 pages:
     tags:
