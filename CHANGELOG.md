@@ -25,7 +25,7 @@ for now removed features.
 
 ### Fixed
 
-for any bug fixes.
+- **tabs**: the color of the underline for active tab did not use the `--primary` css variable
 
 ### Security
 
