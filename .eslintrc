@@ -1,0 +1,14 @@
+{
+    "root": true,
+    "extends": "@ionic/eslint-config/recommended",
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "@typescript-eslint/consistent-type-imports": 0,
+        "sort-imports": "off",
+        "import/newline-after-import": 0,
+        "import/order": 0,
+        "@typescript-eslint/ban-ts-comment": 0
+    }
+}

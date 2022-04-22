@@ -11,6 +11,11 @@ export default {
             ]
         }
     },
+    subcomponents: {
+        'WcsAccordionContent': 'wcs-accordion-content',
+        'WcsAccordionHeader': 'wcs-accordion-header',
+        'WcsAccordionPanel': 'wcs-accordion-panel',
+    }
 } as Meta;
 const Template: Story<Partial<{ open: boolean }>> = (args) => html`
     <wcs-accordion>

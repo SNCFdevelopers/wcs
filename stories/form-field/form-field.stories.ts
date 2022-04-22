@@ -12,12 +12,12 @@ export default {
             description: {
                 component: formFieldDocumentation
             }
-        },
-        subcomponents: {
-            'WcsLabel': 'wcs-label',
-            'WcsHint': 'wcs-hint',
-            'WcsError': 'wcs-error',
         }
+    },
+    subcomponents: {
+        'WcsLabel': 'wcs-label',
+        'WcsHint': 'wcs-hint',
+        'WcsError': 'wcs-error',
     },
     decorators: [(story) => html`
         <style>
