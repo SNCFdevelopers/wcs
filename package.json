@@ -16,7 +16,8 @@
     ],
     "scripts": {
         "build:stencil": "stencil build",
-        "build": "stencil build && npm run build-storybook",
+        "generate-custom-element-manifest": "cd src && custom-elements-manifest analyze --stencil --outdir ../",
+        "build": "stencil build && npm run generate-custom-element-manifest && npm run build-storybook",
         "watch:stencil": "stencil build --dev --watch",
         "start": "concurrently --names \"Stencil,Storybook\" -c \"bgBlue.bold,bgMagenta.bold\" \"stencil build --dev --watch\" \"npm run storybook\"",
         "test": "stencil test --spec --e2e",
@@ -28,16 +29,17 @@
     },
     "devDependencies": {
         "@babel/core": "^7.16.0",
+        "@custom-elements-manifest/analyzer": "^0.5.7",
         "@ionic/eslint-config": "^0.3.0",
         "@material/ripple": "13.0.0",
         "@stencil/angular-output-target": "^0.4.0",
         "@stencil/core": "2.13.0",
         "@stencil/sass": "1.5.2",
-        "@storybook/addon-actions": "^6.3.12",
-        "@storybook/addon-docs": "^6.3.12",
-        "@storybook/addon-essentials": "^6.3.12",
-        "@storybook/addon-links": "^6.3.12",
-        "@storybook/web-components": "^6.3.12",
+        "@storybook/addon-actions": "^6.4.20",
+        "@storybook/addon-docs": "^6.4.20",
+        "@storybook/addon-essentials": "^6.4.20",
+        "@storybook/addon-links": "^6.4.20",
+        "@storybook/web-components": "^6.4.20",
         "@types/dom-inputevent": "^1.0.5",
         "@types/glob": "^7.1.3",
         "@types/jest": "26.0.7",
@@ -72,9 +74,10 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/SNCFDevelopers/wcs-sandbox"
+        "url": "git+https://gitlab.com/SNCF/wcs"
     },
     "author": "SNCF",
     "private": false,
-    "license": "MIT"
+    "license": "MIT",
+    "customElements": "custom-elements.json"
 }

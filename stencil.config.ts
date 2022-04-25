@@ -1,12 +1,11 @@
 import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
+import { angularOutputTarget } from '@stencil/angular-output-target';
 
 // @ts-ignore
 import path from 'path';
 // @ts-ignore
 import glob from 'glob';
-import { generateCustomElementsJson } from './scripts/custom-elements-output-storybook';
-import { angularOutputTarget } from '@stencil/angular-output-target';
 
 export const config: Config = {
     namespace: 'wcs',
@@ -40,10 +39,6 @@ export const config: Config = {
         },
         {
             type: 'docs-readme'
-        },
-        {
-            type: 'docs-custom',
-            generator: generateCustomElementsJson
-        },
+        }
     ]
 };

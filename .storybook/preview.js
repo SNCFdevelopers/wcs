@@ -1,7 +1,7 @@
-import {setCustomElements} from '@storybook/web-components';
+import { setCustomElementsManifest } from '@storybook/web-components';
 import customElements from '../custom-elements.json';
 
-setCustomElements(customElements);
+setCustomElementsManifest(customElements);
 
 export const parameters = {
     actions: {argTypesRegex: "^on[A-Z].*"},

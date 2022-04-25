@@ -26,6 +26,8 @@ for now removed features.
 ### Fixed
 
 - **tabs**: the color of the underline for active tab did not use the `--primary` css variable
+- **doc**: the custom-elements.json file was no longer used to generate the storybook documentation. Many
+  properties, events and methods were not documented anymore.
 
 ### Security
 

@@ -1,6 +1,17 @@
 import { JsonDocs } from '@stencil/core/internal';
 import * as fs from 'fs';
 
+// This method was used to generate the custom-elements.json in an earlier version of the specification.
+//
+// It is no longer used, replaced by: https://github.com/open-wc/custom-elements-manifest/tree/master/packages/analyzer
+//
+// We keep the file because the specification is not yet stable and Stencil does not yet provide any implementation for
+// this feature.
+//
+// This script had the advantage of being based on an internal Stencil class (JsonDocs), which provides more assurance
+// than the external tool currently used.
+
+
 // https://github.com/ionic-team/stencil/pull/2354
 export async function generateCustomElementsJson(docsData: JsonDocs) {
     const jsonData = {
