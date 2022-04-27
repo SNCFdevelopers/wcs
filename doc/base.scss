@@ -5,13 +5,8 @@ body {
   padding: 0;
 }
 
-// FIXME: temporary fix for firefox < 63 header not being tall enough
-header.sc-wcs-header {
-  height: 64px !important;
-}
-
 html {
-  background-color: #f2f2f2;
+  background-color: var(--wcs-white);
 }
 
 html, body {
@@ -78,3 +73,11 @@ hr {
   font-weight: 900;
 }
 
+@font-face {
+    font-family: "icons";
+    src: url("/assets/fonts/icons/icons.eot?#iefix") format("embedded-opentype"),
+    url("/assets/fonts/icons/icons.woff2") format("woff2"),
+    url("/assets/fonts/icons/icons.woff") format("woff"),
+    url("/assets/fonts/icons/icons.ttf") format("truetype"),
+    url("/assets/fonts/icons/icons.svg#icons") format("svg");
+}
