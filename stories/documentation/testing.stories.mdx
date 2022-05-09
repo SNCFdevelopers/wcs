@@ -1,0 +1,23 @@
+<Meta title="Documentation/Testing" />
+
+# Testing an application that uses WCS
+
+The main problem encountered when we want to test an application that uses WCS is the use of web components. For example
+SeleniumHQ still doesn't support this technology very well : https://github.com/SeleniumHQ/selenium-ide/issues/702
+
+Writing simple tests that break through the shadow dom is therefore not always easy.
+
+To solve this problem we recommend you to use the Playwright library (https://playwright.dev/) which really stood out
+during our tests. Especially on the following points:
+
+- Native support of the Web Components technology
+- Used in production by MS on Outlook / VSCode (you can feel it in the quality of the documentation and the tooling)
+- Used by other web component libraries
+- Code first approach but with a test generation tool that allows to write tests as code automatically (we combine the
+advantages of code and generation for the 80% of tests that can be generated with clicks)
+- High quality VSCode integration
+- Usable in the CI/CD with their docker image
+- Allows to run tests in parallel and on multiple browsers at the same time
+
+
+

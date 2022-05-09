@@ -13,7 +13,7 @@ for new features.
 
 ### Changed
 
-for changes in existing functionality.
+- **doc**: reorganize storybook documentation: split of examples and textual documentation
 
 ### Deprecated
 

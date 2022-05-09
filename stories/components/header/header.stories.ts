@@ -1,0 +1,22 @@
+import { Meta, Story } from '@storybook/web-components';
+import { html } from 'lit-html';
+
+export default {
+    title: 'Components/Header',
+    component: 'wcs-header',
+} as Meta;
+
+const Template: Story = () => html`
+    <wcs-header>
+        <img slot="logo"
+             src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgdmVyc2lvbj0iMS4wIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMzIgMzIiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KCTxsaW5lYXJHcmFkaWVudCBpZD0iU1ZHX0dSQURJRU5UIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAiIHkxPSIxNiIgeDI9IjMxLjk1OTMiIHkyPSIxNiI+DQoJCTxzdG9wICBvZmZzZXQ9IjAiIHN0eWxlPSJzdG9wLWNvbG9yOiM4MzJGNzAiLz4NCgkJPHN0b3AgIG9mZnNldD0iMC4yNDcyIiBzdHlsZT0ic3RvcC1jb2xvcjojQUMyODdDIi8+DQoJCTxzdG9wICBvZmZzZXQ9IjAuODE0NiIgc3R5bGU9InN0b3AtY29sb3I6I0RGMjUzMCIvPg0KCQk8c3RvcCAgb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojREYyNTMwIi8+DQoJPC9saW5lYXJHcmFkaWVudD4NCgk8cGF0aCBmaWxsPSJ1cmwoI1NWR19HUkFESUVOVCkiIGQ9Ik0wLjYsNy43QzAuMiw3LjcsMCw3LjgsMCw4LjJ2MTUuN2MwLDAuMywwLjIsMC41LDAuNSwwLjVoMjhjMC4zLDAsMC41LDAsMC42LTAuNGMwLDAsMi44LTguOSwyLjktOSBjMC4xLTAuMywwLTAuNS0wLjMtMC43QzIyLjYsOC41LDguOSw3LjYsMi44LDcuNkMxLjksNy42LDEuMSw3LjYsMC42LDcuN3oiLz4NCgk8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNNi40LDE3LjdjLTEtMC41LTEuNy0wLjgtMS42LTEuM0M1LDE1LjgsNi4xLDE1LjYsNywxNS42YzAuNSwwLDAuOCwwLjEsMS4yLDAuMmwwLjMtMS4xIGMtMC41LTAuMS0wLjgtMC4xLTEuNC0wLjFjLTEuOSwwLTMuNiwwLjUtNCwxLjZjLTAuNSwxLjMsMC45LDIsMi4yLDIuNmMxLDAuNSwxLjgsMC45LDEuNSwxLjVjLTAuMiwwLjUtMC45LDAuNy0yLDAuNyBjLTAuOSwwLTItMC4zLTIuOS0wLjdsLTAuNSwxLjFjMC42LDAuMywyLDAuNywzLjEsMC43YzIuMSwwLDMuNS0wLjUsNC4xLTEuN0M5LjMsMTkuMSw3LjcsMTguMyw2LjQsMTcuN3oiLz4NCgk8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNOS4zLDE5LjZDOS4zLDE5LjcsOS4zLDE5LjcsOS4zLDE5LjZjMC4xLDAsMC4xLDAsMC4xLDBjMCwwLDEtMy4yLDEtMy4yYzEuMSwxLjUsMi4xLDMuNSwyLjcsNS42aDEuNyBsMC45LTIuN2MwLDAsMCwwLDAuMSwwYzAsMCwwLDAsMC4xLDBjMC4zLDEuNywxLjksMi44LDQuMywyLjhjMS41LDAsMi45LTAuNCwzLjItMC42bDAuOS0yLjhoMy40bDAuMy0xLjFoLTMuNGwwLjYtMS44aDQuMSBsMC40LTEuMWgtNS43bC0xLjksNi4xYy0wLjQsMC4xLTAuOSwwLjItMS41LDAuMmMtMS4xLDAtMi4xLTAuMy0yLjYtMC45Yy0wLjQtMC41LTAuNS0xLTAuNC0xLjdjMC4yLTEuNiwxLjgtMi42LDMuOC0yLjYgYzAuNCwwLDAuOSwwLDEuMywwLjFsMC40LTEuMmMtMC41LTAuMS0xLjEtMC4xLTEuNy0wLjFjLTEuOCwwLTMuNCwwLjYtNC40LDEuN2MwLDAtMC4xLDAtMC4xLDBjMCwwLTAuMSwwLDAsMGwwLjUtMS42aC0xLjUgTDE0LDE5LjhjLTAuNS0xLjUtMS42LTMuNS0yLjktNS4xSDkuNWwtMS4yLDMuN0M4LjksMTguOCw5LjEsMTkuMiw5LjMsMTkuNnoiLz4NCjwvc3ZnPg0K"
+             alt="Logo SNCF">
+        <h1 slot="title">Votre superbe application</h1>
+        <div slot="actions">
+            <wcs-button class="wcs-light" mode="clear"><span>Connexion</span><i
+                class="material-icons">person_outline</i></wcs-button>
+        </div>
+    </wcs-header>
+`;
+
+export const Default = Template.bind({});
