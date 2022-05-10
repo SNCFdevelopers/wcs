@@ -14,6 +14,7 @@ for new features.
 ### Changed
 
 - **doc**: reorganize storybook documentation: split of examples and textual documentation
+- **button**: the inner `button` or `a` element now takes the size of the `wcs-button` (don't forget to check your wcs-button width after update)
 
 ### Deprecated
 

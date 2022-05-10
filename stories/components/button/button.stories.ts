@@ -40,6 +40,12 @@ const Template: Story<Partial<{ innerText: string, mode: WcsButtonMode, shape: W
                 class="wcs-light">
         Light
     </wcs-button>
+    <h3>Full Width</h3>
+    <wcs-button style="width: 100%" mode=${args.mode} shape=${args.shape} ?ripple=${args.ripple}
+                ?disabled=${args.disabled}
+                class="wcs-primary">
+        ${args.innerText}
+    </wcs-button>
 `;
 
 export const Default = Template.bind({});
