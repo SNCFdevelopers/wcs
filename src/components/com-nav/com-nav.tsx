@@ -10,7 +10,7 @@ export class ComNav implements ComponentInterface {
 
     @Prop() appName: string;
 
-    @State() mobileMenuOpen: boolean = true;
+    @State() mobileMenuOpen: boolean = false;
     @State() currentActiveSizing: 'desktop' | 'mobile';
     resizeObserver: ResizeObserver;
 
@@ -50,7 +50,8 @@ export class ComNav implements ComponentInterface {
                     </div>
                     <div class="container-right">
                         <slot name="actions"/>
-                        <span id="mobile-menu-icon" data-mobile-open={this.mobileMenuOpen} onClick={() => this.mobileMenuIconClick()}></span>
+                        <span id="mobile-menu-icon" data-mobile-open={this.mobileMenuOpen}
+                              onClick={() => this.mobileMenuIconClick()}></span>
                     </div>
                 </div>
                 <div class="mobile-overlay" data-mobile-open={this.mobileMenuOpen}>
