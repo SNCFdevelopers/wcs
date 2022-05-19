@@ -150,7 +150,7 @@ const TooltipOnLabelTemplate: Story<Partial<FormFieldStoriesParams>> = (args) =>
         <wcs-tooltip for="help" position="right">Logoden biniou degemer mat an penn ar bed c’har, se seizh sae Kernev
             diwezhañ foenn goulenn yac’h dad, kastell pegen stivell dre chokolad Montroulez plijet.
         </wcs-tooltip>
-        <wcs-input placeholder="John doe"></wcs-input>
+        <wcs-input required placeholder="John doe"></wcs-input>
         <wcs-hint>A name is something that describe a person, like you can call the person by his name, you get it?
         </wcs-hint>
         <wcs-error>Your name is not valid, please do the needful following <a

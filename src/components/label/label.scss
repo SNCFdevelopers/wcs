@@ -8,3 +8,13 @@
     color: var(--wcs-red);
     content: "*";
 }
+
+label {
+    display: inline-flex;
+    align-items: center;
+
+    // Add margin before tooltip icon
+    ::slotted(wcs-mat-icon) {
+        margin-left: calc(var(--wcs-base-margin) / 2);
+    }
+}

@@ -31,6 +31,7 @@ for now removed features.
   properties, events and methods were not documented anymore.
 - **com-nav**: the menu overlay on mobile was open by default
 - **wcs-formly**: the formly input was always disabled
+- **label**: the tooltip icon was not well positioned
 
 ### Security
 
