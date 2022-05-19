@@ -7,7 +7,7 @@ import { FieldType } from '@ngx-formly/core';
   template: `
     <formly-wcs-field-wrapper [field]="field" [id]="id" [showError]="showError" [to]="to">
     <wcs-input [placeholder]="to.placeholder" [type]="type" [formControl]="formControl" [formlyAttributes]="field"
-               [attr.disabled]="to.disabled"
+               [attr.disabled]="to.disabled ? true : null"
                [prefixLabel]="to.prefixLabel"
                [suffixLabel]="to.suffixLabel"
                [attr.required]="to.required && to.hideRequiredMarker !== true"

@@ -30,6 +30,7 @@ for now removed features.
 - **doc**: the custom-elements.json file was no longer used to generate the storybook documentation. Many
   properties, events and methods were not documented anymore.
 - **com-nav**: the menu overlay on mobile was open by default
+- **wcs-formly**: the formly input was always disabled
 
 ### Security
 
