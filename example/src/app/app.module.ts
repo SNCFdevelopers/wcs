@@ -14,6 +14,7 @@ import { FormlyModule } from '@ngx-formly/core';
 import { WcsFormlyModule } from 'wcs-formly';
 import { FormlyStylingExampleComponent } from './formly-example/formly-styling-example.component';
 import { ModalExampleComponent } from './modal-example/modal-example.component';
+import { FormlyInputExamplesComponent } from './formly-example/formly-input-examples.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ModalExampleComponent } from './modal-example/modal-example.component';
     InputExampleComponent,
     FormlyExampleComponent,
     FormlyStylingExampleComponent,
-    ModalExampleComponent
+    ModalExampleComponent,
+    FormlyInputExamplesComponent
   ],
   imports: [
     BrowserModule,

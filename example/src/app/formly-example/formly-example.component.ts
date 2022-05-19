@@ -17,6 +17,8 @@ type Option = { value: string, label: string, disabled: boolean};
         Submit
       </wcs-button>
     </form>
+    <h2>Input examples</h2>
+    <app-formly-input-examples></app-formly-input-examples>
   `,
   styles: [`
     form {

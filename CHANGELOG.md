@@ -9,12 +9,14 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-for new features.
+- **wcs-formly**: add support for min, max, minlength, maxlength, spellcheck, autofocus, autocorrect, autocomplete,
+  autocapitalize, pattern and inputmode attribute in formly input template options
 
 ### Changed
 
 - **doc**: reorganize storybook documentation: split of examples and textual documentation
-- **button**: the inner `button` or `a` element now takes the size of the `wcs-button` (don't forget to check your wcs-button width after update)
+- **button**: the inner `button` or `a` element now takes the size of the `wcs-button` (don't forget to check your
+  wcs-button width after update)
 
 ### Deprecated
 
