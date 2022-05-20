@@ -17,6 +17,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **doc**: reorganize storybook documentation: split of examples and textual documentation
 - **button**: the inner `button` or `a` element now takes the size of the `wcs-button` (don't forget to check your
   wcs-button width after update)
+- **badge**: shape attribute wasn't handled by the component. The default shape is no longer rounded, if you want a
+  rounded shape on your badges you must now assign the 'rounded' value on the attribute
 
 ### Deprecated
 

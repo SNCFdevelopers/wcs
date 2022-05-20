@@ -8,7 +8,7 @@
     text-align: center;
     white-space: nowrap;
     vertical-align: baseline;
-    border-radius: 0.75rem;
+    border-radius: 6px;
     color: var(--wcs-contrast);
     background-color: var(--wcs-base);
 }
@@ -17,6 +17,6 @@
     opacity: calc((100 - var(--wcs-badge-ligther-percentage)) / 100);
 }
 
-:host([mode=rounded]){
-    border-radius: 6px;
+:host([shape=rounded]){
+    border-radius: 0.75rem;
 }
