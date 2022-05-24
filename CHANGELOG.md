@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## Unreleased
+## [2.13.0] - 2022-05-24
 
 ### Added
 
@@ -20,14 +20,6 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **badge**: shape attribute wasn't handled by the component. The default shape is no longer rounded, if you want a
   rounded shape on your badges you must now assign the 'rounded' value on the attribute
 
-### Deprecated
-
-for soon-to-be removed features.
-
-### Removed
-
-for now removed features.
-
 ### Fixed
 
 - **tabs**: the color of the underline for active tab did not use the `--primary` css variable
@@ -36,10 +28,6 @@ for now removed features.
 - **com-nav**: the menu overlay on mobile was open by default
 - **wcs-formly**: the formly input was always disabled
 - **label**: the tooltip icon was not well positioned
-
-### Security
-
-in case of vulnerabilities.
 
 ## [2.12.1] - 2022-04-13
 
