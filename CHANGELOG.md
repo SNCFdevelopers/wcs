@@ -25,7 +25,8 @@ for now removed features.
 
 ### Fixed
 
-**doc**: Change the size of the SNCF logo in the navbar demo story
+**doc**: change the size of the SNCF logo in the navbar demo story
+**input**: the input prefix icon was not centered vertically
 
 ### Security
 
