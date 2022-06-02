@@ -21,16 +21,12 @@ before_script:
     - cd angular/ && npm install && cd ../
 
 test:
-    tags:
-        - sncf-runner-1
     image: buildkite/puppeteer:5.2.1
     stage: test
     script:
         - npm test
 
 build:
-    tags:
-        - sncf-runner-1
     stage: build
     artifacts:
         expire_in: 4 days
@@ -67,8 +63,6 @@ pages:
 
 # PUBLISH PACKAGES FOR TAGS
 publish-wcs-core:
-    tags:
-        - sncf-runner-1
     stage: deploy
     only:
         - tags
@@ -77,8 +71,6 @@ publish-wcs-core:
     script:
         - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc && npm publish
 publish-wcs-angular:
-    tags:
-        - sncf-runner-1
     stage: deploy
     only:
         - tags
@@ -87,8 +79,6 @@ publish-wcs-angular:
     script:
         - cd angular/dist/wcs-angular/ && echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc && npm publish
 publish-wcs-formly:
-    tags:
-        - sncf-runner-1
     stage: deploy
     only:
         - tags
