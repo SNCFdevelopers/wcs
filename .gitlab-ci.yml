@@ -21,12 +21,16 @@ before_script:
     - cd angular/ && npm install && cd ../
 
 test:
+    tags:
+        - docker
     image: buildkite/puppeteer:5.2.1
     stage: test
     script:
         - npm test
 
 build:
+    tags:
+        - docker
     stage: build
     artifacts:
         expire_in: 4 days
@@ -63,6 +67,8 @@ pages:
 
 # PUBLISH PACKAGES FOR TAGS
 publish-wcs-core:
+    tags:
+        - docker
     stage: deploy
     only:
         - tags
@@ -71,6 +77,8 @@ publish-wcs-core:
     script:
         - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc && npm publish
 publish-wcs-angular:
+    tags:
+        - docker
     stage: deploy
     only:
         - tags
@@ -79,6 +87,8 @@ publish-wcs-angular:
     script:
         - cd angular/dist/wcs-angular/ && echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc && npm publish
 publish-wcs-formly:
+    tags:
+        - docker
     stage: deploy
     only:
         - tags
