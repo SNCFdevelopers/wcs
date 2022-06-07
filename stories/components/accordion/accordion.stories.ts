@@ -17,8 +17,8 @@ export default {
         'WcsAccordionPanel': 'wcs-accordion-panel',
     }
 } as Meta;
-const Template: Story<Partial<{ open: boolean }>> = (args) => html`
-    <wcs-accordion>
+const Template: Story<Partial<{ open: boolean, hideActionText: boolean, highlight: boolean, groupContentWithHeader: boolean }>> = (args) => html`
+    <wcs-accordion ?hide-action-text="${args.hideActionText}" ?highlight="${args.highlight}" ?group-content-with-header="${args.groupContentWithHeader}">
         <wcs-accordion-panel ?open=${args.open}>
             <wcs-accordion-header>Un premier panel</wcs-accordion-header>
             <wcs-accordion-content>Logoden biniou degemer mat an penn ar bed krib, brudet kontell e outañ doujañ darev
@@ -52,10 +52,10 @@ const Template: Story<Partial<{ open: boolean }>> = (args) => html`
 `;
 
 export const Default = Template.bind({});
-Default.args = {open: false};
+Default.args = {open: false, hideActionText: false, highlight: false, groupContentWithHeader: false };
 
-const PanelTemplate: Story<Partial<{ open: boolean }>> = (args) => html`
-    <wcs-accordion-panel ?open=${args.open}>
+const PanelTemplate: Story<Partial<{ open: boolean, hideActionText: boolean, highlight: boolean, groupContentWithHeader: boolean }>> = (args) => html`
+    <wcs-accordion-panel ?open=${args.open} ?hide-action-text="${args.hideActionText}" ?highlight="${args.highlight}" ?group-content-with-header="${args.groupContentWithHeader}">
         <wcs-accordion-header>Un premier panel</wcs-accordion-header>
         <wcs-accordion-content>Logoden biniou degemer mat an penn ar bed krib, brudet kontell e outañ doujañ darev
             skeud hennont vuhez, wrierez micherour blot liorzh c’hotoñs war loar. Eus rev feiz onest bremañ eme
@@ -66,5 +66,5 @@ const PanelTemplate: Story<Partial<{ open: boolean }>> = (args) => html`
     </wcs-accordion-panel>
 `;
 export const PanelOnly = PanelTemplate.bind({});
-PanelOnly.args = {open: false}
+PanelOnly.args = {open: false, hideActionText: false, highlight: false, groupContentWithHeader: false }
 

@@ -38,4 +38,35 @@
     .content {
         display: block;
     }
+
+    &:host([group-content-with-header]) {
+        .header {
+            border-radius: 7px 7px 0 0;
+            padding-bottom: 0;
+        }
+
+        .content {
+            border-radius: 0 0 7px 7px;
+            margin-bottom: 14px;
+            background-color: var(--wcs-light);
+        }
+    }
+
+    &:host([highlight]) {
+        .header {
+            background-color: var(--wcs-primary);
+            color: var(--wcs-light);
+        }
+
+        .arrow {
+            fill: var(--wcs-light);
+        }
+
+        &:host([group-content-with-header]) {
+            .content {
+                background-color: var(--wcs-primary);
+                color: var(--wcs-light);
+            }
+        }
+    }
 }

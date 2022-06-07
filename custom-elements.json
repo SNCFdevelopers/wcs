@@ -520,6 +520,33 @@
               "default": "[]"
             },
             {
+              "kind": "field",
+              "name": "hideActionText",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Specifies whether accordion-panel components should display the open/close text.\r\nif false, it won't show the open/close text in all accordion-panel."
+            },
+            {
+              "kind": "field",
+              "name": "highlight",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Specifies whether accordion-panel components should highlight when open with primary color.\r\nif true, the background color of the accordion-panel will be the primary color.\r\nif false, the background color of the accordion-panel will be wcs-light."
+            },
+            {
+              "kind": "field",
+              "name": "groupContentWithHeader",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Specifies wether accordion-panel components should group the content with header in one card\r\nif true, there will be only one card with the header and the content\r\nNothing change when the panel is close"
+            },
+            {
               "kind": "method",
               "name": "wcsOpenChangeHandler",
               "parameters": [
@@ -530,6 +557,21 @@
                   }
                 }
               ]
+            },
+            {
+              "kind": "method",
+              "name": "updateHideActiontextOnPanel",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "updateHighlightOnPanel",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "updateGroupContentWithHeader",
+              "privacy": "private"
             },
             {
               "kind": "method",
@@ -563,6 +605,29 @@
                 }
               ],
               "description": "Close all accordion panels except the one that match the eventTarget reference"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "hide-action-text",
+              "fieldName": "hideActionText",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "highlight",
+              "fieldName": "highlight",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "group-content-with-header",
+              "fieldName": "groupContentWithHeader",
+              "type": {
+                "text": "boolean"
+              }
             }
           ],
           "tagName": "wcs-accordion",
@@ -683,6 +748,33 @@
               "default": "false"
             },
             {
+              "kind": "field",
+              "name": "hideActionText",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Specifies whether the component should display the open/close text.\r\nif false, it won't show the open/close text."
+            },
+            {
+              "kind": "field",
+              "name": "highlight",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Specifies whether the component should highlight when open with primary color.\r\nif true, the background color will be the primary color.\r\nif false, the background color will be wcs-light."
+            },
+            {
+              "kind": "field",
+              "name": "groupContentWithHeader",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Specifies wether the component should group the content with header in one card\r\nif true, there will be only one card with the header and the content\r\nNothing change when the panel is close"
+            },
+            {
               "kind": "method",
               "name": "openChange",
               "parameters": [
@@ -707,6 +799,27 @@
             {
               "name": "open",
               "fieldName": "open"
+            },
+            {
+              "name": "hide-action-text",
+              "fieldName": "hideActionText",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "highlight",
+              "fieldName": "highlight",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "group-content-with-header",
+              "fieldName": "groupContentWithHeader",
+              "type": {
+                "text": "boolean"
+              }
             }
           ],
           "tagName": "wcs-accordion-panel",
@@ -7001,6 +7114,10 @@
               },
               "default": "'border'",
               "description": "Indicates the spinner display mode.\r\nAccepted values: `border` or `growing`"
+            },
+            {
+              "kind": "method",
+              "name": "render"
             }
           ],
           "attributes": [

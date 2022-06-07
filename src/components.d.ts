@@ -28,6 +28,18 @@ import { TextareaChangeEventDetail } from "./components/textarea/textarea-interf
 import { WcsTooltipPosition } from "./components/tooltip/tooltip-interface";
 export namespace Components {
     interface WcsAccordion {
+        /**
+          * Specifies wether accordion-panel components should group the content with header in one card if true, there will be only one card with the header and the content Nothing change when the panel is close
+         */
+        "groupContentWithHeader": boolean;
+        /**
+          * Specifies whether accordion-panel components should display the open/close text. if false, it won't show the open/close text in all accordion-panel.
+         */
+        "hideActionText": boolean;
+        /**
+          * Specifies whether accordion-panel components should highlight when open with primary color. if true, the background color of the accordion-panel will be the primary color. if false, the background color of the accordion-panel will be wcs-light.
+         */
+        "highlight": boolean;
     }
     interface WcsAccordionContent {
     }
@@ -35,6 +47,18 @@ export namespace Components {
     }
     interface WcsAccordionPanel {
         "close": () => Promise<void>;
+        /**
+          * Specifies wether the component should group the content with header in one card if true, there will be only one card with the header and the content Nothing change when the panel is close
+         */
+        "groupContentWithHeader": boolean;
+        /**
+          * Specifies whether the component should display the open/close text. if false, it won't show the open/close text.
+         */
+        "hideActionText": boolean;
+        /**
+          * Specifies whether the component should highlight when open with primary color. if true, the background color will be the primary color. if false, the background color will be wcs-light.
+         */
+        "highlight": boolean;
         "open": boolean;
     }
     interface WcsActionBar {
@@ -1219,12 +1243,36 @@ declare global {
 }
 declare namespace LocalJSX {
     interface WcsAccordion {
+        /**
+          * Specifies wether accordion-panel components should group the content with header in one card if true, there will be only one card with the header and the content Nothing change when the panel is close
+         */
+        "groupContentWithHeader"?: boolean;
+        /**
+          * Specifies whether accordion-panel components should display the open/close text. if false, it won't show the open/close text in all accordion-panel.
+         */
+        "hideActionText"?: boolean;
+        /**
+          * Specifies whether accordion-panel components should highlight when open with primary color. if true, the background color of the accordion-panel will be the primary color. if false, the background color of the accordion-panel will be wcs-light.
+         */
+        "highlight"?: boolean;
     }
     interface WcsAccordionContent {
     }
     interface WcsAccordionHeader {
     }
     interface WcsAccordionPanel {
+        /**
+          * Specifies wether the component should group the content with header in one card if true, there will be only one card with the header and the content Nothing change when the panel is close
+         */
+        "groupContentWithHeader"?: boolean;
+        /**
+          * Specifies whether the component should display the open/close text. if false, it won't show the open/close text.
+         */
+        "hideActionText"?: boolean;
+        /**
+          * Specifies whether the component should highlight when open with primary color. if true, the background color will be the primary color. if false, the background color will be wcs-light.
+         */
+        "highlight"?: boolean;
         "onWcsOpenChange"?: (event: CustomEvent<boolean>) => void;
         "open"?: boolean;
     }

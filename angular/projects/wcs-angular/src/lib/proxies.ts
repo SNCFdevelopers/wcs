@@ -11,12 +11,14 @@ import { Components } from 'wcs-core';
 export declare interface WcsAccordion extends Components.WcsAccordion {}
 
 @ProxyCmp({
-  defineCustomElementFn: undefined
+  defineCustomElementFn: undefined,
+  inputs: ['groupContentWithHeader', 'hideActionText', 'highlight']
 })
 @Component({
   selector: 'wcs-accordion',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  inputs: ['groupContentWithHeader', 'hideActionText', 'highlight']
 })
 export class WcsAccordion {
   protected el: HTMLElement;
@@ -75,14 +77,14 @@ export declare interface WcsAccordionPanel extends Components.WcsAccordionPanel 
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['open'],
+  inputs: ['groupContentWithHeader', 'hideActionText', 'highlight', 'open'],
   methods: ['close']
 })
 @Component({
   selector: 'wcs-accordion-panel',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['open']
+  inputs: ['groupContentWithHeader', 'hideActionText', 'highlight', 'open']
 })
 export class WcsAccordionPanel {
   protected el: HTMLElement;

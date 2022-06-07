@@ -10,6 +10,14 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 
 for new features.
+- **accordion-panel**:
+  - add `hideActionText` (false by default, to hide or show the open/close text)
+  - add `highlight` (false by default, to highlight with the primary color when panel is open)
+  - add `groupContentWithHeader` (false by default, to group the content of panel with the header)
+- **accordion**:
+  - add `hideActionText` (false by default, to hide or show all the open/close text in accordion-panel)
+  - add `highlight` (false by default, to highlight with the primary color the current open panel for all accordion-panel)
+  - add `groupContentWithHeader` (false by default, to group the content of panel with the header for all accordion-panel)
 
 ### Changed
 
