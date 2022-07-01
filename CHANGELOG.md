@@ -15,6 +15,8 @@ for new features.
 
 **spinner**: Change border-mode spinner design to match recent [progress bar design](https://designmetier-bootstrap.sncf.fr/docs/4.3/components/progress/) updates
 
+**spinner** tweaked the animation timing for "growing" spinners
+
 ### Deprecated
 
 for soon-to-be removed features.
