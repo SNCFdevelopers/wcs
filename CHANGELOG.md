@@ -29,6 +29,7 @@ for now removed features.
 
 **doc**: change the size of the SNCF logo in the navbar demo story
 **input**: the input prefix icon was not centered vertically
+**com-nav**: add inner spacing to prevent app name from hugging the left side of the screen on smaller displays
 
 ### Security
 
