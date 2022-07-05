@@ -3,7 +3,7 @@
 This project is the web component implementation of the [SNCF design system](https://designmetier-bootstrap.sncf.fr/).  
 It is built using [stencil](https://github.com/ionic-team/stencil).
 
-If you read this documentation on Github, only the development branch is updated at the moment. We use a GitLab project for WCS development and releases.
+If you read this documentation on GitHub, only the development branch is updated at the moment. We use a GitLab project for WCS development and releases.
 
 ## Packages
 
@@ -25,9 +25,9 @@ Select and select options size behavior, especially with multiple select. As of 
 
 ## Documentation
 
-There is documentation available at https://sncf.gitlab.io/wcs/master/. It is only available for the develop branch though as the project remains unreleased.
+There is documentation available at https://sncf.gitlab.io/wcs/develop/. It is only available for the develop branch though as the project remains unreleased.
 
-For a specific component you can also look under src/components/<the-component-you-want-the-doc-for>/README.md.
+For a specific component you can also look under src/components/`{the-component-you-want-the-doc-for}`/README.md.
     
 ### Example usage
 
