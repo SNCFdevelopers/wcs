@@ -12,9 +12,9 @@ This component is the implementation of the navigation bar dedicated to communic
 
 ## Properties
 
-| Property  | Attribute  | Description | Type     | Default     |
-| --------- | ---------- | ----------- | -------- | ----------- |
-| `appName` | `app-name` |             | `string` | `undefined` |
+| Property  | Attribute  | Description                                             | Type     | Default     |
+| --------- | ---------- | ------------------------------------------------------- | -------- | ----------- |
+| `appName` | `app-name` | Name of the application to be displayed in the menu bar | `string` | `undefined` |
 
 
 ----------------------------------------------

@@ -305,6 +305,12 @@ export declare interface WcsComNavSubmenu extends Components.WcsComNavSubmenu {
    *  
    */
   wcsSubmenuOpened: EventEmitter<CustomEvent<IComNavSubmenuMenuOpenedEventDetail>>;
+  /**
+   * Emitted when a user click on a final navigation action.
+
+Used by the com-nav component to close the mobile menu overlay when a user click on a final action. 
+   */
+  wcsClickOnFinalAction: EventEmitter<CustomEvent<void>>;
 
 }
 
@@ -324,7 +330,7 @@ export class WcsComNavSubmenu {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['wcsSubmenuOpened']);
+    proxyOutputs(this, this.el, ['wcsSubmenuOpened', 'wcsClickOnFinalAction']);
   }
 }
 

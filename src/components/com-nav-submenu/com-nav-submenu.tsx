@@ -25,6 +25,12 @@ export class ComNavSubmenu implements ComponentInterface {
     @Prop() panelDescription: string;
     @State() menuOpen: boolean = false;
     @Event() wcsSubmenuOpened: EventEmitter<MenuOpenedEventDetail>;
+    /**
+     * Emitted when a user click on a final navigation action.
+     *
+     * Used by the com-nav component to close the mobile menu overlay when a user click on a final action.
+     */
+    @Event() wcsClickOnFinalAction: EventEmitter<void>;
 
     /**
      * If the user clicks outside the menu, we close it
@@ -71,6 +77,7 @@ export class ComNavSubmenu implements ComponentInterface {
     private handleMenuItemsClick(evt: MouseEvent) {
         if ((evt.target as HTMLElement).tagName === 'A') {
             this.close();
+            this.wcsClickOnFinalAction.emit();
         }
     }
 

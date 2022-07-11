@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop, Element, ComponentInterface, State } from '@stencil/core';
+import { Component, Host, h, Prop, Element, ComponentInterface, State, Listen } from '@stencil/core';
 
 @Component({
     tag: 'wcs-com-nav',
@@ -8,6 +8,7 @@ import { Component, Host, h, Prop, Element, ComponentInterface, State } from '@s
 export class ComNav implements ComponentInterface {
     @Element() el!: HTMLWcsComNavElement;
 
+    /** Name of the application to be displayed in the menu bar */
     @Prop() appName: string;
 
     @State() mobileMenuOpen: boolean = false;
@@ -35,6 +36,27 @@ export class ComNav implements ComponentInterface {
         });
         this.resizeObserver.observe(document.body);
     }
+
+
+    //region Handlers for mobile menu overlay visibility
+    //
+    // In mobile mode, we have only one global drawer to display the menu, that why we have to listen the clicks events
+    // in the root component (this component). In desktop mode, all submenus and categories manage their drawer its
+    // opening state.
+    //
+    // We listen to the click events fired by the sebmenu component and we close the mobile menu.
+    // In desktop mode, the submenu itself manages the closing of the menu.
+    @Listen('wcsClickOnFinalAction')
+    onClickOnFinalAction() {
+        this.mobileMenuOpen = false;
+    }
+    // We also listen click events on the category menu items, to close the mobile menu.
+    // In desktop mode, the category itself manages the closing of the menu.
+    @Listen('wcsCategoryItemClicked')
+    onClickOnFinalActionCat() {
+        this.mobileMenuOpen = false;
+    }
+    //endregion
 
     render() {
         return (

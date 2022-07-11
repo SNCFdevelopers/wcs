@@ -10,20 +10,23 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 
 for new features.
+
 - **accordion-panel**:
-  - add `hideActionText` (false by default, to hide or show the open/close text)
-  - add `highlight` (false by default, to highlight with the primary color when panel is open)
-  - add `groupContentWithHeader` (false by default, to group the content of panel with the header)
+    - add `hideActionText` (false by default, to hide or show the open/close text)
+    - add `highlight` (false by default, to highlight with the primary color when panel is open)
+    - add `groupContentWithHeader` (false by default, to group the content of panel with the header)
 - **accordion**:
-  - add `hideActionText` (false by default, to hide or show all the open/close text in accordion-panel)
-  - add `highlight` (false by default, to highlight with the primary color the current open panel for all accordion-panel)
-  - add `groupContentWithHeader` (false by default, to group the content of panel with the header for all accordion-panel)
+    - add `hideActionText` (false by default, to hide or show all the open/close text in accordion-panel)
+    - add `highlight` (false by default, to highlight with the primary color the current open panel for all
+      accordion-panel)
+    - add `groupContentWithHeader` (false by default, to group the content of panel with the header for all
+      accordion-panel)
 
 ### Changed
 
-**spinner**: Change border-mode spinner design to match recent [progress bar design](https://designmetier-bootstrap.sncf.fr/docs/4.3/components/progress/) updates
-
-**spinner** tweaked the animation timing for "growing" spinners
+- **spinner**: Change border-mode spinner design to match
+  recent [progress bar design](https://designmetier-bootstrap.sncf.fr/docs/4.3/components/progress/) updates
+- **spinner** tweaked the animation timing for "growing" spinners
 
 ### Deprecated
 
@@ -35,10 +38,11 @@ for now removed features.
 
 ### Fixed
 
-**doc**: change the size of the SNCF logo in the navbar demo story
-**input**: the input prefix icon was not centered vertically
-**com-nav**: add inner spacing to prevent app name from hugging the left side of the screen on smaller displays
-**tooltip**: add line break if a word exceeds the width of the tooltip
+- **doc**: change the size of the SNCF logo in the navbar demo story
+- **input**: the input prefix icon was not centered vertically
+- **com-nav**: add inner spacing to prevent app name from hugging the left side of the screen on smaller displays
+- **com-nav**: automatically close the mobile menu overlay when user click on a navigation item
+- **tooltip**: add line break if a word exceeds the width of the tooltip
 
 ### Security
 

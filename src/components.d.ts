@@ -130,6 +130,9 @@ export namespace Components {
         "name": string;
     }
     interface WcsComNav {
+        /**
+          * Name of the application to be displayed in the menu bar
+         */
         "appName": string;
     }
     interface WcsComNavCategory {
@@ -1349,6 +1352,9 @@ declare namespace LocalJSX {
         "onWcsChange"?: (event: CustomEvent<CheckboxChangeEventDetail>) => void;
     }
     interface WcsComNav {
+        /**
+          * Name of the application to be displayed in the menu bar
+         */
         "appName"?: string;
     }
     interface WcsComNavCategory {
@@ -1358,6 +1364,10 @@ declare namespace LocalJSX {
     }
     interface WcsComNavSubmenu {
         "label"?: string;
+        /**
+          * Emitted when a user click on a final navigation action.  Used by the com-nav component to close the mobile menu overlay when a user click on a final action.
+         */
+        "onWcsClickOnFinalAction"?: (event: CustomEvent<void>) => void;
         "onWcsSubmenuOpened"?: (event: CustomEvent<MenuOpenedEventDetail>) => void;
         "panelDescription"?: string;
         "panelTitle"?: string;

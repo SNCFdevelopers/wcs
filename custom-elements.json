@@ -1503,7 +1503,8 @@
               "name": "appName",
               "type": {
                 "text": "string"
-              }
+              },
+              "description": "Name of the application to be displayed in the menu bar"
             },
             {
               "kind": "field",
@@ -1531,6 +1532,14 @@
               "kind": "method",
               "name": "mobileMenuIconClick",
               "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "onClickOnFinalAction"
+            },
+            {
+              "kind": "method",
+              "name": "onClickOnFinalActionCat"
             },
             {
               "kind": "method",
@@ -1880,6 +1889,13 @@
               "type": {
                 "text": "EventEmitter<MenuOpenedEventDetail>"
               }
+            },
+            {
+              "name": "wcsClickOnFinalAction",
+              "type": {
+                "text": "EventEmitter<void>"
+              },
+              "description": "Emitted when a user click on a final navigation action.\r\n\r\nUsed by the com-nav component to close the mobile menu overlay when a user click on a final action."
             }
           ],
           "customElement": true
