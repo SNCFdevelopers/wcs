@@ -1,22 +1,12 @@
 import {
-    Component,
-    ComponentInterface,
-    h,
-    Prop,
-    State,
-    Event,
-    Method,
-    Host,
-    Element,
-    Watch,
-    EventEmitter, Build
+    Build, Component,
+    ComponentInterface, Element, Event, EventEmitter, h, Host, Method, Prop,
+    State, Watch
 } from '@stencil/core';
-import {
-    AutocompleteTypes,
-    TextFieldTypes,
-    InputChangeEventDetail
-} from './input-interface';
 import { debounceEvent, findItemLabel, inheritAttributes } from '../../utils/helpers';
+import {
+    AutocompleteTypes, InputChangeEventDetail, TextFieldTypes
+} from './input-interface';
 
 /**
  * Mainly inspired from Ionic Input Component
@@ -31,6 +21,8 @@ export class Input implements ComponentInterface {
     private inputId = `wcs-input-${inputIds++}`;
     private didBlurAfterEdit = false;
     private inheritedAttributes: { [k: string]: any } = {};
+    private iconPassword = "visibility";
+
 
     /**
      * This is required for a WebKit bug which requires us to
@@ -43,6 +35,8 @@ export class Input implements ComponentInterface {
     @Prop() fireFocusEvents = true;
 
     @State() hasFocus = false;
+
+    @State() passwordReveal = false;
 
     @Element() el!: HTMLElement;
 
@@ -371,6 +365,15 @@ export class Input implements ComponentInterface {
         return this.getValue().length > 0;
     }
 
+    private passwordRevealIconClick(): void {
+        this.passwordReveal = !this.passwordReveal;
+    }
+
+    @Watch('passwordReveal')
+    onPasswordRevealChange(): void {
+        this.iconPassword = this.passwordReveal ? 'visibility_off' : 'visibility';
+    }
+
     render() {
         const value = this.getValue();
         const labelId = this.inputId + '-lbl';
@@ -412,7 +415,7 @@ export class Input implements ComponentInterface {
                     spellcheck={this.spellcheck}
                     step={this.step}
                     size={this.size}
-                    type={this.type}
+                    type={this.passwordReveal ? 'text' : this.type}
                     value={value}
                     onInput={this.onInput}
                     onBlur={this.onBlur}
@@ -420,6 +423,7 @@ export class Input implements ComponentInterface {
                     onKeyDown={this.onKeydown}
                     {...this.inheritedAttributes}
                 />
+                {this.type === "password" ? (<wcs-mat-icon class="toggle_password" icon={this.iconPassword} size="m"  onClick={() => this.passwordRevealIconClick()}></wcs-mat-icon>) : null}
                 {this.suffixLabel ? (<span class="suffix">{this.suffixLabel}</span>) : null}
             </Host>
         );
