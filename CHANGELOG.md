@@ -44,6 +44,7 @@ for now removed features.
 - **com-nav**: add inner spacing to prevent app name from hugging the left side of the screen on smaller displays
 - **com-nav**: automatically close the mobile menu overlay when user click on a navigation item
 - **tooltip**: add line break if a word exceeds the width of the tooltip
+- **editable-field**: enlarge the spinner to match its previous size
 
 ### Security
 
