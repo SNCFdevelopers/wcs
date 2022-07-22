@@ -1,0 +1,69 @@
+<Meta title="Documentation/Framework integrations" />
+
+# Framework integrations
+
+## Angular
+
+See : https://gitlab.com/SNCF/wcs#example-with-angular
+
+## React (without bindings for now)
+
+While waiting for the creation of **bindings for react**, it is still possible to use WCS in plain JS with `wcs-core`.
+
+1. Install `wcs-core`
+```
+npm install wcs-core
+```
+
+2. Add the WCS stylesheet
+```scss
+@import "~wcs-core/dist/wcs/wcs.css";
+```
+
+
+3. Add Avenir and icons font faces in your global stylesheet
+```css
+@font-face {
+    font-family: Avenir;
+    src: url("your-custom-path/avenir-lighter.woff");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Avenir;
+    src: url("your-custom-path/avenir-book.woff");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Avenir;
+    src: url("your-custom-path/avenir-medium.woff");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Avenir;
+    src: url("your-custom-path/avenir-black.woff");
+    font-weight: 900;
+}
+@font-face {
+    font-family: "icons";
+    src: url("your-custom-path/icons.eot?#iefix") format("embedded-opentype"),
+    url("your-custom-path/icons.woff2") format("woff2"),
+    url("your-custom-path/icons.woff") format("woff"),
+    url("your-custom-path/icons.ttf") format("truetype"),
+    url("your-custom-path/icons.svg#icons") format("svg");
+}
+```
+
+4. Register the WCS web component by calling the `defineCustomElements()` function in the loader in your index.js, should be call before `ReactDOM.createRoot(...)`
+```js
+import { defineCustomElements } from 'wcs-core/loader';
+
+defineCustomElements();
+```
+
+5. Thats it, you can try with a simple spinner
+```html
+<wcs-spinner class="wcs-primary" mode="border"></wcs-spinner>
+```

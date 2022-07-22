@@ -21,6 +21,7 @@ for new features.
       accordion-panel)
     - add `groupContentWithHeader` (false by default, to group the content of panel with the header for all
       accordion-panel)
+- **documentation**: `Framework integrations` documentation for React (without bindings for now) and Angular
 
 ### Changed
 
