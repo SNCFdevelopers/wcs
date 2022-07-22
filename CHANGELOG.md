@@ -11,6 +11,30 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 for new features.
 
+### Changed
+
+for changes in existing functionality.
+
+### Deprecated
+
+for soon-to-be removed features.
+
+### Removed
+
+for now removed features.
+
+### Fixed
+
+for any bug fixes.
+
+### Security
+
+in case of vulnerabilities.
+
+## [2.14.0] - 2022-07-22
+
+### Added
+
 - **accordion-panel**:
     - add `hideActionText` (false by default, to hide or show the open/close text)
     - add `highlight` (false by default, to highlight with the primary color when panel is open)
@@ -28,15 +52,8 @@ for new features.
 - **spinner**: Change border-mode spinner design to match
   recent [progress bar design](https://designmetier-bootstrap.sncf.fr/docs/4.3/components/progress/) updates
 - **spinner** tweaked the animation timing for "growing" spinners
-- **input password** add `icon` : it is now possible to toggle text visibility from password to text by cliking on eye icon
-
-### Deprecated
-
-for soon-to-be removed features.
-
-### Removed
-
-for now removed features.
+- **input password** add `icon` : it is now possible to toggle text visibility from password to text by cliking on eye
+  icon
 
 ### Fixed
 
@@ -46,10 +63,6 @@ for now removed features.
 - **com-nav**: automatically close the mobile menu overlay when user click on a navigation item
 - **tooltip**: add line break if a word exceeds the width of the tooltip
 - **editable-field**: enlarge the spinner to match its previous size
-
-### Security
-
-in case of vulnerabilities.
 
 ## [2.13.0] - 2022-05-24
 

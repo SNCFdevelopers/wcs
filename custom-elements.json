@@ -694,6 +694,44 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/accordion-header/accordion-header.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "AccordionHeader",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-accordion-header",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "AccordionHeader",
+          "declaration": {
+            "name": "AccordionHeader",
+            "module": "components/accordion-header/accordion-header.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-accordion-header",
+          "declaration": {
+            "name": "AccordionHeader",
+            "module": "components/accordion-header/accordion-header.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/accordion-panel/accordion-panel.tsx",
       "declarations": [
         {
@@ -811,44 +849,6 @@
           "declaration": {
             "name": "AccordionPanel",
             "module": "components/accordion-panel/accordion-panel.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/accordion-header/accordion-header.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "AccordionHeader",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-accordion-header",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "AccordionHeader",
-          "declaration": {
-            "name": "AccordionHeader",
-            "module": "components/accordion-header/accordion-header.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-accordion-header",
-          "declaration": {
-            "name": "AccordionHeader",
-            "module": "components/accordion-header/accordion-header.tsx"
           }
         }
       ]
@@ -2793,6 +2793,49 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/footer/footer.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Footer",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            }
+          ],
+          "tagName": "wcs-footer",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Footer",
+          "declaration": {
+            "name": "Footer",
+            "module": "components/footer/footer.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-footer",
+          "declaration": {
+            "name": "Footer",
+            "module": "components/footer/footer.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/form-field/form-field.tsx",
       "declarations": [
         {
@@ -2957,49 +3000,6 @@
           "declaration": {
             "name": "FormField",
             "module": "components/form-field/form-field.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/footer/footer.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Footer",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            }
-          ],
-          "tagName": "wcs-footer",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Footer",
-          "declaration": {
-            "name": "Footer",
-            "module": "components/footer/footer.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-footer",
-          "declaration": {
-            "name": "Footer",
-            "module": "components/footer/footer.tsx"
           }
         }
       ]
@@ -5139,6 +5139,15 @@
               "kind": "method",
               "name": "passwordRevealIconClick",
               "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "onPasswordRevealChange",
               "return": {
                 "type": {
                   "text": "void"
