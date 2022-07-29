@@ -13,7 +13,7 @@ for new features.
 
 ### Changed
 
-for changes in existing functionality.
+- **grid**: add refresh sort when data changes
 
 ### Deprecated
 

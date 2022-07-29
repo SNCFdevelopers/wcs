@@ -76,6 +76,7 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
     @Watch('data')
     onDataChange(newValue: any[]): void {
         this.updateGridRows(newValue);
+        this.refreshSort(false);
     }
 
     @Watch('selectedItems')
@@ -147,20 +148,23 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
         if (this.selectedItems) {
             this.updateSelectionWithValues(this.selectedItems);
         }
-        this.applyInitialSortConfig();
+        this.refreshSort(true);
     }
 
     /**
      * Handle existing column's filters (defined before the grid is instantiated)
      * @private
      */
-    private applyInitialSortConfig() {
+    private refreshSort(refreshOthersColmumnsSortOrderState: boolean) {
         const [first, ...other] = this.columns.filter(c => c.sortOrder !== 'none');
-        // We keep only one active sorted column
-        other?.forEach(o => o.sortOrder = 'none');
         if (first && !this.serverMode) {
             this.sortBy(first);
         }
+        refreshOthersColmumnsSortOrderState && this.disableSortOrderForColumns(other);
+    }
+
+    private disableSortOrderForColumns(columns: HTMLWcsGridColumnElement[] | null | undefined): void {
+        columns?.forEach(c => c.sortOrder = 'none');
     }
 
     private getGridColumnsFromTemplate(): HTMLWcsGridColumnElement[] {
@@ -177,7 +181,7 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
     sortChangeEventHandler(event: CustomEvent<WcsGridColumnSortChangeEventDetails>): void {
         if (event.detail.order === 'none') return;
         // We keep only one active sort column
-        this.columns.filter(c => c !== event.detail.column).forEach(c => c.sortOrder = 'none');
+        this.disableSortOrderForColumns(this.columns.filter(c => c !== event.detail.column));
         if (this.serverMode) return;
         this.sortBy(event.detail.column);
         this.updatePageIndex();

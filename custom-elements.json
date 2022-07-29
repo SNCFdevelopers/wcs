@@ -732,6 +732,76 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/action-bar/action-bar.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "ActionBar",
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsActionBarElement"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "gutter",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines if the action bar should have a border at the bottom.\r\nYou should not use this property if a gutter is already present on tabs"
+            },
+            {
+              "kind": "field",
+              "name": "hasTabs",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "gutter",
+              "fieldName": "gutter",
+              "type": {
+                "text": "boolean"
+              }
+            }
+          ],
+          "tagName": "wcs-action-bar",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ActionBar",
+          "declaration": {
+            "name": "ActionBar",
+            "module": "components/action-bar/action-bar.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-action-bar",
+          "declaration": {
+            "name": "ActionBar",
+            "module": "components/action-bar/action-bar.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/accordion-panel/accordion-panel.tsx",
       "declarations": [
         {
@@ -849,76 +919,6 @@
           "declaration": {
             "name": "AccordionPanel",
             "module": "components/accordion-panel/accordion-panel.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/action-bar/action-bar.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "ActionBar",
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsActionBarElement"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "gutter",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines if the action bar should have a border at the bottom.\r\nYou should not use this property if a gutter is already present on tabs"
-            },
-            {
-              "kind": "field",
-              "name": "hasTabs",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "gutter",
-              "fieldName": "gutter",
-              "type": {
-                "text": "boolean"
-              }
-            }
-          ],
-          "tagName": "wcs-action-bar",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ActionBar",
-          "declaration": {
-            "name": "ActionBar",
-            "module": "components/action-bar/action-bar.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-action-bar",
-          "declaration": {
-            "name": "ActionBar",
-            "module": "components/action-bar/action-bar.tsx"
           }
         }
       ]
@@ -3401,9 +3401,35 @@
             },
             {
               "kind": "method",
-              "name": "applyInitialSortConfig",
+              "name": "refreshSort",
               "privacy": "private",
+              "parameters": [
+                {
+                  "name": "refreshOthersColmumnsSortOrderState",
+                  "type": {
+                    "text": "boolean"
+                  }
+                }
+              ],
               "description": "Handle existing column's filters (defined before the grid is instantiated)"
+            },
+            {
+              "kind": "method",
+              "name": "disableSortOrderForColumns",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "columns",
+                  "type": {
+                    "text": "HTMLWcsGridColumnElement[] | null | undefined"
+                  }
+                }
+              ]
             },
             {
               "kind": "method",
