@@ -9,7 +9,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-for new features.
+- **doc**: Add select stories
 
 ### Changed
 
