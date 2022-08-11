@@ -14,6 +14,7 @@ export class ComNav implements ComponentInterface {
     @State() mobileMenuOpen: boolean = false;
     @State() currentActiveSizing: 'desktop' | 'mobile';
     resizeObserver: ResizeObserver;
+    private hasAlreadyRegisteredClickHandlerOnSlottedLink: boolean = false;
 
     private mobileMenuIconClick() {
         this.mobileMenuOpen = !this.mobileMenuOpen;
@@ -37,6 +38,27 @@ export class ComNav implements ComponentInterface {
         this.resizeObserver.observe(document.body);
     }
 
+    componentDidRender() {
+        this.registerHandlerToCloseMobileMenuOnClickOnSlottedLinkTag();
+    }
+
+
+    private registerHandlerToCloseMobileMenuOnClickOnSlottedLinkTag() {
+        if (this.hasAlreadyRegisteredClickHandlerOnSlottedLink) return;
+
+        const mainSlot = this.el.shadowRoot.querySelector('slot:not([name])') as HTMLSlotElement;
+        if (mainSlot) {
+            this.hasAlreadyRegisteredClickHandlerOnSlottedLink = true;
+            // If the user click on a `a` tag, we close the mobile menu overlay.
+            mainSlot.assignedElements().filter(e => e.tagName === 'A').forEach(a => {
+                    a.addEventListener('click', _ => {
+                        this.mobileMenuOpen = false;
+                    })
+                }
+            );
+
+        }
+    }
 
     //region Handlers for mobile menu overlay visibility
     //
@@ -50,12 +72,14 @@ export class ComNav implements ComponentInterface {
     onClickOnFinalAction() {
         this.mobileMenuOpen = false;
     }
+
     // We also listen click events on the category menu items, to close the mobile menu.
     // In desktop mode, the category itself manages the closing of the menu.
     @Listen('wcsCategoryItemClicked')
     onClickOnFinalActionCat() {
         this.mobileMenuOpen = false;
     }
+
     //endregion
 
     render() {

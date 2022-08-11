@@ -56,3 +56,33 @@ Default.args = {appName: 'Application'};
 
 export const WithGalactic = Template.bind({});
 WithGalactic.args = {appName: 'Application', displayGalactic: true};
+
+const TopLevelLinkTemplateTemplate: Story<Partial<{ appName: string, displayGalactic: boolean }>> = (args) => html`
+    ${args.displayGalactic ? html`
+        <wcs-galactic text="NomSuperApp est un site SNCF">
+            <wcs-galactic-menu text="TOUT SNCF">
+                <div style="margin-bottom: 8px"><a href="#" style="text-decoration: none; color: var(--wcs-white)">CGU</a></div>
+                <div style="margin-bottom: 8px"><a href="#" style="text-decoration: none; color: var(--wcs-white)">À Propos</a>
+                </div>
+                <div style="margin-bottom: 8px"><a href="#" style="text-decoration: none; color: var(--wcs-white)">Un autre
+                    lien</a></div>
+                <wcs-button shape="small">Un bouton</wcs-button>
+            </wcs-galactic-menu>
+        </wcs-galactic>
+    ` : ''}
+    <wcs-com-nav app-name=${args.appName}>
+        <a>Navigation</a>
+        <a>Un autre item</a>
+        <a>Encore ?</a>
+        <a href="https://sncf.com" target="_blank">Ressource externe</a>
+        <div slot="actions">
+            <wcs-button mode="clear" class="wcs-dark">Connexion</wcs-button>
+        </div>
+    </wcs-com-nav>
+    <div
+        style="height: 300px; width: 100%; display: flex; justify-content:center; align-items: center; text-align: center">
+        Contenu du site
+    </div>`;
+
+export const OnlyTopLevelLinks = TopLevelLinkTemplateTemplate.bind({});
+OnlyTopLevelLinks.args = {appName: 'Application'};

@@ -25,7 +25,7 @@ for now removed features.
 
 ### Fixed
 
-for any bug fixes.
+- **com-nav**: close mobile menu overlay if user click on a top level link item
 
 ### Security
 

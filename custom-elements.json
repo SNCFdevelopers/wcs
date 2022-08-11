@@ -1529,8 +1529,22 @@
               }
             },
             {
+              "kind": "field",
+              "name": "hasAlreadyRegisteredClickHandlerOnSlottedLink",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
               "kind": "method",
               "name": "mobileMenuIconClick",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "registerHandlerToCloseMobileMenuOnClickOnSlottedLinkTag",
               "privacy": "private"
             },
             {
