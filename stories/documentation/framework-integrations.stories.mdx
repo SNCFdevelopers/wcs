@@ -1,10 +1,61 @@
-<Meta title="Documentation/Framework integrations" />
+<Meta title="Documentation/Framework integrations"/>
 
 # Framework integrations
 
 ## Angular
 
-See : https://gitlab.com/SNCF/wcs#example-with-angular
+1. Install `wcs-core` and `wcs-angular` packages.
+
+```
+npm install wcs-core wcs-angular
+```
+
+2. Register the web components loader script in your `main.ts`
+
+```typescript
+import { defineCustomElements } from 'wcs-core/loader';
+
+...
+
+defineCustomElements();
+```
+
+If you want a compatibility with older browsers (IE 11, ...), you should add the `applyPolyfills()` that surround the
+`defineCustomElements()` function.
+
+```typescript
+import { applyPolyfills, defineCustomElements } from 'wcs-core/loader';
+
+...
+
+applyPolyfills().then(() => {
+  defineCustomElements();
+});
+```
+
+3. Add the `WcsAngular` module to your App module.
+
+```typescript
+@NgModule({
+  ...
+  imports: [
+    ...
+    WcsAngularModule // add the module
+  ],
+  ...
+})
+export class AppModule { }
+```
+
+4. Import the wcs stylesheet (for example in the styles.scss), if you don't use scss, you can include it in the `angular.json` file (in the architect build config, key: `styles`)
+
+```scss
+@import "~wcs-core/dist/wcs/wcs.css";
+```
+
+We provide a base stylesheet in [/doc/base.scss](./doc/base.scss)
+
+You're ready! (Don't forget to add font-faces 😉)
 
 ## React (without bindings for now)
 

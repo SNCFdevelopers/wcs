@@ -25,9 +25,10 @@ Select and select options size behavior, especially with multiple select. As of 
 
 ## Documentation
 
-There is documentation available at https://sncf.gitlab.io/wcs/develop/. It is only available for the develop branch though as the project remains unreleased.
+There is documentation available at 
+- https://sncf.gitlab.io/wcs/master/ for production (latest release)
+- https://sncf.gitlab.io/wcs/develop/ for development branch
 
-For a specific component you can also look under src/components/`{the-component-you-want-the-doc-for}`/README.md.
     
 ### Example usage
 
@@ -53,9 +54,11 @@ If you have any question, don't hesitate to fill an issue !
 
 ### Install in your project
 
-StencilJS offers many integrations with different JS frameworks.
+You can refer to the 
+[official WCS documentation](https://sncf.gitlab.io/wcs/master/?path=/story/documentation-framework-integrations--page) 
+to use wcs with Angular or React. For other frameworks, StencilJS offers many integrations with different JS frameworks.
 
-You can refer to their official documentation to add WCS to your project : https://stenciljs.com/docs/overview
+You can refer to [their official documentation](https://stenciljs.com/docs/overview) to add WCS to your project.
 
 After added wcs dependencies, you must add Avenir and icons font faces like so :
 
@@ -92,40 +95,6 @@ After added wcs dependencies, you must add Avenir and icons font faces like so :
     url("your-custom-path/icons.svg#icons") format("svg");
 }
 ```
-
-#### Example with Angular
-
-Install `wcs-core` and `wcs-angular` packages.
-
-```
-npm install wcs-core wcs-angular
-```
-
-Include wcs-core refering to this documentation : https://stenciljs.com/docs/angular
-
-Add the `WcsAngular` module to your App module.
-
-```ts
-@NgModule({
-  ...
-  imports: [
-    ...
-    WcsAngularModule // add the module
-  ],
-  ...
-})
-export class AppModule { }
-```
-
-Import the wcs stylesheet (for example in the styles.scss), if you don't use scss, you can include it in the `angular.json` file (in the architect build config, key: `styles`)
-
-```scss
-@import "~wcs-core/dist/wcs/wcs.css";
-```
-
-We provide a base stylesheet in [/doc/base.scss](./doc/base.scss)
-
-You're ready! (Don't forget to add font-faces 😉)
 
 ## Contributing
 

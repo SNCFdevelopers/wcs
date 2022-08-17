@@ -14,6 +14,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Changed
 
 - **grid**: add refresh sort when data changes
+- **doc**: migrate angular integration tutorial to storybook
 
 ### Deprecated
 
