@@ -15,8 +15,9 @@ import { FunctionalComponent, h } from '@stencil/core';
 </svg> */
 export const SelectArrow: FunctionalComponent<{
     up: boolean;
-}> = ({ up }) => (
-    <svg style={{ marginLeft: 'auto' }} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    ariaLabel?: string;
+}> = ({ up, ariaLabel}) => (
+    <svg aria-hidden={ariaLabel ? false:"true"} role="img" aria-label={ariaLabel? ariaLabel:false} style={{ marginLeft: 'auto' }} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
         <style type="text/css">{`
             .arrow-group {
                 transform-origin: 50% 50%;

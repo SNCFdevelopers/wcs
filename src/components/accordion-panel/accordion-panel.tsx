@@ -42,18 +42,21 @@ export class AccordionPanel {
     }
 
     render() {
+  
+  
+  
         return (
             <Host>
-                <div class="header" onClick={() => this.open = !this.open}>
+                <button aria-expanded={this.open ? "true": "false"} aria-controls="content" class="header" onClick={() => this.open = !this.open}>
                     <slot name="header"/>
-                    <div class="header-action">
+                    <span class="header-action">
                         {!this.hideActionText && (
                             <span>{this.open ? 'Fermez' : 'Ouvrez'}</span>)
                         }
                         <SelectArrow up={this.open}/>
-                    </div>
-                </div>
-                <div class="content">
+                    </span>
+                </button>
+                <div class="content" id="content">
                     <slot name="content"/>
                 </div>
             </Host>

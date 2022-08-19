@@ -27,6 +27,7 @@ for now removed features.
 ### Fixed
 
 - **com-nav**: close mobile menu overlay if user click on a top level link item
+- **accordion**: Accessibility fixes for keyboard usage, screenreaders ([#40](https://gitlab.com/SNCF/wcs/-/issues/40))
 
 ### Security
 
