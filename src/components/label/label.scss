@@ -6,7 +6,7 @@
 :host([required])::after {
     font-weight: 500;
     color: var(--wcs-red);
-    content: "*";
+    content: ' *';
 }
 
 label {
@@ -15,6 +15,8 @@ label {
 
     // Add margin before tooltip icon
     ::slotted(wcs-mat-icon) {
+        display: inline;
+        vertical-align: middle;
         margin-left: calc(var(--wcs-base-margin) / 2);
     }
 }

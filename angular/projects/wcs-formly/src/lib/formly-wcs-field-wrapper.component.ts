@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormlyTemplateOptions } from '@ngx-formly/core';
 import { FormlyFieldConfig } from '@ngx-formly/core/lib/components/formly.field.config';
+import { MaterialIconSize } from 'wcs-core';
 
 /**
  * We don't use directly the field-wrapper features of formly because it creates an intermediate element in the DOM for
@@ -17,7 +18,7 @@ import { FormlyFieldConfig } from '@ngx-formly/core/lib/components/formly.field.
  * It breaks the error handling.
  *
  * So, we create a homemade component which takes in parameter the necessary data for the templating from the formly
- * field and we wrap the field with a slot.
+ * field and we wrap the field with a slot .
  */
 @Component({
   // tslint:disable-next-line:component-selector
@@ -26,9 +27,12 @@ import { FormlyFieldConfig } from '@ngx-formly/core/lib/components/formly.field.
     <wcs-form-field [attr.is-error]="showError ? true : null">
       <wcs-label *ngIf="to.label && to.hideLabel !== true" [attr.for]="id" [ngStyle]="to.styles?.label">
         {{ to.label }}
-        <wcs-mat-icon [id]="id + '-icon'" *ngIf="to.tooltip" icon="help" size="s"></wcs-mat-icon>
+        <wcs-mat-icon [id]="id + '-icon'" *ngIf="to.tooltip?.content" [icon]="to.tooltip?.icon || DEFAULT_TOOLTIP_ICON"
+                      [size]="to.tooltip?.size || DEFAULT_TOOLTIP_ICON_SIZE"
+                      [style.color]="to.tooltip?.color"></wcs-mat-icon>
       </wcs-label>
-      <wcs-tooltip *ngIf="to.tooltip" [for]="id + '-icon'" position="right">{{to.tooltip}}</wcs-tooltip>
+      <wcs-tooltip *ngIf="to.tooltip?.content" [for]="id + '-icon'"
+                   position="right">{{to.tooltip?.content}}</wcs-tooltip>
       <ng-content></ng-content>
       <wcs-error *ngIf="showError" [ngStyle]="to.styles?.error">
         <formly-validation-message #error [field]="field"></formly-validation-message>
@@ -42,4 +46,7 @@ export class FormlyWcsFieldWrapperComponent {
   @Input() to: FormlyTemplateOptions;
   @Input() field: FormlyFieldConfig;
   @Input() id: string;
+
+  readonly DEFAULT_TOOLTIP_ICON: string = 'help' ;
+  readonly DEFAULT_TOOLTIP_ICON_SIZE: MaterialIconSize = 'm';
 }

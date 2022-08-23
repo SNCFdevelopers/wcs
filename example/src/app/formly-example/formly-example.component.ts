@@ -177,9 +177,15 @@ export class FormlyExampleComponent implements OnInit {
       key: 'fieldInputText',
       type: 'input',
       templateOptions: {
+        required: true,
         label: 'Champ de type input',
         placeholder: 'L\'input',
-        tooltip: 'Une aide dans un tooltip'
+        tooltip: {
+          content: 'Contenu du tooltip...',
+          color: 'var(--wcs-primary)',
+          icon: 'help',
+          size: 'm',
+        }
       },
       expressionProperties: {
         'templateOptions.disabled': () => this.disabled,
