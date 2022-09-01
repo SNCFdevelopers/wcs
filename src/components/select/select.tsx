@@ -403,7 +403,8 @@ export class Select implements ComponentInterface {
     onMouseDown(event: MouseEvent) {
         const clickOnScroll = isElement(event.target)
             && (event.offsetX > event.target.clientWidth
-                || event.offsetY > event.target.clientHeight);
+                || event.offsetY > event.target.clientHeight // If the click il located bellow the component height the click happen in the overlay
+                || event.offsetY < 0); // If the click is made above the component
 
         const clickOnRemoveChip = event.composedPath()
             .filter(x => {
@@ -466,7 +467,8 @@ export class Select implements ComponentInterface {
                     {this.hasValue
                         ? (this.chips ?
                             this.values.map((option: SelectOptionValue) =>
-                                <SelectChips disabled={this.disabled} option={option} onRemove={this.removeChip.bind(this)}/>
+                                <SelectChips disabled={this.disabled} option={option}
+                                             onRemove={this.removeChip.bind(this)}/>
                             )
                             : <label class="wcs-select-value">{this.displayText}</label>)
                         : <label class="wcs-select-placeholder">{this.placeholder}</label>

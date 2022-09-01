@@ -196,6 +196,15 @@ It is strongly recommended to add a width size to the select.
 </style>
 ```
 
+## TODO
+
+- étudier la possibilité de mieux gérer la taille de l'overlay du select
+  - utiliser la variable `--wcs-select-overlay-max-height` ?
+  - on essaye de tout afficher, si pas possible on regarde s'il y a plus de place vers le haut
+    si c'est le cas, on affiche l'overlay vers le haut avec le maximum d'option à l'écran
+    sinon vers le bas, avec un maximum d'options à l'écran. Le plus simple est de faire ces calculs
+    au moment du click pour déplier le select, comme c'est le cas actuellement ?
+
 
 <!-- Auto Generated Below -->
 

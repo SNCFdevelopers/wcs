@@ -12,12 +12,12 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **doc**: Add select stories
 - **formly-field-tooltip**: Add possibility to customize the tooltip : content, icon, color, size.
 
-
 ### Changed
 
 - **grid**: add refresh sort when data changes
 - **doc**: migrate angular integration tutorial to storybook
-- **formly-field-tooltip**: please use the new formly templateOptions for tooltip :  `tooltip: { content: 'string' }` instead of `tooltip: 'string'`
+- **formly-field-tooltip**: please use the new formly templateOptions for tooltip :  `tooltip: { content: 'string' }`
+  instead of `tooltip: 'string'`
 
 ### Deprecated
 
@@ -31,6 +31,7 @@ for now removed features.
 
 - **com-nav**: close mobile menu overlay if user click on a top level link item
 - **accordion**: Accessibility fixes for keyboard usage, screenreaders ([#40](https://gitlab.com/SNCF/wcs/-/issues/40))
+- **select**: keeps the select options overlay open if user click on the scrollbar when the overlay is folded up
 
 ### Security
 
