@@ -44,3 +44,8 @@ npm run test:watch
 - https://material.angular.io/components/categories
 - https://mui.com/components/
 - https://vaadin.com/docs/latest/ds/components
+
+## Issues to track
+
+- https://github.com/storybookjs/storybook/issues/15436 : pour la présence des private props dans storybook
+- https://github.com/storybookjs/storybook/issues/18298 : pour l'upgrade de Storybook qui ne fonctionne pas avec npm v8+
