@@ -656,44 +656,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/accordion-content/accordion-content.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "AccordionContent",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-accordion-content",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "AccordionContent",
-          "declaration": {
-            "name": "AccordionContent",
-            "module": "components/accordion-content/accordion-content.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-accordion-content",
-          "declaration": {
-            "name": "AccordionContent",
-            "module": "components/accordion-content/accordion-content.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/accordion-header/accordion-header.tsx",
       "declarations": [
         {
@@ -726,6 +688,44 @@
           "declaration": {
             "name": "AccordionHeader",
             "module": "components/accordion-header/accordion-header.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/accordion-content/accordion-content.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "AccordionContent",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-accordion-content",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "AccordionContent",
+          "declaration": {
+            "name": "AccordionContent",
+            "module": "components/accordion-content/accordion-content.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-accordion-content",
+          "declaration": {
+            "name": "AccordionContent",
+            "module": "components/accordion-content/accordion-content.tsx"
           }
         }
       ]
@@ -6498,6 +6498,160 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/select-option/select-option-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/select-option/select-option.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Select option component, use in conjunction with wcs-select.",
+          "name": "SelectOption",
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsSelectOptionElement"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Wether this option can be selected."
+            },
+            {
+              "kind": "field",
+              "name": "selected",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Wether this option is selected."
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "any | undefined"
+              },
+              "description": "The option value, not what's displayed, use inner text instead."
+            },
+            {
+              "kind": "field",
+              "name": "chipColor",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "Chip's displayed text color."
+            },
+            {
+              "kind": "field",
+              "name": "chipBackgroundColor",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "Chip's background color."
+            },
+            {
+              "kind": "field",
+              "name": "mdcRipple",
+              "type": {
+                "text": "MDCRipple"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "onMouseDown",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "disabled",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "selected",
+              "fieldName": "selected"
+            },
+            {
+              "name": "value",
+              "fieldName": "value",
+              "type": {
+                "text": "any"
+              }
+            },
+            {
+              "name": "chip-color",
+              "fieldName": "chipColor",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "chip-background-color",
+              "fieldName": "chipBackgroundColor",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "multiple",
+              "fieldName": "multiple"
+            }
+          ],
+          "tagName": "wcs-select-option",
+          "events": [
+            {
+              "name": "wcsSelectOptionClick",
+              "type": {
+                "text": "EventEmitter<SelectOptionChosedEvent>"
+              }
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SelectOption",
+          "declaration": {
+            "name": "SelectOption",
+            "module": "components/select-option/select-option.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-select-option",
+          "declaration": {
+            "name": "SelectOption",
+            "module": "components/select-option/select-option.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/select/select-arrow.tsx",
       "declarations": [
         {
@@ -7025,160 +7179,6 @@
           "declaration": {
             "name": "Select",
             "module": "components/select/select.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/select-option/select-option-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/select-option/select-option.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Select option component, use in conjunction with wcs-select.",
-          "name": "SelectOption",
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsSelectOptionElement"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Wether this option can be selected."
-            },
-            {
-              "kind": "field",
-              "name": "selected",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Wether this option is selected."
-            },
-            {
-              "kind": "field",
-              "name": "value",
-              "type": {
-                "text": "any | undefined"
-              },
-              "description": "The option value, not what's displayed, use inner text instead."
-            },
-            {
-              "kind": "field",
-              "name": "chipColor",
-              "type": {
-                "text": "string | undefined"
-              },
-              "description": "Chip's displayed text color."
-            },
-            {
-              "kind": "field",
-              "name": "chipBackgroundColor",
-              "type": {
-                "text": "string | undefined"
-              },
-              "description": "Chip's background color."
-            },
-            {
-              "kind": "field",
-              "name": "mdcRipple",
-              "type": {
-                "text": "MDCRipple"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "onMouseDown",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "disabled",
-              "fieldName": "disabled"
-            },
-            {
-              "name": "selected",
-              "fieldName": "selected"
-            },
-            {
-              "name": "value",
-              "fieldName": "value",
-              "type": {
-                "text": "any"
-              }
-            },
-            {
-              "name": "chip-color",
-              "fieldName": "chipColor",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "chip-background-color",
-              "fieldName": "chipBackgroundColor",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "multiple",
-              "fieldName": "multiple"
-            }
-          ],
-          "tagName": "wcs-select-option",
-          "events": [
-            {
-              "name": "wcsSelectOptionClick",
-              "type": {
-                "text": "EventEmitter<SelectOptionChosedEvent>"
-              }
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "SelectOption",
-          "declaration": {
-            "name": "SelectOption",
-            "module": "components/select-option/select-option.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-select-option",
-          "declaration": {
-            "name": "SelectOption",
-            "module": "components/select-option/select-option.tsx"
           }
         }
       ]

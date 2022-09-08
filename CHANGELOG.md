@@ -9,15 +9,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-- **doc**: Add select stories
-- **formly-field-tooltip**: Add possibility to customize the tooltip : content, icon, color, size.
+for new features.
 
 ### Changed
 
-- **grid**: add refresh sort when data changes
-- **doc**: migrate angular integration tutorial to storybook
-- **formly-field-tooltip**: please use the new formly templateOptions for tooltip :  `tooltip: { content: 'string' }`
-  instead of `tooltip: 'string'`
+for changes in existing functionality.
 
 ### Deprecated
 
@@ -29,13 +25,31 @@ for now removed features.
 
 ### Fixed
 
-- **com-nav**: close mobile menu overlay if user click on a top level link item
-- **accordion**: Accessibility fixes for keyboard usage, screenreaders ([#40](https://gitlab.com/SNCF/wcs/-/issues/40))
-- **select**: keeps the select options overlay open if user click on the scrollbar when the overlay is folded up
+for any bug fixes.
 
 ### Security
 
 in case of vulnerabilities.
+
+## [2.15.0] - 2022-09-08
+
+### Added
+
+- **doc**: Add select stories
+- **formly-field-tooltip**: Add possibility to customize the tooltip : content, icon, color, size.
+
+### Changed
+
+- **grid**: add refresh sort when data changes
+- **doc**: migrate angular integration tutorial to storybook
+- **formly-field-tooltip**: please use the new formly templateOptions for tooltip :  `tooltip: { content: 'string' }`
+  instead of `tooltip: 'string'`
+
+### Fixed
+
+- **com-nav**: close mobile menu overlay if user click on a top level link item
+- **accordion**: Accessibility fixes for keyboard usage, screenreaders ([#40](https://gitlab.com/SNCF/wcs/-/issues/40))
+- **select**: keeps the select options overlay open if user click on the scrollbar when the overlay is folded up
 
 ## [2.14.0] - 2022-07-22
 
