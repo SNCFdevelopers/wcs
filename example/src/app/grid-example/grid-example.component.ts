@@ -7,49 +7,70 @@ import { VNode } from '../../../../dist/types/stencil-public-runtime';
   selector: 'app-grid-example',
   template: `
     <h2>Grid</h2>
-    <wcs-grid id="grid-1" [data]="fonctionsSsiReference">
-      <wcs-grid-column path="label"
-                       name="Label"
+    <wcs-grid id="grid-1" [data]="users">
+      <wcs-grid-column path="name"
+                       name="Nom"
                        sort
                        (wcsSortChange)="onSortChange($event)"></wcs-grid-column>
-      <wcs-grid-column path="surbrillance"
-                       name="Surbrillance"
+      <wcs-grid-column path="isAdmin"
+                       name="Administrateur"
                        [formatter]="surbrillanceFormatter"></wcs-grid-column>
       <wcs-grid-column path="id"
                        name="Actions"
                        [formatter]="actionFormatter"
                        [width]="1"></wcs-grid-column>
+      <wcs-grid-pagination [availablePageSizes]="[5, 10, 15, 20]" [pageSize]="5"></wcs-grid-pagination>
     </wcs-grid>
   `,
   styles: []
 })
 export class GridExampleComponent implements OnInit {
-  fonctionsSsiReference;
+  users;
 
   constructor() {
   }
 
   ngOnInit(): void {
-    setTimeout(() => this.fonctionsSsiReference = [
+    setTimeout(() => this.users = [
         {
-          label: 'test1',
-          surbrillance: false,
+          name: 'test1',
+          idAdmin: false,
           id: '1'
         },
         {
-          label: 'test2',
-          surbrillance: true,
+          name: 'test2',
+          idAdmin: true,
           id: '2'
         },
         {
-          label: 'test3',
-          surbrillance: false,
+          name: 'test3',
+          idAdmin: false,
           id: '3'
         },
         {
-          label: 'test4',
-          surbrillance: true,
+          name: 'test4',
+          idAdmin: true,
           id: '4'
+        },
+        {
+          name: 'test5',
+          idAdmin: false,
+          id: '5'
+        },
+        {
+          name: 'test6',
+          idAdmin: false,
+          id: '6'
+        },
+        {
+          name: 'test7',
+          idAdmin: true,
+          id: '7'
+        },
+        {
+          name: 'test8',
+          idAdmin: true,
+          id: '8'
         },
       ]
       , 3000);

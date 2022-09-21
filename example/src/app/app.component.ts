@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { WcsTabChangeEvent } from '../../../src/components/tabs/tabs-interface';
 
-const DEFAULT_TAB_KEY = 'formly';
+const DEFAULT_TAB_KEY = 'grid-server-pagination';
 
 @Component({
   selector: 'app-root',
@@ -22,6 +22,7 @@ const DEFAULT_TAB_KEY = 'formly';
       <wcs-tabs headers-only [selectedKey]="selectedTab" gutter (tabChange)="tabChange($event)">
         <wcs-tab itemKey="input" header="Input"></wcs-tab>
         <wcs-tab itemKey="grid" header="Grid"></wcs-tab>
+        <wcs-tab itemKey="grid-server-pagination" header="Grid pagination serveur"></wcs-tab>
         <wcs-tab itemKey="select" header="Select"></wcs-tab>
         <wcs-tab itemKey="radio" header="Radio"></wcs-tab>
         <wcs-tab itemKey="formly" header="Formly"></wcs-tab>
@@ -31,6 +32,7 @@ const DEFAULT_TAB_KEY = 'formly';
       <ng-container [ngSwitch]="selectedTab">
         <app-input-example *ngSwitchCase="'input'"></app-input-example>
         <app-grid-example *ngSwitchCase="'grid'"></app-grid-example>
+        <app-grid-server-pagination-example *ngSwitchCase="'grid-server-pagination'"></app-grid-server-pagination-example>
         <app-select-example *ngSwitchCase="'select'"></app-select-example>
         <app-radio-group-example *ngSwitchCase="'radio'"></app-radio-group-example>
         <app-formly-example *ngSwitchCase="'formly'"></app-formly-example>

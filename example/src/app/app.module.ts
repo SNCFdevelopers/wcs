@@ -15,6 +15,7 @@ import { WcsFormlyModule } from 'wcs-formly';
 import { FormlyStylingExampleComponent } from './formly-example/formly-styling-example.component';
 import { ModalExampleComponent } from './modal-example/modal-example.component';
 import { FormlyInputExamplesComponent } from './formly-example/formly-input-examples.component';
+import { GridServerPaginationExampleComponent } from './grid-example/grid-server-pagination-example.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { FormlyInputExamplesComponent } from './formly-example/formly-input-exam
     SelectExampleComponent,
     RadioGroupExampleComponent,
     GridExampleComponent,
+    GridServerPaginationExampleComponent,
     InputExampleComponent,
     FormlyExampleComponent,
     FormlyStylingExampleComponent,
