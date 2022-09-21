@@ -388,7 +388,7 @@ export class Input implements ComponentInterface {
                 data-has-prefix={!!this.prefixLabel}
                 data-has-suffix={!!this.suffixLabel}
             >
-                {this.prefixLabel ? (<span class="prefix">{this.prefixLabel}</span>) : null}
+                {this.prefixLabel ? (<span class="prefix" part="prefix">{this.prefixLabel}</span>) : null}
                 {this.icon ? (<wcs-mat-icon icon={this.icon} size="m"></wcs-mat-icon>) : null}
                 <input
                     class="native-input"
@@ -424,7 +424,7 @@ export class Input implements ComponentInterface {
                     {...this.inheritedAttributes}
                 />
                 {this.type === "password" ? (<wcs-mat-icon class="toggle_password" icon={this.iconPassword} size="m"  onClick={() => this.passwordRevealIconClick()}></wcs-mat-icon>) : null}
-                {this.suffixLabel ? (<span class="suffix">{this.suffixLabel}</span>) : null}
+                {this.suffixLabel ? (<span class="suffix" part="suffix">{this.suffixLabel}</span>) : null}
             </Host>
         );
     }
