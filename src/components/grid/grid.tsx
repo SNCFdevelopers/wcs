@@ -210,7 +210,7 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
      */
     private updatePageIndex(): void {
         if (!this.serverMode && this.paginationEl) {
-            if (this.paginationEl.currentPage + 1 > this.paginationEl.pageCount) {
+            if (this.paginationEl.pageCount > 0 && this.paginationEl.currentPage + 1 > this.paginationEl.pageCount) {
                 this.paginationEl.currentPage = this.paginationEl.pageCount - 1;
             }
 

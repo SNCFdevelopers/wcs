@@ -31,6 +31,7 @@ export class GridExampleComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.users = [];
     setTimeout(() => this.users = [
         {
           name: 'test1',
