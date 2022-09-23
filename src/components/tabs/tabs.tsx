@@ -134,18 +134,14 @@ export class Tabs implements ComponentInterface {
                 break;
             }
             case 'ArrowLeft': {
-                if (target.previousElementSibling
-                    && target.previousElementSibling.classList.contains('wcs-tab-header')
-                ) {
+                if (target.previousElementSibling?.classList.contains('wcs-tab-header')) {
                     (target.previousElementSibling as HTMLDivElement).focus();
                     ev.preventDefault();
                 }
                 break;
             }
             case 'ArrowRight': {
-                if (target.nextElementSibling
-                    && target.nextElementSibling.classList.contains('wcs-tab-header')
-                ) {
+                if (target.nextElementSibling?.classList.contains('wcs-tab-header')) {
                     (target.nextElementSibling as HTMLDivElement).focus();
                     ev.preventDefault();
                 }
@@ -169,8 +165,8 @@ export class Tabs implements ComponentInterface {
 
         return tabs.length !== 0
             ? tabs
-            : tabsEl.querySelector('slot')
-                ? tabsEl.querySelector('slot').assignedElements() as unknown as NodeListOf<HTMLWcsTabElement>
+            : tabsEl?.querySelector('slot')
+                ? tabsEl?.querySelector('slot')?.assignedElements() as unknown as NodeListOf<HTMLWcsTabElement>
                 : [];
     }
 
