@@ -9,7 +9,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-- **input**: add css part for prefix and suffix elements
+for new features.
 
 ### Changed
 
@@ -25,15 +25,25 @@ for now removed features.
 
 ### Fixed
 
+for any bug fixes.
+
+### Security
+
+in case of vulnerabilities.
+
+## [2.16.0] - 2022-09-27
+
+### Added
+
+- **input**: add css part for prefix and suffix elements
+
+### Fixed
+
 - **dropdown**: add keyboard navigation support
 - **button**: Passes the call of the `focus()` method on the web component to the inner native button.
 - **grid**: fix pagination to never have a negative current page
 - **tabs**: an error was raised when the component tried to access the tabs if the list of slotted tab was empty (for
   example when the component is not yet rendered).
-
-### Security
-
-in case of vulnerabilities.
 
 ## [2.15.0] - 2022-09-08
 
