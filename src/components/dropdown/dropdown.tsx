@@ -7,7 +7,8 @@ import { SelectArrow } from '../select/select-arrow';
 import { WcsButtonMode, WcsButtonShape } from '../button/button-interface';
 import { createPopper, Instance } from '@popperjs/core';
 import { WcsDropdownPlacement } from './dropdown-interface';
-import { clickTargetIsElementOrChildren } from '../../utils/helpers';
+import { clickTargetIsElementOrChildren, isEscapeKey, isKeydown, isKeyup } from '../../utils/helpers';
+import { isElementFocused } from "../../utils/accessibility";
 
 
 @Component({
@@ -100,6 +101,43 @@ export class Dropdown implements ComponentInterface {
     @Listen('wcsDropdownItemClick')
     dropdownItemClick(_: CustomEvent<void>) {
         this.expanded = false;
+    }
+
+    @Listen('keydown')
+    onKeyDown(evt: KeyboardEvent): void {
+        if (this.expanded && (isKeydown(evt) || isKeyup(evt))) {
+            const items = Array.from(this.el.querySelectorAll('wcs-dropdown-item'));
+            const currentFocusedItemIndex = items.findIndex(item => isElementFocused(item));
+            // If the dropdown is expended by the user, but no item is focused and the keydown is pressed
+            if (currentFocusedItemIndex === -1 && isKeydown(evt)) {
+                this.focusFirstItemIfPresent(items);
+            } else {
+                this.moveFocusedItemByDirection(items, currentFocusedItemIndex, isKeydown(evt) ? 'down' : 'up');
+            }
+        }
+        if (this.expanded && isEscapeKey(evt)) {
+            this.closeOverlayAndFocusButton();
+        }
+    }
+
+
+    private focusFirstItemIfPresent<T extends HTMLElement>(items: T[]) {
+        if (items[0]) {
+            items[0].focus();
+        }
+    }
+
+    private moveFocusedItemByDirection<T extends HTMLElement>(items: T[], currentFocusedItemIndex: number, direction: 'up' | 'down') {
+        const itemToFocus = items[(currentFocusedItemIndex) + (direction === 'down' ? 1 : -1)];
+        if (itemToFocus) {
+            itemToFocus.focus();
+        }
+    }
+
+    private closeOverlayAndFocusButton() {
+        this.expanded = !this.expanded;
+        const wcsButton = this.el.shadowRoot.querySelector('wcs-button') as HTMLWcsButtonElement;
+        wcsButton.focus();
     }
 
     componentDidRender() {

@@ -88,3 +88,24 @@ export const clickTargetIsElementOrChildren = (mouseEvent: MouseEvent, element: 
     return mouseEvent.target instanceof Node
         && element.contains(mouseEvent.target);
 }
+
+
+export function isKeyup(evt: KeyboardEvent) {
+    return evt.code === 'ArrowUp';
+}
+
+export function isKeydown(evt: KeyboardEvent) {
+    return evt.code === 'ArrowDown';
+}
+
+export function isEscapeKey(evt: KeyboardEvent) {
+    return evt.code === 'Escape';
+}
+
+export function isSpaceKey(evt: KeyboardEvent) {
+    return evt.code === 'Space';
+}
+
+export function isEnterKey(evt: KeyboardEvent) {
+    return evt.code === 'Enter';
+}

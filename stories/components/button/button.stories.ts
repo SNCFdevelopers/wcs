@@ -1,6 +1,7 @@
 import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { WcsButtonMode, WcsButtonShape } from '../../../src/components/button/button-interface';
+import { createRef, ref, Ref } from "lit-html/directives/ref";
 
 export default {
     title: 'Components/Button',
@@ -92,3 +93,24 @@ const TemplateLink: Story<Partial<{ href: string }>> = (args) => html`
 
 export const link = TemplateLink.bind({});
 link.args = {href: 'https://sncf.com'};
+
+
+/**********************/
+/* MANUAL FOCUS DEMO  */
+/**********************/
+const buttonToFocus: Ref<HTMLInputElement> = createRef();
+
+function setFocus(){
+    buttonToFocus.value.focus();
+}
+
+const TemplateManualFocus: Story<Partial<{ innerText: string, mode: WcsButtonMode, shape: WcsButtonShape, href: string, disabled: boolean, ripple: boolean }>> = (args) => html`
+    <p>You can set the focus on the button by calling the native <code>focus()</code> method on the wcs-button web component.</p>
+    <wcs-button @click="${setFocus}" class="wcs-light">Set focus on next button</wcs-button>
+    <wcs-button ${ref(buttonToFocus)} mode=${args.mode} shape=${args.shape} ?ripple=${args.ripple} ?disabled=${args.disabled}
+                class="wcs-light">
+        ${args.innerText}
+    </wcs-button>`;
+
+export const ManualFocus = TemplateManualFocus.bind({});
+ManualFocus.args = {innerText: 'Button to focus'};

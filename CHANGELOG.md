@@ -25,6 +25,8 @@ for now removed features.
 
 ### Fixed
 
+- **dropdown**: add keyboard navigation support
+- **button**: Passes the call of the `focus()` method on the web component to the inner native button.
 - **grid**: fix pagination to never have a negative current page
 - **tabs**: an error was raised when the component tried to access the tabs if the list of slotted tab was empty (for
   example when the component is not yet rendered).

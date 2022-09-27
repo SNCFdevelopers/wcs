@@ -73,6 +73,14 @@ Type: `Promise<void>`
 
 
 
+## Shadow Parts
+
+| Part       | Description |
+| ---------- | ----------- |
+| `"prefix"` |             |
+| `"suffix"` |             |
+
+
 ## Dependencies
 
 ### Depends on

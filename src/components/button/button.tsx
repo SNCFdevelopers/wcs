@@ -73,6 +73,7 @@ export class Button implements ComponentInterface {
 
     componentDidLoad() {
         this.mdcRipple = new MDCRipple(this.el.shadowRoot.querySelector('.wcs-inner-button'));
+        this.el.focus = () => this.el.shadowRoot.querySelector(this.getTagName()).focus();
     }
 
     private enabledRippleEffect() {
@@ -81,6 +82,10 @@ export class Button implements ComponentInterface {
 
     private disabledRippleEffect() {
         this.mdcRipple.disabled = true;
+    }
+
+    private getTagName() {
+        return this.href !== undefined ? 'a' : 'button';
     }
 
     @Watch('ripple')
@@ -93,7 +98,7 @@ export class Button implements ComponentInterface {
     }
 
     render() {
-        const TagType = this.href !== undefined ? 'a' : 'button';
+        const TagType = this.getTagName();
         const attrs = this.href !== undefined
             ? { href: this.href, role: 'button' }
             : { type: this.type };
