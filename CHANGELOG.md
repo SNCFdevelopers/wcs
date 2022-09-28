@@ -13,7 +13,7 @@ for new features.
 
 ### Changed
 
-for changes in existing functionality.
+- **accordion-header**: aligns the header text to the left
 
 ### Deprecated
 

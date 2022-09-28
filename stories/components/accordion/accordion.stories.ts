@@ -48,6 +48,26 @@ const Template: Story<Partial<{ open: boolean, hideActionText: boolean, highligh
                     consectetur nibh vitae, iaculis sem.</p>
             </wcs-accordion-content>
         </wcs-accordion-panel>
+        <wcs-accordion-panel>
+            <wcs-accordion-header>Un second panel with a very long header text lorem ipsum dolor sit amet</wcs-accordion-header>
+            <wcs-accordion-content>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget nibh at libero rutrum euismod
+                    sed eu magna. Sed non efficitur ante, vel aliquet justo. Ut dui libero, finibus suscipit ipsum vel,
+                    aliquet tristique mi. Nullam eu tempus enim. Integer nec consectetur ante, a lobortis sem. Vivamus
+                    tortor odio, finibus et tempor ac, rhoncus ac eros. Cras posuere elit dolor, nec dignissim erat
+                    porttitor ut.
+                </p>
+                <p>
+                    Curabitur tempor lectus eu egestas varius. Vivamus quis lacus at orci auctor iaculis. Curabitur
+                    viverra sem eu nulla commodo, et scelerisque mauris auctor. Vivamus rhoncus ex in urna lobortis
+                    mollis. Quisque eget molestie massa. Curabitur id sem ac ante venenatis laoreet. Donec vitae dapibus
+                    eros, rutrum gravida enim. Morbi semper sollicitudin arcu, semper volutpat libero porttitor in. Sed
+                    id est sed magna pellentesque ullamcorper sed vitae erat. In et massa sem. Cras pharetra, metus vel
+                    consequat euismod, dui eros pharetra urna, vel imperdiet purus sapien vitae lectus. Duis justo ex,
+                    porta eu ultrices facilisis, sagittis in nisi. Etiam sed volutpat risus. Ut quis erat molestie,
+                    consectetur nibh vitae, iaculis sem.</p>
+            </wcs-accordion-content>
+        </wcs-accordion-panel>
     </wcs-accordion>
 `;
 
