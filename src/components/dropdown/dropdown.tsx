@@ -106,6 +106,8 @@ export class Dropdown implements ComponentInterface {
     @Listen('keydown')
     onKeyDown(evt: KeyboardEvent): void {
         if (this.expanded && (isKeydown(evt) || isKeyup(evt))) {
+            // If the user presses an arrow key (up or down), the browser is prevented from scrolling through
+            evt.preventDefault();
             const items = Array.from(this.el.querySelectorAll('wcs-dropdown-item'));
             const currentFocusedItemIndex = items.findIndex(item => isElementFocused(item));
             // If the dropdown is expended by the user, but no item is focused and the keydown is pressed
