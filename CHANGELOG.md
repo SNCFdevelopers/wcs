@@ -26,6 +26,7 @@ for now removed features.
 ### Fixed
 
 - **dropdown**: if the user presses an arrow (up or down) on the keyboard, the browser is prevented from scrolling
+- **tooltip**: fix tooltip appearance when it is contained into a fullscreen element 
 
 ### Security
 

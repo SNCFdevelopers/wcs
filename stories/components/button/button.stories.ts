@@ -101,7 +101,7 @@ link.args = {href: 'https://sncf.com'};
 const buttonToFocus: Ref<HTMLInputElement> = createRef();
 
 function setFocus(){
-    buttonToFocus.value.focus();
+    buttonToFocus.value?.focus();
 }
 
 const TemplateManualFocus: Story<Partial<{ innerText: string, mode: WcsButtonMode, shape: WcsButtonShape, href: string, disabled: boolean, ripple: boolean }>> = (args) => html`

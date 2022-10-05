@@ -1,5 +1,5 @@
 import { Component, ComponentInterface, h, Host, Prop, Element, Watch, Method } from '@stencil/core';
-import { WcsTooltipPosition } from './tooltip-interface';
+import { WcsTooltipAppendTo, WcsTooltipPosition } from './tooltip-interface';
 
 // We use the Tippy.js library for the tooltip. At first by using directly the styles of tippy because
 // the design system does not specify any spec for the tooltips.
@@ -108,6 +108,15 @@ export class Tooltip implements ComponentInterface {
     @Prop()
     content: string;
 
+    /**
+     * The element to append the tooltip to. Default behaviour is `() => document.body`. If interactive: true, 
+     * the default behavior is appendTo: "parent"
+     *
+     * See: https://atomiks.github.io/tippyjs/v6/all-props/#appendto
+     */
+    @Prop()
+    appendTo: WcsTooltipAppendTo;
+
     @Element()
     private el: HTMLWcsTooltipElement;
 
@@ -115,6 +124,7 @@ export class Tooltip implements ComponentInterface {
 
     componentWillLoad(): Promise<void> | void {
         this.tippyInstance = tippy(document.getElementById(this.for), {
+            appendTo: this.appendTo || (() => document.body),
             theme: this.theme,
             allowHTML: true,
             content: this.getTooltipContentFromPropAndSlot(),

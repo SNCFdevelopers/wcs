@@ -25,7 +25,7 @@ import { WcsSpinnerMode } from "./components/spinner/spinner-interface";
 import { SwitchChangeEventDetail, SwitchLabelAlignment } from "./components/switch/switch-interface";
 import { WcsTabChangeEvent, WcsTabsAlignment } from "./components/tabs/tabs-interface";
 import { TextareaChangeEventDetail } from "./components/textarea/textarea-interface";
-import { WcsTooltipPosition } from "./components/tooltip/tooltip-interface";
+import { WcsTooltipAppendTo, WcsTooltipPosition } from "./components/tooltip/tooltip-interface";
 export namespace Components {
     interface WcsAccordion {
         /**
@@ -786,6 +786,10 @@ export namespace Components {
         "wrap"?: 'hard' | 'soft' | 'off';
     }
     interface WcsTooltip {
+        /**
+          * The element to append the tooltip to. Default behaviour is `() => document.body`. If interactive: true,  the default behavior is appendTo: "parent"  See: https://atomiks.github.io/tippyjs/v6/all-props/#appendto
+         */
+        "appendTo": WcsTooltipAppendTo;
         /**
           * You can use this property instead of the slot API to affect content in the tooltip.  This makes it easier to manage the update if the tooltip contains elements that are not mutated when their content changes. Indeed, if the slot is used, the tooltip is updated only if the structure of the slotted DOM changes (the DOM must be mutated).  The two APIs are not mutually exclusive, if both are filled in (the prop + the slot) the rendering will first display the content of this property and then the slotted elements.
          */
@@ -2049,6 +2053,10 @@ declare namespace LocalJSX {
         "wrap"?: 'hard' | 'soft' | 'off';
     }
     interface WcsTooltip {
+        /**
+          * The element to append the tooltip to. Default behaviour is `() => document.body`. If interactive: true,  the default behavior is appendTo: "parent"  See: https://atomiks.github.io/tippyjs/v6/all-props/#appendto
+         */
+        "appendTo"?: WcsTooltipAppendTo;
         /**
           * You can use this property instead of the slot API to affect content in the tooltip.  This makes it easier to manage the update if the tooltip contains elements that are not mutated when their content changes. Indeed, if the slot is used, the tooltip is updated only if the structure of the slotted DOM changes (the DOM must be mutated).  The two APIs are not mutually exclusive, if both are filled in (the prop + the slot) the rendering will first display the content of this property and then the slotted elements.
          */
