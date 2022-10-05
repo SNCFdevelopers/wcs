@@ -1,98 +1,98 @@
 stages:
-    - test
-    - build
-    - deploy
+  - test
+  - build
+  - deploy
 
 image: node:16-alpine
 
-# Cache modules in between jobs: https://docs.gitlab.com/ee/ci/caching/#cache-nodejs-dependencies
-# cache:
-#   key: ${CI_COMMIT_REF_SLUG}
-#   paths:
-#     - node_modules/
-#     - angular/node_modules/
-
 cache:
+  # Cache documentation for existing branches
+  - key: global-documentation-key
     paths:
-        - doc_cache
-
-before_script:
-    - npm install
-    - cd angular/ && npm install && cd ../
+      - doc_cache
+  # Cache modules in between jobs: https://docs.gitlab.com/ee/ci/caching/#cache-nodejs-dependencies
+  - key: $CI_COMMIT_REF_SLUG
+    paths:
+      - .npm/
+      # We do not cache node_modules for Angular projects until they are used between several jobs
+      # - angular/.npm
 
 test:
-    tags:
-        - docker
-    image: buildkite/puppeteer:5.2.1
-    stage: test
-    script:
-        - npm test
+  tags:
+    - docker
+  image: buildkite/puppeteer:5.2.1
+  stage: test
+  script:
+    - npm ci --cache .npm --prefer-offline
+    - npm test
 
 build:
-    tags:
-        - docker
-    stage: build
-    artifacts:
-        expire_in: 4 days
-        paths:
-            - storybook-static/
-            - loader/
-            - dist/
-            - angular/dist/wcs-angular/
-            - angular/dist/wcs-formly/
-    script:
-        - npm run build
-        - cd angular/
-        - npm run build:wcs-angular
-        - npm run build:wcs-formly
+  tags:
+    - docker
+  stage: build
+  artifacts:
+    expire_in: 4 days
+    paths:
+      - storybook-static/
+      - loader/
+      - dist/
+      - angular/dist/wcs-angular/
+      - angular/dist/wcs-formly/
+  script:
+    - npm ci --cache .npm --prefer-offline
+    - npm run build
+    - cd angular/
+    - npm ci --cache .npm --prefer-offline
+    - npm run build:wcs-angular
+    - npm run build:wcs-formly
 
 pages:
-    tags:
-        - gitlab-org
-    stage: deploy
-    dependencies:
-        - build
-    only:
-        - develop
-        - master
-    artifacts:
-        expire_in: 4 days
-        paths:
-            - public
-    script:
-        - mkdir -p doc_cache/$CI_COMMIT_REF_NAME/
-        - rm -rf doc_cache/$CI_COMMIT_REF_NAME/*
-        - cp -r storybook-static/* doc_cache/$CI_COMMIT_REF_NAME/
-        - cp -r doc_cache public
+  tags:
+    - gitlab-org
+  stage: deploy
+  dependencies:
+    - build
+  only:
+    - develop
+    - master
+  artifacts:
+    expire_in: 4 days
+    paths:
+      - public
+  script:
+    - mkdir -p doc_cache/$CI_COMMIT_REF_NAME/
+    - rm -rf doc_cache/$CI_COMMIT_REF_NAME/*
+    - cp -r storybook-static/* doc_cache/$CI_COMMIT_REF_NAME/
+    - cp -r doc_cache public
 
 # PUBLISH PACKAGES FOR TAGS
 publish-wcs-core:
-    tags:
-        - docker
-    stage: deploy
-    only:
-        - tags
-    dependencies:
-        - build
-    script:
-        - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc && npm publish
+  tags:
+    - docker
+  stage: deploy
+  only:
+    - tags
+  dependencies:
+    - build
+  script:
+    - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc && npm publish
 publish-wcs-angular:
-    tags:
-        - docker
-    stage: deploy
-    only:
-        - tags
-    dependencies:
-        - build
-    script:
-        - cd angular/dist/wcs-angular/ && echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc && npm publish
+  tags:
+    - docker
+  stage: deploy
+  only:
+    - tags
+  dependencies:
+    - build
+  script:
+    - cd angular/dist/wcs-angular/ && echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc && npm publish
 publish-wcs-formly:
-    tags:
-        - docker
-    stage: deploy
-    only:
-        - tags
-    dependencies:
-        - build
-    script:
-        - cd angular/dist/wcs-formly/ && echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc && npm publish
+  tags:
+    - docker
+  stage: deploy
+  only:
+    - tags
+  dependencies:
+    - build
+  script:
+    - cd angular/dist/wcs-formly/ && echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc && npm publish
