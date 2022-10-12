@@ -591,35 +591,8 @@
     {
       "kind": "javascript-module",
       "path": "utils/tests.ts",
-      "declarations": [
-        {
-          "kind": "function",
-          "name": "findFocusedNode",
-          "return": {
-            "type": {
-              "text": "AXNode"
-            }
-          },
-          "parameters": [
-            {
-              "name": "node",
-              "type": {
-                "text": "AXNode"
-              }
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "findFocusedNode",
-          "declaration": {
-            "name": "findFocusedNode",
-            "module": "utils/tests.ts"
-          }
-        }
-      ]
+      "declarations": [],
+      "exports": []
     },
     {
       "kind": "javascript-module",
@@ -1176,6 +1149,67 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/card/card-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/card/card.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Card",
+          "members": [
+            {
+              "kind": "field",
+              "name": "mode",
+              "type": {
+                "text": "CardMode"
+              },
+              "default": "'raised'"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "mode",
+              "fieldName": "mode",
+              "type": {
+                "text": "CardMode"
+              }
+            }
+          ],
+          "tagName": "wcs-card",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Card",
+          "declaration": {
+            "name": "Card",
+            "module": "components/card/card.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-card",
+          "declaration": {
+            "name": "Card",
+            "module": "components/card/card.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/button/button-interface.ts",
       "declarations": [],
       "exports": []
@@ -1361,67 +1395,6 @@
           "declaration": {
             "name": "Button",
             "module": "components/button/button.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/card/card-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/card/card.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Card",
-          "members": [
-            {
-              "kind": "field",
-              "name": "mode",
-              "type": {
-                "text": "CardMode"
-              },
-              "default": "'raised'"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "mode",
-              "fieldName": "mode",
-              "type": {
-                "text": "CardMode"
-              }
-            }
-          ],
-          "tagName": "wcs-card",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Card",
-          "declaration": {
-            "name": "Card",
-            "module": "components/card/card.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-card",
-          "declaration": {
-            "name": "Card",
-            "module": "components/card/card.tsx"
           }
         }
       ]
@@ -3305,6 +3278,116 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/galactic-menu/galactic-menu.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Galactic",
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsGalacticMenuElement"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "showPopoverMenu",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "popper",
+              "type": {
+                "text": "Instance"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "text",
+              "type": {
+                "text": "string"
+              },
+              "description": "Text to be displayed in the galactic bar"
+            },
+            {
+              "kind": "field",
+              "name": "menu",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "tooltip",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "onWindowClickEvent",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "toogleMenu",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "text",
+              "fieldName": "text",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "tagName": "wcs-galactic-menu",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Galactic",
+          "declaration": {
+            "name": "Galactic",
+            "module": "components/galactic-menu/galactic-menu.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-galactic-menu",
+          "declaration": {
+            "name": "Galactic",
+            "module": "components/galactic-menu/galactic-menu.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/grid/grid-interface.ts",
       "declarations": [
         {
@@ -3847,116 +3930,6 @@
           "declaration": {
             "name": "Grid",
             "module": "components/grid/grid.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/galactic-menu/galactic-menu.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Galactic",
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsGalacticMenuElement"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "showPopoverMenu",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "popper",
-              "type": {
-                "text": "Instance"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "text",
-              "type": {
-                "text": "string"
-              },
-              "description": "Text to be displayed in the galactic bar"
-            },
-            {
-              "kind": "field",
-              "name": "menu",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "tooltip",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "onWindowClickEvent",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "toogleMenu",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "text",
-              "fieldName": "text",
-              "type": {
-                "text": "string"
-              }
-            }
-          ],
-          "tagName": "wcs-galactic-menu",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Galactic",
-          "declaration": {
-            "name": "Galactic",
-            "module": "components/galactic-menu/galactic-menu.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-galactic-menu",
-          "declaration": {
-            "name": "Galactic",
-            "module": "components/galactic-menu/galactic-menu.tsx"
           }
         }
       ]
@@ -5656,58 +5629,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/label/label.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Label",
-          "members": [
-            {
-              "kind": "field",
-              "name": "required",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "required",
-              "fieldName": "required"
-            }
-          ],
-          "tagName": "wcs-label",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Label",
-          "declaration": {
-            "name": "Label",
-            "module": "components/label/label.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-label",
-          "declaration": {
-            "name": "Label",
-            "module": "components/label/label.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/list-item/list-item.tsx",
       "declarations": [
         {
@@ -5758,6 +5679,58 @@
           "declaration": {
             "name": "ListItem",
             "module": "components/list-item/list-item.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/label/label.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Label",
+          "members": [
+            {
+              "kind": "field",
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "required",
+              "fieldName": "required"
+            }
+          ],
+          "tagName": "wcs-label",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Label",
+          "declaration": {
+            "name": "Label",
+            "module": "components/label/label.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-label",
+          "declaration": {
+            "name": "Label",
+            "module": "components/label/label.tsx"
           }
         }
       ]
@@ -7241,6 +7214,68 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/spinner/spinner-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/spinner/spinner.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Spinner",
+          "members": [
+            {
+              "kind": "field",
+              "name": "mode",
+              "type": {
+                "text": "WcsSpinnerMode"
+              },
+              "default": "'border'",
+              "description": "Indicates the spinner display mode.\r\nAccepted values: `border` or `growing`"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "mode",
+              "fieldName": "mode",
+              "type": {
+                "text": "WcsSpinnerMode"
+              }
+            }
+          ],
+          "tagName": "wcs-spinner",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Spinner",
+          "declaration": {
+            "name": "Spinner",
+            "module": "components/spinner/spinner.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-spinner",
+          "declaration": {
+            "name": "Spinner",
+            "module": "components/spinner/spinner.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/select-option/select-option-interface.ts",
       "declarations": [],
       "exports": []
@@ -7389,68 +7424,6 @@
           "declaration": {
             "name": "SelectOption",
             "module": "components/select-option/select-option.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/spinner/spinner-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/spinner/spinner.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Spinner",
-          "members": [
-            {
-              "kind": "field",
-              "name": "mode",
-              "type": {
-                "text": "WcsSpinnerMode"
-              },
-              "default": "'border'",
-              "description": "Indicates the spinner display mode.\r\nAccepted values: `border` or `growing`"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "mode",
-              "fieldName": "mode",
-              "type": {
-                "text": "WcsSpinnerMode"
-              }
-            }
-          ],
-          "tagName": "wcs-spinner",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Spinner",
-          "declaration": {
-            "name": "Spinner",
-            "module": "components/spinner/spinner.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-spinner",
-          "declaration": {
-            "name": "Spinner",
-            "module": "components/spinner/spinner.tsx"
           }
         }
       ]

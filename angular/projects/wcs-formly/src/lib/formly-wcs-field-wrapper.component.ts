@@ -27,11 +27,13 @@ import { MaterialIconSize } from 'wcs-core';
     <wcs-form-field [attr.is-error]="showError ? true : null">
       <wcs-label *ngIf="to.label && to.hideLabel !== true" [attr.for]="id" [ngStyle]="to.styles?.label">
         {{ to.label }}
-        <wcs-mat-icon [id]="id + '-icon'" *ngIf="to.tooltip?.content" [icon]="to.tooltip?.icon || DEFAULT_TOOLTIP_ICON"
+        <wcs-mat-icon [id]="id + '-icon'" *ngIf="to.tooltip?.content || to.tooltip?.dynamicContent" [icon]="to.tooltip?.icon || DEFAULT_TOOLTIP_ICON"
                       [size]="to.tooltip?.size || DEFAULT_TOOLTIP_ICON_SIZE"
                       [style.color]="to.tooltip?.color"></wcs-mat-icon>
       </wcs-label>
-      <wcs-tooltip *ngIf="to.tooltip?.content" [for]="id + '-icon'"
+      <wcs-tooltip *ngIf="to.tooltip?.content || to.tooltip?.dynamicContent" [for]="id + '-icon'"
+                   [content]="to.tooltip?.dynamicContent"
+                   [interactive]="to.tooltip?.interactive"
                    position="right">{{to.tooltip?.content}}</wcs-tooltip>
       <ng-content></ng-content>
       <wcs-error *ngIf="showError" [ngStyle]="to.styles?.error">

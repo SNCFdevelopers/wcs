@@ -193,6 +193,29 @@ export class FormlyExampleComponent implements OnInit {
       }
     },
     {
+      id: 'fieldInputTextWithDynamicTooltip',
+      key: 'fieldInputTextWithDynamicTooltip',
+      type: 'input',
+      templateOptions: {
+        required: true,
+        label: 'Champ de type input avec tooltip interactif, qui change dynamiquement',
+        placeholder: 'L\'input',
+        tooltip: {
+          interactive: true,
+          color: 'var(--wcs-primary)',
+          icon: 'help',
+          size: 'm',
+        }
+      },
+      expressionProperties: {
+        'templateOptions.disabled': () => this.disabled,
+        'templateOptions.required': () => this.required,
+        'templateOptions.tooltip.dynamicContent': () => {
+          return this.form.get('fieldInputTextWithDynamicTooltip')?.value;
+        }
+      }
+    },
+    {
       id: 'fieldTextArea',
       key: 'fieldTextArea',
       type: 'textarea',

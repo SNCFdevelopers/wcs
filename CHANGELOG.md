@@ -10,6 +10,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 
 for new features.
+- **formly-field-tooltip**: add `interactive` in templateOptions
+- **formly-field-tooltip**: add `dynamicContent` in templateOptions. This will allow to update the tooltip content dynamically (using `expressionProperties` for instance). Use the default `content` templateOptions if the tooltip content is static. 
 
 ### Changed
 
