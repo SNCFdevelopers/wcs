@@ -4,38 +4,37 @@
 
 ## Angular
 
-1. Install `wcs-core` and `wcs-angular` packages.
+1. **Install `wcs-core` and `wcs-angular` packages.**
 
 ```
 npm install wcs-core wcs-angular
 ```
 
-2. Register the web components loader script in your `main.ts`
+2. **Register the web components loader script in your `main.ts`.**
 
 ```typescript
+// main.ts
 import { defineCustomElements } from 'wcs-core/loader';
-
 ...
-
 defineCustomElements();
 ```
 
-If you want a compatibility with older browsers (IE 11, ...), you should add the `applyPolyfills()` that surround the
+> If you want a compatibility with **older browsers (IE 11, ...)**,
+> you should add the `applyPolyfills()` that surround the
 `defineCustomElements()` function.
-
 ```typescript
+// main.ts
 import { applyPolyfills, defineCustomElements } from 'wcs-core/loader';
-
 ...
-
 applyPolyfills().then(() => {
   defineCustomElements();
 });
 ```
 
-3. Add the `WcsAngular` module to your App module.
+3. **Add the `WcsAngular` module to your App module.**
 
 ```typescript
+// app.module.ts
 @NgModule({
   ...
   imports: [
@@ -47,32 +46,103 @@ applyPolyfills().then(() => {
 export class AppModule { }
 ```
 
-4. Import the wcs stylesheet (for example in the styles.scss), if you don't use scss, you can include it in the `angular.json` file (in the architect build config, key: `styles`)
+4. **Import the wcs stylesheet**
 
-```scss
+> If you **use** scss : add this at the top of your global style file (`styles.scss`)
+```css
+/* styles.scss */
 @import "~wcs-core/dist/wcs/wcs.css";
 ```
 
-We provide a base stylesheet in [/doc/base.scss](./doc/base.scss)
+> If you **don't** use scss : add this to your `angular.json` file
+```json
+// angular.json
+ "architect": {
+    "build": {
+        "builder": "@angular-devkit/build-angular:ng-packagr",
+        "options": {
+            ...
+            // add this :
+            "styles": [
+              "src/styles.scss",
+              "node_modules/wcs-core/dist/wcs/wcs.css"
+            ],
+            ...
+        },
+        ...
+    },
+ },
+```
 
-You're ready! (Don't forget to add font-faces 😉)
+💡 We provide a base stylesheet in [wcs/doc/base.scss](https://gitlab.com/SNCF/wcs/-/blob/master/doc/base.scss)
 
-## React (without bindings for now)
+5. **Add the font faces**
+
+* Create a folder **containing the fonts** _(e.g.: `src/assets/fonts`)_
+* Download the **Avenir** font from the Angular exemple project : [wcs/example/src/fonts](https://gitlab.com/SNCF/wcs/-/tree/master/example/src/assets/fonts)
+* Add the font faces in your `styles.scss` or `styles.css` :
+
+```css
+/* styles.scss */
+
+@import '../../dist/wcs/wcs.css'; // added previously
+
+body {
+  margin: 0;
+}
+
+@font-face {
+  font-family: Avenir;
+  src: url("../../src/assets/fonts/avenir-lighter.woff");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: Avenir;
+  src: url("../../src/assets/fonts/avenir-book.woff");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Avenir;
+  src: url("../../src/assets/fonts/avenir-medium.woff");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: Avenir;
+  src: url("../../src/assets/fonts/avenir-black.woff");
+  font-weight: 900;
+}
+```
+<center>
+
+#### 🎉 You're ready for Angular ! 🎉
+##### Try to use your first component : [wcs-button](./?path=/story/components-button--default)
+```html
+<wcs-button class="wcs-primary">Click me!</wcs-button>
+```
+
+</center>
+
+## React (without bindings for now) <img width="30" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png"></img>
 
 While waiting for the creation of **bindings for react**, it is still possible to use WCS in plain JS with `wcs-core`.
 
-1. Install `wcs-core`
+1. **Install `wcs-core`**
 ```
 npm install wcs-core
 ```
 
-2. Add the WCS stylesheet
-```scss
+2. **Add the WCS stylesheet**
+```css
 @import "~wcs-core/dist/wcs/wcs.css";
 ```
 
 
-3. Add Avenir and icons font faces in your global stylesheet
+3. **Add Avenir and icons font faces in your global stylesheet**
+
+💡Download the fonts from the exemple project : [wcs/example/src/fonts](https://gitlab.com/SNCF/wcs/-/tree/master/example/src/assets/fonts)
 ```css
 @font-face {
     font-family: Avenir;
@@ -107,14 +177,19 @@ npm install wcs-core
 }
 ```
 
-4. Register the WCS web component by calling the `defineCustomElements()` function in the loader in your index.js, should be call before `ReactDOM.createRoot(...)`
+4. **Register the WCS web component by calling the `defineCustomElements()` function in the loader of your `index.js`, should be called before `ReactDOM.createRoot(...)`**
 ```js
 import { defineCustomElements } from 'wcs-core/loader';
 
 defineCustomElements();
 ```
 
-5. Thats it, you can try with a simple spinner
+<center>
+
+#### 🎉 You're ready for React ! 🎉
+##### Try to use your first component : [wcs-spinner](./?path=/story/components-spinner--default)
 ```html
 <wcs-spinner class="wcs-primary" mode="border"></wcs-spinner>
 ```
+
+</center>

@@ -26,6 +26,7 @@ for now removed features.
 ### Fixed
 
 - **dropdown**: if the user presses an arrow (up or down) on the keyboard, the browser is prevented from scrolling
+- **docs**: made some corrections on the [Framework integration documentation](https://sncf.gitlab.io/wcs/develop/?path=/story/documentation-framework-integrations--page)
 - **checkbox**: label does not overlap anymore on very narrow containers
 - **tooltip**: fix tooltip appearance when it is contained into a fullscreen element 
 
