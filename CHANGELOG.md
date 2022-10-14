@@ -9,7 +9,6 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-for new features.
 - **formly-field-tooltip**: add `interactive` in templateOptions
 - **formly-field-tooltip**: add `dynamicContent` in templateOptions. This will allow to update the tooltip content dynamically (using `expressionProperties` for instance). Use the default `content` templateOptions if the tooltip content is static. 
 
@@ -30,7 +29,8 @@ for now removed features.
 - **dropdown**: if the user presses an arrow (up or down) on the keyboard, the browser is prevented from scrolling
 - **docs**: made some corrections on the [Framework integration documentation](https://sncf.gitlab.io/wcs/develop/?path=/story/documentation-framework-integrations--page)
 - **checkbox**: label does not overlap anymore on very narrow containers
-- **tooltip**: fix tooltip appearance when it is contained into a fullscreen element 
+- **tooltip**: fix tooltip appearance when it is contained into a fullscreen element
+- **label**: changed selector and disposition to inline-block for several lines field label
 
 ### Security
 

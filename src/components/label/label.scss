@@ -3,15 +3,14 @@
     margin-bottom: 8px;
 }
 
-:host([required])::after {
+:host([required]) > label::after {
     font-weight: 500;
     color: var(--wcs-red);
     content: ' *';
 }
 
 label {
-    display: inline-flex;
-    align-items: center;
+    display: inline-block;
 
     // Add margin before tooltip icon
     ::slotted(wcs-mat-icon) {
