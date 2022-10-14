@@ -34,6 +34,18 @@ npm test
 npm run test:watch
 ```
 
+### Working on the merge request from a fork (as a maintainer)
+
+First of all, you have to make sure that the person who created the fork allow commits from upstream members, see : https://docs.gitlab.com/ee/user/project/merge_requests/allow_collaboration.html#allow-commits-from-upstream-members
+
+Then, it is possible to clone the pushed branch from the fork via origin (it is a Gitlab feature) : https://docs.gitlab.com/ee/user/project/merge_requests/reviews/index.html#checkout-merge-requests-locally-through-the-head-ref
+
+> Example : `git fetch origin merge-requests/<id>/head:mr-origin-<id> && git checkout mr-origin-<id>`
+
+Finally, if you want to push modifications (for example the result of a rebase) follow this  documentation: https://docs.gitlab.com/ee/user/project/merge_requests/allow_collaboration.html#push-to-the-fork-as-the-upstream-member
+
+> Example : `git push https://gitlab.com/contributor-username/wcs local-branch:remote-branch` (add `-f` if it's a rebase).
+
 ## Resources
 
 - https://www.joshmorony.com/understanding-jsx-for-stencil-js-applications/
