@@ -1353,14 +1353,14 @@ export declare interface WcsTooltip extends Components.WcsTooltip {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['content', 'delay', 'duration', 'for', 'interactive', 'maxWidth', 'position', 'theme', 'trigger'],
+  inputs: ['appendTo', 'content', 'delay', 'duration', 'for', 'interactive', 'maxWidth', 'position', 'theme', 'trigger'],
   methods: ['hide', 'show', 'disable', 'enable']
 })
 @Component({
   selector: 'wcs-tooltip',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['content', 'delay', 'duration', 'for', 'interactive', 'maxWidth', 'position', 'theme', 'trigger']
+  inputs: ['appendTo', 'content', 'delay', 'duration', 'for', 'interactive', 'maxWidth', 'position', 'theme', 'trigger']
 })
 export class WcsTooltip {
   protected el: HTMLElement;
