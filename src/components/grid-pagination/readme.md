@@ -7,13 +7,13 @@
 
 ## Properties
 
-| Property             | Attribute      | Description | Type       | Default                      |
-| -------------------- | -------------- | ----------- | ---------- | ---------------------------- |
-| `availablePageSizes` | --             |             | `number[]` | `[10, 20, 50]`               |
-| `currentPage`        | `current-page` |             | `number`   | `0`                          |
-| `itemsCount`         | `items-count`  |             | `number`   | `0`                          |
-| `pageCount`          | `page-count`   |             | `number`   | `1`                          |
-| `pageSize`           | `page-size`    |             | `number`   | `this.availablePageSizes[0]` |
+| Property             | Attribute      | Description | Type       | Default                           |
+| -------------------- | -------------- | ----------- | ---------- | --------------------------------- |
+| `availablePageSizes` | --             |             | `number[]` | `[10, 20, 50]`                    |
+| `currentPage`        | `current-page` |             | `number`   | `GridPagination.INDEX_FIRST_PAGE` |
+| `itemsCount`         | `items-count`  |             | `number`   | `0`                               |
+| `pageCount`          | `page-count`   |             | `number`   | `1`                               |
+| `pageSize`           | `page-size`    |             | `number`   | `this.availablePageSizes[0]`      |
 
 
 ## Events

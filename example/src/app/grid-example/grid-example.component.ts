@@ -7,6 +7,11 @@ import { VNode } from '../../../../dist/types/stencil-public-runtime';
   selector: 'app-grid-example',
   template: `
     <h2>Grid</h2>
+    <wcs-button shape="small"
+                class="reloadBtn"
+                (click)="reloadLessData()">
+      Reload less data
+    </wcs-button>
     <wcs-grid id="grid-1" [data]="users">
       <wcs-grid-column path="name"
                        name="Nom"
@@ -19,62 +24,37 @@ import { VNode } from '../../../../dist/types/stencil-public-runtime';
                        name="Actions"
                        [formatter]="actionFormatter"
                        [width]="1"></wcs-grid-column>
-      <wcs-grid-pagination [availablePageSizes]="[5, 10, 15, 20]" [pageSize]="5"></wcs-grid-pagination>
+      <wcs-grid-pagination [availablePageSizes]="[5, 10, 15, 20]" [pageSize]="pageSize"></wcs-grid-pagination>
     </wcs-grid>
   `,
-  styles: []
+  styles: [`
+    .reloadBtn {
+      padding-bottom: 8px;
+    }
+  `]
 })
 export class GridExampleComponent implements OnInit {
+  readonly pageSize: number = 5;
   users;
 
   constructor() {
   }
 
   ngOnInit(): void {
-    this.users = [];
-    setTimeout(() => this.users = [
-        {
-          name: 'test1',
-          idAdmin: false,
-          id: '1'
-        },
-        {
-          name: 'test2',
-          idAdmin: true,
-          id: '2'
-        },
-        {
-          name: 'test3',
-          idAdmin: false,
-          id: '3'
-        },
-        {
-          name: 'test4',
-          idAdmin: true,
-          id: '4'
-        },
-        {
-          name: 'test5',
-          idAdmin: false,
-          id: '5'
-        },
-        {
-          name: 'test6',
-          idAdmin: false,
-          id: '6'
-        },
-        {
-          name: 'test7',
-          idAdmin: true,
-          id: '7'
-        },
-        {
-          name: 'test8',
-          idAdmin: true,
-          id: '8'
-        },
-      ]
+    setTimeout(() =>
+        this.generateData(5)
       , 3000);
+  }
+
+  generateData(nbPage: number) {
+    this.users = [];
+    for (let i = 0; i < this.pageSize * nbPage; i++) {
+      this.users.push({
+        name: Math.random().toString(36).slice(2),
+        idAdmin: Math.random() < 0.5,
+        id: Math.floor(Math.random() * 100)
+      });
+    }
   }
 
   surbrillanceFormatter = (createElement: HyperFunc<VNode>, column: HTMLWcsGridColumnElement, rowData: WcsGridRowData) => {
@@ -95,6 +75,10 @@ export class GridExampleComponent implements OnInit {
   // TODO don't use any type when issue will be closed : https://github.com/ionic-team/stencil-ds-output-targets/issues/219
   onSortChange($event: any) {
     console.log($event);
+  }
+
+  reloadLessData() {
+    this.generateData(3);
   }
 
 }

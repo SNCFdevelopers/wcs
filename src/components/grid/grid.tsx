@@ -4,7 +4,8 @@ import {
     ComponentInterface,
     Element,
     Event,
-    EventEmitter, forceUpdate,
+    EventEmitter,
+    forceUpdate,
     h,
     Host,
     Listen,
@@ -27,6 +28,7 @@ import {
 } from './grid-interface';
 import _ from 'lodash';
 import { v4 as uuid } from 'uuid';
+import { GridPagination } from '../grid-pagination/grid-pagination';
 
 @Component({
     tag: 'wcs-grid',
@@ -210,12 +212,14 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
      */
     private updatePageIndex(): void {
         if (!this.serverMode && this.paginationEl) {
-            if (this.paginationEl.pageCount > 0 && this.paginationEl.currentPage + 1 > this.paginationEl.pageCount) {
-                this.paginationEl.currentPage = this.paginationEl.pageCount - 1;
-            }
-
             this.paginationEl.itemsCount = this.data.length;
             this.paginationEl.pageCount = Math.ceil(this.data.length / this.paginationEl.pageSize);
+
+            if (this.paginationEl.pageCount <= 1) {
+                this.paginationEl.currentPage = GridPagination.INDEX_FIRST_PAGE;
+            } else if (this.paginationEl.pageCount > 0 && this.paginationEl.currentPage + 1 > this.paginationEl.pageCount) {
+                this.paginationEl.currentPage = this.paginationEl.pageCount - 1;
+            }
 
             const rows = _.cloneDeep(this.rows);
             rows.forEach((row: WcsGridRow, index: number) =>
