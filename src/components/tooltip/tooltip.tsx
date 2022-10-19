@@ -109,7 +109,7 @@ export class Tooltip implements ComponentInterface {
     content: string;
 
     /**
-     * The element to append the tooltip to. Default behaviour is `() => document.body`. If interactive: true, 
+     * The element to append the tooltip to. Default behaviour is `() => document.body`. If interactive: true,
      * the default behavior is appendTo: "parent"
      *
      * See: https://atomiks.github.io/tippyjs/v6/all-props/#appendto
@@ -153,7 +153,7 @@ export class Tooltip implements ComponentInterface {
     @Watch('trigger')
     // @ts-ignore
     private updateProps() {
-        this.tippyInstance.setProps({
+        this.tippyInstance?.setProps({
             interactive: this.interactive,
             placement: this.position,
             maxWidth: this.maxWidth,
@@ -166,7 +166,7 @@ export class Tooltip implements ComponentInterface {
 
     @Watch('content')
     private updateTippyContent() {
-        this.tippyInstance.setProps({
+        this.tippyInstance?.setProps({
             content: this.getTooltipContentFromPropAndSlot()
         })
     }
