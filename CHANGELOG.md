@@ -26,6 +26,7 @@ for now removed features.
 ### Fixed
 
 - **grid**: (front side pagination) when we reload less data than current data, we have to reset current page if it is greater than total of pages
+- **grid**: check if columns are defined before use it
 
 ### Security
 

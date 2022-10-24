@@ -158,11 +158,14 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
      * @private
      */
     private refreshSort(refreshOthersColmumnsSortOrderState: boolean) {
-        const [first, ...other] = this.columns.filter(c => c.sortOrder !== 'none');
-        if (first && !this.serverMode) {
-            this.sortBy(first);
+        //fixme: why the column property can be null or undefined?
+        if (this.columns) {
+            const [first, ...other] = this.columns.filter(c => c.sortOrder !== 'none');
+            if (first && !this.serverMode) {
+                this.sortBy(first);
+            }
+            refreshOthersColmumnsSortOrderState && this.disableSortOrderForColumns(other);
         }
-        refreshOthersColmumnsSortOrderState && this.disableSortOrderForColumns(other);
     }
 
     private disableSortOrderForColumns(columns: HTMLWcsGridColumnElement[] | null | undefined): void {
