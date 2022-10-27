@@ -3,6 +3,11 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Tab content component.
+Use this component to specify the content of a component.
+
 ## Properties
 
 | Property  | Attribute  | Description                                       | Type     | Default     |

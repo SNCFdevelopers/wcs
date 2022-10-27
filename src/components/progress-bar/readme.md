@@ -3,6 +3,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Component displaying progress as a bar.
+
 ## Properties
 
 | Property    | Attribute    | Description                                                                      | Type      | Default |

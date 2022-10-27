@@ -209,6 +209,10 @@ It is strongly recommended to add a width size to the select.
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Select component, use in conjuction with wcs-select-option.
+
 ## Properties
 
 | Property      | Attribute     | Description                                                     | Type                                                | Default                                                                 |

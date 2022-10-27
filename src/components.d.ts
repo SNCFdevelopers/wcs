@@ -787,7 +787,7 @@ export namespace Components {
     }
     interface WcsTooltip {
         /**
-          * The element to append the tooltip to. Default behaviour is `() => document.body`. If interactive: true,  the default behavior is appendTo: "parent"  See: https://atomiks.github.io/tippyjs/v6/all-props/#appendto
+          * The element to append the tooltip to. Default behaviour is `() => document.body`. If interactive: true, the default behavior is appendTo: "parent"  See: https://atomiks.github.io/tippyjs/v6/all-props/#appendto
          */
         "appendTo": WcsTooltipAppendTo;
         /**
@@ -844,6 +844,86 @@ export namespace Components {
          */
         "trigger": string;
     }
+}
+export interface WcsAccordionPanelCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLWcsAccordionPanelElement;
+}
+export interface WcsCheckboxCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLWcsCheckboxElement;
+}
+export interface WcsComNavCategoryCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLWcsComNavCategoryElement;
+}
+export interface WcsComNavSubmenuCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLWcsComNavSubmenuElement;
+}
+export interface WcsDropdownItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLWcsDropdownItemElement;
+}
+export interface WcsEditableFieldCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLWcsEditableFieldElement;
+}
+export interface WcsGridCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLWcsGridElement;
+}
+export interface WcsGridColumnCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLWcsGridColumnElement;
+}
+export interface WcsGridPaginationCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLWcsGridPaginationElement;
+}
+export interface WcsHorizontalStepperCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLWcsHorizontalStepperElement;
+}
+export interface WcsInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLWcsInputElement;
+}
+export interface WcsModalCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLWcsModalElement;
+}
+export interface WcsRadioCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLWcsRadioElement;
+}
+export interface WcsRadioGroupCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLWcsRadioGroupElement;
+}
+export interface WcsSelectCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLWcsSelectElement;
+}
+export interface WcsSelectOptionCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLWcsSelectOptionElement;
+}
+export interface WcsSwitchCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLWcsSwitchElement;
+}
+export interface WcsTabCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLWcsTabElement;
+}
+export interface WcsTabsCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLWcsTabsElement;
+}
+export interface WcsTextareaCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLWcsTextareaElement;
 }
 declare global {
     interface HTMLWcsAccordionElement extends Components.WcsAccordion, HTMLStencilElement {
@@ -1280,7 +1360,7 @@ declare namespace LocalJSX {
           * Specifies whether the component should highlight when open with primary color. if true, the background color will be the primary color. if false, the background color will be wcs-light.
          */
         "highlight"?: boolean;
-        "onWcsOpenChange"?: (event: CustomEvent<boolean>) => void;
+        "onWcsOpenChange"?: (event: WcsAccordionPanelCustomEvent<boolean>) => void;
         "open"?: boolean;
     }
     interface WcsActionBar {
@@ -1353,7 +1433,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the checked property has changed.
          */
-        "onWcsChange"?: (event: CustomEvent<CheckboxChangeEventDetail>) => void;
+        "onWcsChange"?: (event: WcsCheckboxCustomEvent<CheckboxChangeEventDetail>) => void;
     }
     interface WcsComNav {
         /**
@@ -1363,16 +1443,16 @@ declare namespace LocalJSX {
     }
     interface WcsComNavCategory {
         "label"?: string;
-        "onWcsCategoryItemClicked"?: (event: CustomEvent<MouseEvent>) => void;
-        "onWcsCategoryOpened"?: (event: CustomEvent<CategoryOpenedEventDetail>) => void;
+        "onWcsCategoryItemClicked"?: (event: WcsComNavCategoryCustomEvent<MouseEvent>) => void;
+        "onWcsCategoryOpened"?: (event: WcsComNavCategoryCustomEvent<CategoryOpenedEventDetail>) => void;
     }
     interface WcsComNavSubmenu {
         "label"?: string;
         /**
           * Emitted when a user click on a final navigation action.  Used by the com-nav component to close the mobile menu overlay when a user click on a final action.
          */
-        "onWcsClickOnFinalAction"?: (event: CustomEvent<void>) => void;
-        "onWcsSubmenuOpened"?: (event: CustomEvent<MenuOpenedEventDetail>) => void;
+        "onWcsClickOnFinalAction"?: (event: WcsComNavSubmenuCustomEvent<void>) => void;
+        "onWcsSubmenuOpened"?: (event: WcsComNavSubmenuCustomEvent<MenuOpenedEventDetail>) => void;
         "panelDescription"?: string;
         "panelTitle"?: string;
     }
@@ -1405,7 +1485,7 @@ declare namespace LocalJSX {
     interface WcsDropdownHeader {
     }
     interface WcsDropdownItem {
-        "onWcsDropdownItemClick"?: (event: CustomEvent<void>) => void;
+        "onWcsDropdownItemClick"?: (event: WcsDropdownItemCustomEvent<void>) => void;
     }
     interface WcsEditableField {
         /**
@@ -1423,7 +1503,7 @@ declare namespace LocalJSX {
         /**
           * event called at each (valid) update of the field.
          */
-        "onWcsChange"?: (event: CustomEvent<EditableComponentUpdateEvent>) => void;
+        "onWcsChange"?: (event: WcsEditableFieldCustomEvent<EditableComponentUpdateEvent>) => void;
         /**
           * Specify whether the field is editable or not
          */
@@ -1478,11 +1558,11 @@ declare namespace LocalJSX {
         /**
           * Event emitted when all rows are selected or unselected
          */
-        "onWcsGridAllSelectionChange"?: (event: CustomEvent<WcsGridAllRowSelectedEventDetails>) => void;
+        "onWcsGridAllSelectionChange"?: (event: WcsGridCustomEvent<WcsGridAllRowSelectedEventDetails>) => void;
         /**
           * Event emitted when a row is selected or unselected
          */
-        "onWcsGridSelectionChange"?: (event: CustomEvent<WcsGridRowSelectedEventDetails>) => void;
+        "onWcsGridSelectionChange"?: (event: WcsGridCustomEvent<WcsGridRowSelectedEventDetails>) => void;
         /**
           * Name of the object's key that will be used to display the cells whose keyValue attribute matches to the object's value for this key.
          */
@@ -1506,8 +1586,8 @@ declare namespace LocalJSX {
         "formatter"?: WcsCellFormatter;
         "hidden"?: boolean;
         "name"?: string;
-        "onWcsHiddenChange"?: (event: CustomEvent<boolean>) => void;
-        "onWcsSortChange"?: (event: CustomEvent<WcsGridColumnSortChangeEventDetails>) => void;
+        "onWcsHiddenChange"?: (event: WcsGridColumnCustomEvent<boolean>) => void;
+        "onWcsSortChange"?: (event: WcsGridColumnCustomEvent<WcsGridColumnSortChangeEventDetails>) => void;
         "path"?: string;
         "sort"?: boolean;
         "sortFn"?: WcsSortFn;
@@ -1531,7 +1611,7 @@ declare namespace LocalJSX {
         "availablePageSizes"?: number[];
         "currentPage"?: number;
         "itemsCount"?: number;
-        "onWcsGridPaginationChange"?: (event: CustomEvent<WcsGridPaginationChangeEventDetails>) => void;
+        "onWcsGridPaginationChange"?: (event: WcsGridPaginationCustomEvent<WcsGridPaginationChangeEventDetails>) => void;
         "pageCount"?: number;
         "pageSize"?: number;
     }
@@ -1556,7 +1636,7 @@ declare namespace LocalJSX {
         /**
           * Emits when the user selects a new step.
          */
-        "onWcsHorizontalStepClick"?: (event: CustomEvent<HorizontalStepClickEvent>) => void;
+        "onWcsHorizontalStepClick"?: (event: WcsHorizontalStepperCustomEvent<HorizontalStepClickEvent>) => void;
         /**
           * steps to display
          */
@@ -1646,19 +1726,19 @@ declare namespace LocalJSX {
         /**
           * Emitted when the input loses focus.
          */
-        "onWcsBlur"?: (event: CustomEvent<FocusEvent>) => void;
+        "onWcsBlur"?: (event: WcsInputCustomEvent<FocusEvent>) => void;
         /**
           * Emitted when the value has changed.
          */
-        "onWcsChange"?: (event: CustomEvent<InputChangeEventDetail>) => void;
+        "onWcsChange"?: (event: WcsInputCustomEvent<InputChangeEventDetail>) => void;
         /**
           * Emitted when the input has focus.
          */
-        "onWcsFocus"?: (event: CustomEvent<FocusEvent>) => void;
+        "onWcsFocus"?: (event: WcsInputCustomEvent<FocusEvent>) => void;
         /**
           * Emitted when a keyboard input occurred.
          */
-        "onWcsInput"?: (event: CustomEvent<KeyboardEvent>) => void;
+        "onWcsInput"?: (event: WcsInputCustomEvent<KeyboardEvent>) => void;
         /**
           * A regular expression that the value is checked against. The pattern must match the entire value, not just some subset. Use the title attribute to describe the pattern to help the user. This attribute applies when the value of the type attribute is `"text"`, `"search"`, `"tel"`, `"url"`, `"email"`, `"date"`, or `"password"`, otherwise it is ignored. When the type attribute is `"date"`, `pattern` will only be used in browsers that do not support the `"date"` input type natively. See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date for more information.
          */
@@ -1743,7 +1823,7 @@ declare namespace LocalJSX {
         /**
           * Triggered when the user leaves the dialog with the closing button.
          */
-        "onWcsDialogClosed"?: (event: CustomEvent<void>) => void;
+        "onWcsDialogClosed"?: (event: WcsModalCustomEvent<void>) => void;
         /**
           * Displays the modal
          */
@@ -1803,7 +1883,7 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "label"?: string;
         "mode"?: RadioGroupMode;
-        "onWcsRadioClick"?: (event: CustomEvent<RadioChosedEvent>) => void;
+        "onWcsRadioClick"?: (event: WcsRadioCustomEvent<RadioChosedEvent>) => void;
         "value"?: any | any[] | undefined | null;
     }
     interface WcsRadioGroup {
@@ -1812,7 +1892,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the value has changed.
          */
-        "onWcsChange"?: (event: CustomEvent<RadioGroupChangeEventDetail>) => void;
+        "onWcsChange"?: (event: WcsRadioGroupCustomEvent<RadioGroupChangeEventDetail>) => void;
         "value"?: any | any[] | undefined | null;
     }
     interface WcsSelect {
@@ -1839,15 +1919,15 @@ declare namespace LocalJSX {
         /**
           * Emitted when the select loses focus.
          */
-        "onWcsBlur"?: (event: CustomEvent<void>) => void;
+        "onWcsBlur"?: (event: WcsSelectCustomEvent<void>) => void;
         /**
           * Emitted when the value has changed.
          */
-        "onWcsChange"?: (event: CustomEvent<SelectChangeEventDetail>) => void;
+        "onWcsChange"?: (event: WcsSelectCustomEvent<SelectChangeEventDetail>) => void;
         /**
           * Emitted when the select has focus.
          */
-        "onWcsFocus"?: (event: CustomEvent<void>) => void;
+        "onWcsFocus"?: (event: WcsSelectCustomEvent<void>) => void;
         /**
           * The text to display when the select is empty.
          */
@@ -1875,7 +1955,7 @@ declare namespace LocalJSX {
           * @ignore
          */
         "multiple"?: boolean;
-        "onWcsSelectOptionClick"?: (event: CustomEvent<SelectOptionChosedEvent>) => void;
+        "onWcsSelectOptionClick"?: (event: WcsSelectOptionCustomEvent<SelectOptionChosedEvent>) => void;
         /**
           * Wether this option is selected.
          */
@@ -1908,7 +1988,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the checked property has changed.
          */
-        "onWcsChange"?: (event: CustomEvent<SwitchChangeEventDetail>) => void;
+        "onWcsChange"?: (event: WcsSwitchCustomEvent<SwitchChangeEventDetail>) => void;
     }
     interface WcsTab {
         /**
@@ -1921,7 +2001,7 @@ declare namespace LocalJSX {
           * @inner 
           * @ignore
          */
-        "onTabLoaded"?: (event: CustomEvent<void>) => void;
+        "onTabLoaded"?: (event: WcsTabCustomEvent<void>) => void;
     }
     interface WcsTabs {
         /**
@@ -1939,7 +2019,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the selected tab change.
          */
-        "onTabChange"?: (event: CustomEvent<WcsTabChangeEvent>) => void;
+        "onTabChange"?: (event: WcsTabsCustomEvent<WcsTabChangeEvent>) => void;
         /**
           * Current selected tab index. Starts at 0.
          */
@@ -2006,19 +2086,19 @@ declare namespace LocalJSX {
         /**
           * Emitted when the input loses focus.
          */
-        "onWcsBlur"?: (event: CustomEvent<FocusEvent>) => void;
+        "onWcsBlur"?: (event: WcsTextareaCustomEvent<FocusEvent>) => void;
         /**
           * Emitted when the input value has changed.
          */
-        "onWcsChange"?: (event: CustomEvent<TextareaChangeEventDetail>) => void;
+        "onWcsChange"?: (event: WcsTextareaCustomEvent<TextareaChangeEventDetail>) => void;
         /**
           * Emitted when the input has focus.
          */
-        "onWcsFocus"?: (event: CustomEvent<FocusEvent>) => void;
+        "onWcsFocus"?: (event: WcsTextareaCustomEvent<FocusEvent>) => void;
         /**
           * Emitted when a keyboard input occurred.
          */
-        "onWcsInput"?: (event: CustomEvent<KeyboardEvent>) => void;
+        "onWcsInput"?: (event: WcsTextareaCustomEvent<KeyboardEvent>) => void;
         /**
           * Instructional text that shows before the input has a value.
          */
@@ -2054,7 +2134,7 @@ declare namespace LocalJSX {
     }
     interface WcsTooltip {
         /**
-          * The element to append the tooltip to. Default behaviour is `() => document.body`. If interactive: true,  the default behavior is appendTo: "parent"  See: https://atomiks.github.io/tippyjs/v6/all-props/#appendto
+          * The element to append the tooltip to. Default behaviour is `() => document.body`. If interactive: true, the default behavior is appendTo: "parent"  See: https://atomiks.github.io/tippyjs/v6/all-props/#appendto
          */
         "appendTo"?: WcsTooltipAppendTo;
         /**

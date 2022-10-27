@@ -3,6 +3,11 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Tabs component to switch between tab content.
+Use in conjuction with `wcs-tab`.
+
 ## Properties
 
 | Property        | Attribute        | Description                                                                                                                                  | Type                           | Default     |

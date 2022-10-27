@@ -13,7 +13,7 @@ for new features.
 
 ### Changed
 
-for changes in existing functionality.
+- **stencil**: upgrade to v2.19
 
 ### Deprecated
 

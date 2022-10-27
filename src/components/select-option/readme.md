@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Select option component, use in conjunction with wcs-select.
+
 ## Properties
 
 | Property              | Attribute               | Description                                                     | Type      | Default     |

@@ -3,6 +3,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Button component, can also be a link when specifying href.
+
 ## Properties
 
 | Property   | Attribute  | Description                                                         | Type                                         | Default     |

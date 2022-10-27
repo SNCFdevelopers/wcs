@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+Mainly inspired from Ionic Textarea Component
+
 ## Properties
 
 | Property         | Attribute        | Description                                                                                                                                                                      | Type                                                                                  | Default        |
