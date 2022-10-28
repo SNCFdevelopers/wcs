@@ -15,7 +15,7 @@ To migrate, please refer to the storybook documentation (v2 to v3).
 
 ### Added
 
-for new features.
+- **button**: add `loading` (false by default) to display spinner if the property is equals to true
 
 ### Changed
 

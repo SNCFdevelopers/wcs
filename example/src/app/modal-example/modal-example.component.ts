@@ -18,7 +18,7 @@ import { Component } from '@angular/core';
       Content of the modal with actions
       <div slot="actions">
         <wcs-button (click)="showModalWithActions = false" class="wcs-dark" mode="stroked">Cancel</wcs-button>
-        <wcs-button (click)="showModalWithActions = false">Confirm</wcs-button>
+        <wcs-button (click)="onClick()" [loading]="loading">Confirm</wcs-button>
       </div>
     </wcs-modal>
   `,
@@ -31,7 +31,16 @@ import { Component } from '@angular/core';
 export class ModalExampleComponent {
   showModalWithoutActions = false;
   showModalWithActions = false;
+  loading = false;
 
   constructor() {
+  }
+
+  onClick() {
+    this.loading = true;
+    setTimeout(() => {
+      this.loading = false;
+      this.showModalWithActions = false;
+    }, 5000);
   }
 }

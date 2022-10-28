@@ -161,13 +161,13 @@ export declare interface WcsButton extends Components.WcsButton {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['disabled', 'href', 'mode', 'ripple', 'shape', 'type']
+  inputs: ['disabled', 'href', 'loading', 'mode', 'ripple', 'shape', 'type']
 })
 @Component({
   selector: 'wcs-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['disabled', 'href', 'mode', 'ripple', 'shape', 'type']
+  inputs: ['disabled', 'href', 'loading', 'mode', 'ripple', 'shape', 'type']
 })
 export class WcsButton {
   protected el: HTMLElement;

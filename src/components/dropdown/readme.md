@@ -24,6 +24,7 @@
 ```mermaid
 graph TD;
   wcs-dropdown --> wcs-button
+  wcs-button --> wcs-spinner
   style wcs-dropdown fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

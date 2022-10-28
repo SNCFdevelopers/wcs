@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Element, h, Listen, Prop, Watch } from '@stencil/core';
+import {Component, ComponentInterface, Element, h, Listen, Prop, Watch} from '@stencil/core';
 
 import { MDCRipple } from '@material/ripple';
 
@@ -48,9 +48,14 @@ export class Button implements ComponentInterface {
      */
     @Prop({ reflect: true }) mode: WcsButtonMode = 'plain';
 
+    /**
+     * Flag to display spinner until the end of action
+     */
+    @Prop({mutable: true}) loading: boolean = false;
+
     @Listen('click')
     onClick(ev: Event) {
-        if (this.disabled) {
+        if (this.disabled || this.loading) {
             ev.stopImmediatePropagation();
         }
         if (this.type !== 'button' && hasShadowDom(this.el)) {
@@ -102,13 +107,15 @@ export class Button implements ComponentInterface {
         const attrs = this.href !== undefined
             ? { href: this.href, role: 'button' }
             : { type: this.type };
-
         return (
             <TagType
                 {...attrs}
                 class="wcs-inner-button"
-                {...this.disabled === true ? { disabled: true } : null}
+                disabled = {this.disabled || this.loading}
             >
+                {
+                    this.loading && <wcs-spinner></wcs-spinner>
+                }
                 <slot/>
             </TagType>
         );

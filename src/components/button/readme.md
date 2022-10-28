@@ -13,6 +13,7 @@ Button component, can also be a link when specifying href.
 | ---------- | ---------- | ------------------------------------------------------------------- | -------------------------------------------- | ----------- |
 | `disabled` | `disabled` | Specify wether the button is disabled or not.                       | `boolean`                                    | `false`     |
 | `href`     | `href`     | Set a URL to point to. If specified use a `a` tag instead of `btn`. | `string`                                     | `undefined` |
+| `loading`  | `loading`  | Flag to display spinner until the end of action                     | `boolean`                                    | `false`     |
 | `mode`     | `mode`     | This attribute specify the appearance of the button.                | `"clear" \| "plain" \| "stroked"`            | `'plain'`   |
 | `ripple`   | `ripple`   | Specify wether the button should have a ripple effect or not.       | `boolean`                                    | `true`      |
 | `shape`    | `shape`    | Specify the shape of the button.                                    | `"normal" \| "round" \| "small" \| "square"` | `'normal'`  |
@@ -27,9 +28,14 @@ Button component, can also be a link when specifying href.
  - [wcs-horizontal-stepper](../horizontal-stepper)
  - [wcs-modal](../modal)
 
+### Depends on
+
+- [wcs-spinner](../spinner)
+
 ### Graph
 ```mermaid
 graph TD;
+  wcs-button --> wcs-spinner
   wcs-dropdown --> wcs-button
   wcs-horizontal-stepper --> wcs-button
   wcs-modal --> wcs-button

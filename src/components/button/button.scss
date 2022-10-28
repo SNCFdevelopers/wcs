@@ -76,9 +76,32 @@
     }
 }
 
-:host([disabled]) {
+:host([loading]) {
+    position: relative;
+
+    .wcs-inner-button > *:not(wcs-spinner) {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    wcs-spinner {
+        height: 24px;
+        width: 24px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+}
+
+:host([disabled]), :host([loading]) {
+    :host(not[loading]) {
+        --wcs-button-background-color: var(--wcs-light);
+    }
     --wcs-button-color: var(--wcs-text-disabled);
-    --wcs-button-background-color: var(--wcs-light);
+
 
     .wcs-inner-button {
         // Fix for stroked button

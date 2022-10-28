@@ -14,12 +14,14 @@
 
 ### Used by
 
+ - [wcs-button](../button)
  - [wcs-editable-field](../editable-field)
  - [wcs-grid](../grid)
 
 ### Graph
 ```mermaid
 graph TD;
+  wcs-button --> wcs-spinner
   wcs-editable-field --> wcs-spinner
   wcs-grid --> wcs-spinner
   style wcs-spinner fill:#f9f,stroke:#333,stroke-width:4px

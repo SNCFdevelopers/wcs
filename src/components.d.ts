@@ -89,6 +89,10 @@ export namespace Components {
          */
         "href"?: string;
         /**
+          * Flag to display spinner until the end of action
+         */
+        "loading": boolean;
+        /**
           * This attribute specify the appearance of the button.
          */
         "mode": WcsButtonMode;
@@ -1390,6 +1394,10 @@ declare namespace LocalJSX {
           * Set a URL to point to. If specified use a `a` tag instead of `btn`.
          */
         "href"?: string;
+        /**
+          * Flag to display spinner until the end of action
+         */
+        "loading"?: boolean;
         /**
           * This attribute specify the appearance of the button.
          */
