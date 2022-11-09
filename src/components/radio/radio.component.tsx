@@ -1,6 +1,7 @@
-import { Component, ComponentInterface, h, Host, Prop, Element, Event, EventEmitter } from '@stencil/core';
+import { Component, ComponentInterface, h, Host, Prop, Element, Event, EventEmitter, Listen } from '@stencil/core';
 import { RadioChosedEvent } from './radio-interface';
 import { RadioGroupMode } from '../radio-group/radio-group-interface';
+import { isEnterKey, isSpaceKey } from '../../utils/helpers';
 
 @Component({
     tag: 'wcs-radio',
@@ -26,6 +27,14 @@ export class Radio implements ComponentInterface {
     // FIXME renommer l'évènement c'est pas un onclick mais un onchange
     @Event({eventName: 'wcsRadioClick' }) wcsRadioClick: EventEmitter<RadioChosedEvent>
 
+    @Listen('keydown')
+    onKeyDown(_event: KeyboardEvent) {
+        if ((isSpaceKey(_event) || isEnterKey(_event)) && !this.el.checked) {
+            this.el.checked = true;
+            this.emitRadioChangeEvent();
+        }
+    }
+
     componentWillLoad(): Promise<void> | void {
         if (this.value === undefined) {
             // If no value was given we use the text content instead.
@@ -36,13 +45,17 @@ export class Radio implements ComponentInterface {
     componentDidLoad() {
         this.inputEl = this.el.shadowRoot.querySelector('input');
         this.inputEl.addEventListener('change', _ => {
-            this.wcsRadioClick.emit({
-                label: this.label,
-                source: this.el,
-                value: this.value
-            });
+            this.emitRadioChangeEvent();
             this.checked = true;
         })
+    }
+
+    emitRadioChangeEvent() {
+        this.wcsRadioClick.emit({
+            label: this.label,
+            source: this.el,
+            value: this.value
+        });
     }
 
     render() {
@@ -55,8 +68,9 @@ export class Radio implements ComponentInterface {
                     checked={this.checked}
                     disabled={this.disabled}
                     aria-disabled={this.disabled ? 'true' : null}
-                    aria-checked={`${this.checked}`}/>
-                <label htmlFor={`${this.inputId}`}>{this.label}</label>
+                    aria-checked={`${this.checked}`}
+                    tabIndex={-1}/>
+                <label htmlFor={`${this.inputId}`} tabIndex={this.disabled ? -1 : 0}>{this.label}</label>
             </Host>
         );
     }

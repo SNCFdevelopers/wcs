@@ -16,6 +16,7 @@ To migrate, please refer to the storybook documentation (v2 to v3).
 ### Added
 
 - **button**: add `loading` (false by default) to display spinner if the property is equals to true
+- **radio**: add `focus-visible` to show which if a radio is focused via keyboard
 
 ### Changed
 

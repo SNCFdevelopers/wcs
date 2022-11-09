@@ -30,6 +30,12 @@
             background: no-repeat 50% / 50% 50%;
         }
     }
+
+    label:focus-visible {
+        outline: 0.2rem dashed var(--wcs-primary);
+        outline-offset: 0.1rem;
+        border-radius: 0.1rem;
+    }
 }
 
 :host([disabled]) {
@@ -113,6 +119,12 @@
         color: var(--wcs-white);
         white-space: nowrap;
         border-radius: 0.4375rem;
+    }
+
+    label:focus-visible {
+        outline: 0.2rem dashed var(--wcs-white);
+        outline-offset: 0.1rem;
+        border-radius: 0.1rem;
     }
 }
 
