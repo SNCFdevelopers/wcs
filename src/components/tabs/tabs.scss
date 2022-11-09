@@ -50,6 +50,12 @@
             color: var(--wcs-primary);
         }
     }
+
+    &:focus-visible > span {
+        outline: 0.2rem dashed var(--wcs-primary);
+        outline-offset: 5px;
+        border-radius: 0.1rem;
+    }
 }
 
 
