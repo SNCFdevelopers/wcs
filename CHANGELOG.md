@@ -49,6 +49,7 @@ for now removed features.
 - **grid**: (front side pagination) when we reload less data than current data, we have to reset current page if it is greater than total of pages
 - **grid**: check if columns are defined before use it
 - **tooltip**: check if tippy instance is defined to avoid exception if not
+- **tabs**: tab index now start at 1 instead of 0 in tab groups. It allow to navigate on the first tab at first instead of the second one
 - **spinner**: stroke size of rotating circle is now equal to dashed fixed circle stroke
 
 ### Security

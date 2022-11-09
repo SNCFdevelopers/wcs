@@ -205,7 +205,7 @@ export class Tabs implements ComponentInterface {
                         <div class={'wcs-tab-header ' + (this.currentActiveTabIndex === idx ? 'active' : '')}
                              onClick={() => this.selectTabAndEmitChangeEvent(idx)}
                              onKeyDown={evt => this.handleKeyDown(evt, idx)}
-                             tabIndex={idx}
+                             tabIndex={idx + 1}
                         >
                             <span>{header}</span>
                         </div>
