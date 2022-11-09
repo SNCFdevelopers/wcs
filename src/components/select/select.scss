@@ -68,6 +68,14 @@
     }
 }
 
+:host(:not(.expanded):focus-visible) {
+    .wcs-select-control {
+        outline: 0.2rem dashed var(--wcs-primary);
+        outline-offset: 5px;
+        border-radius: 0.1rem;
+    }
+}
+
 :host([disabled]) {
     cursor: not-allowed;
 
