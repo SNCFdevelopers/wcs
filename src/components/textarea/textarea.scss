@@ -38,6 +38,10 @@
         outline: 0;
     }
 
+    textarea:focus-visible {
+        @include focus-outline(var(--wcs-internal-textarea-border-radius-left) var(--wcs-internal-textarea-border-radius-right) var(--wcs-internal-textarea-border-radius-right) var(--wcs-internal-textarea-border-radius-left));
+    }
+
     wcs-mat-icon {
         position: relative;
         margin-top: 7px;

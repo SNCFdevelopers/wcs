@@ -21,6 +21,7 @@ To migrate, please refer to the storybook documentation (v2 to v3).
 - **select**: add `focus-visible` to show which if a select is focused via keyboard
 - **switch**: add `focus-visible` to show which if a switch is focused via keyboard
 - **tabs**: add `focus-visible` to show which if a tab is focused via keyboard
+- **textarea**: add `focus-visible` to show which if a textarea is focused via keyboard
 
 ### Changed
 
