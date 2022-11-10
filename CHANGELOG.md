@@ -31,6 +31,8 @@ To migrate, please refer to the storybook documentation (v2 to v3).
   - **select** 
   - **select-option**
   - **textarea**
+- **footer**: change the behaviour in responsive mode. Now `end-left` and `end-right` parts of the footer are
+organized on column if they have not enough space 
 
 ### Deprecated
 

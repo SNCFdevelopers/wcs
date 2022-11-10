@@ -14,10 +14,10 @@ export class Footer implements ComponentInterface {
                         <slot />
                     </div>
                     <div class="end">
-                        <div>
+                        <div class="end-left">
                             <slot name="end-left"/>
                         </div>
-                        <div>
+                        <div class="end-right">
                             <slot name="end-right"/>
                         </div>
                     </div>
