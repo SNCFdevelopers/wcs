@@ -11,6 +11,7 @@ import {
     State
 } from '@stencil/core';
 import { CategoryOpenedEventDetail } from '../com-nav/com-nav-interface';
+import {isEnterKey, isSpaceKey} from "../../utils/helpers";
 
 @Component({
     tag: 'wcs-com-nav-category',
@@ -22,7 +23,7 @@ export class ComNavCategory implements ComponentInterface {
     @Prop() label: string;
     @State() categoryOpen: boolean = false;
     @Event() wcsCategoryOpened: EventEmitter<CategoryOpenedEventDetail>;
-    @Event() wcsCategoryItemClicked: EventEmitter<MouseEvent>;
+    @Event() wcsCategoryItemClicked: EventEmitter<UIEvent>;
 
     @Listen('click', {target: 'window'})
     onWindowClickEvent(_: MouseEvent) {
@@ -33,6 +34,28 @@ export class ComNavCategory implements ComponentInterface {
     onSubmenuOpened(event: CustomEvent<CategoryOpenedEventDetail>) {
         if (event.detail.categoryElement !== this.el) {
             this.categoryOpen = false;
+        }
+    }
+
+    /**
+     * Open the menu if it is closed and closed the menu if it is already opened
+     * @param _event the keyboard event
+     * @private
+     */
+    private handleMenuKeyDown(_event: KeyboardEvent) {
+        if ((isSpaceKey(_event)) || isEnterKey(_event)) {
+            this.categoryOpen = !this.categoryOpen;
+        }
+    }
+
+    /**
+     * Handle key down on category items
+     * @param _event the keyboard event
+     * @private
+     */
+    private handleCategoryItemsKeyDown(_event: KeyboardEvent) {
+        if ((isSpaceKey(_event)) || isEnterKey(_event)) {
+            this.handleItemClick(_event);
         }
     }
 
@@ -67,7 +90,7 @@ export class ComNavCategory implements ComponentInterface {
      * @param evt
      * @private
      */
-    private handleItemClick(evt: MouseEvent) {
+    private handleItemClick(evt: UIEvent) {
         if ((evt.target as HTMLElement).tagName === 'A') {
             this.close();
             this.wcsCategoryItemClicked.emit(evt);
@@ -77,9 +100,15 @@ export class ComNavCategory implements ComponentInterface {
     render(): any {
         return (
             <Host onClick={evt => this.onClick(evt)}>
-                <div class="label-container" data-open={this.categoryOpen}
+                <div tabindex={screen.width < 576 ? "-1" : "0"}
+                     class="label-container"
+                     data-open={this.categoryOpen}
+                     onKeyDown={evt => this.handleMenuKeyDown(evt)}
                      onClick={_ => this.categoryOpen = !this.categoryOpen}><span class="label">{this.label}</span></div>
-                <div class="item-container" data-open={this.categoryOpen} onClick={(evt) => this.handleItemClick(evt)}>
+                <div class="item-container"
+                     data-open={this.categoryOpen}
+                     onKeyDown={evt => this.handleCategoryItemsKeyDown(evt)}
+                     onClick={(evt) => this.handleItemClick(evt)}>
                     <slot/>
                 </div>
             </Host>

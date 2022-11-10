@@ -57,6 +57,8 @@ for now removed features.
 - **tooltip**: check if tippy instance is defined to avoid exception if not
 - **tabs**: tab index now start at 1 instead of 0 in tab groups. It allow to navigate on the first tab at first instead of the second one
 - **spinner**: stroke size of rotating circle is now equal to dashed fixed circle stroke
+- **com-nav**: accessibility: make **com-nav-submenu** and **com-nav-category** focusable and add keyboard navigation to
+it.
 
 ### Security
 

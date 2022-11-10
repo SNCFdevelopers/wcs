@@ -1,4 +1,7 @@
-import { Component, Host, h, Prop, Element, ComponentInterface, State, Listen } from '@stencil/core';
+import {Component, Host, h, Prop, Element, ComponentInterface, State, Listen} from '@stencil/core';
+import {registerCloseHandlerForFocusOutEventOn} from "./com-nav-utils";
+
+const WCS_COM_NAV_SUBMENU_TAG_NAME = 'WCS-COM-NAV-SUBMENU';
 
 @Component({
     tag: 'wcs-com-nav',
@@ -36,6 +39,9 @@ export class ComNav implements ComponentInterface {
             }
         });
         this.resizeObserver.observe(document.body);
+
+        const slottedNavigableItems = this.el.querySelectorAll(':scope > wcs-com-nav-submenu:not([slot]), :scope > a:not([slot])');
+        registerCloseHandlerForFocusOutEventOn<HTMLWcsComNavSubmenuElement>(slottedNavigableItems, WCS_COM_NAV_SUBMENU_TAG_NAME);
     }
 
     componentDidRender() {

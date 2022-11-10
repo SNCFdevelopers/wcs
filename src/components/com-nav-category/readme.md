@@ -16,7 +16,7 @@
 
 | Event                    | Description | Type                                     |
 | ------------------------ | ----------- | ---------------------------------------- |
-| `wcsCategoryItemClicked` |             | `CustomEvent<MouseEvent>`                |
+| `wcsCategoryItemClicked` |             | `CustomEvent<UIEvent>`                   |
 | `wcsCategoryOpened`      |             | `CustomEvent<CategoryOpenedEventDetail>` |
 
 

@@ -1,3 +1,5 @@
+@import '../../style/focus-outline.scss';
+
 :host{
     display: block;
     padding-bottom: var(--wcs-padding);
@@ -25,6 +27,17 @@
         padding-top: calc(1.5 * var(--wcs-base-margin));
         padding-bottom: calc(1.5 * var(--wcs-base-margin));
     }
+
+    /**For mobile*/
+    ::slotted(a:focus-visible) {
+        @include focus-outline(var(--wcs-primary), 2px, 0.1rem);
+    }
+
+    @supports not selector(::slotted(a:focus-visible)) {
+        ::slotted(a:focus-within) {
+            @include focus-outline(var(--wcs-primary), 2px, 0.1rem);
+        }
+    }
 }
 
 @media screen and (min-width: 576px) {
@@ -51,6 +64,16 @@
             align-items: center;
             padding-left: unset;
             color: var(--wcs-white);
+        }
+
+        .label-container:focus-visible   {
+            @include focus-outline(var(--wcs-white), 5px, 0.1rem);
+        }
+
+        @supports not selector(.label-container:focus-visible) {
+            .label-container:focus-within {
+                @include focus-outline(var(--wcs-white), 5px, 0.1rem);
+            }
         }
 
         .label-container[data-open]:after {
@@ -88,6 +111,16 @@
                 padding-left: unset;
                 padding-top: unset;
                 padding-bottom: unset;
+            }
+
+            ::slotted(a:focus-visible) {
+                @include focus-outline(var(--wcs-white), 2px, 0.1rem);
+            }
+
+            @supports not selector(::slotted(a:focus-visible)) {
+                ::slotted(a:focus-within) {
+                    @include focus-outline(var(--wcs-white), 2px, 0.1rem);
+                }
             }
         }
     }

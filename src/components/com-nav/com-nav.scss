@@ -1,3 +1,5 @@
+@import '../../style/focus-outline.scss';
+
 :host {
     display: block;
     position: relative;
@@ -59,6 +61,16 @@
         box-sizing: border-box;
     }
 
+    ::slotted(a:focus-visible) {
+        @include focus-outline(var(--wcs-primary), 2px, 0.1rem);
+    }
+
+    @supports not selector(::slotted(a:focus-visible)) {
+        ::slotted(a:focus-within) {
+            @include focus-outline(var(--wcs-primary), 2px, 0.1rem);
+        }
+    }
+
     #mobile-menu-icon {
         height: 24px;
         padding-left: calc(2 * var(--wcs-base-margin));
@@ -109,6 +121,16 @@
 
             ::slotted(*:not(:first-child)) {
                 margin-left: 40px;
+            }
+
+            ::slotted(a:focus-visible) {
+                @include focus-outline(var(--wcs-primary), 2px, 0.1rem);
+            }
+
+            @supports not selector(::slotted(a:focus-visible)) {
+                ::slotted(a:focus-within) {
+                    @include focus-outline(var(--wcs-primary), 2px, 0.1rem);
+                }
             }
         }
 

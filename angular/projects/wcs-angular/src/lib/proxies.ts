@@ -275,7 +275,7 @@ export declare interface WcsComNavCategory extends Components.WcsComNavCategory 
   /**
    *  
    */
-  wcsCategoryItemClicked: EventEmitter<CustomEvent<MouseEvent>>;
+  wcsCategoryItemClicked: EventEmitter<CustomEvent<UIEvent>>;
 
 }
 
