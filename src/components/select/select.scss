@@ -69,6 +69,7 @@
 }
 
 :host([disabled]) {
+    cursor: not-allowed;
 
     .wcs-select-control,
     label {

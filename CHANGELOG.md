@@ -22,6 +22,15 @@ To migrate, please refer to the storybook documentation (v2 to v3).
 - **stencil**: upgrade to v2.19
 - **wcs-angular**: migrate to angular v13
 - **wcs-formly**: migrate to Formly v6 (see: https://github.com/ngx-formly/ngx-formly/blob/main/UPGRADE-6.0.md)
+- **accessibility** : change cursor to `not-allowed` while hovering the following disabled elements :
+  - **button** 
+  - **checkbox** 
+  - **input** 
+  - **radio** 
+  - **switch** 
+  - **select** 
+  - **select-option**
+  - **textarea**
 
 ### Deprecated
 

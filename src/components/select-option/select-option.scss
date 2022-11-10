@@ -19,7 +19,7 @@ wcs-select-option {
 }
 
 wcs-select-option[disabled] {
-    cursor: default;
+    cursor: not-allowed;
     pointer-events: none;
     color: var(--wcs-text-disabled);
 }

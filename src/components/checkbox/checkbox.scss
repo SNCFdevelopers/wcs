@@ -7,6 +7,10 @@
 :host([disabled]) {
     --wcs-checkbox-border-color: var(--wcs-light);
     --wcs-checkbox-text-color: var(--wcs-text-disabled);
+
+    .wcs-container {
+        cursor: not-allowed;
+    }
 }
 
 .wcs-checkmark {

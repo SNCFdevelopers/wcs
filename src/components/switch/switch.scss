@@ -12,6 +12,10 @@
 
 :host([disabled]) {
     --wcs-switch-text-color: var(--wcs-text-disabled);
+
+    .wcs-container {
+        cursor: not-allowed;
+    }
 }
 
 /* Customize the label (the wcs-container) */
