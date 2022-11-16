@@ -1,4 +1,5 @@
 @import "../../style/ripple.scss";
+@import '../../style/focus-outline.scss';
 
 :host {
     --wcs-select-ligther-percentage: 40;
@@ -70,9 +71,7 @@
 
 :host(:not(.expanded):focus-visible) {
     .wcs-select-control {
-        outline: 0.2rem dashed var(--wcs-primary);
-        outline-offset: 5px;
-        border-radius: 0.1rem;
+        @include focus-outline(var(--wcs-select-border-radius));
     }
 }
 

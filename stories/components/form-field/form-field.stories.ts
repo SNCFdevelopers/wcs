@@ -37,6 +37,10 @@ const Template: Story<Partial<FormFieldStoriesParams>> = (args) => html`
     ${Radio(args)}
     ${TextArea(args)}
     ${Switch(args)}
+    <br>
+    ${Checkbox(args)}
+    <br>
+    ${Button(args)}
 `;
 
 export const Default = Template.bind({});
@@ -108,6 +112,21 @@ const SwitchTemplate: Story<Partial<FormFieldStoriesParams>> = (args) => html`
 `;
 export const Switch = SwitchTemplate.bind({});
 Switch.args = {};
+
+
+const ButtonTemplate: Story<Partial<FormFieldStoriesParams>> = (args) => html`
+    <wcs-button class="wcs-primary">
+        Submit
+    </wcs-button>
+`;
+export const Button = ButtonTemplate.bind({});
+Button.args = {};
+
+const CheckboxTemplate: Story<Partial<FormFieldStoriesParams>> = (args) => html`
+    <wcs-checkbox>Did you read all questions?</wcs-checkbox>
+`;
+export const Checkbox = CheckboxTemplate.bind({});
+Checkbox.args = {};
 
 const SelectButtonTemplate: Story<Partial<FormFieldStoriesParams>> = (args) => html`
     <wcs-form-field ?is-error=${args.isError}>

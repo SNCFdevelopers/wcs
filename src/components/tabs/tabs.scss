@@ -1,3 +1,5 @@
+@import '../../style/focus-outline.scss';
+
 :host {
     --wcs-tabs-padding-bottom: 16px;
 }
@@ -52,9 +54,7 @@
     }
 
     &:focus-visible > span {
-        outline: 0.2rem dashed var(--wcs-primary);
-        outline-offset: 5px;
-        border-radius: 0.1rem;
+        @include focus-outline;
     }
 }
 

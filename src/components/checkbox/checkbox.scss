@@ -1,3 +1,5 @@
+@import '../../style/focus-outline.scss';
+
 :host {
     --wcs-checkbox-border-color: var(--wcs-text-medium);
     --wcs-checkbox-text-color: var(--wcs-text-medium);
@@ -28,9 +30,7 @@
 }
 
 label:focus-visible {
-    outline: 0.2rem dashed #0074af;
-    outline-offset: 5px;
-    border-radius: 0.1rem;
+    @include focus-outline(var(--wcs-border-radius));
 }
 
 .wcs-container:not([aria-disabled]) {

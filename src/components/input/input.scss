@@ -1,3 +1,5 @@
+@import '../../style/focus-outline.scss';
+
 :host {
     --wcs-input-icon-color: var(--wcs-text-medium);
     --wcs-internal-input-border-radius-left: var(--wcs-input-border-radius-left, var(--wcs-border-radius));
@@ -35,9 +37,7 @@
     }
 
     input:focus-visible {
-        outline: 0.2rem dashed var(--wcs-primary);
-        outline-offset: 5px;
-        border-radius: 0.1rem;
+        @include focus-outline(var(--wcs-internal-input-border-radius-left) var(--wcs-internal-input-border-radius-right) var(--wcs-internal-input-border-radius-right) var(--wcs-internal-input-border-radius-left));
     }
 
     wcs-mat-icon {

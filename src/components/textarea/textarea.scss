@@ -1,3 +1,5 @@
+@import '../../style/focus-outline.scss';
+
 :host {
     --wcs-textarea-icon-color: var(--wcs-text-medium);
     --wcs-internal-textarea-border-radius-left: var(--wcs-textarea-border-radius-left, var(--wcs-border-radius));
@@ -35,7 +37,6 @@
         box-shadow: none;
         outline: 0;
     }
-
 
     wcs-mat-icon {
         position: relative;

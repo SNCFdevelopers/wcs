@@ -1,3 +1,5 @@
+@import '../../style/focus-outline.scss';
+
 :host {
     --wcs-switch-background-color-initial: var(--wcs-text-light);
     --wcs-switch-background-color-final: var(--wcs-primary);
@@ -27,8 +29,7 @@
 
 :host {
     input:focus-visible + .wcs-checkmark {
-        outline: 0.2rem dashed var(--wcs-primary);
-        outline-offset: 2px;
+        @include focus-outline(0.75rem);
     }
 }
 
