@@ -1,5 +1,4 @@
-import { Component, Prop, Event, Element, EventEmitter, ComponentInterface, h, Host, Listen } from '@stencil/core';
-import { isEnterKey, isSpaceKey } from '../../utils/helpers';
+import { Component, Prop, Event, Element, EventEmitter, ComponentInterface, h, Host } from '@stencil/core';
 import { CheckboxChangeEventDetail, CheckboxLabelAlignment } from './checkbox-interface';
 
 @Component({
@@ -39,13 +38,6 @@ export class Checkbox implements ComponentInterface {
      */
     @Event() wcsChange!: EventEmitter<CheckboxChangeEventDetail>;
 
-    @Listen('keydown')
-    onKeyDown(_event: KeyboardEvent) {
-        if ( (isSpaceKey(_event) || isEnterKey(_event))) {
-            this.handleChange(_event);
-        }
-    }
-
     handleChange(_event: Event) {
         this.indeterminate = false;
         this.checked = !this.checked;
@@ -57,8 +49,8 @@ export class Checkbox implements ComponentInterface {
     render() {
         return (
             <Host>
-                <label htmlFor={this.name} class="wcs-container" aria-disabled={this.disabled} tabindex={this.disabled ? "-1" : "0"}>
-                    <input tabindex="-1"
+                <label htmlFor={this.name} class="wcs-container" aria-disabled={this.disabled}>
+                    <input onChange={(evt) => this.handleChange(evt)}
                            checked={this.checked}
                            class="wcs-checkbox"
                            type="checkbox"

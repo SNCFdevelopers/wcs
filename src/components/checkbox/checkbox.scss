@@ -29,10 +29,6 @@
     display: flex;
 }
 
-label:focus-visible {
-    @include focus-outline($border-radius: var(--wcs-border-radius));
-}
-
 .wcs-container:not([aria-disabled]) {
     cursor: pointer;
 }
@@ -60,14 +56,27 @@ label:focus-visible {
 .wcs-container input {
     position: absolute;
     opacity: 0;
-    height: 0;
-    width: 0;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
 }
 
 .wcs-container:hover:not([aria-disabled]), input:focus {
     --wcs-checkbox-border-color: var(--wcs-primary);
 
     --wcs-checkbox-text-color: var(--wcs-primary);
+}
+
+.wcs-container:has(input:focus-visible) {
+    @include focus-outline($border-radius: var(--wcs-border-radius));
+}
+
+@supports not selector(.wcs-container:has(input:focus-visible)){
+    .wcs-container:focus-within {
+        @include focus-outline($border-radius: var(--wcs-border-radius));
+    }
 }
 
 /* Create a custom checkbox */
