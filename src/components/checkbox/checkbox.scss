@@ -30,7 +30,7 @@
 }
 
 label:focus-visible {
-    @include focus-outline(var(--wcs-border-radius));
+    @include focus-outline($border-radius: var(--wcs-border-radius));
 }
 
 .wcs-container:not([aria-disabled]) {

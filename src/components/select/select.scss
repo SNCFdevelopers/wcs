@@ -71,7 +71,7 @@
 
 :host(:not(.expanded):focus-visible) {
     .wcs-select-control {
-        @include focus-outline(var(--wcs-select-border-radius));
+        @include focus-outline($border-radius: var(--wcs-select-border-radius));
     }
 }
 

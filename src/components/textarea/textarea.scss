@@ -39,7 +39,7 @@
     }
 
     textarea:focus-visible {
-        @include focus-outline(var(--wcs-internal-textarea-border-radius-left) var(--wcs-internal-textarea-border-radius-right) var(--wcs-internal-textarea-border-radius-right) var(--wcs-internal-textarea-border-radius-left));
+        @include focus-outline($border-radius: var(--wcs-internal-textarea-border-radius-left) var(--wcs-internal-textarea-border-radius-right) var(--wcs-internal-textarea-border-radius-right) var(--wcs-internal-textarea-border-radius-left));
     }
 
     wcs-mat-icon {

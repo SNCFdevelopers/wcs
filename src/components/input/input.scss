@@ -37,7 +37,7 @@
     }
 
     input:focus-visible {
-        @include focus-outline(var(--wcs-internal-input-border-radius-left) var(--wcs-internal-input-border-radius-right) var(--wcs-internal-input-border-radius-right) var(--wcs-internal-input-border-radius-left));
+        @include focus-outline($border-radius: var(--wcs-internal-input-border-radius-left) var(--wcs-internal-input-border-radius-right) var(--wcs-internal-input-border-radius-right) var(--wcs-internal-input-border-radius-left));
     }
 
     wcs-mat-icon {

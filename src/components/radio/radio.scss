@@ -35,7 +35,7 @@
     }
 
     label:focus-visible {
-        @include focus-outline(0.3rem, 0rem);
+        @include focus-outline($border-radius: 0.3rem, $outline-offset: 0rem);
     }
 }
 

@@ -14,7 +14,7 @@
 }
 
 .wcs-inner-button:focus-visible {
-    @include focus-outline(var(--wcs-button-border-radius));
+    @include focus-outline($border-radius: var(--wcs-button-border-radius));
 }
 
 :host([mode=clear]) {

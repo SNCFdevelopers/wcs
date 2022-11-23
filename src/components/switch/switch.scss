@@ -29,7 +29,7 @@
 
 :host {
     input:focus-visible + .wcs-checkmark {
-        @include focus-outline(0.75rem);
+        @include focus-outline($border-radius: 0.75rem);
     }
 }
 
