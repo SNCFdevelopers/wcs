@@ -3,14 +3,14 @@ import { FormlyFieldConfig } from '@ngx-formly/core';
 import { FormGroup } from '@angular/forms';
 import { Subject } from 'rxjs';
 
-type Option = { value: string, label: string, disabled: boolean};
+type Option = { value: string, label: string, disabled: boolean };
 
 @Component({
   selector: 'app-formly-example',
   template: `
     <h2>Formly</h2>
-    <wcs-switch [checked]="disabled" (wcsChange)="toggleDisabled()">Disabled</wcs-switch>
-    <wcs-switch [checked]="required" (wcsChange)="toggleRequired()">Required</wcs-switch>
+    <wcs-switch [checked]="model.disabled" (wcsChange)="toggleDisabled()">Disabled</wcs-switch>
+    <wcs-switch [checked]="model.required" (wcsChange)="toggleRequired()">Required</wcs-switch>
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <formly-form class="formly" [form]="form" [fields]="fields" [model]="model"></formly-form>
       <wcs-button type="submit">
@@ -23,12 +23,6 @@ type Option = { value: string, label: string, disabled: boolean};
   styles: [`
     form {
       width: 500px;
-    }
-
-    .formly {
-      display: flex;
-      flex-direction: column;
-      row-gap: 16px;
     }
   `]
 })
@@ -51,8 +45,6 @@ export class FormlyExampleComponent implements OnInit {
   ];
   private asynchronousOptionsSubject = new Subject<Option[]>();
 
-  disabled = false;
-  required = false;
   form = new FormGroup({});
   model = {
     fieldInput: '',
@@ -62,171 +54,186 @@ export class FormlyExampleComponent implements OnInit {
     fieldSelect: null,
     fieldSelectAsynchronous: null,
     fieldSwitch: true,
-    fieldTextArea: ''
+    fieldTextArea: '',
+    required: false,
+    disabled: false
   };
   fields: FormlyFieldConfig[] = [
+    // first, we create a group to add a gap between fields (with a global css class)
     {
-      id: 'fieldInput',
-      key: 'fieldInput',
-      type: 'input',
-      templateOptions: {
-        label: 'Champ de type input',
-        prefixLabel: 'prefix',
-        suffixLabel: 'suffix',
-        placeholder: 'Placeholder'
-      },
-      expressionProperties: {
-        'templateOptions.disabled': () => this.disabled,
-        'templateOptions.required': () => this.required
-      }
-    },
-    {
-      id: 'fieldCheckbox',
-      key: 'fieldCheckbox',
-      type: 'checkbox',
-      templateOptions: {
-        label: 'Champ de type checkbox'
-      },
-      expressionProperties: {
-        'templateOptions.disabled': () => this.disabled,
-        'templateOptions.required': () => this.required
-      }
-    },
-    {
-      id: 'fieldRadio',
-      key: 'fieldRadio',
-      type: 'radio',
-      templateOptions: {
-        label: 'Champ de type radio',
-        options: this.options
-      },
-      expressionProperties: {
-        'templateOptions.disabled': () => this.disabled,
-        'templateOptions.required': () => this.required
-      }
-    },
-    {
-      id: 'fieldRadioHorizontal',
-      key: 'fieldRadioHorizontal',
-      type: 'radio',
-      templateOptions: {
-        attributes: {
-          mode: 'horizontal'
+      fieldGroupClassName: 'formly-group-flex-col-with-gap',
+      fieldGroup: [
+        // we declare each form fields in the group
+        {
+          id: 'fieldInput',
+          key: 'fieldInput',
+          type: 'input',
+          props: {
+            label: 'Champ de type input',
+            prefixLabel: 'prefix',
+            suffixLabel: 'suffix',
+            placeholder: 'Placeholder'
+          },
+          expressions: {
+            'props.disabled': 'model.disabled',
+            'props.required': 'model.required'
+          }
         },
-        label: 'Champ de type radio',
-        options: this.options
-      },
-      expressionProperties: {
-        'templateOptions.disabled': () => this.disabled,
-        'templateOptions.required': () => this.required
-      }
-    },
-    {
-      id: 'fieldRadioAsynchronous',
-      key: 'fieldRadioAsynchronous',
-      type: 'radio',
-      templateOptions: {
-        label: 'Champ de type radio (avec récupération asynchrone des options)',
-        options: this.asynchronousOptionsSubject
-      },
-      expressionProperties: {
-        'templateOptions.disabled': () => this.disabled,
-        'templateOptions.required': () => this.required
-      }
-    },
-    {
-      id: 'fieldSelect',
-      key: 'fieldSelect',
-      type: 'select',
-      templateOptions: {
-        label: 'Champ de type select',
-        options: this.options
-      },
-      expressionProperties: {
-        'templateOptions.disabled': () => this.disabled,
-        'templateOptions.required': () => this.required
-      }
-    },
-    {
-      id: 'fieldSelectAsynchronous',
-      key: 'fieldSelectAsynchronous',
-      type: 'select',
-      templateOptions: {
-        label: 'Champ de type select (avec récupération asynchrone des options)',
-        options: this.asynchronousOptionsSubject
-      },
-      expressionProperties: {
-        'templateOptions.disabled': () => this.disabled,
-        'templateOptions.required': () => this.required
-      }
-    },
-    {
-      id: 'fieldSwitch',
-      key: 'fieldSwitch',
-      type: 'switch',
-      templateOptions: {
-        label: 'Champ de type switch'
-      },
-      expressionProperties: {
-        'templateOptions.disabled': () => this.disabled,
-        'templateOptions.required': () => this.required
-      }
-    },
-    {
-      id: 'fieldInputText',
-      key: 'fieldInputText',
-      type: 'input',
-      templateOptions: {
-        required: true,
-        label: 'Champ de type input',
-        placeholder: 'L\'input',
-        tooltip: {
-          content: 'Contenu du tooltip...',
-          color: 'var(--wcs-primary)',
-          icon: 'help',
-          size: 'm',
+        {
+          id: 'fieldCheckbox',
+          key: 'fieldCheckbox',
+          type: 'checkbox',
+          props: {
+            label: 'Champ de type checkbox'
+          },
+          expressions: {
+            'props.disabled': 'model.disabled',
+            'props.required': 'model.required'
+          }
+        },
+        {
+          id: 'fieldRadio',
+          key: 'fieldRadio',
+          type: 'radio',
+          props: {
+            label: 'Champ de type radio',
+            options: this.options
+          },
+          expressions: {
+            'props.disabled': 'model.disabled',
+            'props.required': 'model.required'
+          }
+        },
+        {
+          id: 'fieldRadioHorizontal',
+          key: 'fieldRadioHorizontal',
+          type: 'radio',
+          props: {
+            attributes: {
+              mode: 'horizontal'
+            },
+            label: 'Champ de type radio',
+            options: this.options,
+            styles: {
+              input: {width: '100%'},
+            }
+          },
+          expressions: {
+            'props.disabled': 'model.disabled',
+            'props.required': 'model.required'
+          }
+        },
+        {
+          id: 'fieldSelect',
+          key: 'fieldSelect',
+          type: 'select',
+          props: {
+            label: 'Champ de type select',
+            placeholder: 'Choisissez',
+            options: this.options
+          },
+          expressions: {
+            'props.disabled': 'model.disabled',
+            'props.required': 'model.required'
+          }
+        },
+        {
+          id: 'fieldSelectAsynchronous',
+          key: 'fieldSelectAsynchronous',
+          type: 'select',
+          props: {
+            label: 'Champ de type select (avec récupération asynchrone des options)',
+            placeholder: 'Choisissez',
+            options: this.asynchronousOptionsSubject
+          },
+          expressions: {
+            'props.disabled': 'model.disabled',
+            'props.required': 'model.required'
+          }
+        },
+        {
+          id: 'fieldSwitch',
+          key: 'fieldSwitch',
+          type: 'switch',
+          props: {
+            label: 'Champ de type switch'
+          },
+          expressions: {
+            'props.disabled': 'model.disabled',
+            'props.required': 'model.required'
+          }
+        },
+        {
+          id: 'fieldInputText',
+          key: 'fieldInputText',
+          type: 'input',
+          props: {
+            required: true,
+            label: 'Champ de type input',
+            placeholder: 'L\'input',
+            tooltip: {
+              content: 'Contenu du tooltip...',
+              color: 'var(--wcs-primary)',
+              icon: 'help',
+              size: 'm',
+            }
+          },
+          expressions: {
+            'props.disabled': 'model.disabled',
+            'props.required': 'model.required'
+          }
+        },
+        {
+          id: 'fieldInputTextWithDynamicTooltip',
+          key: 'fieldInputTextWithDynamicTooltip',
+          type: 'input',
+          props: {
+            required: true,
+            label: 'Champ de type input avec tooltip interactif, qui change dynamiquement',
+            placeholder: 'L\'input',
+            tooltip: {
+              interactive: true,
+              color: 'var(--wcs-primary)',
+              icon: 'help',
+              size: 'm',
+            }
+          },
+          expressions: {
+            'props.disabled': 'model.disabled',
+            'props.required': 'model.required',
+            'props.tooltip.dynamicContent': () => {
+              return this.form.get('fieldInputTextWithDynamicTooltip')?.value;
+            }
+          }
+        },
+        {
+          id: 'fieldTextArea',
+          key: 'fieldTextArea',
+          type: 'textarea',
+          props: {
+            label: 'Champ de type textarea',
+            placeholder: 'Placeholder'
+          },
+          expressions: {
+            'props.disabled': 'model.disabled',
+            'props.required': 'model.required'
+          }
+        },
+
+        {
+          id: 'fieldRadioAsynchronous',
+          key: 'fieldRadioAsynchronous',
+          type: 'radio',
+          props: {
+            label: 'Champ de type radio (avec récupération asynchrone des options)',
+            options: this.asynchronousOptionsSubject
+          },
+          expressions: {
+            'props.disabled': 'model.disabled',
+            'props.required': 'model.required'
+          }
         }
-      },
-      expressionProperties: {
-        'templateOptions.disabled': () => this.disabled,
-        'templateOptions.required': () => this.required
-      }
-    },
-    {
-      id: 'fieldInputTextWithDynamicTooltip',
-      key: 'fieldInputTextWithDynamicTooltip',
-      type: 'input',
-      templateOptions: {
-        required: true,
-        label: 'Champ de type input avec tooltip interactif, qui change dynamiquement',
-        placeholder: 'L\'input',
-        tooltip: {
-          interactive: true,
-          color: 'var(--wcs-primary)',
-          icon: 'help',
-          size: 'm',
-        }
-      },
-      expressionProperties: {
-        'templateOptions.disabled': () => this.disabled,
-        'templateOptions.required': () => this.required,
-        'templateOptions.tooltip.dynamicContent': () => {
-          return this.form.get('fieldInputTextWithDynamicTooltip')?.value;
-        }
-      }
-    },
-    {
-      id: 'fieldTextArea',
-      key: 'fieldTextArea',
-      type: 'textarea',
-      templateOptions: {
-        label: 'Champ de type textarea',
-        placeholder: 'Placeholder'
-      },
-      expressionProperties: {
-        'templateOptions.disabled': () => this.disabled,
-        'templateOptions.required': () => this.required
-      }
+      ]
     }
   ];
 
@@ -238,11 +245,17 @@ export class FormlyExampleComponent implements OnInit {
   }
 
   toggleDisabled(): void {
-    this.disabled = !this.disabled;
+    this.model = {
+      ...this.model,
+      disabled: !this.model.disabled
+    };
   }
 
   toggleRequired(): void {
-    this.required = !this.required;
+    this.model = {
+      ...this.model,
+      required: !this.model.required
+    };
   }
 
   onSubmit(): void {

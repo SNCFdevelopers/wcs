@@ -1,19 +1,22 @@
 import { Component } from '@angular/core';
-import { FieldType } from '@ngx-formly/core';
+import { FieldType, FieldTypeConfig } from '@ngx-formly/core';
+import { WcsFormlyBooleanFieldWrapperProps } from './formly-wcs-boolean-field-wrapper.component';
+
+export type WcsFormlyCheckboxProps = WcsFormlyBooleanFieldWrapperProps;
 
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'formly-wcs-field-checkbox',
   template: `
-    <formly-wcs-boolean-field-wrapper [field]="field" [id]="id" [showError]="showError" [to]="to">
+    <formly-wcs-boolean-field-wrapper [field]="field" [showError]="showError" [props]="props">
       <wcs-checkbox
-        [id]="to.id"
-        [attr.disabled]="to.disabled ? true : null"
+        [id]="id"
+        [attr.disabled]="props.disabled ? true : null"
         [formControl]="formControl"
-        [ngStyle]="to.styles?.input">{{to.label}}</wcs-checkbox>
+        [ngStyle]="props.styles?.input">{{props.label}}</wcs-checkbox>
     </formly-wcs-boolean-field-wrapper>
   `,
   styles: []
 })
-export class FormlyWcsFieldCheckboxComponent extends FieldType {
+export class FormlyWcsFieldCheckboxComponent extends FieldType<FieldTypeConfig<WcsFormlyCheckboxProps>> {
 }

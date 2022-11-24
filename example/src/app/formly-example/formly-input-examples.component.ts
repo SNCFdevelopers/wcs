@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { FormGroup } from "@angular/forms";
-import { FormlyFieldConfig } from "@ngx-formly/core";
+import { FormGroup } from '@angular/forms';
+import { FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
   selector: 'app-formly-input-examples',
@@ -21,7 +21,7 @@ export class FormlyInputExamplesComponent {
     {
       key: 'email',
       type: 'input',
-      templateOptions: {
+      props: {
         label: 'Email address',
         placeholder: 'Enter email',
         required: true,

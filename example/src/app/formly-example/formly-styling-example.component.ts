@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 
@@ -14,7 +14,7 @@ type Option = { value: string, label: string, disabled: boolean, class: string }
   `,
   styles: []
 })
-export class FormlyStylingExampleComponent implements OnInit {
+export class FormlyStylingExampleComponent {
   form = new FormGroup({});
   private options: Option[] = [
     {
@@ -42,7 +42,7 @@ export class FormlyStylingExampleComponent implements OnInit {
       id: 'fieldInput',
       key: 'fieldInput',
       type: 'input',
-      templateOptions: {
+      props: {
         label: 'Champ de type input',
         placeholder: 'Placeholder',
         description: 'Ceci est un message d\'aide très lisible',
@@ -61,7 +61,7 @@ export class FormlyStylingExampleComponent implements OnInit {
       id: 'fieldRadioHorizontal',
       key: 'fieldRadioHorizontal',
       type: 'radio',
-      templateOptions: {
+      props: {
         attributes: {
           mode: 'horizontal'
         },
@@ -73,11 +73,4 @@ export class FormlyStylingExampleComponent implements OnInit {
       }
     },
   ];
-
-  constructor() {
-  }
-
-  ngOnInit(): void {
-  }
-
 }

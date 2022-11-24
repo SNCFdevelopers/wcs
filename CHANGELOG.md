@@ -7,6 +7,12 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
 
+⚠ This version contains breaking changes in following packages :
+  - wcs-angular
+  - wcs-formly
+
+To migrate, please refer to the storybook documentation (v2 to v3).
+
 ### Added
 
 for new features.
@@ -14,6 +20,8 @@ for new features.
 ### Changed
 
 - **stencil**: upgrade to v2.19
+- **wcs-angular**: migrate to angular v13
+- **wcs-formly**: migrate to Formly v6 (see: https://github.com/ngx-formly/ngx-formly/blob/main/UPGRADE-6.0.md)
 
 ### Deprecated
 
@@ -38,7 +46,7 @@ in case of vulnerabilities.
 ### Added
 
 - **formly-field-tooltip**: add `interactive` in templateOptions
-- **formly-field-tooltip**: add `dynamicContent` in templateOptions. This will allow to update the tooltip content dynamically (using `expressionProperties` for instance). Use the default `content` templateOptions if the tooltip content is static. 
+- **formly-field-tooltip**: add `dynamicContent` in templateOptions. This will allow to update the tooltip content dynamically (using `expressionProperties` for instance). Use the default `content` templateOptions if the tooltip content is static.
 
 ### Changed
 

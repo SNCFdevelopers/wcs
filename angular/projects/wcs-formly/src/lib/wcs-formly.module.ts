@@ -42,7 +42,7 @@ import { WcsFormlyOptionsPipe } from './pipes/wcs-formly-options.pipe';
           name: 'number',
           extends: 'input',
           defaultOptions: {
-            templateOptions: {
+            props: {
               type: 'number',
             },
           },
@@ -51,7 +51,7 @@ import { WcsFormlyOptionsPipe } from './pipes/wcs-formly-options.pipe';
           name: 'integer',
           extends: 'input',
           defaultOptions: {
-            templateOptions: {
+            props: {
               type: 'number',
             },
           },

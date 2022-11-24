@@ -41,3 +41,9 @@ body {
 .value3 {
   --wcs-primary: var(--wcs-red);
 }
+
+.formly-group-flex-col-with-gap {
+  display: flex;
+  flex-direction: column;
+  row-gap: calc(var(--wcs-base-margin) * 2);
+}

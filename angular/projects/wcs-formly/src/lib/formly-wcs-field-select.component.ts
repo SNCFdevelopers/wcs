@@ -1,21 +1,27 @@
 import { Component } from '@angular/core';
-import { FieldType } from '@ngx-formly/core';
+import { FieldType, FieldTypeConfig } from '@ngx-formly/core';
+import { WcsFormlyFieldWrapperProps } from './formly-wcs-field-wrapper.component';
+
+export type WcsFormlySelectProps = WcsFormlyFieldWrapperProps & {
+  hideRequiredMarker?: boolean,
+  multiple?: boolean
+};
 
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'app-formly-wcs-field-select',
   template: `
-    <formly-wcs-field-wrapper [field]="field" [id]="id" [showError]="showError" [to]="to">
+    <formly-wcs-field-wrapper [field]="field" [id]="id" [showError]="showError" [props]="props">
       <wcs-select
-        [id]="to.id"
-        [attr.required]="(to.required && to.hideRequiredMarker !== true) ? true : null"
-        [attr.placeholder]="to.placeholder"
+        [id]="id"
+        [attr.required]="(props.required && props.hideRequiredMarker !== true) ? true : null"
+        [attr.placeholder]="props.placeholder"
         [formControl]="formControl"
-        [attr.multiple]="to.multiple"
-        [attr.disabled]="to.disabled ? true : null"
-        [ngStyle]="to.styles?.input">
+        [attr.multiple]="props.multiple"
+        [attr.disabled]="props.disabled ? true : null"
+        [ngStyle]="props.styles?.input">
         <wcs-select-option
-          *ngFor="let option of to.options | wcsFormlyOptions | async; let i = index"
+          *ngFor="let option of props.options | wcsFormlyOptions | async; let i = index"
           [attr.disabled]="option.disabled ? true : null"
           [value]="option.value"
           [ngClass]="option.class">{{option.label}}</wcs-select-option>
@@ -24,5 +30,5 @@ import { FieldType } from '@ngx-formly/core';
   `,
   styles: []
 })
-export class FormlyWcsFieldSelectComponent extends FieldType {
+export class FormlyWcsFieldSelectComponent extends FieldType<FieldTypeConfig<WcsFormlySelectProps>> {
 }

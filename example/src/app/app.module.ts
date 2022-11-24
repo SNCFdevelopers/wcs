@@ -36,7 +36,6 @@ import { GridServerPaginationExampleComponent } from './grid-example/grid-server
     FormsModule,
     WcsAngularModule,
     FormlyModule.forRoot({
-      extras: {lazyRender: true},
       validationMessages: [
         {name: 'required', message: 'Ce champ est obligatoire'}
       ]

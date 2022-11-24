@@ -1,23 +1,29 @@
 import { Component } from '@angular/core';
-import { FieldType } from '@ngx-formly/core';
+import { FieldType, FieldTypeConfig } from '@ngx-formly/core';
+import { WcsFormlyBooleanFieldWrapperProps } from './formly-wcs-boolean-field-wrapper.component';
+
+export type WcsFormlySwitchProps = WcsFormlyBooleanFieldWrapperProps & {
+  id: string,
+  hideLabel?: boolean
+};
 
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'formly-wcs-field-switch',
   template: `
-    <formly-wcs-boolean-field-wrapper [field]="field" [id]="id" [showError]="showError" [to]="to">
+    <formly-wcs-boolean-field-wrapper [field]="field" [showError]="showError" [props]="props">
       <wcs-switch
-        [id]="to.id"
-        [attr.disabled]="to.disabled ? true : null"
+        [id]="id"
+        [attr.disabled]="props.disabled ? true : null"
         [formControl]="formControl"
-        [ngStyle]="to.styles?.input">
-        <span *ngIf="to.label && to.hideLabel !== true" [attr.for]="id">
-          {{ to.label }}
+        [ngStyle]="props.styles?.input">
+        <span *ngIf="props.label && props.hideLabel !== true" [attr.for]="id">
+          {{ props.label }}
         </span>
       </wcs-switch>
     </formly-wcs-boolean-field-wrapper>
   `,
   styles: []
 })
-export class FormlyWcsFieldSwitchComponent extends FieldType {
+export class FormlyWcsFieldSwitchComponent extends FieldType<FieldTypeConfig<WcsFormlySwitchProps>> {
 }
