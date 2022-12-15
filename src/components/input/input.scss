@@ -36,10 +36,6 @@
         outline: 0;
     }
 
-    input:focus-visible {
-        @include focus-outline($border-radius: var(--wcs-internal-input-border-radius-left) var(--wcs-internal-input-border-radius-right) var(--wcs-internal-input-border-radius-right) var(--wcs-internal-input-border-radius-left));
-    }
-
     wcs-mat-icon {
         position: relative;
         margin-left: 8px;
@@ -108,6 +104,8 @@
 }
 
 :host(:focus-within) {
+    @include focus-outline($border-radius: var(--wcs-internal-input-border-radius-left) var(--wcs-internal-input-border-radius-right) var(--wcs-internal-input-border-radius-right) var(--wcs-internal-input-border-radius-left));
+
     border: solid 1px var(--wcs-primary);
 
     .prefix {

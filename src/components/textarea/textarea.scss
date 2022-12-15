@@ -38,10 +38,6 @@
         outline: 0;
     }
 
-    textarea:focus-visible {
-        @include focus-outline($border-radius: var(--wcs-internal-textarea-border-radius-left) var(--wcs-internal-textarea-border-radius-right) var(--wcs-internal-textarea-border-radius-right) var(--wcs-internal-textarea-border-radius-left));
-    }
-
     wcs-mat-icon {
         position: relative;
         margin-top: 7px;
@@ -62,6 +58,8 @@
 }
 
 :host(:focus-within) {
+    @include focus-outline($border-radius: var(--wcs-internal-textarea-border-radius-left) var(--wcs-internal-textarea-border-radius-right) var(--wcs-internal-textarea-border-radius-right) var(--wcs-internal-textarea-border-radius-left));
+
     border: solid 1px var(--wcs-primary);
 
     wcs-mat-icon {

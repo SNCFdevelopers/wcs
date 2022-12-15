@@ -2,9 +2,9 @@
 @mixin focus-outline
     ( $outline-color: var(--wcs-primary)
     , $border-radius: 0.1rem
-    , $outline-offset: 0.1rem
+    , $outline-offset: 4px
     ) {
-    outline: 0.2rem dashed $outline-color;
+    outline: 2px dashed $outline-color;
     outline-offset: $outline-offset;
     border-radius: $border-radius;
 }
