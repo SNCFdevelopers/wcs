@@ -16,7 +16,10 @@ export class Spinner implements ComponentInterface {
     render() {
         return (
             <svg viewBox="0 0 50 50">
-                <circle cx="25" cy="25" r="21" fill="none"></circle>
+                <circle class="dashed-background-circle" cx="25" cy="25" r="21" fill="none"/>
+                <g class="infinite-rotation-container">
+                    <circle class="dash-rotating-circle" cx="25" cy="25" r="21" fill="none" />
+                </g>
             </svg>
         );
     }
