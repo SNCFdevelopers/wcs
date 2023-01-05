@@ -19,7 +19,7 @@ cache:
 
 test:
   tags:
-    - docker
+    - saas-linux-medium-amd64
   image: buildkite/puppeteer:5.2.1
   stage: test
   script:
