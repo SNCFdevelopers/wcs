@@ -32,9 +32,9 @@
         line-height: 1.5;
         font-weight: 500;
         color: var(--wcs-gray);
-        padding: calc(0.5 * var(--wcs-padding)) var(--wcs-padding);
+        padding: calc(calc(var(--wcs-padding) / 2) - 2px) calc(var(--wcs-padding) - 2px);
         transition: 0.175s all;
-        border: solid 1px transparent;
+        border: solid 2px transparent;
     }
 
     .load-container {
@@ -47,9 +47,9 @@
         line-height: 1.5;
         font-weight: 500;
         color: var(--wcs-gray);
-        padding: calc(0.5 * var(--wcs-padding)) var(--wcs-padding);
+        padding: calc(calc(var(--wcs-padding) / 2) - 2px) calc(var(--wcs-padding) - 2px);
         transition: 0.175s all;
-        border: solid 1px transparent;
+        border: solid 2px transparent;
         align-items: center;
     }
 
@@ -77,6 +77,6 @@
         }
         color: var(--wcs-primary);
         cursor: pointer;
-        border: solid 1px var(--wcs-primary);
+        border: dashed 2px var(--wcs-primary);
     }
 }

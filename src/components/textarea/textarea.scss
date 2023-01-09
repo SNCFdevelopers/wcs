@@ -4,12 +4,13 @@
     --wcs-textarea-icon-color: var(--wcs-text-medium);
     --wcs-internal-textarea-border-radius-left: var(--wcs-textarea-border-radius-left, var(--wcs-border-radius));
     --wcs-internal-textarea-border-radius-right: var(--wcs-textarea-border-radius-right, var(--wcs-border-radius));
+    --wcs-internal-textarea-border-width: 2px;
     display: flex;
     flex-direction: row;
     width: 100%;
     border-radius: var(--wcs-internal-textarea-border-radius-left) var(--wcs-internal-textarea-border-radius-right) var(--wcs-internal-textarea-border-radius-right) var(--wcs-internal-textarea-border-radius-left);
     background-color: var(--wcs-light);
-    border: 1px solid var(--wcs-light);
+    border: var(--wcs-internal-textarea-border-width) solid var(--wcs-light);
     background-clip: padding-box;
 
     ::placeholder {
@@ -28,7 +29,7 @@
         color: var(--wcs-primary);
         font-weight: var(--wcs-font-weight-form-value) !important;
         border: none;
-        padding: calc(var(--wcs-padding) / 2) var(--wcs-padding);
+        padding: calc(calc(var(--wcs-padding) / 2) - var(--wcs-internal-textarea-border-width)) calc(var(--wcs-padding) - var(--wcs-internal-textarea-border-width));
         font-size: 1rem;
         line-height: 1.5;
     }
@@ -58,9 +59,7 @@
 }
 
 :host(:focus-within) {
-    @include focus-outline($border-radius: var(--wcs-internal-textarea-border-radius-left) var(--wcs-internal-textarea-border-radius-right) var(--wcs-internal-textarea-border-radius-right) var(--wcs-internal-textarea-border-radius-left));
-
-    border: solid 1px var(--wcs-primary);
+    border: dashed var(--wcs-internal-textarea-border-width) var(--wcs-primary);
 
     wcs-mat-icon {
         color: var(--wcs-primary);

@@ -39,6 +39,7 @@ To migrate, please refer to the storybook documentation (v2 to v3).
   - **textarea**
 - **footer**: change the behaviour in responsive mode. Now `end-left` and `end-right` parts of the footer are
 organized on column if they have not enough space 
+- **input, textarea, editable-field**: change hover border style and width (dashed, 2px). Components keep their previous height
 
 ### Deprecated
 

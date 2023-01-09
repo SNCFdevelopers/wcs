@@ -70,12 +70,12 @@
 }
 
 .wcs-container:has(input:focus-visible) {
-    @include focus-outline($border-radius: var(--wcs-border-radius));
+    @include focus-outline($border-radius: calc(var(--wcs-border-radius) / 2));
 }
 
 @supports not selector(.wcs-container:has(input:focus-visible)){
     .wcs-container:focus-within {
-        @include focus-outline($border-radius: var(--wcs-border-radius));
+        @include focus-outline($border-radius: calc(var(--wcs-border-radius) /2));
     }
 }
 

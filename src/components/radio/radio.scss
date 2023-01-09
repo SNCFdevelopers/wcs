@@ -2,12 +2,14 @@
 
 :host([mode=radio]) {
     label:focus-visible {
+        transition: none;
         @include focus-outline($border-radius: 0.5rem, $outline-offset: 0);
     }
 }
 
 :host([mode=horizontal]) {
     label:focus-visible {
+        transition: none;
         @include focus-outline($border-radius: 0.5rem, $outline-offset: 2px);
     }
 }
@@ -131,9 +133,7 @@
     }
 
     label:focus-visible {
-        outline: 0.2rem dashed var(--wcs-white);
-        outline-offset: 0.1rem;
-        border-radius: 0.1rem;
+        @include focus-outline(var(--wcs-white), 0.4375rem, 0.1rem);
     }
 }
 

@@ -4,11 +4,12 @@
     --wcs-input-icon-color: var(--wcs-text-medium);
     --wcs-internal-input-border-radius-left: var(--wcs-input-border-radius-left, var(--wcs-border-radius));
     --wcs-internal-input-border-radius-right: var(--wcs-input-border-radius-right, var(--wcs-border-radius));
+    --wcs-internal-input-border-width: 2px;
     display: flex;
     width: 100%;
     border-radius: var(--wcs-internal-input-border-radius-left) var(--wcs-internal-input-border-radius-right) var(--wcs-internal-input-border-radius-right) var(--wcs-internal-input-border-radius-left);
     background-color: var(--wcs-light);
-    border: 1px solid var(--wcs-light);
+    border: var(--wcs-internal-input-border-width) solid var(--wcs-light);
     background-clip: padding-box;
 
     ::placeholder {
@@ -26,7 +27,7 @@
         color: var(--wcs-primary);
         font-weight: var(--wcs-font-weight-form-value) !important;
         border: none;
-        padding: calc(var(--wcs-padding) / 2) var(--wcs-padding);
+        padding: calc(calc(var(--wcs-padding) / 2) - var(--wcs-internal-input-border-width)) calc(var(--wcs-padding) - var(--wcs-internal-input-border-width));
         font-size: 1rem;
         line-height: 1.5;
     }
@@ -61,18 +62,18 @@
 
     .prefix {
         border-radius: var(--wcs-internal-input-border-radius-left) 0 0 var(--wcs-internal-input-border-radius-left);
-        margin: -1px 0 -1px -1px;
-        border-left: solid 1px transparent;
-        border-top: solid 1px transparent;
-        border-bottom: solid 1px transparent;
+        margin: calc(-1 * var(--wcs-internal-input-border-width)) 0 calc(-1 * var(--wcs-internal-input-border-width)) calc(-1 * var(--wcs-internal-input-border-width));
+        border-left: solid var(--wcs-internal-input-border-width) transparent;
+        border-top: solid var(--wcs-internal-input-border-width) transparent;
+        border-bottom: solid var(--wcs-internal-input-border-width) transparent;
     }
 
     .suffix {
         border-radius: 0 var(--wcs-internal-input-border-radius-right) var(--wcs-internal-input-border-radius-right) 0;
-        margin: -1px -1px -1px 0px;
-        border-right: solid 1px transparent;
-        border-top: solid 1px transparent;
-        border-bottom: solid 1px transparent;
+        margin: calc(-1 * var(--wcs-internal-input-border-width)) calc(-1 * var(--wcs-internal-input-border-width)) calc(-1 * var(--wcs-internal-input-border-width)) 0px;
+        border-right: solid var(--wcs-internal-input-border-width) transparent;
+        border-top: solid var(--wcs-internal-input-border-width) transparent;
+        border-bottom: solid var(--wcs-internal-input-border-width) transparent;
     }
 }
 
@@ -104,20 +105,18 @@
 }
 
 :host(:focus-within) {
-    @include focus-outline($border-radius: var(--wcs-internal-input-border-radius-left) var(--wcs-internal-input-border-radius-right) var(--wcs-internal-input-border-radius-right) var(--wcs-internal-input-border-radius-left));
-
-    border: solid 1px var(--wcs-primary);
+    border: dashed var(--wcs-internal-input-border-width) var(--wcs-primary);
 
     .prefix {
-        border-left: solid 1px var(--wcs-primary);
-        border-top: solid 1px var(--wcs-primary);
-        border-bottom: solid 1px var(--wcs-primary);
+        border-left: dashed var(--wcs-internal-input-border-width) var(--wcs-primary);
+        border-top: dashed var(--wcs-internal-input-border-width) var(--wcs-primary);
+        border-bottom: dashed var(--wcs-internal-input-border-width) var(--wcs-primary);
     }
 
     .suffix {
-        border-right: solid 1px var(--wcs-primary);
-        border-top: solid 1px var(--wcs-primary);
-        border-bottom: solid 1px var(--wcs-primary);
+        border-right: dashed var(--wcs-internal-input-border-width) var(--wcs-primary);
+        border-top: dashed var(--wcs-internal-input-border-width) var(--wcs-primary);
+        border-bottom: dashed var(--wcs-internal-input-border-width) var(--wcs-primary);
     }
 
     wcs-mat-icon {
