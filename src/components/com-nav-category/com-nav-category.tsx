@@ -106,6 +106,7 @@ export class ComNavCategory implements ComponentInterface {
                      onKeyDown={evt => this.handleMenuKeyDown(evt)}
                      onClick={_ => this.categoryOpen = !this.categoryOpen}><span class="label">{this.label}</span></div>
                 <div class="item-container"
+                     tabIndex={-1}
                      data-open={this.categoryOpen}
                      onKeyDown={evt => this.handleCategoryItemsKeyDown(evt)}
                      onClick={(evt) => this.handleItemClick(evt)}>

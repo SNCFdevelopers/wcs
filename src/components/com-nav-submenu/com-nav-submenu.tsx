@@ -145,7 +145,7 @@ export class ComNavSubmenu implements ComponentInterface {
                     <span class="label">{this.label}</span><span class="arrow-container"><span
                     class="arrow-icon" data-open={this.menuOpen}>&#xf107;</span></span>
                 </div>
-                <div class="drawer" data-open={this.menuOpen}>
+                <div class="drawer" data-open={this.menuOpen} tabIndex={-1}>
                     <div class="drawer-container">
                         <div class="drawer-content">
                             <div class="drawer-description">
