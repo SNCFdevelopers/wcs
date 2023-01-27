@@ -41,6 +41,7 @@ To migrate, please refer to the storybook documentation (v2 to v3).
 - **footer**: change the behaviour in responsive mode. Now `end-left` and `end-right` parts of the footer are
 organized on column if they have not enough space 
 - **input, textarea, editable-field**: change hover border style and width (dashed, 2px). Components keep their previous height
+- **mat-icon**: add the ability to change the URI from which the material icons fonts are loaded by not including them automatically. Your project now need to add the font-face declarations in the global stylesheet of your project. Please refer to the migration guide (v2 to v3)
 
 ### Deprecated
 

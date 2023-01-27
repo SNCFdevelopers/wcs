@@ -1,21 +1,25 @@
+@use 'mat-icon-google-stylesheets';
+
 :host {
     display: flex;
     flex-direction: column;
     justify-content: center;
 
     .size-s {
-        font-size: 18px;
+        font-size: 18px !important;
     }
 
     .size-m {
-        font-size: 24px;
+        font-size: 24px !important;
     }
 
     .size-l {
-        font-size: 36px;
+        font-size: 36px !important;
     }
 
     .size-xl {
-        font-size: 48px;
+        font-size: 48px !important;
     }
+
+    @include mat-icon-google-stylesheets.material-icons-classes
 }

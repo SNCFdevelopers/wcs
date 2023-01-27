@@ -8,6 +8,51 @@ WCS v3 contains breaking changes only in the following packages:
 - wcs-formly
 - wcs-angular
 
+## wcs
+
+### wcs-mat-icon
+
+The `wcs-mat-icon` component now allows you to choose how your project includes the material icon font.
+
+The component does not include them automatically for you anymore. Meaning the icons will not be displayed by default.
+
+During this migration you need to add the following lines in the global stylesheet of your project.
+
+```css
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialicons/v139/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+}
+@font-face {
+    font-family: 'Material Icons Outlined';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialiconsoutlined/v108/gok-H7zzDkdnRel8-DQ6KAXJ69wP1tGnf4ZGhUce.woff2) format('woff2');
+}
+@font-face {
+    font-family: 'Material Icons Two Tone';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialiconstwotone/v111/hESh6WRmNCxEqUmNyh3JDeGxjVVyMg4tHGctNCu0.woff2) format('woff2');
+}
+@font-face {
+    font-family: 'Material Icons Round';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialiconsround/v107/LDItaoyNOAY6Uewc665JcIzCKsKc_M9flwmP.woff2) format('woff2');
+}
+@font-face {
+    font-family: 'Material Icons Sharp';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialiconssharp/v108/oPWQ_lt5nv4pWNJpghLP75WiFR4kLh3kvmvR.woff2) format('woff2');
+}
+```
+
+You can now replace the font URL directly in the stylesheet of your project and choose another CDN or use your own project server. Theses changes were mainly motivated for RGPD concerns. It also offers the possibility for projects to run their application without having an internet access.
+
 ## wcs-angular
 
 We've upgraded angular to v13, so you can no longer use `wcs-angular` with a version lower than v13. `wcs-angular` remains compatible with newer versions (v14 and so on).
