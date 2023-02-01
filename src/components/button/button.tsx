@@ -11,7 +11,9 @@ import { hasShadowDom } from '../../utils/helpers';
 @Component({
     tag: 'wcs-button',
     styleUrl: 'button.scss',
-    shadow: true
+    shadow: {
+        delegatesFocus: true
+    }
 })
 export class Button implements ComponentInterface {
     @Element() el!: HTMLElement;
@@ -78,7 +80,6 @@ export class Button implements ComponentInterface {
 
     componentDidLoad() {
         this.mdcRipple = new MDCRipple(this.el.shadowRoot.querySelector('.wcs-inner-button'));
-        this.el.focus = () => this.el.shadowRoot.querySelector(this.getTagName()).focus();
     }
 
     private enabledRippleEffect() {
