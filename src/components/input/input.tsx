@@ -14,7 +14,7 @@ import {
 @Component({
     tag: 'wcs-input',
     styleUrl: 'input.scss',
-    shadow: true,
+    shadow: {delegatesFocus: true},
 })
 export class Input implements ComponentInterface {
     private nativeInput?: HTMLInputElement;
@@ -251,6 +251,8 @@ export class Input implements ComponentInterface {
     }
 
     /**
+     * @deprecated use the native focus method instead
+     *
      * Sets focus on the native `input` in `wcs-input`. Use this method instead of the global
      * `input.focus()`.
      */
