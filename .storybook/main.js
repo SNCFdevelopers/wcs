@@ -3,6 +3,7 @@ const WatchExternalFilesPlugin = require('webpack-watch-files-plugin').default;
 module.exports = {
     "stories": [
         "../stories/**/*.stories.mdx",
+        "../stories/documentation/**/*.stories.md",
         "../stories/**/*.stories.@(js|jsx|ts|tsx)"
     ],
     "addons": [

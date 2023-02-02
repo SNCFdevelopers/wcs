@@ -1,24 +1,21 @@
 /* tslint:disable */
 /* auto-generated angular directive proxies */
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, NgZone } from '@angular/core';
+
 import { ProxyCmp, proxyOutputs } from './angular-component-lib/utils';
 
 import { Components } from 'wcs-core';
 
 
-
-
-export declare interface WcsAccordion extends Components.WcsAccordion {}
-
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['groupContentWithHeader', 'hideActionText', 'highlight']
 })
 @Component({
   selector: 'wcs-accordion',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['groupContentWithHeader', 'hideActionText', 'highlight']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['groupContentWithHeader', 'hideActionText', 'highlight'],
 })
 export class WcsAccordion {
   protected el: HTMLElement;
@@ -29,15 +26,17 @@ export class WcsAccordion {
 }
 
 
-export declare interface WcsAccordionContent extends Components.WcsAccordionContent {}
+export declare interface WcsAccordion extends Components.WcsAccordion {}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined
 })
 @Component({
   selector: 'wcs-accordion-content',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: [],
 })
 export class WcsAccordionContent {
   protected el: HTMLElement;
@@ -48,15 +47,17 @@ export class WcsAccordionContent {
 }
 
 
-export declare interface WcsAccordionHeader extends Components.WcsAccordionHeader {}
+export declare interface WcsAccordionContent extends Components.WcsAccordionContent {}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined
 })
 @Component({
   selector: 'wcs-accordion-header',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: [],
 })
 export class WcsAccordionHeader {
   protected el: HTMLElement;
@@ -67,16 +68,10 @@ export class WcsAccordionHeader {
 }
 
 
-export declare interface WcsAccordionPanel extends Components.WcsAccordionPanel {
-  /**
-   *  
-   */
-  wcsOpenChange: EventEmitter<CustomEvent<boolean>>;
+export declare interface WcsAccordionHeader extends Components.WcsAccordionHeader {}
 
-}
 
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['groupContentWithHeader', 'hideActionText', 'highlight', 'open'],
   methods: ['close']
 })
@@ -84,7 +79,8 @@ export declare interface WcsAccordionPanel extends Components.WcsAccordionPanel 
   selector: 'wcs-accordion-panel',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['groupContentWithHeader', 'hideActionText', 'highlight', 'open']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['groupContentWithHeader', 'hideActionText', 'highlight', 'open'],
 })
 export class WcsAccordionPanel {
   protected el: HTMLElement;
@@ -96,17 +92,21 @@ export class WcsAccordionPanel {
 }
 
 
-export declare interface WcsActionBar extends Components.WcsActionBar {}
+export declare interface WcsAccordionPanel extends Components.WcsAccordionPanel {
+
+  wcsOpenChange: EventEmitter<CustomEvent<boolean>>;
+}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['gutter']
 })
 @Component({
   selector: 'wcs-action-bar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['gutter']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['gutter'],
 })
 export class WcsActionBar {
   protected el: HTMLElement;
@@ -117,15 +117,17 @@ export class WcsActionBar {
 }
 
 
-export declare interface WcsApp extends Components.WcsApp {}
+export declare interface WcsActionBar extends Components.WcsActionBar {}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined
 })
 @Component({
   selector: 'wcs-app',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: [],
 })
 export class WcsApp {
   protected el: HTMLElement;
@@ -136,17 +138,18 @@ export class WcsApp {
 }
 
 
-export declare interface WcsBadge extends Components.WcsBadge {}
+export declare interface WcsApp extends Components.WcsApp {}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['color', 'shape']
 })
 @Component({
   selector: 'wcs-badge',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['color', 'shape']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['color', 'shape'],
 })
 export class WcsBadge {
   protected el: HTMLElement;
@@ -157,17 +160,18 @@ export class WcsBadge {
 }
 
 
-export declare interface WcsButton extends Components.WcsButton {}
+export declare interface WcsBadge extends Components.WcsBadge {}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['disabled', 'href', 'loading', 'mode', 'ripple', 'shape', 'type']
 })
 @Component({
   selector: 'wcs-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['disabled', 'href', 'loading', 'mode', 'ripple', 'shape', 'type']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['disabled', 'href', 'loading', 'mode', 'ripple', 'shape', 'type'],
 })
 export class WcsButton {
   protected el: HTMLElement;
@@ -178,17 +182,18 @@ export class WcsButton {
 }
 
 
-export declare interface WcsCard extends Components.WcsCard {}
+export declare interface WcsButton extends Components.WcsButton {}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['mode']
 })
 @Component({
   selector: 'wcs-card',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['mode']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['mode'],
 })
 export class WcsCard {
   protected el: HTMLElement;
@@ -199,15 +204,17 @@ export class WcsCard {
 }
 
 
-export declare interface WcsCardBody extends Components.WcsCardBody {}
+export declare interface WcsCard extends Components.WcsCard {}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined
 })
 @Component({
   selector: 'wcs-card-body',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: [],
 })
 export class WcsCardBody {
   protected el: HTMLElement;
@@ -217,24 +224,19 @@ export class WcsCardBody {
   }
 }
 
-import type { CheckboxChangeEventDetail as ICheckboxCheckboxChangeEventDetail } from 'wcs-core';
-export declare interface WcsCheckbox extends Components.WcsCheckbox {
-  /**
-   * Emitted when the checked property has changed. 
-   */
-  wcsChange: EventEmitter<CustomEvent<ICheckboxCheckboxChangeEventDetail>>;
 
-}
+export declare interface WcsCardBody extends Components.WcsCardBody {}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['checked', 'disabled', 'indeterminate', 'labelAlignment', 'name']
 })
 @Component({
   selector: 'wcs-checkbox',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['checked', 'disabled', 'indeterminate', 'labelAlignment', 'name']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['checked', 'disabled', 'indeterminate', 'labelAlignment', 'name'],
 })
 export class WcsCheckbox {
   protected el: HTMLElement;
@@ -246,17 +248,25 @@ export class WcsCheckbox {
 }
 
 
-export declare interface WcsComNav extends Components.WcsComNav {}
+import type { CheckboxChangeEventDetail as IWcsCheckboxCheckboxChangeEventDetail } from 'wcs-core';
+
+export declare interface WcsCheckbox extends Components.WcsCheckbox {
+  /**
+   * Emitted when the checked property has changed.
+   */
+  wcsChange: EventEmitter<CustomEvent<IWcsCheckboxCheckboxChangeEventDetail>>;
+}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['appName']
 })
 @Component({
   selector: 'wcs-com-nav',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['appName']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['appName'],
 })
 export class WcsComNav {
   protected el: HTMLElement;
@@ -266,21 +276,11 @@ export class WcsComNav {
   }
 }
 
-import type { CategoryOpenedEventDetail as IComNavCategoryCategoryOpenedEventDetail } from 'wcs-core';
-export declare interface WcsComNavCategory extends Components.WcsComNavCategory {
-  /**
-   *  
-   */
-  wcsCategoryOpened: EventEmitter<CustomEvent<IComNavCategoryCategoryOpenedEventDetail>>;
-  /**
-   *  
-   */
-  wcsCategoryItemClicked: EventEmitter<CustomEvent<UIEvent>>;
 
-}
+export declare interface WcsComNav extends Components.WcsComNav {}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['label'],
   methods: ['close', 'open']
 })
@@ -288,7 +288,8 @@ export declare interface WcsComNavCategory extends Components.WcsComNavCategory 
   selector: 'wcs-com-nav-category',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['label']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['label'],
 })
 export class WcsComNavCategory {
   protected el: HTMLElement;
@@ -299,23 +300,18 @@ export class WcsComNavCategory {
   }
 }
 
-import type { MenuOpenedEventDetail as IComNavSubmenuMenuOpenedEventDetail } from 'wcs-core';
-export declare interface WcsComNavSubmenu extends Components.WcsComNavSubmenu {
-  /**
-   *  
-   */
-  wcsSubmenuOpened: EventEmitter<CustomEvent<IComNavSubmenuMenuOpenedEventDetail>>;
-  /**
-   * Emitted when a user click on a final navigation action.
 
-Used by the com-nav component to close the mobile menu overlay when a user click on a final action. 
-   */
-  wcsClickOnFinalAction: EventEmitter<CustomEvent<void>>;
+import type { CategoryOpenedEventDetail as IWcsComNavCategoryCategoryOpenedEventDetail } from 'wcs-core';
 
+export declare interface WcsComNavCategory extends Components.WcsComNavCategory {
+
+  wcsCategoryOpened: EventEmitter<CustomEvent<IWcsComNavCategoryCategoryOpenedEventDetail>>;
+
+  wcsCategoryItemClicked: EventEmitter<CustomEvent<UIEvent>>;
 }
 
+
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['label', 'panelDescription', 'panelTitle'],
   methods: ['close', 'open']
 })
@@ -323,7 +319,8 @@ Used by the com-nav component to close the mobile menu overlay when a user click
   selector: 'wcs-com-nav-submenu',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['label', 'panelDescription', 'panelTitle']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['label', 'panelDescription', 'panelTitle'],
 })
 export class WcsComNavSubmenu {
   protected el: HTMLElement;
@@ -335,15 +332,28 @@ export class WcsComNavSubmenu {
 }
 
 
-export declare interface WcsDivider extends Components.WcsDivider {}
+import type { MenuOpenedEventDetail as IWcsComNavSubmenuMenuOpenedEventDetail } from 'wcs-core';
+
+export declare interface WcsComNavSubmenu extends Components.WcsComNavSubmenu {
+
+  wcsSubmenuOpened: EventEmitter<CustomEvent<IWcsComNavSubmenuMenuOpenedEventDetail>>;
+  /**
+   * Emitted when a user click on a final navigation action.
+
+Used by the com-nav component to close the mobile menu overlay when a user click on a final action.
+   */
+  wcsClickOnFinalAction: EventEmitter<CustomEvent<void>>;
+}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined
 })
 @Component({
   selector: 'wcs-divider',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: [],
 })
 export class WcsDivider {
   protected el: HTMLElement;
@@ -354,17 +364,18 @@ export class WcsDivider {
 }
 
 
-export declare interface WcsDropdown extends Components.WcsDropdown {}
+export declare interface WcsDivider extends Components.WcsDivider {}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['disabled', 'mode', 'noArrow', 'placement', 'shape']
 })
 @Component({
   selector: 'wcs-dropdown',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['disabled', 'mode', 'noArrow', 'placement', 'shape']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['disabled', 'mode', 'noArrow', 'placement', 'shape'],
 })
 export class WcsDropdown {
   protected el: HTMLElement;
@@ -375,15 +386,17 @@ export class WcsDropdown {
 }
 
 
-export declare interface WcsDropdownDivider extends Components.WcsDropdownDivider {}
+export declare interface WcsDropdown extends Components.WcsDropdown {}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined
 })
 @Component({
   selector: 'wcs-dropdown-divider',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: [],
 })
 export class WcsDropdownDivider {
   protected el: HTMLElement;
@@ -394,15 +407,17 @@ export class WcsDropdownDivider {
 }
 
 
-export declare interface WcsDropdownHeader extends Components.WcsDropdownHeader {}
+export declare interface WcsDropdownDivider extends Components.WcsDropdownDivider {}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined
 })
 @Component({
   selector: 'wcs-dropdown-header',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: [],
 })
 export class WcsDropdownHeader {
   protected el: HTMLElement;
@@ -413,21 +428,17 @@ export class WcsDropdownHeader {
 }
 
 
-export declare interface WcsDropdownItem extends Components.WcsDropdownItem {
-  /**
-   *  
-   */
-  wcsDropdownItemClick: EventEmitter<CustomEvent<void>>;
+export declare interface WcsDropdownHeader extends Components.WcsDropdownHeader {}
 
-}
 
 @ProxyCmp({
-  defineCustomElementFn: undefined
 })
 @Component({
   selector: 'wcs-dropdown-item',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: [],
 })
 export class WcsDropdownItem {
   protected el: HTMLElement;
@@ -438,24 +449,22 @@ export class WcsDropdownItem {
   }
 }
 
-import type { EditableComponentUpdateEvent as IEditableFieldEditableComponentUpdateEvent } from 'wcs-core';
-export declare interface WcsEditableField extends Components.WcsEditableField {
-  /**
-   * event called at each (valid) update of the field. 
-   */
-  wcsChange: EventEmitter<CustomEvent<IEditableFieldEditableComponentUpdateEvent>>;
 
+export declare interface WcsDropdownItem extends Components.WcsDropdownItem {
+
+  wcsDropdownItemClick: EventEmitter<CustomEvent<void>>;
 }
 
+
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['errorMsg', 'formatFn', 'label', 'readonly', 'type', 'validateFn', 'value']
 })
 @Component({
   selector: 'wcs-editable-field',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['errorMsg', 'formatFn', 'label', 'readonly', 'type', 'validateFn', 'value']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['errorMsg', 'formatFn', 'label', 'readonly', 'type', 'validateFn', 'value'],
 })
 export class WcsEditableField {
   protected el: HTMLElement;
@@ -467,15 +476,24 @@ export class WcsEditableField {
 }
 
 
-export declare interface WcsError extends Components.WcsError {}
+import type { EditableComponentUpdateEvent as IWcsEditableFieldEditableComponentUpdateEvent } from 'wcs-core';
+
+export declare interface WcsEditableField extends Components.WcsEditableField {
+  /**
+   * event called at each (valid) update of the field.
+   */
+  wcsChange: EventEmitter<CustomEvent<IWcsEditableFieldEditableComponentUpdateEvent>>;
+}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined
 })
 @Component({
   selector: 'wcs-error',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: [],
 })
 export class WcsError {
   protected el: HTMLElement;
@@ -486,15 +504,17 @@ export class WcsError {
 }
 
 
-export declare interface WcsField extends Components.WcsField {}
+export declare interface WcsError extends Components.WcsError {}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined
 })
 @Component({
   selector: 'wcs-field',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: [],
 })
 export class WcsField {
   protected el: HTMLElement;
@@ -505,15 +525,17 @@ export class WcsField {
 }
 
 
-export declare interface WcsFieldContent extends Components.WcsFieldContent {}
+export declare interface WcsField extends Components.WcsField {}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined
 })
 @Component({
   selector: 'wcs-field-content',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: [],
 })
 export class WcsFieldContent {
   protected el: HTMLElement;
@@ -524,15 +546,17 @@ export class WcsFieldContent {
 }
 
 
-export declare interface WcsFieldLabel extends Components.WcsFieldLabel {}
+export declare interface WcsFieldContent extends Components.WcsFieldContent {}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined
 })
 @Component({
   selector: 'wcs-field-label',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: [],
 })
 export class WcsFieldLabel {
   protected el: HTMLElement;
@@ -543,15 +567,17 @@ export class WcsFieldLabel {
 }
 
 
-export declare interface WcsFooter extends Components.WcsFooter {}
+export declare interface WcsFieldLabel extends Components.WcsFieldLabel {}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined
 })
 @Component({
   selector: 'wcs-footer',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: [],
 })
 export class WcsFooter {
   protected el: HTMLElement;
@@ -562,17 +588,18 @@ export class WcsFooter {
 }
 
 
-export declare interface WcsFormField extends Components.WcsFormField {}
+export declare interface WcsFooter extends Components.WcsFooter {}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['isError']
 })
 @Component({
   selector: 'wcs-form-field',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['isError']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['isError'],
 })
 export class WcsFormField {
   protected el: HTMLElement;
@@ -583,17 +610,18 @@ export class WcsFormField {
 }
 
 
-export declare interface WcsGalactic extends Components.WcsGalactic {}
+export declare interface WcsFormField extends Components.WcsFormField {}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['text']
 })
 @Component({
   selector: 'wcs-galactic',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['text']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['text'],
 })
 export class WcsGalactic {
   protected el: HTMLElement;
@@ -604,17 +632,18 @@ export class WcsGalactic {
 }
 
 
-export declare interface WcsGalacticMenu extends Components.WcsGalacticMenu {}
+export declare interface WcsGalactic extends Components.WcsGalactic {}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['text']
 })
 @Component({
   selector: 'wcs-galactic-menu',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['text']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['text'],
 })
 export class WcsGalacticMenu {
   protected el: HTMLElement;
@@ -624,29 +653,19 @@ export class WcsGalacticMenu {
   }
 }
 
-import type { WcsGridRowSelectedEventDetails as IGridWcsGridRowSelectedEventDetails } from 'wcs-core';
-import type { WcsGridAllRowSelectedEventDetails as IGridWcsGridAllRowSelectedEventDetails } from 'wcs-core';
-export declare interface WcsGrid extends Components.WcsGrid {
-  /**
-   * Event emitted when a row is selected or unselected 
-   */
-  wcsGridSelectionChange: EventEmitter<CustomEvent<IGridWcsGridRowSelectedEventDetails>>;
-  /**
-   * Event emitted when all rows are selected or unselected 
-   */
-  wcsGridAllSelectionChange: EventEmitter<CustomEvent<IGridWcsGridAllRowSelectedEventDetails>>;
 
-}
+export declare interface WcsGalacticMenu extends Components.WcsGalacticMenu {}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['data', 'loading', 'rowIdPath', 'selectedItems', 'selectionConfig', 'serverMode', 'wcsGridPaginationId']
 })
 @Component({
   selector: 'wcs-grid',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['data', 'loading', 'rowIdPath', 'selectedItems', 'selectionConfig', 'serverMode', 'wcsGridPaginationId']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['data', 'loading', 'rowIdPath', 'selectedItems', 'selectionConfig', 'serverMode', 'wcsGridPaginationId'],
 })
 export class WcsGrid {
   protected el: HTMLElement;
@@ -657,28 +676,31 @@ export class WcsGrid {
   }
 }
 
-import type { WcsGridColumnSortChangeEventDetails as IGridColumnWcsGridColumnSortChangeEventDetails } from 'wcs-core';
-export declare interface WcsGridColumn extends Components.WcsGridColumn {
-  /**
-   *  
-   */
-  wcsSortChange: EventEmitter<CustomEvent<IGridColumnWcsGridColumnSortChangeEventDetails>>;
-  /**
-   *  
-   */
-  wcsHiddenChange: EventEmitter<CustomEvent<boolean>>;
 
+import type { WcsGridRowSelectedEventDetails as IWcsGridWcsGridRowSelectedEventDetails } from 'wcs-core';
+import type { WcsGridAllRowSelectedEventDetails as IWcsGridWcsGridAllRowSelectedEventDetails } from 'wcs-core';
+
+export declare interface WcsGrid extends Components.WcsGrid {
+  /**
+   * Event emitted when a row is selected or unselected
+   */
+  wcsGridSelectionChange: EventEmitter<CustomEvent<IWcsGridWcsGridRowSelectedEventDetails>>;
+  /**
+   * Event emitted when all rows are selected or unselected
+   */
+  wcsGridAllSelectionChange: EventEmitter<CustomEvent<IWcsGridWcsGridAllRowSelectedEventDetails>>;
 }
 
+
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['customCells', 'formatter', 'hidden', 'name', 'path', 'sort', 'sortFn', 'sortOrder', 'width']
 })
 @Component({
   selector: 'wcs-grid-column',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['customCells', 'formatter', 'hidden', 'name', 'path', 'sort', 'sortFn', 'sortOrder', 'width']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['customCells', 'formatter', 'hidden', 'name', 'path', 'sort', 'sortFn', 'sortOrder', 'width'],
 })
 export class WcsGridColumn {
   protected el: HTMLElement;
@@ -690,17 +712,25 @@ export class WcsGridColumn {
 }
 
 
-export declare interface WcsGridCustomCell extends Components.WcsGridCustomCell {}
+import type { WcsGridColumnSortChangeEventDetails as IWcsGridColumnWcsGridColumnSortChangeEventDetails } from 'wcs-core';
+
+export declare interface WcsGridColumn extends Components.WcsGridColumn {
+
+  wcsSortChange: EventEmitter<CustomEvent<IWcsGridColumnWcsGridColumnSortChangeEventDetails>>;
+
+  wcsHiddenChange: EventEmitter<CustomEvent<boolean>>;
+}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['columnId', 'rowId']
 })
 @Component({
   selector: 'wcs-grid-custom-cell',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['columnId', 'rowId']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['columnId', 'rowId'],
 })
 export class WcsGridCustomCell {
   protected el: HTMLElement;
@@ -710,24 +740,19 @@ export class WcsGridCustomCell {
   }
 }
 
-import type { WcsGridPaginationChangeEventDetails as IGridPaginationWcsGridPaginationChangeEventDetails } from 'wcs-core';
-export declare interface WcsGridPagination extends Components.WcsGridPagination {
-  /**
-   *  
-   */
-  wcsGridPaginationChange: EventEmitter<CustomEvent<IGridPaginationWcsGridPaginationChangeEventDetails>>;
 
-}
+export declare interface WcsGridCustomCell extends Components.WcsGridCustomCell {}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['availablePageSizes', 'currentPage', 'itemsCount', 'pageCount', 'pageSize']
 })
 @Component({
   selector: 'wcs-grid-pagination',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['availablePageSizes', 'currentPage', 'itemsCount', 'pageCount', 'pageSize']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['availablePageSizes', 'currentPage', 'itemsCount', 'pageCount', 'pageSize'],
 })
 export class WcsGridPagination {
   protected el: HTMLElement;
@@ -739,15 +764,22 @@ export class WcsGridPagination {
 }
 
 
-export declare interface WcsHeader extends Components.WcsHeader {}
+import type { WcsGridPaginationChangeEventDetails as IWcsGridPaginationWcsGridPaginationChangeEventDetails } from 'wcs-core';
+
+export declare interface WcsGridPagination extends Components.WcsGridPagination {
+
+  wcsGridPaginationChange: EventEmitter<CustomEvent<IWcsGridPaginationWcsGridPaginationChangeEventDetails>>;
+}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined
 })
 @Component({
   selector: 'wcs-header',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: [],
 })
 export class WcsHeader {
   protected el: HTMLElement;
@@ -758,17 +790,18 @@ export class WcsHeader {
 }
 
 
-export declare interface WcsHint extends Components.WcsHint {}
+export declare interface WcsHeader extends Components.WcsHeader {}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['small']
 })
 @Component({
   selector: 'wcs-hint',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['small']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['small'],
 })
 export class WcsHint {
   protected el: HTMLElement;
@@ -778,17 +811,11 @@ export class WcsHint {
   }
 }
 
-import type { HorizontalStepClickEvent as IHorizontalStepperHorizontalStepClickEvent } from 'wcs-core';
-export declare interface WcsHorizontalStepper extends Components.WcsHorizontalStepper {
-  /**
-   * Emits when the user selects a new step. 
-   */
-  wcsHorizontalStepClick: EventEmitter<CustomEvent<IHorizontalStepperHorizontalStepClickEvent>>;
 
-}
+export declare interface WcsHint extends Components.WcsHint {}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['checkOnComplete', 'currentStep', 'mode', 'steps'],
   methods: ['previous', 'next']
 })
@@ -796,7 +823,8 @@ export declare interface WcsHorizontalStepper extends Components.WcsHorizontalSt
   selector: 'wcs-horizontal-stepper',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['checkOnComplete', 'currentStep', 'mode', 'steps']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['checkOnComplete', 'currentStep', 'mode', 'steps'],
 })
 export class WcsHorizontalStepper {
   protected el: HTMLElement;
@@ -808,17 +836,25 @@ export class WcsHorizontalStepper {
 }
 
 
-export declare interface WcsIcon extends Components.WcsIcon {}
+import type { HorizontalStepClickEvent as IWcsHorizontalStepperHorizontalStepClickEvent } from 'wcs-core';
+
+export declare interface WcsHorizontalStepper extends Components.WcsHorizontalStepper {
+  /**
+   * Emits when the user selects a new step.
+   */
+  wcsHorizontalStepClick: EventEmitter<CustomEvent<IWcsHorizontalStepperHorizontalStepClickEvent>>;
+}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['icon', 'size']
 })
 @Component({
   selector: 'wcs-icon',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['icon', 'size']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['icon', 'size'],
 })
 export class WcsIcon {
   protected el: HTMLElement;
@@ -828,29 +864,11 @@ export class WcsIcon {
   }
 }
 
-import type { InputChangeEventDetail as IInputInputChangeEventDetail } from 'wcs-core';
-export declare interface WcsInput extends Components.WcsInput {
-  /**
-   * Emitted when a keyboard input occurred. 
-   */
-  wcsInput: EventEmitter<CustomEvent<KeyboardEvent>>;
-  /**
-   * Emitted when the value has changed. 
-   */
-  wcsChange: EventEmitter<CustomEvent<IInputInputChangeEventDetail>>;
-  /**
-   * Emitted when the input loses focus. 
-   */
-  wcsBlur: EventEmitter<CustomEvent<FocusEvent>>;
-  /**
-   * Emitted when the input has focus. 
-   */
-  wcsFocus: EventEmitter<CustomEvent<FocusEvent>>;
 
-}
+export declare interface WcsIcon extends Components.WcsIcon {}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['accept', 'autocapitalize', 'autocomplete', 'autocorrect', 'autofocus', 'clearInput', 'clearOnEdit', 'debounce', 'disabled', 'enterkeyhint', 'icon', 'inputmode', 'max', 'maxlength', 'min', 'minlength', 'multiple', 'name', 'pattern', 'placeholder', 'prefixLabel', 'readonly', 'required', 'size', 'spellcheck', 'state', 'step', 'suffixLabel', 'type', 'value'],
   methods: ['setFocus', 'getInputElement']
 })
@@ -858,7 +876,8 @@ export declare interface WcsInput extends Components.WcsInput {
   selector: 'wcs-input',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['accept', 'autocapitalize', 'autocomplete', 'autocorrect', 'autofocus', 'clearInput', 'clearOnEdit', 'debounce', 'disabled', 'enterkeyhint', 'icon', 'inputmode', 'max', 'maxlength', 'min', 'minlength', 'multiple', 'name', 'pattern', 'placeholder', 'prefixLabel', 'readonly', 'required', 'size', 'spellcheck', 'state', 'step', 'suffixLabel', 'type', 'value']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['accept', 'autocapitalize', 'autocomplete', 'autocorrect', 'autofocus', 'clearInput', 'clearOnEdit', 'debounce', 'disabled', 'enterkeyhint', 'icon', 'inputmode', 'max', 'maxlength', 'min', 'minlength', 'multiple', 'name', 'pattern', 'placeholder', 'prefixLabel', 'readonly', 'required', 'size', 'spellcheck', 'state', 'step', 'suffixLabel', 'type', 'value'],
 })
 export class WcsInput {
   protected el: HTMLElement;
@@ -870,17 +889,37 @@ export class WcsInput {
 }
 
 
-export declare interface WcsLabel extends Components.WcsLabel {}
+import type { InputChangeEventDetail as IWcsInputInputChangeEventDetail } from 'wcs-core';
+
+export declare interface WcsInput extends Components.WcsInput {
+  /**
+   * Emitted when a keyboard input occurred.
+   */
+  wcsInput: EventEmitter<CustomEvent<KeyboardEvent>>;
+  /**
+   * Emitted when the value has changed.
+   */
+  wcsChange: EventEmitter<CustomEvent<IWcsInputInputChangeEventDetail>>;
+  /**
+   * Emitted when the input loses focus.
+   */
+  wcsBlur: EventEmitter<CustomEvent<FocusEvent>>;
+  /**
+   * Emitted when the input has focus.
+   */
+  wcsFocus: EventEmitter<CustomEvent<FocusEvent>>;
+}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['required']
 })
 @Component({
   selector: 'wcs-label',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['required']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['required'],
 })
 export class WcsLabel {
   protected el: HTMLElement;
@@ -891,17 +930,18 @@ export class WcsLabel {
 }
 
 
-export declare interface WcsListItem extends Components.WcsListItem {}
+export declare interface WcsLabel extends Components.WcsLabel {}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['activated']
 })
 @Component({
   selector: 'wcs-list-item',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['activated']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['activated'],
 })
 export class WcsListItem {
   protected el: HTMLElement;
@@ -912,15 +952,17 @@ export class WcsListItem {
 }
 
 
-export declare interface WcsListItemProperties extends Components.WcsListItemProperties {}
+export declare interface WcsListItem extends Components.WcsListItem {}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined
 })
 @Component({
   selector: 'wcs-list-item-properties',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: [],
 })
 export class WcsListItemProperties {
   protected el: HTMLElement;
@@ -931,15 +973,17 @@ export class WcsListItemProperties {
 }
 
 
-export declare interface WcsListItemProperty extends Components.WcsListItemProperty {}
+export declare interface WcsListItemProperties extends Components.WcsListItemProperties {}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined
 })
 @Component({
   selector: 'wcs-list-item-property',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: [],
 })
 export class WcsListItemProperty {
   protected el: HTMLElement;
@@ -950,17 +994,18 @@ export class WcsListItemProperty {
 }
 
 
-export declare interface WcsMatIcon extends Components.WcsMatIcon {}
+export declare interface WcsListItemProperty extends Components.WcsListItemProperty {}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['family', 'icon', 'size']
 })
 @Component({
   selector: 'wcs-mat-icon',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['family', 'icon', 'size']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['family', 'icon', 'size'],
 })
 export class WcsMatIcon {
   protected el: HTMLElement;
@@ -971,23 +1016,18 @@ export class WcsMatIcon {
 }
 
 
-export declare interface WcsModal extends Components.WcsModal {
-  /**
-   * Triggered when the user leaves the dialog with the closing button. 
-   */
-  wcsDialogClosed: EventEmitter<CustomEvent<void>>;
+export declare interface WcsMatIcon extends Components.WcsMatIcon {}
 
-}
 
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['hideActions', 'show', 'showCloseButton', 'size', 'withoutBackdrop']
 })
 @Component({
   selector: 'wcs-modal',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['hideActions', 'show', 'showCloseButton', 'size', 'withoutBackdrop']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['hideActions', 'show', 'showCloseButton', 'size', 'withoutBackdrop'],
 })
 export class WcsModal {
   protected el: HTMLElement;
@@ -999,15 +1039,22 @@ export class WcsModal {
 }
 
 
-export declare interface WcsNav extends Components.WcsNav {}
+export declare interface WcsModal extends Components.WcsModal {
+  /**
+   * Triggered when the user leaves the dialog with the closing button.
+   */
+  wcsDialogClosed: EventEmitter<CustomEvent<void>>;
+}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined
 })
 @Component({
   selector: 'wcs-nav',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: [],
 })
 export class WcsNav {
   protected el: HTMLElement;
@@ -1018,17 +1065,18 @@ export class WcsNav {
 }
 
 
-export declare interface WcsNavItem extends Components.WcsNavItem {}
+export declare interface WcsNav extends Components.WcsNav {}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['href', 'text']
 })
 @Component({
   selector: 'wcs-nav-item',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['href', 'text']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['href', 'text'],
 })
 export class WcsNavItem {
   protected el: HTMLElement;
@@ -1039,17 +1087,18 @@ export class WcsNavItem {
 }
 
 
-export declare interface WcsProgressBar extends Components.WcsProgressBar {}
+export declare interface WcsNavItem extends Components.WcsNavItem {}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['showLabel', 'small', 'value']
 })
 @Component({
   selector: 'wcs-progress-bar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['showLabel', 'small', 'value']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['showLabel', 'small', 'value'],
 })
 export class WcsProgressBar {
   protected el: HTMLElement;
@@ -1060,17 +1109,18 @@ export class WcsProgressBar {
 }
 
 
-export declare interface WcsProgressRadial extends Components.WcsProgressRadial {}
+export declare interface WcsProgressBar extends Components.WcsProgressBar {}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['showLabel', 'size', 'value']
 })
 @Component({
   selector: 'wcs-progress-radial',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['showLabel', 'size', 'value']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['showLabel', 'size', 'value'],
 })
 export class WcsProgressRadial {
   protected el: HTMLElement;
@@ -1080,24 +1130,19 @@ export class WcsProgressRadial {
   }
 }
 
-import type { RadioChosedEvent as IRadioRadioChosedEvent } from 'wcs-core';
-export declare interface WcsRadio extends Components.WcsRadio {
-  /**
-   *  
-   */
-  wcsRadioClick: EventEmitter<CustomEvent<IRadioRadioChosedEvent>>;
 
-}
+export declare interface WcsProgressRadial extends Components.WcsProgressRadial {}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['checked', 'disabled', 'label', 'mode', 'value']
 })
 @Component({
   selector: 'wcs-radio',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['checked', 'disabled', 'label', 'mode', 'value']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['checked', 'disabled', 'label', 'mode', 'value'],
 })
 export class WcsRadio {
   protected el: HTMLElement;
@@ -1108,24 +1153,24 @@ export class WcsRadio {
   }
 }
 
-import type { RadioGroupChangeEventDetail as IRadioGroupRadioGroupChangeEventDetail } from 'wcs-core';
-export declare interface WcsRadioGroup extends Components.WcsRadioGroup {
-  /**
-   * Emitted when the value has changed. 
-   */
-  wcsChange: EventEmitter<CustomEvent<IRadioGroupRadioGroupChangeEventDetail>>;
 
+import type { RadioChosedEvent as IWcsRadioRadioChosedEvent } from 'wcs-core';
+
+export declare interface WcsRadio extends Components.WcsRadio {
+
+  wcsRadioClick: EventEmitter<CustomEvent<IWcsRadioRadioChosedEvent>>;
 }
 
+
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['mode', 'name', 'value']
 })
 @Component({
   selector: 'wcs-radio-group',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['mode', 'name', 'value']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['mode', 'name', 'value'],
 })
 export class WcsRadioGroup {
   protected el: HTMLElement;
@@ -1136,25 +1181,18 @@ export class WcsRadioGroup {
   }
 }
 
-import type { SelectChangeEventDetail as ISelectSelectChangeEventDetail } from 'wcs-core';
-export declare interface WcsSelect extends Components.WcsSelect {
-  /**
-   * Emitted when the value has changed. 
-   */
-  wcsChange: EventEmitter<CustomEvent<ISelectSelectChangeEventDetail>>;
-  /**
-   * Emitted when the select has focus. 
-   */
-  wcsFocus: EventEmitter<CustomEvent<void>>;
-  /**
-   * Emitted when the select loses focus. 
-   */
-  wcsBlur: EventEmitter<CustomEvent<void>>;
 
+import type { RadioGroupChangeEventDetail as IWcsRadioGroupRadioGroupChangeEventDetail } from 'wcs-core';
+
+export declare interface WcsRadioGroup extends Components.WcsRadioGroup {
+  /**
+   * Emitted when the value has changed.
+   */
+  wcsChange: EventEmitter<CustomEvent<IWcsRadioGroupRadioGroupChangeEventDetail>>;
 }
 
+
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['chips', 'compareWith', 'disabled', 'multiple', 'name', 'placeholder', 'value'],
   methods: ['open', 'close']
 })
@@ -1162,7 +1200,8 @@ export declare interface WcsSelect extends Components.WcsSelect {
   selector: 'wcs-select',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['chips', 'compareWith', 'disabled', 'multiple', 'name', 'placeholder', 'value']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['chips', 'compareWith', 'disabled', 'multiple', 'name', 'placeholder', 'value'],
 })
 export class WcsSelect {
   protected el: HTMLElement;
@@ -1173,24 +1212,34 @@ export class WcsSelect {
   }
 }
 
-import type { SelectOptionChosedEvent as ISelectOptionSelectOptionChosedEvent } from 'wcs-core';
-export declare interface WcsSelectOption extends Components.WcsSelectOption {
-  /**
-   *  
-   */
-  wcsSelectOptionClick: EventEmitter<CustomEvent<ISelectOptionSelectOptionChosedEvent>>;
 
+import type { SelectChangeEventDetail as IWcsSelectSelectChangeEventDetail } from 'wcs-core';
+
+export declare interface WcsSelect extends Components.WcsSelect {
+  /**
+   * Emitted when the value has changed.
+   */
+  wcsChange: EventEmitter<CustomEvent<IWcsSelectSelectChangeEventDetail>>;
+  /**
+   * Emitted when the select has focus.
+   */
+  wcsFocus: EventEmitter<CustomEvent<void>>;
+  /**
+   * Emitted when the select loses focus.
+   */
+  wcsBlur: EventEmitter<CustomEvent<void>>;
 }
 
+
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['chipBackgroundColor', 'chipColor', 'disabled', 'selected', 'value']
 })
 @Component({
   selector: 'wcs-select-option',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['chipBackgroundColor', 'chipColor', 'disabled', 'selected', 'value']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['chipBackgroundColor', 'chipColor', 'disabled', 'selected', 'value'],
 })
 export class WcsSelectOption {
   protected el: HTMLElement;
@@ -1202,17 +1251,23 @@ export class WcsSelectOption {
 }
 
 
-export declare interface WcsSpinner extends Components.WcsSpinner {}
+import type { SelectOptionChosedEvent as IWcsSelectOptionSelectOptionChosedEvent } from 'wcs-core';
+
+export declare interface WcsSelectOption extends Components.WcsSelectOption {
+
+  wcsSelectOptionClick: EventEmitter<CustomEvent<IWcsSelectOptionSelectOptionChosedEvent>>;
+}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['mode']
 })
 @Component({
   selector: 'wcs-spinner',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['mode']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['mode'],
 })
 export class WcsSpinner {
   protected el: HTMLElement;
@@ -1222,24 +1277,19 @@ export class WcsSpinner {
   }
 }
 
-import type { SwitchChangeEventDetail as ISwitchSwitchChangeEventDetail } from 'wcs-core';
-export declare interface WcsSwitch extends Components.WcsSwitch {
-  /**
-   * Emitted when the checked property has changed. 
-   */
-  wcsChange: EventEmitter<CustomEvent<ISwitchSwitchChangeEventDetail>>;
 
-}
+export declare interface WcsSpinner extends Components.WcsSpinner {}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['checked', 'disabled', 'labelAlignment', 'name']
 })
 @Component({
   selector: 'wcs-switch',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['checked', 'disabled', 'labelAlignment', 'name']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['checked', 'disabled', 'labelAlignment', 'name'],
 })
 export class WcsSwitch {
   protected el: HTMLElement;
@@ -1251,23 +1301,25 @@ export class WcsSwitch {
 }
 
 
-export declare interface WcsTab extends Components.WcsTab {
-  /**
-   * Do not use, meant for internal use only. @inner undefined,@ignore undefined
-   */
-  tabLoaded: EventEmitter<CustomEvent<void>>;
+import type { SwitchChangeEventDetail as IWcsSwitchSwitchChangeEventDetail } from 'wcs-core';
 
+export declare interface WcsSwitch extends Components.WcsSwitch {
+  /**
+   * Emitted when the checked property has changed.
+   */
+  wcsChange: EventEmitter<CustomEvent<IWcsSwitchSwitchChangeEventDetail>>;
 }
 
+
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['header', 'itemKey']
 })
 @Component({
   selector: 'wcs-tab',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['header', 'itemKey']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['header', 'itemKey'],
 })
 export class WcsTab {
   protected el: HTMLElement;
@@ -1278,25 +1330,24 @@ export class WcsTab {
   }
 }
 
-import type { WcsTabChangeEvent as ITabsWcsTabChangeEvent } from 'wcs-core';
-export declare interface WcsTabs extends Components.WcsTabs {
-  /**
-   * 
-Emitted when the selected tab change. 
-   */
-  tabChange: EventEmitter<CustomEvent<ITabsWcsTabChangeEvent>>;
 
+export declare interface WcsTab extends Components.WcsTab {
+  /**
+   * Do not use, meant for internal use only. @inner undefined,@ignore undefined
+   */
+  tabLoaded: EventEmitter<CustomEvent<void>>;
 }
 
+
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['align', 'gutter', 'headersOnly', 'selectedIndex', 'selectedKey']
 })
 @Component({
   selector: 'wcs-tabs',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['align', 'gutter', 'headersOnly', 'selectedIndex', 'selectedKey']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['align', 'gutter', 'headersOnly', 'selectedIndex', 'selectedKey'],
 })
 export class WcsTabs {
   protected el: HTMLElement;
@@ -1307,29 +1358,19 @@ export class WcsTabs {
   }
 }
 
-import type { TextareaChangeEventDetail as ITextareaTextareaChangeEventDetail } from 'wcs-core';
-export declare interface WcsTextarea extends Components.WcsTextarea {
-  /**
-   * Emitted when the input value has changed. 
-   */
-  wcsChange: EventEmitter<CustomEvent<ITextareaTextareaChangeEventDetail>>;
-  /**
-   * Emitted when a keyboard input occurred. 
-   */
-  wcsInput: EventEmitter<CustomEvent<KeyboardEvent>>;
-  /**
-   * Emitted when the input loses focus. 
-   */
-  wcsBlur: EventEmitter<CustomEvent<FocusEvent>>;
-  /**
-   * Emitted when the input has focus. 
-   */
-  wcsFocus: EventEmitter<CustomEvent<FocusEvent>>;
 
+import type { WcsTabChangeEvent as IWcsTabsWcsTabChangeEvent } from 'wcs-core';
+
+export declare interface WcsTabs extends Components.WcsTabs {
+  /**
+   * 
+Emitted when the selected tab change.
+   */
+  tabChange: EventEmitter<CustomEvent<IWcsTabsWcsTabChangeEvent>>;
 }
 
+
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['autoGrow', 'autocapitalize', 'autofocus', 'clearOnEdit', 'cols', 'debounce', 'disabled', 'enterkeyhint', 'icon', 'inputmode', 'maxlength', 'minlength', 'name', 'placeholder', 'readonly', 'required', 'rows', 'spellcheck', 'state', 'value', 'wrap'],
   methods: ['fitContent', 'setFocus', 'getInputElement']
 })
@@ -1337,7 +1378,8 @@ export declare interface WcsTextarea extends Components.WcsTextarea {
   selector: 'wcs-textarea',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['autoGrow', 'autocapitalize', 'autofocus', 'clearOnEdit', 'cols', 'debounce', 'disabled', 'enterkeyhint', 'icon', 'inputmode', 'maxlength', 'minlength', 'name', 'placeholder', 'readonly', 'required', 'rows', 'spellcheck', 'state', 'value', 'wrap']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['autoGrow', 'autocapitalize', 'autofocus', 'clearOnEdit', 'cols', 'debounce', 'disabled', 'enterkeyhint', 'icon', 'inputmode', 'maxlength', 'minlength', 'name', 'placeholder', 'readonly', 'required', 'rows', 'spellcheck', 'state', 'value', 'wrap'],
 })
 export class WcsTextarea {
   protected el: HTMLElement;
@@ -1349,10 +1391,29 @@ export class WcsTextarea {
 }
 
 
-export declare interface WcsTooltip extends Components.WcsTooltip {}
+import type { TextareaChangeEventDetail as IWcsTextareaTextareaChangeEventDetail } from 'wcs-core';
+
+export declare interface WcsTextarea extends Components.WcsTextarea {
+  /**
+   * Emitted when the input value has changed.
+   */
+  wcsChange: EventEmitter<CustomEvent<IWcsTextareaTextareaChangeEventDetail>>;
+  /**
+   * Emitted when a keyboard input occurred.
+   */
+  wcsInput: EventEmitter<CustomEvent<KeyboardEvent>>;
+  /**
+   * Emitted when the input loses focus.
+   */
+  wcsBlur: EventEmitter<CustomEvent<FocusEvent>>;
+  /**
+   * Emitted when the input has focus.
+   */
+  wcsFocus: EventEmitter<CustomEvent<FocusEvent>>;
+}
+
 
 @ProxyCmp({
-  defineCustomElementFn: undefined,
   inputs: ['appendTo', 'content', 'delay', 'duration', 'for', 'interactive', 'maxWidth', 'position', 'theme', 'trigger'],
   methods: ['hide', 'show', 'disable', 'enable']
 })
@@ -1360,7 +1421,8 @@ export declare interface WcsTooltip extends Components.WcsTooltip {}
   selector: 'wcs-tooltip',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['appendTo', 'content', 'delay', 'duration', 'for', 'interactive', 'maxWidth', 'position', 'theme', 'trigger']
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['appendTo', 'content', 'delay', 'duration', 'for', 'interactive', 'maxWidth', 'position', 'theme', 'trigger'],
 })
 export class WcsTooltip {
   protected el: HTMLElement;
@@ -1369,3 +1431,8 @@ export class WcsTooltip {
     this.el = r.nativeElement;
   }
 }
+
+
+export declare interface WcsTooltip extends Components.WcsTooltip {}
+
+

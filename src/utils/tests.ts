@@ -1,6 +1,6 @@
-import { AXNode } from 'puppeteer';
+import { SerializedAXNode } from 'puppeteer';
 
-export const findFocusedNode = (node: AXNode): AXNode => {
+export const findFocusedNode = (node: SerializedAXNode): SerializedAXNode => {
     if (node.focused) {
         return node;
     }

@@ -26,6 +26,27 @@ import { SwitchChangeEventDetail, SwitchLabelAlignment } from "./components/swit
 import { WcsTabChangeEvent, WcsTabsAlignment } from "./components/tabs/tabs-interface";
 import { TextareaChangeEventDetail } from "./components/textarea/textarea-interface";
 import { WcsTooltipAppendTo, WcsTooltipPosition } from "./components/tooltip/tooltip-interface";
+export { BadgeColor, BadgeShape } from "./components/badge/badge-interface";
+export { WcsButtonMode, WcsButtonShape, WcsButtonType } from "./components/button/button-interface";
+export { CardMode } from "./components/card/card-interface";
+export { CheckboxChangeEventDetail, CheckboxLabelAlignment } from "./components/checkbox/checkbox-interface";
+export { CategoryOpenedEventDetail, MenuOpenedEventDetail } from "./components/com-nav/com-nav-interface";
+export { WcsDropdownPlacement } from "./components/dropdown/dropdown-interface";
+export { EditableComponentUpdateEvent, EditableFieldType, FormatFn, ValidateFn } from "./components/editable-field/editable-field-interface";
+export { WcsCellFormatter, WcsGridAllRowSelectedEventDetails, WcsGridColumnSortChangeEventDetails, WcsGridPaginationChangeEventDetails, WcsGridRowSelectedEventDetails, WcsGridSelectionConfig, WcsSortFn, WcsSortOrder } from "./components/grid/grid-interface";
+export { HorizontalStepClickEvent, HorizontalStepConfig, HorizontalStepperMode } from "./components/horizontal-stepper/horizontal-stepper-interface";
+export { AutocompleteTypes, InputChangeEventDetail, TextFieldTypes } from "./components/input/input-interface";
+export { MaterialIconFamily, MaterialIconSize } from "./components/mat-icon/mat-icon-interface";
+export { ModalSize } from "./components/modal/modal-interface";
+export { RadioGroupChangeEventDetail, RadioGroupMode } from "./components/radio-group/radio-group-interface";
+export { RadioChosedEvent } from "./components/radio/radio-interface";
+export { SelectChangeEventDetail } from "./components/select/select-interface";
+export { SelectOptionChosedEvent } from "./components/select-option/select-option-interface";
+export { WcsSpinnerMode } from "./components/spinner/spinner-interface";
+export { SwitchChangeEventDetail, SwitchLabelAlignment } from "./components/switch/switch-interface";
+export { WcsTabChangeEvent, WcsTabsAlignment } from "./components/tabs/tabs-interface";
+export { TextareaChangeEventDetail } from "./components/textarea/textarea-interface";
+export { WcsTooltipAppendTo, WcsTooltipPosition } from "./components/tooltip/tooltip-interface";
 export namespace Components {
     interface WcsAccordion {
         /**
@@ -79,6 +100,9 @@ export namespace Components {
          */
         "shape": BadgeShape;
     }
+    /**
+     * Button component, can also be a link when specifying href.
+     */
     interface WcsButton {
         /**
           * Specify wether the button is disabled or not.
@@ -233,6 +257,10 @@ export namespace Components {
     }
     interface WcsFooter {
     }
+    /**
+     * TODO:
+     * - [ ] Suffix button style
+     */
     interface WcsFormField {
         /**
           * Specifies whether the form field is in an error state. Displays the field border in red and the message contained in the wcs-error component
@@ -335,6 +363,9 @@ export namespace Components {
         "icon": string;
         "size": 'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px';
     }
+    /**
+     * Mainly inspired from Ionic Input Component
+     */
     interface WcsInput {
         /**
           * If the value of the type attribute is `"file"`, then this attribute will indicate the types of files that the server accepts, otherwise it will be ignored. The value must be a comma-separated list of unique content type specifiers.
@@ -534,6 +565,9 @@ export namespace Components {
          */
         "text": string;
     }
+    /**
+     * Component displaying progress as a bar.
+     */
     interface WcsProgressBar {
         /**
           * Whether it displays a label indicating the percentage of progress above the bar.
@@ -571,6 +605,14 @@ export namespace Components {
         "name": any;
         "value": any | any[] | undefined | null;
     }
+    /**
+     * Select component, use in conjuction with wcs-select-option.
+     * @example ```hmtl
+     * <wcs-select>
+     * <wcs-select-option value="1">One</wcs-select-option>
+     * </wcs-select>```
+     * @todo Complete keyboard navigation.
+     */
     interface WcsSelect {
         /**
           * If `true`, selected items are shown in chips mode.
@@ -609,6 +651,9 @@ export namespace Components {
          */
         "value"?: any | null;
     }
+    /**
+     * Select option component, use in conjunction with wcs-select.
+     */
     interface WcsSelectOption {
         /**
           * Chip's background color.
@@ -657,6 +702,10 @@ export namespace Components {
         "labelAlignment": SwitchLabelAlignment;
         "name": string;
     }
+    /**
+     * Tab content component.
+     * Use this component to specify the content of a component.
+     */
     interface WcsTab {
         /**
           * The header you want to be displayed for this tab.
@@ -664,6 +713,16 @@ export namespace Components {
         "header": string;
         "itemKey": any;
     }
+    /**
+     * Tabs component to switch between tab content.
+     * Use in conjuction with `wcs-tab`.
+     * @example ```html
+     * <wcs-tabs>
+     *    <wcs-tab header="One">The content !</wcs-tab>
+     *    <wcs-tab header="Two">More content !</wcs-tab>
+     * </wcs-tabs>
+     * ```
+     */
     interface WcsTabs {
         /**
           * Tab headers alignment.
@@ -683,6 +742,9 @@ export namespace Components {
         "selectedIndex": number;
         "selectedKey": any;
     }
+    /**
+     * Mainly inspired from Ionic Textarea Component
+     */
     interface WcsTextarea {
         /**
           * If `true`, the element height will increase based on the value.
@@ -789,6 +851,12 @@ export namespace Components {
          */
         "wrap"?: 'hard' | 'soft' | 'off';
     }
+    /**
+     * Tooltips are used to provide additional information for features available on the website. These can improve the user
+     * experience or simply show additional information. Tooltips appear when the user rolls over or clicks on them
+     * (for longer content).
+     * Note that this component is based on the Tippy.js library : https://atomiks.github.io/tippyjs/
+     */
     interface WcsTooltip {
         /**
           * The element to append the tooltip to. Default behaviour is `() => document.body`. If interactive: true, the default behavior is appendTo: "parent"  See: https://atomiks.github.io/tippyjs/v6/all-props/#appendto
@@ -972,6 +1040,9 @@ declare global {
         prototype: HTMLWcsBadgeElement;
         new (): HTMLWcsBadgeElement;
     };
+    /**
+     * Button component, can also be a link when specifying href.
+     */
     interface HTMLWcsButtonElement extends Components.WcsButton, HTMLStencilElement {
     }
     var HTMLWcsButtonElement: {
@@ -1080,6 +1151,10 @@ declare global {
         prototype: HTMLWcsFooterElement;
         new (): HTMLWcsFooterElement;
     };
+    /**
+     * TODO:
+     * - [ ] Suffix button style
+     */
     interface HTMLWcsFormFieldElement extends Components.WcsFormField, HTMLStencilElement {
     }
     var HTMLWcsFormFieldElement: {
@@ -1146,6 +1221,9 @@ declare global {
         prototype: HTMLWcsIconElement;
         new (): HTMLWcsIconElement;
     };
+    /**
+     * Mainly inspired from Ionic Input Component
+     */
     interface HTMLWcsInputElement extends Components.WcsInput, HTMLStencilElement {
     }
     var HTMLWcsInputElement: {
@@ -1200,6 +1278,9 @@ declare global {
         prototype: HTMLWcsNavItemElement;
         new (): HTMLWcsNavItemElement;
     };
+    /**
+     * Component displaying progress as a bar.
+     */
     interface HTMLWcsProgressBarElement extends Components.WcsProgressBar, HTMLStencilElement {
     }
     var HTMLWcsProgressBarElement: {
@@ -1224,12 +1305,23 @@ declare global {
         prototype: HTMLWcsRadioGroupElement;
         new (): HTMLWcsRadioGroupElement;
     };
+    /**
+     * Select component, use in conjuction with wcs-select-option.
+     * @example ```hmtl
+     * <wcs-select>
+     * <wcs-select-option value="1">One</wcs-select-option>
+     * </wcs-select>```
+     * @todo Complete keyboard navigation.
+     */
     interface HTMLWcsSelectElement extends Components.WcsSelect, HTMLStencilElement {
     }
     var HTMLWcsSelectElement: {
         prototype: HTMLWcsSelectElement;
         new (): HTMLWcsSelectElement;
     };
+    /**
+     * Select option component, use in conjunction with wcs-select.
+     */
     interface HTMLWcsSelectOptionElement extends Components.WcsSelectOption, HTMLStencilElement {
     }
     var HTMLWcsSelectOptionElement: {
@@ -1248,24 +1340,47 @@ declare global {
         prototype: HTMLWcsSwitchElement;
         new (): HTMLWcsSwitchElement;
     };
+    /**
+     * Tab content component.
+     * Use this component to specify the content of a component.
+     */
     interface HTMLWcsTabElement extends Components.WcsTab, HTMLStencilElement {
     }
     var HTMLWcsTabElement: {
         prototype: HTMLWcsTabElement;
         new (): HTMLWcsTabElement;
     };
+    /**
+     * Tabs component to switch between tab content.
+     * Use in conjuction with `wcs-tab`.
+     * @example ```html
+     * <wcs-tabs>
+     *    <wcs-tab header="One">The content !</wcs-tab>
+     *    <wcs-tab header="Two">More content !</wcs-tab>
+     * </wcs-tabs>
+     * ```
+     */
     interface HTMLWcsTabsElement extends Components.WcsTabs, HTMLStencilElement {
     }
     var HTMLWcsTabsElement: {
         prototype: HTMLWcsTabsElement;
         new (): HTMLWcsTabsElement;
     };
+    /**
+     * Mainly inspired from Ionic Textarea Component
+     */
     interface HTMLWcsTextareaElement extends Components.WcsTextarea, HTMLStencilElement {
     }
     var HTMLWcsTextareaElement: {
         prototype: HTMLWcsTextareaElement;
         new (): HTMLWcsTextareaElement;
     };
+    /**
+     * Tooltips are used to provide additional information for features available on the website. These can improve the user
+     * experience or simply show additional information. Tooltips appear when the user rolls over or clicks on them
+     * (for longer content).
+     * Note that this component is based on the Tippy.js library : https://atomiks.github.io/tippyjs/
+     */
     interface HTMLWcsTooltipElement extends Components.WcsTooltip, HTMLStencilElement {
     }
     var HTMLWcsTooltipElement: {
@@ -1385,6 +1500,9 @@ declare namespace LocalJSX {
          */
         "shape"?: BadgeShape;
     }
+    /**
+     * Button component, can also be a link when specifying href.
+     */
     interface WcsButton {
         /**
           * Specify wether the button is disabled or not.
@@ -1539,6 +1657,10 @@ declare namespace LocalJSX {
     }
     interface WcsFooter {
     }
+    /**
+     * TODO:
+     * - [ ] Suffix button style
+     */
     interface WcsFormField {
         /**
           * Specifies whether the form field is in an error state. Displays the field border in red and the message contained in the wcs-error component
@@ -1654,6 +1776,9 @@ declare namespace LocalJSX {
         "icon"?: string;
         "size"?: 'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px';
     }
+    /**
+     * Mainly inspired from Ionic Input Component
+     */
     interface WcsInput {
         /**
           * If the value of the type attribute is `"file"`, then this attribute will indicate the types of files that the server accepts, otherwise it will be ignored. The value must be a comma-separated list of unique content type specifiers.
@@ -1861,6 +1986,9 @@ declare namespace LocalJSX {
          */
         "text"?: string;
     }
+    /**
+     * Component displaying progress as a bar.
+     */
     interface WcsProgressBar {
         /**
           * Whether it displays a label indicating the percentage of progress above the bar.
@@ -1903,6 +2031,14 @@ declare namespace LocalJSX {
         "onWcsChange"?: (event: WcsRadioGroupCustomEvent<RadioGroupChangeEventDetail>) => void;
         "value"?: any | any[] | undefined | null;
     }
+    /**
+     * Select component, use in conjuction with wcs-select-option.
+     * @example ```hmtl
+     * <wcs-select>
+     * <wcs-select-option value="1">One</wcs-select-option>
+     * </wcs-select>```
+     * @todo Complete keyboard navigation.
+     */
     interface WcsSelect {
         /**
           * If `true`, selected items are shown in chips mode.
@@ -1945,6 +2081,9 @@ declare namespace LocalJSX {
          */
         "value"?: any | null;
     }
+    /**
+     * Select option component, use in conjunction with wcs-select.
+     */
     interface WcsSelectOption {
         /**
           * Chip's background color.
@@ -1998,6 +2137,10 @@ declare namespace LocalJSX {
          */
         "onWcsChange"?: (event: WcsSwitchCustomEvent<SwitchChangeEventDetail>) => void;
     }
+    /**
+     * Tab content component.
+     * Use this component to specify the content of a component.
+     */
     interface WcsTab {
         /**
           * The header you want to be displayed for this tab.
@@ -2011,6 +2154,16 @@ declare namespace LocalJSX {
          */
         "onTabLoaded"?: (event: WcsTabCustomEvent<void>) => void;
     }
+    /**
+     * Tabs component to switch between tab content.
+     * Use in conjuction with `wcs-tab`.
+     * @example ```html
+     * <wcs-tabs>
+     *    <wcs-tab header="One">The content !</wcs-tab>
+     *    <wcs-tab header="Two">More content !</wcs-tab>
+     * </wcs-tabs>
+     * ```
+     */
     interface WcsTabs {
         /**
           * Tab headers alignment.
@@ -2034,6 +2187,9 @@ declare namespace LocalJSX {
         "selectedIndex"?: number;
         "selectedKey"?: any;
     }
+    /**
+     * Mainly inspired from Ionic Textarea Component
+     */
     interface WcsTextarea {
         /**
           * If `true`, the element height will increase based on the value.
@@ -2140,6 +2296,12 @@ declare namespace LocalJSX {
          */
         "wrap"?: 'hard' | 'soft' | 'off';
     }
+    /**
+     * Tooltips are used to provide additional information for features available on the website. These can improve the user
+     * experience or simply show additional information. Tooltips appear when the user rolls over or clicks on them
+     * (for longer content).
+     * Note that this component is based on the Tippy.js library : https://atomiks.github.io/tippyjs/
+     */
     interface WcsTooltip {
         /**
           * The element to append the tooltip to. Default behaviour is `() => document.body`. If interactive: true, the default behavior is appendTo: "parent"  See: https://atomiks.github.io/tippyjs/v6/all-props/#appendto
@@ -2254,6 +2416,9 @@ declare module "@stencil/core" {
             "wcs-action-bar": LocalJSX.WcsActionBar & JSXBase.HTMLAttributes<HTMLWcsActionBarElement>;
             "wcs-app": LocalJSX.WcsApp & JSXBase.HTMLAttributes<HTMLWcsAppElement>;
             "wcs-badge": LocalJSX.WcsBadge & JSXBase.HTMLAttributes<HTMLWcsBadgeElement>;
+            /**
+             * Button component, can also be a link when specifying href.
+             */
             "wcs-button": LocalJSX.WcsButton & JSXBase.HTMLAttributes<HTMLWcsButtonElement>;
             "wcs-card": LocalJSX.WcsCard & JSXBase.HTMLAttributes<HTMLWcsCardElement>;
             "wcs-card-body": LocalJSX.WcsCardBody & JSXBase.HTMLAttributes<HTMLWcsCardBodyElement>;
@@ -2272,6 +2437,10 @@ declare module "@stencil/core" {
             "wcs-field-content": LocalJSX.WcsFieldContent & JSXBase.HTMLAttributes<HTMLWcsFieldContentElement>;
             "wcs-field-label": LocalJSX.WcsFieldLabel & JSXBase.HTMLAttributes<HTMLWcsFieldLabelElement>;
             "wcs-footer": LocalJSX.WcsFooter & JSXBase.HTMLAttributes<HTMLWcsFooterElement>;
+            /**
+             * TODO:
+             * - [ ] Suffix button style
+             */
             "wcs-form-field": LocalJSX.WcsFormField & JSXBase.HTMLAttributes<HTMLWcsFormFieldElement>;
             "wcs-galactic": LocalJSX.WcsGalactic & JSXBase.HTMLAttributes<HTMLWcsGalacticElement>;
             "wcs-galactic-menu": LocalJSX.WcsGalacticMenu & JSXBase.HTMLAttributes<HTMLWcsGalacticMenuElement>;
@@ -2283,6 +2452,9 @@ declare module "@stencil/core" {
             "wcs-hint": LocalJSX.WcsHint & JSXBase.HTMLAttributes<HTMLWcsHintElement>;
             "wcs-horizontal-stepper": LocalJSX.WcsHorizontalStepper & JSXBase.HTMLAttributes<HTMLWcsHorizontalStepperElement>;
             "wcs-icon": LocalJSX.WcsIcon & JSXBase.HTMLAttributes<HTMLWcsIconElement>;
+            /**
+             * Mainly inspired from Ionic Input Component
+             */
             "wcs-input": LocalJSX.WcsInput & JSXBase.HTMLAttributes<HTMLWcsInputElement>;
             "wcs-label": LocalJSX.WcsLabel & JSXBase.HTMLAttributes<HTMLWcsLabelElement>;
             "wcs-list-item": LocalJSX.WcsListItem & JSXBase.HTMLAttributes<HTMLWcsListItemElement>;
@@ -2292,17 +2464,54 @@ declare module "@stencil/core" {
             "wcs-modal": LocalJSX.WcsModal & JSXBase.HTMLAttributes<HTMLWcsModalElement>;
             "wcs-nav": LocalJSX.WcsNav & JSXBase.HTMLAttributes<HTMLWcsNavElement>;
             "wcs-nav-item": LocalJSX.WcsNavItem & JSXBase.HTMLAttributes<HTMLWcsNavItemElement>;
+            /**
+             * Component displaying progress as a bar.
+             */
             "wcs-progress-bar": LocalJSX.WcsProgressBar & JSXBase.HTMLAttributes<HTMLWcsProgressBarElement>;
             "wcs-progress-radial": LocalJSX.WcsProgressRadial & JSXBase.HTMLAttributes<HTMLWcsProgressRadialElement>;
             "wcs-radio": LocalJSX.WcsRadio & JSXBase.HTMLAttributes<HTMLWcsRadioElement>;
             "wcs-radio-group": LocalJSX.WcsRadioGroup & JSXBase.HTMLAttributes<HTMLWcsRadioGroupElement>;
+            /**
+             * Select component, use in conjuction with wcs-select-option.
+             * @example ```hmtl
+             * <wcs-select>
+             * <wcs-select-option value="1">One</wcs-select-option>
+             * </wcs-select>```
+             * @todo Complete keyboard navigation.
+             */
             "wcs-select": LocalJSX.WcsSelect & JSXBase.HTMLAttributes<HTMLWcsSelectElement>;
+            /**
+             * Select option component, use in conjunction with wcs-select.
+             */
             "wcs-select-option": LocalJSX.WcsSelectOption & JSXBase.HTMLAttributes<HTMLWcsSelectOptionElement>;
             "wcs-spinner": LocalJSX.WcsSpinner & JSXBase.HTMLAttributes<HTMLWcsSpinnerElement>;
             "wcs-switch": LocalJSX.WcsSwitch & JSXBase.HTMLAttributes<HTMLWcsSwitchElement>;
+            /**
+             * Tab content component.
+             * Use this component to specify the content of a component.
+             */
             "wcs-tab": LocalJSX.WcsTab & JSXBase.HTMLAttributes<HTMLWcsTabElement>;
+            /**
+             * Tabs component to switch between tab content.
+             * Use in conjuction with `wcs-tab`.
+             * @example ```html
+             * <wcs-tabs>
+             *    <wcs-tab header="One">The content !</wcs-tab>
+             *    <wcs-tab header="Two">More content !</wcs-tab>
+             * </wcs-tabs>
+             * ```
+             */
             "wcs-tabs": LocalJSX.WcsTabs & JSXBase.HTMLAttributes<HTMLWcsTabsElement>;
+            /**
+             * Mainly inspired from Ionic Textarea Component
+             */
             "wcs-textarea": LocalJSX.WcsTextarea & JSXBase.HTMLAttributes<HTMLWcsTextareaElement>;
+            /**
+             * Tooltips are used to provide additional information for features available on the website. These can improve the user
+             * experience or simply show additional information. Tooltips appear when the user rolls over or clicks on them
+             * (for longer content).
+             * Note that this component is based on the Tippy.js library : https://atomiks.github.io/tippyjs/
+             */
             "wcs-tooltip": LocalJSX.WcsTooltip & JSXBase.HTMLAttributes<HTMLWcsTooltipElement>;
         }
     }
