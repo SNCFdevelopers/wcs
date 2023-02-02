@@ -441,7 +441,7 @@ export namespace Components {
          */
         "setBlur": () => Promise<void>;
         /**
-          * Sets focus on the native `input` in `wcs-input`. Use this method instead of the global `input.focus()`.
+          * @deprecated use the native focus method instead  Sets focus on the native `input` in `wcs-input`. Use this method instead of the global `input.focus()`.
          */
         "setFocus": () => Promise<void>;
         /**

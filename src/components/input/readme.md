@@ -67,8 +67,10 @@ Type: `Promise<HTMLInputElement>`
 
 ### `setFocus() => Promise<void>`
 
+<span style="color:red">**[DEPRECATED]**</span> use the native focus method instead
+
 Sets focus on the native `input` in `wcs-input`. Use this method instead of the global
-`input.focus()`.
+`input.focus()`.<br/><br/>
 
 #### Returns
 
