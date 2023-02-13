@@ -1,7 +1,7 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 
-export default {
+const meta: Meta = {
     title: 'Components/Textarea',
     component: 'wcs-textarea',
     parameters: {
@@ -14,9 +14,11 @@ export default {
             ]
         }
     }
-} as Meta;
+};
 
-const Template: Story<Partial<{ icon: string, autoGrow: boolean, disabled: boolean, placeholder: string, value: string }>> = (args) => html`
+export default meta;
+
+const Template: StoryFn<Partial<{ icon: string, autoGrow: boolean, disabled: boolean, placeholder: string, value: string }>> = (args) => html`
     <wcs-textarea icon=${args.icon}
                   ?auto-grow="${args.autoGrow}"
                   ?disabled="${args.disabled}"

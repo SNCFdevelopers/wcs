@@ -1,11 +1,11 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { WcsButtonMode, WcsButtonShape } from '../../../src/components/button/button-interface';
 // @ts-ignore
 import dropdownDocumentation from './dropdown-documentation.md'
 import { WcsDropdownPlacement } from '../../../src/components/dropdown/dropdown-interface';
 
-export default {
+const meta: Meta = {
     title: 'Components/Dropdown',
     component: 'wcs-dropdown',
     parameters: {
@@ -25,9 +25,10 @@ export default {
         'WcsDropdownHeader': 'wcs-dropdown-header',
         'WcsDropdownDivider': 'wcs-dropdown-divider',
     }
-} as Meta;
+};
+export default meta;
 
-const Template: Story<Partial<{ disabled: boolean, mode: WcsButtonMode, shape: WcsButtonShape, placement: WcsDropdownPlacement, noArrow: boolean }>> = (args) => html`
+const Template: StoryFn<Partial<{ disabled: boolean, mode: WcsButtonMode, shape: WcsButtonShape, placement: WcsDropdownPlacement, noArrow: boolean }>> = (args) => html`
     <div style="height: 250px"></div>  <!-- tag to let the overlay display properly -->
     <div style="display: flex; width: 100%; align-items: center; justify-content: center">
         <wcs-dropdown ?disabled=${args.disabled} mode=${args.mode} shape=${args.shape} placement=${args.placement} ?no-arrow=${args.noArrow}>

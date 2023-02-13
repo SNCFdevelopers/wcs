@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 // @ts-ignore
 import gridDoc from './grid-documentation.md';
@@ -14,7 +14,7 @@ import {
     WcsGridSelectionConfig, WcsSortOrder
 } from '../../../src/components/grid/grid-interface';
 
-const Template: Story<Partial<{ data: any[], selectionConfig: WcsGridSelectionConfig, loading: boolean, selectedItems: any[], hideEmailColumn: boolean, hideIpColumn: boolean, initialSortConfig: WcsSortOrder }>> = (args) => html`
+const Template: StoryFn<Partial<{ data: any[], selectionConfig: WcsGridSelectionConfig, loading: boolean, selectedItems: any[], hideEmailColumn: boolean, hideIpColumn: boolean, initialSortConfig: WcsSortOrder }>> = (args) => html`
     <wcs-grid id="grid-simple-1" selection-config=${args.selectionConfig} .selectedItems=${args.selectedItems}
               ?loading="${args.loading}" .data=${args.data}>
         <wcs-grid-column name="Prénom" path="first_name" sort></wcs-grid-column>
@@ -24,7 +24,7 @@ const Template: Story<Partial<{ data: any[], selectionConfig: WcsGridSelectionCo
     </wcs-grid>
 `;
 
-export default {
+const meta: Meta = {
     title: 'Components/Grid',
     component: 'wcs-grid',
     parameters: {
@@ -48,7 +48,8 @@ export default {
         'WcsGridPagination': 'wcs-grid-pagination',
         'WcsGridCustomCell': 'wcs-grid-custom-cell',
     }
-} as Meta;
+};
+export default meta;
 
 const sampleData = [
     {
@@ -127,7 +128,7 @@ function buttonClickHandler(email: string) {
     alert('Send mail to ' + email);
 }
 
-const CustomCellTemplate: Story<Partial<{ data: any[] }>> = (args) => html`
+const CustomCellTemplate: StoryFn<Partial<{ data: any[] }>> = (args) => html`
     <wcs-grid id="grid-simple-1" .data=${args.data} row-id-path="id">
         <wcs-grid-column name="Prénom" path="first_name" sort></wcs-grid-column>
         <wcs-grid-column name="Nom" path="last_name" sort></wcs-grid-column>
@@ -184,7 +185,7 @@ InitialSortConfig.args = {
  *                         Cell Styling                                   *
  **************************************************************************/
 
-const CellStylingTemplate: Story<Partial<{ data: any[], formatter: WcsCellFormatter }>> = (args) => html`
+const CellStylingTemplate: StoryFn<Partial<{ data: any[], formatter: WcsCellFormatter }>> = (args) => html`
     <wcs-grid id="grid-cell-styling" .data=${args.data}>
         <wcs-grid-column name="Prénom" path="first_name" sort></wcs-grid-column>
         <wcs-grid-column name="Nom" path="last_name" sort></wcs-grid-column>
@@ -265,7 +266,7 @@ MultiSelection.args = {
 /**************************************************************************
  *                              Pagination                                *
  **************************************************************************/
-const PaginationTemplate: Story<Partial<{ data: any[], availablePageSizes: number[] }>> = (args) => html`
+const PaginationTemplate: StoryFn<Partial<{ data: any[], availablePageSizes: number[] }>> = (args) => html`
     <wcs-grid id="grid-simple-1" .data=${args.data}>
         <wcs-grid-column name="Prénom" path="first_name" sort></wcs-grid-column>
         <wcs-grid-column name="Nom" path="last_name" sort></wcs-grid-column>
@@ -292,7 +293,7 @@ function sortClickHandler(event: CustomEvent<WcsGridColumnSortChangeEventDetails
     alert('Sort change on column ' + event.detail.column.name);
 }
 
-const ServerModeTemplate: Story<Partial<{ data: any[], pageSize: number, itemsCount: number, pageCount: number, currentPage: number, availablePageSizes: number[] }>> = (args) => html`
+const ServerModeTemplate: StoryFn<Partial<{ data: any[], pageSize: number, itemsCount: number, pageCount: number, currentPage: number, availablePageSizes: number[] }>> = (args) => html`
     <wcs-grid id="grid-simple-1" .data=${args.data} server-mode>
         <wcs-grid-column name="Prénom" path="first_name" sort
                          @wcsSortChange=${event => sortClickHandler(event)}></wcs-grid-column>

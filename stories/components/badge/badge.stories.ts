@@ -1,10 +1,10 @@
-import { Meta, Story } from '@storybook/web-components';
-import { html } from 'lit-html/development/lit-html';
+import { Meta, StoryFn } from '@storybook/web-components';
+import { html } from 'lit-html';
 // @ts-ignore
 import badgeDocumentation from './badge-documentation.md'
 import { BadgeColor, BadgeShape } from '../../../src/components/badge/badge-interface';
 
-export default {
+const meta: Meta = {
     title: 'Components/Badge',
     component: 'wcs-badge',
     parameters: {
@@ -14,9 +14,10 @@ export default {
             }
         }
     },
-} as Meta;
+};
+export default meta;
 
-const Template: Story<Partial<{ shape: BadgeShape, color: BadgeColor }>> = (args) => html`
+const Template: StoryFn<Partial<{ shape: BadgeShape, color: BadgeColor }>> = (args) => html`
     <wcs-badge shape=${args.shape} color=${args.color} class="wcs-primary">Primary</wcs-badge>
     <wcs-badge shape=${args.shape} color=${args.color} class="wcs-secondary">Secondary</wcs-badge>
     <wcs-badge shape=${args.shape} color=${args.color} class="wcs-success">Success</wcs-badge>

@@ -1,9 +1,9 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 // @ts-ignore
 import listItemDocumentation from './list-item-documentation.md'
 
-export default {
+const meta: Meta = {
     title: 'Components/List-item',
     component: 'wcs-list-item',
     parameters: {
@@ -17,9 +17,10 @@ export default {
         'WcsListItemProperties': 'wcs-list-item-properties',
         'WcsListItemProperty': 'wcs-list-item-property'
     }
-} as Meta;
+};
+export default meta;
 
-const Template: Story<Partial<{ activated: boolean }>> = (args) => html`
+const Template: StoryFn<Partial<{ activated: boolean }>> = (args) => html`
     <wcs-list-item ?activated=${args.activated}>
         <wcs-mat-icon slot="icon" icon="description"></wcs-mat-icon>
         <div slot="title">Titre premier item</div>

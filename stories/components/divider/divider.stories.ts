@@ -1,18 +1,19 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 
-export default {
+const meta: Meta = {
     title: 'Components/Divider',
     component: 'wcs-divider'
-} as Meta;
+};
+export default meta;
 
-const Template: Story = () => html`
+const Template: StoryFn = () => html`
     <p>Text before divider</p>
     <wcs-divider></wcs-divider>
     <p>Text after divider</p>
 `;
 
-const DividerInCardTemplate: Story = () => html`
+const DividerInCardTemplate: StoryFn = () => html`
     <wcs-card mode="flat">
         <wcs-card-body>
             Before divider

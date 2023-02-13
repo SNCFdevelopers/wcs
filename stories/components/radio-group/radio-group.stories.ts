@@ -1,10 +1,10 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 // @ts-ignore
 import radioGroupDocumentation from './radio-group-documentation.md'
 import { RadioGroupMode } from '../../../src/components/radio-group/radio-group-interface';
 
-export default {
+const meta: Meta = {
     title: 'Components/Radio-group',
     component: 'wcs-radio-group',
     parameters: {
@@ -22,9 +22,10 @@ export default {
     subcomponents: {
         'WcsRadio': 'wcs-radio'
     }
-} as Meta;
+};
+export default meta;
 
-const Template: Story<Partial<{ disabled: boolean, defaultValue: string, mode: RadioGroupMode }>> = (args) => html`
+const Template: StoryFn<Partial<{ disabled: boolean, defaultValue: string, mode: RadioGroupMode }>> = (args) => html`
     <wcs-radio-group value="${args.defaultValue}" mode=${args.mode}>
         <wcs-radio label="SNCF" value="1" ?disabled=${args.disabled}></wcs-radio>
         <wcs-radio label="SNCF Réseau" value="2"></wcs-radio>

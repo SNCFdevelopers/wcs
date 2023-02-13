@@ -1,10 +1,10 @@
-import { Meta, Story } from '@storybook/web-components';
-import { html } from 'lit-html';
-import { ifDefined } from 'lit-html/directives/if-defined';
-import { createRef, ref } from 'lit-html/directives/ref';
+import { Meta, StoryFn } from '@storybook/web-components';
+import { ifDefined } from 'lit-html/directives/if-defined.js';
+import { createRef, ref } from 'lit-html/directives/ref.js';
 import { ModalSize } from '../../../src/components/modal/modal-interface';
+import { html } from 'lit-html';
 
-export default {
+const meta: Meta = {
     title: 'Components/Modal',
     component: 'wcs-modal',
     parameters: {
@@ -14,9 +14,11 @@ export default {
             ]
         }
     }
-} as Meta;
+};
 
-const Template: Story<Partial<{ withoutBackdrop: boolean, show: boolean, showCloseButton: boolean, size: ModalSize, hideActions: boolean }>> = (args) => {
+export default meta;
+
+const Template: StoryFn<Partial<{ withoutBackdrop: boolean, show: boolean, showCloseButton: boolean, size: ModalSize, hideActions: boolean }>> = (args) => {
     // FIXME
     // @ts-ignore
     const modalRef = createRef<HTMLWcsModalElement>();
@@ -77,13 +79,13 @@ WithoutActions.args = {
     hideActions: true
 };
 
-const SizeTemplate: Story<Partial<{ withoutBackdrop: boolean, show: boolean, showCloseButton: boolean, size: ModalSize, hideActions: boolean }>> = (args) => html`
+const SizeTemplate: StoryFn<Partial<{ withoutBackdrop: boolean, show: boolean, showCloseButton: boolean, size: ModalSize, hideActions: boolean }>> = (args, context) => html`
     <p>For this story, the size param is not configurable, it is set manually for each button to easily show all
         the different available sizes.</p>
-    ${Template({...args, show: false, size: 's'})}
-    ${Template({...args, show: false, size: 'm'})}
-    ${Template({...args, show: false, size: 'l'})}
-    ${Template({...args, show: false, size: 'xl'})}
+    ${Template({...args, show: false, size: 's'}, context)}
+    ${Template({...args, show: false, size: 'm'}, context)}
+    ${Template({...args, show: false, size: 'l'}, context)}
+    ${Template({...args, show: false, size: 'xl'}, context)}
 `;
 
 export const Sizes = SizeTemplate.bind({});

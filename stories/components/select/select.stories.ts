@@ -1,9 +1,9 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 // @ts-ignore
 import selectDocumentation from './select-documentation.md';
 
-export default {
+const meta: Meta = {
     title: 'Components/Select',
     component: 'wcs-select',
     parameters: {
@@ -13,9 +13,10 @@ export default {
             }
         }
     }
-} as Meta;
+};
+export default meta;
 
-const Template: Story<Partial<{ value: string, placeholder: string, disabled: boolean, multiple: boolean, chips: boolean }>> = (args) => html`
+const Template: StoryFn<Partial<{ value: string, placeholder: string, disabled: boolean, multiple: boolean, chips: boolean }>> = (args) => html`
     <style>
         wcs-select{
             width: 400px;
@@ -73,7 +74,7 @@ MultipleAndChipsMode.args = {
     chips: true
 };
 
-const oneOptionDisabledTemplate: Story<Partial<{ value: string, placeholder: string, disabled: boolean, multiple: boolean}>> = (args) => html`
+const oneOptionDisabledTemplate: StoryFn<Partial<{ value: string, placeholder: string, disabled: boolean, multiple: boolean, chips: boolean}>> = (args) => html`
     <style>
         wcs-select{
             width: 400px;
@@ -91,5 +92,6 @@ OneOptionDisable.args = {
     value: '',
     placeholder: 'Le select avec une option désactivée',
     disabled: false,
-    multiple: false
+    multiple: false,
+    chips: false
 };

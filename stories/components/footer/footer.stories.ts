@@ -1,9 +1,9 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 // @ts-ignore
 import footerDocumentation from './footer-documentation.md'
 import { html } from 'lit-html';
 
-export default {
+const meta: Meta = {
     title: 'Components/Footer',
     component: 'wcs-footer',
     parameters: {
@@ -13,9 +13,10 @@ export default {
             }
         }
     }
-} as Meta;
+};
+export default meta;
 
-const Template: Story = () => html`
+const Template: StoryFn = () => html`
     <wcs-footer>
         <p>Contenu libre</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel neque et dolor egestas posuere nec sed neque.

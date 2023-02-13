@@ -1,14 +1,15 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 // @ts-ignore
 import tabInsideDocumentation from './tab-inside-documentation.md';
 
-export default {
+const meta: Meta = {
     title: 'Components/actionBar',
     component: 'wcs-action-bar'
-} as Meta;
+};
+export default meta;
 
-const Template: Story<Partial<{ gutter: boolean, title: string }>> = (args) => html`
+const Template: StoryFn<Partial<{ gutter: boolean, title: string }>> = (args) => html`
     <div style="background: var(--wcs-light); padding: var(--wcs-padding);">
         <wcs-action-bar ?gutter=${args.gutter}>
             ${args.title}
@@ -32,7 +33,7 @@ Default.args = {
     title: 'Titre'
 };
 
-const TabInsideTemplate: Story<Partial<{ gutter: boolean, title: string }>> = (args) => html`
+const TabInsideTemplate: StoryFn<Partial<{ gutter: boolean, title: string }>> = (args) => html`
     <div style="background: var(--wcs-light); padding: var(--wcs-padding);">
         <wcs-action-bar ?gutter=${args.gutter}>
             ${args.title}

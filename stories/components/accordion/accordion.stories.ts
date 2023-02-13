@@ -1,7 +1,7 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn, StoryObj } from '@storybook/web-components';
 import { html } from 'lit-html';
 
-export default {
+const meta: Meta = {
     title: 'Components/Accordion',
     component: 'wcs-accordion',
     parameters: {
@@ -16,8 +16,10 @@ export default {
         'WcsAccordionHeader': 'wcs-accordion-header',
         'WcsAccordionPanel': 'wcs-accordion-panel',
     }
-} as Meta;
-const Template: Story<Partial<{ open: boolean, hideActionText: boolean, highlight: boolean, groupContentWithHeader: boolean }>> = (args) => html`
+};
+export default meta;
+
+const Template: StoryFn<Partial<{ open: boolean, hideActionText: boolean, highlight: boolean, groupContentWithHeader: boolean }>> = (args) => html`
     <wcs-accordion ?hide-action-text="${args.hideActionText}" ?highlight="${args.highlight}" ?group-content-with-header="${args.groupContentWithHeader}">
         <wcs-accordion-panel ?open=${args.open}>
             <wcs-accordion-header>Un premier panel</wcs-accordion-header>
@@ -71,10 +73,10 @@ const Template: Story<Partial<{ open: boolean, hideActionText: boolean, highligh
     </wcs-accordion>
 `;
 
-export const Default = Template.bind({});
+export const Default: StoryObj = Template.bind({});
 Default.args = {open: false, hideActionText: false, highlight: false, groupContentWithHeader: false };
 
-const PanelTemplate: Story<Partial<{ open: boolean, hideActionText: boolean, highlight: boolean, groupContentWithHeader: boolean }>> = (args) => html`
+const PanelTemplate: StoryFn<Partial<{ open: boolean, hideActionText: boolean, highlight: boolean, groupContentWithHeader: boolean }>> = (args) => html`
     <wcs-accordion-panel ?open=${args.open} ?hide-action-text="${args.hideActionText}" ?highlight="${args.highlight}" ?group-content-with-header="${args.groupContentWithHeader}">
         <wcs-accordion-header>Un premier panel</wcs-accordion-header>
         <wcs-accordion-content>Logoden biniou degemer mat an penn ar bed krib, brudet kontell e outañ doujañ darev
@@ -87,4 +89,3 @@ const PanelTemplate: Story<Partial<{ open: boolean, hideActionText: boolean, hig
 `;
 export const PanelOnly = PanelTemplate.bind({});
 PanelOnly.args = {open: false, hideActionText: false, highlight: false, groupContentWithHeader: false }
-

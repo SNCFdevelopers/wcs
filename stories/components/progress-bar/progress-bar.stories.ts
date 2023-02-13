@@ -1,9 +1,9 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 // @ts-ignore
 import progressBarDoc from './progress-bar-documentation.md';
 
-export default {
+const meta: Meta = {
     title: 'Components/Progress-bar',
     component: 'wcs-progress-bar',
     parameters: {
@@ -13,9 +13,10 @@ export default {
             }
         }
     },
-} as Meta;
+};
+export default meta;
 
-const Template: Story<Partial<{ small: boolean, showLabel: boolean, value: number }>> = (args) => html`
+const Template: StoryFn<Partial<{ small: boolean, showLabel: boolean, value: number }>> = (args) => html`
     <wcs-progress-bar ?small=${args.small}
                       ?show-label=${args.showLabel}
                       .value=${args.value}>

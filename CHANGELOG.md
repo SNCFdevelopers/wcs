@@ -45,6 +45,7 @@ organized on column if they have not enough space
 - **mat-icon**: add the ability to change the URI from which the material icons fonts are loaded by not including them automatically. Your project now need to add the font-face declarations in the global stylesheet of your project. Please refer to the migration guide (v2 to v3)
 - **input**: the setFocus() method in now deprecated in favor of the native focus method
 - **stenciljs**: upgrade to stencil v3
+- **storybook**: upgrade to storybook v7
 
 ### Deprecated
 

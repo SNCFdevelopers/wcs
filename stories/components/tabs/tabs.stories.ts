@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { WcsTabChangeEvent, WcsTabsAlignment } from '../../../src/components/tabs/tabs-interface';
 // @ts-ignore
@@ -6,7 +6,7 @@ import tabsDoc from './tabs-documentation.md';
 // @ts-ignore
 import headersOnlyDoc from './headers-only-story-documentation.md';
 
-export default {
+const meta: Meta =  {
     title: 'Components/Tabs',
     component: 'wcs-tabs',
     parameters: {
@@ -24,9 +24,11 @@ export default {
     subcomponents: {
         'WcsTab': 'wcs-tab'
     }
-} as Meta;
+};
 
-const Template: Story<Partial<{ align: WcsTabsAlignment, selectedIndex: number, selectedKey: any, headersOnly: boolean, gutter: boolean }>> = (args) => html`
+export default meta;
+
+const Template: StoryFn<Partial<{ align: WcsTabsAlignment, selectedIndex: number, selectedKey: any, headersOnly: boolean, gutter: boolean }>> = (args) => html`
     <wcs-tabs align=${args.align}
               .selectedIndex=${args.selectedIndex}
               .selectedKey=${args.selectedKey}
@@ -56,7 +58,7 @@ function tabChangeHandler(event: CustomEvent<WcsTabChangeEvent>) {
     document.getElementById('tab-content').innerText = content;
 }
 
-const TemplateHeadersOnly: Story<Partial<{}>> = (_) => html`
+const TemplateHeadersOnly: StoryFn<Partial<{}>> = (_) => html`
     <!-- Method 'tabChangeHandler' used to change the '#tab-content' div content -->
     <wcs-tabs id="tabs-custom-content"
               headers-only
@@ -81,7 +83,7 @@ HeadersOnly.parameters = {
 };
 HeadersOnly.args = {};
 
-const TemplateScrollableTabs: Story<Partial<{}>> = (_) => html`
+const TemplateScrollableTabs: StoryFn<Partial<{}>> = (_) => html`
     <wcs-tabs>
         <wcs-tab header="Premier">Premier contenu</wcs-tab>
         <wcs-tab header="Deuxième">Deuxième contenu</wcs-tab>
@@ -117,7 +119,7 @@ function addTab() {
     document.querySelector('#lazy-loaded-tabs').appendChild(opt);
 }
 
-const TemplateLazyLoadedTabs: Story<Partial<{}>> = (_) => html`
+const TemplateLazyLoadedTabs: StoryFn<Partial<{}>> = (_) => html`
     <!-- Method 'addTab' used to dynamically add a tab -->
     <wcs-button @click=${_ => addTab()}>Ajouter un onglet</wcs-button>
 

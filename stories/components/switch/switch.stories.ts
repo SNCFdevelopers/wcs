@@ -1,8 +1,8 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { SwitchLabelAlignment } from '../../../src/components/switch/switch-interface';
 
-export default {
+const meta: Meta = {
     title: 'Components/Switch',
     component: 'wcs-switch',
     parameters: {
@@ -12,9 +12,11 @@ export default {
             ]
         }
     },
-} as Meta;
+};
 
-const Template: Story<Partial<{ checked: boolean, name: string, label: string, labelAlignment: SwitchLabelAlignment, disabled: boolean }>> = (args) => html`
+export default meta;
+
+const Template: StoryFn<Partial<{ checked: boolean, name: string, label: string, labelAlignment: SwitchLabelAlignment, disabled: boolean }>> = (args) => html`
     <wcs-switch ?checked=${args.checked}
                 name=${args.name}
                 label-alignment=${args.labelAlignment}

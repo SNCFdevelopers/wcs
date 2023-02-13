@@ -1,12 +1,13 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 
-export default {
+const meta: Meta = {
     title: 'Components/Com/Nav',
     component: 'wcs-com-nav'
-} as Meta;
+};
+export default meta;
 
-const Template: Story<Partial<{ appName: string, displayGalactic: boolean }>> = (args) => html`
+const Template: StoryFn<Partial<{ appName: string, displayGalactic: boolean }>> = (args) => html`
     ${args.displayGalactic ? html`
         <wcs-galactic text="NomSuperApp est un site SNCF">
             <wcs-galactic-menu text="TOUT SNCF">
@@ -57,7 +58,7 @@ Default.args = {appName: 'Application'};
 export const WithGalactic = Template.bind({});
 WithGalactic.args = {appName: 'Application', displayGalactic: true};
 
-const TopLevelLinkTemplateTemplate: Story<Partial<{ appName: string, displayGalactic: boolean }>> = (args) => html`
+const TopLevelLinkTemplateTemplate: StoryFn<Partial<{ appName: string, displayGalactic: boolean }>> = (args) => html`
     ${args.displayGalactic ? html`
         <wcs-galactic text="NomSuperApp est un site SNCF">
             <wcs-galactic-menu text="TOUT SNCF">

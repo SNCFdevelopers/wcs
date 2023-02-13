@@ -1,16 +1,17 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { CardMode } from '../../../src/components/card/card-interface';
 
-export default {
+const meta: Meta = {
     title: 'Components/Card',
     component: 'wcs-card',
     subcomponents: {
         'WcsCardBody': 'wcs-card-body'
     }
-} as Meta;
+};
+export default meta;
 
-const BasicTemplate: Story<Partial<{ mode: CardMode }>> = (args) => html`
+const BasicTemplate: StoryFn<Partial<{ mode: CardMode }>> = (args) => html`
     <wcs-card mode=${args.mode}>
         <wcs-card-body>
             Basic card
@@ -18,13 +19,13 @@ const BasicTemplate: Story<Partial<{ mode: CardMode }>> = (args) => html`
     </wcs-card>
 `;
 
-const WithoutBodyTemplate: Story<Partial<{ mode: CardMode }>> = (args) => html`
+const WithoutBodyTemplate: StoryFn<Partial<{ mode: CardMode }>> = (args) => html`
     <wcs-card mode=${args.mode}>
         Basic card
     </wcs-card>
 `;
 
-const TwoBodyAndDividerTemplate: Story<Partial<{ mode: CardMode }>> = (args) => html`
+const TwoBodyAndDividerTemplate: StoryFn<Partial<{ mode: CardMode }>> = (args) => html`
     <wcs-card mode=${args.mode}>
         <wcs-card-body>
             Flat card content
@@ -36,7 +37,7 @@ const TwoBodyAndDividerTemplate: Story<Partial<{ mode: CardMode }>> = (args) => 
     </wcs-card>
 `;
 
-const OneBodyAndDividerTemplate: Story<Partial<{ mode: CardMode }>> = (args) => html`
+const OneBodyAndDividerTemplate: StoryFn<Partial<{ mode: CardMode }>> = (args) => html`
     <wcs-card mode=${args.mode}>
         <wcs-card-body>
             Flat card content

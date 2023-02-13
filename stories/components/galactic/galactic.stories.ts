@@ -1,9 +1,9 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 // @ts-ignore
 import galacticDocumentation from './galactic-documentation.md'
 import { html } from 'lit-html';
 
-export default {
+const meta: Meta = {
     title: 'Components/Com/Galactic',
     component: 'wcs-galactic',
     parameters: {
@@ -16,9 +16,10 @@ export default {
     subcomponents: {
         'WcsGalacticMenu': 'wcs-galactic-menu'
     }
-} as Meta;
+};
+export default meta;
 
-const Template: Story<Partial<{ text: string, displayGalacticMenu: boolean }>> = (args) => html`
+const Template: StoryFn<Partial<{ text: string, displayGalacticMenu: boolean }>> = (args) => html`
     <wcs-galactic text="${args.text}">
         ${args.displayGalacticMenu ? html`
             <wcs-galactic-menu text="TOUT SNCF">

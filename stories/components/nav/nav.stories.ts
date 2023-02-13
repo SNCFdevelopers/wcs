@@ -1,9 +1,9 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 // @ts-ignore
 import navDocumentation from './nav-documentation.md';
 
-export default {
+const meta: Meta = {
     title: 'Components/Nav',
     component: 'wcs-nav',
     parameters: {
@@ -16,9 +16,10 @@ export default {
     subcomponents: {
         'WcsNavItem': 'wcs-nav-item'
     }
-} as Meta;
+};
+export default meta;
 
-const Template: Story<Partial<{}>> = (_) => html`
+const Template: StoryFn<Partial<any>> = (_) => html`
     <div style="height: 600px">
         <wcs-nav>
             <wcs-nav-item text="Favoris">

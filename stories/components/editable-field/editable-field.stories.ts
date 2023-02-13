@@ -1,11 +1,11 @@
-import { Meta, Story } from '@storybook/web-components';
-import { html } from 'lit-html/development/lit-html';
+import { Meta, StoryFn } from '@storybook/web-components';
+import { html } from 'lit-html';
 import { EditableFieldType, FormatFn, ValidateFn } from '../../../src/components/editable-field/editable-field-interface';
-import { ifDefined } from 'lit-html/directives/if-defined';
 // @ts-ignore
 import editableFieldDocumentation from './editable-field-documentation.md'
+import { ifDefined } from 'lit-html/directives/if-defined.js';
 
-export default {
+const meta: Meta = {
     title: 'Components/Editable-field',
     component: 'wcs-editable-field',
     parameters: {
@@ -20,9 +20,10 @@ export default {
             }
         }
     }
-} as Meta;
+};
+export default meta;
 
-const Template: Story<Partial<{ errorMsg: string, formatFn: FormatFn<any>, label: string, readonly: boolean, type: EditableFieldType, validateFn: ValidateFn<any>, value: any }>> = (args) => html`
+const Template: StoryFn<Partial<{ errorMsg: string, formatFn: FormatFn<any>, label: string, readonly: boolean, type: EditableFieldType, validateFn: ValidateFn<any>, value: any }>> = (args) => html`
     <wcs-editable-field error-msg=${args.errorMsg}
                         .validateFn=${ifDefined(args.validateFn)}
                         .formatFn=${ifDefined(args.formatFn)}

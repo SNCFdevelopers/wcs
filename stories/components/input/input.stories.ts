@@ -1,8 +1,8 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { TextFieldTypes } from '../../../src/components/input/input-interface';
 
-export default {
+const meta: Meta = {
     title: 'Components/Input',
     component: 'wcs-input',
     parameters: {
@@ -15,9 +15,10 @@ export default {
             ]
         }
     }
-} as Meta;
+};
+export default meta;
 
-const Template: Story<Partial<{state: 'initial' | 'error', icon: string, type: TextFieldTypes, disabled, value: string | number, prefixLabel: string, suffixLabel: string}>> = (args) => html`
+const Template: StoryFn<Partial<{state: 'initial' | 'error', icon: string, type: TextFieldTypes, disabled, value: string | number, prefixLabel: string, suffixLabel: string}>> = (args) => html`
     <wcs-input id="input-demo-1" state=${args.state} icon=${args.icon} type=${args.type} ?disabled=${args.disabled} value=${args.value} prefix-label=${args.prefixLabel} suffix-label=${args.suffixLabel}></wcs-input>
 `;
 

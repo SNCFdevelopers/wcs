@@ -1,12 +1,21 @@
 const WatchExternalFilesPlugin = require('webpack-watch-files-plugin').default;
 
-module.exports = {
-    "stories": [
+const config = {
+    docs: {
+        autodocs: true,
+        defaultName: 'Documentation'
+    },
+    staticDirs: [
+        './../dist/wcs',
+        './../src/assets/fonts'
+    ],
+    framework: '@storybook/web-components-webpack5',
+    stories: [
         "../stories/**/*.stories.mdx",
-        "../stories/documentation/**/*.stories.md",
+        "../stories/documentation/**/*.stories.md", // TODO: remove me?
         "../stories/**/*.stories.@(js|jsx|ts|tsx)"
     ],
-    "addons": [
+    addons: [
         "@storybook/addon-links",
         "@storybook/addon-essentials",
         "@storybook/addon-docs"
@@ -20,3 +29,4 @@ module.exports = {
         return config;
     }
 }
+export default config;

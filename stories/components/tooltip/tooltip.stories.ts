@@ -1,20 +1,22 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { WcsTooltipAppendTo, WcsTooltipPosition } from '../../../src/components/tooltip/tooltip-interface';
-import { unsafeHTML } from 'lit-html/directives/unsafe-html';
+import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
 // @ts-ignore
 import interactiveStoryDocumentation from './interactiveStoryDocumentation.md';
 // @ts-ignore
 import fullscreenStoryDocumentation from './fullscreenStoryDocumentation.md';
-import { ifDefined } from 'lit-html/directives/if-defined';
-import { createRef, ref, Ref } from 'lit-html/directives/ref';
+import { ifDefined } from 'lit-html/directives/if-defined.js';
+import { createRef, ref, Ref } from 'lit-html/directives/ref.js';
 
-export default {
+const meta: Meta = {
     title: 'Components/Tooltip',
     component: 'wcs-tooltip'
-} as Meta;
+};
 
-const Template: Story<Partial<{ content: string, position: WcsTooltipPosition, tooltipInnerHtml: string, interactive: boolean, maxWidth: string | number, theme: string, delay: number | [number, number], duration: number | [number, number], trigger: string }>> = (args) => {
+export default meta;
+
+const Template: StoryFn<Partial<{ content: string, position: WcsTooltipPosition, tooltipInnerHtml: string, interactive: boolean, maxWidth: string | number, theme: string, delay: number | [number, number], duration: number | [number, number], trigger: string }>> = (args) => {
     const tooltip_unique_element_id_idx = tooltip_unique_element_id++; // use to generate a unique button id for each story (doc-only)
     return html`
     <div style="padding: 50px 0 0 200px;"><!-- div to add space for the tooltip to demonstrate the positioning property -->
@@ -82,7 +84,7 @@ Interactive.args = {
     tooltipInnerHtml: `<h3>Content title</h3>
 <p>Logoden biniou degemer mat an penn ar bed perak stourm nebeut draonienn ael berr, soubañ torgenn seizhvet gwener araok eor kribañ troc’hañ gwenn vered tan.</p>
 <a href="https://www.logoden-biniou.com/" style="display: block; color: var(--wcs-primary); margin: 12px 0" target="_blank">logoden-biniou</a>
-<wcs-button shape="small">C\'est un grand oui !</wcs-button>`
+<wcs-button shape="small">C'est un grand oui !</wcs-button>`
 };
 
 const fullscreenDiv: Ref<HTMLInputElement> = createRef();
@@ -91,7 +93,7 @@ function enableFullScreen(e) {
     e.currentTarget.parentNode?.requestFullscreen();
 }
 
-const FullScreenTemplate: Story<Partial<{ appendTo: WcsTooltipAppendTo, content: string, position: WcsTooltipPosition, tooltipInnerHtml: string, interactive: boolean, maxWidth: string | number, theme: string, delay: number | [number, number], duration: number | [number, number], trigger: string }>> = (args) => {
+const FullScreenTemplate: StoryFn<Partial<{ appendTo: WcsTooltipAppendTo, content: string, position: WcsTooltipPosition, tooltipInnerHtml: string, interactive: boolean, maxWidth: string | number, theme: string, delay: number | [number, number], duration: number | [number, number], trigger: string }>> = (args) => {
     const tooltip_unique_element_id_idx = tooltip_unique_element_id++; // use to generate a unique button id for each story (doc-only)
     return html`
     <div style="padding: 50px 0 0 200px;"><!-- div to add space for the tooltip to demonstrate the positioning property -->

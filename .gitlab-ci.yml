@@ -20,7 +20,7 @@ cache:
 test:
   tags:
     - saas-linux-medium-amd64
-  image: buildkite/puppeteer:5.2.1
+  image: buildkite/puppeteer:10.0.0
   stage: test
   script:
     - npm ci --cache .npm --prefer-offline

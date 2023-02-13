@@ -1,10 +1,10 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { MaterialIconFamily, MaterialIconSize } from '../../../src/components/mat-icon/mat-icon-interface';
 // @ts-ignore
 import matIconDocumentation from './mat-icon-documentation.md';
 
-export default {
+const meta: Meta = {
     title: 'Components/Mat icon',
     component: 'wcs-mat-icon',
     parameters: {
@@ -14,9 +14,10 @@ export default {
             }
         }
     },
-} as Meta;
+};
+export default meta;
 
-const Template: Story<Partial<{ size: MaterialIconSize, icon: string, family: MaterialIconFamily }>> = (args) => html`
+const Template: StoryFn<Partial<{ size: MaterialIconSize, icon: string, family: MaterialIconFamily }>> = (args) => html`
     <wcs-mat-icon size=${args.size}
                   icon=${args.icon}
                   family=${args.family}>

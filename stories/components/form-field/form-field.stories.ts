@@ -1,10 +1,10 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 // @ts-ignore
 import formFieldDocumentation from './form-field-documentation.md';
 // @ts-ignore
 import tooltipOnLabelDocumentation from './tooltip-on-label-documentation.md'
-export default {
+const meta: Meta = {
     title: 'Components/Form Field',
     component: 'wcs-form-field',
     parameters: {
@@ -25,13 +25,14 @@ export default {
                 margin: 24px 0;
             }
         </style>${story()}`],
-} as Meta;
+};
+export default meta;
 
 interface FormFieldStoriesParams {
     isError: boolean;
 }
 
-const Template: Story<Partial<FormFieldStoriesParams>> = (args) => html`
+const Template: StoryFn<Partial<FormFieldStoriesParams>> = (args) => html`
     ${Input(args)}
     ${Select(args)}
     ${Radio(args)}
@@ -46,7 +47,7 @@ const Template: Story<Partial<FormFieldStoriesParams>> = (args) => html`
 export const Default = Template.bind({});
 Default.args = {};
 
-const InputTemplate: Story<Partial<FormFieldStoriesParams>> = (args) => html`
+const InputTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) => html`
     <wcs-form-field ?is-error=${args.isError}>
         <wcs-label>Enter your name</wcs-label>
         <wcs-input placeholder="John doe"></wcs-input>
@@ -60,7 +61,7 @@ const InputTemplate: Story<Partial<FormFieldStoriesParams>> = (args) => html`
 export const Input = InputTemplate.bind({});
 Input.args = {};
 
-const SelectTemplate: Story<Partial<FormFieldStoriesParams>> = (args) => html`
+const SelectTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) => html`
     <wcs-form-field ?is-error=${args.isError}>
         <wcs-label>What is your country music you're comming from, dude?</wcs-label>
         <wcs-select placeholder="Select a country" required>
@@ -75,7 +76,7 @@ const SelectTemplate: Story<Partial<FormFieldStoriesParams>> = (args) => html`
 export const Select = SelectTemplate.bind({});
 Select.args = {};
 
-const RadioTemplate: Story<Partial<FormFieldStoriesParams>> = (args) => html`
+const RadioTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) => html`
     <wcs-form-field ?is-error=${args.isError}>
         <wcs-label>What is your favorite animal?</wcs-label>
         <wcs-radio-group name="SA">
@@ -91,7 +92,7 @@ const RadioTemplate: Story<Partial<FormFieldStoriesParams>> = (args) => html`
 export const Radio = RadioTemplate.bind({});
 Radio.args = {};
 
-const TextAreaTemplate: Story<Partial<FormFieldStoriesParams>> = (args) => html`
+const TextAreaTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) => html`
     <wcs-form-field ?is-error=${args.isError}>
         <wcs-label>What do you think about the fact that you are filling a fake form?</wcs-label>
         <wcs-textarea placeholder="Type your message" rows="6" cols="80"></wcs-textarea>
@@ -102,7 +103,7 @@ const TextAreaTemplate: Story<Partial<FormFieldStoriesParams>> = (args) => html`
 export const TextArea = TextAreaTemplate.bind({});
 TextArea.args = {};
 
-const SwitchTemplate: Story<Partial<FormFieldStoriesParams>> = (args) => html`
+const SwitchTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) => html`
     <wcs-form-field ?is-error=${args.isError}>
         <wcs-label>I agree to provide personal and corporate data to Jeff</wcs-label>
         <wcs-switch id="error-switch-1" checked="true"></wcs-switch>
@@ -114,7 +115,7 @@ export const Switch = SwitchTemplate.bind({});
 Switch.args = {};
 
 
-const ButtonTemplate: Story<Partial<FormFieldStoriesParams>> = (args) => html`
+const ButtonTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) => html`
     <wcs-button class="wcs-primary">
         Submit
     </wcs-button>
@@ -122,13 +123,13 @@ const ButtonTemplate: Story<Partial<FormFieldStoriesParams>> = (args) => html`
 export const Button = ButtonTemplate.bind({});
 Button.args = {};
 
-const CheckboxTemplate: Story<Partial<FormFieldStoriesParams>> = (args) => html`
+const CheckboxTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) => html`
     <wcs-checkbox>Did you read all questions?</wcs-checkbox>
 `;
 export const Checkbox = CheckboxTemplate.bind({});
 Checkbox.args = {};
 
-const SelectButtonTemplate: Story<Partial<FormFieldStoriesParams>> = (args) => html`
+const SelectButtonTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) => html`
     <wcs-form-field ?is-error=${args.isError}>
         <wcs-select id="form-field-ex-3" slot="prefix" placeholder="Country" multiple>
             <wcs-select-option>France</wcs-select-option>
@@ -160,7 +161,7 @@ const SelectButtonTemplate: Story<Partial<FormFieldStoriesParams>> = (args) => h
 export const PrefixSuffixGroup = SelectButtonTemplate.bind({});
 PrefixSuffixGroup.args = {};
 
-const TooltipOnLabelTemplate: Story<Partial<FormFieldStoriesParams>> = (args) => html`
+const TooltipOnLabelTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) => html`
     <wcs-form-field ?is-error=${args.isError}>
         <wcs-label>
             Enter your name

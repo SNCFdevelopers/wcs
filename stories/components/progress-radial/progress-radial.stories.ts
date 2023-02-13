@@ -1,12 +1,13 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 
-export default {
+const meta: Meta = {
     title: 'Components/Progress-radial',
     component: 'wcs-progress-radial'
-} as Meta;
+};
+export default meta;
 
-const Template: Story<Partial<{size: number, showLabel: boolean, value: number}>> = (args) => html`
+const Template: StoryFn<Partial<{size: number, showLabel: boolean, value: number}>> = (args) => html`
     <wcs-progress-radial .size=${args.size}
                          ?show-label=${args.showLabel}
                          .value=${args.value}>

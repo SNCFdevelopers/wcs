@@ -1,13 +1,14 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { WcsSpinnerMode } from '../../../src/components/spinner/spinner-interface';
 
-export default {
+const meta: Meta = {
     title: 'Components/Spinner',
     component: 'wcs-spinner'
-} as Meta;
+};
+export default meta;
 
-const Template: Story<Partial<{ mode: WcsSpinnerMode }>> = (args) => html`
+const Template: StoryFn<Partial<{ mode: WcsSpinnerMode }>> = (args) => html`
     <wcs-spinner mode=${args.mode} class="wcs-primary"></wcs-spinner>
     <wcs-spinner mode=${args.mode} class="wcs-secondary"></wcs-spinner>
     <wcs-spinner mode=${args.mode} class="wcs-success"></wcs-spinner>

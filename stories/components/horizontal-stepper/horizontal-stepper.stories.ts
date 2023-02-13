@@ -1,15 +1,15 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 import {
     HorizontalStepClickEvent,
     HorizontalStepConfig,
     HorizontalStepperMode
 } from '../../../src/components/horizontal-stepper/horizontal-stepper-interface';
-import { createRef, ref } from 'lit-html/directives/ref';
+import { createRef, ref } from 'lit-html/directives/ref.js';
 import { HorizontalStepper } from '../../../src/components/horizontal-stepper/horizontal-stepper';
-import { ifDefined } from 'lit-html/directives/if-defined';
+import { ifDefined } from 'lit-html/directives/if-defined.js';
 
-export default {
+const meta: Meta = {
     title: 'Components/HorizontalStepper',
     component: 'wcs-horizontal-stepper',
     parameters: {
@@ -19,11 +19,12 @@ export default {
             ]
         },
     }
-} as Meta;
+};
+export default meta;
 
 const horizontalStepperRef = createRef();
 
-const Template: Story<Partial<{ checkOnComplete: boolean, mode: HorizontalStepperMode, steps: HorizontalStepConfig[], currentStep: number }>> = (args) => html`
+const Template: StoryFn<Partial<{ checkOnComplete: boolean, mode: HorizontalStepperMode, steps: HorizontalStepConfig[], currentStep: number }>> = (args) => html`
     <wcs-horizontal-stepper ?check-on-complete=${args.checkOnComplete}
                             current-step=${ifDefined(args.currentStep)}
                             mode=${args.mode}

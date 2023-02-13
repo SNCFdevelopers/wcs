@@ -1,14 +1,15 @@
-import { Meta, Story } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { WcsButtonMode, WcsButtonShape } from '../../../src/components/button/button-interface';
-import { createRef, ref, Ref } from "lit-html/directives/ref";
+import { createRef, ref, Ref } from "lit-html/directives/ref.js";
 
-export default {
+const meta: Meta = {
     title: 'Components/Button',
     component: 'wcs-button'
-} as Meta;
+};
+export default meta;
 
-const Template: Story<Partial<{ innerText: string, mode: WcsButtonMode, loading: boolean, shape: WcsButtonShape, href: string, disabled: boolean, ripple: boolean }>> = (args) => html`
+const Template: StoryFn<Partial<{ innerText: string, mode: WcsButtonMode, loading: boolean, shape: WcsButtonShape, href: string, disabled: boolean, ripple: boolean }>> = (args) => html`
     <wcs-button mode=${args.mode} shape=${args.shape} ?ripple=${args.ripple} ?disabled=${args.disabled}
                 ?loading="${args.loading}"
                 class="wcs-primary">
@@ -69,7 +70,7 @@ stroked.args = {innerText: 'Primary', mode: 'stroked', loading: false};
 export const disabled = Template.bind({});
 disabled.args = {innerText: 'Primary', disabled: true, loading: false};
 
-const TemplateShape: Story<Partial<{ shape: WcsButtonShape, loading: boolean}>> = (args) => html`
+const TemplateShape: StoryFn<Partial<{ shape: WcsButtonShape, loading: boolean}>> = (args) => html`
     <wcs-button shape=${args.shape} ?loading="${args.loading}" class="wcs-primary">
         <i class="material-icons">accessibility_new</i>
     </wcs-button>
@@ -93,7 +94,7 @@ round.args = {shape: 'round', loading: false};
 export const small = TemplateShape.bind({});
 small.args = {shape: 'small', loading: false};
 
-const TemplateLink: Story<Partial<{ href: string }>> = (args) => html`
+const TemplateLink: StoryFn<Partial<{ href: string }>> = (args) => html`
     <wcs-button href=${args.href}>
         Avec lien
     </wcs-button>
@@ -112,7 +113,7 @@ function setFocus(){
     buttonToFocus.value?.focus();
 }
 
-const TemplateManualFocus: Story<Partial<{ innerText: string, mode: WcsButtonMode, shape: WcsButtonShape, href: string, disabled: boolean, ripple: boolean, loading: boolean}>> = (args) => html`
+const TemplateManualFocus: StoryFn<Partial<{ innerText: string, mode: WcsButtonMode, shape: WcsButtonShape, href: string, disabled: boolean, ripple: boolean, loading: boolean}>> = (args) => html`
     <p>You can set the focus on the button by calling the native <code>focus()</code> method on the wcs-button web component.</p>
     <wcs-button @click="${setFocus}" class="wcs-light">Set focus on next button</wcs-button>
     <wcs-button ${ref(buttonToFocus)} mode=${args.mode} shape=${args.shape} ?ripple=${args.ripple} ?disabled=${args.disabled}
