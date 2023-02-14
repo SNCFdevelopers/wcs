@@ -5,6 +5,7 @@ import { Meta } from '@storybook/addon-docs';
 # Migrate from v2 to v3
 
 WCS v3 contains breaking changes only in the following packages:
+- wcs-core
 - wcs-formly
 - wcs-angular
 
@@ -52,6 +53,26 @@ During this migration you need to add the following lines in the global styleshe
 ```
 
 You can now replace the font URL directly in the stylesheet of your project and choose another CDN or use your own project server. Theses changes were mainly motivated for RGPD concerns. It also offers the possibility for projects to run their application without having an internet access.
+
+#### For project using the `i` tag directly
+
+If you use the `i` tag directly in your project, e.g. in a slot of a `wcs-button`
+
+```html
+<wcs-button class="wcs-primary">
+    <i class="material-icons">accessibility_new</i>
+</wcs-button>
+```
+
+You have to import the stylesheet in your project. For example, you can use the [google font api cdn](https://developers.google.com/fonts/docs/material_icons?hl=fr) :
+```html
+...
+<head>
+    ...
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+```
+
 
 ## wcs-angular
 
