@@ -27,7 +27,8 @@
         color: var(--wcs-primary);
         font-weight: var(--wcs-font-weight-form-value) !important;
         border: none;
-        padding: calc(calc(var(--wcs-padding) / 2) - var(--wcs-internal-input-border-width)) calc(var(--wcs-padding) - var(--wcs-internal-input-border-width));
+        // On divise --wcs-internal-input-border-width par deux car la valeur du padding est appliquée en haut et en bas
+        padding: calc(calc(var(--wcs-padding) / 2) - calc(var(--wcs-internal-input-border-width) / 2)) calc(var(--wcs-padding) - var(--wcs-internal-input-border-width));
         font-size: 1rem;
         line-height: 1.5;
     }
