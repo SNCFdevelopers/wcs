@@ -47,7 +47,10 @@
     --wcs-select-border-color: var(--wcs-gray-light);
 }
 
-// Make button square on left side
 ::slotted([slot=suffix]) {
+    // Make button square on left side
     --wcs-button-border-radius: 0 var(--wcs-border-radius) var(--wcs-border-radius) 0;
+
+    // Make select square on left side
+    --wcs-select-border-radius: 0 var(--wcs-border-radius) var(--wcs-border-radius) 0 ;
 }

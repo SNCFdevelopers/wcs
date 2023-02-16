@@ -157,6 +157,18 @@ const SelectButtonTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) =>
         </wcs-select>
         <wcs-input placeholder="Region"></wcs-input>
     </wcs-form-field>
+
+    <wcs-form-field ?is-error=${args.isError}>
+        <wcs-select placeholder="All" slot="prefix">
+            <wcs-select-option value="France">France</wcs-select-option>
+            <wcs-select-option value="Germany">Germany</wcs-select-option>
+            <wcs-select-option value="Japan">Japan</wcs-select-option>
+        </wcs-select>
+        <wcs-select placeholder="Selectionner information..." slot="suffix">
+            <wcs-select-option value="nbGares">Nombre de gares</wcs-select-option>
+            <wcs-select-option value="nbLignes">Nombre de lignes de trains</wcs-select-option>
+        </wcs-select>
+    </wcs-form-field>
 `;
 export const PrefixSuffixGroup = SelectButtonTemplate.bind({});
 PrefixSuffixGroup.args = {};
@@ -187,3 +199,21 @@ TooltipOnLabel.parameters = {
     },
 };
 TooltipOnLabel.args = {};
+
+const TooltipOnTwoSelectsTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args: Partial<FormFieldStoriesParams>) => html`
+    <wcs-form-field ?is-error=${args.isError}>
+        <wcs-select placeholder="All" slot="prefix">
+            <wcs-select-option value="1" chip-background-color="var(--wcs-pink)">One</wcs-select-option>
+            <wcs-select-option value="2" chip-background-color="var(--wcs-yellow)" chip-color="var(--wcs-black)">Two</wcs-select-option>
+            <wcs-select-option value="3" chip-background-color="var(--wcs-red)">Three</wcs-select-option>
+        </wcs-select>
+        <wcs-select placeholder="Selectionner..." slot="suffix">
+            <wcs-select-option value="1" chip-background-color="var(--wcs-pink)">One</wcs-select-option>
+            <wcs-select-option value="2" chip-background-color="var(--wcs-yellow)" chip-color="var(--wcs-black)">Two</wcs-select-option>
+            <wcs-select-option value="3" chip-background-color="var(--wcs-red)">Three</wcs-select-option>
+        </wcs-select>
+    </wcs-form-field>
+`;
+
+export const TooltipOnTwoSelects = TooltipOnTwoSelectsTemplate.bind({});
+TooltipOnTwoSelects.args = {};

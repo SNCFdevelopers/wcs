@@ -70,6 +70,7 @@ it.
     - **wcs-radio**
     - **wcs-com-nav**
     - **wcs-dropdown**
+- **form-field**: suffixed select has always border radius top left and bottom left while it should not have a border-radius on them [#56](https://gitlab.com/SNCF/wcs/-/issues/56) 
 
 ### Security
 
