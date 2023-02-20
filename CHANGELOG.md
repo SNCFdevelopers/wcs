@@ -25,6 +25,7 @@ To migrate, please refer to the storybook documentation (v2 to v3).
 - **textarea**: add `focus-visible` to show which if a textarea is focused via keyboard
 - **textarea**: add missing properties for **Formly** templateOptions: `autofocus`, `maxLength`, `spellcheck`...
 - **input**: add focus delegation on the wrapped native input
+- **nav-item**: add `focus-visible` to show which if a nav-item is focused via keyboard
 
 ### Changed
 
@@ -71,6 +72,7 @@ it.
     - **wcs-com-nav**
     - **wcs-dropdown**
 - **form-field**: suffixed select has always border radius top left and bottom left while it should not have a border-radius on them [#56](https://gitlab.com/SNCF/wcs/-/issues/56) 
+- **nav-item**: Added support for keyboard navigation when using `routerLink` in Angular. Pressing the "enter" key now performs the same action as clicking the item with a mouse.
 
 ### Security
 

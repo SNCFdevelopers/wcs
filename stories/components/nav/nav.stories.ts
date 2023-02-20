@@ -22,20 +22,20 @@ export default meta;
 const Template: StoryFn<Partial<any>> = (_) => html`
     <div style="height: 600px">
         <wcs-nav>
-            <wcs-nav-item text="Favoris">
+            <wcs-nav-item text="Favoris" href="#">
                 <wcs-mat-icon icon="star"></wcs-mat-icon>
             </wcs-nav-item>
-            <wcs-nav-item class="active" text="Ma base documentaire">
+            <wcs-nav-item class="active" text="Ma base documentaire" href="#">
                 <wcs-mat-icon icon="description"></wcs-mat-icon>
             </wcs-nav-item>
-            <wcs-nav-item text="Distribution">
+            <wcs-nav-item text="Distribution" href="#">
             </wcs-nav-item>
-            <wcs-nav-item text="Admin">
+            <wcs-nav-item text="Admin" href="#">
             </wcs-nav-item>
-            <wcs-nav-item slot="bottom" text="Test">
+            <wcs-nav-item slot="bottom" text="Test" href="#">
                 <wcs-mat-icon icon="folder"></wcs-mat-icon>
             </wcs-nav-item>
-            <wcs-nav-item slot="bottom" text="Support">
+            <wcs-nav-item slot="bottom" text="Support" href="#">
             </wcs-nav-item>
         </wcs-nav>
     </div>

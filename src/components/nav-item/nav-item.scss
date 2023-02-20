@@ -1,4 +1,5 @@
 @import '../../style/breakpoints';
+@import '../../style/focus-outline.scss';
 
 wcs-nav-item {
     display: block;
@@ -32,6 +33,22 @@ wcs-nav-item {
             height: 3.25rem;
             font-size: 0.625rem;
             color: var(--wcs-text-medium);
+        }
+    }
+
+    a:focus {
+        outline: none;
+    }
+
+    @include for-tablet-landscape-down {
+        &:focus-within {
+            @include focus-outline(var(--wcs-primary), 0.1rem, 1px);
+        }
+    }
+
+    @include for-desktop-up {
+        &:focus-within {
+            @include focus-outline(var(--wcs-white), 0.1rem, -2px);
         }
     }
 

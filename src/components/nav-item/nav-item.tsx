@@ -1,10 +1,13 @@
-import { Component, ComponentInterface, h, Prop } from '@stencil/core';
+import { Element, Component, ComponentInterface, h, Listen, Prop } from '@stencil/core';
+import { isEnterKey } from "../../utils/helpers";
 
 @Component({
     tag: 'wcs-nav-item',
     styleUrl: 'nav-item.scss'
 })
 export class NavItem implements ComponentInterface {
+    @Element() private el: HTMLElement;
+
     /**
      * This attribute specify the text of the item.
      */
@@ -18,6 +21,13 @@ export class NavItem implements ComponentInterface {
      */
     @Prop({reflect: true})
     href: string;
+
+    @Listen('keydown')
+    onKeyDown(_event: KeyboardEvent) {
+        if (isEnterKey(_event)) {
+            this.el.click();
+        }
+    }
 
     render() {
         return (

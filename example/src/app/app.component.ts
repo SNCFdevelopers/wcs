@@ -14,7 +14,7 @@ const DEFAULT_TAB_KEY = 'formly';
       </div>
     </wcs-header>
     <wcs-nav>
-      <wcs-nav-item text="Example">
+      <wcs-nav-item text="Example" routerLink="/test-route" role="link" data-href="/test-route">
         <i class="material-icons">train</i>
       </wcs-nav-item>
     </wcs-nav>

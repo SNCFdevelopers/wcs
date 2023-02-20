@@ -1804,165 +1804,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/com-nav/com-nav-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/com-nav/com-nav-utils.ts",
-      "declarations": [
-        {
-          "kind": "function",
-          "name": "registerCloseHandlerForFocusOutEventOn",
-          "return": {
-            "type": {
-              "text": "void"
-            }
-          },
-          "parameters": [
-            {
-              "name": "navigableItems",
-              "type": {
-                "text": "NodeListOf<Element>"
-              },
-              "description": "items on which focusout event listeners must be added"
-            },
-            {
-              "name": "nodeNameToClose",
-              "type": {
-                "text": "string"
-              },
-              "description": "nodeName of the element we want to close in the event path"
-            }
-          ],
-          "description": "This function add event handlers on the navigableItems list. The handlers call the function close() on the nodeName.\r\n\r\nT: type class of the nodeNameToClose param (must have a close function)"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "registerCloseHandlerForFocusOutEventOn",
-          "declaration": {
-            "name": "registerCloseHandlerForFocusOutEventOn",
-            "module": "components/com-nav/com-nav-utils.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/com-nav/com-nav.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "ComNav",
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsComNavElement"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "appName",
-              "type": {
-                "text": "string"
-              },
-              "description": "Name of the application to be displayed in the menu bar"
-            },
-            {
-              "kind": "field",
-              "name": "mobileMenuOpen",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "currentActiveSizing",
-              "type": {
-                "text": "'desktop' | 'mobile'"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "resizeObserver",
-              "type": {
-                "text": "ResizeObserver"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "hasAlreadyRegisteredClickHandlerOnSlottedLink",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "default": "false"
-            },
-            {
-              "kind": "method",
-              "name": "mobileMenuIconClick",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "registerHandlerToCloseMobileMenuOnClickOnSlottedLinkTag",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "onClickOnFinalAction"
-            },
-            {
-              "kind": "method",
-              "name": "onClickOnFinalActionCat"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "app-name",
-              "fieldName": "appName",
-              "type": {
-                "text": "string"
-              }
-            }
-          ],
-          "tagName": "wcs-com-nav",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ComNav",
-          "declaration": {
-            "name": "ComNav",
-            "module": "components/com-nav/com-nav.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-com-nav",
-          "declaration": {
-            "name": "ComNav",
-            "module": "components/com-nav/com-nav.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/com-nav-category/com-nav-category.tsx",
       "declarations": [
         {
@@ -2136,6 +1977,165 @@
           "declaration": {
             "name": "ComNavCategory",
             "module": "components/com-nav-category/com-nav-category.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/com-nav/com-nav-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/com-nav/com-nav-utils.ts",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "registerCloseHandlerForFocusOutEventOn",
+          "return": {
+            "type": {
+              "text": "void"
+            }
+          },
+          "parameters": [
+            {
+              "name": "navigableItems",
+              "type": {
+                "text": "NodeListOf<Element>"
+              },
+              "description": "items on which focusout event listeners must be added"
+            },
+            {
+              "name": "nodeNameToClose",
+              "type": {
+                "text": "string"
+              },
+              "description": "nodeName of the element we want to close in the event path"
+            }
+          ],
+          "description": "This function add event handlers on the navigableItems list. The handlers call the function close() on the nodeName.\r\n\r\nT: type class of the nodeNameToClose param (must have a close function)"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "registerCloseHandlerForFocusOutEventOn",
+          "declaration": {
+            "name": "registerCloseHandlerForFocusOutEventOn",
+            "module": "components/com-nav/com-nav-utils.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/com-nav/com-nav.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "ComNav",
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsComNavElement"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "appName",
+              "type": {
+                "text": "string"
+              },
+              "description": "Name of the application to be displayed in the menu bar"
+            },
+            {
+              "kind": "field",
+              "name": "mobileMenuOpen",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "currentActiveSizing",
+              "type": {
+                "text": "'desktop' | 'mobile'"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "resizeObserver",
+              "type": {
+                "text": "ResizeObserver"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "hasAlreadyRegisteredClickHandlerOnSlottedLink",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "mobileMenuIconClick",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "registerHandlerToCloseMobileMenuOnClickOnSlottedLinkTag",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "onClickOnFinalAction"
+            },
+            {
+              "kind": "method",
+              "name": "onClickOnFinalActionCat"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "app-name",
+              "fieldName": "appName",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "tagName": "wcs-com-nav",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ComNav",
+          "declaration": {
+            "name": "ComNav",
+            "module": "components/com-nav/com-nav.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-com-nav",
+          "declaration": {
+            "name": "ComNav",
+            "module": "components/com-nav/com-nav.tsx"
           }
         }
       ]
@@ -2840,6 +2840,44 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/error/error.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Label",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-error",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Label",
+          "declaration": {
+            "name": "Label",
+            "module": "components/error/error.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-error",
+          "declaration": {
+            "name": "Label",
+            "module": "components/error/error.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/editable-field/editable-field-interface.tsx",
       "declarations": [],
       "exports": []
@@ -3174,44 +3212,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/error/error.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Label",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-error",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Label",
-          "declaration": {
-            "name": "Label",
-            "module": "components/error/error.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-error",
-          "declaration": {
-            "name": "Label",
-            "module": "components/error/error.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/field/field.tsx",
       "declarations": [
         {
@@ -3363,6 +3363,81 @@
           "declaration": {
             "name": "Footer",
             "module": "components/footer/footer.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/galactic/galactic.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Galactic",
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsGalacticElement"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "text",
+              "type": {
+                "text": "string"
+              },
+              "description": "Text to display in the bar"
+            },
+            {
+              "kind": "field",
+              "name": "show",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "text",
+              "fieldName": "text",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "tagName": "wcs-galactic",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Galactic",
+          "declaration": {
+            "name": "Galactic",
+            "module": "components/galactic/galactic.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-galactic",
+          "declaration": {
+            "name": "Galactic",
+            "module": "components/galactic/galactic.tsx"
           }
         }
       ]
@@ -3533,81 +3608,6 @@
           "declaration": {
             "name": "FormField",
             "module": "components/form-field/form-field.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/galactic/galactic.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Galactic",
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsGalacticElement"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "text",
-              "type": {
-                "text": "string"
-              },
-              "description": "Text to display in the bar"
-            },
-            {
-              "kind": "field",
-              "name": "show",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "text",
-              "fieldName": "text",
-              "type": {
-                "text": "string"
-              }
-            }
-          ],
-          "tagName": "wcs-galactic",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Galactic",
-          "declaration": {
-            "name": "Galactic",
-            "module": "components/galactic/galactic.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-galactic",
-          "declaration": {
-            "name": "Galactic",
-            "module": "components/galactic/galactic.tsx"
           }
         }
       ]
@@ -4601,6 +4601,48 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/header/header.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Header",
+          "members": [
+            {
+              "kind": "method",
+              "name": "hostData"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-header",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Header",
+          "declaration": {
+            "name": "Header",
+            "module": "components/header/header.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-header",
+          "declaration": {
+            "name": "Header",
+            "module": "components/header/header.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/grid-pagination/grid-pagination-arrow.tsx",
       "declarations": [
         {
@@ -4850,48 +4892,6 @@
           "declaration": {
             "name": "GridPagination",
             "module": "components/grid-pagination/grid-pagination.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/header/header.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Header",
-          "members": [
-            {
-              "kind": "method",
-              "name": "hostData"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-header",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Header",
-          "declaration": {
-            "name": "Header",
-            "module": "components/header/header.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-header",
-          "declaration": {
-            "name": "Header",
-            "module": "components/header/header.tsx"
           }
         }
       ]
@@ -5972,58 +5972,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/label/label.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Label",
-          "members": [
-            {
-              "kind": "field",
-              "name": "required",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "required",
-              "fieldName": "required"
-            }
-          ],
-          "tagName": "wcs-label",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Label",
-          "declaration": {
-            "name": "Label",
-            "module": "components/label/label.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-label",
-          "declaration": {
-            "name": "Label",
-            "module": "components/label/label.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/list-item/list-item.tsx",
       "declarations": [
         {
@@ -6074,6 +6022,58 @@
           "declaration": {
             "name": "ListItem",
             "module": "components/list-item/list-item.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/label/label.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Label",
+          "members": [
+            {
+              "kind": "field",
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "required",
+              "fieldName": "required"
+            }
+          ],
+          "tagName": "wcs-label",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Label",
+          "declaration": {
+            "name": "Label",
+            "module": "components/label/label.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-label",
+          "declaration": {
+            "name": "Label",
+            "module": "components/label/label.tsx"
           }
         }
       ]
@@ -6452,77 +6452,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/nav-item/nav-item.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "NavItem",
-          "members": [
-            {
-              "kind": "field",
-              "name": "text",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "description": "This attribute specify the text of the item."
-            },
-            {
-              "kind": "field",
-              "name": "href",
-              "type": {
-                "text": "string"
-              },
-              "description": "Attributes mapped to a <a> tag.\r\n\r\nDon't forget to specify [routerLink] if using in conjuction with angular router."
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "text",
-              "fieldName": "text",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "href",
-              "fieldName": "href",
-              "type": {
-                "text": "string"
-              }
-            }
-          ],
-          "tagName": "wcs-nav-item",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "NavItem",
-          "declaration": {
-            "name": "NavItem",
-            "module": "components/nav-item/nav-item.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-nav-item",
-          "declaration": {
-            "name": "NavItem",
-            "module": "components/nav-item/nav-item.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/progress-bar/progress-bar.tsx",
       "declarations": [
         {
@@ -6614,6 +6543,97 @@
           "declaration": {
             "name": "ProgressBar",
             "module": "components/progress-bar/progress-bar.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/nav-item/nav-item.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "NavItem",
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "text",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "This attribute specify the text of the item."
+            },
+            {
+              "kind": "field",
+              "name": "href",
+              "type": {
+                "text": "string"
+              },
+              "description": "Attributes mapped to a <a> tag.\r\n\r\nDon't forget to specify [routerLink] if using in conjuction with angular router."
+            },
+            {
+              "kind": "method",
+              "name": "onKeyDown",
+              "parameters": [
+                {
+                  "name": "_event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "text",
+              "fieldName": "text",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "href",
+              "fieldName": "href",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "tagName": "wcs-nav-item",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "NavItem",
+          "declaration": {
+            "name": "NavItem",
+            "module": "components/nav-item/nav-item.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-nav-item",
+          "declaration": {
+            "name": "NavItem",
+            "module": "components/nav-item/nav-item.tsx"
           }
         }
       ]
@@ -7612,6 +7632,138 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/switch/switch-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/switch/switch.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Switch",
+          "members": [
+            {
+              "kind": "field",
+              "name": "switchId",
+              "privacy": "private",
+              "default": "`wcs-switch-${switchIds++}`"
+            },
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLElement"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "name"
+            },
+            {
+              "kind": "field",
+              "name": "checked",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "If `true`, the switch is selected."
+            },
+            {
+              "kind": "field",
+              "name": "labelAlignment",
+              "type": {
+                "text": "SwitchLabelAlignment"
+              },
+              "default": "'center'",
+              "description": "Specifie the alignment of the switch with the label content"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Specify wether the switch is disabled or not."
+            },
+            {
+              "kind": "method",
+              "name": "toggleChange",
+              "parameters": [
+                {
+                  "name": "_event",
+                  "type": {
+                    "text": "Event"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "name",
+              "fieldName": "name"
+            },
+            {
+              "name": "checked",
+              "fieldName": "checked"
+            },
+            {
+              "name": "label-alignment",
+              "fieldName": "labelAlignment",
+              "type": {
+                "text": "SwitchLabelAlignment"
+              }
+            },
+            {
+              "name": "disabled",
+              "fieldName": "disabled",
+              "type": {
+                "text": "boolean"
+              }
+            }
+          ],
+          "tagName": "wcs-switch",
+          "events": [
+            {
+              "name": "wcsChange",
+              "type": {
+                "text": "EventEmitter<SwitchChangeEventDetail>"
+              },
+              "description": "Emitted when the checked property has changed."
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Switch",
+          "declaration": {
+            "name": "Switch",
+            "module": "components/switch/switch.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-switch",
+          "declaration": {
+            "name": "Switch",
+            "module": "components/switch/switch.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/select-option/select-option-interface.ts",
       "declarations": [],
       "exports": []
@@ -7766,138 +7918,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/switch/switch-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/switch/switch.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Switch",
-          "members": [
-            {
-              "kind": "field",
-              "name": "switchId",
-              "privacy": "private",
-              "default": "`wcs-switch-${switchIds++}`"
-            },
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLElement"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "name"
-            },
-            {
-              "kind": "field",
-              "name": "checked",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "If `true`, the switch is selected."
-            },
-            {
-              "kind": "field",
-              "name": "labelAlignment",
-              "type": {
-                "text": "SwitchLabelAlignment"
-              },
-              "default": "'center'",
-              "description": "Specifie the alignment of the switch with the label content"
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Specify wether the switch is disabled or not."
-            },
-            {
-              "kind": "method",
-              "name": "toggleChange",
-              "parameters": [
-                {
-                  "name": "_event",
-                  "type": {
-                    "text": "Event"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "name",
-              "fieldName": "name"
-            },
-            {
-              "name": "checked",
-              "fieldName": "checked"
-            },
-            {
-              "name": "label-alignment",
-              "fieldName": "labelAlignment",
-              "type": {
-                "text": "SwitchLabelAlignment"
-              }
-            },
-            {
-              "name": "disabled",
-              "fieldName": "disabled",
-              "type": {
-                "text": "boolean"
-              }
-            }
-          ],
-          "tagName": "wcs-switch",
-          "events": [
-            {
-              "name": "wcsChange",
-              "type": {
-                "text": "EventEmitter<SwitchChangeEventDetail>"
-              },
-              "description": "Emitted when the checked property has changed."
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Switch",
-          "declaration": {
-            "name": "Switch",
-            "module": "components/switch/switch.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-switch",
-          "declaration": {
-            "name": "Switch",
-            "module": "components/switch/switch.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/tab/tab.tsx",
       "declarations": [
         {
@@ -7961,6 +7981,268 @@
           "declaration": {
             "name": "Tab",
             "module": "components/tab/tab.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/tabs/tabs-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/tabs/tabs.e2e.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/tabs/tabs.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Tabs component to switch between tab content.\r\nUse in conjuction with `wcs-tab`.",
+          "name": "Tabs",
+          "members": [
+            {
+              "kind": "field",
+              "name": "align",
+              "type": {
+                "text": "WcsTabsAlignment"
+              },
+              "default": "'start'",
+              "description": "Tab headers alignment."
+            },
+            {
+              "kind": "field",
+              "name": "selectedIndex",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "Current selected tab index.\r\nStarts at 0."
+            },
+            {
+              "kind": "field",
+              "name": "selectedKey",
+              "type": {
+                "text": "any"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "headersOnly",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Whether to skip rendering the tabpanel with the content of the selected tab. Use this prop if you plan to\r\nseparately render the tab content."
+            },
+            {
+              "kind": "field",
+              "name": "gutter",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines if tabs header should have a border at the bottom"
+            },
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsTabsElement"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "headers",
+              "type": {
+                "text": "string[]"
+              },
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "currentActiveTabIndex",
+              "type": {
+                "text": "number"
+              },
+              "default": "0"
+            },
+            {
+              "kind": "method",
+              "name": "selectedIndexChanged",
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "selectedTabkeyChanged",
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "any"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "emitActiveTabChange",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "updateCurrentActiveIndexByTabKey",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "any"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "onTabLoaded"
+            },
+            {
+              "kind": "method",
+              "name": "putTabsInCorrectDivIfTheyAreNot",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyDown",
+              "parameters": [
+                {
+                  "name": "ev",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                },
+                {
+                  "name": "tabIndex",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "refreshHeaders",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "tabs",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "selectTabAndEmitChangeEvent",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "index",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "updateTabVisibility",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "hideAllTabsContent",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "align",
+              "fieldName": "align",
+              "type": {
+                "text": "WcsTabsAlignment"
+              }
+            },
+            {
+              "name": "selected-index",
+              "fieldName": "selectedIndex",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "selected-key",
+              "fieldName": "selectedKey",
+              "type": {
+                "text": "any"
+              }
+            },
+            {
+              "name": "headers-only",
+              "fieldName": "headersOnly",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "gutter",
+              "fieldName": "gutter",
+              "type": {
+                "text": "boolean"
+              }
+            }
+          ],
+          "tagName": "wcs-tabs",
+          "events": [
+            {
+              "name": "tabChange",
+              "type": {
+                "text": "EventEmitter<WcsTabChangeEvent>"
+              },
+              "description": "\r\nEmitted when the selected tab change."
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Tabs",
+          "declaration": {
+            "name": "Tabs",
+            "module": "components/tabs/tabs.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-tabs",
+          "declaration": {
+            "name": "Tabs",
+            "module": "components/tabs/tabs.tsx"
           }
         }
       ]
@@ -8473,268 +8755,6 @@
           "declaration": {
             "name": "Textarea",
             "module": "components/textarea/textarea.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/tabs/tabs-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/tabs/tabs.e2e.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/tabs/tabs.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Tabs component to switch between tab content.\r\nUse in conjuction with `wcs-tab`.",
-          "name": "Tabs",
-          "members": [
-            {
-              "kind": "field",
-              "name": "align",
-              "type": {
-                "text": "WcsTabsAlignment"
-              },
-              "default": "'start'",
-              "description": "Tab headers alignment."
-            },
-            {
-              "kind": "field",
-              "name": "selectedIndex",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "Current selected tab index.\r\nStarts at 0."
-            },
-            {
-              "kind": "field",
-              "name": "selectedKey",
-              "type": {
-                "text": "any"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "headersOnly",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Whether to skip rendering the tabpanel with the content of the selected tab. Use this prop if you plan to\r\nseparately render the tab content."
-            },
-            {
-              "kind": "field",
-              "name": "gutter",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines if tabs header should have a border at the bottom"
-            },
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsTabsElement"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "headers",
-              "type": {
-                "text": "string[]"
-              },
-              "default": "[]"
-            },
-            {
-              "kind": "field",
-              "name": "currentActiveTabIndex",
-              "type": {
-                "text": "number"
-              },
-              "default": "0"
-            },
-            {
-              "kind": "method",
-              "name": "selectedIndexChanged",
-              "parameters": [
-                {
-                  "name": "newValue",
-                  "type": {
-                    "text": "number"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "selectedTabkeyChanged",
-              "parameters": [
-                {
-                  "name": "newValue",
-                  "type": {
-                    "text": "any"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "emitActiveTabChange",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "updateCurrentActiveIndexByTabKey",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "newValue",
-                  "type": {
-                    "text": "any"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "onTabLoaded"
-            },
-            {
-              "kind": "method",
-              "name": "putTabsInCorrectDivIfTheyAreNot",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleKeyDown",
-              "parameters": [
-                {
-                  "name": "ev",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  }
-                },
-                {
-                  "name": "tabIndex",
-                  "type": {
-                    "text": "number"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "refreshHeaders",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "tabs",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "selectTabAndEmitChangeEvent",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "index",
-                  "type": {
-                    "text": "number"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "updateTabVisibility",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "hideAllTabsContent",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "align",
-              "fieldName": "align",
-              "type": {
-                "text": "WcsTabsAlignment"
-              }
-            },
-            {
-              "name": "selected-index",
-              "fieldName": "selectedIndex",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "selected-key",
-              "fieldName": "selectedKey",
-              "type": {
-                "text": "any"
-              }
-            },
-            {
-              "name": "headers-only",
-              "fieldName": "headersOnly",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "gutter",
-              "fieldName": "gutter",
-              "type": {
-                "text": "boolean"
-              }
-            }
-          ],
-          "tagName": "wcs-tabs",
-          "events": [
-            {
-              "name": "tabChange",
-              "type": {
-                "text": "EventEmitter<WcsTabChangeEvent>"
-              },
-              "description": "\r\nEmitted when the selected tab change."
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Tabs",
-          "declaration": {
-            "name": "Tabs",
-            "module": "components/tabs/tabs.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-tabs",
-          "declaration": {
-            "name": "Tabs",
-            "module": "components/tabs/tabs.tsx"
           }
         }
       ]
