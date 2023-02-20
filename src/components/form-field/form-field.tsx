@@ -112,7 +112,7 @@ export class FormField implements ComponentInterface {
     }
 
     disconnectedCallback() {
-        this.observer.disconnect();
+        this.observer?.disconnect();
     }
 
     render() {

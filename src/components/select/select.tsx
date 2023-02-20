@@ -385,7 +385,7 @@ export class Select implements ComponentInterface {
     }
 
     disconnectedCallback() {
-        this.stateService.stop();
+        this.stateService?.stop();
     }
 
     private addRippleEffect() {

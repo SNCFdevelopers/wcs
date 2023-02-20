@@ -204,7 +204,7 @@ export class Tooltip implements ComponentInterface {
     }
 
     disconnectedCallback() {
-        this.tippyInstance.destroy();
+        this.tippyInstance?.destroy();
     }
 
     render() {

@@ -24,7 +24,7 @@ export class ComNav implements ComponentInterface {
     }
 
     disconnectedCallback() {
-        this.resizeObserver.disconnect();
+        this.resizeObserver?.disconnect();
     }
 
     componentWillLoad(): Promise<void> | void {

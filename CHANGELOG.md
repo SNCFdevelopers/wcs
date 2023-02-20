@@ -65,6 +65,7 @@ for now removed features.
 - **spinner**: stroke size of rotating circle is now equal to dashed fixed circle stroke
 - **com-nav**: accessibility: make **com-nav-submenu** and **com-nav-category** focusable and add keyboard navigation to
 it.
+- **com-nav, form-field, select, tooltip**: fix console error in the disconnectedCallback method (method call on undefined object)
 
 ### Security
 
