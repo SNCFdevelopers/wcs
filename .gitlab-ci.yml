@@ -19,7 +19,8 @@ cache:
 
 test:
   tags:
-    - saas-linux-medium-amd64
+    # - saas-linux-medium-amd64
+    - sncf-runner-1
   image: buildkite/puppeteer:10.0.0
   stage: test
   script:
@@ -28,7 +29,8 @@ test:
 
 build:
   tags:
-    - docker
+    # - docker
+    - sncf-runner-1
   stage: build
   artifacts:
     expire_in: 4 days
@@ -68,7 +70,8 @@ pages:
 # PUBLISH PACKAGES FOR TAGS
 publish-wcs-core:
   tags:
-    - docker
+    # - docker
+    - sncf-runner-1
   stage: deploy
   only:
     - tags
@@ -78,7 +81,8 @@ publish-wcs-core:
     - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc && npm publish
 publish-wcs-angular:
   tags:
-    - docker
+    # - docker
+    - sncf-runner-1
   stage: deploy
   only:
     - tags
@@ -88,7 +92,8 @@ publish-wcs-angular:
     - cd angular/dist/wcs-angular/ && echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc && npm publish
 publish-wcs-formly:
   tags:
-    - docker
+    # - docker
+    - sncf-runner-1
   stage: deploy
   only:
     - tags
