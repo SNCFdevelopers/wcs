@@ -107,5 +107,5 @@ export function isSpaceKey(evt: KeyboardEvent) {
 }
 
 export function isEnterKey(evt: KeyboardEvent) {
-    return evt.code === 'Enter';
+    return evt.key === 'Enter';
 }

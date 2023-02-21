@@ -66,6 +66,10 @@ for now removed features.
 - **com-nav**: accessibility: make **com-nav-submenu** and **com-nav-category** focusable and add keyboard navigation to
 it.
 - **com-nav, form-field, select, tooltip**: fix console error in the disconnectedCallback method (method call on undefined object)
+- **accessibility**: enable to select item with 'Enter' from numeric pad ([#84](https://gitlab.com/SNCF/wcs/-/issues/84))
+    - **wcs-radio**
+    - **wcs-com-nav**
+    - **wcs-dropdown**
 
 ### Security
 
