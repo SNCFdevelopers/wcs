@@ -20,7 +20,7 @@ cache:
 test:
   tags:
     # - saas-linux-medium-amd64
-    - sncf-runner-1
+    - sncf-runner
   image: buildkite/puppeteer:10.0.0
   stage: test
   script:
@@ -30,7 +30,7 @@ test:
 build:
   tags:
     # - docker
-    - sncf-runner-1
+    - sncf-runner
   stage: build
   artifacts:
     expire_in: 4 days
@@ -71,7 +71,7 @@ pages:
 publish-wcs-core:
   tags:
     # - docker
-    - sncf-runner-1
+    - sncf-runner
   stage: deploy
   only:
     - tags
@@ -82,7 +82,7 @@ publish-wcs-core:
 publish-wcs-angular:
   tags:
     # - docker
-    - sncf-runner-1
+    - sncf-runner
   stage: deploy
   only:
     - tags
@@ -93,7 +93,7 @@ publish-wcs-angular:
 publish-wcs-formly:
   tags:
     # - docker
-    - sncf-runner-1
+    - sncf-runner
   stage: deploy
   only:
     - tags
