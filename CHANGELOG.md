@@ -5,7 +5,33 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## Unreleased (v3.0.0-rc.2)
+## Unreleased
+
+### Added
+
+for new features.
+
+### Changed
+
+for changes in existing functionality.
+
+### Deprecated
+
+for soon-to-be removed features.
+
+### Removed
+
+for now removed features.
+
+### Fixed
+
+for any bug fixes.
+
+### Security
+
+in case of vulnerabilities.
+
+## [3.0.0] - 2023-02-24
 
 ⚠ This version contains breaking changes in following packages :
   - wcs-core
@@ -49,14 +75,6 @@ organized on column if they have not enough space
 - **stenciljs**: upgrade to stencil v3
 - **storybook**: upgrade to storybook v7
 
-### Deprecated
-
-for soon-to-be removed features.
-
-### Removed
-
-for now removed features.
-
 ### Fixed
 
 - **grid**: (front side pagination) when we reload less data than current data, we have to reset current page if it is greater than total of pages
@@ -73,10 +91,6 @@ it.
     - **wcs-dropdown**
 - **form-field**: suffixed select has always border radius top left and bottom left while it should not have a border-radius on them [#56](https://gitlab.com/SNCF/wcs/-/issues/56) 
 - **nav-item**: Added support for keyboard navigation when using `routerLink` in Angular. Pressing the "enter" key now performs the same action as clicking the item with a mouse.
-
-### Security
-
-in case of vulnerabilities.
 
 ## [2.17.0] - 2022-10-18
 
