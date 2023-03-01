@@ -1397,6 +1397,15 @@
               "description": "Set a URL to point to.\r\nIf specified use a `a` tag instead of `btn`."
             },
             {
+                "kind": "field",
+                "name": "target",
+                "type": {
+                  "text": "'_blank' | '_self'"
+                },
+                "default": "'_self'",
+                "description": "Specifies where to open linked document when using href prop"
+              },
+            {
               "kind": "field",
               "name": "disabled",
               "type": {

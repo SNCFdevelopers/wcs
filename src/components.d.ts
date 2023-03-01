@@ -129,6 +129,10 @@ export namespace Components {
          */
         "shape": WcsButtonShape;
         /**
+          * Specifies where to open the linked document when using href (see prop above) Default '_self' will open the linked document in the same frame as it was clicked
+         */
+        "target"?: '_blank' | '_self';
+        /**
           * Specify the button type.
          */
         "type": WcsButtonType;
@@ -1528,6 +1532,10 @@ declare namespace LocalJSX {
           * Specify the shape of the button.
          */
         "shape"?: WcsButtonShape;
+        /**
+          * Specifies where to open the linked document when using href (see prop above) Default '_self' will open the linked document in the same frame as it was clicked
+         */
+        "target"?: '_blank' | '_self';
         /**
           * Specify the button type.
          */

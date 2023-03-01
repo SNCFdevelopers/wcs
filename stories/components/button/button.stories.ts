@@ -94,14 +94,18 @@ round.args = {shape: 'round', loading: false};
 export const small = TemplateShape.bind({});
 small.args = {shape: 'small', loading: false};
 
-const TemplateLink: StoryFn<Partial<{ href: string }>> = (args) => html`
+const TemplateLink: StoryFn<Partial<{ href: string, target: string }>> = (args) => html`
     <wcs-button href=${args.href}>
-        Avec lien
+        Lien par default
+    </wcs-button>
+
+    <wcs-button href=${args.href} target=${args.target}>
+        S'ouvre dans une nouvelle fenêtre
     </wcs-button>
 `;
 
 export const link = TemplateLink.bind({});
-link.args = {href: 'https://sncf.com'};
+link.args = {href: 'https://sncf.com', target: '_blank'};
 
 
 /**********************/

@@ -10,7 +10,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 
 for new features.
-
+- **button**: add `target` (`"_blank" | "_self"`, null by default) to choose where to open links when using `href`
 ### Changed
 
 for changes in existing functionality.
@@ -59,16 +59,16 @@ To migrate, please refer to the storybook documentation (v2 to v3).
 - **wcs-angular**: migrate to angular v13
 - **wcs-formly**: migrate to Formly v6 (see: https://github.com/ngx-formly/ngx-formly/blob/main/UPGRADE-6.0.md)
 - **accessibility** : change cursor to `not-allowed` while hovering the following disabled elements :
-  - **button** 
-  - **checkbox** 
-  - **input** 
-  - **radio** 
-  - **switch** 
-  - **select** 
+  - **button**
+  - **checkbox**
+  - **input**
+  - **radio**
+  - **switch**
+  - **select**
   - **select-option**
   - **textarea**
 - **footer**: change the behaviour in responsive mode. Now `end-left` and `end-right` parts of the footer are
-organized on column if they have not enough space 
+organized on column if they have not enough space
 - **input, textarea, editable-field**: change hover border style and width (dashed, 2px). Components keep their previous height
 - **mat-icon**: add the ability to change the URI from which the material icons fonts are loaded by not including them automatically. Your project now need to add the font-face declarations in the global stylesheet of your project. Please refer to the migration guide (v2 to v3)
 - **input**: the setFocus() method in now deprecated in favor of the native focus method
@@ -89,7 +89,7 @@ it.
     - **wcs-radio**
     - **wcs-com-nav**
     - **wcs-dropdown**
-- **form-field**: suffixed select has always border radius top left and bottom left while it should not have a border-radius on them [#56](https://gitlab.com/SNCF/wcs/-/issues/56) 
+- **form-field**: suffixed select has always border radius top left and bottom left while it should not have a border-radius on them [#56](https://gitlab.com/SNCF/wcs/-/issues/56)
 - **nav-item**: Added support for keyboard navigation when using `routerLink` in Angular. Pressing the "enter" key now performs the same action as clicking the item with a mouse.
 
 ## [2.17.0] - 2022-10-18

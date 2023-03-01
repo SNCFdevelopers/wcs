@@ -30,6 +30,12 @@ export class Button implements ComponentInterface {
     @Prop() href?: string;
 
     /**
+     * Specifies where to open the linked document when using href (see prop above)
+     * Default '_self' will open the linked document in the same frame as it was clicked
+     */
+    @Prop() target?: '_blank' | '_self';
+
+    /**
      * Specify wether the button is disabled or not.
      */
     @Prop({ reflect: true }) disabled = false;
@@ -106,7 +112,7 @@ export class Button implements ComponentInterface {
     render() {
         const TagType = this.getTagName();
         const attrs = this.href !== undefined
-            ? { href: this.href, role: 'button' }
+            ? { href: this.href, role: 'button', target: this.target }
             : { type: this.type };
         return (
             <TagType
