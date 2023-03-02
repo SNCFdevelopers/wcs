@@ -22,6 +22,7 @@ import { SelectOptionChosedEvent, SelectOptionValue } from '../select-option/sel
 import { isElement } from '../../utils/helpers';
 import { SelectChips } from './select-chips';
 import { MDCRipple } from '@material/ripple';
+import { createPopper, Instance } from '@popperjs/core';
 
 interface SelectStateSchema {
     states: {
@@ -127,6 +128,8 @@ export class Select implements ComponentInterface {
     /** Function used to compare options, default : deep comparison. */
     @Prop()
     compareWith?: (optionValue: any, selectedValue: any) => boolean = (optionValue, selectedValue) => _.isEqual(optionValue, selectedValue);
+
+    private popper: Instance;
 
     @State() overlayDirection: 'bottom' | 'top' = 'bottom';
 
@@ -236,8 +239,25 @@ export class Select implements ComponentInterface {
         if (this.value !== undefined) {
             this.updateSelectedValue(this.value);
         }
+
+        this.popper = this.createPopperInstance();
+
         // TODO: is this still usefull for anything ?
         this.hasLoaded = true;
+    }
+
+    private createPopperInstance() {
+        return createPopper(this.controlEl, this.optionsEl, {
+            placement: "bottom",
+            modifiers: [
+                {
+                    name: 'offset',
+                    options: {
+                        offset: [0, 4] // we want 4px between select control and select options
+                    }
+                }
+            ]
+        });
     }
 
     private emitChange(newValue: any): void {
@@ -287,7 +307,6 @@ export class Select implements ComponentInterface {
             actions: {
                 open: () => {
                     if (!this.disabled) {
-                        this.updateOverlayDirection();
                         this.expanded = true;
                         this.focused = true;
                     }
@@ -306,41 +325,6 @@ export class Select implements ComponentInterface {
                 enabled: () => !this.disabled
             }
         };
-    }
-
-    /**
-     * This method controls whether or not the overlay has enough space to be displayed
-     * at the bottom of the select component.
-     *
-     * It compute the size of the expended select by adding the theoretical dimensions of the
-     * overlay calculated from the number of options plus the initial select size.
-     * @private
-     */
-    private updateOverlayDirection() {
-        // We retrieve values from CSS variables
-        const overlayMaxHeight = +getComputedStyle(this.el).getPropertyValue('--wcs-select-overlay-max-height').replace(/\D/g, '');
-        const optionSize = +getComputedStyle(this.el).getPropertyValue('--wcs-select-option-height').replace(/\D/g, '');
-        const selectBounding = this.el.getBoundingClientRect();
-        const maxOptionsCount = Math.floor(overlayMaxHeight / optionSize);
-        // Maximum size of the overlay is 360px, otherwise the size is calculated from the number of options
-        const optionsOverlaySize = this.options.length > maxOptionsCount ? overlayMaxHeight + 1 : this.options.length * optionSize + 1;
-        const remainingHeightAfterOpen = window.innerHeight - (selectBounding.y + selectBounding.height + optionsOverlaySize);
-        // There are not enough pixels to open the overlay below the component
-        if (remainingHeightAfterOpen < 0) {
-            this.overlayDirection = 'top';
-        } else {
-            this.overlayDirection = 'bottom';
-        }
-    }
-
-    private updateOverlayMargin() {
-        if (this.controlEl && this.optionsEl) {
-            if (this.overlayDirection === 'top') {
-                this.optionsEl.style.marginTop = '-' + this.controlEl.getBoundingClientRect().height + 'px';
-            } else {
-                this.optionsEl.style.marginTop = '0';
-            }
-        }
     }
 
     private handleClickEvent(event: SelectOptionChosedEvent) {
@@ -455,11 +439,11 @@ export class Select implements ComponentInterface {
             });
     }
 
+    componentDidRender() {
+        this.popper?.update();
+    }
+
     render() {
-        if (this.hasLoaded) {
-            this.updateStyles();
-        }
-        this.updateOverlayMargin();
         return (
             <Host class={this.expanded ? 'expanded ' : ''}
                   overlayDirection={this.overlayDirection} {...this.focusedAttributes()}>
@@ -482,19 +466,7 @@ export class Select implements ComponentInterface {
         );
     }
 
-    private updateStyles() {
-        // Make the options container width the same width as everything.
-        const borderSize = 1;
-        // TODO: Consider using a mutation observer to rerender the size each time ?
-        // Be cautious as it may cause infinite loop with render ?
-        this.optionsEl.setAttribute(
-            'style',
-            `width: ${Math.ceil(this.el.offsetWidth - 2 * borderSize)}px;`
-        );
-    }
-
     private focusedAttributes() {
         return !this.disabled ? {tabIndex: 0} : {};
     }
-
 }

@@ -164,14 +164,14 @@ export declare interface WcsBadge extends Components.WcsBadge {}
 
 
 @ProxyCmp({
-  inputs: ['disabled', 'href', 'loading', 'mode', 'ripple', 'shape', 'type']
+  inputs: ['disabled', 'href', 'loading', 'mode', 'ripple', 'shape', 'target', 'type']
 })
 @Component({
   selector: 'wcs-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['disabled', 'href', 'loading', 'mode', 'ripple', 'shape', 'type'],
+  inputs: ['disabled', 'href', 'loading', 'mode', 'ripple', 'shape', 'target', 'type'],
 })
 export class WcsButton {
   protected el: HTMLElement;

@@ -1160,51 +1160,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/app/app.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "App",
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsAppElement"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-app",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "App",
-          "declaration": {
-            "name": "App",
-            "module": "components/app/app.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-app",
-          "declaration": {
-            "name": "App",
-            "module": "components/app/app.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/action-bar/action-bar.tsx",
       "declarations": [
         {
@@ -1269,6 +1224,51 @@
           "declaration": {
             "name": "ActionBar",
             "module": "components/action-bar/action-bar.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/app/app.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "App",
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsAppElement"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-app",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "App",
+          "declaration": {
+            "name": "App",
+            "module": "components/app/app.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-app",
+          "declaration": {
+            "name": "App",
+            "module": "components/app/app.tsx"
           }
         }
       ]
@@ -1397,14 +1397,13 @@
               "description": "Set a URL to point to.\r\nIf specified use a `a` tag instead of `btn`."
             },
             {
-                "kind": "field",
-                "name": "target",
-                "type": {
-                  "text": "'_blank' | '_self'"
-                },
-                "default": "'_self'",
-                "description": "Specifies where to open linked document when using href prop"
+              "kind": "field",
+              "name": "target",
+              "type": {
+                "text": "'_blank' | '_self' | undefined"
               },
+              "description": "Specifies where to open the linked document when using href (see prop above)\r\nDefault '_self' will open the linked document in the same frame as it was clicked"
+            },
             {
               "kind": "field",
               "name": "disabled",
@@ -1511,6 +1510,13 @@
               "fieldName": "href",
               "type": {
                 "text": "string"
+              }
+            },
+            {
+              "name": "target",
+              "fieldName": "target",
+              "type": {
+                "text": "'_blank' | '_self'"
               }
             },
             {
@@ -3335,6 +3341,49 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/footer/footer.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Footer",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            }
+          ],
+          "tagName": "wcs-footer",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Footer",
+          "declaration": {
+            "name": "Footer",
+            "module": "components/footer/footer.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-footer",
+          "declaration": {
+            "name": "Footer",
+            "module": "components/footer/footer.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/form-field/form-field.tsx",
       "declarations": [
         {
@@ -3499,49 +3548,6 @@
           "declaration": {
             "name": "FormField",
             "module": "components/form-field/form-field.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/footer/footer.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Footer",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            }
-          ],
-          "tagName": "wcs-footer",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Footer",
-          "declaration": {
-            "name": "Footer",
-            "module": "components/footer/footer.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-footer",
-          "declaration": {
-            "name": "Footer",
-            "module": "components/footer/footer.tsx"
           }
         }
       ]
@@ -4959,6 +4965,279 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/horizontal-stepper/horizontal-step.tsx",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "HorizontalStep",
+          "parameters": [
+            {
+              "name": "{\r\n        step,\r\n        checkOnComplete,\r\n        complete,\r\n        passed,\r\n        active,\r\n        first,\r\n        disable,\r\n        onClick\r\n    }"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "HorizontalStep",
+          "declaration": {
+            "name": "HorizontalStep",
+            "module": "components/horizontal-stepper/horizontal-step.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/horizontal-stepper/horizontal-stepper-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/horizontal-stepper/horizontal-stepper.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "HorizontalStepper",
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsHorizontalStepperElement"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "currentStep",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "index of the active step. The index corresponds to the index of the step in the 'steps' list"
+            },
+            {
+              "kind": "field",
+              "name": "steps",
+              "type": {
+                "text": "HorizontalStepConfig[]"
+              },
+              "description": "steps to display"
+            },
+            {
+              "kind": "field",
+              "name": "mode",
+              "type": {
+                "text": "HorizontalStepperMode"
+              },
+              "default": "'nonLinear'",
+              "description": "Specifies if the stepper is in linear mode (the user can only click on the next step)\r\nor non-linear (the user can click on any step)"
+            },
+            {
+              "kind": "field",
+              "name": "checkOnComplete",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Specifies whether a check should be displayed when a step is passed."
+            },
+            {
+              "kind": "field",
+              "name": "buttonMode",
+              "type": {
+                "text": "WcsButtonMode"
+              },
+              "default": "'stroked'"
+            },
+            {
+              "kind": "field",
+              "name": "internalCurrentStep"
+            },
+            {
+              "kind": "method",
+              "name": "onCurrentStepChange",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "number"
+                  }
+                },
+                {
+                  "name": "oldValue",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "previous"
+            },
+            {
+              "kind": "method",
+              "name": "next"
+            },
+            {
+              "kind": "method",
+              "name": "navigateToIndex",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "index",
+                  "type": {
+                    "text": "number"
+                  }
+                },
+                {
+                  "name": "direction",
+                  "type": {
+                    "text": "'backward' | 'forward'"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "isComplete",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "step",
+                  "type": {
+                    "text": "HorizontalStepConfig"
+                  }
+                },
+                {
+                  "name": "index",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "renderLabels",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "isDisable",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "step"
+                },
+                {
+                  "name": "index"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "isNextPossibleStep",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "index"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "previousStepIsCompleteAndNotActive",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "index"
+                }
+              ]
+            }
+          ],
+          "attributes": [
+            {
+              "name": "current-step",
+              "fieldName": "currentStep",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "steps",
+              "fieldName": "steps",
+              "type": {
+                "text": "HorizontalStepConfig[]"
+              }
+            },
+            {
+              "name": "mode",
+              "fieldName": "mode",
+              "type": {
+                "text": "HorizontalStepperMode"
+              }
+            },
+            {
+              "name": "check-on-complete",
+              "fieldName": "checkOnComplete",
+              "type": {
+                "text": "boolean"
+              }
+            }
+          ],
+          "tagName": "wcs-horizontal-stepper",
+          "events": [
+            {
+              "name": "wcsHorizontalStepClick",
+              "type": {
+                "text": "EventEmitter<HorizontalStepClickEvent>"
+              },
+              "description": "Emits when the user selects a new step."
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "HorizontalStepper",
+          "declaration": {
+            "name": "HorizontalStepper",
+            "module": "components/horizontal-stepper/horizontal-stepper.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-horizontal-stepper",
+          "declaration": {
+            "name": "HorizontalStepper",
+            "module": "components/horizontal-stepper/horizontal-stepper.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/icon/icon.tsx",
       "declarations": [
         {
@@ -5810,279 +6089,6 @@
           "declaration": {
             "name": "ListItem",
             "module": "components/list-item/list-item.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/horizontal-stepper/horizontal-step.tsx",
-      "declarations": [
-        {
-          "kind": "function",
-          "name": "HorizontalStep",
-          "parameters": [
-            {
-              "name": "{\r\n        step,\r\n        checkOnComplete,\r\n        complete,\r\n        passed,\r\n        active,\r\n        first,\r\n        disable,\r\n        onClick\r\n    }"
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "HorizontalStep",
-          "declaration": {
-            "name": "HorizontalStep",
-            "module": "components/horizontal-stepper/horizontal-step.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/horizontal-stepper/horizontal-stepper-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/horizontal-stepper/horizontal-stepper.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "HorizontalStepper",
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsHorizontalStepperElement"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "currentStep",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "index of the active step. The index corresponds to the index of the step in the 'steps' list"
-            },
-            {
-              "kind": "field",
-              "name": "steps",
-              "type": {
-                "text": "HorizontalStepConfig[]"
-              },
-              "description": "steps to display"
-            },
-            {
-              "kind": "field",
-              "name": "mode",
-              "type": {
-                "text": "HorizontalStepperMode"
-              },
-              "default": "'nonLinear'",
-              "description": "Specifies if the stepper is in linear mode (the user can only click on the next step)\r\nor non-linear (the user can click on any step)"
-            },
-            {
-              "kind": "field",
-              "name": "checkOnComplete",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Specifies whether a check should be displayed when a step is passed."
-            },
-            {
-              "kind": "field",
-              "name": "buttonMode",
-              "type": {
-                "text": "WcsButtonMode"
-              },
-              "default": "'stroked'"
-            },
-            {
-              "kind": "field",
-              "name": "internalCurrentStep"
-            },
-            {
-              "kind": "method",
-              "name": "onCurrentStepChange",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "newValue",
-                  "type": {
-                    "text": "number"
-                  }
-                },
-                {
-                  "name": "oldValue",
-                  "type": {
-                    "text": "number"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "previous"
-            },
-            {
-              "kind": "method",
-              "name": "next"
-            },
-            {
-              "kind": "method",
-              "name": "navigateToIndex",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "index",
-                  "type": {
-                    "text": "number"
-                  }
-                },
-                {
-                  "name": "direction",
-                  "type": {
-                    "text": "'backward' | 'forward'"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "isComplete",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "step",
-                  "type": {
-                    "text": "HorizontalStepConfig"
-                  }
-                },
-                {
-                  "name": "index",
-                  "type": {
-                    "text": "number"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "renderLabels",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "isDisable",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "step"
-                },
-                {
-                  "name": "index"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "isNextPossibleStep",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "index"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "previousStepIsCompleteAndNotActive",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "index"
-                }
-              ]
-            }
-          ],
-          "attributes": [
-            {
-              "name": "current-step",
-              "fieldName": "currentStep",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "steps",
-              "fieldName": "steps",
-              "type": {
-                "text": "HorizontalStepConfig[]"
-              }
-            },
-            {
-              "name": "mode",
-              "fieldName": "mode",
-              "type": {
-                "text": "HorizontalStepperMode"
-              }
-            },
-            {
-              "name": "check-on-complete",
-              "fieldName": "checkOnComplete",
-              "type": {
-                "text": "boolean"
-              }
-            }
-          ],
-          "tagName": "wcs-horizontal-stepper",
-          "events": [
-            {
-              "name": "wcsHorizontalStepClick",
-              "type": {
-                "text": "EventEmitter<HorizontalStepClickEvent>"
-              },
-              "description": "Emits when the user selects a new step."
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "HorizontalStepper",
-          "declaration": {
-            "name": "HorizontalStepper",
-            "module": "components/horizontal-stepper/horizontal-stepper.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-horizontal-stepper",
-          "declaration": {
-            "name": "HorizontalStepper",
-            "module": "components/horizontal-stepper/horizontal-stepper.tsx"
           }
         }
       ]
@@ -7249,6 +7255,14 @@
             },
             {
               "kind": "field",
+              "name": "popper",
+              "type": {
+                "text": "Instance"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
               "name": "overlayDirection",
               "type": {
                 "text": "'bottom' | 'top'"
@@ -7298,6 +7312,11 @@
             },
             {
               "kind": "method",
+              "name": "createPopperInstance",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
               "name": "emitChange",
               "privacy": "private",
               "return": {
@@ -7341,17 +7360,6 @@
                   "text": "Partial<MachineOptions<any, SelectEvent>>"
                 }
               }
-            },
-            {
-              "kind": "method",
-              "name": "updateOverlayDirection",
-              "privacy": "private",
-              "description": "This method controls whether or not the overlay has enough space to be displayed\r\nat the bottom of the select component.\r\n\r\nIt compute the size of the expended select by adding the theoretical dimensions of the\r\noverlay calculated from the number of options plus the initial select size."
-            },
-            {
-              "kind": "method",
-              "name": "updateOverlayMargin",
-              "privacy": "private"
             },
             {
               "kind": "method",
@@ -7477,11 +7485,6 @@
             {
               "kind": "method",
               "name": "render"
-            },
-            {
-              "kind": "method",
-              "name": "updateStyles",
-              "privacy": "private"
             },
             {
               "kind": "method",

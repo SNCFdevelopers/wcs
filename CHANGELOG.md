@@ -11,9 +11,12 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 for new features.
 - **button**: add `target` (`"_blank" | "_self"`, null by default) to choose where to open links when using `href`
+
 ### Changed
 
-for changes in existing functionality.
+- **select**:
+  - Migrate overlay positioning to PopperJS
+  - Implements the new overlay design
 
 ### Deprecated
 
