@@ -76,6 +76,39 @@ describe('Select component', () => {
         expect(select).not.toHaveClass('expanded');
     });
 
+    it('Closes when user click on another select', async () => {
+        // Given
+        const page = await newE2EPage();
+        await page.setViewport({width: 1024, height: 1600});
+        await page.setContent(`
+            <div style="display: flex">
+                <wcs-select id="select-1">
+                    <wcs-select-option value="1">One</wcs-select-option>
+                    <wcs-select-option value="2">Two</wcs-select-option>
+                    <wcs-select-option value="3">Three</wcs-select-option>
+                </wcs-select>
+                <wcs-select id="select-2">
+                    <wcs-select-option value="1">One</wcs-select-option>
+                    <wcs-select-option value="2">Two</wcs-select-option>
+                    <wcs-select-option value="3">Three</wcs-select-option>
+                </wcs-select>
+            </div>
+        `);
+        const select1 = await page.find('#select-1');
+        const select2 = await page.find('#select-2');
+
+        // When
+        await select1.click();
+        await page.waitForChanges();
+
+        // Then
+        expect(select1).toHaveClass('expanded');
+
+        await select2.click(); // select another select component in page
+        expect(select1).not.toHaveClass('expanded');
+        expect(select2).toHaveClass('expanded');
+    });
+
     it('Let us select a value and fire event correctly', async () => {
         // Given
         const page = await newE2EPage();

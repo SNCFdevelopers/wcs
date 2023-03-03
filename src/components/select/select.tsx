@@ -404,12 +404,9 @@ export class Select implements ComponentInterface {
 
     @Listen('click', {target: 'window'})
     onWindowClickEvent(event: MouseEvent) {
-        // We search in the full path of the event, because if a select is used in another web component,
-        // the event captured by the windows will target the parent web component and not the select.
-        const clickedOnSelectOrChildren = event.composedPath().map(x => (x as HTMLElement).nodeName).indexOf('WCS-SELECT') !== -1;
         // TODO: Move this logic in the state machine
         // FIXME: Doesnt work with single + disabled option
-        if (this.expanded && !clickedOnSelectOrChildren) {
+        if (this.expanded && !this.el.contains(event.target as Node)) {
             this.stateService.send('CLOSE');
         }
     }
