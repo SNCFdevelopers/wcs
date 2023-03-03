@@ -25,11 +25,14 @@ const Template: StoryFn<Partial<{ value: string, placeholder: string, disabled: 
             width: 400px;
         }
     </style>
-    <wcs-select placeholder="${args.placeholder}" id="leselect" value="${args.value}" ?disabled="${args.disabled}" ?multiple="${args.multiple}" ?chips="${args.chips}" size="${args.size ?? 'm'}">
-        <wcs-select-option value="1" chip-background-color="var(--wcs-pink)">One</wcs-select-option>
-        <wcs-select-option value="2" chip-background-color="var(--wcs-yellow)" chip-color="var(--wcs-black)">Two</wcs-select-option>
-        <wcs-select-option value="3" chip-background-color="var(--wcs-red)">Three</wcs-select-option>
-    </wcs-select>
+    <wcs-form-field>
+        <wcs-label>Le select customisé</wcs-label>
+        <wcs-select placeholder="${args.placeholder}" id="leselect" value="${args.value}" ?disabled="${args.disabled}" ?multiple="${args.multiple}" ?chips="${args.chips}">
+            <wcs-select-option value="1" chip-background-color="var(--wcs-pink)">One</wcs-select-option>
+            <wcs-select-option value="2" chip-background-color="var(--wcs-yellow)" chip-color="var(--wcs-black)">Two</wcs-select-option>
+            <wcs-select-option value="3" chip-background-color="var(--wcs-red)">Three</wcs-select-option>
+        </wcs-select>
+    </wcs-form-field>
 `;
 
 export const Default = Template.bind({});
@@ -104,11 +107,14 @@ const oneOptionDisabledTemplate: StoryFn<Partial<{ value: string, placeholder: s
             width: 400px;
         }
     </style>
-    <wcs-select placeholder="${args.placeholder}" id="select-with-disable-option" value="${args.value}" ?disabled="${args.disabled}" ?multiple="${args.multiple}" ?chips="${args.chips}">
-        <wcs-select-option value="1"> One</wcs-select-option>
-        <wcs-select-option value="2" disabled>Two</wcs-select-option>
-        <wcs-select-option value="3"> Three</wcs-select-option>
-    </wcs-select>
+    <wcs-form-field>
+        <wcs-label>Le select avec une option désactivée</wcs-label>
+        <wcs-select placeholder="${args.placeholder}" id="select-with-disable-option" value="${args.value}" ?disabled="${args.disabled}" ?multiple="${args.multiple}" ?chips="${args.chips}">
+            <wcs-select-option value="1"> One</wcs-select-option>
+            <wcs-select-option value="2" disabled>Two</wcs-select-option>
+            <wcs-select-option value="3"> Three</wcs-select-option>
+        </wcs-select>
+    </wcs-form-field>
 `;
 
 export const OneOptionDisable = oneOptionDisabledTemplate.bind({});

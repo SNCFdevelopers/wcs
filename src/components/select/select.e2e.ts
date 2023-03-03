@@ -459,5 +459,271 @@ describe('Select component', () => {
             expect(changeSpy).toHaveReceivedEventDetail({ value: ['1', '2'] });
         });
     });
+
+    describe('Keyboard navigation when select is closed and not multiple', () => {
+        let page;
+        let wcsSelect;
+
+        beforeEach(async () => {
+            // Given
+            page = await newE2EPage();
+            await page.setContent(`
+              <wcs-select>
+                <wcs-select-option value="option1" disabled>Option 1</wcs-select-option>
+                <wcs-select-option value="option2">Option 2</wcs-select-option>
+                <wcs-select-option value="option3">Option 3</wcs-select-option>
+              </wcs-select>
+            `);
+            wcsSelect = await page.find('wcs-select');
+        });
+
+        it('select value of first option enabled on Down Arrow key pressed', async () => {
+            // Given
+            const firstValueOfEnableOption = "Option 2";
+            const displayValue: HTMLLabelElement = await page.find('wcs-select >>> label');
+
+            // When
+            await wcsSelect.focus();
+            await page.keyboard.press('ArrowDown');
+            await page.waitForChanges();
+
+            // Then
+            expect(displayValue.innerText).toEqual(firstValueOfEnableOption);
+        });
+        it('select value of last option enabled on PageDown key pressed', async () => {
+            // Given
+            const lastValueOfEnableOption = "Option 3";
+            const displayValue: HTMLLabelElement = await page.find('wcs-select >>> label');
+
+            // When
+            await wcsSelect.focus();
+            await page.keyboard.press('PageDown');
+            await page.waitForChanges();
+
+            // Then
+            expect(displayValue.innerText).toEqual(lastValueOfEnableOption);
+        });
+        it('select value of first option enabled on PageUp key pressed', async () => {
+            // Given
+            const fistValueOfEnableOption = "Option 2";
+            const displayValue: HTMLLabelElement = await page.find('wcs-select >>> label');
+
+            // When
+            await wcsSelect.focus();
+            await page.keyboard.press('PageUp');
+            await page.waitForChanges();
+
+            // Then
+            expect(displayValue.innerText).toEqual(fistValueOfEnableOption);
+        });
+        it('open the overlay on Enter key press', async () => {
+            // When
+            await wcsSelect.focus();
+            await page.keyboard.press('Enter');
+            await page.waitForChanges();
+
+            // Then
+            expect(wcsSelect).toHaveClass("expanded");
+        });
+        it('open the overlay on Alt + Down Arrow key pressed', async () => {
+            // When
+            await wcsSelect.focus();
+            await page.keyboard.down('Alt');
+            await page.keyboard.press('ArrowDown');
+            await page.keyboard.up('Alt');
+            await page.waitForChanges();
+
+            // Then
+            expect(wcsSelect).toHaveClass("expanded");
+
+        });
+    });
+    describe('Keyboard navigation when select is opened and not multiple', () => {
+        let page;
+        let wcsSelect;
+        let selectOptions;
+
+        beforeEach(async () => {
+            // Given
+            page = await newE2EPage();
+            await page.setContent(`
+              <wcs-select>
+                <wcs-select-option value="option1" disabled>Option 1</wcs-select-option>
+                <wcs-select-option value="option2">Option 2</wcs-select-option>
+                <wcs-select-option value="option3">Option 3</wcs-select-option>
+              </wcs-select>
+            `);
+            wcsSelect = await page.find('wcs-select');
+            selectOptions = await page.findAll('wcs-select > wcs-select-option');
+            // Open by default the overlay for each test
+            await wcsSelect.focus();
+            await page.keyboard.press('Enter');
+            await page.waitForChanges();
+        });
+
+        it('close the overlay on Escape key pressed and focus select control', async () => {
+            // Given
+            // The overlay is open (makes in beforeEach)
+
+            // When
+            await page.keyboard.press('Escape');
+            const focusedEl = await page.find('wcs-select:focus');
+            await page.waitForChanges();
+
+            // Then
+            expect(wcsSelect).not.toHaveClass("expanded");
+            expect(focusedEl).toBeDefined();
+        });
+
+        it('close the overlay on Alt + ArrowUp keys pressed and focus select control', async () => {
+            // Given
+            // The overlay is open (makes in beforeEach)
+
+            // When
+            await page.keyboard.down('Alt');
+            await page.keyboard.press('ArrowUp');
+            await page.keyboard.up('Alt');
+            const focusedEl = await page.find('wcs-select:focus');
+            await page.waitForChanges();
+
+            // Then
+            expect(wcsSelect).not.toHaveClass("expanded");
+            expect(focusedEl).toBeDefined();
+        });
+        it('close the overlay on Tab key pressed', async () => {
+            // Given
+            // The overlay is open (makes in beforeEach)
+
+            // When
+            await page.keyboard.press('Tab');
+            const focusedEl = await page.find('wcs-select:focus');
+            await page.waitForChanges();
+
+            // Then
+            expect(wcsSelect).not.toHaveClass("expanded");
+            expect(focusedEl).toBeNull();
+        });
+        it('close the overlay on Tab + Shift keys pressed', async () => {
+            // Given
+            // The overlay is open (makes in beforeEach)
+
+            // When
+            await page.keyboard.down('Shift');
+            await page.keyboard.press('Tab');
+            await page.keyboard.up('Shift');
+            await page.waitForChanges();
+
+            // Then
+            expect(wcsSelect).not.toHaveClass("expanded");
+            const focusedSelect = await page.find('wcs-select:focus');
+            expect(focusedSelect).toBeDefined();
+        });
+        it('choose the current option on Enter key pressed', async () => {
+            // Given
+            // The overlay is open (makes in beforeEach)
+            const firstValueOfEnableOption = "Option 2";
+            const displayValue: HTMLLabelElement = await page.find('wcs-select >>> label');
+
+            // When
+            await page.keyboard.press('Enter');
+            await page.waitForChanges();
+
+            // Then
+            expect(displayValue.innerText).toEqual(firstValueOfEnableOption);
+        });
+        it('move focus to next option on Down Arrow key down', async () => {
+            // Given
+            // The overlay is open (makes in beforeEach)
+            const nextValueOfEnableOption = selectOptions[2];
+
+            // When
+            await page.keyboard.press('ArrowDown');
+            const focusedOption = await page.find('wcs-select-option:focus');
+
+            // Then
+            expect(focusedOption.value).toEqual(nextValueOfEnableOption.value);
+        });
+    });
+    describe('Keyboard navigation when select is closed and multiple', () => {
+        let page;
+        let wcsSelect;
+        let selectOptions;
+
+        beforeEach(async () => {
+            // Given
+            page = await newE2EPage();
+            await page.setContent(`
+              <wcs-select multiple="">
+                <wcs-select-option value="option1" disabled>Option 1</wcs-select-option>
+                <wcs-select-option value="option2">Option 2</wcs-select-option>
+                <wcs-select-option value="option3">Option 3</wcs-select-option>
+              </wcs-select>
+            `);
+            wcsSelect = await page.find('wcs-select');
+            selectOptions = await page.findAll('wcs-select > wcs-select-option');
+        });
+
+        it('move focus into the first enabled option on Down Arrow key pressed', async () => {
+            // Given
+            const firstOptionEnabled = selectOptions[1];
+
+            // When
+            await wcsSelect.focus();
+            await page.keyboard.press('ArrowDown');
+            await page.waitForChanges();
+
+            // Then
+            const focusedOption = await page.find('wcs-select-option:focus');
+            expect(focusedOption).toEqual(firstOptionEnabled);
+        });
+        it('move focus into the first enabled option on Enter key pressed', async () => {
+            // Given
+            const firstOptionEnabled = selectOptions[1];
+
+            // When
+            await wcsSelect.focus();
+            await page.keyboard.press('Enter');
+            await page.waitForChanges();
+
+            // Then
+            const focusedOption = await page.find('wcs-select-option:focus');
+            expect(focusedOption).toEqual(firstOptionEnabled);
+        });
+    });
+    describe('Keyboard navigation when select opened and multiple', () => {
+        let page;
+        let wcsSelect;
+
+        beforeEach(async () => {
+            // Given
+            page = await newE2EPage();
+            await page.setContent(`
+              <wcs-select multiple="">
+                <wcs-select-option value="option1" disabled>Option 1</wcs-select-option>
+                <wcs-select-option value="option2">Option 2</wcs-select-option>
+                <wcs-select-option value="option3">Option 3</wcs-select-option>
+              </wcs-select>
+            `);
+            wcsSelect = await page.find('wcs-select');
+            // Open by default the overlay for each test
+            await wcsSelect.focus();
+            await page.keyboard.press('Enter');
+            await page.waitForChanges();
+        });
+
+        it('close the overlay on Tab key pressed and not focus an checkbox', async () => {
+            // Given
+            // The overlay is open (makes in beforeEach)
+
+            // When
+            await page.keyboard.press('Tab');
+            const focusedEl = await page.find('wcs-select:focus');
+            await page.waitForChanges();
+
+            // Then
+            expect(wcsSelect).not.toHaveClass("expanded");
+            expect(focusedEl).toBeNull();
+        });
+    });
 });
 

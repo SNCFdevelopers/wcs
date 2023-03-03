@@ -658,7 +658,6 @@ export namespace Components {
      * <wcs-select>
      * <wcs-select-option value="1">One</wcs-select-option>
      * </wcs-select>```
-     * @todo Complete keyboard navigation.
      */
     interface WcsSelect {
         /**
@@ -1381,7 +1380,6 @@ declare global {
      * <wcs-select>
      * <wcs-select-option value="1">One</wcs-select-option>
      * </wcs-select>```
-     * @todo Complete keyboard navigation.
      */
     interface HTMLWcsSelectElement extends Components.WcsSelect, HTMLStencilElement {
     }
@@ -2162,7 +2160,6 @@ declare namespace LocalJSX {
      * <wcs-select>
      * <wcs-select-option value="1">One</wcs-select-option>
      * </wcs-select>```
-     * @todo Complete keyboard navigation.
      */
     interface WcsSelect {
         /**
@@ -2617,7 +2614,6 @@ declare module "@stencil/core" {
              * <wcs-select>
              * <wcs-select-option value="1">One</wcs-select-option>
              * </wcs-select>```
-             * @todo Complete keyboard navigation.
              */
             "wcs-select": LocalJSX.WcsSelect & JSXBase.HTMLAttributes<HTMLWcsSelectElement>;
             /**

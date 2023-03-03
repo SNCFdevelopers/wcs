@@ -1,6 +1,7 @@
 import { Component, Element, Event, Prop, EventEmitter, ComponentInterface, h, Host, Listen } from '@stencil/core';
 import { SelectOptionChosedEvent } from './select-option-interface';
 import { MDCRipple } from '@material/ripple';
+import {isEnterKey, generateUniqueId, isSpaceKey} from "../../utils/helpers";
 
 /**
  * Select option component, use in conjunction with wcs-select.
@@ -11,6 +12,7 @@ import { MDCRipple } from '@material/ripple';
 })
 export class SelectOption implements ComponentInterface {
     @Element() private el!: HTMLWcsSelectOptionElement;
+    private selectOptionId: string = generateUniqueId(this.el.tagName);
 
     /** Wether this option can be selected. */
     @Prop({ mutable: true, reflect: true }) disabled = false;
@@ -55,8 +57,7 @@ export class SelectOption implements ComponentInterface {
         this.mdcRipple = new MDCRipple(this.el);
     }
 
-    @Listen('mousedown')
-    onMouseDown(event: MouseEvent) {
+    private chooseOption(event: UIEvent) {
         if (!this.disabled) {
             event.stopPropagation();
             // We select inner HTML as it's what's passed into the slot.
@@ -69,11 +70,29 @@ export class SelectOption implements ComponentInterface {
         }
     }
 
+    @Listen('mousedown')
+    onMouseDown(event: MouseEvent) {
+        this.chooseOption(event);
+    }
+
+    /**
+     * Handles the keydown event to update the selection.
+     * @param event keyboard event
+     */
+    @Listen('keydown')
+    handleKeydown(event: KeyboardEvent) {
+        if(isEnterKey(event) || isSpaceKey(event)) {
+            this.chooseOption(event);
+            event.preventDefault();
+            event.stopPropagation();
+        }
+    }
+
     render() {
         return (
-            <Host slot="wcs-select-option">
+            <Host id={this.selectOptionId} aria-selected={this.selected ? 'true' : 'false'} slot="wcs-select-option" role="option" tabindex="-1">
                 {this.multiple &&
-                    <wcs-checkbox checked={this.selected}></wcs-checkbox>
+                    <wcs-checkbox tabindex="-1" checked={this.selected}></wcs-checkbox>
                 }
                 <slot />
             </Host>

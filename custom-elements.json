@@ -225,6 +225,23 @@
         },
         {
           "kind": "function",
+          "name": "generateUniqueId",
+          "return": {
+            "type": {
+              "text": "string"
+            }
+          },
+          "parameters": [
+            {
+              "name": "componentName",
+              "type": {
+                "text": "string"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "function",
           "name": "isKeyup",
           "parameters": [
             {
@@ -285,30 +302,6 @@
         },
         {
           "kind": "function",
-          "name": "isPageupKey",
-          "parameters": [
-            {
-              "name": "evt",
-              "type": {
-                "text": "KeyboardEvent"
-              }
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "isPagedownKey",
-          "parameters": [
-            {
-              "name": "evt",
-              "type": {
-                "text": "KeyboardEvent"
-              }
-            }
-          ]
-        },
-        {
-          "kind": "function",
           "name": "isHomeKey",
           "parameters": [
             {
@@ -322,6 +315,90 @@
         {
           "kind": "function",
           "name": "isEndKey",
+          "parameters": [
+            {
+              "name": "evt",
+              "type": {
+                "text": "KeyboardEvent"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "isUpArrowKey",
+          "parameters": [
+            {
+              "name": "evt",
+              "type": {
+                "text": "KeyboardEvent"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "isDownArrowKey",
+          "parameters": [
+            {
+              "name": "evt",
+              "type": {
+                "text": "KeyboardEvent"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "isLeftArrowKey",
+          "parameters": [
+            {
+              "name": "evt",
+              "type": {
+                "text": "KeyboardEvent"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "isRightArrowKey",
+          "parameters": [
+            {
+              "name": "evt",
+              "type": {
+                "text": "KeyboardEvent"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "isPageDownKey",
+          "parameters": [
+            {
+              "name": "evt",
+              "type": {
+                "text": "KeyboardEvent"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "isPageUpKey",
+          "parameters": [
+            {
+              "name": "evt",
+              "type": {
+                "text": "KeyboardEvent"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "isTabKey",
           "parameters": [
             {
               "name": "evt",
@@ -407,6 +484,14 @@
         },
         {
           "kind": "js",
+          "name": "generateUniqueId",
+          "declaration": {
+            "name": "generateUniqueId",
+            "module": "utils/helpers.ts"
+          }
+        },
+        {
+          "kind": "js",
           "name": "isKeyup",
           "declaration": {
             "name": "isKeyup",
@@ -447,22 +532,6 @@
         },
         {
           "kind": "js",
-          "name": "isPageupKey",
-          "declaration": {
-            "name": "isPageupKey",
-            "module": "utils/helpers.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "isPagedownKey",
-          "declaration": {
-            "name": "isPagedownKey",
-            "module": "utils/helpers.ts"
-          }
-        },
-        {
-          "kind": "js",
           "name": "isHomeKey",
           "declaration": {
             "name": "isHomeKey",
@@ -474,6 +543,62 @@
           "name": "isEndKey",
           "declaration": {
             "name": "isEndKey",
+            "module": "utils/helpers.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "isUpArrowKey",
+          "declaration": {
+            "name": "isUpArrowKey",
+            "module": "utils/helpers.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "isDownArrowKey",
+          "declaration": {
+            "name": "isDownArrowKey",
+            "module": "utils/helpers.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "isLeftArrowKey",
+          "declaration": {
+            "name": "isLeftArrowKey",
+            "module": "utils/helpers.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "isRightArrowKey",
+          "declaration": {
+            "name": "isRightArrowKey",
+            "module": "utils/helpers.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "isPageDownKey",
+          "declaration": {
+            "name": "isPageDownKey",
+            "module": "utils/helpers.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "isPageUpKey",
+          "declaration": {
+            "name": "isPageUpKey",
+            "module": "utils/helpers.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "isTabKey",
+          "declaration": {
+            "name": "isTabKey",
             "module": "utils/helpers.ts"
           }
         }
@@ -894,6 +1019,44 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/app/app.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "App",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-app",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "App",
+          "declaration": {
+            "name": "App",
+            "module": "components/app/app.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-app",
+          "declaration": {
+            "name": "App",
+            "module": "components/app/app.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/action-bar/action-bar.tsx",
       "declarations": [
         {
@@ -960,44 +1123,6 @@
           "declaration": {
             "name": "ActionBar",
             "module": "components/action-bar/action-bar.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/app/app.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "App",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-app",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "App",
-          "declaration": {
-            "name": "App",
-            "module": "components/app/app.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-app",
-          "declaration": {
-            "name": "App",
-            "module": "components/app/app.tsx"
           }
         }
       ]
@@ -2468,6 +2593,44 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/divider/divider.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Divider",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-divider",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Divider",
+          "declaration": {
+            "name": "Divider",
+            "module": "components/divider/divider.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-divider",
+          "declaration": {
+            "name": "Divider",
+            "module": "components/divider/divider.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/dropdown/dropdown-interface.ts",
       "declarations": [],
       "exports": []
@@ -2733,44 +2896,6 @@
           "declaration": {
             "name": "Dropdown",
             "module": "components/dropdown/dropdown.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/divider/divider.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Divider",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-divider",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Divider",
-          "declaration": {
-            "name": "Divider",
-            "module": "components/divider/divider.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-divider",
-          "declaration": {
-            "name": "Divider",
-            "module": "components/divider/divider.tsx"
           }
         }
       ]
@@ -3541,74 +3666,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/galactic/galactic.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Galactic",
-          "members": [
-            {
-              "kind": "field",
-              "name": "text",
-              "type": {
-                "text": "string"
-              },
-              "description": "Text to display in the bar"
-            },
-            {
-              "kind": "field",
-              "name": "show",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "text",
-              "fieldName": "text",
-              "type": {
-                "text": "string"
-              }
-            }
-          ],
-          "tagName": "wcs-galactic",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Galactic",
-          "declaration": {
-            "name": "Galactic",
-            "module": "components/galactic/galactic.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-galactic",
-          "declaration": {
-            "name": "Galactic",
-            "module": "components/galactic/galactic.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/form-field/form-field.tsx",
       "declarations": [
         {
@@ -3777,6 +3834,74 @@
           "declaration": {
             "name": "FormField",
             "module": "components/form-field/form-field.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/galactic/galactic.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Galactic",
+          "members": [
+            {
+              "kind": "field",
+              "name": "text",
+              "type": {
+                "text": "string"
+              },
+              "description": "Text to display in the bar"
+            },
+            {
+              "kind": "field",
+              "name": "show",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "text",
+              "fieldName": "text",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "tagName": "wcs-galactic",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Galactic",
+          "declaration": {
+            "name": "Galactic",
+            "module": "components/galactic/galactic.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-galactic",
+          "declaration": {
+            "name": "Galactic",
+            "module": "components/galactic/galactic.tsx"
           }
         }
       ]
@@ -5473,6 +5598,58 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/label/label.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Label",
+          "members": [
+            {
+              "kind": "field",
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "required",
+              "fieldName": "required"
+            }
+          ],
+          "tagName": "wcs-label",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Label",
+          "declaration": {
+            "name": "Label",
+            "module": "components/label/label.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-label",
+          "declaration": {
+            "name": "Label",
+            "module": "components/label/label.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/input/input-interface.ts",
       "declarations": [
         {
@@ -6202,58 +6379,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/label/label.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Label",
-          "members": [
-            {
-              "kind": "field",
-              "name": "required",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "required",
-              "fieldName": "required"
-            }
-          ],
-          "tagName": "wcs-label",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Label",
-          "declaration": {
-            "name": "Label",
-            "module": "components/label/label.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-label",
-          "declaration": {
-            "name": "Label",
-            "module": "components/label/label.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/list-item/list-item.tsx",
       "declarations": [
         {
@@ -6479,6 +6604,44 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/nav/nav.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Nav",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-nav",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Nav",
+          "declaration": {
+            "name": "Nav",
+            "module": "components/nav/nav.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-nav",
+          "declaration": {
+            "name": "Nav",
+            "module": "components/nav/nav.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/modal/modal-interface.ts",
       "declarations": [],
       "exports": []
@@ -6638,44 +6801,6 @@
           "declaration": {
             "name": "Modal",
             "module": "components/modal/modal.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/nav/nav.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Nav",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-nav",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Nav",
-          "declaration": {
-            "name": "Nav",
-            "module": "components/nav/nav.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-nav",
-          "declaration": {
-            "name": "Nav",
-            "module": "components/nav/nav.tsx"
           }
         }
       ]
@@ -7119,6 +7244,157 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/radio-group/radio-group-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/radio-group/radio-group.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "RadioGroup",
+          "members": [
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "any | any[] | undefined | null"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "name"
+            },
+            {
+              "kind": "field",
+              "name": "mode",
+              "type": {
+                "text": "RadioGroupMode"
+              },
+              "default": "'radio'"
+            },
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsRadioGroupElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "onValueChangeHandler",
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "any"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "options",
+              "type": {
+                "text": "HTMLWcsRadioElement[]"
+              },
+              "privacy": "private",
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "selectedOptionChanged",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "CustomEvent<RadioChosedEvent>"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "updateOptionsState",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "markAsChecked",
+                  "type": {
+                    "text": "boolean"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "value",
+              "fieldName": "value",
+              "type": {
+                "text": "any | any[] | undefined | null"
+              }
+            },
+            {
+              "name": "name",
+              "fieldName": "name"
+            },
+            {
+              "name": "mode",
+              "fieldName": "mode",
+              "type": {
+                "text": "RadioGroupMode"
+              }
+            }
+          ],
+          "tagName": "wcs-radio-group",
+          "events": [
+            {
+              "name": "wcsChange",
+              "type": {
+                "text": "EventEmitter<RadioGroupChangeEventDetail>"
+              },
+              "description": "Emitted when the value has changed."
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "RadioGroup",
+          "declaration": {
+            "name": "RadioGroup",
+            "module": "components/radio-group/radio-group.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-radio-group",
+          "declaration": {
+            "name": "RadioGroup",
+            "module": "components/radio-group/radio-group.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/select/select-arrow.tsx",
       "declarations": [
         {
@@ -7241,10 +7517,29 @@
             },
             {
               "kind": "field",
+              "name": "selectId",
+              "privacy": "private",
+              "default": "`wcs-select-${selectIds++}`"
+            },
+            {
+              "kind": "field",
+              "name": "labelElement",
+              "type": {
+                "text": "HTMLWcsLabelElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
               "name": "optionsEl",
               "type": {
                 "text": "HTMLDivElement"
               },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "optionsId",
               "privacy": "private"
             },
             {
@@ -7260,6 +7555,22 @@
               "name": "values",
               "type": {
                 "text": "SelectOptionValue[]"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "lastSelectedOptionElement",
+              "type": {
+                "text": "HTMLWcsSelectOptionElement | null"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "lastFocusedOptionElement",
+              "type": {
+                "text": "HTMLWcsSelectOptionElement | null"
               },
               "privacy": "private"
             },
@@ -7478,6 +7789,15 @@
               "readonly": true
             },
             {
+              "kind": "field",
+              "name": "notDisabledOptions",
+              "type": {
+                "text": "HTMLWcsSelectOptionElement[]"
+              },
+              "privacy": "private",
+              "readonly": true
+            },
+            {
               "kind": "method",
               "name": "initMachineOptions",
               "privacy": "private",
@@ -7571,6 +7891,124 @@
             },
             {
               "kind": "method",
+              "name": "onKeyDown",
+              "parameters": [
+                {
+                  "name": "_event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "getClosestActiveOptionIndexForState",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "number | 'nothing'"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "direction",
+                  "type": {
+                    "text": "'next' | 'previous'"
+                  }
+                },
+                {
+                  "name": "state",
+                  "type": {
+                    "text": "'focused' | 'selected'"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "selectOption",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "indexToSelect",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "selectClosestOption",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "direction",
+                  "type": {
+                    "text": "'next' | 'previous'"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "selectFirstOption",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "selectLastOption",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "focusOption",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "indexToFocus",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "focusClosestOption",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "direction",
+                  "type": {
+                    "text": "'next' | 'previous'"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "focusFirstOption",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "focusLastOption",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
               "name": "selectedOptionChanged",
               "parameters": [
                 {
@@ -7583,7 +8021,7 @@
             },
             {
               "kind": "method",
-              "name": "sendOptionClickedToStateMachine",
+              "name": "sendOptionSelectedToStateMachine",
               "parameters": [
                 {
                   "name": "event",
@@ -7716,157 +8154,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/radio-group/radio-group-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/radio-group/radio-group.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "RadioGroup",
-          "members": [
-            {
-              "kind": "field",
-              "name": "value",
-              "type": {
-                "text": "any | any[] | undefined | null"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "name"
-            },
-            {
-              "kind": "field",
-              "name": "mode",
-              "type": {
-                "text": "RadioGroupMode"
-              },
-              "default": "'radio'"
-            },
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsRadioGroupElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "onValueChangeHandler",
-              "parameters": [
-                {
-                  "name": "newValue",
-                  "type": {
-                    "text": "any"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "field",
-              "name": "options",
-              "type": {
-                "text": "HTMLWcsRadioElement[]"
-              },
-              "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "method",
-              "name": "selectedOptionChanged",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "CustomEvent<RadioChosedEvent>"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "updateOptionsState",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string"
-                  }
-                },
-                {
-                  "name": "markAsChecked",
-                  "type": {
-                    "text": "boolean"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "value",
-              "fieldName": "value",
-              "type": {
-                "text": "any | any[] | undefined | null"
-              }
-            },
-            {
-              "name": "name",
-              "fieldName": "name"
-            },
-            {
-              "name": "mode",
-              "fieldName": "mode",
-              "type": {
-                "text": "RadioGroupMode"
-              }
-            }
-          ],
-          "tagName": "wcs-radio-group",
-          "events": [
-            {
-              "name": "wcsChange",
-              "type": {
-                "text": "EventEmitter<RadioGroupChangeEventDetail>"
-              },
-              "description": "Emitted when the value has changed."
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "RadioGroup",
-          "declaration": {
-            "name": "RadioGroup",
-            "module": "components/radio-group/radio-group.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-radio-group",
-          "declaration": {
-            "name": "RadioGroup",
-            "module": "components/radio-group/radio-group.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/select-option/select-option-interface.ts",
       "declarations": [],
       "exports": []
@@ -7885,6 +8172,14 @@
               "name": "el",
               "type": {
                 "text": "HTMLWcsSelectOptionElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "selectOptionId",
+              "type": {
+                "text": "string"
               },
               "privacy": "private"
             },
@@ -7940,6 +8235,19 @@
             },
             {
               "kind": "method",
+              "name": "chooseOption",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "UIEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
               "name": "onMouseDown",
               "parameters": [
                 {
@@ -7949,6 +8257,20 @@
                   }
                 }
               ]
+            },
+            {
+              "kind": "method",
+              "name": "handleKeydown",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  },
+                  "description": "keyboard event"
+                }
+              ],
+              "description": "Handles the keydown event to update the selection."
             },
             {
               "kind": "method",
@@ -8204,75 +8526,6 @@
           "declaration": {
             "name": "Switch",
             "module": "components/switch/switch.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/tab/tab.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Tab content component.\r\nUse this component to specify the content of a component.",
-          "name": "Tab",
-          "members": [
-            {
-              "kind": "field",
-              "name": "header",
-              "type": {
-                "text": "string"
-              },
-              "description": "The header you want to be displayed for this tab."
-            },
-            {
-              "kind": "field",
-              "name": "itemKey",
-              "type": {
-                "text": "any"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "header",
-              "fieldName": "header",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "item-key",
-              "fieldName": "itemKey",
-              "type": {
-                "text": "any"
-              }
-            }
-          ],
-          "tagName": "wcs-tab",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Tab",
-          "declaration": {
-            "name": "Tab",
-            "module": "components/tab/tab.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-tab",
-          "declaration": {
-            "name": "Tab",
-            "module": "components/tab/tab.tsx"
           }
         }
       ]
@@ -8539,6 +8792,75 @@
           "declaration": {
             "name": "Tabs",
             "module": "components/tabs/tabs.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/tab/tab.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Tab content component.\r\nUse this component to specify the content of a component.",
+          "name": "Tab",
+          "members": [
+            {
+              "kind": "field",
+              "name": "header",
+              "type": {
+                "text": "string"
+              },
+              "description": "The header you want to be displayed for this tab."
+            },
+            {
+              "kind": "field",
+              "name": "itemKey",
+              "type": {
+                "text": "any"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "header",
+              "fieldName": "header",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "item-key",
+              "fieldName": "itemKey",
+              "type": {
+                "text": "any"
+              }
+            }
+          ],
+          "tagName": "wcs-tab",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Tab",
+          "declaration": {
+            "name": "Tab",
+            "module": "components/tab/tab.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-tab",
+          "declaration": {
+            "name": "Tab",
+            "module": "components/tab/tab.tsx"
           }
         }
       ]

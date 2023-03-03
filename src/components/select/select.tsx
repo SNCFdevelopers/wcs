@@ -19,7 +19,22 @@ import { interpret, Interpreter, Machine, MachineConfig, MachineOptions } from '
 import { isWcsSelectSize, SelectChangeEventDetail, WcsSelectSize, WcsSelectSizeValue } from './select-interface';
 import { SelectArrow } from './select-arrow';
 import { SelectOptionChosedEvent, SelectOptionValue } from '../select-option/select-option-interface';
-import { isElement } from '../../utils/helpers';
+import {
+    isDownArrowKey,
+    isElement,
+    isEnterKey,
+    isEscapeKey,
+    isHomeKey,
+    isLeftArrowKey,
+    isPageDownKey,
+    isPageUpKey,
+    isRightArrowKey,
+    isTabKey,
+    isUpArrowKey,
+    generateUniqueId,
+    findItemLabel,
+    isSpaceKey,
+} from '../../utils/helpers';
 import { SelectChips } from './select-chips';
 import { MDCRipple } from '@material/ripple';
 import { createPopper, Instance } from '@popperjs/core';
@@ -33,9 +48,9 @@ interface SelectStateSchema {
 
 type SelectEvent
     = { type: 'OPEN' }
-    | { type: 'CLOSE' }
+    | { type: 'CLOSE', value: { shouldBlur?: boolean } }
     | { type: 'CLICK' }
-    | { type: 'OPTION_CLICKED', value: SelectOptionChosedEvent };
+    | { type: 'OPTION_SELECTED', value: SelectOptionChosedEvent };
 
 const SELECT_MACHINE_CONFIG: MachineConfig<any, SelectStateSchema, SelectEvent> = {
     key: 'select',
@@ -46,7 +61,7 @@ const SELECT_MACHINE_CONFIG: MachineConfig<any, SelectStateSchema, SelectEvent> 
             on: {
                 CLICK: 'opened',
                 OPEN: 'opened',
-                OPTION_CLICKED: {actions: ['selectOption']}
+                OPTION_SELECTED: {actions: ['selectOption']}
             },
         },
         opened: {
@@ -54,7 +69,7 @@ const SELECT_MACHINE_CONFIG: MachineConfig<any, SelectStateSchema, SelectEvent> 
             on: {
                 CLICK: 'closed',
                 CLOSE: 'closed',
-                OPTION_CLICKED: {actions: ['selectOption']}
+                OPTION_SELECTED: {actions: ['selectOption']}
             },
         },
     }
@@ -67,7 +82,6 @@ const SELECT_MACHINE_CONFIG: MachineConfig<any, SelectStateSchema, SelectEvent> 
  *  <wcs-select>
  *      <wcs-select-option value="1">One</wcs-select-option>
  *  </wcs-select>```
- * @todo Complete keyboard navigation.
  */
 @Component({
     tag: 'wcs-select',
@@ -77,11 +91,16 @@ const SELECT_MACHINE_CONFIG: MachineConfig<any, SelectStateSchema, SelectEvent> 
 export class Select implements ComponentInterface {
     private stateService!: Interpreter<any, SelectStateSchema, SelectEvent>;
 
+    private selectId = `wcs-select-${selectIds++}`;
+    private labelElement: HTMLWcsLabelElement;
     private optionsEl!: HTMLDivElement;
+    private optionsId = generateUniqueId("OPTIONS");
     private controlEl!: HTMLDivElement;
 
     // Only used for multiples.
     private values: SelectOptionValue[];
+    private lastSelectedOptionElement: HTMLWcsSelectOptionElement | null;
+    private lastFocusedOptionElement: HTMLWcsSelectOptionElement | null;
 
     @Element() private el!: HTMLWcsSelectElement;
 
@@ -249,6 +268,13 @@ export class Select implements ComponentInterface {
 
         this.popper = this.createPopperInstance();
 
+        // if the select is inside a wcs-form-field, we set an id to the wcs-label if present
+        // the wcs-label element reference is kept to compute aria-label value during the rendering
+        this.labelElement = findItemLabel(this.el);
+        if (this.labelElement) {
+            this.labelElement.id = this.selectId + "-lbl";
+        }
+
         // TODO: is this still usefull for anything ?
         this.hasLoaded = true;
     }
@@ -316,21 +342,43 @@ export class Select implements ComponentInterface {
         return [];
     }
 
+    private get notDisabledOptions(): HTMLWcsSelectOptionElement[] {
+        const opts = this.el?.querySelectorAll('wcs-select-option:not([disabled])');
+        if (opts && opts.length !== 0) {
+            return opts as any as HTMLWcsSelectOptionElement[];
+        }
+        return [];
+    }
+
     private initMachineOptions(): Partial<MachineOptions<any, SelectEvent>> {
         return {
             actions: {
                 open: () => {
                     if (!this.disabled) {
                         this.expanded = true;
-                        this.focused = true;
+                        this.focused = false;
+                        if(this.notDisabledOptions.length > 0) {
+                            this.lastFocusedOptionElement = this.lastSelectedOptionElement ?? this.notDisabledOptions[0];
+                            requestAnimationFrame(() => {
+                                this.lastFocusedOptionElement?.focus();
+                            });
+                        }
                     }
                 },
-                close: () => {
-                    this.focused = true;
+                close: (_, event: SelectEvent) => {
+                    if (event.type === 'CLOSE') {
+                        if (event.value?.shouldBlur) {
+                            this.el.closest("wcs-select")?.focus();
+                            this.focused = false;
+                        } else {
+                            this.el.focus();
+                            this.focused = true
+                        }
+                    }
                     this.expanded = false;
                 },
                 selectOption: (_, event) => {
-                    if (event.type === 'OPTION_CLICKED') {
+                    if (event.type === 'OPTION_SELECTED') {
                         this.handleClickEvent(event.value);
                     }
                 }
@@ -355,9 +403,11 @@ export class Select implements ComponentInterface {
             const {value, displayText, chipColor, chipBackgroundColor} = event;
             this.values.push({value, displayText, chipColor, chipBackgroundColor});
             event.source.selected = true;
+            this.lastSelectedOptionElement = event.source;
         } else {
             event.source.selected = false;
             this.values.splice(index, 1);
+            if (this.lastSelectedOptionElement === event.source) this.lastSelectedOptionElement = null;
         }
         this.updateValueWithValues();
     }
@@ -379,6 +429,7 @@ export class Select implements ComponentInterface {
         event.source.selected = true;
         this.value = event.value;
         this.displayText = event.displayText;
+        this.lastSelectedOptionElement = event.source;
         this.stateService.send('CLOSE');
     }
 
@@ -427,13 +478,132 @@ export class Select implements ComponentInterface {
         }
     }
 
-    @Listen('wcsSelectOptionClick')
-    selectedOptionChanged(event: CustomEvent<SelectOptionChosedEvent>) {
-        this.sendOptionClickedToStateMachine(event.detail);
+    @Listen('keydown')
+    onKeyDown(_event: KeyboardEvent) {
+        // close
+        if (this.stateService.getSnapshot().matches("closed")) {
+            if (isEnterKey(_event) || (_event.altKey && isDownArrowKey(_event)) || isSpaceKey(_event)) {
+                _event.preventDefault();
+                _event.stopPropagation();
+                this.stateService.send('OPEN');
+                return;
+            }
+            if (this.multiple) {
+                if (isDownArrowKey(_event)) {
+                    this.stateService.send('OPEN');
+                }
+            } else {
+                if (isDownArrowKey(_event) || isRightArrowKey(_event)) {
+                    _event.preventDefault();
+                    this.selectClosestOption("next");
+                }
+                if (isUpArrowKey(_event) || isLeftArrowKey(_event)) {
+                    _event.preventDefault();
+                    this.selectClosestOption("previous");
+                } else if (isPageDownKey(_event)) {
+                    _event.preventDefault();
+                    this.selectLastOption();
+                } else if (isPageUpKey(_event) || isHomeKey(_event)) {
+                    _event.preventDefault();
+                    this.selectFirstOption();
+                }
+            }
+        }
+        // open
+        else if (this.stateService.getSnapshot().matches("opened")) {
+            if (isEscapeKey(_event) || (_event.altKey && isUpArrowKey(_event))) {
+                this.stateService.send({type: "CLOSE", value: {shouldBlur: false}});
+            } else if (isTabKey(_event) || (_event.shiftKey && isTabKey(_event))) {
+                this.stateService.send({type: "CLOSE", value: {shouldBlur: true}});
+            } else if (isDownArrowKey(_event)) {
+                _event.preventDefault();
+                this.focusClosestOption("next");
+            } else if (isUpArrowKey(_event)) {
+                _event.preventDefault();
+                this.focusClosestOption("previous");
+            } else if (isPageUpKey(_event) || isHomeKey(_event)) {
+                _event.preventDefault();
+                this.focusFirstOption();
+            } else if (isPageDownKey(_event)) {
+                _event.preventDefault();
+                this.focusLastOption();
+            }
+        }
     }
 
-    sendOptionClickedToStateMachine(event: SelectOptionChosedEvent) {
-        this.stateService.send({type: 'OPTION_CLICKED', value: event});
+    private getClosestActiveOptionIndexForState(direction: 'next' | 'previous', state: 'focused' | 'selected'): number | 'nothing' {
+        let currentIndex = Array.from(this.notDisabledOptions).indexOf(state === 'focused' ? this.lastFocusedOptionElement : this.lastSelectedOptionElement);
+
+        if (direction === 'next' && currentIndex < this.notDisabledOptions.length - 1) {
+            currentIndex++;
+        } else if (direction === 'previous' && currentIndex > 0) {
+            currentIndex--;
+        } else {
+            return 'nothing';
+        }
+        return currentIndex;
+    }
+
+    private selectOption(indexToSelect: number) {
+        this.lastSelectedOptionElement = this.notDisabledOptions[indexToSelect];
+        this.lastSelectedOptionElement.selected = true;
+        this.sendOptionSelectedToStateMachine({
+            source: this.lastSelectedOptionElement,
+            value: this.value,
+            displayText: this.lastSelectedOptionElement.innerText
+        });
+    }
+
+    private selectClosestOption(direction: 'next' | 'previous'): void {
+        const indexToSelect = this.getClosestActiveOptionIndexForState(direction, 'selected');
+        if(indexToSelect === 'nothing') return;
+        this.selectOption(indexToSelect);
+    }
+
+    private selectFirstOption() {
+        if(this.notDisabledOptions.length < 1) {
+            return;
+        }
+
+        this.selectOption(0);
+    }
+
+    private selectLastOption() {
+        if(this.notDisabledOptions.length < 1) {
+            return;
+        }
+
+        this.selectOption(this.notDisabledOptions.length - 1);
+    }
+
+    private focusOption(indexToFocus: number) {
+        this.lastFocusedOptionElement = this.notDisabledOptions[indexToFocus];
+        this.lastFocusedOptionElement?.focus();
+        this.el.setAttribute("aria-activedescendant", this.lastFocusedOptionElement.id);
+    }
+
+    private focusClosestOption(direction: 'next' | 'previous'): void {
+        const indexToFocus = this.getClosestActiveOptionIndexForState(direction, 'focused');
+        if(indexToFocus === 'nothing') return;
+
+        this.focusOption(indexToFocus);
+    }
+
+    private focusFirstOption() {
+        this.focusOption(0);
+    }
+
+    private focusLastOption() {
+        this.focusOption(this.notDisabledOptions.length - 1);
+    }
+
+    @Listen('wcsSelectOptionClick')
+    selectedOptionChanged(event: CustomEvent<SelectOptionChosedEvent>) {
+        this.sendOptionSelectedToStateMachine(event.detail);
+    }
+
+    sendOptionSelectedToStateMachine(event: SelectOptionChosedEvent) {
+        this.stateService.send({type: 'OPTION_SELECTED', value: event});
     }
 
     onSlotchange() {
@@ -444,7 +614,7 @@ export class Select implements ComponentInterface {
         this.options
             .forEach(opt => {
                 if (opt.value === v.value) {
-                    this.sendOptionClickedToStateMachine({
+                    this.sendOptionSelectedToStateMachine({
                         ...v,
                         source: opt
                     });
@@ -457,9 +627,19 @@ export class Select implements ComponentInterface {
     }
 
     render() {
+        const ariaLabelValue = `${this.labelElement ? this.labelElement.innerText : ''} ${this.hasValue ? this.displayText : ''}`.trimEnd();
+
         return (
             <Host class={this.expanded ? 'expanded ' : ''}
-                  overlayDirection={this.overlayDirection} {...this.focusedAttributes()}>
+                  overlayDirection={this.overlayDirection} {...this.focusedAttributes()}
+                  role="combobox"
+                  aria-haspopup="listbox"
+                  aria-disabled={this.disabled ? 'true' : null}
+                  aria-expanded={this.expanded ? 'true' : 'false'}
+                  aria-controls={this.optionsId}
+                  aria-owns={this.optionsId}
+                  aria-multiselectable={this.multiple ? 'true' : 'false'}
+                  aria-label={ariaLabelValue}>
                 <div class="wcs-select-control">
                     {this.hasValue
                         ? (this.chips ?
@@ -472,7 +652,7 @@ export class Select implements ComponentInterface {
                     }
                     <SelectArrow up={this.expanded}/>
                 </div>
-                <div class="wcs-select-options">
+                <div class="wcs-select-options" id={this.optionsId} role="listbox">
                     <slot name="wcs-select-option" onSlotchange={this.onSlotchange.bind(this)}/>
                 </div>
             </Host>
@@ -483,3 +663,5 @@ export class Select implements ComponentInterface {
         return !this.disabled ? {tabIndex: 0} : {};
     }
 }
+
+let selectIds = 0;

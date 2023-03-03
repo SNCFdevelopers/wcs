@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-08-25T12:58:54",
+  "timestamp": "2023-08-25T14:38:56",
   "compiler": {
     "name": "@stencil/core",
     "version": "3.0.0",
@@ -4660,10 +4660,6 @@
         {
           "name": "example",
           "text": "```hmtl\r\n<wcs-select>\r\n<wcs-select-option value=\"1\">One</wcs-select-option>\r\n</wcs-select>```"
-        },
-        {
-          "name": "todo",
-          "text": "Complete keyboard navigation."
         }
       ],
       "usage": {},
@@ -4872,6 +4868,11 @@
           "passive": false
         },
         {
+          "event": "keydown",
+          "capture": false,
+          "passive": false
+        },
+        {
           "event": "wcsSelectOptionClick",
           "capture": false,
           "passive": false
@@ -4999,6 +5000,11 @@
           "event": "mousedown",
           "capture": false,
           "passive": true
+        },
+        {
+          "event": "keydown",
+          "capture": false,
+          "passive": false
         }
       ],
       "styles": [],

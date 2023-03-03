@@ -89,6 +89,9 @@ export const clickTargetIsElementOrChildren = (mouseEvent: MouseEvent, element: 
         && element.contains(mouseEvent.target);
 }
 
+export function generateUniqueId(componentName: string): string {
+    return componentName + "-" + Math.random().toString(36);
+}
 
 export function isKeyup(evt: KeyboardEvent) {
     return evt.code === 'ArrowUp';
@@ -110,18 +113,38 @@ export function isEnterKey(evt: KeyboardEvent) {
     return evt.key === 'Enter';
 }
 
-export function isPageupKey(evt: KeyboardEvent) {
-    return evt.code === 'PageUp';
-}
-
-export function isPagedownKey(evt: KeyboardEvent) {
-    return evt.code === 'PageDown';
-}
-
 export function isHomeKey(evt: KeyboardEvent) {
     return evt.code === 'Home';
 }
 
 export function isEndKey(evt: KeyboardEvent) {
     return evt.code === 'End';
+}
+
+export function isUpArrowKey(evt: KeyboardEvent) {
+    return evt.key === 'ArrowUp';
+}
+
+export function isDownArrowKey(evt: KeyboardEvent) {
+    return evt.key === 'ArrowDown';
+}
+
+export function isLeftArrowKey(evt: KeyboardEvent) {
+    return evt.key === 'ArrowLeft';
+}
+
+export function isRightArrowKey(evt: KeyboardEvent) {
+    return evt.key === 'ArrowRight';
+}
+
+export function isPageDownKey(evt: KeyboardEvent) {
+    return evt.key === 'PageDown';
+}
+
+export function isPageUpKey(evt: KeyboardEvent) {
+    return evt.key === 'PageUp';
+}
+
+export function isTabKey(evt: KeyboardEvent) {
+    return evt.key === 'Tab';
 }
