@@ -17,6 +17,7 @@ for new features.
 - **select**:
   - Migrate overlay positioning to PopperJS
   - Implements the new overlay design
+- **docs**: Create a story per subcomponent (eg. grid-column) [while waiting for storybook to provide a solution to replace the subcomponent functionality](https://github.com/storybookjs/storybook/issues/20782).
 
 ### Deprecated
 

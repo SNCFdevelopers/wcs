@@ -4,7 +4,7 @@ import galacticDocumentation from './galactic-documentation.md'
 import { html } from 'lit-html';
 
 const meta: Meta = {
-    title: 'Components/Com/Galactic',
+    title: 'Components/DS Communication/Galactic',
     component: 'wcs-galactic',
     parameters: {
         docs: {

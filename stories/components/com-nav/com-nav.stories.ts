@@ -2,7 +2,7 @@ import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 
 const meta: Meta = {
-    title: 'Components/Com/Nav',
+    title: 'Components/DS Communication/Nav',
     component: 'wcs-com-nav'
 };
 export default meta;
