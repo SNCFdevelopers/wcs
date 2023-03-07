@@ -11,7 +11,7 @@ import { isEnterKey, isSpaceKey } from '../../utils/helpers';
 export class Radio implements ComponentInterface {
     private inputId = `wcs-rb-${radioButtonIds++}`;
     private inputEl: HTMLInputElement;
-    @Element() el!: HTMLWcsRadioElement;
+    @Element() private el!: HTMLWcsRadioElement;
     @Prop({ reflect: true, mutable: false }) mode: RadioGroupMode = 'radio';
 
     @Prop({ mutable: true, reflect: true }) value: any | any[] | undefined | null;

@@ -19,7 +19,7 @@ import {isEnterKey, isSpaceKey} from "../../utils/helpers";
     shadow: true,
 })
 export class ComNavCategory implements ComponentInterface {
-    @Element() el!: HTMLWcsComNavCategoryElement;
+    @Element() private el!: HTMLWcsComNavCategoryElement;
     @Prop() label: string;
     @State() categoryOpen: boolean = false;
     @Event() wcsCategoryOpened: EventEmitter<CategoryOpenedEventDetail>;

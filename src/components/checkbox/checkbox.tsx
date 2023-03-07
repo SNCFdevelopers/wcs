@@ -1,4 +1,4 @@
-import { Component, Prop, Event, Element, EventEmitter, ComponentInterface, h, Host } from '@stencil/core';
+import { Component, Prop, Event, EventEmitter, ComponentInterface, h, Host } from '@stencil/core';
 import { CheckboxChangeEventDetail, CheckboxLabelAlignment } from './checkbox-interface';
 
 @Component({
@@ -8,9 +8,6 @@ import { CheckboxChangeEventDetail, CheckboxLabelAlignment } from './checkbox-in
 })
 export class Checkbox implements ComponentInterface {
     private checkboxId = `wcs-checkbox-${checkboxIds++}`;
-
-    @Element() el: HTMLElement;
-
     @Prop() name = this.checkboxId;
 
     /**

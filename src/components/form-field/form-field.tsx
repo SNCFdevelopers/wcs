@@ -10,16 +10,16 @@ import { Component, ComponentInterface, Element, h, Host, Prop, State, Watch } f
     shadow: true,
 })
 export class FormField implements ComponentInterface {
-    @Element() el!: HTMLWcsFormFieldElement;
+    @Element() private el!: HTMLWcsFormFieldElement;
 
     /**
      * Specifies whether the form field is in an error state. Displays the field border in red and the message contained in the wcs-error component
      */
     @Prop({mutable: true, reflect: true}) isError = false;
 
-    @State() hasPrefix = false;
-    @State() hasSuffix = false;
-    @State() spiedElement: Element;
+    @State() private hasPrefix = false;
+    @State() private hasSuffix = false;
+    @State() private spiedElement: Element;
 
     private observer: MutationObserver;
 

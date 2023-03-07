@@ -120,7 +120,7 @@ export class Tooltip implements ComponentInterface {
     @Element()
     private el: HTMLWcsTooltipElement;
 
-    tippyInstance: Instance<Props>;
+    private tippyInstance: Instance<Props>;
 
     componentWillLoad(): Promise<void> | void {
         this.tippyInstance = tippy(document.getElementById(this.for), {

@@ -11,7 +11,6 @@ import {
     State,
     Watch
 } from '@stencil/core';
-import { WcsButtonMode } from '../button/button-interface';
 import { HorizontalStepClickEvent, HorizontalStepConfig, HorizontalStepperMode } from './horizontal-stepper-interface';
 import { HorizontalStep } from './horizontal-step';
 
@@ -21,7 +20,7 @@ import { HorizontalStep } from './horizontal-step';
     shadow: true,
 })
 export class HorizontalStepper implements ComponentInterface {
-    @Element() el!: HTMLWcsHorizontalStepperElement;
+    @Element() private el!: HTMLWcsHorizontalStepperElement;
     /**
      * index of the active step. The index corresponds to the index of the step in the 'steps' list
      */
@@ -43,8 +42,7 @@ export class HorizontalStepper implements ComponentInterface {
      * Emits when the user selects a new step.
      */
     @Event() wcsHorizontalStepClick!: EventEmitter<HorizontalStepClickEvent>
-    @State() buttonMode: WcsButtonMode = 'stroked';
-    @State() internalCurrentStep;
+    @State() private internalCurrentStep;
 
     componentWillLoad(): Promise<void> | void {
         this.internalCurrentStep = this.currentStep;

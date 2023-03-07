@@ -23,7 +23,7 @@ const WCS_COM_NAV_CATEGORY = 'WCS-COM-NAV-CATEGORY';
     shadow: true,
 })
 export class ComNavSubmenu implements ComponentInterface {
-    @Element() el!: HTMLWcsComNavSubmenuElement;
+    @Element() private el!: HTMLWcsComNavSubmenuElement;
     @Prop() label: string;
     @Prop() panelTitle: string;
     @Prop() panelDescription: string;

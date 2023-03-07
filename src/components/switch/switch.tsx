@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Prop } from '@stencil/core';
+import { Component, ComponentInterface, Event, EventEmitter, h, Host, Prop } from '@stencil/core';
 import { SwitchChangeEventDetail, SwitchLabelAlignment } from './switch-interface';
 
 @Component({
@@ -8,8 +8,6 @@ import { SwitchChangeEventDetail, SwitchLabelAlignment } from './switch-interfac
 })
 export class Switch implements ComponentInterface {
     private switchId = `wcs-switch-${switchIds++}`;
-
-    @Element() el: HTMLElement;
 
     @Prop() name = this.switchId;
 

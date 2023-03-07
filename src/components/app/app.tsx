@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Element, h } from '@stencil/core';
+import { Component, ComponentInterface, h } from '@stencil/core';
 
 
 @Component({
@@ -7,7 +7,6 @@ import { Component, ComponentInterface, Element, h } from '@stencil/core';
     shadow: true
 })
 export class App implements ComponentInterface {
-    @Element() el!: HTMLWcsAppElement;
 
     render() {
         return [

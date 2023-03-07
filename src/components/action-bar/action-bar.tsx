@@ -6,7 +6,7 @@ import { Component, ComponentInterface, Element, h, Host, Prop, State } from '@s
     shadow: true
 })
 export class ActionBar implements ComponentInterface {
-    @Element() el: HTMLWcsActionBarElement;
+    @Element() private el: HTMLWcsActionBarElement;
     /**
      * Determines if the action bar should have a border at the bottom.
      * You should not use this property if a gutter is already present on tabs

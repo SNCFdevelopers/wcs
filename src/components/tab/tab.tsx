@@ -12,8 +12,7 @@ export class Tab {
     /**
      * The header you want to be displayed for this tab.
      */
-    @Prop({ reflect: true })
-    header: string;
+    @Prop({ reflect: true }) header: string;
 
     @Prop() itemKey: any;
 

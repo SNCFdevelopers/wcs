@@ -17,7 +17,7 @@ import { isElementFocused } from "../../utils/accessibility";
     shadow: true
 })
 export class Dropdown implements ComponentInterface {
-    @Element() el: HTMLWcsDropdownElement;
+    @Element() private el: HTMLWcsDropdownElement;
 
     /** Hides the arrow in the button */
     @Prop() noArrow: boolean = false;

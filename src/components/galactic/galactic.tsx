@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Host, h, Prop, Element, State } from '@stencil/core';
+import { Component, ComponentInterface, Host, h, Prop, State } from '@stencil/core';
 
 @Component({
     tag: 'wcs-galactic',
@@ -6,7 +6,6 @@ import { Component, ComponentInterface, Host, h, Prop, Element, State } from '@s
     shadow: true
 })
 export class Galactic implements ComponentInterface {
-    @Element() el: HTMLWcsGalacticElement;
     /** Text to display in the bar */
     @Prop() text: string;
     @State() show: boolean = false;

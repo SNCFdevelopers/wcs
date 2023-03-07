@@ -9,14 +9,14 @@ const WCS_COM_NAV_SUBMENU_TAG_NAME = 'WCS-COM-NAV-SUBMENU';
     shadow: true,
 })
 export class ComNav implements ComponentInterface {
-    @Element() el!: HTMLWcsComNavElement;
+    @Element() private el!: HTMLWcsComNavElement;
 
     /** Name of the application to be displayed in the menu bar */
     @Prop() appName: string;
 
     @State() mobileMenuOpen: boolean = false;
     @State() currentActiveSizing: 'desktop' | 'mobile';
-    resizeObserver: ResizeObserver;
+    private resizeObserver: ResizeObserver;
     private hasAlreadyRegisteredClickHandlerOnSlottedLink: boolean = false;
 
     private mobileMenuIconClick() {

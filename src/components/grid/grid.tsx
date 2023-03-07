@@ -36,7 +36,7 @@ import { GridPagination } from '../grid-pagination/grid-pagination';
     shadow: true
 })
 export class Grid implements ComponentInterface, ComponentDidLoad {
-    @Element() el!: HTMLWcsGridElement;
+    @Element() private el!: HTMLWcsGridElement;
     /**
      * True to manage sort and pagination with a backend server, default: false
      */

@@ -1,6 +1,6 @@
 import {
     Component,
-    ComponentInterface, Element,
+    ComponentInterface,
     Event, EventEmitter,
     h,
     Host,
@@ -19,7 +19,6 @@ import { GridPaginationArrow } from './grid-pagination-arrow';
 })
 export class GridPagination implements ComponentInterface {
     static readonly INDEX_FIRST_PAGE: number = 0;
-    @Element() el!: HTMLWcsGridPaginationElement;
     @Prop() availablePageSizes: number[] = [10, 20, 50];
     @Prop() currentPage: number = GridPagination.INDEX_FIRST_PAGE;
     @Prop() pageSize: number = this.availablePageSizes[0];

@@ -8,7 +8,7 @@ import { GridSortArrow } from './grid-sort-arrow';
     shadow: true
 })
 export class GridColumn implements ComponentInterface {
-    @Element() el: HTMLWcsGridColumnElement;
+    @Element() private el: HTMLWcsGridColumnElement;
     @Prop() path: string;
     @Prop() name: string;
     @Prop() sort: boolean = false;

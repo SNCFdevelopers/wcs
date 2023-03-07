@@ -22,7 +22,7 @@ export class RadioGroup implements ComponentInterface {
     @Prop() value: any | any[] | undefined | null;
     @Prop({reflect: true, mutable: false}) name;
     @Prop({reflect: true, mutable: false}) mode: RadioGroupMode = 'radio';
-    @Element() el!: HTMLWcsRadioGroupElement;
+    @Element() private el!: HTMLWcsRadioGroupElement;
 
     /** Emitted when the value has changed. */
     @Event() wcsChange!: EventEmitter<RadioGroupChangeEventDetail>;

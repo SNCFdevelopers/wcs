@@ -59,11 +59,11 @@ export class Tabs implements ComponentInterface {
      */
     @Event() tabChange!: EventEmitter<WcsTabChangeEvent>;
 
-    @Element() el!: HTMLWcsTabsElement;
+    @Element() private el!: HTMLWcsTabsElement;
 
-    @State() headers: string[] = [];
+    @State() private headers: string[] = [];
 
-    @State() currentActiveTabIndex = 0;
+    @State() private currentActiveTabIndex = 0;
 
     @Watch('selectedIndex')
     selectedIndexChanged(newValue: number) {

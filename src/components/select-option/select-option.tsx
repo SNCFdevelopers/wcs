@@ -10,7 +10,7 @@ import { MDCRipple } from '@material/ripple';
     styleUrl: 'select-option.scss'
 })
 export class SelectOption implements ComponentInterface {
-    @Element() el!: HTMLWcsSelectOptionElement;
+    @Element() private el!: HTMLWcsSelectOptionElement;
 
     /** Wether this option can be selected. */
     @Prop({ mutable: true, reflect: true }) disabled = false;
@@ -35,7 +35,8 @@ export class SelectOption implements ComponentInterface {
      */
     @Prop({ reflect: true, mutable: true }) multiple = false;
 
-    mdcRipple: MDCRipple;
+    // @ts-ignore
+    private mdcRipple: MDCRipple;
 
     @Event({
         eventName: 'wcsSelectOptionClick',

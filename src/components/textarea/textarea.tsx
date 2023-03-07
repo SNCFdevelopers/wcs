@@ -40,9 +40,9 @@ export class Textarea implements ComponentInterface {
      */
     @Prop() fireFocusEvents = true;
 
-    @Element() el!: HTMLElement;
+    @Element() private el!: HTMLElement;
 
-    @State() hasFocus = false;
+    @State() private hasFocus = false;
 
     /**
      * Indicates whether and how the text value should be automatically capitalized as it is entered/edited by the user.

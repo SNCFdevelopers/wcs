@@ -1172,7 +1172,8 @@
               "name": "el",
               "type": {
                 "text": "HTMLWcsActionBarElement"
-              }
+              },
+              "privacy": "private"
             },
             {
               "kind": "field",
@@ -1237,13 +1238,6 @@
           "description": "",
           "name": "App",
           "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsAppElement"
-              }
-            },
             {
               "kind": "method",
               "name": "render"
@@ -1377,7 +1371,8 @@
               "name": "el",
               "type": {
                 "text": "HTMLElement"
-              }
+              },
+              "privacy": "private"
             },
             {
               "kind": "field",
@@ -1575,6 +1570,44 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/card-body/card-body.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "CardBody",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-card-body",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CardBody",
+          "declaration": {
+            "name": "CardBody",
+            "module": "components/card-body/card-body.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-card-body",
+          "declaration": {
+            "name": "CardBody",
+            "module": "components/card-body/card-body.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/card/card-interface.ts",
       "declarations": [],
       "exports": []
@@ -1636,44 +1669,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/card-body/card-body.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "CardBody",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-card-body",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "CardBody",
-          "declaration": {
-            "name": "CardBody",
-            "module": "components/card-body/card-body.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-card-body",
-          "declaration": {
-            "name": "CardBody",
-            "module": "components/card-body/card-body.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/checkbox/checkbox-interface.ts",
       "declarations": [],
       "exports": []
@@ -1692,13 +1687,6 @@
               "name": "checkboxId",
               "privacy": "private",
               "default": "`wcs-checkbox-${checkboxIds++}`"
-            },
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLElement"
-              }
             },
             {
               "kind": "field",
@@ -1879,7 +1867,8 @@
               "name": "el",
               "type": {
                 "text": "HTMLWcsComNavElement"
-              }
+              },
+              "privacy": "private"
             },
             {
               "kind": "field",
@@ -1909,7 +1898,8 @@
               "name": "resizeObserver",
               "type": {
                 "text": "ResizeObserver"
-              }
+              },
+              "privacy": "private"
             },
             {
               "kind": "field",
@@ -1990,7 +1980,8 @@
               "name": "el",
               "type": {
                 "text": "HTMLWcsComNavCategoryElement"
-              }
+              },
+              "privacy": "private"
             },
             {
               "kind": "field",
@@ -2169,7 +2160,8 @@
               "name": "el",
               "type": {
                 "text": "HTMLWcsComNavSubmenuElement"
-              }
+              },
+              "privacy": "private"
             },
             {
               "kind": "field",
@@ -2449,7 +2441,8 @@
               "name": "el",
               "type": {
                 "text": "HTMLWcsDropdownElement"
-              }
+              },
+              "privacy": "private"
             },
             {
               "kind": "field",
@@ -2873,7 +2866,8 @@
               "name": "el",
               "type": {
                 "text": "HTMLWcsEditableFieldElement"
-              }
+              },
+              "privacy": "private"
             },
             {
               "kind": "field",
@@ -2951,18 +2945,11 @@
             },
             {
               "kind": "field",
-              "name": "ignoreNextChangeEvent",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "field",
               "name": "spiedElement",
               "type": {
                 "text": "HTMLElement"
               },
+              "privacy": "private",
               "default": "null"
             },
             {
@@ -2971,6 +2958,7 @@
               "type": {
                 "text": "any"
               },
+              "privacy": "private",
               "default": "null"
             },
             {
@@ -3396,7 +3384,8 @@
               "name": "el",
               "type": {
                 "text": "HTMLWcsFormFieldElement"
-              }
+              },
+              "privacy": "private"
             },
             {
               "kind": "field",
@@ -3413,6 +3402,7 @@
               "type": {
                 "text": "boolean"
               },
+              "privacy": "private",
               "default": "false"
             },
             {
@@ -3421,6 +3411,7 @@
               "type": {
                 "text": "boolean"
               },
+              "privacy": "private",
               "default": "false"
             },
             {
@@ -3428,7 +3419,8 @@
               "name": "spiedElement",
               "type": {
                 "text": "Element"
-              }
+              },
+              "privacy": "private"
             },
             {
               "kind": "field",
@@ -3563,13 +3555,6 @@
           "members": [
             {
               "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsGalacticElement"
-              }
-            },
-            {
-              "kind": "field",
               "name": "text",
               "type": {
                 "text": "string"
@@ -3641,7 +3626,8 @@
               "name": "el",
               "type": {
                 "text": "HTMLWcsGalacticMenuElement"
-              }
+              },
+              "privacy": "private"
             },
             {
               "kind": "field",
@@ -3779,7 +3765,8 @@
               "name": "el",
               "type": {
                 "text": "HTMLWcsGridElement"
-              }
+              },
+              "privacy": "private"
             },
             {
               "kind": "field",
@@ -4299,7 +4286,8 @@
               "name": "el",
               "type": {
                 "text": "HTMLWcsGridColumnElement"
-              }
+              },
+              "privacy": "private"
             },
             {
               "kind": "field",
@@ -4659,13 +4647,6 @@
             },
             {
               "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsGridPaginationElement"
-              }
-            },
-            {
-              "kind": "field",
               "name": "availablePageSizes",
               "type": {
                 "text": "number[]"
@@ -5008,7 +4989,8 @@
               "name": "el",
               "type": {
                 "text": "HTMLWcsHorizontalStepperElement"
-              }
+              },
+              "privacy": "private"
             },
             {
               "kind": "field",
@@ -5046,15 +5028,8 @@
             },
             {
               "kind": "field",
-              "name": "buttonMode",
-              "type": {
-                "text": "WcsButtonMode"
-              },
-              "default": "'stroked'"
-            },
-            {
-              "kind": "field",
-              "name": "internalCurrentStep"
+              "name": "internalCurrentStep",
+              "privacy": "private"
             },
             {
               "kind": "method",
@@ -5366,6 +5341,7 @@
               "type": {
                 "text": "boolean"
               },
+              "privacy": "private",
               "default": "false"
             },
             {
@@ -5374,6 +5350,7 @@
               "type": {
                 "text": "boolean"
               },
+              "privacy": "private",
               "default": "false"
             },
             {
@@ -5381,7 +5358,8 @@
               "name": "el",
               "type": {
                 "text": "HTMLElement"
-              }
+              },
+              "privacy": "private"
             },
             {
               "kind": "field",
@@ -6776,7 +6754,8 @@
               "name": "el",
               "type": {
                 "text": "HTMLWcsRadioElement"
-              }
+              },
+              "privacy": "private"
             },
             {
               "kind": "field",
@@ -6940,7 +6919,8 @@
               "name": "el",
               "type": {
                 "text": "HTMLWcsRadioGroupElement"
-              }
+              },
+              "privacy": "private"
             },
             {
               "kind": "method",
@@ -7158,7 +7138,8 @@
               "name": "el",
               "type": {
                 "text": "HTMLWcsSelectElement"
-              }
+              },
+              "privacy": "private"
             },
             {
               "kind": "field",
@@ -7166,6 +7147,7 @@
               "type": {
                 "text": "boolean"
               },
+              "privacy": "private",
               "default": "false",
               "description": "Wether the select is expanded"
             },
@@ -7175,6 +7157,7 @@
               "type": {
                 "text": "boolean"
               },
+              "privacy": "private",
               "default": "false",
               "description": "Wether the component is fully loaded in the DOM."
             },
@@ -7184,6 +7167,7 @@
               "type": {
                 "text": "string"
               },
+              "privacy": "private",
               "description": "Text to display for the selected option, when no option is selected, the value is undefined."
             },
             {
@@ -7192,6 +7176,7 @@
               "type": {
                 "text": "boolean"
               },
+              "privacy": "private",
               "description": "When the host is focused."
             },
             {
@@ -7267,6 +7252,7 @@
               "type": {
                 "text": "'bottom' | 'top'"
               },
+              "privacy": "private",
               "default": "'bottom'"
             },
             {
@@ -7600,7 +7586,8 @@
               "name": "el",
               "type": {
                 "text": "HTMLWcsSelectOptionElement"
-              }
+              },
+              "privacy": "private"
             },
             {
               "kind": "field",
@@ -7649,7 +7636,8 @@
               "name": "mdcRipple",
               "type": {
                 "text": "MDCRipple"
-              }
+              },
+              "privacy": "private"
             },
             {
               "kind": "method",
@@ -7816,13 +7804,6 @@
               "name": "switchId",
               "privacy": "private",
               "default": "`wcs-switch-${switchIds++}`"
-            },
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLElement"
-              }
             },
             {
               "kind": "field",
@@ -8065,7 +8046,8 @@
               "name": "el",
               "type": {
                 "text": "HTMLWcsTabsElement"
-              }
+              },
+              "privacy": "private"
             },
             {
               "kind": "field",
@@ -8073,6 +8055,7 @@
               "type": {
                 "text": "string[]"
               },
+              "privacy": "private",
               "default": "[]"
             },
             {
@@ -8081,6 +8064,7 @@
               "type": {
                 "text": "number"
               },
+              "privacy": "private",
               "default": "0"
             },
             {
@@ -8311,7 +8295,8 @@
               "name": "el",
               "type": {
                 "text": "HTMLElement"
-              }
+              },
+              "privacy": "private"
             },
             {
               "kind": "field",
@@ -8319,6 +8304,7 @@
               "type": {
                 "text": "boolean"
               },
+              "privacy": "private",
               "default": "false"
             },
             {
@@ -8886,7 +8872,8 @@
               "name": "tippyInstance",
               "type": {
                 "text": "Instance<Props>"
-              }
+              },
+              "privacy": "private"
             },
             {
               "kind": "method",

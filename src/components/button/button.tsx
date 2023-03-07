@@ -16,7 +16,7 @@ import { hasShadowDom } from '../../utils/helpers';
     }
 })
 export class Button implements ComponentInterface {
-    @Element() el!: HTMLElement;
+    @Element() private el!: HTMLElement;
 
     /**
      * Specify the button type.

@@ -24,7 +24,7 @@ enum EditableComponentState {
     shadow: true
 })
 export class EditableField implements ComponentInterface {
-    @Element() el!: HTMLWcsEditableFieldElement;
+    @Element() private el!: HTMLWcsEditableFieldElement;
 
     @State() currentState: EditableComponentState = EditableComponentState.DISPLAY;
     /**
@@ -63,9 +63,10 @@ export class EditableField implements ComponentInterface {
 
     @State() isError: boolean = false;
 
-    ignoreNextChangeEvent: boolean = false;
-    spiedElement: HTMLElement = null;
-    currentValue: any = null;
+    // fixme: why this attr is never read?
+    // ignoreNextChangeEvent: boolean = false;
+    private spiedElement: HTMLElement = null;
+    private currentValue: any = null;
 
     componentWillLoad(): Promise<void> | void {
         this.currentValue = this.value;
@@ -215,7 +216,8 @@ export class EditableField implements ComponentInterface {
     private onDisplayContainerClick() {
         if (this.currentState === EditableComponentState.DISPLAY && this.readonly === false) {
             this.currentState = EditableComponentState.EDIT;
-            this.ignoreNextChangeEvent = true;
+            // fixme: why this attr is never read?
+            // this.ignoreNextChangeEvent = true;
             this.spiedElement['value'] = this.currentValue;
             if (this.validateFn) {
                 this.isError = !this.validateFn(this.currentValue);

@@ -34,11 +34,11 @@ export class Input implements ComponentInterface {
      */
     @Prop() fireFocusEvents = true;
 
-    @State() hasFocus = false;
+    @State() private hasFocus = false;
 
-    @State() passwordReveal = false;
+    @State() private passwordReveal = false;
 
-    @Element() el!: HTMLElement;
+    @Element() private el!: HTMLElement;
 
     /**
      * If the value of the type attribute is `"file"`, then this attribute will indicate the types of files that the server accepts, otherwise it will be ignored. The value must be a comma-separated list of unique content type specifiers.

@@ -8,7 +8,7 @@ import { clickInsideElement } from '../../utils/helpers';
     shadow: true
 })
 export class Galactic implements ComponentInterface {
-    @Element() el: HTMLWcsGalacticMenuElement;
+    @Element() private el: HTMLWcsGalacticMenuElement;
     @State() showPopoverMenu: boolean = false;
     private popper: Instance;
     /**

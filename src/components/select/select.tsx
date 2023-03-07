@@ -83,23 +83,25 @@ export class Select implements ComponentInterface {
     // Only used for multiples.
     private values: SelectOptionValue[];
 
-    @Element() el!: HTMLWcsSelectElement;
+    @Element() private el!: HTMLWcsSelectElement;
 
     /** Wether the select is expanded */
     @State()
-    expanded = false;
+    private expanded = false;
 
     /** Wether the component is fully loaded in the DOM. */
     @State()
-    hasLoaded = false;
+    // @ts-ignore
+    private hasLoaded = false;
 
     /** Text to display for the selected option, when no option is selected, the value is undefined. */
     @State()
-    displayText: string;
+    private displayText: string;
 
     /** When the host is focused. */
     @State()
-    focused: boolean;
+    // @ts-ignore
+    private focused: boolean;
 
     /** The currently selected value. */
     @Prop({mutable: true})
@@ -131,7 +133,7 @@ export class Select implements ComponentInterface {
 
     private popper: Instance;
 
-    @State() overlayDirection: 'bottom' | 'top' = 'bottom';
+    @State() private overlayDirection: 'bottom' | 'top' = 'bottom';
 
     /** Emitted when the value has changed. */
     @Event() wcsChange!: EventEmitter<SelectChangeEventDetail>;
