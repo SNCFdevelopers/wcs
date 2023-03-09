@@ -406,9 +406,11 @@ export class Select implements ComponentInterface {
 
     @Listen('click', {target: 'window'})
     onWindowClickEvent(event: MouseEvent) {
+        const firstSelectInEventPath = event.composedPath().filter(x => (x as HTMLElement).nodeName === 'WCS-SELECT')[0];
+        const clickOnCurrentSelect = firstSelectInEventPath === this.el;
         // TODO: Move this logic in the state machine
         // FIXME: Doesnt work with single + disabled option
-        if (this.expanded && !this.el.contains(event.target as Node)) {
+        if (this.expanded && !clickOnCurrentSelect) {
             this.stateService.send('CLOSE');
         }
     }
