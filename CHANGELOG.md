@@ -31,6 +31,7 @@ for now removed features.
 ### Fixed
 
 - **select**: only one **select** will remain expanded at a time, even when multiple selects are present on the page. Previously, when multiple instances of the **select** were present on a page, they could both be expanded simultaneously, which was not intended behavior.
+- **doc**: add the SNCF font icon in the stylesheet on the integration doc for angular.
 
 ### Security
 
