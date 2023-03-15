@@ -82,12 +82,14 @@ export class AppModule { }
 
 * Create a folder **containing the fonts** _(e.g.: `src/assets/fonts`)_
 * Download the **Avenir** font from the Angular exemple project : [wcs/example/src/fonts](https://gitlab.com/SNCF/wcs/-/tree/master/example/src/assets/fonts)
+* Create a folder **containing the icons** _(e.g.: `src/assets/fonts/icons`)_
+* Download the **SNCF** icons from the Angular exemple project : [wcs/example/src/fonts/icons](https://gitlab.com/SNCF/wcs/-/tree/master/example/src/assets/fonts/icons)
 * Add the font faces in your `styles.scss` or `styles.css` :
 
 ```css
 /* styles.scss */
 
-@import '../../dist/wcs/wcs.css'; // added previously
+@import '~wcs-core/dist/wcs/wcs.css'; // added previously
 
 body {
   margin: 0;
@@ -95,35 +97,35 @@ body {
 
 @font-face {
   font-family: Avenir;
-  src: url("../../src/assets/fonts/avenir-lighter.woff");
+  src: url("assets/fonts/avenir-lighter.woff");
   font-weight: 300;
 }
 
 @font-face {
   font-family: Avenir;
-  src: url("../../src/assets/fonts/avenir-book.woff");
+  src: url("assets/fonts/avenir-book.woff");
   font-weight: 400;
 }
 
 @font-face {
   font-family: Avenir;
-  src: url("../../src/assets/fonts/avenir-medium.woff");
+  src: url("assets/fonts/avenir-medium.woff");
   font-weight: 500;
 }
 
 @font-face {
   font-family: Avenir;
-  src: url("../../src/assets/fonts/avenir-black.woff");
+  src: url("assets/fonts/avenir-black.woff");
   font-weight: 900;
 }
 
 @font-face {
     font-family: "icons";
-    src: url("../../src/assets/fonts/icons/icons.eot?#iefix") format("embedded-opentype"),
-    url("../../src/assets/fonts/icons/icons.woff2") format("woff2"),
-    url("../../src/assets/fonts/icons/icons.woff") format("woff"),
-    url("../../src/assets/fonts/icons/icons.ttf") format("truetype"),
-    url("../../src/assets/fonts/icons/icons.svg#icons") format("svg");
+    src: url("assets/fonts/icons/icons.eot?#iefix") format("embedded-opentype"),
+    url("assets/fonts/icons/icons.woff2") format("woff2"),
+    url("assets/fonts/icons/icons.woff") format("woff"),
+    url("assets/fonts/icons/icons.ttf") format("truetype"),
+    url("assets/fonts/icons/icons.svg#icons") format("svg");
 }
 
 /* Include material icons fonts */
