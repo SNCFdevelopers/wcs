@@ -1,0 +1,320 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Documentation/Template" />
+
+# Templates
+
+## Base stylesheet
+
+Whether you use the business or communication system design, a whole set of rules are commons : concerning spacing, colors, typography, links, etc.
+
+You can therefore initialize your stylesheet with the following properties in order to benefit from an application that will respect the recommendations of the SNCF group's design system team.
+
+```scss
+/** base */
+body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    background-color: var(--wcs-white);
+    color: var(--wcs-gray);
+}
+
+html, body {
+    height: 100%;
+}
+
+/** fonts */
+html, body, h1, h2, h3, h4, h5 {
+    font-family: var(--wcs-font-sans-serif);
+    color: var(--wcs-gray);
+}
+
+h2 {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.link {
+    color: var(--wcs-primary);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+
+    &:hover {
+        color: #0074af;
+    }
+}
+```
+
+## Business Design System
+
+Here are the two different layouts of the business system design depending on whether it is display on a PC or a mobile.
+
+```
+>                             PC                                             Mobile       <
+┌───────────────────────────────────────────────────────────────┐    ┌────────────────────┐
+│                            header                             │    │       header       │
+├─────┬─────────────────────────────────────────────────────────┤    ├────────────────────┤
+│     │                        action-bar                       │    │     action-bar     │
+│     ├─────────────────────────────────────────────────────────┤    ├────────────────────┤
+│     │                                                         │    │                    │
+│     │                                                         │    │                    │
+│     │                                                         │    │  your application  │
+│ nav │                    your application                     │    │      content       │
+│     │                        content                          │    │                    │
+│     │                                                         │    │                    │
+│     │                                                         │    ├────────────────────┤
+│     │                                                         │    │         nav        │
+└─────┴─────────────────────────────────────────────────────────┘    └────────────────────┘
+```
+
+To implement this layout we recommend the use of CSS grid which will allow to manage the displacement of the elements at the change of the screen format and which allows an easy maintenance.
+
+
+### Init the template in an Angular App
+
+To implement the template we will use 4 components:
+- The app component, which will be responsible for managing the overall layout of the app
+- The app-header component, which wrap the wcs-header component
+- The app-nav component, which wrap the wcs navbar
+- The router-outlet, which will contain the different views of our application. These views will then manage their own action bar instance (because action-bar often contain actions or data related to the context of the page it is wiser to let them instantiate as close to the business as possible and avoiding too much communication between components).
+
+
+Here is a suggested implementation for the CSS grid within your main component. The media query is used to manage the layout transition to the mobile version.
+
+```ts
+@Component({
+  selector: 'app-root',
+  template: `
+    <app-header></app-header>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+    <app-navbar></app-navbar>
+  `,
+  styles: [`
+    :host {
+      display: grid;
+      grid-template-areas: "header header" "nav    content";
+      grid-template-columns: min-content 1fr;
+    }
+    app-header {
+      grid-area: header;
+    }
+    app-navbar {
+      grid-area: nav;
+      height: calc(100vh - 64px);
+    }
+    .content {
+      grid-area: content;
+      height: calc(100vh - 64px);
+      overflow-x: auto;
+    }
+
+    @media screen and (max-width: 1199px) {
+      :host {
+        grid-template-areas: "header" "content" "nav";
+        grid-template-columns: 1fr;
+      }
+      .content {
+        height: calc(100vh - 64px - 54px);
+        max-width: 100vw;
+      }
+      app-navbar {
+        height: initial;
+      }
+    }
+  `]
+})
+export class AppComponent {
+ ...
+}
+```
+Now, we can create the header component :
+
+This Angular template displays a header for your app with a logo, title, and actions based on whether the user is logged in or not.
+
+```ts
+@Component({
+  selector: 'app-header',
+  template: `
+    <wcs-header>
+      <img slot="logo" src="./assets/sncf-logo.png" alt="Logo SNCF">
+      <h1 slot="title">Your Application Name</h1>
+      <div slot="actions" class="flex-center">
+        <ng-container *ngIf="(isLoggedIn | async); then headerConnected; else headerNotConnected"></ng-container>
+
+        <ng-template #headerNotConnected>
+          <wcs-button class="wcs-light" mode="clear" (click)="login()"><span>Connexion</span>
+            <i class="material-icons vertical-align-icon">person_outline</i>
+          </wcs-button>
+        </ng-template>
+
+        <ng-template #headerConnected>
+          <wcs-dropdown class="wcs-light" mode="clear">
+            <div slot="placeholder"><span>{{userName}} </span>
+              <i class="material-icons vertical-align-icon">person_outline</i>
+            </div>
+            <wcs-dropdown-item (wcsDropdownItemClick)="logout()"><span>Déconnexion</span>
+            </wcs-dropdown-item>
+          </wcs-dropdown>
+        </ng-template>
+      </div>
+    </wcs-header>
+  `,
+  styles: [`
+      div[slot="placeholder"] {
+        display: flex;
+      }
+      wcs-button {
+        margin-left: 1em;
+      }
+  `]
+})
+export class HeaderComponent {
+
+  public readonly isLoggedIn: Promise<boolean> = ...
+  public userName: string;
+
+
+  public constructor() { }
+
+  public async login(): Promise<void> {
+    ...
+  }
+
+  public async logout(): Promise<void> {
+    ...
+  }
+
+}
+```
+
+Now, lets create the navbar component. It contains the navigation bar of your project and an about modal to display the technical and juridical infos.
+
+```ts
+@Component({
+  selector: 'app-navbar',
+  template: `
+    <wcs-modal [showCloseButton]="true" [show]="showAboutModal" (wcsDialogClosed)="showAboutModal = false">
+        <div slot="header">
+                <span>À propos de VOTRE NOM D'APPLICATION</span>
+        </div>
+        <!-- your about modal content (CGU, version, etc...) s-->
+    </wcs-modal>
+    <wcs-nav class="nav">
+      <wcs-nav-item id="home" text="Accueil" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <i class="material-icons">home</i>
+      </wcs-nav-item>
+      <wcs-nav-item id="other" text="Autre" routerLink="/other" routerLinkActive="active">
+        <i class="material-icons">other</i>
+      </wcs-nav-item>
+      <wcs-nav-item id="about" slot="bottom" text="A propos" (click)="showAboutModal = true">
+        <i class="material-icons">help</i>
+      </wcs-nav-item>
+    </wcs-nav>
+  `,
+  styles: []
+})
+export class NavbarComponent {
+  showAboutModal: boolean = false;
+  ...
+}
+```
+
+## Communication Design System
+
+```
+  >                         Galactic bar
+  ┌───────────────────────────────────────────────────────────────┐
+  ├───────────────────────────────────────────────────────────────┤
+  │                           Nav bar                             │
+  ├───────────────────────────────────────────────────────────────┤
+  │                                                               │
+  │                                                               │
+  │                                                               │
+  │                           Content                             │
+  │                                                               │
+  │                                                               │
+  ├───────────────────────────────────────────────────────────────┤
+  │                                                               │
+  │                           Footer                              │
+  └───────────────────────────────────────────────────────────────┘
+```
+
+### Init the template in an Angular App
+
+We will use 3 components:
+- The app component, which will be responsible for managing the overall layout of the app, the galactic bar and footer
+- The app-nav component, which wrap the wcs navbar
+- The router-outlet, which will contain the different views of our application.
+
+Here is a suggested implementation for the flex display of all the elements for app component
+
+```ts
+@Component({
+  selector: 'app-root',
+  template: `
+    <wcs-galactic>
+        ...
+    </wcs-galactic>
+    <app-nav></app-nav>
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div>
+    <wcs-footer>
+      ...
+    </wcs-footer>
+  `,
+  styles: [`
+    :host {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .container {
+      width: var(--wcs-com-content-max-width);
+      margin: 0px auto;
+      flex-grow: 1;
+    }
+  `]
+})
+export class AppComponent {
+ ...
+}
+```
+
+Finally, the app-nav component
+
+```ts
+@Component({
+  selector: 'app-nav',
+  template: `
+    <wcs-com-nav appName="MON APPLICATION">
+        <wcs-com-nav-submenu label="Domaine" panelTitle="Title" panelDescription="description">
+            <a routerLink="...">
+              Un lien
+            </a>
+            <a routerLink="...">
+              Un autre lien
+            </a>
+        </wcs-com-nav-submenu>
+        <div slot="actions">
+            Show user connected or connexion
+        </div>
+    </wcs-com-nav>
+  `
+})
+export class AppNav {
+ ...
+}
+```
+
+
