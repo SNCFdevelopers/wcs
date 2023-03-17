@@ -2,6 +2,8 @@ import { Meta, StoryFn, StoryObj } from '@storybook/web-components';
 // @ts-ignore
 import test from './accordion-panel.mdx';
 import { html } from 'lit-html';
+// @ts-ignore
+import { withActions } from '@storybook/addon-actions/decorator';
 
 const meta: Meta = {
     title: 'Components/Accordion',
@@ -17,7 +19,8 @@ const meta: Meta = {
         WcsAccordionContent: 'wcs-accordion-content',
         WcsAccordionHeader: 'wcs-accordion-header',
         WcsAccordionPanel: 'wcs-accordion-panel',
-    }
+    },
+    decorators: [withActions]
 };
 export default meta;
 

@@ -4,6 +4,8 @@ import { WcsButtonMode, WcsButtonShape } from '../../../src/components/button/bu
 // @ts-ignore
 import dropdownDocumentation from './dropdown-documentation.md'
 import { WcsDropdownPlacement } from '../../../src/components/dropdown/dropdown-interface';
+// @ts-ignore
+import { withActions } from '@storybook/addon-actions/decorator';
 
 const meta: Meta = {
     title: 'Components/Dropdown',
@@ -24,7 +26,8 @@ const meta: Meta = {
         'WcsDropdownItem': 'wcs-dropdown-item',
         'WcsDropdownHeader': 'wcs-dropdown-header',
         'WcsDropdownDivider': 'wcs-dropdown-divider',
-    }
+    },
+    decorators: [withActions]
 };
 export default meta;
 

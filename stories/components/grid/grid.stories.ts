@@ -8,6 +8,8 @@ import cellStylingStoryDocumentation from './cell-styling-story-documentation.md
 import hiddenColumnStoryDocumentation from './hiddenColumnStoryDocumentation.md';
 // @ts-ignore
 import multiSelectionStoryDocumentation from './multi-selection-story-documentation.md';
+// @ts-ignore
+import { withActions } from '@storybook/addon-actions/decorator';
 import {
     WcsCellFormatter, WcsGridColumnSortChangeEventDetails,
     WcsGridPaginationChangeEventDetails,
@@ -47,7 +49,8 @@ const meta: Meta = {
         'WcsGridColumn': 'wcs-grid-column',
         'WcsGridPagination': 'wcs-grid-pagination',
         'WcsGridCustomCell': 'wcs-grid-custom-cell',
-    }
+    },
+    decorators: [withActions]
 };
 export default meta;
 

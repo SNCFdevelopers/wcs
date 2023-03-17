@@ -3,6 +3,8 @@ import { html } from 'lit-html';
 // @ts-ignore
 import radioGroupDocumentation from './radio-group-documentation.md'
 import { RadioGroupMode } from '../../../src/components/radio-group/radio-group-interface';
+// @ts-ignore
+import { withActions } from '@storybook/addon-actions/decorator';
 
 const meta: Meta = {
     title: 'Components/Radio-group',
@@ -21,7 +23,8 @@ const meta: Meta = {
     },
     subcomponents: {
         'WcsRadio': 'wcs-radio'
-    }
+    },
+    decorators: [withActions]
 };
 export default meta;
 

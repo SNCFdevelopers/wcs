@@ -8,6 +8,9 @@ import {
 import { createRef, ref } from 'lit-html/directives/ref.js';
 import { HorizontalStepper } from '../../../src/components/horizontal-stepper/horizontal-stepper';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
+// @ts-ignore
+import { withActions } from '@storybook/addon-actions/decorator';
+
 
 const meta: Meta = {
     title: 'Components/HorizontalStepper',
@@ -18,7 +21,8 @@ const meta: Meta = {
                 'wcsHorizontalStepClick'
             ]
         },
-    }
+    },
+    decorators: [withActions]
 };
 export default meta;
 

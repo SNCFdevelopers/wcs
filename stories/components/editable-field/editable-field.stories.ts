@@ -4,6 +4,8 @@ import { EditableFieldType, FormatFn, ValidateFn } from '../../../src/components
 // @ts-ignore
 import editableFieldDocumentation from './editable-field-documentation.md'
 import { ifDefined } from 'lit-html/directives/if-defined.js';
+// @ts-ignore
+import { withActions } from '@storybook/addon-actions/decorator';
 
 const meta: Meta = {
     title: 'Components/Editable-field',
@@ -19,7 +21,8 @@ const meta: Meta = {
                 component: editableFieldDocumentation
             }
         }
-    }
+    },
+    decorators: [withActions]
 };
 export default meta;
 

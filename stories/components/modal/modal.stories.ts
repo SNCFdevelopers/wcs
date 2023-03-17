@@ -3,6 +3,8 @@ import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { createRef, ref } from 'lit-html/directives/ref.js';
 import { ModalSize } from '../../../src/components/modal/modal-interface';
 import { html } from 'lit-html';
+// @ts-ignore
+import { withActions } from '@storybook/addon-actions/decorator';
 
 const meta: Meta = {
     title: 'Components/Modal',
@@ -13,7 +15,8 @@ const meta: Meta = {
                 'wcsDialogClosed',
             ]
         }
-    }
+    },
+    decorators: [withActions]
 };
 
 export default meta;

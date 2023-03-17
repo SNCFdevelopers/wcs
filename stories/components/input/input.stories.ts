@@ -1,6 +1,8 @@
 import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { TextFieldTypes } from '../../../src/components/input/input-interface';
+// @ts-ignore
+import { withActions } from '@storybook/addon-actions/decorator';
 
 const meta: Meta = {
     title: 'Components/Input',
@@ -14,7 +16,8 @@ const meta: Meta = {
                 'wcsInput'
             ]
         }
-    }
+    },
+    decorators: [withActions]
 };
 export default meta;
 

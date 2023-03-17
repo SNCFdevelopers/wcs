@@ -1,6 +1,8 @@
 import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { SwitchLabelAlignment } from '../../../src/components/switch/switch-interface';
+// @ts-ignore
+import { withActions } from '@storybook/addon-actions/decorator';
 
 const meta: Meta = {
     title: 'Components/Switch',
@@ -12,6 +14,7 @@ const meta: Meta = {
             ]
         }
     },
+    decorators: [withActions]
 };
 
 export default meta;
