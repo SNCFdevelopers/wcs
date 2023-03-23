@@ -16,6 +16,7 @@
 
 ### Used by
 
+ - [wcs-counter](../counter)
  - [wcs-editable-field](../editable-field)
  - [wcs-galactic-menu](../galactic-menu)
  - [wcs-horizontal-stepper](../horizontal-stepper)
@@ -26,6 +27,7 @@
 ### Graph
 ```mermaid
 graph TD;
+  wcs-counter --> wcs-mat-icon
   wcs-editable-field --> wcs-mat-icon
   wcs-galactic-menu --> wcs-mat-icon
   wcs-horizontal-stepper --> wcs-mat-icon

@@ -347,6 +347,36 @@ Used by the com-nav component to close the mobile menu overlay when a user click
 
 
 @ProxyCmp({
+  inputs: ['label', 'max', 'min', 'size', 'step', 'value']
+})
+@Component({
+  selector: 'wcs-counter',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['label', 'max', 'min', 'size', 'step', 'value'],
+})
+export class WcsCounter {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['wcsChange']);
+  }
+}
+
+
+import type { CounterChangeEventDetail as IWcsCounterCounterChangeEventDetail } from 'wcs-core';
+
+export declare interface WcsCounter extends Components.WcsCounter {
+  /**
+   * Emitted when the value of the counter has changed.
+   */
+  wcsChange: EventEmitter<CustomEvent<IWcsCounterCounterChangeEventDetail>>;
+}
+
+
+@ProxyCmp({
 })
 @Component({
   selector: 'wcs-divider',

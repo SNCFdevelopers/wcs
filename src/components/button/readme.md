@@ -26,6 +26,7 @@ Button component, can also be a link when specifying href.
 
 ### Used by
 
+ - [wcs-counter](../counter)
  - [wcs-dropdown](../dropdown)
  - [wcs-horizontal-stepper](../horizontal-stepper)
  - [wcs-modal](../modal)
@@ -38,6 +39,7 @@ Button component, can also be a link when specifying href.
 ```mermaid
 graph TD;
   wcs-button --> wcs-spinner
+  wcs-counter --> wcs-button
   wcs-dropdown --> wcs-button
   wcs-horizontal-stepper --> wcs-button
   wcs-modal --> wcs-button

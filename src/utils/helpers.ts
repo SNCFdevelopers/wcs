@@ -109,3 +109,19 @@ export function isSpaceKey(evt: KeyboardEvent) {
 export function isEnterKey(evt: KeyboardEvent) {
     return evt.key === 'Enter';
 }
+
+export function isPageupKey(evt: KeyboardEvent) {
+    return evt.code === 'PageUp';
+}
+
+export function isPagedownKey(evt: KeyboardEvent) {
+    return evt.code === 'PageDown';
+}
+
+export function isHomeKey(evt: KeyboardEvent) {
+    return evt.code === 'Home';
+}
+
+export function isEndKey(evt: KeyboardEvent) {
+    return evt.code === 'End';
+}

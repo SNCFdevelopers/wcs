@@ -5,6 +5,7 @@ import { CheckboxValueAccessorDirective } from './directives/checkbox-value-acce
 import { SwitchValueAccessorDirective } from './directives/switch-value-accessor.directive';
 import { InputValueAccessorDirective } from './directives/input-value-accessor.directive';
 import { TextareaValueAccessorDirective } from './directives/textarea-value-accessor.directive';
+import { CounterValueAccessorDirective } from './directives/counter-value-accessor.directive';
 import {
   WcsAccordion, WcsAccordionContent, WcsAccordionHeader, WcsAccordionPanel,
   WcsActionBar,
@@ -17,6 +18,7 @@ import {
   WcsComNav,
   WcsComNavCategory,
   WcsComNavSubmenu,
+  WcsCounter,
   WcsDivider,
   WcsDropdown, WcsDropdownDivider, WcsDropdownHeader,
   WcsDropdownItem,
@@ -74,6 +76,7 @@ const DECLARATIONS = [
   WcsComNav,
   WcsComNavCategory,
   WcsComNavSubmenu,
+  WcsCounter,
   WcsDivider,
   WcsDropdown,
   WcsDropdownDivider,
@@ -123,7 +126,8 @@ const DECLARATIONS = [
   SelectValueAccessor,
   RadioGroupValueAccessor,
   CheckboxValueAccessorDirective,
-  SwitchValueAccessorDirective
+  SwitchValueAccessorDirective,
+  CounterValueAccessorDirective,
 ];
 
 @NgModule({

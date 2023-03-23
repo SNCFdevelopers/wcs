@@ -18,6 +18,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **ci**: add the ability to deploy any branch on a dedicated environment
 - **textarea**: add the property `resize` with the folowing options : `none`, `both`, `horizontal`, `vertical`
 - **textarea**: the `max-height` style property is now defined by the `--wcs-textarea-max-height` css-variable 
+- **counter**: add new Counter component (for small countable number values)
 
 ### Changed
 

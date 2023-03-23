@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-08-04T08:34:40",
+  "timestamp": "2023-08-04T09:57:23",
   "compiler": {
     "name": "@stencil/core",
     "version": "3.0.0",
@@ -561,6 +561,7 @@
       "slots": [],
       "parts": [],
       "dependents": [
+        "wcs-counter",
         "wcs-dropdown",
         "wcs-horizontal-stepper",
         "wcs-modal"
@@ -571,6 +572,9 @@
       "dependencyGraph": {
         "wcs-button": [
           "wcs-spinner"
+        ],
+        "wcs-counter": [
+          "wcs-button"
         ],
         "wcs-dropdown": [
           "wcs-button"
@@ -1049,6 +1053,150 @@
       "dependents": [],
       "dependencies": [],
       "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/counter/counter.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-counter",
+      "readme": "# Input\r\n\r",
+      "docs": "Counter component, meant to be used for small range of values (e.g : 0 - 5).<br>\r\nFor larger or specific ranges, please use <a href=\".?path=/docs/components-input--documentation\">wcs-input (type number)</a>",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "The label of the counter.<br/>\r\ne.g. Number of passengers, train carriages, railroad tracks...",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "max",
+          "type": "number",
+          "mutable": true,
+          "attr": "max",
+          "reflectToAttr": false,
+          "docs": "The maximum value of the counter.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "min",
+          "type": "number",
+          "mutable": true,
+          "attr": "min",
+          "reflectToAttr": false,
+          "docs": "The minimum value of the counter.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "\"l\" | \"m\"",
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": true,
+          "docs": "Specify the size (height) of the counter.",
+          "docsTags": [],
+          "default": "'m'",
+          "values": [
+            {
+              "value": "l",
+              "type": "string"
+            },
+            {
+              "value": "m",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "step",
+          "type": "number",
+          "mutable": true,
+          "attr": "step",
+          "reflectToAttr": false,
+          "docs": "Defines by how much the counter will be incremented or decremented.",
+          "docsTags": [],
+          "default": "1",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "mutable": true,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "The current value of the counter.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": true
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "wcsChange",
+          "detail": "CounterChangeEventDetail",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the value of the counter has changed.",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "wcs-button",
+        "wcs-mat-icon"
+      ],
+      "dependencyGraph": {
+        "wcs-counter": [
+          "wcs-button",
+          "wcs-mat-icon"
+        ],
+        "wcs-button": [
+          "wcs-spinner"
+        ]
+      }
     },
     {
       "filePath": "./src/components/divider/divider.tsx",
@@ -3860,6 +4008,7 @@
       "slots": [],
       "parts": [],
       "dependents": [
+        "wcs-counter",
         "wcs-editable-field",
         "wcs-galactic-menu",
         "wcs-horizontal-stepper",
@@ -3869,6 +4018,9 @@
       ],
       "dependencies": [],
       "dependencyGraph": {
+        "wcs-counter": [
+          "wcs-mat-icon"
+        ],
         "wcs-editable-field": [
           "wcs-mat-icon"
         ],

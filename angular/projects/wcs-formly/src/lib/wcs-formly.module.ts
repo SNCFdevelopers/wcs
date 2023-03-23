@@ -12,6 +12,7 @@ import { FormlyWcsFieldCheckboxComponent } from './formly-wcs-field-checkbox.com
 import { FormlyWcsFieldSwitchComponent } from './formly-wcs-field-switch.component';
 import { FormlyWcsFieldWrapperComponent } from './formly-wcs-field-wrapper.component';
 import { FormlyWcsBooleanFieldWrapperComponent } from './formly-wcs-boolean-field-wrapper.component';
+import { FormlyWcsFieldCounterComponent } from './formly-wcs-field-counter.component';
 import { WcsFormlyOptionsPipe } from './pipes/wcs-formly-options.pipe';
 
 
@@ -25,7 +26,8 @@ import { WcsFormlyOptionsPipe } from './pipes/wcs-formly-options.pipe';
     FormlyWcsFieldSwitchComponent,
     FormlyWcsFieldWrapperComponent,
     FormlyWcsBooleanFieldWrapperComponent,
-    WcsFormlyOptionsPipe
+    FormlyWcsFieldCounterComponent,
+    WcsFormlyOptionsPipe,
   ],
   imports: [
     FormlySelectModule,
@@ -75,6 +77,10 @@ import { WcsFormlyOptionsPipe } from './pipes/wcs-formly-options.pipe';
         {
           name: 'switch',
           component: FormlyWcsFieldSwitchComponent,
+        },
+        {
+          name: 'counter',
+          component: FormlyWcsFieldCounterComponent,
         }
       ],
     }),
@@ -88,7 +94,8 @@ import { WcsFormlyOptionsPipe } from './pipes/wcs-formly-options.pipe';
     FormlyWcsFieldCheckboxComponent,
     FormlyWcsFieldSwitchComponent,
     FormlyWcsFieldWrapperComponent,
-    FormlyWcsBooleanFieldWrapperComponent
+    FormlyWcsBooleanFieldWrapperComponent,
+    FormlyWcsFieldCounterComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

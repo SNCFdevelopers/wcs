@@ -16,6 +16,7 @@ import { FormlyStylingExampleComponent } from './formly-example/formly-styling-e
 import { ModalExampleComponent } from './modal-example/modal-example.component';
 import { FormlyInputExamplesComponent } from './formly-example/formly-input-examples.component';
 import { GridServerPaginationExampleComponent } from './grid-example/grid-server-pagination-example.component';
+import { CounterExampleComponent } from './counter-example/counter-example.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { GridServerPaginationExampleComponent } from './grid-example/grid-server
     FormlyExampleComponent,
     FormlyStylingExampleComponent,
     ModalExampleComponent,
-    FormlyInputExamplesComponent
+    FormlyInputExamplesComponent,
+    CounterExampleComponent
   ],
   imports: [
     BrowserModule,

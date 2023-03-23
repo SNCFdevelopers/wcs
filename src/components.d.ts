@@ -10,6 +10,7 @@ import { WcsButtonMode, WcsButtonShape, WcsButtonSize, WcsButtonType } from "./c
 import { CardMode } from "./components/card/card-interface";
 import { CheckboxChangeEventDetail, CheckboxLabelAlignment } from "./components/checkbox/checkbox-interface";
 import { CategoryOpenedEventDetail, MenuOpenedEventDetail } from "./components/com-nav/com-nav-interface";
+import { CounterChangeEventDetail, WcsCounterSize } from "./components/counter/counter-interface";
 import { WcsDropdownPlacement } from "./components/dropdown/dropdown-interface";
 import { EditableComponentUpdateEvent, EditableFieldType, FormatFn, ValidateFn, WcsEditableFieldSize } from "./components/editable-field/editable-field-interface";
 import { WcsCellFormatter, WcsGridAllRowSelectedEventDetails, WcsGridColumnSortChangeEventDetails, WcsGridPaginationChangeEventDetails, WcsGridRowSelectedEventDetails, WcsGridSelectionConfig, WcsSortFn, WcsSortOrder } from "./components/grid/grid-interface";
@@ -31,6 +32,7 @@ export { WcsButtonMode, WcsButtonShape, WcsButtonSize, WcsButtonType } from "./c
 export { CardMode } from "./components/card/card-interface";
 export { CheckboxChangeEventDetail, CheckboxLabelAlignment } from "./components/checkbox/checkbox-interface";
 export { CategoryOpenedEventDetail, MenuOpenedEventDetail } from "./components/com-nav/com-nav-interface";
+export { CounterChangeEventDetail, WcsCounterSize } from "./components/counter/counter-interface";
 export { WcsDropdownPlacement } from "./components/dropdown/dropdown-interface";
 export { EditableComponentUpdateEvent, EditableFieldType, FormatFn, ValidateFn, WcsEditableFieldSize } from "./components/editable-field/editable-field-interface";
 export { WcsCellFormatter, WcsGridAllRowSelectedEventDetails, WcsGridColumnSortChangeEventDetails, WcsGridPaginationChangeEventDetails, WcsGridRowSelectedEventDetails, WcsGridSelectionConfig, WcsSortFn, WcsSortOrder } from "./components/grid/grid-interface";
@@ -194,6 +196,36 @@ export namespace Components {
         "open": () => Promise<void>;
         "panelDescription": string;
         "panelTitle": string;
+    }
+    /**
+     * Counter component, meant to be used for small range of values (e.g : 0 - 5).<br>
+     * For larger or specific ranges, please use <a href=".?path=/docs/components-input--documentation">wcs-input (type number)</a>
+     */
+    interface WcsCounter {
+        /**
+          * The label of the counter.<br/> e.g. Number of passengers, train carriages, railroad tracks...
+         */
+        "label": string;
+        /**
+          * The maximum value of the counter.
+         */
+        "max": number;
+        /**
+          * The minimum value of the counter.
+         */
+        "min": number;
+        /**
+          * Specify the size (height) of the counter.
+         */
+        "size": WcsCounterSize;
+        /**
+          * Defines by how much the counter will be incremented or decremented.
+         */
+        "step": number;
+        /**
+          * The current value of the counter.
+         */
+        "value": number;
     }
     interface WcsDivider {
     }
@@ -957,6 +989,10 @@ export interface WcsComNavSubmenuCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLWcsComNavSubmenuElement;
 }
+export interface WcsCounterCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLWcsCounterElement;
+}
 export interface WcsDropdownItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLWcsDropdownItemElement;
@@ -1108,6 +1144,16 @@ declare global {
     var HTMLWcsComNavSubmenuElement: {
         prototype: HTMLWcsComNavSubmenuElement;
         new (): HTMLWcsComNavSubmenuElement;
+    };
+    /**
+     * Counter component, meant to be used for small range of values (e.g : 0 - 5).<br>
+     * For larger or specific ranges, please use <a href=".?path=/docs/components-input--documentation">wcs-input (type number)</a>
+     */
+    interface HTMLWcsCounterElement extends Components.WcsCounter, HTMLStencilElement {
+    }
+    var HTMLWcsCounterElement: {
+        prototype: HTMLWcsCounterElement;
+        new (): HTMLWcsCounterElement;
     };
     interface HTMLWcsDividerElement extends Components.WcsDivider, HTMLStencilElement {
     }
@@ -1427,6 +1473,7 @@ declare global {
         "wcs-com-nav": HTMLWcsComNavElement;
         "wcs-com-nav-category": HTMLWcsComNavCategoryElement;
         "wcs-com-nav-submenu": HTMLWcsComNavSubmenuElement;
+        "wcs-counter": HTMLWcsCounterElement;
         "wcs-divider": HTMLWcsDividerElement;
         "wcs-dropdown": HTMLWcsDropdownElement;
         "wcs-dropdown-divider": HTMLWcsDropdownDividerElement;
@@ -1614,6 +1661,40 @@ declare namespace LocalJSX {
         "onWcsSubmenuOpened"?: (event: WcsComNavSubmenuCustomEvent<MenuOpenedEventDetail>) => void;
         "panelDescription"?: string;
         "panelTitle"?: string;
+    }
+    /**
+     * Counter component, meant to be used for small range of values (e.g : 0 - 5).<br>
+     * For larger or specific ranges, please use <a href=".?path=/docs/components-input--documentation">wcs-input (type number)</a>
+     */
+    interface WcsCounter {
+        /**
+          * The label of the counter.<br/> e.g. Number of passengers, train carriages, railroad tracks...
+         */
+        "label": string;
+        /**
+          * The maximum value of the counter.
+         */
+        "max"?: number;
+        /**
+          * The minimum value of the counter.
+         */
+        "min"?: number;
+        /**
+          * Emitted when the value of the counter has changed.
+         */
+        "onWcsChange"?: (event: WcsCounterCustomEvent<CounterChangeEventDetail>) => void;
+        /**
+          * Specify the size (height) of the counter.
+         */
+        "size"?: WcsCounterSize;
+        /**
+          * Defines by how much the counter will be incremented or decremented.
+         */
+        "step"?: number;
+        /**
+          * The current value of the counter.
+         */
+        "value": number;
     }
     interface WcsDivider {
     }
@@ -2409,6 +2490,7 @@ declare namespace LocalJSX {
         "wcs-com-nav": WcsComNav;
         "wcs-com-nav-category": WcsComNavCategory;
         "wcs-com-nav-submenu": WcsComNavSubmenu;
+        "wcs-counter": WcsCounter;
         "wcs-divider": WcsDivider;
         "wcs-dropdown": WcsDropdown;
         "wcs-dropdown-divider": WcsDropdownDivider;
@@ -2475,6 +2557,11 @@ declare module "@stencil/core" {
             "wcs-com-nav": LocalJSX.WcsComNav & JSXBase.HTMLAttributes<HTMLWcsComNavElement>;
             "wcs-com-nav-category": LocalJSX.WcsComNavCategory & JSXBase.HTMLAttributes<HTMLWcsComNavCategoryElement>;
             "wcs-com-nav-submenu": LocalJSX.WcsComNavSubmenu & JSXBase.HTMLAttributes<HTMLWcsComNavSubmenuElement>;
+            /**
+             * Counter component, meant to be used for small range of values (e.g : 0 - 5).<br>
+             * For larger or specific ranges, please use <a href=".?path=/docs/components-input--documentation">wcs-input (type number)</a>
+             */
+            "wcs-counter": LocalJSX.WcsCounter & JSXBase.HTMLAttributes<HTMLWcsCounterElement>;
             "wcs-divider": LocalJSX.WcsDivider & JSXBase.HTMLAttributes<HTMLWcsDividerElement>;
             "wcs-dropdown": LocalJSX.WcsDropdown & JSXBase.HTMLAttributes<HTMLWcsDropdownElement>;
             "wcs-dropdown-divider": LocalJSX.WcsDropdownDivider & JSXBase.HTMLAttributes<HTMLWcsDropdownDividerElement>;
