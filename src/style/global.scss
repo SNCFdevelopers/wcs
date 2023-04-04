@@ -37,11 +37,12 @@
     --wcs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --wcs-font-weight-form-value: 500;
 
-    // Other properties
-    --wcs-border-radius: 8px;
-    --wcs-padding: 16px;
-    --wcs-base-margin: 8px;
-    --wcs-text-padding: 8px;
+    // Sizes
+    --wcs-base-size: 8px;
+    --wcs-border-radius: var(--wcs-base-size);
+    --wcs-padding: calc(2 * var(--wcs-base-size));
+    --wcs-base-margin: var(--wcs-base-size);
+    --wcs-text-padding: var(--wcs-base-size);
     --wcs-com-content-max-width: 1024px;
     // TODO: Should be moved in wcs-tabs
     --wcs-tabs-headers-border-bottom: 1px solid #ebebeb;
