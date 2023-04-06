@@ -130,6 +130,13 @@ npm run test:watch
 npm test
 ```
 
+To launch a specific suite of tests you can simply launch
+```sh
+npm run test:e2e path_to_tests_file
+# Example: you must be at the root of the project
+npm run test:e2e src/components/tabs/tabs.e2e.ts
+```
+
 ### Doing a release
 
 Don't forget to update the changelog.

@@ -22,6 +22,7 @@
         "start": "concurrently --names \"Stencil,Storybook\" -c \"bgBlue.bold,bgMagenta.bold\" \"stencil build --dev --watch\" \"npm run storybook\"",
         "test": "stencil test --spec --e2e",
         "test:watch": "stencil test --spec --e2e --watchAll",
+        "test:e2e": "stencil test --e2e",
         "update-version": "node scripts/update-version.js",
         "update-develop": "node scripts/update-develop-from-master.js",
         "storybook": "storybook dev -p 6006",
