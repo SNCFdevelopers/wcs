@@ -379,6 +379,21 @@
     },
     {
       "kind": "javascript-module",
+      "path": "index.ts",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./components"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "utils/accessibility.ts",
       "declarations": [
         {
@@ -800,167 +815,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/accordion/accordion.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Accordion",
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsAccordionElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "accordionPanels",
-              "type": {
-                "text": "HTMLWcsAccordionPanelElement[]"
-              },
-              "privacy": "private",
-              "default": "[]"
-            },
-            {
-              "kind": "field",
-              "name": "hideActionText",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Specifies whether accordion-panel components should display the open/close text.\r\nif false, it won't show the open/close text in all accordion-panel."
-            },
-            {
-              "kind": "field",
-              "name": "highlight",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Specifies whether accordion-panel components should highlight when open with primary color.\r\nif true, the background color of the accordion-panel will be the primary color.\r\nif false, the background color of the accordion-panel will be wcs-light."
-            },
-            {
-              "kind": "field",
-              "name": "groupContentWithHeader",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Specifies wether accordion-panel components should group the content with header in one card\r\nif true, there will be only one card with the header and the content\r\nNothing change when the panel is close"
-            },
-            {
-              "kind": "method",
-              "name": "wcsOpenChangeHandler",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "CustomEvent<boolean>"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "updateHideActiontextOnPanel",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "updateHighlightOnPanel",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "updateGroupContentWithHeader",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            },
-            {
-              "kind": "method",
-              "name": "getAllAccordionPanelsFromHostElement",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "HTMLWcsAccordionPanelElement[]"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "closeAllAccordionsExcept",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "eventTarget",
-                  "type": {
-                    "text": "EventTarget"
-                  }
-                }
-              ],
-              "description": "Close all accordion panels except the one that match the eventTarget reference"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "hide-action-text",
-              "fieldName": "hideActionText",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "highlight",
-              "fieldName": "highlight",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "group-content-with-header",
-              "fieldName": "groupContentWithHeader",
-              "type": {
-                "text": "boolean"
-              }
-            }
-          ],
-          "tagName": "wcs-accordion",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Accordion",
-          "declaration": {
-            "name": "Accordion",
-            "module": "components/accordion/accordion.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-accordion",
-          "declaration": {
-            "name": "Accordion",
-            "module": "components/accordion/accordion.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/accordion-content/accordion-content.tsx",
       "declarations": [
         {
@@ -1154,6 +1008,167 @@
           "declaration": {
             "name": "AccordionPanel",
             "module": "components/accordion-panel/accordion-panel.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/accordion/accordion.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Accordion",
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsAccordionElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "accordionPanels",
+              "type": {
+                "text": "HTMLWcsAccordionPanelElement[]"
+              },
+              "privacy": "private",
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "hideActionText",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Specifies whether accordion-panel components should display the open/close text.\r\nif false, it won't show the open/close text in all accordion-panel."
+            },
+            {
+              "kind": "field",
+              "name": "highlight",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Specifies whether accordion-panel components should highlight when open with primary color.\r\nif true, the background color of the accordion-panel will be the primary color.\r\nif false, the background color of the accordion-panel will be wcs-light."
+            },
+            {
+              "kind": "field",
+              "name": "groupContentWithHeader",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Specifies wether accordion-panel components should group the content with header in one card\r\nif true, there will be only one card with the header and the content\r\nNothing change when the panel is close"
+            },
+            {
+              "kind": "method",
+              "name": "wcsOpenChangeHandler",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "CustomEvent<boolean>"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "updateHideActiontextOnPanel",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "updateHighlightOnPanel",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "updateGroupContentWithHeader",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            },
+            {
+              "kind": "method",
+              "name": "getAllAccordionPanelsFromHostElement",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "HTMLWcsAccordionPanelElement[]"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "closeAllAccordionsExcept",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "eventTarget",
+                  "type": {
+                    "text": "EventTarget"
+                  }
+                }
+              ],
+              "description": "Close all accordion panels except the one that match the eventTarget reference"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "hide-action-text",
+              "fieldName": "hideActionText",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "highlight",
+              "fieldName": "highlight",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "group-content-with-header",
+              "fieldName": "groupContentWithHeader",
+              "type": {
+                "text": "boolean"
+              }
+            }
+          ],
+          "tagName": "wcs-accordion",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Accordion",
+          "declaration": {
+            "name": "Accordion",
+            "module": "components/accordion/accordion.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-accordion",
+          "declaration": {
+            "name": "Accordion",
+            "module": "components/accordion/accordion.tsx"
           }
         }
       ]
@@ -1807,167 +1822,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/com-nav/com-nav-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/com-nav/com-nav-utils.ts",
-      "declarations": [
-        {
-          "kind": "function",
-          "name": "registerCloseHandlerForFocusOutEventOn",
-          "return": {
-            "type": {
-              "text": "void"
-            }
-          },
-          "parameters": [
-            {
-              "name": "navigableItems",
-              "type": {
-                "text": "NodeListOf<Element>"
-              },
-              "description": "items on which focusout event listeners must be added"
-            },
-            {
-              "name": "nodeNameToClose",
-              "type": {
-                "text": "string"
-              },
-              "description": "nodeName of the element we want to close in the event path"
-            }
-          ],
-          "description": "This function add event handlers on the navigableItems list. The handlers call the function close() on the nodeName.\r\n\r\nT: type class of the nodeNameToClose param (must have a close function)"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "registerCloseHandlerForFocusOutEventOn",
-          "declaration": {
-            "name": "registerCloseHandlerForFocusOutEventOn",
-            "module": "components/com-nav/com-nav-utils.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/com-nav/com-nav.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "ComNav",
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsComNavElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "appName",
-              "type": {
-                "text": "string"
-              },
-              "description": "Name of the application to be displayed in the menu bar"
-            },
-            {
-              "kind": "field",
-              "name": "mobileMenuOpen",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "currentActiveSizing",
-              "type": {
-                "text": "'desktop' | 'mobile'"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "resizeObserver",
-              "type": {
-                "text": "ResizeObserver"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "hasAlreadyRegisteredClickHandlerOnSlottedLink",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "default": "false"
-            },
-            {
-              "kind": "method",
-              "name": "mobileMenuIconClick",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "registerHandlerToCloseMobileMenuOnClickOnSlottedLinkTag",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "onClickOnFinalAction"
-            },
-            {
-              "kind": "method",
-              "name": "onClickOnFinalActionCat"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "app-name",
-              "fieldName": "appName",
-              "type": {
-                "text": "string"
-              }
-            }
-          ],
-          "tagName": "wcs-com-nav",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ComNav",
-          "declaration": {
-            "name": "ComNav",
-            "module": "components/com-nav/com-nav.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-com-nav",
-          "declaration": {
-            "name": "ComNav",
-            "module": "components/com-nav/com-nav.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/com-nav-category/com-nav-category.tsx",
       "declarations": [
         {
@@ -2142,6 +1996,167 @@
           "declaration": {
             "name": "ComNavCategory",
             "module": "components/com-nav-category/com-nav-category.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/com-nav/com-nav-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/com-nav/com-nav-utils.ts",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "registerCloseHandlerForFocusOutEventOn",
+          "return": {
+            "type": {
+              "text": "void"
+            }
+          },
+          "parameters": [
+            {
+              "name": "navigableItems",
+              "type": {
+                "text": "NodeListOf<Element>"
+              },
+              "description": "items on which focusout event listeners must be added"
+            },
+            {
+              "name": "nodeNameToClose",
+              "type": {
+                "text": "string"
+              },
+              "description": "nodeName of the element we want to close in the event path"
+            }
+          ],
+          "description": "This function add event handlers on the navigableItems list. The handlers call the function close() on the nodeName.\r\n\r\nT: type class of the nodeNameToClose param (must have a close function)"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "registerCloseHandlerForFocusOutEventOn",
+          "declaration": {
+            "name": "registerCloseHandlerForFocusOutEventOn",
+            "module": "components/com-nav/com-nav-utils.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/com-nav/com-nav.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "ComNav",
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsComNavElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "appName",
+              "type": {
+                "text": "string"
+              },
+              "description": "Name of the application to be displayed in the menu bar"
+            },
+            {
+              "kind": "field",
+              "name": "mobileMenuOpen",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "currentActiveSizing",
+              "type": {
+                "text": "'desktop' | 'mobile'"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "resizeObserver",
+              "type": {
+                "text": "ResizeObserver"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "hasAlreadyRegisteredClickHandlerOnSlottedLink",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "mobileMenuIconClick",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "registerHandlerToCloseMobileMenuOnClickOnSlottedLinkTag",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "onClickOnFinalAction"
+            },
+            {
+              "kind": "method",
+              "name": "onClickOnFinalActionCat"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "app-name",
+              "fieldName": "appName",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "tagName": "wcs-com-nav",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ComNav",
+          "declaration": {
+            "name": "ComNav",
+            "module": "components/com-nav/com-nav.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-com-nav",
+          "declaration": {
+            "name": "ComNav",
+            "module": "components/com-nav/com-nav.tsx"
           }
         }
       ]
@@ -2848,6 +2863,44 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/error/error.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Label",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-error",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Label",
+          "declaration": {
+            "name": "Label",
+            "module": "components/error/error.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-error",
+          "declaration": {
+            "name": "Label",
+            "module": "components/error/error.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/editable-field/editable-field-interface.tsx",
       "declarations": [],
       "exports": []
@@ -3177,44 +3230,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/error/error.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Label",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-error",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Label",
-          "declaration": {
-            "name": "Label",
-            "module": "components/error/error.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-error",
-          "declaration": {
-            "name": "Label",
-            "module": "components/error/error.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/field/field.tsx",
       "declarations": [
         {
@@ -3366,6 +3381,74 @@
           "declaration": {
             "name": "Footer",
             "module": "components/footer/footer.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/galactic/galactic.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Galactic",
+          "members": [
+            {
+              "kind": "field",
+              "name": "text",
+              "type": {
+                "text": "string"
+              },
+              "description": "Text to display in the bar"
+            },
+            {
+              "kind": "field",
+              "name": "show",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "text",
+              "fieldName": "text",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "tagName": "wcs-galactic",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Galactic",
+          "declaration": {
+            "name": "Galactic",
+            "module": "components/galactic/galactic.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-galactic",
+          "declaration": {
+            "name": "Galactic",
+            "module": "components/galactic/galactic.tsx"
           }
         }
       ]
@@ -3540,185 +3623,6 @@
           "declaration": {
             "name": "FormField",
             "module": "components/form-field/form-field.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/galactic/galactic.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Galactic",
-          "members": [
-            {
-              "kind": "field",
-              "name": "text",
-              "type": {
-                "text": "string"
-              },
-              "description": "Text to display in the bar"
-            },
-            {
-              "kind": "field",
-              "name": "show",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "text",
-              "fieldName": "text",
-              "type": {
-                "text": "string"
-              }
-            }
-          ],
-          "tagName": "wcs-galactic",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Galactic",
-          "declaration": {
-            "name": "Galactic",
-            "module": "components/galactic/galactic.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-galactic",
-          "declaration": {
-            "name": "Galactic",
-            "module": "components/galactic/galactic.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/galactic-menu/galactic-menu.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Galactic",
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsGalacticMenuElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "showPopoverMenu",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "popper",
-              "type": {
-                "text": "Instance"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "text",
-              "type": {
-                "text": "string"
-              },
-              "description": "Text to be displayed in the galactic bar"
-            },
-            {
-              "kind": "field",
-              "name": "menu",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "tooltip",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "onWindowClickEvent",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "toogleMenu",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "text",
-              "fieldName": "text",
-              "type": {
-                "text": "string"
-              }
-            }
-          ],
-          "tagName": "wcs-galactic-menu",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Galactic",
-          "declaration": {
-            "name": "Galactic",
-            "module": "components/galactic-menu/galactic-menu.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-galactic-menu",
-          "declaration": {
-            "name": "Galactic",
-            "module": "components/galactic-menu/galactic-menu.tsx"
           }
         }
       ]
@@ -4274,6 +4178,192 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/galactic-menu/galactic-menu.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Galactic",
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsGalacticMenuElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "showPopoverMenu",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "popper",
+              "type": {
+                "text": "Instance"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "text",
+              "type": {
+                "text": "string"
+              },
+              "description": "Text to be displayed in the galactic bar"
+            },
+            {
+              "kind": "field",
+              "name": "menu",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "tooltip",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "onWindowClickEvent",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "toogleMenu",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "text",
+              "fieldName": "text",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "tagName": "wcs-galactic-menu",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Galactic",
+          "declaration": {
+            "name": "Galactic",
+            "module": "components/galactic-menu/galactic-menu.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-galactic-menu",
+          "declaration": {
+            "name": "Galactic",
+            "module": "components/galactic-menu/galactic-menu.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/grid-custom-cell/grid-custom-cell.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "GridCustomCell",
+          "members": [
+            {
+              "kind": "field",
+              "name": "columnId",
+              "type": {
+                "text": "string"
+              },
+              "description": "ID of the column for which to render the cell"
+            },
+            {
+              "kind": "field",
+              "name": "rowId",
+              "type": {
+                "text": "any"
+              },
+              "description": "Key value of the object rendered for the cell's row"
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "column-id",
+              "fieldName": "columnId",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "row-id",
+              "fieldName": "rowId",
+              "type": {
+                "text": "any"
+              }
+            }
+          ],
+          "tagName": "wcs-grid-custom-cell",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "GridCustomCell",
+          "declaration": {
+            "name": "GridCustomCell",
+            "module": "components/grid-custom-cell/grid-custom-cell.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-grid-custom-cell",
+          "declaration": {
+            "name": "GridCustomCell",
+            "module": "components/grid-custom-cell/grid-custom-cell.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/grid-column/grid-column.tsx",
       "declarations": [
         {
@@ -4529,56 +4619,23 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/grid-custom-cell/grid-custom-cell.tsx",
+      "path": "components/header/header.tsx",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "GridCustomCell",
+          "name": "Header",
           "members": [
             {
-              "kind": "field",
-              "name": "columnId",
-              "type": {
-                "text": "string"
-              },
-              "description": "ID of the column for which to render the cell"
-            },
-            {
-              "kind": "field",
-              "name": "rowId",
-              "type": {
-                "text": "any"
-              },
-              "description": "Key value of the object rendered for the cell's row"
+              "kind": "method",
+              "name": "hostData"
             },
             {
               "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
+              "name": "render"
             }
           ],
-          "attributes": [
-            {
-              "name": "column-id",
-              "fieldName": "columnId",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "row-id",
-              "fieldName": "rowId",
-              "type": {
-                "text": "any"
-              }
-            }
-          ],
-          "tagName": "wcs-grid-custom-cell",
+          "tagName": "wcs-header",
           "events": [],
           "customElement": true
         }
@@ -4586,18 +4643,18 @@
       "exports": [
         {
           "kind": "js",
-          "name": "GridCustomCell",
+          "name": "Header",
           "declaration": {
-            "name": "GridCustomCell",
-            "module": "components/grid-custom-cell/grid-custom-cell.tsx"
+            "name": "Header",
+            "module": "components/header/header.tsx"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "wcs-grid-custom-cell",
+          "name": "wcs-header",
           "declaration": {
-            "name": "GridCustomCell",
-            "module": "components/grid-custom-cell/grid-custom-cell.tsx"
+            "name": "Header",
+            "module": "components/header/header.tsx"
           }
         }
       ]
@@ -4846,48 +4903,6 @@
           "declaration": {
             "name": "GridPagination",
             "module": "components/grid-pagination/grid-pagination.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/header/header.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Header",
-          "members": [
-            {
-              "kind": "method",
-              "name": "hostData"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-header",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Header",
-          "declaration": {
-            "name": "Header",
-            "module": "components/header/header.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-header",
-          "declaration": {
-            "name": "Header",
-            "module": "components/header/header.tsx"
           }
         }
       ]

@@ -21,6 +21,7 @@ for new features.
 - annotates some private attributes explicitly so that they are not present in the documentation. Removed some unnecessary attributes in components.
 - **docs**: Angular Framework integration : update doc about icons and fonts usage
 - **styles**: Set WCS global variable "base size" to 8px. Has no impact to previous styles.
+- **types**: Create and set index as root file for types export (generated & custom types)
 
 ### Deprecated
 
