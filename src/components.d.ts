@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { BadgeColor, BadgeShape } from "./components/badge/badge-interface";
-import { WcsButtonMode, WcsButtonShape, WcsButtonType } from "./components/button/button-interface";
+import { WcsButtonMode, WcsButtonShape, WcsButtonSize, WcsButtonType } from "./components/button/button-interface";
 import { CardMode } from "./components/card/card-interface";
 import { CheckboxChangeEventDetail, CheckboxLabelAlignment } from "./components/checkbox/checkbox-interface";
 import { CategoryOpenedEventDetail, MenuOpenedEventDetail } from "./components/com-nav/com-nav-interface";
@@ -27,7 +27,7 @@ import { WcsTabChangeEvent, WcsTabsAlignment } from "./components/tabs/tabs-inte
 import { TextareaChangeEventDetail } from "./components/textarea/textarea-interface";
 import { WcsTooltipAppendTo, WcsTooltipPosition } from "./components/tooltip/tooltip-interface";
 export { BadgeColor, BadgeShape } from "./components/badge/badge-interface";
-export { WcsButtonMode, WcsButtonShape, WcsButtonType } from "./components/button/button-interface";
+export { WcsButtonMode, WcsButtonShape, WcsButtonSize, WcsButtonType } from "./components/button/button-interface";
 export { CardMode } from "./components/card/card-interface";
 export { CheckboxChangeEventDetail, CheckboxLabelAlignment } from "./components/checkbox/checkbox-interface";
 export { CategoryOpenedEventDetail, MenuOpenedEventDetail } from "./components/com-nav/com-nav-interface";
@@ -105,11 +105,11 @@ export namespace Components {
      */
     interface WcsButton {
         /**
-          * Specify wether the button is disabled or not.
+          * Specify whether the button is disabled or not.
          */
         "disabled": boolean;
         /**
-          * Set a URL to point to. If specified use a `a` tag instead of `btn`.
+          * Set a URL to point to.<br/> If specified use a `a` tag instead of `btn`.
          */
         "href"?: string;
         /**
@@ -121,7 +121,7 @@ export namespace Components {
          */
         "mode": WcsButtonMode;
         /**
-          * Specify wether the button should have a ripple effect or not.
+          * Specify whether the button should have a ripple effect or not.
          */
         "ripple": boolean;
         /**
@@ -129,7 +129,11 @@ export namespace Components {
          */
         "shape": WcsButtonShape;
         /**
-          * Specifies where to open the linked document when using href (see prop above) Default '_self' will open the linked document in the same frame as it was clicked
+          * Specify the size of the button.
+         */
+        "size": WcsButtonSize;
+        /**
+          * Specifies where to open the linked document when using href (see prop above)<br/> Default '_self' will open the linked document in the same frame as it was clicked
          */
         "target"?: '_blank' | '_self';
         /**
@@ -1509,11 +1513,11 @@ declare namespace LocalJSX {
      */
     interface WcsButton {
         /**
-          * Specify wether the button is disabled or not.
+          * Specify whether the button is disabled or not.
          */
         "disabled"?: boolean;
         /**
-          * Set a URL to point to. If specified use a `a` tag instead of `btn`.
+          * Set a URL to point to.<br/> If specified use a `a` tag instead of `btn`.
          */
         "href"?: string;
         /**
@@ -1525,7 +1529,7 @@ declare namespace LocalJSX {
          */
         "mode"?: WcsButtonMode;
         /**
-          * Specify wether the button should have a ripple effect or not.
+          * Specify whether the button should have a ripple effect or not.
          */
         "ripple"?: boolean;
         /**
@@ -1533,7 +1537,11 @@ declare namespace LocalJSX {
          */
         "shape"?: WcsButtonShape;
         /**
-          * Specifies where to open the linked document when using href (see prop above) Default '_self' will open the linked document in the same frame as it was clicked
+          * Specify the size of the button.
+         */
+        "size"?: WcsButtonSize;
+        /**
+          * Specifies where to open the linked document when using href (see prop above)<br/> Default '_self' will open the linked document in the same frame as it was clicked
          */
         "target"?: '_blank' | '_self';
         /**

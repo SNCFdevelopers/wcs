@@ -2,7 +2,14 @@ import {Component, ComponentInterface, Element, h, Listen, Prop, Watch} from '@s
 
 import { MDCRipple } from '@material/ripple';
 
-import { WcsButtonMode, WcsButtonShape, WcsButtonType } from './button-interface';
+import {
+    isWcsButtonSize,
+    WcsButtonMode,
+    WcsButtonShape,
+    WcsButtonSize,
+    WcsButtonSizeValues,
+    WcsButtonType
+} from './button-interface';
 import { hasShadowDom } from '../../utils/helpers';
 
 /**
@@ -24,27 +31,32 @@ export class Button implements ComponentInterface {
     @Prop({ mutable: true }) type: WcsButtonType = 'button';
 
     /**
-     * Set a URL to point to.
+     * Set a URL to point to.<br/>
      * If specified use a `a` tag instead of `btn`.
      */
     @Prop() href?: string;
 
     /**
-     * Specifies where to open the linked document when using href (see prop above)
+     * Specifies where to open the linked document when using href (see prop above)<br/>
      * Default '_self' will open the linked document in the same frame as it was clicked
      */
     @Prop() target?: '_blank' | '_self';
 
     /**
-     * Specify wether the button is disabled or not.
+     * Specify whether the button is disabled or not.
      */
     @Prop({ reflect: true }) disabled = false;
 
     /**
-     * Specify wether the button should have a ripple effect or not.
+     * Specify whether the button should have a ripple effect or not.
      */
     @Prop() ripple = true;
-    mdcRipple: MDCRipple;
+    private mdcRipple: MDCRipple;
+
+    /**
+     * Specify the size of the button.
+     */
+    @Prop({ reflect: true }) size: WcsButtonSize = 'm';
 
     /**
      * Specify the shape of the button.
@@ -81,6 +93,13 @@ export class Button implements ComponentInterface {
                 fakeButton.click();
                 fakeButton.remove();
             }
+        }
+    }
+
+    componentWillLoad(): Promise<void> | void {
+        if (!isWcsButtonSize(this.size)) {
+            console.error(`Invalid size value for wcs-button : "${this.size}". Must be one of "${WcsButtonSizeValues.join(', ')}"`);
+            this.size = "m"; // Default fallback value
         }
     }
 

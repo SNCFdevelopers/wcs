@@ -5,7 +5,6 @@
 
 :host {
     display: inline-block;
-    --wcs-button-padding: calc(var(--wcs-padding) / 2) var(--wcs-padding);
     --wcs-button-color: var(--wcs-contrast, var(--wcs-white, white));
     --wcs-button-background-color: var(--wcs-base, var(--wcs-primary, #0088CE));
     --wcs-button-ripple-color: var(--wcs-contrast, var(--wcs-white, white));
@@ -38,37 +37,44 @@
     }
 }
 
-:host([shape=small]) {
-    --wcs-button-padding: 2px 16px;
+:host([size=l]) {
+    --wcs-button-padding: var(--wcs-padding-m);
+    --wcs-button-min-height: var(--wcs-size-l);
+    --wcs-button-min-width: var(--wcs-size-l);
+    --wcs-button-font-size: 1.0625rem;
+}
 
-    .wcs-inner-button {
-        min-width: var(--wcs-button-min-width, unset);
-        min-height: var(--wcs-button-min-height, unset);
-    }
+:host([size=m]) { // Default
+    --wcs-button-padding: var(--wcs-padding-m);
+    --wcs-button-min-height: var(--wcs-size-m);
+    --wcs-button-min-width: var(--wcs-size-m);
+    --wcs-button-font-size: 1rem;
+}
+
+:host([size=s]) {
+    --wcs-button-padding: var(--wcs-padding-s);
+    --wcs-button-min-height: var(--wcs-size-s);
+    --wcs-button-min-width: var(--wcs-size-s);
+    --wcs-button-font-size: 0.9375rem;
 }
 
 :host([shape=round]) {
-    --wcs-button-padding: 0;
-    --wcs-button-border-radius: 50%;
+    --wcs-button-border-radius: 2rem;
 
-    .wcs-inner-button {
-        min-width: var(--wcs-button-min-width, 42px);
-        min-height: var(--wcs-button-min-height, 42px);
+    ::slotted(wcs-mat-icon) {
+        margin: calc(-1 * var(--wcs-padding));
     }
 }
 
 :host([shape=square]) {
     --wcs-button-padding: 0;
 
-    .wcs-inner-button {
-        min-width: var(--wcs-button-min-width, 42px);
-        min-height: var(--wcs-button-min-height, 42px);
+    ::slotted(wcs-mat-icon) {
+        margin: calc(-1 * var(--wcs-padding));
     }
 }
 
 :host([shape=normal]) {
-    --wcs-button-padding: calc(var(--wcs-padding) / 2 + 1px) calc(var(--wcs-padding));
-
     .wcs-inner-button {
         min-width: var(--wcs-button-min-width, unset);
         min-height: var(--wcs-button-min-height, unset);
@@ -90,8 +96,8 @@
     }
 
     wcs-spinner {
-        height: 24px;
-        width: 24px;
+        height: calc(var(--wcs-button-min-height) / 2);
+        width: calc(var(--wcs-button-min-width) / 2);
         position: absolute;
         top: 0;
         bottom: 0;
@@ -156,8 +162,10 @@
     white-space: nowrap;
     vertical-align: middle;
     user-select: none;
-    font-size: 1rem;
+    font-size: var(--wcs-button-font-size);
     line-height: 1.5;
+    min-height: var(--wcs-button-min-height);
+    min-width: var(--wcs-button-min-width);
 
     transition: color 175ms ease-in-out, background-color 175ms ease-in-out, wcs-elevation-transition();
 
