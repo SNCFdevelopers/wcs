@@ -22,6 +22,7 @@ for new features.
 - **docs**: Angular Framework integration : update doc about icons and fonts usage
 - **styles**: Set WCS global variable "base size" to 8px. Has no impact to previous styles.
 - **types**: Create and set index as root file for types export (generated & custom types)
+- **types**: Create a new shared-types file for custom types, containing WcsSize
 
 ### Deprecated
 
