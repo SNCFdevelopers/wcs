@@ -101,3 +101,16 @@ publish-wcs-formly:
     - build
   script:
     - cd angular/dist/wcs-formly/ && echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc && npm publish
+deploy-mr-tmp-env:
+  image: node:16
+  stage: deploy
+  tags:
+    - sncf-runner
+  only:
+    - web
+  variables:
+    DIST_PATH: '$CI_PROJECT_DIR/storybook-static'
+  script :
+    - npm install -g @azure/static-web-apps-cli
+    - swa deploy --app-location ./ --output-location $DIST_PATH --verbose=silly --deployment-token $DEPLOYMENT_TOKEN --env review
+

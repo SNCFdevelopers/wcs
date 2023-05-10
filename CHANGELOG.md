@@ -9,9 +9,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-for new features.
 - **button**: add `target` (`"_blank" | "_self"`, null by default) to choose where to open links when using `href`
 - **doc**: add documentation on how to initialize an application with the business or communication design systems
+- **ci**: add the ability to deploy any branch on a dedicated environment
+
 ### Changed
 
 - **select**:
