@@ -19,7 +19,7 @@ import { MaterialIconFamily, MaterialIconSize } from "./components/mat-icon/mat-
 import { ModalSize } from "./components/modal/modal-interface";
 import { RadioGroupChangeEventDetail, RadioGroupMode } from "./components/radio-group/radio-group-interface";
 import { RadioChosedEvent } from "./components/radio/radio-interface";
-import { SelectChangeEventDetail } from "./components/select/select-interface";
+import { SelectChangeEventDetail, WcsSelectSize } from "./components/select/select-interface";
 import { SelectOptionChosedEvent } from "./components/select-option/select-option-interface";
 import { WcsSpinnerMode } from "./components/spinner/spinner-interface";
 import { SwitchChangeEventDetail, SwitchLabelAlignment } from "./components/switch/switch-interface";
@@ -40,7 +40,7 @@ export { MaterialIconFamily, MaterialIconSize } from "./components/mat-icon/mat-
 export { ModalSize } from "./components/modal/modal-interface";
 export { RadioGroupChangeEventDetail, RadioGroupMode } from "./components/radio-group/radio-group-interface";
 export { RadioChosedEvent } from "./components/radio/radio-interface";
-export { SelectChangeEventDetail } from "./components/select/select-interface";
+export { SelectChangeEventDetail, WcsSelectSize } from "./components/select/select-interface";
 export { SelectOptionChosedEvent } from "./components/select-option/select-option-interface";
 export { WcsSpinnerMode } from "./components/spinner/spinner-interface";
 export { SwitchChangeEventDetail, SwitchLabelAlignment } from "./components/switch/switch-interface";
@@ -657,6 +657,10 @@ export namespace Components {
           * The text to display when the select is empty.
          */
         "placeholder"?: string | null;
+        /**
+          * Specify the size (height) of the select.
+         */
+        "size": WcsSelectSize;
         /**
           * The currently selected value.
          */
@@ -2104,6 +2108,10 @@ declare namespace LocalJSX {
           * The text to display when the select is empty.
          */
         "placeholder"?: string | null;
+        /**
+          * Specify the size (height) of the select.
+         */
+        "size"?: WcsSelectSize;
         /**
           * The currently selected value.
          */

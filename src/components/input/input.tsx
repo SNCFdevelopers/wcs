@@ -233,7 +233,7 @@ export class Input implements ComponentInterface {
         this.inheritedAttributes = inheritAttributes(this.el, ['aria-label', 'tabindex', 'title']);
 
         if (!isWcsInputSize(this.size)) {
-            console.error(`Invalid size value for wcs-button : "${this.size}". Must be one of "${WcsInputSizeValues.join(', ')}"`);
+            console.error(`Invalid size value for wcs-input : "${this.size}". Must be one of "${WcsInputSizeValues.join(', ')}"`);
             this.size = "m"; // Default fallback value
         }
     }

@@ -16,7 +16,7 @@ import {
 import _ from 'lodash';
 import { interpret, Interpreter, Machine, MachineConfig, MachineOptions } from 'xstate';
 
-import { SelectChangeEventDetail } from './select-interface';
+import { isWcsSelectSize, SelectChangeEventDetail, WcsSelectSize, WcsSelectSizeValue } from './select-interface';
 import { SelectArrow } from './select-arrow';
 import { SelectOptionChosedEvent, SelectOptionValue } from '../select-option/select-option-interface';
 import { isElement } from '../../utils/helpers';
@@ -88,6 +88,11 @@ export class Select implements ComponentInterface {
     /** Wether the select is expanded */
     @State()
     private expanded = false;
+
+    /**
+     * Specify the size (height) of the select.
+     */
+    @Prop({reflect: true}) size: WcsSelectSize = 'm';
 
     /** Wether the component is fully loaded in the DOM. */
     @State()
@@ -287,6 +292,13 @@ export class Select implements ComponentInterface {
             }
         });
         observer.observe(this.el, {childList: true});
+    }
+
+    componentWillLoad(): Promise<void> | void {
+        if (!isWcsSelectSize(this.size)) {
+            console.error(`Invalid size value for wcs-select : "${this.size}". Must be one of "${WcsSelectSizeValue.join(', ')}"`);
+            this.size = "m"; // Default fallback value
+        }
     }
 
     componentWillUpdate() {

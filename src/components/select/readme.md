@@ -26,6 +26,7 @@ Select component, use in conjuction with wcs-select-option.
 | `multiple`    | `multiple`    | If `true`, the user can select multiple values at once.         | `boolean`                                           | `false`                                                                 |
 | `name`        | `name`        | The name of the control, which is submitted with the form data. | `string`                                            | `undefined`                                                             |
 | `placeholder` | `placeholder` | The text to display when the select is empty.                   | `string`                                            | `undefined`                                                             |
+| `size`        | `size`        | Specify the size (height) of the select.                        | `"l" \| "m"`                                        | `'l'`                                                                   |
 | `value`       | `value`       | The currently selected value.                                   | `any`                                               | `undefined`                                                             |
 
 

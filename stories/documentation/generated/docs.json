@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-07-13T12:52:16",
+  "timestamp": "2023-08-03T11:48:59",
   "compiler": {
     "name": "@stencil/core",
     "version": "3.0.0",
@@ -4585,6 +4585,28 @@
           "required": false
         },
         {
+          "name": "size",
+          "type": "\"l\" | \"m\"",
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": true,
+          "docs": "Specify the size (height) of the select.",
+          "docsTags": [],
+          "default": "'l'",
+          "values": [
+            {
+              "value": "l",
+              "type": "string"
+            },
+            {
+              "value": "m",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "value",
           "type": "any",
           "mutable": true,
@@ -5185,7 +5207,12 @@
       "tag": "wcs-textarea",
       "readme": "# Textarea\r\n\r\n\r\n\r",
       "docs": "Mainly inspired from Ionic Textarea Component",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "cssprop",
+          "text": "--wcs-textarea-max-height - Max height of the text area component"
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -5505,6 +5532,35 @@
             }
           ],
           "optional": false,
+          "required": false
+        },
+        {
+          "name": "resize",
+          "type": "\"both\" | \"horizontal\" | \"none\" | \"vertical\"",
+          "mutable": false,
+          "attr": "resize",
+          "reflectToAttr": true,
+          "docs": "Indicates how the textarea should be resizable.\r\nPossible values 'both' | 'none' | 'vertical' | 'horizontal'",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "both",
+              "type": "string"
+            },
+            {
+              "value": "horizontal",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "vertical",
+              "type": "string"
+            }
+          ],
+          "optional": true,
           "required": false
         },
         {

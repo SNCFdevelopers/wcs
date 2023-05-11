@@ -9,13 +9,14 @@
     --wcs-select-value-color: var(--wcs-primary);
     --wcs-select-border-color: transparent;
     --wcs-select-overlay-max-height: 360px;
-    --wcs-select-option-height: 42px;
+    --wcs-select-option-height: var(--wcs-size-m);
     --wcs-select-border-width: 1px;
 
     display: block;
     position: relative;
     outline: none;
     user-select: none;
+    box-sizing: border-box;
 
     // So the arrow on the right doesn't shrink when text overflows.
     svg {
@@ -77,7 +78,8 @@
 }
 
 label {
-    padding: calc(var(--wcs-padding) / 2) var(--wcs-padding);
+    padding-left: calc(var(--wcs-padding) - var(--wcs-select-border-width));
+    padding-right: calc(var(--wcs-padding) - var(--wcs-select-border-width));
     font-weight: 500;
     cursor: pointer;
     color: var(--wcs-select-color);
@@ -86,6 +88,24 @@ label {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+:host([size=m]) {
+    height: var(--wcs-size-m);
+    --wcs-select-font-size: 1rem;
+    .wcs-select-control {
+        box-sizing: border-box;
+        height: var(--wcs-size-m);
+    }
+}
+
+:host([size=l]) {
+    height: var(--wcs-size-l);
+    --wcs-select-font-size: 1.0625rem;
+    .wcs-select-control {
+        box-sizing: border-box;
+        height: var(--wcs-size-l);
+    }
 }
 
 :host([chips]) {
@@ -102,7 +122,7 @@ label {
     background-color: var(--wcs-select-background-color);
     border-radius: var(--wcs-select-border-radius);
     border: var(--wcs-select-border-color) solid var(--wcs-select-border-width);
-    font-size: 1rem;
+    font-size: var(--wcs-select-font-size, 1rem);
     line-height: 1.5;
     cursor: pointer;
 }

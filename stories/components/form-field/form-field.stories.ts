@@ -117,7 +117,7 @@ export const Switch = SwitchTemplate.bind({});
 Switch.args = {};
 
 
-const ButtonTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) => html`
+const ButtonTemplate: StoryFn<Partial<FormFieldStoriesParams>> = () => html`
     <wcs-button class="wcs-primary">
         Submit
     </wcs-button>
@@ -125,7 +125,7 @@ const ButtonTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) => html`
 export const Button = ButtonTemplate.bind({});
 Button.args = {};
 
-const CheckboxTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) => html`
+const CheckboxTemplate: StoryFn<Partial<FormFieldStoriesParams>> = () => html`
     <wcs-checkbox>Did you read all questions?</wcs-checkbox>
 `;
 export const Checkbox = CheckboxTemplate.bind({});
@@ -133,7 +133,7 @@ Checkbox.args = {};
 
 const SelectButtonTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) => html`
     <wcs-form-field ?is-error=${args.isError}>
-        <wcs-select id="form-field-ex-3" slot="prefix" placeholder="Country" multiple>
+        <wcs-select id="form-field-ex-3" slot="prefix" placeholder="Country" multiple style="width: 200px;">
             <wcs-select-option>France</wcs-select-option>
             <wcs-select-option>Germany</wcs-select-option>
             <wcs-select-option>Japan</wcs-select-option>
@@ -152,7 +152,7 @@ const SelectButtonTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) =>
     </wcs-form-field>
 
     <wcs-form-field ?is-error=${args.isError}>
-        <wcs-select slot="prefix" placeholder="Country" multiple>
+        <wcs-select slot="prefix" placeholder="Country" multiple style="width: 200px;">
             <wcs-select-option>France</wcs-select-option>
             <wcs-select-option>Germany</wcs-select-option>
             <wcs-select-option>Japan</wcs-select-option>
@@ -161,7 +161,7 @@ const SelectButtonTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) =>
     </wcs-form-field>
 
     <wcs-form-field ?is-error=${args.isError}>
-        <wcs-select placeholder="All" slot="prefix">
+        <wcs-select placeholder="All" slot="prefix" style="width: 200px;">
             <wcs-select-option value="France">France</wcs-select-option>
             <wcs-select-option value="Germany">Germany</wcs-select-option>
             <wcs-select-option value="Japan">Japan</wcs-select-option>
@@ -219,3 +219,37 @@ const TooltipOnTwoSelectsTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (a
 
 export const TooltipOnTwoSelects = TooltipOnTwoSelectsTemplate.bind({});
 TooltipOnTwoSelects.args = {};
+
+const InputsDateTamplates : StoryFn<Partial<FormFieldStoriesParams>> = (args: Partial<FormFieldStoriesParams>) => html`
+    <div style="display: flex; flex-direction: row; gap: var(--wcs-base-margin); align-items: center">
+        <wcs-form-field ?is-error=${args.isError}>
+            <wcs-label>What is your country ?</wcs-label>
+            <wcs-select placeholder="Select a country" required>
+                <wcs-select-option>France</wcs-select-option>
+                <wcs-select-option>Germany</wcs-select-option>
+                <wcs-select-option>Japan</wcs-select-option>
+            </wcs-select>
+            <wcs-hint>You can call the person by his country music</wcs-hint>
+            <wcs-error>Your country is not valid</wcs-error>
+        </wcs-form-field>
+
+        <wcs-form-field ?is-error=${args.isError}>
+            <wcs-label>Enter your name</wcs-label>
+            <wcs-input placeholder="John doe"></wcs-input>
+            <wcs-hint>A name is something that describe a person, like you can call the person by his name, you get it?
+            </wcs-hint>
+            <wcs-error>Your name is not valid, please do the needful following <a
+                href="https://www.service-public.fr/particuliers/vosdroits/F1656">this</a>.
+            </wcs-error>
+        </wcs-form-field>
+
+        <wcs-form-field ?is-error=${args.isError}>
+            <wcs-label>Enter first date</wcs-label>
+            <wcs-input type="date"></wcs-input>
+            <wcs-hint>The first date is the first date to set</wcs-hint>
+            <wcs-error>Your first date is not valid</wcs-error>
+        </wcs-form-field>
+    </div>
+`;
+export const Inputs = InputsDateTamplates.bind({});
+Inputs.args = {};
