@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { FieldType, FieldTypeConfig } from '@ngx-formly/core';
 import { WcsFormlyFieldWrapperProps } from './formly-wcs-field-wrapper.component';
-import { AutocompleteTypes } from 'wcs-core';
-
+import { AutocompleteTypes, WcsInputSize } from 'wcs-core';
 
 export type WcsFormlyInputProps = WcsFormlyFieldWrapperProps & {
   inputMode?: 'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search',
@@ -14,6 +13,7 @@ export type WcsFormlyInputProps = WcsFormlyFieldWrapperProps & {
   prefixLabel?: string,
   suffixLabel?: string,
   hideRequiredMarker?: boolean,
+  size: WcsInputSize,
 };
 
 @Component({
@@ -35,6 +35,7 @@ export type WcsFormlyInputProps = WcsFormlyFieldWrapperProps & {
                  [autocomplete]="props.autocomplete"
                  [autocorrect]="props.autocorrect"
                  [autofocus]="props.autofocus"
+                 [size]="props.size"
                  [minlength]="props.minLength"
                  [spellcheck]="props.spellcheck"
                  [maxlength]="props.maxLength"

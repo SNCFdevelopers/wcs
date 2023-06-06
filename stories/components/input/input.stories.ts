@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { TextFieldTypes } from '../../../src/components/input/input-interface';
+import { TextFieldTypes, WcsInputSize } from '../../../src/components/input/input-interface';
 // @ts-ignore
 import { withActions } from '@storybook/addon-actions/decorator';
 
@@ -21,12 +21,33 @@ const meta: Meta = {
 };
 export default meta;
 
-const Template: StoryFn<Partial<{state: 'initial' | 'error', icon: string, type: TextFieldTypes, disabled, value: string | number, prefixLabel: string, suffixLabel: string}>> = (args) => html`
-    <wcs-input id="input-demo-1" state=${args.state} icon=${args.icon} type=${args.type} ?disabled=${args.disabled} value=${args.value} prefix-label=${args.prefixLabel} suffix-label=${args.suffixLabel}></wcs-input>
+interface StoryParams {
+    state: 'initial' | 'error';
+    icon: string;
+    type: TextFieldTypes;
+    disabled; value: string | number;
+    prefixLabel: string;
+    suffixLabel: string;
+    size: WcsInputSize;
+}
+
+const Template: StoryFn<Partial<StoryParams>> = (args) => html`
+    <wcs-input id="input-demo-1" state=${args.state} icon=${args.icon} type=${args.type} ?disabled=${args.disabled} value=${args.value} prefix-label=${args.prefixLabel} suffix-label=${args.suffixLabel} size=${args.size}></wcs-input>
+`;
+
+const TemplateSizes: StoryFn<Partial<StoryParams>> = () => html`
+    <div style="display: flex; gap: var(--wcs-base-margin)">
+        <wcs-input id="input-demo-1" size="l" style="width: 300px" placeholder="Input L"></wcs-input>
+        <wcs-input id="input-demo-2" size="m" style="width: 300px" placeholder="Input M (default)"></wcs-input>
+        <wcs-input id="input-demo-3" size="s" style="width: 300px" placeholder="Input S (for grids)"></wcs-input>
+    </div>
 `;
 
 export const Default = Template.bind({});
 Default.args = {};
+
+export const Sizes = TemplateSizes.bind({});
+Sizes.args = {};
 
 export const WithPrefixIcon = Template.bind({});
 WithPrefixIcon.args = {

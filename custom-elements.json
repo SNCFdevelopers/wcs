@@ -249,6 +249,14 @@
         },
         {
           "kind": "js",
+          "name": "WcsInputSize",
+          "declaration": {
+            "name": "WcsInputSize",
+            "module": "\"./components/input/input-interface\""
+          }
+        },
+        {
+          "kind": "js",
           "name": "MaterialIconFamily",
           "declaration": {
             "name": "MaterialIconFamily",
@@ -1385,8 +1393,51 @@
     {
       "kind": "javascript-module",
       "path": "components/button/button-interface.ts",
-      "declarations": [],
-      "exports": []
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "WcsButtonSizeValues",
+          "type": {
+            "text": "['s', 'm', 'l']"
+          },
+          "default": "['s', 'm', 'l']"
+        },
+        {
+          "kind": "function",
+          "name": "isWcsButtonSize",
+          "return": {
+            "type": {
+              "text": "size is WcsButtonSize"
+            }
+          },
+          "parameters": [
+            {
+              "name": "size",
+              "type": {
+                "text": "string"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "WcsButtonSizeValues",
+          "declaration": {
+            "name": "WcsButtonSizeValues",
+            "module": "components/button/button-interface.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "isWcsButtonSize",
+          "declaration": {
+            "name": "isWcsButtonSize",
+            "module": "components/button/button-interface.ts"
+          }
+        }
+      ]
     },
     {
       "kind": "javascript-module",
@@ -3426,6 +3477,74 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/galactic/galactic.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Galactic",
+          "members": [
+            {
+              "kind": "field",
+              "name": "text",
+              "type": {
+                "text": "string"
+              },
+              "description": "Text to display in the bar"
+            },
+            {
+              "kind": "field",
+              "name": "show",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "text",
+              "fieldName": "text",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "tagName": "wcs-galactic",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Galactic",
+          "declaration": {
+            "name": "Galactic",
+            "module": "components/galactic/galactic.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-galactic",
+          "declaration": {
+            "name": "Galactic",
+            "module": "components/galactic/galactic.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/form-field/form-field.tsx",
       "declarations": [
         {
@@ -3594,74 +3713,6 @@
           "declaration": {
             "name": "FormField",
             "module": "components/form-field/form-field.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/galactic/galactic.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Galactic",
-          "members": [
-            {
-              "kind": "field",
-              "name": "text",
-              "type": {
-                "text": "string"
-              },
-              "description": "Text to display in the bar"
-            },
-            {
-              "kind": "field",
-              "name": "show",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "text",
-              "fieldName": "text",
-              "type": {
-                "text": "string"
-              }
-            }
-          ],
-          "tagName": "wcs-galactic",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Galactic",
-          "declaration": {
-            "name": "Galactic",
-            "module": "components/galactic/galactic.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-galactic",
-          "declaration": {
-            "name": "Galactic",
-            "module": "components/galactic/galactic.tsx"
           }
         }
       ]
@@ -5336,8 +5387,51 @@
     {
       "kind": "javascript-module",
       "path": "components/input/input-interface.ts",
-      "declarations": [],
-      "exports": []
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "WcsInputSizeValues",
+          "type": {
+            "text": "['s', 'm', 'l']"
+          },
+          "default": "['s', 'm', 'l']"
+        },
+        {
+          "kind": "function",
+          "name": "isWcsInputSize",
+          "return": {
+            "type": {
+              "text": "size is WcsInputSize"
+            }
+          },
+          "parameters": [
+            {
+              "name": "size",
+              "type": {
+                "text": "string"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "WcsInputSizeValues",
+          "declaration": {
+            "name": "WcsInputSizeValues",
+            "module": "components/input/input-interface.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "isWcsInputSize",
+          "declaration": {
+            "name": "isWcsInputSize",
+            "module": "components/input/input-interface.ts"
+          }
+        }
+      ]
     },
     {
       "kind": "javascript-module",
@@ -5525,6 +5619,15 @@
             },
             {
               "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "WcsInputSize"
+              },
+              "default": "'m'",
+              "description": "Specify the size (height) of the input."
+            },
+            {
+              "kind": "field",
               "name": "icon",
               "type": {
                 "text": "string"
@@ -5646,14 +5749,6 @@
                 "text": "string | undefined"
               },
               "description": "Works with the min and max attributes to limit the increments at which a value can be set.\r\nPossible values are: `\"any\"` or a positive floating point number."
-            },
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "number | undefined"
-              },
-              "description": "The initial size of the control. This value is in pixels unless the value of the type attribute is `\"text\"` or `\"password\"`, in which case it is an integer number of characters. This attribute applies only when the `type` attribute is set to `\"text\"`, `\"search\"`, `\"tel\"`, `\"url\"`, `\"email\"`, or `\"password\"`, otherwise it is ignored."
             },
             {
               "kind": "field",
@@ -5847,6 +5942,13 @@
               }
             },
             {
+              "name": "size",
+              "fieldName": "size",
+              "type": {
+                "text": "WcsInputSize"
+              }
+            },
+            {
               "name": "icon",
               "fieldName": "icon",
               "type": {
@@ -5940,13 +6042,6 @@
               "fieldName": "step",
               "type": {
                 "text": "string"
-              }
-            },
-            {
-              "name": "size",
-              "fieldName": "size",
-              "type": {
-                "text": "number"
               }
             },
             {

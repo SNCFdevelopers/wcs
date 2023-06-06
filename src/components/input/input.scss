@@ -7,6 +7,8 @@
     --wcs-internal-input-border-width: 2px;
     display: flex;
     width: 100%;
+    height: var(--wcs-input-host-height);
+    box-sizing: border-box;
     border-radius: var(--wcs-internal-input-border-radius-left) var(--wcs-internal-input-border-radius-right) var(--wcs-internal-input-border-radius-right) var(--wcs-internal-input-border-radius-left);
     background-color: var(--wcs-light);
     border: var(--wcs-internal-input-border-width) solid var(--wcs-light);
@@ -19,17 +21,15 @@
 
     input {
         overflow: hidden;
-        box-sizing: border-box;
-        min-height: 24px;
+        min-height: var(--wcs-size-xs);
         width: 100%;
         background-color: transparent;
         font-family: var(--wcs-font-sans-serif);
         color: var(--wcs-primary);
         font-weight: var(--wcs-font-weight-form-value) !important;
         border: none;
-        // On divise --wcs-internal-input-border-width par deux car la valeur du padding est appliquée en haut et en bas
-        padding: calc(calc(var(--wcs-padding) / 2) - calc(var(--wcs-internal-input-border-width) / 2)) calc(var(--wcs-padding) - var(--wcs-internal-input-border-width));
-        font-size: 1rem;
+        padding: 0 calc(var(--wcs-padding) - var(--wcs-internal-input-border-width));
+        font-size: var(--wcs-input-font-size, 1rem);
         line-height: 1.5;
     }
 
@@ -56,6 +56,7 @@
         display: flex;
         white-space: nowrap;
         align-items: center;
+        font-size: var(--wcs-input-font-size, 1rem);
         padding: 0 calc(var(--wcs-padding) / 2);
         font-weight: var(--wcs-font-weight-form-value) !important;
         background-color: var(--wcs-text-disabled);
@@ -76,6 +77,24 @@
         border-top: solid var(--wcs-internal-input-border-width) transparent;
         border-bottom: solid var(--wcs-internal-input-border-width) transparent;
     }
+}
+
+:host([size=l]) {
+    --wcs-input-host-padding: var(--wcs-padding-l);
+    --wcs-input-host-height: var(--wcs-size-l);
+    --wcs-input-font-size: 1.0625rem;
+}
+
+:host([size=m]) { // Default
+    --wcs-input-host-padding: var(--wcs-padding-m);
+    --wcs-input-host-height: var(--wcs-size-m);
+    --wcs-input-font-size: 1rem;
+}
+
+:host([size=s]) {
+    --wcs-input-host-padding: var(--wcs-padding-s);
+    --wcs-input-host-height: var(--wcs-size-s);
+    --wcs-input-font-size: 0.9375rem;
 }
 
 :host([state=error]) {

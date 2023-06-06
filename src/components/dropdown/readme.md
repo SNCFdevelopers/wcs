@@ -11,7 +11,7 @@
 | `mode`      | `mode`      | Dropdown's button mode                                    | `"clear" \| "plain" \| "stroked"`                                                                                                                                                                            | `'stroked'`    |
 | `noArrow`   | `no-arrow`  | Hides the arrow in the button                             | `boolean`                                                                                                                                                                                                    | `false`        |
 | `placement` | `placement` | placement of the dropdown's popover                       | `"auto" \| "auto-end" \| "auto-start" \| "bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"` | `'bottom-end'` |
-| `shape`     | `shape`     | Dropdown's button shape                                   | `"normal" \| "round" \| "small" \| "square"`                                                                                                                                                                 | `'normal'`     |
+| `shape`     | `shape`     | Dropdown's button shape                                   | `"normal" \| "round" \| "square"`                                                                                                                                                                            | `'normal'`     |
 
 
 ## Dependencies

@@ -5,7 +5,7 @@ import {
 } from '@stencil/core';
 import { debounceEvent, findItemLabel, inheritAttributes } from '../../utils/helpers';
 import {
-    AutocompleteTypes, InputChangeEventDetail, TextFieldTypes
+    AutocompleteTypes, InputChangeEventDetail, isWcsInputSize, TextFieldTypes, WcsInputSize, WcsInputSizeValues
 } from './input-interface';
 
 /**
@@ -109,6 +109,11 @@ export class Input implements ComponentInterface {
     @Prop() enterkeyhint?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send';
 
     /**
+     * Specify the size (height) of the input.
+     */
+    @Prop({reflect: true}) size: WcsInputSize = 'm';
+
+    /**
      * Name of the material icon to add to the input
      */
     @Prop() icon: string;
@@ -187,11 +192,6 @@ export class Input implements ComponentInterface {
     @Prop() step?: string;
 
     /**
-     * The initial size of the control. This value is in pixels unless the value of the type attribute is `"text"` or `"password"`, in which case it is an integer number of characters. This attribute applies only when the `type` attribute is set to `"text"`, `"search"`, `"tel"`, `"url"`, `"email"`, or `"password"`, otherwise it is ignored.
-     */
-    @Prop() size?: number;
-
-    /**
      * The type of control to display. The default type is text.
      */
     @Prop() type: TextFieldTypes = 'text';
@@ -231,6 +231,11 @@ export class Input implements ComponentInterface {
 
     componentWillLoad() {
         this.inheritedAttributes = inheritAttributes(this.el, ['aria-label', 'tabindex', 'title']);
+
+        if (!isWcsInputSize(this.size)) {
+            console.error(`Invalid size value for wcs-button : "${this.size}". Must be one of "${WcsInputSizeValues.join(', ')}"`);
+            this.size = "m"; // Default fallback value
+        }
     }
 
     connectedCallback() {
@@ -416,7 +421,6 @@ export class Input implements ComponentInterface {
                     required={this.required}
                     spellcheck={this.spellcheck}
                     step={this.step}
-                    size={this.size}
                     type={this.passwordReveal ? 'text' : this.type}
                     value={value}
                     onInput={this.onInput}

@@ -14,7 +14,7 @@ import { WcsDropdownPlacement } from "./components/dropdown/dropdown-interface";
 import { EditableComponentUpdateEvent, EditableFieldType, FormatFn, ValidateFn } from "./components/editable-field/editable-field-interface";
 import { WcsCellFormatter, WcsGridAllRowSelectedEventDetails, WcsGridColumnSortChangeEventDetails, WcsGridPaginationChangeEventDetails, WcsGridRowSelectedEventDetails, WcsGridSelectionConfig, WcsSortFn, WcsSortOrder } from "./components/grid/grid-interface";
 import { HorizontalStepClickEvent, HorizontalStepConfig, HorizontalStepperMode } from "./components/horizontal-stepper/horizontal-stepper-interface";
-import { AutocompleteTypes, InputChangeEventDetail, TextFieldTypes } from "./components/input/input-interface";
+import { AutocompleteTypes, InputChangeEventDetail, TextFieldTypes, WcsInputSize } from "./components/input/input-interface";
 import { MaterialIconFamily, MaterialIconSize } from "./components/mat-icon/mat-icon-interface";
 import { ModalSize } from "./components/modal/modal-interface";
 import { RadioGroupChangeEventDetail, RadioGroupMode } from "./components/radio-group/radio-group-interface";
@@ -35,7 +35,7 @@ export { WcsDropdownPlacement } from "./components/dropdown/dropdown-interface";
 export { EditableComponentUpdateEvent, EditableFieldType, FormatFn, ValidateFn } from "./components/editable-field/editable-field-interface";
 export { WcsCellFormatter, WcsGridAllRowSelectedEventDetails, WcsGridColumnSortChangeEventDetails, WcsGridPaginationChangeEventDetails, WcsGridRowSelectedEventDetails, WcsGridSelectionConfig, WcsSortFn, WcsSortOrder } from "./components/grid/grid-interface";
 export { HorizontalStepClickEvent, HorizontalStepConfig, HorizontalStepperMode } from "./components/horizontal-stepper/horizontal-stepper-interface";
-export { AutocompleteTypes, InputChangeEventDetail, TextFieldTypes } from "./components/input/input-interface";
+export { AutocompleteTypes, InputChangeEventDetail, TextFieldTypes, WcsInputSize } from "./components/input/input-interface";
 export { MaterialIconFamily, MaterialIconSize } from "./components/mat-icon/mat-icon-interface";
 export { ModalSize } from "./components/modal/modal-interface";
 export { RadioGroupChangeEventDetail, RadioGroupMode } from "./components/radio-group/radio-group-interface";
@@ -484,9 +484,9 @@ export namespace Components {
          */
         "setFocus": () => Promise<void>;
         /**
-          * The initial size of the control. This value is in pixels unless the value of the type attribute is `"text"` or `"password"`, in which case it is an integer number of characters. This attribute applies only when the `type` attribute is set to `"text"`, `"search"`, `"tel"`, `"url"`, `"email"`, or `"password"`, otherwise it is ignored.
+          * Specify the size (height) of the input.
          */
-        "size"?: number;
+        "size": WcsInputSize;
         /**
           * If `true`, the element will have its spelling and grammar checked.
          */
@@ -1909,9 +1909,9 @@ declare namespace LocalJSX {
          */
         "required"?: boolean;
         /**
-          * The initial size of the control. This value is in pixels unless the value of the type attribute is `"text"` or `"password"`, in which case it is an integer number of characters. This attribute applies only when the `type` attribute is set to `"text"`, `"search"`, `"tel"`, `"url"`, `"email"`, or `"password"`, otherwise it is ignored.
+          * Specify the size (height) of the input.
          */
-        "size"?: number;
+        "size"?: WcsInputSize;
         /**
           * If `true`, the element will have its spelling and grammar checked.
          */

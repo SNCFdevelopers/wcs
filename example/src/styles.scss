@@ -47,3 +47,13 @@ body {
   flex-direction: column;
   row-gap: calc(var(--wcs-base-margin) * 2);
 }
+
+.grid-auto-column {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+}
+
+.column-gap-x-2 {
+  column-gap: calc(var(--wcs-base-margin) * 2);
+}

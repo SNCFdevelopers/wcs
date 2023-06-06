@@ -1,4 +1,6 @@
 // From: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete
+import { WcsSize } from '../../shared-types';
+
 export type AutocompleteTypes = (
     | 'on' | 'off' | 'name' | 'honorific-prefix' | 'given-name' | 'additional-name' | 'family-name' | 'honorific-suffix'
     | 'nickname' | 'email' | 'username' | 'new-password' | 'current-password' | 'one-time-code' | 'organization-title' | 'organization'
@@ -9,6 +11,16 @@ export type AutocompleteTypes = (
     | 'tel-extension' | 'impp' | 'url' | 'photo');
 
 export type TextFieldTypes = 'date' | 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'url' | 'time' | 'week' | 'month' | 'datetime-local' | 'file';
+
+
+export const WcsInputSizeValues = ['s', 'm', 'l'] as const; // as const keyword is used to infer and preserve the exact literal values of an array or object.
+
+export type WcsInputSize = Extract<WcsSize, typeof WcsInputSizeValues[number]>;
+
+export function isWcsInputSize(size: string): size is WcsInputSize {
+    // @ts-ignore : ignore size type, as it is checked with WcsInputSizeValues
+    return WcsInputSizeValues.includes(size);
+}
 
 export interface InputChangeEventDetail {
     value: string | undefined | null;

@@ -7,11 +7,14 @@ import { FormlyFieldConfig } from '@ngx-formly/core';
   template: `
     <form [formGroup]="form" (ngSubmit)="onSubmit(model)">
       <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
-      <button type="submit" class="btn btn-default">Submit</button>
+      <wcs-button type="submit">Submit</wcs-button>
     </form>
   `,
-  styles: [
-  ]
+  styles: [`
+  wcs-button[type=submit] {
+    margin-top: var(--wcs-base-margin);
+  }
+  `]
 })
 export class FormlyInputExamplesComponent {
 
@@ -26,6 +29,44 @@ export class FormlyInputExamplesComponent {
         placeholder: 'Enter email',
         required: true,
       }
+    },
+    {
+      fieldGroupClassName: 'grid-auto-column column-gap-x-2',
+      fieldGroup: [
+        {
+          id: 'large',
+          key: 'large',
+          type: 'input',
+          props: {
+            label: 'Input Large',
+            placeholder: 'Input L',
+            size: 'l',
+            required: true
+          }
+        },
+        {
+          id: 'medium',
+          key: 'medium',
+          type: 'input',
+          props: {
+            label: 'Input Medium',
+            placeholder: 'Input M',
+            size: 'm',
+            required: true
+          }
+        },
+        {
+          id: 'small',
+          key: 'small',
+          type: 'input',
+          props: {
+            label: 'Input Small',
+            placeholder: 'Input S',
+            size: 's',
+            required: true
+          }
+        }
+      ]
     }
   ];
 

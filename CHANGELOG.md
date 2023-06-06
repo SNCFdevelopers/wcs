@@ -11,6 +11,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - **button**: add `target` (`"_blank" | "_self"`, null by default) to choose where to open links when using `href`
 - **button**: add the following sizes : `l`, `m (default)`, `s`
+- **input**: add the following sizes : `l`, `m (default)`, `s (for grids)` 
 - **doc**: add documentation on how to initialize an application with the business or communication design systems
 - **ci**: add the ability to deploy any branch on a dedicated environment
 
@@ -25,7 +26,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **styles**: Set WCS global variable "base size" to 8px. Has no impact to previous styles.
 - **types**: Create and set index as root file for types export (generated & custom types)
 - **types**: Create a new shared-types file for custom types, containing WcsSize
-- **button**: add the size attributes with available values `l`, `m (default)`, `s`
+- **button**: add the size attribute with available values `l`, `m (default)`, `s`
+- **input**: add the size attribute with available values `l`, `m (default)`, `s`
 
 ### Deprecated
 
