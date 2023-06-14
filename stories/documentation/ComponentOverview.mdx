@@ -1,0 +1,129 @@
+export default function ComponentOverview() {
+
+    const style = (
+        <style>{`
+            a:focus {
+              outline: 2px dashed var(--wcs-primary);
+            }
+            .grid-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 12px;
+            }
+            .img-container {
+                display: flex;
+                height: calc(100% - 24px);
+                margin: var(--wcs-base-margin) 0;
+                & > img {
+                    margin: auto;
+                    max-height: 150px;
+                    display: block;
+                }
+            }
+            .display-card {
+                height: 200px;
+                background-clip: border-box;
+                border-radius: var(--wcs-border-radius);
+                border: solid 1px var(--wcs-text-light);
+                flex: 1 0 25%;
+                padding: var(--wcs-padding);
+                & > p {
+                    margin: 0;
+                    font-weight: 700;
+                    font-size: 1rem;
+                }
+                &:hover {
+                    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .12), 0 1px 5px 0 rgba(0, 0, 0, .20)
+                }
+            }
+            .divider {
+                display: block;
+                border-bottom: solid 1px var(--wcs-text-light);
+            }
+            .spinner-container {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+                justify-items: center;
+            }
+        `}
+        </style>
+    );
+
+    const components = [
+        "Accordion",
+        "Actionbar",
+        "Badge",
+        "Button",
+        "Card",
+        "Checkbox",
+        "Divider",
+        "Dropdown",
+        "Editable-Field",
+        "Field",
+        "Footer",
+        "Form-Field",
+        "Grid",
+        "Header",
+        "Horizontal Stepper",
+        "Input",
+        "List-Item",
+        "Mat-Icon",
+        "Modal",
+        "Nav",
+        "Progress-Bar",
+        "Progress-Radial",
+        "Radio",
+        "Radio-Group",
+        "Select",
+        "Switch",
+        "Tabs",
+        "Textarea",
+        "Tooltip",
+    ];
+
+    const DisplayCard = ({story}) => {
+        const formattedStoryName = story.toLowerCase().replace(/\s/g, '');
+        return (
+            <a href={`../?path=/docs/components-${formattedStoryName}--documentation`} aria-label={story}>
+                <div className="display-card">
+                    <b>{story}</b>
+                    <div className="divider"></div>
+                    <div className="img-container">
+                        <img alt={`${story} preview`} src={`components-overview/${formattedStoryName}.png`}/>
+                    </div>
+                </div>
+            </a>
+        );
+    };
+
+    return (
+        <>
+            {style}
+            <div className="grid-container">
+                {
+                    components.sort().map((c) => (
+                        <DisplayCard key={c} story={c}></DisplayCard>
+                    ))
+                }
+                { /* Below : animated spinner component preview */}
+                <a href={`../?path=/docs/components-spinner--documentation`} aria-label="Spinner">
+                    <div className="display-card">
+                        <b>Spinner</b>
+                        <div className="divider"></div>
+                        <div className="img-container spinner-container">
+                            <wcs-button style={{gridColumn: 'span 3', width: '100%'}} loading="true">Loading Button
+                            </wcs-button>
+                            <wcs-spinner class="wcs-primary" mode="border"></wcs-spinner>
+                            <wcs-spinner class="wcs-success" mode="border"></wcs-spinner>
+                            <wcs-spinner class="wcs-danger" mode="border"></wcs-spinner>
+                            <wcs-spinner class="wcs-primary" mode="growing"></wcs-spinner>
+                            <wcs-spinner class="wcs-success" mode="growing"></wcs-spinner>
+                            <wcs-spinner class="wcs-danger" mode="growing"></wcs-spinner>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </>
+    );
+}

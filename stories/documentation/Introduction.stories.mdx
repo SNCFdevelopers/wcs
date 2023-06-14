@@ -1,8 +1,18 @@
 import { Meta } from '@storybook/addon-docs';
+import ComponentOverview from "./ComponentOverview.mdx";
 
 <Meta title="Documentation/Introduction" />
 
 <style>{`
+  .title {
+    display: flex;
+    align-items: center;
+    gap: var(--wcs-base-margin);
+  }
+  h1 {
+    margin: 0 !important;
+    background: white;
+  }
   .subheading {
     --mediumdark: '#999999';
     font-weight: 900;
@@ -14,23 +24,63 @@ import { Meta } from '@storybook/addon-docs';
     margin-bottom: 12px;
     margin-top: 40px;
   }
+  .action-buttons {
+    display: flex;
+    gap: 8px;
+    & > wcs-button > img { margin-right: calc(0.5 * var(--wcs-base-margin)); }
+  }
+  @keyframes moveTrain {
+    0% { right: 95%; }
+    100% { right: 20%; }
+  }
+  .train {
+    position: absolute;
+    right: 95%;
+    z-index: 1;
+    animation: moveTrain 2.5s ease-out forwards;
+    @media only screen and (max-width: 900px) {
+        & { position: relative; left: 0 }
+    }
+  }
 `}</style>
 
-# Welcome on the WCS documentation
+<img className="train" src="train.svg" height={40}/>
+<div className="title">
+    <img height="40" src="wcs-logo-black.png" alt='WCS Icon'/>
+    <h1>DOCUMENTATION</h1>
+</div>
 
 
-In this documentation you will find the list of components as well as the available features.
+[![npm version](https://img.shields.io/gitlab/v/tag/13813721?color=success&label=release)](https://img.shields.io/gitlab/v/tag/13813721?color=success&label=release)
+[![Downloads](https://img.shields.io/npm/dt/wcs-core)](https://img.shields.io/npm/dt/wcs-core)
+[![Continuous](https://gitlab.com/SNCF/WCS/badges/master/pipeline.svg)](https://gitlab.com/SNCF/WCS/badges/master/pipeline.svg?style=flat)
 
-This documentation is under active construction by the development team. The goal is to migrate progressively the old
-doc to storybook, we aim at a migrated version at the end of Q1 2022.
+**Welcome to the official Web Component SNCF documentation !**  
+Discover UI components for Angular & React made from the SNCF Design System.  
+  
+In this documentation, you will find the list of components as well as the available features.  
 
-Note that WCS is only developed by a few people as a side project in a business application development team. Our
-ability to evolve and maintain this library is therefore limited for now.
+<div className="action-buttons">
+    <wcs-button onClick={() => document.querySelector('#components-overview').scrollIntoView({behavior: "smooth"})}>Components</wcs-button>
+    <wcs-button mode="stroked" href="https://gitlab.com/SNCF/wcs" target="_blank" rel="noopener noreferrer"><img src="gitlab-logo.png" alt="GitLab Icon" height={16}/>GitLab</wcs-button>
+    <wcs-button mode="stroked" href="https://www.npmjs.com/package/wcs-core" target="_blank" rel="noopener noreferrer"><img src="npm-logo.png" alt="NPM Icon" height={16}/>NPM</wcs-button>
+</div>
 
-<div className="subheading">Install</div>
 
-<div className="subheading">Configure</div>
+<div className="subheading">Getting started</div>
 
-<div className="subheading">Testing</div>
+Get started by installing **WCS** in your project :
+```
+npm install wcs-core
+yarn add wcs-core
+```
+
+We highly recommend to use the **[Template guidelines](../?path=/docs/documentation-template--documentation)**.  
+If you are using a specific framework, please refer to **[Framework integrations](../?path=/docs/documentation-framework-integrations--documentation)**.  
 
 <div className="subheading">Contribute</div>
+You can contribute by adding new issues for bugs or new features on the official **[WCS GitLab repository](https://gitlab.com/SNCF/wcs)**.  
+Feel free to submit a merge request that will be reviewed by our team.  
+
+<div className="subheading" id="components-overview">Components overview</div>
+<div> { ComponentOverview() }</div>

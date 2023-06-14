@@ -7,7 +7,8 @@ const config = {
     },
     staticDirs: [
         './../dist/wcs',
-        './../src/assets/fonts'
+        './../src/assets/fonts',
+        './../stories/assets/images',
     ],
     framework: '@storybook/web-components-webpack5',
     stories: [
@@ -18,7 +19,8 @@ const config = {
     addons: [
         "@storybook/addon-links",
         "@storybook/addon-essentials",
-        "@storybook/addon-docs"
+        "@storybook/addon-docs",
+        "@storybook/addon-a11y",
     ],
     async webpackFinal(config) {
         config.plugins.push(new WatchExternalFilesPlugin({
