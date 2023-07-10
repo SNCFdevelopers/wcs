@@ -1,9 +1,11 @@
 import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
+import { getComponentArgs } from '../../utils/args-generation';
 
 const meta: Meta = {
     title: 'Components/Header',
     component: 'wcs-header',
+    argTypes: getComponentArgs('wcs-header'),
 };
 export default meta;
 

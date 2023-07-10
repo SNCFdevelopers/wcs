@@ -3,10 +3,12 @@ import { html } from 'lit-html';
 import { SwitchLabelAlignment } from '../../../src/components/switch/switch-interface';
 // @ts-ignore
 import { withActions } from '@storybook/addon-actions/decorator';
+import { getComponentArgs } from '../../utils/args-generation';
 
 const meta: Meta = {
     title: 'Components/Switch',
     component: 'wcs-switch',
+    argTypes: getComponentArgs('wcs-switch'),
     parameters: {
         actions: {
             handles: [

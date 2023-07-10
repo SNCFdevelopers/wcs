@@ -27,7 +27,7 @@ export class ComNavSubmenu implements ComponentInterface {
     @Prop() label: string;
     @Prop() panelTitle: string;
     @Prop() panelDescription: string;
-    @State() menuOpen: boolean = false;
+    @State() private menuOpen: boolean = false;
     @Event() wcsSubmenuOpened: EventEmitter<MenuOpenedEventDetail>;
     /**
      * Emitted when a user click on a final navigation action.

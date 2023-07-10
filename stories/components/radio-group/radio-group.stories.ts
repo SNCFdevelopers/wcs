@@ -5,10 +5,12 @@ import radioGroupDocumentation from './radio-group-documentation.md'
 import { RadioGroupMode } from '../../../src/components/radio-group/radio-group-interface';
 // @ts-ignore
 import { withActions } from '@storybook/addon-actions/decorator';
+import { getComponentArgs } from '../../utils/args-generation';
 
 const meta: Meta = {
     title: 'Components/Radio-group',
     component: 'wcs-radio-group',
+    argTypes: getComponentArgs('wcs-radio-group'),
     parameters: {
         actions: {
             handles: [

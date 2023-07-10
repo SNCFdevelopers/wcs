@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type      | Default |
-| -------- | --------- | ----------- | --------- | ------- |
-| `small`  | `small`   |             | `boolean` | `false` |
+| Property | Attribute | Description                                                        | Type      | Default |
+| -------- | --------- | ------------------------------------------------------------------ | --------- | ------- |
+| `small`  | `small`   | Whether the component should display the small version of the hint | `boolean` | `false` |
 
 
 ----------------------------------------------

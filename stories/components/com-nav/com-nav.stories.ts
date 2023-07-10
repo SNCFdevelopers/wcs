@@ -1,9 +1,11 @@
 import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
+import { getComponentArgs } from '../../utils/args-generation';
 
 const meta: Meta = {
     title: 'Components/DS Communication/Nav',
-    component: 'wcs-com-nav'
+    component: 'wcs-com-nav',
+    argTypes: getComponentArgs('wcs-com-nav'),
 };
 export default meta;
 

@@ -8,6 +8,7 @@ export const setCustomElementsManifestWithOptions = (customElements, options,) =
     if (!privateFields) {
         customElements?.modules?.forEach((module) => {
             module?.declarations?.forEach(declaration => {
+                setCustomElementsManifestAttributes(declaration);
                 Object.keys(declaration).forEach(key => {
                     if (Array.isArray(declaration[key])) {
                         declaration[key] = declaration[key].filter(
@@ -22,6 +23,20 @@ export const setCustomElementsManifestWithOptions = (customElements, options,) =
     return setCustomElementsManifest(customElements);
 };
 
+// XXX : https://github.com/storybookjs/storybook/issues/18858
+// Since SB 7.0.21, attributes overrides and takes over members in the custom elements manifest.
+// Problem : they do not contain a description by default. Here's the workaround :
+export const setCustomElementsManifestAttributes = (declaration) => {
+    declaration.attributes?.forEach((attribute) => {
+        const memberName = declaration.members?.find((member) => !member.privacy?.includes('private') && member.name === attribute.fieldName);
+        if (memberName && memberName.description) {
+            attribute.description = `HTML attribute for property \`${memberName.name}\``;
+            attribute.type = memberName.type;
+        }
+        attribute.name += ' '; // Add an empty space to dissociate attribute from properties and display it twice
+    });
+}
+
 setCustomElementsManifestWithOptions(customElements, {privateFields: false});
 
 export const parameters = {
@@ -32,6 +47,7 @@ export const parameters = {
         },
     },
     controls: {
+        expanded: true,
         matchers: {
             color: /(background|color)$/i,
             date: /Date$/,

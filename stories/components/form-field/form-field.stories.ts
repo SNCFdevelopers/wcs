@@ -4,9 +4,11 @@ import { html } from 'lit-html';
 import formFieldDocumentation from './form-field-documentation.md';
 // @ts-ignore
 import tooltipOnLabelDocumentation from './tooltip-on-label-documentation.md'
+import { getComponentArgs } from '../../utils/args-generation';
 const meta: Meta = {
     title: 'Components/Form Field',
     component: 'wcs-form-field',
+    argTypes: getComponentArgs('wcs-form-field'),
     parameters: {
         docs: {
             description: {

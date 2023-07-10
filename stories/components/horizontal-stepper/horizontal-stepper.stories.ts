@@ -10,11 +10,40 @@ import { HorizontalStepper } from '../../../src/components/horizontal-stepper/ho
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 // @ts-ignore
 import { withActions } from '@storybook/addon-actions/decorator';
+import { getComponentArgs } from '../../utils/args-generation';
 
 
 const meta: Meta = {
     title: 'Components/HorizontalStepper',
     component: 'wcs-horizontal-stepper',
+    argTypes: {
+        ...getComponentArgs('wcs-horizontal-stepper'),
+        steps: {
+            table: {
+                type: {
+                    detail: `
+text?: string;
+disable?: boolean;
+complete?: boolean;
+button: StepButton;
+
+👉 \`StepButton\` can be a \`StepIconButton\` or a \`StepTextButton\` :
+
+StepIconButton {
+  kind: "Icon";
+  iconName: string;
+  family?: MaterialIconFamily;
+}
+
+StepTextButton {
+  kind: "Text";
+  text: string;
+}
+`
+                }
+            }
+        },
+    },
     parameters: {
         actions: {
             handles: [
@@ -55,6 +84,8 @@ const onNextButtonClick = _ => {
 
 export const Default = Template.bind({});
 Default.args = {
+    mode: 'linear',
+    checkOnComplete: false,
     steps: [
         {text: 'Initialisation', button: {kind: 'Icon', iconName: 'location_on'}},
         {text: 'Désactivé', disable: true, button: {kind: 'Icon', iconName: 'remove_circle_outline'}},
@@ -63,7 +94,6 @@ Default.args = {
         {text: 'Finalisation', button: {kind: 'Icon', iconName: 'analytics', family: 'filled'}}
     ]
 };
-
 
 
 export const TextWithoutLabelLinear = Template.bind({});

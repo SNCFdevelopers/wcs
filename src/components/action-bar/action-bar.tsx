@@ -12,7 +12,7 @@ export class ActionBar implements ComponentInterface {
      * You should not use this property if a gutter is already present on tabs
      */
     @Prop() gutter: boolean;
-    @State() hasTabs = false;
+    @State() private hasTabs = false;
 
     componentWillLoad(): Promise<void> | void {
         this.hasTabs = !!this.el.querySelector('[slot="tabs"]');

@@ -2,10 +2,12 @@ import { Meta, StoryFn } from '@storybook/web-components';
 // @ts-ignore
 import galacticDocumentation from './galactic-documentation.md'
 import { html } from 'lit-html';
+import { getComponentArgs } from '../../utils/args-generation';
 
 const meta: Meta = {
     title: 'Components/DS Communication/Galactic',
     component: 'wcs-galactic',
+    argTypes: getComponentArgs('wcs-galactic'),
     parameters: {
         docs: {
             description: {

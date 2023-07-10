@@ -6,10 +6,12 @@ import editableFieldDocumentation from './editable-field-documentation.md'
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 // @ts-ignore
 import { withActions } from '@storybook/addon-actions/decorator';
+import { getComponentArgs } from '../../utils/args-generation';
 
 const meta: Meta = {
     title: 'Components/Editable-field',
     component: 'wcs-editable-field',
+    argTypes: getComponentArgs('wcs-editable-field'),
     parameters: {
         actions: {
             handles: [

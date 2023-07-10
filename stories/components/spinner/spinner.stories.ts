@@ -1,10 +1,12 @@
 import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { WcsSpinnerMode } from '../../../src/components/spinner/spinner-interface';
+import { getComponentArgs } from '../../utils/args-generation';
 
 const meta: Meta = {
     title: 'Components/Spinner',
-    component: 'wcs-spinner'
+    component: 'wcs-spinner',
+    argTypes: getComponentArgs('wcs-spinner'),
 };
 export default meta;
 

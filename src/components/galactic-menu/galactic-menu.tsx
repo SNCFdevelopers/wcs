@@ -9,7 +9,7 @@ import { clickInsideElement } from '../../utils/helpers';
 })
 export class Galactic implements ComponentInterface {
     @Element() private el: HTMLWcsGalacticMenuElement;
-    @State() showPopoverMenu: boolean = false;
+    @State() private showPopoverMenu: boolean = false;
     private popper: Instance;
     /**
      * Text to be displayed in the galactic bar

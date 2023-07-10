@@ -1,9 +1,11 @@
 import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
+import { getComponentArgs } from '../../utils/args-generation';
 
 const meta: Meta = {
     title: 'Components/Progress-radial',
-    component: 'wcs-progress-radial'
+    component: 'wcs-progress-radial',
+    argTypes: getComponentArgs('wcs-progress-radial'),
 };
 export default meta;
 

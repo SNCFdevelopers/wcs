@@ -345,6 +345,9 @@ export namespace Components {
     interface WcsHeader {
     }
     interface WcsHint {
+        /**
+          * Whether the component should display the small version of the hint
+         */
         "small": boolean;
     }
     interface WcsHorizontalStepper {
@@ -1770,6 +1773,9 @@ declare namespace LocalJSX {
     interface WcsHeader {
     }
     interface WcsHint {
+        /**
+          * Whether the component should display the small version of the hint
+         */
         "small"?: boolean;
     }
     interface WcsHorizontalStepper {

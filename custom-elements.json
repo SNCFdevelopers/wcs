@@ -4,397 +4,6 @@
   "modules": [
     {
       "kind": "javascript-module",
-      "path": "components.d.ts",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "BadgeColor",
-          "declaration": {
-            "name": "BadgeColor",
-            "module": "\"./components/badge/badge-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "BadgeShape",
-          "declaration": {
-            "name": "BadgeShape",
-            "module": "\"./components/badge/badge-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "WcsButtonMode",
-          "declaration": {
-            "name": "WcsButtonMode",
-            "module": "\"./components/button/button-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "WcsButtonShape",
-          "declaration": {
-            "name": "WcsButtonShape",
-            "module": "\"./components/button/button-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "WcsButtonSize",
-          "declaration": {
-            "name": "WcsButtonSize",
-            "module": "\"./components/button/button-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "WcsButtonType",
-          "declaration": {
-            "name": "WcsButtonType",
-            "module": "\"./components/button/button-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "CardMode",
-          "declaration": {
-            "name": "CardMode",
-            "module": "\"./components/card/card-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "CheckboxChangeEventDetail",
-          "declaration": {
-            "name": "CheckboxChangeEventDetail",
-            "module": "\"./components/checkbox/checkbox-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "CheckboxLabelAlignment",
-          "declaration": {
-            "name": "CheckboxLabelAlignment",
-            "module": "\"./components/checkbox/checkbox-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "CategoryOpenedEventDetail",
-          "declaration": {
-            "name": "CategoryOpenedEventDetail",
-            "module": "\"./components/com-nav/com-nav-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "MenuOpenedEventDetail",
-          "declaration": {
-            "name": "MenuOpenedEventDetail",
-            "module": "\"./components/com-nav/com-nav-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "WcsDropdownPlacement",
-          "declaration": {
-            "name": "WcsDropdownPlacement",
-            "module": "\"./components/dropdown/dropdown-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "EditableComponentUpdateEvent",
-          "declaration": {
-            "name": "EditableComponentUpdateEvent",
-            "module": "\"./components/editable-field/editable-field-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "EditableFieldType",
-          "declaration": {
-            "name": "EditableFieldType",
-            "module": "\"./components/editable-field/editable-field-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "FormatFn",
-          "declaration": {
-            "name": "FormatFn",
-            "module": "\"./components/editable-field/editable-field-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "ValidateFn",
-          "declaration": {
-            "name": "ValidateFn",
-            "module": "\"./components/editable-field/editable-field-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "WcsCellFormatter",
-          "declaration": {
-            "name": "WcsCellFormatter",
-            "module": "\"./components/grid/grid-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "WcsGridAllRowSelectedEventDetails",
-          "declaration": {
-            "name": "WcsGridAllRowSelectedEventDetails",
-            "module": "\"./components/grid/grid-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "WcsGridColumnSortChangeEventDetails",
-          "declaration": {
-            "name": "WcsGridColumnSortChangeEventDetails",
-            "module": "\"./components/grid/grid-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "WcsGridPaginationChangeEventDetails",
-          "declaration": {
-            "name": "WcsGridPaginationChangeEventDetails",
-            "module": "\"./components/grid/grid-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "WcsGridRowSelectedEventDetails",
-          "declaration": {
-            "name": "WcsGridRowSelectedEventDetails",
-            "module": "\"./components/grid/grid-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "WcsGridSelectionConfig",
-          "declaration": {
-            "name": "WcsGridSelectionConfig",
-            "module": "\"./components/grid/grid-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "WcsSortFn",
-          "declaration": {
-            "name": "WcsSortFn",
-            "module": "\"./components/grid/grid-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "WcsSortOrder",
-          "declaration": {
-            "name": "WcsSortOrder",
-            "module": "\"./components/grid/grid-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "HorizontalStepClickEvent",
-          "declaration": {
-            "name": "HorizontalStepClickEvent",
-            "module": "\"./components/horizontal-stepper/horizontal-stepper-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "HorizontalStepConfig",
-          "declaration": {
-            "name": "HorizontalStepConfig",
-            "module": "\"./components/horizontal-stepper/horizontal-stepper-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "HorizontalStepperMode",
-          "declaration": {
-            "name": "HorizontalStepperMode",
-            "module": "\"./components/horizontal-stepper/horizontal-stepper-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "AutocompleteTypes",
-          "declaration": {
-            "name": "AutocompleteTypes",
-            "module": "\"./components/input/input-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "InputChangeEventDetail",
-          "declaration": {
-            "name": "InputChangeEventDetail",
-            "module": "\"./components/input/input-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "TextFieldTypes",
-          "declaration": {
-            "name": "TextFieldTypes",
-            "module": "\"./components/input/input-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "WcsInputSize",
-          "declaration": {
-            "name": "WcsInputSize",
-            "module": "\"./components/input/input-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "MaterialIconFamily",
-          "declaration": {
-            "name": "MaterialIconFamily",
-            "module": "\"./components/mat-icon/mat-icon-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "MaterialIconSize",
-          "declaration": {
-            "name": "MaterialIconSize",
-            "module": "\"./components/mat-icon/mat-icon-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "ModalSize",
-          "declaration": {
-            "name": "ModalSize",
-            "module": "\"./components/modal/modal-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "RadioGroupChangeEventDetail",
-          "declaration": {
-            "name": "RadioGroupChangeEventDetail",
-            "module": "\"./components/radio-group/radio-group-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "RadioGroupMode",
-          "declaration": {
-            "name": "RadioGroupMode",
-            "module": "\"./components/radio-group/radio-group-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "RadioChosedEvent",
-          "declaration": {
-            "name": "RadioChosedEvent",
-            "module": "\"./components/radio/radio-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "SelectChangeEventDetail",
-          "declaration": {
-            "name": "SelectChangeEventDetail",
-            "module": "\"./components/select/select-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "SelectOptionChosedEvent",
-          "declaration": {
-            "name": "SelectOptionChosedEvent",
-            "module": "\"./components/select-option/select-option-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "WcsSpinnerMode",
-          "declaration": {
-            "name": "WcsSpinnerMode",
-            "module": "\"./components/spinner/spinner-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "SwitchChangeEventDetail",
-          "declaration": {
-            "name": "SwitchChangeEventDetail",
-            "module": "\"./components/switch/switch-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "SwitchLabelAlignment",
-          "declaration": {
-            "name": "SwitchLabelAlignment",
-            "module": "\"./components/switch/switch-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "WcsTabChangeEvent",
-          "declaration": {
-            "name": "WcsTabChangeEvent",
-            "module": "\"./components/tabs/tabs-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "WcsTabsAlignment",
-          "declaration": {
-            "name": "WcsTabsAlignment",
-            "module": "\"./components/tabs/tabs-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "TextareaChangeEventDetail",
-          "declaration": {
-            "name": "TextareaChangeEventDetail",
-            "module": "\"./components/textarea/textarea-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "WcsTooltipAppendTo",
-          "declaration": {
-            "name": "WcsTooltipAppendTo",
-            "module": "\"./components/tooltip/tooltip-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "WcsTooltipPosition",
-          "declaration": {
-            "name": "WcsTooltipPosition",
-            "module": "\"./components/tooltip/tooltip-interface\""
-          }
-        },
-        {
-          "kind": "js",
-          "name": "JSX",
-          "declaration": {
-            "name": "LocalJSX",
-            "module": "components.d.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "index.ts",
       "declarations": [],
       "exports": [
@@ -845,6 +454,44 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/accordion-content/accordion-content.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "AccordionContent",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-accordion-content",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "AccordionContent",
+          "declaration": {
+            "name": "AccordionContent",
+            "module": "components/accordion-content/accordion-content.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-accordion-content",
+          "declaration": {
+            "name": "AccordionContent",
+            "module": "components/accordion-content/accordion-content.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/accordion/accordion.tsx",
       "declarations": [
         {
@@ -1000,44 +647,6 @@
           "declaration": {
             "name": "Accordion",
             "module": "components/accordion/accordion.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/accordion-content/accordion-content.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "AccordionContent",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-accordion-content",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "AccordionContent",
-          "declaration": {
-            "name": "AccordionContent",
-            "module": "components/accordion-content/accordion-content.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-accordion-content",
-          "declaration": {
-            "name": "AccordionContent",
-            "module": "components/accordion-content/accordion-content.tsx"
           }
         }
       ]
@@ -1234,6 +843,7 @@
               "type": {
                 "text": "boolean"
               },
+              "privacy": "private",
               "default": "false"
             },
             {
@@ -1989,6 +1599,7 @@
               "type": {
                 "text": "boolean"
               },
+              "privacy": "private",
               "default": "false"
             },
             {
@@ -1996,7 +1607,8 @@
               "name": "currentActiveSizing",
               "type": {
                 "text": "'desktop' | 'mobile'"
-              }
+              },
+              "privacy": "private"
             },
             {
               "kind": "field",
@@ -2101,6 +1713,7 @@
               "type": {
                 "text": "boolean"
               },
+              "privacy": "private",
               "default": "false"
             },
             {
@@ -2295,6 +1908,7 @@
               "type": {
                 "text": "boolean"
               },
+              "privacy": "private",
               "default": "false"
             },
             {
@@ -2600,6 +2214,7 @@
               "type": {
                 "text": "boolean"
               },
+              "privacy": "private",
               "default": "false"
             },
             {
@@ -3017,7 +2632,8 @@
               "name": "currentState",
               "type": {
                 "text": "EditableComponentState"
-              }
+              },
+              "privacy": "private"
             },
             {
               "kind": "field",
@@ -3084,6 +2700,7 @@
               "type": {
                 "text": "boolean"
               },
+              "privacy": "private",
               "default": "false"
             },
             {
@@ -3326,6 +2943,16 @@
           "kind": "class",
           "description": "",
           "name": "Field",
+          "slots": [
+            {
+              "description": "Label of the field",
+              "name": "label"
+            },
+            {
+              "description": "Content of the field",
+              "name": "content"
+            }
+          ],
           "members": [
             {
               "kind": "method",
@@ -3428,49 +3055,6 @@
           "declaration": {
             "name": "FieldLabel",
             "module": "components/field-label/field-label.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/footer/footer.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Footer",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            }
-          ],
-          "tagName": "wcs-footer",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Footer",
-          "declaration": {
-            "name": "Footer",
-            "module": "components/footer/footer.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-footer",
-          "declaration": {
-            "name": "Footer",
-            "module": "components/footer/footer.tsx"
           }
         }
       ]
@@ -3651,6 +3235,63 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/footer/footer.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Footer",
+          "slots": [
+            {
+              "description": "Main container slot",
+              "name": "<no-name>"
+            },
+            {
+              "description": "Bottom-left part of the footer",
+              "name": "end-left"
+            },
+            {
+              "description": "Bottom-right part of the footer",
+              "name": "end-right"
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            }
+          ],
+          "tagName": "wcs-footer",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Footer",
+          "declaration": {
+            "name": "Footer",
+            "module": "components/footer/footer.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-footer",
+          "declaration": {
+            "name": "Footer",
+            "module": "components/footer/footer.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/galactic/galactic.tsx",
       "declarations": [
         {
@@ -3740,6 +3381,7 @@
               "type": {
                 "text": "boolean"
               },
+              "privacy": "private",
               "default": "false"
             },
             {
@@ -3934,14 +3576,16 @@
               "name": "columns",
               "type": {
                 "text": "HTMLWcsGridColumnElement[]"
-              }
+              },
+              "privacy": "private"
             },
             {
               "kind": "field",
               "name": "paginationEl",
               "type": {
                 "text": "HTMLWcsGridPaginationElement"
-              }
+              },
+              "privacy": "private"
             },
             {
               "kind": "field",
@@ -3949,6 +3593,7 @@
               "type": {
                 "text": "WcsGridRow[]"
               },
+              "privacy": "private",
               "default": "[]",
               "description": "Rows to display, contains user data and meta data"
             },
@@ -4748,6 +4393,7 @@
                 "text": "number"
               },
               "static": true,
+              "readonly": true,
               "default": "0"
             },
             {
@@ -4963,6 +4609,20 @@
           "kind": "class",
           "description": "",
           "name": "Header",
+          "slots": [
+            {
+              "description": "SNCF Logo",
+              "name": "logo"
+            },
+            {
+              "description": "Title of your application",
+              "name": "title"
+            },
+            {
+              "description": "Actions such as buttons, dropdown or any useful information to always display on your application",
+              "name": "actions"
+            }
+          ],
           "members": [
             {
               "kind": "method",
@@ -5004,7 +4664,7 @@
         {
           "kind": "class",
           "description": "",
-          "name": "Label",
+          "name": "Hint",
           "members": [
             {
               "kind": "field",
@@ -5012,7 +4672,8 @@
               "type": {
                 "text": "boolean"
               },
-              "default": "false"
+              "default": "false",
+              "description": "Whether the component should display the small version of the hint"
             },
             {
               "kind": "method",
@@ -5022,7 +4683,10 @@
           "attributes": [
             {
               "name": "small",
-              "fieldName": "small"
+              "fieldName": "small",
+              "type": {
+                "text": "boolean"
+              }
             }
           ],
           "tagName": "wcs-hint",
@@ -5033,9 +4697,9 @@
       "exports": [
         {
           "kind": "js",
-          "name": "Label",
+          "name": "Hint",
           "declaration": {
-            "name": "Label",
+            "name": "Hint",
             "module": "components/hint/hint.tsx"
           }
         },
@@ -5043,7 +4707,7 @@
           "kind": "custom-element-definition",
           "name": "wcs-hint",
           "declaration": {
-            "name": "Label",
+            "name": "Hint",
             "module": "components/hint/hint.tsx"
           }
         }
@@ -5776,7 +5440,8 @@
             },
             {
               "kind": "method",
-              "name": "setFocus"
+              "name": "setFocus",
+              "deprecated": "use the native focus method instead\r\n\r\nSets focus on the native `input` in `wcs-input`. Use this method instead of the global\r\n`input.focus()`."
             },
             {
               "kind": "method",
@@ -6685,6 +6350,95 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/progress-radial/progress-radial.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "ProgressRadial",
+          "members": [
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "number"
+              },
+              "default": "120"
+            },
+            {
+              "kind": "field",
+              "name": "showLabel",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "number"
+              },
+              "default": "0"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            },
+            {
+              "kind": "method",
+              "name": "getSvgStyle"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "size",
+              "fieldName": "size",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "show-label",
+              "fieldName": "showLabel",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "value",
+              "fieldName": "value",
+              "type": {
+                "text": "number"
+              }
+            }
+          ],
+          "tagName": "wcs-progress-radial",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ProgressRadial",
+          "declaration": {
+            "name": "ProgressRadial",
+            "module": "components/progress-radial/progress-radial.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-progress-radial",
+          "declaration": {
+            "name": "ProgressRadial",
+            "module": "components/progress-radial/progress-radial.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/progress-bar/progress-bar.tsx",
       "declarations": [
         {
@@ -6776,95 +6530,6 @@
           "declaration": {
             "name": "ProgressBar",
             "module": "components/progress-bar/progress-bar.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/progress-radial/progress-radial.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "ProgressRadial",
-          "members": [
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "number"
-              },
-              "default": "120"
-            },
-            {
-              "kind": "field",
-              "name": "showLabel",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "value",
-              "type": {
-                "text": "number"
-              },
-              "default": "0"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            },
-            {
-              "kind": "method",
-              "name": "getSvgStyle"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "size",
-              "fieldName": "size",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "show-label",
-              "fieldName": "showLabel",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "value",
-              "fieldName": "value",
-              "type": {
-                "text": "number"
-              }
-            }
-          ],
-          "tagName": "wcs-progress-radial",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ProgressRadial",
-          "declaration": {
-            "name": "ProgressRadial",
-            "module": "components/progress-radial/progress-radial.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-progress-radial",
-          "declaration": {
-            "name": "ProgressRadial",
-            "module": "components/progress-radial/progress-radial.tsx"
           }
         }
       ]
@@ -7089,7 +6754,8 @@
               "type": {
                 "text": "HTMLWcsRadioElement[]"
               },
-              "privacy": "private"
+              "privacy": "private",
+              "readonly": true
             },
             {
               "kind": "method",
@@ -7484,7 +7150,8 @@
               "type": {
                 "text": "HTMLWcsSelectOptionElement[]"
               },
-              "privacy": "private"
+              "privacy": "private",
+              "readonly": true
             },
             {
               "kind": "method",
@@ -7551,7 +7218,8 @@
               "type": {
                 "text": "boolean"
               },
-              "privacy": "private"
+              "privacy": "private",
+              "readonly": true
             },
             {
               "kind": "method",
@@ -8060,75 +7728,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/tab/tab.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Tab content component.\r\nUse this component to specify the content of a component.",
-          "name": "Tab",
-          "members": [
-            {
-              "kind": "field",
-              "name": "header",
-              "type": {
-                "text": "string"
-              },
-              "description": "The header you want to be displayed for this tab."
-            },
-            {
-              "kind": "field",
-              "name": "itemKey",
-              "type": {
-                "text": "any"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "header",
-              "fieldName": "header",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "item-key",
-              "fieldName": "itemKey",
-              "type": {
-                "text": "any"
-              }
-            }
-          ],
-          "tagName": "wcs-tab",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Tab",
-          "declaration": {
-            "name": "Tab",
-            "module": "components/tab/tab.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-tab",
-          "declaration": {
-            "name": "Tab",
-            "module": "components/tab/tab.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/tabs/tabs-interface.ts",
       "declarations": [],
       "exports": []
@@ -8293,7 +7892,8 @@
             {
               "kind": "field",
               "name": "tabs",
-              "privacy": "private"
+              "privacy": "private",
+              "readonly": true
             },
             {
               "kind": "method",
@@ -8388,6 +7988,75 @@
           "declaration": {
             "name": "Tabs",
             "module": "components/tabs/tabs.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/tab/tab.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Tab content component.\r\nUse this component to specify the content of a component.",
+          "name": "Tab",
+          "members": [
+            {
+              "kind": "field",
+              "name": "header",
+              "type": {
+                "text": "string"
+              },
+              "description": "The header you want to be displayed for this tab."
+            },
+            {
+              "kind": "field",
+              "name": "itemKey",
+              "type": {
+                "text": "any"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "header",
+              "fieldName": "header",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "item-key",
+              "fieldName": "itemKey",
+              "type": {
+                "text": "any"
+              }
+            }
+          ],
+          "tagName": "wcs-tab",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Tab",
+          "declaration": {
+            "name": "Tab",
+            "module": "components/tab/tab.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-tab",
+          "declaration": {
+            "name": "Tab",
+            "module": "components/tab/tab.tsx"
           }
         }
       ]

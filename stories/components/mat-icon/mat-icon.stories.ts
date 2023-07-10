@@ -3,10 +3,12 @@ import { html } from 'lit-html';
 import { MaterialIconFamily, MaterialIconSize } from '../../../src/components/mat-icon/mat-icon-interface';
 // @ts-ignore
 import matIconDocumentation from './mat-icon-documentation.md';
+import { getComponentArgs } from '../../utils/args-generation';
 
 const meta: Meta = {
     title: 'Components/Mat icon',
     component: 'wcs-mat-icon',
+    argTypes: getComponentArgs('wcs-mat-icon'),
     parameters: {
         docs: {
             description: {

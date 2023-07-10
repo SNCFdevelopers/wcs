@@ -2,10 +2,12 @@ import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 // @ts-ignore
 import tabInsideDocumentation from './tab-inside-documentation.md';
+import { getComponentArgs } from '../../utils/args-generation';
 
 const meta: Meta = {
-    title: 'Components/actionBar',
-    component: 'wcs-action-bar'
+    title: 'Components/ActionBar',
+    component: 'wcs-action-bar',
+    argTypes: getComponentArgs('wcs-action-bar'),
 };
 export default meta;
 

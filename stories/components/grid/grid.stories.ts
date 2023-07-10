@@ -15,6 +15,7 @@ import {
     WcsGridPaginationChangeEventDetails,
     WcsGridSelectionConfig, WcsSortOrder
 } from '../../../src/components/grid/grid-interface';
+import { getComponentArgs } from '../../utils/args-generation';
 
 const Template: StoryFn<Partial<{ data: any[], selectionConfig: WcsGridSelectionConfig, loading: boolean, selectedItems: any[], hideEmailColumn: boolean, hideIpColumn: boolean, initialSortConfig: WcsSortOrder }>> = (args) => html`
     <wcs-grid id="grid-simple-1" selection-config=${args.selectionConfig} .selectedItems=${args.selectedItems}
@@ -29,6 +30,7 @@ const Template: StoryFn<Partial<{ data: any[], selectionConfig: WcsGridSelection
 const meta: Meta = {
     title: 'Components/Grid',
     component: 'wcs-grid',
+    argTypes: getComponentArgs('wcs-grid'),
     parameters: {
         actions: {
             handles: [

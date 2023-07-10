@@ -2,10 +2,12 @@ import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 // @ts-ignore
 import navDocumentation from './nav-documentation.md';
+import { getComponentArgs } from '../../utils/args-generation';
 
 const meta: Meta = {
     title: 'Components/Nav',
     component: 'wcs-nav',
+    argTypes: getComponentArgs('wcs-nav'),
     parameters: {
         docs: {
             description: {

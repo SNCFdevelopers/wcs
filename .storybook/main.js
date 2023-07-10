@@ -13,7 +13,7 @@ const config = {
     framework: '@storybook/web-components-webpack5',
     stories: [
         "../stories/**/*.stories.mdx",
-        "../stories/documentation/**/*.stories.md", // TODO: remove me?
+        "../stories/**/**.mdx",
         "../stories/**/*.stories.@(js|jsx|ts|tsx)"
     ],
     addons: [

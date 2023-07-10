@@ -2,10 +2,12 @@ import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 // @ts-ignore
 import progressBarDoc from './progress-bar-documentation.md';
+import { getComponentArgs } from '../../utils/args-generation';
 
 const meta: Meta = {
     title: 'Components/Progress-bar',
     component: 'wcs-progress-bar',
+    argTypes: getComponentArgs('wcs-progress-bar'),
     parameters: {
         docs: {
             description: {

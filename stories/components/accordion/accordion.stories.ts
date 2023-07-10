@@ -4,10 +4,12 @@ import test from './accordion-panel.mdx';
 import { html } from 'lit-html';
 // @ts-ignore
 import { withActions } from '@storybook/addon-actions/decorator';
+import { getComponentArgs } from '../../utils/args-generation';
 
 const meta: Meta = {
     title: 'Components/Accordion',
     component: 'wcs-accordion',
+    argTypes: getComponentArgs('wcs-accordion'),
     parameters: {
         actions: {
             handles: [

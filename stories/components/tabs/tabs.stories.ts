@@ -5,10 +5,12 @@ import { WcsTabChangeEvent, WcsTabsAlignment } from '../../../src/components/tab
 import tabsDoc from './tabs-documentation.md';
 // @ts-ignore
 import headersOnlyDoc from './headers-only-story-documentation.md';
+import { getComponentArgs } from '../../utils/args-generation';
 
 const meta: Meta =  {
     title: 'Components/Tabs',
     component: 'wcs-tabs',
+    argTypes: getComponentArgs('wcs-tabs'),
     parameters: {
         actions: {
             handles: [

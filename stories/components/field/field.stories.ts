@@ -23,7 +23,7 @@ export default meta;
 
 const Template: StoryFn = () => html`
     <wcs-field>
-        <wcs-field-label>Le nom du champs</wcs-field-label>
+        <wcs-field-label>Le nom du champ</wcs-field-label>
         <wcs-field-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec massa mi, hendrerit dictum dui
             sed, porttitor ullamcorper diam.
         </wcs-field-content>

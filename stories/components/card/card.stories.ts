@@ -1,10 +1,12 @@
 import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { CardMode } from '../../../src/components/card/card-interface';
+import { getComponentArgs } from '../../utils/args-generation';
 
 const meta: Meta = {
     title: 'Components/Card',
     component: 'wcs-card',
+    argTypes: getComponentArgs('wcs-card'),
     subcomponents: {
         'WcsCardBody': 'wcs-card-body'
     }

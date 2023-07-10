@@ -1,5 +1,9 @@
 import { Component, ComponentInterface, h, Host, } from '@stencil/core';
 
+/**
+ * @slot label Label of the field
+ * @slot content Content of the field
+ */
 @Component({
     tag: 'wcs-field',
     styleUrl: 'field.scss',

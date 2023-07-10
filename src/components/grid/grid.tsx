@@ -60,12 +60,12 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
      * object's value for this key.
      */
     @Prop() rowIdPath: string;
-    @State() columns: HTMLWcsGridColumnElement[];
-    @State() paginationEl: HTMLWcsGridPaginationElement;
+    @State() private columns: HTMLWcsGridColumnElement[];
+    @State() private paginationEl: HTMLWcsGridPaginationElement;
     /**
      * Rows to display, contains user data and meta data
      */
-    @State() rows: WcsGridRow[] = [];
+    @State() private rows: WcsGridRow[] = [];
     /**
      * Event emitted when a row is selected or unselected
      */

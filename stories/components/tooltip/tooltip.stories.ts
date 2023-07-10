@@ -8,10 +8,12 @@ import interactiveStoryDocumentation from './interactiveStoryDocumentation.md';
 import fullscreenStoryDocumentation from './fullscreenStoryDocumentation.md';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { createRef, ref, Ref } from 'lit-html/directives/ref.js';
+import { getComponentArgs } from '../../utils/args-generation';
 
 const meta: Meta = {
     title: 'Components/Tooltip',
-    component: 'wcs-tooltip'
+    component: 'wcs-tooltip',
+    argTypes: getComponentArgs('wcs-tooltip'),
 };
 
 export default meta;

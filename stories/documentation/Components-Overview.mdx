@@ -1,4 +1,6 @@
-export default function ComponentOverview() {
+<Meta title="Documentation/Components Overview" />
+
+export default function ComponentsOverview() {
 
     const style = (
         <style>{`
@@ -82,15 +84,17 @@ export default function ComponentOverview() {
         "Tooltip",
     ];
 
-    const DisplayCard = ({story}) => {
+    const DisplayCard = ({story, gif}) => {
         const formattedStoryName = story.toLowerCase().replace(/\s/g, '');
+        const fileExtension = gif ? 'gif' : 'png';
+
         return (
             <a href={`../?path=/docs/components-${formattedStoryName}--documentation`} aria-label={story}>
                 <div className="display-card">
                     <b>{story}</b>
                     <div className="divider"></div>
                     <div className="img-container">
-                        <img alt={`${story} preview`} src={`components-overview/${formattedStoryName}.png`}/>
+                        <img alt={`${story} preview`} src={`components-overview/${formattedStoryName}.${fileExtension}`}/>
                     </div>
                 </div>
             </a>
@@ -106,23 +110,8 @@ export default function ComponentOverview() {
                         <DisplayCard key={c} story={c}></DisplayCard>
                     ))
                 }
-                { /* Below : animated spinner component preview */}
-                <a href={`../?path=/docs/components-spinner--documentation`} aria-label="Spinner">
-                    <div className="display-card">
-                        <b>Spinner</b>
-                        <div className="divider"></div>
-                        <div className="img-container spinner-container">
-                            <wcs-button style={{gridColumn: 'span 3', width: '100%'}} loading="true">Loading Button
-                            </wcs-button>
-                            <wcs-spinner class="wcs-primary" mode="border"></wcs-spinner>
-                            <wcs-spinner class="wcs-success" mode="border"></wcs-spinner>
-                            <wcs-spinner class="wcs-danger" mode="border"></wcs-spinner>
-                            <wcs-spinner class="wcs-primary" mode="growing"></wcs-spinner>
-                            <wcs-spinner class="wcs-success" mode="growing"></wcs-spinner>
-                            <wcs-spinner class="wcs-danger" mode="growing"></wcs-spinner>
-                        </div>
-                    </div>
-                </a>
+                { /* Extra : Animated spinner component preview */}
+                <DisplayCard story="Spinner" gif></DisplayCard>
             </div>
         </>
     );

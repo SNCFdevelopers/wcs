@@ -26,7 +26,7 @@ enum EditableComponentState {
 export class EditableField implements ComponentInterface {
     @Element() private el!: HTMLWcsEditableFieldElement;
 
-    @State() currentState: EditableComponentState = EditableComponentState.DISPLAY;
+    @State() private currentState: EditableComponentState = EditableComponentState.DISPLAY;
     /**
      * Specifies which component is used for editing
      */
@@ -61,7 +61,7 @@ export class EditableField implements ComponentInterface {
      */
     @Prop() errorMsg: string = null;
 
-    @State() isError: boolean = false;
+    @State() private isError: boolean = false;
 
     // fixme: why this attr is never read?
     // ignoreNextChangeEvent: boolean = false;

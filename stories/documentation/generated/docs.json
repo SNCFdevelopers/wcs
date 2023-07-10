@@ -1,0 +1,5962 @@
+{
+  "timestamp": "2023-07-13T12:52:16",
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "3.0.0",
+    "typescriptVersion": "4.9.4"
+  },
+  "components": [
+    {
+      "filePath": "./src/components/accordion/accordion.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-accordion",
+      "readme": "# wcs-accordion\r\n\r\n\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "groupContentWithHeader",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "group-content-with-header",
+          "reflectToAttr": true,
+          "docs": "Specifies wether accordion-panel components should group the content with header in one card\r\nif true, there will be only one card with the header and the content\r\nNothing change when the panel is close",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "hideActionText",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "hide-action-text",
+          "reflectToAttr": true,
+          "docs": "Specifies whether accordion-panel components should display the open/close text.\r\nif false, it won't show the open/close text in all accordion-panel.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "highlight",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "highlight",
+          "reflectToAttr": true,
+          "docs": "Specifies whether accordion-panel components should highlight when open with primary color.\r\nif true, the background color of the accordion-panel will be the primary color.\r\nif false, the background color of the accordion-panel will be wcs-light.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [
+        {
+          "event": "wcsOpenChange",
+          "capture": false,
+          "passive": false
+        }
+      ],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/accordion-content/accordion-content.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-accordion-content",
+      "readme": "# wcs-accordion-content\r\n\r\n\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/accordion-header/accordion-header.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-accordion-header",
+      "readme": "# wcs-accordion-header\r\n\r\n\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/accordion-panel/accordion-panel.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-accordion-panel",
+      "readme": "# wcs-accordion-panel\r\n\r\n\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "groupContentWithHeader",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "group-content-with-header",
+          "reflectToAttr": true,
+          "docs": "Specifies wether the component should group the content with header in one card\r\nif true, there will be only one card with the header and the content\r\nNothing change when the panel is close",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "hideActionText",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "hide-action-text",
+          "reflectToAttr": true,
+          "docs": "Specifies whether the component should display the open/close text.\r\nif false, it won't show the open/close text.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "highlight",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "highlight",
+          "reflectToAttr": true,
+          "docs": "Specifies whether the component should highlight when open with primary color.\r\nif true, the background color will be the primary color.\r\nif false, the background color will be wcs-light.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "mutable": true,
+          "attr": "open",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "close",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "close() => Promise<void>",
+          "parameters": [],
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "events": [
+        {
+          "event": "wcsOpenChange",
+          "detail": "boolean",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/action-bar/action-bar.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-action-bar",
+      "readme": "# Action bar\r\n\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "gutter",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "gutter",
+          "reflectToAttr": false,
+          "docs": "Determines if the action bar should have a border at the bottom.\r\nYou should not use this property if a gutter is already present on tabs",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/app/app.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-app",
+      "readme": "# App\r\n\r\n\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/badge/badge.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-badge",
+      "readme": "# Badge\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "color",
+          "type": "\"initial\" | \"lighter\"",
+          "mutable": false,
+          "attr": "color",
+          "reflectToAttr": false,
+          "docs": "Allows you to change the color of the badge to make it less bright (based on the color chosen by the CSS class).",
+          "docsTags": [],
+          "default": "'initial'",
+          "values": [
+            {
+              "value": "initial",
+              "type": "string"
+            },
+            {
+              "value": "lighter",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "shape",
+          "type": "\"normal\" | \"rounded\"",
+          "mutable": false,
+          "attr": "shape",
+          "reflectToAttr": false,
+          "docs": "Define the shape of the badge",
+          "docsTags": [],
+          "default": "'normal'",
+          "values": [
+            {
+              "value": "normal",
+              "type": "string"
+            },
+            {
+              "value": "rounded",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/button/button.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-button",
+      "readme": "# Button\r\n\r",
+      "docs": "Button component, can also be a link when specifying href.",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": true,
+          "docs": "Specify whether the button is disabled or not.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "mutable": false,
+          "attr": "href",
+          "reflectToAttr": false,
+          "docs": "Set a URL to point to.<br/>\r\nIf specified use a `a` tag instead of `btn`.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "mutable": true,
+          "attr": "loading",
+          "reflectToAttr": false,
+          "docs": "Flag to display spinner until the end of action",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "mode",
+          "type": "\"clear\" | \"plain\" | \"stroked\"",
+          "mutable": false,
+          "attr": "mode",
+          "reflectToAttr": true,
+          "docs": "This attribute specify the appearance of the button.",
+          "docsTags": [],
+          "default": "'plain'",
+          "values": [
+            {
+              "value": "clear",
+              "type": "string"
+            },
+            {
+              "value": "plain",
+              "type": "string"
+            },
+            {
+              "value": "stroked",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "ripple",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "ripple",
+          "reflectToAttr": false,
+          "docs": "Specify whether the button should have a ripple effect or not.",
+          "docsTags": [],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "shape",
+          "type": "\"normal\" | \"round\" | \"square\"",
+          "mutable": false,
+          "attr": "shape",
+          "reflectToAttr": true,
+          "docs": "Specify the shape of the button.",
+          "docsTags": [],
+          "default": "'normal'",
+          "values": [
+            {
+              "value": "normal",
+              "type": "string"
+            },
+            {
+              "value": "round",
+              "type": "string"
+            },
+            {
+              "value": "square",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "\"l\" | \"m\" | \"s\"",
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": true,
+          "docs": "Specify the size of the button.",
+          "docsTags": [],
+          "default": "'m'",
+          "values": [
+            {
+              "value": "l",
+              "type": "string"
+            },
+            {
+              "value": "m",
+              "type": "string"
+            },
+            {
+              "value": "s",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "target",
+          "type": "\"_blank\" | \"_self\"",
+          "mutable": false,
+          "attr": "target",
+          "reflectToAttr": false,
+          "docs": "Specifies where to open the linked document when using href (see prop above)<br/>\r\nDefault '_self' will open the linked document in the same frame as it was clicked",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "_blank",
+              "type": "string"
+            },
+            {
+              "value": "_self",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "\"button\" | \"submit\"",
+          "mutable": true,
+          "attr": "type",
+          "reflectToAttr": false,
+          "docs": "Specify the button type.",
+          "docsTags": [],
+          "default": "'button'",
+          "values": [
+            {
+              "value": "button",
+              "type": "string"
+            },
+            {
+              "value": "submit",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [
+        {
+          "event": "click",
+          "capture": false,
+          "passive": false
+        }
+      ],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "wcs-dropdown",
+        "wcs-horizontal-stepper",
+        "wcs-modal"
+      ],
+      "dependencies": [
+        "wcs-spinner"
+      ],
+      "dependencyGraph": {
+        "wcs-button": [
+          "wcs-spinner"
+        ],
+        "wcs-dropdown": [
+          "wcs-button"
+        ],
+        "wcs-horizontal-stepper": [
+          "wcs-button"
+        ],
+        "wcs-modal": [
+          "wcs-button"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/card/card.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-card",
+      "readme": "# Card\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "mode",
+          "type": "\"flat\" | \"raised\"",
+          "mutable": true,
+          "attr": "mode",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "'raised'",
+          "values": [
+            {
+              "value": "flat",
+              "type": "string"
+            },
+            {
+              "value": "raised",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/card-body/card-body.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-card-body",
+      "readme": "# Card body\r\n\r\n\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/checkbox/checkbox.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-checkbox",
+      "readme": "# Checkbox\r\n\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "checked",
+          "type": "boolean",
+          "mutable": true,
+          "attr": "checked",
+          "reflectToAttr": true,
+          "docs": "If `true`, the checkbox is selected.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "Specify wether the checkbox is disabled or not.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "indeterminate",
+          "type": "boolean",
+          "mutable": true,
+          "attr": "indeterminate",
+          "reflectToAttr": true,
+          "docs": "If `true` the checkbox is in indeterminate state.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "labelAlignment",
+          "type": "\"bottom\" | \"center\" | \"top\"",
+          "mutable": true,
+          "attr": "label-alignment",
+          "reflectToAttr": true,
+          "docs": "Specifie the alignment of the checkbox with the label content",
+          "docsTags": [],
+          "default": "'center'",
+          "values": [
+            {
+              "value": "bottom",
+              "type": "string"
+            },
+            {
+              "value": "center",
+              "type": "string"
+            },
+            {
+              "value": "top",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "mutable": false,
+          "attr": "name",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "this.checkboxId",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "wcsChange",
+          "detail": "CheckboxChangeEventDetail",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the checked property has changed.",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "wcs-grid",
+        "wcs-select-option"
+      ],
+      "dependencies": [],
+      "dependencyGraph": {
+        "wcs-grid": [
+          "wcs-checkbox"
+        ],
+        "wcs-select-option": [
+          "wcs-checkbox"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/com-nav/com-nav.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-com-nav",
+      "readme": "# Communication Navbar\r\n\r\nThis component is the implementation of the navigation bar dedicated to communication design.\r\n\r\n```html\r\n\r\n\r\n```\r\n\r",
+      "docs": "This component is the implementation of the navigation bar dedicated to communication design.\r\n\r\n```html\r\n\r\n\r\n```",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "appName",
+          "type": "string",
+          "mutable": false,
+          "attr": "app-name",
+          "reflectToAttr": false,
+          "docs": "Name of the application to be displayed in the menu bar",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [
+        {
+          "event": "wcsClickOnFinalAction",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "wcsCategoryItemClicked",
+          "capture": false,
+          "passive": false
+        }
+      ],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/com-nav-category/com-nav-category.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-com-nav-category",
+      "readme": "# wcs-com-nav-category\r\n\r\n\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "close",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "close() => Promise<void>",
+          "parameters": [],
+          "docs": "Close the category",
+          "docsTags": []
+        },
+        {
+          "name": "open",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "open() => Promise<void>",
+          "parameters": [],
+          "docs": "Opens the category",
+          "docsTags": []
+        }
+      ],
+      "events": [
+        {
+          "event": "wcsCategoryItemClicked",
+          "detail": "UIEvent",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        },
+        {
+          "event": "wcsCategoryOpened",
+          "detail": "CategoryOpenedEventDetail",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "listeners": [
+        {
+          "event": "click",
+          "target": "window",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "wcsCategoryOpened",
+          "target": "window",
+          "capture": false,
+          "passive": false
+        }
+      ],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/com-nav-submenu/com-nav-submenu.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-com-nav-submenu",
+      "readme": "# wcs-com-nav-submenu\r\n\r\n\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "panelDescription",
+          "type": "string",
+          "mutable": false,
+          "attr": "panel-description",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "panelTitle",
+          "type": "string",
+          "mutable": false,
+          "attr": "panel-title",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "close",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "close() => Promise<void>",
+          "parameters": [],
+          "docs": "Close the menu",
+          "docsTags": []
+        },
+        {
+          "name": "open",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "open() => Promise<void>",
+          "parameters": [],
+          "docs": "Opens the menu",
+          "docsTags": []
+        }
+      ],
+      "events": [
+        {
+          "event": "wcsClickOnFinalAction",
+          "detail": "void",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when a user click on a final navigation action.\r\n\r\nUsed by the com-nav component to close the mobile menu overlay when a user click on a final action.",
+          "docsTags": []
+        },
+        {
+          "event": "wcsSubmenuOpened",
+          "detail": "MenuOpenedEventDetail",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "listeners": [
+        {
+          "event": "click",
+          "target": "window",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "wcsSubmenuOpened",
+          "target": "window",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "keydown",
+          "target": "window",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "wcsCategoryItemClicked",
+          "capture": false,
+          "passive": false
+        }
+      ],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/divider/divider.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-divider",
+      "readme": "# wcs-divider\r\n\r\n\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/dropdown/dropdown.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-dropdown",
+      "readme": "# Dropdown\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "Specifies whether the dropdown button is clickable or not",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "mode",
+          "type": "\"clear\" | \"plain\" | \"stroked\"",
+          "mutable": false,
+          "attr": "mode",
+          "reflectToAttr": false,
+          "docs": "Dropdown's button mode",
+          "docsTags": [],
+          "default": "'stroked'",
+          "values": [
+            {
+              "value": "clear",
+              "type": "string"
+            },
+            {
+              "value": "plain",
+              "type": "string"
+            },
+            {
+              "value": "stroked",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "noArrow",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "no-arrow",
+          "reflectToAttr": false,
+          "docs": "Hides the arrow in the button",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "placement",
+          "type": "\"auto\" | \"auto-end\" | \"auto-start\" | \"bottom\" | \"bottom-end\" | \"bottom-start\" | \"left\" | \"left-end\" | \"left-start\" | \"right\" | \"right-end\" | \"right-start\" | \"top\" | \"top-end\" | \"top-start\"",
+          "mutable": false,
+          "attr": "placement",
+          "reflectToAttr": false,
+          "docs": "placement of the dropdown's popover",
+          "docsTags": [],
+          "default": "'bottom-end'",
+          "values": [
+            {
+              "value": "auto",
+              "type": "string"
+            },
+            {
+              "value": "auto-end",
+              "type": "string"
+            },
+            {
+              "value": "auto-start",
+              "type": "string"
+            },
+            {
+              "value": "bottom",
+              "type": "string"
+            },
+            {
+              "value": "bottom-end",
+              "type": "string"
+            },
+            {
+              "value": "bottom-start",
+              "type": "string"
+            },
+            {
+              "value": "left",
+              "type": "string"
+            },
+            {
+              "value": "left-end",
+              "type": "string"
+            },
+            {
+              "value": "left-start",
+              "type": "string"
+            },
+            {
+              "value": "right",
+              "type": "string"
+            },
+            {
+              "value": "right-end",
+              "type": "string"
+            },
+            {
+              "value": "right-start",
+              "type": "string"
+            },
+            {
+              "value": "top",
+              "type": "string"
+            },
+            {
+              "value": "top-end",
+              "type": "string"
+            },
+            {
+              "value": "top-start",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "shape",
+          "type": "\"normal\" | \"round\" | \"square\"",
+          "mutable": false,
+          "attr": "shape",
+          "reflectToAttr": false,
+          "docs": "Dropdown's button shape",
+          "docsTags": [],
+          "default": "'normal'",
+          "values": [
+            {
+              "value": "normal",
+              "type": "string"
+            },
+            {
+              "value": "round",
+              "type": "string"
+            },
+            {
+              "value": "square",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [
+        {
+          "event": "click",
+          "target": "window",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "wcsDropdownItemClick",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "keydown",
+          "capture": false,
+          "passive": false
+        }
+      ],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "wcs-button"
+      ],
+      "dependencyGraph": {
+        "wcs-dropdown": [
+          "wcs-button"
+        ],
+        "wcs-button": [
+          "wcs-spinner"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/dropdown-divider/dropdown-divider.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-dropdown-divider",
+      "readme": "# wcs-dropdown-divider\r\n\r\n\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/dropdown-header/dropdown-header.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-dropdown-header",
+      "readme": "# wcs-dropdown-header\r\n\r\n\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/dropdown-item/dropdown-item.tsx",
+      "encapsulation": "none",
+      "tag": "wcs-dropdown-item",
+      "readme": "# wcs-dropdown-item\r\n\r\n\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [],
+      "methods": [],
+      "events": [
+        {
+          "event": "wcsDropdownItemClick",
+          "detail": "void",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "listeners": [
+        {
+          "event": "mousedown",
+          "capture": false,
+          "passive": true
+        },
+        {
+          "event": "keydown",
+          "capture": false,
+          "passive": false
+        }
+      ],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/editable-field/editable-field.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-editable-field",
+      "readme": "# Editable fields\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "errorMsg",
+          "type": "string",
+          "mutable": false,
+          "attr": "error-msg",
+          "reflectToAttr": false,
+          "docs": "Error message displayed under the field if validation failed.",
+          "docsTags": [],
+          "default": "null",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "formatFn",
+          "type": "(value: any) => string",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "Function used to format the value",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "(value: any) => string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "Label of the field",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "readonly",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "readonly",
+          "reflectToAttr": false,
+          "docs": "Specify whether the field is editable or not",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "\"input\" | \"select\" | \"textarea\"",
+          "mutable": false,
+          "attr": "type",
+          "reflectToAttr": false,
+          "docs": "Specifies which component is used for editing",
+          "docsTags": [],
+          "default": "'input'",
+          "values": [
+            {
+              "value": "input",
+              "type": "string"
+            },
+            {
+              "value": "select",
+              "type": "string"
+            },
+            {
+              "value": "textarea",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "validateFn",
+          "type": "(value: any) => boolean",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "Function to customize the validation of the data during the update",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "(value: any) => boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "mutable": true,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "Initial value of the field",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "any"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "wcsChange",
+          "detail": "EditableComponentUpdateEvent",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "event called at each (valid) update of the field.",
+          "docsTags": []
+        }
+      ],
+      "listeners": [
+        {
+          "event": "click",
+          "target": "window",
+          "capture": false,
+          "passive": false
+        }
+      ],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "wcs-mat-icon",
+        "wcs-spinner",
+        "wcs-form-field",
+        "wcs-error"
+      ],
+      "dependencyGraph": {
+        "wcs-editable-field": [
+          "wcs-mat-icon",
+          "wcs-spinner",
+          "wcs-form-field",
+          "wcs-error"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/error/error.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-error",
+      "readme": "# wcs-error\r\n\r\n\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "wcs-editable-field"
+      ],
+      "dependencies": [],
+      "dependencyGraph": {
+        "wcs-editable-field": [
+          "wcs-error"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/field/field.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-field",
+      "readme": "# Field\r\n\r",
+      "docs": "",
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "label Label of the field"
+        },
+        {
+          "name": "slot",
+          "text": "content Content of the field"
+        }
+      ],
+      "usage": {},
+      "props": [],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [
+        {
+          "name": "content Content of the field",
+          "docs": ""
+        },
+        {
+          "name": "label Label of the field",
+          "docs": ""
+        }
+      ],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/field-content/field-content.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-field-content",
+      "readme": "# wcs-field-content\r\n\r\n\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/field-label/field-label.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-field-label",
+      "readme": "# wcs-field-label\r\n\r\n\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/footer/footer.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-footer",
+      "readme": "# Footer\r\n\r",
+      "docs": "",
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "<no-name> Main container slot"
+        },
+        {
+          "name": "slot",
+          "text": "end-left Bottom-left part of the footer"
+        },
+        {
+          "name": "slot",
+          "text": "end-right Bottom-right part of the footer"
+        }
+      ],
+      "usage": {},
+      "props": [],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [
+        {
+          "name": "<no-name> Main container slot",
+          "docs": ""
+        },
+        {
+          "name": "end-left Bottom-left part of the footer",
+          "docs": ""
+        },
+        {
+          "name": "end-right Bottom-right part of the footer",
+          "docs": ""
+        }
+      ],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/form-field/form-field.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-form-field",
+      "readme": "# Form field\r\n\r\n\r",
+      "docs": "TODO:\r\n- [ ] Suffix button style",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "isError",
+          "type": "boolean",
+          "mutable": true,
+          "attr": "is-error",
+          "reflectToAttr": true,
+          "docs": "Specifies whether the form field is in an error state. Displays the field border in red and the message contained in the wcs-error component",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "wcs-editable-field"
+      ],
+      "dependencies": [],
+      "dependencyGraph": {
+        "wcs-editable-field": [
+          "wcs-form-field"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/galactic/galactic.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-galactic",
+      "readme": "# Galactic Bar\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "text",
+          "type": "string",
+          "mutable": false,
+          "attr": "text",
+          "reflectToAttr": false,
+          "docs": "Text to display in the bar",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/galactic-menu/galactic-menu.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-galactic-menu",
+      "readme": "# wcs-galactic-menu\r\n\r\n\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "text",
+          "type": "string",
+          "mutable": false,
+          "attr": "text",
+          "reflectToAttr": false,
+          "docs": "Text to be displayed in the galactic bar",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [
+        {
+          "event": "click",
+          "target": "window",
+          "capture": false,
+          "passive": false
+        }
+      ],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "wcs-mat-icon"
+      ],
+      "dependencyGraph": {
+        "wcs-galactic-menu": [
+          "wcs-mat-icon"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/grid/grid.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-grid",
+      "readme": "# Grid\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "data",
+          "type": "any[]",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "any[]"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "loading",
+          "reflectToAttr": false,
+          "docs": "Flag to display spinner during data loading",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "rowIdPath",
+          "type": "string",
+          "mutable": false,
+          "attr": "row-id-path",
+          "reflectToAttr": false,
+          "docs": "Name of the object's key that will be used to display the cells whose keyValue attribute matches to the\r\nobject's value for this key.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "selectedItems",
+          "type": "any",
+          "mutable": false,
+          "attr": "selected-items",
+          "reflectToAttr": false,
+          "docs": "Set the selected items",
+          "docsTags": [],
+          "default": "[]",
+          "values": [
+            {
+              "type": "any"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "selectionConfig",
+          "type": "\"multiple\" | \"none\" | \"single\"",
+          "mutable": false,
+          "attr": "selection-config",
+          "reflectToAttr": false,
+          "docs": "Used to manage grid's row selection",
+          "docsTags": [],
+          "default": "'none'",
+          "values": [
+            {
+              "value": "multiple",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "single",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "serverMode",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "server-mode",
+          "reflectToAttr": false,
+          "docs": "True to manage sort and pagination with a backend server, default: false",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "wcsGridPaginationId",
+          "type": "string",
+          "mutable": false,
+          "attr": "wcs-grid-pagination-id",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "wcsGridAllSelectionChange",
+          "detail": "WcsGridAllRowSelectedEventDetails",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Event emitted when all rows are selected or unselected",
+          "docsTags": []
+        },
+        {
+          "event": "wcsGridSelectionChange",
+          "detail": "WcsGridRowSelectedEventDetails",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Event emitted when a row is selected or unselected",
+          "docsTags": []
+        }
+      ],
+      "listeners": [
+        {
+          "event": "wcsHiddenChange",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "wcsSortChange",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "wcsGridPaginationChange",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "wcsGridPaginationChange",
+          "target": "window",
+          "capture": false,
+          "passive": false
+        }
+      ],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "wcs-radio",
+        "wcs-checkbox",
+        "wcs-spinner"
+      ],
+      "dependencyGraph": {
+        "wcs-grid": [
+          "wcs-radio",
+          "wcs-checkbox",
+          "wcs-spinner"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/grid-column/grid-column.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-grid-column",
+      "readme": "# wcs-grid-column\r\n\r\n\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "customCells",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "custom-cells",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "formatter",
+          "type": "(_h: HyperFunc<VNode>, column: HTMLWcsGridColumnElement, rowData: WcsGridRowData) => HTMLElement | HTMLElement[]",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "(_h: HyperFunc<VNode>, column: HTMLWcsGridColumnElement, rowData: WcsGridRowData) => HTMLElement"
+            },
+            {
+              "type": "HTMLElement[]"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "hidden",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "hidden",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "mutable": false,
+          "attr": "name",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "path",
+          "type": "string",
+          "mutable": false,
+          "attr": "path",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "sort",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "sort",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "sortFn",
+          "type": "(a: any, b: any, column: HTMLWcsGridColumnElement) => 0 | 1 | -1",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "(a: any, b: any, column: HTMLWcsGridColumnElement) => 0"
+            },
+            {
+              "value": "1",
+              "type": "number"
+            },
+            {
+              "value": "-1",
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "sortOrder",
+          "type": "\"asc\" | \"desc\" | \"none\"",
+          "mutable": true,
+          "attr": "sort-order",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "'none'",
+          "values": [
+            {
+              "value": "asc",
+              "type": "string"
+            },
+            {
+              "value": "desc",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "width",
+          "type": "string",
+          "mutable": false,
+          "attr": "width",
+          "reflectToAttr": false,
+          "docs": "Set the column <th> element width",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "wcsHiddenChange",
+          "detail": "boolean",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        },
+        {
+          "event": "wcsSortChange",
+          "detail": "WcsGridColumnSortChangeEventDetails",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/grid-custom-cell/grid-custom-cell.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-grid-custom-cell",
+      "readme": "# wcs-grid-custom-cell\r\n\r\n\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "columnId",
+          "type": "string",
+          "mutable": false,
+          "attr": "column-id",
+          "reflectToAttr": false,
+          "docs": "ID of the column for which to render the cell",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "rowId",
+          "type": "any",
+          "mutable": false,
+          "attr": "row-id",
+          "reflectToAttr": false,
+          "docs": "Key value of the object rendered for the cell's row",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "any"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/grid-pagination/grid-pagination.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-grid-pagination",
+      "readme": "# wcs-grid-pagination\r\n\r\n\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "availablePageSizes",
+          "type": "number[]",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "[10, 20, 50]",
+          "values": [
+            {
+              "type": "number[]"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "currentPage",
+          "type": "number",
+          "mutable": false,
+          "attr": "current-page",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "GridPagination.INDEX_FIRST_PAGE",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "itemsCount",
+          "type": "number",
+          "mutable": false,
+          "attr": "items-count",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "0",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "pageCount",
+          "type": "number",
+          "mutable": false,
+          "attr": "page-count",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "1",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "pageSize",
+          "type": "number",
+          "mutable": false,
+          "attr": "page-size",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "this.availablePageSizes[0]",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "wcsGridPaginationChange",
+          "detail": "WcsGridPaginationChangeEventDetails",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "wcs-select",
+        "wcs-select-option"
+      ],
+      "dependencyGraph": {
+        "wcs-grid-pagination": [
+          "wcs-select",
+          "wcs-select-option"
+        ],
+        "wcs-select-option": [
+          "wcs-checkbox"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/header/header.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-header",
+      "readme": "# Header\r\n\r",
+      "docs": "",
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "logo SNCF Logo"
+        },
+        {
+          "name": "slot",
+          "text": "title Title of your application"
+        },
+        {
+          "name": "slot",
+          "text": "actions Actions such as buttons, dropdown or any useful information to always display on your application"
+        }
+      ],
+      "usage": {},
+      "props": [],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [
+        {
+          "name": "actions Actions such as buttons, dropdown or any useful information to always display on your application",
+          "docs": ""
+        },
+        {
+          "name": "logo SNCF Logo",
+          "docs": ""
+        },
+        {
+          "name": "title Title of your application",
+          "docs": ""
+        }
+      ],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/hint/hint.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-hint",
+      "readme": "# wcs-hint\r\n\r\n\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "small",
+          "type": "boolean",
+          "mutable": true,
+          "attr": "small",
+          "reflectToAttr": true,
+          "docs": "Whether the component should display the small version of the hint",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/horizontal-stepper/horizontal-stepper.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-horizontal-stepper",
+      "readme": "# Horizontal Stepper\r\n\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "checkOnComplete",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "check-on-complete",
+          "reflectToAttr": false,
+          "docs": "Specifies whether a check should be displayed when a step is passed.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "currentStep",
+          "type": "number",
+          "mutable": true,
+          "attr": "current-step",
+          "reflectToAttr": false,
+          "docs": "index of the active step. The index corresponds to the index of the step in the 'steps' list",
+          "docsTags": [],
+          "default": "0",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "mode",
+          "type": "\"linear\" | \"nonLinear\"",
+          "mutable": false,
+          "attr": "mode",
+          "reflectToAttr": false,
+          "docs": "Specifies if the stepper is in linear mode (the user can only click on the next step)\r\nor non-linear (the user can click on any step)",
+          "docsTags": [],
+          "default": "'nonLinear'",
+          "values": [
+            {
+              "value": "linear",
+              "type": "string"
+            },
+            {
+              "value": "nonLinear",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "steps",
+          "type": "HorizontalStepConfig[]",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "steps to display",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "HorizontalStepConfig[]"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "next",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "next() => Promise<void>",
+          "parameters": [],
+          "docs": "",
+          "docsTags": []
+        },
+        {
+          "name": "previous",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "previous() => Promise<void>",
+          "parameters": [],
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "events": [
+        {
+          "event": "wcsHorizontalStepClick",
+          "detail": "HorizontalStepClickEvent",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emits when the user selects a new step.",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "wcs-progress-bar",
+        "wcs-button",
+        "wcs-mat-icon"
+      ],
+      "dependencyGraph": {
+        "wcs-horizontal-stepper": [
+          "wcs-progress-bar",
+          "wcs-button",
+          "wcs-mat-icon"
+        ],
+        "wcs-button": [
+          "wcs-spinner"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/icon/icon.tsx",
+      "encapsulation": "none",
+      "tag": "wcs-icon",
+      "readme": "# Icon\r\n\r\n\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "icon",
+          "type": "string",
+          "mutable": false,
+          "attr": "icon",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "\"140px\" | \"1x\" | \"1x2\" | \"1x5\" | \"1x7\" | \"2x\" | \"30px\" | \"3x\" | \"50px\" | \"66px\" | \"90px\" | \"96px\" | \"x5\" | \"x75\"",
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "140px",
+              "type": "string"
+            },
+            {
+              "value": "1x",
+              "type": "string"
+            },
+            {
+              "value": "1x2",
+              "type": "string"
+            },
+            {
+              "value": "1x5",
+              "type": "string"
+            },
+            {
+              "value": "1x7",
+              "type": "string"
+            },
+            {
+              "value": "2x",
+              "type": "string"
+            },
+            {
+              "value": "30px",
+              "type": "string"
+            },
+            {
+              "value": "3x",
+              "type": "string"
+            },
+            {
+              "value": "50px",
+              "type": "string"
+            },
+            {
+              "value": "66px",
+              "type": "string"
+            },
+            {
+              "value": "90px",
+              "type": "string"
+            },
+            {
+              "value": "96px",
+              "type": "string"
+            },
+            {
+              "value": "x5",
+              "type": "string"
+            },
+            {
+              "value": "x75",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/input/input.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-input",
+      "readme": "# Input\r\n\r",
+      "docs": "Mainly inspired from Ionic Input Component",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "accept",
+          "type": "string",
+          "mutable": false,
+          "attr": "accept",
+          "reflectToAttr": false,
+          "docs": "If the value of the type attribute is `\"file\"`, then this attribute will indicate the types of files that the server accepts, otherwise it will be ignored. The value must be a comma-separated list of unique content type specifiers.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "autocapitalize",
+          "type": "string",
+          "mutable": false,
+          "attr": "autocapitalize",
+          "reflectToAttr": false,
+          "docs": "Indicates whether and how the text value should be automatically capitalized as it is entered/edited by the user.\r\nAvailable options: `\"off\"`, `\"none\"`, `\"on\"`, `\"sentences\"`, `\"words\"`, `\"characters\"`.",
+          "docsTags": [],
+          "default": "'off'",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "autocomplete",
+          "type": "\"name\" | \"on\" | \"off\" | \"honorific-prefix\" | \"given-name\" | \"additional-name\" | \"family-name\" | \"honorific-suffix\" | \"nickname\" | \"email\" | \"username\" | \"new-password\" | \"current-password\" | \"one-time-code\" | \"organization-title\" | \"organization\" | \"street-address\" | \"address-line1\" | \"address-line2\" | \"address-line3\" | \"address-level4\" | \"address-level3\" | \"address-level2\" | \"address-level1\" | \"country\" | \"country-name\" | \"postal-code\" | \"cc-name\" | \"cc-given-name\" | \"cc-additional-name\" | \"cc-family-name\" | \"cc-number\" | \"cc-exp\" | \"cc-exp-month\" | \"cc-exp-year\" | \"cc-csc\" | \"cc-type\" | \"transaction-currency\" | \"transaction-amount\" | \"language\" | \"bday\" | \"bday-day\" | \"bday-month\" | \"bday-year\" | \"sex\" | \"tel\" | \"tel-country-code\" | \"tel-national\" | \"tel-area-code\" | \"tel-local\" | \"tel-extension\" | \"impp\" | \"url\" | \"photo\"",
+          "mutable": false,
+          "attr": "autocomplete",
+          "reflectToAttr": false,
+          "docs": "Indicates whether the value of the control can be automatically completed by the browser.",
+          "docsTags": [],
+          "default": "'off'",
+          "values": [
+            {
+              "value": "name",
+              "type": "string"
+            },
+            {
+              "value": "on",
+              "type": "string"
+            },
+            {
+              "value": "off",
+              "type": "string"
+            },
+            {
+              "value": "honorific-prefix",
+              "type": "string"
+            },
+            {
+              "value": "given-name",
+              "type": "string"
+            },
+            {
+              "value": "additional-name",
+              "type": "string"
+            },
+            {
+              "value": "family-name",
+              "type": "string"
+            },
+            {
+              "value": "honorific-suffix",
+              "type": "string"
+            },
+            {
+              "value": "nickname",
+              "type": "string"
+            },
+            {
+              "value": "email",
+              "type": "string"
+            },
+            {
+              "value": "username",
+              "type": "string"
+            },
+            {
+              "value": "new-password",
+              "type": "string"
+            },
+            {
+              "value": "current-password",
+              "type": "string"
+            },
+            {
+              "value": "one-time-code",
+              "type": "string"
+            },
+            {
+              "value": "organization-title",
+              "type": "string"
+            },
+            {
+              "value": "organization",
+              "type": "string"
+            },
+            {
+              "value": "street-address",
+              "type": "string"
+            },
+            {
+              "value": "address-line1",
+              "type": "string"
+            },
+            {
+              "value": "address-line2",
+              "type": "string"
+            },
+            {
+              "value": "address-line3",
+              "type": "string"
+            },
+            {
+              "value": "address-level4",
+              "type": "string"
+            },
+            {
+              "value": "address-level3",
+              "type": "string"
+            },
+            {
+              "value": "address-level2",
+              "type": "string"
+            },
+            {
+              "value": "address-level1",
+              "type": "string"
+            },
+            {
+              "value": "country",
+              "type": "string"
+            },
+            {
+              "value": "country-name",
+              "type": "string"
+            },
+            {
+              "value": "postal-code",
+              "type": "string"
+            },
+            {
+              "value": "cc-name",
+              "type": "string"
+            },
+            {
+              "value": "cc-given-name",
+              "type": "string"
+            },
+            {
+              "value": "cc-additional-name",
+              "type": "string"
+            },
+            {
+              "value": "cc-family-name",
+              "type": "string"
+            },
+            {
+              "value": "cc-number",
+              "type": "string"
+            },
+            {
+              "value": "cc-exp",
+              "type": "string"
+            },
+            {
+              "value": "cc-exp-month",
+              "type": "string"
+            },
+            {
+              "value": "cc-exp-year",
+              "type": "string"
+            },
+            {
+              "value": "cc-csc",
+              "type": "string"
+            },
+            {
+              "value": "cc-type",
+              "type": "string"
+            },
+            {
+              "value": "transaction-currency",
+              "type": "string"
+            },
+            {
+              "value": "transaction-amount",
+              "type": "string"
+            },
+            {
+              "value": "language",
+              "type": "string"
+            },
+            {
+              "value": "bday",
+              "type": "string"
+            },
+            {
+              "value": "bday-day",
+              "type": "string"
+            },
+            {
+              "value": "bday-month",
+              "type": "string"
+            },
+            {
+              "value": "bday-year",
+              "type": "string"
+            },
+            {
+              "value": "sex",
+              "type": "string"
+            },
+            {
+              "value": "tel",
+              "type": "string"
+            },
+            {
+              "value": "tel-country-code",
+              "type": "string"
+            },
+            {
+              "value": "tel-national",
+              "type": "string"
+            },
+            {
+              "value": "tel-area-code",
+              "type": "string"
+            },
+            {
+              "value": "tel-local",
+              "type": "string"
+            },
+            {
+              "value": "tel-extension",
+              "type": "string"
+            },
+            {
+              "value": "impp",
+              "type": "string"
+            },
+            {
+              "value": "url",
+              "type": "string"
+            },
+            {
+              "value": "photo",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "autocorrect",
+          "type": "\"off\" | \"on\"",
+          "mutable": false,
+          "attr": "autocorrect",
+          "reflectToAttr": false,
+          "docs": "Whether auto correction should be enabled when the user is entering/editing the text value.",
+          "docsTags": [],
+          "default": "'off'",
+          "values": [
+            {
+              "value": "off",
+              "type": "string"
+            },
+            {
+              "value": "on",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "autofocus",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "autofocus",
+          "reflectToAttr": false,
+          "docs": "This Boolean attribute lets you specify that a form control should have input focus when the page loads.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "clearInput",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "clear-input",
+          "reflectToAttr": false,
+          "docs": "If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "clearOnEdit",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "clear-on-edit",
+          "reflectToAttr": false,
+          "docs": "If `true`, the value will be cleared after focus upon edit. Defaults to `true` when `type` is `\"password\"`, `false` for all other types.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "debounce",
+          "type": "number",
+          "mutable": false,
+          "attr": "debounce",
+          "reflectToAttr": false,
+          "docs": "Set the amount of time, in milliseconds, to wait to trigger the `wcsChange` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.",
+          "docsTags": [],
+          "default": "0",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "If `true`, the user cannot interact with the input.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "enterkeyhint",
+          "type": "\"done\" | \"enter\" | \"go\" | \"next\" | \"previous\" | \"search\" | \"send\"",
+          "mutable": false,
+          "attr": "enterkeyhint",
+          "reflectToAttr": false,
+          "docs": "A hint to the browser for which enter key to display.\r\nPossible values: `\"enter\"`, `\"done\"`, `\"go\"`, `\"next\"`,\r\n`\"previous\"`, `\"search\"`, and `\"send\"`.",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "done",
+              "type": "string"
+            },
+            {
+              "value": "enter",
+              "type": "string"
+            },
+            {
+              "value": "go",
+              "type": "string"
+            },
+            {
+              "value": "next",
+              "type": "string"
+            },
+            {
+              "value": "previous",
+              "type": "string"
+            },
+            {
+              "value": "search",
+              "type": "string"
+            },
+            {
+              "value": "send",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "mutable": false,
+          "attr": "icon",
+          "reflectToAttr": false,
+          "docs": "Name of the material icon to add to the input",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "inputmode",
+          "type": "\"decimal\" | \"email\" | \"none\" | \"numeric\" | \"search\" | \"tel\" | \"text\" | \"url\"",
+          "mutable": false,
+          "attr": "inputmode",
+          "reflectToAttr": false,
+          "docs": "A hint to the browser for which keyboard to display.\r\nPossible values: `\"none\"`, `\"text\"`, `\"tel\"`, `\"url\"`,\r\n`\"email\"`, `\"numeric\"`, `\"decimal\"`, and `\"search\"`.",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "decimal",
+              "type": "string"
+            },
+            {
+              "value": "email",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "numeric",
+              "type": "string"
+            },
+            {
+              "value": "search",
+              "type": "string"
+            },
+            {
+              "value": "tel",
+              "type": "string"
+            },
+            {
+              "value": "text",
+              "type": "string"
+            },
+            {
+              "value": "url",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "max",
+          "type": "string",
+          "mutable": false,
+          "attr": "max",
+          "reflectToAttr": false,
+          "docs": "The maximum value, which must not be less than its minimum (min attribute) value.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "maxlength",
+          "type": "number",
+          "mutable": false,
+          "attr": "maxlength",
+          "reflectToAttr": false,
+          "docs": "If the value of the type attribute is `text`, `email`, `search`, `password`, `tel`, or `url`, this attribute specifies the maximum number of characters that the user can enter.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "min",
+          "type": "string",
+          "mutable": false,
+          "attr": "min",
+          "reflectToAttr": false,
+          "docs": "The minimum value, which must not be greater than its maximum (max attribute) value.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "minlength",
+          "type": "number",
+          "mutable": false,
+          "attr": "minlength",
+          "reflectToAttr": false,
+          "docs": "If the value of the type attribute is `text`, `email`, `search`, `password`, `tel`, or `url`, this attribute specifies the minimum number of characters that the user can enter.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "multiple",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "multiple",
+          "reflectToAttr": false,
+          "docs": "If `true`, the user can enter more than one value. This attribute applies when the type attribute is set to `\"email\"` or `\"file\"`, otherwise it is ignored.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "mutable": false,
+          "attr": "name",
+          "reflectToAttr": false,
+          "docs": "The name of the control, which is submitted with the form data.",
+          "docsTags": [],
+          "default": "this.inputId",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "pattern",
+          "type": "string",
+          "mutable": false,
+          "attr": "pattern",
+          "reflectToAttr": false,
+          "docs": "A regular expression that the value is checked against. The pattern must match the entire value, not just some subset. Use the title attribute to describe the pattern to help the user. This attribute applies when the value of the type attribute is `\"text\"`, `\"search\"`, `\"tel\"`, `\"url\"`, `\"email\"`, `\"date\"`, or `\"password\"`, otherwise it is ignored. When the type attribute is `\"date\"`, `pattern` will only be used in browsers that do not support the `\"date\"` input type natively. See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date for more information.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "mutable": false,
+          "attr": "placeholder",
+          "reflectToAttr": false,
+          "docs": "Instructional text that shows before the input has a value.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "prefixLabel",
+          "type": "string",
+          "mutable": false,
+          "attr": "prefix-label",
+          "reflectToAttr": false,
+          "docs": "Prefix displayed before the text field contents. This is not included in the value.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "readonly",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "readonly",
+          "reflectToAttr": false,
+          "docs": "If `true`, the user cannot modify the value.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "required",
+          "reflectToAttr": false,
+          "docs": "If `true`, the user must fill in a value before submitting a form.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "\"l\" | \"m\" | \"s\"",
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": true,
+          "docs": "Specify the size (height) of the input.",
+          "docsTags": [],
+          "default": "'m'",
+          "values": [
+            {
+              "value": "l",
+              "type": "string"
+            },
+            {
+              "value": "m",
+              "type": "string"
+            },
+            {
+              "value": "s",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "spellcheck",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "spellcheck",
+          "reflectToAttr": false,
+          "docs": "If `true`, the element will have its spelling and grammar checked.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\"error\" | \"initial\"",
+          "mutable": false,
+          "attr": "state",
+          "reflectToAttr": true,
+          "docs": "Specifies the state of the input. By default the input is in an normal state but you can to set it to 'error' state if the data given by the user is not valid.",
+          "docsTags": [],
+          "default": "'initial'",
+          "values": [
+            {
+              "value": "error",
+              "type": "string"
+            },
+            {
+              "value": "initial",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "step",
+          "type": "string",
+          "mutable": false,
+          "attr": "step",
+          "reflectToAttr": false,
+          "docs": "Works with the min and max attributes to limit the increments at which a value can be set.\r\nPossible values are: `\"any\"` or a positive floating point number.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "suffixLabel",
+          "type": "string",
+          "mutable": false,
+          "attr": "suffix-label",
+          "reflectToAttr": false,
+          "docs": "Suffix displayed after the text field contents. This is not included in the value.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "\"date\" | \"datetime-local\" | \"email\" | \"file\" | \"month\" | \"number\" | \"password\" | \"search\" | \"tel\" | \"text\" | \"time\" | \"url\" | \"week\"",
+          "mutable": false,
+          "attr": "type",
+          "reflectToAttr": false,
+          "docs": "The type of control to display. The default type is text.",
+          "docsTags": [],
+          "default": "'text'",
+          "values": [
+            {
+              "value": "date",
+              "type": "string"
+            },
+            {
+              "value": "datetime-local",
+              "type": "string"
+            },
+            {
+              "value": "email",
+              "type": "string"
+            },
+            {
+              "value": "file",
+              "type": "string"
+            },
+            {
+              "value": "month",
+              "type": "string"
+            },
+            {
+              "value": "number",
+              "type": "string"
+            },
+            {
+              "value": "password",
+              "type": "string"
+            },
+            {
+              "value": "search",
+              "type": "string"
+            },
+            {
+              "value": "tel",
+              "type": "string"
+            },
+            {
+              "value": "text",
+              "type": "string"
+            },
+            {
+              "value": "time",
+              "type": "string"
+            },
+            {
+              "value": "url",
+              "type": "string"
+            },
+            {
+              "value": "week",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "number | string",
+          "mutable": true,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "The value of the input.",
+          "docsTags": [],
+          "default": "''",
+          "values": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "getInputElement",
+          "returns": {
+            "type": "Promise<HTMLInputElement>",
+            "docs": ""
+          },
+          "signature": "getInputElement() => Promise<HTMLInputElement>",
+          "parameters": [],
+          "docs": "Returns the native `<input>` element used under the hood.",
+          "docsTags": []
+        },
+        {
+          "name": "setFocus",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "setFocus() => Promise<void>",
+          "parameters": [],
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "use the native focus method instead\r\n\r\nSets focus on the native `input` in `wcs-input`. Use this method instead of the global\r\n`input.focus()`."
+            }
+          ],
+          "deprecation": "use the native focus method instead\r\n\r\nSets focus on the native `input` in `wcs-input`. Use this method instead of the global\r\n`input.focus()`."
+        }
+      ],
+      "events": [
+        {
+          "event": "wcsBlur",
+          "detail": "FocusEvent",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the input loses focus.",
+          "docsTags": []
+        },
+        {
+          "event": "wcsChange",
+          "detail": "InputChangeEventDetail",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the value has changed.",
+          "docsTags": []
+        },
+        {
+          "event": "wcsFocus",
+          "detail": "FocusEvent",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the input has focus.",
+          "docsTags": []
+        },
+        {
+          "event": "wcsInput",
+          "detail": "KeyboardEvent",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when a keyboard input occurred.",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [
+        {
+          "name": "prefix",
+          "docs": ""
+        },
+        {
+          "name": "suffix",
+          "docs": ""
+        }
+      ],
+      "dependents": [],
+      "dependencies": [
+        "wcs-mat-icon"
+      ],
+      "dependencyGraph": {
+        "wcs-input": [
+          "wcs-mat-icon"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/label/label.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-label",
+      "readme": "# wcs-label\r\n\r\n\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "required",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "required",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/list-item/list-item.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-list-item",
+      "readme": "# List Item\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "activated",
+          "type": "boolean",
+          "mutable": true,
+          "attr": "activated",
+          "reflectToAttr": false,
+          "docs": "True if the item is active. Adds a background color that highlights it.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/list-item-properties/list-item-properties.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-list-item-properties",
+      "readme": "# wcs-list-item-properties\r\n\r\n\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/list-item-property/list-item-property.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-list-item-property",
+      "readme": "# wcs-list-item-property\r\n\r\n\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/mat-icon/mat-icon.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-mat-icon",
+      "readme": "# Material Icon\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "family",
+          "type": "\"filled\" | \"outlined\" | \"rounded\" | \"sharp\" | \"twotone\"",
+          "mutable": false,
+          "attr": "family",
+          "reflectToAttr": false,
+          "docs": "Family of the icon",
+          "docsTags": [],
+          "default": "'filled'",
+          "values": [
+            {
+              "value": "filled",
+              "type": "string"
+            },
+            {
+              "value": "outlined",
+              "type": "string"
+            },
+            {
+              "value": "rounded",
+              "type": "string"
+            },
+            {
+              "value": "sharp",
+              "type": "string"
+            },
+            {
+              "value": "twotone",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "mutable": false,
+          "attr": "icon",
+          "reflectToAttr": false,
+          "docs": "Use the icon name from Material Icons",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "\"l\" | \"m\" | \"s\" | \"xl\"",
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "Size of the icon",
+          "docsTags": [],
+          "default": "'m'",
+          "values": [
+            {
+              "value": "l",
+              "type": "string"
+            },
+            {
+              "value": "m",
+              "type": "string"
+            },
+            {
+              "value": "s",
+              "type": "string"
+            },
+            {
+              "value": "xl",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "wcs-editable-field",
+        "wcs-galactic-menu",
+        "wcs-horizontal-stepper",
+        "wcs-input",
+        "wcs-modal",
+        "wcs-textarea"
+      ],
+      "dependencies": [],
+      "dependencyGraph": {
+        "wcs-editable-field": [
+          "wcs-mat-icon"
+        ],
+        "wcs-galactic-menu": [
+          "wcs-mat-icon"
+        ],
+        "wcs-horizontal-stepper": [
+          "wcs-mat-icon"
+        ],
+        "wcs-input": [
+          "wcs-mat-icon"
+        ],
+        "wcs-modal": [
+          "wcs-mat-icon"
+        ],
+        "wcs-textarea": [
+          "wcs-mat-icon"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/modal/modal.tsx",
+      "encapsulation": "none",
+      "tag": "wcs-modal",
+      "readme": "# Modal\r\n\r\n## Modal without backdrop\r\n\r\n```html\r\n<wcs-modal id=\"modal-2\" backdrop=\"false\" show-close-button=\"true\">\r\n    <div slot=\"header\">Modal title</div>\r\n    Voulez-vous quittez la page ? \r\n    <br/>\r\n    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a cursus mi. Nullam et sem mi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce sollicitudin pellentesque libero nec elementum.\r\n    <div slot=\"actions\">\r\n        <wcs-button class=\"wcs-dark\" mode=\"stroked\">C'est non</wcs-button>\r\n        <wcs-button>J'accepte</wcs-button>\r\n    </div>\r\n</wcs-modal>\r\n```\r\n\r\n<wcs-button onclick=\"getElementById('modal-2').setAttribute('show', true)\" id=\"btn-modal-2-show\">\r\n    Afficher la boîte de dialogue\r\n</wcs-button>\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "hideActions",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "hide-actions",
+          "reflectToAttr": true,
+          "docs": "Specifies whether the component should hide the actions slot or not",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "show",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "show",
+          "reflectToAttr": true,
+          "docs": "Displays the modal",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "showCloseButton",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "show-close-button",
+          "reflectToAttr": true,
+          "docs": "Specifies whether the component should display a close button.\r\nif false, it won't close the modal when the escape key is pressed.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "\"l\" | \"m\" | \"s\" | \"xl\"",
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "There are multiple sizes for modals. The default size is medium (m), however other sizes are available. Select the\r\nsize best suited for the content and screen size displaying the modal. Remember to test responsiveness.",
+          "docsTags": [],
+          "default": "'m'",
+          "values": [
+            {
+              "value": "l",
+              "type": "string"
+            },
+            {
+              "value": "m",
+              "type": "string"
+            },
+            {
+              "value": "s",
+              "type": "string"
+            },
+            {
+              "value": "xl",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "withoutBackdrop",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "without-backdrop",
+          "reflectToAttr": true,
+          "docs": "Specifies whether the component should display a backdrop on the entire page",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "wcsDialogClosed",
+          "detail": "void",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Triggered when the user leaves the dialog with the closing button.",
+          "docsTags": []
+        }
+      ],
+      "listeners": [
+        {
+          "event": "keydown",
+          "target": "document",
+          "capture": false,
+          "passive": false
+        }
+      ],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "wcs-button",
+        "wcs-mat-icon"
+      ],
+      "dependencyGraph": {
+        "wcs-modal": [
+          "wcs-button",
+          "wcs-mat-icon"
+        ],
+        "wcs-button": [
+          "wcs-spinner"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/nav/nav.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-nav",
+      "readme": "# Nav\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/nav-item/nav-item.tsx",
+      "encapsulation": "none",
+      "tag": "wcs-nav-item",
+      "readme": "# Nav Item\r\n\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "href",
+          "type": "string",
+          "mutable": false,
+          "attr": "href",
+          "reflectToAttr": true,
+          "docs": "Attributes mapped to a <a> tag.\r\n\r\nDon't forget to specify [routerLink] if using in conjuction with angular router.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "mutable": false,
+          "attr": "text",
+          "reflectToAttr": true,
+          "docs": "This attribute specify the text of the item.",
+          "docsTags": [],
+          "default": "''",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [
+        {
+          "event": "keydown",
+          "capture": false,
+          "passive": false
+        }
+      ],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/progress-bar/progress-bar.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-progress-bar",
+      "readme": "# Progress bar\r\n\r",
+      "docs": "Component displaying progress as a bar.",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "showLabel",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "show-label",
+          "reflectToAttr": false,
+          "docs": "Whether it displays a label indicating the percentage of progress above the bar.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "small",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "small",
+          "reflectToAttr": false,
+          "docs": "Whether the component display the small version",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "mutable": false,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "The actual value of the progress.\r\nRanging from 0 to 100.",
+          "docsTags": [],
+          "default": "0",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "wcs-horizontal-stepper"
+      ],
+      "dependencies": [],
+      "dependencyGraph": {
+        "wcs-horizontal-stepper": [
+          "wcs-progress-bar"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/progress-radial/progress-radial.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-progress-radial",
+      "readme": "# Progress radial\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "showLabel",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "show-label",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "number",
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "120",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "mutable": false,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "0",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/radio/radio.component.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-radio",
+      "readme": "# wcs-radio\r\n\r\n\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "checked",
+          "type": "boolean",
+          "mutable": true,
+          "attr": "checked",
+          "reflectToAttr": true,
+          "docs": "If `true`, the radio is selected.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "mutable": true,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "If `true`, the user cannot interact with the radio.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "mutable": true,
+          "attr": "label",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "mode",
+          "type": "\"horizontal\" | \"option\" | \"radio\"",
+          "mutable": false,
+          "attr": "mode",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "'radio'",
+          "values": [
+            {
+              "value": "horizontal",
+              "type": "string"
+            },
+            {
+              "value": "option",
+              "type": "string"
+            },
+            {
+              "value": "radio",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "mutable": true,
+          "attr": "value",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "any"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "wcsRadioClick",
+          "detail": "RadioChosedEvent",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "listeners": [
+        {
+          "event": "keydown",
+          "capture": false,
+          "passive": false
+        }
+      ],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "wcs-grid"
+      ],
+      "dependencies": [],
+      "dependencyGraph": {
+        "wcs-grid": [
+          "wcs-radio"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/radio-group/radio-group.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-radio-group",
+      "readme": "# Radio Group\r\n\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "mode",
+          "type": "\"horizontal\" | \"option\" | \"radio\"",
+          "mutable": false,
+          "attr": "mode",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "'radio'",
+          "values": [
+            {
+              "value": "horizontal",
+              "type": "string"
+            },
+            {
+              "value": "option",
+              "type": "string"
+            },
+            {
+              "value": "radio",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "any",
+          "mutable": false,
+          "attr": "name",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "any"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "mutable": false,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "any"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "wcsChange",
+          "detail": "RadioGroupChangeEventDetail",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the value has changed.",
+          "docsTags": []
+        }
+      ],
+      "listeners": [
+        {
+          "event": "wcsRadioClick",
+          "capture": false,
+          "passive": false
+        }
+      ],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/select/select.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-select",
+      "readme": "\r\n## TODO\r\n\r\n- étudier la possibilité de mieux gérer la taille de l'overlay du select\r\n  - utiliser la variable `--wcs-select-overlay-max-height` ?\r\n  - on essaye de tout afficher, si pas possible on regarde s'il y a plus de place vers le haut\r\n    si c'est le cas, on affiche l'overlay vers le haut avec le maximum d'option à l'écran\r\n    sinon vers le bas, avec un maximum d'options à l'écran. Le plus simple est de faire ces calculs\r\n    au moment du click pour déplier le select, comme c'est le cas actuellement ?\r\n\r\n\r",
+      "docs": "Select component, use in conjuction with wcs-select-option.",
+      "docsTags": [
+        {
+          "name": "example",
+          "text": "```hmtl\r\n<wcs-select>\r\n<wcs-select-option value=\"1\">One</wcs-select-option>\r\n</wcs-select>```"
+        },
+        {
+          "name": "todo",
+          "text": "Complete keyboard navigation."
+        }
+      ],
+      "usage": {},
+      "props": [
+        {
+          "name": "chips",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "chips",
+          "reflectToAttr": true,
+          "docs": "If `true`, selected items are shown in chips mode.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "compareWith",
+          "type": "(optionValue: any, selectedValue: any) => boolean",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "Function used to compare options, default : deep comparison.",
+          "docsTags": [],
+          "default": "(optionValue, selectedValue) => _.isEqual(optionValue, selectedValue)",
+          "values": [
+            {
+              "type": "(optionValue: any, selectedValue: any) => boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "mutable": true,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "If `true`, the user cannot interact with the select.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "multiple",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "multiple",
+          "reflectToAttr": true,
+          "docs": "If `true`, the user can select multiple values at once.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "mutable": false,
+          "attr": "name",
+          "reflectToAttr": false,
+          "docs": "The name of the control, which is submitted with the form data.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "mutable": true,
+          "attr": "placeholder",
+          "reflectToAttr": true,
+          "docs": "The text to display when the select is empty.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "mutable": true,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "The currently selected value.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "any"
+            }
+          ],
+          "optional": true,
+          "required": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "close",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "close() => Promise<void>",
+          "parameters": [],
+          "docs": "Close the component.",
+          "docsTags": []
+        },
+        {
+          "name": "open",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "open() => Promise<void>",
+          "parameters": [],
+          "docs": "Open the component.",
+          "docsTags": []
+        }
+      ],
+      "events": [
+        {
+          "event": "wcsBlur",
+          "detail": "void",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the select loses focus.",
+          "docsTags": []
+        },
+        {
+          "event": "wcsChange",
+          "detail": "SelectChangeEventDetail",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the value has changed.",
+          "docsTags": []
+        },
+        {
+          "event": "wcsFocus",
+          "detail": "void",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the select has focus.",
+          "docsTags": []
+        }
+      ],
+      "listeners": [
+        {
+          "event": "mousedown",
+          "capture": false,
+          "passive": true
+        },
+        {
+          "event": "click",
+          "target": "window",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "wcsSelectOptionClick",
+          "capture": false,
+          "passive": false
+        }
+      ],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "wcs-grid-pagination"
+      ],
+      "dependencies": [],
+      "dependencyGraph": {
+        "wcs-grid-pagination": [
+          "wcs-select"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/select-option/select-option.tsx",
+      "encapsulation": "none",
+      "tag": "wcs-select-option",
+      "readme": "# Select option\r\n\r\n\r\n\r",
+      "docs": "Select option component, use in conjunction with wcs-select.",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "chipBackgroundColor",
+          "type": "string",
+          "mutable": false,
+          "attr": "chip-background-color",
+          "reflectToAttr": false,
+          "docs": "Chip's background color.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "chipColor",
+          "type": "string",
+          "mutable": false,
+          "attr": "chip-color",
+          "reflectToAttr": false,
+          "docs": "Chip's displayed text color.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "mutable": true,
+          "attr": "disabled",
+          "reflectToAttr": true,
+          "docs": "Wether this option can be selected.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "selected",
+          "type": "boolean",
+          "mutable": true,
+          "attr": "selected",
+          "reflectToAttr": true,
+          "docs": "Wether this option is selected.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "mutable": false,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "The option value, not what's displayed, use inner text instead.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "any"
+            }
+          ],
+          "optional": true,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "wcsSelectOptionClick",
+          "detail": "SelectOptionChosedEvent",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "listeners": [
+        {
+          "event": "mousedown",
+          "capture": false,
+          "passive": true
+        }
+      ],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "wcs-grid-pagination"
+      ],
+      "dependencies": [
+        "wcs-checkbox"
+      ],
+      "dependencyGraph": {
+        "wcs-select-option": [
+          "wcs-checkbox"
+        ],
+        "wcs-grid-pagination": [
+          "wcs-select-option"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/spinner/spinner.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-spinner",
+      "readme": "# Spinner\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "mode",
+          "type": "\"border\" | \"growing\"",
+          "mutable": false,
+          "attr": "mode",
+          "reflectToAttr": true,
+          "docs": "Indicates the spinner display mode.\r\nAccepted values: `border` or `growing`",
+          "docsTags": [],
+          "default": "'border'",
+          "values": [
+            {
+              "value": "border",
+              "type": "string"
+            },
+            {
+              "value": "growing",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "wcs-button",
+        "wcs-editable-field",
+        "wcs-grid"
+      ],
+      "dependencies": [],
+      "dependencyGraph": {
+        "wcs-button": [
+          "wcs-spinner"
+        ],
+        "wcs-editable-field": [
+          "wcs-spinner"
+        ],
+        "wcs-grid": [
+          "wcs-spinner"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/switch/switch.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-switch",
+      "readme": "# Switch\r\n\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "checked",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "checked",
+          "reflectToAttr": true,
+          "docs": "If `true`, the switch is selected.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "Specify wether the switch is disabled or not.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "labelAlignment",
+          "type": "\"bottom\" | \"center\" | \"top\"",
+          "mutable": false,
+          "attr": "label-alignment",
+          "reflectToAttr": true,
+          "docs": "Specifie the alignment of the switch with the label content",
+          "docsTags": [],
+          "default": "'center'",
+          "values": [
+            {
+              "value": "bottom",
+              "type": "string"
+            },
+            {
+              "value": "center",
+              "type": "string"
+            },
+            {
+              "value": "top",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "mutable": false,
+          "attr": "name",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "this.switchId",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "wcsChange",
+          "detail": "SwitchChangeEventDetail",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the checked property has changed.",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/tab/tab.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-tab",
+      "readme": "# Tab\r\n\r",
+      "docs": "Tab content component.\r\nUse this component to specify the content of a component.",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "header",
+          "type": "string",
+          "mutable": false,
+          "attr": "header",
+          "reflectToAttr": true,
+          "docs": "The header you want to be displayed for this tab.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "itemKey",
+          "type": "any",
+          "mutable": false,
+          "attr": "item-key",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "any"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "tabLoaded",
+          "detail": "void",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Do not use, meant for internal use only.",
+          "docsTags": [
+            {
+              "name": "inner"
+            },
+            {
+              "name": "ignore"
+            }
+          ]
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/tabs/tabs.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-tabs",
+      "readme": "# Tabs\r\n\r",
+      "docs": "Tabs component to switch between tab content.\r\nUse in conjuction with `wcs-tab`.",
+      "docsTags": [
+        {
+          "name": "example",
+          "text": "```html\r\n<wcs-tabs>\r\n   <wcs-tab header=\"One\">The content !</wcs-tab>\r\n   <wcs-tab header=\"Two\">More content !</wcs-tab>\r\n</wcs-tabs>\r\n```"
+        }
+      ],
+      "usage": {},
+      "props": [
+        {
+          "name": "align",
+          "type": "\"center\" | \"end\" | \"start\"",
+          "mutable": false,
+          "attr": "align",
+          "reflectToAttr": true,
+          "docs": "Tab headers alignment.",
+          "docsTags": [],
+          "default": "'start'",
+          "values": [
+            {
+              "value": "center",
+              "type": "string"
+            },
+            {
+              "value": "end",
+              "type": "string"
+            },
+            {
+              "value": "start",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "gutter",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "gutter",
+          "reflectToAttr": false,
+          "docs": "Determines if tabs header should have a border at the bottom",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "headersOnly",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "headers-only",
+          "reflectToAttr": false,
+          "docs": "Whether to skip rendering the tabpanel with the content of the selected tab. Use this prop if you plan to\r\nseparately render the tab content.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "selectedIndex",
+          "type": "number",
+          "mutable": false,
+          "attr": "selected-index",
+          "reflectToAttr": false,
+          "docs": "Current selected tab index.\r\nStarts at 0.",
+          "docsTags": [],
+          "default": "0",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "selectedKey",
+          "type": "any",
+          "mutable": false,
+          "attr": "selected-key",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "any"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "tabChange",
+          "detail": "WcsTabChangeEvent",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "\r\nEmitted when the selected tab change.",
+          "docsTags": []
+        }
+      ],
+      "listeners": [
+        {
+          "event": "tabLoaded",
+          "capture": false,
+          "passive": false
+        }
+      ],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/textarea/textarea.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-textarea",
+      "readme": "# Textarea\r\n\r\n\r\n\r",
+      "docs": "Mainly inspired from Ionic Textarea Component",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "autoGrow",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "auto-grow",
+          "reflectToAttr": false,
+          "docs": "If `true`, the element height will increase based on the value.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "autocapitalize",
+          "type": "string",
+          "mutable": false,
+          "attr": "autocapitalize",
+          "reflectToAttr": false,
+          "docs": "Indicates whether and how the text value should be automatically capitalized as it is entered/edited by the user.",
+          "docsTags": [],
+          "default": "'none'",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "autofocus",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "autofocus",
+          "reflectToAttr": false,
+          "docs": "This Boolean attribute lets you specify that a form control should have input focus when the page loads.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "clearOnEdit",
+          "type": "boolean",
+          "mutable": true,
+          "attr": "clear-on-edit",
+          "reflectToAttr": false,
+          "docs": "If `true`, the value will be cleared after focus upon edit. Defaults to `true` when `type` is `\"password\"`, `false` for all other types.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "cols",
+          "type": "number",
+          "mutable": false,
+          "attr": "cols",
+          "reflectToAttr": false,
+          "docs": "The visible width of the text control, in average character widths. If it is specified, it must be a positive integer.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "debounce",
+          "type": "number",
+          "mutable": false,
+          "attr": "debounce",
+          "reflectToAttr": false,
+          "docs": "Set the amount of time, in milliseconds, to wait to trigger the `wcsChange` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.",
+          "docsTags": [],
+          "default": "0",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "If `true`, the user cannot interact with the textarea.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "enterkeyhint",
+          "type": "\"done\" | \"enter\" | \"go\" | \"next\" | \"previous\" | \"search\" | \"send\"",
+          "mutable": false,
+          "attr": "enterkeyhint",
+          "reflectToAttr": false,
+          "docs": "A hint to the browser for which enter key to display.\r\nPossible values: `\"enter\"`, `\"done\"`, `\"go\"`, `\"next\"`,\r\n`\"previous\"`, `\"search\"`, and `\"send\"`.",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "done",
+              "type": "string"
+            },
+            {
+              "value": "enter",
+              "type": "string"
+            },
+            {
+              "value": "go",
+              "type": "string"
+            },
+            {
+              "value": "next",
+              "type": "string"
+            },
+            {
+              "value": "previous",
+              "type": "string"
+            },
+            {
+              "value": "search",
+              "type": "string"
+            },
+            {
+              "value": "send",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "mutable": false,
+          "attr": "icon",
+          "reflectToAttr": false,
+          "docs": "Name of the material icon to add to the input",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "inputmode",
+          "type": "\"decimal\" | \"email\" | \"none\" | \"numeric\" | \"search\" | \"tel\" | \"text\" | \"url\"",
+          "mutable": false,
+          "attr": "inputmode",
+          "reflectToAttr": false,
+          "docs": "A hint to the browser for which keyboard to display.\r\nPossible values: `\"none\"`, `\"text\"`, `\"tel\"`, `\"url\"`,\r\n`\"email\"`, `\"numeric\"`, `\"decimal\"`, and `\"search\"`.",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "decimal",
+              "type": "string"
+            },
+            {
+              "value": "email",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "numeric",
+              "type": "string"
+            },
+            {
+              "value": "search",
+              "type": "string"
+            },
+            {
+              "value": "tel",
+              "type": "string"
+            },
+            {
+              "value": "text",
+              "type": "string"
+            },
+            {
+              "value": "url",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "maxlength",
+          "type": "number",
+          "mutable": false,
+          "attr": "maxlength",
+          "reflectToAttr": false,
+          "docs": "If the value of the type attribute is `text`, `email`, `search`, `password`, `tel`, or `url`, this attribute specifies the maximum number of characters that the user can enter.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "minlength",
+          "type": "number",
+          "mutable": false,
+          "attr": "minlength",
+          "reflectToAttr": false,
+          "docs": "If the value of the type attribute is `text`, `email`, `search`, `password`, `tel`, or `url`, this attribute specifies the minimum number of characters that the user can enter.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "mutable": false,
+          "attr": "name",
+          "reflectToAttr": false,
+          "docs": "The name of the control, which is submitted with the form data.",
+          "docsTags": [],
+          "default": "this.inputId",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "mutable": false,
+          "attr": "placeholder",
+          "reflectToAttr": false,
+          "docs": "Instructional text that shows before the input has a value.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "readonly",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "readonly",
+          "reflectToAttr": false,
+          "docs": "If `true`, the user cannot modify the value.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "required",
+          "reflectToAttr": false,
+          "docs": "If `true`, the user must fill in a value before submitting a form.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "rows",
+          "type": "number",
+          "mutable": false,
+          "attr": "rows",
+          "reflectToAttr": false,
+          "docs": "The number of visible text lines for the control.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "spellcheck",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "spellcheck",
+          "reflectToAttr": false,
+          "docs": "If `true`, the element will have its spelling and grammar checked.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\"error\" | \"initial\"",
+          "mutable": false,
+          "attr": "state",
+          "reflectToAttr": true,
+          "docs": "Specifies the state of the input. By default the input is in an initial state but you can set it to 'error' state if the data given by the user is not valid.",
+          "docsTags": [],
+          "default": "'initial'",
+          "values": [
+            {
+              "value": "error",
+              "type": "string"
+            },
+            {
+              "value": "initial",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "mutable": true,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "The value of the textarea.",
+          "docsTags": [],
+          "default": "''",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "wrap",
+          "type": "\"hard\" | \"off\" | \"soft\"",
+          "mutable": false,
+          "attr": "wrap",
+          "reflectToAttr": false,
+          "docs": "Indicates how the control wraps text.",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "hard",
+              "type": "string"
+            },
+            {
+              "value": "off",
+              "type": "string"
+            },
+            {
+              "value": "soft",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "fitContent",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "fitContent() => Promise<void>",
+          "parameters": [],
+          "docs": "This method make the textarea automatically adopt the size of the content without a scroll bar",
+          "docsTags": []
+        },
+        {
+          "name": "getInputElement",
+          "returns": {
+            "type": "Promise<HTMLTextAreaElement>",
+            "docs": ""
+          },
+          "signature": "getInputElement() => Promise<HTMLTextAreaElement>",
+          "parameters": [],
+          "docs": "Returns the native `<textarea>` element used under the hood.",
+          "docsTags": []
+        },
+        {
+          "name": "setFocus",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "setFocus() => Promise<void>",
+          "parameters": [],
+          "docs": "Sets focus on the native `textarea` in `wcs-textarea`. Use this method instead of the global\r\n`textarea.focus()`.",
+          "docsTags": []
+        }
+      ],
+      "events": [
+        {
+          "event": "wcsBlur",
+          "detail": "FocusEvent",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the input loses focus.",
+          "docsTags": []
+        },
+        {
+          "event": "wcsChange",
+          "detail": "TextareaChangeEventDetail",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the input value has changed.",
+          "docsTags": []
+        },
+        {
+          "event": "wcsFocus",
+          "detail": "FocusEvent",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the input has focus.",
+          "docsTags": []
+        },
+        {
+          "event": "wcsInput",
+          "detail": "KeyboardEvent",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when a keyboard input occurred.",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "wcs-mat-icon"
+      ],
+      "dependencyGraph": {
+        "wcs-textarea": [
+          "wcs-mat-icon"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/tooltip/tooltip.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-tooltip",
+      "readme": "# Tooltip\r\n\r",
+      "docs": "Tooltips are used to provide additional information for features available on the website. These can improve the user\r\nexperience or simply show additional information. Tooltips appear when the user rolls over or clicks on them\r\n(for longer content).\r\n\r\nNote that this component is based on the Tippy.js library : https://atomiks.github.io/tippyjs/",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "appendTo",
+          "type": "\"parent\" | ((ref: Element) => Element) | Element",
+          "mutable": false,
+          "attr": "append-to",
+          "reflectToAttr": false,
+          "docs": "The element to append the tooltip to. Default behaviour is `() => document.body`. If interactive: true,\r\nthe default behavior is appendTo: \"parent\"\r\n\r\nSee: https://atomiks.github.io/tippyjs/v6/all-props/#appendto",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "parent",
+              "type": "string"
+            },
+            {
+              "type": "((ref: Element) => Element)"
+            },
+            {
+              "type": "Element"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "content",
+          "type": "string",
+          "mutable": false,
+          "attr": "content",
+          "reflectToAttr": false,
+          "docs": "You can use this property instead of the slot API to affect content in the tooltip.\r\n\r\nThis makes it easier to manage the update if the tooltip contains elements that are not mutated when their\r\ncontent changes. Indeed, if the slot is used, the tooltip is updated only if the structure of the slotted DOM\r\nchanges (the DOM must be mutated).\r\n\r\nThe two APIs are not mutually exclusive, if both are filled in (the prop + the slot) the rendering will first\r\ndisplay the content of this property and then the slotted elements.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "delay",
+          "type": "[number, number] | number",
+          "mutable": false,
+          "attr": "delay",
+          "reflectToAttr": false,
+          "docs": "Delay in ms once a trigger event is fired before the tooltip shows or hides.\r\n\r\nYou can provide an array with two values to define a different duration for show and hide.\r\n\r\n`[showDelay, hideDelay]`\r\n\r\nUse null to use default value.",
+          "docsTags": [],
+          "default": "0",
+          "values": [
+            {
+              "type": "[number, number]"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "duration",
+          "type": "[number, number] | number",
+          "mutable": false,
+          "attr": "duration",
+          "reflectToAttr": false,
+          "docs": "Duration in ms of the transition animation.",
+          "docsTags": [],
+          "default": "[300, 250]",
+          "values": [
+            {
+              "type": "[number, number]"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "for",
+          "type": "string",
+          "mutable": false,
+          "attr": "for",
+          "reflectToAttr": false,
+          "docs": "The **id** of the element the tooltip's going to describe.\r\n\r\nThis property cannot be modified after initialization.",
+          "docsTags": [
+            {
+              "name": "example",
+              "text": "```html\r\n<span id=\"tooltiped\">Some content</span>\r\n<wcs-tooltip for=\"tooltiped\">A tooltip!</wcs-tooltip>\r\n```"
+            }
+          ],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "interactive",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "interactive",
+          "reflectToAttr": false,
+          "docs": "Determines if the tooltip has interactive content inside of it, so that it can be hovered over and clicked inside\r\nwithout hiding.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "maxWidth",
+          "type": "number | string",
+          "mutable": false,
+          "attr": "max-width",
+          "reflectToAttr": false,
+          "docs": "Specifies the maximum width of the tooltip. Useful to prevent it from being too horizontally wide to read.\r\n\r\nIf the viewport's width is smaller than maxWidth, core CSS ensures the tippy remains smaller than the screen.",
+          "docsTags": [],
+          "default": "350",
+          "values": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "position",
+          "type": "\"bottom\" | \"left\" | \"right\" | \"top\"",
+          "mutable": false,
+          "attr": "position",
+          "reflectToAttr": true,
+          "docs": "Where the tooltip is going to show relative to the element it's describing.",
+          "docsTags": [],
+          "default": "'bottom'",
+          "values": [
+            {
+              "value": "bottom",
+              "type": "string"
+            },
+            {
+              "value": "left",
+              "type": "string"
+            },
+            {
+              "value": "right",
+              "type": "string"
+            },
+            {
+              "value": "top",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "theme",
+          "type": "string",
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "Allows you to change the theme used by tippy.\r\n\r\nThe WCS theme is used by default and uses the WCS CSS variables.\r\n\r\nYou can create a theme by following this documentation and choosing a custom name :\r\nhttps://atomiks.github.io/tippyjs/v6/themes/",
+          "docsTags": [],
+          "default": "'wcs'",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "trigger",
+          "type": "string",
+          "mutable": false,
+          "attr": "trigger",
+          "reflectToAttr": false,
+          "docs": "Determines the events that cause the tooltip to show. Multiple event names are separated by spaces.\r\n\r\nSee: https://atomiks.github.io/tippyjs/v6/all-props/#trigger",
+          "docsTags": [],
+          "default": "'mouseenter focus'",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "disable",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "disable() => Promise<void>",
+          "parameters": [],
+          "docs": "Temporarily prevent the tooltip from showing or hiding",
+          "docsTags": []
+        },
+        {
+          "name": "enable",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "enable() => Promise<void>",
+          "parameters": [],
+          "docs": "Re-enable a disabled tooltip",
+          "docsTags": []
+        },
+        {
+          "name": "hide",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "hide() => Promise<void>",
+          "parameters": [],
+          "docs": "Programmatically hide the tooltip",
+          "docsTags": []
+        },
+        {
+          "name": "show",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "show() => Promise<void>",
+          "parameters": [],
+          "docs": "Programmatically show the tooltip",
+          "docsTags": []
+        }
+      ],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    }
+  ]
+}

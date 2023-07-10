@@ -2,10 +2,12 @@ import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 // @ts-ignore
 import selectDocumentation from './select-documentation.md';
+import { getComponentArgs } from '../../utils/args-generation';
 
 const meta: Meta = {
     title: 'Components/Select',
     component: 'wcs-select',
+    argTypes: getComponentArgs('wcs-select'),
     parameters: {
         docs: {
             description: {

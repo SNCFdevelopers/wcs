@@ -3,10 +3,17 @@ import { html } from 'lit-html';
 import { TextFieldTypes, WcsInputSize } from '../../../src/components/input/input-interface';
 // @ts-ignore
 import { withActions } from '@storybook/addon-actions/decorator';
+import { getComponentArgs } from '../../utils/args-generation';
 
 const meta: Meta = {
     title: 'Components/Input',
     component: 'wcs-input',
+    argTypes: {
+        ...getComponentArgs('wcs-input'),
+        value: {
+            control: 'text',
+        },
+    },
     parameters: {
         actions: {
             handles: [

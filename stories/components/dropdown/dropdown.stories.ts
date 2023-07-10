@@ -6,10 +6,12 @@ import dropdownDocumentation from './dropdown-documentation.md'
 import { WcsDropdownPlacement } from '../../../src/components/dropdown/dropdown-interface';
 // @ts-ignore
 import { withActions } from '@storybook/addon-actions/decorator';
+import { getComponentArgs } from '../../utils/args-generation';
 
 const meta: Meta = {
     title: 'Components/Dropdown',
     component: 'wcs-dropdown',
+    argTypes: getComponentArgs('wcs-dropdown'),
     parameters: {
         actions: {
             handles: [

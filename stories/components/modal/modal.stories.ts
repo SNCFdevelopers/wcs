@@ -5,10 +5,12 @@ import { ModalSize } from '../../../src/components/modal/modal-interface';
 import { html } from 'lit-html';
 // @ts-ignore
 import { withActions } from '@storybook/addon-actions/decorator';
+import { getComponentArgs } from '../../utils/args-generation';
 
 const meta: Meta = {
     title: 'Components/Modal',
     component: 'wcs-modal',
+    argTypes: getComponentArgs('wcs-modal'),
     parameters: {
         actions: {
             handles: [

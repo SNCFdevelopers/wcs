@@ -3,10 +3,12 @@ import { html } from 'lit-html';
 // @ts-ignore
 import badgeDocumentation from './badge-documentation.md'
 import { BadgeColor, BadgeShape } from '../../../src/components/badge/badge-interface';
+import { getComponentArgs } from '../../utils/args-generation';
 
 const meta: Meta = {
     title: 'Components/Badge',
     component: 'wcs-badge',
+    argTypes: getComponentArgs('wcs-badge'),
     parameters: {
         docs: {
             description: {

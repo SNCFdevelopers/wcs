@@ -14,8 +14,8 @@ export class ComNav implements ComponentInterface {
     /** Name of the application to be displayed in the menu bar */
     @Prop() appName: string;
 
-    @State() mobileMenuOpen: boolean = false;
-    @State() currentActiveSizing: 'desktop' | 'mobile';
+    @State() private mobileMenuOpen: boolean = false;
+    @State() private currentActiveSizing: 'desktop' | 'mobile';
     private resizeObserver: ResizeObserver;
     private hasAlreadyRegisteredClickHandlerOnSlottedLink: boolean = false;
 

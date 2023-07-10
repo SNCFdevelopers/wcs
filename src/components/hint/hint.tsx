@@ -5,9 +5,12 @@ import { Component, ComponentInterface, h, Host, Prop } from '@stencil/core';
     styleUrl: 'hint.scss',
     shadow: true,
 })
-export class Label implements ComponentInterface {
+export class Hint implements ComponentInterface {
+    /**
+     * Whether the component should display the small version of the hint
+     */
     @Prop({ reflect: true, mutable: true })
-    small = false;
+    small: boolean = false;
 
     render() {
         return (

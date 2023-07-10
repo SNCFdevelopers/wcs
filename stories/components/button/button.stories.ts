@@ -2,10 +2,12 @@ import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { WcsButtonMode, WcsButtonShape, WcsButtonSize } from '../../../src/components/button/button-interface';
 import { createRef, ref, Ref } from 'lit-html/directives/ref.js';
+import { getComponentArgs } from '../../utils/args-generation';
 
 const meta: Meta = {
     title: 'Components/Button',
-    component: 'wcs-button'
+    component: 'wcs-button',
+    argTypes: getComponentArgs('wcs-button'),
 };
 export default meta;
 
@@ -68,7 +70,7 @@ const Template: StoryFn<Partial<{ innerText: string, mode: WcsButtonMode, size: 
 `;
 
 export const Default = Template.bind({});
-Default.args = {innerText: 'Primary', loading: false};
+Default.args = {innerText: 'Primary', loading: false, shape: 'normal'};
 
 export const clear = Template.bind({});
 clear.args = {innerText: 'Primary', mode: 'clear', loading: false};

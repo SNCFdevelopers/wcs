@@ -34,7 +34,7 @@ export class Dropdown implements ComponentInterface {
     /** placement of the dropdown's popover */
     @Prop() placement: WcsDropdownPlacement = 'bottom-end';
 
-    @State() expanded = false;
+    @State() private expanded = false;
 
 
     private popper: Instance;
