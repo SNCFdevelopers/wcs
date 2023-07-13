@@ -5,6 +5,7 @@
     --wcs-internal-textarea-border-radius-left: var(--wcs-textarea-border-radius-left, var(--wcs-border-radius));
     --wcs-internal-textarea-border-radius-right: var(--wcs-textarea-border-radius-right, var(--wcs-border-radius));
     --wcs-internal-textarea-border-width: 2px;
+    --wcs-textarea-max-height: unset;
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -23,7 +24,8 @@
         flex: 1;
         width: 100%;
         box-sizing: border-box;
-        min-height: 24px;
+        min-height: var(--wcs-size-m);
+        max-height: var(--wcs-textarea-max-height);
         background-color: transparent;
         font-family: var(--wcs-font-sans-serif);
         color: var(--wcs-primary);

@@ -18,6 +18,9 @@ import { TextareaChangeEventDetail } from './textarea-interface';
 
 /**
  * Mainly inspired from Ionic Textarea Component
+ *
+ * @cssprop --wcs-textarea-max-height - Max height of the text area component
+ *
  */
 @Component({
     tag: 'wcs-textarea',
@@ -157,6 +160,12 @@ export class Textarea implements ComponentInterface {
      * The value of the textarea.
      */
     @Prop({mutable: true}) value?: string | null = '';
+
+    /**
+     * Indicates how the textarea should be resizable.
+     * Possible values 'both' | 'none' | 'vertical' | 'horizontal'
+     */
+    @Prop({reflect: true}) resize?: 'both' | 'none' | 'vertical' | 'horizontal';
 
     /**
      * Update the native input element when the value changes
@@ -336,6 +345,9 @@ export class Textarea implements ComponentInterface {
         if (label) {
             label.id = labelId;
         }
+        const style = {
+            ...(this.resize && {'resize': this.resize})
+        }
 
         return (
             <Host
@@ -365,6 +377,7 @@ export class Textarea implements ComponentInterface {
                     onBlur={this.onBlur}
                     onFocus={this.onFocus}
                     onKeyDown={this.onKeyDown}
+                    style={style}
                     {...this.inheritedAttributes}
                 >
             {value}

@@ -18,10 +18,11 @@ const meta: Meta = {
 
 export default meta;
 
-const Template: StoryFn<Partial<{ icon: string, autoGrow: boolean, disabled: boolean, placeholder: string, value: string }>> = (args) => html`
+const Template: StoryFn<Partial<{ icon: string, autoGrow: boolean, disabled: boolean, placeholder: string, value: string, resize: string }>> = (args) => html`
     <wcs-textarea icon=${args.icon}
                   ?auto-grow="${args.autoGrow}"
                   ?disabled="${args.disabled}"
+                  resize="${args.resize ?? 'auto'}"
                   placeholder=${args.placeholder}
                   value=${args.value}>
     </wcs-textarea>

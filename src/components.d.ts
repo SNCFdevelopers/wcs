@@ -752,6 +752,7 @@ export namespace Components {
     }
     /**
      * Mainly inspired from Ionic Textarea Component
+     * @cssprop --wcs-textarea-max-height - Max height of the text area component
      */
     interface WcsTextarea {
         /**
@@ -830,6 +831,10 @@ export namespace Components {
           * If `true`, the user must fill in a value before submitting a form.
          */
         "required": boolean;
+        /**
+          * Indicates how the textarea should be resizable. Possible values 'both' | 'none' | 'vertical' | 'horizontal'
+         */
+        "resize"?: 'both' | 'none' | 'vertical' | 'horizontal';
         /**
           * The number of visible text lines for the control.
          */
@@ -1376,6 +1381,7 @@ declare global {
     };
     /**
      * Mainly inspired from Ionic Textarea Component
+     * @cssprop --wcs-textarea-max-height - Max height of the text area component
      */
     interface HTMLWcsTextareaElement extends Components.WcsTextarea, HTMLStencilElement {
     }
@@ -2205,6 +2211,7 @@ declare namespace LocalJSX {
     }
     /**
      * Mainly inspired from Ionic Textarea Component
+     * @cssprop --wcs-textarea-max-height - Max height of the text area component
      */
     interface WcsTextarea {
         /**
@@ -2291,6 +2298,10 @@ declare namespace LocalJSX {
           * If `true`, the user must fill in a value before submitting a form.
          */
         "required"?: boolean;
+        /**
+          * Indicates how the textarea should be resizable. Possible values 'both' | 'none' | 'vertical' | 'horizontal'
+         */
+        "resize"?: 'both' | 'none' | 'vertical' | 'horizontal';
         /**
           * The number of visible text lines for the control.
          */
@@ -2520,6 +2531,7 @@ declare module "@stencil/core" {
             "wcs-tabs": LocalJSX.WcsTabs & JSXBase.HTMLAttributes<HTMLWcsTabsElement>;
             /**
              * Mainly inspired from Ionic Textarea Component
+             * @cssprop --wcs-textarea-max-height - Max height of the text area component
              */
             "wcs-textarea": LocalJSX.WcsTextarea & JSXBase.HTMLAttributes<HTMLWcsTextareaElement>;
             /**

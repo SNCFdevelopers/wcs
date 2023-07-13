@@ -14,6 +14,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **input**: add the following sizes : `l`, `m (default)`, `s (for grids)` 
 - **doc**: add documentation on how to initialize an application with the business or communication design systems
 - **ci**: add the ability to deploy any branch on a dedicated environment
+- **textarea**: add the property `resize` with the folowing options : `none`, `both`, `horizontal`, `vertical`
+- **textarea**: the `max-height` style property is now defined by the `--wcs-textarea-max-height` css-variable 
 
 ### Changed
 
@@ -28,6 +30,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **types**: Create a new shared-types file for custom types, containing WcsSize
 - **button**: add the size attribute with available values `l`, `m (default)`, `s`
 - **input**: add the size attribute with available values `l`, `m (default)`, `s`
+- **textarea**: the `min-height` style property is now define by the `var(--wcs-size-m)` css-variable
 
 ### Deprecated
 
