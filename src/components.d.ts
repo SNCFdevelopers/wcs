@@ -23,6 +23,7 @@ import { RadioGroupChangeEventDetail, RadioGroupMode } from "./components/radio-
 import { RadioChosedEvent } from "./components/radio/radio-interface";
 import { SelectChangeEventDetail, WcsSelectSize } from "./components/select/select-interface";
 import { SelectOptionChosedEvent } from "./components/select-option/select-option-interface";
+import { WcsSkeletonAnimation } from "./components/skeleton/skeleton-interface";
 import { WcsSpinnerMode } from "./components/spinner/spinner-interface";
 import { SwitchChangeEventDetail, SwitchLabelAlignment } from "./components/switch/switch-interface";
 import { WcsTabChangeEvent, WcsTabsAlignment } from "./components/tabs/tabs-interface";
@@ -46,6 +47,7 @@ export { RadioGroupChangeEventDetail, RadioGroupMode } from "./components/radio-
 export { RadioChosedEvent } from "./components/radio/radio-interface";
 export { SelectChangeEventDetail, WcsSelectSize } from "./components/select/select-interface";
 export { SelectOptionChosedEvent } from "./components/select-option/select-option-interface";
+export { WcsSkeletonAnimation } from "./components/skeleton/skeleton-interface";
 export { WcsSpinnerMode } from "./components/spinner/spinner-interface";
 export { SwitchChangeEventDetail, SwitchLabelAlignment } from "./components/switch/switch-interface";
 export { WcsTabChangeEvent, WcsTabsAlignment } from "./components/tabs/tabs-interface";
@@ -815,6 +817,19 @@ export namespace Components {
          */
         "value"?: any;
     }
+    /**
+     * Use a skeleton text as a placeholder for titles or paragraphs.
+     */
+    interface WcsSkeletonText {
+        /**
+          * Specifies the animation of the skeleton
+         */
+        "animation": WcsSkeletonAnimation;
+        /**
+          * Specifies the line height of the text skeleton
+         */
+        "height": 'h1' | 'h2' | 'h3' | 'caption' | 'body';
+    }
     interface WcsSpinner {
         /**
           * Indicates the spinner display mode. Accepted values: `border` or `growing`
@@ -1517,6 +1532,15 @@ declare global {
         prototype: HTMLWcsSelectOptionElement;
         new (): HTMLWcsSelectOptionElement;
     };
+    /**
+     * Use a skeleton text as a placeholder for titles or paragraphs.
+     */
+    interface HTMLWcsSkeletonTextElement extends Components.WcsSkeletonText, HTMLStencilElement {
+    }
+    var HTMLWcsSkeletonTextElement: {
+        prototype: HTMLWcsSkeletonTextElement;
+        new (): HTMLWcsSkeletonTextElement;
+    };
     interface HTMLWcsSpinnerElement extends Components.WcsSpinner, HTMLStencilElement {
     }
     var HTMLWcsSpinnerElement: {
@@ -1631,6 +1655,7 @@ declare global {
         "wcs-radio-group": HTMLWcsRadioGroupElement;
         "wcs-select": HTMLWcsSelectElement;
         "wcs-select-option": HTMLWcsSelectOptionElement;
+        "wcs-skeleton-text": HTMLWcsSkeletonTextElement;
         "wcs-spinner": HTMLWcsSpinnerElement;
         "wcs-switch": HTMLWcsSwitchElement;
         "wcs-tab": HTMLWcsTabElement;
@@ -2451,6 +2476,19 @@ declare namespace LocalJSX {
          */
         "value"?: any;
     }
+    /**
+     * Use a skeleton text as a placeholder for titles or paragraphs.
+     */
+    interface WcsSkeletonText {
+        /**
+          * Specifies the animation of the skeleton
+         */
+        "animation"?: WcsSkeletonAnimation;
+        /**
+          * Specifies the line height of the text skeleton
+         */
+        "height"?: 'h1' | 'h2' | 'h3' | 'caption' | 'body';
+    }
     interface WcsSpinner {
         /**
           * Indicates the spinner display mode. Accepted values: `border` or `growing`
@@ -2743,6 +2781,7 @@ declare namespace LocalJSX {
         "wcs-radio-group": WcsRadioGroup;
         "wcs-select": WcsSelect;
         "wcs-select-option": WcsSelectOption;
+        "wcs-skeleton-text": WcsSkeletonText;
         "wcs-spinner": WcsSpinner;
         "wcs-switch": WcsSwitch;
         "wcs-tab": WcsTab;
@@ -2866,6 +2905,10 @@ declare module "@stencil/core" {
              * Select option component, use in conjunction with wcs-select.
              */
             "wcs-select-option": LocalJSX.WcsSelectOption & JSXBase.HTMLAttributes<HTMLWcsSelectOptionElement>;
+            /**
+             * Use a skeleton text as a placeholder for titles or paragraphs.
+             */
+            "wcs-skeleton-text": LocalJSX.WcsSkeletonText & JSXBase.HTMLAttributes<HTMLWcsSkeletonTextElement>;
             "wcs-spinner": LocalJSX.WcsSpinner & JSXBase.HTMLAttributes<HTMLWcsSpinnerElement>;
             "wcs-switch": LocalJSX.WcsSwitch & JSXBase.HTMLAttributes<HTMLWcsSwitchElement>;
             /**

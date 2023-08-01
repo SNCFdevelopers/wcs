@@ -659,44 +659,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/accordion-header/accordion-header.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "AccordionHeader",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-accordion-header",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "AccordionHeader",
-          "declaration": {
-            "name": "AccordionHeader",
-            "module": "components/accordion-header/accordion-header.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-accordion-header",
-          "declaration": {
-            "name": "AccordionHeader",
-            "module": "components/accordion-header/accordion-header.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/accordion/accordion.tsx",
       "declarations": [
         {
@@ -852,6 +814,44 @@
           "declaration": {
             "name": "Accordion",
             "module": "components/accordion/accordion.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/accordion-header/accordion-header.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "AccordionHeader",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-accordion-header",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "AccordionHeader",
+          "declaration": {
+            "name": "AccordionHeader",
+            "module": "components/accordion-header/accordion-header.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-accordion-header",
+          "declaration": {
+            "name": "AccordionHeader",
+            "module": "components/accordion-header/accordion-header.tsx"
           }
         }
       ]
@@ -1091,44 +1091,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/app/app.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "App",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-app",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "App",
-          "declaration": {
-            "name": "App",
-            "module": "components/app/app.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-app",
-          "declaration": {
-            "name": "App",
-            "module": "components/app/app.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/badge/badge-interface.ts",
       "declarations": [],
       "exports": []
@@ -1201,6 +1163,105 @@
           "declaration": {
             "name": "Badge",
             "module": "components/badge/badge.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/app/app.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "App",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-app",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "App",
+          "declaration": {
+            "name": "App",
+            "module": "components/app/app.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-app",
+          "declaration": {
+            "name": "App",
+            "module": "components/app/app.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/card/card-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/card/card.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Card",
+          "members": [
+            {
+              "kind": "field",
+              "name": "mode",
+              "type": {
+                "text": "CardMode"
+              },
+              "default": "'raised'"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "mode",
+              "fieldName": "mode",
+              "type": {
+                "text": "CardMode"
+              }
+            }
+          ],
+          "tagName": "wcs-card",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Card",
+          "declaration": {
+            "name": "Card",
+            "module": "components/card/card.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-card",
+          "declaration": {
+            "name": "Card",
+            "module": "components/card/card.tsx"
           }
         }
       ]
@@ -1484,67 +1545,6 @@
           "declaration": {
             "name": "Button",
             "module": "components/button/button.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/card/card-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/card/card.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Card",
-          "members": [
-            {
-              "kind": "field",
-              "name": "mode",
-              "type": {
-                "text": "CardMode"
-              },
-              "default": "'raised'"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "mode",
-              "fieldName": "mode",
-              "type": {
-                "text": "CardMode"
-              }
-            }
-          ],
-          "tagName": "wcs-card",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Card",
-          "declaration": {
-            "name": "Card",
-            "module": "components/card/card.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-card",
-          "declaration": {
-            "name": "Card",
-            "module": "components/card/card.tsx"
           }
         }
       ]
@@ -2975,6 +2975,44 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/dropdown-header/dropdown-header.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "DropdownHeader",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-dropdown-header",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "DropdownHeader",
+          "declaration": {
+            "name": "DropdownHeader",
+            "module": "components/dropdown-header/dropdown-header.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-dropdown-header",
+          "declaration": {
+            "name": "DropdownHeader",
+            "module": "components/dropdown-header/dropdown-header.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/dropdown-item/dropdown-item.tsx",
       "declarations": [
         {
@@ -3048,44 +3086,6 @@
           "declaration": {
             "name": "DropdownItem",
             "module": "components/dropdown-item/dropdown-item.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/dropdown-header/dropdown-header.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "DropdownHeader",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-dropdown-header",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "DropdownHeader",
-          "declaration": {
-            "name": "DropdownHeader",
-            "module": "components/dropdown-header/dropdown-header.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-dropdown-header",
-          "declaration": {
-            "name": "DropdownHeader",
-            "module": "components/dropdown-header/dropdown-header.tsx"
           }
         }
       ]
@@ -6465,6 +6465,44 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/list-item-properties/list-item-properties.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "ListItemProperties",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-list-item-properties",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ListItemProperties",
+          "declaration": {
+            "name": "ListItemProperties",
+            "module": "components/list-item-properties/list-item-properties.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-list-item-properties",
+          "declaration": {
+            "name": "ListItemProperties",
+            "module": "components/list-item-properties/list-item-properties.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/list-item/list-item.tsx",
       "declarations": [
         {
@@ -6515,44 +6553,6 @@
           "declaration": {
             "name": "ListItem",
             "module": "components/list-item/list-item.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/list-item-properties/list-item-properties.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "ListItemProperties",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-list-item-properties",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ListItemProperties",
-          "declaration": {
-            "name": "ListItemProperties",
-            "module": "components/list-item-properties/list-item-properties.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-list-item-properties",
-          "declaration": {
-            "name": "ListItemProperties",
-            "module": "components/list-item-properties/list-item-properties.tsx"
           }
         }
       ]
@@ -7032,97 +7032,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/nav-item/nav-item.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "NavItem",
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "text",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "description": "This attribute specify the text of the item."
-            },
-            {
-              "kind": "field",
-              "name": "href",
-              "type": {
-                "text": "string"
-              },
-              "description": "Attributes mapped to a <a> tag.\r\n\r\nDon't forget to specify [routerLink] if using in conjuction with angular router."
-            },
-            {
-              "kind": "method",
-              "name": "onKeyDown",
-              "parameters": [
-                {
-                  "name": "_event",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "text",
-              "fieldName": "text",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "href",
-              "fieldName": "href",
-              "type": {
-                "text": "string"
-              }
-            }
-          ],
-          "tagName": "wcs-nav-item",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "NavItem",
-          "declaration": {
-            "name": "NavItem",
-            "module": "components/nav-item/nav-item.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-nav-item",
-          "declaration": {
-            "name": "NavItem",
-            "module": "components/nav-item/nav-item.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/progress-bar/progress-bar.tsx",
       "declarations": [
         {
@@ -7214,6 +7123,97 @@
           "declaration": {
             "name": "ProgressBar",
             "module": "components/progress-bar/progress-bar.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/nav-item/nav-item.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "NavItem",
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "text",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "This attribute specify the text of the item."
+            },
+            {
+              "kind": "field",
+              "name": "href",
+              "type": {
+                "text": "string"
+              },
+              "description": "Attributes mapped to a <a> tag.\r\n\r\nDon't forget to specify [routerLink] if using in conjuction with angular router."
+            },
+            {
+              "kind": "method",
+              "name": "onKeyDown",
+              "parameters": [
+                {
+                  "name": "_event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "text",
+              "fieldName": "text",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "href",
+              "fieldName": "href",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "tagName": "wcs-nav-item",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "NavItem",
+          "declaration": {
+            "name": "NavItem",
+            "module": "components/nav-item/nav-item.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-nav-item",
+          "declaration": {
+            "name": "NavItem",
+            "module": "components/nav-item/nav-item.tsx"
           }
         }
       ]
@@ -8564,6 +8564,84 @@
           "declaration": {
             "name": "SelectOption",
             "module": "components/select-option/select-option.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/skeleton/skeleton-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/skeleton-text/skeleton-text.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Use a skeleton text as a placeholder for titles or paragraphs.",
+          "name": "SkeletonText",
+          "members": [
+            {
+              "kind": "field",
+              "name": "animation",
+              "type": {
+                "text": "WcsSkeletonAnimation"
+              },
+              "default": "'glide'",
+              "description": "Specifies the animation of the skeleton"
+            },
+            {
+              "kind": "field",
+              "name": "height",
+              "type": {
+                "text": "'h1' | 'h2' | 'h3' | 'caption' | 'body'"
+              },
+              "default": "'body'",
+              "description": "Specifies the line height of the text skeleton"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "animation",
+              "fieldName": "animation",
+              "type": {
+                "text": "WcsSkeletonAnimation"
+              }
+            },
+            {
+              "name": "height",
+              "fieldName": "height",
+              "type": {
+                "text": "'h1' | 'h2' | 'h3' | 'caption' | 'body'"
+              }
+            }
+          ],
+          "tagName": "wcs-skeleton-text",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SkeletonText",
+          "declaration": {
+            "name": "SkeletonText",
+            "module": "components/skeleton-text/skeleton-text.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-skeleton-text",
+          "declaration": {
+            "name": "SkeletonText",
+            "module": "components/skeleton-text/skeleton-text.tsx"
           }
         }
       ]

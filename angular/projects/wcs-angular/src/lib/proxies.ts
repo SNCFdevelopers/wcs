@@ -1322,6 +1322,28 @@ export declare interface WcsSelectOption extends Components.WcsSelectOption {
 
 
 @ProxyCmp({
+  inputs: ['animation', 'height']
+})
+@Component({
+  selector: 'wcs-skeleton-text',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['animation', 'height'],
+})
+export class WcsSkeletonText {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface WcsSkeletonText extends Components.WcsSkeletonText {}
+
+
+@ProxyCmp({
   inputs: ['mode']
 })
 @Component({

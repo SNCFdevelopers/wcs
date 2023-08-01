@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-10-17T09:38:59",
+  "timestamp": "2023-10-19T09:04:47",
   "compiler": {
     "name": "@stencil/core",
     "version": "3.0.0",
@@ -5108,6 +5108,86 @@
           "wcs-select-option"
         ]
       }
+    },
+    {
+      "filePath": "./src/components/skeleton-text/skeleton-text.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-skeleton-text",
+      "readme": "# wcs-skeleton-text\r\n\r\n\r\n\r",
+      "docs": "Use a skeleton text as a placeholder for titles or paragraphs.",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "animation",
+          "type": "\"glide\" | \"none\" | \"pulse\"",
+          "mutable": false,
+          "attr": "animation",
+          "reflectToAttr": true,
+          "docs": "Specifies the animation of the skeleton",
+          "docsTags": [],
+          "default": "'glide'",
+          "values": [
+            {
+              "value": "glide",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "pulse",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "height",
+          "type": "\"body\" | \"caption\" | \"h1\" | \"h2\" | \"h3\"",
+          "mutable": false,
+          "attr": "height",
+          "reflectToAttr": false,
+          "docs": "Specifies the line height of the text skeleton",
+          "docsTags": [],
+          "default": "'body'",
+          "values": [
+            {
+              "value": "body",
+              "type": "string"
+            },
+            {
+              "value": "caption",
+              "type": "string"
+            },
+            {
+              "value": "h1",
+              "type": "string"
+            },
+            {
+              "value": "h2",
+              "type": "string"
+            },
+            {
+              "value": "h3",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
     },
     {
       "filePath": "./src/components/spinner/spinner.tsx",

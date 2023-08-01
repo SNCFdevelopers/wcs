@@ -1,0 +1,22 @@
+@import "../skeleton/skeleton.scss";
+
+:host([height=h1]) {
+    height: 42px;
+}
+
+:host([height=h2]) {
+    height: 36px;
+}
+
+:host([height=h3]) {
+    height: 30px;
+}
+
+:host([height=caption]) {
+    height: 24px;
+}
+
+:host([height=body]) {
+    height: 16px;
+}
+
