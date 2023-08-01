@@ -11,7 +11,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - **react**: create react bindings for WCS components
 - **doc**: deploy documentation on Azure static web app (https://wcs.dev.sncf)
-- **skeleton**: add new components `skeleton-text`, `skeleton-rectangle`
+- **skeleton**: add new components `skeleton-text`, `skeleton-rectangle`, `skeleton-circle`
 
 ### Changed
 

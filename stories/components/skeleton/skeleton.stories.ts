@@ -38,7 +38,7 @@ export default meta;
 
 /**
  * **Complete example**  
- * Using `wcs-skeleton-text`
+ * Using `wcs-skeleton-text`, `wcs-skeleton-rectangle`, `wcs-skeleton-circle`
  */
 export const Example: StoryObj = {
     render: (args: { loading: boolean }) => {
@@ -50,8 +50,11 @@ export const Example: StoryObj = {
         return args.loading ? html`
             <wcs-card mode="flat">
                 <wcs-card-body class="container">
-                    <wcs-skeleton-text class="title-skeleton"
-                                       height="h1"></wcs-skeleton-text>
+                    <div class="heading">
+                        <wcs-skeleton-circle radius="50"></wcs-skeleton-circle>
+                        <wcs-skeleton-text class="title-skeleton"
+                                           height="h1"></wcs-skeleton-text>
+                    </div>
                     <wcs-skeleton-rectangle height="200px" width="270px"></wcs-skeleton-rectangle>
                     <wcs-skeleton-text></wcs-skeleton-text>
                     <wcs-skeleton-text></wcs-skeleton-text>
@@ -65,6 +68,13 @@ export const Example: StoryObj = {
                     flex-direction: column;
                     gap: var(--wcs-base-margin);
                 }
+                
+                .heading {
+                    display: flex;
+                    align-items: center;
+                    gap: var(--wcs-margin);
+                    margin-bottom: var(--wcs-margin);
+                }
 
                 .title-skeleton {
                     width: 150px;
@@ -77,7 +87,10 @@ export const Example: StoryObj = {
         ` : html`
             <wcs-card mode="flat">
                 <wcs-card-body>
-                    <h1>SNCF</h1>
+                    <div class="heading">
+                        <img src="./sncf-logo.png" alt="SNCF Logo" height="50">
+                        <h1>SNCF</h1>
+                    </div>
                     <img
                         src=${imgSrc}
                         alt="Train with landscape"
@@ -90,6 +103,13 @@ export const Example: StoryObj = {
                         adipisci amet laborum.</p>
                 </wcs-card-body>
             </wcs-card>
+            <style>
+                .heading {
+                    display: flex;
+                    align-items: center;
+                    gap: var(--wcs-margin);
+                }
+            </style>
         `
     },
     args: {

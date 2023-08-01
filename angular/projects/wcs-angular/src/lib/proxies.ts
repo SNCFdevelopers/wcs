@@ -1322,6 +1322,28 @@ export declare interface WcsSelectOption extends Components.WcsSelectOption {
 
 
 @ProxyCmp({
+  inputs: ['animation', 'radius']
+})
+@Component({
+  selector: 'wcs-skeleton-circle',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['animation', 'radius'],
+})
+export class WcsSkeletonCircle {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface WcsSkeletonCircle extends Components.WcsSkeletonCircle {}
+
+
+@ProxyCmp({
   inputs: ['animation', 'height', 'rounded', 'width']
 })
 @Component({

@@ -820,6 +820,19 @@ export namespace Components {
         "value"?: any;
     }
     /**
+     * Use a skeleton circle as a placeholder round images, illustrations or components
+     */
+    interface WcsSkeletonCircle {
+        /**
+          * Specifies the animation of the skeleton
+         */
+        "animation": WcsSkeletonAnimation;
+        /**
+          * Specifies the radius of the circle in px
+         */
+        "radius": number;
+    }
+    /**
      * Use a skeleton rectangle as a placeholder for large images or square-shaped components
      * @cssprop --wcs-skeleton-border-radius - Controls the border-radius of the 'rounded' skeleton rectangle (default 0.5rem)
      */
@@ -1557,6 +1570,15 @@ declare global {
         new (): HTMLWcsSelectOptionElement;
     };
     /**
+     * Use a skeleton circle as a placeholder round images, illustrations or components
+     */
+    interface HTMLWcsSkeletonCircleElement extends Components.WcsSkeletonCircle, HTMLStencilElement {
+    }
+    var HTMLWcsSkeletonCircleElement: {
+        prototype: HTMLWcsSkeletonCircleElement;
+        new (): HTMLWcsSkeletonCircleElement;
+    };
+    /**
      * Use a skeleton rectangle as a placeholder for large images or square-shaped components
      * @cssprop --wcs-skeleton-border-radius - Controls the border-radius of the 'rounded' skeleton rectangle (default 0.5rem)
      */
@@ -1689,6 +1711,7 @@ declare global {
         "wcs-radio-group": HTMLWcsRadioGroupElement;
         "wcs-select": HTMLWcsSelectElement;
         "wcs-select-option": HTMLWcsSelectOptionElement;
+        "wcs-skeleton-circle": HTMLWcsSkeletonCircleElement;
         "wcs-skeleton-rectangle": HTMLWcsSkeletonRectangleElement;
         "wcs-skeleton-text": HTMLWcsSkeletonTextElement;
         "wcs-spinner": HTMLWcsSpinnerElement;
@@ -2512,6 +2535,19 @@ declare namespace LocalJSX {
         "value"?: any;
     }
     /**
+     * Use a skeleton circle as a placeholder round images, illustrations or components
+     */
+    interface WcsSkeletonCircle {
+        /**
+          * Specifies the animation of the skeleton
+         */
+        "animation"?: WcsSkeletonAnimation;
+        /**
+          * Specifies the radius of the circle in px
+         */
+        "radius"?: number;
+    }
+    /**
      * Use a skeleton rectangle as a placeholder for large images or square-shaped components
      * @cssprop --wcs-skeleton-border-radius - Controls the border-radius of the 'rounded' skeleton rectangle (default 0.5rem)
      */
@@ -2838,6 +2874,7 @@ declare namespace LocalJSX {
         "wcs-radio-group": WcsRadioGroup;
         "wcs-select": WcsSelect;
         "wcs-select-option": WcsSelectOption;
+        "wcs-skeleton-circle": WcsSkeletonCircle;
         "wcs-skeleton-rectangle": WcsSkeletonRectangle;
         "wcs-skeleton-text": WcsSkeletonText;
         "wcs-spinner": WcsSpinner;
@@ -2963,6 +3000,10 @@ declare module "@stencil/core" {
              * Select option component, use in conjunction with wcs-select.
              */
             "wcs-select-option": LocalJSX.WcsSelectOption & JSXBase.HTMLAttributes<HTMLWcsSelectOptionElement>;
+            /**
+             * Use a skeleton circle as a placeholder round images, illustrations or components
+             */
+            "wcs-skeleton-circle": LocalJSX.WcsSkeletonCircle & JSXBase.HTMLAttributes<HTMLWcsSkeletonCircleElement>;
             /**
              * Use a skeleton rectangle as a placeholder for large images or square-shaped components
              * @cssprop --wcs-skeleton-border-radius - Controls the border-radius of the 'rounded' skeleton rectangle (default 0.5rem)

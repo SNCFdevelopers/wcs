@@ -60,6 +60,7 @@ export const WcsRadio = /*@__PURE__*/createReactComponent<JSX.WcsRadio, HTMLWcsR
 export const WcsRadioGroup = /*@__PURE__*/createReactComponent<JSX.WcsRadioGroup, HTMLWcsRadioGroupElement>('wcs-radio-group');
 export const WcsSelect = /*@__PURE__*/createReactComponent<JSX.WcsSelect, HTMLWcsSelectElement>('wcs-select');
 export const WcsSelectOption = /*@__PURE__*/createReactComponent<JSX.WcsSelectOption, HTMLWcsSelectOptionElement>('wcs-select-option');
+export const WcsSkeletonCircle = /*@__PURE__*/createReactComponent<JSX.WcsSkeletonCircle, HTMLWcsSkeletonCircleElement>('wcs-skeleton-circle');
 export const WcsSkeletonRectangle = /*@__PURE__*/createReactComponent<JSX.WcsSkeletonRectangle, HTMLWcsSkeletonRectangleElement>('wcs-skeleton-rectangle');
 export const WcsSkeletonText = /*@__PURE__*/createReactComponent<JSX.WcsSkeletonText, HTMLWcsSkeletonTextElement>('wcs-skeleton-text');
 export const WcsSpinner = /*@__PURE__*/createReactComponent<JSX.WcsSpinner, HTMLWcsSpinnerElement>('wcs-spinner');

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-10-23T15:53:06",
+  "timestamp": "2023-10-25T13:54:58",
   "compiler": {
     "name": "@stencil/core",
     "version": "3.0.0",
@@ -5108,6 +5108,69 @@
           "wcs-select-option"
         ]
       }
+    },
+    {
+      "filePath": "./src/components/skeleton-circle/skeleton-circle.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-skeleton-circle",
+      "readme": "# wcs-skeleton-circle\r\n\r\n\r\n\r",
+      "docs": "Use a skeleton circle as a placeholder round images, illustrations or components",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "animation",
+          "type": "\"glide\" | \"none\" | \"pulse\"",
+          "mutable": false,
+          "attr": "animation",
+          "reflectToAttr": true,
+          "docs": "Specifies the animation of the skeleton",
+          "docsTags": [],
+          "default": "'glide'",
+          "values": [
+            {
+              "value": "glide",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "pulse",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "radius",
+          "type": "number",
+          "mutable": false,
+          "attr": "radius",
+          "reflectToAttr": true,
+          "docs": "Specifies the radius of the circle in px",
+          "docsTags": [],
+          "default": "50",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
     },
     {
       "filePath": "./src/components/skeleton-rectangle/skeleton-rectangle.tsx",

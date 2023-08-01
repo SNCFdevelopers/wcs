@@ -820,44 +820,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/accordion-content/accordion-content.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "AccordionContent",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-accordion-content",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "AccordionContent",
-          "declaration": {
-            "name": "AccordionContent",
-            "module": "components/accordion-content/accordion-content.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-accordion-content",
-          "declaration": {
-            "name": "AccordionContent",
-            "module": "components/accordion-content/accordion-content.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/accordion-header/accordion-header.tsx",
       "declarations": [
         {
@@ -890,6 +852,44 @@
           "declaration": {
             "name": "AccordionHeader",
             "module": "components/accordion-header/accordion-header.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/accordion-content/accordion-content.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "AccordionContent",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-accordion-content",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "AccordionContent",
+          "declaration": {
+            "name": "AccordionContent",
+            "module": "components/accordion-content/accordion-content.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-accordion-content",
+          "declaration": {
+            "name": "AccordionContent",
+            "module": "components/accordion-content/accordion-content.tsx"
           }
         }
       ]
@@ -1551,44 +1551,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/card-body/card-body.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "CardBody",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-card-body",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "CardBody",
-          "declaration": {
-            "name": "CardBody",
-            "module": "components/card-body/card-body.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-card-body",
-          "declaration": {
-            "name": "CardBody",
-            "module": "components/card-body/card-body.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/checkbox/checkbox-interface.ts",
       "declarations": [],
       "exports": []
@@ -1721,6 +1683,44 @@
           "declaration": {
             "name": "Checkbox",
             "module": "components/checkbox/checkbox.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/card-body/card-body.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "CardBody",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-card-body",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CardBody",
+          "declaration": {
+            "name": "CardBody",
+            "module": "components/card-body/card-body.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-card-body",
+          "declaration": {
+            "name": "CardBody",
+            "module": "components/card-body/card-body.tsx"
           }
         }
       ]
@@ -2106,6 +2106,244 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/com-nav-submenu/com-nav-submenu.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "ComNavSubmenu",
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsComNavSubmenuElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "panelTitle",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "panelDescription",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "menuOpen",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "onWindowClickEvent",
+              "parameters": [
+                {
+                  "name": "_",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ],
+              "description": "If the user clicks outside the menu, we close it"
+            },
+            {
+              "kind": "method",
+              "name": "onSubmenuOpened",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "CustomEvent<MenuOpenedEventDetail>"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "onEscapeKeyDown",
+              "parameters": [
+                {
+                  "name": "_event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  },
+                  "description": "keydown event"
+                }
+              ],
+              "description": "Close the menu when escape is pressed"
+            },
+            {
+              "kind": "method",
+              "name": "close",
+              "description": "Close the menu"
+            },
+            {
+              "kind": "method",
+              "name": "open",
+              "description": "Opens the menu"
+            },
+            {
+              "kind": "method",
+              "name": "onClick",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "evt",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ],
+              "description": "When the user clicks on the menu, we do not propagate the native event and we launch a custom event to manage\r\nthe closing of the menu correctly"
+            },
+            {
+              "kind": "method",
+              "name": "handleMenuItemsKeyDown",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "_event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  },
+                  "description": "the keyboard event"
+                }
+              ],
+              "description": "Handle key down on menu items"
+            },
+            {
+              "kind": "method",
+              "name": "handleMenuKeyDown",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "_event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  },
+                  "description": "the keyboard event"
+                }
+              ],
+              "description": "Open the menu if it is closed and closed the menu if it is already opened"
+            },
+            {
+              "kind": "method",
+              "name": "handleMenuItemsClick",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "evt",
+                  "type": {
+                    "text": "UIEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "wcsCategoryItemClickedHandler",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "_",
+                  "type": {
+                    "text": "CustomEvent<UIEvent>"
+                  }
+                }
+              ],
+              "description": "handle category item click to close the submenu"
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "label",
+              "fieldName": "label",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "panel-title",
+              "fieldName": "panelTitle",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "panel-description",
+              "fieldName": "panelDescription",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "tagName": "wcs-com-nav-submenu",
+          "events": [
+            {
+              "name": "wcsSubmenuOpened",
+              "type": {
+                "text": "EventEmitter<MenuOpenedEventDetail>"
+              }
+            },
+            {
+              "name": "wcsClickOnFinalAction",
+              "type": {
+                "text": "EventEmitter<void>"
+              },
+              "description": "Emitted when a user click on a final navigation action.\r\n\r\nUsed by the com-nav component to close the mobile menu overlay when a user click on a final action."
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ComNavSubmenu",
+          "declaration": {
+            "name": "ComNavSubmenu",
+            "module": "components/com-nav-submenu/com-nav-submenu.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-com-nav-submenu",
+          "declaration": {
+            "name": "ComNavSubmenu",
+            "module": "components/com-nav-submenu/com-nav-submenu.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/counter/counter-interface.ts",
       "declarations": [
         {
@@ -2390,320 +2628,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/divider/divider.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Divider",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-divider",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Divider",
-          "declaration": {
-            "name": "Divider",
-            "module": "components/divider/divider.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-divider",
-          "declaration": {
-            "name": "Divider",
-            "module": "components/divider/divider.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/com-nav-submenu/com-nav-submenu.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "ComNavSubmenu",
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsComNavSubmenuElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "label",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "panelTitle",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "panelDescription",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "menuOpen",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "default": "false"
-            },
-            {
-              "kind": "method",
-              "name": "onWindowClickEvent",
-              "parameters": [
-                {
-                  "name": "_",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ],
-              "description": "If the user clicks outside the menu, we close it"
-            },
-            {
-              "kind": "method",
-              "name": "onSubmenuOpened",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "CustomEvent<MenuOpenedEventDetail>"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "onEscapeKeyDown",
-              "parameters": [
-                {
-                  "name": "_event",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  },
-                  "description": "keydown event"
-                }
-              ],
-              "description": "Close the menu when escape is pressed"
-            },
-            {
-              "kind": "method",
-              "name": "close",
-              "description": "Close the menu"
-            },
-            {
-              "kind": "method",
-              "name": "open",
-              "description": "Opens the menu"
-            },
-            {
-              "kind": "method",
-              "name": "onClick",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "evt",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ],
-              "description": "When the user clicks on the menu, we do not propagate the native event and we launch a custom event to manage\r\nthe closing of the menu correctly"
-            },
-            {
-              "kind": "method",
-              "name": "handleMenuItemsKeyDown",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "_event",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  },
-                  "description": "the keyboard event"
-                }
-              ],
-              "description": "Handle key down on menu items"
-            },
-            {
-              "kind": "method",
-              "name": "handleMenuKeyDown",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "_event",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  },
-                  "description": "the keyboard event"
-                }
-              ],
-              "description": "Open the menu if it is closed and closed the menu if it is already opened"
-            },
-            {
-              "kind": "method",
-              "name": "handleMenuItemsClick",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "evt",
-                  "type": {
-                    "text": "UIEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "wcsCategoryItemClickedHandler",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "_",
-                  "type": {
-                    "text": "CustomEvent<UIEvent>"
-                  }
-                }
-              ],
-              "description": "handle category item click to close the submenu"
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "label",
-              "fieldName": "label",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "panel-title",
-              "fieldName": "panelTitle",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "panel-description",
-              "fieldName": "panelDescription",
-              "type": {
-                "text": "string"
-              }
-            }
-          ],
-          "tagName": "wcs-com-nav-submenu",
-          "events": [
-            {
-              "name": "wcsSubmenuOpened",
-              "type": {
-                "text": "EventEmitter<MenuOpenedEventDetail>"
-              }
-            },
-            {
-              "name": "wcsClickOnFinalAction",
-              "type": {
-                "text": "EventEmitter<void>"
-              },
-              "description": "Emitted when a user click on a final navigation action.\r\n\r\nUsed by the com-nav component to close the mobile menu overlay when a user click on a final action."
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ComNavSubmenu",
-          "declaration": {
-            "name": "ComNavSubmenu",
-            "module": "components/com-nav-submenu/com-nav-submenu.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-com-nav-submenu",
-          "declaration": {
-            "name": "ComNavSubmenu",
-            "module": "components/com-nav-submenu/com-nav-submenu.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/dropdown-divider/dropdown-divider.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "DropdownDivider",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-dropdown-divider",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "DropdownDivider",
-          "declaration": {
-            "name": "DropdownDivider",
-            "module": "components/dropdown-divider/dropdown-divider.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-dropdown-divider",
-          "declaration": {
-            "name": "DropdownDivider",
-            "module": "components/dropdown-divider/dropdown-divider.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/dropdown/dropdown-interface.ts",
       "declarations": [],
       "exports": []
@@ -2975,6 +2899,120 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/divider/divider.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Divider",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-divider",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Divider",
+          "declaration": {
+            "name": "Divider",
+            "module": "components/divider/divider.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-divider",
+          "declaration": {
+            "name": "Divider",
+            "module": "components/divider/divider.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/dropdown-divider/dropdown-divider.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "DropdownDivider",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-dropdown-divider",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "DropdownDivider",
+          "declaration": {
+            "name": "DropdownDivider",
+            "module": "components/dropdown-divider/dropdown-divider.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-dropdown-divider",
+          "declaration": {
+            "name": "DropdownDivider",
+            "module": "components/dropdown-divider/dropdown-divider.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/dropdown-header/dropdown-header.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "DropdownHeader",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-dropdown-header",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "DropdownHeader",
+          "declaration": {
+            "name": "DropdownHeader",
+            "module": "components/dropdown-header/dropdown-header.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-dropdown-header",
+          "declaration": {
+            "name": "DropdownHeader",
+            "module": "components/dropdown-header/dropdown-header.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/dropdown-item/dropdown-item.tsx",
       "declarations": [
         {
@@ -3048,44 +3086,6 @@
           "declaration": {
             "name": "DropdownItem",
             "module": "components/dropdown-item/dropdown-item.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/dropdown-header/dropdown-header.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "DropdownHeader",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-dropdown-header",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "DropdownHeader",
-          "declaration": {
-            "name": "DropdownHeader",
-            "module": "components/dropdown-header/dropdown-header.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-dropdown-header",
-          "declaration": {
-            "name": "DropdownHeader",
-            "module": "components/dropdown-header/dropdown-header.tsx"
           }
         }
       ]
@@ -8576,6 +8576,78 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/skeleton-circle/skeleton-circle.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Use a skeleton circle as a placeholder round images, illustrations or components",
+          "name": "SkeletonCircle",
+          "members": [
+            {
+              "kind": "field",
+              "name": "animation",
+              "type": {
+                "text": "WcsSkeletonAnimation"
+              },
+              "default": "'glide'",
+              "description": "Specifies the animation of the skeleton"
+            },
+            {
+              "kind": "field",
+              "name": "radius",
+              "type": {
+                "text": "number"
+              },
+              "default": "50",
+              "description": "Specifies the radius of the circle in px"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "animation",
+              "fieldName": "animation",
+              "type": {
+                "text": "WcsSkeletonAnimation"
+              }
+            },
+            {
+              "name": "radius",
+              "fieldName": "radius",
+              "type": {
+                "text": "number"
+              }
+            }
+          ],
+          "tagName": "wcs-skeleton-circle",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SkeletonCircle",
+          "declaration": {
+            "name": "SkeletonCircle",
+            "module": "components/skeleton-circle/skeleton-circle.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-skeleton-circle",
+          "declaration": {
+            "name": "SkeletonCircle",
+            "module": "components/skeleton-circle/skeleton-circle.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/skeleton-rectangle/skeleton-rectangle.tsx",
       "declarations": [
         {
@@ -8814,6 +8886,131 @@
           "declaration": {
             "name": "Spinner",
             "module": "components/spinner/spinner.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/switch/switch-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/switch/switch.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Switch",
+          "members": [
+            {
+              "kind": "field",
+              "name": "switchId",
+              "privacy": "private",
+              "default": "`wcs-switch-${switchIds++}`"
+            },
+            {
+              "kind": "field",
+              "name": "name"
+            },
+            {
+              "kind": "field",
+              "name": "checked",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "If `true`, the switch is selected."
+            },
+            {
+              "kind": "field",
+              "name": "labelAlignment",
+              "type": {
+                "text": "SwitchLabelAlignment"
+              },
+              "default": "'center'",
+              "description": "Specifie the alignment of the switch with the label content"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Specify wether the switch is disabled or not."
+            },
+            {
+              "kind": "method",
+              "name": "toggleChange",
+              "parameters": [
+                {
+                  "name": "_event",
+                  "type": {
+                    "text": "Event"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "name",
+              "fieldName": "name"
+            },
+            {
+              "name": "checked",
+              "fieldName": "checked"
+            },
+            {
+              "name": "label-alignment",
+              "fieldName": "labelAlignment",
+              "type": {
+                "text": "SwitchLabelAlignment"
+              }
+            },
+            {
+              "name": "disabled",
+              "fieldName": "disabled",
+              "type": {
+                "text": "boolean"
+              }
+            }
+          ],
+          "tagName": "wcs-switch",
+          "events": [
+            {
+              "name": "wcsChange",
+              "type": {
+                "text": "EventEmitter<SwitchChangeEventDetail>"
+              },
+              "description": "Emitted when the checked property has changed."
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Switch",
+          "declaration": {
+            "name": "Switch",
+            "module": "components/switch/switch.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-switch",
+          "declaration": {
+            "name": "Switch",
+            "module": "components/switch/switch.tsx"
           }
         }
       ]
@@ -9149,131 +9346,6 @@
           "declaration": {
             "name": "Tabs",
             "module": "components/tabs/tabs.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/switch/switch-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/switch/switch.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Switch",
-          "members": [
-            {
-              "kind": "field",
-              "name": "switchId",
-              "privacy": "private",
-              "default": "`wcs-switch-${switchIds++}`"
-            },
-            {
-              "kind": "field",
-              "name": "name"
-            },
-            {
-              "kind": "field",
-              "name": "checked",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "If `true`, the switch is selected."
-            },
-            {
-              "kind": "field",
-              "name": "labelAlignment",
-              "type": {
-                "text": "SwitchLabelAlignment"
-              },
-              "default": "'center'",
-              "description": "Specifie the alignment of the switch with the label content"
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Specify wether the switch is disabled or not."
-            },
-            {
-              "kind": "method",
-              "name": "toggleChange",
-              "parameters": [
-                {
-                  "name": "_event",
-                  "type": {
-                    "text": "Event"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "name",
-              "fieldName": "name"
-            },
-            {
-              "name": "checked",
-              "fieldName": "checked"
-            },
-            {
-              "name": "label-alignment",
-              "fieldName": "labelAlignment",
-              "type": {
-                "text": "SwitchLabelAlignment"
-              }
-            },
-            {
-              "name": "disabled",
-              "fieldName": "disabled",
-              "type": {
-                "text": "boolean"
-              }
-            }
-          ],
-          "tagName": "wcs-switch",
-          "events": [
-            {
-              "name": "wcsChange",
-              "type": {
-                "text": "EventEmitter<SwitchChangeEventDetail>"
-              },
-              "description": "Emitted when the checked property has changed."
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Switch",
-          "declaration": {
-            "name": "Switch",
-            "module": "components/switch/switch.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-switch",
-          "declaration": {
-            "name": "Switch",
-            "module": "components/switch/switch.tsx"
           }
         }
       ]
