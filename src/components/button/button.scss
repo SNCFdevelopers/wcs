@@ -38,21 +38,21 @@
 }
 
 :host([size=l]) {
-    --wcs-button-padding: var(--wcs-padding-m);
+    --wcs-button-padding: var(--wcs-padding-m) var(--wcs-padding);
     --wcs-button-min-height: var(--wcs-size-l);
     --wcs-button-min-width: var(--wcs-size-l);
     --wcs-button-font-size: 1.0625rem;
 }
 
 :host([size=m]) { // Default
-    --wcs-button-padding: var(--wcs-padding-m);
+    --wcs-button-padding: var(--wcs-padding-m) var(--wcs-padding);
     --wcs-button-min-height: var(--wcs-size-m);
     --wcs-button-min-width: var(--wcs-size-m);
     --wcs-button-font-size: 1rem;
 }
 
 :host([size=s]) {
-    --wcs-button-padding: var(--wcs-padding-s);
+    --wcs-button-padding: var(--wcs-padding-s) var(--wcs-padding);
     --wcs-button-min-height: var(--wcs-size-s);
     --wcs-button-min-width: var(--wcs-size-s);
     --wcs-button-font-size: 0.9375rem;

@@ -80,19 +80,16 @@
 }
 
 :host([size=l]) {
-    --wcs-input-host-padding: var(--wcs-padding-l);
     --wcs-input-host-height: var(--wcs-size-l);
     --wcs-input-font-size: 1.0625rem;
 }
 
 :host([size=m]) { // Default
-    --wcs-input-host-padding: var(--wcs-padding-m);
     --wcs-input-host-height: var(--wcs-size-m);
     --wcs-input-font-size: 1rem;
 }
 
 :host([size=s]) {
-    --wcs-input-host-padding: var(--wcs-padding-s);
     --wcs-input-host-height: var(--wcs-size-s);
     --wcs-input-font-size: 0.9375rem;
 }

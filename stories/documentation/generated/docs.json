@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-08-03T11:48:59",
+  "timestamp": "2023-08-04T08:34:40",
   "compiler": {
     "name": "@stencil/core",
     "version": "3.0.0",
@@ -1422,6 +1422,28 @@
           "values": [
             {
               "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "\"l\" | \"m\"",
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": true,
+          "docs": "Specify the size (height) of the editable field.",
+          "docsTags": [],
+          "default": "'m'",
+          "values": [
+            {
+              "value": "l",
+              "type": "string"
+            },
+            {
+              "value": "m",
+              "type": "string"
             }
           ],
           "optional": false,
@@ -4592,7 +4614,7 @@
           "reflectToAttr": true,
           "docs": "Specify the size (height) of the select.",
           "docsTags": [],
-          "default": "'l'",
+          "default": "'m'",
           "values": [
             {
               "value": "l",

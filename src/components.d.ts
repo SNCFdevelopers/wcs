@@ -11,7 +11,7 @@ import { CardMode } from "./components/card/card-interface";
 import { CheckboxChangeEventDetail, CheckboxLabelAlignment } from "./components/checkbox/checkbox-interface";
 import { CategoryOpenedEventDetail, MenuOpenedEventDetail } from "./components/com-nav/com-nav-interface";
 import { WcsDropdownPlacement } from "./components/dropdown/dropdown-interface";
-import { EditableComponentUpdateEvent, EditableFieldType, FormatFn, ValidateFn } from "./components/editable-field/editable-field-interface";
+import { EditableComponentUpdateEvent, EditableFieldType, FormatFn, ValidateFn, WcsEditableFieldSize } from "./components/editable-field/editable-field-interface";
 import { WcsCellFormatter, WcsGridAllRowSelectedEventDetails, WcsGridColumnSortChangeEventDetails, WcsGridPaginationChangeEventDetails, WcsGridRowSelectedEventDetails, WcsGridSelectionConfig, WcsSortFn, WcsSortOrder } from "./components/grid/grid-interface";
 import { HorizontalStepClickEvent, HorizontalStepConfig, HorizontalStepperMode } from "./components/horizontal-stepper/horizontal-stepper-interface";
 import { AutocompleteTypes, InputChangeEventDetail, TextFieldTypes, WcsInputSize } from "./components/input/input-interface";
@@ -32,7 +32,7 @@ export { CardMode } from "./components/card/card-interface";
 export { CheckboxChangeEventDetail, CheckboxLabelAlignment } from "./components/checkbox/checkbox-interface";
 export { CategoryOpenedEventDetail, MenuOpenedEventDetail } from "./components/com-nav/com-nav-interface";
 export { WcsDropdownPlacement } from "./components/dropdown/dropdown-interface";
-export { EditableComponentUpdateEvent, EditableFieldType, FormatFn, ValidateFn } from "./components/editable-field/editable-field-interface";
+export { EditableComponentUpdateEvent, EditableFieldType, FormatFn, ValidateFn, WcsEditableFieldSize } from "./components/editable-field/editable-field-interface";
 export { WcsCellFormatter, WcsGridAllRowSelectedEventDetails, WcsGridColumnSortChangeEventDetails, WcsGridPaginationChangeEventDetails, WcsGridRowSelectedEventDetails, WcsGridSelectionConfig, WcsSortFn, WcsSortOrder } from "./components/grid/grid-interface";
 export { HorizontalStepClickEvent, HorizontalStepConfig, HorizontalStepperMode } from "./components/horizontal-stepper/horizontal-stepper-interface";
 export { AutocompleteTypes, InputChangeEventDetail, TextFieldTypes, WcsInputSize } from "./components/input/input-interface";
@@ -242,6 +242,10 @@ export namespace Components {
           * Specify whether the field is editable or not
          */
         "readonly": boolean;
+        /**
+          * Specify the size (height) of the editable field.
+         */
+        "size": WcsEditableFieldSize;
         /**
           * Specifies which component is used for editing
          */
@@ -1663,6 +1667,10 @@ declare namespace LocalJSX {
           * Specify whether the field is editable or not
          */
         "readonly"?: boolean;
+        /**
+          * Specify the size (height) of the editable field.
+         */
+        "size"?: WcsEditableFieldSize;
         /**
           * Specifies which component is used for editing
          */

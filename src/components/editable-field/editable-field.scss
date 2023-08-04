@@ -8,7 +8,7 @@
     .label {
         margin-bottom: var(--wcs-base-margin);
         font-weight: 500;
-        font-size: 16px;
+        font-size: var(--wcs-editable-field-font-size);
         color: var(--wcs-gray-light);
     }
 
@@ -18,36 +18,39 @@
     }
 
     .display-container {
+        box-sizing: border-box;
         wcs-mat-icon {
             display: none;
         }
-        min-height: 24px;
+        height: var(--wcs-editable-field-host-height);
         white-space: break-spaces;
         display: flex;
         justify-content: space-between;
         align-items: center;
         background-color: var(--wcs-light);
         border-radius: var(--wcs-border-radius);
-        font-size: 1rem;
+        font-size: var(--wcs-editable-field-font-size);
         line-height: 1.5;
         font-weight: 500;
         color: var(--wcs-gray);
-        padding: calc(calc(var(--wcs-padding) / 2) - 1px) calc(var(--wcs-padding) - 2px);
+        padding: var(--wcs-editable-field-host-padding);
         transition: 0.175s all;
         border: solid 2px transparent;
     }
 
     .load-container {
+        box-sizing: border-box;
+        height: var(--wcs-editable-field-host-height);
         white-space: pre;
         display: flex;
         justify-content: space-between;
         background-color: var(--wcs-light);
         border-radius: var(--wcs-border-radius);
-        font-size: 1rem;
+        font-size: var(--wcs-editable-field-font-size);
         line-height: 1.5;
         font-weight: 500;
         color: var(--wcs-gray);
-        padding: calc(calc(var(--wcs-padding) / 2) - 1px) calc(var(--wcs-padding) - 2px);
+        padding: var(--wcs-editable-field-host-padding);
         transition: 0.175s all;
         border: solid 2px transparent;
         align-items: center;
@@ -79,4 +82,16 @@
         cursor: pointer;
         border: dashed 2px var(--wcs-primary);
     }
+}
+
+:host([size=l]) {
+    --wcs-editable-field-host-padding: var(--wcs-padding-l) calc(var(--wcs-padding) - var(--wcs-border-size));
+    --wcs-editable-field-host-height: var(--wcs-size-l);
+    --wcs-editable-field-font-size: 1.0625rem;
+}
+
+:host([size=m]) { // Default
+    --wcs-editable-field-host-padding: var(--wcs-padding-m) calc(var(--wcs-padding) - var(--wcs-border-size));
+    --wcs-editable-field-host-height: var(--wcs-size-m);
+    --wcs-editable-field-font-size: 1rem;
 }

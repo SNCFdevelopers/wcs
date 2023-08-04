@@ -457,14 +457,14 @@ export declare interface WcsDropdownItem extends Components.WcsDropdownItem {
 
 
 @ProxyCmp({
-  inputs: ['errorMsg', 'formatFn', 'label', 'readonly', 'type', 'validateFn', 'value']
+  inputs: ['errorMsg', 'formatFn', 'label', 'readonly', 'size', 'type', 'validateFn', 'value']
 })
 @Component({
   selector: 'wcs-editable-field',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['errorMsg', 'formatFn', 'label', 'readonly', 'type', 'validateFn', 'value'],
+  inputs: ['errorMsg', 'formatFn', 'label', 'readonly', 'size', 'type', 'validateFn', 'value'],
 })
 export class WcsEditableField {
   protected el: HTMLElement;

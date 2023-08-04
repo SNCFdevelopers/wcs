@@ -13,6 +13,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **button**: add the following sizes : `l`, `m (default)`, `s`
 - **input**: add the following sizes : `l`, `m (default)`, `s (for grids)` 
 - **select**: add the following sizes : `l`, `m (default)`
+- **editable-field**: add the following sizes : `l`, `m (default)`
 - **doc**: add documentation on how to initialize an application with the business or communication design systems
 - **ci**: add the ability to deploy any branch on a dedicated environment
 - **textarea**: add the property `resize` with the folowing options : `none`, `both`, `horizontal`, `vertical`

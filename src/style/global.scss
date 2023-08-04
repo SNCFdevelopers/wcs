@@ -44,19 +44,21 @@
     --wcs-size-m: calc(5 * var(--wcs-base-size)); // m = 40 px (default)
     --wcs-size-s: calc(4 * var(--wcs-base-size)); // s = 32 px
     --wcs-size-xs: calc(3 * var(--wcs-base-size)); // xs = 24 px
-    
+
+    --wcs-border-size: 2px;
     --wcs-border-radius: var(--wcs-base-size);
     --wcs-text-padding: var(--wcs-base-size);
     --wcs-padding: calc(2 * var(--wcs-base-size));
-    --wcs-padding-l: calc(1.5 * var(--wcs-base-size)) var(--wcs-padding); // l = 12px 16px
-    --wcs-padding-m: var(--wcs-base-size) var(--wcs-padding); // m = 8px 16px (default)
-    --wcs-padding-s: calc(0.5 * var(--wcs-base-size)) var(--wcs-padding); // s = 4px 16px
+    --wcs-padding-l: calc(1.5 * var(--wcs-base-size)); // l = 12px
+    --wcs-padding-m: var(--wcs-base-size); // m = 8px (default)
+    --wcs-padding-s: calc(0.5 * var(--wcs-base-size)); // s = 4px
+
 
     --wcs-base-margin: var(--wcs-base-size);
-    --wcs-margin: calc(2 * var(--wcs-base-margin));
-    --wcs-margin-l: calc(1.5 * var(--wcs-base-size)) var(--wcs-margin); // l = 12px 16px
-    --wcs-margin-m: var(--wcs-base-size) var(--wcs-margin); // m = 8px 16px (default)
-    --wcs-margin-s: calc(0.5 * var(--wcs-base-size)) var(--wcs-margin); // s = 4px 16px
+    --wcs-margin: calc(2 * var(--wcs-base-margin)); // 16px
+    --wcs-margin-l: calc(1.5 * var(--wcs-base-size)); // l = 12px
+    --wcs-margin-m: var(--wcs-base-size); // m = 8px (default)
+    --wcs-margin-s: calc(0.5 * var(--wcs-base-size)); // s = 4px
 
     --wcs-com-content-max-width: 1024px;
     // TODO: Should be moved in wcs-tabs

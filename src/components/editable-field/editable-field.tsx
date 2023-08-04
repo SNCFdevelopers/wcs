@@ -10,7 +10,15 @@ import {
     Element,
     Watch, Listen
 } from '@stencil/core';
-import { EditableComponentUpdateEvent, EditableFieldType, FormatFn, ValidateFn } from './editable-field-interface';
+import {
+    EditableComponentUpdateEvent,
+    EditableFieldType,
+    FormatFn,
+    isWcsEditableFieldSize,
+    ValidateFn,
+    WcsEditableFieldSize,
+    WcsEditableFieldSizeValues
+} from './editable-field-interface';
 
 enum EditableComponentState {
     DISPLAY,
@@ -61,6 +69,11 @@ export class EditableField implements ComponentInterface {
      */
     @Prop() errorMsg: string = null;
 
+    /**
+     * Specify the size (height) of the editable field.
+     */
+    @Prop({reflect: true}) size: WcsEditableFieldSize = 'm';
+
     @State() private isError: boolean = false;
 
     // fixme: why this attr is never read?
@@ -69,6 +82,10 @@ export class EditableField implements ComponentInterface {
     private currentValue: any = null;
 
     componentWillLoad(): Promise<void> | void {
+        if(!isWcsEditableFieldSize(this.size)) {
+            console.error(`Invalid size value for wcs-editable-field : "${this.size}". Must be one of "${WcsEditableFieldSizeValues.join(', ')}"`);
+            this.size = "m"; // Default fallback value
+        }
         this.currentValue = this.value;
     }
 
