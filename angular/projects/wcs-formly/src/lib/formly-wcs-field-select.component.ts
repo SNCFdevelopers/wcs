@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { FieldType, FieldTypeConfig } from '@ngx-formly/core';
 import { WcsFormlyFieldWrapperProps } from './formly-wcs-field-wrapper.component';
+import { WcsSelectSize } from 'wcs-core';
 
 export type WcsFormlySelectProps = WcsFormlyFieldWrapperProps & {
   hideRequiredMarker?: boolean,
-  multiple?: boolean
+  multiple?: boolean,
+  size?: WcsSelectSize,
 };
 
 @Component({
@@ -16,6 +18,7 @@ export type WcsFormlySelectProps = WcsFormlyFieldWrapperProps & {
         [id]="id"
         [attr.required]="(props.required && props.hideRequiredMarker !== true) ? true : null"
         [attr.placeholder]="props.placeholder"
+        [size]="props.size"
         [formControl]="formControl"
         [attr.multiple]="props.multiple"
         [attr.disabled]="props.disabled ? true : null"
