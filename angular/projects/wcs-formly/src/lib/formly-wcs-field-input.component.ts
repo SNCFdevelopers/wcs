@@ -13,7 +13,7 @@ export type WcsFormlyInputProps = WcsFormlyFieldWrapperProps & {
   prefixLabel?: string,
   suffixLabel?: string,
   hideRequiredMarker?: boolean,
-  size: WcsInputSize,
+  size?: WcsInputSize,
 };
 
 @Component({
