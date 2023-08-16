@@ -207,13 +207,13 @@ export namespace Components {
          */
         "label": string;
         /**
-          * The maximum value of the counter.
+          * The maximum value of the counter. If the value of the max attribute isn't set, then the element has no maximum value.
          */
-        "max": number;
+        "max"?: number;
         /**
-          * The minimum value of the counter.
+          * The minimum value of the counter. If the value of the min attribute isn't set, then the element has no minimum value.
          */
-        "min": number;
+        "min"?: number;
         /**
           * Specify the size (height) of the counter.
          */
@@ -223,9 +223,9 @@ export namespace Components {
          */
         "step": number;
         /**
-          * The current value of the counter.
+          * Allow to change currentValue programmatically
          */
-        "value": number;
+        "value"?: number;
     }
     interface WcsDivider {
     }
@@ -1672,11 +1672,11 @@ declare namespace LocalJSX {
          */
         "label": string;
         /**
-          * The maximum value of the counter.
+          * The maximum value of the counter. If the value of the max attribute isn't set, then the element has no maximum value.
          */
         "max"?: number;
         /**
-          * The minimum value of the counter.
+          * The minimum value of the counter. If the value of the min attribute isn't set, then the element has no minimum value.
          */
         "min"?: number;
         /**
@@ -1692,9 +1692,9 @@ declare namespace LocalJSX {
          */
         "step"?: number;
         /**
-          * The current value of the counter.
+          * Allow to change currentValue programmatically
          */
-        "value": number;
+        "value"?: number;
     }
     interface WcsDivider {
     }

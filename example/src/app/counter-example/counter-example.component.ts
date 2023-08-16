@@ -11,7 +11,7 @@ import { FormlyFieldConfig } from '@ngx-formly/core';
       <span *ngIf="cardsIds.length < 1" class="info">Incrémentez le compteur !</span>
       <wcs-card *ngFor="let card of cardsIds; let i = index">
         <wcs-card-body>
-          Élément {{ i+1 }}
+          Élément {{ i + 1 }}
         </wcs-card-body>
       </wcs-card>
     </div>
@@ -23,6 +23,15 @@ import { FormlyFieldConfig } from '@ngx-formly/core';
     </form>
     <pre>{{model | json}}</pre>
 
+    <hr/>
+    <h1>Two dimensional binding</h1>
+    <div class="two-dimensional-binding-container">
+      <div class="counter-group">
+        <wcs-counter [(ngModel)]="counterBidirectionalBinding" [min]="0" [max]="20" [step]="1"></wcs-counter>
+        <input type="number" [(ngModel)]="counterBidirectionalBinding" min="0" max="20" step="1"/>
+      </div>
+      <b>Compteur:</b> <output>{{counterBidirectionalBinding}}</output>
+    </div>
   `,
   styles: [`
     div.cards {
@@ -41,10 +50,24 @@ import { FormlyFieldConfig } from '@ngx-formly/core';
       width: 130px;
       margin-top: calc(var(--wcs-base-margin)*2)
     }
+
+    .two-dimensional-binding-container {
+      display: flex;
+      width: fit-content;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .counter-group {
+      display: flex;
+      flex-direction: row;
+      gap: var(--wcs-base-margin)
+    }
   `]
 })
 export class CounterExampleComponent implements AfterViewInit {
   public cardsIds = [0];
+  counterBidirectionalBinding = 0;
 
   form = new FormGroup({});
   model = { counter: 1 };
@@ -52,8 +75,9 @@ export class CounterExampleComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.form.get('counter').valueChanges.subscribe((value: number) => {
       this.updateCount(value);
-    })
+    });
   }
+
 
   counterField: FormlyFieldConfig = {
     key: 'counter',
@@ -104,7 +128,7 @@ export class CounterExampleComponent implements AfterViewInit {
     const allFields = [this.counterField, this.simpleInput(1)]
 
     for (let i = 2; i <= n; i++) {
-      allFields.push(this.simpleInput(i))
+      allFields.push(this.simpleInput(i));
     }
 
     this.fields = allFields;

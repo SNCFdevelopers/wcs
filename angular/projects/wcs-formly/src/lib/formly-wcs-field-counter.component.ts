@@ -4,7 +4,7 @@ import { WcsFormlyFieldWrapperProps } from './formly-wcs-field-wrapper.component
 import { WcsCounterSize } from 'wcs-core';
 
 export type WcsFormlyCounterProps = WcsFormlyFieldWrapperProps & {
-  value?: number,
+  value: number,
   min?: number,
   max?: number,
   step?: number,
@@ -32,10 +32,7 @@ export type WcsFormlyCounterProps = WcsFormlyFieldWrapperProps & {
 export class FormlyWcsFieldCounterComponent extends FieldType<FieldTypeConfig<WcsFormlyCounterProps>> {
   defaultOptions = {
     props: {
-      value: 1,
-      min: 0,
-      max: 10,
-      step: 1,
+      value: 1
     }
-  }
+  };
 }

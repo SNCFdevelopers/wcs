@@ -27,6 +27,7 @@ export class CounterValueAccessorDirective implements ControlValueAccessor {
   // tslint:disable-next-line:typedef
   writeValue(value) {
     this.value = value;
+    this.el.nativeElement.value = value;
   }
 
   // tslint:disable-next-line:typedef

@@ -17,7 +17,7 @@ const ANIMATION_DURATION = 0.175 // seconds
 
 /**
  * Counter component, meant to be used for small range of values (e.g : 0 - 5).<br>
- * For larger or specific ranges, please use <a href=".?path=/docs/components-input--documentation">wcs-input (type number)</a>
+ * For larger or specific ranges, please use [wcs-input (type number)](.?path=/docs/components-input--documentation)
  */
 @Component({
     tag: 'wcs-counter',
@@ -33,11 +33,6 @@ export class Counter implements ComponentInterface {
     @Prop({reflect: true}) size: WcsCounterSize = 'm';
 
     /**
-     * The current value of the counter.
-     */
-    @Prop({mutable: true}) value!: number;
-
-    /**
      * The label of the counter.<br/>
      * e.g. Number of passengers, train carriages, railroad tracks...
      */
@@ -45,13 +40,15 @@ export class Counter implements ComponentInterface {
 
     /**
      * The minimum value of the counter.
+     * If the value of the min attribute isn't set, then the element has no minimum value.
      */
-    @Prop({mutable: true}) min: number;
+    @Prop({mutable: true}) min?: number;
 
     /**
      * The maximum value of the counter.
+     * If the value of the max attribute isn't set, then the element has no maximum value.
      */
-    @Prop({mutable: true}) max: number;
+    @Prop({mutable: true}) max?: number;
 
     /**
      * Defines by how much the counter will be incremented or decremented.
@@ -64,12 +61,23 @@ export class Counter implements ComponentInterface {
     @Event() wcsChange!: EventEmitter<CounterChangeEventDetail>;
 
     /**
+     * Allow to change currentValue programmatically
+     */
+    @Prop({mutable: true}) value?: number;
+
+    /**
+     * The current value of the counter.
+     */
+    @State() private currentValue!: number;
+
+    /**
      * Only for animation and display purpose
      */
     @State() private displayedValue: number;
 
     componentWillLoad() {
-        this.displayedValue = this.value;
+        this.currentValue = this.value ?? this.min ?? 0;
+        this.displayedValue = this.currentValue;
 
         if (!isWcsCounterSize(this.size)) {
             console.error(`Invalid size value for wcs-counter : "${this.size}". Must be one of "${WcsCounterSizeValues.join(', ')}"`);
@@ -77,22 +85,28 @@ export class Counter implements ComponentInterface {
         }
     }
 
-    componentWillUpdate(): Promise<void> | void {
-        this.displayedValue = this.value;
+    /**
+     * Value change programmatically => update currentValue and displayedValue
+     */
+    @Watch('value')
+    valueChanged() {
+        this.currentValue = this.value ?? this.min ?? 0;
+        this.displayedValue = this.currentValue;
     }
 
-    @Watch('value')
-    valueChanged(newValue: number) {
-        if(this.value > this.max) {
-            this.value = this.max;
-        } else if(this.value < this.min) {
-            this.value = this.min;
-        } else {
-            console.log(newValue);
-            this.value = newValue;
+    /**
+     * Current value change => handle event and interval
+     */
+    @Watch('currentValue')
+    currentValueChanged() {
+        if(this.max !== undefined && this.currentValue > this.max) {
+            this.currentValue = this.max;
+        } else if(this.min !== undefined && this.currentValue < this.min) {
+            this.currentValue = this.min;
         }
+
         this.wcsChange.emit({
-            value: this.value
+            value: this.currentValue
         });
     }
 
@@ -107,13 +121,13 @@ export class Counter implements ComponentInterface {
         }
         if (isHomeKey(_event)) {
             _event.preventDefault();
-            this.value = this.min;
-            this.displayedValue = this.value;
+            this.currentValue = this.min;
+            this.displayedValue = this.currentValue;
         }
         if (isEndKey(_event)) {
             _event.preventDefault();
-            this.value = this.max
-            this.displayedValue = this.value;
+            this.currentValue = this.max;
+            this.displayedValue = this.currentValue;
         }
     }
 
@@ -123,15 +137,15 @@ export class Counter implements ComponentInterface {
     }
 
     private handleDecrement = () => {
-        if (this.value > this.min) {
-            this.value -= this.step;
+        if (this.min === undefined || this.currentValue > this.min) {
+            this.currentValue -= this.step;
             this.animate('up');
         }
     };
 
     private handleIncrement = () => {
-        if (this.value < this.max) {
-            this.value += this.step;
+        if (this.max === undefined || this.currentValue < this.max) {
+            this.currentValue += this.step;
             this.animate('down');
         }
     };
@@ -150,7 +164,7 @@ export class Counter implements ComponentInterface {
             outliers.forEach((span: HTMLSpanElement) => {
                 span.classList.add('hidden')
             });
-            this.displayedValue = this.value;
+            this.displayedValue = this.currentValue;
         }, 1000 * ANIMATION_DURATION - 20);
     }
 
@@ -160,28 +174,30 @@ export class Counter implements ComponentInterface {
                 <wcs-button class="wcs-primary"
                             shape="round"
                             size="s"
+                            tabindex={-1}
                             onClick={() => this.handleDecrement()}
-                            disabled={this.value === this.min}>
+                            disabled={this.currentValue === this.min}>
                     <wcs-mat-icon icon="remove" size="s"></wcs-mat-icon>
                 </wcs-button>
                 <div class="counter-container">
-                    <span class="outliers hidden" aria-hidden="true">{this.displayedValue - this.step}</span>
+                    <span id="outlier-down" class="outliers hidden" aria-hidden="true">{this.displayedValue - this.step}</span>
                     <span tabindex="0"
                           role="spinbutton"
                           class="current-value"
                           onKeyDown={(event) => this.onKeyDown(event)}
-                          aria-valuenow={this.value}
-                          aria-valuetext={this.value}
+                          aria-valuenow={this.currentValue}
+                          aria-valuetext={this.currentValue}
                           aria-valuemin={this.min}
                           aria-valuemax={this.max}
                           aria-label={this.label}>{this.displayedValue}</span>
-                    <span class="outliers hidden" aria-hidden="true">{this.displayedValue + this.step}</span>
+                    <span id="outlier-up" class="outliers hidden" aria-hidden="true">{this.displayedValue + this.step}</span>
                 </div>
                 <wcs-button class="wcs-primary"
                             shape="round"
                             size="s"
+                            tabindex={-1}
                             onClick={() => this.handleIncrement()}
-                            disabled={this.value === this.max}>
+                            disabled={this.currentValue === this.max}>
                     <wcs-mat-icon icon="add" size="s"></wcs-mat-icon>
                 </wcs-button>
             </Host>

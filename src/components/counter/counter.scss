@@ -52,11 +52,25 @@
     background-clip: padding-box;
 
     .counter-container {
+        height: var(--wcs-counter-host-height);
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin: 0 calc(2 * var(--wcs-base-margin));
+        margin: 0 calc(2* var(--wcs-base-margin));
+        position: relative;
+    }
+
+    .outliers {
+        position: absolute;
+    }
+
+    #outlier-down {
+        top: calc((var(--wcs-counter-host-height) / 2) * -1);
+    }
+
+    #outlier-up {
+        bottom: calc((var(--wcs-counter-host-height) / 2) * -1);
     }
 
     span.current-value {
