@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-11-10T10:53:04",
+  "timestamp": "2023-11-10T15:05:19",
   "compiler": {
     "name": "@stencil/core",
     "version": "3.0.0",
@@ -5632,6 +5632,22 @@
             },
             {
               "value": "start",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "mutable": false,
+          "attr": "description",
+          "reflectToAttr": false,
+          "docs": "Description is used to provide aria-label for the tabs container which has `role=\"tablist\"`.",
+          "docsTags": [],
+          "values": [
+            {
               "type": "string"
             }
           ],

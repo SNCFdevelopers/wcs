@@ -921,6 +921,10 @@ export namespace Components {
          */
         "align": WcsTabsAlignment;
         /**
+          * Description is used to provide aria-label for the tabs container which has `role="tablist"`.
+         */
+        "description": string;
+        /**
           * Determines if tabs header should have a border at the bottom
          */
         "gutter": boolean;
@@ -2657,6 +2661,10 @@ declare namespace LocalJSX {
           * Tab headers alignment.
          */
         "align"?: WcsTabsAlignment;
+        /**
+          * Description is used to provide aria-label for the tabs container which has `role="tablist"`.
+         */
+        "description"?: string;
         /**
           * Determines if tabs header should have a border at the bottom
          */

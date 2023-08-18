@@ -30,6 +30,7 @@ for now removed features.
 - **modal**:
   - don't emit `wcsDialogClosed` if the modal is closed and the Escape key is pressed
   - handle accessibility (aria and trap focus inside when the modal is opened)
+- **tabs**: apply ARIA tabs design pattern to make tabs accessible to screen reader
 
 ### Security
 

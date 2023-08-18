@@ -1468,14 +1468,14 @@ export declare interface WcsTab extends Components.WcsTab {
 
 
 @ProxyCmp({
-  inputs: ['align', 'gutter', 'headersOnly', 'selectedIndex', 'selectedKey']
+  inputs: ['align', 'description', 'gutter', 'headersOnly', 'selectedIndex', 'selectedKey']
 })
 @Component({
   selector: 'wcs-tabs',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['align', 'gutter', 'headersOnly', 'selectedIndex', 'selectedKey'],
+  inputs: ['align', 'description', 'gutter', 'headersOnly', 'selectedIndex', 'selectedKey'],
 })
 export class WcsTabs {
   protected el: HTMLElement;

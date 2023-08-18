@@ -54,6 +54,11 @@ export class Tabs implements ComponentInterface {
     @Prop() gutter: boolean;
 
     /**
+     * Description is used to provide aria-label for the tabs container which has `role="tablist"`.
+     */
+    @Prop() description: string;
+
+    /**
      *
      * Emitted when the selected tab change.
      */
@@ -64,6 +69,8 @@ export class Tabs implements ComponentInterface {
     @State() private headers: string[] = [];
 
     @State() private currentActiveTabIndex = 0;
+
+    private tabsId: number = tabsId++;
 
     @Watch('selectedIndex')
     selectedIndexChanged(newValue: number) {
@@ -147,6 +154,22 @@ export class Tabs implements ComponentInterface {
                 }
                 break;
             }
+            case 'Home': {
+                const firstTab = this.el.shadowRoot.querySelector('.wcs-tab-header:first-child');
+                if (firstTab) {
+                    (firstTab as HTMLDivElement).focus();
+                    ev.preventDefault();
+                }
+                break;
+            }
+            case 'End': {
+                const lastTab = this.el.shadowRoot.querySelector('.wcs-tab-header:last-child');
+                if (lastTab) {
+                    (lastTab as HTMLDivElement).focus();
+                    ev.preventDefault();
+                }
+                break;
+            }
         }
     }
 
@@ -200,21 +223,47 @@ export class Tabs implements ComponentInterface {
     render() {
         return (
             <Host>
-                <div class="wcs-tabs-headers">
+                <div class="wcs-tabs-headers" role="tablist" aria-label={this.description}>
                     {this.headers.map((header, idx) =>
                         <div class={'wcs-tab-header ' + (this.currentActiveTabIndex === idx ? 'active' : '')}
                              onClick={() => this.selectTabAndEmitChangeEvent(idx)}
                              onKeyDown={evt => this.handleKeyDown(evt, idx)}
                              tabIndex={this.currentActiveTabIndex === idx ? 0 : -1}
+                             role="tab"
+                             id={`tabs-id-${this.tabsId}-tab-id-${idx}`}
+                             // aria-controls refers to ID of the tab panel related to the header
+                             aria-controls={`tabs-id-${this.tabsId}-tab-panel-${idx}`}
+                             aria-label={header}
+                             aria-selected={this.currentActiveTabIndex === idx ? 'true' : 'false'}
                         >
                             <span>{header}</span>
                         </div>
                     )}
                 </div>
                 <div class="wcs-tabs">
-                    <slot name="wcs-tab"/>
+                    <slot onSlotchange={() => this.onTabsSlotChange()} name="wcs-tab"/>
                 </div>
             </Host>
         );
     }
+
+    /**
+     * Observe when a new tab panel is added to the slot to let's handle accessibility properties for tabs panel:
+     * - id: to let header tab refers it proper panel
+     * - aria-label: take the same name as it's referenced header name
+     * 
+     * @private
+     */
+    private onTabsSlotChange() {
+        let tabId = 0;
+        this.tabs.forEach(tab => {
+            tab.setAttribute("aria-label", this.headers.at(tabId));
+            // set an ID to set aria-controls on header tab 
+            // (https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-automatic/#:~:text=Refers%20to%20the%20element)
+            tab.setAttribute("id", `tabs-id-${this.tabsId}-tab-panel-${tabId}`);
+            tabId++;
+        });
+    }
 }
+
+let tabsId = 0;

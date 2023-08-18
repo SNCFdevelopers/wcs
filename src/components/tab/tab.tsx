@@ -31,7 +31,7 @@ export class Tab {
 
     render() {
         return (
-            <Host slot="wcs-tab">
+            <Host slot="wcs-tab" role={"tabpanel"}>
                 <slot></slot>
             </Host>
         );

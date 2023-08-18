@@ -31,7 +31,8 @@ const meta: Meta =  {
 export default meta;
 
 const Template: StoryFn<Partial<{ align: WcsTabsAlignment, selectedIndex: number, selectedKey: any, headersOnly: boolean, gutter: boolean }>> = (args) => html`
-    <wcs-tabs align=${args.align}
+    <wcs-tabs accessibility-label=${"Tabs par défaut"}
+              align=${args.align}
               .selectedIndex=${args.selectedIndex}
               .selectedKey=${args.selectedKey}
               ?headersOnly=${args.headersOnly}
@@ -62,7 +63,8 @@ function tabChangeHandler(event: CustomEvent<WcsTabChangeEvent>) {
 
 const TemplateHeadersOnly: StoryFn<Partial<{}>> = (_) => html`
     <!-- Method 'tabChangeHandler' used to change the '#tab-content' div content -->
-    <wcs-tabs id="tabs-custom-content"
+    <wcs-tabs accessibility-label=${"Tabs avec évènement se déclenchant au moment du changement d'onget"}
+              id="tabs-custom-content"
               headers-only
               selected-key="firstTab"
               @tabChange=${event => tabChangeHandler(event)}>
@@ -86,7 +88,7 @@ HeadersOnly.parameters = {
 HeadersOnly.args = {};
 
 const TemplateScrollableTabs: StoryFn<Partial<{}>> = (_) => html`
-    <wcs-tabs>
+    <wcs-tabs accessibility-label=${"Tabs avec un header scrollable"}>
         <wcs-tab header="Premier">Premier contenu</wcs-tab>
         <wcs-tab header="Deuxième">Deuxième contenu</wcs-tab>
         <wcs-tab header="Troisième">Troisième contenu</wcs-tab>
@@ -125,7 +127,7 @@ const TemplateLazyLoadedTabs: StoryFn<Partial<{}>> = (_) => html`
     <!-- Method 'addTab' used to dynamically add a tab -->
     <wcs-button @click=${_ => addTab()}>Ajouter un onglet</wcs-button>
 
-    <wcs-tabs id="lazy-loaded-tabs-component" gutter="true">
+    <wcs-tabs id="lazy-loaded-tabs-component" label="Tabs avec onglets dynamiques"  gutter="true">
         <wcs-tab header="Onglet ${++tabId}">Contenu onglet ${tabId}</wcs-tab>
     </wcs-tabs>
 `;
