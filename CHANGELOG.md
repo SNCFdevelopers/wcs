@@ -52,6 +52,7 @@ for soon-to-be removed features.
 - **doc**: add the SNCF font icon in the stylesheet on the integration doc for angular.
 - **doc**: the events are shown back in the Actions tab.
 - **doc**: storybook controls improvements for stories + attributes now displayed in table
+- **radio**: wcs-radio is now exposed to screen readers
 
 ### Security
 

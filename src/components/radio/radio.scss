@@ -1,23 +1,29 @@
 @import '../../style/focus-outline.scss';
 
-:host([mode=radio]) {
-    label:focus-visible {
-        transition: none;
-        @include focus-outline($border-radius: 0.5rem, $outline-offset: 0);
-    }
+:host {
+    width: fit-content;
 }
 
-:host([mode=horizontal]) {
-    label:focus-visible {
-        transition: none;
-        @include focus-outline($border-radius: 0.5rem, $outline-offset: 2px);
-    }
+:host([mode=radio]:focus-within) {
+    transition: none;
+    @include focus-outline($border-radius: 0.5rem, $outline-offset: 0);
+}
+
+:host([mode=horizontal]:focus-within) {
+    transition: none;
+    @include focus-outline($border-radius: 0.5rem, $outline-offset: 2px);
 }
 
 :host([mode=radio]),
 :host([mode=horizontal]) {
     input {
-        display: none;
+        position: absolute;
+        opacity: 0;
+        height: 1px;
+        width: 1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
     }
 
     label {
@@ -131,8 +137,10 @@
         white-space: nowrap;
         border-radius: 0.4375rem;
     }
+}
 
-    label:focus-visible {
+:host([mode=option]:focus-within) {
+    label {
         @include focus-outline(var(--wcs-white), 0.4375rem, 0.1rem);
     }
 }

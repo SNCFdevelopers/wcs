@@ -68,9 +68,8 @@ export class Radio implements ComponentInterface {
                     checked={this.checked}
                     disabled={this.disabled}
                     aria-disabled={this.disabled ? 'true' : null}
-                    aria-checked={`${this.checked}`}
-                    tabIndex={-1}/>
-                <label htmlFor={`${this.inputId}`} tabIndex={this.disabled ? -1 : 0}>{this.label}</label>
+                    aria-checked={`${this.checked}`}/>
+                <label htmlFor={`${this.inputId}`}>{this.label}</label>
             </Host>
         );
     }
