@@ -50,12 +50,23 @@ export const Default = {
 export const MinMax = {
     ...Default,
     args: {
+        ...Default.args,
         value: 1,
-        label: "Number of passengers",
         min: 0,
         max: 5
     }
 };
+
+/**
+ * You can set a step value, the plus and minus buttons will increment or decrement the value by this step.
+ */
+export const Step = {
+    ...Default,
+    args: {
+        ...Default.args,
+        step: 5
+    }
+}
 
 export const Sizes = {
     render: (args) => html`

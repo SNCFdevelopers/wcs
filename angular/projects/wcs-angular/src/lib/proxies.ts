@@ -361,7 +361,7 @@ export class WcsCounter {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['wcsChange']);
+    proxyOutputs(this, this.el, ['wcsChange', 'wcsBlur']);
   }
 }
 
@@ -373,6 +373,10 @@ export declare interface WcsCounter extends Components.WcsCounter {
    * Emitted when the value of the counter has changed.
    */
   wcsChange: EventEmitter<CustomEvent<IWcsCounterCounterChangeEventDetail>>;
+  /**
+   * Emitted when the counter loses focus.
+   */
+  wcsBlur: EventEmitter<CustomEvent<FocusEvent>>;
 }
 
 

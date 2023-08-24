@@ -75,6 +75,11 @@ export class Counter implements ComponentInterface {
      */
     @State() private displayedValue: number;
 
+    /**
+     * Emitted when the counter loses focus.
+     */
+    @Event() wcsBlur!: EventEmitter<FocusEvent>;
+
     componentWillLoad() {
         this.currentValue = this.value ?? this.min ?? 0;
         this.displayedValue = this.currentValue;
@@ -98,16 +103,19 @@ export class Counter implements ComponentInterface {
      * Current value change => handle event and interval
      */
     @Watch('currentValue')
-    currentValueChanged() {
-        if(this.max !== undefined && this.currentValue > this.max) {
+    currentValueChanged(newVal: any, oldVal: any) {
+        if (this.max !== undefined && this.currentValue > this.max) {
             this.currentValue = this.max;
-        } else if(this.min !== undefined && this.currentValue < this.min) {
+        } else if (this.min !== undefined && this.currentValue < this.min) {
             this.currentValue = this.min;
         }
 
-        this.wcsChange.emit({
-            value: this.currentValue
-        });
+        // Emit event only if value has changed and if it's not at component initialization
+        if (newVal !== oldVal && oldVal !== undefined) {
+            this.wcsChange.emit({
+                value: this.currentValue
+            });
+        }
     }
 
     onKeyDown(_event: KeyboardEvent) {
@@ -176,27 +184,32 @@ export class Counter implements ComponentInterface {
                             size="s"
                             tabindex={-1}
                             onClick={() => this.handleDecrement()}
+                            onBlur={(event) => this.wcsBlur.emit(event)}
                             disabled={this.currentValue === this.min}>
                     <wcs-mat-icon icon="remove" size="s"></wcs-mat-icon>
                 </wcs-button>
                 <div class="counter-container">
-                    <span id="outlier-down" class="outliers hidden" aria-hidden="true">{this.displayedValue - this.step}</span>
+                    <span id="outlier-down" class="outliers hidden"
+                          aria-hidden="true">{this.displayedValue - this.step}</span>
                     <span tabindex="0"
                           role="spinbutton"
                           class="current-value"
+                          onBlur={(event) => this.wcsBlur.emit(event)}
                           onKeyDown={(event) => this.onKeyDown(event)}
                           aria-valuenow={this.currentValue}
                           aria-valuetext={this.currentValue}
                           aria-valuemin={this.min}
                           aria-valuemax={this.max}
                           aria-label={this.label}>{this.displayedValue}</span>
-                    <span id="outlier-up" class="outliers hidden" aria-hidden="true">{this.displayedValue + this.step}</span>
+                    <span id="outlier-up" class="outliers hidden"
+                          aria-hidden="true">{this.displayedValue + this.step}</span>
                 </div>
                 <wcs-button class="wcs-primary"
                             shape="round"
                             size="s"
                             tabindex={-1}
                             onClick={() => this.handleIncrement()}
+                            onBlur={(event) => this.wcsBlur.emit(event)}
                             disabled={this.currentValue === this.max}>
                     <wcs-mat-icon icon="add" size="s"></wcs-mat-icon>
                 </wcs-button>

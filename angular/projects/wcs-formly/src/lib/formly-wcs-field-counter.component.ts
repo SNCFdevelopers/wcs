@@ -4,12 +4,12 @@ import { WcsFormlyFieldWrapperProps } from './formly-wcs-field-wrapper.component
 import { WcsCounterSize } from 'wcs-core';
 
 export type WcsFormlyCounterProps = WcsFormlyFieldWrapperProps & {
-  value: number,
+  value?: number,
   min?: number,
   max?: number,
   step?: number,
   size?: WcsCounterSize
-}
+};
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -30,9 +30,4 @@ export type WcsFormlyCounterProps = WcsFormlyFieldWrapperProps & {
   styles: []
 })
 export class FormlyWcsFieldCounterComponent extends FieldType<FieldTypeConfig<WcsFormlyCounterProps>> {
-  defaultOptions = {
-    props: {
-      value: 1
-    }
-  };
 }

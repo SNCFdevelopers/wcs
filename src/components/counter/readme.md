@@ -6,7 +6,7 @@
 ## Overview
 
 Counter component, meant to be used for small range of values (e.g : 0 - 5).<br>
-For larger or specific ranges, please use <a href=".?path=/docs/components-input--documentation">wcs-input (type number)</a>
+For larger or specific ranges, please use [wcs-input (type number)](.?path=/docs/components-input--documentation)
 
 ## Properties
 
@@ -24,6 +24,7 @@ For larger or specific ranges, please use <a href=".?path=/docs/components-input
 
 | Event       | Description                                        | Type                                    |
 | ----------- | -------------------------------------------------- | --------------------------------------- |
+| `wcsBlur`   | Emitted when the counter loses focus.              | `CustomEvent<FocusEvent>`               |
 | `wcsChange` | Emitted when the value of the counter has changed. | `CustomEvent<CounterChangeEventDetail>` |
 
 

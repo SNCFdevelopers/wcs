@@ -199,7 +199,7 @@ export namespace Components {
     }
     /**
      * Counter component, meant to be used for small range of values (e.g : 0 - 5).<br>
-     * For larger or specific ranges, please use <a href=".?path=/docs/components-input--documentation">wcs-input (type number)</a>
+     * For larger or specific ranges, please use [wcs-input (type number)](.?path=/docs/components-input--documentation)
      */
     interface WcsCounter {
         /**
@@ -1147,7 +1147,7 @@ declare global {
     };
     /**
      * Counter component, meant to be used for small range of values (e.g : 0 - 5).<br>
-     * For larger or specific ranges, please use <a href=".?path=/docs/components-input--documentation">wcs-input (type number)</a>
+     * For larger or specific ranges, please use [wcs-input (type number)](.?path=/docs/components-input--documentation)
      */
     interface HTMLWcsCounterElement extends Components.WcsCounter, HTMLStencilElement {
     }
@@ -1664,7 +1664,7 @@ declare namespace LocalJSX {
     }
     /**
      * Counter component, meant to be used for small range of values (e.g : 0 - 5).<br>
-     * For larger or specific ranges, please use <a href=".?path=/docs/components-input--documentation">wcs-input (type number)</a>
+     * For larger or specific ranges, please use [wcs-input (type number)](.?path=/docs/components-input--documentation)
      */
     interface WcsCounter {
         /**
@@ -1679,6 +1679,10 @@ declare namespace LocalJSX {
           * The minimum value of the counter. If the value of the min attribute isn't set, then the element has no minimum value.
          */
         "min"?: number;
+        /**
+          * Emitted when the counter loses focus.
+         */
+        "onWcsBlur"?: (event: WcsCounterCustomEvent<FocusEvent>) => void;
         /**
           * Emitted when the value of the counter has changed.
          */
@@ -2559,7 +2563,7 @@ declare module "@stencil/core" {
             "wcs-com-nav-submenu": LocalJSX.WcsComNavSubmenu & JSXBase.HTMLAttributes<HTMLWcsComNavSubmenuElement>;
             /**
              * Counter component, meant to be used for small range of values (e.g : 0 - 5).<br>
-             * For larger or specific ranges, please use <a href=".?path=/docs/components-input--documentation">wcs-input (type number)</a>
+             * For larger or specific ranges, please use [wcs-input (type number)](.?path=/docs/components-input--documentation)
              */
             "wcs-counter": LocalJSX.WcsCounter & JSXBase.HTMLAttributes<HTMLWcsCounterElement>;
             "wcs-divider": LocalJSX.WcsDivider & JSXBase.HTMLAttributes<HTMLWcsDividerElement>;

@@ -2233,11 +2233,17 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/counter/counter.e2e.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/counter/counter.tsx",
       "declarations": [
         {
           "kind": "class",
-          "description": "Counter component, meant to be used for small range of values (e.g : 0 - 5).<br>\r\nFor larger or specific ranges, please use <a href=\".?path=/docs/components-input--documentation\">wcs-input (type number)</a>",
+          "description": "Counter component, meant to be used for small range of values (e.g : 0 - 5).<br>\r\nFor larger or specific ranges, please use [wcs-input (type number)](.?path=/docs/components-input--documentation)",
           "name": "Counter",
           "members": [
             {
@@ -2324,6 +2330,20 @@
             {
               "kind": "method",
               "name": "currentValueChanged",
+              "parameters": [
+                {
+                  "name": "newVal",
+                  "type": {
+                    "text": "any"
+                  }
+                },
+                {
+                  "name": "oldVal",
+                  "type": {
+                    "text": "any"
+                  }
+                }
+              ],
               "description": "Current value change => handle event and interval"
             },
             {
@@ -2415,6 +2435,13 @@
                 "text": "EventEmitter<CounterChangeEventDetail>"
               },
               "description": "Emitted when the value of the counter has changed."
+            },
+            {
+              "name": "wcsBlur",
+              "type": {
+                "text": "EventEmitter<FocusEvent>"
+              },
+              "description": "Emitted when the counter loses focus."
             }
           ],
           "customElement": true
@@ -2435,44 +2462,6 @@
           "declaration": {
             "name": "Counter",
             "module": "components/counter/counter.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/divider/divider.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Divider",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-divider",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Divider",
-          "declaration": {
-            "name": "Divider",
-            "module": "components/divider/divider.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-divider",
-          "declaration": {
-            "name": "Divider",
-            "module": "components/divider/divider.tsx"
           }
         }
       ]
@@ -2744,6 +2733,44 @@
           "declaration": {
             "name": "Dropdown",
             "module": "components/dropdown/dropdown.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/divider/divider.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Divider",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-divider",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Divider",
+          "declaration": {
+            "name": "Divider",
+            "module": "components/divider/divider.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-divider",
+          "declaration": {
+            "name": "Divider",
+            "module": "components/divider/divider.tsx"
           }
         }
       ]
@@ -3514,6 +3541,74 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/galactic/galactic.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Galactic",
+          "members": [
+            {
+              "kind": "field",
+              "name": "text",
+              "type": {
+                "text": "string"
+              },
+              "description": "Text to display in the bar"
+            },
+            {
+              "kind": "field",
+              "name": "show",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "text",
+              "fieldName": "text",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "tagName": "wcs-galactic",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Galactic",
+          "declaration": {
+            "name": "Galactic",
+            "module": "components/galactic/galactic.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-galactic",
+          "declaration": {
+            "name": "Galactic",
+            "module": "components/galactic/galactic.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/form-field/form-field.tsx",
       "declarations": [
         {
@@ -3682,74 +3777,6 @@
           "declaration": {
             "name": "FormField",
             "module": "components/form-field/form-field.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/galactic/galactic.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Galactic",
-          "members": [
-            {
-              "kind": "field",
-              "name": "text",
-              "type": {
-                "text": "string"
-              },
-              "description": "Text to display in the bar"
-            },
-            {
-              "kind": "field",
-              "name": "show",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "text",
-              "fieldName": "text",
-              "type": {
-                "text": "string"
-              }
-            }
-          ],
-          "tagName": "wcs-galactic",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Galactic",
-          "declaration": {
-            "name": "Galactic",
-            "module": "components/galactic/galactic.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-galactic",
-          "declaration": {
-            "name": "Galactic",
-            "module": "components/galactic/galactic.tsx"
           }
         }
       ]
@@ -5111,6 +5138,273 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/horizontal-stepper/horizontal-step.tsx",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "HorizontalStep",
+          "parameters": [
+            {
+              "name": "{\r\n        step,\r\n        checkOnComplete,\r\n        complete,\r\n        passed,\r\n        active,\r\n        first,\r\n        disable,\r\n        onClick\r\n    }"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "HorizontalStep",
+          "declaration": {
+            "name": "HorizontalStep",
+            "module": "components/horizontal-stepper/horizontal-step.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/horizontal-stepper/horizontal-stepper-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/horizontal-stepper/horizontal-stepper.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "HorizontalStepper",
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsHorizontalStepperElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "currentStep",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "index of the active step. The index corresponds to the index of the step in the 'steps' list"
+            },
+            {
+              "kind": "field",
+              "name": "steps",
+              "type": {
+                "text": "HorizontalStepConfig[]"
+              },
+              "description": "steps to display"
+            },
+            {
+              "kind": "field",
+              "name": "mode",
+              "type": {
+                "text": "HorizontalStepperMode"
+              },
+              "default": "'nonLinear'",
+              "description": "Specifies if the stepper is in linear mode (the user can only click on the next step)\r\nor non-linear (the user can click on any step)"
+            },
+            {
+              "kind": "field",
+              "name": "checkOnComplete",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Specifies whether a check should be displayed when a step is passed."
+            },
+            {
+              "kind": "field",
+              "name": "internalCurrentStep",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "onCurrentStepChange",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "number"
+                  }
+                },
+                {
+                  "name": "oldValue",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "previous"
+            },
+            {
+              "kind": "method",
+              "name": "next"
+            },
+            {
+              "kind": "method",
+              "name": "navigateToIndex",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "index",
+                  "type": {
+                    "text": "number"
+                  }
+                },
+                {
+                  "name": "direction",
+                  "type": {
+                    "text": "'backward' | 'forward'"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "isComplete",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "step",
+                  "type": {
+                    "text": "HorizontalStepConfig"
+                  }
+                },
+                {
+                  "name": "index",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "renderLabels",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "isDisable",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "step"
+                },
+                {
+                  "name": "index"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "isNextPossibleStep",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "index"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "previousStepIsCompleteAndNotActive",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "index"
+                }
+              ]
+            }
+          ],
+          "attributes": [
+            {
+              "name": "current-step",
+              "fieldName": "currentStep",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "steps",
+              "fieldName": "steps",
+              "type": {
+                "text": "HorizontalStepConfig[]"
+              }
+            },
+            {
+              "name": "mode",
+              "fieldName": "mode",
+              "type": {
+                "text": "HorizontalStepperMode"
+              }
+            },
+            {
+              "name": "check-on-complete",
+              "fieldName": "checkOnComplete",
+              "type": {
+                "text": "boolean"
+              }
+            }
+          ],
+          "tagName": "wcs-horizontal-stepper",
+          "events": [
+            {
+              "name": "wcsHorizontalStepClick",
+              "type": {
+                "text": "EventEmitter<HorizontalStepClickEvent>"
+              },
+              "description": "Emits when the user selects a new step."
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "HorizontalStepper",
+          "declaration": {
+            "name": "HorizontalStepper",
+            "module": "components/horizontal-stepper/horizontal-stepper.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-horizontal-stepper",
+          "declaration": {
+            "name": "HorizontalStepper",
+            "module": "components/horizontal-stepper/horizontal-stepper.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/icon/icon.tsx",
       "declarations": [
         {
@@ -5908,62 +6202,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/list-item/list-item.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "ListItem",
-          "members": [
-            {
-              "kind": "field",
-              "name": "activated",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "True if the item is active. Adds a background color that highlights it."
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "activated",
-              "fieldName": "activated",
-              "type": {
-                "text": "boolean"
-              }
-            }
-          ],
-          "tagName": "wcs-list-item",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ListItem",
-          "declaration": {
-            "name": "ListItem",
-            "module": "components/list-item/list-item.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-list-item",
-          "declaration": {
-            "name": "ListItem",
-            "module": "components/list-item/list-item.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/label/label.tsx",
       "declarations": [
         {
@@ -6016,267 +6254,56 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/horizontal-stepper/horizontal-step.tsx",
-      "declarations": [
-        {
-          "kind": "function",
-          "name": "HorizontalStep",
-          "parameters": [
-            {
-              "name": "{\r\n        step,\r\n        checkOnComplete,\r\n        complete,\r\n        passed,\r\n        active,\r\n        first,\r\n        disable,\r\n        onClick\r\n    }"
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "HorizontalStep",
-          "declaration": {
-            "name": "HorizontalStep",
-            "module": "components/horizontal-stepper/horizontal-step.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/horizontal-stepper/horizontal-stepper-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/horizontal-stepper/horizontal-stepper.tsx",
+      "path": "components/list-item/list-item.tsx",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "HorizontalStepper",
+          "name": "ListItem",
           "members": [
             {
               "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsHorizontalStepperElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "currentStep",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "index of the active step. The index corresponds to the index of the step in the 'steps' list"
-            },
-            {
-              "kind": "field",
-              "name": "steps",
-              "type": {
-                "text": "HorizontalStepConfig[]"
-              },
-              "description": "steps to display"
-            },
-            {
-              "kind": "field",
-              "name": "mode",
-              "type": {
-                "text": "HorizontalStepperMode"
-              },
-              "default": "'nonLinear'",
-              "description": "Specifies if the stepper is in linear mode (the user can only click on the next step)\r\nor non-linear (the user can click on any step)"
-            },
-            {
-              "kind": "field",
-              "name": "checkOnComplete",
+              "name": "activated",
               "type": {
                 "text": "boolean"
               },
-              "description": "Specifies whether a check should be displayed when a step is passed."
-            },
-            {
-              "kind": "field",
-              "name": "internalCurrentStep",
-              "privacy": "private"
+              "default": "false",
+              "description": "True if the item is active. Adds a background color that highlights it."
             },
             {
               "kind": "method",
-              "name": "onCurrentStepChange",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "newValue",
-                  "type": {
-                    "text": "number"
-                  }
-                },
-                {
-                  "name": "oldValue",
-                  "type": {
-                    "text": "number"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "previous"
-            },
-            {
-              "kind": "method",
-              "name": "next"
-            },
-            {
-              "kind": "method",
-              "name": "navigateToIndex",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "index",
-                  "type": {
-                    "text": "number"
-                  }
-                },
-                {
-                  "name": "direction",
-                  "type": {
-                    "text": "'backward' | 'forward'"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "isComplete",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "step",
-                  "type": {
-                    "text": "HorizontalStepConfig"
-                  }
-                },
-                {
-                  "name": "index",
-                  "type": {
-                    "text": "number"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "renderLabels",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "isDisable",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "step"
-                },
-                {
-                  "name": "index"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "isNextPossibleStep",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "index"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "previousStepIsCompleteAndNotActive",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "index"
-                }
-              ]
+              "name": "render"
             }
           ],
           "attributes": [
             {
-              "name": "current-step",
-              "fieldName": "currentStep",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "steps",
-              "fieldName": "steps",
-              "type": {
-                "text": "HorizontalStepConfig[]"
-              }
-            },
-            {
-              "name": "mode",
-              "fieldName": "mode",
-              "type": {
-                "text": "HorizontalStepperMode"
-              }
-            },
-            {
-              "name": "check-on-complete",
-              "fieldName": "checkOnComplete",
+              "name": "activated",
+              "fieldName": "activated",
               "type": {
                 "text": "boolean"
               }
             }
           ],
-          "tagName": "wcs-horizontal-stepper",
-          "events": [
-            {
-              "name": "wcsHorizontalStepClick",
-              "type": {
-                "text": "EventEmitter<HorizontalStepClickEvent>"
-              },
-              "description": "Emits when the user selects a new step."
-            }
-          ],
+          "tagName": "wcs-list-item",
+          "events": [],
           "customElement": true
         }
       ],
       "exports": [
         {
           "kind": "js",
-          "name": "HorizontalStepper",
+          "name": "ListItem",
           "declaration": {
-            "name": "HorizontalStepper",
-            "module": "components/horizontal-stepper/horizontal-stepper.tsx"
+            "name": "ListItem",
+            "module": "components/list-item/list-item.tsx"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "wcs-horizontal-stepper",
+          "name": "wcs-list-item",
           "declaration": {
-            "name": "HorizontalStepper",
-            "module": "components/horizontal-stepper/horizontal-stepper.tsx"
+            "name": "ListItem",
+            "module": "components/list-item/list-item.tsx"
           }
         }
       ]
@@ -6617,6 +6644,44 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/nav/nav.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Nav",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-nav",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Nav",
+          "declaration": {
+            "name": "Nav",
+            "module": "components/nav/nav.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-nav",
+          "declaration": {
+            "name": "Nav",
+            "module": "components/nav/nav.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/nav-item/nav-item.tsx",
       "declarations": [
         {
@@ -6702,44 +6767,6 @@
           "declaration": {
             "name": "NavItem",
             "module": "components/nav-item/nav-item.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/nav/nav.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Nav",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-nav",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Nav",
-          "declaration": {
-            "name": "Nav",
-            "module": "components/nav/nav.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-nav",
-          "declaration": {
-            "name": "Nav",
-            "module": "components/nav/nav.tsx"
           }
         }
       ]
@@ -7086,157 +7113,6 @@
           "declaration": {
             "name": "Radio",
             "module": "components/radio/radio.component.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/radio-group/radio-group-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/radio-group/radio-group.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "RadioGroup",
-          "members": [
-            {
-              "kind": "field",
-              "name": "value",
-              "type": {
-                "text": "any | any[] | undefined | null"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "name"
-            },
-            {
-              "kind": "field",
-              "name": "mode",
-              "type": {
-                "text": "RadioGroupMode"
-              },
-              "default": "'radio'"
-            },
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsRadioGroupElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "onValueChangeHandler",
-              "parameters": [
-                {
-                  "name": "newValue",
-                  "type": {
-                    "text": "any"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "field",
-              "name": "options",
-              "type": {
-                "text": "HTMLWcsRadioElement[]"
-              },
-              "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "method",
-              "name": "selectedOptionChanged",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "CustomEvent<RadioChosedEvent>"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "updateOptionsState",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string"
-                  }
-                },
-                {
-                  "name": "markAsChecked",
-                  "type": {
-                    "text": "boolean"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "value",
-              "fieldName": "value",
-              "type": {
-                "text": "any | any[] | undefined | null"
-              }
-            },
-            {
-              "name": "name",
-              "fieldName": "name"
-            },
-            {
-              "name": "mode",
-              "fieldName": "mode",
-              "type": {
-                "text": "RadioGroupMode"
-              }
-            }
-          ],
-          "tagName": "wcs-radio-group",
-          "events": [
-            {
-              "name": "wcsChange",
-              "type": {
-                "text": "EventEmitter<RadioGroupChangeEventDetail>"
-              },
-              "description": "Emitted when the value has changed."
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "RadioGroup",
-          "declaration": {
-            "name": "RadioGroup",
-            "module": "components/radio-group/radio-group.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-radio-group",
-          "declaration": {
-            "name": "RadioGroup",
-            "module": "components/radio-group/radio-group.tsx"
           }
         }
       ]
@@ -7840,27 +7716,97 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/spinner/spinner-interface.ts",
+      "path": "components/radio-group/radio-group-interface.ts",
       "declarations": [],
       "exports": []
     },
     {
       "kind": "javascript-module",
-      "path": "components/spinner/spinner.tsx",
+      "path": "components/radio-group/radio-group.tsx",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "Spinner",
+          "name": "RadioGroup",
           "members": [
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "any | any[] | undefined | null"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "name"
+            },
             {
               "kind": "field",
               "name": "mode",
               "type": {
-                "text": "WcsSpinnerMode"
+                "text": "RadioGroupMode"
               },
-              "default": "'border'",
-              "description": "Indicates the spinner display mode.\r\nAccepted values: `border` or `growing`"
+              "default": "'radio'"
+            },
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsRadioGroupElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "onValueChangeHandler",
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "any"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "options",
+              "type": {
+                "text": "HTMLWcsRadioElement[]"
+              },
+              "privacy": "private",
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "selectedOptionChanged",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "CustomEvent<RadioChosedEvent>"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "updateOptionsState",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "markAsChecked",
+                  "type": {
+                    "text": "boolean"
+                  }
+                }
+              ]
             },
             {
               "kind": "method",
@@ -7869,33 +7815,52 @@
           ],
           "attributes": [
             {
+              "name": "value",
+              "fieldName": "value",
+              "type": {
+                "text": "any | any[] | undefined | null"
+              }
+            },
+            {
+              "name": "name",
+              "fieldName": "name"
+            },
+            {
               "name": "mode",
               "fieldName": "mode",
               "type": {
-                "text": "WcsSpinnerMode"
+                "text": "RadioGroupMode"
               }
             }
           ],
-          "tagName": "wcs-spinner",
-          "events": [],
+          "tagName": "wcs-radio-group",
+          "events": [
+            {
+              "name": "wcsChange",
+              "type": {
+                "text": "EventEmitter<RadioGroupChangeEventDetail>"
+              },
+              "description": "Emitted when the value has changed."
+            }
+          ],
           "customElement": true
         }
       ],
       "exports": [
         {
           "kind": "js",
-          "name": "Spinner",
+          "name": "RadioGroup",
           "declaration": {
-            "name": "Spinner",
-            "module": "components/spinner/spinner.tsx"
+            "name": "RadioGroup",
+            "module": "components/radio-group/radio-group.tsx"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "wcs-spinner",
+          "name": "wcs-radio-group",
           "declaration": {
-            "name": "Spinner",
-            "module": "components/spinner/spinner.tsx"
+            "name": "RadioGroup",
+            "module": "components/radio-group/radio-group.tsx"
           }
         }
       ]
@@ -8052,6 +8017,68 @@
           "declaration": {
             "name": "SelectOption",
             "module": "components/select-option/select-option.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/spinner/spinner-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/spinner/spinner.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Spinner",
+          "members": [
+            {
+              "kind": "field",
+              "name": "mode",
+              "type": {
+                "text": "WcsSpinnerMode"
+              },
+              "default": "'border'",
+              "description": "Indicates the spinner display mode.\r\nAccepted values: `border` or `growing`"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "mode",
+              "fieldName": "mode",
+              "type": {
+                "text": "WcsSpinnerMode"
+              }
+            }
+          ],
+          "tagName": "wcs-spinner",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Spinner",
+          "declaration": {
+            "name": "Spinner",
+            "module": "components/spinner/spinner.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-spinner",
+          "declaration": {
+            "name": "Spinner",
+            "module": "components/spinner/spinner.tsx"
           }
         }
       ]

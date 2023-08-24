@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-08-04T09:57:23",
+  "timestamp": "2023-08-25T12:58:54",
   "compiler": {
     "name": "@stencil/core",
     "version": "3.0.0",
@@ -1059,7 +1059,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-counter",
       "readme": "# Input\r\n\r",
-      "docs": "Counter component, meant to be used for small range of values (e.g : 0 - 5).<br>\r\nFor larger or specific ranges, please use <a href=\".?path=/docs/components-input--documentation\">wcs-input (type number)</a>",
+      "docs": "Counter component, meant to be used for small range of values (e.g : 0 - 5).<br>\r\nFor larger or specific ranges, please use [wcs-input (type number)](.?path=/docs/components-input--documentation)",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -1085,14 +1085,14 @@
           "mutable": true,
           "attr": "max",
           "reflectToAttr": false,
-          "docs": "The maximum value of the counter.",
+          "docs": "The maximum value of the counter.\r\nIf the value of the max attribute isn't set, then the element has no maximum value.",
           "docsTags": [],
           "values": [
             {
               "type": "number"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -1101,14 +1101,14 @@
           "mutable": true,
           "attr": "min",
           "reflectToAttr": false,
-          "docs": "The minimum value of the counter.",
+          "docs": "The minimum value of the counter.\r\nIf the value of the min attribute isn't set, then the element has no minimum value.",
           "docsTags": [],
           "values": [
             {
               "type": "number"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -1156,19 +1156,28 @@
           "mutable": true,
           "attr": "value",
           "reflectToAttr": false,
-          "docs": "The current value of the counter.",
+          "docs": "Allow to change currentValue programmatically",
           "docsTags": [],
           "values": [
             {
               "type": "number"
             }
           ],
-          "optional": false,
-          "required": true
+          "optional": true,
+          "required": false
         }
       ],
       "methods": [],
       "events": [
+        {
+          "event": "wcsBlur",
+          "detail": "FocusEvent",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the counter loses focus.",
+          "docsTags": []
+        },
         {
           "event": "wcsChange",
           "detail": "CounterChangeEventDetail",

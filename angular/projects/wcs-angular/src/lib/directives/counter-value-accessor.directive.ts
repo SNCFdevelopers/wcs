@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Injector } from '@angular/core';
+import { Directive, ElementRef, HostListener, Injector } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { CounterChangeEventDetail } from '../../../../../../dist/types/components/counter/counter-interface';
 
@@ -15,8 +15,9 @@ import { CounterChangeEventDetail } from '../../../../../../dist/types/component
 })
 // tslint:disable-next-line:directive-class-suffix
 export class CounterValueAccessorDirective implements ControlValueAccessor {
-  private value;
+  private value: any;
   private onChange: (value: any) => void = () => {};
+  private onTouched: () => void = () => {};
 
   constructor(protected injector: Injector, protected el: ElementRef) {
     this.el.nativeElement.addEventListener('wcsChange', (event: CustomEvent<CounterChangeEventDetail>) => {
@@ -24,21 +25,23 @@ export class CounterValueAccessorDirective implements ControlValueAccessor {
     });
   }
 
-  // tslint:disable-next-line:typedef
-  writeValue(value) {
+  writeValue(value): void {
     this.value = value;
-    this.el.nativeElement.value = value;
+    this.el.nativeElement.value = this.value;
   }
 
-  // tslint:disable-next-line:typedef
-  registerOnChange(fn) {
+  registerOnChange(fn): void {
     this.onChange = fn;
   }
 
-  /**
-   * Not implemented for now
-   */
-  // tslint:disable-next-line:typedef
-  registerOnTouched(fn) {
+  @HostListener('wcsBlur', ['$event.target'])
+  _handleBlurEvent(el: any): void {
+    if (el === this.el.nativeElement) {
+      this.onTouched();
+    }
+  }
+
+  registerOnTouched(fn): void {
+    this.onTouched = fn;
   }
 }
