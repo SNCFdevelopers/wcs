@@ -36,10 +36,20 @@ interface StoryParams {
     prefixLabel: string;
     suffixLabel: string;
     size: WcsInputSize;
+    spellcheck: boolean;
 }
 
 const Template: StoryFn<Partial<StoryParams>> = (args) => html`
-    <wcs-input id="input-demo-1" state=${args.state} icon=${args.icon} type=${args.type} ?disabled=${args.disabled} value=${args.value} prefix-label=${args.prefixLabel} suffix-label=${args.suffixLabel} size=${args.size}></wcs-input>
+    <wcs-input id="input-demo-1"
+               state=${args.state}
+               icon=${args.icon}
+               type=${args.type}
+               ?disabled=${args.disabled}
+               value=${args.value}
+               prefix-label=${args.prefixLabel}
+               suffix-label=${args.suffixLabel}
+               size=${args.size}
+               ?spellcheck=${args.spellcheck}></wcs-input>
 `;
 
 const TemplateSizes: StoryFn<Partial<StoryParams>> = () => html`
