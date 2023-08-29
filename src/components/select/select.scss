@@ -91,20 +91,18 @@ label {
 }
 
 :host([size=m]) {
-    height: var(--wcs-size-m);
+    min-height: var(--wcs-size-m);
     --wcs-select-font-size: 1rem;
     .wcs-select-control {
-        box-sizing: border-box;
-        height: var(--wcs-size-m);
+        min-height: var(--wcs-size-m);
     }
 }
 
 :host([size=l]) {
-    height: var(--wcs-size-l);
+    min-height: var(--wcs-size-l);
     --wcs-select-font-size: 1.0625rem;
     .wcs-select-control {
-        box-sizing: border-box;
-        height: var(--wcs-size-l);
+        min-height: var(--wcs-size-l);
     }
 }
 
@@ -115,6 +113,8 @@ label {
 }
 
 .wcs-select-control {
+    box-sizing: border-box;
+
     @include ripple;
     display: flex;
     align-items: center;
@@ -138,13 +138,27 @@ label {
     font-weight: var(--wcs-font-weight-form-value);
 }
 
+.wcs-select-value-container {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-left: calc(var(--wcs-margin) / 2);
+
+    max-width: calc(100% - calc(24px + var(--wcs-base-margin))); // 24px (width of arrow svg) + 8px of padding = 32px
+
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 .wcs-select-chip {
+    line-height: 1.375;
     color: var(--wcs-contrast);
     background-color: var(--wcs-base);
     border-radius: 0.75rem;
     display: flex;
     align-items: center;
-    margin: calc(var(--wcs-base-margin)/2);
     padding: calc(calc(var(--wcs-padding) - 8px) / 2) var(--wcs-padding);
     overflow: initial;
 }

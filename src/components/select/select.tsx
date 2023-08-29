@@ -628,7 +628,6 @@ export class Select implements ComponentInterface {
 
     render() {
         const ariaLabelValue = `${this.labelElement ? this.labelElement.innerText : ''} ${this.hasValue ? this.displayText : ''}`.trimEnd();
-
         return (
             <Host class={this.expanded ? 'expanded ' : ''}
                   overlayDirection={this.overlayDirection} {...this.focusedAttributes()}
@@ -641,15 +640,18 @@ export class Select implements ComponentInterface {
                   aria-multiselectable={this.multiple ? 'true' : 'false'}
                   aria-label={ariaLabelValue}>
                 <div class="wcs-select-control">
+                    <div class="wcs-select-value-container">
                     {this.hasValue
-                        ? (this.chips ?
+                        ?
+                        (this.chips ?
                             this.values.map((option: SelectOptionValue) =>
-                                <SelectChips disabled={this.disabled} option={option}
-                                             onRemove={this.removeChip.bind(this)}/>
+                                    <SelectChips disabled={this.disabled} option={option}
+                                                  onRemove={this.removeChip.bind(this)}/>
                             )
                             : <label class="wcs-select-value">{this.displayText}</label>)
                         : <label class="wcs-select-placeholder">{this.placeholder}</label>
                     }
+                    </div>
                     <SelectArrow up={this.expanded}/>
                 </div>
                 <div class="wcs-select-options" id={this.optionsId} role="listbox">
