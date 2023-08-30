@@ -325,26 +325,34 @@ export namespace Components {
          */
         "text": string;
     }
+    /**
+     * The grid component is a complex component used as a table to display collections of data.
+     * @cssprop --wcs-grid-highlight-color - Color for selected rows
+     * @cssprop --wcs-grid-column-border-left - Left border of all grid headers
+     */
     interface WcsGrid {
+        /**
+          * Contains the data to display in the table from a js object
+         */
         "data": any[];
         /**
-          * Flag to display spinner during data loading
+          * Flag to display a spinner during data loading
          */
         "loading": boolean;
         /**
-          * Name of the object's key that will be used to display the cells whose keyValue attribute matches to the object's value for this key.
+          * Name of the object's key that will be used to display the cells whose `keyValue` attribute matches to the object's value for this key.
          */
         "rowIdPath": string;
         /**
-          * Set the selected items
+          * Set the selected items (rows)
          */
         "selectedItems": any | any[];
         /**
-          * Used to manage grid's row selection
+          * Used to manage grid's row selection. "none": no row can be selected. "multiple": several rows can be selected. "single": one row only can be selected.
          */
         "selectionConfig": WcsGridSelectionConfig;
         /**
-          * True to manage sort and pagination with a backend server, default: false
+          * Manage sort and pagination with a backend server when set to `true`
          */
         "serverMode": boolean;
         "wcsGridPaginationId": string;
@@ -1265,6 +1273,11 @@ declare global {
         prototype: HTMLWcsGalacticMenuElement;
         new (): HTMLWcsGalacticMenuElement;
     };
+    /**
+     * The grid component is a complex component used as a table to display collections of data.
+     * @cssprop --wcs-grid-highlight-color - Color for selected rows
+     * @cssprop --wcs-grid-column-border-left - Left border of all grid headers
+     */
     interface HTMLWcsGridElement extends Components.WcsGrid, HTMLStencilElement {
     }
     var HTMLWcsGridElement: {
@@ -1844,10 +1857,18 @@ declare namespace LocalJSX {
          */
         "text"?: string;
     }
+    /**
+     * The grid component is a complex component used as a table to display collections of data.
+     * @cssprop --wcs-grid-highlight-color - Color for selected rows
+     * @cssprop --wcs-grid-column-border-left - Left border of all grid headers
+     */
     interface WcsGrid {
+        /**
+          * Contains the data to display in the table from a js object
+         */
         "data"?: any[];
         /**
-          * Flag to display spinner during data loading
+          * Flag to display a spinner during data loading
          */
         "loading"?: boolean;
         /**
@@ -1859,19 +1880,19 @@ declare namespace LocalJSX {
          */
         "onWcsGridSelectionChange"?: (event: WcsGridCustomEvent<WcsGridRowSelectedEventDetails>) => void;
         /**
-          * Name of the object's key that will be used to display the cells whose keyValue attribute matches to the object's value for this key.
+          * Name of the object's key that will be used to display the cells whose `keyValue` attribute matches to the object's value for this key.
          */
         "rowIdPath"?: string;
         /**
-          * Set the selected items
+          * Set the selected items (rows)
          */
         "selectedItems"?: any | any[];
         /**
-          * Used to manage grid's row selection
+          * Used to manage grid's row selection. "none": no row can be selected. "multiple": several rows can be selected. "single": one row only can be selected.
          */
         "selectionConfig"?: WcsGridSelectionConfig;
         /**
-          * True to manage sort and pagination with a backend server, default: false
+          * Manage sort and pagination with a backend server when set to `true`
          */
         "serverMode"?: boolean;
         "wcsGridPaginationId"?: string;
@@ -2648,6 +2669,11 @@ declare module "@stencil/core" {
             "wcs-form-field": LocalJSX.WcsFormField & JSXBase.HTMLAttributes<HTMLWcsFormFieldElement>;
             "wcs-galactic": LocalJSX.WcsGalactic & JSXBase.HTMLAttributes<HTMLWcsGalacticElement>;
             "wcs-galactic-menu": LocalJSX.WcsGalacticMenu & JSXBase.HTMLAttributes<HTMLWcsGalacticMenuElement>;
+            /**
+             * The grid component is a complex component used as a table to display collections of data.
+             * @cssprop --wcs-grid-highlight-color - Color for selected rows
+             * @cssprop --wcs-grid-column-border-left - Left border of all grid headers
+             */
             "wcs-grid": LocalJSX.WcsGrid & JSXBase.HTMLAttributes<HTMLWcsGridElement>;
             "wcs-grid-column": LocalJSX.WcsGridColumn & JSXBase.HTMLAttributes<HTMLWcsGridColumnElement>;
             "wcs-grid-custom-cell": LocalJSX.WcsGridCustomCell & JSXBase.HTMLAttributes<HTMLWcsGridCustomCellElement>;

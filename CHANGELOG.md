@@ -14,6 +14,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Changed
 
 - **doc**: update react integration documentation
+- **doc**: update grid and grid subcomponents documentation
 
 ### Deprecated
 

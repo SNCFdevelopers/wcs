@@ -4052,8 +4052,28 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "",
+          "description": "The grid component is a complex component used as a table to display collections of data.",
           "name": "Grid",
+          "cssProperties": [
+            {
+              "description": "Color for selected rows",
+              "name": "--wcs-grid-highlight-color"
+            },
+            {
+              "description": "Left border of all grid headers",
+              "name": "--wcs-grid-column-border-left"
+            }
+          ],
+          "slots": [
+            {
+              "description": "The slot containing the column of the grid in the `<thead>`",
+              "name": "grid-column"
+            },
+            {
+              "description": "The slot containing the pagination of the grid below the `<table>`",
+              "name": "grid-pagination"
+            }
+          ],
           "members": [
             {
               "kind": "field",
@@ -4069,14 +4089,16 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "True to manage sort and pagination with a backend server, default: false"
+              "default": "false",
+              "description": "Manage sort and pagination with a backend server when set to `true`"
             },
             {
               "kind": "field",
               "name": "data",
               "type": {
                 "text": "any[]"
-              }
+              },
+              "description": "Contains the data to display in the table from a js object"
             },
             {
               "kind": "field",
@@ -4084,7 +4106,7 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Flag to display spinner during data loading"
+              "description": "Flag to display a spinner during data loading"
             },
             {
               "kind": "field",
@@ -4102,7 +4124,7 @@
                 "text": "any | any[]"
               },
               "default": "[]",
-              "description": "Set the selected items"
+              "description": "Set the selected items (rows)"
             },
             {
               "kind": "field",
@@ -4117,7 +4139,7 @@
               "type": {
                 "text": "string"
               },
-              "description": "Name of the object's key that will be used to display the cells whose keyValue attribute matches to the\r\nobject's value for this key."
+              "description": "Name of the object's key that will be used to display the cells whose `keyValue` attribute matches to the\r\nobject's value for this key."
             },
             {
               "kind": "field",
