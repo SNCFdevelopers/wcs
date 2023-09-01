@@ -1082,6 +1082,28 @@ export declare interface WcsModal extends Components.WcsModal {
 
 
 @ProxyCmp({
+  inputs: ['size']
+})
+@Component({
+  selector: 'wcs-native-select',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['size'],
+})
+export class WcsNativeSelect {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface WcsNativeSelect extends Components.WcsNativeSelect {}
+
+
+@ProxyCmp({
 })
 @Component({
   selector: 'wcs-nav',

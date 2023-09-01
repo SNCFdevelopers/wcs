@@ -18,6 +18,7 @@ import { HorizontalStepClickEvent, HorizontalStepConfig, HorizontalStepperMode }
 import { AutocompleteTypes, InputChangeEventDetail, TextFieldTypes, WcsInputSize } from "./components/input/input-interface";
 import { MaterialIconFamily, MaterialIconSize } from "./components/mat-icon/mat-icon-interface";
 import { ModalSize } from "./components/modal/modal-interface";
+import { WcsNativeSelectSize } from "./components/native-select/native-select.component";
 import { RadioGroupChangeEventDetail, RadioGroupMode } from "./components/radio-group/radio-group-interface";
 import { RadioChosedEvent } from "./components/radio/radio-interface";
 import { SelectChangeEventDetail, WcsSelectSize } from "./components/select/select-interface";
@@ -40,6 +41,7 @@ export { HorizontalStepClickEvent, HorizontalStepConfig, HorizontalStepperMode }
 export { AutocompleteTypes, InputChangeEventDetail, TextFieldTypes, WcsInputSize } from "./components/input/input-interface";
 export { MaterialIconFamily, MaterialIconSize } from "./components/mat-icon/mat-icon-interface";
 export { ModalSize } from "./components/modal/modal-interface";
+export { WcsNativeSelectSize } from "./components/native-select/native-select.component";
 export { RadioGroupChangeEventDetail, RadioGroupMode } from "./components/radio-group/radio-group-interface";
 export { RadioChosedEvent } from "./components/radio/radio-interface";
 export { SelectChangeEventDetail, WcsSelectSize } from "./components/select/select-interface";
@@ -599,6 +601,27 @@ export namespace Components {
           * Specifies whether the component should display a backdrop on the entire page
          */
         "withoutBackdrop": boolean;
+    }
+    /**
+     * The `wcs-native-select` component is designed to accept a native <select> element as a slotted child. This choice
+     * allows developers to bind the <select> element using the framework of their choice, without the need to re-expose all the
+     * properties of the <select> and <option> elements in this component.
+     * The component wraps the native <select> element and provides custom styles and behavior, while preserving the native
+     * functionality and accessibility.
+     * Example usage:
+     * <wcs-native-select>
+     *   <select>
+     *     <option value="option1">Option 1</option>
+     *     <option value="option2">Option 2</option>
+     *     <option value="option3">Option 3</option>
+     *   </select>
+     * </wcs-native-select>
+     */
+    interface WcsNativeSelect {
+        /**
+          * The `size` property controls the size of the slotted `select` element by adjusting its padding. There are two possible size options: - 'm': medium size - 'l': large size  The default value is 'm'.
+         */
+        "size": WcsNativeSelectSize;
     }
     interface WcsNav {
     }
@@ -1335,6 +1358,27 @@ declare global {
         prototype: HTMLWcsModalElement;
         new (): HTMLWcsModalElement;
     };
+    /**
+     * The `wcs-native-select` component is designed to accept a native <select> element as a slotted child. This choice
+     * allows developers to bind the <select> element using the framework of their choice, without the need to re-expose all the
+     * properties of the <select> and <option> elements in this component.
+     * The component wraps the native <select> element and provides custom styles and behavior, while preserving the native
+     * functionality and accessibility.
+     * Example usage:
+     * <wcs-native-select>
+     *   <select>
+     *     <option value="option1">Option 1</option>
+     *     <option value="option2">Option 2</option>
+     *     <option value="option3">Option 3</option>
+     *   </select>
+     * </wcs-native-select>
+     */
+    interface HTMLWcsNativeSelectElement extends Components.WcsNativeSelect, HTMLStencilElement {
+    }
+    var HTMLWcsNativeSelectElement: {
+        prototype: HTMLWcsNativeSelectElement;
+        new (): HTMLWcsNativeSelectElement;
+    };
     interface HTMLWcsNavElement extends Components.WcsNav, HTMLStencilElement {
     }
     var HTMLWcsNavElement: {
@@ -1501,6 +1545,7 @@ declare global {
         "wcs-list-item-property": HTMLWcsListItemPropertyElement;
         "wcs-mat-icon": HTMLWcsMatIconElement;
         "wcs-modal": HTMLWcsModalElement;
+        "wcs-native-select": HTMLWcsNativeSelectElement;
         "wcs-nav": HTMLWcsNavElement;
         "wcs-nav-item": HTMLWcsNavItemElement;
         "wcs-progress-bar": HTMLWcsProgressBarElement;
@@ -2097,6 +2142,27 @@ declare namespace LocalJSX {
          */
         "withoutBackdrop"?: boolean;
     }
+    /**
+     * The `wcs-native-select` component is designed to accept a native <select> element as a slotted child. This choice
+     * allows developers to bind the <select> element using the framework of their choice, without the need to re-expose all the
+     * properties of the <select> and <option> elements in this component.
+     * The component wraps the native <select> element and provides custom styles and behavior, while preserving the native
+     * functionality and accessibility.
+     * Example usage:
+     * <wcs-native-select>
+     *   <select>
+     *     <option value="option1">Option 1</option>
+     *     <option value="option2">Option 2</option>
+     *     <option value="option3">Option 3</option>
+     *   </select>
+     * </wcs-native-select>
+     */
+    interface WcsNativeSelect {
+        /**
+          * The `size` property controls the size of the slotted `select` element by adjusting its padding. There are two possible size options: - 'm': medium size - 'l': large size  The default value is 'm'.
+         */
+        "size"?: WcsNativeSelectSize;
+    }
     interface WcsNav {
     }
     interface WcsNavItem {
@@ -2521,6 +2587,7 @@ declare namespace LocalJSX {
         "wcs-list-item-property": WcsListItemProperty;
         "wcs-mat-icon": WcsMatIcon;
         "wcs-modal": WcsModal;
+        "wcs-native-select": WcsNativeSelect;
         "wcs-nav": WcsNav;
         "wcs-nav-item": WcsNavItem;
         "wcs-progress-bar": WcsProgressBar;
@@ -2599,6 +2666,22 @@ declare module "@stencil/core" {
             "wcs-list-item-property": LocalJSX.WcsListItemProperty & JSXBase.HTMLAttributes<HTMLWcsListItemPropertyElement>;
             "wcs-mat-icon": LocalJSX.WcsMatIcon & JSXBase.HTMLAttributes<HTMLWcsMatIconElement>;
             "wcs-modal": LocalJSX.WcsModal & JSXBase.HTMLAttributes<HTMLWcsModalElement>;
+            /**
+             * The `wcs-native-select` component is designed to accept a native <select> element as a slotted child. This choice
+             * allows developers to bind the <select> element using the framework of their choice, without the need to re-expose all the
+             * properties of the <select> and <option> elements in this component.
+             * The component wraps the native <select> element and provides custom styles and behavior, while preserving the native
+             * functionality and accessibility.
+             * Example usage:
+             * <wcs-native-select>
+             *   <select>
+             *     <option value="option1">Option 1</option>
+             *     <option value="option2">Option 2</option>
+             *     <option value="option3">Option 3</option>
+             *   </select>
+             * </wcs-native-select>
+             */
+            "wcs-native-select": LocalJSX.WcsNativeSelect & JSXBase.HTMLAttributes<HTMLWcsNativeSelectElement>;
             "wcs-nav": LocalJSX.WcsNav & JSXBase.HTMLAttributes<HTMLWcsNavElement>;
             "wcs-nav-item": LocalJSX.WcsNavItem & JSXBase.HTMLAttributes<HTMLWcsNavItemElement>;
             /**

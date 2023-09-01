@@ -19,6 +19,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **textarea**: add the property `resize` with the folowing options : `none`, `both`, `horizontal`, `vertical`
 - **textarea**: the `max-height` style property is now defined by the `--wcs-textarea-max-height` css-variable 
 - **counter**: add new Counter component (for small countable number values)
+- **native-select**: add new Native Select component (for unique selection)
 
 ### Changed
 

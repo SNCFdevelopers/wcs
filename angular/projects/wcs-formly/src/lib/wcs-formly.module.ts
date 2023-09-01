@@ -14,6 +14,7 @@ import { FormlyWcsFieldWrapperComponent } from './formly-wcs-field-wrapper.compo
 import { FormlyWcsBooleanFieldWrapperComponent } from './formly-wcs-boolean-field-wrapper.component';
 import { FormlyWcsFieldCounterComponent } from './formly-wcs-field-counter.component';
 import { WcsFormlyOptionsPipe } from './pipes/wcs-formly-options.pipe';
+import { FormlyWcsFieldNativeSelectComponent } from './formly-wcs-field-native-select.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { WcsFormlyOptionsPipe } from './pipes/wcs-formly-options.pipe';
     FormlyWcsFieldInputComponent,
     FormlyWcsFieldRadioComponent,
     FormlyWcsFieldSelectComponent,
+    FormlyWcsFieldNativeSelectComponent,
     FormlyWcsFieldTextareaComponent,
     FormlyWcsFieldCheckboxComponent,
     FormlyWcsFieldSwitchComponent,
@@ -71,6 +73,10 @@ import { WcsFormlyOptionsPipe } from './pipes/wcs-formly-options.pipe';
           component: FormlyWcsFieldSelectComponent,
         },
         {
+          name: 'native-select',
+          component: FormlyWcsFieldNativeSelectComponent
+        },
+        {
           name: 'checkbox',
           component: FormlyWcsFieldCheckboxComponent,
         },
@@ -90,6 +96,7 @@ import { WcsFormlyOptionsPipe } from './pipes/wcs-formly-options.pipe';
     FormlyWcsFieldInputComponent,
     FormlyWcsFieldRadioComponent,
     FormlyWcsFieldSelectComponent,
+    FormlyWcsFieldNativeSelectComponent,
     FormlyWcsFieldTextareaComponent,
     FormlyWcsFieldCheckboxComponent,
     FormlyWcsFieldSwitchComponent,

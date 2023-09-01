@@ -57,7 +57,9 @@ import {
   WcsSwitch,
   WcsTab,
   WcsTabs,
-  WcsTextarea, WcsTooltip
+  WcsTextarea,
+  WcsTooltip,
+  WcsNativeSelect
 } from './proxies';
 
 
@@ -120,6 +122,7 @@ const DECLARATIONS = [
   WcsTabs,
   WcsTextarea,
   WcsTooltip,
+  WcsNativeSelect,
   // Value accessors
   InputValueAccessorDirective,
   TextareaValueAccessorDirective,

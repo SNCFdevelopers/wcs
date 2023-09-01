@@ -65,14 +65,27 @@ Input.args = {};
 
 const SelectTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) => html`
     <wcs-form-field ?is-error=${args.isError}>
-        <wcs-label>What is your country music you're comming from, dude?</wcs-label>
-        <wcs-select placeholder="Select a country" required>
+        <wcs-label>What is your country music you're comming from, dude? (select custom)</wcs-label>
+        <wcs-select placeholder="Select a country (select custom)" required>
             <wcs-select-option>France</wcs-select-option>
             <wcs-select-option>Germany</wcs-select-option>
             <wcs-select-option>Japan</wcs-select-option>
         </wcs-select>
         <wcs-hint>You can call the person by his country music</wcs-hint>
         <wcs-error>Your country is not valid</wcs-error>
+    </wcs-form-field>
+
+
+    <wcs-form-field ?is-error=${args.isError}>
+        <wcs-label>What was your last answer ? (select native)</wcs-label>
+        <wcs-native-select required>
+            <select name="cannot answer this answer twice" id="#selectNatSiveCountry" required>
+                <option value="Don't know">I Don't know</option>
+                <option value="Yes">Yes</option>
+            </select>
+        </wcs-native-select>
+        <wcs-hint>You cannot answer this answer twice</wcs-hint>
+        <wcs-error>Your brain is broken</wcs-error>
     </wcs-form-field>
 `;
 export const Select = SelectTemplate.bind({});

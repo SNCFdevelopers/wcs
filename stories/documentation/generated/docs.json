@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-08-25T14:38:56",
+  "timestamp": "2023-08-29T14:18:28",
   "compiler": {
     "name": "@stencil/core",
     "version": "3.0.0",
@@ -4195,6 +4195,48 @@
           "wcs-spinner"
         ]
       }
+    },
+    {
+      "filePath": "./src/components/native-select/native-select.component.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-native-select",
+      "readme": "# wcs-select-native\r\n\r\n\r\n\r",
+      "docs": "The `wcs-native-select` component is designed to accept a native <select> element as a slotted child. This choice\r\nallows developers to bind the <select> element using the framework of their choice, without the need to re-expose all the\r\nproperties of the <select> and <option> elements in this component.\r\n\r\nThe component wraps the native <select> element and provides custom styles and behavior, while preserving the native\r\nfunctionality and accessibility.\r\n\r\nExample usage:\r\n\r\n<wcs-native-select>\r\n  <select>\r\n    <option value=\"option1\">Option 1</option>\r\n    <option value=\"option2\">Option 2</option>\r\n    <option value=\"option3\">Option 3</option>\r\n  </select>\r\n</wcs-native-select>",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "size",
+          "type": "\"l\" | \"m\"",
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": true,
+          "docs": "The `size` property controls the size of the slotted `select` element by adjusting its padding.\r\nThere are two possible size options:\r\n- 'm': medium size\r\n- 'l': large size\r\n\r\nThe default value is 'm'.",
+          "docsTags": [],
+          "default": "'m'",
+          "values": [
+            {
+              "value": "l",
+              "type": "string"
+            },
+            {
+              "value": "m",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
     },
     {
       "filePath": "./src/components/nav/nav.tsx",
