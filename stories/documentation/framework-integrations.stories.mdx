@@ -81,9 +81,9 @@ export class AppModule { }
 5. **Add the font faces**
 
 * Create a folder **containing the fonts** _(e.g.: `src/assets/fonts`)_
-* Download the **Avenir** font from the Angular exemple project : [wcs/example/src/fonts](https://gitlab.com/SNCF/wcs/-/tree/master/example/src/assets/fonts)
+* Download the **Avenir** font from the Angular example project : [wcs/example/angular/src/fonts](https://gitlab.com/SNCF/wcs/-/tree/master/example/src/assets/fonts)
 * Create a folder **containing the icons** _(e.g.: `src/assets/fonts/icons`)_
-* Download the **SNCF** icons from the Angular exemple project : [wcs/example/src/fonts/icons](https://gitlab.com/SNCF/wcs/-/tree/master/example/src/assets/fonts/icons)
+* Download the **SNCF** icons from the Angular example project : [wcs/example/angular/src/fonts/icons](https://gitlab.com/SNCF/wcs/-/tree/master/example/angular/src/assets/fonts/icons)
 * Add the font faces in your `styles.scss` or `styles.css` :
 
 ```css
@@ -166,24 +166,25 @@ export class AppModule { }
 
 </center>
 
-## React (without bindings for now) <img width="30" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png"></img>
+## React <img width="30" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png"></img>
 
-While waiting for the creation of **bindings for react**, it is still possible to use WCS in plain JS with `wcs-core`.
+This guide follows the guidelines available in the [official StencilJS documentation](https://stenciljs.com/docs/react#consumer-usages)
 
-1. **Install `wcs-core`**
+1. **Install `wcs-core` and `wcs-react`**
+
 ```
-npm install wcs-core
+npm install wcs-core wcs-react
 ```
 
-2. **Add the WCS stylesheet**
+2. **Add the WCS stylesheet** : add this at the top of your global style file (index.css)
+
 ```css
 @import "~wcs-core/dist/wcs/wcs.css";
 ```
 
-
 3. **Add Avenir and icons font faces in your global stylesheet**
 
-💡Download the fonts from the exemple project : [wcs/example/src/fonts](https://gitlab.com/SNCF/wcs/-/tree/master/example/src/assets/fonts)
+💡Download the fonts from the example project : [wcs/example/react/src/fonts](https://gitlab.com/SNCF/wcs/-/tree/master/example/react/src/assets/fonts)
 ```css
 @font-face {
     font-family: Avenir;
@@ -250,9 +251,9 @@ npm install wcs-core
 }
 ```
 
-4. **Register the WCS web component by calling the `defineCustomElements()` function in the loader of your `index.js`, should be called before `ReactDOM.createRoot(...)`**
+4. **Register the WCS web component** by calling the `defineCustomElements()` function in the loader of your main component `App.(tsx|jsx)`.
 ```js
-import { defineCustomElements } from 'wcs-core/loader';
+import { defineCustomElements } from 'wcs-react';
 
 defineCustomElements();
 ```
@@ -260,9 +261,11 @@ defineCustomElements();
 <center>
 
 #### 🎉 You're ready for React ! 🎉
+
 ##### Try to use your first component : [wcs-spinner](./?path=/story/components-spinner--default)
+
 ```html
-<wcs-spinner class="wcs-primary" mode="border"></wcs-spinner>
+<WcsSpinner class="wcs-primary" mode="border"></WcsSpinner>
 ```
 
 </center>

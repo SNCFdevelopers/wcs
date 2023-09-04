@@ -9,11 +9,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-for new features.
+- **react**: create react bindings for WCS components
 
 ### Changed
 
-for changes in existing functionality.
+- **doc**: update react integration documentation
 
 ### Deprecated
 

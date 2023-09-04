@@ -1,6 +1,7 @@
 import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
 import { angularOutputTarget } from '@stencil/angular-output-target';
+import { reactOutputTarget } from '@stencil/react-output-target';
 
 // @ts-ignore
 import path from 'path';
@@ -39,6 +40,10 @@ export const config: Config = {
         },
         {
             type: 'docs-readme'
-        }
+        },
+        reactOutputTarget({
+            componentCorePackage: 'wcs-core',
+            proxiesFile: './react/lib/components/stencil-generated/index.ts',
+        })
     ]
 };

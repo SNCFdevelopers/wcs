@@ -62,6 +62,10 @@ function updateAllPackages(newVersion) {
     updateDependencyFor('./angular/projects/wcs-formly/package.json', 'wcs-core', newVersion, true);
     updateDependencyFor('./angular/projects/wcs-formly/package.json', 'wcs-angular', newVersion, true);
 
+    // Update wcs-react package
+    updatePackage('./react', newVersion, false);
+    updateDependencyFor('./react/package.json', 'wcs-core', newVersion, false);
+
     // Update wcs-core package
     updatePackage('./', newVersion, false);
 

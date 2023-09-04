@@ -29,7 +29,6 @@ test:
 
 build:
   tags:
-    # - docker
     - sncf-runner
   stage: build
   artifacts:
@@ -40,13 +39,22 @@ build:
       - dist/
       - angular/dist/wcs-angular/
       - angular/dist/wcs-formly/
+      - react/dist/
   script:
+    # Build wcs core
     - npm ci --cache .npm --prefer-offline
     - npm run build
+    # Build angular packages
     - cd angular/
     - npm ci --cache .npm --prefer-offline
     - npm run build:wcs-angular
     - npm run build:wcs-formly
+    - cd ..
+    # Build react packages
+    - cd react/
+    - npm ci --cache .npm --prefer-offline
+    - npm run build
+    - cd ..
 
 pages:
   tags:
@@ -70,7 +78,6 @@ pages:
 # PUBLISH PACKAGES FOR TAGS
 publish-wcs-core:
   tags:
-    # - docker
     - sncf-runner
   stage: deploy
   only:
@@ -81,7 +88,6 @@ publish-wcs-core:
     - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc && npm publish
 publish-wcs-angular:
   tags:
-    # - docker
     - sncf-runner
   stage: deploy
   only:
@@ -92,7 +98,6 @@ publish-wcs-angular:
     - cd angular/dist/wcs-angular/ && echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc && npm publish
 publish-wcs-formly:
   tags:
-    # - docker
     - sncf-runner
   stage: deploy
   only:
@@ -101,6 +106,16 @@ publish-wcs-formly:
     - build
   script:
     - cd angular/dist/wcs-formly/ && echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc && npm publish
+publish-wcs-react:
+  tags:
+    - sncf-runner
+  stage: deploy
+  only:
+    - tags
+  dependencies:
+    - build
+  script:
+    - cd react/ && echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc && npm publish
 deploy-mr-tmp-env:
   image: node:16
   stage: deploy
@@ -110,7 +125,7 @@ deploy-mr-tmp-env:
     - web
   variables:
     DIST_PATH: '$CI_PROJECT_DIR/storybook-static'
-  script :
+  script:
     - npm install -g @azure/static-web-apps-cli
     - swa deploy --app-location ./ --output-location $DIST_PATH --verbose=silly --deployment-token $DEPLOYMENT_TOKEN --env review
 
