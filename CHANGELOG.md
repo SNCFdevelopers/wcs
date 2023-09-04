@@ -9,6 +9,38 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+for new features.
+
+### Changed
+
+for changes in existing functionality.
+
+### Deprecated
+
+for soon-to-be removed features.
+
+### Removed
+
+for now removed features.
+
+### Fixed
+
+for any bug fixes.
+
+### Security
+
+in case of vulnerabilities.
+
+
+## [4.0.0] - 2023-09-04
+
+⚠ This version contains breaking changes in following packages :
+- wcs-core
+
+To migrate, please refer to the storybook documentation (v3 to v4).
+
+### Added
+
 - **button**: add `target` (`"_blank" | "_self"`, null by default) to choose where to open links when using `href`
 - **button**: add the following sizes : `l`, `m (default)`, `s`
 - **input**: add the following sizes : `l`, `m (default)`, `s (for grids)` 
@@ -36,10 +68,6 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **input**: add the size attribute with available values `l`, `m (default)`, `s`
 - **textarea**: the `min-height` style property is now define by the `var(--wcs-size-m)` css-variable
 
-### Deprecated
-
-for soon-to-be removed features.
-
 ### Removed
 
 - **button**: remove the shape="small" attribute. (Replace it with size="s").
@@ -53,10 +81,6 @@ for soon-to-be removed features.
 - **doc**: the events are shown back in the Actions tab.
 - **doc**: storybook controls improvements for stories + attributes now displayed in table
 - **radio**: wcs-radio is now exposed to screen readers
-
-### Security
-
-in case of vulnerabilities.
 
 ## [3.0.0] - 2023-02-24
 

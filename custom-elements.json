@@ -2593,44 +2593,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/divider/divider.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Divider",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-divider",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Divider",
-          "declaration": {
-            "name": "Divider",
-            "module": "components/divider/divider.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-divider",
-          "declaration": {
-            "name": "Divider",
-            "module": "components/divider/divider.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/dropdown/dropdown-interface.ts",
       "declarations": [],
       "exports": []
@@ -2896,6 +2858,44 @@
           "declaration": {
             "name": "Dropdown",
             "module": "components/dropdown/dropdown.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/divider/divider.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Divider",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-divider",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Divider",
+          "declaration": {
+            "name": "Divider",
+            "module": "components/divider/divider.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-divider",
+          "declaration": {
+            "name": "Divider",
+            "module": "components/divider/divider.tsx"
           }
         }
       ]
@@ -6778,6 +6778,23 @@
           "members": [
             {
               "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "WcsNativeSelectSize"
+              },
+              "default": "'m'",
+              "description": "The `size` property controls the size of the slotted `select` element by adjusting its padding.\r\nThere are two possible size options:\r\n- 'm': medium size\r\n- 'l': large size\r\n\r\nThe default value is 'm'."
+            },
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsNativeSelectElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
               "name": "expanded",
               "type": {
                 "text": "boolean"
@@ -6787,9 +6804,9 @@
             },
             {
               "kind": "field",
-              "name": "el",
+              "name": "disabled",
               "type": {
-                "text": "HTMLWcsNativeSelectElement"
+                "text": "boolean"
               },
               "privacy": "private"
             },
@@ -6808,23 +6825,6 @@
                 "text": "MutationObserver"
               },
               "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "WcsNativeSelectSize"
-              },
-              "default": "'m'",
-              "description": "The `size` property controls the size of the slotted `select` element by adjusting its padding.\r\nThere are two possible size options:\r\n- 'm': medium size\r\n- 'l': large size\r\n\r\nThe default value is 'm'."
             },
             {
               "kind": "field",
