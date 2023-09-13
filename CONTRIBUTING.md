@@ -1,4 +1,4 @@
-# Contributinf to WCS
+# Contributing to WCS
 We're looking for contributors in all way. If you're an user and have problems, questions ore recommendation feel free to fill an issue. 
 
 If you want to contribute to the project, we'll be happy to welcome you, contact us and we'll see from there.
@@ -50,12 +50,20 @@ Finally, if you want to push modifications (for example the result of a rebase) 
 
 - https://www.joshmorony.com/understanding-jsx-for-stencil-js-applications/
 
+### Design system
+
 - https://developer.microsoft.com/en-us/fluentui#/controls/web
 - https://www.carbondesignsystem.com/
 - https://clarity.design/
 - https://material.angular.io/components/categories
 - https://mui.com/components/
 - https://vaadin.com/docs/latest/ds/components
+- https://design.baloise.dev/?path=/story/welcome--page&globals=framework:react
+- https://ix.siemens.io/ - https://ix.siemens.io/docs/getting-started/
+
+### Accessibility
+
+- https://nolanlawson.com/2022/11/28/shadow-dom-and-accessibility-the-trouble-with-aria/
 
 ## Issues to track
 
