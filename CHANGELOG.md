@@ -25,12 +25,17 @@ for now removed features.
 
 ### Fixed
 
-- **native-select**: the formly component now displays the label correctly in options
+for any bug fixes.
 
 ### Security
 
 in case of vulnerabilities.
 
+## [4.0.1] - 2023-09-14
+
+### Fixed
+
+- **native-select**: the formly component now displays the label correctly in options
 
 ## [4.0.0] - 2023-09-04
 
