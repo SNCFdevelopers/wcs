@@ -25,7 +25,7 @@ for now removed features.
 
 ### Fixed
 
-for any bug fixes.
+- **native-select**: the formly component now displays the label correctly in options
 
 ### Security
 

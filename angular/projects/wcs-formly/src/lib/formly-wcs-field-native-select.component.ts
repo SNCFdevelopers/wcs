@@ -21,7 +21,7 @@ export type WcsFormlySelectNativeProps = WcsFormlyFieldWrapperProps & {
                           [value]="option.value"
                           [ngClass]="option.class"
                           [disabled]="option.disabled ? true : null"
-                  ></option>
+                  >{{option.label}}</option>
               </select>
           </wcs-native-select>
       </formly-wcs-field-wrapper>
