@@ -91,7 +91,7 @@ export class NativeSelect implements ComponentInterface {
      * @private
      */
     private applySelectedOptionStylesOnNativeSlottedSelectElement() {
-        this.selectElement.style.color = "var(--wcs-blue)";
+        this.selectElement.style.color = "var(--wcs-primary)";
         this.selectElement.style.fontStyle = 'normal';
         this.selectElement.style.fontWeight = '500';
         Array.from(this.selectElement.options).forEach(option => {

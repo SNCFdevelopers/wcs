@@ -25,7 +25,7 @@ for now removed features.
 
 ### Fixed
 
-for any bug fixes.
+- **native-select**: the base color of the select is now primary and not blue
 
 ### Security
 
