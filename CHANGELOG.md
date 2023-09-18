@@ -25,11 +25,17 @@ for now removed features.
 
 ### Fixed
 
-- **native-select**: the base color of the select is now primary and not blue
+for any bug fixes.
 
 ### Security
 
 in case of vulnerabilities.
+
+## [4.0.2] - 2023-09-18
+
+### Fixed
+
+- **native-select**: the base color of the select is now primary and not blue
 
 ## [4.0.1] - 2023-09-14
 
