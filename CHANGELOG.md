@@ -25,7 +25,7 @@ for now removed features.
 
 ### Fixed
 
-for any bug fixes.
+- **native-select**: add a gap between the value/placeholder and select arrow to avoid the value to be hidden by the arrow
 
 ### Security
 

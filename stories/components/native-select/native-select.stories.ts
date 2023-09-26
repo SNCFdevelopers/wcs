@@ -95,3 +95,26 @@ export const WithoutPlaceholder = {
         </wcs-native-select>
     `
 }
+
+/**
+ * 💡`wcs-native-select` hide value label if an overflow occurs
+ */
+export const OverflowBehaviour = {
+    render: () => html`
+        <div style="width: 100px">
+            <wcs-native-select>
+                <select>
+                    <option disabled selected>Sélectionner</option>
+                    <option value="">Moins de 15 ans</option>
+                    <option value="">Entre 15 et 25 ans</option>
+                    <option value="">Entre 25 et 35 ans</option>
+                    <option value="">Entre 35 et 45 ans</option>
+                    <option value="">Entre 45 et 55 ans</option>
+                    <option value="">Entre 55 et 65 ans</option>
+                    <option value="">Entre 65 et 75 ans</option>
+                    <option value="">Plus de 75 ans</option>
+                </select>
+            </wcs-native-select>
+        </div>
+    `
+}

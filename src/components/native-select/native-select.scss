@@ -2,7 +2,6 @@
 @import '../../style/focus-outline.scss';
 
 :host {
-    width: 100%;
     box-sizing: border-box;
 }
 
@@ -33,8 +32,10 @@
     cursor: pointer;
     line-height: 1.5;
     font-size: 1rem;
-    width: 100%;
-    padding-right: calc(var(--wcs-base-margin) * 2);
+
+    max-width: 100%;
+    flex-grow: 1;
+    padding-right: calc((var(--wcs-base-margin) * 2) + 24px);
     padding-left: calc(var(--wcs-base-margin) * 2);
 }
 
@@ -73,6 +74,9 @@
 
 .select-wrapper {
     position: relative;
+
+    display: flex;
+    flex-wrap: nowrap;
 }
 
 // So the arrow on the right doesn't shrink when text overflows.
