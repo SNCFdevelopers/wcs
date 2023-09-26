@@ -26,6 +26,7 @@ for now removed features.
 ### Fixed
 
 - **native-select**: add a gap between the value/placeholder and select arrow to avoid the value to be hidden by the arrow
+- **com-nav**: open/close mobile menu on space or enter key press on the "hamburger" button
 
 ### Security
 

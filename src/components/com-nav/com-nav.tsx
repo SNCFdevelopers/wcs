@@ -1,5 +1,6 @@
 import {Component, Host, h, Prop, Element, ComponentInterface, State, Listen} from '@stencil/core';
 import {registerCloseHandlerForFocusOutEventOn} from "./com-nav-utils";
+import { isEnterKey, isEscapeKey, isSpaceKey } from "../../utils/helpers";
 
 const WCS_COM_NAV_SUBMENU_TAG_NAME = 'WCS-COM-NAV-SUBMENU';
 
@@ -102,8 +103,8 @@ export class ComNav implements ComponentInterface {
                     </div>
                     <div class="container-right">
                         <slot name="actions"/>
-                        <span id="mobile-menu-icon" data-mobile-open={this.mobileMenuOpen}
-                              onClick={() => this.mobileMenuIconClick()}></span>
+                        <span id="mobile-menu-icon" tabindex={0} data-mobile-open={this.mobileMenuOpen}
+                              onClick={() => this.mobileMenuIconClick()} onKeyDown={evt => this.mobileMenuIconOnKeyDown(evt)}></span>
                     </div>
                 </div>
                 <div class="mobile-overlay" data-mobile-open={this.mobileMenuOpen}>
@@ -113,4 +114,25 @@ export class ComNav implements ComponentInterface {
         );
     }
 
+    /**
+     * Handle the keydown event on the mobile menu icon. Open the menu if the user press space or enter.
+     * @param evt The keydown event.
+     * @private
+     */
+    private mobileMenuIconOnKeyDown(evt: KeyboardEvent) {
+        if (isSpaceKey(evt) || isEnterKey(evt)) {
+            this.mobileMenuIconClick();
+        }
+    }
+
+    /**
+     * Close the mobile menu if the user press escape.
+     * @param evt keydown event on window target.
+     */
+    @Listen('keydown', {target: 'window'})
+    exitMobileMenuOnKeyDown(evt: KeyboardEvent) {
+        if(isEscapeKey(evt)) {
+            this.mobileMenuOpen = false;
+        }
+    }
 }

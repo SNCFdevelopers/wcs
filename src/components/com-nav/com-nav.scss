@@ -78,6 +78,20 @@
         border-left: solid 1px var(--wcs-text-light);
     }
 
+    #mobile-menu-icon:focus {
+        outline: none;
+    }
+
+    #mobile-menu-icon:focus-visible::after {
+        @include focus-outline();
+    }
+
+    @supports not selector(#mobile-menu-icon:focus-visible::after) {
+        #mobile-menu-icon:focus::after {
+            @include focus-outline();
+        }
+    }
+
     #mobile-menu-icon:after {
         font-family: icons;
         font-size: 24px;
