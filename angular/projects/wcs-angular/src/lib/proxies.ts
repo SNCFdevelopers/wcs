@@ -749,9 +749,13 @@ export class WcsGridColumn {
 import type { WcsGridColumnSortChangeEventDetails as IWcsGridColumnWcsGridColumnSortChangeEventDetails } from 'wcs-core';
 
 export declare interface WcsGridColumn extends Components.WcsGridColumn {
-
+  /**
+   * Event emitted when the sort of the column is changed.
+   */
   wcsSortChange: EventEmitter<CustomEvent<IWcsGridColumnWcsGridColumnSortChangeEventDetails>>;
-
+  /**
+   * Event emitted if the column is dynamically switching visibility.
+   */
   wcsHiddenChange: EventEmitter<CustomEvent<boolean>>;
 }
 

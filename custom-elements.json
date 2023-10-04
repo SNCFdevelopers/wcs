@@ -2978,85 +2978,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/dropdown-item/dropdown-item.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "DropdownItem",
-          "members": [
-            {
-              "kind": "method",
-              "name": "onMouseDown",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "_",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "onKeyDown",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "evt",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-dropdown-item",
-          "events": [
-            {
-              "name": "wcsDropdownItemClick",
-              "type": {
-                "text": "EventEmitter<void>"
-              }
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "DropdownItem",
-          "declaration": {
-            "name": "DropdownItem",
-            "module": "components/dropdown-item/dropdown-item.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-dropdown-item",
-          "declaration": {
-            "name": "DropdownItem",
-            "module": "components/dropdown-item/dropdown-item.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/editable-field/editable-field-interface.tsx",
       "declarations": [
         {
@@ -3441,6 +3362,85 @@
           "declaration": {
             "name": "EditableField",
             "module": "components/editable-field/editable-field.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/dropdown-item/dropdown-item.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "DropdownItem",
+          "members": [
+            {
+              "kind": "method",
+              "name": "onMouseDown",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "_",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "onKeyDown",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "evt",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-dropdown-item",
+          "events": [
+            {
+              "name": "wcsDropdownItemClick",
+              "type": {
+                "text": "EventEmitter<void>"
+              }
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "DropdownItem",
+          "declaration": {
+            "name": "DropdownItem",
+            "module": "components/dropdown-item/dropdown-item.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-dropdown-item",
+          "declaration": {
+            "name": "DropdownItem",
+            "module": "components/dropdown-item/dropdown-item.tsx"
           }
         }
       ]
@@ -3840,6 +3840,74 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/galactic/galactic.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Galactic",
+          "members": [
+            {
+              "kind": "field",
+              "name": "text",
+              "type": {
+                "text": "string"
+              },
+              "description": "Text to display in the bar"
+            },
+            {
+              "kind": "field",
+              "name": "show",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "text",
+              "fieldName": "text",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "tagName": "wcs-galactic",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Galactic",
+          "declaration": {
+            "name": "Galactic",
+            "module": "components/galactic/galactic.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-galactic",
+          "declaration": {
+            "name": "Galactic",
+            "module": "components/galactic/galactic.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/galactic-menu/galactic-menu.tsx",
       "declarations": [
         {
@@ -3952,74 +4020,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/galactic/galactic.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Galactic",
-          "members": [
-            {
-              "kind": "field",
-              "name": "text",
-              "type": {
-                "text": "string"
-              },
-              "description": "Text to display in the bar"
-            },
-            {
-              "kind": "field",
-              "name": "show",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "text",
-              "fieldName": "text",
-              "type": {
-                "text": "string"
-              }
-            }
-          ],
-          "tagName": "wcs-galactic",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Galactic",
-          "declaration": {
-            "name": "Galactic",
-            "module": "components/galactic/galactic.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-galactic",
-          "declaration": {
-            "name": "Galactic",
-            "module": "components/galactic/galactic.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/grid/grid-interface.ts",
       "declarations": [
         {
@@ -4052,7 +4052,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "The grid component is a complex component used as a table to display collections of data.",
+          "description": "The grid component is a complex component used as an HTML table to display collections of data.",
           "name": "Grid",
           "cssProperties": [
             {
@@ -4115,7 +4115,7 @@
                 "text": "WcsGridSelectionConfig"
               },
               "default": "'none'",
-              "description": "Used to manage grid's row selection"
+              "description": "Used to manage grid's row selection.  \r\n\"none\": no row can be selected.  \r\n\"multiple\": several rows can be selected.  \r\n\"single\": one row only can be selected."
             },
             {
               "kind": "field",
@@ -4131,7 +4131,8 @@
               "name": "wcsGridPaginationId",
               "type": {
                 "text": "string"
-              }
+              },
+              "description": "Automatically set by the component to reference the wcs-grid-pagination HTML element by its id."
             },
             {
               "kind": "field",
@@ -4598,8 +4599,20 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "",
+          "description": "The grid column is a subcomponent of `wcs-grid` that represents every column of a table.",
           "name": "GridColumn",
+          "cssProperties": [
+            {
+              "description": "Border separator between column names",
+              "name": "--wcs-grid-column-border-left"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "CSS part for each column for styling. e.g: first_name-column, email-column",
+              "name": "[path]-column"
+            }
+          ],
           "members": [
             {
               "kind": "field",
@@ -4614,14 +4627,16 @@
               "name": "path",
               "type": {
                 "text": "string"
-              }
+              },
+              "description": "Represents the name of the field from the `data` object (e.g: first_name, last_name, email, ...)"
             },
             {
               "kind": "field",
               "name": "name",
               "type": {
                 "text": "string"
-              }
+              },
+              "description": "The name of the column displayed on the table (e.g: First Name, Last Name, Email, ...)"
             },
             {
               "kind": "field",
@@ -4629,21 +4644,24 @@
               "type": {
                 "text": "boolean"
               },
-              "default": "false"
+              "default": "false",
+              "description": "Make the column sortable."
             },
             {
               "kind": "field",
               "name": "sortFn",
               "type": {
                 "text": "WcsSortFn"
-              }
+              },
+              "description": "Customizable sort function to change the comparison of values."
             },
             {
               "kind": "field",
               "name": "formatter",
               "type": {
                 "text": "WcsCellFormatter"
-              }
+              },
+              "description": "Customizable formatter function to render the cell differently."
             },
             {
               "kind": "field",
@@ -4651,7 +4669,8 @@
               "type": {
                 "text": "WcsSortOrder"
               },
-              "default": "'none'"
+              "default": "'none'",
+              "description": "Defines if the column sort is ascending or descending.  \r\n`none` = the column is not sorted."
             },
             {
               "kind": "field",
@@ -4659,7 +4678,7 @@
               "type": {
                 "text": "string"
               },
-              "description": "Set the column <th> element width"
+              "description": "Set the column `<th>` element width."
             },
             {
               "kind": "field",
@@ -4667,7 +4686,8 @@
               "type": {
                 "text": "boolean"
               },
-              "default": "false"
+              "default": "false",
+              "description": "Automatically set to true if using a `wcs-custom-cell`."
             },
             {
               "kind": "field",
@@ -4675,7 +4695,8 @@
               "type": {
                 "text": "boolean"
               },
-              "default": "false"
+              "default": "false",
+              "description": "Flag to hide the column."
             },
             {
               "kind": "method",
@@ -4791,13 +4812,15 @@
               "name": "wcsSortChange",
               "type": {
                 "text": "EventEmitter<WcsGridColumnSortChangeEventDetails>"
-              }
+              },
+              "description": "Event emitted when the sort of the column is changed."
             },
             {
               "name": "wcsHiddenChange",
               "type": {
                 "text": "EventEmitter<boolean>"
-              }
+              },
+              "description": "Event emitted if the column is dynamically switching visibility."
             }
           ],
           "customElement": true

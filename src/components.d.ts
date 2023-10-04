@@ -326,7 +326,7 @@ export namespace Components {
         "text": string;
     }
     /**
-     * The grid component is a complex component used as a table to display collections of data.
+     * The grid component is a complex component used as an HTML table to display collections of data.
      * @cssprop --wcs-grid-highlight-color - Color for selected rows
      * @cssprop --wcs-grid-column-border-left - Left border of all grid headers
      */
@@ -348,26 +348,58 @@ export namespace Components {
          */
         "selectedItems": any | any[];
         /**
-          * Used to manage grid's row selection. "none": no row can be selected. "multiple": several rows can be selected. "single": one row only can be selected.
+          * Used to manage grid's row selection.   "none": no row can be selected.   "multiple": several rows can be selected.   "single": one row only can be selected.
          */
         "selectionConfig": WcsGridSelectionConfig;
         /**
           * Manage sort and pagination with a backend server when set to `true`
          */
         "serverMode": boolean;
+        /**
+          * Automatically set by the component to reference the wcs-grid-pagination HTML element by its id.
+         */
         "wcsGridPaginationId": string;
     }
+    /**
+     * The grid column is a subcomponent of `wcs-grid` that represents a column of the table.
+     * @cssprop --wcs-grid-column-border-left - Border separator between column names
+     * @csspart [path]-column - CSS part for each column for styling. e.g: first_name-column, email-column
+     */
     interface WcsGridColumn {
+        /**
+          * Automatically set to true if using a `wcs-custom-cell`.
+         */
         "customCells": boolean;
+        /**
+          * Customizable formatter function to render the cell differently.
+         */
         "formatter": WcsCellFormatter;
+        /**
+          * Flag to hide the column.
+         */
         "hidden": boolean;
+        /**
+          * The name of the column displayed on the table (e.g: First Name, Last Name, Email, ...)
+         */
         "name": string;
+        /**
+          * Represents the name of the field from the `data` object (e.g: first_name, last_name, email, ...)
+         */
         "path": string;
+        /**
+          * Make the column sortable.
+         */
         "sort": boolean;
+        /**
+          * Customizable sort function to change the comparison of values.
+         */
         "sortFn": WcsSortFn;
+        /**
+          * Defines if the column sort is ascending or descending.   `none` = the column is not sorted.
+         */
         "sortOrder": WcsSortOrder;
         /**
-          * Set the column <th> element width
+          * Set the column `<th>` element width.
          */
         "width": string;
     }
@@ -1274,7 +1306,7 @@ declare global {
         new (): HTMLWcsGalacticMenuElement;
     };
     /**
-     * The grid component is a complex component used as a table to display collections of data.
+     * The grid component is a complex component used as an HTML table to display collections of data.
      * @cssprop --wcs-grid-highlight-color - Color for selected rows
      * @cssprop --wcs-grid-column-border-left - Left border of all grid headers
      */
@@ -1284,6 +1316,11 @@ declare global {
         prototype: HTMLWcsGridElement;
         new (): HTMLWcsGridElement;
     };
+    /**
+     * The grid column is a subcomponent of `wcs-grid` that represents a column of the table.
+     * @cssprop --wcs-grid-column-border-left - Border separator between column names
+     * @csspart [path]-column - CSS part for each column for styling. e.g: first_name-column, email-column
+     */
     interface HTMLWcsGridColumnElement extends Components.WcsGridColumn, HTMLStencilElement {
     }
     var HTMLWcsGridColumnElement: {
@@ -1858,7 +1895,7 @@ declare namespace LocalJSX {
         "text"?: string;
     }
     /**
-     * The grid component is a complex component used as a table to display collections of data.
+     * The grid component is a complex component used as an HTML table to display collections of data.
      * @cssprop --wcs-grid-highlight-color - Color for selected rows
      * @cssprop --wcs-grid-column-border-left - Left border of all grid headers
      */
@@ -1888,28 +1925,66 @@ declare namespace LocalJSX {
          */
         "selectedItems"?: any | any[];
         /**
-          * Used to manage grid's row selection. "none": no row can be selected. "multiple": several rows can be selected. "single": one row only can be selected.
+          * Used to manage grid's row selection.   "none": no row can be selected.   "multiple": several rows can be selected.   "single": one row only can be selected.
          */
         "selectionConfig"?: WcsGridSelectionConfig;
         /**
           * Manage sort and pagination with a backend server when set to `true`
          */
         "serverMode"?: boolean;
+        /**
+          * Automatically set by the component to reference the wcs-grid-pagination HTML element by its id.
+         */
         "wcsGridPaginationId"?: string;
     }
+    /**
+     * The grid column is a subcomponent of `wcs-grid` that represents a column of the table.
+     * @cssprop --wcs-grid-column-border-left - Border separator between column names
+     * @csspart [path]-column - CSS part for each column for styling. e.g: first_name-column, email-column
+     */
     interface WcsGridColumn {
+        /**
+          * Automatically set to true if using a `wcs-custom-cell`.
+         */
         "customCells"?: boolean;
+        /**
+          * Customizable formatter function to render the cell differently.
+         */
         "formatter"?: WcsCellFormatter;
+        /**
+          * Flag to hide the column.
+         */
         "hidden"?: boolean;
+        /**
+          * The name of the column displayed on the table (e.g: First Name, Last Name, Email, ...)
+         */
         "name"?: string;
+        /**
+          * Event emitted if the column is dynamically switching visibility.
+         */
         "onWcsHiddenChange"?: (event: WcsGridColumnCustomEvent<boolean>) => void;
+        /**
+          * Event emitted when the sort of the column is changed.
+         */
         "onWcsSortChange"?: (event: WcsGridColumnCustomEvent<WcsGridColumnSortChangeEventDetails>) => void;
+        /**
+          * Represents the name of the field from the `data` object (e.g: first_name, last_name, email, ...)
+         */
         "path"?: string;
+        /**
+          * Make the column sortable.
+         */
         "sort"?: boolean;
+        /**
+          * Customizable sort function to change the comparison of values.
+         */
         "sortFn"?: WcsSortFn;
+        /**
+          * Defines if the column sort is ascending or descending.   `none` = the column is not sorted.
+         */
         "sortOrder"?: WcsSortOrder;
         /**
-          * Set the column <th> element width
+          * Set the column `<th>` element width.
          */
         "width"?: string;
     }
@@ -2670,11 +2745,16 @@ declare module "@stencil/core" {
             "wcs-galactic": LocalJSX.WcsGalactic & JSXBase.HTMLAttributes<HTMLWcsGalacticElement>;
             "wcs-galactic-menu": LocalJSX.WcsGalacticMenu & JSXBase.HTMLAttributes<HTMLWcsGalacticMenuElement>;
             /**
-             * The grid component is a complex component used as a table to display collections of data.
+             * The grid component is a complex component used as an HTML table to display collections of data.
              * @cssprop --wcs-grid-highlight-color - Color for selected rows
              * @cssprop --wcs-grid-column-border-left - Left border of all grid headers
              */
             "wcs-grid": LocalJSX.WcsGrid & JSXBase.HTMLAttributes<HTMLWcsGridElement>;
+            /**
+             * The grid column is a subcomponent of `wcs-grid` that represents a column of the table.
+             * @cssprop --wcs-grid-column-border-left - Border separator between column names
+             * @csspart [path]-column - CSS part for each column for styling. e.g: first_name-column, email-column
+             */
             "wcs-grid-column": LocalJSX.WcsGridColumn & JSXBase.HTMLAttributes<HTMLWcsGridColumnElement>;
             "wcs-grid-custom-cell": LocalJSX.WcsGridCustomCell & JSXBase.HTMLAttributes<HTMLWcsGridCustomCellElement>;
             "wcs-grid-pagination": LocalJSX.WcsGridPagination & JSXBase.HTMLAttributes<HTMLWcsGridPaginationElement>;

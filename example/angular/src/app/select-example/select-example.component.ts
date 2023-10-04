@@ -93,6 +93,8 @@ export class SelectExampleComponent implements OnInit {
   ];
   private asynchronousOptionsSubject = new Subject<Option[]>();
 
+
+
   value = [1, 2];
   bindingCustomSelect: any;
   bindingNativeSelect: any = 'Intercités';

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-08-29T15:24:22",
+  "timestamp": "2023-10-04T14:56:49",
   "compiler": {
     "name": "@stencil/core",
     "version": "3.0.0",
@@ -561,6 +561,7 @@
       "slots": [],
       "parts": [],
       "dependents": [
+        "wcs-counter",
         "wcs-dropdown",
         "wcs-horizontal-stepper",
         "wcs-modal"
@@ -571,6 +572,9 @@
       "dependencyGraph": {
         "wcs-button": [
           "wcs-spinner"
+        ],
+        "wcs-counter": [
+          "wcs-button"
         ],
         "wcs-dropdown": [
           "wcs-button"
@@ -1049,6 +1053,159 @@
       "dependents": [],
       "dependencies": [],
       "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/counter/counter.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-counter",
+      "readme": "# Input\r\n\r",
+      "docs": "Counter component, meant to be used for small range of values (e.g : 0 - 5).<br>\r\nFor larger or specific ranges, please use [wcs-input (type number)](.?path=/docs/components-input--documentation)",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "The label of the counter.<br/>\r\ne.g. Number of passengers, train carriages, railroad tracks...",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "max",
+          "type": "number",
+          "mutable": true,
+          "attr": "max",
+          "reflectToAttr": false,
+          "docs": "The maximum value of the counter.\r\nIf the value of the max attribute isn't set, then the element has no maximum value.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "min",
+          "type": "number",
+          "mutable": true,
+          "attr": "min",
+          "reflectToAttr": false,
+          "docs": "The minimum value of the counter.\r\nIf the value of the min attribute isn't set, then the element has no minimum value.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "\"l\" | \"m\"",
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": true,
+          "docs": "Specify the size (height) of the counter.",
+          "docsTags": [],
+          "default": "'m'",
+          "values": [
+            {
+              "value": "l",
+              "type": "string"
+            },
+            {
+              "value": "m",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "step",
+          "type": "number",
+          "mutable": true,
+          "attr": "step",
+          "reflectToAttr": false,
+          "docs": "Defines by how much the counter will be incremented or decremented.",
+          "docsTags": [],
+          "default": "1",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "mutable": true,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "Allow to change currentValue programmatically",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": true,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "wcsBlur",
+          "detail": "FocusEvent",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the counter loses focus.",
+          "docsTags": []
+        },
+        {
+          "event": "wcsChange",
+          "detail": "CounterChangeEventDetail",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the value of the counter has changed.",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "wcs-button",
+        "wcs-mat-icon"
+      ],
+      "dependencyGraph": {
+        "wcs-counter": [
+          "wcs-button",
+          "wcs-mat-icon"
+        ],
+        "wcs-button": [
+          "wcs-spinner"
+        ]
+      }
     },
     {
       "filePath": "./src/components/divider/divider.tsx",
@@ -1824,7 +1981,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-grid",
       "readme": "# Grid\r\n\r",
-      "docs": "The grid component is a complex component used as a table to display collections of data.",
+      "docs": "The grid component is a complex component used as an HTML table to display collections of data.",
       "docsTags": [
         {
           "name": "cssprop",
@@ -1915,7 +2072,7 @@
           "mutable": false,
           "attr": "selection-config",
           "reflectToAttr": false,
-          "docs": "Used to manage grid's row selection",
+          "docs": "Used to manage grid's row selection.  \r\n\"none\": no row can be selected.  \r\n\"multiple\": several rows can be selected.  \r\n\"single\": one row only can be selected.",
           "docsTags": [],
           "default": "'none'",
           "values": [
@@ -1958,7 +2115,7 @@
           "mutable": false,
           "attr": "wcs-grid-pagination-id",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Automatically set by the component to reference the wcs-grid-pagination HTML element by its id.",
           "docsTags": [],
           "values": [
             {
@@ -2044,8 +2201,17 @@
       "encapsulation": "shadow",
       "tag": "wcs-grid-column",
       "readme": "# wcs-grid-column\r\n\r\n\r\n\r",
-      "docs": "",
-      "docsTags": [],
+      "docs": "The grid column is a subcomponent of `wcs-grid` that represents every column of a table.",
+      "docsTags": [
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-column-border-left - Border separator between column names"
+        },
+        {
+          "name": "csspart",
+          "text": "[path]-column - CSS part for each column for styling. e.g: first_name-column, email-column"
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -2054,7 +2220,7 @@
           "mutable": false,
           "attr": "custom-cells",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Automatically set to true if using a `wcs-custom-cell`.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -2070,7 +2236,7 @@
           "type": "(_h: HyperFunc<VNode>, column: HTMLWcsGridColumnElement, rowData: WcsGridRowData) => HTMLElement | HTMLElement[]",
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Customizable formatter function to render the cell differently.",
           "docsTags": [],
           "values": [
             {
@@ -2089,7 +2255,7 @@
           "mutable": false,
           "attr": "hidden",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Flag to hide the column.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -2106,7 +2272,7 @@
           "mutable": false,
           "attr": "name",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "The name of the column displayed on the table (e.g: First Name, Last Name, Email, ...)",
           "docsTags": [],
           "values": [
             {
@@ -2122,7 +2288,7 @@
           "mutable": false,
           "attr": "path",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Represents the name of the field from the `data` object (e.g: first_name, last_name, email, ...)",
           "docsTags": [],
           "values": [
             {
@@ -2138,7 +2304,7 @@
           "mutable": false,
           "attr": "sort",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Make the column sortable.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -2154,7 +2320,7 @@
           "type": "(a: any, b: any, column: HTMLWcsGridColumnElement) => 0 | 1 | -1",
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Customizable sort function to change the comparison of values.",
           "docsTags": [],
           "values": [
             {
@@ -2178,7 +2344,7 @@
           "mutable": true,
           "attr": "sort-order",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Defines if the column sort is ascending or descending.  \r\n`none` = the column is not sorted.",
           "docsTags": [],
           "default": "'none'",
           "values": [
@@ -2204,7 +2370,7 @@
           "mutable": false,
           "attr": "width",
           "reflectToAttr": false,
-          "docs": "Set the column <th> element width",
+          "docs": "Set the column `<th>` element width.",
           "docsTags": [],
           "values": [
             {
@@ -2223,7 +2389,7 @@
           "bubbles": true,
           "cancelable": true,
           "composed": true,
-          "docs": "",
+          "docs": "Event emitted if the column is dynamically switching visibility.",
           "docsTags": []
         },
         {
@@ -2232,7 +2398,7 @@
           "bubbles": true,
           "cancelable": true,
           "composed": true,
-          "docs": "",
+          "docs": "Event emitted when the sort of the column is changed.",
           "docsTags": []
         }
       ],
@@ -3887,6 +4053,7 @@
       "slots": [],
       "parts": [],
       "dependents": [
+        "wcs-counter",
         "wcs-editable-field",
         "wcs-galactic-menu",
         "wcs-horizontal-stepper",
@@ -3896,6 +4063,9 @@
       ],
       "dependencies": [],
       "dependencyGraph": {
+        "wcs-counter": [
+          "wcs-mat-icon"
+        ],
         "wcs-editable-field": [
           "wcs-mat-icon"
         ],
@@ -4061,6 +4231,48 @@
           "wcs-spinner"
         ]
       }
+    },
+    {
+      "filePath": "./src/components/native-select/native-select.component.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-native-select",
+      "readme": "# wcs-select-native\r\n\r\n\r\n\r",
+      "docs": "The `wcs-native-select` component is designed to accept a native <select> element as a slotted child. This choice\r\nallows developers to bind the <select> element using the framework of their choice, without the need to re-expose all the\r\nproperties of the <select> and <option> elements in this component.\r\n\r\nThe component wraps the native <select> element and provides custom styles and behavior, while preserving the native\r\nfunctionality and accessibility.\r\n\r\nExample usage:\r\n\r\n<wcs-native-select>\r\n  <select>\r\n    <option value=\"option1\">Option 1</option>\r\n    <option value=\"option2\">Option 2</option>\r\n    <option value=\"option3\">Option 3</option>\r\n  </select>\r\n</wcs-native-select>",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "size",
+          "type": "\"l\" | \"m\"",
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": true,
+          "docs": "The `size` property controls the size of the slotted `select` element by adjusting its padding.\r\nThere are two possible size options:\r\n- 'm': medium size\r\n- 'l': large size\r\n\r\nThe default value is 'm'.",
+          "docsTags": [],
+          "default": "'m'",
+          "values": [
+            {
+              "value": "l",
+              "type": "string"
+            },
+            {
+              "value": "m",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
     },
     {
       "filePath": "./src/components/nav/nav.tsx",
@@ -4526,10 +4738,6 @@
         {
           "name": "example",
           "text": "```hmtl\r\n<wcs-select>\r\n<wcs-select-option value=\"1\">One</wcs-select-option>\r\n</wcs-select>```"
-        },
-        {
-          "name": "todo",
-          "text": "Complete keyboard navigation."
         }
       ],
       "usage": {},
@@ -4738,6 +4946,11 @@
           "passive": false
         },
         {
+          "event": "keydown",
+          "capture": false,
+          "passive": false
+        },
+        {
           "event": "wcsSelectOptionClick",
           "capture": false,
           "passive": false
@@ -4865,6 +5078,11 @@
           "event": "mousedown",
           "capture": false,
           "passive": true
+        },
+        {
+          "event": "keydown",
+          "capture": false,
+          "passive": false
         }
       ],
       "styles": [],

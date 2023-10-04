@@ -9,7 +9,7 @@ import {
 } from '../../../src/components/grid/grid-interface';
 import {getComponentArgs} from '../../utils/args-generation';
 
-type gridArgs = {
+type GridArgs = {
     data: any[],
     selectionConfig: WcsGridSelectionConfig,
     loading: boolean,
@@ -25,9 +25,12 @@ type gridArgs = {
     formatter: void,
 }
 
-const Template: StoryFn<Partial<gridArgs>> = (args) => html`
-    <wcs-grid id="grid-simple-1" selection-config=${args.selectionConfig} .selectedItems=${args.selectedItems}
-              ?loading="${args.loading}" .data=${args.data}>
+const Template: StoryFn<Partial<GridArgs>> = (args: Partial<GridArgs>) => html`
+    <wcs-grid id="grid-simple-1"
+              selection-config=${args.selectionConfig}
+              .selectedItems=${args.selectedItems}
+              ?loading="${args.loading}"
+              .data=${args.data}>
         <wcs-grid-column name="First Name" path="first_name" sort></wcs-grid-column>
         <wcs-grid-column name="Last Name" path="last_name" sort sort-order=${args.initialSortConfig}></wcs-grid-column>
         <wcs-grid-column name="Email" path="email" sort ?hidden=${args.hideEmailColumn}></wcs-grid-column>
@@ -125,39 +128,33 @@ const sampleData = [
     }];
 
 /**
- * Default grid example. The data is not showed in the `wcs-grid` element **attribute** because it is meant to be bound with your framework.<br/>
- * Data is defined like so :
- * ```
+ * **Default grid example**  
+ * The `data` is **not** showed in the `wcs-grid` element attribute because it is meant to be bound with your framework
+ * in your template.
+ * 
+ * <details>
+ *     <summary>`Data` object example</summary>
+ * ```js
  * const data = [
- *  {
- *         'id': 1,
- *         'first_name': 'Connor',
- *         'last_name': 'Ryland',
- *         'email': 'cryland0@google.co.uk',
- *         'ip_address': '55.58.177.143'
- *   },
+ * {
+ *   'id': 1,
+ *   'first_name': 'Connor',
+ *   'last_name': 'Ryland',
+ *   'email': 'cryland0@google.co.uk',
+ *   'ip_address': '55.58.177.143'
+ * },
  *   // other rows...
  * ]
  * ```
+ * </details>
  */
 export const Default: StoryObj = {
-    render: (args: gridArgs) => html`
-        <wcs-grid id="grid-simple-1"
-                  selection-config=${args.selectionConfig}
-                  .selectedItems=${args.selectedItems}
-                  .data=${args.data}
-                  ?loading="${args.loading}">
-            <wcs-grid-column name="First Name" path="first_name" sort></wcs-grid-column>
-            <wcs-grid-column name="Last Name" path="last_name" sort
-                             sort-order=${args.initialSortConfig}></wcs-grid-column>
-            <wcs-grid-column name="Email" path="email" sort ?hidden=${args.hideEmailColumn}></wcs-grid-column>
-            <wcs-grid-column name="IP Address" path="ip_address" sort ?hidden=${args.hideIpColumn}></wcs-grid-column>
-        </wcs-grid>
-    `,
+    render: (args: GridArgs) => Template(args, this),
     args: {
-        'data': sampleData,
-        'selectionConfig': 'none',
-        children: html`<div>hein</div>`
+        data: sampleData,
+        selectionConfig: 'none',
+        serverMode: false,
+        loading: false,
     }
 }
 
@@ -167,11 +164,12 @@ function buttonClickHandler(email: string) {
 }
 
 /**
- * You can add a custom cell with any slotted elements inside to suit your needs.
- * Useful for actions such as buttons, links or any custom component.
+ * **Customize your own cell rendering**  
+ * You can add a custom cell with any slotted elements inside to suit your needs.  
+ * Useful for actions such as buttons, links or any custom component.  
  */
 export const CustomCell: StoryObj = {
-    render: (args: gridArgs) => html`
+    render: (args: GridArgs) => html`
         <wcs-grid id="grid-simple-1" .data=${args.data} row-id-path="id">
             <wcs-grid-column name="First Name" path="first_name" sort></wcs-grid-column>
             <wcs-grid-column name="Last Name" path="last_name" sort></wcs-grid-column>
@@ -197,14 +195,14 @@ export const CustomCell: StoryObj = {
  * ************************************************************************ */
 
 /**
- * Sometimes you need to dynamically change the columns to be displayed or not.
+ * **Hide some columns dynamically**  
+ * Sometimes you need to dynamically change the columns to be displayed or not.  
  * For this, a `hidden` property exists on `grid-column` elements. The grid does not support deleting `grid-column` dom
- * elements after it has been instantiated.
- *
- * This feature allows for example to let the user choose which columns they want to display or not via the interface.
+ * elements after it has been instantiated. This feature allows for example to let the user choose which columns they
+ * want to display or not via the interface.
  */
 export const HiddenColumn: StoryObj = {
-    render: (args: gridArgs) => Template(args, this),
+    render: (args: GridArgs) => Template(args, this),
     args: {
         data: sampleData,
         selectionConfig: 'none',
@@ -218,9 +216,14 @@ export const HiddenColumn: StoryObj = {
 /* ************************************************************************ *
  *                         Initial Sort Config                              *
  * ************************************************************************ */
-
+/**
+ * **Change the initial sort of your grid**  
+ * Attributes `sort`, `sortFn`, `sortOrder` are part of the `wcs-grid-column` API.  
+ * 
+ * [See more details about the Grid Column API docs](.?path=/docs/components-grid-subcomponents-grid-column--documentation).
+ */
 export const InitialSortConfig: StoryObj = {
-    render: (args: gridArgs) => Template(args, this),
+    render: (args: GridArgs) => Template(args, this),
     args: {
         data: sampleData,
         selectionConfig: 'none',
@@ -233,15 +236,37 @@ export const InitialSortConfig: StoryObj = {
  * ************************************************************************ */
 
 /**
- * For simple customization needs, wcs generates a css part on each cell. All cells of a same column have the same css part
- * whose name is prefixed with the `path` attribute of the column concatenated with `-column` (e.g. `email-column`).
+ * **Customize your cells (style only)**    
+ * For simple customization needs, wcs generates a css part on each cell.  
+ * All cells of a same column have the same css part whose name is prefixed with the `path` attribute of the column
+ * concatenated with `-column`.  
+ * **e.g.: This means that all cells in the email column have the css part named `email-column`.**
  *
  * If you need more customization, you can add css parts yourself in the formatter function and then use them in your CSS sheet.
  *
- * For more information on CSS part, see [https://developer.mozilla.org/fr/docs/Web/CSS/::part](https://developer.mozilla.org/fr/docs/Web/CSS/::part).
+ * For more information on CSS part,
+ * see [https://developer.mozilla.org/fr/docs/Web/CSS/::part](https://developer.mozilla.org/fr/docs/Web/CSS/::part).
+ *
+ * <details>
+ *     <summary>Formatter Example</summary>
+ *     ```js
+ *     const myFormatter: WcsCellFormatter = (createElement, _, rowData) => {
+ *     // We add the part attribute on the element we want to style
+ *     return createElement('a', {
+ *         'href': 'mailto:' + rowData.data.email,
+ *         'class': 'grid-email-column',
+ *         'part': 'custom-user-part'
+ *       }, rowData.data.email);
+ *     }
+ *     // ...
+ *     <wcs-grid data="myData">
+ *         <wcs-grid-column name"Email" path="email" formatter="myFormatter">
+ *     </wcs-grid>
+ *     ```
+ * </details>
  */
 export const CellStyling: StoryObj = {
-    render: (args: gridArgs) => html`
+    render: (args: GridArgs) => html`
         <wcs-grid id="grid-cell-styling" .data=${args.data}>
             <wcs-grid-column name="First Name" path="first_name" sort></wcs-grid-column>
             <wcs-grid-column name="Last Name" path="last_name" sort></wcs-grid-column>
@@ -279,27 +304,32 @@ export const CellStyling: StoryObj = {
  *                              Selection                                   *
  * ************************************************************************ */
 /**
- * You can assign an item selection with the `selectedItems` property.
- * If the selection mode is set to multiple, the value must be an array, otherwise a single item.
+ * **Select one row**  
+ * You can assign an item selection with the `selectedItems` property.  
+ * If the selection mode is set to multiple, the value must be an array, otherwise a single item.  
  *
- * The values are compared with the `_.equals()` function of loadash.
+ * The values are compared with the `_.isEqual()` function of lodash.  
  * When the selection changes, the `wcsGridSelectionChange` event contains the details of the rows selected by the user.
  *
- * In the following case, initial properties as set like so :
+ * **In the following example (single-selection), initial properties as set like so :**
  *
- * ```javascript
- * selectionConfig = 'single';
- * selectedItems = {
- *   'id': 4,
- *   'first_name': 'Dag',
- *   'last_name': 'Manoelli',
- *   'email': 'dmanoelli3@nps.gov',
- *   'ip_address': '111.47.126.157'
- * };
- * ```
+ * <details>
+ *     <summary>Show code</summary>
+ *     ```js
+ *     selectionConfig = 'single';
+ *     selectedItems = {
+ *       'id': 4,
+ *       'first_name': 'Dag',
+ *       'last_name': 'Manoelli',
+ *       'email': 'dmanoelli3@nps.gov',
+ *       'ip_address': '111.47.126.157'
+ *     };
+ *     ```
+ * </details>
+ * 
  */
 export const Selection: StoryObj = {
-    render: (args: gridArgs) => Template(args, this),
+    render: (args: GridArgs) => Template(args, this),
     args: {
         data: sampleData,
         selectionConfig: 'single',
@@ -319,35 +349,39 @@ export const Selection: StoryObj = {
 }
 
 /**
- * You can assign an item selection with the `selectedItems` property.
- * If the selection mode is set to multiple, the value must be an array, otherwise a single item.
+ * **Select several rows**  
+ * You can assign an item selection with the `selectedItems` property.  
+ * If the selection mode is set to multiple, the value must be an array, otherwise a single item.  
  *
- * The values are compared with the `_.equals()` function of lodash.
+ * The values are compared with the `_.equals()` function of lodash.  
  * When the selection changes, the `wcsGridSelectionChange` event contains the details of the rows selected by the user.
  *
- * In the following case, initial properties as set like so :
+ * **In the following example (multi-selection), initial properties as set like so :**
  *
- * ```javascript
- * selectionConfig = 'multiple';
- * selectedItems = [{
- *   'id': 4,
- *   'first_name': 'Dag',
- *   'last_name': 'Manoelli',
- *   'email': 'dmanoelli3@nps.gov',
- *   'ip_address': '111.47.126.157'
- * },
- * {
- *   'id': 5,
- *   'first_name': 'Glynn',
- *   'last_name': 'Yude',
- *   'email': 'gyude4@google.com.au',
- *   'ip_address': '204.240.34.228'
- * }];
- * ```
+ * <details>
+ *     <summary>Show code</summary>
+ *     ```js
+ *     selectionConfig = 'multiple';
+ *     selectedItems = [{
+ *       'id': 4,
+ *       'first_name': 'Dag',
+ *       'last_name': 'Manoelli',
+ *       'email': 'dmanoelli3@nps.gov',
+ *       'ip_address': '111.47.126.157'
+ *     },
+ *     {
+ *       'id': 5,
+ *       'first_name': 'Glynn',
+ *       'last_name': 'Yude',
+ *       'email': 'gyude4@google.com.au',
+ *       'ip_address': '204.240.34.228'
+ *     }];
+ *    ```
+ * </details>
  *
  */
 export const MultiSelection: StoryObj = {
-    render: (args: gridArgs) => Template(args, this),
+    render: (args: GridArgs) => Template(args, this),
     args: {
         data: sampleData,
         selectionConfig: 'multiple',
@@ -371,8 +405,15 @@ export const MultiSelection: StoryObj = {
 /* ************************************************************************ *
  *                              Pagination                                  *
  * ************************************************************************ */
+/**
+ * **Add pagination to your grid**  
+ * You can add a `wcs-grid-pagination` element inside your `wcs-grid`.  
+ * The pagination contains the number of elements shown per page, the total number of elements, and the page navigation.
+ * 
+ * [See more details about the Grid Pagination API docs](.?path=/docs/components-grid-subcomponents-grid-pagination--documentation)
+ */
 export const Pagination: StoryObj = {
-    render: (args: gridArgs) => html`
+    render: (args: GridArgs) => html`
         <wcs-grid id="grid-simple-1" .data=${args.data}>
             <wcs-grid-column name="First Name" path="first_name" sort></wcs-grid-column>
             <wcs-grid-column name="Last Name" path="last_name" sort></wcs-grid-column>
@@ -399,13 +440,21 @@ function sortClickHandler(event: CustomEvent<WcsGridColumnSortChangeEventDetails
 }
 
 /**
- * Use server mode when you hold a great quantity of data that should be refreshed using your backend and not your frontend.
- * On loading the data, sorting a column or changing the pagination, and event is fired and the data should be refreshed from your server.
+ * **Load the elements using a backend**  
+ * Use `server-mode`on your grid when you hold a great quantity of data that should be refreshed using your backend.  
+ * When doing one of the following actions, an event is fired and the data should be refreshed from your server using
+ * your own callback function.
+ * 
+ * | Action                  |  Event name • Angular     | Event name • React          | Component             | 
+ * | ----------------------- | ------------------------- | --------------------------- | --------------------- |
+ * | Loading the data        | `ngOnInit`                | `componentDidMount`         | `wcs-grid`            |
+ * | Sorting a column        | `wcsSortChange`           | `onWcsSortChange`           | `wcs-grid-column`     |
+ * | Changing the pagination | `wcsGridPaginationChange` | `onWcsGridPaginationChange` | `wcs-grid-pagination` |
  *
- * Try it now by changing the sort / the pagination 👇
+ * **Try it now by changing the sort / the pagination 👇**
  */
 export const ServerMode: StoryObj = {
-    render: (args: gridArgs) => html`
+    render: (args: GridArgs) => html`
         <wcs-grid id="grid-simple-1" .data=${args.data} server-mode>
             <wcs-grid-column name="First Name" path="first_name" sort
                              @wcsSortChange=${event => sortClickHandler(event)}></wcs-grid-column>
@@ -425,7 +474,7 @@ export const ServerMode: StoryObj = {
         </wcs-grid>
     `,
     args: {
-        data: sampleData.splice(0, 2),
+        data: sampleData.slice(-2),
         availablePageSizes: [2, 5, 10, 20, 50],
         currentPage: 0,
         pageSize: 2,

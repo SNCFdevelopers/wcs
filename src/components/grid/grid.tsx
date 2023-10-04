@@ -31,7 +31,7 @@ import { v4 as uuid } from 'uuid';
 import { GridPagination } from '../grid-pagination/grid-pagination';
 
 /**
- * The grid component is a complex component used as a table to display collections of data.
+ * The grid component is a complex component used as an HTML table to display collections of data.
  *
  * @cssprop --wcs-grid-highlight-color - Color for selected rows
  * @cssprop --wcs-grid-column-border-left - Left border of all grid headers
@@ -58,16 +58,19 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
      */
     @Prop() loading: boolean;
     /**
-     * Used to manage grid's row selection.
-     * "none": no row can be selected.
-     * "multiple": several rows can be selected.
-     * "single": one row only can be selected.
+     * Used to manage grid's row selection.  
+     * "none": no row can be selected.  
+     * "multiple": several rows can be selected.  
+     * "single": one row only can be selected.  
      */
     @Prop() selectionConfig: WcsGridSelectionConfig = 'none';
     /**
      * Set the selected items (rows)
      */
     @Prop() selectedItems: any | any[] = [];
+    /**
+     * Automatically set by the component to reference the wcs-grid-pagination HTML element by its id.
+     */
     @Prop() wcsGridPaginationId: string;
     /**
      * Name of the object's key that will be used to display the cells whose `keyValue` attribute matches to the

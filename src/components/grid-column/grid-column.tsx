@@ -2,6 +2,11 @@ import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, P
 import { WcsCellFormatter, WcsGridColumnSortChangeEventDetails, WcsSortFn, WcsSortOrder } from '../grid/grid-interface';
 import { GridSortArrow } from './grid-sort-arrow';
 
+/**
+ * The grid column is a subcomponent of `wcs-grid` that represents a column of the table.
+ * @cssprop --wcs-grid-column-border-left - Border separator between column names
+ * @csspart [path]-column - CSS part for each column for styling. e.g: first_name-column, email-column
+ */
 @Component({
     tag: 'wcs-grid-column',
     styleUrl: 'grid-column.scss',
@@ -9,19 +14,50 @@ import { GridSortArrow } from './grid-sort-arrow';
 })
 export class GridColumn implements ComponentInterface {
     @Element() private el: HTMLWcsGridColumnElement;
+    /**
+     * Represents the name of the field from the `data` object (e.g: first_name, last_name, email, ...)
+     */
     @Prop() path: string;
+    /**
+     * The name of the column displayed on the table (e.g: First Name, Last Name, Email, ...)
+     */
     @Prop() name: string;
+    /**
+     * Make the column sortable.
+     */
     @Prop() sort: boolean = false;
+    /**
+     * Customizable sort function to change the comparison of values.
+     */
     @Prop() sortFn: WcsSortFn;
+    /**
+     * Customizable formatter function to render the cell differently.
+     */
     @Prop() formatter: WcsCellFormatter;
+    /**
+     * Defines if the column sort is ascending or descending.  
+     * `none` = the column is not sorted.
+     */
     @Prop({mutable: true}) sortOrder: WcsSortOrder = 'none';
     /**
-     * Set the column <th> element width
+     * Set the column `<th>` element width.
      */
     @Prop() width: string;
+    /**
+     * Automatically set to true if using a `wcs-custom-cell`.
+     */
     @Prop() customCells: boolean = false;
+    /**
+     * Flag to hide the column.
+     */
     @Prop() hidden: boolean = false;
+    /**
+     * Event emitted when the sort of the column is changed.
+     */
     @Event() wcsSortChange!: EventEmitter<WcsGridColumnSortChangeEventDetails>;
+    /**
+     * Event emitted if the column is dynamically switching visibility.
+     */
     @Event() wcsHiddenChange!: EventEmitter<boolean>;
 
     @Watch('hidden')

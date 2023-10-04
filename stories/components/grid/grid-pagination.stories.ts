@@ -3,7 +3,7 @@ import { html } from 'lit-html';
 import { getComponentArgs } from '../../utils/args-generation';
 
 const meta: Meta = {
-    title: 'Components/Grid/Grid Pagination',
+    title: 'Components/Grid/Subcomponents/Grid Pagination',
     component: 'wcs-grid-pagination',
     argTypes: getComponentArgs('wcs-grid-pagination'),
 };

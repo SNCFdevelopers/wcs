@@ -3,7 +3,7 @@ import { html } from 'lit-html';
 import { getComponentArgs } from '../../utils/args-generation';
 
 const meta: Meta = {
-    title: 'Components/Grid/Grid CustomCell',
+    title: 'Components/Grid/Subcomponents/Grid CustomCell',
     component: 'wcs-grid-custom-cell',
     argTypes: getComponentArgs('wcs-grid-custom-cell'),
 };
