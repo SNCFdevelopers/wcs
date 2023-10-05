@@ -403,6 +403,9 @@ export namespace Components {
          */
         "width": string;
     }
+    /**
+     * The grid custom cell is a subcomponent of `wcs-grid`.
+     */
     interface WcsGridCustomCell {
         /**
           * ID of the column for which to render the cell
@@ -413,6 +416,9 @@ export namespace Components {
          */
         "rowId": any;
     }
+    /**
+     * The grid pagination is a subcomponent of `wcs-grid`, slotted in `grid-pagination` under the `<table>` element.
+     */
     interface WcsGridPagination {
         "availablePageSizes": number[];
         "currentPage": number;
@@ -1327,12 +1333,18 @@ declare global {
         prototype: HTMLWcsGridColumnElement;
         new (): HTMLWcsGridColumnElement;
     };
+    /**
+     * The grid custom cell is a subcomponent of `wcs-grid`.
+     */
     interface HTMLWcsGridCustomCellElement extends Components.WcsGridCustomCell, HTMLStencilElement {
     }
     var HTMLWcsGridCustomCellElement: {
         prototype: HTMLWcsGridCustomCellElement;
         new (): HTMLWcsGridCustomCellElement;
     };
+    /**
+     * The grid pagination is a subcomponent of `wcs-grid`, slotted in `grid-pagination` under the `<table>` element.
+     */
     interface HTMLWcsGridPaginationElement extends Components.WcsGridPagination, HTMLStencilElement {
     }
     var HTMLWcsGridPaginationElement: {
@@ -1988,6 +2000,9 @@ declare namespace LocalJSX {
          */
         "width"?: string;
     }
+    /**
+     * The grid custom cell is a subcomponent of `wcs-grid`.
+     */
     interface WcsGridCustomCell {
         /**
           * ID of the column for which to render the cell
@@ -1998,6 +2013,9 @@ declare namespace LocalJSX {
          */
         "rowId"?: any;
     }
+    /**
+     * The grid pagination is a subcomponent of `wcs-grid`, slotted in `grid-pagination` under the `<table>` element.
+     */
     interface WcsGridPagination {
         "availablePageSizes"?: number[];
         "currentPage"?: number;
@@ -2756,7 +2774,13 @@ declare module "@stencil/core" {
              * @csspart [path]-column - CSS part for each column for styling. e.g: first_name-column, email-column
              */
             "wcs-grid-column": LocalJSX.WcsGridColumn & JSXBase.HTMLAttributes<HTMLWcsGridColumnElement>;
+            /**
+             * The grid custom cell is a subcomponent of `wcs-grid`.
+             */
             "wcs-grid-custom-cell": LocalJSX.WcsGridCustomCell & JSXBase.HTMLAttributes<HTMLWcsGridCustomCellElement>;
+            /**
+             * The grid pagination is a subcomponent of `wcs-grid`, slotted in `grid-pagination` under the `<table>` element.
+             */
             "wcs-grid-pagination": LocalJSX.WcsGridPagination & JSXBase.HTMLAttributes<HTMLWcsGridPaginationElement>;
             "wcs-header": LocalJSX.WcsHeader & JSXBase.HTMLAttributes<HTMLWcsHeaderElement>;
             "wcs-hint": LocalJSX.WcsHint & JSXBase.HTMLAttributes<HTMLWcsHintElement>;

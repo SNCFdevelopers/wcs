@@ -1019,6 +1019,44 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/app/app.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "App",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-app",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "App",
+          "declaration": {
+            "name": "App",
+            "module": "components/app/app.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-app",
+          "declaration": {
+            "name": "App",
+            "module": "components/app/app.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/action-bar/action-bar.tsx",
       "declarations": [
         {
@@ -1085,44 +1123,6 @@
           "declaration": {
             "name": "ActionBar",
             "module": "components/action-bar/action-bar.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/app/app.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "App",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-app",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "App",
-          "declaration": {
-            "name": "App",
-            "module": "components/app/app.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-app",
-          "declaration": {
-            "name": "App",
-            "module": "components/app/app.tsx"
           }
         }
       ]
@@ -2978,6 +2978,85 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/dropdown-item/dropdown-item.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "DropdownItem",
+          "members": [
+            {
+              "kind": "method",
+              "name": "onMouseDown",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "_",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "onKeyDown",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "evt",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-dropdown-item",
+          "events": [
+            {
+              "name": "wcsDropdownItemClick",
+              "type": {
+                "text": "EventEmitter<void>"
+              }
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "DropdownItem",
+          "declaration": {
+            "name": "DropdownItem",
+            "module": "components/dropdown-item/dropdown-item.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-dropdown-item",
+          "declaration": {
+            "name": "DropdownItem",
+            "module": "components/dropdown-item/dropdown-item.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/editable-field/editable-field-interface.tsx",
       "declarations": [
         {
@@ -3362,85 +3441,6 @@
           "declaration": {
             "name": "EditableField",
             "module": "components/editable-field/editable-field.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/dropdown-item/dropdown-item.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "DropdownItem",
-          "members": [
-            {
-              "kind": "method",
-              "name": "onMouseDown",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "_",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "onKeyDown",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "evt",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-dropdown-item",
-          "events": [
-            {
-              "name": "wcsDropdownItemClick",
-              "type": {
-                "text": "EventEmitter<void>"
-              }
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "DropdownItem",
-          "declaration": {
-            "name": "DropdownItem",
-            "module": "components/dropdown-item/dropdown-item.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-dropdown-item",
-          "declaration": {
-            "name": "DropdownItem",
-            "module": "components/dropdown-item/dropdown-item.tsx"
           }
         }
       ]
@@ -4599,7 +4599,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "The grid column is a subcomponent of `wcs-grid` that represents every column of a table.",
+          "description": "The grid column is a subcomponent of `wcs-grid` that represents a column of the table.",
           "name": "GridColumn",
           "cssProperties": [
             {
@@ -4876,7 +4876,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "",
+          "description": "The grid custom cell is a subcomponent of `wcs-grid`.",
           "name": "GridCustomCell",
           "members": [
             {
@@ -4976,7 +4976,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "",
+          "description": "The grid pagination is a subcomponent of `wcs-grid`, slotted in `grid-pagination` under the `<table>` element.",
           "name": "GridPagination",
           "members": [
             {

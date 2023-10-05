@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-10-04T14:56:49",
+  "timestamp": "2023-10-05T08:14:56",
   "compiler": {
     "name": "@stencil/core",
     "version": "3.0.0",
@@ -2201,7 +2201,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-grid-column",
       "readme": "# wcs-grid-column\r\n\r\n\r\n\r",
-      "docs": "The grid column is a subcomponent of `wcs-grid` that represents every column of a table.",
+      "docs": "The grid column is a subcomponent of `wcs-grid` that represents a column of the table.",
       "docsTags": [
         {
           "name": "cssprop",
@@ -2415,8 +2415,13 @@
       "encapsulation": "shadow",
       "tag": "wcs-grid-custom-cell",
       "readme": "# wcs-grid-custom-cell\r\n\r\n\r\n\r",
-      "docs": "",
-      "docsTags": [],
+      "docs": "The grid custom cell is a subcomponent of `wcs-grid`.",
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "[columnId]-[rowId] - Auto-set slot to add the custom cell in the column of the table"
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -2456,7 +2461,12 @@
       "events": [],
       "listeners": [],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "[columnId]-[rowId]",
+          "docs": "Auto-set slot to add the custom cell in the column of the table"
+        }
+      ],
       "parts": [],
       "dependents": [],
       "dependencies": [],

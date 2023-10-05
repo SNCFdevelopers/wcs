@@ -167,6 +167,9 @@ function buttonClickHandler(email: string) {
  * **Customize your own cell rendering**  
  * You can add a custom cell with any slotted elements inside to suit your needs.  
  * Useful for actions such as buttons, links or any custom component.  
+ * 
+ * Keep in mind that you have to map your data to get a `<wcs-grid-custom-cell>` for each row, like the code
+ * displayed under the "Show code" example below :
  */
 export const CustomCell: StoryObj = {
     render: (args: GridArgs) => html`
@@ -178,7 +181,7 @@ export const CustomCell: StoryObj = {
             <wcs-grid-column id="actions" name="Actions" custom-cells></wcs-grid-column>
             ${args.data.map(value => html`
                 <wcs-grid-custom-cell column-id="actions" row-id=${value.id}>
-                    <wcs-button mode="clear" shape="small" @click=${() => buttonClickHandler(value.email)}>
+                    <wcs-button mode="clear" size="s" @click=${() => buttonClickHandler(value.email)}>
                         Send mail to ${value.email}
                     </wcs-button>
                 </wcs-grid-custom-cell>

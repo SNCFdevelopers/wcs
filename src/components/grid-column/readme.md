@@ -7,7 +7,7 @@
 
 ## Overview
 
-The grid column is a subcomponent of `wcs-grid` that represents every column of a table.
+The grid column is a subcomponent of `wcs-grid` that represents a column of the table.
 
 ## Properties
 

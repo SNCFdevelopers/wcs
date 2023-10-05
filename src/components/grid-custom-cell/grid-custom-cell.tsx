@@ -1,5 +1,8 @@
 import { Component, ComponentInterface, h, Host, Prop } from '@stencil/core';
 
+/**
+ * The grid custom cell is a subcomponent of `wcs-grid`.
+ */
 @Component({
     tag: 'wcs-grid-custom-cell',
     shadow: true
