@@ -1019,44 +1019,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/app/app.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "App",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-app",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "App",
-          "declaration": {
-            "name": "App",
-            "module": "components/app/app.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-app",
-          "declaration": {
-            "name": "App",
-            "module": "components/app/app.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/action-bar/action-bar.tsx",
       "declarations": [
         {
@@ -1123,6 +1085,44 @@
           "declaration": {
             "name": "ActionBar",
             "module": "components/action-bar/action-bar.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/app/app.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "App",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-app",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "App",
+          "declaration": {
+            "name": "App",
+            "module": "components/app/app.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-app",
+          "declaration": {
+            "name": "App",
+            "module": "components/app/app.tsx"
           }
         }
       ]
@@ -2631,6 +2631,44 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/dropdown-divider/dropdown-divider.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "DropdownDivider",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-dropdown-divider",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "DropdownDivider",
+          "declaration": {
+            "name": "DropdownDivider",
+            "module": "components/dropdown-divider/dropdown-divider.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-dropdown-divider",
+          "declaration": {
+            "name": "DropdownDivider",
+            "module": "components/dropdown-divider/dropdown-divider.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/dropdown/dropdown-interface.ts",
       "declarations": [],
       "exports": []
@@ -2896,44 +2934,6 @@
           "declaration": {
             "name": "Dropdown",
             "module": "components/dropdown/dropdown.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/dropdown-divider/dropdown-divider.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "DropdownDivider",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-dropdown-divider",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "DropdownDivider",
-          "declaration": {
-            "name": "DropdownDivider",
-            "module": "components/dropdown-divider/dropdown-divider.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-dropdown-divider",
-          "declaration": {
-            "name": "DropdownDivider",
-            "module": "components/dropdown-divider/dropdown-divider.tsx"
           }
         }
       ]
@@ -4687,7 +4687,7 @@
                 "text": "boolean"
               },
               "default": "false",
-              "description": "Automatically set to true if using a `wcs-custom-cell`."
+              "description": "Set to true if using a `wcs-custom-cell` linked to it."
             },
             {
               "kind": "field",
@@ -4995,14 +4995,16 @@
               "type": {
                 "text": "number[]"
               },
-              "default": "[10, 20, 50]"
+              "default": "[10, 20, 50]",
+              "description": "Set the available page sizes in the pagination dropdown on the left."
             },
             {
               "kind": "field",
               "name": "currentPage",
               "type": {
                 "text": "number"
-              }
+              },
+              "description": "The current page of the pagination. First page starts at index 0."
             },
             {
               "kind": "field",
@@ -5010,7 +5012,8 @@
               "type": {
                 "text": "number"
               },
-              "default": "this.availablePageSizes[0]"
+              "default": "this.availablePageSizes[0]",
+              "description": "Maximum number of elements shown per page.  \r\nDefault is the first value of `availablePageSizes`."
             },
             {
               "kind": "field",
@@ -5018,7 +5021,8 @@
               "type": {
                 "text": "number"
               },
-              "default": "0"
+              "default": "0",
+              "description": "Total elements in the grid.  \r\n**Grid in `Server mode`** : You have to set `itemsCount` to correspond to your total data length.  \r\n**Grid not in Server mode** : Do not set it manually : itemsCount is set and updated every pagination refresh."
             },
             {
               "kind": "field",
@@ -5026,7 +5030,8 @@
               "type": {
                 "text": "number"
               },
-              "default": "1"
+              "default": "1",
+              "description": "Max number of pages.  \r\n**Grid in `Server mode`** : You have to set `pageCount` to correspond to `itemsCount` divided by `pageSize`.\r\n**Grid not in Server mode** : Do not set it manually : pageCount is set and updated every pagination refresh."
             },
             {
               "kind": "method",
@@ -5169,7 +5174,8 @@
               "name": "wcsGridPaginationChange",
               "type": {
                 "text": "EventEmitter<WcsGridPaginationChangeEventDetails>"
-              }
+              },
+              "description": "Event emitted when the pagination changes."
             }
           ],
           "customElement": true

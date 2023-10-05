@@ -44,7 +44,7 @@ export class GridColumn implements ComponentInterface {
      */
     @Prop() width: string;
     /**
-     * Automatically set to true if using a `wcs-custom-cell`.
+     * Set to true if using a `wcs-custom-cell` linked to it.
      */
     @Prop() customCells: boolean = false;
     /**

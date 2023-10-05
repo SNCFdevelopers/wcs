@@ -129,8 +129,8 @@ const sampleData = [
 
 /**
  * **Default grid example**  
- * The `data` is **not** showed in the `wcs-grid` element attribute because it is meant to be bound with your framework
- * in your template.
+ * The `data` is **not** showed in the `wcs-grid` element attribute because it is a **property**,
+ * meant to be bound with your framework in your template.
  * 
  * <details>
  *     <summary>`Data` object example</summary>
@@ -159,39 +159,6 @@ export const Default: StoryObj = {
 }
 
 
-function buttonClickHandler(email: string) {
-    alert('Send mail to ' + email);
-}
-
-/**
- * **Customize your own cell rendering**  
- * You can add a custom cell with any slotted elements inside to suit your needs.  
- * Useful for actions such as buttons, links or any custom component.  
- * 
- * Keep in mind that you have to map your data to get a `<wcs-grid-custom-cell>` for each row, like the code
- * displayed under the "Show code" example below :
- */
-export const CustomCell: StoryObj = {
-    render: (args: GridArgs) => html`
-        <wcs-grid id="grid-simple-1" .data=${args.data} row-id-path="id">
-            <wcs-grid-column name="First Name" path="first_name" sort></wcs-grid-column>
-            <wcs-grid-column name="Last Name" path="last_name" sort></wcs-grid-column>
-            <wcs-grid-column name="Email" path="email" sort></wcs-grid-column>
-            <wcs-grid-column name="IP Address" path="ip_address" sort></wcs-grid-column>
-            <wcs-grid-column id="actions" name="Actions" custom-cells></wcs-grid-column>
-            ${args.data.map(value => html`
-                <wcs-grid-custom-cell column-id="actions" row-id=${value.id}>
-                    <wcs-button mode="clear" size="s" @click=${() => buttonClickHandler(value.email)}>
-                        Send mail to ${value.email}
-                    </wcs-button>
-                </wcs-grid-custom-cell>
-            `)};
-        </wcs-grid>
-    `,
-    args: {
-        data: sampleData
-    }
-}
 
 /* ************************************************************************ *
  *                         Hidden column                                    *
@@ -200,7 +167,7 @@ export const CustomCell: StoryObj = {
 /**
  * **Hide some columns dynamically**  
  * Sometimes you need to dynamically change the columns to be displayed or not.  
- * For this, a `hidden` property exists on `grid-column` elements. The grid does not support deleting `grid-column` dom
+ * For this, a `hidden` property exists on `grid-column` elements. The grid does not support deleting `grid-column` DOM
  * elements after it has been instantiated. This feature allows for example to let the user choose which columns they
  * want to display or not via the interface.
  */
@@ -231,6 +198,43 @@ export const InitialSortConfig: StoryObj = {
         data: sampleData,
         selectionConfig: 'none',
         initialSortConfig: 'asc'
+    }
+}
+
+/* ************************************************************************ *
+ *                         Cell Rendering                                   *
+ * ************************************************************************ */
+
+function buttonClickHandler(email: string) {
+    alert('Send mail to ' + email);
+}
+
+/**
+ * **Customize your own cell rendering**  
+ * You can add a custom cell with any slotted elements inside to suit your needs.  
+ * Useful for actions such as buttons, links or any custom component.
+ *
+ * Keep in mind that you have to map your data to get a `<wcs-grid-custom-cell>` for each row, like example below :
+ */
+export const CustomCell: StoryObj = {
+    render: (args: GridArgs) => html`
+        <wcs-grid id="grid-simple-1" .data=${args.data} row-id-path="id">
+            <wcs-grid-column name="First Name" path="first_name" sort></wcs-grid-column>
+            <wcs-grid-column name="Last Name" path="last_name" sort></wcs-grid-column>
+            <wcs-grid-column name="Email" path="email" sort></wcs-grid-column>
+            <wcs-grid-column name="IP Address" path="ip_address" sort></wcs-grid-column>
+            <wcs-grid-column id="actions" name="Actions" custom-cells></wcs-grid-column>
+            ${args.data.map(value => html`
+                <wcs-grid-custom-cell column-id="actions" row-id=${value.id}>
+                    <wcs-button mode="clear" size="s" @click=${() => buttonClickHandler(value.email)}>
+                        Send mail to ${value.email}
+                    </wcs-button>
+                </wcs-grid-custom-cell>
+            `)};
+        </wcs-grid>
+    `,
+    args: {
+        data: sampleData
     }
 }
 
@@ -356,7 +360,7 @@ export const Selection: StoryObj = {
  * You can assign an item selection with the `selectedItems` property.  
  * If the selection mode is set to multiple, the value must be an array, otherwise a single item.  
  *
- * The values are compared with the `_.equals()` function of lodash.  
+ * The values are compared with the `_.isEqual()` function of lodash.  
  * When the selection changes, the `wcsGridSelectionChange` event contains the details of the rows selected by the user.
  *
  * **In the following example (multi-selection), initial properties as set like so :**

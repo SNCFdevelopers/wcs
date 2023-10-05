@@ -805,7 +805,9 @@ export class WcsGridPagination {
 import type { WcsGridPaginationChangeEventDetails as IWcsGridPaginationWcsGridPaginationChangeEventDetails } from 'wcs-core';
 
 export declare interface WcsGridPagination extends Components.WcsGridPagination {
-
+  /**
+   * Event emitted when the pagination changes.
+   */
   wcsGridPaginationChange: EventEmitter<CustomEvent<IWcsGridPaginationWcsGridPaginationChangeEventDetails>>;
 }
 

@@ -367,7 +367,7 @@ export namespace Components {
      */
     interface WcsGridColumn {
         /**
-          * Automatically set to true if using a `wcs-custom-cell`.
+          * Set to true if using a `wcs-custom-cell` linked to it.
          */
         "customCells": boolean;
         /**
@@ -420,10 +420,25 @@ export namespace Components {
      * The grid pagination is a subcomponent of `wcs-grid`, slotted in `grid-pagination` under the `<table>` element.
      */
     interface WcsGridPagination {
+        /**
+          * Set the available page sizes in the pagination dropdown on the left.
+         */
         "availablePageSizes": number[];
+        /**
+          * The current page of the pagination. First page starts at index 0.
+         */
         "currentPage": number;
+        /**
+          * Total elements in the grid.   - **Grid in `Server mode`** : You have to set `itemsCount` = your total data length.   - **Grid not in Server mode** : Do not set it manually : itemsCount is set and updated every pagination refresh.
+         */
         "itemsCount": number;
+        /**
+          * Max number of pages.   - **Grid in `Server mode`** : You have to set `pageCount` = `itemsCount` divided by `pageSize`.   - **Grid not in Server mode** : Do not set it manually : pageCount is set and updated every pagination refresh.
+         */
         "pageCount": number;
+        /**
+          * Maximum number of elements shown per page.   Default is the first value of `availablePageSizes`.
+         */
         "pageSize": number;
     }
     interface WcsHeader {
@@ -1956,7 +1971,7 @@ declare namespace LocalJSX {
      */
     interface WcsGridColumn {
         /**
-          * Automatically set to true if using a `wcs-custom-cell`.
+          * Set to true if using a `wcs-custom-cell` linked to it.
          */
         "customCells"?: boolean;
         /**
@@ -2017,11 +2032,29 @@ declare namespace LocalJSX {
      * The grid pagination is a subcomponent of `wcs-grid`, slotted in `grid-pagination` under the `<table>` element.
      */
     interface WcsGridPagination {
+        /**
+          * Set the available page sizes in the pagination dropdown on the left.
+         */
         "availablePageSizes"?: number[];
+        /**
+          * The current page of the pagination. First page starts at index 0.
+         */
         "currentPage"?: number;
+        /**
+          * Total elements in the grid.   - **Grid in `Server mode`** : You have to set `itemsCount` = your total data length.   - **Grid not in Server mode** : Do not set it manually : itemsCount is set and updated every pagination refresh.
+         */
         "itemsCount"?: number;
+        /**
+          * Event emitted when the pagination changes.
+         */
         "onWcsGridPaginationChange"?: (event: WcsGridPaginationCustomEvent<WcsGridPaginationChangeEventDetails>) => void;
+        /**
+          * Max number of pages.   - **Grid in `Server mode`** : You have to set `pageCount` = `itemsCount` divided by `pageSize`.   - **Grid not in Server mode** : Do not set it manually : pageCount is set and updated every pagination refresh.
+         */
         "pageCount"?: number;
+        /**
+          * Maximum number of elements shown per page.   Default is the first value of `availablePageSizes`.
+         */
         "pageSize"?: number;
     }
     interface WcsHeader {

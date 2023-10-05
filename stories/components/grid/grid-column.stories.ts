@@ -2,6 +2,7 @@ import {Meta, StoryFn, StoryObj} from '@storybook/web-components';
 import {html} from 'lit-html';
 import {getComponentArgs} from '../../utils/args-generation';
 import {WcsCellFormatter, WcsSortFn, WcsSortOrder} from "../../../src";
+import { createRef, ref } from 'lit-html/directives/ref.js';
 
 const meta: Meta = {
     title: 'Components/Grid/Subcomponents/Grid Column',

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-10-05T08:14:56",
+  "timestamp": "2023-10-05T15:12:21",
   "compiler": {
     "name": "@stencil/core",
     "version": "3.0.0",
@@ -2220,7 +2220,7 @@
           "mutable": false,
           "attr": "custom-cells",
           "reflectToAttr": false,
-          "docs": "Automatically set to true if using a `wcs-custom-cell`.",
+          "docs": "Set to true if using a `wcs-custom-cell` linked to it.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -2416,12 +2416,7 @@
       "tag": "wcs-grid-custom-cell",
       "readme": "# wcs-grid-custom-cell\r\n\r\n\r\n\r",
       "docs": "The grid custom cell is a subcomponent of `wcs-grid`.",
-      "docsTags": [
-        {
-          "name": "slot",
-          "text": "[columnId]-[rowId] - Auto-set slot to add the custom cell in the column of the table"
-        }
-      ],
+      "docsTags": [],
       "usage": {},
       "props": [
         {
@@ -2461,12 +2456,7 @@
       "events": [],
       "listeners": [],
       "styles": [],
-      "slots": [
-        {
-          "name": "[columnId]-[rowId]",
-          "docs": "Auto-set slot to add the custom cell in the column of the table"
-        }
-      ],
+      "slots": [],
       "parts": [],
       "dependents": [],
       "dependencies": [],
@@ -2477,7 +2467,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-grid-pagination",
       "readme": "# wcs-grid-pagination\r\n\r\n\r\n\r",
-      "docs": "",
+      "docs": "The grid pagination is a subcomponent of `wcs-grid`, slotted in `grid-pagination` under the `<table>` element.",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -2486,7 +2476,7 @@
           "type": "number[]",
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Set the available page sizes in the pagination dropdown on the left.",
           "docsTags": [],
           "default": "[10, 20, 50]",
           "values": [
@@ -2503,7 +2493,7 @@
           "mutable": false,
           "attr": "current-page",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "The current page of the pagination. First page starts at index 0.",
           "docsTags": [],
           "default": "GridPagination.INDEX_FIRST_PAGE",
           "values": [
@@ -2520,7 +2510,7 @@
           "mutable": false,
           "attr": "items-count",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Total elements in the grid.  \r\n- **Grid in `Server mode`** : You have to set `itemsCount` = your total data length.  \r\n- **Grid not in Server mode** : Do not set it manually : itemsCount is set and updated every pagination refresh.",
           "docsTags": [],
           "default": "0",
           "values": [
@@ -2537,7 +2527,7 @@
           "mutable": false,
           "attr": "page-count",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Max number of pages.  \r\n- **Grid in `Server mode`** : You have to set `pageCount` = `itemsCount` divided by `pageSize`.  \r\n- **Grid not in Server mode** : Do not set it manually : pageCount is set and updated every pagination refresh.",
           "docsTags": [],
           "default": "1",
           "values": [
@@ -2554,7 +2544,7 @@
           "mutable": false,
           "attr": "page-size",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Maximum number of elements shown per page.  \r\nDefault is the first value of `availablePageSizes`.",
           "docsTags": [],
           "default": "this.availablePageSizes[0]",
           "values": [
@@ -2574,7 +2564,7 @@
           "bubbles": true,
           "cancelable": true,
           "composed": true,
-          "docs": "",
+          "docs": "Event emitted when the pagination changes.",
           "docsTags": []
         }
       ],
