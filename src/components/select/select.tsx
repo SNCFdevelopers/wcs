@@ -13,9 +13,7 @@ import {
     Watch
 } from '@stencil/core';
 
-import _ from 'lodash';
 import { interpret, Interpreter, Machine, MachineConfig, MachineOptions } from 'xstate';
-
 import { isWcsSelectSize, SelectChangeEventDetail, WcsSelectSize, WcsSelectSizeValue } from './select-interface';
 import { SelectArrow } from './select-arrow';
 import { SelectOptionChosedEvent, SelectOptionValue } from '../select-option/select-option-interface';
@@ -38,6 +36,7 @@ import {
 import { SelectChips } from './select-chips';
 import { MDCRipple } from '@material/ripple';
 import { createPopper, Instance } from '@popperjs/core';
+import { isEqual } from 'lodash-es';
 
 interface SelectStateSchema {
     states: {
@@ -153,7 +152,7 @@ export class Select implements ComponentInterface {
 
     /** Function used to compare options, default : deep comparison. */
     @Prop()
-    compareWith?: (optionValue: any, selectedValue: any) => boolean = (optionValue, selectedValue) => _.isEqual(optionValue, selectedValue);
+    compareWith?: (optionValue: any, selectedValue: any) => boolean = (optionValue, selectedValue) => isEqual(optionValue, selectedValue);
 
     private popper: Instance;
 

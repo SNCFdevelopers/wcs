@@ -26,8 +26,8 @@ import {
     WcsGridRowSelectedEventDetails,
     WcsGridSelectionConfig
 } from './grid-interface';
-import _ from 'lodash';
 import { v4 as uuid } from 'uuid';
+import { cloneDeep, isEqual, get } from 'lodash-es';
 import { GridPagination } from '../grid-pagination/grid-pagination';
 
 /**
@@ -114,7 +114,7 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
         if (this.selectionConfig === 'single') {
             this.rows.map(r => r.selected = false);
             for (const row of this.rows) {
-                if (_.isEqual(row.data, values)) {
+                if (isEqual(row.data, values)) {
                     row.selected = true;
                     break; // only one line can be selected
                 }
@@ -122,12 +122,12 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
         } else if (this.selectionConfig === 'multiple') {
             this.rows.map(r => r.selected = false);
             for (const row of this.rows) {
-                if (values.find(x => _.isEqual(x, row.data))) {
+                if (values.find(x => isEqual(x, row.data))) {
                     row.selected = true;
                 }
             }
         }
-        this.rows = _.cloneDeep(this.rows);
+        this.rows = cloneDeep(this.rows);
     }
 
     private wcsGridRowToWcsGridRowData(row: WcsGridRow): WcsGridRowData {
@@ -137,6 +137,7 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
     private updateGridRows(data: any[]): void {
         const rows: WcsGridRow[] = [];
         if (data && this.columns) {
+            // eslint-disable-next-line @typescript-eslint/prefer-for-of
             for (let i = 0; i < data.length; i++) {
                 const row: WcsGridRow = {
                     uuid: uuid(),
@@ -146,7 +147,7 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
                 };
                 for (const column of this.columns) {
                     row.cells.push({
-                        content: _.get(data[i], column.path),
+                        content: get(data[i], column.path),
                         column,
                         formatter: column.formatter
                     })
@@ -216,13 +217,13 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
      */
     private sortBy(colmun: HTMLWcsGridColumnElement) {
         if (colmun.sortFn) {
-            this.rows = _.cloneDeep(this.rows)
+            this.rows = cloneDeep(this.rows)
                 .sort((a: any, b: any) => colmun.sortFn(a.data, b.data, colmun) * getSortOrderInteger(colmun.sortOrder));
         } else {
-            this.rows = _.cloneDeep(this.rows)
+            this.rows = cloneDeep(this.rows)
                 .sort((a: any, b: any) => {
                     const path = colmun.path;
-                    return ((_.get(a.data, path) < _.get(b.data, path)) ? -1 : (_.get(a.data, path) > _.get(b.data, path)) ? 1 : 0) * getSortOrderInteger(colmun.sortOrder);
+                    return ((get(a.data, path) < get(b.data, path)) ? -1 : (get(a.data, path) > get(b.data, path)) ? 1 : 0) * getSortOrderInteger(colmun.sortOrder);
                 });
         }
     }
@@ -241,7 +242,7 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
                 this.paginationEl.currentPage = this.paginationEl.pageCount - 1;
             }
 
-            const rows = _.cloneDeep(this.rows);
+            const rows = cloneDeep(this.rows);
             rows.forEach((row: WcsGridRow, index: number) =>
                 row.page = Math.floor(index / this.paginationEl.pageSize)
             );
@@ -274,7 +275,7 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
         if (this.selectionConfig !== 'single' || row.selected) {
             this.wcsGridSelectionChange.emit({row: this.wcsGridRowToWcsGridRowData(row)});
         }
-        this.rows = _.cloneDeep(this.rows);
+        this.rows = cloneDeep(this.rows);
     }
 
     private selectAllRows(): void {
@@ -282,7 +283,7 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
         const selected = !this.allRowsAreSelected();
         rows.map(r => r.selected = selected);
         this.wcsGridAllSelectionChange.emit({rows: selected ? rows.map(row => this.wcsGridRowToWcsGridRowData(row)) : []});
-        this.rows = _.cloneDeep(this.rows);
+        this.rows = cloneDeep(this.rows);
     }
 
     private allRowsAreSelected(): boolean {
