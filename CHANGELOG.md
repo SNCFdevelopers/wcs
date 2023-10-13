@@ -10,6 +10,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 
 - **react**: create react bindings for WCS components
+- **doc**: deploy documentation on Azure static web app (https://wcs.dev.sncf)
 
 ### Changed
 
