@@ -53,6 +53,7 @@ import {
   WcsRadioGroup,
   WcsSelect,
   WcsSelectOption,
+  WcsSkeletonRectangle,
   WcsSkeletonText,
   WcsSpinner,
   WcsSwitch,
@@ -60,7 +61,7 @@ import {
   WcsTabs,
   WcsTextarea,
   WcsTooltip,
-  WcsNativeSelect
+  WcsNativeSelect,
 } from './proxies';
 
 
@@ -117,6 +118,7 @@ const DECLARATIONS = [
   WcsRadioGroup,
   WcsSelect,
   WcsSelectOption,
+  WcsSkeletonRectangle,
   WcsSkeletonText,
   WcsSpinner,
   WcsSwitch,

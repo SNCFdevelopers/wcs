@@ -1,5 +1,4 @@
 :host {
-    --wcs-skeleton-border-radius: 0rem;
     display: block;
     position: relative;
     overflow: hidden;
@@ -10,7 +9,6 @@
         height: 100%;
         width: 100%;
         min-height: 1rem;
-        border-radius: var(--wcs-skeleton-border-radius);
         background: #ededed;
         background: linear-gradient(90deg, rgba(0, 0, 0, 0.06) 25%, rgba(0, 0, 0, 0.15) 37%, rgba(0, 0, 0, 0.06) 63%);
         background-size: 400% 100%;

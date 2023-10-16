@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-10-19T09:04:47",
+  "timestamp": "2023-10-23T15:53:06",
   "compiler": {
     "name": "@stencil/core",
     "version": "3.0.0",
@@ -5108,6 +5108,120 @@
           "wcs-select-option"
         ]
       }
+    },
+    {
+      "filePath": "./src/components/skeleton-rectangle/skeleton-rectangle.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-skeleton-rectangle",
+      "readme": "# wcs-skeleton-rectangle\r\n\r\n\r\n\r",
+      "docs": "Use a skeleton rectangle as a placeholder for large images or square-shaped components",
+      "docsTags": [
+        {
+          "name": "cssprop",
+          "text": "--wcs-skeleton-border-radius - Controls the border-radius of the 'rounded' skeleton rectangle (default 0.5rem)"
+        }
+      ],
+      "usage": {},
+      "props": [
+        {
+          "name": "animation",
+          "type": "\"glide\" | \"none\" | \"pulse\"",
+          "mutable": false,
+          "attr": "animation",
+          "reflectToAttr": true,
+          "docs": "Specifies the animation of the skeleton",
+          "docsTags": [],
+          "default": "'glide'",
+          "values": [
+            {
+              "value": "glide",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "pulse",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "height",
+          "type": "LengthOrPercentage | Keyword | Global",
+          "mutable": false,
+          "attr": "height",
+          "reflectToAttr": true,
+          "docs": "Specifies the height of the skeleton (can be any valid CSS value)",
+          "docsTags": [],
+          "default": "'auto'",
+          "values": [
+            {
+              "type": "LengthOrPercentage"
+            },
+            {
+              "type": "Keyword"
+            },
+            {
+              "type": "Global"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "rounded",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "rounded",
+          "reflectToAttr": true,
+          "docs": "Adds a border radius on the skeleton if true",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "width",
+          "type": "LengthOrPercentage | Keyword | Global",
+          "mutable": false,
+          "attr": "width",
+          "reflectToAttr": true,
+          "docs": "Specifies the width of the skeleton (can be any valid CSS value)",
+          "docsTags": [],
+          "default": "'auto'",
+          "values": [
+            {
+              "type": "LengthOrPercentage"
+            },
+            {
+              "type": "Keyword"
+            },
+            {
+              "type": "Global"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
     },
     {
       "filePath": "./src/components/skeleton-text/skeleton-text.tsx",

@@ -24,6 +24,7 @@ import { RadioChosedEvent } from "./components/radio/radio-interface";
 import { SelectChangeEventDetail, WcsSelectSize } from "./components/select/select-interface";
 import { SelectOptionChosedEvent } from "./components/select-option/select-option-interface";
 import { WcsSkeletonAnimation } from "./components/skeleton/skeleton-interface";
+import { CssTypes } from "./shared-types";
 import { WcsSpinnerMode } from "./components/spinner/spinner-interface";
 import { SwitchChangeEventDetail, SwitchLabelAlignment } from "./components/switch/switch-interface";
 import { WcsTabChangeEvent, WcsTabsAlignment } from "./components/tabs/tabs-interface";
@@ -48,6 +49,7 @@ export { RadioChosedEvent } from "./components/radio/radio-interface";
 export { SelectChangeEventDetail, WcsSelectSize } from "./components/select/select-interface";
 export { SelectOptionChosedEvent } from "./components/select-option/select-option-interface";
 export { WcsSkeletonAnimation } from "./components/skeleton/skeleton-interface";
+export { CssTypes } from "./shared-types";
 export { WcsSpinnerMode } from "./components/spinner/spinner-interface";
 export { SwitchChangeEventDetail, SwitchLabelAlignment } from "./components/switch/switch-interface";
 export { WcsTabChangeEvent, WcsTabsAlignment } from "./components/tabs/tabs-interface";
@@ -818,6 +820,28 @@ export namespace Components {
         "value"?: any;
     }
     /**
+     * Use a skeleton rectangle as a placeholder for large images or square-shaped components
+     * @cssprop --wcs-skeleton-border-radius - Controls the border-radius of the 'rounded' skeleton rectangle (default 0.5rem)
+     */
+    interface WcsSkeletonRectangle {
+        /**
+          * Specifies the animation of the skeleton
+         */
+        "animation": WcsSkeletonAnimation;
+        /**
+          * Specifies the height of the skeleton (can be any valid CSS value)
+         */
+        "height": CssTypes.Height;
+        /**
+          * Adds a border radius on the skeleton if true
+         */
+        "rounded": boolean;
+        /**
+          * Specifies the width of the skeleton (can be any valid CSS value)
+         */
+        "width": CssTypes.Width;
+    }
+    /**
      * Use a skeleton text as a placeholder for titles or paragraphs.
      */
     interface WcsSkeletonText {
@@ -1533,6 +1557,16 @@ declare global {
         new (): HTMLWcsSelectOptionElement;
     };
     /**
+     * Use a skeleton rectangle as a placeholder for large images or square-shaped components
+     * @cssprop --wcs-skeleton-border-radius - Controls the border-radius of the 'rounded' skeleton rectangle (default 0.5rem)
+     */
+    interface HTMLWcsSkeletonRectangleElement extends Components.WcsSkeletonRectangle, HTMLStencilElement {
+    }
+    var HTMLWcsSkeletonRectangleElement: {
+        prototype: HTMLWcsSkeletonRectangleElement;
+        new (): HTMLWcsSkeletonRectangleElement;
+    };
+    /**
      * Use a skeleton text as a placeholder for titles or paragraphs.
      */
     interface HTMLWcsSkeletonTextElement extends Components.WcsSkeletonText, HTMLStencilElement {
@@ -1655,6 +1689,7 @@ declare global {
         "wcs-radio-group": HTMLWcsRadioGroupElement;
         "wcs-select": HTMLWcsSelectElement;
         "wcs-select-option": HTMLWcsSelectOptionElement;
+        "wcs-skeleton-rectangle": HTMLWcsSkeletonRectangleElement;
         "wcs-skeleton-text": HTMLWcsSkeletonTextElement;
         "wcs-spinner": HTMLWcsSpinnerElement;
         "wcs-switch": HTMLWcsSwitchElement;
@@ -2477,6 +2512,28 @@ declare namespace LocalJSX {
         "value"?: any;
     }
     /**
+     * Use a skeleton rectangle as a placeholder for large images or square-shaped components
+     * @cssprop --wcs-skeleton-border-radius - Controls the border-radius of the 'rounded' skeleton rectangle (default 0.5rem)
+     */
+    interface WcsSkeletonRectangle {
+        /**
+          * Specifies the animation of the skeleton
+         */
+        "animation"?: WcsSkeletonAnimation;
+        /**
+          * Specifies the height of the skeleton (can be any valid CSS value)
+         */
+        "height"?: CssTypes.Height;
+        /**
+          * Adds a border radius on the skeleton if true
+         */
+        "rounded"?: boolean;
+        /**
+          * Specifies the width of the skeleton (can be any valid CSS value)
+         */
+        "width"?: CssTypes.Width;
+    }
+    /**
      * Use a skeleton text as a placeholder for titles or paragraphs.
      */
     interface WcsSkeletonText {
@@ -2781,6 +2838,7 @@ declare namespace LocalJSX {
         "wcs-radio-group": WcsRadioGroup;
         "wcs-select": WcsSelect;
         "wcs-select-option": WcsSelectOption;
+        "wcs-skeleton-rectangle": WcsSkeletonRectangle;
         "wcs-skeleton-text": WcsSkeletonText;
         "wcs-spinner": WcsSpinner;
         "wcs-switch": WcsSwitch;
@@ -2905,6 +2963,11 @@ declare module "@stencil/core" {
              * Select option component, use in conjunction with wcs-select.
              */
             "wcs-select-option": LocalJSX.WcsSelectOption & JSXBase.HTMLAttributes<HTMLWcsSelectOptionElement>;
+            /**
+             * Use a skeleton rectangle as a placeholder for large images or square-shaped components
+             * @cssprop --wcs-skeleton-border-radius - Controls the border-radius of the 'rounded' skeleton rectangle (default 0.5rem)
+             */
+            "wcs-skeleton-rectangle": LocalJSX.WcsSkeletonRectangle & JSXBase.HTMLAttributes<HTMLWcsSkeletonRectangleElement>;
             /**
              * Use a skeleton text as a placeholder for titles or paragraphs.
              */

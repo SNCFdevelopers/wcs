@@ -42,11 +42,17 @@ export default meta;
  */
 export const Example: StoryObj = {
     render: (args: { loading: boolean }) => {
+        // XXX : Begin troll region
+        const getSeason = d => d.getMonth() === 11 ? 0 : Math.floor((d.getMonth() / 12 * 4)) % 4;
+        const imgSrc = `train_${['winter', 'spring', 'summer', 'autumn'][getSeason(new Date())]}.jpg`
+        // End troll region
+        
         return args.loading ? html`
             <wcs-card mode="flat">
                 <wcs-card-body class="container">
                     <wcs-skeleton-text class="title-skeleton"
                                        height="h1"></wcs-skeleton-text>
+                    <wcs-skeleton-rectangle height="200px" width="270px"></wcs-skeleton-rectangle>
                     <wcs-skeleton-text></wcs-skeleton-text>
                     <wcs-skeleton-text></wcs-skeleton-text>
                     <wcs-skeleton-text></wcs-skeleton-text>
@@ -72,6 +78,10 @@ export const Example: StoryObj = {
             <wcs-card mode="flat">
                 <wcs-card-body>
                     <h1>SNCF</h1>
+                    <img
+                        src=${imgSrc}
+                        alt="Train with landscape"
+                        height="200"/>
                     <p style="text-align: justify">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
                         numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque

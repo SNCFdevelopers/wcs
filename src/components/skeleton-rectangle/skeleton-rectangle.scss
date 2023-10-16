@@ -1,0 +1,13 @@
+@import "../skeleton/skeleton.scss";
+
+:host {
+    --wcs-skeleton-border-radius: 0rem;
+
+    span {
+        border-radius: var(--wcs-skeleton-border-radius);
+    }
+}
+
+:host([rounded]) {
+    --wcs-skeleton-border-radius: 0.5rem;
+}
