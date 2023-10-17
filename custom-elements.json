@@ -659,6 +659,44 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/accordion-header/accordion-header.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "AccordionHeader",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-accordion-header",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "AccordionHeader",
+          "declaration": {
+            "name": "AccordionHeader",
+            "module": "components/accordion-header/accordion-header.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-accordion-header",
+          "declaration": {
+            "name": "AccordionHeader",
+            "module": "components/accordion-header/accordion-header.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/accordion/accordion.tsx",
       "declarations": [
         {
@@ -852,44 +890,6 @@
           "declaration": {
             "name": "AccordionContent",
             "module": "components/accordion-content/accordion-content.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/accordion-header/accordion-header.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "AccordionHeader",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-accordion-header",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "AccordionHeader",
-          "declaration": {
-            "name": "AccordionHeader",
-            "module": "components/accordion-header/accordion-header.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-accordion-header",
-          "declaration": {
-            "name": "AccordionHeader",
-            "module": "components/accordion-header/accordion-header.tsx"
           }
         }
       ]
@@ -1775,6 +1775,12 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/com-nav/com-nav.e2e.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/com-nav/com-nav.tsx",
       "declarations": [
         {
@@ -1853,6 +1859,35 @@
             {
               "kind": "method",
               "name": "render"
+            },
+            {
+              "kind": "method",
+              "name": "mobileMenuIconOnKeyDown",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "evt",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  },
+                  "description": "The keydown event."
+                }
+              ],
+              "description": "Handle the keydown event on the mobile menu icon. Open the menu if the user press space or enter."
+            },
+            {
+              "kind": "method",
+              "name": "exitMobileMenuOnKeyDown",
+              "parameters": [
+                {
+                  "name": "evt",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  },
+                  "description": "keydown event on window target."
+                }
+              ],
+              "description": "Close the mobile menu if the user press escape."
             }
           ],
           "attributes": [
@@ -2631,44 +2666,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/dropdown-divider/dropdown-divider.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "DropdownDivider",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-dropdown-divider",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "DropdownDivider",
-          "declaration": {
-            "name": "DropdownDivider",
-            "module": "components/dropdown-divider/dropdown-divider.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-dropdown-divider",
-          "declaration": {
-            "name": "DropdownDivider",
-            "module": "components/dropdown-divider/dropdown-divider.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/dropdown/dropdown-interface.ts",
       "declarations": [],
       "exports": []
@@ -2940,19 +2937,19 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/dropdown-header/dropdown-header.tsx",
+      "path": "components/dropdown-divider/dropdown-divider.tsx",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "DropdownHeader",
+          "name": "DropdownDivider",
           "members": [
             {
               "kind": "method",
               "name": "render"
             }
           ],
-          "tagName": "wcs-dropdown-header",
+          "tagName": "wcs-dropdown-divider",
           "events": [],
           "customElement": true
         }
@@ -2960,18 +2957,18 @@
       "exports": [
         {
           "kind": "js",
-          "name": "DropdownHeader",
+          "name": "DropdownDivider",
           "declaration": {
-            "name": "DropdownHeader",
-            "module": "components/dropdown-header/dropdown-header.tsx"
+            "name": "DropdownDivider",
+            "module": "components/dropdown-divider/dropdown-divider.tsx"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "wcs-dropdown-header",
+          "name": "wcs-dropdown-divider",
           "declaration": {
-            "name": "DropdownHeader",
-            "module": "components/dropdown-header/dropdown-header.tsx"
+            "name": "DropdownDivider",
+            "module": "components/dropdown-divider/dropdown-divider.tsx"
           }
         }
       ]
@@ -3051,6 +3048,44 @@
           "declaration": {
             "name": "DropdownItem",
             "module": "components/dropdown-item/dropdown-item.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/dropdown-header/dropdown-header.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "DropdownHeader",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-dropdown-header",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "DropdownHeader",
+          "declaration": {
+            "name": "DropdownHeader",
+            "module": "components/dropdown-header/dropdown-header.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-dropdown-header",
+          "declaration": {
+            "name": "DropdownHeader",
+            "module": "components/dropdown-header/dropdown-header.tsx"
           }
         }
       ]
@@ -5022,7 +5057,7 @@
                 "text": "number"
               },
               "default": "0",
-              "description": "Total elements in the grid.  \r\n**Grid in `Server mode`** : You have to set `itemsCount` to correspond to your total data length.  \r\n**Grid not in Server mode** : Do not set it manually : itemsCount is set and updated every pagination refresh."
+              "description": "Total elements in the grid.  \r\n- **Grid in `Server mode`** : You have to set `itemsCount` = your total data length.  \r\n- **Grid not in Server mode** : Do not set it manually : itemsCount is set and updated every pagination refresh."
             },
             {
               "kind": "field",
@@ -5031,7 +5066,7 @@
                 "text": "number"
               },
               "default": "1",
-              "description": "Max number of pages.  \r\n**Grid in `Server mode`** : You have to set `pageCount` to correspond to `itemsCount` divided by `pageSize`.\r\n**Grid not in Server mode** : Do not set it manually : pageCount is set and updated every pagination refresh."
+              "description": "Max number of pages.  \r\n- **Grid in `Server mode`** : You have to set `pageCount` = `itemsCount` divided by `pageSize`.  \r\n- **Grid not in Server mode** : Do not set it manually : pageCount is set and updated every pagination refresh."
             },
             {
               "kind": "method",

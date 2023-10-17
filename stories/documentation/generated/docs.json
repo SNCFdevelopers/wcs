@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-10-05T15:12:21",
+  "timestamp": "2023-10-17T09:38:59",
   "compiler": {
     "name": "@stencil/core",
     "version": "3.0.0",
@@ -818,6 +818,12 @@
         },
         {
           "event": "wcsCategoryItemClicked",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "keydown",
+          "target": "window",
           "capture": false,
           "passive": false
         }
@@ -4766,7 +4772,7 @@
           "reflectToAttr": false,
           "docs": "Function used to compare options, default : deep comparison.",
           "docsTags": [],
-          "default": "(optionValue, selectedValue) => _.isEqual(optionValue, selectedValue)",
+          "default": "(optionValue, selectedValue) => isEqual(optionValue, selectedValue)",
           "values": [
             {
               "type": "(optionValue: any, selectedValue: any) => boolean"
