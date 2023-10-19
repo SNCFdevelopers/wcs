@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HyperFunc, WcsGridRowData } from '../../../../dist/types/components/grid/grid-interface';
-import { VNode } from '../../../../dist/types/stencil-public-runtime';
-import { WcsGridPaginationChangeEventDetails } from '../../../../src/components/grid/grid-interface';
+import { WcsGridPaginationChangeEventDetails } from 'wcs-core';
 
 
 @Component({

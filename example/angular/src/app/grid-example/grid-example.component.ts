@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HyperFunc, WcsGridRowData } from '../../../../dist/types/components/grid/grid-interface';
-import { VNode } from '../../../../dist/types/stencil-public-runtime';
+import { HyperFunc, WcsGridRowData } from "wcs-core/dist/types/components/grid/grid-interface";
+import { VNode } from "wcs-core/dist/types/stencil-public-runtime";
 
 
 @Component({

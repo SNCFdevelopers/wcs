@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { WcsTabChangeEvent } from '../../../src/components/tabs/tabs-interface';
+import { WcsTabChangeEvent } from 'wcs-core';
 
 const DEFAULT_TAB_KEY = 'counter';
 
