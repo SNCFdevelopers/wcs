@@ -41,6 +41,10 @@ export const config: Config = {
         {
             type: 'docs-readme'
         },
+        {
+            type: 'docs-json',
+            file: './stories/documentation/generated/docs.json'
+        },
         reactOutputTarget({
             componentCorePackage: 'wcs-core',
             proxiesFile: './react/lib/components/stencil-generated/index.ts',

@@ -18,7 +18,7 @@
         "build:stencil": "stencil build",
         "generate-custom-element-manifest": "cd src && custom-elements-manifest analyze --stencil --outdir ../",
         "generate-docs-json": "stencil build --docs-json ./stories/documentation/generated/docs.json",
-        "build": "stencil build && npm run generate-custom-element-manifest && npm run generate-docs-json && npm run build-storybook",
+        "build": "stencil build && npm run generate-custom-element-manifest && npm run build-storybook",
         "watch:stencil": "stencil build --dev --watch",
         "start": "concurrently --names \"Stencil,Storybook\" -c \"bgBlue.bold,bgMagenta.bold\" \"stencil build --dev --watch\" \"npm run storybook\"",
         "test": "stencil test --spec --e2e",
