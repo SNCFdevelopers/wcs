@@ -28,6 +28,7 @@ import { FormlyFieldConfig } from '@ngx-formly/core';
         <input type="number" [(ngModel)]="counterBidirectionalBinding" min="0" max="20" step="1"/>
       </div>
       <b>Compteur:</b> <output>{{counterBidirectionalBinding}}</output>
+      <wcs-button (click)="counterBidirectionalBinding = 0">Reset value</wcs-button>
     </div>
   `,
   styles: [`

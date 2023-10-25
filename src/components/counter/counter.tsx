@@ -61,19 +61,16 @@ export class Counter implements ComponentInterface {
     @Event() wcsChange!: EventEmitter<CounterChangeEventDetail>;
 
     /**
-     * Allow to change currentValue programmatically
-     */
-    @Prop({mutable: true}) value?: number;
-
-    /**
      * The current value of the counter.
      */
-    @State() private currentValue!: number;
+    @Prop({mutable: true}) value!: number;
 
     /**
      * Only for animation and display purpose
      */
     @State() private displayedValue: number;
+
+    private animateRunning = false;
 
     /**
      * Emitted when the counter loses focus.
@@ -81,8 +78,7 @@ export class Counter implements ComponentInterface {
     @Event() wcsBlur!: EventEmitter<FocusEvent>;
 
     componentWillLoad() {
-        this.currentValue = this.value ?? this.min ?? 0;
-        this.displayedValue = this.currentValue;
+        this.handleValueChange();
 
         if (!isWcsCounterSize(this.size)) {
             console.error(`Invalid size value for wcs-counter : "${this.size}". Must be one of "${WcsCounterSizeValues.join(', ')}"`);
@@ -91,30 +87,38 @@ export class Counter implements ComponentInterface {
     }
 
     /**
-     * Value change programmatically => update currentValue and displayedValue
-     */
-    @Watch('value')
-    valueChanged() {
-        this.currentValue = this.value ?? this.min ?? 0;
-        this.displayedValue = this.currentValue;
-    }
-
-    /**
      * Current value change => handle event and interval
      */
-    @Watch('currentValue')
-    currentValueChanged(newVal: any, oldVal: any) {
-        if (this.max !== undefined && this.currentValue > this.max) {
-            this.currentValue = this.max;
-        } else if (this.min !== undefined && this.currentValue < this.min) {
-            this.currentValue = this.min;
-        }
+    @Watch('value')
+    valueChange(newVal: any, oldVal: any) {
+        if(oldVal === newVal) return;
 
-        // Emit event only if value has changed and if it's not at component initialization
-        if (newVal !== oldVal && oldVal !== undefined) {
-            this.wcsChange.emit({
-                value: this.currentValue
-            });
+        this.handleValueChange();
+    }
+
+    private handleValueChange() {
+        this.setMinimumIfValueIsUndefinedOrNull();
+        this.ensureValueIsNotOutOfMinMax();
+        this.updateDisplayValueIfNoAnimationRunning();
+    }
+
+    private updateDisplayValueIfNoAnimationRunning() {
+        if (!this.animateRunning) {
+            this.displayedValue = this.value;
+        }
+    }
+
+    private ensureValueIsNotOutOfMinMax() {
+        if (this.max !== undefined && this.value > this.max) {
+            this.value = this.max;
+        } else if (this.min !== undefined && this.value < this.min) {
+            this.value = this.min;
+        }
+    }
+
+    private setMinimumIfValueIsUndefinedOrNull() {
+        if (this.value === undefined || this.value === null) {
+            this.value = this.min ?? 0;
         }
     }
 
@@ -129,36 +133,60 @@ export class Counter implements ComponentInterface {
         }
         if (isHomeKey(_event)) {
             _event.preventDefault();
-            this.currentValue = this.min;
-            this.displayedValue = this.currentValue;
+            if (this.min != null) {
+                this.value = this.min;
+                this.displayedValue = this.value;
+                this.notifyChange();
+            }
         }
         if (isEndKey(_event)) {
             _event.preventDefault();
-            this.currentValue = this.max;
-            this.displayedValue = this.currentValue;
+            if (this.max != null) {
+                this.value = this.max;
+                this.displayedValue = this.value;
+                this.notifyChange();
+            }
         }
     }
 
+    private notifyChange() {
+        this.wcsChange.emit({
+            value: this.value
+        });
+    }
+    
     private getCounterContainer = (): HTMLDivElement => {
         return Array.from(this.el.shadowRoot.children)
             .find(el => el.tagName === 'DIV') as HTMLDivElement;
     }
 
     private handleDecrement = () => {
-        if (this.min === undefined || this.currentValue > this.min) {
-            this.currentValue -= this.step;
+        if (this.min === undefined || this.value > this.min) {
+            // we set animateRunning here to prevent the watch method on value prop from affecting the displayed value
+            // before the animation runs.
+            this.animateRunning = true; 
+            this.value -= this.step;
+            this.notifyChange();
             this.animate('up');
         }
     };
 
     private handleIncrement = () => {
-        if (this.max === undefined || this.currentValue < this.max) {
-            this.currentValue += this.step;
+        if (this.max === undefined || this.value < this.max) {
+            // we set animateRunning here to prevent the watch method on value prop from affecting the displayed value
+            // before the animation runs.
+            this.animateRunning = true; 
+            this.value += this.step;
+            this.notifyChange();
             this.animate('down');
         }
     };
 
-    private animate = (direction: 'up' | 'down') => {
+    private animate = (direction: 'up' | 'down'): void => {
+        // In case someone call animate function, we want ensured that animateRunning is set to true to prevent other 
+        // method to mutate the displayedValue.
+        this.animateRunning = true;  
+
         const counterContainer = this.getCounterContainer();
         const outliers = Array.from(counterContainer.children)
             .filter((span: HTMLSpanElement) => span.classList.contains('outliers'));
@@ -172,7 +200,9 @@ export class Counter implements ComponentInterface {
             outliers.forEach((span: HTMLSpanElement) => {
                 span.classList.add('hidden')
             });
-            this.displayedValue = this.currentValue;
+            this.displayedValue = this.value;
+
+            this.animateRunning = false;
         }, 1000 * ANIMATION_DURATION - 20);
     }
 
@@ -185,7 +215,7 @@ export class Counter implements ComponentInterface {
                             tabindex={-1}
                             onClick={() => this.handleDecrement()}
                             onBlur={(event) => this.wcsBlur.emit(event)}
-                            disabled={this.currentValue === this.min}>
+                            disabled={this.value === this.min}>
                     <wcs-mat-icon icon="remove" size="s"></wcs-mat-icon>
                 </wcs-button>
                 <div class="counter-container">
@@ -196,8 +226,8 @@ export class Counter implements ComponentInterface {
                           class="current-value"
                           onBlur={(event) => this.wcsBlur.emit(event)}
                           onKeyDown={(event) => this.onKeyDown(event)}
-                          aria-valuenow={this.currentValue}
-                          aria-valuetext={this.currentValue}
+                          aria-valuenow={this.value}
+                          aria-valuetext={this.value}
                           aria-valuemin={this.min}
                           aria-valuemax={this.max}
                           aria-label={this.label}>{this.displayedValue}</span>
@@ -210,7 +240,7 @@ export class Counter implements ComponentInterface {
                             tabindex={-1}
                             onClick={() => this.handleIncrement()}
                             onBlur={(event) => this.wcsBlur.emit(event)}
-                            disabled={this.currentValue === this.max}>
+                            disabled={this.value === this.max}>
                     <wcs-mat-icon icon="add" size="s"></wcs-mat-icon>
                 </wcs-button>
             </Host>

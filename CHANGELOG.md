@@ -32,6 +32,7 @@ for now removed features.
 - **native-select**: add a gap between the value/placeholder and select arrow to avoid the value to be hidden by the arrow
 - **com-nav**: open/close mobile menu on space or enter key press on the "hamburger" button
 - **bundle size**: migrate to lodash-es to reduce bundle size (used in select and grid components)
+- **counter**: fix weird behavior when the value is programmatically set in javascript
 
 ### Security
 

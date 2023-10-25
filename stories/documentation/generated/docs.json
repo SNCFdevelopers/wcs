@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-10-27T08:50:14",
+  "timestamp": "2023-10-30T08:03:17",
   "compiler": {
     "name": "@stencil/core",
     "version": "3.0.0",
@@ -1162,15 +1162,15 @@
           "mutable": true,
           "attr": "value",
           "reflectToAttr": false,
-          "docs": "Allow to change currentValue programmatically",
+          "docs": "The current value of the counter.",
           "docsTags": [],
           "values": [
             {
               "type": "number"
             }
           ],
-          "optional": true,
-          "required": false
+          "optional": false,
+          "required": true
         }
       ],
       "methods": [],

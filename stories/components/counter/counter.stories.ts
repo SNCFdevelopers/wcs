@@ -52,7 +52,7 @@ export const MinMax = {
     args: {
         ...Default.args,
         value: 1,
-        min: 0,
+        min: 3,
         max: 5
     }
 };

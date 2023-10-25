@@ -235,9 +235,9 @@ export namespace Components {
          */
         "step": number;
         /**
-          * Allow to change currentValue programmatically
+          * The current value of the counter.
          */
-        "value"?: number;
+        "value": number;
     }
     interface WcsDivider {
     }
@@ -1917,9 +1917,9 @@ declare namespace LocalJSX {
          */
         "step"?: number;
         /**
-          * Allow to change currentValue programmatically
+          * The current value of the counter.
          */
-        "value"?: number;
+        "value": number;
     }
     interface WcsDivider {
     }

@@ -17,7 +17,7 @@ For larger or specific ranges, please use [wcs-input (type number)](.?path=/docs
 | `min`                | `min`     | The minimum value of the counter. If the value of the min attribute isn't set, then the element has no minimum value. | `number`     | `undefined` |
 | `size`               | `size`    | Specify the size (height) of the counter.                                                                             | `"l" \| "m"` | `'m'`       |
 | `step`               | `step`    | Defines by how much the counter will be incremented or decremented.                                                   | `number`     | `1`         |
-| `value`              | `value`   | Allow to change currentValue programmatically                                                                         | `number`     | `undefined` |
+| `value` _(required)_ | `value`   | The current value of the counter.                                                                                     | `number`     | `undefined` |
 
 
 ## Events
