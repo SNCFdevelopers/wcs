@@ -18,6 +18,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - **doc**: update react integration documentation
 - **doc**: update grid and grid subcomponents documentation
+- **doc**: migrate documentation to Azure static web app (https://wcs.dev.sncf). The gitlab pages environment now redirects to the new documentation domain (both for develop and master branches).
 
 ### Deprecated
 

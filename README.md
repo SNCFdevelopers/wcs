@@ -12,6 +12,7 @@ Here is the list of published npm packages and their goal :
 - `wcs-core` contains the web components compiled with StencilJS [![npm version](https://badge.fury.io/js/wcs-core.svg)](https://badge.fury.io/js/wcs-core)
 - `wcs-angular` angular integrations (value accessors, ...)[![npm version](https://badge.fury.io/js/wcs-angular.svg)](https://badge.fury.io/js/wcs-angular)
 - `wcs-formly` Angular Formly integration for WCS [![npm version](https://badge.fury.io/js/wcs-formly.svg)](https://badge.fury.io/js/wcs-formly)
+- `wcs-react` React integration for WCS [![npm version](https://badge.fury.io/js/wcs-react.svg)](https://badge.fury.io/js/wcs-react)
 
 ## Roadmap
 
@@ -26,8 +27,9 @@ Select and select options size behavior, especially with multiple select. As of 
 ## Documentation
 
 There is documentation available at 
-- https://sncf.gitlab.io/wcs/master/ for production (latest release)
-- https://sncf.gitlab.io/wcs/develop/ for development branch
+- https://wcs.dev.sncf/ for production (latest release)
+- https://lemon-bush-001d04303-develop.westeurope.3.azurestaticapps.net/ for development environment
+- https://lemon-bush-001d04303-review.westeurope.3.azurestaticapps.net/ for review environment
 
     
 ### Example usage

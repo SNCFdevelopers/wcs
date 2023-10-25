@@ -6,10 +6,6 @@ stages:
 image: node:16-alpine
 
 cache:
-  # Cache documentation for existing branches
-  - key: global-documentation-key
-    paths:
-      - doc_cache
   # Cache modules in between jobs: https://docs.gitlab.com/ee/ci/caching/#cache-nodejs-dependencies
   - key: $CI_COMMIT_REF_SLUG
     paths:
@@ -56,6 +52,7 @@ build:
     - npm run build
     - cd ..
 
+# Old deploy job for Gitlab Pages, now replaced by deploy-azure (we deploy a redirect page to Gitlab Pages)
 pages:
   tags:
     - gitlab-org
@@ -70,10 +67,11 @@ pages:
     paths:
       - public
   script:
-    - mkdir -p doc_cache/$CI_COMMIT_REF_NAME/
-    - rm -rf doc_cache/$CI_COMMIT_REF_NAME/*
-    - cp -r storybook-static/* doc_cache/$CI_COMMIT_REF_NAME/
-    - cp -r doc_cache public
+    - mkdir -p public/develop/
+    - mkdir -p public/master/
+    - cp -r doc/gitlab-pages-redirect-root/* public/
+    - cp -r doc/gitlab-pages-redirect-root/* public/develop/
+    - cp -r doc/gitlab-pages-redirect-root/* public/master/
 
 deploy-azure:
   image: node:16
