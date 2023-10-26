@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-10-25T13:54:58",
+  "timestamp": "2023-10-27T08:50:14",
   "compiler": {
     "name": "@stencil/core",
     "version": "3.0.0",
@@ -355,7 +355,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-button",
       "readme": "# Button\r\n\r",
-      "docs": "Button component, can also be a link when specifying href.",
+      "docs": "Button component, can also be a link when specifying href.\r\n\r\n## Click event\r\n\r\nThe WCS button relies on the native click event to pass a user click to your app.\r\nFor now, it's not possible for us to prevent the click event to be fired when the button's disabled attribute is true.\r\nThis means you'll receive click events on a disabled wcs button.\r\nIf you're using the button with a library like Angular or React, they have internal mechanisms to prevent this behavior. Your callbacks will therefore not be called.\r\nTo fix this problem, we plan to provide a wcsClick event in addition to the native click for applications developed without frameworks.",
       "docsTags": [],
       "usage": {},
       "props": [

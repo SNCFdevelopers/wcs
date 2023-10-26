@@ -14,6 +14,14 @@ import { hasShadowDom } from '../../utils/helpers';
 
 /**
  * Button component, can also be a link when specifying href.
+ *
+ * ## Click event
+ *
+ * The WCS button relies on the native click event to pass a user click to your app.
+ * For now, it's not possible for us to prevent the click event to be fired when the button's disabled attribute is true.
+ * This means you'll receive click events on a disabled wcs button.
+ * If you're using the button with a library like Angular or React, they have internal mechanisms to prevent this behavior. Your callbacks will therefore not be called.
+ * To fix this problem, we plan to provide a wcsClick event in addition to the native click for applications developed without frameworks.
  */
 @Component({
     tag: 'wcs-button',
@@ -73,7 +81,11 @@ export class Button implements ComponentInterface {
      */
     @Prop({mutable: true}) loading: boolean = false;
 
-    @Listen('click')
+    /**
+     * Native event click is emit event if we decide to stop propagation of it
+     * @param ev
+     */
+    @Listen('click')  // TODO: define custom event click to be able to stop it's propagation when the custom button is disabled or is in loading state
     onClick(ev: Event) {
         if (this.disabled || this.loading) {
             ev.stopImmediatePropagation();

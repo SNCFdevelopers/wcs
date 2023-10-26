@@ -110,6 +110,12 @@ export namespace Components {
     }
     /**
      * Button component, can also be a link when specifying href.
+     * ## Click event
+     * The WCS button relies on the native click event to pass a user click to your app.
+     * For now, it's not possible for us to prevent the click event to be fired when the button's disabled attribute is true.
+     * This means you'll receive click events on a disabled wcs button.
+     * If you're using the button with a library like Angular or React, they have internal mechanisms to prevent this behavior. Your callbacks will therefore not be called.
+     * To fix this problem, we plan to provide a wcsClick event in addition to the native click for applications developed without frameworks.
      */
     interface WcsButton {
         /**
@@ -1237,6 +1243,12 @@ declare global {
     };
     /**
      * Button component, can also be a link when specifying href.
+     * ## Click event
+     * The WCS button relies on the native click event to pass a user click to your app.
+     * For now, it's not possible for us to prevent the click event to be fired when the button's disabled attribute is true.
+     * This means you'll receive click events on a disabled wcs button.
+     * If you're using the button with a library like Angular or React, they have internal mechanisms to prevent this behavior. Your callbacks will therefore not be called.
+     * To fix this problem, we plan to provide a wcsClick event in addition to the native click for applications developed without frameworks.
      */
     interface HTMLWcsButtonElement extends Components.WcsButton, HTMLStencilElement {
     }
@@ -1777,6 +1789,12 @@ declare namespace LocalJSX {
     }
     /**
      * Button component, can also be a link when specifying href.
+     * ## Click event
+     * The WCS button relies on the native click event to pass a user click to your app.
+     * For now, it's not possible for us to prevent the click event to be fired when the button's disabled attribute is true.
+     * This means you'll receive click events on a disabled wcs button.
+     * If you're using the button with a library like Angular or React, they have internal mechanisms to prevent this behavior. Your callbacks will therefore not be called.
+     * To fix this problem, we plan to provide a wcsClick event in addition to the native click for applications developed without frameworks.
      */
     interface WcsButton {
         /**
@@ -2898,6 +2916,12 @@ declare module "@stencil/core" {
             "wcs-badge": LocalJSX.WcsBadge & JSXBase.HTMLAttributes<HTMLWcsBadgeElement>;
             /**
              * Button component, can also be a link when specifying href.
+             * ## Click event
+             * The WCS button relies on the native click event to pass a user click to your app.
+             * For now, it's not possible for us to prevent the click event to be fired when the button's disabled attribute is true.
+             * This means you'll receive click events on a disabled wcs button.
+             * If you're using the button with a library like Angular or React, they have internal mechanisms to prevent this behavior. Your callbacks will therefore not be called.
+             * To fix this problem, we plan to provide a wcsClick event in addition to the native click for applications developed without frameworks.
              */
             "wcs-button": LocalJSX.WcsButton & JSXBase.HTMLAttributes<HTMLWcsButtonElement>;
             "wcs-card": LocalJSX.WcsCard & JSXBase.HTMLAttributes<HTMLWcsCardElement>;
