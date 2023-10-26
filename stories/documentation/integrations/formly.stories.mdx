@@ -1,0 +1,299 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Documentation/Integrations/Formly" />
+
+
+# Formly <img src="https://raw.githubusercontent.com/ngx-formly/ngx-formly/v5/logo.svg?sanitize=true" alt="Formly Logo" height="32"/>
+
+### Formly is a dynamic (JSON powered) form library for Angular that brings unmatched maintainability to your application's forms.  
+**Official website : [https://formly.dev/](https://formly.dev/)**
+
+Formly is advised because it simplifies Angular form management using a declarative approach,
+enhancing flexibility and reducing boilerplate code, which is ideal for form creation that makes them less redundant.  
+
+## Adding Formly to your project
+
+💡 This guide follows the [official quick start docs](https://formly.dev/docs/guide/getting-started) for reference.  
+
+**Make sure you are already in your Angular project.**
+
+1. **Install Formly with `ng` or `npm` with no default theme:**  
+
+```
+ng add @ngx-formly/schematics
+// or
+npm install @angular/forms @ngx-formly/core --save
+```
+
+2. **Check that `FormlyModule` is imported in your `AppModule` :** 
+
+```js
+@NgModule({
+  imports: [
+    BrowserModule
+    ReactiveFormsModule,
+    FormlyModule.forRoot()
+  ],
+  ...
+```
+
+3. **Add a `formly-form` inside your template form**
+
+```html
+<form [formGroup]="form" (ngSubmit)="onSubmit(model)">
+  <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+```
+
+4. **Configure your form in the component definition**
+```ts
+export class AppComponent {
+  form = new FormGroup({});
+  model = { email: 'email@gmail.com' };
+  fields: FormlyFieldConfig[] = [
+    {
+      key: 'email',
+      type: 'input',
+      props: {
+        label: 'Email address',
+        placeholder: 'Enter email',
+        required: true,
+      }
+    }
+  ];
+
+  onSubmit(model) {
+    console.log(model);
+  }
+}
+```
+
+
+
+## Adding wcs-formly to your project
+
+In order to make WCS work with Formly, **first install the package in your project** :  
+
+```
+npm install wcs-formly
+``` 
+
+**Then import the `WcsFormlyModule` in your module declaration :** 
+
+```js
+import { WcsFormlyModule } from 'wcs-formly';
+
+@NgModule({
+  imports: [
+    ...
+    WcsFormlyModule
+  ],
+  ...
+```
+
+<center>
+
+#### 🎉 You're ready to use WCS-Formly ! 🎉
+
+##### See some use cases below 👇
+
+</center>
+
+
+## Use cases and examples
+
+### 1️⃣ Basic login / password form
+
+<form>
+  <formly-form style={{display: 'flex', flexDirection: 'column', gap: 'var(--wcs-margin)', marginBottom: '2em'}}>
+    <formly-field>
+      <formly-wcs-field-input>
+        <formly-wcs-field-wrapper>
+          <wcs-form-field>
+            <wcs-label for="fieldInputText" id="wcs-input-1-lbl" slot="label" class="hydrated" required="true">Email</wcs-label>
+            <wcs-input type="text" id="fieldInputText" placeholder="john.doe@mail.com" size="m" required></wcs-input>
+          </wcs-form-field>
+        </formly-wcs-field-wrapper>
+      </formly-wcs-field-input>
+    </formly-field>
+    <formly-field>
+      <formly-wcs-field-input>
+        <formly-wcs-field-wrapper>
+          <wcs-form-field>
+            <wcs-label for="fieldInputText" id="wcs-input-1-lbl" slot="label" class="hydrated" required="true">Password</wcs-label>
+            <wcs-input type="password" id="fieldInputText" placeholder="Enter your password" size="m" required></wcs-input>
+          </wcs-form-field>
+        </formly-wcs-field-wrapper>
+      </formly-wcs-field-input>
+    </formly-field>
+  </formly-form>
+  <wcs-button type="submit" href="#" class="btn btn-primary submit-button">Submit</wcs-button>
+</form>
+
+#
+
+<details>
+    <summary>Code</summary>
+    ```ts
+     import { Component, OnInit } from '@angular/core';
+     import { FormGroup } from "@angular/forms";
+     import { FormlyFieldConfig } from "@ngx-formly/core";
+     
+     @Component({
+       selector: 'app-my-form',
+       template: `
+         <form [formGroup]="form" (ngSubmit)="onSubmit()">
+           <formly-form class="formly" [form]="form" [fields]="fields" [model]="model"></formly-form>
+           <wcs-button type="submit">
+             Submit
+           </wcs-button>
+         </form>
+       `,
+       styles: []
+     })
+     export class MyFormComponent implements OnInit {
+     
+       form: FormGroup = new FormGroup({});
+       model = {
+         fieldEmail: '',
+         fieldPassword: ''
+       };
+       
+       fields: FormlyFieldConfig[] = [
+         {
+           id: 'fieldEmail',
+           key: 'fieldEmail',
+           type: 'input',
+           props: {
+             required: true,
+             label: 'Email',
+             placeholder: 'john.doe@mail.com',
+           },
+         },
+         {
+           id: 'fieldPassword',
+           key: 'fieldPassword',
+           type: 'input',
+           props: {
+             type: 'password',
+             required: true,
+             label: 'Password',
+             placeholder: 'Enter your password',
+           },
+         },
+       ];
+     
+       constructor() {
+       }
+     
+       ngOnInit() {
+         // Optional: fill form with initial values
+       }
+     
+       onSubmit(): void {
+         console.log('fieldEmail', this.form.get('fieldEmail')?.value);
+         console.log('fieldPassword', this.form.get('fieldPassword')?.value);
+       }
+     
+     }
+     ```
+</details>
+
+### 2️⃣ Interactive tooltip on field
+
+
+![Formly example showing a field with dynamic tooltip](./form-example1.png)
+
+You can add a custom tooltip on the field label and make it dynamic using [Formly Expressions](https://formly.dev/docs/guide/expression-properties/).    
+Add this in the `FormlyFieldConfig` :
+
+<details>
+    <summary>Code</summary>
+```ts
+{
+    id: 'fieldInputTextWithDynamicTooltip',
+    key: 'fieldInputTextWithDynamicTooltip',
+    type: 'input',
+    props: {
+      required: true,
+      label: 'Input field with dynamic changing tooltip',
+      placeholder: 'John Doe',
+      tooltip: {
+        interactive: true,
+        color: 'var(--wcs-primary)',
+        icon: 'help',
+        size: 'm',
+      }
+    },
+    expressions: {
+      'props.tooltip.dynamicContent': () => {
+        return this.form.get('fieldInputTextWithDynamicTooltip')?.value;
+    }
+},
+```
+</details>
+
+### 3️⃣ Custom style
+
+![Formly example showing a field with dynamic tooltip](./form-example2.png)
+
+You can add inline style in the field definition :
+
+```ts
+{
+      id: 'fieldInput',
+      key: 'fieldInput',
+      type: 'input',
+      props: {
+        label: 'Input field',
+        placeholder: 'Placeholder',
+        styles: {
+          label: { color: 'violet' },
+          input: { border: 'solid 4px aqua' },
+          error: { textDecoration: 'underline' },
+          hint: { fontWeight: 'bold' }
+        },
+        required: true
+      }
+    },
+```
+
+Or classes to have more control within your stylesheets 👉
+[Formly properties and options](https://formly.dev/docs/guide/properties-options/#:~:text=at%20Custom%20templates.-,className,-string)
+
+```ts
+{
+      id: 'fieldInput',
+      key: 'fieldInput',
+      type: 'input',
+      className: 'my-classname',
+      props: { ... },
+}
+```
+
+### 4️⃣ Custom wrapper
+
+Sometimes, you need to create your own Formly field types or wrappers made with custom components 👉
+[Formly custom wrappers](https://formly.dev/docs/guide/custom-formly-wrapper)  
+  
+Don't forget to add these wrappers in the module declaration of your app :  
+
+```ts
+// app.module.ts
+FormlyModule.forRoot({
+      types: [
+        {
+          component: FormlyCustomComponent,
+          name: 'customFormComponent'
+        }
+      ]
+)}
+```
+
+
+---
+
+**See more examples :**  
+- WCS angular example project : [./example/angular/src/app/formly-example](https://gitlab.com/SNCF/wcs/-/tree/master/example/angular/src/app/formly-example)
+- Official Formly documentation : [https://formly.dev/docs/examples/introduction](https://formly.dev/docs/examples/introduction)
