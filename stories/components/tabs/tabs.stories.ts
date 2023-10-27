@@ -118,14 +118,14 @@ function addTab() {
     const opt = document.createElement('wcs-tab');
     opt.setAttribute('header', 'Onglet ' + ++tabId);
     opt.appendChild(document.createTextNode('Contenu onglet ' + tabId));
-    document.querySelector('#lazy-loaded-tabs').appendChild(opt);
+    document.querySelector('#lazy-loaded-tabs-component').appendChild(opt);
 }
 
 const TemplateLazyLoadedTabs: StoryFn<Partial<{}>> = (_) => html`
     <!-- Method 'addTab' used to dynamically add a tab -->
     <wcs-button @click=${_ => addTab()}>Ajouter un onglet</wcs-button>
 
-    <wcs-tabs id="lazy-loaded-tabs" gutter="true">
+    <wcs-tabs id="lazy-loaded-tabs-component" gutter="true">
         <wcs-tab header="Onglet ${++tabId}">Contenu onglet ${tabId}</wcs-tab>
     </wcs-tabs>
 `;
