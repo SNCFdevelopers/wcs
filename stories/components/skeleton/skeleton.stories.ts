@@ -16,17 +16,28 @@ import { html } from "lit-html";
  *     <summary>Accessibility guidelines 💡</summary>
  *     > Skeletons are made of empty span with `aria-hidden="true"`. In order to indicate to screenreaders that the
  *     > content is loading, you should add on the top level-node container of your skeletons the `aria-busy="true"`
- *     > attribute while the content is loading.
- *     >
- *     > More info : [Source 1](https://developer.semrush.com/intergalactic/components/skeleton/skeleton-a11y/) / 
- *     > [Source 2](https://mui.com/material-ui/react-skeleton/#accessibility)
+ *     > attribute while the content is loading. The `aria-busy` attribute must be removed once the skeleton is not
+ *     > displayed anymore.  
  *     >
  *     > ```html
  *     > <div class="container" aria-busy="true">
  *     >     <wcs-skeleton-text height="h1"></<wcs-skeleton-text>
  *     >     <wcs-skeleton-text height="body"></<wcs-skeleton-text>
  *     > </div>
- *     ```
+ *     > ```
+ *     >
+ *     > **On your application side**, when the skeleton disappears you should move the focus to a relevant element
+ *     > within the new content.  
+ *     > Relevant element could be :
+ *     > - **Non-interactive elements** like paragraphs or headings 👉 Those non-interactive elements need `tabindex="-1"`
+ *     > attribute to be able to receive the focus moved via javascript.
+ *     > - **Interactive elements** like text-fields or buttons 👉 Make sure no information is overlooked when moving focus
+ *     > directly to the element.
+ *     >
+ *     > More info : 
+ *     > - Source 1 : https://developer.semrush.com/intergalactic/components/skeleton/skeleton-a11y/
+ *     > - Source 2 : https://mui.com/material-ui/react-skeleton/#accessibility
+ *     > - Source 3 : https://www.digitala11y.com/aria-busy-state/
  * </details>
  *
  */
