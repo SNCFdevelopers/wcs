@@ -1,40 +1,40 @@
 {
-    "name": "wcs-react",
-    "version": "4.1.0-rc.8",
-    "description": "React components wrapper for WCS",
-    "main": "./dist/index.js",
-    "module": "./dist/index.js",
-    "types": "./dist/types/index.d.ts",
-    "scripts": {
-        "test": "node ./__tests__/react-library.test.js",
-        "build": "npm run clean && npm run compile",
-        "tsc": "tsc -p .",
-        "clean": "rimraf dist && rimraf dist-transpiled",
-        "compile": "npm run tsc && rollup -c"
-    },
-    "files": [
-        "dist/"
-    ],
-    "workspaces": [
-        "../"
-    ],
-    "author": "SNCF",
-    "license": "ISC",
-    "devDependencies": {
-        "@types/react": "^18.2.21",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
-        "typescript": "^5.2.2",
-        "rollup": "3.29.0",
-        "rollup-plugin-sourcemaps": "0.6.3",
-        "@rollup/plugin-node-resolve": "15.2.1",
-        "rimraf": "5.0.1"
-    },
-    "publishConfig": {
-        "access": "public"
-    },
-    "dependencies": {
-        "wcs-core": "4.0.0",
-        "tslib": "*"
-    }
+  "name": "wcs-react",
+  "version": "4.1.0",
+  "description": "React components wrapper for WCS",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/types/index.d.ts",
+  "scripts": {
+    "test": "node ./__tests__/react-library.test.js",
+    "build": "npm run clean && npm run compile",
+    "tsc": "tsc -p .",
+    "clean": "rimraf dist && rimraf dist-transpiled",
+    "compile": "npm run tsc && rollup -c"
+  },
+  "files": [
+    "dist/"
+  ],
+  "workspaces": [
+    "../"
+  ],
+  "author": "SNCF",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/react": "^18.2.21",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.2.2",
+    "rollup": "3.29.0",
+    "rollup-plugin-sourcemaps": "0.6.3",
+    "@rollup/plugin-node-resolve": "15.2.1",
+    "rimraf": "5.0.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "wcs-core": "4.1.0",
+    "tslib": "*"
+  }
 }
