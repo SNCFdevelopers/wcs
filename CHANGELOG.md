@@ -9,16 +9,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-- **react**: create react bindings for WCS components
-- **doc**: deploy documentation on Azure static web app (https://wcs.dev.sncf)
-- **doc**: add Formly integration documentation
-- **skeleton**: add new components `skeleton-text`, `skeleton-rectangle`, `skeleton-circle`
+for new features.
 
 ### Changed
 
-- **doc**: update react integration documentation
-- **doc**: update grid and grid subcomponents documentation
-- **doc**: migrate documentation to Azure static web app (https://wcs.dev.sncf). The gitlab pages environment now redirects to the new documentation domain (both for develop and master branches).
+for changes in existing functionality.
 
 ### Deprecated
 
@@ -30,14 +25,33 @@ for now removed features.
 
 ### Fixed
 
-- **native-select**: add a gap between the value/placeholder and select arrow to avoid the value to be hidden by the arrow
-- **com-nav**: open/close mobile menu on space or enter key press on the "hamburger" button
-- **bundle size**: migrate to lodash-es to reduce bundle size (used in select and grid components)
-- **counter**: fix weird behavior when the value is programmatically set in javascript
+for any bug fixes.
 
 ### Security
 
 in case of vulnerabilities.
+
+## [4.1.0] - 2023-10-30
+
+### Added
+
+- **react**: create react bindings for WCS components
+- **doc**: deploy documentation on Azure static web app (https://wcs.dev.sncf)
+- **doc**: add Formly integration documentation
+- **skeleton**: add new components `skeleton-text`, `skeleton-rectangle`, `skeleton-circle`
+
+### Changed
+
+- **doc**: update react integration documentation
+- **doc**: update grid and grid subcomponents documentation
+- **doc**: migrate documentation to Azure static web app (https://wcs.dev.sncf). The gitlab pages environment now redirects to the new documentation domain (both for develop and master branches).
+
+### Fixed
+
+- **native-select**: add a gap between the value/placeholder and select arrow to avoid the value to be hidden by the arrow
+- **com-nav**: open/close mobile menu on space or enter key press on the "hamburger" button
+- **bundle size**: migrate to lodash-es to reduce bundle size (used in select and grid components)
+- **counter**: fix weird behavior when the value is programmatically set in javascript
 
 ## [4.0.2] - 2023-09-18
 

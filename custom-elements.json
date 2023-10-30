@@ -1019,6 +1019,44 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/app/app.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "App",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-app",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "App",
+          "declaration": {
+            "name": "App",
+            "module": "components/app/app.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-app",
+          "declaration": {
+            "name": "App",
+            "module": "components/app/app.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/action-bar/action-bar.tsx",
       "declarations": [
         {
@@ -1085,44 +1123,6 @@
           "declaration": {
             "name": "ActionBar",
             "module": "components/action-bar/action-bar.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/app/app.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "App",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-app",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "App",
-          "declaration": {
-            "name": "App",
-            "module": "components/app/app.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-app",
-          "declaration": {
-            "name": "App",
-            "module": "components/app/app.tsx"
           }
         }
       ]
@@ -2504,6 +2504,26 @@
             },
             {
               "kind": "method",
+              "name": "handleValueChange",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "updateDisplayValueIfNoAnimationRunning",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "ensureValueIsNotOutOfMinMax",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "setMinimumIfValueIsUndefinedOrNull",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
               "name": "onKeyDown",
               "parameters": [
                 {
@@ -3014,85 +3034,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/dropdown-item/dropdown-item.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "DropdownItem",
-          "members": [
-            {
-              "kind": "method",
-              "name": "onMouseDown",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "_",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "onKeyDown",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "evt",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-dropdown-item",
-          "events": [
-            {
-              "name": "wcsDropdownItemClick",
-              "type": {
-                "text": "EventEmitter<void>"
-              }
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "DropdownItem",
-          "declaration": {
-            "name": "DropdownItem",
-            "module": "components/dropdown-item/dropdown-item.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-dropdown-item",
-          "declaration": {
-            "name": "DropdownItem",
-            "module": "components/dropdown-item/dropdown-item.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/editable-field/editable-field-interface.tsx",
       "declarations": [
         {
@@ -3483,6 +3424,85 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/dropdown-item/dropdown-item.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "DropdownItem",
+          "members": [
+            {
+              "kind": "method",
+              "name": "onMouseDown",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "_",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "onKeyDown",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "evt",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-dropdown-item",
+          "events": [
+            {
+              "name": "wcsDropdownItemClick",
+              "type": {
+                "text": "EventEmitter<void>"
+              }
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "DropdownItem",
+          "declaration": {
+            "name": "DropdownItem",
+            "module": "components/dropdown-item/dropdown-item.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-dropdown-item",
+          "declaration": {
+            "name": "DropdownItem",
+            "module": "components/dropdown-item/dropdown-item.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/error/error.tsx",
       "declarations": [
         {
@@ -3515,44 +3535,6 @@
           "declaration": {
             "name": "Label",
             "module": "components/error/error.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/field-content/field-content.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "FieldContent",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-field-content",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "FieldContent",
-          "declaration": {
-            "name": "FieldContent",
-            "module": "components/field-content/field-content.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-field-content",
-          "declaration": {
-            "name": "FieldContent",
-            "module": "components/field-content/field-content.tsx"
           }
         }
       ]
@@ -3607,19 +3589,19 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/field-label/field-label.tsx",
+      "path": "components/field-content/field-content.tsx",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "FieldLabel",
+          "name": "FieldContent",
           "members": [
             {
               "kind": "method",
               "name": "render"
             }
           ],
-          "tagName": "wcs-field-label",
+          "tagName": "wcs-field-content",
           "events": [],
           "customElement": true
         }
@@ -3627,18 +3609,18 @@
       "exports": [
         {
           "kind": "js",
-          "name": "FieldLabel",
+          "name": "FieldContent",
           "declaration": {
-            "name": "FieldLabel",
-            "module": "components/field-label/field-label.tsx"
+            "name": "FieldContent",
+            "module": "components/field-content/field-content.tsx"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "wcs-field-label",
+          "name": "wcs-field-content",
           "declaration": {
-            "name": "FieldLabel",
-            "module": "components/field-label/field-label.tsx"
+            "name": "FieldContent",
+            "module": "components/field-content/field-content.tsx"
           }
         }
       ]
@@ -3696,6 +3678,44 @@
           "declaration": {
             "name": "Footer",
             "module": "components/footer/footer.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/field-label/field-label.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "FieldLabel",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-field-label",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "FieldLabel",
+          "declaration": {
+            "name": "FieldLabel",
+            "module": "components/field-label/field-label.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-field-label",
+          "declaration": {
+            "name": "FieldLabel",
+            "module": "components/field-label/field-label.tsx"
           }
         }
       ]
@@ -5350,74 +5370,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/icon/icon.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Icon",
-          "members": [
-            {
-              "kind": "field",
-              "name": "icon",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px'"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "icon",
-              "fieldName": "icon",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "size",
-              "fieldName": "size",
-              "type": {
-                "text": "'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px'"
-              }
-            }
-          ],
-          "tagName": "wcs-icon",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Icon",
-          "declaration": {
-            "name": "Icon",
-            "module": "components/icon/icon.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-icon",
-          "declaration": {
-            "name": "Icon",
-            "module": "components/icon/icon.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/horizontal-stepper/horizontal-step.tsx",
       "declarations": [
         {
@@ -5679,6 +5631,74 @@
           "declaration": {
             "name": "HorizontalStepper",
             "module": "components/horizontal-stepper/horizontal-stepper.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/icon/icon.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Icon",
+          "members": [
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px'"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "icon",
+              "fieldName": "icon",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "size",
+              "fieldName": "size",
+              "type": {
+                "text": "'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px'"
+              }
+            }
+          ],
+          "tagName": "wcs-icon",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Icon",
+          "declaration": {
+            "name": "Icon",
+            "module": "components/icon/icon.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-icon",
+          "declaration": {
+            "name": "Icon",
+            "module": "components/icon/icon.tsx"
           }
         }
       ]
@@ -6414,58 +6434,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/label/label.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Label",
-          "members": [
-            {
-              "kind": "field",
-              "name": "required",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "required",
-              "fieldName": "required"
-            }
-          ],
-          "tagName": "wcs-label",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Label",
-          "declaration": {
-            "name": "Label",
-            "module": "components/label/label.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-label",
-          "declaration": {
-            "name": "Label",
-            "module": "components/label/label.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/list-item/list-item.tsx",
       "declarations": [
         {
@@ -6516,6 +6484,58 @@
           "declaration": {
             "name": "ListItem",
             "module": "components/list-item/list-item.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/label/label.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Label",
+          "members": [
+            {
+              "kind": "field",
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "required",
+              "fieldName": "required"
+            }
+          ],
+          "tagName": "wcs-label",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Label",
+          "declaration": {
+            "name": "Label",
+            "module": "components/label/label.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-label",
+          "declaration": {
+            "name": "Label",
+            "module": "components/label/label.tsx"
           }
         }
       ]
@@ -6592,6 +6612,99 @@
           "declaration": {
             "name": "ListItemProperty",
             "module": "components/list-item-property/list-item-property.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/mat-icon/mat-icon-interface.tsx",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/mat-icon/mat-icon.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MatIcon",
+          "members": [
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "description": "Use the icon name from Material Icons"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "MaterialIconSize"
+              },
+              "default": "'m'",
+              "description": "Size of the icon"
+            },
+            {
+              "kind": "field",
+              "name": "family",
+              "type": {
+                "text": "MaterialIconFamily"
+              },
+              "default": "'filled'",
+              "description": "Family of the icon"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "icon",
+              "fieldName": "icon",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "size",
+              "fieldName": "size",
+              "type": {
+                "text": "MaterialIconSize"
+              }
+            },
+            {
+              "name": "family",
+              "fieldName": "family",
+              "type": {
+                "text": "MaterialIconFamily"
+              }
+            }
+          ],
+          "tagName": "wcs-mat-icon",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MatIcon",
+          "declaration": {
+            "name": "MatIcon",
+            "module": "components/mat-icon/mat-icon.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-mat-icon",
+          "declaration": {
+            "name": "MatIcon",
+            "module": "components/mat-icon/mat-icon.tsx"
           }
         }
       ]
@@ -6757,99 +6870,6 @@
           "declaration": {
             "name": "Modal",
             "module": "components/modal/modal.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/mat-icon/mat-icon-interface.tsx",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/mat-icon/mat-icon.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "MatIcon",
-          "members": [
-            {
-              "kind": "field",
-              "name": "icon",
-              "type": {
-                "text": "string"
-              },
-              "description": "Use the icon name from Material Icons"
-            },
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "MaterialIconSize"
-              },
-              "default": "'m'",
-              "description": "Size of the icon"
-            },
-            {
-              "kind": "field",
-              "name": "family",
-              "type": {
-                "text": "MaterialIconFamily"
-              },
-              "default": "'filled'",
-              "description": "Family of the icon"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "icon",
-              "fieldName": "icon",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "size",
-              "fieldName": "size",
-              "type": {
-                "text": "MaterialIconSize"
-              }
-            },
-            {
-              "name": "family",
-              "fieldName": "family",
-              "type": {
-                "text": "MaterialIconFamily"
-              }
-            }
-          ],
-          "tagName": "wcs-mat-icon",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "MatIcon",
-          "declaration": {
-            "name": "MatIcon",
-            "module": "components/mat-icon/mat-icon.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-mat-icon",
-          "declaration": {
-            "name": "MatIcon",
-            "module": "components/mat-icon/mat-icon.tsx"
           }
         }
       ]
@@ -8831,6 +8851,68 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/spinner/spinner-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/spinner/spinner.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Spinner",
+          "members": [
+            {
+              "kind": "field",
+              "name": "mode",
+              "type": {
+                "text": "WcsSpinnerMode"
+              },
+              "default": "'border'",
+              "description": "Indicates the spinner display mode.\r\nAccepted values: `border` or `growing`"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "mode",
+              "fieldName": "mode",
+              "type": {
+                "text": "WcsSpinnerMode"
+              }
+            }
+          ],
+          "tagName": "wcs-spinner",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Spinner",
+          "declaration": {
+            "name": "Spinner",
+            "module": "components/spinner/spinner.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-spinner",
+          "declaration": {
+            "name": "Spinner",
+            "module": "components/spinner/spinner.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/switch/switch-interface.ts",
       "declarations": [],
       "exports": []
@@ -8956,68 +9038,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/spinner/spinner-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/spinner/spinner.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Spinner",
-          "members": [
-            {
-              "kind": "field",
-              "name": "mode",
-              "type": {
-                "text": "WcsSpinnerMode"
-              },
-              "default": "'border'",
-              "description": "Indicates the spinner display mode.\r\nAccepted values: `border` or `growing`"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "mode",
-              "fieldName": "mode",
-              "type": {
-                "text": "WcsSpinnerMode"
-              }
-            }
-          ],
-          "tagName": "wcs-spinner",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Spinner",
-          "declaration": {
-            "name": "Spinner",
-            "module": "components/spinner/spinner.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-spinner",
-          "declaration": {
-            "name": "Spinner",
-            "module": "components/spinner/spinner.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/tab/tab.tsx",
       "declarations": [
         {
@@ -9081,6 +9101,272 @@
           "declaration": {
             "name": "Tab",
             "module": "components/tab/tab.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/tabs/tabs-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/tabs/tabs.e2e.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/tabs/tabs.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Tabs component to switch between tab content.\r\nUse in conjuction with `wcs-tab`.",
+          "name": "Tabs",
+          "members": [
+            {
+              "kind": "field",
+              "name": "align",
+              "type": {
+                "text": "WcsTabsAlignment"
+              },
+              "default": "'start'",
+              "description": "Tab headers alignment."
+            },
+            {
+              "kind": "field",
+              "name": "selectedIndex",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "Current selected tab index.\r\nStarts at 0."
+            },
+            {
+              "kind": "field",
+              "name": "selectedKey",
+              "type": {
+                "text": "any"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "headersOnly",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Whether to skip rendering the tabpanel with the content of the selected tab. Use this prop if you plan to\r\nseparately render the tab content."
+            },
+            {
+              "kind": "field",
+              "name": "gutter",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines if tabs header should have a border at the bottom"
+            },
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsTabsElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "headers",
+              "type": {
+                "text": "string[]"
+              },
+              "privacy": "private",
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "currentActiveTabIndex",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "0"
+            },
+            {
+              "kind": "method",
+              "name": "selectedIndexChanged",
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "selectedTabkeyChanged",
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "any"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "emitActiveTabChange",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "updateCurrentActiveIndexByTabKey",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "any"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "onTabLoaded"
+            },
+            {
+              "kind": "method",
+              "name": "putTabsInCorrectDivIfTheyAreNot",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyDown",
+              "parameters": [
+                {
+                  "name": "ev",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                },
+                {
+                  "name": "tabIndex",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "refreshHeaders",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "tabs",
+              "privacy": "private",
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "selectTabAndEmitChangeEvent",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "index",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "updateTabVisibility",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "hideAllTabsContent",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "align",
+              "fieldName": "align",
+              "type": {
+                "text": "WcsTabsAlignment"
+              }
+            },
+            {
+              "name": "selected-index",
+              "fieldName": "selectedIndex",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "selected-key",
+              "fieldName": "selectedKey",
+              "type": {
+                "text": "any"
+              }
+            },
+            {
+              "name": "headers-only",
+              "fieldName": "headersOnly",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "gutter",
+              "fieldName": "gutter",
+              "type": {
+                "text": "boolean"
+              }
+            }
+          ],
+          "tagName": "wcs-tabs",
+          "events": [
+            {
+              "name": "tabChange",
+              "type": {
+                "text": "EventEmitter<WcsTabChangeEvent>"
+              },
+              "description": "\r\nEmitted when the selected tab change."
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Tabs",
+          "declaration": {
+            "name": "Tabs",
+            "module": "components/tabs/tabs.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-tabs",
+          "declaration": {
+            "name": "Tabs",
+            "module": "components/tabs/tabs.tsx"
           }
         }
       ]
@@ -9616,272 +9902,6 @@
           "declaration": {
             "name": "Textarea",
             "module": "components/textarea/textarea.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/tabs/tabs-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/tabs/tabs.e2e.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/tabs/tabs.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Tabs component to switch between tab content.\r\nUse in conjuction with `wcs-tab`.",
-          "name": "Tabs",
-          "members": [
-            {
-              "kind": "field",
-              "name": "align",
-              "type": {
-                "text": "WcsTabsAlignment"
-              },
-              "default": "'start'",
-              "description": "Tab headers alignment."
-            },
-            {
-              "kind": "field",
-              "name": "selectedIndex",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "Current selected tab index.\r\nStarts at 0."
-            },
-            {
-              "kind": "field",
-              "name": "selectedKey",
-              "type": {
-                "text": "any"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "headersOnly",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Whether to skip rendering the tabpanel with the content of the selected tab. Use this prop if you plan to\r\nseparately render the tab content."
-            },
-            {
-              "kind": "field",
-              "name": "gutter",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines if tabs header should have a border at the bottom"
-            },
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsTabsElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "headers",
-              "type": {
-                "text": "string[]"
-              },
-              "privacy": "private",
-              "default": "[]"
-            },
-            {
-              "kind": "field",
-              "name": "currentActiveTabIndex",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "default": "0"
-            },
-            {
-              "kind": "method",
-              "name": "selectedIndexChanged",
-              "parameters": [
-                {
-                  "name": "newValue",
-                  "type": {
-                    "text": "number"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "selectedTabkeyChanged",
-              "parameters": [
-                {
-                  "name": "newValue",
-                  "type": {
-                    "text": "any"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "emitActiveTabChange",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "updateCurrentActiveIndexByTabKey",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "newValue",
-                  "type": {
-                    "text": "any"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "onTabLoaded"
-            },
-            {
-              "kind": "method",
-              "name": "putTabsInCorrectDivIfTheyAreNot",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleKeyDown",
-              "parameters": [
-                {
-                  "name": "ev",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  }
-                },
-                {
-                  "name": "tabIndex",
-                  "type": {
-                    "text": "number"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "refreshHeaders",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "tabs",
-              "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "method",
-              "name": "selectTabAndEmitChangeEvent",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "index",
-                  "type": {
-                    "text": "number"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "updateTabVisibility",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "hideAllTabsContent",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "align",
-              "fieldName": "align",
-              "type": {
-                "text": "WcsTabsAlignment"
-              }
-            },
-            {
-              "name": "selected-index",
-              "fieldName": "selectedIndex",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "selected-key",
-              "fieldName": "selectedKey",
-              "type": {
-                "text": "any"
-              }
-            },
-            {
-              "name": "headers-only",
-              "fieldName": "headersOnly",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "gutter",
-              "fieldName": "gutter",
-              "type": {
-                "text": "boolean"
-              }
-            }
-          ],
-          "tagName": "wcs-tabs",
-          "events": [
-            {
-              "name": "tabChange",
-              "type": {
-                "text": "EventEmitter<WcsTabChangeEvent>"
-              },
-              "description": "\r\nEmitted when the selected tab change."
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Tabs",
-          "declaration": {
-            "name": "Tabs",
-            "module": "components/tabs/tabs.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-tabs",
-          "declaration": {
-            "name": "Tabs",
-            "module": "components/tabs/tabs.tsx"
           }
         }
       ]
