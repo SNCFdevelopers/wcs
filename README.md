@@ -1,112 +1,97 @@
-# Web Components SNCF 
+<a href="https://wcs.dev.sncf" target="blank">
+    <img src="stories/assets/images/cover.webp" style="max-width: 100%" alt="SNCF Design System Cover" />
+</a>
+
+# Web Components SNCF
+
+[![pipeline](https://img.shields.io/gitlab/pipeline-status/SNCF%2Fwcs?branch=master&style=for-the-badge)](https://img.shields.io/gitlab/pipeline-status/SNCF%2Fwcs?branch=master&style=for-the-badge)
+[![npm version](https://img.shields.io/gitlab/v/tag/13813721?color=success&label=release&style=for-the-badge)](https://img.shields.io/gitlab/v/tag/13813721?color=success&label=release&style=for-the-badge)
+[![downloads](https://img.shields.io/npm/dt/wcs-core?style=for-the-badge)](https://img.shields.io/npm/dt/wcs-core?style=for-the-badge)
+
+[![Built With Stencil](https://img.shields.io/badge/Built%20With%20Stencil-16161d.svg?logo=stackblitz&style=for-the-badge)](https://stenciljs.com)
+[![Storybook](https://img.shields.io/badge/Storybook-ff4785.svg?logo=storybook&style=for-the-badge&logoColor=fff)](https://storybook.js.org/)
+
+### **OFFICIAL DOCUMENTATION** 👉 [WCS.DEV.SNCF](https://wcs.dev.sncf)
 
 This project is the web component implementation of the [SNCF design system](https://designmetier-bootstrap.sncf.fr/).  
-It is built using [stencil](https://github.com/ionic-team/stencil).
+It is built using  [Stencil](https://github.com/ionic-team/stencil) and documented using [Storybook](https://storybook.js.org/).
 
-If you read this documentation on GitHub, only the development branch is updated at the moment. We use a GitLab project for WCS development and releases.
+If you read this documentation on GitHub, only the development branch is updated at the moment. We use the [GitLab project](https://gitlab.com/SNCF/wcs/) for WCS development and releases.
 
 ## Packages
 
 Here is the list of published npm packages and their goal :
 
-- `wcs-core` contains the web components compiled with StencilJS [![npm version](https://badge.fury.io/js/wcs-core.svg)](https://badge.fury.io/js/wcs-core)
-- `wcs-angular` angular integrations (value accessors, ...)[![npm version](https://badge.fury.io/js/wcs-angular.svg)](https://badge.fury.io/js/wcs-angular)
-- `wcs-formly` Angular Formly integration for WCS [![npm version](https://badge.fury.io/js/wcs-formly.svg)](https://badge.fury.io/js/wcs-formly)
-- `wcs-react` React integration for WCS [![npm version](https://badge.fury.io/js/wcs-react.svg)](https://badge.fury.io/js/wcs-react)
+| Package       | Usage                                                        |                                                          Version                                                          |
+|:--------------|:-------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------:|
+| `wcs-core`    | Contains the web components compiled with StencilJS          |    [![npm version](https://img.shields.io/npm/v/wcs-core?style=for-the-badge)](https://www.npmjs.com/package/wcs-core)    |
+| `wcs-angular` | Angular integrations (value accessors, types, bindings, ...) | [![npm version](https://img.shields.io/npm/v/wcs-angular?style=for-the-badge)](https://www.npmjs.com/package/wcs-angular) |
+| `wcs-formly`  | Angular Formly integration for WCS                           |  [![npm version](https://img.shields.io/npm/v/wcs-formly?style=for-the-badge)](https://www.npmjs.com/package/wcs-formly)  |
+| `wcs-react`   | React integration for WCS (types, bindings, ...)             |   [![npm version](https://img.shields.io/npm/v/wcs-react?style=for-the-badge)](https://www.npmjs.com/package/wcs-react)   |
 
 ## Roadmap
 
-This project is still under heavy development therefore it is not yet released. It is being used internally as of now.
+This project is still under heavy development.  
+You can get a preview of what's planned for the following months in the [GitLab Milestones](https://gitlab.com/SNCF/wcs/-/milestones).
 
-We plan to release first version in **december 2020**.
+Consult the [changelog](https://wcs.dev.sncf/?path=/docs/documentation-changelog--documentation) to know what's going on. 
 
-## Known issues
-
-Select and select options size behavior, especially with multiple select. As of now we recommend setting a fixed width on the select to prevent resizing from happening. A stale branch `fix-select-options-size` contains some work to fix it, but it is abandonned for now.
-
-## Documentation
-
-There is documentation available at 
-- https://wcs.dev.sncf/ for production (latest release)
-- https://lemon-bush-001d04303-develop.westeurope.3.azurestaticapps.net/ for development environment
-- https://lemon-bush-001d04303-review.westeurope.3.azurestaticapps.net/ for review environment
+Major versions releases :
+- **v0** 👉 Jul 2019
+- **v1** 👉 Sep 2020
+- **v2** 👉 Jun 2021
+- **v3** 👉 Feb 2023
+- **v4** 👉 Sep 2023
 
     
 ### Example usage
 
-There is an example projects under `example` folder for angular.
+There are example projects under `example` folder for angular and react.
 
 Step to start the example project :
 ```shell
 # wcs-core build
 npm install
 npm run build
+```
+```shell
 # angular build (use --watch option to watch files)
 cd angular
 npm install
 ng build --project wcs-angular
 ng build --project wcs-formly
-# start example
-cd ../example
+# start angular example
+cd ../example/angular
 npm install
 ng serve
 ```
+```shell
+# react build
+cd react
+npm install
+npm run clean && npm run compile
+# start react example
+cd ../example/react
+npm install
+npm run start
+```
 
-If you have any question, don't hesitate to fill an issue !
+If you have any question, don't hesitate to [fill an issue](https://gitlab.com/SNCF/wcs/-/issues/new).
 
 ### Install in your project
 
-You can refer to the 
-[official WCS documentation](https://sncf.gitlab.io/wcs/master/?path=/story/documentation-framework-integrations--page) 
-to use wcs with Angular or React. For other frameworks, StencilJS offers many integrations with different JS frameworks.
+You can refer to the [official WCS documentation](https://wcs.dev.sncf/?path=/docs/documentation-integrations-framework-integrations--documentation)
+to use the lib with Angular or React. For other, StencilJS offers many integrations with different JS frameworks.
 
 You can refer to [their official documentation](https://stenciljs.com/docs/overview) to add WCS to your project.
 
-After added wcs dependencies, you must add Avenir and icons font faces like so :
-
-```css
-@font-face {
-    font-family: Avenir;
-    src: url("your-custom-path/avenir-lighter.woff");
-    font-weight: 300;
-}
-
-@font-face {
-    font-family: Avenir;
-    src: url("your-custom-path/avenir-book.woff");
-    font-weight: 400;
-}
-
-@font-face {
-    font-family: Avenir;
-    src: url("your-custom-path/avenir-medium.woff");
-    font-weight: 500;
-}
-
-@font-face {
-    font-family: Avenir;
-    src: url("your-custom-path/avenir-black.woff");
-    font-weight: 900;
-}
-@font-face {
-    font-family: "icons";
-    src: url("your-custom-path/icons.eot?#iefix") format("embedded-opentype"),
-    url("your-custom-path/icons.woff2") format("woff2"),
-    url("your-custom-path/icons.woff") format("woff"),
-    url("your-custom-path/icons.ttf") format("truetype"),
-    url("your-custom-path/icons.svg#icons") format("svg");
-}
-```
 
 ## Contributing
 
 ### Bug, Feature request, etc...
 
-Don't hesitate to fill in an issue and we'll discuss about it. If you want to contribute code, please fill in an issue first so we can synchronize.
-
-### Dev requirements
-
-- Minimum node version : 10.16
+Don't hesitate to [fill in an issue](https://gitlab.com/SNCF/wcs/-/issues/new) and we'll discuss about it.
+If you want to contribute code, please fill in an issue first so we can handle it properly.
 
 ### Starting the project
 
@@ -139,30 +124,6 @@ npm run test:e2e path_to_tests_file
 npm run test:e2e src/components/tabs/tabs.e2e.ts
 ```
 
-### Doing a release
+### License
 
-Don't forget to update the changelog.
-
-```sh
-# Make sure you're on develop branch
-git checkout develop
-# Pull latest changes
-git pull
-# Build the project to make sure that all automatically generated files are up-to-date
-npm run build
-# Update the changelog by replacing the 'Unreleased' section with the released version number
-# Commit your changes
-git add . && git commit -m "chore: prepare next release" 
-# Go on master
-git checkout master
-# Merge latest changes
-git merge develop
-# Do the release, we use semantic versioning for choosing release number
-npm run update-version -- --version <major|minor|patch>
-# Go on develop
-git checkout develop
-# Merge the release
-git merge master
-# Push the changes
-git push
-```
+[MIT](https://gitlab.com/SNCF/wcs/-/blob/master/LICENSE)

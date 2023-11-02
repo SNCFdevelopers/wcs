@@ -1,24 +1,33 @@
 # WcsAngular
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.1.
+[![npm version](https://img.shields.io/npm/v/wcs-angular?style=for-the-badge)](https://www.npmjs.com/package/wcs-angular)
+[![Storybook](https://img.shields.io/badge/Angular-fff.svg?logo=angular&style=for-the-badge&logoColor=DD0031)](https://angular.io/)
 
-## Code scaffolding
 
-Run `ng generate component component-name --project wcs-angular` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project wcs-angular`.
-> Note: Don't forget to add `--project wcs-angular` or else it will be added to the default project in your `angular.json` file. 
+This project is the Angular integration of the [wcs-core package](https://www.npmjs.com/package/wcs-core).  
+It contains :
+* **WcsAngularModule** importing all component and directive declarations
+* **Proxies** to make web component declarations for Angular
+* **Directives** containing value accessors to bridge between Angular APIs and web components 
+
+## Requirements
+
+- Generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.1
+- Requires Angular >= 13
 
 ## Build
 
-Run `ng build wcs-angular` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `npm run build:wcs-angular` from the wcs-core/angular folder.
 
-## Publishing
+## Integration in your project
 
-After building your library with `ng build wcs-angular`, go to the dist folder `cd dist/wcs-angular` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test wcs-angular` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Read the official [WCS documentation](https://wcs.dev.sncf/?path=/docs/documentation-integrations-framework-integrations--documentation#angular-)
+for Angular integration.
 
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Licence
+
+[MIT](https://gitlab.com/SNCF/wcs/-/blob/master/LICENSE)

@@ -25,7 +25,7 @@ for now removed features.
 
 ### Fixed
 
-for any bug fixes.
+- Update project README.md and CONTRIBUTING.md
 
 ### Security
 

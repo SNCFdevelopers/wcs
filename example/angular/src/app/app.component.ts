@@ -12,6 +12,7 @@ const DEFAULT_TAB_KEY = 'counter';
       <div slot="actions">
           <wcs-button class="wcs-light" mode="clear"><span>Connexion</span><wcs-mat-icon icon="person_outline"></wcs-mat-icon></wcs-button>
       </div>
+      toto
     </wcs-header>
     <wcs-nav>
       <wcs-nav-item text="Example" routerLink="/test-route" role="link" data-href="/test-route">

@@ -46,6 +46,36 @@ Finally, if you want to push modifications (for example the result of a rebase) 
 
 > Example : `git push https://gitlab.com/contributor-username/wcs local-branch:remote-branch` (add `-f` if it's a rebase).
 
+
+### Doing a release
+
+Don't forget to update the changelog.
+
+```sh
+# Make sure you're on develop branch
+git checkout develop
+# Pull latest changes
+git pull
+# Build the project to make sure that all automatically generated files are up-to-date
+npm run build
+# Update the changelog by replacing the 'Unreleased' section with the released version number
+# Commit your changes
+git add . && git commit -m "chore: prepare next release" 
+# Go on master
+git checkout master
+# Merge latest changes
+git merge develop
+# Do the release, we use semantic versioning for choosing release number
+npm run update-version -- --version <major|minor|patch>
+# Go on develop
+git checkout develop
+# Merge the release
+git merge master
+# Push the changes
+git push
+```
+
+
 ## Resources
 
 - https://www.joshmorony.com/understanding-jsx-for-stencil-js-applications/
@@ -60,6 +90,8 @@ Finally, if you want to push modifications (for example the result of a rebase) 
 - https://vaadin.com/docs/latest/ds/components
 - https://design.baloise.dev/?path=/story/welcome--page&globals=framework:react
 - https://ix.siemens.io/ - https://ix.siemens.io/docs/getting-started/
+- https://github.com/freshworks/crayons
+- https://component.gallery/
 
 ### Accessibility
 
