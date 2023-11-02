@@ -8,7 +8,7 @@ This project is the Angular integration of the [wcs-core package](https://www.np
 It contains :
 * **WcsAngularModule** importing all component and directive declarations
 * **Proxies** to make web component declarations for Angular
-* **Directives** containing value accessors to bridge between Angular APIs and web components 
+* **Directives** containing value accessors to bridge between Angular forms API and web components 
 
 ## Requirements
 
