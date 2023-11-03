@@ -128,8 +128,8 @@ import { WcsFormlyModule } from 'wcs-formly';
       </formly-wcs-field-input>
     </formly-field>
   </formly-form>
-  <wcs-button type="submit" href="#" class="btn btn-primary submit-button">Submit</wcs-button>
 </form>
+<wcs-button type="submit" onClick={() => alert('Form submitted')} class="btn btn-primary submit-button">Submit</wcs-button>
 
 #
 
@@ -295,5 +295,5 @@ FormlyModule.forRoot({
 ---
 
 **See more examples :**  
-- WCS angular example project : [./example/angular/src/app/formly-example](https://gitlab.com/SNCF/wcs/-/tree/master/example/angular/src/app/formly-example)
+- WCS Angular example project : [example/angular/src/app/formly-example](https://gitlab.com/SNCF/wcs/-/tree/master/example/angular/src/app/formly-example)
 - Official Formly documentation : [https://formly.dev/docs/examples/introduction](https://formly.dev/docs/examples/introduction)
