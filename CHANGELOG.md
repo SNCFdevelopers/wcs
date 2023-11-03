@@ -13,7 +13,7 @@ for new features.
 
 ### Changed
 
-for changes in existing functionality.
+- **radio** : update style to match the design system appearance
 
 ### Deprecated
 

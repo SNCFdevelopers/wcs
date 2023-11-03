@@ -76,6 +76,8 @@
         &:before {
             border-color: var(--wcs-primary);
             background-color: var(--wcs-primary);
+            outline: solid 2px var(--wcs-white);
+            outline-offset: -4px;
         }
     }
 }
@@ -93,7 +95,7 @@
 
 :host([mode=radio]) {
     label {
-        padding: 0.125rem 0.125rem 0 0;
+        padding: 0.125rem;
         border: none;
         transition: 0.175s ease-in-out;
 
@@ -136,6 +138,7 @@
         color: var(--wcs-white);
         white-space: nowrap;
         border-radius: 0.4375rem;
+        transition: 0.175s ease-in-out;
     }
 }
 
