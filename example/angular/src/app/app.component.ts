@@ -10,12 +10,12 @@ const DEFAULT_TAB_KEY = 'counter';
       <img slot="logo" src="./assets/sncf-logo.png" alt="Logo SNCF" >
       <h1 slot="title">Votre superbe application</h1>
       <div slot="actions">
-          <wcs-button class="wcs-light" mode="clear"><span>Connexion</span><i class="material-icons">person_outline</i></wcs-button>
+          <wcs-button class="wcs-light" mode="clear"><span>Connexion</span><wcs-mat-icon icon="person_outline"></wcs-mat-icon></wcs-button>
       </div>
     </wcs-header>
     <wcs-nav>
       <wcs-nav-item text="Example" routerLink="/test-route" role="link" data-href="/test-route">
-        <i class="material-icons">train</i>
+        <wcs-mat-icon icon="train"></wcs-mat-icon>
       </wcs-nav-item>
     </wcs-nav>
     <main>

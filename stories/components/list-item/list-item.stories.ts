@@ -28,7 +28,7 @@ const Template: StoryFn<Partial<{ activated: boolean }>> = (args) => html`
         <div slot="title">Titre premier item</div>
         <div slot="actions">
             <wcs-button shape="square" mode="stroked" class="wcs-secondary">
-                <i class="material-icons">open_in_new</i>
+                <wcs-mat-icon icon="open_in_new"></wcs-mat-icon>
             </wcs-button>
         </div>
         <wcs-list-item-properties>
@@ -49,7 +49,7 @@ const Template: StoryFn<Partial<{ activated: boolean }>> = (args) => html`
         <div slot="title">Titre deuxième item</div>
         <div slot="actions">
             <wcs-button shape="square" mode="stroked" class="wcs-secondary">
-                <i class="material-icons">create</i>
+                <wcs-mat-icon icon="create"></wcs-mat-icon>
             </wcs-button>
         </div>
         <wcs-list-item-properties>

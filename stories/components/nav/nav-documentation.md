@@ -10,6 +10,6 @@ Here's an example code snippet to use `wcs-nav-item` with `routerLink` and make 
 
 ```html
 <wcs-nav-item text="Mes trains" routerLink="/route" role="link">
-    <i class="material-icons">train</i>
+    <wcs-mat-icon icon="train"></wcs-mat-icon>
 </wcs-nav-item>
 ```

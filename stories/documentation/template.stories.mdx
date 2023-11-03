@@ -153,14 +153,14 @@ This Angular template displays a header for your app with a logo, title, and act
 
         <ng-template #headerNotConnected>
           <wcs-button class="wcs-light" mode="clear" (click)="login()"><span>Connexion</span>
-            <i class="material-icons vertical-align-icon">person_outline</i>
+            <wcs-mat-icon icon="person_outline" class="vertical-align-icon"></wcs-mat-icon>
           </wcs-button>
         </ng-template>
 
         <ng-template #headerConnected>
           <wcs-dropdown class="wcs-light" mode="clear">
-            <div slot="placeholder"><span>{{userName}} </span>
-              <i class="material-icons vertical-align-icon">person_outline</i>
+            <div slot="placeholder"><span>{{userName}}</span>
+              <wcs-mat-icon icon="person_outline" class="vertical-align-icon"></wcs-mat-icon>
             </div>
             <wcs-dropdown-item (wcsDropdownItemClick)="logout()"><span>Déconnexion</span>
             </wcs-dropdown-item>
@@ -211,13 +211,13 @@ Now, lets create the navbar component. It contains the navigation bar of your pr
     </wcs-modal>
     <wcs-nav class="nav">
       <wcs-nav-item id="home" text="Accueil" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-        <i class="material-icons">home</i>
+        <wcs-mat-icon icon="home"></wcs-mat-icon>
       </wcs-nav-item>
       <wcs-nav-item id="other" text="Autre" routerLink="/other" routerLinkActive="active">
-        <i class="material-icons">other</i>
+        <wcs-mat-icon icon="other"></wcs-mat-icon>
       </wcs-nav-item>
       <wcs-nav-item id="about" slot="bottom" text="A propos" (click)="showAboutModal = true">
-        <i class="material-icons">help</i>
+        <wcs-mat-icon icon="help"></wcs-mat-icon>
       </wcs-nav-item>
     </wcs-nav>
   `,

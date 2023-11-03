@@ -153,14 +153,14 @@ const SelectButtonTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) =>
         </wcs-select>
         <wcs-input placeholder="Region"></wcs-input>
         <wcs-button shape="square" slot="suffix" ripple="false">
-            <i class="material-icons">search</i>
+            <wcs-mat-icon icon="search"></wcs-mat-icon>
         </wcs-button>
     </wcs-form-field>
 
     <wcs-form-field ?is-error=${args.isError}>
         <wcs-input placeholder="Region"></wcs-input>
         <wcs-button shape="square" slot="suffix" ripple="false">
-            <i class="material-icons">search</i>
+            <wcs-mat-icon icon="search"></wcs-mat-icon>
         </wcs-button>
     </wcs-form-field>
 
