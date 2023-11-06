@@ -40,6 +40,7 @@ Type: `Promise<void>`
 
 ### Used by
 
+ - [wcs-alert](../alert)
  - [wcs-breadcrumb](../breadcrumb)
  - [wcs-counter](../counter)
  - [wcs-editable-field](../editable-field)
@@ -52,6 +53,7 @@ Type: `Promise<void>`
 ### Graph
 ```mermaid
 graph TD;
+  wcs-alert --> wcs-mat-icon
   wcs-breadcrumb --> wcs-mat-icon
   wcs-counter --> wcs-mat-icon
   wcs-editable-field --> wcs-mat-icon

@@ -6,6 +6,8 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AriaAttributeName } from "./utils/mutable-aria-attribute";
+import { WcsAlertConfig, WcsAlertIntent } from "./components/alert/alert-interface";
+import { WcsAlertDrawerPosition } from "./components/alert-drawer/alert-drawer-interface";
 import { BadgeColor, BadgeShape, BadgeSize } from "./components/badge/badge-interface";
 import { WcsButtonMode, WcsButtonShape, WcsButtonSize, WcsButtonType } from "./components/button/button-interface";
 import { CardMode } from "./components/card/card-interface";
@@ -32,6 +34,8 @@ import { WcsTabChangeEvent, WcsTabsAlignment } from "./components/tabs/tabs-inte
 import { TextareaChangeEventDetail, WcsTextareaEnterKeyHint, WcsTextareaInputMode, WcsTextareaInputState, WcsTextareaResize, WcsTextareaWrap } from "./components/textarea/textarea-interface";
 import { WcsTooltipAppendTo, WcsTooltipPosition } from "./components/tooltip/tooltip-interface";
 export { AriaAttributeName } from "./utils/mutable-aria-attribute";
+export { WcsAlertConfig, WcsAlertIntent } from "./components/alert/alert-interface";
+export { WcsAlertDrawerPosition } from "./components/alert-drawer/alert-drawer-interface";
 export { BadgeColor, BadgeShape, BadgeSize } from "./components/badge/badge-interface";
 export { WcsButtonMode, WcsButtonShape, WcsButtonSize, WcsButtonType } from "./components/button/button-interface";
 export { CardMode } from "./components/card/card-interface";
@@ -153,6 +157,87 @@ export namespace Components {
           * Determines if the action bar should have a border at the bottom. You should not use this property if a gutter is already present on tabs
          */
         "gutter": boolean;
+    }
+    /**
+     * Alerts are used to communicate a state or an action that has been performed.
+     * It has to be used conjunction with the `wcs-alert-drawer` component, or you can use it independently by taking care of 
+     * the alert visibility
+     * @cssprop --wcs-alert-background-color - Background color of the alert
+     * @cssprop --wcs-alert-icon-background-color - Background color of the icon
+     * @cssprop --wcs-alert-title-color - Color of the title
+     * @cssprop --wcs-alert-subtitle-color - Color of the subtitle
+     * @cssprop --wcs-alert-dismiss-button-color - Color of the dismiss button
+     * @cssprop --wcs-alert-title-font-weight - Font weight of the title
+     * @cssprop --wcs-alert-subtitle-font-weight - Font weight of the subtitle
+     * @cssprop --wcs-alert-title-font-size - Font size of the title
+     * @cssprop --wcs-alert-subtitle-font-size - Font size of the subtitle
+     * @cssprop --wcs-alert-border-width - Border width of the alert
+     * @cssprop --wcs-alert-border-color - Border color of the alert
+     * @cssprop --wcs-alert-border-radius - Border radius of the alert
+     * @cssprop --wcs-alert-padding - Padding of the alert
+     * @cssprop --wcs-alert-gap - Gap between each element of the alert, icon content and close button
+     * @cssprop --wcs-alert-min-width - Minimum width of the alert, default to 100% and it is set by alert-drawer component
+     * @cssprop --wcs-alert-progress-bar-height - Height of the progress bar if `showProgressBar` is set to true
+     * @cssprop --wcs-alert-progress-bar-background-color - Background color of the progress bar
+     */
+    interface WcsAlert {
+        "intent": WcsAlertIntent;
+        /**
+          * Controls the visibility state of the alert. This property is exposed to allow control of the alert's display state and animation timing: - Used by wcs-alert-drawer to coordinate exit animations when the alert is dismissed - Can be used directly for custom implementations (though using wcs-alert-drawer is recommended) - When set to false, it triggers the exit animation if implemented  Note: While direct usage is possible for custom implementations, it's recommended to use wcs-alert-drawer for consistent alert management and animations.
+         */
+        "show": boolean;
+        "showProgressBar": boolean;
+        /**
+          * Time duration of the alert visibility  5000ms by default If 0, the alert will not emit `wcsAlertDismiss` event automatically
+         */
+        "timeout": number;
+    }
+    /**
+     * Serve as a container for displaying `wcs-alert` components. Directly use this component to display alerts in your applications.
+     * ## Usage
+     * You can place the `wcs-alert-drawer` component anywhere in your application. It will be used to display alerts.
+     * You need to set `position` property to define where the alert drawer will be displayed on the screen.
+     * About alerts order:
+     * - alerts are ordered up-bottom if the position is `top` and bottom-up if the position is `bottom`
+     * ## Accessibility guidelines 💡
+     * - The component has `aria-live="polite"` and `aria-atomic="true"` attributes to announce the new alerts to screen readers
+     * ## Configuration (on the web component)
+     * Per default, the `wcs-alert-drawer` is configured with:
+     * - `position: 'top-right'`
+     * - `showProgressBar: false`
+     * - `timeout: 5000`
+     * When using the `WcsAlertDrawer::show(alert: WcsAlertConfig)` method, you can override the default configuration by 
+     * overriding it through the argument.
+     * You can also set them in the `wcs-alert-drawer` component directly as attributes
+     * ```html
+     * <wcs-alert-drawer position="top-right" show-progress-bar timeout="10000">
+     * ```
+     * With this configuration, all alerts will be displayed with a progress bar and a timeout of 10 seconds.
+     * @cssprop --wcs-alert-drawer-gap - Gap between alerts
+     * @cssprop --wcs-alert-drawer-margin-horizontal - Margin horizontal of the alert drawer
+     * @cssprop --wcs-alert-drawer-margin-vertical - Margin vertical of the alert drawer
+     * @cssprop --wcs-alert-drawer-hide-alert-animation-duration - Duration of the hide alert animation
+     * @cssprop --wcs-alert-drawer-min-width - Minimum width of the alert drawer => define the width of the alerts
+     */
+    interface WcsAlertDrawer {
+        /**
+          * Position of the alert drawer on the screen
+         */
+        "position": WcsAlertDrawerPosition;
+        /**
+          * Method exposed on `wcs-alert-drawer` to show an alert programmatically via the JS API
+          * @example Plain javascript (example inside a script tag): ```javascript  document.querySelector('wcs-alert-drawer').show({      title: 'Alert title',      subtitle: 'Alert subtitle',      intent: 'info',      showProgressBar: true,      timeout: 5000  });
+          * @param alert The alert to show
+         */
+        "show": (alert: WcsAlertConfig) => Promise<void>;
+        /**
+          * Whether to show the progress bar or not
+         */
+        "showProgressBar": boolean;
+        /**
+          * Timeout for the alert to be dismissed automatically
+         */
+        "timeout": number;
     }
     interface WcsApp {
     }
@@ -2322,6 +2407,10 @@ export interface WcsAccordionPanelCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLWcsAccordionPanelElement;
 }
+export interface WcsAlertCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLWcsAlertElement;
+}
 export interface WcsCheckboxCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLWcsCheckboxElement;
@@ -2502,6 +2591,78 @@ declare global {
     var HTMLWcsActionBarElement: {
         prototype: HTMLWcsActionBarElement;
         new (): HTMLWcsActionBarElement;
+    };
+    interface HTMLWcsAlertElementEventMap {
+        "wcsAlertDismiss": void;
+    }
+    /**
+     * Alerts are used to communicate a state or an action that has been performed.
+     * It has to be used conjunction with the `wcs-alert-drawer` component, or you can use it independently by taking care of 
+     * the alert visibility
+     * @cssprop --wcs-alert-background-color - Background color of the alert
+     * @cssprop --wcs-alert-icon-background-color - Background color of the icon
+     * @cssprop --wcs-alert-title-color - Color of the title
+     * @cssprop --wcs-alert-subtitle-color - Color of the subtitle
+     * @cssprop --wcs-alert-dismiss-button-color - Color of the dismiss button
+     * @cssprop --wcs-alert-title-font-weight - Font weight of the title
+     * @cssprop --wcs-alert-subtitle-font-weight - Font weight of the subtitle
+     * @cssprop --wcs-alert-title-font-size - Font size of the title
+     * @cssprop --wcs-alert-subtitle-font-size - Font size of the subtitle
+     * @cssprop --wcs-alert-border-width - Border width of the alert
+     * @cssprop --wcs-alert-border-color - Border color of the alert
+     * @cssprop --wcs-alert-border-radius - Border radius of the alert
+     * @cssprop --wcs-alert-padding - Padding of the alert
+     * @cssprop --wcs-alert-gap - Gap between each element of the alert, icon content and close button
+     * @cssprop --wcs-alert-min-width - Minimum width of the alert, default to 100% and it is set by alert-drawer component
+     * @cssprop --wcs-alert-progress-bar-height - Height of the progress bar if `showProgressBar` is set to true
+     * @cssprop --wcs-alert-progress-bar-background-color - Background color of the progress bar
+     */
+    interface HTMLWcsAlertElement extends Components.WcsAlert, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLWcsAlertElementEventMap>(type: K, listener: (this: HTMLWcsAlertElement, ev: WcsAlertCustomEvent<HTMLWcsAlertElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLWcsAlertElementEventMap>(type: K, listener: (this: HTMLWcsAlertElement, ev: WcsAlertCustomEvent<HTMLWcsAlertElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLWcsAlertElement: {
+        prototype: HTMLWcsAlertElement;
+        new (): HTMLWcsAlertElement;
+    };
+    /**
+     * Serve as a container for displaying `wcs-alert` components. Directly use this component to display alerts in your applications.
+     * ## Usage
+     * You can place the `wcs-alert-drawer` component anywhere in your application. It will be used to display alerts.
+     * You need to set `position` property to define where the alert drawer will be displayed on the screen.
+     * About alerts order:
+     * - alerts are ordered up-bottom if the position is `top` and bottom-up if the position is `bottom`
+     * ## Accessibility guidelines 💡
+     * - The component has `aria-live="polite"` and `aria-atomic="true"` attributes to announce the new alerts to screen readers
+     * ## Configuration (on the web component)
+     * Per default, the `wcs-alert-drawer` is configured with:
+     * - `position: 'top-right'`
+     * - `showProgressBar: false`
+     * - `timeout: 5000`
+     * When using the `WcsAlertDrawer::show(alert: WcsAlertConfig)` method, you can override the default configuration by 
+     * overriding it through the argument.
+     * You can also set them in the `wcs-alert-drawer` component directly as attributes
+     * ```html
+     * <wcs-alert-drawer position="top-right" show-progress-bar timeout="10000">
+     * ```
+     * With this configuration, all alerts will be displayed with a progress bar and a timeout of 10 seconds.
+     * @cssprop --wcs-alert-drawer-gap - Gap between alerts
+     * @cssprop --wcs-alert-drawer-margin-horizontal - Margin horizontal of the alert drawer
+     * @cssprop --wcs-alert-drawer-margin-vertical - Margin vertical of the alert drawer
+     * @cssprop --wcs-alert-drawer-hide-alert-animation-duration - Duration of the hide alert animation
+     * @cssprop --wcs-alert-drawer-min-width - Minimum width of the alert drawer => define the width of the alerts
+     */
+    interface HTMLWcsAlertDrawerElement extends Components.WcsAlertDrawer, HTMLStencilElement {
+    }
+    var HTMLWcsAlertDrawerElement: {
+        prototype: HTMLWcsAlertDrawerElement;
+        new (): HTMLWcsAlertDrawerElement;
     };
     interface HTMLWcsAppElement extends Components.WcsApp, HTMLStencilElement {
     }
@@ -4217,6 +4378,8 @@ declare global {
         "wcs-accordion-header": HTMLWcsAccordionHeaderElement;
         "wcs-accordion-panel": HTMLWcsAccordionPanelElement;
         "wcs-action-bar": HTMLWcsActionBarElement;
+        "wcs-alert": HTMLWcsAlertElement;
+        "wcs-alert-drawer": HTMLWcsAlertDrawerElement;
         "wcs-app": HTMLWcsAppElement;
         "wcs-badge": HTMLWcsBadgeElement;
         "wcs-breadcrumb": HTMLWcsBreadcrumbElement;
@@ -4374,6 +4537,85 @@ declare namespace LocalJSX {
           * Determines if the action bar should have a border at the bottom. You should not use this property if a gutter is already present on tabs
          */
         "gutter"?: boolean;
+    }
+    /**
+     * Alerts are used to communicate a state or an action that has been performed.
+     * It has to be used conjunction with the `wcs-alert-drawer` component, or you can use it independently by taking care of 
+     * the alert visibility
+     * @cssprop --wcs-alert-background-color - Background color of the alert
+     * @cssprop --wcs-alert-icon-background-color - Background color of the icon
+     * @cssprop --wcs-alert-title-color - Color of the title
+     * @cssprop --wcs-alert-subtitle-color - Color of the subtitle
+     * @cssprop --wcs-alert-dismiss-button-color - Color of the dismiss button
+     * @cssprop --wcs-alert-title-font-weight - Font weight of the title
+     * @cssprop --wcs-alert-subtitle-font-weight - Font weight of the subtitle
+     * @cssprop --wcs-alert-title-font-size - Font size of the title
+     * @cssprop --wcs-alert-subtitle-font-size - Font size of the subtitle
+     * @cssprop --wcs-alert-border-width - Border width of the alert
+     * @cssprop --wcs-alert-border-color - Border color of the alert
+     * @cssprop --wcs-alert-border-radius - Border radius of the alert
+     * @cssprop --wcs-alert-padding - Padding of the alert
+     * @cssprop --wcs-alert-gap - Gap between each element of the alert, icon content and close button
+     * @cssprop --wcs-alert-min-width - Minimum width of the alert, default to 100% and it is set by alert-drawer component
+     * @cssprop --wcs-alert-progress-bar-height - Height of the progress bar if `showProgressBar` is set to true
+     * @cssprop --wcs-alert-progress-bar-background-color - Background color of the progress bar
+     */
+    interface WcsAlert {
+        "intent"?: WcsAlertIntent;
+        /**
+          * Event emitted when the alert is dismissed
+         */
+        "onWcsAlertDismiss"?: (event: WcsAlertCustomEvent<void>) => void;
+        /**
+          * Controls the visibility state of the alert. This property is exposed to allow control of the alert's display state and animation timing: - Used by wcs-alert-drawer to coordinate exit animations when the alert is dismissed - Can be used directly for custom implementations (though using wcs-alert-drawer is recommended) - When set to false, it triggers the exit animation if implemented  Note: While direct usage is possible for custom implementations, it's recommended to use wcs-alert-drawer for consistent alert management and animations.
+         */
+        "show"?: boolean;
+        "showProgressBar"?: boolean;
+        /**
+          * Time duration of the alert visibility  5000ms by default If 0, the alert will not emit `wcsAlertDismiss` event automatically
+         */
+        "timeout"?: number;
+    }
+    /**
+     * Serve as a container for displaying `wcs-alert` components. Directly use this component to display alerts in your applications.
+     * ## Usage
+     * You can place the `wcs-alert-drawer` component anywhere in your application. It will be used to display alerts.
+     * You need to set `position` property to define where the alert drawer will be displayed on the screen.
+     * About alerts order:
+     * - alerts are ordered up-bottom if the position is `top` and bottom-up if the position is `bottom`
+     * ## Accessibility guidelines 💡
+     * - The component has `aria-live="polite"` and `aria-atomic="true"` attributes to announce the new alerts to screen readers
+     * ## Configuration (on the web component)
+     * Per default, the `wcs-alert-drawer` is configured with:
+     * - `position: 'top-right'`
+     * - `showProgressBar: false`
+     * - `timeout: 5000`
+     * When using the `WcsAlertDrawer::show(alert: WcsAlertConfig)` method, you can override the default configuration by 
+     * overriding it through the argument.
+     * You can also set them in the `wcs-alert-drawer` component directly as attributes
+     * ```html
+     * <wcs-alert-drawer position="top-right" show-progress-bar timeout="10000">
+     * ```
+     * With this configuration, all alerts will be displayed with a progress bar and a timeout of 10 seconds.
+     * @cssprop --wcs-alert-drawer-gap - Gap between alerts
+     * @cssprop --wcs-alert-drawer-margin-horizontal - Margin horizontal of the alert drawer
+     * @cssprop --wcs-alert-drawer-margin-vertical - Margin vertical of the alert drawer
+     * @cssprop --wcs-alert-drawer-hide-alert-animation-duration - Duration of the hide alert animation
+     * @cssprop --wcs-alert-drawer-min-width - Minimum width of the alert drawer => define the width of the alerts
+     */
+    interface WcsAlertDrawer {
+        /**
+          * Position of the alert drawer on the screen
+         */
+        "position"?: WcsAlertDrawerPosition;
+        /**
+          * Whether to show the progress bar or not
+         */
+        "showProgressBar"?: boolean;
+        /**
+          * Timeout for the alert to be dismissed automatically
+         */
+        "timeout"?: number;
     }
     interface WcsApp {
     }
@@ -6597,6 +6839,8 @@ declare namespace LocalJSX {
         "wcs-accordion-header": WcsAccordionHeader;
         "wcs-accordion-panel": WcsAccordionPanel;
         "wcs-action-bar": WcsActionBar;
+        "wcs-alert": WcsAlert;
+        "wcs-alert-drawer": WcsAlertDrawer;
         "wcs-app": WcsApp;
         "wcs-badge": WcsBadge;
         "wcs-breadcrumb": WcsBreadcrumb;
@@ -6723,6 +6967,57 @@ declare module "@stencil/core" {
              * @cssprop --wcs-tabs-gutter-background-color - Background color of the gutter
              */
             "wcs-action-bar": LocalJSX.WcsActionBar & JSXBase.HTMLAttributes<HTMLWcsActionBarElement>;
+            /**
+             * Alerts are used to communicate a state or an action that has been performed.
+             * It has to be used conjunction with the `wcs-alert-drawer` component, or you can use it independently by taking care of 
+             * the alert visibility
+             * @cssprop --wcs-alert-background-color - Background color of the alert
+             * @cssprop --wcs-alert-icon-background-color - Background color of the icon
+             * @cssprop --wcs-alert-title-color - Color of the title
+             * @cssprop --wcs-alert-subtitle-color - Color of the subtitle
+             * @cssprop --wcs-alert-dismiss-button-color - Color of the dismiss button
+             * @cssprop --wcs-alert-title-font-weight - Font weight of the title
+             * @cssprop --wcs-alert-subtitle-font-weight - Font weight of the subtitle
+             * @cssprop --wcs-alert-title-font-size - Font size of the title
+             * @cssprop --wcs-alert-subtitle-font-size - Font size of the subtitle
+             * @cssprop --wcs-alert-border-width - Border width of the alert
+             * @cssprop --wcs-alert-border-color - Border color of the alert
+             * @cssprop --wcs-alert-border-radius - Border radius of the alert
+             * @cssprop --wcs-alert-padding - Padding of the alert
+             * @cssprop --wcs-alert-gap - Gap between each element of the alert, icon content and close button
+             * @cssprop --wcs-alert-min-width - Minimum width of the alert, default to 100% and it is set by alert-drawer component
+             * @cssprop --wcs-alert-progress-bar-height - Height of the progress bar if `showProgressBar` is set to true
+             * @cssprop --wcs-alert-progress-bar-background-color - Background color of the progress bar
+             */
+            "wcs-alert": LocalJSX.WcsAlert & JSXBase.HTMLAttributes<HTMLWcsAlertElement>;
+            /**
+             * Serve as a container for displaying `wcs-alert` components. Directly use this component to display alerts in your applications.
+             * ## Usage
+             * You can place the `wcs-alert-drawer` component anywhere in your application. It will be used to display alerts.
+             * You need to set `position` property to define where the alert drawer will be displayed on the screen.
+             * About alerts order:
+             * - alerts are ordered up-bottom if the position is `top` and bottom-up if the position is `bottom`
+             * ## Accessibility guidelines 💡
+             * - The component has `aria-live="polite"` and `aria-atomic="true"` attributes to announce the new alerts to screen readers
+             * ## Configuration (on the web component)
+             * Per default, the `wcs-alert-drawer` is configured with:
+             * - `position: 'top-right'`
+             * - `showProgressBar: false`
+             * - `timeout: 5000`
+             * When using the `WcsAlertDrawer::show(alert: WcsAlertConfig)` method, you can override the default configuration by 
+             * overriding it through the argument.
+             * You can also set them in the `wcs-alert-drawer` component directly as attributes
+             * ```html
+             * <wcs-alert-drawer position="top-right" show-progress-bar timeout="10000">
+             * ```
+             * With this configuration, all alerts will be displayed with a progress bar and a timeout of 10 seconds.
+             * @cssprop --wcs-alert-drawer-gap - Gap between alerts
+             * @cssprop --wcs-alert-drawer-margin-horizontal - Margin horizontal of the alert drawer
+             * @cssprop --wcs-alert-drawer-margin-vertical - Margin vertical of the alert drawer
+             * @cssprop --wcs-alert-drawer-hide-alert-animation-duration - Duration of the hide alert animation
+             * @cssprop --wcs-alert-drawer-min-width - Minimum width of the alert drawer => define the width of the alerts
+             */
+            "wcs-alert-drawer": LocalJSX.WcsAlertDrawer & JSXBase.HTMLAttributes<HTMLWcsAlertDrawerElement>;
             "wcs-app": LocalJSX.WcsApp & JSXBase.HTMLAttributes<HTMLWcsAppElement>;
             /**
              * The badge component is a small label, generally appearing inside or in proximity to another larger interface component,

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { WcsAngularModule } from 'wcs-angular';
+import { WcsAlertService, WcsAngularModule } from 'wcs-angular';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +8,8 @@ import { WcsAngularModule } from 'wcs-angular';
   imports: [RouterOutlet, WcsAngularModule],
   template: `
     <h1>Angular Standalone Example</h1>
-    <wcs-button (click)="onButtonClick($event)">Hello From Angular Standalone App</wcs-button>
+    <wcs-button (click)="onHelloButtonClick($event)">Hello From Angular Standalone App</wcs-button>
+    <wcs-button (click)="onAlertButtonClick()">Display info alert</wcs-button>
   `,
   styles: [`
   `]
@@ -16,7 +17,13 @@ import { WcsAngularModule } from 'wcs-angular';
 export class AppComponent {
   title = 'wcs-angular-standalone-example';
 
-  onButtonClick($event: MouseEvent) {
+  constructor(private readonly wcsAlertService: WcsAlertService) { }
+
+  onHelloButtonClick($event: MouseEvent) {
     window.alert("Hello from Angular Standalone App!");
+  }
+
+  onAlertButtonClick() {
+    this.wcsAlertService.info("Title", "Subtitle");
   }
 }

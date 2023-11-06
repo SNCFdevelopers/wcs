@@ -1,0 +1,126 @@
+@import './alert-keyframes.scss';
+
+:host {
+    --wcs-alert-background-color: var(--wcs-semantic-color-background-surface-accent-lighter);
+    --wcs-alert-icon-background-color: var(--wcs-semantic-color-background-surface-brand-default);
+
+    --wcs-alert-title-color: var(--wcs-semantic-color-text-primary);
+    --wcs-alert-subtitle-color: var(--wcs-semantic-color-text-secondary);
+    --wcs-alert-dismiss-button-color: var(--wcs-semantic-color-foreground-inverse);
+
+    --wcs-alert-title-font-weight: var(--wcs-semantic-font-weight-heavy);
+    --wcs-alert-subtitle-font-weight: var(--wcs-semantic-font-weight-roman);
+
+    --wcs-alert-title-font-size: var(--wcs-semantic-font-size-base);
+    --wcs-alert-subtitle-font-size: var(--wcs-semantic-font-size-caption-2);
+
+    --wcs-alert-border-width: var(--wcs-semantic-border-width-default);
+    --wcs-alert-border-color: var(--wcs-semantic-color-border-primary);
+    --wcs-alert-border-radius: var(--wcs-semantic-border-radius-base);
+
+    --wcs-alert-padding: var(--wcs-semantic-spacing-base-150);
+    --wcs-alert-gap: var(--wcs-semantic-spacing-base-150);
+    --wcs-alert-min-width: 100%;
+
+    --wcs-alert-progress-bar-height: 0.25rem;
+    --wcs-alert-progress-bar-background-color: var(--wcs-alert-icon-background-color);
+
+    --wcs-alert-internal-progress-bar-animation-duration: 5s;
+
+    box-sizing: border-box;
+
+    background-color: var(--wcs-alert-background-color);
+    border-radius: var(--wcs-alert-border-radius);
+    padding: var(--wcs-alert-padding);
+    width: 100%;
+    min-width: var(--wcs-alert-min-width);
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--wcs-alert-gap);
+    border: solid var(--wcs-alert-border-width) var(--wcs-alert-border-color);
+
+    .content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .announcement-icon {
+        color: var(--wcs-alert-icon-background-color);
+    }
+
+    ::slotted([slot=title]) {
+        color: var(--wcs-alert-title-color);
+        font-size: var(--wcs-alert-title-font-size);
+        font-weight: var(--wcs-alert-title-font-weight);
+    }
+
+    ::slotted([slot=subtitle]) {
+        font-weight: var(--wcs-alert-subtitle-font-weight);
+        color: var(--wcs-alert-subtitle-color);
+        font-size: var(--wcs-alert-subtitle-font-size);
+    }
+
+    .progress-bar {
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: var(--wcs-alert-progress-bar-height);
+        position: absolute;
+    }
+
+    .progress-bar-track {
+        background-color: var(--wcs-alert-progress-bar-background-color);
+        height: 100%;
+        animation: progress-bar-slide var(--wcs-alert-internal-progress-bar-animation-duration) linear;
+        border-bottom-left-radius: var(--wcs-alert-border-radius);
+        border-bottom-right-radius: var(--wcs-alert-border-radius);
+        border-top-right-radius: var(--wcs-alert-border-radius); // to avoid a visual glitch, it's bizarre to have only radius on the bottom
+    }
+}
+
+:host([intent=success]) {
+    --wcs-alert-border-color: var(--wcs-semantic-color-border-success);
+    --wcs-alert-background-color: var(--wcs-semantic-color-background-surface-success-lighter);
+    --wcs-alert-icon-background-color: var(--wcs-semantic-color-background-surface-success-default);
+}
+
+:host([intent=information]) {
+    --wcs-alert-border-color: var(--wcs-semantic-color-border-information);
+    --wcs-alert-background-color: var(--wcs-semantic-color-background-surface-information-lighter);
+    --wcs-alert-icon-background-color: var(--wcs-semantic-color-background-surface-information-default);
+}
+
+:host([intent=warning]) {
+    --wcs-alert-border-color: var(--wcs-semantic-color-border-warning);
+    --wcs-alert-background-color: var(--wcs-semantic-color-background-surface-warning-lighter);
+    --wcs-alert-icon-background-color: var(--wcs-semantic-color-background-surface-warning-default);
+}
+
+:host([intent=error]) {
+    --wcs-alert-border-color: var(--wcs-semantic-color-border-critical);
+    --wcs-alert-background-color: var(--wcs-semantic-color-background-surface-critical-lightest);
+    --wcs-alert-icon-background-color: var(--wcs-semantic-color-background-surface-critical-default);
+}
+
+:host > * {
+    box-sizing: border-box;
+}
+
+.icon-content-container {
+    display: flex;
+    gap: var(--wcs-alert-gap);
+    align-items: center;
+}
+
+.close-button {
+    wcs-mat-icon {
+        color: var(--wcs-alert-dismiss-button-color);
+    }
+}
+
+.hidden {
+    display: none;
+}

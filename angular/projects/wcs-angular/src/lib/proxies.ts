@@ -121,6 +121,57 @@ export declare interface WcsActionBar extends Components.WcsActionBar {}
 
 
 @ProxyCmp({
+  inputs: ['intent', 'show', 'showProgressBar', 'timeout']
+})
+@Component({
+  selector: 'wcs-alert',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['intent', 'show', 'showProgressBar', 'timeout'],
+})
+export class WcsAlert {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['wcsAlertDismiss']);
+  }
+}
+
+
+export declare interface WcsAlert extends Components.WcsAlert {
+  /**
+   * Event emitted when the alert is dismissed
+   */
+  wcsAlertDismiss: EventEmitter<CustomEvent<void>>;
+}
+
+
+@ProxyCmp({
+  inputs: ['position', 'showProgressBar', 'timeout'],
+  methods: ['show']
+})
+@Component({
+  selector: 'wcs-alert-drawer',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['position', 'showProgressBar', 'timeout'],
+})
+export class WcsAlertDrawer {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface WcsAlertDrawer extends Components.WcsAlertDrawer {}
+
+
+@ProxyCmp({
 })
 @Component({
   selector: 'wcs-app',

@@ -12,4 +12,6 @@ export * from './lib/directives/textarea-value-accessor.directive';
 export * from './lib/directives/grid-value-accessor.directive';
 export * from './lib/directives/counter-value-accessor.directive';
 
+export * from './lib/services/wcs-alert.service';
+
 export * from './lib/proxies';

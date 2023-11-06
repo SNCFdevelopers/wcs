@@ -67,7 +67,8 @@ import {
   WcsTooltip,
   WcsNativeSelect,
 } from './proxies';
-import { GridValueAccessorDirective } from "./directives/grid-value-accessor.directive";
+import { GridValueAccessorDirective } from './directives/grid-value-accessor.directive';
+import { WcsAlertService } from './services/wcs-alert.service';
 
 
 const DECLARATIONS = [

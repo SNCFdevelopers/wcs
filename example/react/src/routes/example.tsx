@@ -2,6 +2,7 @@ import { ReactElement  } from 'react';
 import { WcsButton, WcsDivider, WcsGrid, WcsGridColumn } from 'wcs-react';
 import { InputDemo } from '../components/input-demo';
 import { TextareaDemo } from '../components/textarea-demo';
+import { AlertDemo } from '../components/alert-demo';
 
 const SAMPLE_DATA = [
   {id: 1, name: 'John', surname: 'Doe'},
@@ -33,6 +34,8 @@ export default function Example(): ReactElement {
           <WcsGridColumn path="name" name="Name" sort/>
           <WcsGridColumn path="surname" name="Surname" sort/>
         </WcsGrid>
+
+        <AlertDemo />
 
         <InputDemo/>
 

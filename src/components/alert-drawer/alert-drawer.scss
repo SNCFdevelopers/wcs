@@ -1,0 +1,87 @@
+@import '../../style/breakpoints';
+@import './alert-drawer-keyframes';
+
+:host {
+    --wcs-alert-drawer-gap: var(--wcs-semantic-spacing-base);
+    --wcs-alert-drawer-margin-horizontal: var(--wcs-semantic-spacing-base);
+    --wcs-alert-drawer-margin-vertical: var(--wcs-semantic-spacing-base);
+    --wcs-alert-drawer-min-width: 400px;
+
+    --wcs-alert-drawer-hide-alert-animation-duration: var(--wcs-semantic-motion-duration-feedback-slow);
+
+    position: fixed;
+    z-index: 99999;
+    width: fit-content;
+
+    wcs-alert {
+        --wcs-alert-min-width: var(--wcs-alert-drawer-min-width);
+    }
+
+    wcs-alert:not([show]) {
+        animation-duration: var(--wcs-alert-drawer-hide-alert-animation-duration);
+        animation-timing-function: ease;
+        animation-name: slide-out;
+
+        animation-fill-mode: forwards; // forwards = keep the last keyframe state => that keeps the alert with the opacity 0 at the end of the animation
+
+        @media (prefers-reduced-motion: reduce) {
+            animation: none;
+        }
+    }
+
+    #alerts-container {
+        display: flex;
+        flex-direction: column;
+        gap: var(--wcs-alert-drawer-gap);
+    }
+}
+
+@include for-phone-only {
+    :host {
+        left: 50% !important; // !important => to override the left applied by the :host([position=left]) selector
+        transform: translate(-50%, 0);
+        width: calc(100% - 2 * var(--wcs-alert-drawer-margin-horizontal)); // 1 * margin for the left and 1 * margin for the right
+
+        wcs-alert {
+            --wcs-alert-min-width: 100%;
+        }
+    }
+}
+
+:host([position=top]), :host([position=top-left]), :host([position=top-right]) {
+    top: var(--wcs-alert-drawer-margin-vertical);
+    flex-direction: column-reverse;
+
+    wcs-alert[show] {
+        animation: slide-in-top var(--wcs-alert-drawer-hide-alert-animation-duration) ease;
+
+        @media (prefers-reduced-motion: reduce) {
+            animation: none;
+        }
+    }
+}
+
+:host([position=bottom]), :host([position=bottom-left]), :host([position=bottom-right]) {
+    bottom: var(--wcs-alert-drawer-margin-vertical);
+
+    wcs-alert[show] {
+        animation: slide-in-bottom var(--wcs-alert-drawer-hide-alert-animation-duration) ease;
+
+        @media (prefers-reduced-motion: reduce) {
+            animation: none;
+        }
+    }
+}
+
+:host([position=top-right]), :host([position=bottom-right]) {
+    right: var(--wcs-alert-drawer-margin-horizontal);
+}
+
+:host([position=top-left]), :host([position=bottom-left]) {
+    left: var(--wcs-alert-drawer-margin-horizontal);
+}
+
+:host([position=bottom]), :host([position=top]) {
+    left: 50%;
+    transform: translate(-50%, 0);
+}
