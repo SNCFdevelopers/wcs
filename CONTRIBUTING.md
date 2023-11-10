@@ -3,6 +3,13 @@ We're looking for contributors in all way. If you're an user and have problems, 
 
 If you want to contribute to the project, we'll be happy to welcome you, contact us and we'll see from there.
 
+## Environments
+
+Documentation is available at 
+- https://wcs.dev.sncf/ for production (latest release)
+- https://lemon-bush-001d04303-develop.westeurope.3.azurestaticapps.net/ for development environment
+- https://lemon-bush-001d04303-review.westeurope.3.azurestaticapps.net/ for review environment
+
 ## Hacking on WCS
 ### Tooling
 For better productivity we recommend using the following tools:
