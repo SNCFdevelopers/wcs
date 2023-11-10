@@ -14,7 +14,9 @@ import { isElementFocused } from "../../utils/accessibility";
 @Component({
     tag: 'wcs-dropdown',
     styleUrl: 'dropdown.scss',
-    shadow: true
+    shadow: {
+        delegatesFocus: true
+    }
 })
 export class Dropdown implements ComponentInterface {
     @Element() private el: HTMLWcsDropdownElement;

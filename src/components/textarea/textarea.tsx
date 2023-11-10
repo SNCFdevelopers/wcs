@@ -25,7 +25,9 @@ import { TextareaChangeEventDetail } from './textarea-interface';
 @Component({
     tag: 'wcs-textarea',
     styleUrl: 'textarea.scss',
-    shadow: true,
+    shadow: {
+        delegatesFocus: true
+    },
 })
 export class Textarea implements ComponentInterface {
     private nativeInput?: HTMLTextAreaElement;

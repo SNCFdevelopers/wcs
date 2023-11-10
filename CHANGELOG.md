@@ -26,6 +26,10 @@ for now removed features.
 ### Fixed
 
 - Update project README.md and CONTRIBUTING.md
+- **dropdown**, **checkbox**, **counter**, **textarea**: focus called on host element now delegate focus to the first focusable element in shadow-dom
+- **modal**:
+  - don't emit `wcsDialogClosed` if the modal is closed and the Escape key is pressed
+  - handle accessibility (aria and trap focus inside when the modal is opened)
 
 ### Security
 

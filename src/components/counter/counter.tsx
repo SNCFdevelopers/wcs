@@ -22,7 +22,9 @@ const ANIMATION_DURATION = 0.175 // seconds
 @Component({
     tag: 'wcs-counter',
     styleUrl: 'counter.scss',
-    shadow: true,
+    shadow: {
+        delegatesFocus: true
+    },
 })
 export class Counter implements ComponentInterface {
     @Element() private el!: HTMLElement;

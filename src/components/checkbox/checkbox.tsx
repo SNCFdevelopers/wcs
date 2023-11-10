@@ -4,7 +4,9 @@ import { CheckboxChangeEventDetail, CheckboxLabelAlignment } from './checkbox-in
 @Component({
     tag: 'wcs-checkbox',
     styleUrl: 'checkbox.scss',
-    shadow: true
+    shadow: {
+        delegatesFocus: true
+    }
 })
 export class Checkbox implements ComponentInterface {
     private checkboxId = `wcs-checkbox-${checkboxIds++}`;
