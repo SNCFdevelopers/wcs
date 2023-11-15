@@ -29,6 +29,14 @@ Here is the list of published npm packages and their goal :
 | `wcs-formly`  | Angular Formly integration for WCS                           |  [![npm version](https://img.shields.io/npm/v/wcs-formly?style=for-the-badge)](https://www.npmjs.com/package/wcs-formly)  |
 | `wcs-react`   | React integration for WCS (types, bindings, ...)             |   [![npm version](https://img.shields.io/npm/v/wcs-react?style=for-the-badge)](https://www.npmjs.com/package/wcs-react)   |
 
+## StackBlitz templates
+
+We created 3 StackBlitz templates to help you test quickly without worrying about WCS configuration :
+
+- WcsAngular + WcsFormly : https://stackblitz.com/edit/wcs-angular-template
+- WcsReact : https://stackblitz.com/edit/wcs-react-template
+- WcsCore only (Plain HTML) : https://stackblitz.com/edit/wcs-plain-html-template
+
 ## Roadmap
 
 This project is still under heavy development.  

@@ -11,6 +11,15 @@ Documentation is available at
 - https://lemon-bush-001d04303-review.westeurope.3.azurestaticapps.net/ for review environment
 
 ## Hacking on WCS
+### StackBlitz 
+
+For quick testing you can use these templates :
+- WcsAngular + WcsFormly : https://stackblitz.com/edit/wcs-angular-template
+- WcsReact : https://stackblitz.com/edit/wcs-react-template
+- WcsCore only (Plain HTML) : https://stackblitz.com/edit/wcs-plain-html-template
+
+While contributing through an issue, please link a forked StackBlitz that reproduces the bug.
+
 ### Tooling
 For better productivity we recommend using the following tools:
 - VScode with some extensions
@@ -56,7 +65,7 @@ Finally, if you want to push modifications (for example the result of a rebase) 
 
 ### Doing a release
 
-Don't forget to update the changelog.
+Don't forget to update the changelog and the StackBlitz templates version.
 
 ```sh
 # Make sure you're on develop branch
