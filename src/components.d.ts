@@ -18,7 +18,7 @@ import { HorizontalStepClickEvent, HorizontalStepConfig, HorizontalStepperMode }
 import { AutocompleteTypes, InputChangeEventDetail, TextFieldTypes, WcsInputSize } from "./components/input/input-interface";
 import { MaterialIconFamily, MaterialIconSize } from "./components/mat-icon/mat-icon-interface";
 import { ModalSize } from "./components/modal/modal-interface";
-import { WcsNativeSelectSize } from "./components/native-select/native-select.component";
+import { WcsNativeSelectSize } from "./components/native-select/native-select";
 import { RadioGroupChangeEventDetail, RadioGroupMode } from "./components/radio-group/radio-group-interface";
 import { RadioChosedEvent } from "./components/radio/radio-interface";
 import { SelectChangeEventDetail, WcsSelectSize } from "./components/select/select-interface";
@@ -43,7 +43,7 @@ export { HorizontalStepClickEvent, HorizontalStepConfig, HorizontalStepperMode }
 export { AutocompleteTypes, InputChangeEventDetail, TextFieldTypes, WcsInputSize } from "./components/input/input-interface";
 export { MaterialIconFamily, MaterialIconSize } from "./components/mat-icon/mat-icon-interface";
 export { ModalSize } from "./components/modal/modal-interface";
-export { WcsNativeSelectSize } from "./components/native-select/native-select.component";
+export { WcsNativeSelectSize } from "./components/native-select/native-select";
 export { RadioGroupChangeEventDetail, RadioGroupMode } from "./components/radio-group/radio-group-interface";
 export { RadioChosedEvent } from "./components/radio/radio-interface";
 export { SelectChangeEventDetail, WcsSelectSize } from "./components/select/select-interface";
@@ -674,12 +674,16 @@ export namespace Components {
         "withoutBackdrop": boolean;
     }
     /**
-     * The `wcs-native-select` component is designed to accept a native <select> element as a slotted child. This choice
-     * allows developers to bind the <select> element using the framework of their choice, without the need to re-expose all the
-     * properties of the <select> and <option> elements in this component.
-     * The component wraps the native <select> element and provides custom styles and behavior, while preserving the native
+     * The `wcs-native-select` component is designed to accept a native `<select>` element as a slotted child. This choice
+     * allows developers to bind the `<select>` element using the framework of their choice, without the need to re-expose all the
+     * properties of the `<select>` and `<option>` elements in this component.
+     * The component wraps the native `<select>` element and provides custom styles and behavior, while preserving the native
      * functionality and accessibility.
-     * Example usage:
+     * ### ✅ Guidance
+     * - To have a placeholder, you must have an option as child which has `selected` attribute and `disabled`
+     * attribute. You can add the `hidden` attribute to don't show the placeholder option in the options overlay.
+     * ### Example usage
+     * ```html
      * <wcs-native-select>
      *   <select>
      *     <option value="option1">Option 1</option>
@@ -687,12 +691,21 @@ export namespace Components {
      *     <option value="option3">Option 3</option>
      *   </select>
      * </wcs-native-select>
+     * ```
+     * ### Note
+     * - We did not find a way to detect when the select is reset, if you want to apply the placeholder style when the
+     * select is reset, you have to call the `updateStyles()` method manually.
+     * - It is strongly recommended to use select-native when you don't have to support the multi-selection feature
      */
     interface WcsNativeSelect {
         /**
           * The `size` property controls the size of the slotted `select` element by adjusting its padding. There are two possible size options: - 'm': medium size - 'l': large size  The default value is 'm'.
          */
         "size": WcsNativeSelectSize;
+        /**
+          * Use this method to force the component to update its styles. It can be useful when the select is reset (with a placeholder).
+         */
+        "updateStyles": () => Promise<void>;
     }
     interface WcsNav {
     }
@@ -1505,12 +1518,16 @@ declare global {
         new (): HTMLWcsModalElement;
     };
     /**
-     * The `wcs-native-select` component is designed to accept a native <select> element as a slotted child. This choice
-     * allows developers to bind the <select> element using the framework of their choice, without the need to re-expose all the
-     * properties of the <select> and <option> elements in this component.
-     * The component wraps the native <select> element and provides custom styles and behavior, while preserving the native
+     * The `wcs-native-select` component is designed to accept a native `<select>` element as a slotted child. This choice
+     * allows developers to bind the `<select>` element using the framework of their choice, without the need to re-expose all the
+     * properties of the `<select>` and `<option>` elements in this component.
+     * The component wraps the native `<select>` element and provides custom styles and behavior, while preserving the native
      * functionality and accessibility.
-     * Example usage:
+     * ### ✅ Guidance
+     * - To have a placeholder, you must have an option as child which has `selected` attribute and `disabled`
+     * attribute. You can add the `hidden` attribute to don't show the placeholder option in the options overlay.
+     * ### Example usage
+     * ```html
      * <wcs-native-select>
      *   <select>
      *     <option value="option1">Option 1</option>
@@ -1518,6 +1535,11 @@ declare global {
      *     <option value="option3">Option 3</option>
      *   </select>
      * </wcs-native-select>
+     * ```
+     * ### Note
+     * - We did not find a way to detect when the select is reset, if you want to apply the placeholder style when the
+     * select is reset, you have to call the `updateStyles()` method manually.
+     * - It is strongly recommended to use select-native when you don't have to support the multi-selection feature
      */
     interface HTMLWcsNativeSelectElement extends Components.WcsNativeSelect, HTMLStencilElement {
     }
@@ -2396,12 +2418,16 @@ declare namespace LocalJSX {
         "withoutBackdrop"?: boolean;
     }
     /**
-     * The `wcs-native-select` component is designed to accept a native <select> element as a slotted child. This choice
-     * allows developers to bind the <select> element using the framework of their choice, without the need to re-expose all the
-     * properties of the <select> and <option> elements in this component.
-     * The component wraps the native <select> element and provides custom styles and behavior, while preserving the native
+     * The `wcs-native-select` component is designed to accept a native `<select>` element as a slotted child. This choice
+     * allows developers to bind the `<select>` element using the framework of their choice, without the need to re-expose all the
+     * properties of the `<select>` and `<option>` elements in this component.
+     * The component wraps the native `<select>` element and provides custom styles and behavior, while preserving the native
      * functionality and accessibility.
-     * Example usage:
+     * ### ✅ Guidance
+     * - To have a placeholder, you must have an option as child which has `selected` attribute and `disabled`
+     * attribute. You can add the `hidden` attribute to don't show the placeholder option in the options overlay.
+     * ### Example usage
+     * ```html
      * <wcs-native-select>
      *   <select>
      *     <option value="option1">Option 1</option>
@@ -2409,6 +2435,11 @@ declare namespace LocalJSX {
      *     <option value="option3">Option 3</option>
      *   </select>
      * </wcs-native-select>
+     * ```
+     * ### Note
+     * - We did not find a way to detect when the select is reset, if you want to apply the placeholder style when the
+     * select is reset, you have to call the `updateStyles()` method manually.
+     * - It is strongly recommended to use select-native when you don't have to support the multi-selection feature
      */
     interface WcsNativeSelect {
         /**
@@ -2998,12 +3029,16 @@ declare module "@stencil/core" {
             "wcs-mat-icon": LocalJSX.WcsMatIcon & JSXBase.HTMLAttributes<HTMLWcsMatIconElement>;
             "wcs-modal": LocalJSX.WcsModal & JSXBase.HTMLAttributes<HTMLWcsModalElement>;
             /**
-             * The `wcs-native-select` component is designed to accept a native <select> element as a slotted child. This choice
-             * allows developers to bind the <select> element using the framework of their choice, without the need to re-expose all the
-             * properties of the <select> and <option> elements in this component.
-             * The component wraps the native <select> element and provides custom styles and behavior, while preserving the native
+             * The `wcs-native-select` component is designed to accept a native `<select>` element as a slotted child. This choice
+             * allows developers to bind the `<select>` element using the framework of their choice, without the need to re-expose all the
+             * properties of the `<select>` and `<option>` elements in this component.
+             * The component wraps the native `<select>` element and provides custom styles and behavior, while preserving the native
              * functionality and accessibility.
-             * Example usage:
+             * ### ✅ Guidance
+             * - To have a placeholder, you must have an option as child which has `selected` attribute and `disabled`
+             * attribute. You can add the `hidden` attribute to don't show the placeholder option in the options overlay.
+             * ### Example usage
+             * ```html
              * <wcs-native-select>
              *   <select>
              *     <option value="option1">Option 1</option>
@@ -3011,6 +3046,11 @@ declare module "@stencil/core" {
              *     <option value="option3">Option 3</option>
              *   </select>
              * </wcs-native-select>
+             * ```
+             * ### Note
+             * - We did not find a way to detect when the select is reset, if you want to apply the placeholder style when the
+             * select is reset, you have to call the `updateStyles()` method manually.
+             * - It is strongly recommended to use select-native when you don't have to support the multi-selection feature
              */
             "wcs-native-select": LocalJSX.WcsNativeSelect & JSXBase.HTMLAttributes<HTMLWcsNativeSelectElement>;
             "wcs-nav": LocalJSX.WcsNav & JSXBase.HTMLAttributes<HTMLWcsNavElement>;

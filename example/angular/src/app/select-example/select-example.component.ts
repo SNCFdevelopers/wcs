@@ -35,43 +35,7 @@ type Option = { value: string, label: string, disabled: boolean };
         <wcs-button class="primary" mode="stroked" (click)="onResetButtonClick()">Reset</wcs-button>
       </wcs-card-body>
     </wcs-card>
-    <h2>Exemple d'utilisation du select natif</h2>
-    <wcs-card>
-      <wcs-card-body>
-        <h3>Valeur par défaut</h3>
-        <wcs-native-select>
-          <select name="trains-type" id="trains-select-natif">
-            <option disabled hidden selected>Choisissez un train 🚅</option>
-            <option value="TGV">TGV</option>
-            <option value="TER">TER</option>
-            <option value="Intercités">Intercités</option>
-          </select>
-        </wcs-native-select>
-
-        <h3>Set value</h3>
-        <wcs-native-select>
-          <select name="trains-type" id="trains-select-natif">
-            <option disabled hidden selected>Choisissez un train 🚅</option>
-            <option value="TGV">TGV</option>
-            <option value="TER">TER</option>
-            <option value="Intercités">Intercités</option>
-          </select>
-        </wcs-native-select>
-
-        <h3>Binding</h3>
-        <p>Selected values : {{bindingNativeSelect}}</p>
-        <wcs-native-select>
-          <select name="trains-type-binding" [(ngModel)]="bindingNativeSelect" id="trains-select-binding-natif">
-            <option value="TGV">TGV</option>
-            <option value="TER">TER</option>
-            <option value="Intercités">Intercités</option>
-          </select>
-        </wcs-native-select>
-
-        <h3>Formly</h3>
-        <formly-form [formGroup]="form" [fields]="fields" [model]="model"></formly-form>
-      </wcs-card-body>
-    </wcs-card>
+    <app-native-select-example></app-native-select-example>
   `,
   styles: []
 })

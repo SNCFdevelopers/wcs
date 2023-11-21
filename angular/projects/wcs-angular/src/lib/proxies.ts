@@ -1088,7 +1088,8 @@ export declare interface WcsModal extends Components.WcsModal {
 
 
 @ProxyCmp({
-  inputs: ['size']
+  inputs: ['size'],
+  methods: ['updateStyles']
 })
 @Component({
   selector: 'wcs-native-select',

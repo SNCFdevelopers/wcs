@@ -36,6 +36,7 @@ for now removed features.
 - **grid**: fix single selection keyboard behavior, only one radio can be selected
 - **radio**: update style to remove margin when there is no label on radio (useful for grids)
 - **radio-group**: add keyboard navigation support
+- **native-select**: add a way to update the styles of the native select when it's reset and automatically update styles when there is a class change on the component (mainly for Angular)
 
 ### Security
 

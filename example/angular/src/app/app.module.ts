@@ -19,6 +19,7 @@ import { GridServerPaginationExampleComponent } from './grid-example/grid-server
 import { CounterExampleComponent } from './counter-example/counter-example.component';
 import { CounterFormlyPassengersExampleComponent } from './counter-example/counter-formly-passengers-example.component';
 import { CounterFormlyDefaultValueComponent } from './counter-example/counter-formly-default-value.component';
+import { NativeSelectExampleComponent } from './select-example/native-select-example.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { CounterFormlyDefaultValueComponent } from './counter-example/counter-fo
     FormlyInputExamplesComponent,
     CounterExampleComponent,
     CounterFormlyPassengersExampleComponent,
-    CounterFormlyDefaultValueComponent
+    CounterFormlyDefaultValueComponent,
+    NativeSelectExampleComponent
   ],
   imports: [
     BrowserModule,

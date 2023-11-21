@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { WcsTabChangeEvent } from 'wcs-core';
 
-const DEFAULT_TAB_KEY = 'counter';
+const DEFAULT_TAB_KEY = 'select';
 
 @Component({
   selector: 'app-root',

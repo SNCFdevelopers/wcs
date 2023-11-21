@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-12-04T09:47:00",
+  "timestamp": "2023-12-06T14:46:12",
   "compiler": {
     "name": "@stencil/core",
     "version": "3.0.0",
@@ -4239,11 +4239,11 @@
       }
     },
     {
-      "filePath": "./src/components/native-select/native-select.component.tsx",
+      "filePath": "./src/components/native-select/native-select.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-native-select",
       "readme": "# wcs-select-native\r\n\r\n\r\n\r",
-      "docs": "The `wcs-native-select` component is designed to accept a native <select> element as a slotted child. This choice\r\nallows developers to bind the <select> element using the framework of their choice, without the need to re-expose all the\r\nproperties of the <select> and <option> elements in this component.\r\n\r\nThe component wraps the native <select> element and provides custom styles and behavior, while preserving the native\r\nfunctionality and accessibility.\r\n\r\nExample usage:\r\n\r\n<wcs-native-select>\r\n  <select>\r\n    <option value=\"option1\">Option 1</option>\r\n    <option value=\"option2\">Option 2</option>\r\n    <option value=\"option3\">Option 3</option>\r\n  </select>\r\n</wcs-native-select>",
+      "docs": "The `wcs-native-select` component is designed to accept a native `<select>` element as a slotted child. This choice\r\nallows developers to bind the `<select>` element using the framework of their choice, without the need to re-expose all the\r\nproperties of the `<select>` and `<option>` elements in this component.\r\n\r\nThe component wraps the native `<select>` element and provides custom styles and behavior, while preserving the native\r\nfunctionality and accessibility.\r\n\r\n### ✅ Guidance\r\n\r\n- To have a placeholder, you must have an option as child which has `selected` attribute and `disabled`\r\nattribute. You can add the `hidden` attribute to don't show the placeholder option in the options overlay.\r\n\r\n### Example usage\r\n\r\n```html\r\n<wcs-native-select>\r\n  <select>\r\n    <option value=\"option1\">Option 1</option>\r\n    <option value=\"option2\">Option 2</option>\r\n    <option value=\"option3\">Option 3</option>\r\n  </select>\r\n</wcs-native-select>\r\n```\r\n\r\n### Note\r\n- We did not find a way to detect when the select is reset, if you want to apply the placeholder style when the\r\nselect is reset, you have to call the `updateStyles()` method manually.\r\n- It is strongly recommended to use select-native when you don't have to support the multi-selection feature",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -4270,7 +4270,19 @@
           "required": false
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "name": "updateStyles",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "updateStyles() => Promise<void>",
+          "parameters": [],
+          "docs": "Use this method to force the component to update its styles. It can be useful when the select is reset (with a placeholder).",
+          "docsTags": []
+        }
+      ],
       "events": [],
       "listeners": [],
       "styles": [],
@@ -4507,7 +4519,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/radio/radio.tsx",
+      "filePath": "./src/components/radio/radio.component.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-radio",
       "readme": "# wcs-radio\r\n\r\n\r\n\r",
@@ -4585,22 +4597,6 @@
             },
             {
               "value": "radio",
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "name",
-          "type": "string",
-          "mutable": false,
-          "attr": "name",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [],
-          "values": [
-            {
               "type": "string"
             }
           ],
@@ -4739,16 +4735,6 @@
       "listeners": [
         {
           "event": "wcsRadioClick",
-          "capture": false,
-          "passive": false
-        },
-        {
-          "event": "keydown",
-          "capture": false,
-          "passive": false
-        },
-        {
-          "event": "keyup",
           "capture": false,
           "passive": false
         }

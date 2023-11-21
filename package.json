@@ -27,7 +27,8 @@
         "update-version": "node scripts/update-version.js",
         "update-develop": "node scripts/update-develop-from-master.js",
         "storybook": "storybook dev -p 6006",
-        "build-storybook": "storybook build"
+        "build-storybook": "storybook build",
+        "build-angular-libs": "cd angular && npm run build:wcs-angular && npm run build:wcs-formly"
     },
     "devDependencies": {
         "@babel/preset-env": "^7.20.2",

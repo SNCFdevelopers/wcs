@@ -20,7 +20,9 @@ export type WcsFormlySelectNativeProps = WcsFormlyFieldWrapperProps & {
                   <option *ngFor="let option of props.options | wcsFormlyOptions | async"
                           [value]="option.value"
                           [ngClass]="option.class"
-                          [disabled]="option.disabled ? true : null"
+                          [attr.disabled]="option.disabled ? true : null"
+                          [attr.selected]="option.selected ? true : null"
+                          [attr.hidden]="option.hidden ? true : null"
                   >{{option.label}}</option>
               </select>
           </wcs-native-select>

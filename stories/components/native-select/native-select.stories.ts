@@ -2,23 +2,13 @@ import { Meta } from '@storybook/web-components';
 import { html, nothing } from "lit-html";
 import { WcsNativeSelectSize } from "../../../src";
 import { getComponentArgs } from "../../utils/args-generation";
+import { createRef, ref, Ref } from 'lit-html/directives/ref.js';
 
-/**
- * A `wcs-native-select` allows one option to be selected from multiple options. The `wcs-native-select` component is a
- * wrapper around the native `<select>` element.
- *
- * 💡It is strongly recommended to use select-native when you don't have to support the multi-selection feature
- *
- * ### Guidance ✅:
- * - To have a placeholder, you must have an option as child which has `selected` attribute and `disabled`
- * attribute. You can add the `hidden` attribute to don't show the placeholder option in the options overlay
- */
 const meta: Meta = {
     title: 'Components/Native-select',
     component: 'wcs-native-select',
     argTypes: getComponentArgs('wcs-native-select'),
 }
-
 export default meta;
 
 interface StoryParams {
@@ -118,3 +108,48 @@ export const OverflowBehaviour = {
         </div>
     `
 }
+
+/**
+ * **Manually update styles**
+ * `wcs-native-select` exposes a public method called `updateStyles()`.
+ * If you want to apply the placeholder style when the select is reset,
+ * you have to call the `updateStyles()` method manually.
+ *
+ * This is due to our choice of implementation to preserve the select style of the Design System.
+ * _If you are curious about why we chose to expose a method, click [here](https://gitlab.com/SNCF/wcs/-/issues/128#note_1635122576)_
+ *
+ * **Example of implementation** :
+ *
+ * ```typescript
+ * function resetForm() {
+ *     formRef.value.reset();
+ *     nativeSelectRef.value.updateStyles(); // 👈 Very important to update the placeholder style
+ * }
+ * ```
+ */
+export const UpdateStylesMethod = {
+    render: (args: StoryParams) => html`
+        <form ${ref(formRef)} style="display: inline-block">
+            <label for="select-default" style="margin: var(--wcs-base-margin) 0; display: block">Label</label>
+            <wcs-native-select size=${args.size ?? nothing} ${ref(nativeSelectRef)}>
+                <select name="select-default" id="select-default" ?disabled=${args.disabled}>
+                    <option selected disabled hidden>Placeholder</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3" disabled>Three</option>
+                </select>
+            </wcs-native-select>
+        </form>
+        <wcs-button @click="${resetForm}">Reset</wcs-button>
+    `
+}
+
+const formRef: Ref<HTMLFormElement> = createRef();
+const nativeSelectRef: Ref<HTMLWcsNativeSelectElement> = createRef();
+
+function resetForm() {
+    // @ts-ignore : reset method does exist on HTMLFormElement
+    formRef.value.reset();
+    nativeSelectRef.value.updateStyles();
+}
+
