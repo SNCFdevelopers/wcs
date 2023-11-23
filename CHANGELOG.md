@@ -10,6 +10,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 
 - **stackblitz** : create 3 StackBlitz templates for testing. See README.md or CONTRIBUTING.md for more information
+- **doc**: add StackBlitz links to the Framework integrations documentation
 
 ### Changed
 
