@@ -304,7 +304,7 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
                 return;
             case 'single':
                 return <td>
-                    <wcs-radio checked={row.selected} onClick={this.onRowSelection.bind(this, row)}/>
+                    <wcs-radio checked={row.selected} onWcsRadioClick={this.onRowSelection.bind(this, row)}/>
                 </td>;
             case 'multiple':
                 return <td>

@@ -334,6 +334,16 @@ export const CellStyling: StoryObj = {
  *     ```
  * </details>
  * 
+ * If you want to clear the selection, you can use the bound property `selectedItems` and set it to an empty object :
+ * 
+ * ```js
+ * <wcs-grid selection-config="single" [selectedItems]="selectedItems">
+ * ...
+ * clearSelection() {
+ *   this.selectedItems = {};
+ * }
+ * ```
+ * 
  */
 export const Selection: StoryObj = {
     render: (args: GridArgs) => Template(args, this),

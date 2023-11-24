@@ -15,6 +15,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Changed
 
 - **radio** : update style to match the design system appearance
+- **grid**: (selection single) use the new updated radio style
 
 ### Deprecated
 
@@ -32,6 +33,7 @@ for now removed features.
   - don't emit `wcsDialogClosed` if the modal is closed and the Escape key is pressed
   - handle accessibility (aria and trap focus inside when the modal is opened)
 - **tabs**: apply ARIA tabs design pattern to make tabs accessible to screen reader
+- **grid**: fix single selection keyboard behavior, only one radio can be selected
 
 ### Security
 

@@ -7,12 +7,20 @@ import { VNode } from "wcs-core/dist/types/stencil-public-runtime";
   selector: 'app-grid-example',
   template: `
     <h2>Grid</h2>
-    <wcs-button shape="small"
+    <wcs-button size="s"
                 class="reloadBtn"
                 (click)="reloadLessData()">
       Reload less data
     </wcs-button>
-    <wcs-grid id="grid-1" [data]="users">
+    <wcs-button size="s"
+                class="removeBtn"
+                (click)="removeSelection()">
+      Remove selection
+    </wcs-button>
+    <wcs-grid id="grid-1"
+              [data]="users"
+              selectionConfig="single"
+              [selectedItems]="selectedItems">
       <wcs-grid-column path="name"
                        name="Nom"
                        sort
@@ -28,13 +36,15 @@ import { VNode } from "wcs-core/dist/types/stencil-public-runtime";
     </wcs-grid>
   `,
   styles: [`
-    .reloadBtn {
-      padding-bottom: 8px;
+    .reloadBtn, .removeBtn {
+      padding-bottom: var(--wcs-base-margin);
+      margin-right: var(--wcs-base-margin);
     }
   `]
 })
 export class GridExampleComponent implements OnInit {
   readonly pageSize: number = 5;
+  selectedItems = {};
   users;
 
   constructor() {
@@ -79,6 +89,10 @@ export class GridExampleComponent implements OnInit {
 
   reloadLessData() {
     this.generateData(3);
+  }
+
+  removeSelection() {
+    this.selectedItems = {};
   }
 
 }
