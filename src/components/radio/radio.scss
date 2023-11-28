@@ -106,16 +106,24 @@
             top: 3px;
             box-sizing: border-box;
         }
+
+        &:empty::before {
+            margin-right: 0;
+        }
     }
 }
 
 :host([mode=horizontal]) {
+    height: fit-content;
     label {
         &:before {
             transition: background-color 0.175s ease-in-out;
             margin: auto auto var(--wcs-base-margin);
             display: block;
+        }
 
+        &:empty::before {
+            margin-bottom: 0;
         }
     }
 }
