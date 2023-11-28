@@ -14,13 +14,32 @@ import { ModalSize } from './modal-interface';
 import { isElementFocused, isFocusable } from "../../utils/accessibility";
 import { isTabKey } from "../../utils/helpers";
 
+/**
+ * The modal component (also named dialog or popup) is an interface element that appears on top of the page content.
+ * Use it to show a message, a confirmation dialog, or any other content like forms.
+ *
+ * <details>
+ *     <summary>Accessibility guidelines 💡</summary>
+ *     > - Modal element has `role="dialog"` and `aria-modal="true"`
+ *     > - Keyboard navigation is trapped inside the modal
+ *     > - It is mandatory to set the `modalTriggerControlsId` to the id of the element that opens the dialog, in order
+ *     > to focus it upon dialog dismissal.
+ *     > - The modal can be closed at any time by pressing the Escape key.
+ *     >
+ *     > - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
+ * </details>
+ *
+ * @slot <no-name> Main container slot
+ * @slot header Header container slot (for title)
+ * @slot actions Actions container slot (for buttons)
+ */
 @Component({
     tag: 'wcs-modal',
     styleUrl: 'modal.scss',
     shadow: false,
 })
 export class Modal implements ComponentInterface {
-    @Element() el: HTMLElement;
+    @Element() private el: HTMLElement;
 
     /**
      * Specifies whether the component should display a backdrop on the entire page
@@ -30,7 +49,7 @@ export class Modal implements ComponentInterface {
     /**
      * Displays the modal
      */
-    @Prop({reflect: true}) show: boolean = false;
+    @Prop({reflect: true, mutable: true}) show: boolean = false;
 
     /**
      * Triggered when the user leaves the dialog with the closing button.
@@ -55,6 +74,12 @@ export class Modal implements ComponentInterface {
     @Prop({reflect: true}) hideActions: boolean = false;
 
     /**
+     * Specifies which element id controls the modal
+     * @private
+     */
+    @Prop() modalTriggerControlsId: string;
+
+    /**
      * Give an unique id
      * @private
      */
@@ -69,6 +94,21 @@ export class Modal implements ComponentInterface {
      * @private
      */
     private showAttributeChangedMarker: boolean = false;
+    /**
+     * This attribute is used to determine if the modal has been closed for the first time since its last activation.
+     * It is set to 'true' when the modal is first closed, and will be reset to 'false' when the modal is shown again.
+     * This state is important for accessibility reasons in order to focus the modal trigger element (like the button 
+     * which controls the modal)
+     *
+     * @private
+     */
+    private hasBeenClosedBefore: boolean = false;
+
+    componentWillLoad(): Promise<void> | void {
+        if (!this.modalTriggerControlsId) {
+            console.warn('wcs-modal: You must provide a modalTriggerControlsId attribute for the modal to work properly');
+        }
+    }
 
     componentDidLoad() {
         this.updateFocusableElements();
@@ -85,7 +125,20 @@ export class Modal implements ComponentInterface {
     @Watch("show")
     onShowChange() {
         if(this.show) {
+            this.hasBeenClosedBefore = false;
             this.showAttributeChangedMarker = true;
+        } else {
+            // if we already made actions when the modal was firstly closed, we do nothing
+            if(this.hasBeenClosedBefore) {
+                return;
+            }
+            
+            this.hasBeenClosedBefore = true;
+
+            if(this.modalTriggerControlsId) {
+                const modalTriggerControlsHtmlElement = document.querySelector(`#${this.modalTriggerControlsId}`) as HTMLElement;
+                modalTriggerControlsHtmlElement?.focus();
+            }
         }
     }
 

@@ -22,15 +22,32 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+The modal component (also named dialog or popup) is an interface element that appears on top of the page content.
+Use it to show a message, a confirmation dialog, or any other content like forms.
+
+<details>
+    <summary>Accessibility guidelines 💡</summary>
+    > - Modal element has `role="dialog"` and `aria-modal="true"`
+    > - Keyboard navigation is trapped inside the modal
+    > - It is mandatory to set the `modalTriggerControlsId` to the id of the element that opens the dialog, in order
+    > to focus it upon dialog dismissal.
+    > - The modal can be closed at any time by pressing the Escape key.
+    >
+    > - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
+</details>
+
 ## Properties
 
-| Property          | Attribute           | Description                                                                                                                                                                                                                | Type                        | Default |
-| ----------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- | ------- |
-| `hideActions`     | `hide-actions`      | Specifies whether the component should hide the actions slot or not                                                                                                                                                        | `boolean`                   | `false` |
-| `show`            | `show`              | Displays the modal                                                                                                                                                                                                         | `boolean`                   | `false` |
-| `showCloseButton` | `show-close-button` | Specifies whether the component should display a close button. if false, it won't close the modal when the escape key is pressed.                                                                                          | `boolean`                   | `false` |
-| `size`            | `size`              | There are multiple sizes for modals. The default size is medium (m), however other sizes are available. Select the size best suited for the content and screen size displaying the modal. Remember to test responsiveness. | `"l" \| "m" \| "s" \| "xl"` | `'m'`   |
-| `withoutBackdrop` | `without-backdrop`  | Specifies whether the component should display a backdrop on the entire page                                                                                                                                               | `boolean`                   | `false` |
+| Property                 | Attribute                   | Description                                                                                                                                                                                                                | Type                        | Default     |
+| ------------------------ | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- | ----------- |
+| `hideActions`            | `hide-actions`              | Specifies whether the component should hide the actions slot or not                                                                                                                                                        | `boolean`                   | `false`     |
+| `modalTriggerControlsId` | `modal-trigger-controls-id` | Specifies which element id controls the modal                                                                                                                                                                              | `string`                    | `undefined` |
+| `show`                   | `show`                      | Displays the modal                                                                                                                                                                                                         | `boolean`                   | `false`     |
+| `showCloseButton`        | `show-close-button`         | Specifies whether the component should display a close button. if false, it won't close the modal when the escape key is pressed.                                                                                          | `boolean`                   | `false`     |
+| `size`                   | `size`                      | There are multiple sizes for modals. The default size is medium (m), however other sizes are available. Select the size best suited for the content and screen size displaying the modal. Remember to test responsiveness. | `"l" \| "m" \| "s" \| "xl"` | `'m'`       |
+| `withoutBackdrop`        | `without-backdrop`          | Specifies whether the component should display a backdrop on the entire page                                                                                                                                               | `boolean`                   | `false`     |
 
 
 ## Events
@@ -38,6 +55,15 @@
 | Event             | Description                                                        | Type                |
 | ----------------- | ------------------------------------------------------------------ | ------------------- |
 | `wcsDialogClosed` | Triggered when the user leaves the dialog with the closing button. | `CustomEvent<void>` |
+
+
+## Slots
+
+| Slot                                             | Description |
+| ------------------------------------------------ | ----------- |
+| `"<no-name> Main container slot"`                |             |
+| `"actions Actions container slot (for buttons)"` |             |
+| `"header Header container slot (for title)"`     |             |
 
 
 ## Dependencies

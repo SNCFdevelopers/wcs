@@ -651,11 +651,30 @@ export namespace Components {
          */
         "size": MaterialIconSize;
     }
+    /**
+     * The modal component (also named dialog or popup) is an interface element that appears on top of the page content.
+     * Use it to show a message, a confirmation dialog, or any other content like forms.
+     * <details>
+     *     <summary>Accessibility guidelines 💡</summary>
+     *     > - Modal element has `role="dialog"` and `aria-modal="true"`
+     *     > - Keyboard navigation is trapped inside the modal
+     *     > - It is mandatory to set the `modalTriggerControlsId` to the id of the element that opens the dialog, in order
+     *     > to focus it upon dialog dismissal.
+     *     > - The modal can be closed at any time by pressing the Escape key.
+     *     >
+     *     > - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
+     * </details>
+     */
     interface WcsModal {
         /**
           * Specifies whether the component should hide the actions slot or not
          */
         "hideActions": boolean;
+        /**
+          * Specifies which element id controls the modal
+          * @private
+         */
+        "modalTriggerControlsId": string;
         /**
           * Displays the modal
          */
@@ -1511,6 +1530,20 @@ declare global {
         prototype: HTMLWcsMatIconElement;
         new (): HTMLWcsMatIconElement;
     };
+    /**
+     * The modal component (also named dialog or popup) is an interface element that appears on top of the page content.
+     * Use it to show a message, a confirmation dialog, or any other content like forms.
+     * <details>
+     *     <summary>Accessibility guidelines 💡</summary>
+     *     > - Modal element has `role="dialog"` and `aria-modal="true"`
+     *     > - Keyboard navigation is trapped inside the modal
+     *     > - It is mandatory to set the `modalTriggerControlsId` to the id of the element that opens the dialog, in order
+     *     > to focus it upon dialog dismissal.
+     *     > - The modal can be closed at any time by pressing the Escape key.
+     *     >
+     *     > - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
+     * </details>
+     */
     interface HTMLWcsModalElement extends Components.WcsModal, HTMLStencilElement {
     }
     var HTMLWcsModalElement: {
@@ -2391,11 +2424,30 @@ declare namespace LocalJSX {
          */
         "size"?: MaterialIconSize;
     }
+    /**
+     * The modal component (also named dialog or popup) is an interface element that appears on top of the page content.
+     * Use it to show a message, a confirmation dialog, or any other content like forms.
+     * <details>
+     *     <summary>Accessibility guidelines 💡</summary>
+     *     > - Modal element has `role="dialog"` and `aria-modal="true"`
+     *     > - Keyboard navigation is trapped inside the modal
+     *     > - It is mandatory to set the `modalTriggerControlsId` to the id of the element that opens the dialog, in order
+     *     > to focus it upon dialog dismissal.
+     *     > - The modal can be closed at any time by pressing the Escape key.
+     *     >
+     *     > - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
+     * </details>
+     */
     interface WcsModal {
         /**
           * Specifies whether the component should hide the actions slot or not
          */
         "hideActions"?: boolean;
+        /**
+          * Specifies which element id controls the modal
+          * @private
+         */
+        "modalTriggerControlsId"?: string;
         /**
           * Triggered when the user leaves the dialog with the closing button.
          */
@@ -3027,6 +3079,20 @@ declare module "@stencil/core" {
             "wcs-list-item-properties": LocalJSX.WcsListItemProperties & JSXBase.HTMLAttributes<HTMLWcsListItemPropertiesElement>;
             "wcs-list-item-property": LocalJSX.WcsListItemProperty & JSXBase.HTMLAttributes<HTMLWcsListItemPropertyElement>;
             "wcs-mat-icon": LocalJSX.WcsMatIcon & JSXBase.HTMLAttributes<HTMLWcsMatIconElement>;
+            /**
+             * The modal component (also named dialog or popup) is an interface element that appears on top of the page content.
+             * Use it to show a message, a confirmation dialog, or any other content like forms.
+             * <details>
+             *     <summary>Accessibility guidelines 💡</summary>
+             *     > - Modal element has `role="dialog"` and `aria-modal="true"`
+             *     > - Keyboard navigation is trapped inside the modal
+             *     > - It is mandatory to set the `modalTriggerControlsId` to the id of the element that opens the dialog, in order
+             *     > to focus it upon dialog dismissal.
+             *     > - The modal can be closed at any time by pressing the Escape key.
+             *     >
+             *     > - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
+             * </details>
+             */
             "wcs-modal": LocalJSX.WcsModal & JSXBase.HTMLAttributes<HTMLWcsModalElement>;
             /**
              * The `wcs-native-select` component is designed to accept a native `<select>` element as a slotted child. This choice

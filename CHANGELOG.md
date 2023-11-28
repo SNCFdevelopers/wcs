@@ -30,6 +30,7 @@ for now removed features.
 - **select**: internal value was not changed when the select is closed and when we used keyboard nav on it (key up, 
 key down... to change the current selected option)
 - **doc**: improve `wcs-select` documentation
+- **modal**: (accessibility) focus modal controls which served to open the modal on closure
 
 ### Security
 

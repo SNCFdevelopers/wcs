@@ -1,4 +1,4 @@
-import { Meta, StoryFn } from '@storybook/web-components';
+import { Meta, StoryFn, StoryObj } from '@storybook/web-components';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { createRef, ref } from 'lit-html/directives/ref.js';
 import { ModalSize } from '../../../src/components/modal/modal-interface';
@@ -23,16 +23,26 @@ const meta: Meta = {
 
 export default meta;
 
-const Template: StoryFn<Partial<{ withoutBackdrop: boolean, show: boolean, showCloseButton: boolean, size: ModalSize, hideActions: boolean }>> = (args) => {
+interface ModalStoryArgs {
+    modalTriggerControlsId: string,
+    withoutBackdrop: boolean,
+    show: boolean,
+    showCloseButton: boolean,
+    size: ModalSize,
+    hideActions: boolean
+}
+
+const Template: StoryFn<Partial<ModalStoryArgs>> = (args) => {
     // FIXME
     // @ts-ignore
     const modalRef = createRef<HTMLWcsModalElement>();
     return html`
         <wcs-button @click="${_ => {
             modalRef.value.show = true;
-        }}">Show Modal ${args.size ? '(size: ' + args.size + ')' : null}
+        }}" id=${args.modalTriggerControlsId}>Show Modal ${args.size ? '(size: ' + args.size + ')' : null}
         </wcs-button>
         <wcs-modal ?show=${args.show}
+                   modal-trigger-controls-id=${args.modalTriggerControlsId}
                    ${ref(modalRef)}
                    ?without-backdrop=${args.withoutBackdrop}
                    ?show-close-button=${args.showCloseButton}
@@ -58,43 +68,71 @@ const Template: StoryFn<Partial<{ withoutBackdrop: boolean, show: boolean, showC
     `;
 };
 
-export const Default = Template.bind({});
-Default.args = {
-    show: false,
-    showCloseButton: true
+export const Default: StoryObj<ModalStoryArgs> = {
+    render: (args, context) => Template(args, context),
+    args: {
+        show: false,
+        showCloseButton: true,
+        modalTriggerControlsId: "modal-trigger-controls-0"
+    }
 };
 
-export const WithoutBackdrop = Template.bind({});
-WithoutBackdrop.args = {
-    show: false,
-    withoutBackdrop: true,
-    showCloseButton: true
+/**
+ * **Remove the gray background**  
+ * The modal can be displayed without the default gray backdrop with `withoutBackdrop="true"`.
+ */
+export const WithoutBackdrop: StoryObj<ModalStoryArgs> = {
+    render: (args, context) => Template(args, context),
+    args: {
+        show: false,
+        withoutBackdrop: true,
+        showCloseButton: true,
+        modalTriggerControlsId: "modal-trigger-controls-2"
+    }
 };
 
-export const WithoutCloseButton = Template.bind({});
-WithoutCloseButton.args = {
-    show: false,
-    showCloseButton: false
+/**
+ * **Remove the default close button**  
+ * The modal can be displayed without the default close button with `showCloseButton="false"`.
+ */
+export const WithoutCloseButton: StoryObj<ModalStoryArgs> = {
+    render: (args, context) => Template(args, context),
+    args: {
+        show: false,
+        showCloseButton: false,
+        modalTriggerControlsId: "modal-trigger-controls-3"
+    }
 };
 
-export const WithoutActions = Template.bind({});
-WithoutActions.args = {
-    show: false,
-    showCloseButton: true,
-    hideActions: true
+/**
+ * **Remove the slot actions**  
+ * The modal can be displayed without the default slot actions with `hideActions="true"`.
+ * If you hide the actions, make sure you keep the `showCloseButton`, otherwise the modal will be closable only
+ * with Escape (bad UX practice).
+ */
+export const WithoutActions: StoryObj<ModalStoryArgs> = {
+    render: (args, context) => Template(args, context),
+    args: {
+        show: false,
+        showCloseButton: true,
+        hideActions: true,
+        modalTriggerControlsId: "modal-trigger-controls-4"
+    }
 };
 
-const SizeTemplate: StoryFn<Partial<{ withoutBackdrop: boolean, show: boolean, showCloseButton: boolean, size: ModalSize, hideActions: boolean }>> = (args, context) => html`
-    <p>For this story, the size param is not configurable, it is set manually for each button to easily show all
-        the different available sizes.</p>
-    ${Template({...args, show: false, size: 's'}, context)}
-    ${Template({...args, show: false, size: 'm'}, context)}
-    ${Template({...args, show: false, size: 'l'}, context)}
-    ${Template({...args, show: false, size: 'xl'}, context)}
-`;
-
-export const Sizes = SizeTemplate.bind({});
-Sizes.args = {
-    show: true,
-    showCloseButton: true,
+/**
+ * For this story, the size param is not configurable, it is set manually for each button to easily show all the
+ * different available sizes.
+ */
+export const Sizes: StoryObj<ModalStoryArgs> = {
+    render: (args, context) => html`
+        ${Template({...args, show: false, size: 's', modalTriggerControlsId: "modal-trigger-controls-5-s"}, context)}
+        ${Template({...args, show: false, size: 'm', modalTriggerControlsId: "modal-trigger-controls-5-m"}, context)}
+        ${Template({...args, show: false, size: 'l', modalTriggerControlsId: "modal-trigger-controls-5-l"}, context)}
+        ${Template({...args, show: false, size: 'xl', modalTriggerControlsId: "modal-trigger-controls-5-xl"}, context)}
+    `,
+    args: {
+        show: true,
+        showCloseButton: true
+    }
 };

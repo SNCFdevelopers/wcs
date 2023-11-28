@@ -1060,14 +1060,14 @@ export declare interface WcsMatIcon extends Components.WcsMatIcon {}
 
 
 @ProxyCmp({
-  inputs: ['hideActions', 'show', 'showCloseButton', 'size', 'withoutBackdrop']
+  inputs: ['hideActions', 'modalTriggerControlsId', 'show', 'showCloseButton', 'size', 'withoutBackdrop']
 })
 @Component({
   selector: 'wcs-modal',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['hideActions', 'show', 'showCloseButton', 'size', 'withoutBackdrop'],
+  inputs: ['hideActions', 'modalTriggerControlsId', 'show', 'showCloseButton', 'size', 'withoutBackdrop'],
 })
 export class WcsModal {
   protected el: HTMLElement;

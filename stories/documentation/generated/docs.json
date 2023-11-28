@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-01-25T13:27:34",
+  "timestamp": "2024-02-12T14:13:23",
   "compiler": {
     "name": "@stencil/core",
     "version": "3.0.0",
@@ -4097,8 +4097,21 @@
       "encapsulation": "none",
       "tag": "wcs-modal",
       "readme": "# Modal\r\n\r\n## Modal without backdrop\r\n\r\n```html\r\n<wcs-modal id=\"modal-2\" backdrop=\"false\" show-close-button=\"true\">\r\n    <div slot=\"header\">Modal title</div>\r\n    Voulez-vous quittez la page ? \r\n    <br/>\r\n    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a cursus mi. Nullam et sem mi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce sollicitudin pellentesque libero nec elementum.\r\n    <div slot=\"actions\">\r\n        <wcs-button class=\"wcs-dark\" mode=\"stroked\">C'est non</wcs-button>\r\n        <wcs-button>J'accepte</wcs-button>\r\n    </div>\r\n</wcs-modal>\r\n```\r\n\r\n<wcs-button onclick=\"getElementById('modal-2').setAttribute('show', true)\" id=\"btn-modal-2-show\">\r\n    Afficher la boîte de dialogue\r\n</wcs-button>\r\n\r",
-      "docs": "",
-      "docsTags": [],
+      "docs": "The modal component (also named dialog or popup) is an interface element that appears on top of the page content.\r\nUse it to show a message, a confirmation dialog, or any other content like forms.\r\n\r\n<details>\r\n    <summary>Accessibility guidelines 💡</summary>\r\n    > - Modal element has `role=\"dialog\"` and `aria-modal=\"true\"`\r\n    > - Keyboard navigation is trapped inside the modal\r\n    > - It is mandatory to set the `modalTriggerControlsId` to the id of the element that opens the dialog, in order\r\n    > to focus it upon dialog dismissal.\r\n    > - The modal can be closed at any time by pressing the Escape key.\r\n    >\r\n    > - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/\r\n</details>",
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "<no-name> Main container slot"
+        },
+        {
+          "name": "slot",
+          "text": "header Header container slot (for title)"
+        },
+        {
+          "name": "slot",
+          "text": "actions Actions container slot (for buttons)"
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -4119,9 +4132,29 @@
           "required": false
         },
         {
+          "name": "modalTriggerControlsId",
+          "type": "string",
+          "mutable": false,
+          "attr": "modal-trigger-controls-id",
+          "reflectToAttr": false,
+          "docs": "Specifies which element id controls the modal",
+          "docsTags": [
+            {
+              "name": "private"
+            }
+          ],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "show",
           "type": "boolean",
-          "mutable": false,
+          "mutable": true,
           "attr": "show",
           "reflectToAttr": true,
           "docs": "Displays the modal",
@@ -4221,7 +4254,20 @@
         }
       ],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "<no-name> Main container slot",
+          "docs": ""
+        },
+        {
+          "name": "actions Actions container slot (for buttons)",
+          "docs": ""
+        },
+        {
+          "name": "header Header container slot (for title)",
+          "docs": ""
+        }
+      ],
       "parts": [],
       "dependents": [],
       "dependencies": [
