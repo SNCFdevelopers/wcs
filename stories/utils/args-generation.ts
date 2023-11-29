@@ -1,7 +1,7 @@
 // @ts-ignore
 import docsJson from '../documentation/generated/docs.json';
 import { ArgTypes } from '@storybook/types';
-import { JsonDocs, JsonDocsProp } from '../documentation/generated/docs';
+import { JsonDocs, JsonDocsProp, JsonDocsMethod } from '../documentation/generated/docs';
 
 const hasOptions = prop => prop?.type.includes(' | ')
 const isFunction = prop => prop?.type.includes('=>') || prop?.type.includes('func')
@@ -51,11 +51,12 @@ const getControl = (prop): { type?: string, [opts: string]: any } => {
 
 /**
  * Returns a mapped set of ArgTypes for a given component tag.
+ * Contains props, attributes and methods to be displayed in the Storybook control table.
  *
  * @returns Mapped ArgTypes corresponding to the chosen component
  * @param tag Tag of the component (e.g. "wcs-button")
  */
-export const getComponentArgs = (tag): Partial<ArgTypes> => {
+export const getComponentArgs = (tag: string): Partial<ArgTypes> => {
     const components = (docsJson as JsonDocs).components;
     const matchingComponent = components.filter(component => component.tag === tag)[0];
 
@@ -88,5 +89,22 @@ export const getComponentArgs = (tag): Partial<ArgTypes> => {
             });
         }
     });
-    return propList;
+
+    const methods = matchingComponent.methods as JsonDocsMethod[];
+    const mappedMethods = {};
+
+    methods.forEach(method => {
+        mappedMethods[method.name] = {
+            table: { category: 'methods' },
+            description: method.docs,
+            type: { summary: method.signature },
+            control: { disable: true },
+            defaultValue: { summary: null }
+        }
+    });
+
+    return {
+        ...propList,
+        ...mappedMethods,
+    }
 }
