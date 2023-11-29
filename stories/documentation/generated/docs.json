@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-11-10T15:05:19",
+  "timestamp": "2023-12-04T09:47:00",
   "compiler": {
     "name": "@stencil/core",
     "version": "3.0.0",
@@ -4507,7 +4507,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/radio/radio.component.tsx",
+      "filePath": "./src/components/radio/radio.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-radio",
       "readme": "# wcs-radio\r\n\r\n\r\n\r",
@@ -4585,6 +4585,22 @@
             },
             {
               "value": "radio",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "mutable": false,
+          "attr": "name",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
               "type": "string"
             }
           ],
@@ -4723,6 +4739,16 @@
       "listeners": [
         {
           "event": "wcsRadioClick",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "keydown",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "keyup",
           "capture": false,
           "passive": false
         }

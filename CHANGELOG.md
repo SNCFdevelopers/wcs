@@ -35,6 +35,7 @@ for now removed features.
 - **tabs**: apply ARIA tabs design pattern to make tabs accessible to screen reader
 - **grid**: fix single selection keyboard behavior, only one radio can be selected
 - **radio**: update style to remove margin when there is no label on radio (useful for grids)
+- **radio-group**: add keyboard navigation support
 
 ### Security
 

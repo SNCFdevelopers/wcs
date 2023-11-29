@@ -32,10 +32,10 @@ export default meta;
 
 const Template: StoryFn<Partial<{ disabled: boolean, defaultValue: string, mode: RadioGroupMode }>> = (args) => html`
     <wcs-radio-group value="${args.defaultValue}" mode=${args.mode}>
-        <wcs-radio label="SNCF" value="1" ?disabled=${args.disabled}></wcs-radio>
-        <wcs-radio label="SNCF Réseau" value="2"></wcs-radio>
-        <wcs-radio label="SNCF Voyageurs" value="3"></wcs-radio>
-        <wcs-radio label="Gares & Connexions" value="4" ?disabled=${args.disabled}></wcs-radio>
+        <wcs-radio label="SNCF" name="company" value="1" ?disabled=${args.disabled}></wcs-radio>
+        <wcs-radio label="SNCF Réseau" name="company" value="2"></wcs-radio>
+        <wcs-radio label="SNCF Voyageurs" name="company" value="3"></wcs-radio>
+        <wcs-radio label="Gares & Connexions" name="company" value="4" ?disabled=${args.disabled}></wcs-radio>
     </wcs-radio-group>
 `;
 

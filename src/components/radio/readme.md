@@ -13,6 +13,7 @@
 | `disabled` | `disabled` | If `true`, the user cannot interact with the radio. | `boolean`                             | `false`     |
 | `label`    | `label`    |                                                     | `string`                              | `undefined` |
 | `mode`     | `mode`     |                                                     | `"horizontal" \| "option" \| "radio"` | `'radio'`   |
+| `name`     | `name`     |                                                     | `string`                              | `undefined` |
 | `value`    | `value`    |                                                     | `any`                                 | `undefined` |
 
 

@@ -1197,14 +1197,14 @@ export declare interface WcsProgressRadial extends Components.WcsProgressRadial 
 
 
 @ProxyCmp({
-  inputs: ['checked', 'disabled', 'label', 'mode', 'value']
+  inputs: ['checked', 'disabled', 'label', 'mode', 'name', 'value']
 })
 @Component({
   selector: 'wcs-radio',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['checked', 'disabled', 'label', 'mode', 'value'],
+  inputs: ['checked', 'disabled', 'label', 'mode', 'name', 'value'],
 })
 export class WcsRadio {
   protected el: HTMLElement;

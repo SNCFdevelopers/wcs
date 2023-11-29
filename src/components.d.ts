@@ -739,6 +739,7 @@ export namespace Components {
         "disabled": boolean;
         "label": string;
         "mode": RadioGroupMode;
+        "name": string;
         "value": any | any[] | undefined | null;
     }
     interface WcsRadioGroup {
@@ -2460,6 +2461,7 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "label"?: string;
         "mode"?: RadioGroupMode;
+        "name"?: string;
         "onWcsRadioClick"?: (event: WcsRadioCustomEvent<RadioChosedEvent>) => void;
         "value"?: any | any[] | undefined | null;
     }
