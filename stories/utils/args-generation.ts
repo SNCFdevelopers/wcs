@@ -6,6 +6,7 @@ import { JsonDocs, JsonDocsProp, JsonDocsMethod } from '../documentation/generat
 const hasOptions = prop => prop?.type.includes(' | ')
 const isFunction = prop => prop?.type.includes('=>') || prop?.type.includes('func')
 const optionsLength = prop => hasOptions(prop) ? prop.values?.length : 0;
+const deprecatedBadge = () => `<wcs-badge class="wcs-warning" color="lighter">Deprecated</wcs-badge>\n`;
 
 /**
  * Returns a mapped control for a given component property
@@ -69,7 +70,7 @@ export const getComponentArgs = (tag: string): Partial<ArgTypes> => {
         const control = getControl(prop);
         // Map Properties
         propList[prop.name] = {
-            description: prop.docs,
+            description: prop.deprecation ? (deprecatedBadge() + prop.deprecation) : prop.docs,
             table: {
                 category: 'properties',
                 type: {
@@ -96,7 +97,7 @@ export const getComponentArgs = (tag: string): Partial<ArgTypes> => {
     methods.forEach(method => {
         mappedMethods[method.name] = {
             table: { category: 'methods' },
-            description: method.docs,
+            description: method.deprecation ? (deprecatedBadge() + method.deprecation) : method.docs,
             type: { summary: method.signature },
             control: { disable: true },
             defaultValue: { summary: null }

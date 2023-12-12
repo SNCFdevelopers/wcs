@@ -14,6 +14,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **stackblitz** : create 3 StackBlitz templates for testing. See README.md or CONTRIBUTING.md for more information
 - **doc**: add StackBlitz links to the Framework integrations documentation
 - **doc**: component methods are now displayed in their story control table
+- **doc**: props & methods deprecation are now displayed in their story control table
 
 ### Changed
 
