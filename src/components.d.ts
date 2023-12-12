@@ -592,7 +592,7 @@ export namespace Components {
          */
         "setBlur": () => Promise<void>;
         /**
-          * @deprecated use the native focus method instead  Sets focus on the native `input` in `wcs-input`. Use this method instead of the global `input.focus()`.
+          * @deprecated use the native focus method instead   Sets focus on the native `input` in `wcs-input`.
          */
         "setFocus": () => Promise<void>;
         /**
@@ -1046,7 +1046,7 @@ export namespace Components {
          */
         "setBlur": () => Promise<void>;
         /**
-          * Sets focus on the native `textarea` in `wcs-textarea`. Use this method instead of the global `textarea.focus()`.
+          * @deprecated use the native focus method instead   Sets focus on the native `textarea` in `wcs-textarea`.
          */
         "setFocus": () => Promise<void>;
         /**

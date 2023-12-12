@@ -71,8 +71,8 @@ Type: `Promise<HTMLTextAreaElement>`
 
 ### `setFocus() => Promise<void>`
 
-Sets focus on the native `textarea` in `wcs-textarea`. Use this method instead of the global
-`textarea.focus()`.
+<span style="color:red">**[DEPRECATED]**</span> use the native focus method instead  
+Sets focus on the native `textarea` in `wcs-textarea`.<br/><br/>
 
 #### Returns
 

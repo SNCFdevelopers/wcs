@@ -5,6 +5,8 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+> 💡 All changes in **Deprecated** will be removed on next major version
+
 ## Unreleased
 
 ### Added
@@ -20,7 +22,9 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Deprecated
 
-for soon-to-be removed features.
+- **input** : method setFocus() deprecated : use native js `focus()` method instead.
+- **textarea** : method setFocus() deprecated : use native js `focus()` method instead.
+
 
 ### Removed
 

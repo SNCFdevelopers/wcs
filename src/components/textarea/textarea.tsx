@@ -247,8 +247,8 @@ export class Textarea implements ComponentInterface {
     }
 
     /**
-     * Sets focus on the native `textarea` in `wcs-textarea`. Use this method instead of the global
-     * `textarea.focus()`.
+     * @deprecated use the native focus method instead  
+     * Sets focus on the native `textarea` in `wcs-textarea`.
      */
     @Method()
     async setFocus() {

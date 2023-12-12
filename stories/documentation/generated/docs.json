@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-12-06T14:46:12",
+  "timestamp": "2023-12-15T14:04:14",
   "compiler": {
     "name": "@stencil/core",
     "version": "3.0.0",
@@ -3783,10 +3783,10 @@
           "docsTags": [
             {
               "name": "deprecated",
-              "text": "use the native focus method instead\r\n\r\nSets focus on the native `input` in `wcs-input`. Use this method instead of the global\r\n`input.focus()`."
+              "text": "use the native focus method instead  \r\nSets focus on the native `input` in `wcs-input`."
             }
           ],
-          "deprecation": "use the native focus method instead\r\n\r\nSets focus on the native `input` in `wcs-input`. Use this method instead of the global\r\n`input.focus()`."
+          "deprecation": "use the native focus method instead  \r\nSets focus on the native `input` in `wcs-input`."
         }
       ],
       "events": [
@@ -4519,7 +4519,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/radio/radio.component.tsx",
+      "filePath": "./src/components/radio/radio.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-radio",
       "readme": "# wcs-radio\r\n\r\n\r\n\r",
@@ -4597,6 +4597,22 @@
             },
             {
               "value": "radio",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "mutable": false,
+          "attr": "name",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
               "type": "string"
             }
           ],
@@ -4735,6 +4751,16 @@
       "listeners": [
         {
           "event": "wcsRadioClick",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "keydown",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "keyup",
           "capture": false,
           "passive": false
         }
@@ -6250,8 +6276,14 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `textarea` in `wcs-textarea`. Use this method instead of the global\r\n`textarea.focus()`.",
-          "docsTags": []
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "use the native focus method instead  \r\nSets focus on the native `textarea` in `wcs-textarea`."
+            }
+          ],
+          "deprecation": "use the native focus method instead  \r\nSets focus on the native `textarea` in `wcs-textarea`."
         }
       ],
       "events": [

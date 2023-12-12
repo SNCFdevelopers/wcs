@@ -256,10 +256,8 @@ export class Input implements ComponentInterface {
     }
 
     /**
-     * @deprecated use the native focus method instead
-     *
-     * Sets focus on the native `input` in `wcs-input`. Use this method instead of the global
-     * `input.focus()`.
+     * @deprecated use the native focus method instead  
+     * Sets focus on the native `input` in `wcs-input`.
      */
     @Method()
     async setFocus() {
