@@ -11,6 +11,32 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+for new features.
+
+### Changed
+
+for changes in existing functionality.
+
+### Deprecated
+
+for soon-to-be removed features.
+
+### Removed
+
+for now removed features.
+
+### Fixed
+
+for any bug fixes.
+
+### Security
+
+in case of vulnerabilities.
+
+## [4.2.0] - 2023-12-15
+
+### Added
+
 - **stackblitz** : create 3 StackBlitz templates for testing. See README.md or CONTRIBUTING.md for more information
 - **doc**: add StackBlitz links to the Framework integrations documentation
 - **doc**: component methods are now displayed in their story control table
@@ -26,11 +52,6 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **input** : method setFocus() deprecated : use native js `focus()` method instead.
 - **textarea** : method setFocus() deprecated : use native js `focus()` method instead.
 
-
-### Removed
-
-for now removed features.
-
 ### Fixed
 
 - Update project README.md and CONTRIBUTING.md
@@ -43,10 +64,6 @@ for now removed features.
 - **radio**: update style to remove margin when there is no label on radio (useful for grids)
 - **radio-group**: add keyboard navigation support
 - **native-select**: add a way to update the styles of the native select when it's reset and automatically update styles when there is a class change on the component (mainly for Angular)
-
-### Security
-
-in case of vulnerabilities.
 
 ## [4.1.0] - 2023-10-30
 
