@@ -479,8 +479,10 @@ describe('Select component', () => {
 
         it('select value of first option enabled on Down Arrow key pressed', async () => {
             // Given
-            const firstValueOfEnableOption = "Option 2";
+            const firstDisplayedValueOfEnableOption = "Option 2";
+            const firstValueOfEnableOption = "option2";
             const displayValue: HTMLLabelElement = await page.find('wcs-select >>> label');
+            const changeSpy = await wcsSelect.spyOnEvent('wcsChange');
 
             // When
             await wcsSelect.focus();
@@ -488,12 +490,15 @@ describe('Select component', () => {
             await page.waitForChanges();
 
             // Then
-            expect(displayValue.innerText).toEqual(firstValueOfEnableOption);
+            expect(displayValue.innerText).toEqual(firstDisplayedValueOfEnableOption);
+            expect(changeSpy).toHaveReceivedEventTimes(1);
+            expect(changeSpy).toHaveReceivedEventDetail({ value: firstValueOfEnableOption });
         });
         it('select value of last option enabled on PageDown key pressed', async () => {
             // Given
             const lastValueOfEnableOption = "Option 3";
             const displayValue: HTMLLabelElement = await page.find('wcs-select >>> label');
+            const changeSpy = await wcsSelect.spyOnEvent('wcsChange');
 
             // When
             await wcsSelect.focus();
@@ -502,11 +507,15 @@ describe('Select component', () => {
 
             // Then
             expect(displayValue.innerText).toEqual(lastValueOfEnableOption);
+            expect(changeSpy).toHaveReceivedEventTimes(1);
+            expect(changeSpy).toHaveReceivedEventDetail({ value: 'option3' });
         });
         it('select value of first option enabled on PageUp key pressed', async () => {
             // Given
-            const fistValueOfEnableOption = "Option 2";
+            const fistDisplayedValueOfEnableOption = "Option 2";
+            const firstValueOfEnableOption = "option2";
             const displayValue: HTMLLabelElement = await page.find('wcs-select >>> label');
+            const changeSpy = await wcsSelect.spyOnEvent('wcsChange');
 
             // When
             await wcsSelect.focus();
@@ -514,7 +523,9 @@ describe('Select component', () => {
             await page.waitForChanges();
 
             // Then
-            expect(displayValue.innerText).toEqual(fistValueOfEnableOption);
+            expect(displayValue.innerText).toEqual(fistDisplayedValueOfEnableOption);
+            expect(changeSpy).toHaveReceivedEventTimes(1);
+            expect(changeSpy).toHaveReceivedEventDetail({ value: firstValueOfEnableOption });
         });
         it('open the overlay on Enter key press', async () => {
             // When
@@ -621,20 +632,25 @@ describe('Select component', () => {
         it('choose the current option on Enter key pressed', async () => {
             // Given
             // The overlay is open (makes in beforeEach)
-            const firstValueOfEnableOption = "Option 2";
+            const firstDisplayedValueOfEnableOption = "Option 2";
+            const firstValueOfEnabledOption = "option2";
             const displayValue: HTMLLabelElement = await page.find('wcs-select >>> label');
+            const changeSpy = await wcsSelect.spyOnEvent('wcsChange');
 
             // When
             await page.keyboard.press('Enter');
             await page.waitForChanges();
 
             // Then
-            expect(displayValue.innerText).toEqual(firstValueOfEnableOption);
+            expect(displayValue.innerText).toEqual(firstDisplayedValueOfEnableOption);
+            expect(changeSpy).toHaveReceivedEventTimes(1);
+            expect(changeSpy).toHaveReceivedEventDetail({ value: firstValueOfEnabledOption });
         });
         it('move focus to next option on Down Arrow key down', async () => {
             // Given
             // The overlay is open (makes in beforeEach)
             const nextValueOfEnableOption = selectOptions[2];
+            const changeSpy = await wcsSelect.spyOnEvent('wcsChange');
 
             // When
             await page.keyboard.press('ArrowDown');
@@ -642,6 +658,7 @@ describe('Select component', () => {
 
             // Then
             expect(focusedOption.value).toEqual(nextValueOfEnableOption.value);
+            expect(changeSpy).toHaveReceivedEventTimes(0)
         });
     });
     describe('Keyboard navigation when select is closed and multiple', () => {
@@ -666,6 +683,7 @@ describe('Select component', () => {
         it('move focus into the first enabled option on Down Arrow key pressed', async () => {
             // Given
             const firstOptionEnabled = selectOptions[1];
+            const changeSpy = await wcsSelect.spyOnEvent('wcsChange');
 
             // When
             await wcsSelect.focus();
@@ -675,10 +693,12 @@ describe('Select component', () => {
             // Then
             const focusedOption = await page.find('wcs-select-option:focus');
             expect(focusedOption).toEqual(firstOptionEnabled);
+            expect(changeSpy).toHaveReceivedEventTimes(0)
         });
         it('move focus into the first enabled option on Enter key pressed', async () => {
             // Given
             const firstOptionEnabled = selectOptions[1];
+            const changeSpy = await wcsSelect.spyOnEvent('wcsChange');
 
             // When
             await wcsSelect.focus();
@@ -688,6 +708,7 @@ describe('Select component', () => {
             // Then
             const focusedOption = await page.find('wcs-select-option:focus');
             expect(focusedOption).toEqual(firstOptionEnabled);
+            expect(changeSpy).toHaveReceivedEventTimes(0)
         });
     });
     describe('Keyboard navigation when select opened and multiple', () => {

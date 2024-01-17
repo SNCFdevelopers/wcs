@@ -98,7 +98,26 @@ export class Select implements ComponentInterface {
 
     // Only used for multiples.
     private values: SelectOptionValue[];
-    private lastSelectedOptionElement: HTMLWcsSelectOptionElement | null;
+
+    /**
+     * This attribute mutate when a new option is selected
+     * @private
+     */
+    private lastModifiedOptionElement: HTMLWcsSelectOptionElement | null;
+    /**
+     * It serves for accessibility feature: keyboard navigation. It serves to focus the option if defined when the select
+     * is opened based on which key pressed.
+     * 
+     * When the select is <b>opened</b> user can navigate through options with keyboard:
+     * 
+     * - Arrow right | down: `lastFocusedOptionElement` equals to the next option of `lastFocusedOptionElement` or
+     * the first if `lastFocusedOptionElement` is not defined
+     * - Arrow left | top: `lastFocusedOptionElement` equals to the previous enabled option of `lastFocusedOptionElement`
+     * or the first if `lastFocusedOptionElement` is not defined
+     * - Page up: `lastFocusedOptionElement` equals to the first enabled option
+     * - Page down: `lastFocusedOptionElement` equals to the last enabled option
+     * @private
+     */
     private lastFocusedOptionElement: HTMLWcsSelectOptionElement | null;
 
     @Element() private el!: HTMLWcsSelectElement;
@@ -357,7 +376,7 @@ export class Select implements ComponentInterface {
                         this.expanded = true;
                         this.focused = false;
                         if(this.notDisabledOptions.length > 0) {
-                            this.lastFocusedOptionElement = this.lastSelectedOptionElement ?? this.notDisabledOptions[0];
+                            this.lastFocusedOptionElement = this.lastModifiedOptionElement ?? this.notDisabledOptions[0];
                             requestAnimationFrame(() => {
                                 this.lastFocusedOptionElement?.focus();
                             });
@@ -402,11 +421,11 @@ export class Select implements ComponentInterface {
             const {value, displayText, chipColor, chipBackgroundColor} = event;
             this.values.push({value, displayText, chipColor, chipBackgroundColor});
             event.source.selected = true;
-            this.lastSelectedOptionElement = event.source;
+            this.lastModifiedOptionElement = event.source;
         } else {
             event.source.selected = false;
             this.values.splice(index, 1);
-            if (this.lastSelectedOptionElement === event.source) this.lastSelectedOptionElement = null;
+            if (this.lastModifiedOptionElement === event.source) this.lastModifiedOptionElement = null;
         }
         this.updateValueWithValues();
     }
@@ -428,7 +447,7 @@ export class Select implements ComponentInterface {
         event.source.selected = true;
         this.value = event.value;
         this.displayText = event.displayText;
-        this.lastSelectedOptionElement = event.source;
+        this.lastModifiedOptionElement = event.source;
         this.stateService.send('CLOSE');
     }
 
@@ -531,7 +550,7 @@ export class Select implements ComponentInterface {
     }
 
     private getClosestActiveOptionIndexForState(direction: 'next' | 'previous', state: 'focused' | 'selected'): number | 'nothing' {
-        let currentIndex = Array.from(this.notDisabledOptions).indexOf(state === 'focused' ? this.lastFocusedOptionElement : this.lastSelectedOptionElement);
+        let currentIndex = Array.from(this.notDisabledOptions).indexOf(state === 'focused' ? this.lastFocusedOptionElement : this.lastModifiedOptionElement);
 
         if (direction === 'next' && currentIndex < this.notDisabledOptions.length - 1) {
             currentIndex++;
@@ -543,13 +562,21 @@ export class Select implements ComponentInterface {
         return currentIndex;
     }
 
+    /**
+     * Selects the non-disabled option with the index passed as a parameter. 
+     * The method sends an event to the state machine (the same as when clicking on an option with the mouse)
+     * @param indexToSelect Option index within non-deactivated options list
+     * @private
+     */
     private selectOption(indexToSelect: number) {
-        this.lastSelectedOptionElement = this.notDisabledOptions[indexToSelect];
-        this.lastSelectedOptionElement.selected = true;
+        const optionToSelect = this.notDisabledOptions[indexToSelect];
+        
+        if(!optionToSelect) return;
+        
         this.sendOptionSelectedToStateMachine({
-            source: this.lastSelectedOptionElement,
-            value: this.value,
-            displayText: this.lastSelectedOptionElement.innerText
+            source: optionToSelect,
+            value: optionToSelect.value,
+            displayText: optionToSelect.innerText
         });
     }
 
