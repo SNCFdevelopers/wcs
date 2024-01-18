@@ -955,6 +955,8 @@ export namespace Components {
     /**
      * Mainly inspired from Ionic Textarea Component
      * @cssprop --wcs-textarea-max-height - Max height of the text area component
+     * @cssprop --wcs-textarea-padding-left - Padding left of the text area. Take in consideration the transparent border of 2px around the textarea.
+     * @cssprop --wcs-textarea-padding-right - Padding right of the text area. Take in consideration the transparent border of 2px around the textarea.
      */
     interface WcsTextarea {
         /**
@@ -1677,6 +1679,8 @@ declare global {
     /**
      * Mainly inspired from Ionic Textarea Component
      * @cssprop --wcs-textarea-max-height - Max height of the text area component
+     * @cssprop --wcs-textarea-padding-left - Padding left of the text area. Take in consideration the transparent border of 2px around the textarea.
+     * @cssprop --wcs-textarea-padding-right - Padding right of the text area. Take in consideration the transparent border of 2px around the textarea.
      */
     interface HTMLWcsTextareaElement extends Components.WcsTextarea, HTMLStencilElement {
     }
@@ -2719,6 +2723,8 @@ declare namespace LocalJSX {
     /**
      * Mainly inspired from Ionic Textarea Component
      * @cssprop --wcs-textarea-max-height - Max height of the text area component
+     * @cssprop --wcs-textarea-padding-left - Padding left of the text area. Take in consideration the transparent border of 2px around the textarea.
+     * @cssprop --wcs-textarea-padding-right - Padding right of the text area. Take in consideration the transparent border of 2px around the textarea.
      */
     interface WcsTextarea {
         /**
@@ -3108,6 +3114,8 @@ declare module "@stencil/core" {
             /**
              * Mainly inspired from Ionic Textarea Component
              * @cssprop --wcs-textarea-max-height - Max height of the text area component
+             * @cssprop --wcs-textarea-padding-left - Padding left of the text area. Take in consideration the transparent border of 2px around the textarea.
+             * @cssprop --wcs-textarea-padding-right - Padding right of the text area. Take in consideration the transparent border of 2px around the textarea.
              */
             "wcs-textarea": LocalJSX.WcsTextarea & JSXBase.HTMLAttributes<HTMLWcsTextareaElement>;
             /**

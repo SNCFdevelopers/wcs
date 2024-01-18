@@ -1,4 +1,4 @@
-import { Meta, StoryFn } from '@storybook/web-components';
+import { Meta, StoryFn, StoryObj } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { getComponentArgs } from '../../utils/args-generation';
 
@@ -49,3 +49,33 @@ Disabled.args = {
     placeholder: 'Placeholder',
     disabled: true
 };
+
+/**
+ * You can customize the padding-left and padding-right of the textarea by overriding the following css variables:
+ * - `--wcs-textarea-padding-left`
+ * - `--wcs-textarea-padding-right`
+ */
+export const CustomPaddings: StoryObj = {
+    render: (args) => html`
+        <style>
+            .custom-padding {
+                --wcs-textarea-padding-left: ${args["--wcs-textarea-padding-left"]};
+                --wcs-textarea-padding-right: ${args["--wcs-textarea-padding-right"]};
+            }
+        </style>
+        <wcs-textarea icon=${args.icon}
+                      class="custom-padding"
+                      ?auto-grow="${args.autoGrow}"
+                      ?disabled="${args.disabled}"
+                      .state="${args.state}"
+                      resize="${args.resize ?? 'auto'}"
+                      placeholder=${args.placeholder}
+                      value=${args.value}>
+        </wcs-textarea>
+    `,
+    args: {
+        ...Default.args,
+        "--wcs-textarea-padding-left": "2rem",
+        "--wcs-textarea-padding-right": "2rem"
+    }
+}

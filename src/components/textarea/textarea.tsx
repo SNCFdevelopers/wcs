@@ -20,7 +20,8 @@ import { TextareaChangeEventDetail } from './textarea-interface';
  * Mainly inspired from Ionic Textarea Component
  *
  * @cssprop --wcs-textarea-max-height - Max height of the text area component
- *
+ * @cssprop --wcs-textarea-padding-left - Padding left of the text area. Take in consideration the transparent border of 2px around the textarea.
+ * @cssprop --wcs-textarea-padding-right - Padding right of the text area. Take in consideration the transparent border of 2px around the textarea.
  */
 @Component({
     tag: 'wcs-textarea',

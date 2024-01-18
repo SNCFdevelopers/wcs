@@ -3663,6 +3663,44 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/field-label/field-label.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "FieldLabel",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-field-label",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "FieldLabel",
+          "declaration": {
+            "name": "FieldLabel",
+            "module": "components/field-label/field-label.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-field-label",
+          "declaration": {
+            "name": "FieldLabel",
+            "module": "components/field-label/field-label.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/footer/footer.tsx",
       "declarations": [
         {
@@ -3714,44 +3752,6 @@
           "declaration": {
             "name": "Footer",
             "module": "components/footer/footer.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/field-label/field-label.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "FieldLabel",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-field-label",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "FieldLabel",
-          "declaration": {
-            "name": "FieldLabel",
-            "module": "components/field-label/field-label.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-field-label",
-          "declaration": {
-            "name": "FieldLabel",
-            "module": "components/field-label/field-label.tsx"
           }
         }
       ]
@@ -7973,11 +7973,12 @@
             },
             {
               "kind": "field",
-              "name": "lastSelectedOptionElement",
+              "name": "lastModifiedOptionElement",
               "type": {
                 "text": "HTMLWcsSelectOptionElement | null"
               },
-              "privacy": "private"
+              "privacy": "private",
+              "description": "This attribute mutate when a new option is selected"
             },
             {
               "kind": "field",
@@ -7985,7 +7986,8 @@
               "type": {
                 "text": "HTMLWcsSelectOptionElement | null"
               },
-              "privacy": "private"
+              "privacy": "private",
+              "description": "It serves for accessibility feature: keyboard navigation. It serves to focus the option if defined when the select\r\nis opened based on which key pressed.\r\n\r\nWhen the select is <b>opened</b> user can navigate through options with keyboard:\r\n\r\n- Arrow right | down: `lastFocusedOptionElement` equals to the next option of `lastFocusedOptionElement` or\r\nthe first if `lastFocusedOptionElement` is not defined\r\n- Arrow left | top: `lastFocusedOptionElement` equals to the previous enabled option of `lastFocusedOptionElement`\r\nor the first if `lastFocusedOptionElement` is not defined\r\n- Page up: `lastFocusedOptionElement` equals to the first enabled option\r\n- Page down: `lastFocusedOptionElement` equals to the last enabled option"
             },
             {
               "kind": "field",
@@ -8347,9 +8349,11 @@
                   "name": "indexToSelect",
                   "type": {
                     "text": "number"
-                  }
+                  },
+                  "description": "Option index within non-deactivated options list"
                 }
-              ]
+              ],
+              "description": "Selects the non-disabled option with the index passed as a parameter. \r\nThe method sends an event to the state machine (the same as when clicking on an option with the mouse)"
             },
             {
               "kind": "method",
@@ -9586,6 +9590,14 @@
             {
               "description": "Max height of the text area component",
               "name": "--wcs-textarea-max-height"
+            },
+            {
+              "description": "Padding left of the text area. Take in consideration the transparent border of 2px around the textarea.",
+              "name": "--wcs-textarea-padding-left"
+            },
+            {
+              "description": "Padding right of the text area. Take in consideration the transparent border of 2px around the textarea.",
+              "name": "--wcs-textarea-padding-right"
             }
           ],
           "members": [

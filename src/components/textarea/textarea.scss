@@ -5,7 +5,10 @@
     --wcs-internal-textarea-border-radius-left: var(--wcs-textarea-border-radius-left, var(--wcs-border-radius));
     --wcs-internal-textarea-border-radius-right: var(--wcs-textarea-border-radius-right, var(--wcs-border-radius));
     --wcs-internal-textarea-border-width: 2px;
-    --wcs-textarea-max-height: unset;
+    --wcs-internal-textarea-padding-left: var(--wcs-textarea-padding-left, var(--wcs-padding));
+    --wcs-internal-textarea-padding-right: var(--wcs-textarea-padding-right, var(--wcs-padding));
+    --wcs-internal-textarea-max-height: var(--wcs-textarea-max-height, unset);
+    
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -25,14 +28,17 @@
         width: 100%;
         box-sizing: border-box;
         min-height: var(--wcs-size-m);
-        max-height: var(--wcs-textarea-max-height);
+        max-height: var(--wcs-internal-textarea-max-height);
         background-color: transparent;
         font-family: var(--wcs-font-sans-serif);
         color: var(--wcs-primary);
         font-weight: var(--wcs-font-weight-form-value) !important;
         border: none;
         // On divise --wcs-internal-input-border-width par deux car la valeur du padding est appliquée en haut et en bas
-        padding: calc(calc(var(--wcs-padding) / 2) - calc(var(--wcs-internal-textarea-border-width) / 2)) calc(var(--wcs-padding) - var(--wcs-internal-textarea-border-width));
+        padding-top: calc(calc(var(--wcs-padding) / 2) - calc(var(--wcs-internal-textarea-border-width) / 2));
+        padding-bottom: calc(calc(var(--wcs-padding) / 2) - calc(var(--wcs-internal-textarea-border-width) / 2));
+        padding-left: var(--wcs-internal-textarea-padding-left);
+        padding-right:var(--wcs-internal-textarea-padding-right);
         font-size: 1rem;
         line-height: 1.5;
     }
