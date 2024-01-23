@@ -45,7 +45,7 @@ export const Disabled = {
 }
 
 /**
- * `wcs-native-select` can have different sizes. The available sizes are "s" (small) and "m" (medium). The size is determined by the `size` property of the component.
+ * `wcs-native-select` can have different sizes. The available sizes are "l" (large) and "m" (medium). The size is determined by the `size` property of the component.
  */
 export const Sizes = {
     render: () => {

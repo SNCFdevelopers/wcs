@@ -14,7 +14,9 @@
 
 ## Overview
 
-Select component, use in conjuction with wcs-select-option.
+The select component (also named combobox) is a form component that allows users to select one or more options
+from a list.  
+Use it with several slotted `wcs-select-option` inside.
 
 ## Properties
 
@@ -60,6 +62,13 @@ Open the component.
 Type: `Promise<void>`
 
 
+
+
+## Slots
+
+| Slot                  | Description                   |
+| --------------------- | ----------------------------- |
+| `"wcs-select-option"` | The select options to render. |
 
 
 ## Dependencies

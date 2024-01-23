@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-01-25T13:13:31",
+  "timestamp": "2024-01-25T13:27:34",
   "compiler": {
     "name": "@stencil/core",
     "version": "3.0.0",
@@ -4777,11 +4777,11 @@
       "encapsulation": "shadow",
       "tag": "wcs-select",
       "readme": "\r\n## TODO\r\n\r\n- étudier la possibilité de mieux gérer la taille de l'overlay du select\r\n  - utiliser la variable `--wcs-select-overlay-max-height` ?\r\n  - on essaye de tout afficher, si pas possible on regarde s'il y a plus de place vers le haut\r\n    si c'est le cas, on affiche l'overlay vers le haut avec le maximum d'option à l'écran\r\n    sinon vers le bas, avec un maximum d'options à l'écran. Le plus simple est de faire ces calculs\r\n    au moment du click pour déplier le select, comme c'est le cas actuellement ?\r\n\r\n\r",
-      "docs": "Select component, use in conjuction with wcs-select-option.",
+      "docs": "The select component (also named combobox) is a form component that allows users to select one or more options\r\nfrom a list.  \r\nUse it with several slotted `wcs-select-option` inside.",
       "docsTags": [
         {
-          "name": "example",
-          "text": "```hmtl\r\n<wcs-select>\r\n<wcs-select-option value=\"1\">One</wcs-select-option>\r\n</wcs-select>```"
+          "name": "slot",
+          "text": "wcs-select-option - The select options to render."
         }
       ],
       "usage": {},
@@ -5001,7 +5001,12 @@
         }
       ],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "wcs-select-option",
+          "docs": "The select options to render."
+        }
+      ],
       "parts": [],
       "dependents": [
         "wcs-grid-pagination"

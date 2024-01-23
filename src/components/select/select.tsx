@@ -75,12 +75,11 @@ const SELECT_MACHINE_CONFIG: MachineConfig<any, SelectStateSchema, SelectEvent> 
 };
 
 /**
- * Select component, use in conjuction with wcs-select-option.
+ * The select component (also named combobox) is a form component that allows users to select one or more options
+ * from a list.  
+ * Use it with several slotted `wcs-select-option` inside.
  *
- * @example ```hmtl
- *  <wcs-select>
- *      <wcs-select-option value="1">One</wcs-select-option>
- *  </wcs-select>```
+ * @slot wcs-select-option - The select options to render.
  */
 @Component({
     tag: 'wcs-select',
@@ -306,7 +305,7 @@ export class Select implements ComponentInterface {
                     options: {
                         offset: [0, 4] // we want 4px between select control and select options
                     }
-                }
+                },
             ]
         });
     }

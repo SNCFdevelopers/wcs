@@ -761,11 +761,9 @@ export namespace Components {
         "value": any | any[] | undefined | null;
     }
     /**
-     * Select component, use in conjuction with wcs-select-option.
-     * @example ```hmtl
-     * <wcs-select>
-     * <wcs-select-option value="1">One</wcs-select-option>
-     * </wcs-select>```
+     * The select component (also named combobox) is a form component that allows users to select one or more options
+     * from a list.  
+     * Use it with several slotted `wcs-select-option` inside.
      */
     interface WcsSelect {
         /**
@@ -1589,11 +1587,9 @@ declare global {
         new (): HTMLWcsRadioGroupElement;
     };
     /**
-     * Select component, use in conjuction with wcs-select-option.
-     * @example ```hmtl
-     * <wcs-select>
-     * <wcs-select-option value="1">One</wcs-select-option>
-     * </wcs-select>```
+     * The select component (also named combobox) is a form component that allows users to select one or more options
+     * from a list.  
+     * Use it with several slotted `wcs-select-option` inside.
      */
     interface HTMLWcsSelectElement extends Components.WcsSelect, HTMLStencilElement {
     }
@@ -2510,11 +2506,9 @@ declare namespace LocalJSX {
         "value"?: any | any[] | undefined | null;
     }
     /**
-     * Select component, use in conjuction with wcs-select-option.
-     * @example ```hmtl
-     * <wcs-select>
-     * <wcs-select-option value="1">One</wcs-select-option>
-     * </wcs-select>```
+     * The select component (also named combobox) is a form component that allows users to select one or more options
+     * from a list.  
+     * Use it with several slotted `wcs-select-option` inside.
      */
     interface WcsSelect {
         /**
@@ -3069,11 +3063,9 @@ declare module "@stencil/core" {
             "wcs-radio": LocalJSX.WcsRadio & JSXBase.HTMLAttributes<HTMLWcsRadioElement>;
             "wcs-radio-group": LocalJSX.WcsRadioGroup & JSXBase.HTMLAttributes<HTMLWcsRadioGroupElement>;
             /**
-             * Select component, use in conjuction with wcs-select-option.
-             * @example ```hmtl
-             * <wcs-select>
-             * <wcs-select-option value="1">One</wcs-select-option>
-             * </wcs-select>```
+             * The select component (also named combobox) is a form component that allows users to select one or more options
+             * from a list.  
+             * Use it with several slotted `wcs-select-option` inside.
              */
             "wcs-select": LocalJSX.WcsSelect & JSXBase.HTMLAttributes<HTMLWcsSelectElement>;
             /**
