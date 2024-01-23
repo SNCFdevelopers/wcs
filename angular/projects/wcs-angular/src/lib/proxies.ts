@@ -1258,7 +1258,7 @@ export declare interface WcsRadioGroup extends Components.WcsRadioGroup {
 
 
 @ProxyCmp({
-  inputs: ['chips', 'compareWith', 'disabled', 'multiple', 'name', 'placeholder', 'size', 'value'],
+  inputs: ['autocomplete', 'chips', 'compareWith', 'disabled', 'filterFn', 'multiple', 'name', 'placeholder', 'size', 'value'],
   methods: ['open', 'close']
 })
 @Component({
@@ -1266,19 +1266,20 @@ export declare interface WcsRadioGroup extends Components.WcsRadioGroup {
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['chips', 'compareWith', 'disabled', 'multiple', 'name', 'placeholder', 'size', 'value'],
+  inputs: ['autocomplete', 'chips', 'compareWith', 'disabled', 'filterFn', 'multiple', 'name', 'placeholder', 'size', 'value'],
 })
 export class WcsSelect {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['wcsChange', 'wcsFocus', 'wcsBlur']);
+    proxyOutputs(this, this.el, ['wcsChange', 'wcsFocus', 'wcsBlur', 'wcsFilterChange']);
   }
 }
 
 
 import type { SelectChangeEventDetail as IWcsSelectSelectChangeEventDetail } from 'wcs-core';
+import type { SelectFilerChangeEventDetail as IWcsSelectSelectFilerChangeEventDetail } from 'wcs-core';
 
 export declare interface WcsSelect extends Components.WcsSelect {
   /**
@@ -1293,6 +1294,10 @@ export declare interface WcsSelect extends Components.WcsSelect {
    * Emitted when the select loses focus.
    */
   wcsBlur: EventEmitter<CustomEvent<void>>;
+  /**
+   * Emitted when the autocomplete filter has changed.
+   */
+  wcsFilterChange: EventEmitter<CustomEvent<IWcsSelectSelectFilerChangeEventDetail>>;
 }
 
 

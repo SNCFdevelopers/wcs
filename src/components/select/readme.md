@@ -20,25 +20,28 @@ Use it with several slotted `wcs-select-option` inside.
 
 ## Properties
 
-| Property      | Attribute     | Description                                                     | Type                                                | Default                                                               |
-| ------------- | ------------- | --------------------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------------------------- |
-| `chips`       | `chips`       | If `true`, selected items are shown in chips mode.              | `boolean`                                           | `false`                                                               |
-| `compareWith` | --            | Function used to compare options, default : deep comparison.    | `(optionValue: any, selectedValue: any) => boolean` | `(optionValue, selectedValue) => isEqual(optionValue, selectedValue)` |
-| `disabled`    | `disabled`    | If `true`, the user cannot interact with the select.            | `boolean`                                           | `false`                                                               |
-| `multiple`    | `multiple`    | If `true`, the user can select multiple values at once.         | `boolean`                                           | `false`                                                               |
-| `name`        | `name`        | The name of the control, which is submitted with the form data. | `string`                                            | `undefined`                                                           |
-| `placeholder` | `placeholder` | The text to display when the select is empty.                   | `string`                                            | `undefined`                                                           |
-| `size`        | `size`        | Specify the size (height) of the select.                        | `"l" \| "m"`                                        | `'m'`                                                                 |
-| `value`       | `value`       | The currently selected value.                                   | `any`                                               | `undefined`                                                           |
+| Property       | Attribute      | Description                                                                                                                                                                     | Type                                                                | Default                                                               |
+| -------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| `autocomplete` | `autocomplete` | If `true`, the select acts as an autocomplete field to filter your results.                                                                                                     | `boolean`                                                           | `false`                                                               |
+| `chips`        | `chips`        | If `true`, selected items are shown in chips mode.                                                                                                                              | `boolean`                                                           | `false`                                                               |
+| `compareWith`  | --             | Function used to compare options, default : deep comparison.                                                                                                                    | `(optionValue: any, selectedValue: any) => boolean`                 | `(optionValue, selectedValue) => isEqual(optionValue, selectedValue)` |
+| `disabled`     | `disabled`     | If `true`, the user cannot interact with the select.                                                                                                                            | `boolean`                                                           | `false`                                                               |
+| `filterFn`     | --             | Customizable sort function to change the comparison of values. If not provided, uses the default behavior : `option.textContent.toLowerCase().startsWith(filter.toLowerCase())` | `(optionEl: HTMLWcsSelectOptionElement, filter: string) => boolean` | `undefined`                                                           |
+| `multiple`     | `multiple`     | If `true`, the user can select multiple values at once.                                                                                                                         | `boolean`                                                           | `false`                                                               |
+| `name`         | `name`         | The name of the control, which is submitted with the form data.                                                                                                                 | `string`                                                            | `undefined`                                                           |
+| `placeholder`  | `placeholder`  | The text to display when the select is empty.                                                                                                                                   | `string`                                                            | `undefined`                                                           |
+| `size`         | `size`         | Specify the size (height) of the select.                                                                                                                                        | `"l" \| "m"`                                                        | `'m'`                                                                 |
+| `value`        | `value`        | The currently selected value.                                                                                                                                                   | `any`                                                               | `undefined`                                                           |
 
 
 ## Events
 
-| Event       | Description                          | Type                                   |
-| ----------- | ------------------------------------ | -------------------------------------- |
-| `wcsBlur`   | Emitted when the select loses focus. | `CustomEvent<void>`                    |
-| `wcsChange` | Emitted when the value has changed.  | `CustomEvent<SelectChangeEventDetail>` |
-| `wcsFocus`  | Emitted when the select has focus.   | `CustomEvent<void>`                    |
+| Event             | Description                                       | Type                                        |
+| ----------------- | ------------------------------------------------- | ------------------------------------------- |
+| `wcsBlur`         | Emitted when the select loses focus.              | `CustomEvent<void>`                         |
+| `wcsChange`       | Emitted when the value has changed.               | `CustomEvent<SelectChangeEventDetail>`      |
+| `wcsFilterChange` | Emitted when the autocomplete filter has changed. | `CustomEvent<SelectFilerChangeEventDetail>` |
+| `wcsFocus`        | Emitted when the select has focus.                | `CustomEvent<void>`                         |
 
 
 ## Methods
@@ -66,9 +69,10 @@ Type: `Promise<void>`
 
 ## Slots
 
-| Slot                  | Description                   |
-| --------------------- | ----------------------------- |
-| `"wcs-select-option"` | The select options to render. |
+| Slot                                                                                                     | Description |
+| -------------------------------------------------------------------------------------------------------- | ----------- |
+| `"wcs-select-filter-noresult Contains the customizable "No result found" div (autocomplete mode only)."` |             |
+| `"wcs-select-option Contains all the options to render"`                                                 |             |
 
 
 ## Dependencies
@@ -77,9 +81,15 @@ Type: `Promise<void>`
 
  - [wcs-grid-pagination](../grid-pagination)
 
+### Depends on
+
+- [wcs-input](../input)
+
 ### Graph
 ```mermaid
 graph TD;
+  wcs-select --> wcs-input
+  wcs-input --> wcs-mat-icon
   wcs-grid-pagination --> wcs-select
   style wcs-select fill:#f9f,stroke:#333,stroke-width:4px
 ```

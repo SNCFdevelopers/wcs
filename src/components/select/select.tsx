@@ -14,7 +14,15 @@ import {
 } from '@stencil/core';
 
 import { interpret, Interpreter, Machine, MachineConfig, MachineOptions } from 'xstate';
-import { isWcsSelectSize, SelectChangeEventDetail, WcsSelectSize, WcsSelectSizeValue } from './select-interface';
+import {
+    isWcsSelectSize,
+    SelectChangeEventDetail,
+    SelectFilerChangeEventDetail,
+    WcsDefaultSelectFilterFn,
+    WcsSelectFilterFn,
+    WcsSelectSize,
+    WcsSelectSizeValue
+} from './select-interface';
 import { SelectArrow } from './select-arrow';
 import { SelectOptionChosedEvent, SelectOptionValue } from '../select-option/select-option-interface';
 import {
@@ -37,6 +45,7 @@ import { SelectChips } from './select-chips';
 import { MDCRipple } from '@material/ripple';
 import { createPopper, Instance } from '@popperjs/core';
 import { isEqual } from 'lodash-es';
+import { InputChangeEventDetail, WcsInputCustomEvent } from "../../components";
 
 interface SelectStateSchema {
     states: {
@@ -79,7 +88,8 @@ const SELECT_MACHINE_CONFIG: MachineConfig<any, SelectStateSchema, SelectEvent> 
  * from a list.  
  * Use it with several slotted `wcs-select-option` inside.
  *
- * @slot wcs-select-option - The select options to render.
+ * @slot wcs-select-option Contains all the options to render
+ * @slot wcs-select-filter-noresult Contains the customizable "No result found" div (autocomplete mode only).
  */
 @Component({
     tag: 'wcs-select',
@@ -118,6 +128,10 @@ export class Select implements ComponentInterface {
      * @private
      */
     private lastFocusedOptionElement: HTMLWcsSelectOptionElement | null;
+    
+    // Only used for autocomplete.
+    private lastVisuallyFocusedOptionElement: HTMLWcsSelectOptionElement | null;
+    private autocompleteInput: HTMLWcsInputElement;
 
     @Element() private el!: HTMLWcsSelectElement;
 
@@ -160,6 +174,16 @@ export class Select implements ComponentInterface {
     @Prop({reflect: true})
     multiple = false;
 
+    /** If `true`, the select acts as an autocomplete field to filter your results. */
+    @Prop({reflect: true})
+    autocomplete = false;
+    
+    /**
+     * Customizable sort function to change the comparison of values. If not provided, uses the default behavior :
+     * `option.textContent.toLowerCase().startsWith(filter.toLowerCase())`
+     */
+    @Prop({ attribute: null }) filterFn: WcsSelectFilterFn;
+
     /** If `true`, selected items are shown in chips mode. */
     @Prop({reflect: true})
     chips = false;
@@ -174,6 +198,18 @@ export class Select implements ComponentInterface {
 
     private popper: Instance;
 
+    /**
+     * Boolean to toggle the text "No result found" (only for autocomplete with filter)
+     * @private
+     */
+    @State() private showNoResultFoundLabel = false;
+
+    /**
+     * Value of the autocomplete input field
+     * @private
+     */
+    @State() private autocompleteValue = undefined;
+
     @State() private overlayDirection: 'bottom' | 'top' = 'bottom';
 
     /** Emitted when the value has changed. */
@@ -184,6 +220,9 @@ export class Select implements ComponentInterface {
 
     /** Emitted when the select loses focus. */
     @Event() wcsBlur!: EventEmitter<void>;
+
+    /** Emitted when the autocomplete filter has changed. */
+    @Event() wcsFilterChange!: EventEmitter<SelectFilerChangeEventDetail>;
 
     /** Open the component. */
     @Method()
@@ -238,6 +277,9 @@ export class Select implements ComponentInterface {
                 const isSelected = this.compareWith(opt.value, value);
                 if (isSelected) {
                     this.displayText = opt.innerText;
+                    if (this.autocomplete) {
+                        this.autocompleteValue = opt.innerText;
+                    }
                 }
                 opt.selected = isSelected;
             });
@@ -251,6 +293,9 @@ export class Select implements ComponentInterface {
     private reset() {
         this.values = [];
         this.displayText = undefined;
+        if (this.autocomplete) {
+            this.autocompleteValue = undefined;
+        }
         this.options.forEach((opt: HTMLWcsSelectOptionElement) => {
             opt.selected = false;
         });
@@ -305,7 +350,7 @@ export class Select implements ComponentInterface {
                     options: {
                         offset: [0, 4] // we want 4px between select control and select options
                     }
-                },
+                }
             ]
         });
     }
@@ -360,7 +405,7 @@ export class Select implements ComponentInterface {
     }
 
     private get notDisabledOptions(): HTMLWcsSelectOptionElement[] {
-        const opts = this.el?.querySelectorAll('wcs-select-option:not([disabled])');
+        const opts = this.el?.querySelectorAll('wcs-select-option:not([disabled]):not([aria-hidden])');
         if (opts && opts.length !== 0) {
             return opts as any as HTMLWcsSelectOptionElement[];
         }
@@ -374,16 +419,20 @@ export class Select implements ComponentInterface {
                     if (!this.disabled) {
                         this.expanded = true;
                         this.focused = false;
+                        this.removeAutocompleteVisualFocus();
                         if(this.notDisabledOptions.length > 0) {
                             this.lastFocusedOptionElement = this.lastModifiedOptionElement ?? this.notDisabledOptions[0];
                             requestAnimationFrame(() => {
-                                this.lastFocusedOptionElement?.focus();
+                                this.autocomplete
+                                  ? this.autocompleteInput?.focus()
+                                  : this.lastFocusedOptionElement?.focus();
                             });
                         }
                     }
                 },
                 close: (_, event: SelectEvent) => {
                     if (event.type === 'CLOSE') {
+                        this.removeAutocompleteVisualFocus();
                         if (event.value?.shouldBlur) {
                             this.el.closest("wcs-select")?.focus();
                             this.focused = false;
@@ -397,6 +446,17 @@ export class Select implements ComponentInterface {
                 selectOption: (_, event) => {
                     if (event.type === 'OPTION_SELECTED') {
                         this.handleClickEvent(event.value);
+                        
+                        if (this.autocomplete) {
+                            if (this.multiple) {
+                                requestAnimationFrame(() => {
+                                    this.autocompleteValue = '';
+                                    this.autocompleteInput.focus();
+                                })
+                            } else {
+                                this.autocompleteValue = event.value.displayText;
+                            }
+                        }
                     }
                 }
             },
@@ -505,24 +565,41 @@ export class Select implements ComponentInterface {
                 this.stateService.send('OPEN');
                 return;
             }
+            if (this.autocomplete) {
+                if (isEscapeKey(_event)) {
+                    this.autocompleteValue = '';
+                }
+                if (isDownArrowKey(_event)) {
+                    _event.preventDefault();
+                    this.stateService.send('OPEN');
+                    this.visuallyFocusFirstOption();
+                }
+                if (isUpArrowKey(_event)) {
+                    _event.preventDefault();
+                    this.stateService.send('OPEN');
+                    this.visuallyFocusLastOption();
+                }
+            }
             if (this.multiple) {
                 if (isDownArrowKey(_event)) {
                     this.stateService.send('OPEN');
                 }
             } else {
-                if (isDownArrowKey(_event) || isRightArrowKey(_event)) {
-                    _event.preventDefault();
-                    this.selectClosestOption("next");
-                }
-                if (isUpArrowKey(_event) || isLeftArrowKey(_event)) {
-                    _event.preventDefault();
-                    this.selectClosestOption("previous");
-                } else if (isPageDownKey(_event)) {
-                    _event.preventDefault();
-                    this.selectLastOption();
-                } else if (isPageUpKey(_event) || isHomeKey(_event)) {
-                    _event.preventDefault();
-                    this.selectFirstOption();
+                if (!this.autocomplete) {
+                    if (isDownArrowKey(_event) || isRightArrowKey(_event)) {
+                        _event.preventDefault();
+                        this.selectClosestOption("next");
+                    }
+                    if (isUpArrowKey(_event) || isLeftArrowKey(_event)) {
+                        _event.preventDefault();
+                        this.selectClosestOption("previous");
+                    } else if (isPageDownKey(_event)) {
+                        _event.preventDefault();
+                        this.selectLastOption();
+                    } else if (isPageUpKey(_event) || isHomeKey(_event)) {
+                        _event.preventDefault();
+                        this.selectFirstOption();
+                    }
                 }
             }
         }
@@ -532,31 +609,90 @@ export class Select implements ComponentInterface {
                 this.stateService.send({type: "CLOSE", value: {shouldBlur: false}});
             } else if (isTabKey(_event) || (_event.shiftKey && isTabKey(_event))) {
                 this.stateService.send({type: "CLOSE", value: {shouldBlur: true}});
-            } else if (isDownArrowKey(_event)) {
-                _event.preventDefault();
-                this.focusClosestOption("next");
-            } else if (isUpArrowKey(_event)) {
-                _event.preventDefault();
-                this.focusClosestOption("previous");
-            } else if (isPageUpKey(_event) || isHomeKey(_event)) {
-                _event.preventDefault();
-                this.focusFirstOption();
-            } else if (isPageDownKey(_event)) {
-                _event.preventDefault();
-                this.focusLastOption();
+            }
+                
+            if (this.autocomplete) {
+                if (isDownArrowKey(_event)) {
+                    _event.preventDefault();
+                    this.visuallyFocusClosestOption('next');
+                } else if (isUpArrowKey(_event)) {
+                    _event.preventDefault();
+                    if (this.lastVisuallyFocusedOptionElement) {
+                        this.visuallyFocusClosestOption('previous');
+                    } else {
+                        this.visuallyFocusLastOption();
+                    }
+                } else if (isRightArrowKey(_event) || isLeftArrowKey(_event)) {
+                    _event.stopPropagation();
+                    this.removeAutocompleteVisualFocus();
+                } else if(isEnterKey(_event)) {
+                    // We have to handle enterKey here because with autocomplete mode, a wcs-select-option
+                    // is only visuallyFocused, therefore the event is not fired
+                    const indexToSelect = Array.from(this.notDisabledOptions).indexOf(this.lastVisuallyFocusedOptionElement);
+                    if(indexToSelect !== -1) {
+                        this.lastModifiedOptionElement = this.lastVisuallyFocusedOptionElement;
+                        this.selectOption(indexToSelect);
+                    }
+                    if (!this.multiple) {
+                        this.stateService.send('CLOSE');
+                    }
+                    
+                    this.autocompleteInput?.focus();
+                }
+            } else {
+                if (isDownArrowKey(_event)) {
+                    _event.preventDefault();
+                    this.focusClosestOption("next");
+                } else if (isUpArrowKey(_event)) {
+                    _event.preventDefault();
+                    this.focusClosestOption("previous");
+                } else if (isPageUpKey(_event) || isHomeKey(_event)) {
+                    _event.preventDefault();
+                    this.focusFirstOption();
+                } else if (isPageDownKey(_event)) {
+                    _event.preventDefault();
+                    this.focusLastOption();
+                }
+                
             }
         }
     }
 
-    private getClosestActiveOptionIndexForState(direction: 'next' | 'previous', state: 'focused' | 'selected'): number | 'nothing' {
-        let currentIndex = Array.from(this.notDisabledOptions).indexOf(state === 'focused' ? this.lastFocusedOptionElement : this.lastModifiedOptionElement);
-
-        if (direction === 'next' && currentIndex < this.notDisabledOptions.length - 1) {
+    private getClosestActiveOptionIndexForState(direction: 'next' | 'previous', state: 'visuallyFocused' | 'focused' | 'selected'): number | 'nothing' {
+        let concernedOption: HTMLWcsSelectOptionElement | null;
+        switch (state) {
+            case 'focused':
+                concernedOption = this.lastFocusedOptionElement;
+                break;
+            case 'selected':
+                concernedOption = this.lastModifiedOptionElement;
+                break;
+            case 'visuallyFocused':
+                concernedOption = this.lastVisuallyFocusedOptionElement;
+                break;
+            default:
+                concernedOption = null;
+        }
+        let currentIndex = Array.from(this.notDisabledOptions).indexOf(concernedOption);
+        
+        const MIN_INDEX = 0;
+        const MAX_INDEX = this.notDisabledOptions.length - 1;
+        
+        if (direction === 'next' && currentIndex < MAX_INDEX) {
             currentIndex++;
-        } else if (direction === 'previous' && currentIndex > 0) {
+        } else if (direction === 'previous' && currentIndex > MIN_INDEX) {
             currentIndex--;
         } else {
-            return 'nothing';
+            if (!this.autocomplete)
+                return 'nothing';
+            
+            // Used to scroll options infinitely with keyboard (autocomplete mode only)
+            if (direction === 'next' && currentIndex >= MAX_INDEX) {
+                currentIndex = 0;
+            }
+            if (direction === 'previous' && currentIndex === MIN_INDEX) {
+                currentIndex = MAX_INDEX;
+            }
         }
         return currentIndex;
     }
@@ -646,22 +782,117 @@ export class Select implements ComponentInterface {
                 }
             });
     }
+    
+    //region Autocomplete mode
+    
+    private visuallyFocusOption(indexToVisuallyFocus: number) {
+        this.removeAutocompleteVisualFocus();
+        this.lastVisuallyFocusedOptionElement = this.notDisabledOptions[indexToVisuallyFocus];
+        if(this.lastVisuallyFocusedOptionElement) {
+            this.lastVisuallyFocusedOptionElement.visuallyFocused = true;
+            this.autocompleteInput.setAttribute("aria-activedescendant", this.lastVisuallyFocusedOptionElement.id);
+            requestAnimationFrame(() => {
+                this.lastVisuallyFocusedOptionElement.scrollIntoView({ block: "nearest", inline: "nearest"});
+            })
+        }
+    }
 
+    private visuallyFocusFirstOption() {
+        this.visuallyFocusOption(0);
+    }
+
+    private visuallyFocusLastOption() {
+        this.visuallyFocusOption(this.notDisabledOptions.length - 1);
+    }
+
+    private visuallyFocusClosestOption(direction: 'next' | 'previous'): void {
+        const indexToVisuallyFocus = this.getClosestActiveOptionIndexForState(direction, 'visuallyFocused');
+        if (indexToVisuallyFocus === 'nothing') return;
+
+        this.visuallyFocusOption(indexToVisuallyFocus);
+    }
+
+    /**
+     * This method removes the virtual "visual focus" that applies to the select options.
+     * This is used only for accessibility of autocomplete mode.
+     * @private
+     */
+    private removeAutocompleteVisualFocus() {
+        if (this.lastVisuallyFocusedOptionElement) {
+            this.lastVisuallyFocusedOptionElement.visuallyFocused = false;
+            this.lastVisuallyFocusedOptionElement = null;
+        }
+    }
+
+    private handleAutocompleteValueChange(e: WcsInputCustomEvent<InputChangeEventDetail>) {
+        const filter = e.detail.value ? e.detail.value.toString() : '';
+        this.removeAutocompleteVisualFocus();
+
+        if (!this.expanded && this.lastModifiedOptionElement?.textContent !== this.autocompleteValue) {
+            this.open();
+        }
+        
+        if (filter.length) {
+            const [matchingOptions, optionsToHide] = [[], []];
+            const filteringFunction: WcsSelectFilterFn = this.filterFn ?? WcsDefaultSelectFilterFn;
+            this.options.forEach((optionEl: HTMLWcsSelectOptionElement) =>
+              (filteringFunction(optionEl, filter) ? matchingOptions : optionsToHide).push(optionEl)
+            );
+
+            // FIXME : handle CSP issue #150 https://gitlab.com/SNCF/wcs/-/issues/150
+            // Migrate o.style.<property> to toggle a global WCS attribute that applies a "display: none"
+            this.showNoResultFoundLabel = matchingOptions.length === 0;
+            matchingOptions.forEach(o => {
+                o.style.display = 'flex';
+                o.removeAttribute("aria-hidden");
+            });
+            optionsToHide.forEach(o => {
+                o.style.display = 'none';
+                o.setAttribute("aria-hidden", "true");
+            });
+        } else {
+            this.showNoResultFoundLabel = false;
+            this.options.forEach(o => {
+                o.style.display = 'flex';
+                o.removeAttribute("aria-hidden");
+            });
+        }
+
+        this.autocompleteValue = filter;
+        // Avoid the input wcsChange event to bubble and be emitted, we rather use wcsFilterChange in this case :
+        e.stopPropagation();
+        this.wcsFilterChange.emit({
+            value: filter,
+        });
+    }
+
+    @Listen('focus')
+    onFocus() {
+        if (this.autocomplete) {
+            this.autocompleteInput?.focus();
+        }
+    }
+    
+    //endregion
+    
     componentDidRender() {
         this.popper?.update();
     }
 
+    // FIXME : next-release : 
+    // rename wcs-select-option => option
+    // rename wcs-select-filter-noresult => filter-noresult
     render() {
         const ariaLabelValue = `${this.labelElement ? this.labelElement.innerText : ''} ${this.hasValue ? this.displayText : ''}`.trimEnd();
         return (
             <Host class={this.expanded ? 'expanded ' : ''}
                   overlayDirection={this.overlayDirection} {...this.focusedAttributes()}
-                  role="combobox"
-                  aria-haspopup="listbox"
+                  role={!this.autocomplete ? "combobox" : null}
+                  aria-haspopup={!this.autocomplete ? "listbox" : null}
+                  aria-owns={!this.autocomplete ? this.optionsId : null}
+                  aria-controls={!this.autocomplete ? this.optionsId : null}
                   aria-disabled={this.disabled ? 'true' : null}
                   aria-expanded={this.expanded ? 'true' : 'false'}
-                  aria-controls={this.optionsId}
-                  aria-owns={this.optionsId}
                   aria-multiselectable={this.multiple ? 'true' : 'false'}
                   aria-label={ariaLabelValue}>
                 <div class="wcs-select-control">
@@ -673,14 +904,36 @@ export class Select implements ComponentInterface {
                                     <SelectChips disabled={this.disabled} option={option}
                                                   onRemove={this.removeChip.bind(this)}/>
                             )
-                            : <label class="wcs-select-value">{this.displayText}</label>)
-                        : <label class="wcs-select-placeholder">{this.placeholder}</label>
+                            : (!this.autocomplete || this.autocomplete && this.multiple) && <label class="wcs-select-value">{this.displayText}</label>)
+                        : !this.autocomplete && <label class="wcs-select-placeholder">{this.placeholder}</label>
+                    }
+                    {this.autocomplete && <wcs-input class="autocomplete-field"
+                                                     size={this.size}
+                                                     value={this.autocompleteValue}
+                                                     role="combobox"
+                                                     aria-haspopup="listbox"
+                                                     aria-label={ariaLabelValue}
+                                                     aria-disabled={this.disabled ? 'true' : null}
+                                                     aria-expanded={this.expanded ? 'true' : 'false'}
+                                                     aria-controls={this.optionsId}
+                                                     aria-owns={this.optionsId}
+                                                     aria-multiselectable={this.multiple ? 'true' : 'false'}
+                                                     aria-autocomplete="list"
+                                                     placeholder={this.values?.length ? null: this.placeholder}
+                                                     onWcsChange={(e) => this.handleAutocompleteValueChange(e)}
+                                                     ref={el => this.autocompleteInput = el}/>
                     }
                     </div>
                     <SelectArrow up={this.expanded}/>
                 </div>
                 <div class="wcs-select-options" id={this.optionsId} role="listbox">
                     <slot name="wcs-select-option" onSlotchange={this.onSlotchange.bind(this)}/>
+                    {(this.autocomplete && this.showNoResultFoundLabel) &&
+                      <div class="noresult-container">
+                        <slot name="wcs-select-filter-noresult">
+                            <span>No result found</span>
+                        </slot>
+                    </div>}
                 </div>
             </Host>
         );

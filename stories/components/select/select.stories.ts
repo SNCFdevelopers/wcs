@@ -1,11 +1,25 @@
 import { Meta, StoryObj } from '@storybook/web-components';
 import { html, nothing } from 'lit-html';
 import { getComponentArgs } from '../../utils/args-generation';
+import { WcsDefaultSelectFilterFn } from "../../../src/components/select/select-interface";
+import { withActions } from '@storybook/addon-actions/decorator';
+import { sampleDepartments } from "./select-sample-data";
 
 const meta: Meta = {
     title: 'Components/Select',
     component: 'wcs-select',
-    argTypes: getComponentArgs('wcs-select')
+    argTypes: getComponentArgs('wcs-select'),
+    parameters: {
+        actions: {
+            handles: [
+                'wcsChange',
+                'wcsFocus',
+                'wcsBlur',
+                'wcsFilterChange',
+            ]
+        }
+    },
+    decorators: [withActions]
 };
 export default meta;
 
@@ -33,6 +47,11 @@ export const Default: StoryObj = {
                     <wcs-select-option value="1" chip-background-color="var(--wcs-pink)">One</wcs-select-option>
                     <wcs-select-option value="2" chip-background-color="var(--wcs-yellow)" chip-color="var(--wcs-black)">Two</wcs-select-option>
                     <wcs-select-option value="3" chip-background-color="var(--wcs-red)">Three</wcs-select-option>
+                    <wcs-select-option value="4" chip-background-color="var(--wcs-red)">Three</wcs-select-option>
+                    <wcs-select-option value="5" chip-background-color="var(--wcs-red)">Three</wcs-select-option>
+                    <wcs-select-option value="6" chip-background-color="var(--wcs-red)">Three</wcs-select-option>
+                    <wcs-select-option value="7" chip-background-color="var(--wcs-red)">Three</wcs-select-option>
+                    <wcs-select-option value="8" chip-background-color="var(--wcs-red)">Three</wcs-select-option>
                 </wcs-select>
             </wcs-form-field>
         </div>
@@ -160,6 +179,120 @@ export const OneOptionDisabled: StoryObj = {
 }
 
 /**
+ * **Filtering your results**  
+ * Add the **`autocomplete`** boolean attribute to your `wcs-select` to **filter your results**.
+ * 
+ * You can customize the default filtering function with the `filterFn` property.  
+ * If not specified, uses `WcsDefaultSelectFilterFn`
+ * [(see source)](https://gitlab.com/SNCF/wcs/-/blob/develop/src/components/select/select-interface.ts?ref_type=heads)
+ */
+export const Autocomplete = {
+    render: (args) => html`
+    <style>
+        wcs-select {
+            width: 400px;
+        }
+    </style>
+    <div style="min-height: 450px">
+        <wcs-form-field>
+            <wcs-label>Choose a French department</wcs-label>
+            <wcs-select id="${args.id}"
+                        @keydown="${event => {
+                            // FIXME : hotfix to avoid event bubbling to storybook keyboard shortcuts (A, F, D, etc...)
+                            // Will be fixed in Storybook v8 : https://github.com/storybookjs/storybook/pull/25625
+                            event.stopPropagation();
+                        }}"
+                        name="${args.name ?? nothing}"
+                        size="${args.size ?? nothing}"
+                        value="${args.value ?? nothing}"
+                        placeholder="${args.placeholder ?? nothing}"
+                        .filterFn="${args.filterFn ?? nothing}"
+                        ?autocomplete="${args.autocomplete}"
+                        ?disabled="${args.disabled}"
+                        ?multiple="${args.multiple}"
+                        ?chips="${args.chips}">
+                ${args.departments.map(({value, name}) => html`<wcs-select-option value="${value}">${name}</wcs-select-option>
+                `)}
+            </wcs-select>
+        </wcs-form-field>
+    </div>
+    `,
+    args: {
+        ...Default.args,
+        id: 'select-autocomplete',
+        autocomplete: true,
+        filterFn: WcsDefaultSelectFilterFn,
+        placeholder: 'Choose a French department',
+        departments: sampleDepartments,
+    }
+};
+
+/**
+ * **Customize the "No result found" content**  
+ * When your filter doesn't match any value in the select, a default slot is displayed saying "No result found".  
+ * You can customize this slot with any content you want.  
+ * 
+ * (Type a random value in the input field to check it out)
+ */
+export const AutocompleteWithCustomSlot = {
+    render: (args) => html`
+    <style>
+        .my-custom-container {
+            display: flex;
+            align-items: center;
+            gap: var(--wcs-base-margin);
+        }
+        wcs-select {
+            width: 400px;
+        }
+    </style>
+    <div style="min-height: 450px">
+        <wcs-form-field>
+            <wcs-label>Choose a French department</wcs-label>
+            <wcs-select id="autocomplete-with-custom-slot"
+                        @keydown="${event => {
+                            // FIXME : hotfix to avoid event bubbling to storybook keyboard shortcuts (A, F, D, etc...)
+                            // Will be fixed in Storybook v8 : https://github.com/storybookjs/storybook/pull/25625
+                            event.stopPropagation();
+                        }}"
+                        name="${args.name ?? nothing}"
+                        size="${args.size ?? nothing}"
+                        value="${args.value ?? nothing}"
+                        placeholder="${args.placeholder ?? nothing}"
+                        .filterFn="${args.filterFn ?? nothing}"
+                        ?autocomplete="${args.autocomplete}"
+                        ?disabled="${args.disabled}"
+                        ?multiple="${args.multiple}"
+                        ?chips="${args.chips}">
+                ${args.departments.map(({value, name}) => html`<wcs-select-option value="${value}">${name}</wcs-select-option>
+                `)}
+                <div slot="wcs-select-filter-noresult" class="my-custom-container">
+                    <span>Aucun résultat trouvé</span>
+                    <wcs-mat-icon icon="sentiment_dissatisfied"></wcs-mat-icon>
+                </div>
+            </wcs-select>
+        </wcs-form-field>
+    </div>
+    `,
+    args: {
+        ...Autocomplete.args
+    }
+}
+
+/**
+ * The autocomplete mode also handles `multiple` and `chips` display.
+ */
+export const AutocompleteWithMultipleAndChipsMode = {
+    render: (args) => Autocomplete.render(args),
+    args: {
+        ...Autocomplete.args,
+        id: 'select-autocomplete-multiple-chips',
+        multiple: true,
+        chips: true
+    }
+}
+
+/**
  * **How to handle special cases**  
  * If you have a special feature to implement, the best UX practice is to let the user know what is wrong and why,
  * rather than just disabling some features of the page without any explanation. You can use a
@@ -195,7 +328,7 @@ export const SpecialCases: StoryObj = {
                 <wcs-select-option value="poi-aqui">Poitiers</wcs-select-option>
                 <wcs-select-option value="nan-loir">Nantes</wcs-select-option>
                 <wcs-select-option value="ang-loir">Angers</wcs-select-option>
-                <wcs-select-option value="qui-bzh">Brest</wcs-select-option>
+                <wcs-select-option value="bre-bzh">Brest</wcs-select-option>
                 <wcs-select-option value="qui-bzh">Quimper</wcs-select-option>
             </wcs-select>
             <wcs-hint>Max: 2 choices. Chosen stations must be in the same region.</wcs-hint>

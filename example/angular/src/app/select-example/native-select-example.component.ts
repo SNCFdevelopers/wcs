@@ -10,7 +10,7 @@ import { FormlyFieldConfig } from '@ngx-formly/core';
       <wcs-card-body>
         <h3>Valeur par défaut</h3>
         <wcs-native-select>
-          <select name="trains-type" id="trains-select-natif">
+          <select name="trains-type" id="trains-select-natif" [value]="'TER'">
             <option disabled hidden selected>Choisissez un train 🚅</option>
             <option value="TGV">TGV</option>
             <option value="TER">TER</option>

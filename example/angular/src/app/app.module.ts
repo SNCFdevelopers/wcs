@@ -20,6 +20,7 @@ import { CounterExampleComponent } from './counter-example/counter-example.compo
 import { CounterFormlyPassengersExampleComponent } from './counter-example/counter-formly-passengers-example.component';
 import { CounterFormlyDefaultValueComponent } from './counter-example/counter-formly-default-value.component';
 import { NativeSelectExampleComponent } from './select-example/native-select-example.component';
+import { AutocompleteSelectExampleComponent } from './select-example/autocomplete-select-example.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { NativeSelectExampleComponent } from './select-example/native-select-exa
     CounterExampleComponent,
     CounterFormlyPassengersExampleComponent,
     CounterFormlyDefaultValueComponent,
-    NativeSelectExampleComponent
+    NativeSelectExampleComponent,
+    AutocompleteSelectExampleComponent
   ],
   imports: [
     BrowserModule,

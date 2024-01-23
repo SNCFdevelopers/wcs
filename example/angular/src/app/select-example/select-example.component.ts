@@ -36,6 +36,7 @@ type Option = { value: string, label: string, disabled: boolean };
       </wcs-card-body>
     </wcs-card>
     <app-native-select-example></app-native-select-example>
+    <app-autocomplete-select-example></app-autocomplete-select-example>
   `,
   styles: []
 })

@@ -2381,6 +2381,44 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/divider/divider.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Divider",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-divider",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Divider",
+          "declaration": {
+            "name": "Divider",
+            "module": "components/divider/divider.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-divider",
+          "declaration": {
+            "name": "Divider",
+            "module": "components/divider/divider.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/counter/counter-interface.ts",
       "declarations": [
         {
@@ -2679,44 +2717,6 @@
           "declaration": {
             "name": "Counter",
             "module": "components/counter/counter.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/divider/divider.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Divider",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-divider",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Divider",
-          "declaration": {
-            "name": "Divider",
-            "module": "components/divider/divider.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-divider",
-          "declaration": {
-            "name": "Divider",
-            "module": "components/divider/divider.tsx"
           }
         }
       ]
@@ -5445,273 +5445,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/horizontal-stepper/horizontal-step.tsx",
-      "declarations": [
-        {
-          "kind": "function",
-          "name": "HorizontalStep",
-          "parameters": [
-            {
-              "name": "{\r\n        step,\r\n        checkOnComplete,\r\n        complete,\r\n        passed,\r\n        active,\r\n        first,\r\n        disable,\r\n        onClick\r\n    }"
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "HorizontalStep",
-          "declaration": {
-            "name": "HorizontalStep",
-            "module": "components/horizontal-stepper/horizontal-step.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/horizontal-stepper/horizontal-stepper-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/horizontal-stepper/horizontal-stepper.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "HorizontalStepper",
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsHorizontalStepperElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "currentStep",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "index of the active step. The index corresponds to the index of the step in the 'steps' list"
-            },
-            {
-              "kind": "field",
-              "name": "steps",
-              "type": {
-                "text": "HorizontalStepConfig[]"
-              },
-              "description": "steps to display"
-            },
-            {
-              "kind": "field",
-              "name": "mode",
-              "type": {
-                "text": "HorizontalStepperMode"
-              },
-              "default": "'nonLinear'",
-              "description": "Specifies if the stepper is in linear mode (the user can only click on the next step)\r\nor non-linear (the user can click on any step)"
-            },
-            {
-              "kind": "field",
-              "name": "checkOnComplete",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Specifies whether a check should be displayed when a step is passed."
-            },
-            {
-              "kind": "field",
-              "name": "internalCurrentStep",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "onCurrentStepChange",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "newValue",
-                  "type": {
-                    "text": "number"
-                  }
-                },
-                {
-                  "name": "oldValue",
-                  "type": {
-                    "text": "number"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "previous"
-            },
-            {
-              "kind": "method",
-              "name": "next"
-            },
-            {
-              "kind": "method",
-              "name": "navigateToIndex",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "index",
-                  "type": {
-                    "text": "number"
-                  }
-                },
-                {
-                  "name": "direction",
-                  "type": {
-                    "text": "'backward' | 'forward'"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "isComplete",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "step",
-                  "type": {
-                    "text": "HorizontalStepConfig"
-                  }
-                },
-                {
-                  "name": "index",
-                  "type": {
-                    "text": "number"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "renderLabels",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "isDisable",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "step"
-                },
-                {
-                  "name": "index"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "isNextPossibleStep",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "index"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "previousStepIsCompleteAndNotActive",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "index"
-                }
-              ]
-            }
-          ],
-          "attributes": [
-            {
-              "name": "current-step",
-              "fieldName": "currentStep",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "steps",
-              "fieldName": "steps",
-              "type": {
-                "text": "HorizontalStepConfig[]"
-              }
-            },
-            {
-              "name": "mode",
-              "fieldName": "mode",
-              "type": {
-                "text": "HorizontalStepperMode"
-              }
-            },
-            {
-              "name": "check-on-complete",
-              "fieldName": "checkOnComplete",
-              "type": {
-                "text": "boolean"
-              }
-            }
-          ],
-          "tagName": "wcs-horizontal-stepper",
-          "events": [
-            {
-              "name": "wcsHorizontalStepClick",
-              "type": {
-                "text": "EventEmitter<HorizontalStepClickEvent>"
-              },
-              "description": "Emits when the user selects a new step."
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "HorizontalStepper",
-          "declaration": {
-            "name": "HorizontalStepper",
-            "module": "components/horizontal-stepper/horizontal-stepper.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-horizontal-stepper",
-          "declaration": {
-            "name": "HorizontalStepper",
-            "module": "components/horizontal-stepper/horizontal-stepper.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/icon/icon.tsx",
       "declarations": [
         {
@@ -6508,6 +6241,273 @@
           "declaration": {
             "name": "Input",
             "module": "components/input/input.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/horizontal-stepper/horizontal-step.tsx",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "HorizontalStep",
+          "parameters": [
+            {
+              "name": "{\r\n        step,\r\n        checkOnComplete,\r\n        complete,\r\n        passed,\r\n        active,\r\n        first,\r\n        disable,\r\n        onClick\r\n    }"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "HorizontalStep",
+          "declaration": {
+            "name": "HorizontalStep",
+            "module": "components/horizontal-stepper/horizontal-step.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/horizontal-stepper/horizontal-stepper-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/horizontal-stepper/horizontal-stepper.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "HorizontalStepper",
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsHorizontalStepperElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "currentStep",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "index of the active step. The index corresponds to the index of the step in the 'steps' list"
+            },
+            {
+              "kind": "field",
+              "name": "steps",
+              "type": {
+                "text": "HorizontalStepConfig[]"
+              },
+              "description": "steps to display"
+            },
+            {
+              "kind": "field",
+              "name": "mode",
+              "type": {
+                "text": "HorizontalStepperMode"
+              },
+              "default": "'nonLinear'",
+              "description": "Specifies if the stepper is in linear mode (the user can only click on the next step)\r\nor non-linear (the user can click on any step)"
+            },
+            {
+              "kind": "field",
+              "name": "checkOnComplete",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Specifies whether a check should be displayed when a step is passed."
+            },
+            {
+              "kind": "field",
+              "name": "internalCurrentStep",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "onCurrentStepChange",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "number"
+                  }
+                },
+                {
+                  "name": "oldValue",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "previous"
+            },
+            {
+              "kind": "method",
+              "name": "next"
+            },
+            {
+              "kind": "method",
+              "name": "navigateToIndex",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "index",
+                  "type": {
+                    "text": "number"
+                  }
+                },
+                {
+                  "name": "direction",
+                  "type": {
+                    "text": "'backward' | 'forward'"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "isComplete",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "step",
+                  "type": {
+                    "text": "HorizontalStepConfig"
+                  }
+                },
+                {
+                  "name": "index",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "renderLabels",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "isDisable",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "step"
+                },
+                {
+                  "name": "index"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "isNextPossibleStep",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "index"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "previousStepIsCompleteAndNotActive",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "index"
+                }
+              ]
+            }
+          ],
+          "attributes": [
+            {
+              "name": "current-step",
+              "fieldName": "currentStep",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "steps",
+              "fieldName": "steps",
+              "type": {
+                "text": "HorizontalStepConfig[]"
+              }
+            },
+            {
+              "name": "mode",
+              "fieldName": "mode",
+              "type": {
+                "text": "HorizontalStepperMode"
+              }
+            },
+            {
+              "name": "check-on-complete",
+              "fieldName": "checkOnComplete",
+              "type": {
+                "text": "boolean"
+              }
+            }
+          ],
+          "tagName": "wcs-horizontal-stepper",
+          "events": [
+            {
+              "name": "wcsHorizontalStepClick",
+              "type": {
+                "text": "EventEmitter<HorizontalStepClickEvent>"
+              },
+              "description": "Emits when the user selects a new step."
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "HorizontalStepper",
+          "declaration": {
+            "name": "HorizontalStepper",
+            "module": "components/horizontal-stepper/horizontal-stepper.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-horizontal-stepper",
+          "declaration": {
+            "name": "HorizontalStepper",
+            "module": "components/horizontal-stepper/horizontal-stepper.tsx"
           }
         }
       ]
@@ -7956,6 +7956,26 @@
       "path": "components/select/select-interface.ts",
       "declarations": [
         {
+          "kind": "function",
+          "name": "WcsDefaultSelectFilterFn",
+          "return": {
+            "type": {
+              "text": "boolean"
+            }
+          },
+          "parameters": [
+            {
+              "name": "optionEl",
+              "description": "wcs-select-option element"
+            },
+            {
+              "name": "filter",
+              "description": "input filter field value"
+            }
+          ],
+          "description": "Default filtering function. Compares the string start of wcs-select-option element's text content\r\nwith your filter input."
+        },
+        {
           "kind": "variable",
           "name": "WcsSelectSizeValue",
           "type": {
@@ -7982,6 +8002,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "WcsDefaultSelectFilterFn",
+          "declaration": {
+            "name": "WcsDefaultSelectFilterFn",
+            "module": "components/select/select-interface.ts"
+          }
+        },
         {
           "kind": "js",
           "name": "WcsSelectSizeValue",
@@ -8016,8 +8044,12 @@
           "name": "Select",
           "slots": [
             {
-              "description": "The select options to render.",
+              "description": "Contains all the options to render",
               "name": "wcs-select-option"
+            },
+            {
+              "description": "Contains the customizable \"No result found\" div (autocomplete mode only).",
+              "name": "wcs-select-filter-noresult"
             }
           ],
           "members": [
@@ -8089,6 +8121,22 @@
               },
               "privacy": "private",
               "description": "It serves for accessibility feature: keyboard navigation. It serves to focus the option if defined when the select\r\nis opened based on which key pressed.\r\n\r\nWhen the select is <b>opened</b> user can navigate through options with keyboard:\r\n\r\n- Arrow right | down: `lastFocusedOptionElement` equals to the next option of `lastFocusedOptionElement` or\r\nthe first if `lastFocusedOptionElement` is not defined\r\n- Arrow left | top: `lastFocusedOptionElement` equals to the previous enabled option of `lastFocusedOptionElement`\r\nor the first if `lastFocusedOptionElement` is not defined\r\n- Page up: `lastFocusedOptionElement` equals to the first enabled option\r\n- Page down: `lastFocusedOptionElement` equals to the last enabled option"
+            },
+            {
+              "kind": "field",
+              "name": "lastVisuallyFocusedOptionElement",
+              "type": {
+                "text": "HTMLWcsSelectOptionElement | null"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "autocompleteInput",
+              "type": {
+                "text": "HTMLWcsInputElement"
+              },
+              "privacy": "private"
             },
             {
               "kind": "field",
@@ -8181,6 +8229,23 @@
             },
             {
               "kind": "field",
+              "name": "autocomplete",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "If `true`, the select acts as an autocomplete field to filter your results."
+            },
+            {
+              "kind": "field",
+              "name": "filterFn",
+              "type": {
+                "text": "WcsSelectFilterFn"
+              },
+              "description": "Customizable sort function to change the comparison of values. If not provided, uses the default behavior :\r\n`option.textContent.toLowerCase().startsWith(filter.toLowerCase())`"
+            },
+            {
+              "kind": "field",
               "name": "chips",
               "type": {
                 "text": "boolean"
@@ -8211,6 +8276,23 @@
                 "text": "Instance"
               },
               "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "showNoResultFoundLabel",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false",
+              "description": "Boolean to toggle the text \"No result found\" (only for autocomplete with filter)"
+            },
+            {
+              "kind": "field",
+              "name": "autocompleteValue",
+              "privacy": "private",
+              "default": "undefined",
+              "description": "Value of the autocomplete input field"
             },
             {
               "kind": "field",
@@ -8436,7 +8518,7 @@
                 {
                   "name": "state",
                   "type": {
-                    "text": "'focused' | 'selected'"
+                    "text": "'visuallyFocused' | 'focused' | 'selected'"
                   }
                 }
               ]
@@ -8567,6 +8649,70 @@
             },
             {
               "kind": "method",
+              "name": "visuallyFocusOption",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "indexToVisuallyFocus",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "visuallyFocusFirstOption",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "visuallyFocusLastOption",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "visuallyFocusClosestOption",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "direction",
+                  "type": {
+                    "text": "'next' | 'previous'"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "removeAutocompleteVisualFocus",
+              "privacy": "private",
+              "description": "This method removes the virtual \"visual focus\" that applies to the select options.\r\nThis is used only for accessibility of autocomplete mode."
+            },
+            {
+              "kind": "method",
+              "name": "handleAutocompleteValueChange",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "e",
+                  "type": {
+                    "text": "WcsInputCustomEvent<InputChangeEventDetail>"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "onFocus"
+            },
+            {
+              "kind": "method",
               "name": "render"
             },
             {
@@ -8604,6 +8750,17 @@
             {
               "name": "multiple",
               "fieldName": "multiple"
+            },
+            {
+              "name": "autocomplete",
+              "fieldName": "autocomplete"
+            },
+            {
+              "name": "filter-fn",
+              "fieldName": "filterFn",
+              "type": {
+                "text": "WcsSelectFilterFn"
+              }
             },
             {
               "name": "chips",
@@ -8646,6 +8803,13 @@
                 "text": "EventEmitter<void>"
               },
               "description": "Emitted when the select loses focus."
+            },
+            {
+              "name": "wcsFilterChange",
+              "type": {
+                "text": "EventEmitter<SelectFilerChangeEventDetail>"
+              },
+              "description": "Emitted when the autocomplete filter has changed."
             }
           ],
           "customElement": true
@@ -8708,7 +8872,7 @@
                 "text": "boolean"
               },
               "default": "false",
-              "description": "Wether this option can be selected."
+              "description": "Whether this option can be selected."
             },
             {
               "kind": "field",
@@ -8717,7 +8881,7 @@
                 "text": "boolean"
               },
               "default": "false",
-              "description": "Wether this option is selected."
+              "description": "Whether this option is selected."
             },
             {
               "kind": "field",
@@ -8803,6 +8967,10 @@
             {
               "name": "selected",
               "fieldName": "selected"
+            },
+            {
+              "name": "visually-focused",
+              "fieldName": "visuallyFocused"
             },
             {
               "name": "value",

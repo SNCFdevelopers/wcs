@@ -78,7 +78,7 @@
 }
 
 label {
-    padding-left: calc(var(--wcs-padding) - var(--wcs-select-border-width));
+    padding-left: calc(var(--wcs-padding)/2 - var(--wcs-select-border-width));
     padding-right: calc(var(--wcs-padding) - var(--wcs-select-border-width));
     font-weight: 500;
     cursor: pointer;
@@ -93,16 +93,44 @@ label {
 :host([size=m]) {
     min-height: var(--wcs-size-m);
     --wcs-select-font-size: 1rem;
+    --wcs-internal-select-chip-size: calc(var(--wcs-size-s) - 2px);
+
     .wcs-select-control {
         min-height: var(--wcs-size-m);
+    }
+
+    // Autocomplete
+    &:host([autocomplete]) {
+        .autocomplete-field {
+            height: calc(var(--wcs-size-s) - 2px);
+        }
+        .wcs-select-value-container {
+            // (select height - chips height) / 2 - border width / 2
+            padding-top: calc(calc(calc(var(--wcs-size-m) - var(--wcs-internal-select-chip-size)) / 2) - var(--wcs-select-border-width));
+            padding-bottom: calc(calc(calc(var(--wcs-size-m) - var(--wcs-internal-select-chip-size)) / 2) - var(--wcs-select-border-width));
+        }
     }
 }
 
 :host([size=l]) {
     min-height: var(--wcs-size-l);
     --wcs-select-font-size: 1.0625rem;
+    --wcs-internal-select-chip-size: var(--wcs-size-s);
+
     .wcs-select-control {
         min-height: var(--wcs-size-l);
+    }
+
+    // Autocomplete
+    &:host([autocomplete]) {
+        .autocomplete-field {
+            height: var(--wcs-size-s);
+        }
+        .wcs-select-value-container {
+            // (select height - chips height) / 2 - border width / 2
+            padding-top: calc(calc(calc(var(--wcs-size-l) - var(--wcs-internal-select-chip-size)) / 2) - var(--wcs-select-border-width));
+            padding-bottom: calc(calc(calc(var(--wcs-size-l) - var(--wcs-internal-select-chip-size)) / 2) - var(--wcs-select-border-width));
+        }
     }
 }
 
@@ -153,6 +181,8 @@ label {
 }
 
 .wcs-select-chip {
+    box-sizing: border-box;
+    height: var(--wcs-internal-select-chip-size);
     line-height: 1.375;
     color: var(--wcs-contrast);
     background-color: var(--wcs-base);
@@ -161,10 +191,8 @@ label {
     align-items: center;
     padding: calc(calc(var(--wcs-padding) - 8px) / 2) var(--wcs-padding);
     overflow: initial;
+    z-index: 1;
 }
-
-
-
 
 .wcs-select-options {
     display: none;
@@ -180,4 +208,23 @@ label {
 
     background-color: var(--wcs-white);
     color: var(--wcs-text-medium);
+}
+
+:host([autocomplete]) {
+    .wcs-select-value-container {
+        margin: 0;
+        width: 100%;
+        padding-left: var(--wcs-padding-m);
+    }
+}
+
+.autocomplete-field {
+    width: 0;
+    min-width: 50px;
+    border-radius: var(--wcs-border-radius);
+    flex-grow: 1;
+}
+
+.noresult-container {
+    margin: var(--wcs-margin);
 }

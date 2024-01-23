@@ -14,11 +14,18 @@ export class SelectOption implements ComponentInterface {
     @Element() private el!: HTMLWcsSelectOptionElement;
     private selectOptionId: string = generateUniqueId(this.el.tagName);
 
-    /** Wether this option can be selected. */
+    /** Whether this option can be selected. */
     @Prop({ mutable: true, reflect: true }) disabled = false;
 
-    /** Wether this option is selected. */
+    /** Whether this option is selected. */
     @Prop({ mutable: true, reflect: true }) selected = false;
+    
+    /** This property mustn't be set by hand, it is used by the `wcs-select` component.
+     * Applies a visual focus design on the option for autocomplete mode.
+     * @internal
+     * @ignore
+    */
+    @Prop({ mutable: true, reflect: true }) visuallyFocused = false;
 
     /** The option value, not what's displayed, use inner text instead. */
     @Prop() value?: any;
@@ -30,7 +37,7 @@ export class SelectOption implements ComponentInterface {
     @Prop() chipBackgroundColor?: string;
 
     /**
-     * This property musn't be set by hand, it is used by the `wcs-select` component.
+     * This property mustn't be set by hand, it is used by the `wcs-select` component.
      * If you want a multiple select, set `multiple` attribute on the parent select instead.
      * @internal
      * @ignore

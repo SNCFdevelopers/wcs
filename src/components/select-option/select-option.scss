@@ -40,9 +40,20 @@ wcs-select-option[multiple] {
         // Because 6px are left as of now from the empty span text.
         margin-right: #{16 - 6}px;
     }
-    &:hover{
+    &:hover {
         wcs-checkbox {
             --wcs-checkbox-border-color: var(--wcs-primary);
         }
+    }
+}
+
+wcs-select-option[visually-focused] {
+    outline: solid 1px var(--wcs-primary);
+    outline-offset: -1px;
+    color: var(--wcs-primary);
+    background-color: var(--wcs-light);
+
+    wcs-checkbox {
+        --wcs-checkbox-border-color: var(--wcs-primary);
     }
 }

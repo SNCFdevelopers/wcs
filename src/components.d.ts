@@ -21,7 +21,7 @@ import { ModalSize } from "./components/modal/modal-interface";
 import { WcsNativeSelectSize } from "./components/native-select/native-select";
 import { RadioGroupChangeEventDetail, RadioGroupMode } from "./components/radio-group/radio-group-interface";
 import { RadioChosedEvent } from "./components/radio/radio-interface";
-import { SelectChangeEventDetail, WcsSelectSize } from "./components/select/select-interface";
+import { SelectChangeEventDetail, SelectFilerChangeEventDetail, WcsSelectFilterFn, WcsSelectSize } from "./components/select/select-interface";
 import { SelectOptionChosedEvent } from "./components/select-option/select-option-interface";
 import { WcsSkeletonAnimation } from "./components/skeleton/skeleton-interface";
 import { CssTypes } from "./shared-types";
@@ -46,7 +46,7 @@ export { ModalSize } from "./components/modal/modal-interface";
 export { WcsNativeSelectSize } from "./components/native-select/native-select";
 export { RadioGroupChangeEventDetail, RadioGroupMode } from "./components/radio-group/radio-group-interface";
 export { RadioChosedEvent } from "./components/radio/radio-interface";
-export { SelectChangeEventDetail, WcsSelectSize } from "./components/select/select-interface";
+export { SelectChangeEventDetail, SelectFilerChangeEventDetail, WcsSelectFilterFn, WcsSelectSize } from "./components/select/select-interface";
 export { SelectOptionChosedEvent } from "./components/select-option/select-option-interface";
 export { WcsSkeletonAnimation } from "./components/skeleton/skeleton-interface";
 export { CssTypes } from "./shared-types";
@@ -823,6 +823,10 @@ export namespace Components {
      */
     interface WcsSelect {
         /**
+          * If `true`, the select acts as an autocomplete field to filter your results.
+         */
+        "autocomplete": boolean;
+        /**
           * If `true`, selected items are shown in chips mode.
          */
         "chips": boolean;
@@ -838,6 +842,10 @@ export namespace Components {
           * If `true`, the user cannot interact with the select.
          */
         "disabled": boolean;
+        /**
+          * Customizable sort function to change the comparison of values. If not provided, uses the default behavior : `option.textContent.toLowerCase().startsWith(filter.toLowerCase())`
+         */
+        "filterFn": WcsSelectFilterFn;
         /**
           * If `true`, the user can select multiple values at once.
          */
@@ -876,22 +884,27 @@ export namespace Components {
          */
         "chipColor"?: string;
         /**
-          * Wether this option can be selected.
+          * Whether this option can be selected.
          */
         "disabled": boolean;
         /**
-          * This property musn't be set by hand, it is used by the `wcs-select` component. If you want a multiple select, set `multiple` attribute on the parent select instead.
+          * This property mustn't be set by hand, it is used by the `wcs-select` component. If you want a multiple select, set `multiple` attribute on the parent select instead.
           * @ignore
          */
         "multiple": boolean;
         /**
-          * Wether this option is selected.
+          * Whether this option is selected.
          */
         "selected": boolean;
         /**
           * The option value, not what's displayed, use inner text instead.
          */
         "value"?: any;
+        /**
+          * This property mustn't be set by hand, it is used by the `wcs-select` component. Applies a visual focus design on the option for autocomplete mode.
+          * @ignore
+         */
+        "visuallyFocused": boolean;
     }
     /**
      * Use a skeleton circle as a placeholder round images, illustrations or components
@@ -2678,6 +2691,10 @@ declare namespace LocalJSX {
      */
     interface WcsSelect {
         /**
+          * If `true`, the select acts as an autocomplete field to filter your results.
+         */
+        "autocomplete"?: boolean;
+        /**
           * If `true`, selected items are shown in chips mode.
          */
         "chips"?: boolean;
@@ -2689,6 +2706,10 @@ declare namespace LocalJSX {
           * If `true`, the user cannot interact with the select.
          */
         "disabled"?: boolean;
+        /**
+          * Customizable sort function to change the comparison of values. If not provided, uses the default behavior : `option.textContent.toLowerCase().startsWith(filter.toLowerCase())`
+         */
+        "filterFn"?: WcsSelectFilterFn;
         /**
           * If `true`, the user can select multiple values at once.
          */
@@ -2705,6 +2726,10 @@ declare namespace LocalJSX {
           * Emitted when the value has changed.
          */
         "onWcsChange"?: (event: WcsSelectCustomEvent<SelectChangeEventDetail>) => void;
+        /**
+          * Emitted when the autocomplete filter has changed.
+         */
+        "onWcsFilterChange"?: (event: WcsSelectCustomEvent<SelectFilerChangeEventDetail>) => void;
         /**
           * Emitted when the select has focus.
          */
@@ -2735,23 +2760,28 @@ declare namespace LocalJSX {
          */
         "chipColor"?: string;
         /**
-          * Wether this option can be selected.
+          * Whether this option can be selected.
          */
         "disabled"?: boolean;
         /**
-          * This property musn't be set by hand, it is used by the `wcs-select` component. If you want a multiple select, set `multiple` attribute on the parent select instead.
+          * This property mustn't be set by hand, it is used by the `wcs-select` component. If you want a multiple select, set `multiple` attribute on the parent select instead.
           * @ignore
          */
         "multiple"?: boolean;
         "onWcsSelectOptionClick"?: (event: WcsSelectOptionCustomEvent<SelectOptionChosedEvent>) => void;
         /**
-          * Wether this option is selected.
+          * Whether this option is selected.
          */
         "selected"?: boolean;
         /**
           * The option value, not what's displayed, use inner text instead.
          */
         "value"?: any;
+        /**
+          * This property mustn't be set by hand, it is used by the `wcs-select` component. Applies a visual focus design on the option for autocomplete mode.
+          * @ignore
+         */
+        "visuallyFocused"?: boolean;
     }
     /**
      * Use a skeleton circle as a placeholder round images, illustrations or components

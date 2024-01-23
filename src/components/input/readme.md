@@ -99,6 +99,10 @@ Type: `Promise<void>`
 
 ## Dependencies
 
+### Used by
+
+ - [wcs-select](../select)
+
 ### Depends on
 
 - [wcs-mat-icon](../mat-icon)
@@ -107,6 +111,7 @@ Type: `Promise<void>`
 ```mermaid
 graph TD;
   wcs-input --> wcs-mat-icon
+  wcs-select --> wcs-input
   style wcs-input fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

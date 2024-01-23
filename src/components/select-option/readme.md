@@ -15,8 +15,8 @@ Select option component, use in conjunction with wcs-select.
 | --------------------- | ----------------------- | --------------------------------------------------------------- | --------- | ----------- |
 | `chipBackgroundColor` | `chip-background-color` | Chip's background color.                                        | `string`  | `undefined` |
 | `chipColor`           | `chip-color`            | Chip's displayed text color.                                    | `string`  | `undefined` |
-| `disabled`            | `disabled`              | Wether this option can be selected.                             | `boolean` | `false`     |
-| `selected`            | `selected`              | Wether this option is selected.                                 | `boolean` | `false`     |
+| `disabled`            | `disabled`              | Whether this option can be selected.                            | `boolean` | `false`     |
+| `selected`            | `selected`              | Whether this option is selected.                                | `boolean` | `false`     |
 | `value`               | `value`                 | The option value, not what's displayed, use inner text instead. | `any`     | `undefined` |
 
 

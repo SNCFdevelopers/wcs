@@ -39,6 +39,8 @@ The grid pagination is a subcomponent of `wcs-grid`, slotted in `grid-pagination
 graph TD;
   wcs-grid-pagination --> wcs-select
   wcs-grid-pagination --> wcs-select-option
+  wcs-select --> wcs-input
+  wcs-input --> wcs-mat-icon
   wcs-select-option --> wcs-checkbox
   style wcs-grid-pagination fill:#f9f,stroke:#333,stroke-width:4px
 ```
