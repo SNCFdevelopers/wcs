@@ -9,7 +9,19 @@ import {
 } from './input-interface';
 
 /**
- * Mainly inspired from Ionic Input Component
+ * The input component is a form control that accepts a single line of text.    
+ * Implementation mainly inspired from Ionic Input Component.
+ * 
+ *
+ * <details>
+ *     <summary>Accessibility guidelines 💡</summary>
+ *     > - Provide a `<wcs-label>` next to the input
+ *     > - Use the `disabled` prop to add the HTML `disabled` attribute to the `input`
+ *     > - Use the `readonly` prop to add the HTML `readonly` attribute to the `input`
+ *     > - Use the `autofocus` prop to add the HTML `autofocus` attribute to the `input`. Use it if you want your input focus
+ *     automatically when the page load
+ *     > - Adapt the `type` to lets user enter information more easily (_ex: `type="number"` for an input which only accept numbers entry_)
+ * </details>
  */
 @Component({
     tag: 'wcs-input',
@@ -41,7 +53,8 @@ export class Input implements ComponentInterface {
     @Element() private el!: HTMLElement;
 
     /**
-     * If the value of the type attribute is `"file"`, then this attribute will indicate the types of files that the server accepts, otherwise it will be ignored. The value must be a comma-separated list of unique content type specifiers.
+     * If the value of the type attribute is `"file"`, then this attribute will indicate the types of files that the
+     * server accepts, otherwise it will be ignored. The value must be a comma-separated list of unique content type specifiers.
      */
     @Prop() accept?: string;
 
@@ -72,12 +85,14 @@ export class Input implements ComponentInterface {
     @Prop() clearInput = false;
 
     /**
-     * If `true`, the value will be cleared after focus upon edit. Defaults to `true` when `type` is `"password"`, `false` for all other types.
+     * If `true`, the value will be cleared after focus upon edit.
+     * Defaults to `true` when `type` is `"password"`, `false` for all other types.
      */
     @Prop() clearOnEdit?: boolean;
 
     /**
-     * Set the amount of time, in milliseconds, to wait to trigger the `wcsChange` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.
+     * Set the amount of time, in milliseconds, to wait to trigger the `wcsChange` event after each keystroke.
+     * This also impacts form bindings such as `ngModel` or `v-model`.
      */
     @Prop() debounce = 0;
 
@@ -131,7 +146,8 @@ export class Input implements ComponentInterface {
     @Prop() max?: string;
 
     /**
-     * If the value of the type attribute is `text`, `email`, `search`, `password`, `tel`, or `url`, this attribute specifies the maximum number of characters that the user can enter.
+     * If the value of the type attribute is `text`, `email`, `search`, `password`, `tel`, or `url`, this attribute
+     * specifies the maximum number of characters that the user can enter.
      */
     @Prop() maxlength?: number;
 
@@ -141,12 +157,14 @@ export class Input implements ComponentInterface {
     @Prop() min?: string;
 
     /**
-     * If the value of the type attribute is `text`, `email`, `search`, `password`, `tel`, or `url`, this attribute specifies the minimum number of characters that the user can enter.
+     * If the value of the type attribute is `text`, `email`, `search`, `password`, `tel`, or `url`, this attribute
+     * specifies the minimum number of characters that the user can enter.
      */
     @Prop() minlength?: number;
 
     /**
-     * If `true`, the user can enter more than one value. This attribute applies when the type attribute is set to `"email"` or `"file"`, otherwise it is ignored.
+     * If `true`, the user can enter more than one value. This attribute applies when the type attribute is set to
+     * `"email"` or `"file"`, otherwise it is ignored.
      */
     @Prop() multiple?: boolean;
 
@@ -156,7 +174,12 @@ export class Input implements ComponentInterface {
     @Prop() name: string = this.inputId;
 
     /**
-     * A regular expression that the value is checked against. The pattern must match the entire value, not just some subset. Use the title attribute to describe the pattern to help the user. This attribute applies when the value of the type attribute is `"text"`, `"search"`, `"tel"`, `"url"`, `"email"`, `"date"`, or `"password"`, otherwise it is ignored. When the type attribute is `"date"`, `pattern` will only be used in browsers that do not support the `"date"` input type natively. See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date for more information.
+     * A regular expression that the value is checked against. The pattern must match the entire value, not just some
+     * subset. Use the title attribute to describe the pattern to help the user. This attribute applies when the value
+     * of the type attribute is `"text"`, `"search"`, `"tel"`, `"url"`, `"email"`, `"date"`, or `"password"`, otherwise
+     * it is ignored. When the type attribute is `"date"`, `pattern` will only be used in browsers that do not support
+     * the `"date"` input type natively. See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date for
+     * more information.
      */
     @Prop() pattern?: string;
 
@@ -181,7 +204,8 @@ export class Input implements ComponentInterface {
     @Prop() spellcheck = false;
 
     /**
-     * Specifies the state of the input. By default the input is in an normal state but you can to set it to 'error' state if the data given by the user is not valid.
+     * Specifies the state of the input. By default the input is in an normal state but you can to set it to 'error'
+     * state if the data given by the user is not valid.
      */
     @Prop({reflect: true}) state: 'initial' | 'error' = 'initial';
 

@@ -484,7 +484,17 @@ export namespace Components {
         "size": 'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px';
     }
     /**
-     * Mainly inspired from Ionic Input Component
+     * The input component is a form control that accepts a single line of text.    
+     * Implementation mainly inspired from Ionic Input Component.
+     * <details>
+     *     <summary>Accessibility guidelines 💡</summary>
+     *     > - Provide a `<wcs-label>` next to the input
+     *     > - Use the `disabled` prop to add the HTML `disabled` attribute to the `input`
+     *     > - Use the `readonly` prop to add the HTML `readonly` attribute to the `input`
+     *     > - Use the `autofocus` prop to add the HTML `autofocus` attribute to the `input`. Use it if you want your input focus
+     *     automatically when the page load
+     *     > - Adapt the `type` to lets user enter information more easily (_ex: `type="number"` for an input which only accept numbers entry_)
+     * </details>
      */
     interface WcsInput {
         /**
@@ -1492,7 +1502,17 @@ declare global {
         new (): HTMLWcsIconElement;
     };
     /**
-     * Mainly inspired from Ionic Input Component
+     * The input component is a form control that accepts a single line of text.    
+     * Implementation mainly inspired from Ionic Input Component.
+     * <details>
+     *     <summary>Accessibility guidelines 💡</summary>
+     *     > - Provide a `<wcs-label>` next to the input
+     *     > - Use the `disabled` prop to add the HTML `disabled` attribute to the `input`
+     *     > - Use the `readonly` prop to add the HTML `readonly` attribute to the `input`
+     *     > - Use the `autofocus` prop to add the HTML `autofocus` attribute to the `input`. Use it if you want your input focus
+     *     automatically when the page load
+     *     > - Adapt the `type` to lets user enter information more easily (_ex: `type="number"` for an input which only accept numbers entry_)
+     * </details>
      */
     interface HTMLWcsInputElement extends Components.WcsInput, HTMLStencilElement {
     }
@@ -2253,7 +2273,17 @@ declare namespace LocalJSX {
         "size"?: 'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px';
     }
     /**
-     * Mainly inspired from Ionic Input Component
+     * The input component is a form control that accepts a single line of text.    
+     * Implementation mainly inspired from Ionic Input Component.
+     * <details>
+     *     <summary>Accessibility guidelines 💡</summary>
+     *     > - Provide a `<wcs-label>` next to the input
+     *     > - Use the `disabled` prop to add the HTML `disabled` attribute to the `input`
+     *     > - Use the `readonly` prop to add the HTML `readonly` attribute to the `input`
+     *     > - Use the `autofocus` prop to add the HTML `autofocus` attribute to the `input`. Use it if you want your input focus
+     *     automatically when the page load
+     *     > - Adapt the `type` to lets user enter information more easily (_ex: `type="number"` for an input which only accept numbers entry_)
+     * </details>
      */
     interface WcsInput {
         /**
@@ -3071,7 +3101,17 @@ declare module "@stencil/core" {
             "wcs-horizontal-stepper": LocalJSX.WcsHorizontalStepper & JSXBase.HTMLAttributes<HTMLWcsHorizontalStepperElement>;
             "wcs-icon": LocalJSX.WcsIcon & JSXBase.HTMLAttributes<HTMLWcsIconElement>;
             /**
-             * Mainly inspired from Ionic Input Component
+             * The input component is a form control that accepts a single line of text.    
+             * Implementation mainly inspired from Ionic Input Component.
+             * <details>
+             *     <summary>Accessibility guidelines 💡</summary>
+             *     > - Provide a `<wcs-label>` next to the input
+             *     > - Use the `disabled` prop to add the HTML `disabled` attribute to the `input`
+             *     > - Use the `readonly` prop to add the HTML `readonly` attribute to the `input`
+             *     > - Use the `autofocus` prop to add the HTML `autofocus` attribute to the `input`. Use it if you want your input focus
+             *     automatically when the page load
+             *     > - Adapt the `type` to lets user enter information more easily (_ex: `type="number"` for an input which only accept numbers entry_)
+             * </details>
              */
             "wcs-input": LocalJSX.WcsInput & JSXBase.HTMLAttributes<HTMLWcsInputElement>;
             "wcs-label": LocalJSX.WcsLabel & JSXBase.HTMLAttributes<HTMLWcsLabelElement>;

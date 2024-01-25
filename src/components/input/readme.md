@@ -5,7 +5,19 @@
 
 ## Overview
 
-Mainly inspired from Ionic Input Component
+The input component is a form control that accepts a single line of text.    
+Implementation mainly inspired from Ionic Input Component.
+
+
+<details>
+    <summary>Accessibility guidelines 💡</summary>
+    > - Provide a `<wcs-label>` next to the input
+    > - Use the `disabled` prop to add the HTML `disabled` attribute to the `input`
+    > - Use the `readonly` prop to add the HTML `readonly` attribute to the `input`
+    > - Use the `autofocus` prop to add the HTML `autofocus` attribute to the `input`. Use it if you want your input focus
+    automatically when the page load
+    > - Adapt the `type` to lets user enter information more easily (_ex: `type="number"` for an input which only accept numbers entry_)
+</details>
 
 ## Properties
 

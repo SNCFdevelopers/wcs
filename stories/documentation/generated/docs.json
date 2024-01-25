@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-02-12T14:13:23",
+  "timestamp": "2024-02-12T15:02:05",
   "compiler": {
     "name": "@stencil/core",
     "version": "3.0.0",
@@ -2921,7 +2921,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-input",
       "readme": "# Input\r\n\r",
-      "docs": "Mainly inspired from Ionic Input Component",
+      "docs": "The input component is a form control that accepts a single line of text.    \r\nImplementation mainly inspired from Ionic Input Component.\r\n\r\n\r\n<details>\r\n    <summary>Accessibility guidelines 💡</summary>\r\n    > - Provide a `<wcs-label>` next to the input\r\n    > - Use the `disabled` prop to add the HTML `disabled` attribute to the `input`\r\n    > - Use the `readonly` prop to add the HTML `readonly` attribute to the `input`\r\n    > - Use the `autofocus` prop to add the HTML `autofocus` attribute to the `input`. Use it if you want your input focus\r\n    automatically when the page load\r\n    > - Adapt the `type` to lets user enter information more easily (_ex: `type=\"number\"` for an input which only accept numbers entry_)\r\n</details>",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -2931,7 +2931,7 @@
           "mutable": false,
           "attr": "accept",
           "reflectToAttr": false,
-          "docs": "If the value of the type attribute is `\"file\"`, then this attribute will indicate the types of files that the server accepts, otherwise it will be ignored. The value must be a comma-separated list of unique content type specifiers.",
+          "docs": "If the value of the type attribute is `\"file\"`, then this attribute will indicate the types of files that the\r\nserver accepts, otherwise it will be ignored. The value must be a comma-separated list of unique content type specifiers.",
           "docsTags": [],
           "values": [
             {
@@ -3250,7 +3250,7 @@
           "mutable": false,
           "attr": "clear-on-edit",
           "reflectToAttr": false,
-          "docs": "If `true`, the value will be cleared after focus upon edit. Defaults to `true` when `type` is `\"password\"`, `false` for all other types.",
+          "docs": "If `true`, the value will be cleared after focus upon edit.\r\nDefaults to `true` when `type` is `\"password\"`, `false` for all other types.",
           "docsTags": [],
           "values": [
             {
@@ -3266,7 +3266,7 @@
           "mutable": false,
           "attr": "debounce",
           "reflectToAttr": false,
-          "docs": "Set the amount of time, in milliseconds, to wait to trigger the `wcsChange` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.",
+          "docs": "Set the amount of time, in milliseconds, to wait to trigger the `wcsChange` event after each keystroke.\r\nThis also impacts form bindings such as `ngModel` or `v-model`.",
           "docsTags": [],
           "default": "0",
           "values": [
@@ -3418,7 +3418,7 @@
           "mutable": false,
           "attr": "maxlength",
           "reflectToAttr": false,
-          "docs": "If the value of the type attribute is `text`, `email`, `search`, `password`, `tel`, or `url`, this attribute specifies the maximum number of characters that the user can enter.",
+          "docs": "If the value of the type attribute is `text`, `email`, `search`, `password`, `tel`, or `url`, this attribute\r\nspecifies the maximum number of characters that the user can enter.",
           "docsTags": [],
           "values": [
             {
@@ -3450,7 +3450,7 @@
           "mutable": false,
           "attr": "minlength",
           "reflectToAttr": false,
-          "docs": "If the value of the type attribute is `text`, `email`, `search`, `password`, `tel`, or `url`, this attribute specifies the minimum number of characters that the user can enter.",
+          "docs": "If the value of the type attribute is `text`, `email`, `search`, `password`, `tel`, or `url`, this attribute\r\nspecifies the minimum number of characters that the user can enter.",
           "docsTags": [],
           "values": [
             {
@@ -3466,7 +3466,7 @@
           "mutable": false,
           "attr": "multiple",
           "reflectToAttr": false,
-          "docs": "If `true`, the user can enter more than one value. This attribute applies when the type attribute is set to `\"email\"` or `\"file\"`, otherwise it is ignored.",
+          "docs": "If `true`, the user can enter more than one value. This attribute applies when the type attribute is set to\r\n`\"email\"` or `\"file\"`, otherwise it is ignored.",
           "docsTags": [],
           "values": [
             {
@@ -3499,7 +3499,7 @@
           "mutable": false,
           "attr": "pattern",
           "reflectToAttr": false,
-          "docs": "A regular expression that the value is checked against. The pattern must match the entire value, not just some subset. Use the title attribute to describe the pattern to help the user. This attribute applies when the value of the type attribute is `\"text\"`, `\"search\"`, `\"tel\"`, `\"url\"`, `\"email\"`, `\"date\"`, or `\"password\"`, otherwise it is ignored. When the type attribute is `\"date\"`, `pattern` will only be used in browsers that do not support the `\"date\"` input type natively. See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date for more information.",
+          "docs": "A regular expression that the value is checked against. The pattern must match the entire value, not just some\r\nsubset. Use the title attribute to describe the pattern to help the user. This attribute applies when the value\r\nof the type attribute is `\"text\"`, `\"search\"`, `\"tel\"`, `\"url\"`, `\"email\"`, `\"date\"`, or `\"password\"`, otherwise\r\nit is ignored. When the type attribute is `\"date\"`, `pattern` will only be used in browsers that do not support\r\nthe `\"date\"` input type natively. See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date for\r\nmore information.",
           "docsTags": [],
           "values": [
             {
@@ -3624,7 +3624,7 @@
           "mutable": false,
           "attr": "state",
           "reflectToAttr": true,
-          "docs": "Specifies the state of the input. By default the input is in an normal state but you can to set it to 'error' state if the data given by the user is not valid.",
+          "docs": "Specifies the state of the input. By default the input is in an normal state but you can to set it to 'error'\r\nstate if the data given by the user is not valid.",
           "docsTags": [],
           "default": "'initial'",
           "values": [
