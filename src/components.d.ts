@@ -884,7 +884,7 @@ export namespace Components {
         "value"?: any | null;
     }
     /**
-     * Select option component, use in conjunction with wcs-select.
+     * The select option is a subcomponent of `wcs-select` that represents a single option in a select list.
      */
     interface WcsSelectOption {
         /**
@@ -1729,7 +1729,7 @@ declare global {
         new (): HTMLWcsSelectElement;
     };
     /**
-     * Select option component, use in conjunction with wcs-select.
+     * The select option is a subcomponent of `wcs-select` that represents a single option in a select list.
      */
     interface HTMLWcsSelectOptionElement extends Components.WcsSelectOption, HTMLStencilElement {
     }
@@ -2766,7 +2766,7 @@ declare namespace LocalJSX {
         "value"?: any | null;
     }
     /**
-     * Select option component, use in conjunction with wcs-select.
+     * The select option is a subcomponent of `wcs-select` that represents a single option in a select list.
      */
     interface WcsSelectOption {
         /**
@@ -3331,7 +3331,7 @@ declare module "@stencil/core" {
              */
             "wcs-select": LocalJSX.WcsSelect & JSXBase.HTMLAttributes<HTMLWcsSelectElement>;
             /**
-             * Select option component, use in conjunction with wcs-select.
+             * The select option is a subcomponent of `wcs-select` that represents a single option in a select list.
              */
             "wcs-select-option": LocalJSX.WcsSelectOption & JSXBase.HTMLAttributes<HTMLWcsSelectOptionElement>;
             /**

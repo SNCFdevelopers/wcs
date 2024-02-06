@@ -7,7 +7,7 @@
 
 ## Overview
 
-Select option component, use in conjunction with wcs-select.
+The select option is a subcomponent of `wcs-select` that represents a single option in a select list.
 
 ## Properties
 

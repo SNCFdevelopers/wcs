@@ -140,7 +140,7 @@ export const MultipleMode: StoryObj = {
 /**
  * Enable this mode with `multiple` to allow the user to select multiple options and display them as chips.  
  * 💡 `chip-background-color` and `chip-color` properties on `wcs-select-option` can be used to customize the appearance
- * of the chips.
+ * of the chips : [Select Option doc](.?path=/docs/components-select-subcomponents-select-option--documentation).
  */
 export const MultipleAndChipsMode: StoryObj = {
     ...Default,

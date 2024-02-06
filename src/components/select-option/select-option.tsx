@@ -4,7 +4,7 @@ import { MDCRipple } from '@material/ripple';
 import {isEnterKey, generateUniqueId, isSpaceKey} from "../../utils/helpers";
 
 /**
- * Select option component, use in conjunction with wcs-select.
+ * The select option is a subcomponent of `wcs-select` that represents a single option in a select list.
  */
 @Component({
     tag: 'wcs-select-option',
