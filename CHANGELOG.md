@@ -12,6 +12,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 
 - **textarea**: add two css variables to set padding right and padding left
+- **modal**: add the css variable `--wcs-modal-overflow-y` to control the overflow-y of the modal content
 
 ### Changed
 

@@ -856,44 +856,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/accordion-content/accordion-content.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "AccordionContent",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-accordion-content",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "AccordionContent",
-          "declaration": {
-            "name": "AccordionContent",
-            "module": "components/accordion-content/accordion-content.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-accordion-content",
-          "declaration": {
-            "name": "AccordionContent",
-            "module": "components/accordion-content/accordion-content.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/accordion-header/accordion-header.tsx",
       "declarations": [
         {
@@ -926,6 +888,44 @@
           "declaration": {
             "name": "AccordionHeader",
             "module": "components/accordion-header/accordion-header.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/accordion-content/accordion-content.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "AccordionContent",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-accordion-content",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "AccordionContent",
+          "declaration": {
+            "name": "AccordionContent",
+            "module": "components/accordion-content/accordion-content.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-accordion-content",
+          "declaration": {
+            "name": "AccordionContent",
+            "module": "components/accordion-content/accordion-content.tsx"
           }
         }
       ]
@@ -3004,6 +3004,44 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/dropdown-divider/dropdown-divider.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "You can add a divider between groups of items",
+          "name": "DropdownDivider",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-dropdown-divider",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "DropdownDivider",
+          "declaration": {
+            "name": "DropdownDivider",
+            "module": "components/dropdown-divider/dropdown-divider.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-dropdown-divider",
+          "declaration": {
+            "name": "DropdownDivider",
+            "module": "components/dropdown-divider/dropdown-divider.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/dropdown-header/dropdown-header.tsx",
       "declarations": [
         {
@@ -3042,44 +3080,6 @@
           "declaration": {
             "name": "DropdownHeader",
             "module": "components/dropdown-header/dropdown-header.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/dropdown-divider/dropdown-divider.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "You can add a divider between groups of items",
-          "name": "DropdownDivider",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-dropdown-divider",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "DropdownDivider",
-          "declaration": {
-            "name": "DropdownDivider",
-            "module": "components/dropdown-divider/dropdown-divider.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-dropdown-divider",
-          "declaration": {
-            "name": "DropdownDivider",
-            "module": "components/dropdown-divider/dropdown-divider.tsx"
           }
         }
       ]
@@ -3166,44 +3166,6 @@
           "declaration": {
             "name": "DropdownItem",
             "module": "components/dropdown-item/dropdown-item.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/error/error.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Label",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-error",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Label",
-          "declaration": {
-            "name": "Label",
-            "module": "components/error/error.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-error",
-          "declaration": {
-            "name": "Label",
-            "module": "components/error/error.tsx"
           }
         }
       ]
@@ -3600,19 +3562,19 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/field-content/field-content.tsx",
+      "path": "components/error/error.tsx",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "FieldContent",
+          "name": "Label",
           "members": [
             {
               "kind": "method",
               "name": "render"
             }
           ],
-          "tagName": "wcs-field-content",
+          "tagName": "wcs-error",
           "events": [],
           "customElement": true
         }
@@ -3620,18 +3582,18 @@
       "exports": [
         {
           "kind": "js",
-          "name": "FieldContent",
+          "name": "Label",
           "declaration": {
-            "name": "FieldContent",
-            "module": "components/field-content/field-content.tsx"
+            "name": "Label",
+            "module": "components/error/error.tsx"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "wcs-field-content",
+          "name": "wcs-error",
           "declaration": {
-            "name": "FieldContent",
-            "module": "components/field-content/field-content.tsx"
+            "name": "Label",
+            "module": "components/error/error.tsx"
           }
         }
       ]
@@ -3680,6 +3642,44 @@
           "declaration": {
             "name": "Field",
             "module": "components/field/field.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/field-content/field-content.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "FieldContent",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-field-content",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "FieldContent",
+          "declaration": {
+            "name": "FieldContent",
+            "module": "components/field-content/field-content.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-field-content",
+          "declaration": {
+            "name": "FieldContent",
+            "module": "components/field-content/field-content.tsx"
           }
         }
       ]
@@ -6782,6 +6782,16 @@
           "kind": "class",
           "description": "The modal component (also named dialog or popup) is an interface element that appears on top of the page content.\r\nUse it to show a message, a confirmation dialog, or any other content like forms.\r\n\r\n<details>\r\n    <summary>Accessibility guidelines 💡</summary>\r\n    > - Modal element has `role=\"dialog\"` and `aria-modal=\"true\"`\r\n    > - Keyboard navigation is trapped inside the modal\r\n    > - It is mandatory to set the `modalTriggerControlsId` to the id of the element that opens the dialog, in order\r\n    > to focus it upon dialog dismissal.\r\n    > - The modal can be closed at any time by pressing the Escape key.\r\n    >\r\n    > - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/\r\n</details>",
           "name": "Modal",
+          "cssProperties": [
+            {
+              "description": "Max height of the main container",
+              "name": "--wcs-modal-max-height"
+            },
+            {
+              "description": "Overflow-y of the content",
+              "name": "--wcs-modal-overflow-y"
+            }
+          ],
           "slots": [
             {
               "description": "Main container slot",
@@ -7219,103 +7229,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/progress-bar/progress-bar.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Component displaying progress as a bar.",
-          "name": "ProgressBar",
-          "members": [
-            {
-              "kind": "field",
-              "name": "small",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Whether the component display the small version"
-            },
-            {
-              "kind": "field",
-              "name": "showLabel",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Whether it displays a label indicating the percentage of progress above the bar."
-            },
-            {
-              "kind": "field",
-              "name": "value",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "The actual value of the progress.\r\nRanging from 0 to 100."
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            },
-            {
-              "kind": "method",
-              "name": "rootClasses",
-              "return": {
-                "type": {
-                  "text": "string"
-                }
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "small",
-              "fieldName": "small",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "show-label",
-              "fieldName": "showLabel",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "value",
-              "fieldName": "value",
-              "type": {
-                "text": "number"
-              }
-            }
-          ],
-          "tagName": "wcs-progress-bar",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ProgressBar",
-          "declaration": {
-            "name": "ProgressBar",
-            "module": "components/progress-bar/progress-bar.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-progress-bar",
-          "declaration": {
-            "name": "ProgressBar",
-            "module": "components/progress-bar/progress-bar.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/nav-item/nav-item.tsx",
       "declarations": [
         {
@@ -7407,20 +7320,21 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/progress-radial/progress-radial.tsx",
+      "path": "components/progress-bar/progress-bar.tsx",
       "declarations": [
         {
           "kind": "class",
-          "description": "",
-          "name": "ProgressRadial",
+          "description": "Component displaying progress as a bar.",
+          "name": "ProgressBar",
           "members": [
             {
               "kind": "field",
-              "name": "size",
+              "name": "small",
               "type": {
-                "text": "number"
+                "text": "boolean"
               },
-              "default": "120"
+              "default": "false",
+              "description": "Whether the component display the small version"
             },
             {
               "kind": "field",
@@ -7428,7 +7342,8 @@
               "type": {
                 "text": "boolean"
               },
-              "default": "false"
+              "default": "false",
+              "description": "Whether it displays a label indicating the percentage of progress above the bar."
             },
             {
               "kind": "field",
@@ -7436,7 +7351,8 @@
               "type": {
                 "text": "number"
               },
-              "default": "0"
+              "default": "0",
+              "description": "The actual value of the progress.\r\nRanging from 0 to 100."
             },
             {
               "kind": "method",
@@ -7444,15 +7360,20 @@
             },
             {
               "kind": "method",
-              "name": "getSvgStyle"
+              "name": "rootClasses",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
             }
           ],
           "attributes": [
             {
-              "name": "size",
-              "fieldName": "size",
+              "name": "small",
+              "fieldName": "small",
               "type": {
-                "text": "number"
+                "text": "boolean"
               }
             },
             {
@@ -7470,7 +7391,7 @@
               }
             }
           ],
-          "tagName": "wcs-progress-radial",
+          "tagName": "wcs-progress-bar",
           "events": [],
           "customElement": true
         }
@@ -7478,18 +7399,18 @@
       "exports": [
         {
           "kind": "js",
-          "name": "ProgressRadial",
+          "name": "ProgressBar",
           "declaration": {
-            "name": "ProgressRadial",
-            "module": "components/progress-radial/progress-radial.tsx"
+            "name": "ProgressBar",
+            "module": "components/progress-bar/progress-bar.tsx"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "wcs-progress-radial",
+          "name": "wcs-progress-bar",
           "declaration": {
-            "name": "ProgressRadial",
-            "module": "components/progress-radial/progress-radial.tsx"
+            "name": "ProgressBar",
+            "module": "components/progress-bar/progress-bar.tsx"
           }
         }
       ]
@@ -7676,6 +7597,95 @@
           "declaration": {
             "name": "Radio",
             "module": "components/radio/radio.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/progress-radial/progress-radial.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "ProgressRadial",
+          "members": [
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "number"
+              },
+              "default": "120"
+            },
+            {
+              "kind": "field",
+              "name": "showLabel",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "number"
+              },
+              "default": "0"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            },
+            {
+              "kind": "method",
+              "name": "getSvgStyle"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "size",
+              "fieldName": "size",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "show-label",
+              "fieldName": "showLabel",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "value",
+              "fieldName": "value",
+              "type": {
+                "text": "number"
+              }
+            }
+          ],
+          "tagName": "wcs-progress-radial",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ProgressRadial",
+          "declaration": {
+            "name": "ProgressRadial",
+            "module": "components/progress-radial/progress-radial.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-progress-radial",
+          "declaration": {
+            "name": "ProgressRadial",
+            "module": "components/progress-radial/progress-radial.tsx"
           }
         }
       ]

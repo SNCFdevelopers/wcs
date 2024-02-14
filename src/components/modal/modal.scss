@@ -78,7 +78,7 @@ Modal window
 .wcs-modal-content {
     font-weight: 400;
     font-size: 16px;
-    overflow-y: auto;
+    overflow-y: var(--wcs-modal-overflow-y, auto);
 }
 
 .wcs-modal-actions {

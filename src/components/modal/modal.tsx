@@ -29,6 +29,8 @@ import { isTabKey } from "../../utils/helpers";
  *     > - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
  * </details>
  *
+ * @cssprop --wcs-modal-max-height - Max height of the main container
+ * @cssprop --wcs-modal-overflow-y - Overflow-y of the content
  * @slot <no-name> Main container slot
  * @slot header Header container slot (for title)
  * @slot actions Actions container slot (for buttons)

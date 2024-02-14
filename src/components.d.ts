@@ -687,6 +687,8 @@ export namespace Components {
      *     >
      *     > - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
      * </details>
+     * @cssprop --wcs-modal-max-height - Max height of the main container
+     * @cssprop --wcs-modal-overflow-y - Overflow-y of the content
      */
     interface WcsModal {
         /**
@@ -1589,6 +1591,8 @@ declare global {
      *     >
      *     > - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
      * </details>
+     * @cssprop --wcs-modal-max-height - Max height of the main container
+     * @cssprop --wcs-modal-overflow-y - Overflow-y of the content
      */
     interface HTMLWcsModalElement extends Components.WcsModal, HTMLStencilElement {
     }
@@ -2509,6 +2513,8 @@ declare namespace LocalJSX {
      *     >
      *     > - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
      * </details>
+     * @cssprop --wcs-modal-max-height - Max height of the main container
+     * @cssprop --wcs-modal-overflow-y - Overflow-y of the content
      */
     interface WcsModal {
         /**
@@ -3187,6 +3193,8 @@ declare module "@stencil/core" {
              *     >
              *     > - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
              * </details>
+             * @cssprop --wcs-modal-max-height - Max height of the main container
+             * @cssprop --wcs-modal-overflow-y - Overflow-y of the content
              */
             "wcs-modal": LocalJSX.WcsModal & JSXBase.HTMLAttributes<HTMLWcsModalElement>;
             /**
