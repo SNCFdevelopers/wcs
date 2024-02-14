@@ -485,7 +485,9 @@ export class WcsDropdownItem {
 
 
 export declare interface WcsDropdownItem extends Components.WcsDropdownItem {
-
+  /**
+   * Event emitted when the dropdown item is clicked
+   */
   wcsDropdownItemClick: EventEmitter<CustomEvent<void>>;
 }
 

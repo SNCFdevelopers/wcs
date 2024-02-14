@@ -241,6 +241,10 @@ export namespace Components {
     }
     interface WcsDivider {
     }
+    /**
+     * The dropdown component use a wcs-button under the hood, so you can use the same css classes as the button to style the
+     * dropdown.
+     */
     interface WcsDropdown {
         /**
           * Specifies whether the dropdown button is clickable or not
@@ -263,10 +267,19 @@ export namespace Components {
          */
         "shape": WcsButtonShape;
     }
+    /**
+     * You can add a divider between groups of items
+     */
     interface WcsDropdownDivider {
     }
+    /**
+     * You can add `wcs-dropdown-header` before a group of items to describe it
+     */
     interface WcsDropdownHeader {
     }
+    /**
+     * You must add `wcs-dropdown-item` to `wcs-dropdown`
+     */
     interface WcsDropdownItem {
     }
     interface WcsEditableField {
@@ -1355,24 +1368,37 @@ declare global {
         prototype: HTMLWcsDividerElement;
         new (): HTMLWcsDividerElement;
     };
+    /**
+     * The dropdown component use a wcs-button under the hood, so you can use the same css classes as the button to style the
+     * dropdown.
+     */
     interface HTMLWcsDropdownElement extends Components.WcsDropdown, HTMLStencilElement {
     }
     var HTMLWcsDropdownElement: {
         prototype: HTMLWcsDropdownElement;
         new (): HTMLWcsDropdownElement;
     };
+    /**
+     * You can add a divider between groups of items
+     */
     interface HTMLWcsDropdownDividerElement extends Components.WcsDropdownDivider, HTMLStencilElement {
     }
     var HTMLWcsDropdownDividerElement: {
         prototype: HTMLWcsDropdownDividerElement;
         new (): HTMLWcsDropdownDividerElement;
     };
+    /**
+     * You can add `wcs-dropdown-header` before a group of items to describe it
+     */
     interface HTMLWcsDropdownHeaderElement extends Components.WcsDropdownHeader, HTMLStencilElement {
     }
     var HTMLWcsDropdownHeaderElement: {
         prototype: HTMLWcsDropdownHeaderElement;
         new (): HTMLWcsDropdownHeaderElement;
     };
+    /**
+     * You must add `wcs-dropdown-item` to `wcs-dropdown`
+     */
     interface HTMLWcsDropdownItemElement extends Components.WcsDropdownItem, HTMLStencilElement {
     }
     var HTMLWcsDropdownItemElement: {
@@ -2003,6 +2029,10 @@ declare namespace LocalJSX {
     }
     interface WcsDivider {
     }
+    /**
+     * The dropdown component use a wcs-button under the hood, so you can use the same css classes as the button to style the
+     * dropdown.
+     */
     interface WcsDropdown {
         /**
           * Specifies whether the dropdown button is clickable or not
@@ -2025,11 +2055,23 @@ declare namespace LocalJSX {
          */
         "shape"?: WcsButtonShape;
     }
+    /**
+     * You can add a divider between groups of items
+     */
     interface WcsDropdownDivider {
     }
+    /**
+     * You can add `wcs-dropdown-header` before a group of items to describe it
+     */
     interface WcsDropdownHeader {
     }
+    /**
+     * You must add `wcs-dropdown-item` to `wcs-dropdown`
+     */
     interface WcsDropdownItem {
+        /**
+          * Event emitted when the dropdown item is clicked
+         */
         "onWcsDropdownItemClick"?: (event: WcsDropdownItemCustomEvent<void>) => void;
     }
     interface WcsEditableField {
@@ -3059,9 +3101,22 @@ declare module "@stencil/core" {
              */
             "wcs-counter": LocalJSX.WcsCounter & JSXBase.HTMLAttributes<HTMLWcsCounterElement>;
             "wcs-divider": LocalJSX.WcsDivider & JSXBase.HTMLAttributes<HTMLWcsDividerElement>;
+            /**
+             * The dropdown component use a wcs-button under the hood, so you can use the same css classes as the button to style the
+             * dropdown.
+             */
             "wcs-dropdown": LocalJSX.WcsDropdown & JSXBase.HTMLAttributes<HTMLWcsDropdownElement>;
+            /**
+             * You can add a divider between groups of items
+             */
             "wcs-dropdown-divider": LocalJSX.WcsDropdownDivider & JSXBase.HTMLAttributes<HTMLWcsDropdownDividerElement>;
+            /**
+             * You can add `wcs-dropdown-header` before a group of items to describe it
+             */
             "wcs-dropdown-header": LocalJSX.WcsDropdownHeader & JSXBase.HTMLAttributes<HTMLWcsDropdownHeaderElement>;
+            /**
+             * You must add `wcs-dropdown-item` to `wcs-dropdown`
+             */
             "wcs-dropdown-item": LocalJSX.WcsDropdownItem & JSXBase.HTMLAttributes<HTMLWcsDropdownItemElement>;
             "wcs-editable-field": LocalJSX.WcsEditableField & JSXBase.HTMLAttributes<HTMLWcsEditableFieldElement>;
             "wcs-error": LocalJSX.WcsError & JSXBase.HTMLAttributes<HTMLWcsErrorElement>;

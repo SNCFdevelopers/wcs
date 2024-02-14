@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-02-12T15:02:05",
+  "timestamp": "2024-02-14T16:08:36",
   "compiler": {
     "name": "@stencil/core",
     "version": "3.0.0",
@@ -1237,8 +1237,17 @@
       "encapsulation": "shadow",
       "tag": "wcs-dropdown",
       "readme": "# Dropdown\r\n\r",
-      "docs": "",
-      "docsTags": [],
+      "docs": "The dropdown component use a wcs-button under the hood, so you can use the same css classes as the button to style the\r\ndropdown.",
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "placeholder - The slot containing the placeholder displayed in button"
+        },
+        {
+          "name": "slot",
+          "text": "item - The slot container the list of `wcs-dropdown-item` elements"
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -1423,7 +1432,16 @@
         }
       ],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "item",
+          "docs": "The slot container the list of `wcs-dropdown-item` elements"
+        },
+        {
+          "name": "placeholder",
+          "docs": "The slot containing the placeholder displayed in button"
+        }
+      ],
       "parts": [],
       "dependents": [],
       "dependencies": [
@@ -1443,7 +1461,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-dropdown-divider",
       "readme": "# wcs-dropdown-divider\r\n\r\n\r\n\r",
-      "docs": "",
+      "docs": "You can add a divider between groups of items",
       "docsTags": [],
       "usage": {},
       "props": [],
@@ -1462,15 +1480,25 @@
       "encapsulation": "shadow",
       "tag": "wcs-dropdown-header",
       "readme": "# wcs-dropdown-header\r\n\r\n\r\n\r",
-      "docs": "",
-      "docsTags": [],
+      "docs": "You can add `wcs-dropdown-header` before a group of items to describe it",
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "<no-name> the slot that contains the header's name"
+        }
+      ],
       "usage": {},
       "props": [],
       "methods": [],
       "events": [],
       "listeners": [],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "<no-name> the slot that contains the header's name",
+          "docs": ""
+        }
+      ],
       "parts": [],
       "dependents": [],
       "dependencies": [],
@@ -1481,8 +1509,13 @@
       "encapsulation": "none",
       "tag": "wcs-dropdown-item",
       "readme": "# wcs-dropdown-item\r\n\r\n\r\n\r",
-      "docs": "",
-      "docsTags": [],
+      "docs": "You must add `wcs-dropdown-item` to `wcs-dropdown`",
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "<no-name> the slot that contains the item's name"
+        }
+      ],
       "usage": {},
       "props": [],
       "methods": [],
@@ -1493,7 +1526,7 @@
           "bubbles": true,
           "cancelable": true,
           "composed": true,
-          "docs": "",
+          "docs": "Event emitted when the dropdown item is clicked",
           "docsTags": []
         }
       ],
@@ -1510,7 +1543,12 @@
         }
       ],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "<no-name> the slot that contains the item's name",
+          "docs": ""
+        }
+      ],
       "parts": [],
       "dependents": [],
       "dependencies": [],

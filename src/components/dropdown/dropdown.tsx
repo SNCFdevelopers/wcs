@@ -10,7 +10,13 @@ import { WcsDropdownPlacement } from './dropdown-interface';
 import { clickTargetIsElementOrChildren, isEscapeKey, isKeydown, isKeyup } from '../../utils/helpers';
 import { isElementFocused } from "../../utils/accessibility";
 
-
+/**
+ * The dropdown component use a wcs-button under the hood, so you can use the same css classes as the button to style the
+ * dropdown.
+ * 
+ * @slot placeholder - The slot containing the placeholder displayed in button
+ * @slot item - The slot container the list of `wcs-dropdown-item` elements
+ */
 @Component({
     tag: 'wcs-dropdown',
     styleUrl: 'dropdown.scss',
