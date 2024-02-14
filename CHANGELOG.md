@@ -31,6 +31,7 @@ for now removed features.
 key down... to change the current selected option)
 - **doc**: improve `wcs-select` and `wcs-input` documentation
 - **modal**: (accessibility) focus modal controls which served to open the modal on closure
+- **dropdown**: display empty container when no items with fixed width
 
 ### Security
 

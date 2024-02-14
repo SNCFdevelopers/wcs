@@ -166,7 +166,9 @@ export class Dropdown implements ComponentInterface {
                 <div class={(this.expanded ? 'show ' : '') + 'popover'}>
                     <div id="arrow" data-popper-arrow/>
                     <div class="container">
-                        <slot name="item"/>
+                        <slot name="item">
+                            <span id={"is-empty"}></span>
+                        </slot>
                     </div>
                 </div>
             </Host>

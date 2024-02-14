@@ -68,6 +68,12 @@ wcs-button {
     transform: rotate(45deg);
 }
 
+#is-empty {
+    display: block;
+    width: 20ch;
+    padding: 0 var(--wcs-padding);
+}
+
 .popover[data-popper-placement^='top'] > #arrow {
     bottom: -5px;
 }
