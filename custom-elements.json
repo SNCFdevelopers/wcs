@@ -856,44 +856,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/accordion-header/accordion-header.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "AccordionHeader",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-accordion-header",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "AccordionHeader",
-          "declaration": {
-            "name": "AccordionHeader",
-            "module": "components/accordion-header/accordion-header.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-accordion-header",
-          "declaration": {
-            "name": "AccordionHeader",
-            "module": "components/accordion-header/accordion-header.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/accordion-content/accordion-content.tsx",
       "declarations": [
         {
@@ -926,6 +888,44 @@
           "declaration": {
             "name": "AccordionContent",
             "module": "components/accordion-content/accordion-content.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/accordion-header/accordion-header.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "AccordionHeader",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-accordion-header",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "AccordionHeader",
+          "declaration": {
+            "name": "AccordionHeader",
+            "module": "components/accordion-header/accordion-header.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-accordion-header",
+          "declaration": {
+            "name": "AccordionHeader",
+            "module": "components/accordion-header/accordion-header.tsx"
           }
         }
       ]
@@ -2733,18 +2733,8 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "The dropdown component use a wcs-button under the hood, so you can use the same css classes as the button to style the\r\ndropdown.",
+          "description": "",
           "name": "Dropdown",
-          "slots": [
-            {
-              "description": "The slot containing the placeholder displayed in button",
-              "name": "placeholder"
-            },
-            {
-              "description": "The slot container the list of `wcs-dropdown-item` elements",
-              "name": "item"
-            }
-          ],
           "members": [
             {
               "kind": "field",
@@ -3008,7 +2998,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "You can add a divider between groups of items",
+          "description": "",
           "name": "DropdownDivider",
           "members": [
             {
@@ -3046,14 +3036,8 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "You can add `wcs-dropdown-header` before a group of items to describe it",
+          "description": "",
           "name": "DropdownHeader",
-          "slots": [
-            {
-              "description": "the slot that contains the header's name",
-              "name": "<no-name>"
-            }
-          ],
           "members": [
             {
               "kind": "method",
@@ -3090,14 +3074,8 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "You must add `wcs-dropdown-item` to `wcs-dropdown`",
+          "description": "",
           "name": "DropdownItem",
-          "slots": [
-            {
-              "description": "the slot that contains the item's name",
-              "name": "<no-name>"
-            }
-          ],
           "members": [
             {
               "kind": "method",
@@ -3144,8 +3122,7 @@
               "name": "wcsDropdownItemClick",
               "type": {
                 "text": "EventEmitter<void>"
-              },
-              "description": "Event emitted when the dropdown item is clicked"
+              }
             }
           ],
           "customElement": true
@@ -6782,16 +6759,6 @@
           "kind": "class",
           "description": "The modal component (also named dialog or popup) is an interface element that appears on top of the page content.\r\nUse it to show a message, a confirmation dialog, or any other content like forms.\r\n\r\n<details>\r\n    <summary>Accessibility guidelines 💡</summary>\r\n    > - Modal element has `role=\"dialog\"` and `aria-modal=\"true\"`\r\n    > - Keyboard navigation is trapped inside the modal\r\n    > - It is mandatory to set the `modalTriggerControlsId` to the id of the element that opens the dialog, in order\r\n    > to focus it upon dialog dismissal.\r\n    > - The modal can be closed at any time by pressing the Escape key.\r\n    >\r\n    > - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/\r\n</details>",
           "name": "Modal",
-          "cssProperties": [
-            {
-              "description": "Max height of the main container",
-              "name": "--wcs-modal-max-height"
-            },
-            {
-              "description": "Overflow-y of the content",
-              "name": "--wcs-modal-overflow-y"
-            }
-          ],
           "slots": [
             {
               "description": "Main container slot",
@@ -7417,6 +7384,111 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/progress-radial/progress-radial.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The progress-radial component is a circular progress bar that indicates the current completion of a task.",
+          "name": "ProgressRadial",
+          "members": [
+            {
+              "kind": "field",
+              "name": "initialSize",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "120"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "number"
+              },
+              "default": "120",
+              "description": "The size of the progress radial (in px)"
+            },
+            {
+              "kind": "field",
+              "name": "showLabel",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Whether the component should display the % label inside"
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "The value of the progress radial. Prefer values between 0 and 100."
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            },
+            {
+              "kind": "method",
+              "name": "getSvgStyle"
+            },
+            {
+              "kind": "method",
+              "name": "getSize"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "size",
+              "fieldName": "size",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "show-label",
+              "fieldName": "showLabel",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "value",
+              "fieldName": "value",
+              "type": {
+                "text": "number"
+              }
+            }
+          ],
+          "tagName": "wcs-progress-radial",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ProgressRadial",
+          "declaration": {
+            "name": "ProgressRadial",
+            "module": "components/progress-radial/progress-radial.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-progress-radial",
+          "declaration": {
+            "name": "ProgressRadial",
+            "module": "components/progress-radial/progress-radial.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/radio/radio-interface.ts",
       "declarations": [],
       "exports": []
@@ -7597,95 +7669,6 @@
           "declaration": {
             "name": "Radio",
             "module": "components/radio/radio.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/progress-radial/progress-radial.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "ProgressRadial",
-          "members": [
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "number"
-              },
-              "default": "120"
-            },
-            {
-              "kind": "field",
-              "name": "showLabel",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "value",
-              "type": {
-                "text": "number"
-              },
-              "default": "0"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            },
-            {
-              "kind": "method",
-              "name": "getSvgStyle"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "size",
-              "fieldName": "size",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "show-label",
-              "fieldName": "showLabel",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "value",
-              "fieldName": "value",
-              "type": {
-                "text": "number"
-              }
-            }
-          ],
-          "tagName": "wcs-progress-radial",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ProgressRadial",
-          "declaration": {
-            "name": "ProgressRadial",
-            "module": "components/progress-radial/progress-radial.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-progress-radial",
-          "declaration": {
-            "name": "ProgressRadial",
-            "module": "components/progress-radial/progress-radial.tsx"
           }
         }
       ]

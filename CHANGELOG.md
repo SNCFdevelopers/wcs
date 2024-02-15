@@ -33,6 +33,7 @@ key down... to change the current selected option)
 - **doc**: improve `wcs-select`, `wcs-input` and `wcs-dropdown` documentation
 - **modal**: (accessibility) focus modal controls which served to open the modal on closure
 - **dropdown**: display empty container when no items with fixed width
+- **progress-radial**: fix component computed size, documentation and aria attributes
 
 ### Security
 

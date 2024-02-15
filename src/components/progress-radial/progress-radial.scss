@@ -1,3 +1,7 @@
+:host {
+    display: inline-flex;
+}
+
 .progress-circle {
   position: relative;
   display: inline-block;
@@ -7,6 +11,7 @@
 }
 
 .progress-circle-figure {
+  position: absolute;
   transform: rotate(-90deg);
   transition: stroke-dashoffset 0.375s ease-out;
 }

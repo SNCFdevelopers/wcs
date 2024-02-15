@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-02-15T15:40:44",
+  "timestamp": "2024-02-28T09:15:49",
   "compiler": {
     "name": "@stencil/core",
     "version": "3.0.0",
@@ -1237,17 +1237,8 @@
       "encapsulation": "shadow",
       "tag": "wcs-dropdown",
       "readme": "# Dropdown\r\n\r",
-      "docs": "The dropdown component use a wcs-button under the hood, so you can use the same css classes as the button to style the\r\ndropdown.",
-      "docsTags": [
-        {
-          "name": "slot",
-          "text": "placeholder - The slot containing the placeholder displayed in button"
-        },
-        {
-          "name": "slot",
-          "text": "item - The slot container the list of `wcs-dropdown-item` elements"
-        }
-      ],
+      "docs": "",
+      "docsTags": [],
       "usage": {},
       "props": [
         {
@@ -1432,16 +1423,7 @@
         }
       ],
       "styles": [],
-      "slots": [
-        {
-          "name": "item",
-          "docs": "The slot container the list of `wcs-dropdown-item` elements"
-        },
-        {
-          "name": "placeholder",
-          "docs": "The slot containing the placeholder displayed in button"
-        }
-      ],
+      "slots": [],
       "parts": [],
       "dependents": [],
       "dependencies": [
@@ -1461,7 +1443,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-dropdown-divider",
       "readme": "# wcs-dropdown-divider\r\n\r\n\r\n\r",
-      "docs": "You can add a divider between groups of items",
+      "docs": "",
       "docsTags": [],
       "usage": {},
       "props": [],
@@ -1480,25 +1462,15 @@
       "encapsulation": "shadow",
       "tag": "wcs-dropdown-header",
       "readme": "# wcs-dropdown-header\r\n\r\n\r\n\r",
-      "docs": "You can add `wcs-dropdown-header` before a group of items to describe it",
-      "docsTags": [
-        {
-          "name": "slot",
-          "text": "<no-name> the slot that contains the header's name"
-        }
-      ],
+      "docs": "",
+      "docsTags": [],
       "usage": {},
       "props": [],
       "methods": [],
       "events": [],
       "listeners": [],
       "styles": [],
-      "slots": [
-        {
-          "name": "<no-name> the slot that contains the header's name",
-          "docs": ""
-        }
-      ],
+      "slots": [],
       "parts": [],
       "dependents": [],
       "dependencies": [],
@@ -1509,13 +1481,8 @@
       "encapsulation": "none",
       "tag": "wcs-dropdown-item",
       "readme": "# wcs-dropdown-item\r\n\r\n\r\n\r",
-      "docs": "You must add `wcs-dropdown-item` to `wcs-dropdown`",
-      "docsTags": [
-        {
-          "name": "slot",
-          "text": "<no-name> the slot that contains the item's name"
-        }
-      ],
+      "docs": "",
+      "docsTags": [],
       "usage": {},
       "props": [],
       "methods": [],
@@ -1526,7 +1493,7 @@
           "bubbles": true,
           "cancelable": true,
           "composed": true,
-          "docs": "Event emitted when the dropdown item is clicked",
+          "docs": "",
           "docsTags": []
         }
       ],
@@ -1543,12 +1510,7 @@
         }
       ],
       "styles": [],
-      "slots": [
-        {
-          "name": "<no-name> the slot that contains the item's name",
-          "docs": ""
-        }
-      ],
+      "slots": [],
       "parts": [],
       "dependents": [],
       "dependencies": [],
@@ -4138,14 +4100,6 @@
       "docs": "The modal component (also named dialog or popup) is an interface element that appears on top of the page content.\r\nUse it to show a message, a confirmation dialog, or any other content like forms.\r\n\r\n<details>\r\n    <summary>Accessibility guidelines 💡</summary>\r\n    > - Modal element has `role=\"dialog\"` and `aria-modal=\"true\"`\r\n    > - Keyboard navigation is trapped inside the modal\r\n    > - It is mandatory to set the `modalTriggerControlsId` to the id of the element that opens the dialog, in order\r\n    > to focus it upon dialog dismissal.\r\n    > - The modal can be closed at any time by pressing the Escape key.\r\n    >\r\n    > - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/\r\n</details>",
       "docsTags": [
         {
-          "name": "cssprop",
-          "text": "--wcs-modal-max-height - Max height of the main container"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-modal-overflow-y - Overflow-y of the content"
-        },
-        {
           "name": "slot",
           "text": "<no-name> Main container slot"
         },
@@ -4544,7 +4498,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-progress-radial",
       "readme": "# Progress radial\r\n\r",
-      "docs": "",
+      "docs": "The progress-radial component is a circular progress bar that indicates the current completion of a task.",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -4554,7 +4508,7 @@
           "mutable": false,
           "attr": "show-label",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Whether the component should display the % label inside",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -4571,7 +4525,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "The size of the progress radial (in px)",
           "docsTags": [],
           "default": "120",
           "values": [
@@ -4588,7 +4542,7 @@
           "mutable": false,
           "attr": "value",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "The value of the progress radial. Prefer values between 0 and 100.",
           "docsTags": [],
           "default": "0",
           "values": [

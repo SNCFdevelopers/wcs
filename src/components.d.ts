@@ -780,9 +780,21 @@ export namespace Components {
          */
         "value": number;
     }
+    /**
+     * The progress-radial component is a circular progress bar that indicates the current completion of a task.
+     */
     interface WcsProgressRadial {
+        /**
+          * Whether the component should display the % label inside
+         */
         "showLabel": boolean;
+        /**
+          * The size of the progress radial (in px)
+         */
         "size": number;
+        /**
+          * The value of the progress radial. Prefer values between 0 and 100.
+         */
         "value": number;
     }
     interface WcsRadio {
@@ -1651,6 +1663,9 @@ declare global {
         prototype: HTMLWcsProgressBarElement;
         new (): HTMLWcsProgressBarElement;
     };
+    /**
+     * The progress-radial component is a circular progress bar that indicates the current completion of a task.
+     */
     interface HTMLWcsProgressRadialElement extends Components.WcsProgressRadial, HTMLStencilElement {
     }
     var HTMLWcsProgressRadialElement: {
@@ -2606,9 +2621,21 @@ declare namespace LocalJSX {
          */
         "value"?: number;
     }
+    /**
+     * The progress-radial component is a circular progress bar that indicates the current completion of a task.
+     */
     interface WcsProgressRadial {
+        /**
+          * Whether the component should display the % label inside
+         */
         "showLabel"?: boolean;
+        /**
+          * The size of the progress radial (in px)
+         */
         "size"?: number;
+        /**
+          * The value of the progress radial. Prefer values between 0 and 100.
+         */
         "value"?: number;
     }
     interface WcsRadio {
@@ -3228,6 +3255,9 @@ declare module "@stencil/core" {
              * Component displaying progress as a bar.
              */
             "wcs-progress-bar": LocalJSX.WcsProgressBar & JSXBase.HTMLAttributes<HTMLWcsProgressBarElement>;
+            /**
+             * The progress-radial component is a circular progress bar that indicates the current completion of a task.
+             */
             "wcs-progress-radial": LocalJSX.WcsProgressRadial & JSXBase.HTMLAttributes<HTMLWcsProgressRadialElement>;
             "wcs-radio": LocalJSX.WcsRadio & JSXBase.HTMLAttributes<HTMLWcsRadioElement>;
             "wcs-radio-group": LocalJSX.WcsRadioGroup & JSXBase.HTMLAttributes<HTMLWcsRadioGroupElement>;
