@@ -6,6 +6,7 @@ import { Component, Prop, h, Host, Event, EventEmitter } from '@stencil/core';
  */
 @Component({
     tag: 'wcs-tab',
+    styleUrl: 'tab.scss',
     shadow: true,
 })
 export class Tab {

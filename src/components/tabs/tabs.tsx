@@ -209,15 +209,15 @@ export class Tabs implements ComponentInterface {
     private updateTabVisibility() {
         this.tabs.forEach((el: HTMLWcsTabElement, idx: number) => {
             if (idx !== this.currentActiveTabIndex) {
-                el.setAttribute('style', 'display: none;');
+                el.hidden = true;
             } else {
-                el.setAttribute('style', 'display: block;');
+                el.hidden = false;
             }
         });
     }
 
     private hideAllTabsContent() {
-        this.tabs.forEach((el: HTMLWcsTabElement) => el.setAttribute('style', 'display: none;'));
+        this.tabs.forEach((el: HTMLWcsTabElement) => el.hidden = true);
     }
 
     render() {

@@ -67,7 +67,9 @@ in case of vulnerabilities.
 - **modal**:
   - don't emit `wcsDialogClosed` if the modal is closed and the Escape key is pressed
   - handle accessibility (aria and trap focus inside when the modal is opened)
-- **tabs**: apply ARIA tabs design pattern to make tabs accessible to screen reader
+- **tabs**: 
+  - apply ARIA tabs design pattern to make tabs accessible to screen reader
+  - instead of directly updating styles, which can potentially violate CSP rules, we now apply styles in response to certain attribute changes
 - **grid**: fix single selection keyboard behavior, only one radio can be selected
 - **radio**: update style to remove margin when there is no label on radio (useful for grids)
 - **radio-group**: add keyboard navigation support
