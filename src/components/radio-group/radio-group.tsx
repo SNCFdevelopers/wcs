@@ -136,7 +136,7 @@ export class RadioGroup implements ComponentInterface {
 
     render() {
         return (
-            <Host>
+            <Host role={"radiogroup"}>
                 <slot name="option"/>
             </Host>
         );
