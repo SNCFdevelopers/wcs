@@ -13,7 +13,7 @@ Use this component to specify the content of a component.
 | Property  | Attribute  | Description                                       | Type     | Default     |
 | --------- | ---------- | ------------------------------------------------- | -------- | ----------- |
 | `header`  | `header`   | The header you want to be displayed for this tab. | `string` | `undefined` |
-| `itemKey` | `item-key` |                                                   | `any`    | `undefined` |
+| `itemKey` | `item-key` | The id of the tab. It should be unique.           | `any`    | `undefined` |
 
 
 ## Events

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-02-28T09:15:49",
+  "timestamp": "2024-02-22T10:56:04",
   "compiler": {
     "name": "@stencil/core",
     "version": "3.0.0",
@@ -1237,8 +1237,17 @@
       "encapsulation": "shadow",
       "tag": "wcs-dropdown",
       "readme": "# Dropdown\r\n\r",
-      "docs": "",
-      "docsTags": [],
+      "docs": "The dropdown component use a wcs-button under the hood, so you can use the same css classes as the button to style the\r\ndropdown.",
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "placeholder - The slot containing the placeholder displayed in button"
+        },
+        {
+          "name": "slot",
+          "text": "item - The slot container the list of `wcs-dropdown-item` elements"
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -1423,7 +1432,16 @@
         }
       ],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "item",
+          "docs": "The slot container the list of `wcs-dropdown-item` elements"
+        },
+        {
+          "name": "placeholder",
+          "docs": "The slot containing the placeholder displayed in button"
+        }
+      ],
       "parts": [],
       "dependents": [],
       "dependencies": [
@@ -1443,7 +1461,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-dropdown-divider",
       "readme": "# wcs-dropdown-divider\r\n\r\n\r\n\r",
-      "docs": "",
+      "docs": "You can add a divider between groups of items",
       "docsTags": [],
       "usage": {},
       "props": [],
@@ -1462,15 +1480,25 @@
       "encapsulation": "shadow",
       "tag": "wcs-dropdown-header",
       "readme": "# wcs-dropdown-header\r\n\r\n\r\n\r",
-      "docs": "",
-      "docsTags": [],
+      "docs": "You can add `wcs-dropdown-header` before a group of items to describe it",
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "<no-name> the slot that contains the header's name"
+        }
+      ],
       "usage": {},
       "props": [],
       "methods": [],
       "events": [],
       "listeners": [],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "<no-name> the slot that contains the header's name",
+          "docs": ""
+        }
+      ],
       "parts": [],
       "dependents": [],
       "dependencies": [],
@@ -1481,8 +1509,13 @@
       "encapsulation": "none",
       "tag": "wcs-dropdown-item",
       "readme": "# wcs-dropdown-item\r\n\r\n\r\n\r",
-      "docs": "",
-      "docsTags": [],
+      "docs": "You must add `wcs-dropdown-item` to `wcs-dropdown`",
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "<no-name> the slot that contains the item's name"
+        }
+      ],
       "usage": {},
       "props": [],
       "methods": [],
@@ -1493,7 +1526,7 @@
           "bubbles": true,
           "cancelable": true,
           "composed": true,
-          "docs": "",
+          "docs": "Event emitted when the dropdown item is clicked",
           "docsTags": []
         }
       ],
@@ -1510,7 +1543,12 @@
         }
       ],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "<no-name> the slot that contains the item's name",
+          "docs": ""
+        }
+      ],
       "parts": [],
       "dependents": [],
       "dependencies": [],
@@ -4498,7 +4536,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-progress-radial",
       "readme": "# Progress radial\r\n\r",
-      "docs": "The progress-radial component is a circular progress bar that indicates the current completion of a task.",
+      "docs": "",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -4508,7 +4546,7 @@
           "mutable": false,
           "attr": "show-label",
           "reflectToAttr": false,
-          "docs": "Whether the component should display the % label inside",
+          "docs": "",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -4525,7 +4563,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
-          "docs": "The size of the progress radial (in px)",
+          "docs": "",
           "docsTags": [],
           "default": "120",
           "values": [
@@ -4542,7 +4580,7 @@
           "mutable": false,
           "attr": "value",
           "reflectToAttr": false,
-          "docs": "The value of the progress radial. Prefer values between 0 and 100.",
+          "docs": "",
           "docsTags": [],
           "default": "0",
           "values": [
@@ -5649,7 +5687,7 @@
           "mutable": false,
           "attr": "item-key",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "The id of the tab. It should be unique.",
           "docsTags": [],
           "values": [
             {
@@ -5697,6 +5735,18 @@
         {
           "name": "example",
           "text": "```html\r\n<wcs-tabs>\r\n   <wcs-tab header=\"One\">The content !</wcs-tab>\r\n   <wcs-tab header=\"Two\">More content !</wcs-tab>\r\n</wcs-tabs>\r\n```"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-width - Width of each tab"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-padding-horizontal - Width of each tab"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-padding-vertical - Vertical padding"
         }
       ],
       "usage": {},

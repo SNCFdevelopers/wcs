@@ -2733,8 +2733,18 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "",
+          "description": "The dropdown component use a wcs-button under the hood, so you can use the same css classes as the button to style the\r\ndropdown.",
           "name": "Dropdown",
+          "slots": [
+            {
+              "description": "The slot containing the placeholder displayed in button",
+              "name": "placeholder"
+            },
+            {
+              "description": "The slot container the list of `wcs-dropdown-item` elements",
+              "name": "item"
+            }
+          ],
           "members": [
             {
               "kind": "field",
@@ -2998,7 +3008,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "",
+          "description": "You can add a divider between groups of items",
           "name": "DropdownDivider",
           "members": [
             {
@@ -3036,8 +3046,14 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "",
+          "description": "You can add `wcs-dropdown-header` before a group of items to describe it",
           "name": "DropdownHeader",
+          "slots": [
+            {
+              "description": "the slot that contains the header's name",
+              "name": "<no-name>"
+            }
+          ],
           "members": [
             {
               "kind": "method",
@@ -3074,8 +3090,14 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "",
+          "description": "You must add `wcs-dropdown-item` to `wcs-dropdown`",
           "name": "DropdownItem",
+          "slots": [
+            {
+              "description": "the slot that contains the item's name",
+              "name": "<no-name>"
+            }
+          ],
           "members": [
             {
               "kind": "method",
@@ -3122,7 +3144,8 @@
               "name": "wcsDropdownItemClick",
               "type": {
                 "text": "EventEmitter<void>"
-              }
+              },
+              "description": "Event emitted when the dropdown item is clicked"
             }
           ],
           "customElement": true
@@ -7158,44 +7181,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/nav/nav.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Nav",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-nav",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Nav",
-          "declaration": {
-            "name": "Nav",
-            "module": "components/nav/nav.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-nav",
-          "declaration": {
-            "name": "Nav",
-            "module": "components/nav/nav.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/nav-item/nav-item.tsx",
       "declarations": [
         {
@@ -7281,6 +7266,44 @@
           "declaration": {
             "name": "NavItem",
             "module": "components/nav-item/nav-item.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/nav/nav.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Nav",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-nav",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Nav",
+          "declaration": {
+            "name": "Nav",
+            "module": "components/nav/nav.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-nav",
+          "declaration": {
+            "name": "Nav",
+            "module": "components/nav/nav.tsx"
           }
         }
       ]
@@ -7388,26 +7411,16 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "The progress-radial component is a circular progress bar that indicates the current completion of a task.",
+          "description": "",
           "name": "ProgressRadial",
           "members": [
-            {
-              "kind": "field",
-              "name": "initialSize",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "default": "120"
-            },
             {
               "kind": "field",
               "name": "size",
               "type": {
                 "text": "number"
               },
-              "default": "120",
-              "description": "The size of the progress radial (in px)"
+              "default": "120"
             },
             {
               "kind": "field",
@@ -7415,8 +7428,7 @@
               "type": {
                 "text": "boolean"
               },
-              "default": "false",
-              "description": "Whether the component should display the % label inside"
+              "default": "false"
             },
             {
               "kind": "field",
@@ -7424,8 +7436,7 @@
               "type": {
                 "text": "number"
               },
-              "default": "0",
-              "description": "The value of the progress radial. Prefer values between 0 and 100."
+              "default": "0"
             },
             {
               "kind": "method",
@@ -7434,10 +7445,6 @@
             {
               "kind": "method",
               "name": "getSvgStyle"
-            },
-            {
-              "kind": "method",
-              "name": "getSize"
             }
           ],
           "attributes": [
@@ -9292,7 +9299,8 @@
               "name": "itemKey",
               "type": {
                 "text": "any"
-              }
+              },
+              "description": "The id of the tab. It should be unique."
             },
             {
               "kind": "method",
@@ -9359,6 +9367,20 @@
           "kind": "class",
           "description": "Tabs component to switch between tab content.\r\nUse in conjuction with `wcs-tab`.",
           "name": "Tabs",
+          "cssProperties": [
+            {
+              "description": "Width of each tab",
+              "name": "--wcs-tabs-width"
+            },
+            {
+              "description": "Width of each tab",
+              "name": "--wcs-tabs-padding-horizontal"
+            },
+            {
+              "description": "Vertical padding",
+              "name": "--wcs-tabs-padding-vertical"
+            }
+          ],
           "members": [
             {
               "kind": "field",

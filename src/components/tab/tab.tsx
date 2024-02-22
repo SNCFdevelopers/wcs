@@ -15,6 +15,9 @@ export class Tab {
      */
     @Prop({ reflect: true }) header: string;
 
+    /**
+     * The id of the tab. It should be unique.
+     */
     @Prop() itemKey: any;
 
     // TODO: See if there is a solution that doesn't pollute the API.

@@ -971,6 +971,9 @@ export namespace Components {
           * The header you want to be displayed for this tab.
          */
         "header": string;
+        /**
+          * The id of the tab. It should be unique.
+         */
         "itemKey": any;
     }
     /**
@@ -982,6 +985,9 @@ export namespace Components {
      *    <wcs-tab header="Two">More content !</wcs-tab>
      * </wcs-tabs>
      * ```
+     * @cssprop --wcs-tabs-width - Width of each tab
+     * @cssprop --wcs-tabs-padding-horizontal - Width of each tab
+     * @cssprop --wcs-tabs-padding-vertical - Vertical padding
      */
     interface WcsTabs {
         /**
@@ -1763,6 +1769,9 @@ declare global {
      *    <wcs-tab header="Two">More content !</wcs-tab>
      * </wcs-tabs>
      * ```
+     * @cssprop --wcs-tabs-width - Width of each tab
+     * @cssprop --wcs-tabs-padding-horizontal - Width of each tab
+     * @cssprop --wcs-tabs-padding-vertical - Vertical padding
      */
     interface HTMLWcsTabsElement extends Components.WcsTabs, HTMLStencilElement {
     }
@@ -2826,6 +2835,9 @@ declare namespace LocalJSX {
           * The header you want to be displayed for this tab.
          */
         "header"?: string;
+        /**
+          * The id of the tab. It should be unique.
+         */
         "itemKey"?: any;
         /**
           * Do not use, meant for internal use only.
@@ -2843,6 +2855,9 @@ declare namespace LocalJSX {
      *    <wcs-tab header="Two">More content !</wcs-tab>
      * </wcs-tabs>
      * ```
+     * @cssprop --wcs-tabs-width - Width of each tab
+     * @cssprop --wcs-tabs-padding-horizontal - Width of each tab
+     * @cssprop --wcs-tabs-padding-vertical - Vertical padding
      */
     interface WcsTabs {
         /**
@@ -3300,6 +3315,9 @@ declare module "@stencil/core" {
              *    <wcs-tab header="Two">More content !</wcs-tab>
              * </wcs-tabs>
              * ```
+             * @cssprop --wcs-tabs-width - Width of each tab
+             * @cssprop --wcs-tabs-padding-horizontal - Width of each tab
+             * @cssprop --wcs-tabs-padding-vertical - Vertical padding
              */
             "wcs-tabs": LocalJSX.WcsTabs & JSXBase.HTMLAttributes<HTMLWcsTabsElement>;
             /**

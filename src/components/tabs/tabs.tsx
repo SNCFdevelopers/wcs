@@ -25,6 +25,10 @@ import { WcsTabsAlignment, WcsTabChangeEvent } from './tabs-interface';
  *    <wcs-tab header="Two">More content !</wcs-tab>
  * </wcs-tabs>
  * ```
+ * 
+ * @cssprop --wcs-tabs-width - Width of each tab
+ * @cssprop --wcs-tabs-padding-horizontal - Width of each tab
+ * @cssprop --wcs-tabs-padding-vertical - Vertical padding
  */
 @Component({
     tag: 'wcs-tabs',
