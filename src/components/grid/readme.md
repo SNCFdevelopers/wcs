@@ -43,6 +43,7 @@ The grid component is a complex component used as an HTML table to display colle
 - [wcs-radio](../radio)
 - [wcs-checkbox](../checkbox)
 - [wcs-spinner](../spinner)
+- [wcs-button](../button)
 
 ### Graph
 ```mermaid
@@ -50,6 +51,8 @@ graph TD;
   wcs-grid --> wcs-radio
   wcs-grid --> wcs-checkbox
   wcs-grid --> wcs-spinner
+  wcs-grid --> wcs-button
+  wcs-button --> wcs-spinner
   style wcs-grid fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

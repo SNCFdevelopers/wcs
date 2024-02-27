@@ -36,6 +36,8 @@ To fix this problem, we plan to provide a wcsClick event in addition to the nati
 
  - [wcs-counter](../counter)
  - [wcs-dropdown](../dropdown)
+ - [wcs-grid](../grid)
+ - [wcs-grid-pagination](../grid-pagination)
  - [wcs-horizontal-stepper](../horizontal-stepper)
  - [wcs-modal](../modal)
 
@@ -49,6 +51,8 @@ graph TD;
   wcs-button --> wcs-spinner
   wcs-counter --> wcs-button
   wcs-dropdown --> wcs-button
+  wcs-grid --> wcs-button
+  wcs-grid-pagination --> wcs-button
   wcs-horizontal-stepper --> wcs-button
   wcs-modal --> wcs-button
   style wcs-button fill:#f9f,stroke:#333,stroke-width:4px

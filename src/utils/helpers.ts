@@ -222,3 +222,7 @@ export function isPageUpKey(evt: KeyboardEvent) {
 export function isTabKey(evt: KeyboardEvent) {
     return evt.key === 'Tab';
 }
+
+export function isCtrlA(evt: KeyboardEvent) {
+    return evt.key === 'a' && evt.ctrlKey;
+}

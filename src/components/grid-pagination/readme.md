@@ -33,13 +33,16 @@ The grid pagination is a subcomponent of `wcs-grid`, slotted in `grid-pagination
 
 - [wcs-select](../select)
 - [wcs-select-option](../select-option)
+- [wcs-button](../button)
 
 ### Graph
 ```mermaid
 graph TD;
   wcs-grid-pagination --> wcs-select
   wcs-grid-pagination --> wcs-select-option
+  wcs-grid-pagination --> wcs-button
   wcs-select-option --> wcs-checkbox
+  wcs-button --> wcs-spinner
   style wcs-grid-pagination fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

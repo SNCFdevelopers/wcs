@@ -57,6 +57,24 @@
         },
         {
           "kind": "function",
+          "name": "isWcsFocusableElement",
+          "return": {
+            "type": {
+              "text": "boolean"
+            }
+          },
+          "parameters": [
+            {
+              "name": "element",
+              "type": {
+                "text": "any"
+              }
+            }
+          ],
+          "description": "Returns true if the provided element is part of the wcsFocusableElements list"
+        },
+        {
+          "kind": "function",
           "name": "isFocusable",
           "parameters": [
             {
@@ -82,6 +100,14 @@
           "name": "wcsFocusableElements",
           "declaration": {
             "name": "wcsFocusableElements",
+            "module": "utils/accessibility.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "isWcsFocusableElement",
+          "declaration": {
+            "name": "isWcsFocusableElement",
             "module": "utils/accessibility.ts"
           }
         },
@@ -465,6 +491,18 @@
               }
             }
           ]
+        },
+        {
+          "kind": "function",
+          "name": "isCtrlA",
+          "parameters": [
+            {
+              "name": "evt",
+              "type": {
+                "text": "KeyboardEvent"
+              }
+            }
+          ]
         }
       ],
       "exports": [
@@ -666,6 +704,49 @@
           "declaration": {
             "name": "isTabKey",
             "module": "utils/helpers.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "isCtrlA",
+          "declaration": {
+            "name": "isCtrlA",
+            "module": "utils/helpers.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "utils/keyboard-event.ts",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "keyboardShortcutFromKeyboardEvent",
+          "return": {
+            "type": {
+              "text": ""
+            }
+          },
+          "parameters": [
+            {
+              "name": "event",
+              "type": {
+                "text": "KeyboardEvent"
+              },
+              "description": "KeyboardEvent"
+            }
+          ],
+          "description": "Convert a KeyboardEvent into a KeyboardShortcut"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "keyboardShortcutFromKeyboardEvent",
+          "declaration": {
+            "name": "keyboardShortcutFromKeyboardEvent",
+            "module": "utils/keyboard-event.ts"
           }
         }
       ]
@@ -3957,6 +4038,74 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/galactic/galactic.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Galactic",
+          "members": [
+            {
+              "kind": "field",
+              "name": "text",
+              "type": {
+                "text": "string"
+              },
+              "description": "Text to display in the bar"
+            },
+            {
+              "kind": "field",
+              "name": "show",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "text",
+              "fieldName": "text",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "tagName": "wcs-galactic",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Galactic",
+          "declaration": {
+            "name": "Galactic",
+            "module": "components/galactic/galactic.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-galactic",
+          "declaration": {
+            "name": "Galactic",
+            "module": "components/galactic/galactic.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/form-field/form-field.tsx",
       "declarations": [
         {
@@ -4159,74 +4308,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/galactic/galactic.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Galactic",
-          "members": [
-            {
-              "kind": "field",
-              "name": "text",
-              "type": {
-                "text": "string"
-              },
-              "description": "Text to display in the bar"
-            },
-            {
-              "kind": "field",
-              "name": "show",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "text",
-              "fieldName": "text",
-              "type": {
-                "text": "string"
-              }
-            }
-          ],
-          "tagName": "wcs-galactic",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Galactic",
-          "declaration": {
-            "name": "Galactic",
-            "module": "components/galactic/galactic.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-galactic",
-          "declaration": {
-            "name": "Galactic",
-            "module": "components/galactic/galactic.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/galactic-menu/galactic-menu.tsx",
       "declarations": [
         {
@@ -4352,6 +4433,18 @@
               }
             }
           ]
+        },
+        {
+          "kind": "function",
+          "name": "getSortOrderForAriaSort",
+          "parameters": [
+            {
+              "name": "sortOrder",
+              "type": {
+                "text": "WcsSortOrder"
+              }
+            }
+          ]
         }
       ],
       "exports": [
@@ -4361,6 +4454,54 @@
           "declaration": {
             "name": "getSortOrderInteger",
             "module": "components/grid/grid-interface.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "getSortOrderForAriaSort",
+          "declaration": {
+            "name": "getSortOrderForAriaSort",
+            "module": "components/grid/grid-interface.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/grid/grid-keyboard-event.ts",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "getActionForKeyboardEvent",
+          "return": {
+            "type": {
+              "text": "KeyboardEventAssociatedAction[]"
+            }
+          },
+          "parameters": [
+            {
+              "name": "event",
+              "type": {
+                "text": "KeyboardEvent"
+              }
+            },
+            {
+              "name": "type",
+              "type": {
+                "text": "'grid_no_selection' | 'grid_selection_single' | 'grid_selection_multiple'"
+              }
+            }
+          ],
+          "description": "We follow this https://www.w3.org/WAI/ARIA/apg/patterns/grid/"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "getActionForKeyboardEvent",
+          "declaration": {
+            "name": "getActionForKeyboardEvent",
+            "module": "components/grid/grid-keyboard-event.ts"
           }
         }
       ]
@@ -4488,6 +4629,32 @@
               "description": "Rows to display, contains user data and meta data"
             },
             {
+              "kind": "field",
+              "name": "cursorPosition",
+              "type": {
+                "text": "{col: number, row: number}"
+              },
+              "privacy": "private",
+              "description": "Used to track the focus position in the grid for keyboard navigation.  \r\nHeader row : index 0  \r\nFirst column :\r\n  - index 1 if selection mode multiple or single\r\n  - index 0 if no selection mode\r\nDefault position : col 0, row 1"
+            },
+            {
+              "kind": "method",
+              "name": "onCursorPositionChange",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "{col: number, row: number}"
+                  }
+                }
+              ]
+            },
+            {
               "kind": "method",
               "name": "onDataChange",
               "return": {
@@ -4518,12 +4685,118 @@
             },
             {
               "kind": "method",
+              "name": "hasSelectionColumn",
+              "description": "If selectionConfig is different from `none`, that means that an extra column for radio or checkbox is rendered\r\nin the table."
+            },
+            {
+              "kind": "method",
+              "name": "updateFocusedGridElement"
+            },
+            {
+              "kind": "method",
+              "name": "getGridElementAtPosition",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "col",
+                  "type": {
+                    "text": "number"
+                  }
+                },
+                {
+                  "name": "row",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "getGridElementAtCurrentCursorPosition",
+              "return": {
+                "type": {
+                  "text": "HTMLTableCellElement"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "moveCursorPosition",
+              "parameters": [
+                {
+                  "name": "directionX",
+                  "type": {
+                    "text": "number | 'first' | 'last'"
+                  }
+                },
+                {
+                  "name": "directionY",
+                  "type": {
+                    "text": "number | 'first' | 'last'"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleCursorPositionOnEmptyTh",
+              "description": "When the grid has selectionConfig single, an empty th appears at col=0, row=0.\r\nIt should not be focusable so the cursor navigates to col=1, row=0 instead."
+            },
+            {
+              "kind": "method",
               "name": "onHiddenColumnChange",
               "return": {
                 "type": {
                   "text": "void"
                 }
               }
+            },
+            {
+              "kind": "method",
+              "name": "onKeyDown",
+              "parameters": [
+                {
+                  "name": "_event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "doActionFromKeyboardEventAssociatedAction",
+              "parameters": [
+                {
+                  "name": "actionFromKeyboardEvent",
+                  "type": {
+                    "text": "KeyboardEventAssociatedAction"
+                  }
+                },
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "onClick",
+              "parameters": [
+                {
+                  "name": "_event",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ]
             },
             {
               "kind": "method",
@@ -4580,7 +4853,7 @@
               "privacy": "private",
               "parameters": [
                 {
-                  "name": "refreshOthersColmumnsSortOrderState",
+                  "name": "refreshOthersColumnsSortOrderState",
                   "type": {
                     "text": "boolean"
                   }
@@ -4627,6 +4900,15 @@
               }
             },
             {
+              "kind": "field",
+              "name": "gridElementsWithCoordinates",
+              "type": {
+                "text": "GridElementWithCoordinates[]"
+              },
+              "privacy": "private",
+              "readonly": true
+            },
+            {
               "kind": "method",
               "name": "sortChangeEventHandler",
               "return": {
@@ -4649,7 +4931,7 @@
               "privacy": "private",
               "parameters": [
                 {
-                  "name": "colmun",
+                  "name": "column",
                   "type": {
                     "text": "HTMLWcsGridColumnElement"
                   },
@@ -4755,6 +5037,24 @@
             },
             {
               "kind": "method",
+              "name": "rowIsAtCurrentCursorPosition",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "row",
+                  "type": {
+                    "text": "WcsGridRow"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
               "name": "renderSelectionColumn",
               "return": {
                 "type": {
@@ -4797,6 +5097,24 @@
             {
               "kind": "method",
               "name": "totalColumnCount",
+              "privacy": "private",
+              "description": "Returns the total number of columns"
+            },
+            {
+              "kind": "method",
+              "name": "totalDisplayedColumnCount",
+              "privacy": "private",
+              "description": "Returns the total number of columns that are not hidden"
+            },
+            {
+              "kind": "method",
+              "name": "atLeastOneColumnHidden",
+              "privacy": "private",
+              "description": "Returns true if at least one column is hidden from the table"
+            },
+            {
+              "kind": "method",
+              "name": "onGridColumnSlotChange",
               "privacy": "private"
             },
             {
@@ -4818,8 +5136,15 @@
                   "type": {
                     "text": "WcsGridRow"
                   }
+                },
+                {
+                  "name": "rowIndex",
+                  "type": {
+                    "text": "number"
+                  }
                 }
-              ]
+              ],
+              "description": "Returns the row with all mapped cells inside.  \r\nThe aria-rowindex here starts at 2 because the header row starts at index 1."
             }
           ],
           "attributes": [
@@ -5047,6 +5372,18 @@
             },
             {
               "kind": "method",
+              "name": "getSortOrderForAriaSort",
+              "parameters": [
+                {
+                  "name": "sortOrder",
+                  "type": {
+                    "text": "WcsSortOrder"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
               "name": "render",
               "return": {
                 "type": {
@@ -5058,6 +5395,19 @@
               "kind": "method",
               "name": "onSortClick",
               "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleSortKeyDown",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "_event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
             }
           ],
           "attributes": [
@@ -5122,6 +5472,20 @@
               "fieldName": "hidden",
               "type": {
                 "text": "boolean"
+              }
+            },
+            {
+              "name": "cursor-position",
+              "fieldName": "cursorPosition",
+              "type": {
+                "text": "{col: number, row: number}"
+              }
+            },
+            {
+              "name": "col-position",
+              "fieldName": "colPosition",
+              "type": {
+                "text": "number"
               }
             }
           ],
@@ -5273,7 +5637,7 @@
           "name": "GridPaginationArrow",
           "parameters": [
             {
-              "name": "{ active, order, double = false }"
+              "name": "{active, order, double = false}"
             }
           ]
         }
@@ -7565,117 +7929,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/progress-bar/progress-bar.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Component displaying progress as a horizontal bar.",
-          "name": "ProgressBar",
-          "cssProperties": [
-            {
-              "description": "Border radius",
-              "name": "--wcs-progress-bar-border-radius"
-            },
-            {
-              "description": "Border radius for size small",
-              "name": "--wcs-progress-bar-border-radius-small"
-            },
-            {
-              "description": "Animation duration",
-              "name": "--wcs-progress-bar-animation-duration"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "Extract<WcsSize, 'm' | 's'>"
-              },
-              "default": "'m'",
-              "description": "Specify the size of the progress bar.  \r\nm = default, s = smaller"
-            },
-            {
-              "kind": "field",
-              "name": "showLabel",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Whether it displays a label indicating the percentage of progress above the bar."
-            },
-            {
-              "kind": "field",
-              "name": "value",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "The actual value of the progress.\r\nRanging from 0 to 100."
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            },
-            {
-              "kind": "method",
-              "name": "rootClasses",
-              "return": {
-                "type": {
-                  "text": "string"
-                }
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "size",
-              "fieldName": "size",
-              "type": {
-                "text": "Extract<WcsSize, 'm' | 's'>"
-              }
-            },
-            {
-              "name": "show-label",
-              "fieldName": "showLabel",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "value",
-              "fieldName": "value",
-              "type": {
-                "text": "number"
-              }
-            }
-          ],
-          "tagName": "wcs-progress-bar",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ProgressBar",
-          "declaration": {
-            "name": "ProgressBar",
-            "module": "components/progress-bar/progress-bar.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-progress-bar",
-          "declaration": {
-            "name": "ProgressBar",
-            "module": "components/progress-bar/progress-bar.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/progress-radial/progress-radial.tsx",
       "declarations": [
         {
@@ -7962,6 +8215,117 @@
           "declaration": {
             "name": "Radio",
             "module": "components/radio/radio.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/progress-bar/progress-bar.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Component displaying progress as a horizontal bar.",
+          "name": "ProgressBar",
+          "cssProperties": [
+            {
+              "description": "Border radius",
+              "name": "--wcs-progress-bar-border-radius"
+            },
+            {
+              "description": "Border radius for size small",
+              "name": "--wcs-progress-bar-border-radius-small"
+            },
+            {
+              "description": "Animation duration",
+              "name": "--wcs-progress-bar-animation-duration"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "Extract<WcsSize, 'm' | 's'>"
+              },
+              "default": "'m'",
+              "description": "Specify the size of the progress bar.  \r\nm = default, s = smaller"
+            },
+            {
+              "kind": "field",
+              "name": "showLabel",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Whether it displays a label indicating the percentage of progress above the bar."
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "The actual value of the progress.\r\nRanging from 0 to 100."
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            },
+            {
+              "kind": "method",
+              "name": "rootClasses",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "size",
+              "fieldName": "size",
+              "type": {
+                "text": "Extract<WcsSize, 'm' | 's'>"
+              }
+            },
+            {
+              "name": "show-label",
+              "fieldName": "showLabel",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "value",
+              "fieldName": "value",
+              "type": {
+                "text": "number"
+              }
+            }
+          ],
+          "tagName": "wcs-progress-bar",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ProgressBar",
+          "declaration": {
+            "name": "ProgressBar",
+            "module": "components/progress-bar/progress-bar.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-progress-bar",
+          "declaration": {
+            "name": "ProgressBar",
+            "module": "components/progress-bar/progress-bar.tsx"
           }
         }
       ]

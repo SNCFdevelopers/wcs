@@ -107,37 +107,48 @@ export class GridPagination implements ComponentInterface {
         return (<Host slot="grid-pagination">
             <div class="container">
                 <div class="page-size">
-                    <wcs-select placeholder="Eléments par page" class="available-page-sizes" value={this.pageSize} onWcsChange={this.onChangePagesize.bind(this)}>
+                    <wcs-select placeholder="Eléments par page"
+                                class="available-page-sizes"
+                                aria-labelledby="elements-per-page-number elements-per-page-text"
+                                value={this.pageSize}
+                                onWcsChange={this.onChangePagesize.bind(this)}>
                         {
                             this.availablePageSizes.map((pageSize) =>
                                 <wcs-select-option value={pageSize}>{pageSize}</wcs-select-option>
                             )
                         }
                     </wcs-select>
-                    <span>&nbsp;éléments par page</span>
+                    <span id="elements-per-page-number" hidden>{this.pageSize}</span>
+                    <span id="elements-per-page-text">&nbsp;éléments par page</span>
                 </div>
 
                 <div class="items-count">
                     <span>{this.itemsCount} éléments</span>
                 </div>
 
-                <div class="page-management">
-                    <span class="pagination-arrow" onClick={this.firstPage.bind(this)}>
-                        <GridPaginationArrow active={this.canGoToPreviousPage()} order="previous" double></GridPaginationArrow>
-                    </span>
-                    <span class="pagination-arrow" onClick={this.previousPage.bind(this)}>
-                        <GridPaginationArrow active={this.canGoToPreviousPage()} order="previous"></GridPaginationArrow>
-                    </span>
-
-                    <span>{this.currentPage + 1} / {this.pageCount}</span>
-
-                    <span class="pagination-arrow" onClick={this.nextPage.bind(this)}>
-                        <GridPaginationArrow active={this.canGoToNextPage()} order="next"></GridPaginationArrow>
-                    </span>
-                    <span class="pagination-arrow" onClick={this.lastPage.bind(this)}>
-                        <GridPaginationArrow active={this.canGoToNextPage()} order="next" double></GridPaginationArrow>
-                    </span>
-                </div>
+                <nav aria-label="pagination">
+                    <ul class="page-management">
+                        <li class="pagination-arrow" onClick={this.firstPage.bind(this)}>
+                            <GridPaginationArrow active={this.canGoToPreviousPage()} order="previous" double></GridPaginationArrow>
+                        </li>
+                        <li class="pagination-arrow" onClick={this.previousPage.bind(this)}>
+                            <GridPaginationArrow active={this.canGoToPreviousPage()} order="previous"></GridPaginationArrow>
+                        </li>
+    
+                        <li class="pagination-counter">
+                            <span aria-label={`Page ${this.currentPage + 1} sur ${this.pageCount}`} aria-current="page">
+                                {this.currentPage + 1} / {this.pageCount}
+                            </span>
+                        </li>
+    
+                        <li class="pagination-arrow" onClick={this.nextPage.bind(this)}>
+                            <GridPaginationArrow active={this.canGoToNextPage()} order="next"></GridPaginationArrow>
+                        </li>
+                        <li class="pagination-arrow" onClick={this.lastPage.bind(this)}>
+                            <GridPaginationArrow active={this.canGoToNextPage()} order="next" double></GridPaginationArrow>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </Host>)
     }

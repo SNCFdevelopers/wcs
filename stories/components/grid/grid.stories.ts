@@ -344,6 +344,8 @@ export const CellStyling: StoryObj = {
  * }
  * ```
  * 
+ * **Available shortcut :** Shift + Space to select / unselect the focused row  
+ * 
  */
 export const Selection: StoryObj = {
     render: (args: GridArgs) => Template(args, this),
@@ -396,6 +398,9 @@ export const Selection: StoryObj = {
  *    ```
  * </details>
  *
+ * **Available shortcuts :**
+ *  - Shift + Space to select / unselect the focused row.
+ *  - Ctrl + A to select / unselect all rows.
  */
 export const MultiSelection: StoryObj = {
     render: (args: GridArgs) => Template(args, this),

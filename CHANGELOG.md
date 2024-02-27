@@ -67,6 +67,7 @@ for soon-to-be removed features.
     - add role radiogroup to the host => we can now add aria-label directly on the host
 - **form-field**: fix accessibility issue with label, description, error message and form control association
 - **mat-icon**: fix accessibility with aria-hidden on `<i>` element.
+- **grid**: (accessibility) add keyboard navigation and missing aria attributes 
 
 ### Security
 

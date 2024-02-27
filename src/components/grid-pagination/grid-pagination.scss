@@ -1,3 +1,5 @@
+@import '../../style/focus-outline.scss';
+
 :host {
     display: block;
     border-style: solid none none;
@@ -10,6 +12,7 @@
     grid-template-columns: auto auto auto;
     justify-content: space-between;
     color: var(--wcs-text-medium);
+    align-items: center;
 }
 
 .available-page-sizes {
@@ -21,6 +24,20 @@
     align-items: center;
 }
 
+.page-management {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
 .pagination-arrow {
     display: flex;
+}
+
+.pagination-counter {
+    padding: 0 var(--wcs-padding-s);
+}
+
+.items-count span:focus {
+    @include focus-outline();
 }

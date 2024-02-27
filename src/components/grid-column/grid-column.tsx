@@ -1,6 +1,22 @@
-import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Prop, Watch } from '@stencil/core';
-import { WcsCellFormatter, WcsGridColumnSortChangeEventDetails, WcsSortFn, WcsSortOrder } from '../grid/grid-interface';
+import {
+    Component,
+    ComponentInterface,
+    Element,
+    Event,
+    EventEmitter,
+    h,
+    Host,
+    Prop,
+    Watch
+} from '@stencil/core';
+import {
+    WcsCellFormatter,
+    WcsGridColumnSortChangeEventDetails,
+    WcsSortFn,
+    WcsSortOrder
+} from '../grid/grid-interface';
 import { GridSortArrow } from './grid-sort-arrow';
+import { isEnterKey, isSpaceKey } from "../../utils/helpers";
 
 /**
  * The grid column is a subcomponent of `wcs-grid` that represents a column of the table.
@@ -60,6 +76,20 @@ export class GridColumn implements ComponentInterface {
      */
     @Event() wcsHiddenChange!: EventEmitter<boolean>;
 
+    /**
+     * This property mustn't be set by hand, it is set by the wcs-grid component to move the focus between grid columns
+     * using keyboard.
+     * @internal
+     */
+    @Prop() public cursorPosition: {col: number, row: number};
+
+    /**
+     * This property mustn't be set by hand, it is set by the wcs-grid component to register the column index in a
+     * grid in order to move the focus between the grid columns.
+     * @internal
+     */
+    @Prop() public columnPosition: number;
+
     @Watch('hidden')
     parseMyObjectProp(newValue: boolean) {
         this.wcsHiddenChange.emit(newValue);
@@ -79,9 +109,28 @@ export class GridColumn implements ComponentInterface {
         });
     }
 
+    getSortOrderForAriaSort(sortOrder: WcsSortOrder) {
+        switch (sortOrder) {
+            case 'asc':
+                return 'ascending';
+            case 'desc':
+                return 'descending';
+            case 'none':
+            default:
+                return 'none';
+        }
+    }
+
     render(): any {
-        return (<Host onClick={this.onSortClick.bind(this)} slot="grid-column">
-            <th style={{width: this.width}} class={this.sort ? 'pointer' : ''}>
+        return (<Host slot="grid-column">
+            <th style={{width: this.width}}
+                class={this.sort ? 'pointer' : ''}
+                role={this.sort ? 'button' : null}
+                scope="col"
+                tabIndex={this.columnPosition === this.cursorPosition?.col && this.cursorPosition?.row === 0 ? 0 : -1}
+                onClick={this.onSortClick.bind(this)}
+                onKeyDown={this.handleSortKeyDown.bind(this)}
+                aria-sort={this.getSortOrderForAriaSort(this.sortOrder)}>
                 <div class="grid-column-th-content">
                     <span>{this.name}</span>
                     {
@@ -95,5 +144,12 @@ export class GridColumn implements ComponentInterface {
     private onSortClick() {
         // @Watch on sortOrder property will trigger wcsSortChange event
         this.sortOrder = this.sortOrder === 'none' || this.sortOrder === 'desc' ? 'asc' : 'desc';
+    }
+    
+    private handleSortKeyDown(_event: KeyboardEvent) {
+        if (isSpaceKey(_event) || isEnterKey(_event)) {
+            _event.preventDefault();
+            this.onSortClick();
+        }
     }
 }

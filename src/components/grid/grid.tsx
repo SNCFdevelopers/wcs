@@ -24,11 +24,18 @@ import {
     WcsGridRow,
     WcsGridRowData,
     WcsGridRowSelectedEventDetails,
-    WcsGridSelectionConfig
+    WcsGridSelectionConfig,
 } from './grid-interface';
 import { v4 as uuid } from 'uuid';
-import { cloneDeep, isEqual, get } from 'lodash-es';
+import { cloneDeep, get, isEqual } from 'lodash-es';
 import { GridPagination } from '../grid-pagination/grid-pagination';
+import { getActionForKeyboardEvent, KeyboardEventAssociatedAction } from "./grid-keyboard-event";
+
+interface GridElementWithCoordinates {
+    el: HTMLTableCellElement,
+    row: number,
+    col: number,
+}
 
 /**
  * The grid component is a complex component used as an HTML table to display collections of data.
@@ -91,7 +98,23 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
      * Event emitted when all rows are selected or unselected
      */
     @Event() wcsGridAllSelectionChange!: EventEmitter<WcsGridAllRowSelectedEventDetails>;
-
+    
+    /**
+     * Used to track the focus position in the grid for keyboard navigation.  
+     * Header row : index 0  
+     * First column :
+     *   - index 1 if selection mode multiple or single
+     *   - index 0 if no selection mode
+     * Default position : col 0, row 1
+     */
+    @State() private cursorPosition: {col: number, row: number} = {col: 0, row: 1};
+    
+    @Watch('cursorPosition')
+    onCursorPositionChange(newValue: {col: number, row: number}): void {
+        // Notify all grid columns that the cursorPosition has changed
+        this.getGridColumnsFromTemplate().forEach(g => g.cursorPosition = newValue);
+    }
+    
     @Watch('data')
     onDataChange(newValue: any[]): void {
         this.updateGridRows(newValue);
@@ -102,12 +125,165 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
     onSelectedItemsPropertyChange(newValue: any | any[]) {
         this.updateSelectionWithValues(newValue);
     }
+    
+    @Listen('focus')
+    onFocus() {
+        this.getElementToFocusAtCursorPosition()?.focus();
+    }
+
+    /**
+     * If selectionConfig is different from `none`, that means that an extra column for radio or checkbox is rendered
+     * in the table.
+     */
+    hasSelectionColumn() {
+        return this.selectionConfig !== 'none';
+    }
+    
+    /**
+     * Returns the element to focus at the current cursor position : it can be a cell (td, th) to focus or a nested
+     * checkbox / radio element if the selection mode is single or multiple
+     */
+    getElementToFocusAtCursorPosition(): HTMLTableCellElement | HTMLWcsCheckboxElement | HTMLWcsRadioElement {
+        const el = this.gridElementsWithCoordinates.find(cell =>
+            cell.col === this.cursorPosition?.col && cell.row === this.cursorPosition?.row)?.el;
+        return this.hasSelectionColumn()
+            ? el.querySelector('wcs-checkbox,wcs-radio') ?? el
+            : el;
+    }
+    
+    moveCursorPosition(directionX: number | 'first' | 'last', directionY: number | 'first' | 'last') {
+        this.cursorPosition = {
+            col: directionX === 'first' ? 0 :
+                directionX === 'last' ? this.totalDisplayedColumnCount() - 1 :
+                    Math.min(Math.max(this.cursorPosition.col + directionX, 0), this.totalDisplayedColumnCount() - 1),
+            row: directionY === 'first' ? 0 :
+                directionY === 'last' ? this.getRowsForCurrentPage().length :
+                    Math.min(Math.max(this.cursorPosition.row + directionY, 0), this.getRowsForCurrentPage().length)
+        };
+        
+        this.handleCursorPositionOnEmptyTh();
+        
+        this.getElementToFocusAtCursorPosition()?.focus();
+    }
+
+    /**
+     * When the grid has selectionConfig single, an empty th appears at col=0, row=0.
+     * It should not be focusable so the cursor navigates to col=1, row=0 instead.
+     */
+    handleCursorPositionOnEmptyTh() {
+        if (this.selectionConfig === 'single' && this.cursorPosition.col === 0 && this.cursorPosition.row === 0) {
+            this.cursorPosition = {
+                col: 1,
+                row: 0
+            }
+        }
+    }
 
     @Listen('wcsHiddenChange')
     onHiddenColumnChange(): void {
         // We use forceUpdate because the fact of hiding a column or not does not modify the internal structure of the grid (WcsGridRow).
         // Hide a column only impacts the way it is rendered but the grid-column remains in the dom and in our internal model.
         forceUpdate(this);
+        this.cursorPosition = { col: 0 , row: 1 }
+    }
+
+    @Listen('keydown')
+    onKeyDown(_event: KeyboardEvent) {
+        if (document.activeElement?.tagName === 'WCS-GRID-PAGINATION') {
+            return;
+        }
+        
+        let type: 'grid_no_selection' | 'grid_selection_single' | 'grid_selection_multiple';
+        
+        switch (this.selectionConfig) {
+            case "multiple":
+                type = 'grid_selection_multiple';
+                break;
+            case "single":
+                type = 'grid_selection_single';
+                break;
+            case "none":
+                type = 'grid_no_selection';
+                break;
+        }
+
+        const actionsFromKeyboardEvents: KeyboardEventAssociatedAction[] = getActionForKeyboardEvent(_event, type);
+
+        // If we have at least one associated actions, we prevent the default behavior of the event. 
+        // Except if the action is a focus move (we have to handle the preventDefault behavior ourselves in the action implementation)
+        if (actionsFromKeyboardEvents.length != 0) {
+            _event.preventDefault();
+        }
+
+        for (const actionFromKeyboardEvent of actionsFromKeyboardEvents) {
+            this.doActionFromKeyboardEventAssociatedAction(actionFromKeyboardEvent, _event);
+        }
+    }
+
+    doActionFromKeyboardEventAssociatedAction(actionFromKeyboardEvent: KeyboardEventAssociatedAction, event: KeyboardEvent) {
+        switch (actionFromKeyboardEvent.kind) {
+            case "FocusCell":
+                switch (actionFromKeyboardEvent.target) {
+                    case "up":
+                        this.moveCursorPosition(0, -1);
+                        break;
+                    case "down":
+                        this.moveCursorPosition(0, 1);
+                        break;
+                    case "left":
+                        this.moveCursorPosition(-1, 0);
+                        break;
+                    case "right":
+                        this.moveCursorPosition(1, 0);
+                        break;
+                    case "first_of_row":
+                        this.moveCursorPosition('first', 0);
+                        break;
+                    case "last_of_row":
+                        this.moveCursorPosition('last', 0);
+                        break;
+                    case "first_of_grid":
+                        this.moveCursorPosition('first', 'first');
+                        break;
+                    case "last_of_grid":
+                        this.moveCursorPosition('last', 'last');
+                        break;
+                    default:
+                        break;
+                }
+            case "SelectRow":
+                switch (actionFromKeyboardEvent.target) {
+                    case "one":
+                        event.preventDefault();
+                        if (this.cursorPosition.row > 0) {
+                            this.onRowSelection(this.rows[this.cursorPosition.row - 1]);
+                        }
+                        break;
+                    case "all":
+                        this.selectAllRows();
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            default:
+                throw new Error("Internal error");
+        }
+    }
+    
+    
+    @Listen('mousedown')
+    onClick(_event: MouseEvent) {
+        const clickedGridElement: HTMLTableCellElement = _event.composedPath()
+            .filter(x => ['TD', 'TH']
+            .includes((x as HTMLElement).nodeName))[0] as HTMLTableCellElement;
+        
+        const clickedGridElementWithCoordinates = this.gridElementsWithCoordinates.find(e => e.el === clickedGridElement);
+        
+        this.cursorPosition = {
+            col: clickedGridElementWithCoordinates.col,
+            row: clickedGridElementWithCoordinates.row,
+        }
     }
 
     private updateSelectionWithValues(values: any | any[]) {
@@ -145,7 +321,10 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
                     selected: false,
                     cells: []
                 };
+                let index = 0;
                 for (const column of this.columns) {
+                    column.columnPosition = index + (this.hasSelectionColumn() ? 1 : 0);
+                    index++;
                     row.cells.push({
                         content: get(data[i], column.path),
                         column,
@@ -175,14 +354,14 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
      * Handle existing column's filters (defined before the grid is instantiated)
      * @private
      */
-    private refreshSort(refreshOthersColmumnsSortOrderState: boolean) {
+    private refreshSort(refreshOthersColumnsSortOrderState: boolean) {
         //fixme: why the column property can be null or undefined?
         if (this.columns) {
             const [first, ...other] = this.columns.filter(c => c.sortOrder !== 'none');
             if (first && !this.serverMode) {
                 this.sortBy(first);
             }
-            refreshOthersColmumnsSortOrderState && this.disableSortOrderForColumns(other);
+            refreshOthersColumnsSortOrderState && this.disableSortOrderForColumns(other);
         }
     }
 
@@ -199,6 +378,36 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
         const slotted = this.el.shadowRoot.querySelector('slot[name="grid-pagination"]') as HTMLSlotElement;
         return slotted.assignedElements() as any as HTMLWcsGridPaginationElement[];
     }
+    
+    private get gridElementsWithCoordinates(): GridElementWithCoordinates[] {
+        const gridElements: GridElementWithCoordinates[] = [];
+        // If selection multiple, the first cell should be added to the list
+        if (this.selectionConfig === 'multiple') {
+            gridElements.push({
+                el: this.el.shadowRoot.querySelector('th'),
+                row: 0,
+                col: 0
+            });
+        }
+        this.getGridColumnsFromTemplate()
+          .filter(col => !col.hidden)
+          .forEach((col, index) => {
+              gridElements.push({
+                  el: col.shadowRoot.querySelector('th'),
+                  row: 0,
+                  col: index + (this.hasSelectionColumn() ? 1 : 0),
+              });
+          });
+        this.el.shadowRoot.querySelectorAll('td').forEach((cell, index) => {
+            gridElements.push({
+                el: cell,
+                row: 1 + Math.floor(index / this.totalDisplayedColumnCount()),
+                col: index % this.totalDisplayedColumnCount(),
+            });
+        });
+        
+        return gridElements;
+    }
 
     @Listen('wcsSortChange')
     sortChangeEventHandler(event: CustomEvent<WcsGridColumnSortChangeEventDetails>): void {
@@ -212,18 +421,18 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
 
     /**
      * Sorts the grid rows according to the given column's configuration
-     * @param colmun Column from which to extract the sorting configuration
+     * @param column Column from which to extract the sorting configuration
      * @private
      */
-    private sortBy(colmun: HTMLWcsGridColumnElement) {
-        if (colmun.sortFn) {
+    private sortBy(column: HTMLWcsGridColumnElement) {
+        if (column.sortFn) {
             this.rows = cloneDeep(this.rows)
-                .sort((a: any, b: any) => colmun.sortFn(a.data, b.data, colmun) * getSortOrderInteger(colmun.sortOrder));
+                .sort((a: any, b: any) => column.sortFn(a.data, b.data, column) * getSortOrderInteger(column.sortOrder));
         } else {
             this.rows = cloneDeep(this.rows)
                 .sort((a: any, b: any) => {
-                    const path = colmun.path;
-                    return ((get(a.data, path) < get(b.data, path)) ? -1 : (get(a.data, path) > get(b.data, path)) ? 1 : 0) * getSortOrderInteger(colmun.sortOrder);
+                    const path = column.path;
+                    return ((get(a.data, path) < get(b.data, path)) ? -1 : (get(a.data, path) > get(b.data, path)) ? 1 : 0) * getSortOrderInteger(column.sortOrder);
                 });
         }
     }
@@ -298,17 +507,21 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
         return this.rows;
     }
 
-    renderSelectionColumn(row: WcsGridRow): any {
+    renderSelectionColumn(row: WcsGridRow, rowIndex: number): any {
         switch (this.selectionConfig) {
             case 'none':
                 return;
-            case 'single':
-                return <td>
-                    <wcs-radio checked={row.selected} onWcsRadioClick={this.onRowSelection.bind(this, row)}/>
+            case 'single': 
+                return <td aria-colindex={this.atLeastOneColumnHidden() ? 1 : null}
+                           tabIndex={this.cursorPosition?.col === 0 && rowIndex + 1 === this.cursorPosition?.row ? 0 : -1}>
+                    <wcs-radio tabIndex={-1}
+                               checked={row.selected} onWcsRadioClick={this.onRowSelection.bind(this, row)}/>
                 </td>;
-            case 'multiple':
-                return <td>
-                    <wcs-checkbox checked={row.selected} onWcsChange={this.onRowSelection.bind(this, row)}/>
+            case 'multiple': 
+                return <td aria-colindex={this.atLeastOneColumnHidden() ? 1 : null}
+                           tabIndex={this.cursorPosition?.col === 0 && rowIndex + 1 === this.cursorPosition?.row ? 0 : -1}>
+                    <wcs-checkbox tabIndex={-1}
+                                  checked={row.selected} onWcsChange={this.onRowSelection.bind(this, row)}/>
                 </td>;
         }
     }
@@ -324,65 +537,106 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
         return cell.content;
     }
 
+    /**
+     * Returns the total number of columns
+     * @private
+     */
     private totalColumnCount() {
         if (!this.columns) {
             return 0;
         }
-        return this.columns.length + (this.selectionConfig === 'none' ? 0 : 1);
+        return this.columns.length + (this.hasSelectionColumn() ? 1 : 0);
     }
 
+    /**
+     * Returns the total number of columns that are not hidden
+     * @private
+     */
+    private totalDisplayedColumnCount() {
+        return this.totalColumnCount() - this.columns?.filter(col => col.hidden).length ?? 0;
+    }
+
+    /**
+     * Returns true if at least one column is hidden from the table
+     * @private
+     */
+    private atLeastOneColumnHidden() {
+        return this.totalDisplayedColumnCount() !== this.totalColumnCount();
+    }
+    
     render(): any {
         return (
-            <Host>
-                {
-                    <table>
-                        <thead>
-                        {
-                            this.selectionConfig === 'none' ? ''
+          <Host>
+              {
+                  <table role="grid"
+                         aria-rowcount={!this.loading && this.rows?.length}
+                         aria-colcount={!this.loading && this.totalDisplayedColumnCount()}>
+                      <thead>
+                      <tr aria-rowindex="1">
+                          {
+                              this.selectionConfig === 'none' ? ''
                                 : <th class="wcs-grid-selection-column">
                                     {
                                         this.selectionConfig === 'single' ? '' :
-                                            <wcs-checkbox checked={this.allRowsAreSelected()}
-                                                          onWcsChange={this.selectAllRows.bind(this)}/>
+                                          <wcs-checkbox tabIndex={this.cursorPosition?.col === 0
+                                                                    && this.cursorPosition?.row === 0  ? 0 : -1}
+                                                        checked={this.allRowsAreSelected()}
+                                                        onWcsChange={this.selectAllRows.bind(this)}/>
                                     }
                                 </th>
-                        }
-                        <slot name="grid-column"></slot>
-                        </thead>
-                        <tbody>
-                        {
-                            this.loading
-                                ? <tr>
-                                    <td colSpan={this.totalColumnCount()} class="loading">
-                                        <wcs-spinner></wcs-spinner>
-                                    </td>
-                                </tr>
-                                : this.rows
-                                    ?.filter(row => this.serverMode || !this.paginationEl || row.page === this.paginationEl.currentPage)
-                                    .map(row =>
-                                        this.renderRow(row)
-                                    )
-                        }
-                        </tbody>
-                    </table>
-                }
-                <slot name="grid-pagination"></slot>
-            </Host>
+                          }
+                          <slot name="grid-column"></slot>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      {
+                          this.loading
+                            ? <tr aria-busy="true">
+                                <td colSpan={this.totalColumnCount()} class="loading">
+                                    <wcs-spinner></wcs-spinner>
+                                </td>
+                            </tr>
+                            : this.rows
+                              ?.filter(row => this.serverMode || !this.paginationEl || row.page === this.paginationEl.currentPage)
+                              .map((row, index) =>
+                                this.renderRow(row, index)
+                              )
+                      }
+                      </tbody>
+                  </table>
+              }
+              <slot name="grid-pagination"></slot>
+          </Host>
         );
     }
 
-    private renderRow(row: WcsGridRow) {
-        return <tr class={row.selected ? 'selected' : ''}>
-            {this.renderSelectionColumn(row)}
-            {row.cells?.map(cell => {
+    /**
+     * Returns the row with all mapped cells inside.  
+     * The aria-rowindex here starts at 2 because the header row starts at index 1. 
+     * @private
+     */ 
+    private renderRow(row: WcsGridRow, rowIndex: number) {
+        let hiddenColumnCount = 0;
+        return <tr class={row.selected ? 'selected' : ''}
+                   aria-selected={row.selected ? 'true' : null}
+                   aria-rowindex={rowIndex + 2}>
+            {this.renderSelectionColumn(row, rowIndex)}
+            {row.cells?.map((cell, cellIndex) => {
                     if (cell.column.hidden) {
+                        hiddenColumnCount++;
                         return;
                     }
+                    const nonHiddenColumnIndex =  cellIndex - hiddenColumnCount + 1 + (this.hasSelectionColumn() ? 1 : 0);
+                    const cursorIsOnCell = nonHiddenColumnIndex - 1 === this.cursorPosition?.col 
+                      && rowIndex + 1 === this.cursorPosition?.row;
                     return cell.column.customCells
-                        ? (<td>
+                        ? (<td tabIndex={cursorIsOnCell ? 0 : -1}
+                               aria-colindex={this.atLeastOneColumnHidden() ? nonHiddenColumnIndex : null}>
                             <slot name={cell.column.id + '-' + row.data[this.rowIdPath]}/>
                         </td>)
-                        : (<td part={cell.column.path + '-column'}>{this.getCellContent(row, cell)}</td>)
+                        : (<td tabIndex={cursorIsOnCell ? 0 : -1}
+                               aria-colindex={this.atLeastOneColumnHidden() ? nonHiddenColumnIndex : null}
+                               part={cell.column.path + '-column'}>{this.getCellContent(row, cell)}</td>)
                 }
             )}
         </tr>;

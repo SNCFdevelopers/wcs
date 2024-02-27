@@ -1,3 +1,5 @@
+@import '../../style/focus-outline.scss';
+
 :host {
     display: block;
     --wcs-grid-highlight-color: var(--wcs-light);
@@ -24,6 +26,10 @@
         color: var(--wcs-gray-light);
         margin: 0;
         padding: calc(var(--wcs-padding) / 2) var(--wcs-padding);
+
+        &:focus-visible {
+            @include focus-outline($outline-offset: 0);
+        }
     }
 
     tr:not(:last-child) td {

@@ -406,6 +406,14 @@ export namespace Components {
      */
     interface WcsGridColumn {
         /**
+          * This property mustn't be set by hand, it is set by the wcs-grid component to register the column index in a grid in order to move the focus between the grid columns.
+         */
+        "columnPosition": number;
+        /**
+          * This property mustn't be set by hand, it is set by the wcs-grid component to move the focus between grid columns using keyboard.
+         */
+        "cursorPosition": {col: number, row: number};
+        /**
           * Set to true if using a `wcs-custom-cell` linked to it.
          */
         "customCells": boolean;
@@ -2274,6 +2282,14 @@ declare namespace LocalJSX {
      * @csspart [path]-column - CSS part for each column for styling. e.g: first_name-column, email-column
      */
     interface WcsGridColumn {
+        /**
+          * This property mustn't be set by hand, it is set by the wcs-grid component to register the column index in a grid in order to move the focus between the grid columns.
+         */
+        "columnPosition"?: number;
+        /**
+          * This property mustn't be set by hand, it is set by the wcs-grid component to move the focus between grid columns using keyboard.
+         */
+        "cursorPosition"?: {col: number, row: number};
         /**
           * Set to true if using a `wcs-custom-cell` linked to it.
          */

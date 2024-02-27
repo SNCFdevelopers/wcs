@@ -18,6 +18,13 @@ export const wcsFocusableElements = [
     'wcs-counter',
 ];
 
+/**
+ * Returns true if the provided element is part of the wcsFocusableElements list
+ */
+export function isWcsFocusableElement(element: any): boolean {
+    return wcsFocusableElements.includes(element.tagName.toLowerCase());
+}
+
 export function isFocusable(element: any) {
     if (parseInt(element.getAttribute('tabindex')) < 0) {
         return false;
@@ -49,7 +56,7 @@ export function isFocusable(element: any) {
         return true;
     }
 
-    if (wcsFocusableElements.includes(element.tagName.toLowerCase())) {
+    if (isWcsFocusableElement(element)) {
         return true;
     }
 
