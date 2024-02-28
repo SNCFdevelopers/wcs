@@ -30,7 +30,9 @@ for now removed features.
 
 - **select**: internal value was not changed when the select is closed and when we used keyboard nav on it (key up, 
 key down... to change the current selected option)
-- **doc**: improve `wcs-select`, `wcs-input` and `wcs-dropdown` documentation
+- **doc**: 
+  - improve `wcs-select`, `wcs-input` and `wcs-dropdown` documentation
+  - fix accessibility problem for form-field radio group story => add name to each wcs-radio
 - **modal**: (accessibility) focus modal controls which served to open the modal on closure
 - **dropdown**: display empty container when no items with fixed width
 - **progress-radial**: fix component computed size, documentation and aria attributes

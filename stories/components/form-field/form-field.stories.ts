@@ -94,12 +94,12 @@ Select.args = {};
 const RadioTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) => html`
     <wcs-form-field ?is-error=${args.isError}>
         <wcs-label>What is your favorite animal?</wcs-label>
-        <wcs-radio-group name="SA">
-            <wcs-radio label="SNCF" value="1"></wcs-radio>
-            <wcs-radio label="SNCF Réseau" value="2"></wcs-radio>
-            <wcs-radio label="SNCF Voyageurs" value="3"></wcs-radio>
-            <wcs-radio label="Gares & Connexions" value="4"></wcs-radio>
-            <wcs-radio label="Rail Logistics Europe (FRET)" value="5"></wcs-radio>
+        <wcs-radio-group>
+            <wcs-radio name="SA" label="SNCF" value="1"></wcs-radio>
+            <wcs-radio name="SA" label="SNCF Réseau" value="2"></wcs-radio>
+            <wcs-radio name="SA" label="SNCF Voyageurs" value="3"></wcs-radio>
+            <wcs-radio name="SA" label="Gares & Connexions" value="4"></wcs-radio>
+            <wcs-radio name="SA" label="Rail Logistics Europe (FRET)" value="5"></wcs-radio>
         </wcs-radio-group>
         <wcs-hint>An animal can have several subsidiaries</wcs-hint>
         <wcs-error>Please, give us a valid color</wcs-error>
