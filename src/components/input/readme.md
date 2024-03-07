@@ -57,12 +57,12 @@ Implementation mainly inspired from Ionic Input Component.
 
 ## Events
 
-| Event       | Description                             | Type                                  |
-| ----------- | --------------------------------------- | ------------------------------------- |
-| `wcsBlur`   | Emitted when the input loses focus.     | `CustomEvent<FocusEvent>`             |
-| `wcsChange` | Emitted when the value has changed.     | `CustomEvent<InputChangeEventDetail>` |
-| `wcsFocus`  | Emitted when the input has focus.       | `CustomEvent<FocusEvent>`             |
-| `wcsInput`  | Emitted when a keyboard input occurred. | `CustomEvent<KeyboardEvent>`          |
+| Event       | Description                                                                                           | Type                                  |
+| ----------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| `wcsBlur`   | Emitted when the input loses focus.                                                                   | `CustomEvent<FocusEvent>`             |
+| `wcsChange` | Emitted when the value has changed. See https://developer.mozilla.org/en-US/docs/Web/Events/change    | `CustomEvent<InputChangeEventDetail>` |
+| `wcsFocus`  | Emitted when the input has focus.                                                                     | `CustomEvent<FocusEvent>`             |
+| `wcsInput`  | Emitted when a keyboard input occurred. See https://developer.mozilla.org/en-US/docs/Web/Events/input | `CustomEvent<KeyboardEvent>`          |
 
 
 ## Methods

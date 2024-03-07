@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-03-14T14:25:24",
+  "timestamp": "2024-03-19T16:29:54",
   "compiler": {
     "name": "@stencil/core",
     "version": "3.0.0",
@@ -2626,6 +2626,12 @@
           "wcs-select",
           "wcs-select-option"
         ],
+        "wcs-select": [
+          "wcs-input"
+        ],
+        "wcs-input": [
+          "wcs-mat-icon"
+        ],
         "wcs-select-option": [
           "wcs-checkbox"
         ]
@@ -3843,7 +3849,7 @@
           "bubbles": true,
           "cancelable": true,
           "composed": true,
-          "docs": "Emitted when the value has changed.",
+          "docs": "Emitted when the value has changed. See https://developer.mozilla.org/en-US/docs/Web/Events/change",
           "docsTags": []
         },
         {
@@ -3861,7 +3867,7 @@
           "bubbles": true,
           "cancelable": true,
           "composed": true,
-          "docs": "Emitted when a keyboard input occurred.",
+          "docs": "Emitted when a keyboard input occurred. See https://developer.mozilla.org/en-US/docs/Web/Events/input",
           "docsTags": []
         }
       ],
@@ -3878,13 +3884,18 @@
           "docs": ""
         }
       ],
-      "dependents": [],
+      "dependents": [
+        "wcs-select"
+      ],
       "dependencies": [
         "wcs-mat-icon"
       ],
       "dependencyGraph": {
         "wcs-input": [
           "wcs-mat-icon"
+        ],
+        "wcs-select": [
+          "wcs-input"
         ]
       }
     },
@@ -4544,7 +4555,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-progress-radial",
       "readme": "# Progress radial\r\n\r",
-      "docs": "",
+      "docs": "The progress-radial component is a circular progress bar that indicates the current completion of a task.",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -4554,7 +4565,7 @@
           "mutable": false,
           "attr": "show-label",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Whether the component should display the % label inside",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -4571,7 +4582,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "The size of the progress radial (in px)",
           "docsTags": [],
           "default": "120",
           "values": [
@@ -4588,7 +4599,7 @@
           "mutable": false,
           "attr": "value",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "The value of the progress radial. Prefer values between 0 and 100.",
           "docsTags": [],
           "default": "0",
           "values": [
@@ -4869,15 +4880,36 @@
       "encapsulation": "shadow",
       "tag": "wcs-select",
       "readme": "\r\n## TODO\r\n\r\n- étudier la possibilité de mieux gérer la taille de l'overlay du select\r\n  - utiliser la variable `--wcs-select-overlay-max-height` ?\r\n  - on essaye de tout afficher, si pas possible on regarde s'il y a plus de place vers le haut\r\n    si c'est le cas, on affiche l'overlay vers le haut avec le maximum d'option à l'écran\r\n    sinon vers le bas, avec un maximum d'options à l'écran. Le plus simple est de faire ces calculs\r\n    au moment du click pour déplier le select, comme c'est le cas actuellement ?\r\n\r\n\r",
-      "docs": "The select component (also named combobox) is a form component that allows users to select one or more options\r\nfrom a list.  \r\nUse it with several slotted `wcs-select-option` inside.",
+      "docs": "The select component (also named combobox) is a form component that allows users to select one or more options\r\nfrom a list.\r\nUse it with several slotted `wcs-select-option` inside.",
       "docsTags": [
         {
           "name": "slot",
-          "text": "wcs-select-option - The select options to render."
+          "text": "wcs-select-option Contains all the options to render"
+        },
+        {
+          "name": "slot",
+          "text": "wcs-select-filter-noresult Contains the customizable \"No result found\" div (autocomplete mode only)."
         }
       ],
       "usage": {},
       "props": [
+        {
+          "name": "autocomplete",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "autocomplete",
+          "reflectToAttr": true,
+          "docs": "If `true`, the select acts as an autocomplete field to filter your results.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
         {
           "name": "chips",
           "type": "boolean",
@@ -4923,6 +4955,21 @@
           "values": [
             {
               "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "filterFn",
+          "type": "(optionEl: HTMLWcsSelectOptionElement, filter: string) => boolean",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "Customizable sort function to change the comparison of values. If not provided, uses the default behavior :\r\n`option.textContent.toLowerCase().startsWith(filter.toLowerCase())`",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "(optionEl: HTMLWcsSelectOptionElement, filter: string) => boolean"
             }
           ],
           "optional": false,
@@ -5060,6 +5107,15 @@
           "docsTags": []
         },
         {
+          "event": "wcsFilterChange",
+          "detail": "SelectFilerChangeEventDetail",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the autocomplete filter has changed.",
+          "docsTags": []
+        },
+        {
           "event": "wcsFocus",
           "detail": "void",
           "bubbles": true,
@@ -5090,21 +5146,38 @@
           "event": "wcsSelectOptionClick",
           "capture": false,
           "passive": false
+        },
+        {
+          "event": "focus",
+          "capture": false,
+          "passive": false
         }
       ],
       "styles": [],
       "slots": [
         {
-          "name": "wcs-select-option",
-          "docs": "The select options to render."
+          "name": "wcs-select-filter-noresult Contains the customizable \"No result found\" div (autocomplete mode only).",
+          "docs": ""
+        },
+        {
+          "name": "wcs-select-option Contains all the options to render",
+          "docs": ""
         }
       ],
       "parts": [],
       "dependents": [
         "wcs-grid-pagination"
       ],
-      "dependencies": [],
+      "dependencies": [
+        "wcs-input"
+      ],
       "dependencyGraph": {
+        "wcs-select": [
+          "wcs-input"
+        ],
+        "wcs-input": [
+          "wcs-mat-icon"
+        ],
         "wcs-grid-pagination": [
           "wcs-select"
         ]
@@ -5157,7 +5230,7 @@
           "mutable": true,
           "attr": "disabled",
           "reflectToAttr": true,
-          "docs": "Wether this option can be selected.",
+          "docs": "Whether this option can be selected.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -5174,7 +5247,7 @@
           "mutable": true,
           "attr": "selected",
           "reflectToAttr": true,
-          "docs": "Wether this option is selected.",
+          "docs": "Whether this option is selected.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -5695,7 +5768,7 @@
           "mutable": false,
           "attr": "item-key",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "The id of the tab. It should be unique.",
           "docsTags": [],
           "values": [
             {
@@ -5743,6 +5816,18 @@
         {
           "name": "example",
           "text": "```html\r\n<wcs-tabs>\r\n   <wcs-tab header=\"One\">The content !</wcs-tab>\r\n   <wcs-tab header=\"Two\">More content !</wcs-tab>\r\n</wcs-tabs>\r\n```"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-width - Width of each tab"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-padding-horizontal - Width of each tab"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-padding-vertical - Vertical padding"
         }
       ],
       "usage": {},

@@ -935,11 +935,11 @@ import type { InputChangeEventDetail as IWcsInputInputChangeEventDetail } from '
 
 export declare interface WcsInput extends Components.WcsInput {
   /**
-   * Emitted when a keyboard input occurred.
+   * Emitted when a keyboard input occurred. See https://developer.mozilla.org/en-US/docs/Web/Events/input
    */
   wcsInput: EventEmitter<CustomEvent<KeyboardEvent>>;
   /**
-   * Emitted when the value has changed.
+   * Emitted when the value has changed. See https://developer.mozilla.org/en-US/docs/Web/Events/change
    */
   wcsChange: EventEmitter<CustomEvent<IWcsInputInputChangeEventDetail>>;
   /**

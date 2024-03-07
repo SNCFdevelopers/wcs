@@ -21,11 +21,11 @@ export class SelectOption implements ComponentInterface {
     @Prop({ mutable: true, reflect: true }) selected = false;
     
     /** This property mustn't be set by hand, it is used by the `wcs-select` component.
-     * Applies a visual focus design on the option for autocomplete mode.
+     * Applies a highlight design on the option for autocomplete mode.
      * @internal
      * @ignore
     */
-    @Prop({ mutable: true, reflect: true }) visuallyFocused = false;
+    @Prop({ mutable: true, reflect: true }) highlighted = false;
 
     /** The option value, not what's displayed, use inner text instead. */
     @Prop() value?: any;

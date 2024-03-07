@@ -818,7 +818,7 @@ export namespace Components {
     }
     /**
      * The select component (also named combobox) is a form component that allows users to select one or more options
-     * from a list.  
+     * from a list.
      * Use it with several slotted `wcs-select-option` inside.
      */
     interface WcsSelect {
@@ -888,6 +888,11 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
+          * This property mustn't be set by hand, it is used by the `wcs-select` component. Applies a highlight design on the option for autocomplete mode.
+          * @ignore
+         */
+        "highlighted": boolean;
+        /**
           * This property mustn't be set by hand, it is used by the `wcs-select` component. If you want a multiple select, set `multiple` attribute on the parent select instead.
           * @ignore
          */
@@ -900,11 +905,6 @@ export namespace Components {
           * The option value, not what's displayed, use inner text instead.
          */
         "value"?: any;
-        /**
-          * This property mustn't be set by hand, it is used by the `wcs-select` component. Applies a visual focus design on the option for autocomplete mode.
-          * @ignore
-         */
-        "visuallyFocused": boolean;
     }
     /**
      * Use a skeleton circle as a placeholder round images, illustrations or components
@@ -1705,7 +1705,7 @@ declare global {
     };
     /**
      * The select component (also named combobox) is a form component that allows users to select one or more options
-     * from a list.  
+     * from a list.
      * Use it with several slotted `wcs-select-option` inside.
      */
     interface HTMLWcsSelectElement extends Components.WcsSelect, HTMLStencilElement {
@@ -2686,7 +2686,7 @@ declare namespace LocalJSX {
     }
     /**
      * The select component (also named combobox) is a form component that allows users to select one or more options
-     * from a list.  
+     * from a list.
      * Use it with several slotted `wcs-select-option` inside.
      */
     interface WcsSelect {
@@ -2764,6 +2764,11 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
+          * This property mustn't be set by hand, it is used by the `wcs-select` component. Applies a highlight design on the option for autocomplete mode.
+          * @ignore
+         */
+        "highlighted"?: boolean;
+        /**
           * This property mustn't be set by hand, it is used by the `wcs-select` component. If you want a multiple select, set `multiple` attribute on the parent select instead.
           * @ignore
          */
@@ -2777,11 +2782,6 @@ declare namespace LocalJSX {
           * The option value, not what's displayed, use inner text instead.
          */
         "value"?: any;
-        /**
-          * This property mustn't be set by hand, it is used by the `wcs-select` component. Applies a visual focus design on the option for autocomplete mode.
-          * @ignore
-         */
-        "visuallyFocused"?: boolean;
     }
     /**
      * Use a skeleton circle as a placeholder round images, illustrations or components
@@ -3308,7 +3308,7 @@ declare module "@stencil/core" {
             "wcs-radio-group": LocalJSX.WcsRadioGroup & JSXBase.HTMLAttributes<HTMLWcsRadioGroupElement>;
             /**
              * The select component (also named combobox) is a form component that allows users to select one or more options
-             * from a list.  
+             * from a list.
              * Use it with several slotted `wcs-select-option` inside.
              */
             "wcs-select": LocalJSX.WcsSelect & JSXBase.HTMLAttributes<HTMLWcsSelectElement>;

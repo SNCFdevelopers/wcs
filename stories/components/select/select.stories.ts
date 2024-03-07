@@ -42,16 +42,23 @@ export const Default: StoryObj = {
         <div style="min-height: 200px">
             <wcs-form-field>
                 <wcs-label>Choose an option</wcs-label>
-                <wcs-select placeholder="${args.placeholder ?? nothing}" id="theselect" value="${args.value ?? nothing}"
-                            ?disabled="${args.disabled}" ?multiple="${args.multiple}" ?chips="${args.chips}" size=${args.size ?? nothing} name="${args.name ?? nothing}">
+                <wcs-select placeholder="${args.placeholder ?? nothing}" 
+                            id="theselect" value="${args.value ?? nothing}"
+                            ?disabled="${args.disabled}" 
+                            ?multiple="${args.multiple}" 
+                            ?chips="${args.chips}" 
+                            size=${args.size ?? nothing}
+                            ?autocomplete=${args.autocomplete}
+                            .filterFn=${args.filterFn ?? nothing}}
+                            name="${args.name ?? nothing}">
                     <wcs-select-option value="1" chip-background-color="var(--wcs-pink)">One</wcs-select-option>
                     <wcs-select-option value="2" chip-background-color="var(--wcs-yellow)" chip-color="var(--wcs-black)">Two</wcs-select-option>
                     <wcs-select-option value="3" chip-background-color="var(--wcs-red)">Three</wcs-select-option>
-                    <wcs-select-option value="4" chip-background-color="var(--wcs-red)">Three</wcs-select-option>
-                    <wcs-select-option value="5" chip-background-color="var(--wcs-red)">Three</wcs-select-option>
-                    <wcs-select-option value="6" chip-background-color="var(--wcs-red)">Three</wcs-select-option>
-                    <wcs-select-option value="7" chip-background-color="var(--wcs-red)">Three</wcs-select-option>
-                    <wcs-select-option value="8" chip-background-color="var(--wcs-red)">Three</wcs-select-option>
+                    <wcs-select-option value="4" chip-background-color="var(--wcs-red)">Four</wcs-select-option>
+                    <wcs-select-option value="5" chip-background-color="var(--wcs-red)">Five</wcs-select-option>
+                    <wcs-select-option value="6" chip-background-color="var(--wcs-red)">Six</wcs-select-option>
+                    <wcs-select-option value="7" chip-background-color="var(--wcs-red)">Seven</wcs-select-option>
+                    <wcs-select-option value="8" chip-background-color="var(--wcs-red)">Eight</wcs-select-option>
                 </wcs-select>
             </wcs-form-field>
         </div>
@@ -276,6 +283,18 @@ export const AutocompleteWithCustomSlot = {
     `,
     args: {
         ...Autocomplete.args
+    }
+}
+
+/**
+ * The autocomplete mode with `multiple`.
+ */
+export const AutocompleteMultiple = {
+    render: (args) => Autocomplete.render(args),
+    args: {
+        ...Autocomplete.args,
+        id: 'select-autocomplete-multiple',
+        multiple: true,
     }
 }
 

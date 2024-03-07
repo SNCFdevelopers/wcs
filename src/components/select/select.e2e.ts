@@ -630,7 +630,7 @@ describe('Select component', () => {
 
             // Then
             expect(wcsSelect).not.toHaveClass("expanded");
-            expect(focusedEl).toBeNull();
+            expect(focusedEl).toBeDefined();
         });
         it('close the overlay on Tab + Shift keys pressed', async () => {
             // Given
@@ -761,7 +761,7 @@ describe('Select component', () => {
 
             // Then
             expect(wcsSelect).not.toHaveClass("expanded");
-            expect(focusedEl).toBeNull();
+            expect(focusedEl).toBeDefined();
         });
     });
     //region Autocomplete tests
@@ -795,7 +795,7 @@ describe('Select component', () => {
             await page.waitForChanges();
 
             // Then
-            const visuallyFocusedOption = await page.find('wcs-select-option[visually-focused]');
+            const visuallyFocusedOption = await page.find('wcs-select-option[highlighted]');
             expect(visuallyFocusedOption).toEqual(firstOptionEnabled);
             expect(wcsSelect).toHaveClass("expanded");
         });
@@ -809,7 +809,7 @@ describe('Select component', () => {
             await page.waitForChanges();
 
             // Then
-            const anyVisuallyFocusedOption= await page.find('wcs-select-option[visually-focused]');
+            const anyVisuallyFocusedOption= await page.find('wcs-select-option[highlighted]');
             expect(wcsSelect).toHaveClass("expanded");
             expect(anyVisuallyFocusedOption).toBeNull();
         });
@@ -860,9 +860,22 @@ describe('Select component', () => {
             // Then
             expect(wcsSelect).not.toHaveClass("expanded");
         });
-        it('close listbox on Enter', async () => {
+        it('stay opened on Enter when no option are highlighted', async () => {
             // When
             await wcsAutocompleteInput.click();
+            await page.waitForChanges();
+            await page.keyboard.press('Enter');
+            await page.waitForChanges();
+
+            // Then
+            expect(wcsSelect).toHaveClass("expanded");
+        });
+        it('Close overlay when an highlighted option is selected with Enter keypress', async () => {
+            // When
+            await wcsAutocompleteInput.click();
+            await page.waitForChanges();
+            await page.keyboard.press('ArrowDown');
+            await page.waitForChanges();
             await page.keyboard.press('Enter');
             await page.waitForChanges();
 
@@ -879,7 +892,7 @@ describe('Select component', () => {
             await page.waitForChanges();
 
             // Then
-            const visuallyFocusedOption = await page.find('wcs-select-option[visually-focused]');
+            const visuallyFocusedOption = await page.find('wcs-select-option[highlighted]');
             expect(visuallyFocusedOption).toEqual(lastOption);
         });
         it('focus first option on Arrow Down', async () => {
@@ -892,7 +905,7 @@ describe('Select component', () => {
             await page.waitForChanges();
 
             // Then
-            const visuallyFocusedOption = await page.find('wcs-select-option[visually-focused]');
+            const visuallyFocusedOption = await page.find('wcs-select-option[highlighted]');
             expect(visuallyFocusedOption).toEqual(firstOption);
         });
         it('replace text, close listbox, focus textbox on Enter', async () => {
@@ -934,7 +947,7 @@ describe('Select component', () => {
             await page.waitForChanges();
 
             // Then
-            const visuallyFocusedOption = await page.find('wcs-select-option[visually-focused]');
+            const visuallyFocusedOption = await page.find('wcs-select-option[highlighted]');
             expect(visuallyFocusedOption).toEqual(firstSelectableOption);
         });
         it('cycle to previous option when Arrow Up', async () => {
@@ -949,7 +962,7 @@ describe('Select component', () => {
             await page.waitForChanges();
 
             // Then
-            const visuallyFocusedOption = await page.find('wcs-select-option[visually-focused]');
+            const visuallyFocusedOption = await page.find('wcs-select-option[highlighted]');
             expect(visuallyFocusedOption).toEqual(lastSelectableOption);
         });
         it('focus textbox, move cursor when Left or Right Arrow', async () => {
@@ -1016,7 +1029,7 @@ describe('Select component', () => {
             expect(focusedInput).toBeDefined(); // Focus textbox
             const optionsWithFilter = await page.findAll('wcs-select-option:not([aria-hidden])');
             expect(optionsWithFilter.length).toBeLessThan(allOptions.length); // Filter listbox
-            const visuallyFocusedOption = await page.find('wcs-select-option[visually-focused]');
+            const visuallyFocusedOption = await page.find('wcs-select-option[highlighted]');
             expect(visuallyFocusedOption).toBeNull(); // Remove visual focus from listbox
         });
     });

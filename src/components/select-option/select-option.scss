@@ -29,6 +29,10 @@ wcs-select-option[disabled] {
     color: var(--wcs-text-disabled);
 }
 
+wcs-select-option[hidden] {
+    display: none;
+}
+
 wcs-select-option[selected] {
     color: var(--wcs-primary);
     background-color: var(--wcs-light);
@@ -47,9 +51,10 @@ wcs-select-option[multiple] {
     }
 }
 
-wcs-select-option[visually-focused] {
+wcs-select-option[highlighted] {
     outline: solid 1px var(--wcs-primary);
     outline-offset: -1px;
+    border-radius: var(--wcs-border-radius);
     color: var(--wcs-primary);
     background-color: var(--wcs-light);
 
