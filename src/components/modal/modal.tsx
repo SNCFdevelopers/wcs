@@ -201,9 +201,9 @@ export class Modal implements ComponentInterface {
                      aria-labelledby={modalTitleId}
                 >
                     <div class="wcs-modal-header">
-                        <h5 id={modalTitleId}>
+                        <h1 id={modalTitleId}>
                             <slot name="header"></slot>
-                        </h5>
+                        </h1>
                         {this.showCloseButton && (
                             <wcs-button shape="round" mode="clear" class="wcs-dark"
                                         onClick={($event) => this.onCloseButtonClick($event)}>
