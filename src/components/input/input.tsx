@@ -9,9 +9,9 @@ import {
 } from './input-interface';
 
 /**
- * The input component is a form control that accepts a single line of text.    
+ * The input component is a form control that accepts a single line of text.
  * Implementation mainly inspired from Ionic Input Component.
- * 
+ *
  *
  * <details>
  *     <summary>Accessibility guidelines 💡</summary>
@@ -245,14 +245,6 @@ export class Input implements ComponentInterface {
      */
     @Event() wcsFocus!: EventEmitter<FocusEvent>;
 
-    /**
-     * Update the native input element when the value changes
-     */
-    @Watch('value')
-    protected valueChanged() {
-        this.wcsChange.emit({value: this.value?.toString()});
-    }
-
     componentWillLoad() {
         this.inheritedAttributes = inheritAttributes(this.el, ['aria-label', 'tabindex', 'title']);
 
@@ -280,7 +272,7 @@ export class Input implements ComponentInterface {
     }
 
     /**
-     * @deprecated use the native focus method instead  
+     * @deprecated use the native focus method instead
      * Sets focus on the native `input` in `wcs-input`.
      */
     @Method()
@@ -317,7 +309,7 @@ export class Input implements ComponentInterface {
             : clearOnEdit;
     }
 
-    private getValue(): string {
+    private getValueAsString(): string {
         return typeof this.value === 'number' ? this.value.toString() :
             (this.value || '').toString();
     }
@@ -328,6 +320,10 @@ export class Input implements ComponentInterface {
             this.value = input.value || '';
         }
         this.wcsInput.emit(ev as KeyboardEvent);
+    }
+
+    private onChange = (_: Event) => {
+        this.wcsChange.emit({value: this.nativeInput.value});
     }
 
     private onBlur = (ev: FocusEvent) => {
@@ -391,7 +387,7 @@ export class Input implements ComponentInterface {
     }
 
     private hasValue(): boolean {
-        return this.getValue().length > 0;
+        return this.getValueAsString().length > 0;
     }
 
     private passwordRevealIconClick(): void {
@@ -404,7 +400,7 @@ export class Input implements ComponentInterface {
     }
 
     render() {
-        const value = this.getValue();
+        const value = this.getValueAsString();
         const labelId = this.inputId + '-lbl';
         const label = findItemLabel(this.el);
         if (label) {
@@ -446,6 +442,7 @@ export class Input implements ComponentInterface {
                     type={this.passwordReveal ? 'text' : this.type}
                     value={value}
                     onInput={this.onInput}
+                    onChange={this.onChange}
                     onBlur={this.onBlur}
                     onFocus={this.onFocus}
                     onKeyDown={this.onKeydown}

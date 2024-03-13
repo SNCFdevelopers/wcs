@@ -5,7 +5,7 @@
 
 ## Overview
 
-The input component is a form control that accepts a single line of text.    
+The input component is a form control that accepts a single line of text.
 Implementation mainly inspired from Ionic Input Component.
 
 
@@ -79,7 +79,7 @@ Type: `Promise<HTMLInputElement>`
 
 ### `setFocus() => Promise<void>`
 
-<span style="color:red">**[DEPRECATED]**</span> use the native focus method instead  
+<span style="color:red">**[DEPRECATED]**</span> use the native focus method instead
 Sets focus on the native `input` in `wcs-input`.<br/><br/>
 
 #### Returns

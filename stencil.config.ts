@@ -16,7 +16,7 @@ export const config: Config = {
     testing: {
         rootDir: './src',
         testPathIgnorePatterns: ['/node_modules/', '/dist/', '/example/'],
-        browserArgs: ['--no-sandbox', '--disable-setuid-sandbox'],
+        browserArgs: ['--no-sandbox', '--disable-setuid-sandbox']
     },
     globalStyle: 'src/style/global.scss',
     plugins: [

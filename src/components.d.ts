@@ -497,7 +497,7 @@ export namespace Components {
         "size": 'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px';
     }
     /**
-     * The input component is a form control that accepts a single line of text.    
+     * The input component is a form control that accepts a single line of text.
      * Implementation mainly inspired from Ionic Input Component.
      * <details>
      *     <summary>Accessibility guidelines 💡</summary>
@@ -615,7 +615,7 @@ export namespace Components {
          */
         "setBlur": () => Promise<void>;
         /**
-          * @deprecated use the native focus method instead   Sets focus on the native `input` in `wcs-input`.
+          * @deprecated use the native focus method instead Sets focus on the native `input` in `wcs-input`.
          */
         "setFocus": () => Promise<void>;
         /**
@@ -1548,7 +1548,7 @@ declare global {
         new (): HTMLWcsIconElement;
     };
     /**
-     * The input component is a form control that accepts a single line of text.    
+     * The input component is a form control that accepts a single line of text.
      * Implementation mainly inspired from Ionic Input Component.
      * <details>
      *     <summary>Accessibility guidelines 💡</summary>
@@ -2343,7 +2343,7 @@ declare namespace LocalJSX {
         "size"?: 'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px';
     }
     /**
-     * The input component is a form control that accepts a single line of text.    
+     * The input component is a form control that accepts a single line of text.
      * Implementation mainly inspired from Ionic Input Component.
      * <details>
      *     <summary>Accessibility guidelines 💡</summary>
@@ -3204,7 +3204,7 @@ declare module "@stencil/core" {
             "wcs-horizontal-stepper": LocalJSX.WcsHorizontalStepper & JSXBase.HTMLAttributes<HTMLWcsHorizontalStepperElement>;
             "wcs-icon": LocalJSX.WcsIcon & JSXBase.HTMLAttributes<HTMLWcsIconElement>;
             /**
-             * The input component is a form control that accepts a single line of text.    
+             * The input component is a form control that accepts a single line of text.
              * Implementation mainly inspired from Ionic Input Component.
              * <details>
              *     <summary>Accessibility guidelines 💡</summary>
