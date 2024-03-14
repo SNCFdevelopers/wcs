@@ -110,7 +110,7 @@ export class EditableField implements ComponentInterface {
         })[0];
         if (!element) throw new Error('You must provide a slotted input element to handle edition');
         this.spiedElement = element as HTMLElement;
-        this.addChangeHandlerForWcsComponents(this.spiedElement);
+        this.addInputHandlerForWcsComponents(this.spiedElement);
         this.spiedElement.addEventListener('keydown', (event: KeyboardEvent) => {
             if (event.key === 'Enter') {
                 this.sendCurrentValue();
@@ -150,6 +150,7 @@ export class EditableField implements ComponentInterface {
     /**
      * This method subscribes the component to the change events produced by the other WCS components
      * (provided by the user in slot)
+     * @param elt the element to subscribe to
      * @private
      */
     private addChangeHandlerForWcsComponents(elt: HTMLElement) {
@@ -162,6 +163,20 @@ export class EditableField implements ComponentInterface {
         });
     }
 
+    /**
+     * This method subscribes the component to the input events produced by the other WCS components
+     * @param elt the element to subscribe to
+     * @private
+     */
+    private addInputHandlerForWcsComponents(elt: HTMLElement) {
+        elt.addEventListener('wcsInput', (event: CustomEvent) => {
+            event.stopImmediatePropagation();
+            this.currentValue = event.detail.target.value;
+            if (this.validateFn) {
+                this.isError = !this.validateFn(this.currentValue);
+            }
+        });
+    }
 
     private sendCurrentValue() {
         if (this.currentState === EditableComponentState.EDIT) {
