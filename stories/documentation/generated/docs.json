@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-03-29T15:20:29",
+  "timestamp": "2024-04-02T08:43:05",
   "compiler": {
     "name": "@stencil/core",
     "version": "3.0.0",
@@ -1428,6 +1428,32 @@
             },
             {
               "value": "square",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "\"l\" | \"m\" | \"s\"",
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "Dropdown's button size",
+          "docsTags": [],
+          "default": "'m'",
+          "values": [
+            {
+              "value": "l",
+              "type": "string"
+            },
+            {
+              "value": "m",
+              "type": "string"
+            },
+            {
+              "value": "s",
               "type": "string"
             }
           ],

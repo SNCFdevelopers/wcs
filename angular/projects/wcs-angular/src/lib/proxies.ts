@@ -404,14 +404,14 @@ export declare interface WcsDivider extends Components.WcsDivider {}
 
 
 @ProxyCmp({
-  inputs: ['disabled', 'mode', 'noArrow', 'placement', 'shape']
+  inputs: ['disabled', 'mode', 'noArrow', 'placement', 'shape', 'size']
 })
 @Component({
   selector: 'wcs-dropdown',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['disabled', 'mode', 'noArrow', 'placement', 'shape'],
+  inputs: ['disabled', 'mode', 'noArrow', 'placement', 'shape', 'size'],
 })
 export class WcsDropdown {
   protected el: HTMLElement;

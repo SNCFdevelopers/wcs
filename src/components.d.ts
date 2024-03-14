@@ -270,6 +270,10 @@ export namespace Components {
           * Dropdown's button shape
          */
         "shape": WcsButtonShape;
+        /**
+          * Dropdown's button size
+         */
+        "size": WcsButtonSize;
     }
     /**
      * You can add a divider between groups of items
@@ -2105,6 +2109,10 @@ declare namespace LocalJSX {
           * Dropdown's button shape
          */
         "shape"?: WcsButtonShape;
+        /**
+          * Dropdown's button size
+         */
+        "size"?: WcsButtonSize;
     }
     /**
      * You can add a divider between groups of items

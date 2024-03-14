@@ -21,6 +21,7 @@ To migrate, please refer to the storybook documentation (v4 to v5).
 - **select**: (IMPORTANT FEATURE 💡) add `autocomplete` mode to filter your results
 - **textarea**: add two css variables to set padding right and padding left
 - **modal**: add the css variable `--wcs-modal-overflow-y` to control the overflow-y of the modal content
+- **dropdown**: add the size attribute with available values `l`, `m (default)`, `s`
 
 ### Changed
 

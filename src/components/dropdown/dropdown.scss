@@ -4,6 +4,7 @@
 
 wcs-button {
     --wcs-button-padding: 8px 10px 8px 16px !important;
+    height: fit-content;
 }
 :host([no-arrow]) {
     wcs-button {
@@ -11,16 +12,15 @@ wcs-button {
     }
 }
 
-
-:host([shape=small]) {
+:host([size=s][no-arrow]) {
     wcs-button {
-        --wcs-button-padding: 2px 10px 2px 16px !important;
+        --wcs-button-padding: var(--wcs-padding-s) var(--wcs-padding-m) !important;
     }
 }
 
-:host([shape=small][no-arrow]) {
+:host([size=s]) {
     wcs-button {
-        --wcs-button-padding: 2px 16px 2px 16px !important;
+        --wcs-button-padding: var(--wcs-padding-s) calc(6px - var(--wcs-padding-s)) var(--wcs-padding-s) var(--wcs-padding-m) !important;
     }
 }
 
@@ -46,6 +46,14 @@ wcs-button {
     overflow: hidden;
     padding: calc(var(--wcs-padding) / 2) 0;
     background-color: var(--wcs-white);
+}
+
+// FIXME : Workaround to display the SelectArrow in blue when the background is white / transparent
+// Remove this when the SelectArrow has its own tokens and background-contrast handling
+:host(:not([mode=plain])) {
+    svg g path:first-of-type {
+        fill: var(--wcs-primary) !important;
+    }
 }
 
 #arrow,
