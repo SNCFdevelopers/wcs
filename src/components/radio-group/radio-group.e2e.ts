@@ -151,7 +151,7 @@ describe('Radio Group', () => {
                 `);
 
             const wcsRadioGroup = await page.find('wcs-radio-group');
-            wcsRadioGroup.find('#radio-1').then(radio => radio.focus());
+            wcsRadioGroup.find('#radio-1').then(async radio => await radio.focus());
 
             // When
             await page.keyboard.press('ArrowUp');
