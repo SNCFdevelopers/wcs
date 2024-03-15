@@ -2437,7 +2437,7 @@ declare namespace LocalJSX {
          */
         "onWcsBlur"?: (event: WcsInputCustomEvent<FocusEvent>) => void;
         /**
-          * Emitted when the value has changed.
+          * Emitted when the value has changed. See https://developer.mozilla.org/en-US/docs/Web/Events/change
          */
         "onWcsChange"?: (event: WcsInputCustomEvent<InputChangeEventDetail>) => void;
         /**
@@ -2445,7 +2445,7 @@ declare namespace LocalJSX {
          */
         "onWcsFocus"?: (event: WcsInputCustomEvent<FocusEvent>) => void;
         /**
-          * Emitted when a keyboard input occurred.
+          * Emitted when a keyboard input occurred. See https://developer.mozilla.org/en-US/docs/Web/Events/input
          */
         "onWcsInput"?: (event: WcsInputCustomEvent<KeyboardEvent>) => void;
         /**

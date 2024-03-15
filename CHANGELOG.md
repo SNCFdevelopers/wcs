@@ -9,6 +9,13 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
 
+⚠ This version contains breaking changes in following packages : 
+- wcs-core
+- wcs-angular
+- wcs-react
+
+To migrate, please refer to the storybook documentation (v4 to v5).
+
 ### Added
 
 - **textarea**: add two css variables to set padding right and padding left
@@ -38,6 +45,7 @@ key down... to change the current selected option)
   - modal title is now a h1 instead of a h5 for better semantic structure
 - **dropdown**: display empty container when no items with fixed width
 - **progress-radial**: fix component computed size, documentation and aria attributes
+- **input**: rework input events to be more consistent with native events (wcsInput, wcsChange)
 
 ### Security
 

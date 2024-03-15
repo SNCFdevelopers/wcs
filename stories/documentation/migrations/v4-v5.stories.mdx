@@ -1,0 +1,70 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Documentation/Migrations/v4 to v5"/>
+
+# Migrate from v4 to v5
+
+WCS v5 contains breaking changes only in the following packages:
+- wcs-core
+- wcs-angular
+- wcs-react
+
+## wcs-core
+
+### wcs-input
+
+#### `wcsChange` event is now emitted the same way as the native `change` event
+
+The `wcsChange` event is now emitted the same way as the native [`change` event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event). Before, it was emitted at every keystroke (matching the `input`) . Now, it is emitted when the input loses focus or when the user presses the `Enter` key.
+
+This change may cause issues if you were relying on the `wcsChange` event to be emitted at every keystroke. If you were using the `wcsChange` event to listen to every keystroke, you should now use the `wcsInput` event instead.
+
+Angular Example:
+
+Before :
+```ts
+@Component({
+  template: `
+    <wcs-input (wcsChange)="handleChange($event)"></wcs-input>
+  `
+})
+export class MyComponent {
+  handleChange(event: CustomEvent<InputChangeEventDetail>) {
+    console.log('The value has changed', event.detail.value);
+  }
+}
+```
+
+After :
+```ts
+@Component({
+  template: `
+    <wcs-input (wcsInput)="handleChange($event)"></wcs-input>
+  `
+})
+export class MyComponent {
+  handleChange(event: CustomEvent<KeyboardEvent>) {
+    console.log('The value has changed', event.target.value);
+  }
+}
+```
+
+Note that the `wcsInput` event details do not contain the value of the input, you should use `event.target.value` to get the value of the input.
+
+#### `wcsChange` event is no longer emitted when the input value changes programmatically
+
+The `wcsChange` event is no longer emitted when the input value changes programmatically (when you set the `value` attribute or property in js) . This change may cause issues if you were relying on the `wcsChange` event to be emitted when the input value changes programmatically.
+
+Let's take the following scenario: a search filter is implemented with an `wcs-input`, and the search is restarted each time the wcsChange event is received. The interface offers default values via buttons; when a button is clicked, the search input value is mutate in typescript, the `wcsChange` event is fire by the `wcs-input` and the search is rerun. After our modification, the search will not be rerun, so you'll have to run the search manually in the button's click event handler.
+
+## wcs-angular
+
+### wcs-input
+
+The `wcs-input` component has been updated to match the [changes](#wcs-input) in `wcs-core`.
+
+## wcs-react
+
+### wcs-input
+
+The `wcs-input` component has been updated to match the [changes](#wcs-input) in `wcs-core`.
