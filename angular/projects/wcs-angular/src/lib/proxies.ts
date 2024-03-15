@@ -1158,14 +1158,14 @@ export declare interface WcsNavItem extends Components.WcsNavItem {}
 
 
 @ProxyCmp({
-  inputs: ['showLabel', 'small', 'value']
+  inputs: ['showLabel', 'size', 'value']
 })
 @Component({
   selector: 'wcs-progress-bar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['showLabel', 'small', 'value'],
+  inputs: ['showLabel', 'size', 'value'],
 })
 export class WcsProgressBar {
   protected el: HTMLElement;

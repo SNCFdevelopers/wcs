@@ -1,7 +1,11 @@
 import { Component, ComponentInterface, h, Prop } from '@stencil/core';
+import { WcsSize } from "../../shared-types";
 
 /**
- * Component displaying progress as a bar.
+ * Component displaying progress as a horizontal bar.
+ * @cssprop --wcs-progress-bar-border-radius - Border radius
+ * @cssprop --wcs-progress-bar-border-radius-small - Border radius for size small
+ * @cssprop --wcs-progress-bar-animation-duration - Animation duration
  */
 @Component({
   tag: 'wcs-progress-bar',
@@ -10,9 +14,10 @@ import { Component, ComponentInterface, h, Prop } from '@stencil/core';
 })
 export class ProgressBar implements ComponentInterface {
   /**
-   * Whether the component display the small version
+   * Specify the size of the progress bar.  
+   * m = default, s = smaller
    */
-  @Prop() small: boolean = false;
+  @Prop() size: Extract<WcsSize, 'm' | 's'> = 'm';
 
   /**
    * Whether it displays a label indicating the percentage of progress above the bar.
@@ -45,7 +50,6 @@ export class ProgressBar implements ComponentInterface {
 
   rootClasses(): string {
     let classes = 'progress';
-    if (this.small) classes += ' small';
     if (this.showLabel) classes += ' has-label';
     // FIXME: Temporary fix so the label doesn't appear before the bar.
     if (this.value === 0) classes += ' value-zero';

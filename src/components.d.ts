@@ -20,12 +20,12 @@ import { AutocompleteTypes, InputChangeEventDetail, TextFieldTypes, WcsInputSize
 import { MaterialIconFamily, MaterialIconSize } from "./components/mat-icon/mat-icon-interface";
 import { ModalSize } from "./components/modal/modal-interface";
 import { WcsNativeSelectSize } from "./components/native-select/native-select";
+import { CssTypes, WcsSize } from "./shared-types";
 import { RadioGroupChangeEventDetail, RadioGroupMode } from "./components/radio-group/radio-group-interface";
 import { RadioChosedEvent } from "./components/radio/radio-interface";
 import { SelectChangeEventDetail, SelectFilerChangeEventDetail, WcsSelectFilterFn, WcsSelectSize } from "./components/select/select-interface";
 import { SelectOptionChosedEvent } from "./components/select-option/select-option-interface";
 import { WcsSkeletonAnimation } from "./components/skeleton/skeleton-interface";
-import { CssTypes } from "./shared-types";
 import { WcsSpinnerMode } from "./components/spinner/spinner-interface";
 import { SwitchChangeEventDetail, SwitchLabelAlignment } from "./components/switch/switch-interface";
 import { WcsTabChangeEvent, WcsTabsAlignment } from "./components/tabs/tabs-interface";
@@ -46,12 +46,12 @@ export { AutocompleteTypes, InputChangeEventDetail, TextFieldTypes, WcsInputSize
 export { MaterialIconFamily, MaterialIconSize } from "./components/mat-icon/mat-icon-interface";
 export { ModalSize } from "./components/modal/modal-interface";
 export { WcsNativeSelectSize } from "./components/native-select/native-select";
+export { CssTypes, WcsSize } from "./shared-types";
 export { RadioGroupChangeEventDetail, RadioGroupMode } from "./components/radio-group/radio-group-interface";
 export { RadioChosedEvent } from "./components/radio/radio-interface";
 export { SelectChangeEventDetail, SelectFilerChangeEventDetail, WcsSelectFilterFn, WcsSelectSize } from "./components/select/select-interface";
 export { SelectOptionChosedEvent } from "./components/select-option/select-option-interface";
 export { WcsSkeletonAnimation } from "./components/skeleton/skeleton-interface";
-export { CssTypes } from "./shared-types";
 export { WcsSpinnerMode } from "./components/spinner/spinner-interface";
 export { SwitchChangeEventDetail, SwitchLabelAlignment } from "./components/switch/switch-interface";
 export { WcsTabChangeEvent, WcsTabsAlignment } from "./components/tabs/tabs-interface";
@@ -778,7 +778,10 @@ export namespace Components {
         "text": string;
     }
     /**
-     * Component displaying progress as a bar.
+     * Component displaying progress as a horizontal bar.
+     * @cssprop --wcs-progress-bar-border-radius - Border radius
+     * @cssprop --wcs-progress-bar-border-radius-small - Border radius for size small
+     * @cssprop --wcs-progress-bar-animation-duration - Animation duration
      */
     interface WcsProgressBar {
         /**
@@ -786,9 +789,9 @@ export namespace Components {
          */
         "showLabel": boolean;
         /**
-          * Whether the component display the small version
+          * Specify the size of the progress bar.   m = default, s = smaller
          */
-        "small": boolean;
+        "size": Extract<WcsSize, 'm' | 's'>;
         /**
           * The actual value of the progress. Ranging from 0 to 100.
          */
@@ -1692,7 +1695,10 @@ declare global {
         new (): HTMLWcsNavItemElement;
     };
     /**
-     * Component displaying progress as a bar.
+     * Component displaying progress as a horizontal bar.
+     * @cssprop --wcs-progress-bar-border-radius - Border radius
+     * @cssprop --wcs-progress-bar-border-radius-small - Border radius for size small
+     * @cssprop --wcs-progress-bar-animation-duration - Animation duration
      */
     interface HTMLWcsProgressBarElement extends Components.WcsProgressBar, HTMLStencilElement {
     }
@@ -2653,7 +2659,10 @@ declare namespace LocalJSX {
         "text"?: string;
     }
     /**
-     * Component displaying progress as a bar.
+     * Component displaying progress as a horizontal bar.
+     * @cssprop --wcs-progress-bar-border-radius - Border radius
+     * @cssprop --wcs-progress-bar-border-radius-small - Border radius for size small
+     * @cssprop --wcs-progress-bar-animation-duration - Animation duration
      */
     interface WcsProgressBar {
         /**
@@ -2661,9 +2670,9 @@ declare namespace LocalJSX {
          */
         "showLabel"?: boolean;
         /**
-          * Whether the component display the small version
+          * Specify the size of the progress bar.   m = default, s = smaller
          */
-        "small"?: boolean;
+        "size"?: Extract<WcsSize, 'm' | 's'>;
         /**
           * The actual value of the progress. Ranging from 0 to 100.
          */
@@ -3323,7 +3332,10 @@ declare module "@stencil/core" {
             "wcs-nav": LocalJSX.WcsNav & JSXBase.HTMLAttributes<HTMLWcsNavElement>;
             "wcs-nav-item": LocalJSX.WcsNavItem & JSXBase.HTMLAttributes<HTMLWcsNavItemElement>;
             /**
-             * Component displaying progress as a bar.
+             * Component displaying progress as a horizontal bar.
+             * @cssprop --wcs-progress-bar-border-radius - Border radius
+             * @cssprop --wcs-progress-bar-border-radius-small - Border radius for size small
+             * @cssprop --wcs-progress-bar-animation-duration - Animation duration
              */
             "wcs-progress-bar": LocalJSX.WcsProgressBar & JSXBase.HTMLAttributes<HTMLWcsProgressBarElement>;
             /**

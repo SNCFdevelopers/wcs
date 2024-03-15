@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-04-04T15:32:56",
+  "timestamp": "2024-04-09T12:06:29",
   "compiler": {
     "name": "@stencil/core",
     "version": "3.0.0",
@@ -4556,8 +4556,21 @@
       "encapsulation": "shadow",
       "tag": "wcs-progress-bar",
       "readme": "# Progress bar\r\n\r",
-      "docs": "Component displaying progress as a bar.",
-      "docsTags": [],
+      "docs": "Component displaying progress as a horizontal bar.",
+      "docsTags": [
+        {
+          "name": "cssprop",
+          "text": "--wcs-progress-bar-border-radius - Border radius"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-progress-bar-border-radius-small - Border radius for size small"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-progress-bar-animation-duration - Animation duration"
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -4578,17 +4591,22 @@
           "required": false
         },
         {
-          "name": "small",
-          "type": "boolean",
+          "name": "size",
+          "type": "\"m\" | \"s\"",
           "mutable": false,
-          "attr": "small",
+          "attr": "size",
           "reflectToAttr": false,
-          "docs": "Whether the component display the small version",
+          "docs": "Specify the size of the progress bar.  \r\nm = default, s = smaller",
           "docsTags": [],
-          "default": "false",
+          "default": "'m'",
           "values": [
             {
-              "type": "boolean"
+              "value": "m",
+              "type": "string"
+            },
+            {
+              "value": "s",
+              "type": "string"
             }
           ],
           "optional": false,
