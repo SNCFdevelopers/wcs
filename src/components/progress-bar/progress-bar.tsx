@@ -36,7 +36,12 @@ export class ProgressBar implements ComponentInterface {
     };
 
     return (
-      <div class={this.rootClasses()} >
+      <div class={this.rootClasses()}
+           role="meter"
+           aria-valuemin="0"
+           aria-valuemax="100"
+           aria-valuenow={this.value}
+           aria-valuetext={this.value + '%'}>
         <div class="progress-bar" style={style}>
           {this.showLabel &&
             <span class="progress-label">
