@@ -1,5 +1,6 @@
-import { Component, Prop, Event, EventEmitter, ComponentInterface, h, Host } from '@stencil/core';
+import { Component, Prop, Event, EventEmitter, ComponentInterface, h, Host, Method } from '@stencil/core';
 import { CheckboxChangeEventDetail, CheckboxLabelAlignment } from './checkbox-interface';
+import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
 
 @Component({
     tag: 'wcs-checkbox',
@@ -8,10 +9,11 @@ import { CheckboxChangeEventDetail, CheckboxLabelAlignment } from './checkbox-in
         delegatesFocus: true
     }
 })
-export class Checkbox implements ComponentInterface {
+export class Checkbox implements ComponentInterface, MutableAriaAttribute {
     private checkboxId = `wcs-checkbox-${checkboxIds++}`;
+    private input!: HTMLInputElement;
+    
     @Prop() name = this.checkboxId;
-
     /**
      * If `true` the checkbox is in indeterminate state.
      */
@@ -37,6 +39,11 @@ export class Checkbox implements ComponentInterface {
      */
     @Event() wcsChange!: EventEmitter<CheckboxChangeEventDetail>;
 
+    @Method()
+    async setAriaAttribute(attr: AriaAttributeName, value: string) {
+        this.input.setAttribute(attr, value);
+    }
+
     handleChange(_event: Event) {
         this.indeterminate = false;
         this.checked = !this.checked;
@@ -53,6 +60,7 @@ export class Checkbox implements ComponentInterface {
                            checked={this.checked}
                            class="wcs-checkbox"
                            type="checkbox"
+                           ref={(el) => this.input = el}
                            name={this.name}
                            disabled={this.disabled}
                            id={this.name}>

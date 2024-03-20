@@ -229,7 +229,8 @@ export declare interface WcsCardBody extends Components.WcsCardBody {}
 
 
 @ProxyCmp({
-  inputs: ['checked', 'disabled', 'indeterminate', 'labelAlignment', 'name']
+  inputs: ['checked', 'disabled', 'indeterminate', 'labelAlignment', 'name'],
+  methods: ['setAriaAttribute']
 })
 @Component({
   selector: 'wcs-checkbox',
@@ -347,7 +348,8 @@ Used by the com-nav component to close the mobile menu overlay when a user click
 
 
 @ProxyCmp({
-  inputs: ['label', 'max', 'min', 'size', 'step', 'value']
+  inputs: ['label', 'max', 'min', 'size', 'step', 'value'],
+  methods: ['setAriaAttribute']
 })
 @Component({
   selector: 'wcs-counter',
@@ -912,7 +914,7 @@ export declare interface WcsIcon extends Components.WcsIcon {}
 
 @ProxyCmp({
   inputs: ['accept', 'autocapitalize', 'autocomplete', 'autocorrect', 'autofocus', 'clearInput', 'clearOnEdit', 'debounce', 'disabled', 'enterkeyhint', 'icon', 'inputmode', 'max', 'maxlength', 'min', 'minlength', 'multiple', 'name', 'pattern', 'placeholder', 'prefixLabel', 'readonly', 'required', 'size', 'spellcheck', 'state', 'step', 'suffixLabel', 'type', 'value'],
-  methods: ['setFocus', 'getInputElement']
+  methods: ['setFocus', 'getInputElement', 'setAriaAttribute']
 })
 @Component({
   selector: 'wcs-input',
@@ -1091,7 +1093,7 @@ export declare interface WcsModal extends Components.WcsModal {
 
 @ProxyCmp({
   inputs: ['size'],
-  methods: ['updateStyles']
+  methods: ['setAriaAttribute', 'updateStyles']
 })
 @Component({
   selector: 'wcs-native-select',
@@ -1228,7 +1230,8 @@ export declare interface WcsRadio extends Components.WcsRadio {
 
 
 @ProxyCmp({
-  inputs: ['mode', 'name', 'value']
+  inputs: ['mode', 'name', 'value'],
+  methods: ['setAriaAttribute']
 })
 @Component({
   selector: 'wcs-radio-group',
@@ -1259,7 +1262,7 @@ export declare interface WcsRadioGroup extends Components.WcsRadioGroup {
 
 @ProxyCmp({
   inputs: ['autocomplete', 'chips', 'compareWith', 'disabled', 'filterFn', 'multiple', 'name', 'placeholder', 'size', 'value'],
-  methods: ['open', 'close']
+  methods: ['open', 'close', 'setAriaAttribute']
 })
 @Component({
   selector: 'wcs-select',
@@ -1418,7 +1421,8 @@ export declare interface WcsSpinner extends Components.WcsSpinner {}
 
 
 @ProxyCmp({
-  inputs: ['checked', 'disabled', 'labelAlignment', 'name']
+  inputs: ['checked', 'disabled', 'labelAlignment', 'name'],
+  methods: ['setAriaAttribute']
 })
 @Component({
   selector: 'wcs-switch',
@@ -1508,7 +1512,7 @@ Emitted when the selected tab change.
 
 @ProxyCmp({
   inputs: ['autoGrow', 'autocapitalize', 'autofocus', 'clearOnEdit', 'cols', 'debounce', 'disabled', 'enterkeyhint', 'icon', 'inputmode', 'maxlength', 'minlength', 'name', 'placeholder', 'readonly', 'required', 'resize', 'rows', 'spellcheck', 'state', 'value', 'wrap'],
-  methods: ['fitContent', 'setFocus', 'getInputElement']
+  methods: ['setAriaAttribute', 'fitContent', 'setFocus', 'getInputElement']
 })
 @Component({
   selector: 'wcs-textarea',

@@ -1,13 +1,15 @@
-import { Component, ComponentInterface, Event, EventEmitter, h, Host, Prop } from '@stencil/core';
+import { Component, ComponentInterface, Event, EventEmitter, h, Host, Method, Prop } from '@stencil/core';
 import { SwitchChangeEventDetail, SwitchLabelAlignment } from './switch-interface';
+import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
 
 @Component({
     tag: 'wcs-switch',
     styleUrl: 'switch.scss',
     shadow: true
 })
-export class Switch implements ComponentInterface {
+export class Switch implements ComponentInterface, MutableAriaAttribute {
     private switchId = `wcs-switch-${switchIds++}`;
+    private input!: HTMLInputElement;
 
     @Prop() name = this.switchId;
 
@@ -38,6 +40,11 @@ export class Switch implements ComponentInterface {
         });
     }
 
+    @Method()
+    async setAriaAttribute(attr: AriaAttributeName, value: string) {
+        this.input.setAttribute(attr, value);
+    }
+
     render() {
         return (
             <Host>
@@ -48,6 +55,7 @@ export class Switch implements ComponentInterface {
                            type="checkbox"
                            name={this.name}
                            disabled={this.disabled}
+                           ref={el => {this.input = el}}
                            id={this.name}>
                     </input>
                     <span class="wcs-checkmark"></span>

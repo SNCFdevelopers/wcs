@@ -22,6 +22,19 @@
 | `wcsChange` | Emitted when the checked property has changed. | `CustomEvent<CheckboxChangeEventDetail>` |
 
 
+## Methods
+
+### `setAriaAttribute(attr: AriaAttributeName, value: string) => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Dependencies
 
 ### Used by

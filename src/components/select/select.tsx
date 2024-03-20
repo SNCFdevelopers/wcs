@@ -32,6 +32,7 @@ import { createPopper, Instance } from '@popperjs/core';
 import { isEqual } from 'lodash-es';
 import { getActionForKeyboardEvent, KeyboardEventAssociatedAction } from './select-keyboard-event';
 import { isFocusable } from '../../utils/accessibility';
+import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
 
 interface SelectStateSchema {
     states: {
@@ -82,7 +83,7 @@ const SELECT_MACHINE_CONFIG: MachineConfig<any, SelectStateSchema, SelectEvent> 
     styleUrl: 'select.scss',
     shadow: true
 })
-export class Select implements ComponentInterface {
+export class Select implements ComponentInterface, MutableAriaAttribute {
     private stateService!: Interpreter<any, SelectStateSchema, SelectEvent>;
 
     private selectId = `wcs-select-${selectIds++}`;
@@ -379,6 +380,15 @@ export class Select implements ComponentInterface {
         if (this.multiple) {
             this.options
                 .forEach((opt: HTMLWcsSelectOptionElement) => opt.multiple = true);
+        }
+    }
+
+    @Method()
+    async setAriaAttribute(attr: AriaAttributeName, value: string) {
+        if(this.autocomplete === false) {
+            this.el.setAttribute(attr, value);
+        } else {
+            this.autocompleteInput.setAttribute(attr, value);
         }
     }
 

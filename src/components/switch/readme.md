@@ -21,6 +21,19 @@
 | `wcsChange` | Emitted when the checked property has changed. | `CustomEvent<SwitchChangeEventDetail>` |
 
 
+## Methods
+
+### `setAriaAttribute(attr: AriaAttributeName, value: string) => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

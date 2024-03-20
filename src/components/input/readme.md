@@ -77,6 +77,16 @@ Type: `Promise<HTMLInputElement>`
 
 
 
+### `setAriaAttribute(attr: AriaAttributeName, value: string) => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
 ### `setFocus() => Promise<void>`
 
 <span style="color:red">**[DEPRECATED]**</span> use the native focus method instead

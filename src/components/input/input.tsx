@@ -7,6 +7,7 @@ import { debounceEvent, findItemLabel, inheritAttributes } from '../../utils/hel
 import {
     AutocompleteTypes, InputChangeEventDetail, isWcsInputSize, TextFieldTypes, WcsInputSize, WcsInputSizeValues
 } from './input-interface';
+import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
 
 /**
  * The input component is a form control that accepts a single line of text.
@@ -28,7 +29,7 @@ import {
     styleUrl: 'input.scss',
     shadow: {delegatesFocus: true},
 })
-export class Input implements ComponentInterface {
+export class Input implements ComponentInterface, MutableAriaAttribute {
     private nativeInput?: HTMLInputElement;
     private inputId = `wcs-input-${inputIds++}`;
     private didBlurAfterEdit = false;
@@ -302,6 +303,13 @@ export class Input implements ComponentInterface {
         return Promise.resolve(this.nativeInput!);
     }
 
+    @Method()
+    async setAriaAttribute(attr: AriaAttributeName, value: string) {
+        if (this.nativeInput) {
+            this.nativeInput.setAttribute(attr, value);
+        }
+    }
+    
     private shouldClearOnEdit() {
         const {type, clearOnEdit} = this;
         return (clearOnEdit === undefined)

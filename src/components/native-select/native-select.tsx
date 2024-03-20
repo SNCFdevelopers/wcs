@@ -1,6 +1,7 @@
 import { Component, h, ComponentInterface, State, Prop, Host, Element, Method } from '@stencil/core';
 import { SelectArrow } from '../select/select-arrow';
 import { WcsSize } from "../../shared-types";
+import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
 
 export type WcsNativeSelectSize = Extract<WcsSize, 'l' | 'm'>; // todo: move into common file with custom select
 
@@ -39,7 +40,7 @@ export type WcsNativeSelectSize = Extract<WcsSize, 'l' | 'm'>; // todo: move int
     styleUrl: 'native-select.scss',
     shadow: true
 })
-export class NativeSelect implements ComponentInterface {
+export class NativeSelect implements ComponentInterface, MutableAriaAttribute {
     /**
      * The `size` property controls the size of the slotted `select` element by adjusting its padding.
      * There are two possible size options:
@@ -49,17 +50,22 @@ export class NativeSelect implements ComponentInterface {
      * The default value is 'm'.
      */
     @Prop({reflect: true}) size: WcsNativeSelectSize = 'm';
-
     @Element() private el!: HTMLWcsNativeSelectElement;
 
     @State() private expanded: boolean = false;
+
     @State() private disabled: boolean;
-
     private selectElement: HTMLSelectElement;
+
     private observer: MutationObserver;
-
-
     private readonly SLOTTED_SELECT_TRACKED_ATTRIBUTES_LIST = ['disabled'];
+
+
+    @Method()
+    async setAriaAttribute(attr: AriaAttributeName, value: string) {
+        this.selectElement.setAttribute(attr, value);
+    }
+
 
     componentWillLoad() {
         this.selectElement = this.el.querySelector('select');

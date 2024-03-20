@@ -28,6 +28,19 @@ For larger or specific ranges, please use [wcs-input (type number)](.?path=/docs
 | `wcsChange` | Emitted when the value of the counter has changed. | `CustomEvent<CounterChangeEventDetail>` |
 
 
+## Methods
+
+### `setAriaAttribute(attr: AriaAttributeName, value: string) => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Dependencies
 
 ### Depends on

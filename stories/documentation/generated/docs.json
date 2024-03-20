@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-03-29T08:39:48",
+  "timestamp": "2024-03-29T09:20:12",
   "compiler": {
     "name": "@stencil/core",
     "version": "3.0.0",
@@ -752,7 +752,19 @@
           "required": false
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "name": "setAriaAttribute",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string) => Promise<void>",
+          "parameters": [],
+          "docs": "",
+          "docsTags": []
+        }
+      ],
       "events": [
         {
           "event": "wcsChange",
@@ -1173,7 +1185,19 @@
           "required": true
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "name": "setAriaAttribute",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string) => Promise<void>",
+          "parameters": [],
+          "docs": "",
+          "docsTags": []
+        }
+      ],
       "events": [
         {
           "event": "wcsBlur",
@@ -3810,6 +3834,17 @@
           "docsTags": []
         },
         {
+          "name": "setAriaAttribute",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string) => Promise<void>",
+          "parameters": [],
+          "docs": "",
+          "docsTags": []
+        },
+        {
           "name": "setFocus",
           "returns": {
             "type": "Promise<void>",
@@ -4364,6 +4399,17 @@
       ],
       "methods": [
         {
+          "name": "setAriaAttribute",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string) => Promise<void>",
+          "parameters": [],
+          "docs": "",
+          "docsTags": []
+        },
+        {
           "name": "updateStyles",
           "returns": {
             "type": "Promise<void>",
@@ -4828,7 +4874,19 @@
           "required": false
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "name": "setAriaAttribute",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string) => Promise<void>",
+          "parameters": [],
+          "docs": "",
+          "docsTags": []
+        }
+      ],
       "events": [
         {
           "event": "wcsChange",
@@ -5073,6 +5131,17 @@
           "signature": "open() => Promise<void>",
           "parameters": [],
           "docs": "Open the component.",
+          "docsTags": []
+        },
+        {
+          "name": "setAriaAttribute",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string) => Promise<void>",
+          "parameters": [],
+          "docs": "",
           "docsTags": []
         }
       ],
@@ -5698,7 +5767,19 @@
           "required": false
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "name": "setAriaAttribute",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string) => Promise<void>",
+          "parameters": [],
+          "docs": "",
+          "docsTags": []
+        }
+      ],
       "events": [
         {
           "event": "wcsChange",
@@ -6437,6 +6518,17 @@
           "signature": "getInputElement() => Promise<HTMLTextAreaElement>",
           "parameters": [],
           "docs": "Returns the native `<textarea>` element used under the hood.",
+          "docsTags": []
+        },
+        {
+          "name": "setAriaAttribute",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string) => Promise<void>",
+          "parameters": [],
+          "docs": "",
           "docsTags": []
         },
         {

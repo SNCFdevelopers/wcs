@@ -5,13 +5,14 @@ import {
     Event,
     EventEmitter,
     h,
-    Host,
+    Host, Method,
     Prop,
     State,
     Watch
 } from '@stencil/core';
 import { isEndKey, isHomeKey, isKeydown, isKeyup } from '../../utils/helpers';
 import { CounterChangeEventDetail, isWcsCounterSize, WcsCounterSize, WcsCounterSizeValues } from './counter-interface';
+import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
 
 const ANIMATION_DURATION = 0.175 // seconds
 
@@ -26,8 +27,9 @@ const ANIMATION_DURATION = 0.175 // seconds
         delegatesFocus: true
     },
 })
-export class Counter implements ComponentInterface {
+export class Counter implements ComponentInterface, MutableAriaAttribute {
     @Element() private el!: HTMLElement;
+    private spinButton!: HTMLSpanElement;
 
     /**
      * Specify the size (height) of the counter.
@@ -88,6 +90,11 @@ export class Counter implements ComponentInterface {
         }
     }
 
+    @Method()
+    async setAriaAttribute(attr: AriaAttributeName, value: string) {
+        this.spinButton.setAttribute(attr, value);
+    }
+    
     /**
      * Current value change => handle event and interval
      */
@@ -225,6 +232,7 @@ export class Counter implements ComponentInterface {
                           aria-hidden="true">{this.displayedValue - this.step}</span>
                     <span tabindex="0"
                           role="spinbutton"
+                          ref={(el) => this.spinButton = el}
                           class="current-value"
                           onBlur={(event) => this.wcsBlur.emit(event)}
                           onKeyDown={(event) => this.onKeyDown(event)}

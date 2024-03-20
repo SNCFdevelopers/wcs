@@ -66,6 +66,16 @@ Type: `Promise<void>`
 
 
 
+### `setAriaAttribute(attr: AriaAttributeName, value: string) => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
 
 ## Slots
 

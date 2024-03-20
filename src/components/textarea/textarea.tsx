@@ -13,8 +13,9 @@ import {
     Build,
     readTask
 } from '@stencil/core';
-import { debounceEvent, findItemLabel, inheritAttributes, raf } from '../../utils/helpers';
+import { debounceEvent, inheritAriaAttributes, inheritAttributes, raf } from '../../utils/helpers';
 import { TextareaChangeEventDetail } from './textarea-interface';
+import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
 
 /**
  * Mainly inspired from Ionic Textarea Component
@@ -30,7 +31,7 @@ import { TextareaChangeEventDetail } from './textarea-interface';
         delegatesFocus: true
     },
 })
-export class Textarea implements ComponentInterface {
+export class Textarea implements ComponentInterface, MutableAriaAttribute {
     private nativeInput?: HTMLTextAreaElement;
     private inputId = `wcs-textarea-${textareaIds++}`;
     private didBlurAfterEdit = false;
@@ -238,6 +239,13 @@ export class Textarea implements ComponentInterface {
             });
         }
     }
+    
+    @Method()
+    async setAriaAttribute(attr: AriaAttributeName, value: string) {
+        if (this.nativeInput) {
+            this.nativeInput.setAttribute(attr, value);
+        }
+    }
 
     /**
      * This method make the textarea automatically adopt the size of the content without a scroll bar
@@ -343,11 +351,6 @@ export class Textarea implements ComponentInterface {
 
     render() {
         const value = this.getValue();
-        const labelId = this.inputId + '-lbl';
-        const label = findItemLabel(this.el);
-        if (label) {
-            label.id = labelId;
-        }
         const style = {
             ...(this.resize && {'resize': this.resize})
         }
@@ -359,7 +362,6 @@ export class Textarea implements ComponentInterface {
                 {this.icon ? (<wcs-mat-icon icon={this.icon} size="m"></wcs-mat-icon>) : null}
                 <textarea
                     class="native-textarea"
-                    aria-labelledby={label ? labelId : null}
                     ref={el => this.nativeInput = el}
                     autoCapitalize={this.autocapitalize}
                     autoFocus={this.autofocus}
@@ -382,6 +384,7 @@ export class Textarea implements ComponentInterface {
                     onKeyDown={this.onKeyDown}
                     style={style}
                     {...this.inheritedAttributes}
+                    {...inheritAriaAttributes(this.el)}
                 >
             {value}
           </textarea>

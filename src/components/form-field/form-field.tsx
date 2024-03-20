@@ -1,4 +1,5 @@
 import { Component, ComponentInterface, Element, h, Host, Prop, State, Watch } from '@stencil/core';
+import { isMutableAriaAttribute } from "../../utils/mutable-aria-attribute";
 
 /**
  * TODO:
@@ -39,6 +40,7 @@ export class FormField implements ComponentInterface {
     // @ts-ignore
     private isErrorChange(newValue: boolean) {
         this.updateErrorStateOnInput(newValue);
+        this.updateAriaAttributes();
     }
 
     private updateErrorStateOnInput(newValue: boolean) {
@@ -102,6 +104,33 @@ export class FormField implements ComponentInterface {
             return;
         }
     }
+    
+    private updateAriaAttributes(): void {
+        if(isMutableAriaAttribute(this.spiedElement)) {
+            this.spiedElement.setAriaAttribute('aria-label', this.label);
+
+            // Sur les autres DS, généralement seul l'erreur est affichée et pas avec la description
+            if(this.isError) {
+                if(this.error) this.spiedElement.setAriaAttribute('aria-description', this.error);
+                this.spiedElement.setAriaAttribute('aria-invalid', 'true');
+            } else {
+                if(this.description) this.spiedElement.setAriaAttribute('aria-description', this.description);
+                this.spiedElement.setAriaAttribute('aria-invalid', 'false');
+            }
+        }
+    }
+    
+    private get label() {
+        return this.el.querySelector('wcs-label')?.textContent;
+    }
+    
+    private get description() {
+        return this.el.querySelector('wcs-hint')?.textContent;
+    }
+    
+    private get error() {
+        return this.el.querySelector('wcs-error')?.textContent;
+    }
 
     private updateLabelRequiredFlag(isRequired: boolean, label: Element) {
         if (isRequired && label) {
@@ -143,6 +172,7 @@ export class FormField implements ComponentInterface {
 
     private onFormInputSlotChange() {
         this.initSpiedElement();
+        this.updateAriaAttributes()
         this.addRequiredMarkerToLabel();
         this.updateErrorStateOnInput(this.isError);
     }

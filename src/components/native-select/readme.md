@@ -45,6 +45,16 @@ select is reset, you have to call the `updateStyles()` method manually.
 
 ## Methods
 
+### `setAriaAttribute(attr: AriaAttributeName, value: string) => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
 ### `updateStyles() => Promise<void>`
 
 Use this method to force the component to update its styles. It can be useful when the select is reset (with a placeholder).

@@ -8,7 +8,7 @@ import { Component, ComponentInterface, h, Host } from '@stencil/core';
 export class Label implements ComponentInterface {
     render() {
         return (
-            <Host slot="error">
+            <Host aria-live="polite" aria-atomic="true" slot="error">
                 <slot />
             </Host>
         );

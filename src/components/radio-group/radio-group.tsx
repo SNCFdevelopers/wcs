@@ -6,20 +6,21 @@ import {
     EventEmitter,
     h,
     Host,
-    Listen,
+    Listen, Method,
     Prop,
     Watch
 } from '@stencil/core';
 import { RadioGroupChangeEventDetail, RadioGroupMode } from './radio-group-interface';
 import { RadioChosedEvent } from '../radio/radio-interface';
 import { isDownArrowKey, isLeftArrowKey, isRightArrowKey, isUpArrowKey } from "../../utils/helpers";
+import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
 
 @Component({
     tag: 'wcs-radio-group',
     styleUrl: 'radio-group.scss',
     shadow: true
 })
-export class RadioGroup implements ComponentInterface {
+export class RadioGroup implements ComponentInterface, MutableAriaAttribute {
     @Prop() value: any | any[] | undefined | null;
     @Prop({reflect: true, mutable: false}) name;
     @Prop({reflect: true, mutable: false}) mode: RadioGroupMode = 'radio';
@@ -132,6 +133,11 @@ export class RadioGroup implements ComponentInterface {
                 }
             }
         }
+    }
+
+    @Method()
+    async setAriaAttribute(attr: AriaAttributeName, value: string) {
+        this.el.setAttribute(attr, value);
     }
 
     render() {

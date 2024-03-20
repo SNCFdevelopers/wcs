@@ -9,6 +9,7 @@ import { BadgeColor, BadgeShape } from "./components/badge/badge-interface";
 import { WcsButtonMode, WcsButtonShape, WcsButtonSize, WcsButtonType } from "./components/button/button-interface";
 import { CardMode } from "./components/card/card-interface";
 import { CheckboxChangeEventDetail, CheckboxLabelAlignment } from "./components/checkbox/checkbox-interface";
+import { AriaAttributeName } from "./utils/mutable-aria-attribute";
 import { CategoryOpenedEventDetail, MenuOpenedEventDetail } from "./components/com-nav/com-nav-interface";
 import { CounterChangeEventDetail, WcsCounterSize } from "./components/counter/counter-interface";
 import { WcsDropdownPlacement } from "./components/dropdown/dropdown-interface";
@@ -34,6 +35,7 @@ export { BadgeColor, BadgeShape } from "./components/badge/badge-interface";
 export { WcsButtonMode, WcsButtonShape, WcsButtonSize, WcsButtonType } from "./components/button/button-interface";
 export { CardMode } from "./components/card/card-interface";
 export { CheckboxChangeEventDetail, CheckboxLabelAlignment } from "./components/checkbox/checkbox-interface";
+export { AriaAttributeName } from "./utils/mutable-aria-attribute";
 export { CategoryOpenedEventDetail, MenuOpenedEventDetail } from "./components/com-nav/com-nav-interface";
 export { CounterChangeEventDetail, WcsCounterSize } from "./components/counter/counter-interface";
 export { WcsDropdownPlacement } from "./components/dropdown/dropdown-interface";
@@ -178,6 +180,7 @@ export namespace Components {
          */
         "labelAlignment": CheckboxLabelAlignment;
         "name": string;
+        "setAriaAttribute": (attr: AriaAttributeName, value: string) => Promise<void>;
     }
     interface WcsComNav {
         /**
@@ -226,6 +229,7 @@ export namespace Components {
           * The minimum value of the counter. If the value of the min attribute isn't set, then the element has no minimum value.
          */
         "min"?: number;
+        "setAriaAttribute": (attr: AriaAttributeName, value: string) => Promise<void>;
         /**
           * Specify the size (height) of the counter.
          */
@@ -610,6 +614,7 @@ export namespace Components {
           * If `true`, the user must fill in a value before submitting a form.
          */
         "required": boolean;
+        "setAriaAttribute": (attr: AriaAttributeName, value: string) => Promise<void>;
         /**
           * Sets blur on the native `input` in `wcs-input`. Use this method instead of the global `input.blur()`.
          */
@@ -742,6 +747,7 @@ export namespace Components {
      * - It is strongly recommended to use select-native when you don't have to support the multi-selection feature
      */
     interface WcsNativeSelect {
+        "setAriaAttribute": (attr: AriaAttributeName, value: string) => Promise<void>;
         /**
           * The `size` property controls the size of the slotted `select` element by adjusting its padding. There are two possible size options: - 'm': medium size - 'l': large size  The default value is 'm'.
          */
@@ -814,6 +820,7 @@ export namespace Components {
     interface WcsRadioGroup {
         "mode": RadioGroupMode;
         "name": any;
+        "setAriaAttribute": (attr: AriaAttributeName, value: string) => Promise<void>;
         "value": any | any[] | undefined | null;
     }
     /**
@@ -862,6 +869,7 @@ export namespace Components {
           * The text to display when the select is empty.
          */
         "placeholder"?: string | null;
+        "setAriaAttribute": (attr: AriaAttributeName, value: string) => Promise<void>;
         /**
           * Specify the size (height) of the select.
          */
@@ -974,6 +982,7 @@ export namespace Components {
          */
         "labelAlignment": SwitchLabelAlignment;
         "name": string;
+        "setAriaAttribute": (attr: AriaAttributeName, value: string) => Promise<void>;
     }
     /**
      * Tab content component.
@@ -1116,6 +1125,7 @@ export namespace Components {
           * The number of visible text lines for the control.
          */
         "rows"?: number;
+        "setAriaAttribute": (attr: AriaAttributeName, value: string) => Promise<void>;
         /**
           * Sets blur on the native `textarea` in `wcs-textarea`. Use this method instead of the global `textarea.blur()`.
          */
