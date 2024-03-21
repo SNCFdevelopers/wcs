@@ -82,10 +82,12 @@ describe('Radio Group', () => {
                 `);
 
             const wcsRadioGroup = await page.find('wcs-radio-group');
-            wcsRadioGroup.find('#radio-1').then(radio => radio.focus());
+            const firstOption = await wcsRadioGroup.find('#radio-1');
+            await firstOption.focus();
 
             // When
             await page.keyboard.press('ArrowDown');
+            await page.waitForChanges();
 
             // Then
             const secondRadio = await wcsRadioGroup.find('#radio-3');
@@ -104,7 +106,8 @@ describe('Radio Group', () => {
                 `);
 
             const wcsRadioGroup = await page.find('wcs-radio-group');
-            wcsRadioGroup.find('#radio-3').then(radio => radio.focus());
+            const lastOption = await wcsRadioGroup.find('#radio-3');
+            await lastOption.focus();
 
             // When
             await page.keyboard.press('ArrowDown');
@@ -129,10 +132,12 @@ describe('Radio Group', () => {
                 `);
 
             const wcsRadioGroup = await page.find('wcs-radio-group');
-            wcsRadioGroup.find('#radio-3').then(radio => radio.focus());
+            const lastOption = await wcsRadioGroup.find('#radio-3');
+            await lastOption.focus();
 
             // When
             await page.keyboard.press('ArrowUp');
+            await page.waitForChanges();
 
             // Then
             const secondRadio = await wcsRadioGroup.find('#radio-2');
@@ -151,10 +156,12 @@ describe('Radio Group', () => {
                 `);
 
             const wcsRadioGroup = await page.find('wcs-radio-group');
-            wcsRadioGroup.find('#radio-1').then(async radio => await radio.focus());
+            const firstOption = await wcsRadioGroup.find('#radio-1');
+            await firstOption.focus();
 
             // When
             await page.keyboard.press('ArrowUp');
+            await page.waitForChanges();
 
             // Then
             const firstRadio = await wcsRadioGroup.find('#radio-3');
