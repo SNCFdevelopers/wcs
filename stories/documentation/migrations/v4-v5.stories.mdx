@@ -11,6 +11,17 @@ WCS v5 contains breaking changes only in the following packages:
 
 ## wcs-core
 
+### Colors
+
+Global color `--wcs-blue` used by `--wcs-primary` has changed for accessibility reasons (contrasts).
+  - Old color : `#0088CE`
+<span style={{color: "#0088CE"}}>■</span>
+  - New color : `#0074AF`
+<span style={{color: "#0074AF"}}>■</span>
+
+**Please update your application's CSS is you are using the old "hard-coded" value.**  
+**If you are already using the primitives colors `--wcs-blue` or `--wcs-primary`, you don't need to update your CSS.**
+
 ### wcs-progress-bar
 
 - Property `small"` doesn't exist anymore. Replace it with `size="s"`

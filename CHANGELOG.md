@@ -31,6 +31,8 @@ To migrate, please refer to the storybook documentation (v4 to v5).
   - `wcs-select-option` => `options`
   - `wcs-select-filter-noresult` => `filter-no-result`
 
+- **css variables**: change global color `--wcs-blue` used by `--wcs-primary` for accessibility reasons (contrasts) from `#0088ce` to `#0074af`.
+
 ### Deprecated
 
 for soon-to-be removed features.

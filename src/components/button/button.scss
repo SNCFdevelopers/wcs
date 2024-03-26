@@ -5,8 +5,9 @@
 
 :host {
     display: inline-block;
+    // FIXME : remove those fallback values when design tokens are set
     --wcs-button-color: var(--wcs-contrast, var(--wcs-white, white));
-    --wcs-button-background-color: var(--wcs-base, var(--wcs-primary, #0088CE));
+    --wcs-button-background-color: var(--wcs-base, var(--wcs-primary, #0074AF));
     --wcs-button-ripple-color: var(--wcs-contrast, var(--wcs-white, white));
     --wcs-button-border-radius: var(--wcs-border-radius);
     --wcs-button-border-color: var(--wcs-base);
