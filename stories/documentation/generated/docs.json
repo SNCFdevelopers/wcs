@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-04-03T08:18:39",
+  "timestamp": "2024-04-04T15:32:56",
   "compiler": {
     "name": "@stencil/core",
     "version": "3.0.0",
@@ -1081,6 +1081,23 @@
       "docsTags": [],
       "usage": {},
       "props": [
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "Specify whether the counter is disabled or not.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
         {
           "name": "label",
           "type": "string",

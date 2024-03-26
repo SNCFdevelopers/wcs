@@ -218,6 +218,10 @@ export namespace Components {
      */
     interface WcsCounter {
         /**
+          * Specify whether the counter is disabled or not.
+         */
+        "disabled": boolean;
+        /**
           * The label of the counter.<br/> e.g. Number of passengers, train carriages, railroad tracks...
          */
         "label": string;
@@ -2049,6 +2053,10 @@ declare namespace LocalJSX {
      * For larger or specific ranges, please use [wcs-input (type number)](.?path=/docs/components-input--documentation)
      */
     interface WcsCounter {
+        /**
+          * Specify whether the counter is disabled or not.
+         */
+        "disabled"?: boolean;
         /**
           * The label of the counter.<br/> e.g. Number of passengers, train carriages, railroad tracks...
          */

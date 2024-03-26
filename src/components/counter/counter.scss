@@ -103,3 +103,8 @@
     --wcs-counter-host-height: var(--wcs-size-l);
     --wcs-counter-font-size: 1.0625rem;
 }
+
+:host([disabled]) {
+    cursor: not-allowed;
+    color: var(--wcs-text-medium);
+}

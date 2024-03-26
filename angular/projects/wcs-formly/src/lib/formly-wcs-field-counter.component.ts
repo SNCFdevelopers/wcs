@@ -23,7 +23,8 @@ export type WcsFormlyCounterProps = WcsFormlyFieldWrapperProps & {
         [value]="props.value"
         [min]="props.min"
         [max]="props.max"
-        [step]="props.step" >
+        [step]="props.step"
+        [attr.disabled]="props.disabled ? true : null">
       </wcs-counter>
     </formly-wcs-field-wrapper>
   `,

@@ -919,6 +919,44 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/accordion-content/accordion-content.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "AccordionContent",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-accordion-content",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "AccordionContent",
+          "declaration": {
+            "name": "AccordionContent",
+            "module": "components/accordion-content/accordion-content.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-accordion-content",
+          "declaration": {
+            "name": "AccordionContent",
+            "module": "components/accordion-content/accordion-content.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/accordion-header/accordion-header.tsx",
       "declarations": [
         {
@@ -1074,44 +1112,6 @@
           "declaration": {
             "name": "AccordionPanel",
             "module": "components/accordion-panel/accordion-panel.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/accordion-content/accordion-content.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "AccordionContent",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-accordion-content",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "AccordionContent",
-          "declaration": {
-            "name": "AccordionContent",
-            "module": "components/accordion-content/accordion-content.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-accordion-content",
-          "declaration": {
-            "name": "AccordionContent",
-            "module": "components/accordion-content/accordion-content.tsx"
           }
         }
       ]
@@ -1300,67 +1300,6 @@
           "declaration": {
             "name": "Badge",
             "module": "components/badge/badge.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/card/card-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/card/card.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Card",
-          "members": [
-            {
-              "kind": "field",
-              "name": "mode",
-              "type": {
-                "text": "CardMode"
-              },
-              "default": "'raised'"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "mode",
-              "fieldName": "mode",
-              "type": {
-                "text": "CardMode"
-              }
-            }
-          ],
-          "tagName": "wcs-card",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Card",
-          "declaration": {
-            "name": "Card",
-            "module": "components/card/card.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-card",
-          "declaration": {
-            "name": "Card",
-            "module": "components/card/card.tsx"
           }
         }
       ]
@@ -1651,19 +1590,42 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/card-body/card-body.tsx",
+      "path": "components/card/card-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/card/card.tsx",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "CardBody",
+          "name": "Card",
           "members": [
+            {
+              "kind": "field",
+              "name": "mode",
+              "type": {
+                "text": "CardMode"
+              },
+              "default": "'raised'"
+            },
             {
               "kind": "method",
               "name": "render"
             }
           ],
-          "tagName": "wcs-card-body",
+          "attributes": [
+            {
+              "name": "mode",
+              "fieldName": "mode",
+              "type": {
+                "text": "CardMode"
+              }
+            }
+          ],
+          "tagName": "wcs-card",
           "events": [],
           "customElement": true
         }
@@ -1671,18 +1633,18 @@
       "exports": [
         {
           "kind": "js",
-          "name": "CardBody",
+          "name": "Card",
           "declaration": {
-            "name": "CardBody",
-            "module": "components/card-body/card-body.tsx"
+            "name": "Card",
+            "module": "components/card/card.tsx"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "wcs-card-body",
+          "name": "wcs-card",
           "declaration": {
-            "name": "CardBody",
-            "module": "components/card-body/card-body.tsx"
+            "name": "Card",
+            "module": "components/card/card.tsx"
           }
         }
       ]
@@ -2051,6 +2013,225 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/com-nav-category/com-nav-category.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "ComNavCategory",
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsComNavCategoryElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "categoryOpen",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "onWindowClickEvent",
+              "parameters": [
+                {
+                  "name": "_",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "onSubmenuOpened",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "CustomEvent<CategoryOpenedEventDetail>"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleMenuKeyDown",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "_event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  },
+                  "description": "the keyboard event"
+                }
+              ],
+              "description": "Open the menu if it is closed and closed the menu if it is already opened"
+            },
+            {
+              "kind": "method",
+              "name": "handleCategoryItemsKeyDown",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "_event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  },
+                  "description": "the keyboard event"
+                }
+              ],
+              "description": "Handle key down on category items"
+            },
+            {
+              "kind": "method",
+              "name": "close",
+              "description": "Close the category"
+            },
+            {
+              "kind": "method",
+              "name": "open",
+              "description": "Opens the category"
+            },
+            {
+              "kind": "method",
+              "name": "onClick",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "evt",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ],
+              "description": "When the user clicks on the menu, we do not propagate the native event and we launch a custom event to manage\r\nthe closing of the menu correctly"
+            },
+            {
+              "kind": "method",
+              "name": "handleItemClick",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "evt",
+                  "type": {
+                    "text": "UIEvent"
+                  }
+                }
+              ],
+              "description": "Close the category and fire item click if we detect a mouse click on a slotted `a` element."
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "label",
+              "fieldName": "label",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "tagName": "wcs-com-nav-category",
+          "events": [
+            {
+              "name": "wcsCategoryOpened",
+              "type": {
+                "text": "EventEmitter<CategoryOpenedEventDetail>"
+              }
+            },
+            {
+              "name": "wcsCategoryItemClicked",
+              "type": {
+                "text": "EventEmitter<UIEvent>"
+              }
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ComNavCategory",
+          "declaration": {
+            "name": "ComNavCategory",
+            "module": "components/com-nav-category/com-nav-category.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-com-nav-category",
+          "declaration": {
+            "name": "ComNavCategory",
+            "module": "components/com-nav-category/com-nav-category.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/card-body/card-body.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "CardBody",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-card-body",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CardBody",
+          "declaration": {
+            "name": "CardBody",
+            "module": "components/card-body/card-body.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-card-body",
+          "declaration": {
+            "name": "CardBody",
+            "module": "components/card-body/card-body.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/com-nav-submenu/com-nav-submenu.tsx",
       "declarations": [
         {
@@ -2289,517 +2470,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/com-nav-category/com-nav-category.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "ComNavCategory",
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsComNavCategoryElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "label",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "categoryOpen",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "default": "false"
-            },
-            {
-              "kind": "method",
-              "name": "onWindowClickEvent",
-              "parameters": [
-                {
-                  "name": "_",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "onSubmenuOpened",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "CustomEvent<CategoryOpenedEventDetail>"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "handleMenuKeyDown",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "_event",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  },
-                  "description": "the keyboard event"
-                }
-              ],
-              "description": "Open the menu if it is closed and closed the menu if it is already opened"
-            },
-            {
-              "kind": "method",
-              "name": "handleCategoryItemsKeyDown",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "_event",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  },
-                  "description": "the keyboard event"
-                }
-              ],
-              "description": "Handle key down on category items"
-            },
-            {
-              "kind": "method",
-              "name": "close",
-              "description": "Close the category"
-            },
-            {
-              "kind": "method",
-              "name": "open",
-              "description": "Opens the category"
-            },
-            {
-              "kind": "method",
-              "name": "onClick",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "evt",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ],
-              "description": "When the user clicks on the menu, we do not propagate the native event and we launch a custom event to manage\r\nthe closing of the menu correctly"
-            },
-            {
-              "kind": "method",
-              "name": "handleItemClick",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "evt",
-                  "type": {
-                    "text": "UIEvent"
-                  }
-                }
-              ],
-              "description": "Close the category and fire item click if we detect a mouse click on a slotted `a` element."
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "label",
-              "fieldName": "label",
-              "type": {
-                "text": "string"
-              }
-            }
-          ],
-          "tagName": "wcs-com-nav-category",
-          "events": [
-            {
-              "name": "wcsCategoryOpened",
-              "type": {
-                "text": "EventEmitter<CategoryOpenedEventDetail>"
-              }
-            },
-            {
-              "name": "wcsCategoryItemClicked",
-              "type": {
-                "text": "EventEmitter<UIEvent>"
-              }
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ComNavCategory",
-          "declaration": {
-            "name": "ComNavCategory",
-            "module": "components/com-nav-category/com-nav-category.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-com-nav-category",
-          "declaration": {
-            "name": "ComNavCategory",
-            "module": "components/com-nav-category/com-nav-category.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/counter/counter-interface.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "WcsCounterSizeValues",
-          "type": {
-            "text": "['m', 'l']"
-          },
-          "default": "['m', 'l']"
-        },
-        {
-          "kind": "function",
-          "name": "isWcsCounterSize",
-          "return": {
-            "type": {
-              "text": "size is WcsCounterSize"
-            }
-          },
-          "parameters": [
-            {
-              "name": "size",
-              "type": {
-                "text": "string"
-              }
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "WcsCounterSizeValues",
-          "declaration": {
-            "name": "WcsCounterSizeValues",
-            "module": "components/counter/counter-interface.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "isWcsCounterSize",
-          "declaration": {
-            "name": "isWcsCounterSize",
-            "module": "components/counter/counter-interface.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/counter/counter.e2e.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/counter/counter.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Counter component, meant to be used for small range of values (e.g : 0 - 5).<br>\r\nFor larger or specific ranges, please use [wcs-input (type number)](.?path=/docs/components-input--documentation)",
-          "name": "Counter",
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "spinButton",
-              "type": {
-                "text": "HTMLSpanElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "WcsCounterSize"
-              },
-              "default": "'m'",
-              "description": "Specify the size (height) of the counter."
-            },
-            {
-              "kind": "field",
-              "name": "label",
-              "type": {
-                "text": "string"
-              },
-              "description": "The label of the counter.<br/>\r\ne.g. Number of passengers, train carriages, railroad tracks..."
-            },
-            {
-              "kind": "field",
-              "name": "min",
-              "type": {
-                "text": "number | undefined"
-              },
-              "description": "The minimum value of the counter.\r\nIf the value of the min attribute isn't set, then the element has no minimum value."
-            },
-            {
-              "kind": "field",
-              "name": "max",
-              "type": {
-                "text": "number | undefined"
-              },
-              "description": "The maximum value of the counter.\r\nIf the value of the max attribute isn't set, then the element has no maximum value."
-            },
-            {
-              "kind": "field",
-              "name": "step",
-              "type": {
-                "text": "number"
-              },
-              "default": "1",
-              "description": "Defines by how much the counter will be incremented or decremented."
-            },
-            {
-              "kind": "field",
-              "name": "value",
-              "type": {
-                "text": "number"
-              },
-              "description": "The current value of the counter."
-            },
-            {
-              "kind": "field",
-              "name": "displayedValue",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "description": "Only for animation and display purpose"
-            },
-            {
-              "kind": "field",
-              "name": "animateRunning",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "default": "false"
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "valueChange",
-              "parameters": [
-                {
-                  "name": "newVal",
-                  "type": {
-                    "text": "any"
-                  }
-                },
-                {
-                  "name": "oldVal",
-                  "type": {
-                    "text": "any"
-                  }
-                }
-              ],
-              "description": "Current value change => handle event and interval"
-            },
-            {
-              "kind": "method",
-              "name": "handleValueChange",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "updateDisplayValueIfNoAnimationRunning",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "ensureValueIsNotOutOfMinMax",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "setMinimumIfValueIsUndefinedOrNull",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "onKeyDown",
-              "parameters": [
-                {
-                  "name": "_event",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "notifyChange",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "getCounterContainer",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "handleDecrement",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "handleIncrement",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "animate",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "size",
-              "fieldName": "size",
-              "type": {
-                "text": "WcsCounterSize"
-              }
-            },
-            {
-              "name": "label",
-              "fieldName": "label",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "min",
-              "fieldName": "min",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "max",
-              "fieldName": "max",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "step",
-              "fieldName": "step",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "value",
-              "fieldName": "value",
-              "type": {
-                "text": "number"
-              }
-            }
-          ],
-          "tagName": "wcs-counter",
-          "events": [
-            {
-              "name": "wcsChange",
-              "type": {
-                "text": "EventEmitter<CounterChangeEventDetail>"
-              },
-              "description": "Emitted when the value of the counter has changed."
-            },
-            {
-              "name": "wcsBlur",
-              "type": {
-                "text": "EventEmitter<FocusEvent>"
-              },
-              "description": "Emitted when the counter loses focus."
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Counter",
-          "declaration": {
-            "name": "Counter",
-            "module": "components/counter/counter.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-counter",
-          "declaration": {
-            "name": "Counter",
-            "module": "components/counter/counter.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/divider/divider.tsx",
       "declarations": [
         {
@@ -2832,44 +2502,6 @@
           "declaration": {
             "name": "Divider",
             "module": "components/divider/divider.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/dropdown-divider/dropdown-divider.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "You can add a divider between groups of items",
-          "name": "DropdownDivider",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-dropdown-divider",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "DropdownDivider",
-          "declaration": {
-            "name": "DropdownDivider",
-            "module": "components/dropdown-divider/dropdown-divider.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-dropdown-divider",
-          "declaration": {
-            "name": "DropdownDivider",
-            "module": "components/dropdown-divider/dropdown-divider.tsx"
           }
         }
       ]
@@ -3173,6 +2805,387 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/dropdown-divider/dropdown-divider.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "You can add a divider between groups of items",
+          "name": "DropdownDivider",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-dropdown-divider",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "DropdownDivider",
+          "declaration": {
+            "name": "DropdownDivider",
+            "module": "components/dropdown-divider/dropdown-divider.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-dropdown-divider",
+          "declaration": {
+            "name": "DropdownDivider",
+            "module": "components/dropdown-divider/dropdown-divider.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/counter/counter-interface.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "WcsCounterSizeValues",
+          "type": {
+            "text": "['m', 'l']"
+          },
+          "default": "['m', 'l']"
+        },
+        {
+          "kind": "function",
+          "name": "isWcsCounterSize",
+          "return": {
+            "type": {
+              "text": "size is WcsCounterSize"
+            }
+          },
+          "parameters": [
+            {
+              "name": "size",
+              "type": {
+                "text": "string"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "WcsCounterSizeValues",
+          "declaration": {
+            "name": "WcsCounterSizeValues",
+            "module": "components/counter/counter-interface.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "isWcsCounterSize",
+          "declaration": {
+            "name": "isWcsCounterSize",
+            "module": "components/counter/counter-interface.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/counter/counter.e2e.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/counter/counter.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Counter component, meant to be used for small range of values (e.g : 0 - 5).<br>\r\nFor larger or specific ranges, please use [wcs-input (type number)](.?path=/docs/components-input--documentation)",
+          "name": "Counter",
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "spinButton",
+              "type": {
+                "text": "HTMLSpanElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "WcsCounterSize"
+              },
+              "default": "'m'",
+              "description": "Specify the size (height) of the counter."
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "description": "The label of the counter.<br/>\r\ne.g. Number of passengers, train carriages, railroad tracks..."
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Specify whether the counter is disabled or not."
+            },
+            {
+              "kind": "field",
+              "name": "min",
+              "type": {
+                "text": "number | undefined"
+              },
+              "description": "The minimum value of the counter.\r\nIf the value of the min attribute isn't set, then the element has no minimum value."
+            },
+            {
+              "kind": "field",
+              "name": "max",
+              "type": {
+                "text": "number | undefined"
+              },
+              "description": "The maximum value of the counter.\r\nIf the value of the max attribute isn't set, then the element has no maximum value."
+            },
+            {
+              "kind": "field",
+              "name": "step",
+              "type": {
+                "text": "number"
+              },
+              "default": "1",
+              "description": "Defines by how much the counter will be incremented or decremented."
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "number"
+              },
+              "description": "The current value of the counter."
+            },
+            {
+              "kind": "field",
+              "name": "displayedValue",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "description": "Only for animation and display purpose"
+            },
+            {
+              "kind": "field",
+              "name": "animateRunning",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "valueChange",
+              "parameters": [
+                {
+                  "name": "newVal",
+                  "type": {
+                    "text": "any"
+                  }
+                },
+                {
+                  "name": "oldVal",
+                  "type": {
+                    "text": "any"
+                  }
+                }
+              ],
+              "description": "Current value change => handle event and interval"
+            },
+            {
+              "kind": "method",
+              "name": "handleValueChange",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "updateDisplayValueIfNoAnimationRunning",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "ensureValueIsNotOutOfMinMax",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "setMinimumIfValueIsUndefinedOrNull",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "onKeyDown",
+              "parameters": [
+                {
+                  "name": "_event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "notifyChange",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "getCounterContainer",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleDecrement",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleIncrement",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "animate",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "size",
+              "fieldName": "size",
+              "type": {
+                "text": "WcsCounterSize"
+              }
+            },
+            {
+              "name": "label",
+              "fieldName": "label",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "disabled",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "min",
+              "fieldName": "min",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "max",
+              "fieldName": "max",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "step",
+              "fieldName": "step",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "value",
+              "fieldName": "value",
+              "type": {
+                "text": "number"
+              }
+            }
+          ],
+          "tagName": "wcs-counter",
+          "events": [
+            {
+              "name": "wcsChange",
+              "type": {
+                "text": "EventEmitter<CounterChangeEventDetail>"
+              },
+              "description": "Emitted when the value of the counter has changed."
+            },
+            {
+              "name": "wcsBlur",
+              "type": {
+                "text": "EventEmitter<FocusEvent>"
+              },
+              "description": "Emitted when the counter loses focus."
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Counter",
+          "declaration": {
+            "name": "Counter",
+            "module": "components/counter/counter.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-counter",
+          "declaration": {
+            "name": "Counter",
+            "module": "components/counter/counter.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/dropdown-header/dropdown-header.tsx",
       "declarations": [
         {
@@ -3297,6 +3310,44 @@
           "declaration": {
             "name": "DropdownItem",
             "module": "components/dropdown-item/dropdown-item.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/error/error.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Label",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-error",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Label",
+          "declaration": {
+            "name": "Label",
+            "module": "components/error/error.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-error",
+          "declaration": {
+            "name": "Label",
+            "module": "components/error/error.tsx"
           }
         }
       ]
@@ -3703,44 +3754,6 @@
           "declaration": {
             "name": "EditableField",
             "module": "components/editable-field/editable-field.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/error/error.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Label",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-error",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Label",
-          "declaration": {
-            "name": "Label",
-            "module": "components/error/error.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-error",
-          "declaration": {
-            "name": "Label",
-            "module": "components/error/error.tsx"
           }
         }
       ]

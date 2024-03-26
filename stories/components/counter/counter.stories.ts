@@ -34,7 +34,8 @@ export const Default = {
                      label="${args.label ?? nothing}"
                      min=${args.min ?? nothing}
                      max=${args.max ?? nothing}
-                     step=${args.step ?? nothing}></wcs-counter>
+                     step=${args.step ?? nothing}
+                     ?disabled="${args.disabled}"></wcs-counter>
     `,
     args: {
         label: "Number of passengers"
@@ -92,5 +93,17 @@ export const Sizes = {
         step: 1
     }
 };
+
+/**
+ * `wcs-counter` can be disabled by setting the `disabled` property to `true`.  
+ * It will prevent the user from interacting with the component.  
+ */
+export const Disabled = {
+    ...Default,
+    args: {
+        ...Default.args,
+        disabled: true
+    }
+}
 
 

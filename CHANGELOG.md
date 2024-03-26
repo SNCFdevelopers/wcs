@@ -22,6 +22,7 @@ To migrate, please refer to the storybook documentation (v4 to v5).
 - **textarea**: add two css variables to set padding right and padding left
 - **modal**: add the css variable `--wcs-modal-overflow-y` to control the overflow-y of the modal content
 - **dropdown**: add the size attribute with available values `l`, `m (default)`, `s`
+- **counter**: add the `disabled` property
 
 ### Changed
 

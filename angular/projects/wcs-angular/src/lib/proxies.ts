@@ -348,7 +348,7 @@ Used by the com-nav component to close the mobile menu overlay when a user click
 
 
 @ProxyCmp({
-  inputs: ['label', 'max', 'min', 'size', 'step', 'value'],
+  inputs: ['disabled', 'label', 'max', 'min', 'size', 'step', 'value'],
   methods: ['setAriaAttribute']
 })
 @Component({
@@ -356,7 +356,7 @@ Used by the com-nav component to close the mobile menu overlay when a user click
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['label', 'max', 'min', 'size', 'step', 'value'],
+  inputs: ['disabled', 'label', 'max', 'min', 'size', 'step', 'value'],
 })
 export class WcsCounter {
   protected el: HTMLElement;

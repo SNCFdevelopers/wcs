@@ -43,6 +43,11 @@ export class Counter implements ComponentInterface, MutableAriaAttribute {
     @Prop({mutable: false}) label!: string;
 
     /**
+     * Specify whether the counter is disabled or not.
+     */
+    @Prop() disabled = false;
+
+    /**
      * The minimum value of the counter.
      * If the value of the min attribute isn't set, then the element has no minimum value.
      */
@@ -132,6 +137,8 @@ export class Counter implements ComponentInterface, MutableAriaAttribute {
     }
 
     onKeyDown(_event: KeyboardEvent) {
+        if (this.disabled) return; 
+        
         if (isKeyup(_event)) {
             _event.preventDefault();
             this.handleIncrement()
@@ -170,6 +177,7 @@ export class Counter implements ComponentInterface, MutableAriaAttribute {
     }
 
     private handleDecrement = () => {
+        if (this.disabled) return;
         if (this.min === undefined || this.value > this.min) {
             // we set animateRunning here to prevent the watch method on value prop from affecting the displayed value
             // before the animation runs.
@@ -181,6 +189,7 @@ export class Counter implements ComponentInterface, MutableAriaAttribute {
     };
 
     private handleIncrement = () => {
+        if (this.disabled) return;
         if (this.max === undefined || this.value < this.max) {
             // we set animateRunning here to prevent the watch method on value prop from affecting the displayed value
             // before the animation runs.
@@ -224,18 +233,19 @@ export class Counter implements ComponentInterface, MutableAriaAttribute {
                             tabindex={-1}
                             onClick={() => this.handleDecrement()}
                             onBlur={(event) => this.wcsBlur.emit(event)}
-                            disabled={this.value === this.min}>
+                            disabled={this.disabled || this.value === this.min}>
                     <wcs-mat-icon icon="remove" size="s"></wcs-mat-icon>
                 </wcs-button>
                 <div class="counter-container">
                     <span id="outlier-down" class="outliers hidden"
                           aria-hidden="true">{this.displayedValue - this.step}</span>
-                    <span tabindex="0"
+                    <span tabindex={this.disabled ? -1 : 0}
                           role="spinbutton"
                           ref={(el) => this.spinButton = el}
                           class="current-value"
                           onBlur={(event) => this.wcsBlur.emit(event)}
                           onKeyDown={(event) => this.onKeyDown(event)}
+                          aria-disabled={this.disabled ? 'true' : null}
                           aria-valuenow={this.value}
                           aria-valuetext={this.value}
                           aria-valuemin={this.min}
@@ -250,7 +260,7 @@ export class Counter implements ComponentInterface, MutableAriaAttribute {
                             tabindex={-1}
                             onClick={() => this.handleIncrement()}
                             onBlur={(event) => this.wcsBlur.emit(event)}
-                            disabled={this.value === this.max}>
+                            disabled={this.disabled || this.value === this.max}>
                     <wcs-mat-icon icon="add" size="s"></wcs-mat-icon>
                 </wcs-button>
             </Host>

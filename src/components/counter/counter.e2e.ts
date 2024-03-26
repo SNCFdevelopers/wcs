@@ -193,4 +193,23 @@ describe('counter', () => {
         // Then
         expect(blurSpy).toHaveReceivedEventTimes(1);
     });
+    it('should not be interactive when disabled', async () => {
+        // Given
+        const page = await newE2EPage();
+        await page.setContent(`
+            <wcs-counter disabled="true"></wcs-counter>
+        `);
+        const counter = await page.find('wcs-counter');
+        const changeSpy = await counter.spyOnEvent('wcsChange');
+        const incrementButton = await page.find('wcs-counter >>> wcs-button:last-child');
+
+        // When
+        await incrementButton.click();
+        await page.waitForChanges();
+
+        // Then
+        expect(changeSpy).not.toHaveReceivedEvent();
+        expect(await counter.getProperty('value')).toBe(0);
+        expect(await incrementButton.getProperty('disabled')).toBe(true);
+    });
 });
