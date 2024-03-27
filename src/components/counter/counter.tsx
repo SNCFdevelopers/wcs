@@ -211,12 +211,12 @@ export class Counter implements ComponentInterface, MutableAriaAttribute {
 
         counterContainer.classList.add('animate-' + direction);
         outliers.forEach((span: HTMLSpanElement) => {
-            span.classList.remove('hidden')
+            span.hidden = false;
         });
         setTimeout(() => {
             counterContainer.classList.remove('animate-' + direction);
             outliers.forEach((span: HTMLSpanElement) => {
-                span.classList.add('hidden')
+                span.hidden = true;
             });
             this.displayedValue = this.value;
 
@@ -237,7 +237,9 @@ export class Counter implements ComponentInterface, MutableAriaAttribute {
                     <wcs-mat-icon icon="remove" size="s"></wcs-mat-icon>
                 </wcs-button>
                 <div class="counter-container">
-                    <span id="outlier-down" class="outliers hidden"
+                    <span id="outlier-down"
+                          class="outliers"
+                          hidden
                           aria-hidden="true">{this.displayedValue - this.step}</span>
                     <span tabindex={this.disabled ? -1 : 0}
                           role="spinbutton"
@@ -251,7 +253,9 @@ export class Counter implements ComponentInterface, MutableAriaAttribute {
                           aria-valuemin={this.min}
                           aria-valuemax={this.max}
                           aria-label={this.label}>{this.displayedValue}</span>
-                    <span id="outlier-up" class="outliers hidden"
+                    <span id="outlier-up" 
+                          class="outliers"
+                          hidden
                           aria-hidden="true">{this.displayedValue + this.step}</span>
                 </div>
                 <wcs-button class="wcs-primary"
