@@ -47,6 +47,8 @@ key down... to change the current selected option)
 - **dropdown**: display empty container when no items with fixed width
 - **progress-radial**: fix component computed size, documentation and aria attributes
 - **input**: rework input events to be more consistent with native events (wcsInput, wcsChange)
+- **radio-group**: we not remove tabIndex=0 on option which are not selected in the group when a click is received inside
+the group => when re-tab to the group, it caused the focus on not last selected option
 
 ### Security
 

@@ -72,7 +72,15 @@ export class RadioGroup implements ComponentInterface {
         this.updateOptionsState(event.detail.value, false);
         this.wcsChange.emit({
             value: event.detail.value
-        })
+        });
+
+        this.optionsNotDisabled.forEach((option) => {
+            if(option === event.detail.source) {
+                option.tabIndex = 0;
+            } else {
+                option.tabIndex = -1;
+            }
+        });
     }
 
     @Listen('keydown')

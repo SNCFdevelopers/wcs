@@ -23,6 +23,32 @@ describe('Radio Group', () => {
         expect(activeElId).toEqual('radio-2');
     });
 
+    it('should not make unselected options focusable when an option is clicked', async () => {
+        // Given
+        const page = await newE2EPage();
+        await page.setContent(`
+                <wcs-input></wcs-input>
+                <wcs-radio-group>
+                    <wcs-radio disabled id="radio-1" value="1"></wcs-radio>
+                    <wcs-radio id="radio-2" value="2"></wcs-radio>
+                    <wcs-radio id="radio-3" value="3"></wcs-radio>
+                </wcs-radio-group>
+            `);
+
+        const wcsRadioGroup = await page.find('wcs-radio-group');
+        const input = await page.find('wcs-input');
+
+        // When
+        const radio3 = await wcsRadioGroup.find('#radio-3');
+        await radio3.click();
+        await input.focus();
+
+        // Then
+        await page.keyboard.press('Tab');
+        const activeElId = await page.evaluate(() => document.activeElement!.id);
+        expect(activeElId).toEqual('radio-3');
+    });
+
     it('should checked the first option when pressing space key', async () => {
         // Given
         const page = await newE2EPage();
