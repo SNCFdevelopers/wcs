@@ -217,6 +217,7 @@ export function getActionForKeyboardEvent(event: KeyboardEvent, currentState: 'c
                 case 'TAB':
                     switch (type) {
                         case "autocomplete_unique":
+                            return [{kind: 'SelectOption', target: 'lastHighlighted'}, {kind: 'CloseSelect', shouldBlur: false}];
                         case "autocomplete_multiple":
                             return [{kind: 'CloseSelect', shouldBlur: false}];
                         case "unique":
@@ -229,6 +230,8 @@ export function getActionForKeyboardEvent(event: KeyboardEvent, currentState: 'c
                 case 'MAJ+TAB':
                     switch (type) {
                         case "autocomplete_unique":
+                            // We don't blur the select when we close it because we move the focus manually just after closing it.
+                            return [{kind: 'SelectOption', target: 'lastHighlighted'}, {kind: 'CloseSelect', shouldBlur: false}, {kind: 'MoveFocus', target: 'previous'}];
                         case "autocomplete_multiple":
                             // We don't blur the select when we close it because we move the focus manually just after closing it.
                             return [{kind: 'CloseSelect', shouldBlur: false}, {kind: 'MoveFocus', target: 'previous'}];

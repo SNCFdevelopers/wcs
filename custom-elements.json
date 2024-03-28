@@ -932,78 +932,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/action-bar/action-bar.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "ActionBar",
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsActionBarElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "gutter",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines if the action bar should have a border at the bottom.\r\nYou should not use this property if a gutter is already present on tabs"
-            },
-            {
-              "kind": "field",
-              "name": "hasTabs",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "default": "false"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "gutter",
-              "fieldName": "gutter",
-              "type": {
-                "text": "boolean"
-              }
-            }
-          ],
-          "tagName": "wcs-action-bar",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ActionBar",
-          "declaration": {
-            "name": "ActionBar",
-            "module": "components/action-bar/action-bar.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-action-bar",
-          "declaration": {
-            "name": "ActionBar",
-            "module": "components/action-bar/action-bar.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/accordion-panel/accordion-panel.tsx",
       "declarations": [
         {
@@ -1121,6 +1049,78 @@
           "declaration": {
             "name": "AccordionPanel",
             "module": "components/accordion-panel/accordion-panel.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/action-bar/action-bar.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "ActionBar",
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsActionBarElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "gutter",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines if the action bar should have a border at the bottom.\r\nYou should not use this property if a gutter is already present on tabs"
+            },
+            {
+              "kind": "field",
+              "name": "hasTabs",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "gutter",
+              "fieldName": "gutter",
+              "type": {
+                "text": "boolean"
+              }
+            }
+          ],
+          "tagName": "wcs-action-bar",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ActionBar",
+          "declaration": {
+            "name": "ActionBar",
+            "module": "components/action-bar/action-bar.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-action-bar",
+          "declaration": {
+            "name": "ActionBar",
+            "module": "components/action-bar/action-bar.tsx"
           }
         }
       ]
@@ -2685,6 +2685,44 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/divider/divider.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Divider",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-divider",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Divider",
+          "declaration": {
+            "name": "Divider",
+            "module": "components/divider/divider.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-divider",
+          "declaration": {
+            "name": "Divider",
+            "module": "components/divider/divider.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/dropdown/dropdown-interface.ts",
       "declarations": [],
       "exports": []
@@ -2960,44 +2998,6 @@
           "declaration": {
             "name": "Dropdown",
             "module": "components/dropdown/dropdown.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/divider/divider.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Divider",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-divider",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Divider",
-          "declaration": {
-            "name": "Divider",
-            "module": "components/divider/divider.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-divider",
-          "declaration": {
-            "name": "Divider",
-            "module": "components/divider/divider.tsx"
           }
         }
       ]
@@ -3971,6 +3971,74 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/galactic/galactic.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Galactic",
+          "members": [
+            {
+              "kind": "field",
+              "name": "text",
+              "type": {
+                "text": "string"
+              },
+              "description": "Text to display in the bar"
+            },
+            {
+              "kind": "field",
+              "name": "show",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "text",
+              "fieldName": "text",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "tagName": "wcs-galactic",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Galactic",
+          "declaration": {
+            "name": "Galactic",
+            "module": "components/galactic/galactic.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-galactic",
+          "declaration": {
+            "name": "Galactic",
+            "module": "components/galactic/galactic.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/galactic-menu/galactic-menu.tsx",
       "declarations": [
         {
@@ -4077,351 +4145,6 @@
           "declaration": {
             "name": "Galactic",
             "module": "components/galactic-menu/galactic-menu.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/galactic/galactic.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Galactic",
-          "members": [
-            {
-              "kind": "field",
-              "name": "text",
-              "type": {
-                "text": "string"
-              },
-              "description": "Text to display in the bar"
-            },
-            {
-              "kind": "field",
-              "name": "show",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "text",
-              "fieldName": "text",
-              "type": {
-                "text": "string"
-              }
-            }
-          ],
-          "tagName": "wcs-galactic",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Galactic",
-          "declaration": {
-            "name": "Galactic",
-            "module": "components/galactic/galactic.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-galactic",
-          "declaration": {
-            "name": "Galactic",
-            "module": "components/galactic/galactic.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/grid-column/grid-column.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The grid column is a subcomponent of `wcs-grid` that represents a column of the table.",
-          "name": "GridColumn",
-          "cssProperties": [
-            {
-              "description": "Border separator between column names",
-              "name": "--wcs-grid-column-border-left"
-            }
-          ],
-          "cssParts": [
-            {
-              "description": "CSS part for each column for styling. e.g: first_name-column, email-column",
-              "name": "[path]-column"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsGridColumnElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "path",
-              "type": {
-                "text": "string"
-              },
-              "description": "Represents the name of the field from the `data` object (e.g: first_name, last_name, email, ...)"
-            },
-            {
-              "kind": "field",
-              "name": "name",
-              "type": {
-                "text": "string"
-              },
-              "description": "The name of the column displayed on the table (e.g: First Name, Last Name, Email, ...)"
-            },
-            {
-              "kind": "field",
-              "name": "sort",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Make the column sortable."
-            },
-            {
-              "kind": "field",
-              "name": "sortFn",
-              "type": {
-                "text": "WcsSortFn"
-              },
-              "description": "Customizable sort function to change the comparison of values."
-            },
-            {
-              "kind": "field",
-              "name": "formatter",
-              "type": {
-                "text": "WcsCellFormatter"
-              },
-              "description": "Customizable formatter function to render the cell differently."
-            },
-            {
-              "kind": "field",
-              "name": "sortOrder",
-              "type": {
-                "text": "WcsSortOrder"
-              },
-              "default": "'none'",
-              "description": "Defines if the column sort is ascending or descending.  \r\n`none` = the column is not sorted."
-            },
-            {
-              "kind": "field",
-              "name": "width",
-              "type": {
-                "text": "string"
-              },
-              "description": "Set the column `<th>` element width."
-            },
-            {
-              "kind": "field",
-              "name": "customCells",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Set to true if using a `wcs-custom-cell` linked to it."
-            },
-            {
-              "kind": "field",
-              "name": "hidden",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Flag to hide the column."
-            },
-            {
-              "kind": "method",
-              "name": "parseMyObjectProp",
-              "parameters": [
-                {
-                  "name": "newValue",
-                  "type": {
-                    "text": "boolean"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "sortOrderChange",
-              "parameters": [
-                {
-                  "name": "_",
-                  "type": {
-                    "text": "WcsSortOrder"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "emitSortConfig"
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "onSortClick",
-              "privacy": "private"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "path",
-              "fieldName": "path",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "name",
-              "fieldName": "name",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "sort",
-              "fieldName": "sort",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "sort-fn",
-              "fieldName": "sortFn",
-              "type": {
-                "text": "WcsSortFn"
-              }
-            },
-            {
-              "name": "formatter",
-              "fieldName": "formatter",
-              "type": {
-                "text": "WcsCellFormatter"
-              }
-            },
-            {
-              "name": "sort-order",
-              "fieldName": "sortOrder",
-              "type": {
-                "text": "WcsSortOrder"
-              }
-            },
-            {
-              "name": "width",
-              "fieldName": "width",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "custom-cells",
-              "fieldName": "customCells",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "hidden",
-              "fieldName": "hidden",
-              "type": {
-                "text": "boolean"
-              }
-            }
-          ],
-          "tagName": "wcs-grid-column",
-          "events": [
-            {
-              "name": "wcsSortChange",
-              "type": {
-                "text": "EventEmitter<WcsGridColumnSortChangeEventDetails>"
-              },
-              "description": "Event emitted when the sort of the column is changed."
-            },
-            {
-              "name": "wcsHiddenChange",
-              "type": {
-                "text": "EventEmitter<boolean>"
-              },
-              "description": "Event emitted if the column is dynamically switching visibility."
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "GridColumn",
-          "declaration": {
-            "name": "GridColumn",
-            "module": "components/grid-column/grid-column.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-grid-column",
-          "declaration": {
-            "name": "GridColumn",
-            "module": "components/grid-column/grid-column.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/grid-column/grid-sort-arrow.tsx",
-      "declarations": [
-        {
-          "kind": "function",
-          "name": "GridSortArrow",
-          "parameters": [
-            {
-              "name": "{ state }"
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "GridSortArrow",
-          "declaration": {
-            "name": "GridSortArrow",
-            "module": "components/grid-column/grid-sort-arrow.tsx"
           }
         }
       ]
@@ -5003,6 +4726,283 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/grid-column/grid-column.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The grid column is a subcomponent of `wcs-grid` that represents a column of the table.",
+          "name": "GridColumn",
+          "cssProperties": [
+            {
+              "description": "Border separator between column names",
+              "name": "--wcs-grid-column-border-left"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "CSS part for each column for styling. e.g: first_name-column, email-column",
+              "name": "[path]-column"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsGridColumnElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "path",
+              "type": {
+                "text": "string"
+              },
+              "description": "Represents the name of the field from the `data` object (e.g: first_name, last_name, email, ...)"
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "description": "The name of the column displayed on the table (e.g: First Name, Last Name, Email, ...)"
+            },
+            {
+              "kind": "field",
+              "name": "sort",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Make the column sortable."
+            },
+            {
+              "kind": "field",
+              "name": "sortFn",
+              "type": {
+                "text": "WcsSortFn"
+              },
+              "description": "Customizable sort function to change the comparison of values."
+            },
+            {
+              "kind": "field",
+              "name": "formatter",
+              "type": {
+                "text": "WcsCellFormatter"
+              },
+              "description": "Customizable formatter function to render the cell differently."
+            },
+            {
+              "kind": "field",
+              "name": "sortOrder",
+              "type": {
+                "text": "WcsSortOrder"
+              },
+              "default": "'none'",
+              "description": "Defines if the column sort is ascending or descending.  \r\n`none` = the column is not sorted."
+            },
+            {
+              "kind": "field",
+              "name": "width",
+              "type": {
+                "text": "string"
+              },
+              "description": "Set the column `<th>` element width."
+            },
+            {
+              "kind": "field",
+              "name": "customCells",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Set to true if using a `wcs-custom-cell` linked to it."
+            },
+            {
+              "kind": "field",
+              "name": "hidden",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Flag to hide the column."
+            },
+            {
+              "kind": "method",
+              "name": "parseMyObjectProp",
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "boolean"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "sortOrderChange",
+              "parameters": [
+                {
+                  "name": "_",
+                  "type": {
+                    "text": "WcsSortOrder"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "emitSortConfig"
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "onSortClick",
+              "privacy": "private"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "path",
+              "fieldName": "path",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "name",
+              "fieldName": "name",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "sort",
+              "fieldName": "sort",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "sort-fn",
+              "fieldName": "sortFn",
+              "type": {
+                "text": "WcsSortFn"
+              }
+            },
+            {
+              "name": "formatter",
+              "fieldName": "formatter",
+              "type": {
+                "text": "WcsCellFormatter"
+              }
+            },
+            {
+              "name": "sort-order",
+              "fieldName": "sortOrder",
+              "type": {
+                "text": "WcsSortOrder"
+              }
+            },
+            {
+              "name": "width",
+              "fieldName": "width",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "custom-cells",
+              "fieldName": "customCells",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "hidden",
+              "fieldName": "hidden",
+              "type": {
+                "text": "boolean"
+              }
+            }
+          ],
+          "tagName": "wcs-grid-column",
+          "events": [
+            {
+              "name": "wcsSortChange",
+              "type": {
+                "text": "EventEmitter<WcsGridColumnSortChangeEventDetails>"
+              },
+              "description": "Event emitted when the sort of the column is changed."
+            },
+            {
+              "name": "wcsHiddenChange",
+              "type": {
+                "text": "EventEmitter<boolean>"
+              },
+              "description": "Event emitted if the column is dynamically switching visibility."
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "GridColumn",
+          "declaration": {
+            "name": "GridColumn",
+            "module": "components/grid-column/grid-column.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-grid-column",
+          "declaration": {
+            "name": "GridColumn",
+            "module": "components/grid-column/grid-column.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/grid-column/grid-sort-arrow.tsx",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "GridSortArrow",
+          "parameters": [
+            {
+              "name": "{ state }"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "GridSortArrow",
+          "declaration": {
+            "name": "GridSortArrow",
+            "module": "components/grid-column/grid-sort-arrow.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/grid-custom-cell/grid-custom-cell.tsx",
       "declarations": [
         {
@@ -5389,6 +5389,62 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/hint/hint.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Hint",
+          "members": [
+            {
+              "kind": "field",
+              "name": "small",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Whether the component should display the small version of the hint"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "small",
+              "fieldName": "small",
+              "type": {
+                "text": "boolean"
+              }
+            }
+          ],
+          "tagName": "wcs-hint",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Hint",
+          "declaration": {
+            "name": "Hint",
+            "module": "components/hint/hint.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-hint",
+          "declaration": {
+            "name": "Hint",
+            "module": "components/hint/hint.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/horizontal-stepper/horizontal-step.tsx",
       "declarations": [
         {
@@ -5650,62 +5706,6 @@
           "declaration": {
             "name": "HorizontalStepper",
             "module": "components/horizontal-stepper/horizontal-stepper.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/hint/hint.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Hint",
-          "members": [
-            {
-              "kind": "field",
-              "name": "small",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Whether the component should display the small version of the hint"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "small",
-              "fieldName": "small",
-              "type": {
-                "text": "boolean"
-              }
-            }
-          ],
-          "tagName": "wcs-hint",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Hint",
-          "declaration": {
-            "name": "Hint",
-            "module": "components/hint/hint.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-hint",
-          "declaration": {
-            "name": "Hint",
-            "module": "components/hint/hint.tsx"
           }
         }
       ]
@@ -8197,7 +8197,7 @@
               "kind": "field",
               "name": "autocompleteInput",
               "type": {
-                "text": "HTMLWcsInputElement"
+                "text": "HTMLInputElement"
               },
               "privacy": "private"
             },
@@ -8470,20 +8470,7 @@
             },
             {
               "kind": "method",
-              "name": "handleClickEvent",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "SelectOptionChosedEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "handleClickOnMultiple",
+              "name": "handleOptionSelectedOnMultiple",
               "privacy": "private",
               "parameters": [
                 {
@@ -8501,7 +8488,7 @@
             },
             {
               "kind": "method",
-              "name": "handleNormalClick",
+              "name": "handleOptionSelectedOnSingle",
               "privacy": "private",
               "parameters": [
                 {
@@ -8571,6 +8558,12 @@
                   "type": {
                     "text": "KeyboardEventAssociatedAction"
                   }
+                },
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
                 }
               ]
             },
@@ -8609,6 +8602,10 @@
                     "text": "number"
                   },
                   "description": "Option index within non-deactivated options list"
+                },
+                {
+                  "name": "fromKeyboard",
+                  "default": "false"
                 }
               ],
               "description": "Selects the non-disabled option with the index passed as a parameter.\r\nThe method sends an event to the state machine (the same as when clicking on an option with the mouse)"
@@ -8703,6 +8700,10 @@
                   "type": {
                     "text": "SelectOptionChosedEvent"
                   }
+                },
+                {
+                  "name": "fromKeyboard",
+                  "default": "false"
                 }
               ]
             },
@@ -8771,13 +8772,31 @@
             },
             {
               "kind": "method",
-              "name": "handleAutocompleteValueChange",
+              "name": "onAutocompleteInputEvent",
               "privacy": "private",
               "parameters": [
                 {
                   "name": "e",
                   "type": {
-                    "text": "WcsInputCustomEvent<KeyboardEvent>"
+                    "text": "InputEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleAutocompleteValueChange",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "filter",
+                  "type": {
+                    "text": "string"
                   }
                 }
               ]
@@ -8811,7 +8830,7 @@
               "privacy": "private",
               "parameters": [
                 {
-                  "name": "_",
+                  "name": "_e",
                   "type": {
                     "text": "FocusEvent"
                   }

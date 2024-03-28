@@ -206,7 +206,7 @@ describe('Select component', () => {
 
         // When
         await select.focus();
-        const focusedEl = await page.find('wcs-select > wcs-input.autocomplete-field:focus');
+        const focusedEl = await page.find('wcs-select > input.autocomplete-field:focus');
 
         // Then
         expect(focusedEl).toBeDefined();
@@ -783,7 +783,7 @@ describe('Select component', () => {
             `);
             wcsSelect = await page.find('wcs-select');
             selectOptions = await page.findAll('wcs-select > wcs-select-option');
-            wcsAutocompleteInput = await page.find('wcs-select >>> wcs-input.autocomplete-field');
+            wcsAutocompleteInput = await page.find('wcs-select >>> input.autocomplete-field');
         });
 
         it('open listbox and move focus into the first enabled option on Arrow Down pressed', async () => {
@@ -832,8 +832,7 @@ describe('Select component', () => {
         let page;
         let wcsSelect;
         let selectOptions;
-        let wcsAutocompleteInput;
-        let wcsAutocompleteNativeInput;
+        let autocompleteInput;
 
         beforeEach(async () => {
             // Given
@@ -847,13 +846,12 @@ describe('Select component', () => {
             `);
             wcsSelect = await page.find('wcs-select');
             selectOptions = await page.findAll('wcs-select > wcs-select-option');
-            wcsAutocompleteInput = await page.find('wcs-select >>> wcs-input.autocomplete-field');
-            wcsAutocompleteNativeInput = await (await page.find('wcs-select >>> *')).find('wcs-input.autocomplete-field >>> input.native-input');
+            autocompleteInput = await page.find('wcs-select >>> input.autocomplete-field');
         });
 
         it('close listbox on Escape', async () => {
             // When
-            await wcsAutocompleteInput.click();
+            await autocompleteInput.click();
             await page.keyboard.press('Escape');
             await page.waitForChanges();
 
@@ -862,7 +860,7 @@ describe('Select component', () => {
         });
         it('stay opened on Enter when no option are highlighted', async () => {
             // When
-            await wcsAutocompleteInput.click();
+            await autocompleteInput.click();
             await page.waitForChanges();
             await page.keyboard.press('Enter');
             await page.waitForChanges();
@@ -872,7 +870,7 @@ describe('Select component', () => {
         });
         it('Close overlay when an highlighted option is selected with Enter keypress', async () => {
             // When
-            await wcsAutocompleteInput.click();
+            await autocompleteInput.click();
             await page.waitForChanges();
             await page.keyboard.press('ArrowDown');
             await page.waitForChanges();
@@ -887,7 +885,7 @@ describe('Select component', () => {
             const lastOption = selectOptions[selectOptions.length - 1];
 
             // When
-            await wcsAutocompleteInput.focus();
+            await autocompleteInput.focus();
             await page.keyboard.press('ArrowUp');
             await page.waitForChanges();
 
@@ -900,7 +898,7 @@ describe('Select component', () => {
             const firstOption = selectOptions[1]; // Because first option is disabled
 
             // When
-            await wcsAutocompleteInput.focus();
+            await autocompleteInput.focus();
             await page.keyboard.press('ArrowDown');
             await page.waitForChanges();
 
@@ -911,18 +909,17 @@ describe('Select component', () => {
         it('replace text, close listbox, focus textbox on Enter', async () => {
             // Given
             const firstOption = selectOptions[1]; // Because first option is disabled
-            // const input =  await page.find('wcs-select >>> wcs-input.autocomplete-field');
 
             // When
-            await wcsAutocompleteInput.focus();
+            await autocompleteInput.focus();
             await page.keyboard.press('ArrowDown');
             await page.keyboard.press('Enter');
             await page.waitForChanges();
 
             // Then
-            expect(await wcsAutocompleteInput.getProperty('value')).toEqual(firstOption.textContent);
+            expect(await autocompleteInput.getProperty('value')).toEqual(firstOption.textContent);
             expect(wcsSelect).not.toHaveClass("expanded");
-            const focusedInput = await page.find('wcs-select > wcs-input.autocomplete-field:focus');
+            const focusedInput = await page.find('wcs-select > input.autocomplete-field:focus');
             expect(focusedInput).toBeDefined();
         });
         it('close listbox, focus textbox on Escape', async () => {
@@ -932,7 +929,7 @@ describe('Select component', () => {
 
             // Then
             expect(wcsSelect).not.toHaveClass("expanded");
-            const focusedInput = await page.find('wcs-select > wcs-input.autocomplete-field:focus');
+            const focusedInput = await page.find('wcs-select > input.autocomplete-field:focus');
             expect(focusedInput).toBeDefined();
         });
         it('cycle to next option when Arrow Down', async () => {
@@ -971,15 +968,15 @@ describe('Select component', () => {
 
             // When
             await wcsSelect.focus();
-            await wcsAutocompleteInput.type(typedText);
+            await autocompleteInput.type(typedText);
             await page.keyboard.press('ArrowLeft');
             await page.keyboard.press('ArrowRight');
             await page.waitForChanges();
 
             // Then
-            const cursorPositionAfter = await wcsAutocompleteNativeInput.getProperty('selectionStart');
+            const cursorPositionAfter = await autocompleteInput.getProperty('selectionStart');
             expect(cursorPositionAfter).toEqual(typedText.length);
-            const focusedInput = await page.find('wcs-select > wcs-input.autocomplete-field:focus');
+            const focusedInput = await page.find('wcs-select > input.autocomplete-field:focus');
             expect(focusedInput).toBeDefined();
         });
         it('focus textbox, move cursor to the start of the text when Home pressed', async () => {
@@ -987,14 +984,14 @@ describe('Select component', () => {
             const typedText = 'test';
 
             // When
-            await wcsAutocompleteInput.type(typedText);
+            await autocompleteInput.type(typedText);
             await page.keyboard.press('Home');
             await page.waitForChanges();
 
             // Then
-            const cursorPositionAfter = await wcsAutocompleteNativeInput.getProperty('selectionStart');
+            const cursorPositionAfter = await autocompleteInput.getProperty('selectionStart');
             expect(cursorPositionAfter).toEqual(0);
-            const focusedInput = await page.find('wcs-select > wcs-input.autocomplete-field:focus');
+            const focusedInput = await page.find('wcs-select > input.autocomplete-field:focus');
             expect(focusedInput).toBeDefined();
         });
         it('focus textbox, move cursor to the end of the text when End pressed', async () => {
@@ -1002,17 +999,17 @@ describe('Select component', () => {
             const typedText = 'test';
 
             // When
-            await wcsAutocompleteInput.press('t');
-            await wcsAutocompleteInput.press('e');
-            await wcsAutocompleteInput.press('s');
-            await wcsAutocompleteInput.press('t');
+            await autocompleteInput.press('t');
+            await autocompleteInput.press('e');
+            await autocompleteInput.press('s');
+            await autocompleteInput.press('t');
             await page.keyboard.press('End');
             await page.waitForChanges();
 
             // Then
-            const cursorPositionAfter = await wcsAutocompleteNativeInput.getProperty('selectionStart');
+            const cursorPositionAfter = await autocompleteInput.getProperty('selectionStart');
             expect(cursorPositionAfter).toEqual(typedText.length);
-            const focusedInput = await page.find('wcs-select > wcs-input.autocomplete-field:focus');
+            const focusedInput = await page.find('wcs-select > input.autocomplete-field:focus');
             expect(focusedInput).toBeDefined();
         });
         it('focus textbox, filter listbox, remove visual focus from listbox when any printable character', async () => {
@@ -1025,7 +1022,7 @@ describe('Select component', () => {
             await page.waitForChanges();
 
             // Then
-            const focusedInput = await page.find('wcs-select > wcs-input.autocomplete-field:focus');
+            const focusedInput = await page.find('wcs-select > input.autocomplete-field:focus');
             expect(focusedInput).toBeDefined(); // Focus textbox
             const optionsWithFilter = await page.findAll('wcs-select-option:not([aria-hidden])');
             expect(optionsWithFilter.length).toBeLessThan(allOptions.length); // Filter listbox

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-03-19T16:29:54",
+  "timestamp": "2024-03-28T15:29:31",
   "compiler": {
     "name": "@stencil/core",
     "version": "3.0.0",
@@ -2626,12 +2626,6 @@
           "wcs-select",
           "wcs-select-option"
         ],
-        "wcs-select": [
-          "wcs-input"
-        ],
-        "wcs-input": [
-          "wcs-mat-icon"
-        ],
         "wcs-select-option": [
           "wcs-checkbox"
         ]
@@ -3884,18 +3878,13 @@
           "docs": ""
         }
       ],
-      "dependents": [
-        "wcs-select"
-      ],
+      "dependents": [],
       "dependencies": [
         "wcs-mat-icon"
       ],
       "dependencyGraph": {
         "wcs-input": [
           "wcs-mat-icon"
-        ],
-        "wcs-select": [
-          "wcs-input"
         ]
       }
     },
@@ -5168,16 +5157,8 @@
       "dependents": [
         "wcs-grid-pagination"
       ],
-      "dependencies": [
-        "wcs-input"
-      ],
+      "dependencies": [],
       "dependencyGraph": {
-        "wcs-select": [
-          "wcs-input"
-        ],
-        "wcs-input": [
-          "wcs-mat-icon"
-        ],
         "wcs-grid-pagination": [
           "wcs-select"
         ]

@@ -81,15 +81,9 @@ Type: `Promise<void>`
 
  - [wcs-grid-pagination](../grid-pagination)
 
-### Depends on
-
-- [wcs-input](../input)
-
 ### Graph
 ```mermaid
 graph TD;
-  wcs-select --> wcs-input
-  wcs-input --> wcs-mat-icon
   wcs-grid-pagination --> wcs-select
   style wcs-select fill:#f9f,stroke:#333,stroke-width:4px
 ```

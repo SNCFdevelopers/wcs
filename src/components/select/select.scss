@@ -216,6 +216,29 @@ label {
         width: 100%;
         padding-left: var(--wcs-padding-m);
     }
+
+    input {
+        border-radius: var(--wcs-border-radius);
+        font: unset;
+        background-color: transparent;
+        outline: none;
+        border: none;
+        padding: 0 var(--wcs-margin);
+
+        color: var(--wcs-primary);
+        font-weight: var(--wcs-font-weight-form-value) !important;
+        font-size: var(--wcs-select-font-size);
+        line-height: 1.5;
+    }
+
+    input:focus-within {
+        @include focus-outline(var(--wcs-primary), 8px, -2px);
+    }
+
+    input::placeholder {
+        font-style: italic;
+        font-weight: 400;
+    }
 }
 
 .autocomplete-field {

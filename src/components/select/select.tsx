@@ -30,7 +30,6 @@ import { SelectChips } from './select-chips';
 import { MDCRipple } from '@material/ripple';
 import { createPopper, Instance } from '@popperjs/core';
 import { isEqual } from 'lodash-es';
-import { WcsInputCustomEvent } from "../../components";
 import { getActionForKeyboardEvent, KeyboardEventAssociatedAction } from './select-keyboard-event';
 import { isFocusable } from '../../utils/accessibility';
 
@@ -118,7 +117,7 @@ export class Select implements ComponentInterface {
 
     // Only used for autocomplete.
     private lastHighlightedOptionElement: HTMLWcsSelectOptionElement | null;
-    private autocompleteInput: HTMLWcsInputElement;
+    private autocompleteInput: HTMLInputElement;
 
     @Element() private el!: HTMLWcsSelectElement;
 
@@ -848,11 +847,11 @@ export class Select implements ComponentInterface {
         }
     }
 
-    private onAutocompleteInputEvent(e: WcsInputCustomEvent<KeyboardEvent>) {
-        const filter = e.target.value ? e.target.value.toString() : '';
+    private onAutocompleteInputEvent(e: InputEvent) {
+        const filter = this.autocompleteInput.value ?? '';
 
         this.handleAutocompleteValueChange(filter);
-        // Avoid the input wcsChange event to bubble and be emitted, we rather use wcsFilterChange in this case :
+        // Avoid the inputEvent event to bubble and be emitted, we rather use wcsFilterChange in this case :
         e.stopPropagation();
 
     }
@@ -941,8 +940,7 @@ export class Select implements ComponentInterface {
                                 <label class="wcs-select-value">{this.displayText}</label>)
                             : !this.autocomplete && <label class="wcs-select-placeholder">{this.placeholder}</label>
                         }
-                        {this.autocomplete && <wcs-input class="autocomplete-field"
-                                                         size={this.size}
+                        {this.autocomplete && <input class="autocomplete-field"
                                                          value={this.autocompleteValue}
                                                          role="combobox"
                                                          aria-haspopup="listbox"
@@ -955,7 +953,7 @@ export class Select implements ComponentInterface {
                                                          aria-autocomplete="list"
                                                          onBlur={(e) => this.onAutocompleteFieldBlur(e)}
                                                          placeholder={this.values?.length ? null : this.placeholder}
-                                                         onWcsInput={(e) => this.onAutocompleteInputEvent(e)}
+                                                         onInput={(e) => this.onAutocompleteInputEvent(e)}
                                                          ref={el => this.autocompleteInput = el}/>
                         }
                     </div>

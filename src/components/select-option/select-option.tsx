@@ -97,7 +97,7 @@ export class SelectOption implements ComponentInterface {
 
     render() {
         return (
-            <Host id={this.selectOptionId} aria-selected={this.selected ? 'true' : 'false'} slot="wcs-select-option" role="option" tabindex="-1">
+            <Host id={this.selectOptionId} aria-selected={this.selected || this.highlighted ? 'true' : 'false'} slot="wcs-select-option" role="option" tabindex="-1">
                 {this.multiple &&
                     <wcs-checkbox tabindex="-1" checked={this.selected}></wcs-checkbox>
                 }
