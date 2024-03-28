@@ -75,8 +75,7 @@ const SELECT_MACHINE_CONFIG: MachineConfig<any, SelectStateSchema, SelectEvent> 
  * from a list.
  * Use it with several slotted `wcs-select-option` inside.
  *
- * @slot wcs-select-option Contains all the options to render
- * @slot wcs-select-filter-noresult Contains the customizable "No result found" div (autocomplete mode only).
+ * @slot filter-no-result Contains the customizable "No result found" div (autocomplete mode only).
  */
 @Component({
     tag: 'wcs-select',
@@ -920,9 +919,6 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
         this.popper?.update();
     }
 
-    // FIXME : next-release : 
-    // rename wcs-select-option => option
-    // rename wcs-select-filter-noresult => filter-noresult
     render() {
         const ariaLabelValue = `${this.labelElement ? this.labelElement.innerText : ''} ${this.hasValue ? this.displayText : ''}`.trimEnd();
         return (
@@ -970,10 +966,10 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
                     <SelectArrow up={this.expanded}/>
                 </div>
                 <div class="wcs-select-options" id={this.optionsId} role="listbox">
-                    <slot name="wcs-select-option" onSlotchange={this.onSlotchange.bind(this)}/>
+                    <slot name="options" onSlotchange={this.onSlotchange.bind(this)}/>
                     {(this.autocomplete && this.showNoResultFoundLabel) &&
                         <div class="noresult-container">
-                            <slot name="wcs-select-filter-noresult">
+                            <slot name="filter-no-result">
                                 <span>Aucun résultat</span>
                             </slot>
                         </div>}

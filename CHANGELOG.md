@@ -25,7 +25,9 @@ To migrate, please refer to the storybook documentation (v4 to v5).
 
 ### Changed
 
-for changes in existing functionality.
+- **select** rename these slots for brevity :
+  - `wcs-select-option` => `options`
+  - `wcs-select-filter-noresult` => `filter-no-result`
 
 ### Deprecated
 

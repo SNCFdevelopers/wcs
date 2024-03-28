@@ -79,10 +79,9 @@ Type: `Promise<void>`
 
 ## Slots
 
-| Slot                                                                                                     | Description |
-| -------------------------------------------------------------------------------------------------------- | ----------- |
-| `"wcs-select-filter-noresult Contains the customizable "No result found" div (autocomplete mode only)."` |             |
-| `"wcs-select-option Contains all the options to render"`                                                 |             |
+| Slot                                                                                           | Description |
+| ---------------------------------------------------------------------------------------------- | ----------- |
+| `"filter-no-result Contains the customizable "No result found" div (autocomplete mode only)."` |             |
 
 
 ## Dependencies
