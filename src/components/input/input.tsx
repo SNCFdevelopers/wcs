@@ -3,7 +3,7 @@ import {
     ComponentInterface, Element, Event, EventEmitter, h, Host, Method, Prop,
     State, Watch
 } from '@stencil/core';
-import { debounceEvent, findItemLabel, inheritAttributes } from '../../utils/helpers';
+import { debounceEvent, findItemLabel, inheritAriaAttributes, inheritAttributes } from '../../utils/helpers';
 import {
     AutocompleteTypes, InputChangeEventDetail, isWcsInputSize, TextFieldTypes, WcsInputSize, WcsInputSizeValues
 } from './input-interface';
@@ -247,7 +247,10 @@ export class Input implements ComponentInterface, MutableAriaAttribute {
     @Event() wcsFocus!: EventEmitter<FocusEvent>;
 
     componentWillLoad() {
-        this.inheritedAttributes = inheritAttributes(this.el, ['aria-label', 'tabindex', 'title']);
+        this.inheritedAttributes = {
+            ...inheritAriaAttributes(this.el),
+            ...inheritAttributes(this.el, ['tabindex', 'title'])
+        };
 
         if (!isWcsInputSize(this.size)) {
             console.error(`Invalid size value for wcs-input : "${this.size}". Must be one of "${WcsInputSizeValues.join(', ')}"`);
@@ -309,7 +312,7 @@ export class Input implements ComponentInterface, MutableAriaAttribute {
             this.nativeInput.setAttribute(attr, value);
         }
     }
-    
+
     private shouldClearOnEdit() {
         const {type, clearOnEdit} = this;
         return (clearOnEdit === undefined)

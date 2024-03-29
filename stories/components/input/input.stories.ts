@@ -5,6 +5,24 @@ import { AutocompleteTypes, TextFieldTypes, WcsInputSize } from '../../../src/co
 import { withActions } from '@storybook/addon-actions/decorator';
 import { getComponentArgs } from '../../utils/args-generation';
 
+/**
+ * ## Accessibility
+ *
+ * `wcs-input` is a wrapper around the native input element which is located inside its shadow DOM. All the
+ * **aria attributes** you set on `wcs-input` are passed to the **native input** element **during the first render of 
+ * the component**. If you need to use them as you would with a native input, you can do so.
+ *
+ * If you need to **dynamically change the aria attributes after the first render**, you can use the `setAriaAttribute` 
+ * js method of `wcs-input`.
+ *
+ * ```javascript
+ * const wcsInput = document.querySelector('wcs-input');
+ * await wcsInput.setAriaAttribute('aria-label', 'new label');
+ * ```
+ * 
+ * If you use wcs-input outside a wcs-form-field, you have to manage the label and the error message yourself.
+ * You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.
+ **/
 const meta: Meta = {
     title: 'Components/Input',
     component: 'wcs-input',
@@ -52,6 +70,7 @@ interface InputArgs {
     name: string;
     pattern?: string;
     placeholder?: string | null;
+    ariaLabel?: string;
     readonly: boolean;
     required: boolean;
     spellcheck: boolean;
@@ -87,6 +106,7 @@ const Template: StoryFn<Partial<InputArgs>> = (args: Partial<InputArgs>) => html
                name=${args.name ?? nothing}
                pattern=${args.pattern ?? nothing}
                placeholder=${args.placeholder ?? nothing}
+               aria-label=${args.ariaLabel ?? nothing}
                ?readonly=${args.readonly}
                ?required=${args.required}
                ?spellcheck=${args.spellcheck}
@@ -103,7 +123,8 @@ const Template: StoryFn<Partial<InputArgs>> = (args: Partial<InputArgs>) => html
 export const Default: StoryObj = {
     render: (args: InputArgs) => Template(args, this),
     args: {
-        placeholder: 'Placeholder'
+        placeholder: 'Placeholder',
+        ariaLabel: 'Input field default',
     }
 }
 
@@ -114,9 +135,9 @@ export const Default: StoryObj = {
 export const Sizes: StoryObj = {
     render: () => html`
         <div style="display: flex; gap: var(--wcs-base-margin)">
-            <wcs-input id="input-demo-1" size="l" style="width: 300px" placeholder="Input L"></wcs-input>
-            <wcs-input id="input-demo-2" size="m" style="width: 300px" placeholder="Input M (default)"></wcs-input>
-            <wcs-input id="input-demo-3" size="s" style="width: 300px" placeholder="Input S (for grids)"></wcs-input>
+            <wcs-input id="input-demo-1" size="l" style="width: 300px" aria-label="Input size L" placeholder="Input L"></wcs-input>
+            <wcs-input id="input-demo-2" size="m" style="width: 300px" aria-label="Input size M" placeholder="Input M (default)"></wcs-input>
+            <wcs-input id="input-demo-3" size="s" style="width: 300px" aria-label="Input size S" placeholder="Input S (for grids)"></wcs-input>
         </div>
     `,
     args: {
@@ -133,7 +154,8 @@ export const WithPrefixIcon: StoryObj = {
     render: (args: InputArgs) => Template(args, this),
     args: {
         ...Default.args,
-        icon: 'verified'
+        icon: 'verified',
+        ariaLabel: 'Input field with prefix icon'
     }
 }
 
@@ -145,7 +167,8 @@ export const PrefixSuffixLabel: StoryObj = {
     args: {
         ...Default.args,
         prefixLabel: 'https://',
-        suffixLabel: '.sncf'
+        suffixLabel: '.sncf',
+        ariaLabel: 'Input field with prefix and suffix label'
     }
 }
 
@@ -159,7 +182,8 @@ export const Disabled: StoryObj = {
     args: {
         ...Default.args,
         disabled: true,
-        value: 'Disabled field'
+        value: 'Disabled field',
+        ariaLabel: 'Input field disabled'
     }
 }
 
@@ -173,7 +197,8 @@ export const Readonly: StoryObj = {
     args: {
         ...Default.args,
         readonly: true,
-        value: 'Readonly field'
+        value: 'Readonly field',
+        ariaLabel: 'Input field readonly'
     }
 }
 
@@ -184,7 +209,8 @@ export const Date: StoryObj = {
     render: (args: InputArgs) => Template(args, this),
     args: {
         ...Default.args,
-        type: 'date'
+        type: 'date',
+        ariaLabel: 'Input field date'
     }
 }
 
@@ -197,6 +223,7 @@ export const Password: StoryObj = {
     args: {
         ...Default.args,
         type: 'password',
-        value: 'superpassword'
+        value: 'superpassword',
+        ariaLabel: 'Input field password'
     }
 }
