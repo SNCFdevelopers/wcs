@@ -223,7 +223,10 @@ export class Textarea implements ComponentInterface, MutableAriaAttribute {
     }
 
     componentWillLoad() {
-        this.inheritedAttributes = inheritAttributes(this.el, ['title']);
+        this.inheritedAttributes = {
+            ...inheritAriaAttributes(this.el),
+            ...inheritAttributes(this.el, ['title'])
+        };
     }
 
     componentDidLoad() {
