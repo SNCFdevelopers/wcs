@@ -133,45 +133,68 @@ describe('Select component', () => {
         expect(label.innerText).toBe('One');
     });
 
+    describe('select event', () => {
+        it('should not emit event if we set the value in js', async () => {
+            // Given
+            const page = await newE2EPage({
+                html: `
+                <wcs-select value="1">
+                    <wcs-select-option value="1">One</wcs-select-option>
+                    <wcs-select-option value="2">Two</wcs-select-option>
+                </wcs-select>
+            `
+            });
+            const select = await page.find('wcs-select');
+            const changeSpy = await select.spyOnEvent('wcsChange');
+
+            // When
+            await select.setProperty('value', '2');
+            await page.waitForChanges();
+
+            // Then
+            expect(changeSpy).toHaveReceivedEventTimes(0);
+        });
+    });
+
     describe('setSelectedValue', () => {
-        it('Let user change selected value programatically', async () => {
+        it('Let user change selected value programmatically', async () => {
             // Given
             const page = await newE2EPage();
             await page.setContent(`
                 <wcs-select>
-                    <wcs-select-option value="1"></wcs-select-option>
-                    <wcs-select-option value="2"></wcs-select-option>
+                    <wcs-select-option value="1">One</wcs-select-option>
+                    <wcs-select-option value="2">Two</wcs-select-option>
                 </wcs-select>
             `);
             const select = await page.find('wcs-select');
-            const changeSpy = await select.spyOnEvent('wcsChange');
+
             // When
             await select.setProperty('value', '2');
             await page.waitForChanges();
+
             // Then
-            expect(changeSpy).toHaveReceivedEventTimes(1);
-            expect(changeSpy).toHaveReceivedEventDetail({ value: '2' });
+            expect(select.shadowRoot.querySelector('.wcs-select-value')).toEqualText("Two");
         });
 
-        it('Let user change selected values programatically', async () => {
+        it('Let user change selected values programmatically', async () => {
             // Given
             const page = await newE2EPage();
             await page.setContent(`
                 <wcs-select multiple>
-                    <wcs-select-option value="1"></wcs-select-option>
-                    <wcs-select-option value="2"></wcs-select-option>
-                    <wcs-select-option value="3"></wcs-select-option>
+                    <wcs-select-option value="1">One</wcs-select-option>
+                    <wcs-select-option value="2">Two</wcs-select-option>
+                    <wcs-select-option value="3">Three</wcs-select-option>
                 </wcs-select>
             `);
             const select = await page.find('wcs-select');
-            const changeSpy = await select.spyOnEvent('wcsChange');
+
             // When
-            const newValue = [2, 3];
+            const newValue = ['2', '3'];
             await select.setProperty('value', newValue);
             await page.waitForChanges();
+
             // Then
-            expect(changeSpy).toHaveReceivedEventTimes(1);
-            expect(changeSpy).toHaveReceivedEventDetail({ value: newValue });
+            expect(select.shadowRoot.querySelector('.wcs-select-value')).toEqualText("Two, Three");
         });
     });
 

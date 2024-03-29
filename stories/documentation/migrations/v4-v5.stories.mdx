@@ -57,14 +57,30 @@ The `wcsChange` event is no longer emitted when the input value changes programm
 
 Let's take the following scenario: a search filter is implemented with an `wcs-input`, and the search is restarted each time the wcsChange event is received. The interface offers default values via buttons; when a button is clicked, the search input value is mutate in typescript, the `wcsChange` event is fire by the `wcs-input` and the search is rerun. After our modification, the search will not be rerun, so you'll have to run the search manually in the button's click event handler.
 
+### wcs-select
+
+#### `wcsChange` event is now emitted the same way as the native `change` event
+
+The `wcsChange` event is now emitted the same way as the native [`change` event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event). Before, it was emitted both for user interactions and programmatically. Now, it is emitted only when the user interacts with the select.
+
+This means that the `wcsChange` event is no longer emitted when the select value changes programmatically (when you set the `value` attribute or property in js). This change may cause issues if you were relying on the `wcsChange` event to be emitted when the select value changes programmatically.
+
 ## wcs-angular
 
 ### wcs-input
 
 The `wcs-input` component has been updated to match the [changes](#wcs-input) in `wcs-core`.
 
+### wcs-select
+
+The `wcs-select` component has been updated to match the [changes](#wcs-select) in `wcs-core`
+
 ## wcs-react
 
 ### wcs-input
 
 The `wcs-input` component has been updated to match the [changes](#wcs-input) in `wcs-core`.
+
+### wcs-select
+
+The `wcs-select` component has been updated to match the [changes](#wcs-select) in `wcs-core`

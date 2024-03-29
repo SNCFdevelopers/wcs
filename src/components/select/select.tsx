@@ -226,7 +226,6 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
     @Watch('value')
     onValueChangeHandler(newValue: any) {
         this.updateSelectedValue(newValue);
-        this.emitChange(this.value);
     }
 
     private updateSelectedValue(value: any) {
@@ -472,6 +471,7 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
                                 this.autocompleteValue = event.value.option.displayText;
                             }
                         }
+                        this.emitChange(this.value);
                     }
                 }
             },

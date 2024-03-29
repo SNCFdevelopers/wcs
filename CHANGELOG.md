@@ -36,8 +36,9 @@ for now removed features.
 
 ### Fixed
 
-- **select**: internal value was not changed when the select is closed and when we used keyboard nav on it (key up, 
-key down... to change the current selected option)
+- **select**: 
+  - internal value was not changed when the select is closed and when we used keyboard nav on it (key up, key down... to change the current selected option).
+  - the wcsChange event is no longer triggered when the value is updated programmatically.
 - **doc**:
     - improve `wcs-select`, `wcs-input` and `wcs-dropdown` documentation
     - fix accessibility problem for form-field radio group story => add name to each wcs-radio
