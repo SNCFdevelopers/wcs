@@ -51,7 +51,9 @@ for now removed features.
 - **input**:
     - rework input events to be more consistent with native events (wcsInput, wcsChange)
     - inherit aria-attributes from host to the wrapped native input
-- **textarea**: inherit aria-attributes from host to the wrapped native textarea
+- **textarea**:
+    - rework textarea events to be more consistent with native events (wcsInput, wcsChange)
+    - inherit aria-attributes from host to the wrapped native textarea
 - **radio-group**:
     - we not remove tabIndex=0 on option which are not selected in the group when a click is received inside
       the group => when re-tab to the group, it caused the focus on not last selected option

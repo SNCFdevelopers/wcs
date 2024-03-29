@@ -39,12 +39,12 @@ Mainly inspired from Ionic Textarea Component
 
 ## Events
 
-| Event       | Description                               | Type                                     |
-| ----------- | ----------------------------------------- | ---------------------------------------- |
-| `wcsBlur`   | Emitted when the input loses focus.       | `CustomEvent<FocusEvent>`                |
-| `wcsChange` | Emitted when the input value has changed. | `CustomEvent<TextareaChangeEventDetail>` |
-| `wcsFocus`  | Emitted when the input has focus.         | `CustomEvent<FocusEvent>`                |
-| `wcsInput`  | Emitted when a keyboard input occurred.   | `CustomEvent<KeyboardEvent>`             |
+| Event       | Description                                                                                               | Type                                     |
+| ----------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
+| `wcsBlur`   | Emitted when the input loses focus.                                                                       | `CustomEvent<FocusEvent>`                |
+| `wcsChange` | Emitted when the input value has changed.- See https://developer.mozilla.org/en-US/docs/Web/Events/change | `CustomEvent<TextareaChangeEventDetail>` |
+| `wcsFocus`  | Emitted when the input has focus.                                                                         | `CustomEvent<FocusEvent>`                |
+| `wcsInput`  | Emitted when a keyboard input occurred. See https://developer.mozilla.org/en-US/docs/Web/Events/input     | `CustomEvent<KeyboardEvent>`             |
 
 
 ## Methods

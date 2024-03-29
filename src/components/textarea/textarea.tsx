@@ -182,16 +182,15 @@ export class Textarea implements ComponentInterface, MutableAriaAttribute {
             nativeInput.value = value;
         }
         this.runAutoGrow();
-        this.wcsChange.emit({value});
     }
 
     /**
-     * Emitted when the input value has changed.
+     * Emitted when the input value has changed.- See https://developer.mozilla.org/en-US/docs/Web/Events/change
      */
     @Event() wcsChange!: EventEmitter<TextareaChangeEventDetail>;
 
     /**
-     * Emitted when a keyboard input occurred.
+     * Emitted when a keyboard input occurred. See https://developer.mozilla.org/en-US/docs/Web/Events/input
      */
     @Event() wcsInput!: EventEmitter<KeyboardEvent>;
 
@@ -329,6 +328,10 @@ export class Textarea implements ComponentInterface, MutableAriaAttribute {
         }
         this.wcsInput.emit(ev as KeyboardEvent);
     }
+    
+    private onChange = (_: Event) => {
+        this.wcsChange.emit({value: this.nativeInput.value});
+    }
 
     private onFocus = (ev: FocusEvent) => {
         this.hasFocus = true;
@@ -382,6 +385,7 @@ export class Textarea implements ComponentInterface, MutableAriaAttribute {
                     rows={this.rows}
                     wrap={this.wrap}
                     onInput={this.onInput}
+                    onChange={this.onChange}
                     onBlur={this.onBlur}
                     onFocus={this.onFocus}
                     onKeyDown={this.onKeyDown}

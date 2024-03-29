@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-04-02T08:43:05",
+  "timestamp": "2024-04-02T14:35:52",
   "compiler": {
     "name": "@stencil/core",
     "version": "3.0.0",
@@ -5264,7 +5264,7 @@
       "encapsulation": "none",
       "tag": "wcs-select-option",
       "readme": "# Select option\r\n\r\n\r\n\r",
-      "docs": "Select option component, use in conjunction with wcs-select.",
+      "docs": "The select option is a subcomponent of `wcs-select` that represents a single option in a select list.",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -6591,7 +6591,7 @@
           "bubbles": true,
           "cancelable": true,
           "composed": true,
-          "docs": "Emitted when the input value has changed.",
+          "docs": "Emitted when the input value has changed.- See https://developer.mozilla.org/en-US/docs/Web/Events/change",
           "docsTags": []
         },
         {
@@ -6609,7 +6609,7 @@
           "bubbles": true,
           "cancelable": true,
           "composed": true,
-          "docs": "Emitted when a keyboard input occurred.",
+          "docs": "Emitted when a keyboard input occurred. See https://developer.mozilla.org/en-US/docs/Web/Events/input",
           "docsTags": []
         }
       ],

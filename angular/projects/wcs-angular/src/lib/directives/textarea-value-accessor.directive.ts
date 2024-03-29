@@ -1,6 +1,5 @@
 import { Directive, ElementRef, HostListener, Injector } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { TextareaChangeEventDetail } from '../../../../../../dist/types/components/textarea/textarea-interface';
 
 @Directive({
   /* tslint:disable-next-line:directive-selector */
@@ -15,23 +14,17 @@ import { TextareaChangeEventDetail } from '../../../../../../dist/types/componen
 })
 // tslint:disable-next-line:directive-class-suffix
 export class TextareaValueAccessorDirective implements ControlValueAccessor {
-  private value;
   private onChange: (value: any) => void = () => {};
   private onTouched: () => void = () => {};
 
-  constructor(protected injector: Injector, protected el: ElementRef) {
-    this.el.nativeElement.addEventListener('wcsChange', (event: CustomEvent<TextareaChangeEventDetail>) => {
-      this.onChange(event.detail.value);
-    });
-  }
+  constructor(protected injector: Injector, protected el: ElementRef) {}
 
   // tslint:disable-next-line:typedef
-  writeValue(value) {
-    this.value = value;
-    this.el.nativeElement.value = this.value;
+  writeValue(value: any) {
+    this.el.nativeElement.value = value;
   }
 
-  registerOnChange(fn): void {
+  registerOnChange(fn: (_: any) => void): void {
     this.onChange = fn;
   }
 
@@ -42,7 +35,14 @@ export class TextareaValueAccessorDirective implements ControlValueAccessor {
     }
   }
 
-  registerOnTouched(fn): void {
+  @HostListener('wcsInput', ['$event.target'])
+  _handleInputEvent(el: any): void {
+    if (el === this.el.nativeElement) {
+      this.onChange(el.value);
+    }
+  }
+
+  registerOnTouched(fn: any): void {
     this.onTouched = fn;
   }
 }

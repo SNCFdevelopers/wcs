@@ -127,7 +127,7 @@ export class EditableField implements ComponentInterface {
         })[0];
         if (!element) throw new Error('You must provide a slotted textarea element to handle edition');
         this.spiedElement = element as HTMLElement;
-        this.addChangeHandlerForWcsComponents(this.spiedElement);
+        this.addInputHandlerForWcsComponents(this.spiedElement);
         this.spiedElement.addEventListener('keydown', (event: KeyboardEvent) => {
             if (event.key === 'Enter' && event.ctrlKey) {
                 this.sendCurrentValue();

@@ -1,6 +1,7 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { getComponentArgs } from '../../utils/args-generation';
+import { withActions } from '@storybook/addon-actions/decorator';
 
 /**
  * ## Accessibility
@@ -33,7 +34,8 @@ const meta: Meta = {
                 'wcsInput'
             ]
         }
-    }
+    },
+    decorators: [withActions]
 };
 
 export default meta;

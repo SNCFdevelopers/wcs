@@ -1535,11 +1535,11 @@ import type { TextareaChangeEventDetail as IWcsTextareaTextareaChangeEventDetail
 
 export declare interface WcsTextarea extends Components.WcsTextarea {
   /**
-   * Emitted when the input value has changed.
+   * Emitted when the input value has changed.- See https://developer.mozilla.org/en-US/docs/Web/Events/change
    */
   wcsChange: EventEmitter<CustomEvent<IWcsTextareaTextareaChangeEventDetail>>;
   /**
-   * Emitted when a keyboard input occurred.
+   * Emitted when a keyboard input occurred. See https://developer.mozilla.org/en-US/docs/Web/Events/input
    */
   wcsInput: EventEmitter<CustomEvent<KeyboardEvent>>;
   /**

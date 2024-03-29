@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { defineCustomElements, WcsButton, WcsGrid, WcsGridColumn } from 'wcs-react';
 import { InputDemo } from './components/input-demo';
+import { TextareaDemo } from './components/textarea-demo';
 
 defineCustomElements();
 
@@ -26,6 +27,7 @@ function App() {
                     <WcsGridColumn path="surname" name="Surname" sort/>
                 </WcsGrid>
                 <InputDemo/>
+                <TextareaDemo/>
             </header>
         </div>
     );

@@ -3002,7 +3002,7 @@ declare namespace LocalJSX {
          */
         "onWcsBlur"?: (event: WcsTextareaCustomEvent<FocusEvent>) => void;
         /**
-          * Emitted when the input value has changed.
+          * Emitted when the input value has changed.- See https://developer.mozilla.org/en-US/docs/Web/Events/change
          */
         "onWcsChange"?: (event: WcsTextareaCustomEvent<TextareaChangeEventDetail>) => void;
         /**
@@ -3010,7 +3010,7 @@ declare namespace LocalJSX {
          */
         "onWcsFocus"?: (event: WcsTextareaCustomEvent<FocusEvent>) => void;
         /**
-          * Emitted when a keyboard input occurred.
+          * Emitted when a keyboard input occurred. See https://developer.mozilla.org/en-US/docs/Web/Events/input
          */
         "onWcsInput"?: (event: WcsTextareaCustomEvent<KeyboardEvent>) => void;
         /**

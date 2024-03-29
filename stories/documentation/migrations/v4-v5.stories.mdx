@@ -55,7 +55,54 @@ Note that the `wcsInput` event details do not contain the value of the input, yo
 
 The `wcsChange` event is no longer emitted when the input value changes programmatically (when you set the `value` attribute or property in js) . This change may cause issues if you were relying on the `wcsChange` event to be emitted when the input value changes programmatically.
 
-Let's take the following scenario: a search filter is implemented with an `wcs-input`, and the search is restarted each time the wcsChange event is received. The interface offers default values via buttons; when a button is clicked, the search input value is mutate in typescript, the `wcsChange` event is fire by the `wcs-input` and the search is rerun. After our modification, the search will not be rerun, so you'll have to run the search manually in the button's click event handler.
+Let's take the following scenario: a search filter is implemented with an `wcs-input`, and the search is restarted each time the wcsChange event is received. The interface offers default values via buttons; when a button is clicked, the search input value is mutated in typescript, the `wcsChange` event is fired by the `wcs-input` and the search is rerun. After our modification, the search will not be rerun, so you'll have to run the search manually in the button's click event handler.
+
+
+### wcs-textarea
+
+#### `wcsChange` event is now emitted the same way as the native `change` event
+
+The `wcsChange` event is now emitted the same way as the native [`change` event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event). Before, it was emitted at every keystroke (matching the `input` event) . Now, it is emitted when the input loses focus.
+
+This change may cause issues if you were relying on the `wcsChange` event to be emitted at every keystroke. If you were using the `wcsChange` event to listen to every keystroke, you should now use the `wcsInput` event instead.
+
+Angular Example:
+
+Before :
+```ts
+@Component({
+  template: `
+    <wcs-textarea (wcsChange)="handleChange($event)"></wcs-textarea>
+  `
+})
+export class MyComponent {
+  handleChange(event: CustomEvent<TextareaChangeEventDetail>) {
+    console.log('The value has changed', event.detail.value);
+  }
+}
+```
+
+After :
+```ts
+@Component({
+  template: `
+    <wcs-textarea (wcsInput)="handleChange($event)"></wcs-textarea>
+  `
+})
+export class MyComponent {
+  handleChange(event: CustomEvent<KeyboardEvent>) {
+    console.log('The value has changed', event.target.value);
+  }
+}
+```
+
+Note that the `wcsInput` event details do not contain the value of the textarea, you should use `event.target.value` to get the value of the textarea.
+
+#### `wcsChange` event is no longer emitted when the textarea value changes programmatically
+
+The `wcsChange` event is no longer emitted when the textarea value changes programmatically (when you set the `value` attribute or property in js) . This change may cause issues if you were relying on the `wcsChange` event to be emitted when the textarea value changes programmatically.
+
+Let's take the following scenario: we use a `wcs-textarea` to modify content with a rendering preview next to it. The preview is restarted each time the wcsChange event is received. The interface offers default values via buttons; when a button is clicked, the textarea value is mutated in typescript, the `wcsChange` event is fired by the `wcs-textarea` input and the preview is rerun. After our modification, the preview will not be rerun, so you'll have to run the preview manually in the button's click event handler.
 
 ### wcs-select
 
@@ -71,6 +118,10 @@ This means that the `wcsChange` event is no longer emitted when the select value
 
 The `wcs-input` component has been updated to match the [changes](#wcs-input) in `wcs-core`.
 
+### wcs-textarea
+
+The `wcs-textarea` component has been updated to match the [changes](#wcs-textarea) in `wcs-core`.
+
 ### wcs-select
 
 The `wcs-select` component has been updated to match the [changes](#wcs-select) in `wcs-core`
@@ -81,6 +132,11 @@ The `wcs-select` component has been updated to match the [changes](#wcs-select) 
 
 The `wcs-input` component has been updated to match the [changes](#wcs-input) in `wcs-core`.
 
+### wcs-textarea
+
+The `wcs-textarea` component has been updated to match the [changes](#wcs-textarea) in `wcs-core`.
+
 ### wcs-select
 
 The `wcs-select` component has been updated to match the [changes](#wcs-select) in `wcs-core`
+
