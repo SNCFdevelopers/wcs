@@ -1,9 +1,27 @@
-import {
-    isEndKey,
-    isEnterKey, isEscapeKey,
-    isHomeKey, isPageDownKey, isPageUpKey,
-    isSpaceKey, isTabKey,
-} from '../../utils/helpers';
+import { keyboardShortcutFromKeyboardEvent } from "../../utils/keyboard-event";
+
+// Possibles Shortcut
+// ALT+DOWN_ARROW : open the listbox
+// ALT+UP_ARROW : open the listbox
+
+// MAJ+TAB : close the listbox, blur
+
+// UP_ARROW : focus / highlight the previous option
+// DOWN_ARROW : focus / highlight the next option
+// LEFT_ARROW : (unique) focus / highlight the previous option
+// RIGHT_ARROW : (unique) focus / highlight the previous option
+
+// HOME : select first option
+// END : select last option
+
+// PAGE_UP : select first option
+// PAGE_DOWN : select last option
+
+// ENTER : select currently focused / highlighted option
+// SPACE : select currently focused / highlighted option
+
+// TAB : close the listbox, blur
+// ESCAPE : close the listbox, if autocomplete mode also clears the textbox
 
 export type KeyboardEventAssociatedAction = OpenSelect
     | CloseSelect
@@ -27,13 +45,6 @@ type SelectOption = {kind: 'SelectOption', target: 'next' | 'previous' | 'first'
 type MoveFocus = {kind: 'MoveFocus', target: 'previous'};
 
 type FocusOption = {kind: 'FocusOption', target: 'next' | 'previous' | 'first' | 'last' | 'lastFocused'};
-
-type SelectKeyboardShortcutAlt = 'ALT+DOWN_ARROW' | 'ALT+UP_ARROW';
-type SelectKeyboardShortcutMaj = 'MAJ+TAB';
-type SelectKeyboardShortcutDirectional = 'DOWN_ARROW' | 'UP_ARROW' | 'LEFT_ARROW' | 'RIGHT_ARROW';
-type SelectKeyboardShortcutOthers = 'HOME' | 'END' | 'PAGE_UP' | 'PAGE_DOWN' | 'ENTER' | 'SPACE' | 'TAB' | 'ESCAPE';
-
-type SelectKeyboardShortcut = SelectKeyboardShortcutAlt | SelectKeyboardShortcutMaj | SelectKeyboardShortcutDirectional | SelectKeyboardShortcutOthers | 'UNKNOWN';
 
 /**
  * We follow this https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-select-only/
@@ -185,6 +196,8 @@ export function getActionForKeyboardEvent(event: KeyboardEvent, currentState: 'c
                             break;
                     }
                     break;
+                default:
+                    break;
             }
             break;
         case 'opened':
@@ -330,67 +343,12 @@ export function getActionForKeyboardEvent(event: KeyboardEvent, currentState: 'c
                             break;
                     }
                     break;
+                default:
+                    break;
             }
             break;
         default:
             throw Error('Unknown error');
     }
     return [];
-}
-
-
-/**
- * Convert a {@link KeyboardEvent} into a {@link SelectKeyboardShortcut}
- * @param event - KeyboardEvent
- * @returns The corresponding `SelectKeyboardShortcut`
- */
-function keyboardShortcutFromKeyboardEvent(event: KeyboardEvent): SelectKeyboardShortcut {
-    const { key } = event;
-
-    if (event.shiftKey) {
-        switch (key) {
-            case 'Tab':
-                return 'MAJ+TAB';
-        }
-    }
-
-    if(event.altKey) {
-        switch (key) {
-            case 'ArrowDown':
-                return 'ALT+DOWN_ARROW';
-            case 'ArrowUp':
-                return 'ALT+UP_ARROW';
-        }
-    } else {
-        switch (key) {
-            case 'ArrowDown':
-                return 'DOWN_ARROW';
-            case 'ArrowUp':
-                return 'UP_ARROW';
-            case 'ArrowLeft':
-                return 'LEFT_ARROW';
-            case 'ArrowRight':
-                return 'RIGHT_ARROW';
-        }
-
-        if(isHomeKey(event)) {
-            return 'HOME';
-        } else if (isEndKey(event)) {
-            return 'END';
-        } else if(isPageUpKey(event)) {
-            return 'PAGE_UP';
-        } else if(isPageDownKey(event)) {
-            return 'PAGE_DOWN';
-        } else if(isEnterKey(event)) {
-            return 'ENTER';
-        } else if(isSpaceKey(event)) {
-            return 'SPACE';
-        } else if(isTabKey(event)) {
-            return 'TAB';
-        } else if (isEscapeKey(event)) {
-            return 'ESCAPE';
-        }
-    }
-
-    return 'UNKNOWN';
 }

@@ -1,41 +1,32 @@
-import { isEndKey, isHomeKey } from "../../utils/helpers";
+import { keyboardShortcutFromKeyboardEvent } from "../../utils/keyboard-event";
 
 
 export type KeyboardEventAssociatedAction = FocusCell | SelectRow;
 
+// Possibles Shortcut
+// UP_ARROW : focus cell up
+// DOWN_ARROW : focus cell down
+// LEFT_ARROW : focus cell left
+// RIGHT_ARROW : focus cell right
 
-// Up Arrow : cellule d'en haut
-// Down Arrow : cellule d'en bas
-// Left Arrow : cellule à gauche
-// Right Arrow : cellule à droite
+// HOME : focus first cell of the row
+// END : focus last cell of the row
 
-// Home : première cellule de la ligne
-// End : dernière cellule de la ligne
+// CTRL+HOME : focus first cell of the grid
+// CTRL+END : focus first cell of the grid
 
-// Ctrl + Home : première cellule du TABLEAU
-// Ctrl + End : dernière cellule du TABLEAU
+// IF SELECTION MULTIPLE OR SINGLE :
+// MAJ+SPACE : select (check) the current row
 
-// SI SELECTION MULTIPLE OU SINGLE :
-// Shift + Espace : sélectionne la ligne courante (cocher)
-
-// SI SELECTION MULTIPLE
-// Ctrl + A : select all lines (cocher)
+// IF SELECTION MULTIPLE
+// CTRL+A : select (check) all rows
 
 type FocusCell = {kind: 'FocusCell', target: 'up' | 'down' | 'left' | 'right' | 'first_of_row' | 'last_of_row' | 'first_of_grid' | 'last_of_grid'};
 type SelectRow = {kind: 'SelectRow', target: 'one' | 'all'}
 
-type GridKeyboardShortcutDirectional = 'DOWN_ARROW' | 'UP_ARROW' | 'LEFT_ARROW' | 'RIGHT_ARROW';
-type GridKeyboardShortcutOthers = 'HOME' | 'END';
-type GridKeyboardShortcutMaj = 'MAJ+SPACE';
-type GridKeyboardShortcutCtrl = 'CTRL+A' | 'CTRL+HOME' | 'CTRL+END';
-
-
-type GridKeyboardShortcut = GridKeyboardShortcutDirectional | GridKeyboardShortcutOthers | GridKeyboardShortcutMaj | GridKeyboardShortcutCtrl | 'UNKNOWN';
-
 /**
  * We follow this https://www.w3.org/WAI/ARIA/apg/patterns/grid/
  * @param event
- * @param currentState
  * @param type
  */
 export function getActionForKeyboardEvent(event: KeyboardEvent, type: 'grid_no_selection' | 'grid_selection_single' | 'grid_selection_multiple'): KeyboardEventAssociatedAction[] {
@@ -80,52 +71,9 @@ export function getActionForKeyboardEvent(event: KeyboardEvent, type: 'grid_no_s
             return [{kind: 'FocusCell', target: 'first_of_grid'}];
         case "CTRL+END":
             return [{kind: 'FocusCell', target: 'last_of_grid'}];
+        default:
+            break;
     }
 
     return [];
-}
-
-/**
- * Convert a {@link KeyboardEvent} into a {@link GridKeyboardShortcut}
- * @param event - KeyboardEvent
- * @returns The corresponding `GridKeyboardShortcut`
- */
-function keyboardShortcutFromKeyboardEvent(event: KeyboardEvent): GridKeyboardShortcut {
-    const { key } = event;
-
-    if (event.shiftKey) {
-        switch (key) {
-            case 'Space':
-                return 'MAJ+SPACE';
-        }
-    } // Pas de else ?
-
-    if (event.ctrlKey) {
-        if(isHomeKey(event)) {
-            return 'CTRL+HOME';
-        } else if(isEndKey(event)) {
-            return 'CTRL+END';
-        } else if (key === 'a') {
-            return 'CTRL+A';
-        }
-    } else {
-        switch (key) {
-            case 'ArrowDown':
-                return 'DOWN_ARROW';
-            case 'ArrowUp':
-                return 'UP_ARROW';
-            case 'ArrowLeft':
-                return 'LEFT_ARROW';
-            case 'ArrowRight':
-                return 'RIGHT_ARROW';
-        }
-
-        if(isHomeKey(event)) {
-            return 'HOME';
-        } else if (isEndKey(event)) {
-            return 'END';
-        }
-    }
-
-    return 'UNKNOWN';
 }
