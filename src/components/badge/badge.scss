@@ -2,10 +2,13 @@
     --wcs-badge-ligther-percentage: 20;
     display: inline-block;
     padding: 0.313rem 1.5rem;
-    font-size: 0.875rem;
+    height: var(--wcs-badge-height);
+    font-size: var(--wcs-badge-font-size);
+    box-sizing: border-box;
     font-weight: 500;
     line-height: 1;
     text-align: center;
+    align-content: center;
     white-space: nowrap;
     vertical-align: baseline;
     border-radius: 6px;
@@ -19,4 +22,19 @@
 
 :host([shape=rounded]){
     border-radius: 0.75rem;
+}
+
+:host([size=l]) {
+    --wcs-badge-height: 32px;
+    --wcs-badge-font-size: 1rem;
+}
+
+:host([size=m]) { // Default
+    --wcs-badge-height: 24px;
+    --wcs-badge-font-size: 0.875rem;
+}
+
+:host([size=s]) {
+    --wcs-badge-height: 20px;
+    --wcs-badge-font-size: 0.75rem;
 }

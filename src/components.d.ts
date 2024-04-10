@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { BadgeColor, BadgeShape } from "./components/badge/badge-interface";
+import { BadgeColor, BadgeShape, BadgeSize } from "./components/badge/badge-interface";
 import { WcsButtonMode, WcsButtonShape, WcsButtonSize, WcsButtonType } from "./components/button/button-interface";
 import { CardMode } from "./components/card/card-interface";
 import { CheckboxChangeEventDetail, CheckboxLabelAlignment } from "./components/checkbox/checkbox-interface";
@@ -31,7 +31,7 @@ import { SwitchChangeEventDetail, SwitchLabelAlignment } from "./components/swit
 import { WcsTabChangeEvent, WcsTabsAlignment } from "./components/tabs/tabs-interface";
 import { TextareaChangeEventDetail } from "./components/textarea/textarea-interface";
 import { WcsTooltipAppendTo, WcsTooltipPosition } from "./components/tooltip/tooltip-interface";
-export { BadgeColor, BadgeShape } from "./components/badge/badge-interface";
+export { BadgeColor, BadgeShape, BadgeSize } from "./components/badge/badge-interface";
 export { WcsButtonMode, WcsButtonShape, WcsButtonSize, WcsButtonType } from "./components/button/button-interface";
 export { CardMode } from "./components/card/card-interface";
 export { CheckboxChangeEventDetail, CheckboxLabelAlignment } from "./components/checkbox/checkbox-interface";
@@ -109,6 +109,10 @@ export namespace Components {
           * Define the shape of the badge
          */
         "shape": BadgeShape;
+        /**
+          * Specify the size of the badge.
+         */
+        "size": BadgeSize;
     }
     /**
      * Button component, can also be a link when specifying href.
@@ -1957,6 +1961,10 @@ declare namespace LocalJSX {
           * Define the shape of the badge
          */
         "shape"?: BadgeShape;
+        /**
+          * Specify the size of the badge.
+         */
+        "size"?: BadgeSize;
     }
     /**
      * Button component, can also be a link when specifying href.

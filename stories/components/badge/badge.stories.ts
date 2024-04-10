@@ -1,4 +1,4 @@
-import { Meta, StoryFn } from '@storybook/web-components';
+import { Meta, StoryFn, StoryObj } from '@storybook/web-components';
 import { html } from 'lit-html';
 // @ts-ignore
 import badgeDocumentation from './badge-documentation.md'
@@ -53,3 +53,18 @@ RoundedShapeWithLighterColor.args = {
     shape: 'rounded',
     color: 'lighter'
 };
+
+/**
+ * Change the `wcs-badge` size by setting this property.  
+ * The available sizes are "l" (large), "m" (medium, default) and "s" (small).
+ */
+export const Sizes: StoryObj = {
+    render: (args) => html`
+        <wcs-badge shape=${args.shape} color=${args.color} size="l" class="wcs-primary">Large</wcs-badge>
+        <wcs-badge shape=${args.shape} color=${args.color} size="m" class="wcs-primary">Medium</wcs-badge>
+        <wcs-badge shape=${args.shape} color=${args.color} size="s" class="wcs-primary">Small</wcs-badge>
+    `,
+    args: {
+        ...Default.args
+    }
+}

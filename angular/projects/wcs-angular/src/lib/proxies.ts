@@ -142,14 +142,14 @@ export declare interface WcsApp extends Components.WcsApp {}
 
 
 @ProxyCmp({
-  inputs: ['color', 'shape']
+  inputs: ['color', 'shape', 'size']
 })
 @Component({
   selector: 'wcs-badge',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['color', 'shape'],
+  inputs: ['color', 'shape', 'size'],
 })
 export class WcsBadge {
   protected el: HTMLElement;

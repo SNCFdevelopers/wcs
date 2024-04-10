@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-04-09T12:06:29",
+  "timestamp": "2024-04-10T15:35:26",
   "compiler": {
     "name": "@stencil/core",
     "version": "3.0.0",
@@ -333,6 +333,32 @@
             },
             {
               "value": "rounded",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "\"l\" | \"m\" | \"s\"",
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": true,
+          "docs": "Specify the size of the badge.",
+          "docsTags": [],
+          "default": "'m'",
+          "values": [
+            {
+              "value": "l",
+              "type": "string"
+            },
+            {
+              "value": "m",
+              "type": "string"
+            },
+            {
+              "value": "s",
               "type": "string"
             }
           ],
