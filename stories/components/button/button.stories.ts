@@ -92,16 +92,16 @@ sizes.args = {loading: false};
 
 const TemplateShape: StoryFn<Partial<{ shape: WcsButtonShape, loading: boolean}>> = (args) => html`
     <wcs-button shape=${args.shape} ?loading="${args.loading}" class="wcs-primary">
-        <wcs-mat-icon icon="accessibility_new"></wcs-mat-icon>
+        <wcs-mat-icon icon="accessibility_new" role="img" aria-label="Example button plain"></wcs-mat-icon>
     </wcs-button>
     <wcs-button shape=${args.shape} ?loading="${args.loading}" mode="clear" class="wcs-primary">
-        <wcs-mat-icon icon="accessibility_new"></wcs-mat-icon>
+        <wcs-mat-icon icon="accessibility_new" role="img" aria-label="Example button clear"></wcs-mat-icon>
     </wcs-button>
     <wcs-button shape=${args.shape} ?loading="${args.loading}" mode="stroked" class="wcs-primary">
-        <wcs-mat-icon icon="accessibility_new"></wcs-mat-icon>
+        <wcs-mat-icon icon="accessibility_new" role="img" aria-label="Example button stroked"></wcs-mat-icon>
     </wcs-button>
     <wcs-button shape=${args.shape} ?loading="${args.loading}" class="wcs-primary" disabled>
-        <wcs-mat-icon icon="accessibility_new"></wcs-mat-icon>
+        <wcs-mat-icon icon="accessibility_new" role="img" aria-label="Example button disabled"></wcs-mat-icon>
     </wcs-button>
 `;
 

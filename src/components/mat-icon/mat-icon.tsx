@@ -8,6 +8,7 @@ const ICON_FAMILY_CLASS_NAME: Record<MaterialIconFamily, string> = {
     rounded: 'material-icons-round',
     sharp: 'material-icons-sharp'
 }
+
 @Component({
     tag: 'wcs-mat-icon',
     styleUrl: 'mat-icon.scss',
@@ -30,7 +31,7 @@ export class MatIcon implements ComponentInterface {
     render() {
         return (
             <Host>
-                <i class={ICON_FAMILY_CLASS_NAME[this.family] + ' size-' + this.size}>
+                <i aria-hidden="true" class={ICON_FAMILY_CLASS_NAME[this.family] + ' size-' + this.size}>
                     {this.icon}
                 </i>
             </Host>

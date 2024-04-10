@@ -44,3 +44,12 @@ Here is an example of the font face declaration, you can add these lines in the 
     src: url(https://fonts.gstatic.com/s/materialiconssharp/v108/oPWQ_lt5nv4pWNJpghLP75WiFR4kLh3kvmvR.woff2) format('woff2');
 }
 ```
+
+
+<summary>Accessibility guidelines 💡</summary>
+> - The icon name is always hidden to assistive technologies
+> - If the icon is NOT decorative and should carry some information, add a role image and an aria-label :
+> ```
+> <wcs-mat-icon role="img" aria-label="Favorite" icon="star"></wcs-mat-icon>
+> ```
+

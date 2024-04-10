@@ -13,3 +13,11 @@ Here's an example code snippet to use `wcs-nav-item` with `routerLink` and make 
     <wcs-mat-icon icon="train"></wcs-mat-icon>
 </wcs-nav-item>
 ```
+
+If we want to use `wcs-mat-icon` as button without text in `wcs-nav-item`, we need to add a role image and an aria-label to make the component accessible : 
+
+```html
+<wcs-nav-item routerLink="/route" role="link">
+    <wcs-mat-icon icon="train" role="img" aria-label="Mes trains"></wcs-mat-icon>
+</wcs-nav-item>
+```

@@ -65,6 +65,7 @@ for soon-to-be removed features.
       the group => when re-tab to the group, it caused the focus on not last selected option
     - add role radiogroup to the host => we can now add aria-label directly on the host
 - **form-field**: fix accessibility issue with label, description, error message and form control association
+- **mat-icon**: fix accessibility with aria-hidden on `<i>` element.
 
 ### Security
 

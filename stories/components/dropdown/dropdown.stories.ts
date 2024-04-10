@@ -120,7 +120,7 @@ export const WithIcon: StoryObj<DropdownStoryArgs> = {
             <wcs-dropdown ?disabled=${args.disabled} mode=${args.mode} shape=${args.shape} placement=${args.placement}
                           ?no-arrow=${args.noArrow}>
                 <span slot="placeholder">
-                    <wcs-mat-icon icon="more_horiz"></wcs-mat-icon>
+                    <wcs-mat-icon icon="more_horiz" role="img" aria-label="Dropdown example"></wcs-mat-icon>
                 </span>
                 <wcs-dropdown-item>Premier item</wcs-dropdown-item>
             </wcs-dropdown>
