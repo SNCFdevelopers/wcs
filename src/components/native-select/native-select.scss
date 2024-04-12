@@ -1,4 +1,3 @@
-// TODO: voir pour mettre en commun avec le style du composant personnalisée
 @import '../../style/focus-outline.scss';
 
 :host {
@@ -18,7 +17,7 @@
     --wcs-select-native-value-color: var(--wcs-primary);
     --wcs-select-native-border-color: transparent;
     --wcs-select-native-overlay-max-height: 360px;
-    --wcs-select-native-border-width: 2px;
+    --wcs-select-native-border-width: 1px;
 
     background-color: var(--wcs-select-native-background-color);
 
@@ -66,10 +65,9 @@
     }
 }
 
-::slotted(select:focus) {
-    background-clip: padding-box;
-    box-shadow: inset 0 0 0 var(--wcs-select-native-border-width) var(--wcs-primary);
-    background-color: var(--wcs-white);
+::slotted(select:focus-visible) {
+    @include focus-outline($border-radius: var(--wcs-select-border-radius), $outline-offset: 0);
+    border-radius: var(--wcs-select-native-border-radius);
 }
 
 .select-wrapper {
