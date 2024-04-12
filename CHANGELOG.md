@@ -47,6 +47,7 @@ for soon-to-be removed features.
 - **select**: 
   - internal value was not changed when the select is closed and when we used keyboard nav on it (key up, key down... to change the current selected option).
   - the wcsChange event is no longer triggered when the value is updated programmatically.
+  - change focus style to match the design system appearance
 - **native-select**: change focus style to match the design system appearance
 - **doc**:
     - improve `wcs-select`, `wcs-select-options`, `wcs-input` and `wcs-dropdown` documentation

@@ -46,16 +46,9 @@
     }
 }
 
-// Focused not expanded
-:host(:not(.expanded):focus) {
-    .wcs-select-control {
-        border: var(--wcs-primary) solid 1px;
-    }
-}
-
 :host(:not(.expanded):focus-visible) {
     .wcs-select-control {
-        @include focus-outline($border-radius: var(--wcs-select-border-radius));
+        @include focus-outline($border-radius: var(--wcs-select-border-radius), $outline-offset: 0);
     }
 }
 
@@ -232,7 +225,7 @@ label {
     }
 
     input:focus-within {
-        @include focus-outline(var(--wcs-primary), 8px, -2px);
+        @include focus-outline(var(--wcs-primary), var(--wcs-border-radius), 0);
     }
 
     input::placeholder {
