@@ -24,7 +24,7 @@ Global color `--wcs-blue` used by `--wcs-primary` has changed for accessibility 
 
 ### wcs-progress-bar
 
-- Property `small"` doesn't exist anymore. Replace it with `size="s"`
+- Property `small` doesn't exist anymore. Replace it with `size="s"`
 
 ### wcs-input
 
@@ -127,6 +127,19 @@ The `wcsChange` event is now emitted the same way as the native [`change` event]
 
 This means that the `wcsChange` event is no longer emitted when the select value changes programmatically (when you set the `value` attribute or property in js). This change may cause issues if you were relying on the `wcsChange` event to be emitted when the select value changes programmatically.
 
+### wcs-radio
+
+#### `wcsRadioClick` is no longer emitted when the `checked` attribute changes on a `wcs-radio`
+
+The event is still emitted when :
+- you click on the radio
+
+The event is no longer emitted when :
+- you change the `checked` attribute via javascript
+- you use keyboard navigation
+
+In most case, you may listen to the  `wcsChange` event emitted from the `wcs-radio-group` parent.
+
 ## wcs-angular
 
 ### wcs-input
@@ -141,6 +154,10 @@ The `wcs-textarea` component has been updated to match the [changes](#wcs-textar
 
 The `wcs-select` component has been updated to match the [changes](#wcs-select) in `wcs-core`
 
+### wcs-radio
+
+The `wcs-radio` component has been updated to match the [changes](#wcs-radio) in `wcs-core`
+
 ## wcs-react
 
 ### wcs-input
@@ -154,4 +171,8 @@ The `wcs-textarea` component has been updated to match the [changes](#wcs-textar
 ### wcs-select
 
 The `wcs-select` component has been updated to match the [changes](#wcs-select) in `wcs-core`
+
+### wcs-radio
+
+The `wcs-radio` component has been updated to match the [changes](#wcs-radio) in `wcs-core`
 

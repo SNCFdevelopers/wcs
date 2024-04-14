@@ -837,6 +837,9 @@ export namespace Components {
         "disabled": boolean;
         "label": string;
         "mode": RadioGroupMode;
+        /**
+          * Giving every radio button the same name is mandatory to group them
+         */
         "name": string;
         "value": any | any[] | undefined | null;
     }
@@ -2730,6 +2733,9 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "label"?: string;
         "mode"?: RadioGroupMode;
+        /**
+          * Giving every radio button the same name is mandatory to group them
+         */
         "name"?: string;
         "onWcsRadioClick"?: (event: WcsRadioCustomEvent<RadioChosedEvent>) => void;
         "value"?: any | any[] | undefined | null;

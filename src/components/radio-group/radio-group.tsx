@@ -101,25 +101,19 @@ export class RadioGroup implements ComponentInterface, MutableAriaAttribute {
             : 0;
 
         if (isDownArrowKey(ev) || isRightArrowKey(ev)) {
-            // Let the previous wcs-radio not accessible via the tab key
-            radiosNotDisabled[previousSelected].checked = false;
-            radiosNotDisabled[previousSelected].tabIndex = -1;
-
-            // Check the next wcs-radio from the previous selected and let accessible via tab key (tabIndex = 0)
+            // Check the next wcs-radio from the previous selected
             const nextOptionIndex = (previousSelected + 1) % radiosNotDisabled.length;  // to return at the beginning on the list when we are on the last index
-            radiosNotDisabled[nextOptionIndex].tabIndex = 0;
-            radiosNotDisabled[nextOptionIndex].focus();
             radiosNotDisabled[nextOptionIndex].checked = true;
+            this.wcsChange.emit({
+                value: radiosNotDisabled[nextOptionIndex].value
+            });
         } else if (isUpArrowKey(ev) || isLeftArrowKey(ev)) {
-            // Let the previous wcs-radio not accessible via the tab key
-            radiosNotDisabled[previousSelected].checked = false;
-            radiosNotDisabled[previousSelected].tabIndex = -1;
-
-            // Check the previous wcs-radio from the previous selected and let accessible via tab key (tabIndex = 0)
+            // Check the previous wcs-radio from the previous selected
             const previousOptionIndex = (previousSelected - 1 + radiosNotDisabled.length) % radiosNotDisabled.length; // To return at the end of the list when we are on index=0
-            radiosNotDisabled[previousOptionIndex].tabIndex = 0;
-            radiosNotDisabled[previousOptionIndex].focus();
             radiosNotDisabled[previousOptionIndex].checked = true;
+            this.wcsChange.emit({
+                value: radiosNotDisabled[previousOptionIndex].value
+            });
         }
     }
 

@@ -22,7 +22,8 @@ const meta: Meta = {
     parameters: {
         actions: {
             handles: [
-                'wcsChange'
+                'wcsChange',
+                'wcsRadioClick'
             ]
         },
     },

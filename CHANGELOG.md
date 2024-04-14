@@ -68,6 +68,7 @@ for soon-to-be removed features.
     - we not remove tabIndex=0 on option which are not selected in the group when a click is received inside
       the group => when re-tab to the group, it caused the focus on not last selected option
     - add role radiogroup to the host => we can now add aria-label directly on the host
+    - rework wcsChange event to be thrown only when the user click on an option (not programmatically)
 - **form-field**: fix accessibility issue with label, description, error message and form control association
 - **mat-icon**: fix accessibility with aria-hidden on `<i>` element.
 - **grid**: (accessibility) add keyboard navigation and missing aria attributes 

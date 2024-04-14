@@ -37,9 +37,12 @@ export class Radio implements ComponentInterface {
      * If `true`, the user cannot interact with the radio.
      */
     @Prop({ mutable: true }) disabled = false;
-    // FIXME renommer l'évènement c'est pas un onclick mais un onchange
+
     @Event({eventName: 'wcsRadioClick' }) wcsRadioClick: EventEmitter<RadioChosedEvent>
-    
+
+    /**
+     * Giving every radio button the same name is mandatory to group them
+     */
     @Prop() name: string;
 
     @Listen('keydown')
@@ -52,10 +55,18 @@ export class Radio implements ComponentInterface {
     
     @Watch("checked")
     checkedChanged(newValue: boolean) {
-        if(newValue) {
-            this.inputEl.click();
-        } else {
-            this.inputEl.click();
+        if (newValue) {
+            if (this.el.parentElement.tagName === 'WCS-RADIO-GROUP') {
+                Array.from(this.el.parentElement.querySelectorAll('wcs-radio'))
+                  .filter(radio => radio.name === this.el.name)
+                  .filter(radio => radio !== this.el)
+                  .forEach(radio => {
+                      radio.checked = false;
+                      radio.tabIndex = -1;
+                  });
+                this.el.tabIndex = 0;
+                this.el.focus();
+            }
         }
     }
 

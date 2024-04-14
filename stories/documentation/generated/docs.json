@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-04-10T15:35:26",
+  "timestamp": "2024-04-16T14:53:27",
   "compiler": {
     "name": "@stencil/core",
     "version": "3.0.0",
@@ -589,6 +589,8 @@
       "dependents": [
         "wcs-counter",
         "wcs-dropdown",
+        "wcs-grid",
+        "wcs-grid-pagination",
         "wcs-horizontal-stepper",
         "wcs-modal"
       ],
@@ -603,6 +605,12 @@
           "wcs-button"
         ],
         "wcs-dropdown": [
+          "wcs-button"
+        ],
+        "wcs-grid": [
+          "wcs-button"
+        ],
+        "wcs-grid-pagination": [
           "wcs-button"
         ],
         "wcs-horizontal-stepper": [
@@ -2286,9 +2294,24 @@
       ],
       "listeners": [
         {
+          "event": "focus",
+          "capture": false,
+          "passive": false
+        },
+        {
           "event": "wcsHiddenChange",
           "capture": false,
           "passive": false
+        },
+        {
+          "event": "keydown",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "mousedown",
+          "capture": false,
+          "passive": true
         },
         {
           "event": "wcsSortChange",
@@ -2323,12 +2346,17 @@
       "dependencies": [
         "wcs-radio",
         "wcs-checkbox",
-        "wcs-spinner"
+        "wcs-spinner",
+        "wcs-button"
       ],
       "dependencyGraph": {
         "wcs-grid": [
           "wcs-radio",
           "wcs-checkbox",
+          "wcs-spinner",
+          "wcs-button"
+        ],
+        "wcs-button": [
           "wcs-spinner"
         ]
       }
@@ -2712,15 +2740,20 @@
       "dependents": [],
       "dependencies": [
         "wcs-select",
-        "wcs-select-option"
+        "wcs-select-option",
+        "wcs-button"
       ],
       "dependencyGraph": {
         "wcs-grid-pagination": [
           "wcs-select",
-          "wcs-select-option"
+          "wcs-select-option",
+          "wcs-button"
         ],
         "wcs-select-option": [
           "wcs-checkbox"
+        ],
+        "wcs-button": [
+          "wcs-spinner"
         ]
       }
     },
@@ -4834,7 +4867,7 @@
           "mutable": false,
           "attr": "name",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Giving every radio button the same name is mandatory to group them",
           "docsTags": [],
           "values": [
             {

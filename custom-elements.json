@@ -1199,44 +1199,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/app/app.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "App",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-app",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "App",
-          "declaration": {
-            "name": "App",
-            "module": "components/app/app.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-app",
-          "declaration": {
-            "name": "App",
-            "module": "components/app/app.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/action-bar/action-bar.tsx",
       "declarations": [
         {
@@ -1303,6 +1265,44 @@
           "declaration": {
             "name": "ActionBar",
             "module": "components/action-bar/action-bar.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/app/app.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "App",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-app",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "App",
+          "declaration": {
+            "name": "App",
+            "module": "components/app/app.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-app",
+          "declaration": {
+            "name": "App",
+            "module": "components/app/app.tsx"
           }
         }
       ]
@@ -3245,44 +3245,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/dropdown-divider/dropdown-divider.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "You can add a divider between groups of items",
-          "name": "DropdownDivider",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-dropdown-divider",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "DropdownDivider",
-          "declaration": {
-            "name": "DropdownDivider",
-            "module": "components/dropdown-divider/dropdown-divider.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-dropdown-divider",
-          "declaration": {
-            "name": "DropdownDivider",
-            "module": "components/dropdown-divider/dropdown-divider.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/dropdown-header/dropdown-header.tsx",
       "declarations": [
         {
@@ -3321,6 +3283,44 @@
           "declaration": {
             "name": "DropdownHeader",
             "module": "components/dropdown-header/dropdown-header.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/dropdown-divider/dropdown-divider.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "You can add a divider between groups of items",
+          "name": "DropdownDivider",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-dropdown-divider",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "DropdownDivider",
+          "declaration": {
+            "name": "DropdownDivider",
+            "module": "components/dropdown-divider/dropdown-divider.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-dropdown-divider",
+          "declaration": {
+            "name": "DropdownDivider",
+            "module": "components/dropdown-divider/dropdown-divider.tsx"
           }
         }
       ]
@@ -3407,6 +3407,44 @@
           "declaration": {
             "name": "DropdownItem",
             "module": "components/dropdown-item/dropdown-item.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/error/error.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Label",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-error",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Label",
+          "declaration": {
+            "name": "Label",
+            "module": "components/error/error.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-error",
+          "declaration": {
+            "name": "Label",
+            "module": "components/error/error.tsx"
           }
         }
       ]
@@ -3819,44 +3857,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/error/error.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Label",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-error",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Label",
-          "declaration": {
-            "name": "Label",
-            "module": "components/error/error.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-error",
-          "declaration": {
-            "name": "Label",
-            "module": "components/error/error.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/field/field.tsx",
       "declarations": [
         {
@@ -3943,44 +3943,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/field-label/field-label.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "FieldLabel",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-field-label",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "FieldLabel",
-          "declaration": {
-            "name": "FieldLabel",
-            "module": "components/field-label/field-label.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-field-label",
-          "declaration": {
-            "name": "FieldLabel",
-            "module": "components/field-label/field-label.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/footer/footer.tsx",
       "declarations": [
         {
@@ -4038,49 +4000,19 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/galactic/galactic.tsx",
+      "path": "components/field-label/field-label.tsx",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "Galactic",
+          "name": "FieldLabel",
           "members": [
             {
-              "kind": "field",
-              "name": "text",
-              "type": {
-                "text": "string"
-              },
-              "description": "Text to display in the bar"
-            },
-            {
-              "kind": "field",
-              "name": "show",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
               "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
+              "name": "render"
             }
           ],
-          "attributes": [
-            {
-              "name": "text",
-              "fieldName": "text",
-              "type": {
-                "text": "string"
-              }
-            }
-          ],
-          "tagName": "wcs-galactic",
+          "tagName": "wcs-field-label",
           "events": [],
           "customElement": true
         }
@@ -4088,18 +4020,18 @@
       "exports": [
         {
           "kind": "js",
-          "name": "Galactic",
+          "name": "FieldLabel",
           "declaration": {
-            "name": "Galactic",
-            "module": "components/galactic/galactic.tsx"
+            "name": "FieldLabel",
+            "module": "components/field-label/field-label.tsx"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "wcs-galactic",
+          "name": "wcs-field-label",
           "declaration": {
-            "name": "Galactic",
-            "module": "components/galactic/galactic.tsx"
+            "name": "FieldLabel",
+            "module": "components/field-label/field-label.tsx"
           }
         }
       ]
@@ -4308,6 +4240,74 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/galactic/galactic.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Galactic",
+          "members": [
+            {
+              "kind": "field",
+              "name": "text",
+              "type": {
+                "text": "string"
+              },
+              "description": "Text to display in the bar"
+            },
+            {
+              "kind": "field",
+              "name": "show",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "text",
+              "fieldName": "text",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "tagName": "wcs-galactic",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Galactic",
+          "declaration": {
+            "name": "Galactic",
+            "module": "components/galactic/galactic.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-galactic",
+          "declaration": {
+            "name": "Galactic",
+            "module": "components/galactic/galactic.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/galactic-menu/galactic-menu.tsx",
       "declarations": [
         {
@@ -4433,18 +4433,6 @@
               }
             }
           ]
-        },
-        {
-          "kind": "function",
-          "name": "getSortOrderForAriaSort",
-          "parameters": [
-            {
-              "name": "sortOrder",
-              "type": {
-                "text": "WcsSortOrder"
-              }
-            }
-          ]
         }
       ],
       "exports": [
@@ -4453,14 +4441,6 @@
           "name": "getSortOrderInteger",
           "declaration": {
             "name": "getSortOrderInteger",
-            "module": "components/grid/grid-interface.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "getSortOrderForAriaSort",
-          "declaration": {
-            "name": "getSortOrderForAriaSort",
             "module": "components/grid/grid-interface.ts"
           }
         }
@@ -4635,6 +4615,7 @@
                 "text": "{col: number, row: number}"
               },
               "privacy": "private",
+              "default": "{col: 0, row: 1}",
               "description": "Used to track the focus position in the grid for keyboard navigation.  \r\nHeader row : index 0  \r\nFirst column :\r\n  - index 1 if selection mode multiple or single\r\n  - index 0 if no selection mode\r\nDefault position : col 0, row 1"
             },
             {
@@ -4685,44 +4666,22 @@
             },
             {
               "kind": "method",
+              "name": "onFocus"
+            },
+            {
+              "kind": "method",
               "name": "hasSelectionColumn",
               "description": "If selectionConfig is different from `none`, that means that an extra column for radio or checkbox is rendered\r\nin the table."
             },
             {
               "kind": "method",
-              "name": "updateFocusedGridElement"
-            },
-            {
-              "kind": "method",
-              "name": "getGridElementAtPosition",
+              "name": "getElementToFocusAtCursorPosition",
               "return": {
                 "type": {
-                  "text": "any"
+                  "text": "HTMLTableCellElement | HTMLWcsCheckboxElement | HTMLWcsRadioElement"
                 }
               },
-              "parameters": [
-                {
-                  "name": "col",
-                  "type": {
-                    "text": "number"
-                  }
-                },
-                {
-                  "name": "row",
-                  "type": {
-                    "text": "number"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "getGridElementAtCurrentCursorPosition",
-              "return": {
-                "type": {
-                  "text": "HTMLTableCellElement"
-                }
-              }
+              "description": "Returns the element to focus at the current cursor position : it can be a cell (td, th) to focus or a nested\r\ncheckbox / radio element if the selection mode is single or multiple"
             },
             {
               "kind": "method",
@@ -5037,24 +4996,6 @@
             },
             {
               "kind": "method",
-              "name": "rowIsAtCurrentCursorPosition",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "boolean"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "row",
-                  "type": {
-                    "text": "WcsGridRow"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
               "name": "renderSelectionColumn",
               "return": {
                 "type": {
@@ -5066,6 +5007,12 @@
                   "name": "row",
                   "type": {
                     "text": "WcsGridRow"
+                  }
+                },
+                {
+                  "name": "rowIndex",
+                  "type": {
+                    "text": "number"
                   }
                 }
               ]
@@ -5111,11 +5058,6 @@
               "name": "atLeastOneColumnHidden",
               "privacy": "private",
               "description": "Returns true if at least one column is hidden from the table"
-            },
-            {
-              "kind": "method",
-              "name": "onGridColumnSlotChange",
-              "privacy": "private"
             },
             {
               "kind": "method",
@@ -5482,8 +5424,8 @@
               }
             },
             {
-              "name": "col-position",
-              "fieldName": "colPosition",
+              "name": "column-position",
+              "fieldName": "columnPosition",
               "type": {
                 "text": "number"
               }
@@ -7929,6 +7871,117 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/progress-bar/progress-bar.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Component displaying progress as a horizontal bar.",
+          "name": "ProgressBar",
+          "cssProperties": [
+            {
+              "description": "Border radius",
+              "name": "--wcs-progress-bar-border-radius"
+            },
+            {
+              "description": "Border radius for size small",
+              "name": "--wcs-progress-bar-border-radius-small"
+            },
+            {
+              "description": "Animation duration",
+              "name": "--wcs-progress-bar-animation-duration"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "Extract<WcsSize, 'm' | 's'>"
+              },
+              "default": "'m'",
+              "description": "Specify the size of the progress bar.  \r\nm = default, s = smaller"
+            },
+            {
+              "kind": "field",
+              "name": "showLabel",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Whether it displays a label indicating the percentage of progress above the bar."
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "The actual value of the progress.\r\nRanging from 0 to 100."
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            },
+            {
+              "kind": "method",
+              "name": "rootClasses",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "size",
+              "fieldName": "size",
+              "type": {
+                "text": "Extract<WcsSize, 'm' | 's'>"
+              }
+            },
+            {
+              "name": "show-label",
+              "fieldName": "showLabel",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "value",
+              "fieldName": "value",
+              "type": {
+                "text": "number"
+              }
+            }
+          ],
+          "tagName": "wcs-progress-bar",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ProgressBar",
+          "declaration": {
+            "name": "ProgressBar",
+            "module": "components/progress-bar/progress-bar.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-progress-bar",
+          "declaration": {
+            "name": "ProgressBar",
+            "module": "components/progress-bar/progress-bar.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/progress-radial/progress-radial.tsx",
       "declarations": [
         {
@@ -8115,7 +8168,8 @@
               "name": "name",
               "type": {
                 "text": "string"
-              }
+              },
+              "description": "Giving every radio button the same name is mandatory to group them"
             },
             {
               "kind": "method",
@@ -8215,117 +8269,6 @@
           "declaration": {
             "name": "Radio",
             "module": "components/radio/radio.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/progress-bar/progress-bar.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Component displaying progress as a horizontal bar.",
-          "name": "ProgressBar",
-          "cssProperties": [
-            {
-              "description": "Border radius",
-              "name": "--wcs-progress-bar-border-radius"
-            },
-            {
-              "description": "Border radius for size small",
-              "name": "--wcs-progress-bar-border-radius-small"
-            },
-            {
-              "description": "Animation duration",
-              "name": "--wcs-progress-bar-animation-duration"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "Extract<WcsSize, 'm' | 's'>"
-              },
-              "default": "'m'",
-              "description": "Specify the size of the progress bar.  \r\nm = default, s = smaller"
-            },
-            {
-              "kind": "field",
-              "name": "showLabel",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Whether it displays a label indicating the percentage of progress above the bar."
-            },
-            {
-              "kind": "field",
-              "name": "value",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "The actual value of the progress.\r\nRanging from 0 to 100."
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            },
-            {
-              "kind": "method",
-              "name": "rootClasses",
-              "return": {
-                "type": {
-                  "text": "string"
-                }
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "size",
-              "fieldName": "size",
-              "type": {
-                "text": "Extract<WcsSize, 'm' | 's'>"
-              }
-            },
-            {
-              "name": "show-label",
-              "fieldName": "showLabel",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "value",
-              "fieldName": "value",
-              "type": {
-                "text": "number"
-              }
-            }
-          ],
-          "tagName": "wcs-progress-bar",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ProgressBar",
-          "declaration": {
-            "name": "ProgressBar",
-            "module": "components/progress-bar/progress-bar.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-progress-bar",
-          "declaration": {
-            "name": "ProgressBar",
-            "module": "components/progress-bar/progress-bar.tsx"
           }
         }
       ]
