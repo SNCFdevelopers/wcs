@@ -130,11 +130,6 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
      */
     @Prop({reflect: true}) size: WcsSelectSize = 'm';
 
-    /** Wether the component is fully loaded in the DOM. */
-    @State()
-    // @ts-ignore
-    private hasLoaded = false;
-
     /** Text to display for the selected option, when no option is selected, the value is undefined. */
     @State()
     private displayText: string;
@@ -321,9 +316,6 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
         if (this.labelElement) {
             this.labelElement.id = this.selectId + "-lbl";
         }
-
-        // TODO: is this still usefull for anything ?
-        this.hasLoaded = true;
     }
 
     private createPopperInstance() {
@@ -366,18 +358,18 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
         });
         observer.observe(this.el, {childList: true});
     }
+    
+    componentWillRender(): Promise<void> | void {
+        if (this.multiple) {
+            this.options
+              .forEach((opt: HTMLWcsSelectOptionElement) => opt.multiple = true);
+        }
+    }
 
     componentWillLoad(): Promise<void> | void {
         if (!isWcsSelectSize(this.size)) {
             console.error(`Invalid size value for wcs-select : "${this.size}". Must be one of "${WcsSelectSizeValue.join(', ')}"`);
             this.size = "m"; // Default fallback value
-        }
-    }
-
-    componentWillUpdate() {
-        if (this.multiple) {
-            this.options
-                .forEach((opt: HTMLWcsSelectOptionElement) => opt.multiple = true);
         }
     }
 
