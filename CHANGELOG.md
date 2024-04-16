@@ -49,6 +49,7 @@ for soon-to-be removed features.
   - the wcsChange event is no longer triggered when the value is updated programmatically.
   - change focus style to match the design system appearance
 - **native-select**: change focus style to match the design system appearance
+- **radio**: change focus style to match the design system appearance
 - **doc**:
     - improve `wcs-select`, `wcs-select-options`, `wcs-input` and `wcs-dropdown` documentation
     - fix accessibility problem for form-field radio group story => add name to each wcs-radio

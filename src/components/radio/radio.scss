@@ -4,16 +4,6 @@
     width: fit-content;
 }
 
-:host([mode=radio]:focus-within) {
-    transition: none;
-    @include focus-outline($border-radius: 0.5rem, $outline-offset: 0);
-}
-
-:host([mode=horizontal]:focus-within) {
-    transition: none;
-    @include focus-outline($border-radius: 0.5rem, $outline-offset: 2px);
-}
-
 :host([mode=radio]),
 :host([mode=horizontal]) {
     input {
@@ -52,6 +42,11 @@
             content: "";
             background: no-repeat 50% / 50% 50%;
         }
+    }
+    
+    input:focus-visible + label {
+        transition: none;
+        @include focus-outline($border-radius: 0.5rem, $outline-offset: 2px);
     }
 }
 
@@ -148,10 +143,8 @@
         border-radius: 0.4375rem;
         transition: 0.175s ease-in-out;
     }
-}
 
-:host([mode=option]:focus-within) {
-    label {
+    input:focus-visible + label {
         @include focus-outline(var(--wcs-white), 0.4375rem, 0.1rem);
     }
 }
