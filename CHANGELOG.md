@@ -71,7 +71,9 @@ for soon-to-be removed features.
     - rework wcsChange event to be thrown only when the user click on an option (not programmatically)
 - **form-field**: fix accessibility issue with label, description, error message and form control association
 - **mat-icon**: fix accessibility with aria-hidden on `<i>` element.
-- **grid**: (accessibility) add keyboard navigation and missing aria attributes 
+- **grid**:
+  - (accessibility) add keyboard navigation and missing aria attributes 
+  - fix a bug where the row selection single was not kept when sorting the column
 
 ### Security
 
