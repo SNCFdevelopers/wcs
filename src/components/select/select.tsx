@@ -455,7 +455,6 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
                         if (this.autocomplete) {
                             if (this.multiple) {
                                 requestAnimationFrame(() => {
-                                    this.autocompleteValue = '';
                                     this.autocompleteInput.focus();
                                 })
                             } else {
