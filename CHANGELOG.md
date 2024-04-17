@@ -9,6 +9,32 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
 
+### Added
+
+for new features.
+
+### Changed
+
+for changes in existing functionality.
+
+### Deprecated
+
+for soon-to-be removed features.
+
+### Removed
+
+for now removed features.
+
+### Fixed
+
+for any bug fixes.
+
+### Security
+
+in case of vulnerabilities.
+
+## [5.0.0] - 2024-04-17
+
 ⚠ This version contains breaking changes in following packages : 
 - wcs-core
 - wcs-angular
@@ -33,10 +59,6 @@ To migrate, please refer to the storybook documentation (v4 to v5).
   - `wcs-select-filter-noresult` => `filter-no-result`
 
 - **css variables**: change global color `--wcs-blue` used by `--wcs-primary` for accessibility reasons (contrasts) from `#0088ce` to `#0074af`.
-
-### Deprecated
-
-for soon-to-be removed features.
 
 ### Removed
 
@@ -74,10 +96,6 @@ for soon-to-be removed features.
 - **grid**:
   - (accessibility) add keyboard navigation and missing aria attributes 
   - fix a bug where the row selection single was not kept when sorting the column
-
-### Security
-
-in case of vulnerabilities.
 
 ## [4.2.0] - 2023-12-15
 
