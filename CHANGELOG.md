@@ -27,7 +27,7 @@ for now removed features.
 
 ### Fixed
 
-for any bug fixes.
+- **galactic-menu**: (accessibility) add keyboard navigation and missing aria attributes
 
 ### Security
 

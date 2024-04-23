@@ -1,3 +1,5 @@
+@import '../../style/focus-outline.scss';
+
 #menu {
     background-color: var(--wcs-gray);
     color: white;
@@ -34,6 +36,10 @@
     cursor: pointer;
     padding: 0 var(--wcs-padding);
     user-select: none;
+    
+    &:focus-visible {
+        @include focus-outline(var(--wcs-white), $outline-offset: 0);
+    }
 }
 #arrow,
 #arrow::before {

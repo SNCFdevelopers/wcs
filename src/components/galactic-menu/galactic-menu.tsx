@@ -1,6 +1,6 @@
 import { Component, ComponentInterface, Element, h, Host, Listen, Prop, State } from '@stencil/core';
 import { Instance, createPopper } from '@popperjs/core';
-import { clickInsideElement } from '../../utils/helpers';
+import { clickInsideElement, isEnterKey, isEscapeKey, isSpaceKey } from '../../utils/helpers';
 
 @Component({
     tag: 'wcs-galactic-menu',
@@ -9,6 +9,7 @@ import { clickInsideElement } from '../../utils/helpers';
 })
 export class Galactic implements ComponentInterface {
     @Element() private el: HTMLWcsGalacticMenuElement;
+    private menuButton!: HTMLWcsMatIconElement;
     @State() private showPopoverMenu: boolean = false;
     private popper: Instance;
     /**
@@ -40,14 +41,29 @@ export class Galactic implements ComponentInterface {
             return;
         } else {
             if (this.showPopoverMenu) {
-                this.toogleMenu();
+                this.toggleMenu();
             }
         }
     }
 
-
-    private toogleMenu() {
+    @Listen('keydown')
+    onKeyDown(_event: KeyboardEvent) {
+        if (isEscapeKey(_event)) {
+            _event.preventDefault();
+            this.showPopoverMenu = false;
+            this.menuButton?.focus();
+        }
+    }
+    
+    private toggleMenu() {
         this.showPopoverMenu = !this.showPopoverMenu;
+    }
+    
+    private handleMenuButtonKeyDown(_event: KeyboardEvent) {
+        if (isSpaceKey(_event) || isEnterKey(_event)) {
+            _event.preventDefault();
+            this.toggleMenu();
+        }
     }
 
     componentDidRender() {
@@ -60,10 +76,18 @@ export class Galactic implements ComponentInterface {
         return (
             <Host>
                 <span>{this.text}</span>
-                <wcs-mat-icon id="toggle-menu-icon" icon="more_horiz" size="m" onClick={_ => {
-                    this.toogleMenu();
-                }}></wcs-mat-icon>
-                <span id="menu" data-show={this.showPopoverMenu}>
+                <wcs-mat-icon role="button"
+                              tabindex="0"
+                              id="toggle-menu-icon"
+                              icon="more_horiz"
+                              size="m"
+                              aria-haspopup="true"
+                              aria-controls="menu"
+                              aria-expanded={this.showPopoverMenu ? "true" : "false"}
+                              ref={el => {this.menuButton = el}}
+                              onClick={_ => this.toggleMenu()}
+                              onKeyDown={e => this.handleMenuButtonKeyDown(e)}></wcs-mat-icon>
+                <span id="menu" role="menu" data-show={this.showPopoverMenu}>
                     <div id="arrow" data-popper-arrow />
                     <slot/>
                 </span>
