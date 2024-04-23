@@ -5,10 +5,10 @@
     --wcs-internal-textarea-border-radius-left: var(--wcs-textarea-border-radius-left, var(--wcs-border-radius));
     --wcs-internal-textarea-border-radius-right: var(--wcs-textarea-border-radius-right, var(--wcs-border-radius));
     --wcs-internal-textarea-border-width: 2px;
-    --wcs-internal-textarea-padding-left: var(--wcs-textarea-padding-left, var(--wcs-padding));
-    --wcs-internal-textarea-padding-right: var(--wcs-textarea-padding-right, var(--wcs-padding));
+    --wcs-internal-textarea-padding-left: var(--wcs-textarea-padding-left, calc(var(--wcs-padding) - var(--wcs-border-size)));
+    --wcs-internal-textarea-padding-right: var(--wcs-textarea-padding-right, calc(var(--wcs-padding) - var(--wcs-border-size)));
     --wcs-internal-textarea-max-height: var(--wcs-textarea-max-height, unset);
-    
+
     display: flex;
     flex-direction: row;
     width: 100%;

@@ -22,7 +22,7 @@
         wcs-mat-icon {
             display: none;
         }
-        height: var(--wcs-editable-field-host-height);
+        min-height: var(--wcs-editable-field-host-height);
         white-space: break-spaces;
         display: flex;
         justify-content: space-between;
@@ -40,7 +40,7 @@
 
     .load-container {
         box-sizing: border-box;
-        height: var(--wcs-editable-field-host-height);
+        min-height: var(--wcs-editable-field-host-height);
         white-space: pre;
         display: flex;
         justify-content: space-between;
@@ -85,13 +85,13 @@
 }
 
 :host([size=l]) {
-    --wcs-editable-field-host-padding: var(--wcs-padding-l) calc(var(--wcs-padding) - var(--wcs-border-size));
+    --wcs-editable-field-host-padding: calc(var(--wcs-padding-l) - var(--wcs-border-size)) calc(var(--wcs-padding) - var(--wcs-border-size));
     --wcs-editable-field-host-height: var(--wcs-size-l);
     --wcs-editable-field-font-size: 1.0625rem;
 }
 
 :host([size=m]) { // Default
-    --wcs-editable-field-host-padding: var(--wcs-padding-m) calc(var(--wcs-padding) - var(--wcs-border-size));
+    --wcs-editable-field-host-padding: calc(var(--wcs-padding-m) - var(--wcs-border-size))  calc(var(--wcs-padding) - var(--wcs-border-size));
     --wcs-editable-field-host-height: var(--wcs-size-m);
     --wcs-editable-field-font-size: 1rem;
 }
