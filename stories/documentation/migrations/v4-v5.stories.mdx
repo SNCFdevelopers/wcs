@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/addon-docs';
+import {Meta} from '@storybook/addon-docs';
 
 <Meta title="Documentation/Migrations/v4 to v5"/>
 
@@ -140,6 +140,83 @@ The event is no longer emitted when :
 
 In most case, you may listen to the  `wcsChange` event emitted from the `wcs-radio-group` parent.
 
+### wcs-grid
+
+#### Change the typing of `wcsGridSelectionChange` event
+
+Before, the `wcsGridSelectionChange` event was emitted with the `row` which represents the row that was clicked.A good example of this is when you click on a row which is already selected in multiple selection mode, you received this kind of data related to the `wcsGridSelectionChange` event in `detail` property:
+```typescript
+{
+    page: 0,
+    selected: false,
+    data: {
+        id: 1,
+        name: 'John Doe'
+    }
+}
+```
+
+If you wanted to know which row was selected, you had to handle your own logic which row/rows were selected. We decide to change the data of the `wcsGridSelectionChange` event to provide you the selected rows. Now, the `selectedRows` property of the `wcsGridSelectionChange` event data contains the selected row/rows in addition to the `changedRow` which represents the row that was clicked.
+
+Now, the `wcsGridSelectionChange` event data looks like this: Single selection mode (when you click on a new row):
+
+```typescript
+{
+    selectedRows: [{
+        page: 0,
+        selected: true,
+        data: {
+            id: 1,
+            name: 'John Doe'
+        }
+    }],
+    changedRow: {
+        page: 0,
+        selected: true,
+        data: {
+            id: 1,
+            name: 'John Doe'
+        }
+    }
+}
+```
+
+Multiple selection mode (when you click on a new row):
+```typescript
+{
+    selectedRows: [
+        {
+            page: 0,
+            selected: true,
+            data: {
+                id: 1,
+                name: 'John Doe'
+            }
+        },
+        {
+            page: 0,
+            selected: true,
+            data: {
+                id: 2,
+                name: 'Jane Doe'
+            }
+        }
+    ],
+    changedRow: {
+        page: 0,
+        selected: true,
+        data: {
+            id: 2,
+            name: 'Jane Doe'
+        }
+    }
+}
+```
+
+Thanks to this change, you can now easily know which row/rows are selected and which row was clicked in the `wcsGridSelectionChange` event (whenever you click on a row).
+
+Important note: On top of that, to facilitate handling which row/rows are selected, we provide a Control Value Accessor (CVA) for Angular which allows you to bind the selected rows to a form control. This way, you can easily know which row/rows are selected.
+
 ## wcs-angular
 
 ### wcs-input
@@ -176,3 +253,6 @@ The `wcs-select` component has been updated to match the [changes](#wcs-select) 
 
 The `wcs-radio` component has been updated to match the [changes](#wcs-radio) in `wcs-core`
 
+### wcs-grid
+
+The `wcs-grid` component has been updated to match the [changes](#wcs-grid) in `wcs-core`

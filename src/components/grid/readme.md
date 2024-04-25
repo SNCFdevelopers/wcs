@@ -25,7 +25,7 @@ The grid component is a complex component used as an HTML table to display colle
 | Event                       | Description                                            | Type                                             |
 | --------------------------- | ------------------------------------------------------ | ------------------------------------------------ |
 | `wcsGridAllSelectionChange` | Event emitted when all rows are selected or unselected | `CustomEvent<WcsGridAllRowSelectedEventDetails>` |
-| `wcsGridSelectionChange`    | Event emitted when a row is selected or unselected     | `CustomEvent<WcsGridRowSelectedEventDetails>`    |
+| `wcsGridSelectionChange`    | Event emitted when a row is selected or unselected     | `CustomEvent<WcsGridSelectionEventDetails>`      |
 
 
 ## Slots

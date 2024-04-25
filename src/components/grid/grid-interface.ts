@@ -12,8 +12,20 @@ export interface WcsGridColumnSortChangeEventDetails {
     column: HTMLWcsGridColumnElement;
 }
 
-export interface WcsGridRowSelectedEventDetails {
-    row: WcsGridRowData;
+/**
+ * Event details for the grid selection event
+ */
+export interface WcsGridSelectionEventDetails {
+    /**
+     * The currently selected rows after the selection change
+     */
+    selectedRows: WcsGridRowData[];
+    /**
+     * The row that was changed
+     * If the grid is in multiple selection mode, you can get `allCheckbox` as the value representing that the event was
+     * triggered by the selection of all checkbox
+     */
+    changedRow: WcsGridRowData | 'allCheckbox';
 }
 
 export interface WcsGridAllRowSelectedEventDetails {

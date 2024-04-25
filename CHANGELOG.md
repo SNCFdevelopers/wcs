@@ -15,7 +15,9 @@ for new features.
 
 ### Changed
 
-for changes in existing functionality.
+- **grid**: 
+  - the model detail data of `wcsGridSelectionChange` event has changed. See migration guide for more information.
+  - the `wcsGridSelectionChange` event is now emitted when the "all checkbox" is clicked.
 
 ### Deprecated
 

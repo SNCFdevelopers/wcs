@@ -23,8 +23,8 @@ import {
     WcsGridPaginationChangeEventDetails,
     WcsGridRow,
     WcsGridRowData,
-    WcsGridRowSelectedEventDetails,
-    WcsGridSelectionConfig,
+    WcsGridSelectionConfig, 
+    WcsGridSelectionEventDetails,
 } from './grid-interface';
 import { v4 as uuid } from 'uuid';
 import { cloneDeep, get, isEqual } from 'lodash-es';
@@ -93,7 +93,7 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
     /**
      * Event emitted when a row is selected or unselected
      */
-    @Event() wcsGridSelectionChange!: EventEmitter<WcsGridRowSelectedEventDetails>;
+    @Event() wcsGridSelectionChange!: EventEmitter<WcsGridSelectionEventDetails>;
     /**
      * Event emitted when all rows are selected or unselected
      */
@@ -482,9 +482,16 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
         }
         row.selected = !row.selected;
         if (this.selectionConfig !== 'single' || row.selected) {
-            this.wcsGridSelectionChange.emit({row: this.wcsGridRowToWcsGridRowData(row)});
+            this.wcsGridSelectionChange.emit({
+                selectedRows: this.selectedRows.map(row => this.wcsGridRowToWcsGridRowData(row)),
+                changedRow: this.wcsGridRowToWcsGridRowData(row)
+            });
         }
         this.rows = cloneDeep(this.rows);
+    }
+
+    private get selectedRows(): WcsGridRow[] {
+        return this.rows.filter(r => r.selected);
     }
 
     private selectAllRows(): void {
@@ -492,6 +499,10 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
         const selected = !this.allRowsAreSelected();
         rows.map(r => r.selected = selected);
         this.wcsGridAllSelectionChange.emit({rows: selected ? rows.map(row => this.wcsGridRowToWcsGridRowData(row)) : []});
+        this.wcsGridSelectionChange.emit({ 
+            selectedRows: this.selectedRows.map(row => this.wcsGridRowToWcsGridRowData(row)),
+            changedRow: 'allCheckbox'
+        });
         this.rows = cloneDeep(this.rows);
     }
 

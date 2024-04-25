@@ -715,14 +715,14 @@ export class WcsGrid {
 }
 
 
-import type { WcsGridRowSelectedEventDetails as IWcsGridWcsGridRowSelectedEventDetails } from 'wcs-core';
+import type { WcsGridSelectionEventDetails as IWcsGridWcsGridSelectionEventDetails } from 'wcs-core';
 import type { WcsGridAllRowSelectedEventDetails as IWcsGridWcsGridAllRowSelectedEventDetails } from 'wcs-core';
 
 export declare interface WcsGrid extends Components.WcsGrid {
   /**
    * Event emitted when a row is selected or unselected
    */
-  wcsGridSelectionChange: EventEmitter<CustomEvent<IWcsGridWcsGridRowSelectedEventDetails>>;
+  wcsGridSelectionChange: EventEmitter<CustomEvent<IWcsGridWcsGridSelectionEventDetails>>;
   /**
    * Event emitted when all rows are selected or unselected
    */
