@@ -1,12 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { HyperFunc, WcsGridRowData } from "wcs-core/dist/types/components/grid/grid-interface";
 import { VNode } from "wcs-core/dist/types/stencil-public-runtime";
+import { FormControl } from "@angular/forms";
 
 
 @Component({
   selector: 'app-grid-example',
   template: `
     <h2>Grid</h2>
+    <p>
+      <b>Valeur dans le Control Value Accessor de la Grid: </b> {{gridFormControl.value | json}}
+    </p>
     <wcs-button size="s"
                 class="reloadBtn"
                 (click)="reloadLessData()">
@@ -18,8 +22,9 @@ import { VNode } from "wcs-core/dist/types/stencil-public-runtime";
       Remove selection
     </wcs-button>
     <wcs-grid id="grid-1"
+              [formControl]="gridFormControl"
               [data]="users"
-              selectionConfig="single"
+              selectionConfig="multiple"
               [selectedItems]="selectedItems">
       <wcs-grid-column path="name"
                        name="Nom"
@@ -45,7 +50,19 @@ import { VNode } from "wcs-core/dist/types/stencil-public-runtime";
 export class GridExampleComponent implements OnInit {
   readonly pageSize: number = 5;
   selectedItems = {};
-  users;
+  users: { name: string, idAdmin: boolean, id: number }[] = [];
+
+  gridFormControl: FormControl<{ name: string, idAdmin: boolean, id: number } | {
+    name: string,
+    idAdmin: boolean,
+    id: number
+  }[]> = new FormControl<{ name: string, idAdmin: boolean, id: number } | {
+    name: string,
+    idAdmin: boolean,
+    id: number
+  }[]>(null, {
+    nonNullable: false
+  });
 
   constructor() {
   }
@@ -54,6 +71,8 @@ export class GridExampleComponent implements OnInit {
     setTimeout(() =>
         this.generateData(5)
       , 3000);
+    console.log(this.gridFormControl.valueChanges.subscribe(value => console.log(value)));
+    setTimeout(() => this.gridFormControl.setValue(this.users[0]), 5000);
   }
 
   generateData(nbPage: number) {

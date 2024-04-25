@@ -11,7 +11,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-for new features.
+- **grid**: add support of specific angular control value accessor to simplify the use of handling selected rows
 
 ### Changed
 

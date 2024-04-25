@@ -64,6 +64,7 @@ import {
   WcsTooltip,
   WcsNativeSelect,
 } from './proxies';
+import { GridValueAccessorDirective } from "./directives/grid-value-accessor.directive";
 
 
 const DECLARATIONS = [
@@ -137,6 +138,7 @@ const DECLARATIONS = [
   CheckboxValueAccessorDirective,
   SwitchValueAccessorDirective,
   CounterValueAccessorDirective,
+  GridValueAccessorDirective
 ];
 
 @NgModule({
