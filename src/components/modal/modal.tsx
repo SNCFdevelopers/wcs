@@ -108,7 +108,7 @@ export class Modal implements ComponentInterface {
 
     componentWillLoad(): Promise<void> | void {
         if (!this.modalTriggerControlsId) {
-            console.warn('wcs-modal: You must provide a modalTriggerControlsId attribute for the modal to work properly');
+            console.warn('wcs-modal: You must provide the modal-trigger-controls-id attribute to the modal to make it to work properly');
         }
     }
 
@@ -138,7 +138,10 @@ export class Modal implements ComponentInterface {
             this.hasBeenClosedBefore = true;
 
             if(this.modalTriggerControlsId) {
-                const modalTriggerControlsHtmlElement = document.querySelector(`#${this.modalTriggerControlsId}`) as HTMLElement;
+                const modalTriggerControlsHtmlElement = document.getElementById(this.modalTriggerControlsId);
+                if(!modalTriggerControlsHtmlElement) {
+                    console.warn(`wcs-modal: Element with id '${this.modalTriggerControlsId}' could not be found`);
+                }
                 modalTriggerControlsHtmlElement?.focus();
             }
         }

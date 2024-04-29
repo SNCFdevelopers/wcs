@@ -18,6 +18,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **grid**: 
   - the model detail data of `wcsGridSelectionChange` event has changed. See migration guide for more information.
   - the `wcsGridSelectionChange` event is now emitted when the "all checkbox" is clicked.
+- **modal**: warn in console if `modal-trigger-controls-id` passed to modal is invalid
 
 ### Deprecated
 
