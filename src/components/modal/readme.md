@@ -31,7 +31,7 @@ Use it to show a message, a confirmation dialog, or any other content like forms
     <summary>Accessibility guidelines 💡</summary>
     > - Modal element has `role="dialog"` and `aria-modal="true"`
     > - Keyboard navigation is trapped inside the modal
-    > - It is mandatory to set the `modalTriggerControlsId` to the id of the element that opens the dialog, in order
+    > - It is mandatory to set the `modal-trigger-controls-id` to the id of the element that opens the dialog, in order
     > to focus it upon dialog dismissal.
     > - The modal can be closed at any time by pressing the Escape key.
     >
