@@ -2,14 +2,14 @@
     margin-bottom: 2px;
     display: block;
 }
-::slotted(*:first-of-type) {
-    padding-right: 1.25rem !important;
-    padding-left: 0 !important;
-}
 ::slotted(*:last-of-type) {
     padding-right: 0 !important;
     padding-left: 1.25rem !important;
     border-right: none !important;
+}
+::slotted(*:first-of-type) {
+    padding-right: 1.25rem !important;
+    padding-left: 0 !important;
 }
 ::slotted(*) {
     padding-right: 1.25rem;
