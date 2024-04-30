@@ -543,6 +543,9 @@ export namespace Components {
          */
         "small": boolean;
     }
+    /**
+     * The horizontal-stepper is a representation of a user’s progress through a series of discrete steps.
+     */
     interface WcsHorizontalStepper {
         /**
           * Specifies whether a check should be displayed when a step is passed.
@@ -1847,6 +1850,9 @@ declare global {
     interface HTMLWcsHorizontalStepperElementEventMap {
         "wcsHorizontalStepClick": HorizontalStepClickEvent;
     }
+    /**
+     * The horizontal-stepper is a representation of a user’s progress through a series of discrete steps.
+     */
     interface HTMLWcsHorizontalStepperElement extends Components.WcsHorizontalStepper, HTMLStencilElement {
         addEventListener<K extends keyof HTMLWcsHorizontalStepperElementEventMap>(type: K, listener: (this: HTMLWcsHorizontalStepperElement, ev: WcsHorizontalStepperCustomEvent<HTMLWcsHorizontalStepperElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2873,6 +2879,9 @@ declare namespace LocalJSX {
          */
         "small"?: boolean;
     }
+    /**
+     * The horizontal-stepper is a representation of a user’s progress through a series of discrete steps.
+     */
     interface WcsHorizontalStepper {
         /**
           * Specifies whether a check should be displayed when a step is passed.
@@ -3879,6 +3888,9 @@ declare module "@stencil/core" {
              * - `aria-description` will be automatically added to the field for screen readers
              */
             "wcs-hint": LocalJSX.WcsHint & JSXBase.HTMLAttributes<HTMLWcsHintElement>;
+            /**
+             * The horizontal-stepper is a representation of a user’s progress through a series of discrete steps.
+             */
             "wcs-horizontal-stepper": LocalJSX.WcsHorizontalStepper & JSXBase.HTMLAttributes<HTMLWcsHorizontalStepperElement>;
             "wcs-icon": LocalJSX.WcsIcon & JSXBase.HTMLAttributes<HTMLWcsIconElement>;
             /**

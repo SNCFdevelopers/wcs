@@ -4,6 +4,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+The horizontal-stepper is a representation of a user’s progress through a series of discrete steps.
+
 ## Properties
 
 | Property          | Attribute           | Description                                                                                                                          | Type                      | Default       |

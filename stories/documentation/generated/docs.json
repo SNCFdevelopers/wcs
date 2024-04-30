@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-06-14T08:54:55",
+  "timestamp": "2024-06-14T09:44:06",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -3696,7 +3696,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-horizontal-stepper",
       "readme": "# Horizontal Stepper\r\n\r\n\r",
-      "docs": "",
+      "docs": "The horizontal-stepper is a representation of a user’s progress through a series of discrete steps.",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -3871,7 +3871,13 @@
           "docsTags": []
         }
       ],
-      "listeners": [],
+      "listeners": [
+        {
+          "event": "keydown",
+          "capture": false,
+          "passive": false
+        }
+      ],
       "styles": [],
       "slots": [],
       "parts": [],

@@ -7,6 +7,9 @@ interface HorizontalStepProps {
     complete: boolean;
     passed: boolean;
     active: boolean;
+    index: number;
+    tabIndex: number;
+    total: number;
     first: boolean;
     disable: boolean;
     onClick: (step: HorizontalStepConfig) => void;
@@ -21,17 +24,31 @@ export const HorizontalStep: FunctionalComponent<HorizontalStepProps> = (
         active,
         first,
         disable,
+        index,
+        tabIndex,
+        total,
         onClick
     }) => {
     return (
-        <div class="graphic-step" data-first={first}>
+        <li class="graphic-step" data-first={first} aria-label={step.text}>
             {first ? null : (<wcs-progress-bar value={passed ? 100 : 0}></wcs-progress-bar>)}
-            <wcs-button style={{'backgroundColor': 'white'}}
-                        shape="round"
+            <button class={{'button-step': true, 'active': active, 'complete': complete, 'disable': disable}}
+                        role={'tab'}
+                        tabindex={tabIndex}
+                        aria-label={step.text}
+                        aria-selected={active ? 'true' : 'false'}
+                        aria-posinset={index}
+                        aria-setsize={total}
                         onClick={_ => onClick(step)}
-                        mode={(active || complete) && !step.disable ? 'plain' : 'stroked'}
-                        disabled={disable}>{getButtonContent(step.button, checkOnComplete, complete, active)}</wcs-button>
-        </div>
+                        disabled={disable}>{getButtonContent(step.button, checkOnComplete, complete, active)}</button>
+            <wcs-button style={{'backgroundColor': 'white'}}
+                        tabindex={-1}
+                        onClick={_ => onClick(step)}
+                        shape="round" mode={(active || complete) && !step.disable ? 'plain' : 'stroked'}
+                        disabled={disable}>
+                {getButtonContent(step.button, checkOnComplete, complete, active)}
+            </wcs-button>
+        </li>
     );
 }
 

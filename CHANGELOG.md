@@ -41,6 +41,7 @@ for now removed features.
 - **progress-bar**: improve accessibility
 - **tooltip**: accessibility problems
     - Hide tooltip when press escape key.
+- **horizontal-stepper**: (accessibility) add missing aria attributes and keyboard navigation
 
 ### Security
 
