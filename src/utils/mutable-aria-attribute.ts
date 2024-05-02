@@ -5,5 +5,6 @@ export interface MutableAriaAttribute {
 }
 
 export function isMutableAriaAttribute(el: any): el is MutableAriaAttribute {
+    if (typeof el !== 'object' || el === null || el === undefined) return false;
     return 'setAriaAttribute' in el;
 }
