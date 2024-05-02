@@ -11,14 +11,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-- **grid**: add support of specific angular control value accessor to simplify the use of handling selected rows
+for new features.
 
 ### Changed
 
-- **grid**: 
-  - the model detail data of `wcsGridSelectionChange` event has changed. See migration guide for more information.
-  - the `wcsGridSelectionChange` event is now emitted when the "all checkbox" is clicked.
-- **modal**: warn in console if `modal-trigger-controls-id` passed to modal is invalid
+for changes in existing functionality.
 
 ### Deprecated
 
@@ -36,7 +33,7 @@ for any bug fixes.
 
 in case of vulnerabilities.
 
-## [5.0.0] - 2024-04-17
+## [5.0.0] - 2024-05-02
 
 ⚠ This version contains breaking changes in following packages : 
 - wcs-core
@@ -54,14 +51,18 @@ To migrate, please refer to the storybook documentation (v4 to v5).
 - **dropdown**: add the size attribute with available values `l`, `m (default)`, `s`
 - **badge**: add the size attribute with available values `l`, `m (default)`, `s`
 - **counter**: add the `disabled` property
+- **grid**: add support of specific angular control value accessor to simplify the use of handling selected rows
 
 ### Changed
 
 - **select** rename these slots for brevity :
   - `wcs-select-option` => `options`
   - `wcs-select-filter-noresult` => `filter-no-result`
-
 - **css variables**: change global color `--wcs-blue` used by `--wcs-primary` for accessibility reasons (contrasts) from `#0088ce` to `#0074af`.
+- **grid**:
+    - the model detail data of `wcsGridSelectionChange` event has changed. See migration guide for more information.
+    - the `wcsGridSelectionChange` event is now emitted when the "all checkbox" is clicked.
+- **modal**: warn in console if `modal-trigger-controls-id` passed to modal is invalid
 
 ### Removed
 
