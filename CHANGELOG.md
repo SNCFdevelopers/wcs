@@ -31,6 +31,7 @@ for now removed features.
 - **editable-field**: fix the display of textarea when there is a multiline
 - **switch**: change focus style to surround the input + the label
 - **list-item**: update style to fix unnecessary padding-left on a single `wcs-list-item-property` 
+- **accordion**: fix the font-family not rendering properly
 
 ### Security
 
