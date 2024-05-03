@@ -29,6 +29,7 @@ for now removed features.
 
 - **galactic-menu**: (accessibility) add keyboard navigation and missing aria attributes
 - **editable-field**: fix the display of textarea when there is a multiline
+- **switch**: change focus style to surround the input + the label
 
 ### Security
 

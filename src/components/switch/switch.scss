@@ -27,9 +27,14 @@
     margin-bottom: 0;
 }
 
-:host {
-    input:focus-visible + .wcs-checkmark {
-        @include focus-outline($border-radius: 0.75rem);
+.wcs-container:has(input:focus-visible) {
+    @include focus-outline($border-radius: 999px);
+}
+
+/* If the selector focus-visible is not supported by the browser, use focus-within instead */
+@supports not selector(.wcs-container:has(input:focus-visible)){
+    .wcs-container:focus-within {
+        @include focus-outline($border-radius: 999px);
     }
 }
 
@@ -62,7 +67,8 @@
 
 .text {
     color: var(--wcs-switch-text-color);
-    margin-left: 6px;
+    margin-right: var(--wcs-margin-s);
+    margin-left: calc(var(--wcs-base-margin) - 2px);
     font-weight: 500;
     line-height: 1.375;
 }
