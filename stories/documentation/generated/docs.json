@@ -1,13 +1,13 @@
 {
-  "timestamp": "2024-05-02T14:18:38",
+  "timestamp": "2024-05-03T15:25:45",
   "compiler": {
     "name": "@stencil/core",
-    "version": "3.0.0",
-    "typescriptVersion": "4.9.4"
+    "version": "4.17.2",
+    "typescriptVersion": "5.4.5"
   },
   "components": [
     {
-      "filePath": "./src/components/accordion/accordion.tsx",
+      "filePath": "src/components/accordion/accordion.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-accordion",
       "readme": "# wcs-accordion\r\n\r\n\r\n\r",
@@ -18,6 +18,11 @@
         {
           "name": "groupContentWithHeader",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "group-content-with-header",
           "reflectToAttr": true,
@@ -35,6 +40,11 @@
         {
           "name": "hideActionText",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "hide-action-text",
           "reflectToAttr": true,
@@ -52,6 +62,11 @@
         {
           "name": "highlight",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "highlight",
           "reflectToAttr": true,
@@ -84,7 +99,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/accordion-content/accordion-content.tsx",
+      "filePath": "src/components/accordion-content/accordion-content.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-accordion-content",
       "readme": "# wcs-accordion-content\r\n\r\n\r\n\r",
@@ -103,7 +118,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/accordion-header/accordion-header.tsx",
+      "filePath": "src/components/accordion-header/accordion-header.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-accordion-header",
       "readme": "# wcs-accordion-header\r\n\r\n\r\n\r",
@@ -122,7 +137,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/accordion-panel/accordion-panel.tsx",
+      "filePath": "src/components/accordion-panel/accordion-panel.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-accordion-panel",
       "readme": "# wcs-accordion-panel\r\n\r\n\r\n\r",
@@ -133,6 +148,11 @@
         {
           "name": "groupContentWithHeader",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "group-content-with-header",
           "reflectToAttr": true,
@@ -150,6 +170,11 @@
         {
           "name": "hideActionText",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "hide-action-text",
           "reflectToAttr": true,
@@ -167,6 +192,11 @@
         {
           "name": "highlight",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "highlight",
           "reflectToAttr": true,
@@ -184,6 +214,11 @@
         {
           "name": "open",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "open",
           "reflectToAttr": true,
@@ -206,6 +241,17 @@
             "type": "Promise<void>",
             "docs": ""
           },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
           "signature": "close() => Promise<void>",
           "parameters": [],
           "docs": "",
@@ -217,6 +263,11 @@
           "event": "wcsOpenChange",
           "detail": "boolean",
           "bubbles": true,
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "cancelable": true,
           "composed": true,
           "docs": "",
@@ -232,7 +283,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/action-bar/action-bar.tsx",
+      "filePath": "src/components/action-bar/action-bar.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-action-bar",
       "readme": "# Action bar\r\n\r\n\r",
@@ -243,6 +294,11 @@
         {
           "name": "gutter",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "gutter",
           "reflectToAttr": false,
@@ -268,7 +324,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/app/app.tsx",
+      "filePath": "src/components/app/app.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-app",
       "readme": "# App\r\n\r\n\r\n\r",
@@ -287,7 +343,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/badge/badge.tsx",
+      "filePath": "src/components/badge/badge.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-badge",
       "readme": "# Badge\r\n\r",
@@ -298,6 +354,17 @@
         {
           "name": "color",
           "type": "\"initial\" | \"lighter\"",
+          "complexType": {
+            "original": "BadgeColor",
+            "resolved": "\"initial\" | \"lighter\"",
+            "references": {
+              "BadgeColor": {
+                "location": "import",
+                "path": "./badge-interface",
+                "id": "src/components/badge/badge-interface.ts::BadgeColor"
+              }
+            }
+          },
           "mutable": false,
           "attr": "color",
           "reflectToAttr": false,
@@ -320,6 +387,17 @@
         {
           "name": "shape",
           "type": "\"normal\" | \"rounded\"",
+          "complexType": {
+            "original": "BadgeShape",
+            "resolved": "\"normal\" | \"rounded\"",
+            "references": {
+              "BadgeShape": {
+                "location": "import",
+                "path": "./badge-interface",
+                "id": "src/components/badge/badge-interface.ts::BadgeShape"
+              }
+            }
+          },
           "mutable": false,
           "attr": "shape",
           "reflectToAttr": false,
@@ -342,6 +420,17 @@
         {
           "name": "size",
           "type": "\"l\" | \"m\" | \"s\"",
+          "complexType": {
+            "original": "BadgeSize",
+            "resolved": "\"l\" | \"m\" | \"s\"",
+            "references": {
+              "BadgeSize": {
+                "location": "import",
+                "path": "./badge-interface",
+                "id": "src/components/badge/badge-interface.ts::BadgeSize"
+              }
+            }
+          },
           "mutable": false,
           "attr": "size",
           "reflectToAttr": true,
@@ -377,7 +466,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/button/button.tsx",
+      "filePath": "src/components/button/button.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-button",
       "readme": "# Button\r\n\r",
@@ -388,6 +477,11 @@
         {
           "name": "disabled",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "disabled",
           "reflectToAttr": true,
@@ -405,6 +499,11 @@
         {
           "name": "href",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "href",
           "reflectToAttr": false,
@@ -421,6 +520,11 @@
         {
           "name": "loading",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "loading",
           "reflectToAttr": false,
@@ -438,6 +542,17 @@
         {
           "name": "mode",
           "type": "\"clear\" | \"plain\" | \"stroked\"",
+          "complexType": {
+            "original": "WcsButtonMode",
+            "resolved": "\"clear\" | \"plain\" | \"stroked\"",
+            "references": {
+              "WcsButtonMode": {
+                "location": "import",
+                "path": "./button-interface",
+                "id": "src/components/button/button-interface.ts::WcsButtonMode"
+              }
+            }
+          },
           "mutable": false,
           "attr": "mode",
           "reflectToAttr": true,
@@ -464,6 +579,11 @@
         {
           "name": "ripple",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "ripple",
           "reflectToAttr": false,
@@ -481,6 +601,17 @@
         {
           "name": "shape",
           "type": "\"normal\" | \"round\" | \"square\"",
+          "complexType": {
+            "original": "WcsButtonShape",
+            "resolved": "\"normal\" | \"round\" | \"square\"",
+            "references": {
+              "WcsButtonShape": {
+                "location": "import",
+                "path": "./button-interface",
+                "id": "src/components/button/button-interface.ts::WcsButtonShape"
+              }
+            }
+          },
           "mutable": false,
           "attr": "shape",
           "reflectToAttr": true,
@@ -507,6 +638,17 @@
         {
           "name": "size",
           "type": "\"l\" | \"m\" | \"s\"",
+          "complexType": {
+            "original": "WcsButtonSize",
+            "resolved": "\"l\" | \"m\" | \"s\"",
+            "references": {
+              "WcsButtonSize": {
+                "location": "import",
+                "path": "./button-interface",
+                "id": "src/components/button/button-interface.ts::WcsButtonSize"
+              }
+            }
+          },
           "mutable": false,
           "attr": "size",
           "reflectToAttr": true,
@@ -533,6 +675,11 @@
         {
           "name": "target",
           "type": "\"_blank\" | \"_self\"",
+          "complexType": {
+            "original": "'_blank' | '_self'",
+            "resolved": "\"_blank\" | \"_self\"",
+            "references": {}
+          },
           "mutable": false,
           "attr": "target",
           "reflectToAttr": false,
@@ -554,6 +701,17 @@
         {
           "name": "type",
           "type": "\"button\" | \"submit\"",
+          "complexType": {
+            "original": "WcsButtonType",
+            "resolved": "\"button\" | \"submit\"",
+            "references": {
+              "WcsButtonType": {
+                "location": "import",
+                "path": "./button-interface",
+                "id": "src/components/button/button-interface.ts::WcsButtonType"
+              }
+            }
+          },
           "mutable": true,
           "attr": "type",
           "reflectToAttr": false,
@@ -622,7 +780,7 @@
       }
     },
     {
-      "filePath": "./src/components/card/card.tsx",
+      "filePath": "src/components/card/card.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-card",
       "readme": "# Card\r\n\r",
@@ -633,6 +791,17 @@
         {
           "name": "mode",
           "type": "\"flat\" | \"raised\"",
+          "complexType": {
+            "original": "CardMode",
+            "resolved": "\"flat\" | \"raised\"",
+            "references": {
+              "CardMode": {
+                "location": "import",
+                "path": "./card-interface",
+                "id": "src/components/card/card-interface.ts::CardMode"
+              }
+            }
+          },
           "mutable": true,
           "attr": "mode",
           "reflectToAttr": true,
@@ -664,7 +833,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/card-body/card-body.tsx",
+      "filePath": "src/components/card-body/card-body.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-card-body",
       "readme": "# Card body\r\n\r\n\r\n\r",
@@ -683,7 +852,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/checkbox/checkbox.tsx",
+      "filePath": "src/components/checkbox/checkbox.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-checkbox",
       "readme": "# Checkbox\r\n\r\n\r",
@@ -694,6 +863,11 @@
         {
           "name": "checked",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "checked",
           "reflectToAttr": true,
@@ -711,6 +885,11 @@
         {
           "name": "disabled",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "disabled",
           "reflectToAttr": false,
@@ -728,6 +907,11 @@
         {
           "name": "indeterminate",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "indeterminate",
           "reflectToAttr": true,
@@ -745,6 +929,17 @@
         {
           "name": "labelAlignment",
           "type": "\"bottom\" | \"center\" | \"top\"",
+          "complexType": {
+            "original": "CheckboxLabelAlignment",
+            "resolved": "\"bottom\" | \"center\" | \"top\"",
+            "references": {
+              "CheckboxLabelAlignment": {
+                "location": "import",
+                "path": "./checkbox-interface",
+                "id": "src/components/checkbox/checkbox-interface.ts::CheckboxLabelAlignment"
+              }
+            }
+          },
           "mutable": true,
           "attr": "label-alignment",
           "reflectToAttr": true,
@@ -771,6 +966,11 @@
         {
           "name": "name",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "name",
           "reflectToAttr": false,
@@ -793,8 +993,46 @@
             "type": "Promise<void>",
             "docs": ""
           },
+          "complexType": {
+            "signature": "(attr: AriaAttributeName, value: string) => Promise<void>",
+            "parameters": [
+              {
+                "name": "attr",
+                "type": "\"role\" | `aria-${string}`",
+                "docs": ""
+              },
+              {
+                "name": "value",
+                "type": "string",
+                "docs": ""
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "AriaAttributeName": {
+                "location": "import",
+                "path": "../../utils/mutable-aria-attribute",
+                "id": "src/utils/mutable-aria-attribute.ts::AriaAttributeName"
+              }
+            },
+            "return": "Promise<void>"
+          },
           "signature": "setAriaAttribute(attr: AriaAttributeName, value: string) => Promise<void>",
-          "parameters": [],
+          "parameters": [
+            {
+              "name": "attr",
+              "type": "\"role\" | `aria-${string}`",
+              "docs": ""
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "docs": ""
+            }
+          ],
           "docs": "",
           "docsTags": []
         }
@@ -804,6 +1042,17 @@
           "event": "wcsChange",
           "detail": "CheckboxChangeEventDetail",
           "bubbles": true,
+          "complexType": {
+            "original": "CheckboxChangeEventDetail",
+            "resolved": "CheckboxChangeEventDetail",
+            "references": {
+              "CheckboxChangeEventDetail": {
+                "location": "import",
+                "path": "./checkbox-interface",
+                "id": "src/components/checkbox/checkbox-interface.ts::CheckboxChangeEventDetail"
+              }
+            }
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the checked property has changed.",
@@ -829,7 +1078,7 @@
       }
     },
     {
-      "filePath": "./src/components/com-nav/com-nav.tsx",
+      "filePath": "src/components/com-nav/com-nav.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-com-nav",
       "readme": "# Communication Navbar\r\n\r\nThis component is the implementation of the navigation bar dedicated to communication design.\r\n\r\n```html\r\n\r\n\r\n```\r\n\r",
@@ -840,6 +1089,11 @@
         {
           "name": "appName",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "app-name",
           "reflectToAttr": false,
@@ -882,7 +1136,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/com-nav-category/com-nav-category.tsx",
+      "filePath": "src/components/com-nav-category/com-nav-category.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-com-nav-category",
       "readme": "# wcs-com-nav-category\r\n\r\n\r\n\r",
@@ -893,6 +1147,11 @@
         {
           "name": "label",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
@@ -914,6 +1173,17 @@
             "type": "Promise<void>",
             "docs": ""
           },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
           "signature": "close() => Promise<void>",
           "parameters": [],
           "docs": "Close the category",
@@ -924,6 +1194,17 @@
           "returns": {
             "type": "Promise<void>",
             "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
           },
           "signature": "open() => Promise<void>",
           "parameters": [],
@@ -936,6 +1217,16 @@
           "event": "wcsCategoryItemClicked",
           "detail": "UIEvent",
           "bubbles": true,
+          "complexType": {
+            "original": "UIEvent",
+            "resolved": "UIEvent",
+            "references": {
+              "UIEvent": {
+                "location": "global",
+                "id": "global::UIEvent"
+              }
+            }
+          },
           "cancelable": true,
           "composed": true,
           "docs": "",
@@ -945,6 +1236,17 @@
           "event": "wcsCategoryOpened",
           "detail": "CategoryOpenedEventDetail",
           "bubbles": true,
+          "complexType": {
+            "original": "CategoryOpenedEventDetail",
+            "resolved": "CategoryOpenedEventDetail",
+            "references": {
+              "CategoryOpenedEventDetail": {
+                "location": "import",
+                "path": "../com-nav/com-nav-interface",
+                "id": "src/components/com-nav/com-nav-interface.ts::CategoryOpenedEventDetail"
+              }
+            }
+          },
           "cancelable": true,
           "composed": true,
           "docs": "",
@@ -973,7 +1275,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/com-nav-submenu/com-nav-submenu.tsx",
+      "filePath": "src/components/com-nav-submenu/com-nav-submenu.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-com-nav-submenu",
       "readme": "# wcs-com-nav-submenu\r\n\r\n\r\n\r",
@@ -984,6 +1286,11 @@
         {
           "name": "label",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
@@ -1000,6 +1307,11 @@
         {
           "name": "panelDescription",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "panel-description",
           "reflectToAttr": false,
@@ -1016,6 +1328,11 @@
         {
           "name": "panelTitle",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "panel-title",
           "reflectToAttr": false,
@@ -1037,6 +1354,17 @@
             "type": "Promise<void>",
             "docs": ""
           },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
           "signature": "close() => Promise<void>",
           "parameters": [],
           "docs": "Close the menu",
@@ -1047,6 +1375,17 @@
           "returns": {
             "type": "Promise<void>",
             "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
           },
           "signature": "open() => Promise<void>",
           "parameters": [],
@@ -1059,6 +1398,11 @@
           "event": "wcsClickOnFinalAction",
           "detail": "void",
           "bubbles": true,
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when a user click on a final navigation action.\r\n\r\nUsed by the com-nav component to close the mobile menu overlay when a user click on a final action.",
@@ -1068,6 +1412,17 @@
           "event": "wcsSubmenuOpened",
           "detail": "MenuOpenedEventDetail",
           "bubbles": true,
+          "complexType": {
+            "original": "MenuOpenedEventDetail",
+            "resolved": "MenuOpenedEventDetail",
+            "references": {
+              "MenuOpenedEventDetail": {
+                "location": "import",
+                "path": "../com-nav/com-nav-interface",
+                "id": "src/components/com-nav/com-nav-interface.ts::MenuOpenedEventDetail"
+              }
+            }
+          },
           "cancelable": true,
           "composed": true,
           "docs": "",
@@ -1107,7 +1462,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/counter/counter.tsx",
+      "filePath": "src/components/counter/counter.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-counter",
       "readme": "# Input\r\n\r",
@@ -1118,6 +1473,11 @@
         {
           "name": "disabled",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "disabled",
           "reflectToAttr": false,
@@ -1135,6 +1495,11 @@
         {
           "name": "label",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
@@ -1151,6 +1516,11 @@
         {
           "name": "max",
           "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
           "mutable": true,
           "attr": "max",
           "reflectToAttr": false,
@@ -1167,6 +1537,11 @@
         {
           "name": "min",
           "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
           "mutable": true,
           "attr": "min",
           "reflectToAttr": false,
@@ -1183,6 +1558,17 @@
         {
           "name": "size",
           "type": "\"l\" | \"m\"",
+          "complexType": {
+            "original": "WcsCounterSize",
+            "resolved": "\"l\" | \"m\"",
+            "references": {
+              "WcsCounterSize": {
+                "location": "import",
+                "path": "./counter-interface",
+                "id": "src/components/counter/counter-interface.ts::WcsCounterSize"
+              }
+            }
+          },
           "mutable": false,
           "attr": "size",
           "reflectToAttr": true,
@@ -1205,6 +1591,11 @@
         {
           "name": "step",
           "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
           "mutable": true,
           "attr": "step",
           "reflectToAttr": false,
@@ -1222,6 +1613,11 @@
         {
           "name": "value",
           "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
           "mutable": true,
           "attr": "value",
           "reflectToAttr": false,
@@ -1243,8 +1639,46 @@
             "type": "Promise<void>",
             "docs": ""
           },
+          "complexType": {
+            "signature": "(attr: AriaAttributeName, value: string) => Promise<void>",
+            "parameters": [
+              {
+                "name": "attr",
+                "type": "\"role\" | `aria-${string}`",
+                "docs": ""
+              },
+              {
+                "name": "value",
+                "type": "string",
+                "docs": ""
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "AriaAttributeName": {
+                "location": "import",
+                "path": "../../utils/mutable-aria-attribute",
+                "id": "src/utils/mutable-aria-attribute.ts::AriaAttributeName"
+              }
+            },
+            "return": "Promise<void>"
+          },
           "signature": "setAriaAttribute(attr: AriaAttributeName, value: string) => Promise<void>",
-          "parameters": [],
+          "parameters": [
+            {
+              "name": "attr",
+              "type": "\"role\" | `aria-${string}`",
+              "docs": ""
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "docs": ""
+            }
+          ],
           "docs": "",
           "docsTags": []
         }
@@ -1254,6 +1688,16 @@
           "event": "wcsBlur",
           "detail": "FocusEvent",
           "bubbles": true,
+          "complexType": {
+            "original": "FocusEvent",
+            "resolved": "FocusEvent",
+            "references": {
+              "FocusEvent": {
+                "location": "global",
+                "id": "global::FocusEvent"
+              }
+            }
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the counter loses focus.",
@@ -1263,6 +1707,17 @@
           "event": "wcsChange",
           "detail": "CounterChangeEventDetail",
           "bubbles": true,
+          "complexType": {
+            "original": "CounterChangeEventDetail",
+            "resolved": "CounterChangeEventDetail",
+            "references": {
+              "CounterChangeEventDetail": {
+                "location": "import",
+                "path": "./counter-interface",
+                "id": "src/components/counter/counter-interface.ts::CounterChangeEventDetail"
+              }
+            }
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the value of the counter has changed.",
@@ -1289,7 +1744,7 @@
       }
     },
     {
-      "filePath": "./src/components/divider/divider.tsx",
+      "filePath": "src/components/divider/divider.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-divider",
       "readme": "# wcs-divider\r\n\r\n\r\n\r",
@@ -1308,7 +1763,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/dropdown/dropdown.tsx",
+      "filePath": "src/components/dropdown/dropdown.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-dropdown",
       "readme": "# Dropdown\r\n\r",
@@ -1328,6 +1783,11 @@
         {
           "name": "disabled",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "disabled",
           "reflectToAttr": false,
@@ -1345,6 +1805,17 @@
         {
           "name": "mode",
           "type": "\"clear\" | \"plain\" | \"stroked\"",
+          "complexType": {
+            "original": "WcsButtonMode",
+            "resolved": "\"clear\" | \"plain\" | \"stroked\"",
+            "references": {
+              "WcsButtonMode": {
+                "location": "import",
+                "path": "../button/button-interface",
+                "id": "src/components/button/button-interface.ts::WcsButtonMode"
+              }
+            }
+          },
           "mutable": false,
           "attr": "mode",
           "reflectToAttr": false,
@@ -1371,6 +1842,11 @@
         {
           "name": "noArrow",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "no-arrow",
           "reflectToAttr": false,
@@ -1388,6 +1864,17 @@
         {
           "name": "placement",
           "type": "\"auto\" | \"auto-end\" | \"auto-start\" | \"bottom\" | \"bottom-end\" | \"bottom-start\" | \"left\" | \"left-end\" | \"left-start\" | \"right\" | \"right-end\" | \"right-start\" | \"top\" | \"top-end\" | \"top-start\"",
+          "complexType": {
+            "original": "WcsDropdownPlacement",
+            "resolved": "\"auto\" | \"auto-end\" | \"auto-start\" | \"bottom\" | \"bottom-end\" | \"bottom-start\" | \"left\" | \"left-end\" | \"left-start\" | \"right\" | \"right-end\" | \"right-start\" | \"top\" | \"top-end\" | \"top-start\"",
+            "references": {
+              "WcsDropdownPlacement": {
+                "location": "import",
+                "path": "./dropdown-interface",
+                "id": "src/components/dropdown/dropdown-interface.ts::WcsDropdownPlacement"
+              }
+            }
+          },
           "mutable": false,
           "attr": "placement",
           "reflectToAttr": false,
@@ -1462,6 +1949,17 @@
         {
           "name": "shape",
           "type": "\"normal\" | \"round\" | \"square\"",
+          "complexType": {
+            "original": "WcsButtonShape",
+            "resolved": "\"normal\" | \"round\" | \"square\"",
+            "references": {
+              "WcsButtonShape": {
+                "location": "import",
+                "path": "../button/button-interface",
+                "id": "src/components/button/button-interface.ts::WcsButtonShape"
+              }
+            }
+          },
           "mutable": false,
           "attr": "shape",
           "reflectToAttr": false,
@@ -1488,6 +1986,17 @@
         {
           "name": "size",
           "type": "\"l\" | \"m\" | \"s\"",
+          "complexType": {
+            "original": "WcsButtonSize",
+            "resolved": "\"l\" | \"m\" | \"s\"",
+            "references": {
+              "WcsButtonSize": {
+                "location": "import",
+                "path": "../button/button-interface",
+                "id": "src/components/button/button-interface.ts::WcsButtonSize"
+              }
+            }
+          },
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
@@ -1558,7 +2067,7 @@
       }
     },
     {
-      "filePath": "./src/components/dropdown-divider/dropdown-divider.tsx",
+      "filePath": "src/components/dropdown-divider/dropdown-divider.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-dropdown-divider",
       "readme": "# wcs-dropdown-divider\r\n\r\n\r\n\r",
@@ -1577,7 +2086,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/dropdown-header/dropdown-header.tsx",
+      "filePath": "src/components/dropdown-header/dropdown-header.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-dropdown-header",
       "readme": "# wcs-dropdown-header\r\n\r\n\r\n\r",
@@ -1606,7 +2115,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/dropdown-item/dropdown-item.tsx",
+      "filePath": "src/components/dropdown-item/dropdown-item.tsx",
       "encapsulation": "none",
       "tag": "wcs-dropdown-item",
       "readme": "# wcs-dropdown-item\r\n\r\n\r\n\r",
@@ -1625,6 +2134,11 @@
           "event": "wcsDropdownItemClick",
           "detail": "void",
           "bubbles": true,
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Event emitted when the dropdown item is clicked",
@@ -1656,7 +2170,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/editable-field/editable-field.tsx",
+      "filePath": "src/components/editable-field/editable-field.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-editable-field",
       "readme": "# Editable fields\r\n\r",
@@ -1667,6 +2181,11 @@
         {
           "name": "errorMsg",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "error-msg",
           "reflectToAttr": false,
@@ -1684,6 +2203,17 @@
         {
           "name": "formatFn",
           "type": "(value: any) => string",
+          "complexType": {
+            "original": "FormatFn<any>",
+            "resolved": "(value: any) => string",
+            "references": {
+              "FormatFn": {
+                "location": "import",
+                "path": "./editable-field-interface",
+                "id": "src/components/editable-field/editable-field-interface.tsx::FormatFn"
+              }
+            }
+          },
           "mutable": false,
           "reflectToAttr": false,
           "docs": "Function used to format the value",
@@ -1699,6 +2229,11 @@
         {
           "name": "label",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
@@ -1715,6 +2250,11 @@
         {
           "name": "readonly",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "readonly",
           "reflectToAttr": false,
@@ -1732,6 +2272,17 @@
         {
           "name": "size",
           "type": "\"l\" | \"m\"",
+          "complexType": {
+            "original": "WcsEditableFieldSize",
+            "resolved": "\"l\" | \"m\"",
+            "references": {
+              "WcsEditableFieldSize": {
+                "location": "import",
+                "path": "./editable-field-interface",
+                "id": "src/components/editable-field/editable-field-interface.tsx::WcsEditableFieldSize"
+              }
+            }
+          },
           "mutable": false,
           "attr": "size",
           "reflectToAttr": true,
@@ -1754,6 +2305,17 @@
         {
           "name": "type",
           "type": "\"input\" | \"select\" | \"textarea\"",
+          "complexType": {
+            "original": "EditableFieldType",
+            "resolved": "\"input\" | \"select\" | \"textarea\"",
+            "references": {
+              "EditableFieldType": {
+                "location": "import",
+                "path": "./editable-field-interface",
+                "id": "src/components/editable-field/editable-field-interface.tsx::EditableFieldType"
+              }
+            }
+          },
           "mutable": false,
           "attr": "type",
           "reflectToAttr": false,
@@ -1780,6 +2342,17 @@
         {
           "name": "validateFn",
           "type": "(value: any) => boolean",
+          "complexType": {
+            "original": "ValidateFn<any>",
+            "resolved": "(value: any) => boolean",
+            "references": {
+              "ValidateFn": {
+                "location": "import",
+                "path": "./editable-field-interface",
+                "id": "src/components/editable-field/editable-field-interface.tsx::ValidateFn"
+              }
+            }
+          },
           "mutable": false,
           "reflectToAttr": false,
           "docs": "Function to customize the validation of the data during the update",
@@ -1795,6 +2368,11 @@
         {
           "name": "value",
           "type": "any",
+          "complexType": {
+            "original": "any",
+            "resolved": "any",
+            "references": {}
+          },
           "mutable": true,
           "attr": "value",
           "reflectToAttr": false,
@@ -1815,6 +2393,17 @@
           "event": "wcsChange",
           "detail": "EditableComponentUpdateEvent",
           "bubbles": true,
+          "complexType": {
+            "original": "EditableComponentUpdateEvent",
+            "resolved": "EditableComponentUpdateEvent",
+            "references": {
+              "EditableComponentUpdateEvent": {
+                "location": "import",
+                "path": "./editable-field-interface",
+                "id": "src/components/editable-field/editable-field-interface.tsx::EditableComponentUpdateEvent"
+              }
+            }
+          },
           "cancelable": true,
           "composed": true,
           "docs": "event called at each (valid) update of the field.",
@@ -1849,7 +2438,7 @@
       }
     },
     {
-      "filePath": "./src/components/error/error.tsx",
+      "filePath": "src/components/error/error.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-error",
       "readme": "# wcs-error\r\n\r\n\r\n\r",
@@ -1874,7 +2463,7 @@
       }
     },
     {
-      "filePath": "./src/components/field/field.tsx",
+      "filePath": "src/components/field/field.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-field",
       "readme": "# Field\r\n\r",
@@ -1911,7 +2500,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/field-content/field-content.tsx",
+      "filePath": "src/components/field-content/field-content.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-field-content",
       "readme": "# wcs-field-content\r\n\r\n\r\n\r",
@@ -1930,7 +2519,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/field-label/field-label.tsx",
+      "filePath": "src/components/field-label/field-label.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-field-label",
       "readme": "# wcs-field-label\r\n\r\n\r\n\r",
@@ -1949,7 +2538,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/footer/footer.tsx",
+      "filePath": "src/components/footer/footer.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-footer",
       "readme": "# Footer\r\n\r",
@@ -1994,7 +2583,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/form-field/form-field.tsx",
+      "filePath": "src/components/form-field/form-field.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-form-field",
       "readme": "# Form field\r\n\r\n\r",
@@ -2005,6 +2594,11 @@
         {
           "name": "isError",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "is-error",
           "reflectToAttr": true,
@@ -2037,7 +2631,7 @@
       }
     },
     {
-      "filePath": "./src/components/galactic/galactic.tsx",
+      "filePath": "src/components/galactic/galactic.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-galactic",
       "readme": "# Galactic Bar\r\n\r",
@@ -2048,6 +2642,11 @@
         {
           "name": "text",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "text",
           "reflectToAttr": false,
@@ -2073,7 +2672,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/galactic-menu/galactic-menu.tsx",
+      "filePath": "src/components/galactic-menu/galactic-menu.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-galactic-menu",
       "readme": "# wcs-galactic-menu\r\n\r\n\r\n\r",
@@ -2084,6 +2683,11 @@
         {
           "name": "text",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "text",
           "reflectToAttr": false,
@@ -2106,6 +2710,11 @@
           "target": "window",
           "capture": false,
           "passive": false
+        },
+        {
+          "event": "keydown",
+          "capture": false,
+          "passive": false
         }
       ],
       "styles": [],
@@ -2122,7 +2731,7 @@
       }
     },
     {
-      "filePath": "./src/components/grid/grid.tsx",
+      "filePath": "src/components/grid/grid.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-grid",
       "readme": "# Grid\r\n\r",
@@ -2150,6 +2759,11 @@
         {
           "name": "data",
           "type": "any[]",
+          "complexType": {
+            "original": "any[]",
+            "resolved": "any[]",
+            "references": {}
+          },
           "mutable": false,
           "reflectToAttr": false,
           "docs": "Contains the data to display in the table from a js object",
@@ -2165,6 +2779,11 @@
         {
           "name": "loading",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "loading",
           "reflectToAttr": false,
@@ -2181,6 +2800,11 @@
         {
           "name": "rowIdPath",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "row-id-path",
           "reflectToAttr": false,
@@ -2197,6 +2821,11 @@
         {
           "name": "selectedItems",
           "type": "any",
+          "complexType": {
+            "original": "any | any[]",
+            "resolved": "any",
+            "references": {}
+          },
           "mutable": false,
           "attr": "selected-items",
           "reflectToAttr": false,
@@ -2214,6 +2843,17 @@
         {
           "name": "selectionConfig",
           "type": "\"multiple\" | \"none\" | \"single\"",
+          "complexType": {
+            "original": "WcsGridSelectionConfig",
+            "resolved": "\"multiple\" | \"none\" | \"single\"",
+            "references": {
+              "WcsGridSelectionConfig": {
+                "location": "import",
+                "path": "./grid-interface",
+                "id": "src/components/grid/grid-interface.ts::WcsGridSelectionConfig"
+              }
+            }
+          },
           "mutable": false,
           "attr": "selection-config",
           "reflectToAttr": false,
@@ -2240,6 +2880,11 @@
         {
           "name": "serverMode",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "server-mode",
           "reflectToAttr": false,
@@ -2257,6 +2902,11 @@
         {
           "name": "wcsGridPaginationId",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "wcs-grid-pagination-id",
           "reflectToAttr": false,
@@ -2277,6 +2927,17 @@
           "event": "wcsGridAllSelectionChange",
           "detail": "WcsGridAllRowSelectedEventDetails",
           "bubbles": true,
+          "complexType": {
+            "original": "WcsGridAllRowSelectedEventDetails",
+            "resolved": "WcsGridAllRowSelectedEventDetails",
+            "references": {
+              "WcsGridAllRowSelectedEventDetails": {
+                "location": "import",
+                "path": "./grid-interface",
+                "id": "src/components/grid/grid-interface.ts::WcsGridAllRowSelectedEventDetails"
+              }
+            }
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Event emitted when all rows are selected or unselected",
@@ -2286,6 +2947,17 @@
           "event": "wcsGridSelectionChange",
           "detail": "WcsGridSelectionEventDetails",
           "bubbles": true,
+          "complexType": {
+            "original": "WcsGridSelectionEventDetails",
+            "resolved": "WcsGridSelectionEventDetails",
+            "references": {
+              "WcsGridSelectionEventDetails": {
+                "location": "import",
+                "path": "./grid-interface",
+                "id": "src/components/grid/grid-interface.ts::WcsGridSelectionEventDetails"
+              }
+            }
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Event emitted when a row is selected or unselected",
@@ -2362,7 +3034,7 @@
       }
     },
     {
-      "filePath": "./src/components/grid-column/grid-column.tsx",
+      "filePath": "src/components/grid-column/grid-column.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-grid-column",
       "readme": "# wcs-grid-column\r\n\r\n\r\n\r",
@@ -2382,6 +3054,11 @@
         {
           "name": "customCells",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "custom-cells",
           "reflectToAttr": false,
@@ -2399,6 +3076,17 @@
         {
           "name": "formatter",
           "type": "(_h: HyperFunc<VNode>, column: HTMLWcsGridColumnElement, rowData: WcsGridRowData) => HTMLElement | HTMLElement[]",
+          "complexType": {
+            "original": "WcsCellFormatter",
+            "resolved": "(_h: HyperFunc<VNode>, column: HTMLWcsGridColumnElement, rowData: WcsGridRowData) => HTMLElement | HTMLElement[]",
+            "references": {
+              "WcsCellFormatter": {
+                "location": "import",
+                "path": "../grid/grid-interface",
+                "id": "src/components/grid/grid-interface.ts::WcsCellFormatter"
+              }
+            }
+          },
           "mutable": false,
           "reflectToAttr": false,
           "docs": "Customizable formatter function to render the cell differently.",
@@ -2417,6 +3105,11 @@
         {
           "name": "hidden",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "hidden",
           "reflectToAttr": false,
@@ -2434,6 +3127,11 @@
         {
           "name": "name",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "name",
           "reflectToAttr": false,
@@ -2450,6 +3148,11 @@
         {
           "name": "path",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "path",
           "reflectToAttr": false,
@@ -2466,6 +3169,11 @@
         {
           "name": "sort",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "sort",
           "reflectToAttr": false,
@@ -2483,6 +3191,17 @@
         {
           "name": "sortFn",
           "type": "(a: any, b: any, column: HTMLWcsGridColumnElement) => 0 | 1 | -1",
+          "complexType": {
+            "original": "WcsSortFn",
+            "resolved": "(a: any, b: any, column: HTMLWcsGridColumnElement) => 0 | 1 | -1",
+            "references": {
+              "WcsSortFn": {
+                "location": "import",
+                "path": "../grid/grid-interface",
+                "id": "src/components/grid/grid-interface.ts::WcsSortFn"
+              }
+            }
+          },
           "mutable": false,
           "reflectToAttr": false,
           "docs": "Customizable sort function to change the comparison of values.",
@@ -2506,6 +3225,17 @@
         {
           "name": "sortOrder",
           "type": "\"asc\" | \"desc\" | \"none\"",
+          "complexType": {
+            "original": "WcsSortOrder",
+            "resolved": "\"asc\" | \"desc\" | \"none\"",
+            "references": {
+              "WcsSortOrder": {
+                "location": "import",
+                "path": "../grid/grid-interface",
+                "id": "src/components/grid/grid-interface.ts::WcsSortOrder"
+              }
+            }
+          },
           "mutable": true,
           "attr": "sort-order",
           "reflectToAttr": false,
@@ -2532,6 +3262,11 @@
         {
           "name": "width",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "width",
           "reflectToAttr": false,
@@ -2552,6 +3287,11 @@
           "event": "wcsHiddenChange",
           "detail": "boolean",
           "bubbles": true,
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Event emitted if the column is dynamically switching visibility.",
@@ -2561,6 +3301,17 @@
           "event": "wcsSortChange",
           "detail": "WcsGridColumnSortChangeEventDetails",
           "bubbles": true,
+          "complexType": {
+            "original": "WcsGridColumnSortChangeEventDetails",
+            "resolved": "WcsGridColumnSortChangeEventDetails",
+            "references": {
+              "WcsGridColumnSortChangeEventDetails": {
+                "location": "import",
+                "path": "../grid/grid-interface",
+                "id": "src/components/grid/grid-interface.ts::WcsGridColumnSortChangeEventDetails"
+              }
+            }
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Event emitted when the sort of the column is changed.",
@@ -2576,7 +3327,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/grid-custom-cell/grid-custom-cell.tsx",
+      "filePath": "src/components/grid-custom-cell/grid-custom-cell.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-grid-custom-cell",
       "readme": "# wcs-grid-custom-cell\r\n\r\n\r\n\r",
@@ -2587,6 +3338,11 @@
         {
           "name": "columnId",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "column-id",
           "reflectToAttr": false,
@@ -2603,6 +3359,11 @@
         {
           "name": "rowId",
           "type": "any",
+          "complexType": {
+            "original": "any",
+            "resolved": "any",
+            "references": {}
+          },
           "mutable": false,
           "attr": "row-id",
           "reflectToAttr": false,
@@ -2628,7 +3389,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/grid-pagination/grid-pagination.tsx",
+      "filePath": "src/components/grid-pagination/grid-pagination.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-grid-pagination",
       "readme": "# wcs-grid-pagination\r\n\r\n\r\n\r",
@@ -2639,6 +3400,11 @@
         {
           "name": "availablePageSizes",
           "type": "number[]",
+          "complexType": {
+            "original": "number[]",
+            "resolved": "number[]",
+            "references": {}
+          },
           "mutable": false,
           "reflectToAttr": false,
           "docs": "Set the available page sizes in the pagination dropdown on the left.",
@@ -2655,6 +3421,11 @@
         {
           "name": "currentPage",
           "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
           "mutable": false,
           "attr": "current-page",
           "reflectToAttr": false,
@@ -2672,6 +3443,11 @@
         {
           "name": "itemsCount",
           "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
           "mutable": false,
           "attr": "items-count",
           "reflectToAttr": false,
@@ -2689,6 +3465,11 @@
         {
           "name": "pageCount",
           "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
           "mutable": false,
           "attr": "page-count",
           "reflectToAttr": false,
@@ -2706,6 +3487,11 @@
         {
           "name": "pageSize",
           "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
           "mutable": false,
           "attr": "page-size",
           "reflectToAttr": false,
@@ -2727,6 +3513,17 @@
           "event": "wcsGridPaginationChange",
           "detail": "WcsGridPaginationChangeEventDetails",
           "bubbles": true,
+          "complexType": {
+            "original": "WcsGridPaginationChangeEventDetails",
+            "resolved": "WcsGridPaginationChangeEventDetails",
+            "references": {
+              "WcsGridPaginationChangeEventDetails": {
+                "location": "import",
+                "path": "../grid/grid-interface",
+                "id": "src/components/grid/grid-interface.ts::WcsGridPaginationChangeEventDetails"
+              }
+            }
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Event emitted when the pagination changes.",
@@ -2758,7 +3555,7 @@
       }
     },
     {
-      "filePath": "./src/components/header/header.tsx",
+      "filePath": "src/components/header/header.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-header",
       "readme": "# Header\r\n\r",
@@ -2803,7 +3600,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/hint/hint.tsx",
+      "filePath": "src/components/hint/hint.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-hint",
       "readme": "# wcs-hint\r\n\r\n\r\n\r",
@@ -2814,6 +3611,11 @@
         {
           "name": "small",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "small",
           "reflectToAttr": true,
@@ -2840,7 +3642,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/horizontal-stepper/horizontal-stepper.tsx",
+      "filePath": "src/components/horizontal-stepper/horizontal-stepper.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-horizontal-stepper",
       "readme": "# Horizontal Stepper\r\n\r\n\r",
@@ -2851,6 +3653,11 @@
         {
           "name": "checkOnComplete",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "check-on-complete",
           "reflectToAttr": false,
@@ -2867,6 +3674,11 @@
         {
           "name": "currentStep",
           "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
           "mutable": true,
           "attr": "current-step",
           "reflectToAttr": false,
@@ -2884,6 +3696,17 @@
         {
           "name": "mode",
           "type": "\"linear\" | \"nonLinear\"",
+          "complexType": {
+            "original": "HorizontalStepperMode",
+            "resolved": "\"linear\" | \"nonLinear\"",
+            "references": {
+              "HorizontalStepperMode": {
+                "location": "import",
+                "path": "./horizontal-stepper-interface",
+                "id": "src/components/horizontal-stepper/horizontal-stepper-interface.ts::HorizontalStepperMode"
+              }
+            }
+          },
           "mutable": false,
           "attr": "mode",
           "reflectToAttr": false,
@@ -2906,6 +3729,17 @@
         {
           "name": "steps",
           "type": "HorizontalStepConfig[]",
+          "complexType": {
+            "original": "HorizontalStepConfig[]",
+            "resolved": "HorizontalStepConfig[]",
+            "references": {
+              "HorizontalStepConfig": {
+                "location": "import",
+                "path": "./horizontal-stepper-interface",
+                "id": "src/components/horizontal-stepper/horizontal-stepper-interface.ts::HorizontalStepConfig"
+              }
+            }
+          },
           "mutable": false,
           "reflectToAttr": false,
           "docs": "steps to display",
@@ -2926,6 +3760,17 @@
             "type": "Promise<void>",
             "docs": ""
           },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
           "signature": "next() => Promise<void>",
           "parameters": [],
           "docs": "",
@@ -2936,6 +3781,17 @@
           "returns": {
             "type": "Promise<void>",
             "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
           },
           "signature": "previous() => Promise<void>",
           "parameters": [],
@@ -2948,6 +3804,17 @@
           "event": "wcsHorizontalStepClick",
           "detail": "HorizontalStepClickEvent",
           "bubbles": true,
+          "complexType": {
+            "original": "HorizontalStepClickEvent",
+            "resolved": "HorizontalStepClickEvent",
+            "references": {
+              "HorizontalStepClickEvent": {
+                "location": "import",
+                "path": "./horizontal-stepper-interface",
+                "id": "src/components/horizontal-stepper/horizontal-stepper-interface.ts::HorizontalStepClickEvent"
+              }
+            }
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emits when the user selects a new step.",
@@ -2976,7 +3843,7 @@
       }
     },
     {
-      "filePath": "./src/components/icon/icon.tsx",
+      "filePath": "src/components/icon/icon.tsx",
       "encapsulation": "none",
       "tag": "wcs-icon",
       "readme": "# Icon\r\n\r\n\r\n\r",
@@ -2987,6 +3854,11 @@
         {
           "name": "icon",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "icon",
           "reflectToAttr": false,
@@ -3003,6 +3875,11 @@
         {
           "name": "size",
           "type": "\"140px\" | \"1x\" | \"1x2\" | \"1x5\" | \"1x7\" | \"2x\" | \"30px\" | \"3x\" | \"50px\" | \"66px\" | \"90px\" | \"96px\" | \"x5\" | \"x75\"",
+          "complexType": {
+            "original": "'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px'",
+            "resolved": "\"140px\" | \"1x\" | \"1x2\" | \"1x5\" | \"1x7\" | \"2x\" | \"30px\" | \"3x\" | \"50px\" | \"66px\" | \"90px\" | \"96px\" | \"x5\" | \"x75\"",
+            "references": {}
+          },
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
@@ -3081,7 +3958,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/input/input.tsx",
+      "filePath": "src/components/input/input.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-input",
       "readme": "# Input\r\n\r",
@@ -3092,6 +3969,11 @@
         {
           "name": "accept",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "accept",
           "reflectToAttr": false,
@@ -3108,6 +3990,11 @@
         {
           "name": "autocapitalize",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "autocapitalize",
           "reflectToAttr": false,
@@ -3125,6 +4012,17 @@
         {
           "name": "autocomplete",
           "type": "\"name\" | \"on\" | \"off\" | \"honorific-prefix\" | \"given-name\" | \"additional-name\" | \"family-name\" | \"honorific-suffix\" | \"nickname\" | \"email\" | \"username\" | \"new-password\" | \"current-password\" | \"one-time-code\" | \"organization-title\" | \"organization\" | \"street-address\" | \"address-line1\" | \"address-line2\" | \"address-line3\" | \"address-level4\" | \"address-level3\" | \"address-level2\" | \"address-level1\" | \"country\" | \"country-name\" | \"postal-code\" | \"cc-name\" | \"cc-given-name\" | \"cc-additional-name\" | \"cc-family-name\" | \"cc-number\" | \"cc-exp\" | \"cc-exp-month\" | \"cc-exp-year\" | \"cc-csc\" | \"cc-type\" | \"transaction-currency\" | \"transaction-amount\" | \"language\" | \"bday\" | \"bday-day\" | \"bday-month\" | \"bday-year\" | \"sex\" | \"tel\" | \"tel-country-code\" | \"tel-national\" | \"tel-area-code\" | \"tel-local\" | \"tel-extension\" | \"impp\" | \"url\" | \"photo\"",
+          "complexType": {
+            "original": "AutocompleteTypes",
+            "resolved": "\"name\" | \"on\" | \"off\" | \"honorific-prefix\" | \"given-name\" | \"additional-name\" | \"family-name\" | \"honorific-suffix\" | \"nickname\" | \"email\" | \"username\" | \"new-password\" | \"current-password\" | \"one-time-code\" | \"organization-title\" | \"organization\" | \"street-address\" | \"address-line1\" | \"address-line2\" | \"address-line3\" | \"address-level4\" | \"address-level3\" | \"address-level2\" | \"address-level1\" | \"country\" | \"country-name\" | \"postal-code\" | \"cc-name\" | \"cc-given-name\" | \"cc-additional-name\" | \"cc-family-name\" | \"cc-number\" | \"cc-exp\" | \"cc-exp-month\" | \"cc-exp-year\" | \"cc-csc\" | \"cc-type\" | \"transaction-currency\" | \"transaction-amount\" | \"language\" | \"bday\" | \"bday-day\" | \"bday-month\" | \"bday-year\" | \"sex\" | \"tel\" | \"tel-country-code\" | \"tel-national\" | \"tel-area-code\" | \"tel-local\" | \"tel-extension\" | \"impp\" | \"url\" | \"photo\"",
+            "references": {
+              "AutocompleteTypes": {
+                "location": "import",
+                "path": "./input-interface",
+                "id": "src/components/input/input-interface.ts::AutocompleteTypes"
+              }
+            }
+          },
           "mutable": false,
           "attr": "autocomplete",
           "reflectToAttr": false,
@@ -3355,6 +4253,11 @@
         {
           "name": "autocorrect",
           "type": "\"off\" | \"on\"",
+          "complexType": {
+            "original": "'on' | 'off'",
+            "resolved": "\"off\" | \"on\"",
+            "references": {}
+          },
           "mutable": false,
           "attr": "autocorrect",
           "reflectToAttr": false,
@@ -3377,6 +4280,11 @@
         {
           "name": "autofocus",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "autofocus",
           "reflectToAttr": false,
@@ -3394,6 +4302,11 @@
         {
           "name": "clearInput",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "clear-input",
           "reflectToAttr": false,
@@ -3411,6 +4324,11 @@
         {
           "name": "clearOnEdit",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "clear-on-edit",
           "reflectToAttr": false,
@@ -3427,6 +4345,11 @@
         {
           "name": "debounce",
           "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
           "mutable": false,
           "attr": "debounce",
           "reflectToAttr": false,
@@ -3444,6 +4367,11 @@
         {
           "name": "disabled",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "disabled",
           "reflectToAttr": false,
@@ -3461,6 +4389,11 @@
         {
           "name": "enterkeyhint",
           "type": "\"done\" | \"enter\" | \"go\" | \"next\" | \"previous\" | \"search\" | \"send\"",
+          "complexType": {
+            "original": "'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send'",
+            "resolved": "\"done\" | \"enter\" | \"go\" | \"next\" | \"previous\" | \"search\" | \"send\"",
+            "references": {}
+          },
           "mutable": false,
           "attr": "enterkeyhint",
           "reflectToAttr": false,
@@ -3502,6 +4435,11 @@
         {
           "name": "icon",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "icon",
           "reflectToAttr": false,
@@ -3518,6 +4456,11 @@
         {
           "name": "inputmode",
           "type": "\"decimal\" | \"email\" | \"none\" | \"numeric\" | \"search\" | \"tel\" | \"text\" | \"url\"",
+          "complexType": {
+            "original": "'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search'",
+            "resolved": "\"decimal\" | \"email\" | \"none\" | \"numeric\" | \"search\" | \"tel\" | \"text\" | \"url\"",
+            "references": {}
+          },
           "mutable": false,
           "attr": "inputmode",
           "reflectToAttr": false,
@@ -3563,6 +4506,11 @@
         {
           "name": "max",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "max",
           "reflectToAttr": false,
@@ -3579,6 +4527,11 @@
         {
           "name": "maxlength",
           "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
           "mutable": false,
           "attr": "maxlength",
           "reflectToAttr": false,
@@ -3595,6 +4548,11 @@
         {
           "name": "min",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "min",
           "reflectToAttr": false,
@@ -3611,6 +4569,11 @@
         {
           "name": "minlength",
           "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
           "mutable": false,
           "attr": "minlength",
           "reflectToAttr": false,
@@ -3627,6 +4590,11 @@
         {
           "name": "multiple",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "multiple",
           "reflectToAttr": false,
@@ -3643,6 +4611,11 @@
         {
           "name": "name",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "name",
           "reflectToAttr": false,
@@ -3660,6 +4633,11 @@
         {
           "name": "pattern",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "pattern",
           "reflectToAttr": false,
@@ -3676,6 +4654,11 @@
         {
           "name": "placeholder",
           "type": "string",
+          "complexType": {
+            "original": "string | null",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "placeholder",
           "reflectToAttr": false,
@@ -3692,6 +4675,11 @@
         {
           "name": "prefixLabel",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "prefix-label",
           "reflectToAttr": false,
@@ -3708,6 +4696,11 @@
         {
           "name": "readonly",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "readonly",
           "reflectToAttr": false,
@@ -3725,6 +4718,11 @@
         {
           "name": "required",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "required",
           "reflectToAttr": false,
@@ -3742,6 +4740,17 @@
         {
           "name": "size",
           "type": "\"l\" | \"m\" | \"s\"",
+          "complexType": {
+            "original": "WcsInputSize",
+            "resolved": "\"l\" | \"m\" | \"s\"",
+            "references": {
+              "WcsInputSize": {
+                "location": "import",
+                "path": "./input-interface",
+                "id": "src/components/input/input-interface.ts::WcsInputSize"
+              }
+            }
+          },
           "mutable": false,
           "attr": "size",
           "reflectToAttr": true,
@@ -3768,6 +4777,11 @@
         {
           "name": "spellcheck",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "spellcheck",
           "reflectToAttr": false,
@@ -3785,6 +4799,11 @@
         {
           "name": "state",
           "type": "\"error\" | \"initial\"",
+          "complexType": {
+            "original": "'initial' | 'error'",
+            "resolved": "\"error\" | \"initial\"",
+            "references": {}
+          },
           "mutable": false,
           "attr": "state",
           "reflectToAttr": true,
@@ -3807,6 +4826,11 @@
         {
           "name": "step",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "step",
           "reflectToAttr": false,
@@ -3823,6 +4847,11 @@
         {
           "name": "suffixLabel",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "suffix-label",
           "reflectToAttr": false,
@@ -3839,6 +4868,17 @@
         {
           "name": "type",
           "type": "\"date\" | \"datetime-local\" | \"email\" | \"file\" | \"month\" | \"number\" | \"password\" | \"search\" | \"tel\" | \"text\" | \"time\" | \"url\" | \"week\"",
+          "complexType": {
+            "original": "TextFieldTypes",
+            "resolved": "\"date\" | \"datetime-local\" | \"email\" | \"file\" | \"month\" | \"number\" | \"password\" | \"search\" | \"tel\" | \"text\" | \"time\" | \"url\" | \"week\"",
+            "references": {
+              "TextFieldTypes": {
+                "location": "import",
+                "path": "./input-interface",
+                "id": "src/components/input/input-interface.ts::TextFieldTypes"
+              }
+            }
+          },
           "mutable": false,
           "attr": "type",
           "reflectToAttr": false,
@@ -3905,6 +4945,11 @@
         {
           "name": "value",
           "type": "number | string",
+          "complexType": {
+            "original": "string | number | null",
+            "resolved": "number | string",
+            "references": {}
+          },
           "mutable": true,
           "attr": "value",
           "reflectToAttr": false,
@@ -3930,6 +4975,21 @@
             "type": "Promise<HTMLInputElement>",
             "docs": ""
           },
+          "complexType": {
+            "signature": "() => Promise<HTMLInputElement>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "HTMLInputElement": {
+                "location": "global",
+                "id": "global::HTMLInputElement"
+              }
+            },
+            "return": "Promise<HTMLInputElement>"
+          },
           "signature": "getInputElement() => Promise<HTMLInputElement>",
           "parameters": [],
           "docs": "Returns the native `<input>` element used under the hood.",
@@ -3941,8 +5001,46 @@
             "type": "Promise<void>",
             "docs": ""
           },
+          "complexType": {
+            "signature": "(attr: AriaAttributeName, value: string) => Promise<void>",
+            "parameters": [
+              {
+                "name": "attr",
+                "type": "\"role\" | `aria-${string}`",
+                "docs": ""
+              },
+              {
+                "name": "value",
+                "type": "string",
+                "docs": ""
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "AriaAttributeName": {
+                "location": "import",
+                "path": "../../utils/mutable-aria-attribute",
+                "id": "src/utils/mutable-aria-attribute.ts::AriaAttributeName"
+              }
+            },
+            "return": "Promise<void>"
+          },
           "signature": "setAriaAttribute(attr: AriaAttributeName, value: string) => Promise<void>",
-          "parameters": [],
+          "parameters": [
+            {
+              "name": "attr",
+              "type": "\"role\" | `aria-${string}`",
+              "docs": ""
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "docs": ""
+            }
+          ],
           "docs": "",
           "docsTags": []
         },
@@ -3951,6 +5049,17 @@
           "returns": {
             "type": "Promise<void>",
             "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
@@ -3969,6 +5078,16 @@
           "event": "wcsBlur",
           "detail": "FocusEvent",
           "bubbles": true,
+          "complexType": {
+            "original": "FocusEvent",
+            "resolved": "FocusEvent",
+            "references": {
+              "FocusEvent": {
+                "location": "global",
+                "id": "global::FocusEvent"
+              }
+            }
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the input loses focus.",
@@ -3978,6 +5097,17 @@
           "event": "wcsChange",
           "detail": "InputChangeEventDetail",
           "bubbles": true,
+          "complexType": {
+            "original": "InputChangeEventDetail",
+            "resolved": "InputChangeEventDetail",
+            "references": {
+              "InputChangeEventDetail": {
+                "location": "import",
+                "path": "./input-interface",
+                "id": "src/components/input/input-interface.ts::InputChangeEventDetail"
+              }
+            }
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the value has changed. See https://developer.mozilla.org/en-US/docs/Web/Events/change",
@@ -3987,6 +5117,16 @@
           "event": "wcsFocus",
           "detail": "FocusEvent",
           "bubbles": true,
+          "complexType": {
+            "original": "FocusEvent",
+            "resolved": "FocusEvent",
+            "references": {
+              "FocusEvent": {
+                "location": "global",
+                "id": "global::FocusEvent"
+              }
+            }
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the input has focus.",
@@ -3996,6 +5136,16 @@
           "event": "wcsInput",
           "detail": "KeyboardEvent",
           "bubbles": true,
+          "complexType": {
+            "original": "KeyboardEvent",
+            "resolved": "KeyboardEvent",
+            "references": {
+              "KeyboardEvent": {
+                "location": "global",
+                "id": "global::KeyboardEvent"
+              }
+            }
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when a keyboard input occurred. See https://developer.mozilla.org/en-US/docs/Web/Events/input",
@@ -4026,7 +5176,7 @@
       }
     },
     {
-      "filePath": "./src/components/label/label.tsx",
+      "filePath": "src/components/label/label.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-label",
       "readme": "# wcs-label\r\n\r\n\r\n\r",
@@ -4037,6 +5187,11 @@
         {
           "name": "required",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "required",
           "reflectToAttr": true,
@@ -4063,7 +5218,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/list-item/list-item.tsx",
+      "filePath": "src/components/list-item/list-item.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-list-item",
       "readme": "# List Item\r\n\r",
@@ -4074,6 +5229,11 @@
         {
           "name": "activated",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "activated",
           "reflectToAttr": false,
@@ -4100,7 +5260,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/list-item-properties/list-item-properties.tsx",
+      "filePath": "src/components/list-item-properties/list-item-properties.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-list-item-properties",
       "readme": "# wcs-list-item-properties\r\n\r\n\r\n\r",
@@ -4119,7 +5279,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/list-item-property/list-item-property.tsx",
+      "filePath": "src/components/list-item-property/list-item-property.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-list-item-property",
       "readme": "# wcs-list-item-property\r\n\r\n\r\n\r",
@@ -4138,7 +5298,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/mat-icon/mat-icon.tsx",
+      "filePath": "src/components/mat-icon/mat-icon.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-mat-icon",
       "readme": "# Material Icon\r\n\r",
@@ -4149,6 +5309,17 @@
         {
           "name": "family",
           "type": "\"filled\" | \"outlined\" | \"rounded\" | \"sharp\" | \"twotone\"",
+          "complexType": {
+            "original": "MaterialIconFamily",
+            "resolved": "\"filled\" | \"outlined\" | \"rounded\" | \"sharp\" | \"twotone\"",
+            "references": {
+              "MaterialIconFamily": {
+                "location": "import",
+                "path": "./mat-icon-interface",
+                "id": "src/components/mat-icon/mat-icon-interface.tsx::MaterialIconFamily"
+              }
+            }
+          },
           "mutable": false,
           "attr": "family",
           "reflectToAttr": false,
@@ -4183,6 +5354,11 @@
         {
           "name": "icon",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "icon",
           "reflectToAttr": false,
@@ -4199,6 +5375,17 @@
         {
           "name": "size",
           "type": "\"l\" | \"m\" | \"s\" | \"xl\"",
+          "complexType": {
+            "original": "MaterialIconSize",
+            "resolved": "\"l\" | \"m\" | \"s\" | \"xl\"",
+            "references": {
+              "MaterialIconSize": {
+                "location": "import",
+                "path": "./mat-icon-interface",
+                "id": "src/components/mat-icon/mat-icon-interface.tsx::MaterialIconSize"
+              }
+            }
+          },
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
@@ -4268,7 +5455,7 @@
       }
     },
     {
-      "filePath": "./src/components/modal/modal.tsx",
+      "filePath": "src/components/modal/modal.tsx",
       "encapsulation": "none",
       "tag": "wcs-modal",
       "readme": "# Modal\r\n\r\n## Modal without backdrop\r\n\r\n```html\r\n<wcs-modal id=\"modal-2\" backdrop=\"false\" show-close-button=\"true\">\r\n    <div slot=\"header\">Modal title</div>\r\n    Voulez-vous quittez la page ? \r\n    <br/>\r\n    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a cursus mi. Nullam et sem mi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce sollicitudin pellentesque libero nec elementum.\r\n    <div slot=\"actions\">\r\n        <wcs-button class=\"wcs-dark\" mode=\"stroked\">C'est non</wcs-button>\r\n        <wcs-button>J'accepte</wcs-button>\r\n    </div>\r\n</wcs-modal>\r\n```\r\n\r\n<wcs-button onclick=\"getElementById('modal-2').setAttribute('show', true)\" id=\"btn-modal-2-show\">\r\n    Afficher la boîte de dialogue\r\n</wcs-button>\r\n\r",
@@ -4300,6 +5487,11 @@
         {
           "name": "hideActions",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "hide-actions",
           "reflectToAttr": true,
@@ -4317,6 +5509,11 @@
         {
           "name": "modalTriggerControlsId",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "modal-trigger-controls-id",
           "reflectToAttr": false,
@@ -4337,6 +5534,11 @@
         {
           "name": "show",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "show",
           "reflectToAttr": true,
@@ -4354,6 +5556,11 @@
         {
           "name": "showCloseButton",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "show-close-button",
           "reflectToAttr": true,
@@ -4371,6 +5578,17 @@
         {
           "name": "size",
           "type": "\"l\" | \"m\" | \"s\" | \"xl\"",
+          "complexType": {
+            "original": "ModalSize",
+            "resolved": "\"l\" | \"m\" | \"s\" | \"xl\"",
+            "references": {
+              "ModalSize": {
+                "location": "import",
+                "path": "./modal-interface",
+                "id": "src/components/modal/modal-interface.ts::ModalSize"
+              }
+            }
+          },
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
@@ -4401,6 +5619,11 @@
         {
           "name": "withoutBackdrop",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "without-backdrop",
           "reflectToAttr": true,
@@ -4422,6 +5645,11 @@
           "event": "wcsDialogClosed",
           "detail": "void",
           "bubbles": true,
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Triggered when the user leaves the dialog with the closing button.",
@@ -4468,7 +5696,7 @@
       }
     },
     {
-      "filePath": "./src/components/native-select/native-select.tsx",
+      "filePath": "src/components/native-select/native-select.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-native-select",
       "readme": "# wcs-select-native\r\n\r\n\r\n\r",
@@ -4479,6 +5707,17 @@
         {
           "name": "size",
           "type": "\"l\" | \"m\"",
+          "complexType": {
+            "original": "WcsNativeSelectSize",
+            "resolved": "\"l\" | \"m\"",
+            "references": {
+              "WcsNativeSelectSize": {
+                "location": "local",
+                "path": "C:/Users/9703514Y/Sources/Repos/wcs/src/components/native-select/native-select.tsx",
+                "id": "src/components/native-select/native-select.tsx::WcsNativeSelectSize"
+              }
+            }
+          },
           "mutable": false,
           "attr": "size",
           "reflectToAttr": true,
@@ -4506,8 +5745,46 @@
             "type": "Promise<void>",
             "docs": ""
           },
+          "complexType": {
+            "signature": "(attr: AriaAttributeName, value: string) => Promise<void>",
+            "parameters": [
+              {
+                "name": "attr",
+                "type": "\"role\" | `aria-${string}`",
+                "docs": ""
+              },
+              {
+                "name": "value",
+                "type": "string",
+                "docs": ""
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "AriaAttributeName": {
+                "location": "import",
+                "path": "../../utils/mutable-aria-attribute",
+                "id": "src/utils/mutable-aria-attribute.ts::AriaAttributeName"
+              }
+            },
+            "return": "Promise<void>"
+          },
           "signature": "setAriaAttribute(attr: AriaAttributeName, value: string) => Promise<void>",
-          "parameters": [],
+          "parameters": [
+            {
+              "name": "attr",
+              "type": "\"role\" | `aria-${string}`",
+              "docs": ""
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "docs": ""
+            }
+          ],
           "docs": "",
           "docsTags": []
         },
@@ -4516,6 +5793,17 @@
           "returns": {
             "type": "Promise<void>",
             "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
           },
           "signature": "updateStyles() => Promise<void>",
           "parameters": [],
@@ -4533,7 +5821,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/nav/nav.tsx",
+      "filePath": "src/components/nav/nav.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-nav",
       "readme": "# Nav\r\n\r",
@@ -4552,7 +5840,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/nav-item/nav-item.tsx",
+      "filePath": "src/components/nav-item/nav-item.tsx",
       "encapsulation": "none",
       "tag": "wcs-nav-item",
       "readme": "# Nav Item\r\n\r\n\r",
@@ -4563,6 +5851,11 @@
         {
           "name": "href",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "href",
           "reflectToAttr": true,
@@ -4579,6 +5872,11 @@
         {
           "name": "text",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "text",
           "reflectToAttr": true,
@@ -4611,7 +5909,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/progress-bar/progress-bar.tsx",
+      "filePath": "src/components/progress-bar/progress-bar.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-progress-bar",
       "readme": "# Progress bar\r\n\r",
@@ -4635,6 +5933,11 @@
         {
           "name": "showLabel",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "show-label",
           "reflectToAttr": false,
@@ -4652,6 +5955,21 @@
         {
           "name": "size",
           "type": "\"m\" | \"s\"",
+          "complexType": {
+            "original": "Extract<WcsSize, 'm' | 's'>",
+            "resolved": "\"m\" | \"s\"",
+            "references": {
+              "Extract": {
+                "location": "global",
+                "id": "global::Extract"
+              },
+              "WcsSize": {
+                "location": "import",
+                "path": "../../shared-types",
+                "id": "src/shared-types.ts::WcsSize"
+              }
+            }
+          },
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
@@ -4674,6 +5992,11 @@
         {
           "name": "value",
           "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
           "mutable": false,
           "attr": "value",
           "reflectToAttr": false,
@@ -4706,7 +6029,7 @@
       }
     },
     {
-      "filePath": "./src/components/progress-radial/progress-radial.tsx",
+      "filePath": "src/components/progress-radial/progress-radial.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-progress-radial",
       "readme": "# Progress radial\r\n\r",
@@ -4717,6 +6040,11 @@
         {
           "name": "showLabel",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "show-label",
           "reflectToAttr": false,
@@ -4734,6 +6062,11 @@
         {
           "name": "size",
           "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
@@ -4751,6 +6084,11 @@
         {
           "name": "value",
           "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
           "mutable": false,
           "attr": "value",
           "reflectToAttr": false,
@@ -4777,7 +6115,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/radio/radio.tsx",
+      "filePath": "src/components/radio/radio.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-radio",
       "readme": "# wcs-radio\r\n\r\n\r\n\r",
@@ -4788,6 +6126,11 @@
         {
           "name": "checked",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "checked",
           "reflectToAttr": true,
@@ -4805,6 +6148,11 @@
         {
           "name": "disabled",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "disabled",
           "reflectToAttr": false,
@@ -4822,6 +6170,11 @@
         {
           "name": "label",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": true,
           "attr": "label",
           "reflectToAttr": true,
@@ -4838,6 +6191,17 @@
         {
           "name": "mode",
           "type": "\"horizontal\" | \"option\" | \"radio\"",
+          "complexType": {
+            "original": "RadioGroupMode",
+            "resolved": "\"horizontal\" | \"option\" | \"radio\"",
+            "references": {
+              "RadioGroupMode": {
+                "location": "import",
+                "path": "../radio-group/radio-group-interface",
+                "id": "src/components/radio-group/radio-group-interface.ts::RadioGroupMode"
+              }
+            }
+          },
           "mutable": false,
           "attr": "mode",
           "reflectToAttr": true,
@@ -4864,6 +6228,11 @@
         {
           "name": "name",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "name",
           "reflectToAttr": false,
@@ -4880,6 +6249,11 @@
         {
           "name": "value",
           "type": "any",
+          "complexType": {
+            "original": "any | any[] | undefined | null",
+            "resolved": "any",
+            "references": {}
+          },
           "mutable": true,
           "attr": "value",
           "reflectToAttr": true,
@@ -4900,6 +6274,17 @@
           "event": "wcsRadioClick",
           "detail": "RadioChosedEvent",
           "bubbles": true,
+          "complexType": {
+            "original": "RadioChosedEvent",
+            "resolved": "RadioChosedEvent",
+            "references": {
+              "RadioChosedEvent": {
+                "location": "import",
+                "path": "./radio-interface",
+                "id": "src/components/radio/radio-interface.ts::RadioChosedEvent"
+              }
+            }
+          },
           "cancelable": true,
           "composed": true,
           "docs": "",
@@ -4927,7 +6312,7 @@
       }
     },
     {
-      "filePath": "./src/components/radio-group/radio-group.tsx",
+      "filePath": "src/components/radio-group/radio-group.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-radio-group",
       "readme": "# Radio Group\r\n\r\n\r",
@@ -4938,6 +6323,17 @@
         {
           "name": "mode",
           "type": "\"horizontal\" | \"option\" | \"radio\"",
+          "complexType": {
+            "original": "RadioGroupMode",
+            "resolved": "\"horizontal\" | \"option\" | \"radio\"",
+            "references": {
+              "RadioGroupMode": {
+                "location": "import",
+                "path": "./radio-group-interface",
+                "id": "src/components/radio-group/radio-group-interface.ts::RadioGroupMode"
+              }
+            }
+          },
           "mutable": false,
           "attr": "mode",
           "reflectToAttr": true,
@@ -4964,6 +6360,11 @@
         {
           "name": "name",
           "type": "any",
+          "complexType": {
+            "original": "any",
+            "resolved": "any",
+            "references": {}
+          },
           "mutable": false,
           "attr": "name",
           "reflectToAttr": true,
@@ -4980,6 +6381,11 @@
         {
           "name": "value",
           "type": "any",
+          "complexType": {
+            "original": "any | any[] | undefined | null",
+            "resolved": "any",
+            "references": {}
+          },
           "mutable": false,
           "attr": "value",
           "reflectToAttr": false,
@@ -5001,8 +6407,46 @@
             "type": "Promise<void>",
             "docs": ""
           },
+          "complexType": {
+            "signature": "(attr: AriaAttributeName, value: string) => Promise<void>",
+            "parameters": [
+              {
+                "name": "attr",
+                "type": "\"role\" | `aria-${string}`",
+                "docs": ""
+              },
+              {
+                "name": "value",
+                "type": "string",
+                "docs": ""
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "AriaAttributeName": {
+                "location": "import",
+                "path": "../../utils/mutable-aria-attribute",
+                "id": "src/utils/mutable-aria-attribute.ts::AriaAttributeName"
+              }
+            },
+            "return": "Promise<void>"
+          },
           "signature": "setAriaAttribute(attr: AriaAttributeName, value: string) => Promise<void>",
-          "parameters": [],
+          "parameters": [
+            {
+              "name": "attr",
+              "type": "\"role\" | `aria-${string}`",
+              "docs": ""
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "docs": ""
+            }
+          ],
           "docs": "",
           "docsTags": []
         }
@@ -5012,6 +6456,17 @@
           "event": "wcsChange",
           "detail": "RadioGroupChangeEventDetail",
           "bubbles": true,
+          "complexType": {
+            "original": "RadioGroupChangeEventDetail",
+            "resolved": "RadioGroupChangeEventDetail",
+            "references": {
+              "RadioGroupChangeEventDetail": {
+                "location": "import",
+                "path": "./radio-group-interface",
+                "id": "src/components/radio-group/radio-group-interface.ts::RadioGroupChangeEventDetail"
+              }
+            }
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the value has changed.",
@@ -5043,7 +6498,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/select/select.tsx",
+      "filePath": "src/components/select/select.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-select",
       "readme": "\r\n## TODO\r\n\r\n- étudier la possibilité de mieux gérer la taille de l'overlay du select\r\n  - utiliser la variable `--wcs-select-overlay-max-height` ?\r\n  - on essaye de tout afficher, si pas possible on regarde s'il y a plus de place vers le haut\r\n    si c'est le cas, on affiche l'overlay vers le haut avec le maximum d'option à l'écran\r\n    sinon vers le bas, avec un maximum d'options à l'écran. Le plus simple est de faire ces calculs\r\n    au moment du click pour déplier le select, comme c'est le cas actuellement ?\r\n\r\n\r",
@@ -5059,6 +6514,11 @@
         {
           "name": "autocomplete",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "autocomplete",
           "reflectToAttr": true,
@@ -5076,6 +6536,11 @@
         {
           "name": "chips",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "chips",
           "reflectToAttr": true,
@@ -5093,6 +6558,11 @@
         {
           "name": "compareWith",
           "type": "(optionValue: any, selectedValue: any) => boolean",
+          "complexType": {
+            "original": "(optionValue: any, selectedValue: any) => boolean",
+            "resolved": "(optionValue: any, selectedValue: any) => boolean",
+            "references": {}
+          },
           "mutable": false,
           "reflectToAttr": false,
           "docs": "Function used to compare options, default : deep comparison.",
@@ -5109,6 +6579,11 @@
         {
           "name": "disabled",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "disabled",
           "reflectToAttr": false,
@@ -5126,6 +6601,17 @@
         {
           "name": "filterFn",
           "type": "(optionEl: HTMLWcsSelectOptionElement, filter: string) => boolean",
+          "complexType": {
+            "original": "WcsSelectFilterFn",
+            "resolved": "(optionEl: HTMLWcsSelectOptionElement, filter: string) => boolean",
+            "references": {
+              "WcsSelectFilterFn": {
+                "location": "import",
+                "path": "./select-interface",
+                "id": "src/components/select/select-interface.ts::WcsSelectFilterFn"
+              }
+            }
+          },
           "mutable": false,
           "reflectToAttr": false,
           "docs": "Customizable sort function to change the comparison of values. If not provided, uses the default behavior :\r\n`option.textContent.toLowerCase().startsWith(filter.toLowerCase())`",
@@ -5141,6 +6627,11 @@
         {
           "name": "multiple",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "multiple",
           "reflectToAttr": true,
@@ -5158,6 +6649,11 @@
         {
           "name": "name",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "name",
           "reflectToAttr": false,
@@ -5174,6 +6670,11 @@
         {
           "name": "placeholder",
           "type": "string",
+          "complexType": {
+            "original": "string | null",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": true,
           "attr": "placeholder",
           "reflectToAttr": true,
@@ -5190,6 +6691,17 @@
         {
           "name": "size",
           "type": "\"l\" | \"m\"",
+          "complexType": {
+            "original": "WcsSelectSize",
+            "resolved": "\"l\" | \"m\"",
+            "references": {
+              "WcsSelectSize": {
+                "location": "import",
+                "path": "./select-interface",
+                "id": "src/components/select/select-interface.ts::WcsSelectSize"
+              }
+            }
+          },
           "mutable": false,
           "attr": "size",
           "reflectToAttr": true,
@@ -5212,6 +6724,11 @@
         {
           "name": "value",
           "type": "any",
+          "complexType": {
+            "original": "any | null",
+            "resolved": "any",
+            "references": {}
+          },
           "mutable": true,
           "attr": "value",
           "reflectToAttr": false,
@@ -5233,6 +6750,17 @@
             "type": "Promise<void>",
             "docs": ""
           },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
           "signature": "close() => Promise<void>",
           "parameters": [],
           "docs": "Close the component.",
@@ -5243,6 +6771,17 @@
           "returns": {
             "type": "Promise<void>",
             "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
           },
           "signature": "open() => Promise<void>",
           "parameters": [],
@@ -5255,8 +6794,46 @@
             "type": "Promise<void>",
             "docs": ""
           },
+          "complexType": {
+            "signature": "(attr: AriaAttributeName, value: string) => Promise<void>",
+            "parameters": [
+              {
+                "name": "attr",
+                "type": "\"role\" | `aria-${string}`",
+                "docs": ""
+              },
+              {
+                "name": "value",
+                "type": "string",
+                "docs": ""
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "AriaAttributeName": {
+                "location": "import",
+                "path": "../../utils/mutable-aria-attribute",
+                "id": "src/utils/mutable-aria-attribute.ts::AriaAttributeName"
+              }
+            },
+            "return": "Promise<void>"
+          },
           "signature": "setAriaAttribute(attr: AriaAttributeName, value: string) => Promise<void>",
-          "parameters": [],
+          "parameters": [
+            {
+              "name": "attr",
+              "type": "\"role\" | `aria-${string}`",
+              "docs": ""
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "docs": ""
+            }
+          ],
           "docs": "",
           "docsTags": []
         }
@@ -5266,6 +6843,11 @@
           "event": "wcsBlur",
           "detail": "void",
           "bubbles": true,
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the select loses focus.",
@@ -5275,6 +6857,17 @@
           "event": "wcsChange",
           "detail": "SelectChangeEventDetail",
           "bubbles": true,
+          "complexType": {
+            "original": "SelectChangeEventDetail",
+            "resolved": "SelectChangeEventDetail",
+            "references": {
+              "SelectChangeEventDetail": {
+                "location": "import",
+                "path": "./select-interface",
+                "id": "src/components/select/select-interface.ts::SelectChangeEventDetail"
+              }
+            }
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the value has changed.",
@@ -5284,6 +6877,17 @@
           "event": "wcsFilterChange",
           "detail": "SelectFilerChangeEventDetail",
           "bubbles": true,
+          "complexType": {
+            "original": "SelectFilerChangeEventDetail",
+            "resolved": "SelectFilerChangeEventDetail",
+            "references": {
+              "SelectFilerChangeEventDetail": {
+                "location": "import",
+                "path": "./select-interface",
+                "id": "src/components/select/select-interface.ts::SelectFilerChangeEventDetail"
+              }
+            }
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the autocomplete filter has changed.",
@@ -5293,6 +6897,11 @@
           "event": "wcsFocus",
           "detail": "void",
           "bubbles": true,
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the select has focus.",
@@ -5346,7 +6955,7 @@
       }
     },
     {
-      "filePath": "./src/components/select-option/select-option.tsx",
+      "filePath": "src/components/select-option/select-option.tsx",
       "encapsulation": "none",
       "tag": "wcs-select-option",
       "readme": "# Select option\r\n\r\n\r\n\r",
@@ -5357,6 +6966,11 @@
         {
           "name": "chipBackgroundColor",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "chip-background-color",
           "reflectToAttr": false,
@@ -5373,6 +6987,11 @@
         {
           "name": "chipColor",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "chip-color",
           "reflectToAttr": false,
@@ -5389,6 +7008,11 @@
         {
           "name": "disabled",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "disabled",
           "reflectToAttr": true,
@@ -5406,6 +7030,11 @@
         {
           "name": "selected",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "selected",
           "reflectToAttr": true,
@@ -5423,6 +7052,11 @@
         {
           "name": "value",
           "type": "any",
+          "complexType": {
+            "original": "any",
+            "resolved": "any",
+            "references": {}
+          },
           "mutable": false,
           "attr": "value",
           "reflectToAttr": false,
@@ -5443,6 +7077,17 @@
           "event": "wcsSelectOptionClick",
           "detail": "SelectOptionChosedEvent",
           "bubbles": true,
+          "complexType": {
+            "original": "SelectOptionChosedEvent",
+            "resolved": "SelectOptionChosedEvent",
+            "references": {
+              "SelectOptionChosedEvent": {
+                "location": "import",
+                "path": "./select-option-interface",
+                "id": "src/components/select-option/select-option-interface.ts::SelectOptionChosedEvent"
+              }
+            }
+          },
           "cancelable": true,
           "composed": true,
           "docs": "",
@@ -5480,7 +7125,7 @@
       }
     },
     {
-      "filePath": "./src/components/skeleton-circle/skeleton-circle.tsx",
+      "filePath": "src/components/skeleton-circle/skeleton-circle.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-skeleton-circle",
       "readme": "# wcs-skeleton-circle\r\n\r\n\r\n\r",
@@ -5491,6 +7136,17 @@
         {
           "name": "animation",
           "type": "\"glide\" | \"none\" | \"pulse\"",
+          "complexType": {
+            "original": "WcsSkeletonAnimation",
+            "resolved": "\"glide\" | \"none\" | \"pulse\"",
+            "references": {
+              "WcsSkeletonAnimation": {
+                "location": "import",
+                "path": "../skeleton/skeleton-interface",
+                "id": "src/components/skeleton/skeleton-interface.ts::WcsSkeletonAnimation"
+              }
+            }
+          },
           "mutable": false,
           "attr": "animation",
           "reflectToAttr": true,
@@ -5517,6 +7173,11 @@
         {
           "name": "radius",
           "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
           "mutable": false,
           "attr": "radius",
           "reflectToAttr": true,
@@ -5543,7 +7204,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/skeleton-rectangle/skeleton-rectangle.tsx",
+      "filePath": "src/components/skeleton-rectangle/skeleton-rectangle.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-skeleton-rectangle",
       "readme": "# wcs-skeleton-rectangle\r\n\r\n\r\n\r",
@@ -5559,6 +7220,17 @@
         {
           "name": "animation",
           "type": "\"glide\" | \"none\" | \"pulse\"",
+          "complexType": {
+            "original": "WcsSkeletonAnimation",
+            "resolved": "\"glide\" | \"none\" | \"pulse\"",
+            "references": {
+              "WcsSkeletonAnimation": {
+                "location": "import",
+                "path": "../skeleton/skeleton-interface",
+                "id": "src/components/skeleton/skeleton-interface.ts::WcsSkeletonAnimation"
+              }
+            }
+          },
           "mutable": false,
           "attr": "animation",
           "reflectToAttr": true,
@@ -5585,6 +7257,17 @@
         {
           "name": "height",
           "type": "LengthOrPercentage | Keyword | Global",
+          "complexType": {
+            "original": "CssTypes.Height",
+            "resolved": "LengthOrPercentage | Keyword | Global",
+            "references": {
+              "CssTypes": {
+                "location": "import",
+                "path": "../../shared-types",
+                "id": "src/shared-types.ts::CssTypes"
+              }
+            }
+          },
           "mutable": false,
           "attr": "height",
           "reflectToAttr": true,
@@ -5608,6 +7291,11 @@
         {
           "name": "rounded",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "rounded",
           "reflectToAttr": true,
@@ -5625,6 +7313,17 @@
         {
           "name": "width",
           "type": "LengthOrPercentage | Keyword | Global",
+          "complexType": {
+            "original": "CssTypes.Width",
+            "resolved": "LengthOrPercentage | Keyword | Global",
+            "references": {
+              "CssTypes": {
+                "location": "import",
+                "path": "../../shared-types",
+                "id": "src/shared-types.ts::CssTypes"
+              }
+            }
+          },
           "mutable": false,
           "attr": "width",
           "reflectToAttr": true,
@@ -5657,7 +7356,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/skeleton-text/skeleton-text.tsx",
+      "filePath": "src/components/skeleton-text/skeleton-text.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-skeleton-text",
       "readme": "# wcs-skeleton-text\r\n\r\n\r\n\r",
@@ -5668,6 +7367,17 @@
         {
           "name": "animation",
           "type": "\"glide\" | \"none\" | \"pulse\"",
+          "complexType": {
+            "original": "WcsSkeletonAnimation",
+            "resolved": "\"glide\" | \"none\" | \"pulse\"",
+            "references": {
+              "WcsSkeletonAnimation": {
+                "location": "import",
+                "path": "../skeleton/skeleton-interface",
+                "id": "src/components/skeleton/skeleton-interface.ts::WcsSkeletonAnimation"
+              }
+            }
+          },
           "mutable": false,
           "attr": "animation",
           "reflectToAttr": true,
@@ -5694,6 +7404,11 @@
         {
           "name": "height",
           "type": "\"body\" | \"caption\" | \"h1\" | \"h2\" | \"h3\"",
+          "complexType": {
+            "original": "'h1' | 'h2' | 'h3' | 'caption' | 'body'",
+            "resolved": "\"body\" | \"caption\" | \"h1\" | \"h2\" | \"h3\"",
+            "references": {}
+          },
           "mutable": false,
           "attr": "height",
           "reflectToAttr": false,
@@ -5737,7 +7452,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/spinner/spinner.tsx",
+      "filePath": "src/components/spinner/spinner.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-spinner",
       "readme": "# Spinner\r\n\r",
@@ -5748,6 +7463,17 @@
         {
           "name": "mode",
           "type": "\"border\" | \"growing\"",
+          "complexType": {
+            "original": "WcsSpinnerMode",
+            "resolved": "\"border\" | \"growing\"",
+            "references": {
+              "WcsSpinnerMode": {
+                "location": "import",
+                "path": "./spinner-interface",
+                "id": "src/components/spinner/spinner-interface.ts::WcsSpinnerMode"
+              }
+            }
+          },
           "mutable": false,
           "attr": "mode",
           "reflectToAttr": true,
@@ -5793,7 +7519,7 @@
       }
     },
     {
-      "filePath": "./src/components/switch/switch.tsx",
+      "filePath": "src/components/switch/switch.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-switch",
       "readme": "# Switch\r\n\r\n\r",
@@ -5804,6 +7530,11 @@
         {
           "name": "checked",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "checked",
           "reflectToAttr": true,
@@ -5821,6 +7552,11 @@
         {
           "name": "disabled",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "disabled",
           "reflectToAttr": false,
@@ -5838,6 +7574,17 @@
         {
           "name": "labelAlignment",
           "type": "\"bottom\" | \"center\" | \"top\"",
+          "complexType": {
+            "original": "SwitchLabelAlignment",
+            "resolved": "\"bottom\" | \"center\" | \"top\"",
+            "references": {
+              "SwitchLabelAlignment": {
+                "location": "import",
+                "path": "./switch-interface",
+                "id": "src/components/switch/switch-interface.ts::SwitchLabelAlignment"
+              }
+            }
+          },
           "mutable": false,
           "attr": "label-alignment",
           "reflectToAttr": true,
@@ -5864,6 +7611,11 @@
         {
           "name": "name",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "name",
           "reflectToAttr": false,
@@ -5886,8 +7638,46 @@
             "type": "Promise<void>",
             "docs": ""
           },
+          "complexType": {
+            "signature": "(attr: AriaAttributeName, value: string) => Promise<void>",
+            "parameters": [
+              {
+                "name": "attr",
+                "type": "\"role\" | `aria-${string}`",
+                "docs": ""
+              },
+              {
+                "name": "value",
+                "type": "string",
+                "docs": ""
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "AriaAttributeName": {
+                "location": "import",
+                "path": "../../utils/mutable-aria-attribute",
+                "id": "src/utils/mutable-aria-attribute.ts::AriaAttributeName"
+              }
+            },
+            "return": "Promise<void>"
+          },
           "signature": "setAriaAttribute(attr: AriaAttributeName, value: string) => Promise<void>",
-          "parameters": [],
+          "parameters": [
+            {
+              "name": "attr",
+              "type": "\"role\" | `aria-${string}`",
+              "docs": ""
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "docs": ""
+            }
+          ],
           "docs": "",
           "docsTags": []
         }
@@ -5897,6 +7687,17 @@
           "event": "wcsChange",
           "detail": "SwitchChangeEventDetail",
           "bubbles": true,
+          "complexType": {
+            "original": "SwitchChangeEventDetail",
+            "resolved": "SwitchChangeEventDetail",
+            "references": {
+              "SwitchChangeEventDetail": {
+                "location": "import",
+                "path": "./switch-interface",
+                "id": "src/components/switch/switch-interface.ts::SwitchChangeEventDetail"
+              }
+            }
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the checked property has changed.",
@@ -5912,7 +7713,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/tab/tab.tsx",
+      "filePath": "src/components/tab/tab.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-tab",
       "readme": "# Tab\r\n\r",
@@ -5923,6 +7724,11 @@
         {
           "name": "header",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "header",
           "reflectToAttr": true,
@@ -5939,6 +7745,11 @@
         {
           "name": "itemKey",
           "type": "any",
+          "complexType": {
+            "original": "any",
+            "resolved": "any",
+            "references": {}
+          },
           "mutable": false,
           "attr": "item-key",
           "reflectToAttr": false,
@@ -5959,6 +7770,11 @@
           "event": "tabLoaded",
           "detail": "void",
           "bubbles": true,
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Do not use, meant for internal use only.",
@@ -5981,7 +7797,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/tabs/tabs.tsx",
+      "filePath": "src/components/tabs/tabs.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-tabs",
       "readme": "# Tabs\r\n\r",
@@ -6009,6 +7825,17 @@
         {
           "name": "align",
           "type": "\"center\" | \"end\" | \"start\"",
+          "complexType": {
+            "original": "WcsTabsAlignment",
+            "resolved": "\"center\" | \"end\" | \"start\"",
+            "references": {
+              "WcsTabsAlignment": {
+                "location": "import",
+                "path": "./tabs-interface",
+                "id": "src/components/tabs/tabs-interface.ts::WcsTabsAlignment"
+              }
+            }
+          },
           "mutable": false,
           "attr": "align",
           "reflectToAttr": true,
@@ -6035,6 +7862,11 @@
         {
           "name": "description",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "description",
           "reflectToAttr": false,
@@ -6051,6 +7883,11 @@
         {
           "name": "gutter",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "gutter",
           "reflectToAttr": false,
@@ -6067,6 +7904,11 @@
         {
           "name": "headersOnly",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "headers-only",
           "reflectToAttr": false,
@@ -6084,6 +7926,11 @@
         {
           "name": "selectedIndex",
           "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
           "mutable": false,
           "attr": "selected-index",
           "reflectToAttr": false,
@@ -6101,6 +7948,11 @@
         {
           "name": "selectedKey",
           "type": "any",
+          "complexType": {
+            "original": "any",
+            "resolved": "any",
+            "references": {}
+          },
           "mutable": false,
           "attr": "selected-key",
           "reflectToAttr": false,
@@ -6121,6 +7973,17 @@
           "event": "tabChange",
           "detail": "WcsTabChangeEvent",
           "bubbles": true,
+          "complexType": {
+            "original": "WcsTabChangeEvent",
+            "resolved": "WcsTabChangeEvent",
+            "references": {
+              "WcsTabChangeEvent": {
+                "location": "import",
+                "path": "./tabs-interface",
+                "id": "src/components/tabs/tabs-interface.ts::WcsTabChangeEvent"
+              }
+            }
+          },
           "cancelable": true,
           "composed": true,
           "docs": "\r\nEmitted when the selected tab change.",
@@ -6142,7 +8005,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/textarea/textarea.tsx",
+      "filePath": "src/components/textarea/textarea.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-textarea",
       "readme": "# Textarea\r\n\r\n\r\n\r",
@@ -6166,6 +8029,11 @@
         {
           "name": "autoGrow",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "auto-grow",
           "reflectToAttr": false,
@@ -6183,6 +8051,11 @@
         {
           "name": "autocapitalize",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "autocapitalize",
           "reflectToAttr": false,
@@ -6200,6 +8073,11 @@
         {
           "name": "autofocus",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "autofocus",
           "reflectToAttr": false,
@@ -6217,6 +8095,11 @@
         {
           "name": "clearOnEdit",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "clear-on-edit",
           "reflectToAttr": false,
@@ -6234,6 +8117,11 @@
         {
           "name": "cols",
           "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
           "mutable": false,
           "attr": "cols",
           "reflectToAttr": false,
@@ -6250,6 +8138,11 @@
         {
           "name": "debounce",
           "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
           "mutable": false,
           "attr": "debounce",
           "reflectToAttr": false,
@@ -6267,6 +8160,11 @@
         {
           "name": "disabled",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "disabled",
           "reflectToAttr": false,
@@ -6284,6 +8182,11 @@
         {
           "name": "enterkeyhint",
           "type": "\"done\" | \"enter\" | \"go\" | \"next\" | \"previous\" | \"search\" | \"send\"",
+          "complexType": {
+            "original": "'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send'",
+            "resolved": "\"done\" | \"enter\" | \"go\" | \"next\" | \"previous\" | \"search\" | \"send\"",
+            "references": {}
+          },
           "mutable": false,
           "attr": "enterkeyhint",
           "reflectToAttr": false,
@@ -6325,6 +8228,11 @@
         {
           "name": "icon",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "icon",
           "reflectToAttr": false,
@@ -6341,6 +8249,11 @@
         {
           "name": "inputmode",
           "type": "\"decimal\" | \"email\" | \"none\" | \"numeric\" | \"search\" | \"tel\" | \"text\" | \"url\"",
+          "complexType": {
+            "original": "'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search'",
+            "resolved": "\"decimal\" | \"email\" | \"none\" | \"numeric\" | \"search\" | \"tel\" | \"text\" | \"url\"",
+            "references": {}
+          },
           "mutable": false,
           "attr": "inputmode",
           "reflectToAttr": false,
@@ -6386,6 +8299,11 @@
         {
           "name": "maxlength",
           "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
           "mutable": false,
           "attr": "maxlength",
           "reflectToAttr": false,
@@ -6402,6 +8320,11 @@
         {
           "name": "minlength",
           "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
           "mutable": false,
           "attr": "minlength",
           "reflectToAttr": false,
@@ -6418,6 +8341,11 @@
         {
           "name": "name",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "name",
           "reflectToAttr": false,
@@ -6435,6 +8363,11 @@
         {
           "name": "placeholder",
           "type": "string",
+          "complexType": {
+            "original": "string | null",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "placeholder",
           "reflectToAttr": false,
@@ -6451,6 +8384,11 @@
         {
           "name": "readonly",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "readonly",
           "reflectToAttr": false,
@@ -6468,6 +8406,11 @@
         {
           "name": "required",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "required",
           "reflectToAttr": false,
@@ -6485,6 +8428,11 @@
         {
           "name": "resize",
           "type": "\"both\" | \"horizontal\" | \"none\" | \"vertical\"",
+          "complexType": {
+            "original": "'both' | 'none' | 'vertical' | 'horizontal'",
+            "resolved": "\"both\" | \"horizontal\" | \"none\" | \"vertical\"",
+            "references": {}
+          },
           "mutable": false,
           "attr": "resize",
           "reflectToAttr": true,
@@ -6514,6 +8462,11 @@
         {
           "name": "rows",
           "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
           "mutable": false,
           "attr": "rows",
           "reflectToAttr": false,
@@ -6530,6 +8483,11 @@
         {
           "name": "spellcheck",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "spellcheck",
           "reflectToAttr": false,
@@ -6547,6 +8505,11 @@
         {
           "name": "state",
           "type": "\"error\" | \"initial\"",
+          "complexType": {
+            "original": "'initial' | 'error'",
+            "resolved": "\"error\" | \"initial\"",
+            "references": {}
+          },
           "mutable": false,
           "attr": "state",
           "reflectToAttr": true,
@@ -6569,6 +8532,11 @@
         {
           "name": "value",
           "type": "string",
+          "complexType": {
+            "original": "string | null",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": true,
           "attr": "value",
           "reflectToAttr": false,
@@ -6586,6 +8554,11 @@
         {
           "name": "wrap",
           "type": "\"hard\" | \"off\" | \"soft\"",
+          "complexType": {
+            "original": "'hard' | 'soft' | 'off'",
+            "resolved": "\"hard\" | \"off\" | \"soft\"",
+            "references": {}
+          },
           "mutable": false,
           "attr": "wrap",
           "reflectToAttr": false,
@@ -6616,6 +8589,17 @@
             "type": "Promise<void>",
             "docs": ""
           },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
           "signature": "fitContent() => Promise<void>",
           "parameters": [],
           "docs": "This method make the textarea automatically adopt the size of the content without a scroll bar",
@@ -6626,6 +8610,21 @@
           "returns": {
             "type": "Promise<HTMLTextAreaElement>",
             "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<HTMLTextAreaElement>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "HTMLTextAreaElement": {
+                "location": "global",
+                "id": "global::HTMLTextAreaElement"
+              }
+            },
+            "return": "Promise<HTMLTextAreaElement>"
           },
           "signature": "getInputElement() => Promise<HTMLTextAreaElement>",
           "parameters": [],
@@ -6638,8 +8637,46 @@
             "type": "Promise<void>",
             "docs": ""
           },
+          "complexType": {
+            "signature": "(attr: AriaAttributeName, value: string) => Promise<void>",
+            "parameters": [
+              {
+                "name": "attr",
+                "type": "\"role\" | `aria-${string}`",
+                "docs": ""
+              },
+              {
+                "name": "value",
+                "type": "string",
+                "docs": ""
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "AriaAttributeName": {
+                "location": "import",
+                "path": "../../utils/mutable-aria-attribute",
+                "id": "src/utils/mutable-aria-attribute.ts::AriaAttributeName"
+              }
+            },
+            "return": "Promise<void>"
+          },
           "signature": "setAriaAttribute(attr: AriaAttributeName, value: string) => Promise<void>",
-          "parameters": [],
+          "parameters": [
+            {
+              "name": "attr",
+              "type": "\"role\" | `aria-${string}`",
+              "docs": ""
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "docs": ""
+            }
+          ],
           "docs": "",
           "docsTags": []
         },
@@ -6648,6 +8685,17 @@
           "returns": {
             "type": "Promise<void>",
             "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
@@ -6666,6 +8714,16 @@
           "event": "wcsBlur",
           "detail": "FocusEvent",
           "bubbles": true,
+          "complexType": {
+            "original": "FocusEvent",
+            "resolved": "FocusEvent",
+            "references": {
+              "FocusEvent": {
+                "location": "global",
+                "id": "global::FocusEvent"
+              }
+            }
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the input loses focus.",
@@ -6675,6 +8733,17 @@
           "event": "wcsChange",
           "detail": "TextareaChangeEventDetail",
           "bubbles": true,
+          "complexType": {
+            "original": "TextareaChangeEventDetail",
+            "resolved": "TextareaChangeEventDetail",
+            "references": {
+              "TextareaChangeEventDetail": {
+                "location": "import",
+                "path": "./textarea-interface",
+                "id": "src/components/textarea/textarea-interface.ts::TextareaChangeEventDetail"
+              }
+            }
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the input value has changed.- See https://developer.mozilla.org/en-US/docs/Web/Events/change",
@@ -6684,6 +8753,16 @@
           "event": "wcsFocus",
           "detail": "FocusEvent",
           "bubbles": true,
+          "complexType": {
+            "original": "FocusEvent",
+            "resolved": "FocusEvent",
+            "references": {
+              "FocusEvent": {
+                "location": "global",
+                "id": "global::FocusEvent"
+              }
+            }
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the input has focus.",
@@ -6693,6 +8772,16 @@
           "event": "wcsInput",
           "detail": "KeyboardEvent",
           "bubbles": true,
+          "complexType": {
+            "original": "KeyboardEvent",
+            "resolved": "KeyboardEvent",
+            "references": {
+              "KeyboardEvent": {
+                "location": "global",
+                "id": "global::KeyboardEvent"
+              }
+            }
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when a keyboard input occurred. See https://developer.mozilla.org/en-US/docs/Web/Events/input",
@@ -6714,7 +8803,7 @@
       }
     },
     {
-      "filePath": "./src/components/tooltip/tooltip.tsx",
+      "filePath": "src/components/tooltip/tooltip.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-tooltip",
       "readme": "# Tooltip\r\n\r",
@@ -6725,6 +8814,17 @@
         {
           "name": "appendTo",
           "type": "\"parent\" | ((ref: Element) => Element) | Element",
+          "complexType": {
+            "original": "WcsTooltipAppendTo",
+            "resolved": "\"parent\" | ((ref: Element) => Element) | Element",
+            "references": {
+              "WcsTooltipAppendTo": {
+                "location": "import",
+                "path": "./tooltip-interface",
+                "id": "src/components/tooltip/tooltip-interface.ts::WcsTooltipAppendTo"
+              }
+            }
+          },
           "mutable": false,
           "attr": "append-to",
           "reflectToAttr": false,
@@ -6748,6 +8848,11 @@
         {
           "name": "content",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "content",
           "reflectToAttr": false,
@@ -6764,6 +8869,11 @@
         {
           "name": "delay",
           "type": "[number, number] | number",
+          "complexType": {
+            "original": "number | [number, number]",
+            "resolved": "[number, number] | number",
+            "references": {}
+          },
           "mutable": false,
           "attr": "delay",
           "reflectToAttr": false,
@@ -6784,6 +8894,11 @@
         {
           "name": "duration",
           "type": "[number, number] | number",
+          "complexType": {
+            "original": "number | [number, number]",
+            "resolved": "[number, number] | number",
+            "references": {}
+          },
           "mutable": false,
           "attr": "duration",
           "reflectToAttr": false,
@@ -6804,6 +8919,11 @@
         {
           "name": "for",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "for",
           "reflectToAttr": false,
@@ -6825,6 +8945,11 @@
         {
           "name": "interactive",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "interactive",
           "reflectToAttr": false,
@@ -6842,6 +8967,11 @@
         {
           "name": "maxWidth",
           "type": "number | string",
+          "complexType": {
+            "original": "string | number",
+            "resolved": "number | string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "max-width",
           "reflectToAttr": false,
@@ -6862,6 +8992,17 @@
         {
           "name": "position",
           "type": "\"bottom\" | \"left\" | \"right\" | \"top\"",
+          "complexType": {
+            "original": "WcsTooltipPosition",
+            "resolved": "\"bottom\" | \"left\" | \"right\" | \"top\"",
+            "references": {
+              "WcsTooltipPosition": {
+                "location": "import",
+                "path": "./tooltip-interface",
+                "id": "src/components/tooltip/tooltip-interface.ts::WcsTooltipPosition"
+              }
+            }
+          },
           "mutable": false,
           "attr": "position",
           "reflectToAttr": true,
@@ -6892,6 +9033,11 @@
         {
           "name": "theme",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "theme",
           "reflectToAttr": false,
@@ -6909,6 +9055,11 @@
         {
           "name": "trigger",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "trigger",
           "reflectToAttr": false,
@@ -6931,6 +9082,17 @@
             "type": "Promise<void>",
             "docs": ""
           },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
           "signature": "disable() => Promise<void>",
           "parameters": [],
           "docs": "Temporarily prevent the tooltip from showing or hiding",
@@ -6941,6 +9103,17 @@
           "returns": {
             "type": "Promise<void>",
             "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
           },
           "signature": "enable() => Promise<void>",
           "parameters": [],
@@ -6953,6 +9126,17 @@
             "type": "Promise<void>",
             "docs": ""
           },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
           "signature": "hide() => Promise<void>",
           "parameters": [],
           "docs": "Programmatically hide the tooltip",
@@ -6963,6 +9147,17 @@
           "returns": {
             "type": "Promise<void>",
             "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
           },
           "signature": "show() => Promise<void>",
           "parameters": [],
@@ -6979,5 +9174,302 @@
       "dependencies": [],
       "dependencyGraph": {}
     }
-  ]
+  ],
+  "typeLibrary": {
+    "src/components/native-select/native-select.tsx::WcsNativeSelectSize": {
+      "declaration": "export type WcsNativeSelectSize = Extract<WcsSize, 'l' | 'm'>;",
+      "docstring": "",
+      "path": "src/components/native-select/native-select.tsx"
+    },
+    "src/utils/mutable-aria-attribute.ts::AriaAttributeName": {
+      "declaration": "export type AriaAttributeName = `aria-${string}` | 'role';",
+      "docstring": "",
+      "path": "src/utils/mutable-aria-attribute.ts"
+    },
+    "src/components/badge/badge-interface.ts::BadgeShape": {
+      "declaration": "export type BadgeShape = 'normal' | 'rounded';",
+      "docstring": "",
+      "path": "src/components/badge/badge-interface.ts"
+    },
+    "src/components/badge/badge-interface.ts::BadgeColor": {
+      "declaration": "export type BadgeColor = 'initial' | 'lighter';",
+      "docstring": "",
+      "path": "src/components/badge/badge-interface.ts"
+    },
+    "src/components/badge/badge-interface.ts::BadgeSize": {
+      "declaration": "export type BadgeSize =  Extract<WcsSize, 'l' | 'm' | 's'>",
+      "docstring": "",
+      "path": "src/components/badge/badge-interface.ts"
+    },
+    "src/components/button/button-interface.ts::WcsButtonType": {
+      "declaration": "export type WcsButtonType = 'button' | 'submit';",
+      "docstring": "",
+      "path": "src/components/button/button-interface.ts"
+    },
+    "src/components/button/button-interface.ts::WcsButtonSize": {
+      "declaration": "export type WcsButtonSize = Extract<WcsSize, typeof WcsButtonSizeValues[number]>;",
+      "docstring": "",
+      "path": "src/components/button/button-interface.ts"
+    },
+    "src/components/button/button-interface.ts::WcsButtonShape": {
+      "declaration": "export type WcsButtonShape = 'normal' | 'round' | 'square';",
+      "docstring": "",
+      "path": "src/components/button/button-interface.ts"
+    },
+    "src/components/button/button-interface.ts::WcsButtonMode": {
+      "declaration": "export type WcsButtonMode = 'plain' | 'stroked' | 'clear';",
+      "docstring": "",
+      "path": "src/components/button/button-interface.ts"
+    },
+    "src/components/card/card-interface.ts::CardMode": {
+      "declaration": "export type CardMode = 'flat' | 'raised';",
+      "docstring": "",
+      "path": "src/components/card/card-interface.ts"
+    },
+    "src/components/checkbox/checkbox-interface.ts::CheckboxLabelAlignment": {
+      "declaration": "export type CheckboxLabelAlignment = 'top' | 'center' | 'bottom';",
+      "docstring": "",
+      "path": "src/components/checkbox/checkbox-interface.ts"
+    },
+    "src/components/checkbox/checkbox-interface.ts::CheckboxChangeEventDetail": {
+      "declaration": "export interface CheckboxChangeEventDetail {\r\n    checked: boolean;\r\n}",
+      "docstring": "",
+      "path": "src/components/checkbox/checkbox-interface.ts"
+    },
+    "src/components/com-nav/com-nav-interface.ts::CategoryOpenedEventDetail": {
+      "declaration": "export interface CategoryOpenedEventDetail {\r\n    categoryElement: HTMLWcsComNavCategoryElement;\r\n}",
+      "docstring": "",
+      "path": "src/components/com-nav/com-nav-interface.ts"
+    },
+    "src/components/com-nav/com-nav-interface.ts::MenuOpenedEventDetail": {
+      "declaration": "export interface MenuOpenedEventDetail {\r\n    menuElement: HTMLWcsComNavSubmenuElement;\r\n}",
+      "docstring": "",
+      "path": "src/components/com-nav/com-nav-interface.ts"
+    },
+    "src/components/counter/counter-interface.ts::WcsCounterSize": {
+      "declaration": "export type WcsCounterSize = Extract<WcsSize, typeof WcsCounterSizeValues[number]>;",
+      "docstring": "",
+      "path": "src/components/counter/counter-interface.ts"
+    },
+    "src/components/counter/counter-interface.ts::CounterChangeEventDetail": {
+      "declaration": "export interface CounterChangeEventDetail {\r\n    value: number;\r\n}",
+      "docstring": "",
+      "path": "src/components/counter/counter-interface.ts"
+    },
+    "src/components/dropdown/dropdown-interface.ts::WcsDropdownPlacement": {
+      "declaration": "export type WcsDropdownPlacement =\r\n    | 'auto'\r\n    | 'auto-start'\r\n    | 'auto-end'\r\n    | 'top'\r\n    | 'top-start'\r\n    | 'top-end'\r\n    | 'bottom'\r\n    | 'bottom-start'\r\n    | 'bottom-end'\r\n    | 'right'\r\n    | 'right-start'\r\n    | 'right-end'\r\n    | 'left'\r\n    | 'left-start'\r\n    | 'left-end';",
+      "docstring": "",
+      "path": "src/components/dropdown/dropdown-interface.ts"
+    },
+    "src/components/editable-field/editable-field-interface.tsx::EditableFieldType": {
+      "declaration": "export type EditableFieldType = 'input' | 'textarea' | 'select';",
+      "docstring": "",
+      "path": "src/components/editable-field/editable-field-interface.tsx"
+    },
+    "src/components/editable-field/editable-field-interface.tsx::ValidateFn": {
+      "declaration": "(value: T) => boolean",
+      "docstring": "",
+      "path": "src/components/editable-field/editable-field-interface.tsx"
+    },
+    "src/components/editable-field/editable-field-interface.tsx::FormatFn": {
+      "declaration": "(value: T) => string",
+      "docstring": "",
+      "path": "src/components/editable-field/editable-field-interface.tsx"
+    },
+    "src/components/editable-field/editable-field-interface.tsx::WcsEditableFieldSize": {
+      "declaration": "export type WcsEditableFieldSize = Extract<WcsSize, typeof WcsEditableFieldSizeValues[number]>;",
+      "docstring": "",
+      "path": "src/components/editable-field/editable-field-interface.tsx"
+    },
+    "src/components/editable-field/editable-field-interface.tsx::EditableComponentUpdateEvent": {
+      "declaration": "export interface EditableComponentUpdateEvent {\r\n    newValue: any; // We use any for now, but when components typings will support template, change for parameterized type\r\n    /**\r\n     * Permet de sortir de l'état LOAD pour aller vers l'état DISPLAY\r\n     * À n'utiliser que lorsque la valeur n'est pas systématiquement mise à jour à chaque événement.\r\n     */\r\n    successHandler: () => void;\r\n    errorhandler: () => void;\r\n}",
+      "docstring": "",
+      "path": "src/components/editable-field/editable-field-interface.tsx"
+    },
+    "src/components/grid/grid-interface.ts::WcsGridPaginationChangeEventDetails": {
+      "declaration": "export interface WcsGridPaginationChangeEventDetails {\r\n    pagination: WcsGridPaginationConfig;\r\n}",
+      "docstring": "",
+      "path": "src/components/grid/grid-interface.ts"
+    },
+    "src/components/grid/grid-interface.ts::WcsGridSelectionConfig": {
+      "declaration": "export type WcsGridSelectionConfig = 'none' | 'single' | 'multiple';",
+      "docstring": "",
+      "path": "src/components/grid/grid-interface.ts"
+    },
+    "src/components/grid/grid-interface.ts::WcsGridSelectionEventDetails": {
+      "declaration": "export interface WcsGridSelectionEventDetails {\r\n    /**\r\n     * The currently selected rows after the selection change\r\n     */\r\n    selectedRows: WcsGridRowData[];\r\n    /**\r\n     * The row that was changed\r\n     * If the grid is in multiple selection mode, you can get `allCheckbox` as the value representing that the event was\r\n     * triggered by the selection of all checkbox\r\n     */\r\n    changedRow: WcsGridRowData | 'allCheckbox';\r\n}",
+      "docstring": "Event details for the grid selection event",
+      "path": "src/components/grid/grid-interface.ts"
+    },
+    "src/components/grid/grid-interface.ts::WcsGridAllRowSelectedEventDetails": {
+      "declaration": "export interface WcsGridAllRowSelectedEventDetails {\r\n    rows: WcsGridRowData[];\r\n}",
+      "docstring": "",
+      "path": "src/components/grid/grid-interface.ts"
+    },
+    "src/components/grid/grid-interface.ts::WcsSortFn": {
+      "declaration": "(a: any, b: any, column: HTMLWcsGridColumnElement) => -1 | 0 | 1",
+      "docstring": "",
+      "path": "src/components/grid/grid-interface.ts"
+    },
+    "src/components/grid/grid-interface.ts::WcsCellFormatter": {
+      "declaration": "(_h: HyperFunc<VNode>, column: HTMLWcsGridColumnElement, rowData: WcsGridRowData) => HTMLElement | HTMLElement[]",
+      "docstring": "",
+      "path": "src/components/grid/grid-interface.ts"
+    },
+    "src/components/grid/grid-interface.ts::WcsSortOrder": {
+      "declaration": "export type WcsSortOrder = 'asc' | 'desc' | 'none';",
+      "docstring": "",
+      "path": "src/components/grid/grid-interface.ts"
+    },
+    "src/components/grid/grid-interface.ts::WcsGridColumnSortChangeEventDetails": {
+      "declaration": "export interface WcsGridColumnSortChangeEventDetails {\r\n    sortFn: WcsSortFn;\r\n    order: WcsSortOrder;\r\n    column: HTMLWcsGridColumnElement;\r\n}",
+      "docstring": "",
+      "path": "src/components/grid/grid-interface.ts"
+    },
+    "src/components/horizontal-stepper/horizontal-stepper-interface.ts::HorizontalStepConfig": {
+      "declaration": "export interface HorizontalStepConfig {\r\n    /** Text displayed below the step button */\r\n    text?: string;\r\n    /** Specifies if the step is clickable or not */\r\n    disable?: boolean;\r\n    /** Specifies if the step is completed */\r\n    complete?: boolean;\r\n    /** Step button configuration */\r\n    button: StepButton;\r\n}",
+      "docstring": "Stepper configuration interface",
+      "path": "src/components/horizontal-stepper/horizontal-stepper-interface.ts"
+    },
+    "src/components/horizontal-stepper/horizontal-stepper-interface.ts::HorizontalStepperMode": {
+      "declaration": "export type HorizontalStepperMode = 'linear' | 'nonLinear';",
+      "docstring": "",
+      "path": "src/components/horizontal-stepper/horizontal-stepper-interface.ts"
+    },
+    "src/components/horizontal-stepper/horizontal-stepper-interface.ts::HorizontalStepClickEvent": {
+      "declaration": "export interface HorizontalStepClickEvent {\r\n    step: HorizontalStepConfig;\r\n    index: number;\r\n}",
+      "docstring": "",
+      "path": "src/components/horizontal-stepper/horizontal-stepper-interface.ts"
+    },
+    "src/components/input/input-interface.ts::AutocompleteTypes": {
+      "declaration": "export type AutocompleteTypes = (\r\n    | 'on' | 'off' | 'name' | 'honorific-prefix' | 'given-name' | 'additional-name' | 'family-name' | 'honorific-suffix'\r\n    | 'nickname' | 'email' | 'username' | 'new-password' | 'current-password' | 'one-time-code' | 'organization-title' | 'organization'\r\n    | 'street-address' | 'address-line1' | 'address-line2' | 'address-line3' | 'address-level4' | 'address-level3' | 'address-level2'\r\n    | 'address-level1' | 'country' | 'country-name' | 'postal-code' | 'cc-name' | 'cc-given-name' | 'cc-additional-name' | 'cc-family-name'\r\n    | 'cc-family-name' | 'cc-number' | 'cc-exp' | 'cc-exp-month' | 'cc-exp-year' | 'cc-csc' | 'cc-type' | 'transaction-currency' | 'transaction-amount'\r\n    | 'language' | 'bday' | 'bday-day' | 'bday-month' | 'bday-year' | 'sex' | 'tel' | 'tel-country-code' | 'tel-national' | 'tel-area-code' | 'tel-local'\r\n    | 'tel-extension' | 'impp' | 'url' | 'photo');",
+      "docstring": "",
+      "path": "src/components/input/input-interface.ts"
+    },
+    "src/components/input/input-interface.ts::WcsInputSize": {
+      "declaration": "export type WcsInputSize = Extract<WcsSize, typeof WcsInputSizeValues[number]>;",
+      "docstring": "",
+      "path": "src/components/input/input-interface.ts"
+    },
+    "src/components/input/input-interface.ts::TextFieldTypes": {
+      "declaration": "export type TextFieldTypes = 'date' | 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'url' | 'time' | 'week' | 'month' | 'datetime-local' | 'file';",
+      "docstring": "",
+      "path": "src/components/input/input-interface.ts"
+    },
+    "src/components/input/input-interface.ts::InputChangeEventDetail": {
+      "declaration": "export interface InputChangeEventDetail {\r\n    value: string | undefined | null;\r\n}",
+      "docstring": "",
+      "path": "src/components/input/input-interface.ts"
+    },
+    "src/components/mat-icon/mat-icon-interface.tsx::MaterialIconSize": {
+      "declaration": "export type MaterialIconSize = 's' | 'm' | 'l' | 'xl';",
+      "docstring": "",
+      "path": "src/components/mat-icon/mat-icon-interface.tsx"
+    },
+    "src/components/mat-icon/mat-icon-interface.tsx::MaterialIconFamily": {
+      "declaration": "export type MaterialIconFamily = 'filled' | 'outlined' | 'twotone' | 'rounded' | 'sharp';",
+      "docstring": "",
+      "path": "src/components/mat-icon/mat-icon-interface.tsx"
+    },
+    "src/components/modal/modal-interface.ts::ModalSize": {
+      "declaration": "export type ModalSize = 's' | 'm' | 'l' | 'xl';",
+      "docstring": "",
+      "path": "src/components/modal/modal-interface.ts"
+    },
+    "src/shared-types.ts::WcsSize": {
+      "declaration": "export type WcsSize = 'xs' | 's' | 'm' | 'l' | 'xl';",
+      "docstring": "",
+      "path": "src/shared-types.ts"
+    },
+    "src/components/radio-group/radio-group-interface.ts::RadioGroupMode": {
+      "declaration": "export type RadioGroupMode = 'radio' | 'option' | 'horizontal';",
+      "docstring": "",
+      "path": "src/components/radio-group/radio-group-interface.ts"
+    },
+    "src/components/radio/radio-interface.ts::RadioChosedEvent": {
+      "declaration": "export interface RadioChosedEvent extends RadioValue {\r\n    source: HTMLWcsRadioElement;\r\n}",
+      "docstring": "",
+      "path": "src/components/radio/radio-interface.ts"
+    },
+    "src/components/radio-group/radio-group-interface.ts::RadioGroupChangeEventDetail": {
+      "declaration": "export interface RadioGroupChangeEventDetail {\r\n    value: any | any[] | undefined | null;\r\n}",
+      "docstring": "",
+      "path": "src/components/radio-group/radio-group-interface.ts"
+    },
+    "src/components/select/select-interface.ts::WcsSelectSize": {
+      "declaration": "export type WcsSelectSize = Extract<WcsSize, typeof WcsSelectSizeValue[number]>;",
+      "docstring": "",
+      "path": "src/components/select/select-interface.ts"
+    },
+    "src/components/select/select-interface.ts::WcsSelectFilterFn": {
+      "declaration": "(optionEl: HTMLWcsSelectOptionElement, filter: string) => boolean",
+      "docstring": "",
+      "path": "src/components/select/select-interface.ts"
+    },
+    "src/components/select/select-interface.ts::SelectChangeEventDetail": {
+      "declaration": "export interface SelectChangeEventDetail {\r\n    value: any | any[] | undefined | null;\r\n}",
+      "docstring": "",
+      "path": "src/components/select/select-interface.ts"
+    },
+    "src/components/select/select-interface.ts::SelectFilerChangeEventDetail": {
+      "declaration": "export interface SelectFilerChangeEventDetail {\r\n    value: string | number | undefined | null;\r\n}",
+      "docstring": "",
+      "path": "src/components/select/select-interface.ts"
+    },
+    "src/components/select-option/select-option-interface.ts::SelectOptionChosedEvent": {
+      "declaration": "export interface SelectOptionChosedEvent extends SelectOptionValue {\r\n    source: HTMLWcsSelectOptionElement;\r\n}",
+      "docstring": "",
+      "path": "src/components/select-option/select-option-interface.ts"
+    },
+    "src/components/skeleton/skeleton-interface.ts::WcsSkeletonAnimation": {
+      "declaration": "export type WcsSkeletonAnimation = 'none' | 'glide' | 'pulse';",
+      "docstring": "",
+      "path": "src/components/skeleton/skeleton-interface.ts"
+    },
+    "src/shared-types.ts::CssTypes": {
+      "declaration": "any",
+      "docstring": "",
+      "path": "src/shared-types.ts"
+    },
+    "src/components/spinner/spinner-interface.ts::WcsSpinnerMode": {
+      "declaration": "export type WcsSpinnerMode = 'border' | 'growing';",
+      "docstring": "",
+      "path": "src/components/spinner/spinner-interface.ts"
+    },
+    "src/components/switch/switch-interface.ts::SwitchLabelAlignment": {
+      "declaration": "export type SwitchLabelAlignment = 'top' | 'center' | 'bottom';",
+      "docstring": "",
+      "path": "src/components/switch/switch-interface.ts"
+    },
+    "src/components/switch/switch-interface.ts::SwitchChangeEventDetail": {
+      "declaration": "export interface SwitchChangeEventDetail {\r\n    checked: boolean;\r\n}",
+      "docstring": "",
+      "path": "src/components/switch/switch-interface.ts"
+    },
+    "src/components/tabs/tabs-interface.ts::WcsTabsAlignment": {
+      "declaration": "export type WcsTabsAlignment = 'start' | 'center' | 'end';",
+      "docstring": "",
+      "path": "src/components/tabs/tabs-interface.ts"
+    },
+    "src/components/tabs/tabs-interface.ts::WcsTabChangeEvent": {
+      "declaration": "export interface WcsTabChangeEvent {\r\n    tabName: string;\r\n    tabIndex: number;\r\n    selectedKey: any;\r\n}",
+      "docstring": "",
+      "path": "src/components/tabs/tabs-interface.ts"
+    },
+    "src/components/textarea/textarea-interface.ts::TextareaChangeEventDetail": {
+      "declaration": "export interface TextareaChangeEventDetail {\r\n    value: string | undefined | null;\r\n}",
+      "docstring": "",
+      "path": "src/components/textarea/textarea-interface.ts"
+    },
+    "src/components/tooltip/tooltip-interface.ts::WcsTooltipPosition": {
+      "declaration": "export type WcsTooltipPosition = 'top' | 'bottom' | 'right' | 'left';",
+      "docstring": "",
+      "path": "src/components/tooltip/tooltip-interface.ts"
+    },
+    "src/components/tooltip/tooltip-interface.ts::WcsTooltipAppendTo": {
+      "declaration": "export type WcsTooltipAppendTo = Element | 'parent' | ((ref: Element) => Element);",
+      "docstring": "",
+      "path": "src/components/tooltip/tooltip-interface.ts"
+    }
+  }
 }

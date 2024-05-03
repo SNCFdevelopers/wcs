@@ -3,7 +3,7 @@ stages:
   - build
   - deploy
 
-image: node:16-alpine
+image: node:20-alpine
 
 cache:
   # Cache modules in between jobs: https://docs.gitlab.com/ee/ci/caching/#cache-nodejs-dependencies
@@ -17,7 +17,7 @@ test:
   tags:
     # - saas-linux-medium-amd64
     - sncf-runner
-  image: buildkite/puppeteer:10.0.0
+  image: zenika/alpine-chrome:with-puppeteer
   stage: test
   script:
     - npm ci --cache .npm --prefer-offline
@@ -74,7 +74,7 @@ pages:
     - cp -r doc/gitlab-pages-redirect-root/* public/master/
 
 deploy-azure:
-  image: node:16
+  image: node:20
   stage: deploy
   tags:
     - sncf-runner
@@ -135,7 +135,7 @@ publish-wcs-react:
 
 # TEMPORARY DEPLOYMENT JOB FOR MR
 deploy-mr-tmp-env:
-  image: node:16
+  image: node:20
   stage: deploy
   tags:
     - sncf-runner

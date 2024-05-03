@@ -49,6 +49,13 @@ select is reset, you have to call the `updateStyles()` method manually.
 
 
 
+#### Parameters
+
+| Name    | Type                         | Description |
+| ------- | ---------------------------- | ----------- |
+| `attr`  | `"role" \| `aria-${string}`` |             |
+| `value` | `string`                     |             |
+
 #### Returns
 
 Type: `Promise<void>`

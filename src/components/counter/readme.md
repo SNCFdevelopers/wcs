@@ -35,6 +35,13 @@ For larger or specific ranges, please use [wcs-input (type number)](.?path=/docs
 
 
 
+#### Parameters
+
+| Name    | Type                         | Description |
+| ------- | ---------------------------- | ----------- |
+| `attr`  | `"role" \| `aria-${string}`` |             |
+| `value` | `string`                     |             |
+
 #### Returns
 
 Type: `Promise<void>`

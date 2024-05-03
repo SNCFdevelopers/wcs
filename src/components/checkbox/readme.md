@@ -28,6 +28,13 @@
 
 
 
+#### Parameters
+
+| Name    | Type                         | Description |
+| ------- | ---------------------------- | ----------- |
+| `attr`  | `"role" \| `aria-${string}`` |             |
+| `value` | `string`                     |             |
+
 #### Returns
 
 Type: `Promise<void>`

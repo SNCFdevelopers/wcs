@@ -4325,6 +4325,14 @@
             },
             {
               "kind": "field",
+              "name": "menuButton",
+              "type": {
+                "text": "HTMLWcsMatIconElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
               "name": "showPopoverMenu",
               "type": {
                 "text": "boolean"
@@ -4372,8 +4380,33 @@
             },
             {
               "kind": "method",
-              "name": "toogleMenu",
+              "name": "onKeyDown",
+              "parameters": [
+                {
+                  "name": "_event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "toggleMenu",
               "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleMenuButtonKeyDown",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "_event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
             },
             {
               "kind": "method",
@@ -5512,6 +5545,81 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/grid-custom-cell/grid-custom-cell.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The grid custom cell is a subcomponent of `wcs-grid`.",
+          "name": "GridCustomCell",
+          "members": [
+            {
+              "kind": "field",
+              "name": "columnId",
+              "type": {
+                "text": "string"
+              },
+              "description": "ID of the column for which to render the cell"
+            },
+            {
+              "kind": "field",
+              "name": "rowId",
+              "type": {
+                "text": "any"
+              },
+              "description": "Key value of the object rendered for the cell's row"
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "column-id",
+              "fieldName": "columnId",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "row-id",
+              "fieldName": "rowId",
+              "type": {
+                "text": "any"
+              }
+            }
+          ],
+          "tagName": "wcs-grid-custom-cell",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "GridCustomCell",
+          "declaration": {
+            "name": "GridCustomCell",
+            "module": "components/grid-custom-cell/grid-custom-cell.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-grid-custom-cell",
+          "declaration": {
+            "name": "GridCustomCell",
+            "module": "components/grid-custom-cell/grid-custom-cell.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/grid-pagination/grid-pagination-arrow.tsx",
       "declarations": [
         {
@@ -5761,81 +5869,6 @@
           "declaration": {
             "name": "GridPagination",
             "module": "components/grid-pagination/grid-pagination.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/grid-custom-cell/grid-custom-cell.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The grid custom cell is a subcomponent of `wcs-grid`.",
-          "name": "GridCustomCell",
-          "members": [
-            {
-              "kind": "field",
-              "name": "columnId",
-              "type": {
-                "text": "string"
-              },
-              "description": "ID of the column for which to render the cell"
-            },
-            {
-              "kind": "field",
-              "name": "rowId",
-              "type": {
-                "text": "any"
-              },
-              "description": "Key value of the object rendered for the cell's row"
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "column-id",
-              "fieldName": "columnId",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "row-id",
-              "fieldName": "rowId",
-              "type": {
-                "text": "any"
-              }
-            }
-          ],
-          "tagName": "wcs-grid-custom-cell",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "GridCustomCell",
-          "declaration": {
-            "name": "GridCustomCell",
-            "module": "components/grid-custom-cell/grid-custom-cell.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-grid-custom-cell",
-          "declaration": {
-            "name": "GridCustomCell",
-            "module": "components/grid-custom-cell/grid-custom-cell.tsx"
           }
         }
       ]
@@ -8498,201 +8531,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/select-option/select-option-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/select-option/select-option.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The select option is a subcomponent of `wcs-select` that represents a single option in a select list.",
-          "name": "SelectOption",
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsSelectOptionElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "selectOptionId",
-              "type": {
-                "text": "string"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Whether this option can be selected."
-            },
-            {
-              "kind": "field",
-              "name": "selected",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Whether this option is selected."
-            },
-            {
-              "kind": "field",
-              "name": "value",
-              "type": {
-                "text": "any | undefined"
-              },
-              "description": "The option value, not what's displayed, use inner text instead."
-            },
-            {
-              "kind": "field",
-              "name": "chipColor",
-              "type": {
-                "text": "string | undefined"
-              },
-              "description": "Chip's displayed text color."
-            },
-            {
-              "kind": "field",
-              "name": "chipBackgroundColor",
-              "type": {
-                "text": "string | undefined"
-              },
-              "description": "Chip's background color."
-            },
-            {
-              "kind": "field",
-              "name": "mdcRipple",
-              "type": {
-                "text": "MDCRipple"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "chooseOption",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "UIEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "onMouseDown",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "handleKeydown",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  },
-                  "description": "keyboard event"
-                }
-              ],
-              "description": "Handles the keydown event to update the selection."
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "disabled",
-              "fieldName": "disabled"
-            },
-            {
-              "name": "selected",
-              "fieldName": "selected"
-            },
-            {
-              "name": "highlighted",
-              "fieldName": "highlighted"
-            },
-            {
-              "name": "value",
-              "fieldName": "value",
-              "type": {
-                "text": "any"
-              }
-            },
-            {
-              "name": "chip-color",
-              "fieldName": "chipColor",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "chip-background-color",
-              "fieldName": "chipBackgroundColor",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "multiple",
-              "fieldName": "multiple"
-            }
-          ],
-          "tagName": "wcs-select-option",
-          "events": [
-            {
-              "name": "wcsSelectOptionClick",
-              "type": {
-                "text": "EventEmitter<SelectOptionChosedEvent>"
-              }
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "SelectOption",
-          "declaration": {
-            "name": "SelectOption",
-            "module": "components/select-option/select-option.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-select-option",
-          "declaration": {
-            "name": "SelectOption",
-            "module": "components/select-option/select-option.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/select/select-arrow.tsx",
       "declarations": [
         {
@@ -9730,6 +9568,201 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/select-option/select-option-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/select-option/select-option.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The select option is a subcomponent of `wcs-select` that represents a single option in a select list.",
+          "name": "SelectOption",
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsSelectOptionElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "selectOptionId",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Whether this option can be selected."
+            },
+            {
+              "kind": "field",
+              "name": "selected",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Whether this option is selected."
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "any | undefined"
+              },
+              "description": "The option value, not what's displayed, use inner text instead."
+            },
+            {
+              "kind": "field",
+              "name": "chipColor",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "Chip's displayed text color."
+            },
+            {
+              "kind": "field",
+              "name": "chipBackgroundColor",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "Chip's background color."
+            },
+            {
+              "kind": "field",
+              "name": "mdcRipple",
+              "type": {
+                "text": "MDCRipple"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "chooseOption",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "UIEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "onMouseDown",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleKeydown",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  },
+                  "description": "keyboard event"
+                }
+              ],
+              "description": "Handles the keydown event to update the selection."
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "disabled",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "selected",
+              "fieldName": "selected"
+            },
+            {
+              "name": "highlighted",
+              "fieldName": "highlighted"
+            },
+            {
+              "name": "value",
+              "fieldName": "value",
+              "type": {
+                "text": "any"
+              }
+            },
+            {
+              "name": "chip-color",
+              "fieldName": "chipColor",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "chip-background-color",
+              "fieldName": "chipBackgroundColor",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "multiple",
+              "fieldName": "multiple"
+            }
+          ],
+          "tagName": "wcs-select-option",
+          "events": [
+            {
+              "name": "wcsSelectOptionClick",
+              "type": {
+                "text": "EventEmitter<SelectOptionChosedEvent>"
+              }
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SelectOption",
+          "declaration": {
+            "name": "SelectOption",
+            "module": "components/select-option/select-option.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-select-option",
+          "declaration": {
+            "name": "SelectOption",
+            "module": "components/select-option/select-option.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/skeleton/skeleton-interface.ts",
       "declarations": [],
       "exports": []
@@ -9918,68 +9951,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/spinner/spinner-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/spinner/spinner.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Spinner",
-          "members": [
-            {
-              "kind": "field",
-              "name": "mode",
-              "type": {
-                "text": "WcsSpinnerMode"
-              },
-              "default": "'border'",
-              "description": "Indicates the spinner display mode.\r\nAccepted values: `border` or `growing`"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "mode",
-              "fieldName": "mode",
-              "type": {
-                "text": "WcsSpinnerMode"
-              }
-            }
-          ],
-          "tagName": "wcs-spinner",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Spinner",
-          "declaration": {
-            "name": "Spinner",
-            "module": "components/spinner/spinner.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-spinner",
-          "declaration": {
-            "name": "Spinner",
-            "module": "components/spinner/spinner.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/skeleton-text/skeleton-text.tsx",
       "declarations": [
         {
@@ -10046,6 +10017,138 @@
           "declaration": {
             "name": "SkeletonText",
             "module": "components/skeleton-text/skeleton-text.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/spinner/spinner-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/spinner/spinner.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Spinner",
+          "members": [
+            {
+              "kind": "field",
+              "name": "mode",
+              "type": {
+                "text": "WcsSpinnerMode"
+              },
+              "default": "'border'",
+              "description": "Indicates the spinner display mode.\r\nAccepted values: `border` or `growing`"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "mode",
+              "fieldName": "mode",
+              "type": {
+                "text": "WcsSpinnerMode"
+              }
+            }
+          ],
+          "tagName": "wcs-spinner",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Spinner",
+          "declaration": {
+            "name": "Spinner",
+            "module": "components/spinner/spinner.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-spinner",
+          "declaration": {
+            "name": "Spinner",
+            "module": "components/spinner/spinner.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/tab/tab.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Tab content component.\r\nUse this component to specify the content of a component.",
+          "name": "Tab",
+          "members": [
+            {
+              "kind": "field",
+              "name": "header",
+              "type": {
+                "text": "string"
+              },
+              "description": "The header you want to be displayed for this tab."
+            },
+            {
+              "kind": "field",
+              "name": "itemKey",
+              "type": {
+                "text": "any"
+              },
+              "description": "The id of the tab. It should be unique."
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "header",
+              "fieldName": "header",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "item-key",
+              "fieldName": "itemKey",
+              "type": {
+                "text": "any"
+              }
+            }
+          ],
+          "tagName": "wcs-tab",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Tab",
+          "declaration": {
+            "name": "Tab",
+            "module": "components/tab/tab.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-tab",
+          "declaration": {
+            "name": "Tab",
+            "module": "components/tab/tab.tsx"
           }
         }
       ]
@@ -10197,386 +10300,6 @@
           "declaration": {
             "name": "Switch",
             "module": "components/switch/switch.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/tab/tab.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Tab content component.\r\nUse this component to specify the content of a component.",
-          "name": "Tab",
-          "members": [
-            {
-              "kind": "field",
-              "name": "header",
-              "type": {
-                "text": "string"
-              },
-              "description": "The header you want to be displayed for this tab."
-            },
-            {
-              "kind": "field",
-              "name": "itemKey",
-              "type": {
-                "text": "any"
-              },
-              "description": "The id of the tab. It should be unique."
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "header",
-              "fieldName": "header",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "item-key",
-              "fieldName": "itemKey",
-              "type": {
-                "text": "any"
-              }
-            }
-          ],
-          "tagName": "wcs-tab",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Tab",
-          "declaration": {
-            "name": "Tab",
-            "module": "components/tab/tab.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-tab",
-          "declaration": {
-            "name": "Tab",
-            "module": "components/tab/tab.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/tabs/tabs-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/tabs/tabs.e2e.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/tabs/tabs.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Tabs component to switch between tab content.\r\nUse in conjuction with `wcs-tab`.",
-          "name": "Tabs",
-          "cssProperties": [
-            {
-              "description": "Width of each tab",
-              "name": "--wcs-tabs-width"
-            },
-            {
-              "description": "Width of each tab",
-              "name": "--wcs-tabs-padding-horizontal"
-            },
-            {
-              "description": "Vertical padding",
-              "name": "--wcs-tabs-padding-vertical"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "align",
-              "type": {
-                "text": "WcsTabsAlignment"
-              },
-              "default": "'start'",
-              "description": "Tab headers alignment."
-            },
-            {
-              "kind": "field",
-              "name": "selectedIndex",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "Current selected tab index.\r\nStarts at 0."
-            },
-            {
-              "kind": "field",
-              "name": "selectedKey",
-              "type": {
-                "text": "any"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "headersOnly",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Whether to skip rendering the tabpanel with the content of the selected tab. Use this prop if you plan to\r\nseparately render the tab content."
-            },
-            {
-              "kind": "field",
-              "name": "gutter",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines if tabs header should have a border at the bottom"
-            },
-            {
-              "kind": "field",
-              "name": "description",
-              "type": {
-                "text": "string"
-              },
-              "description": "Description is used to provide aria-label for the tabs container which has `role=\"tablist\"`."
-            },
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsTabsElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "headers",
-              "type": {
-                "text": "string[]"
-              },
-              "privacy": "private",
-              "default": "[]"
-            },
-            {
-              "kind": "field",
-              "name": "currentActiveTabIndex",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "default": "0"
-            },
-            {
-              "kind": "field",
-              "name": "tabsId",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "default": "tabsId++"
-            },
-            {
-              "kind": "method",
-              "name": "selectedIndexChanged",
-              "parameters": [
-                {
-                  "name": "newValue",
-                  "type": {
-                    "text": "number"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "selectedTabkeyChanged",
-              "parameters": [
-                {
-                  "name": "newValue",
-                  "type": {
-                    "text": "any"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "emitActiveTabChange",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "updateCurrentActiveIndexByTabKey",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "newValue",
-                  "type": {
-                    "text": "any"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "onTabLoaded"
-            },
-            {
-              "kind": "method",
-              "name": "putTabsInCorrectDivIfTheyAreNot",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleKeyDown",
-              "parameters": [
-                {
-                  "name": "ev",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  }
-                },
-                {
-                  "name": "tabIndex",
-                  "type": {
-                    "text": "number"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "refreshHeaders",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "tabs",
-              "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "method",
-              "name": "selectTabAndEmitChangeEvent",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "index",
-                  "type": {
-                    "text": "number"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "updateTabVisibility",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "hideAllTabsContent",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            },
-            {
-              "kind": "method",
-              "name": "onTabsSlotChange",
-              "privacy": "private",
-              "description": "Observe when a new tab panel is added to the slot to let's handle accessibility properties for tabs panel:\r\n- id: to let header tab refers it proper panel\r\n- aria-label: take the same name as it's referenced header name"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "align",
-              "fieldName": "align",
-              "type": {
-                "text": "WcsTabsAlignment"
-              }
-            },
-            {
-              "name": "selected-index",
-              "fieldName": "selectedIndex",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "selected-key",
-              "fieldName": "selectedKey",
-              "type": {
-                "text": "any"
-              }
-            },
-            {
-              "name": "headers-only",
-              "fieldName": "headersOnly",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "gutter",
-              "fieldName": "gutter",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "description",
-              "fieldName": "description",
-              "type": {
-                "text": "string"
-              }
-            }
-          ],
-          "tagName": "wcs-tabs",
-          "events": [
-            {
-              "name": "tabChange",
-              "type": {
-                "text": "EventEmitter<WcsTabChangeEvent>"
-              },
-              "description": "\r\nEmitted when the selected tab change."
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Tabs",
-          "declaration": {
-            "name": "Tabs",
-            "module": "components/tabs/tabs.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-tabs",
-          "declaration": {
-            "name": "Tabs",
-            "module": "components/tabs/tabs.tsx"
           }
         }
       ]
@@ -11403,6 +11126,316 @@
           "declaration": {
             "name": "Tooltip",
             "module": "components/tooltip/tooltip.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/tabs/tabs-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/tabs/tabs.e2e.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/tabs/tabs.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Tabs component to switch between tab content.\r\nUse in conjuction with `wcs-tab`.",
+          "name": "Tabs",
+          "cssProperties": [
+            {
+              "description": "Width of each tab",
+              "name": "--wcs-tabs-width"
+            },
+            {
+              "description": "Width of each tab",
+              "name": "--wcs-tabs-padding-horizontal"
+            },
+            {
+              "description": "Vertical padding",
+              "name": "--wcs-tabs-padding-vertical"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "align",
+              "type": {
+                "text": "WcsTabsAlignment"
+              },
+              "default": "'start'",
+              "description": "Tab headers alignment."
+            },
+            {
+              "kind": "field",
+              "name": "selectedIndex",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "Current selected tab index.\r\nStarts at 0."
+            },
+            {
+              "kind": "field",
+              "name": "selectedKey",
+              "type": {
+                "text": "any"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "headersOnly",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Whether to skip rendering the tabpanel with the content of the selected tab. Use this prop if you plan to\r\nseparately render the tab content."
+            },
+            {
+              "kind": "field",
+              "name": "gutter",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines if tabs header should have a border at the bottom"
+            },
+            {
+              "kind": "field",
+              "name": "description",
+              "type": {
+                "text": "string"
+              },
+              "description": "Description is used to provide aria-label for the tabs container which has `role=\"tablist\"`."
+            },
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsTabsElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "headers",
+              "type": {
+                "text": "string[]"
+              },
+              "privacy": "private",
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "currentActiveTabIndex",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "0"
+            },
+            {
+              "kind": "field",
+              "name": "tabsId",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "tabsId++"
+            },
+            {
+              "kind": "method",
+              "name": "selectedIndexChanged",
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "selectedTabkeyChanged",
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "any"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "emitActiveTabChange",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "updateCurrentActiveIndexByTabKey",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "any"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "onTabLoaded"
+            },
+            {
+              "kind": "method",
+              "name": "putTabsInCorrectDivIfTheyAreNot",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyDown",
+              "parameters": [
+                {
+                  "name": "ev",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                },
+                {
+                  "name": "tabIndex",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "refreshHeaders",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "tabs",
+              "privacy": "private",
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "selectTabAndEmitChangeEvent",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "index",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "updateTabVisibility",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "hideAllTabsContent",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            },
+            {
+              "kind": "method",
+              "name": "onTabsSlotChange",
+              "privacy": "private",
+              "description": "Observe when a new tab panel is added to the slot to let's handle accessibility properties for tabs panel:\r\n- id: to let header tab refers it proper panel\r\n- aria-label: take the same name as it's referenced header name"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "align",
+              "fieldName": "align",
+              "type": {
+                "text": "WcsTabsAlignment"
+              }
+            },
+            {
+              "name": "selected-index",
+              "fieldName": "selectedIndex",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "selected-key",
+              "fieldName": "selectedKey",
+              "type": {
+                "text": "any"
+              }
+            },
+            {
+              "name": "headers-only",
+              "fieldName": "headersOnly",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "gutter",
+              "fieldName": "gutter",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "description",
+              "fieldName": "description",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "tagName": "wcs-tabs",
+          "events": [
+            {
+              "name": "tabChange",
+              "type": {
+                "text": "EventEmitter<WcsTabChangeEvent>"
+              },
+              "description": "\r\nEmitted when the selected tab change."
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Tabs",
+          "declaration": {
+            "name": "Tabs",
+            "module": "components/tabs/tabs.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-tabs",
+          "declaration": {
+            "name": "Tabs",
+            "module": "components/tabs/tabs.tsx"
           }
         }
       ]

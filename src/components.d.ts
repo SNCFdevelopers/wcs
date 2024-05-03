@@ -1346,7 +1346,18 @@ declare global {
         prototype: HTMLWcsAccordionHeaderElement;
         new (): HTMLWcsAccordionHeaderElement;
     };
+    interface HTMLWcsAccordionPanelElementEventMap {
+        "wcsOpenChange": boolean;
+    }
     interface HTMLWcsAccordionPanelElement extends Components.WcsAccordionPanel, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLWcsAccordionPanelElementEventMap>(type: K, listener: (this: HTMLWcsAccordionPanelElement, ev: WcsAccordionPanelCustomEvent<HTMLWcsAccordionPanelElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLWcsAccordionPanelElementEventMap>(type: K, listener: (this: HTMLWcsAccordionPanelElement, ev: WcsAccordionPanelCustomEvent<HTMLWcsAccordionPanelElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLWcsAccordionPanelElement: {
         prototype: HTMLWcsAccordionPanelElement;
@@ -1397,7 +1408,18 @@ declare global {
         prototype: HTMLWcsCardBodyElement;
         new (): HTMLWcsCardBodyElement;
     };
+    interface HTMLWcsCheckboxElementEventMap {
+        "wcsChange": CheckboxChangeEventDetail;
+    }
     interface HTMLWcsCheckboxElement extends Components.WcsCheckbox, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLWcsCheckboxElementEventMap>(type: K, listener: (this: HTMLWcsCheckboxElement, ev: WcsCheckboxCustomEvent<HTMLWcsCheckboxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLWcsCheckboxElementEventMap>(type: K, listener: (this: HTMLWcsCheckboxElement, ev: WcsCheckboxCustomEvent<HTMLWcsCheckboxElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLWcsCheckboxElement: {
         prototype: HTMLWcsCheckboxElement;
@@ -1409,23 +1431,59 @@ declare global {
         prototype: HTMLWcsComNavElement;
         new (): HTMLWcsComNavElement;
     };
+    interface HTMLWcsComNavCategoryElementEventMap {
+        "wcsCategoryOpened": CategoryOpenedEventDetail;
+        "wcsCategoryItemClicked": UIEvent;
+    }
     interface HTMLWcsComNavCategoryElement extends Components.WcsComNavCategory, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLWcsComNavCategoryElementEventMap>(type: K, listener: (this: HTMLWcsComNavCategoryElement, ev: WcsComNavCategoryCustomEvent<HTMLWcsComNavCategoryElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLWcsComNavCategoryElementEventMap>(type: K, listener: (this: HTMLWcsComNavCategoryElement, ev: WcsComNavCategoryCustomEvent<HTMLWcsComNavCategoryElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLWcsComNavCategoryElement: {
         prototype: HTMLWcsComNavCategoryElement;
         new (): HTMLWcsComNavCategoryElement;
     };
+    interface HTMLWcsComNavSubmenuElementEventMap {
+        "wcsSubmenuOpened": MenuOpenedEventDetail;
+        "wcsClickOnFinalAction": void;
+    }
     interface HTMLWcsComNavSubmenuElement extends Components.WcsComNavSubmenu, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLWcsComNavSubmenuElementEventMap>(type: K, listener: (this: HTMLWcsComNavSubmenuElement, ev: WcsComNavSubmenuCustomEvent<HTMLWcsComNavSubmenuElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLWcsComNavSubmenuElementEventMap>(type: K, listener: (this: HTMLWcsComNavSubmenuElement, ev: WcsComNavSubmenuCustomEvent<HTMLWcsComNavSubmenuElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLWcsComNavSubmenuElement: {
         prototype: HTMLWcsComNavSubmenuElement;
         new (): HTMLWcsComNavSubmenuElement;
     };
+    interface HTMLWcsCounterElementEventMap {
+        "wcsChange": CounterChangeEventDetail;
+        "wcsBlur": FocusEvent;
+    }
     /**
      * Counter component, meant to be used for small range of values (e.g : 0 - 5).<br>
      * For larger or specific ranges, please use [wcs-input (type number)](.?path=/docs/components-input--documentation)
      */
     interface HTMLWcsCounterElement extends Components.WcsCounter, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLWcsCounterElementEventMap>(type: K, listener: (this: HTMLWcsCounterElement, ev: WcsCounterCustomEvent<HTMLWcsCounterElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLWcsCounterElementEventMap>(type: K, listener: (this: HTMLWcsCounterElement, ev: WcsCounterCustomEvent<HTMLWcsCounterElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLWcsCounterElement: {
         prototype: HTMLWcsCounterElement;
@@ -1465,16 +1523,38 @@ declare global {
         prototype: HTMLWcsDropdownHeaderElement;
         new (): HTMLWcsDropdownHeaderElement;
     };
+    interface HTMLWcsDropdownItemElementEventMap {
+        "wcsDropdownItemClick": void;
+    }
     /**
      * You must add `wcs-dropdown-item` to `wcs-dropdown`
      */
     interface HTMLWcsDropdownItemElement extends Components.WcsDropdownItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLWcsDropdownItemElementEventMap>(type: K, listener: (this: HTMLWcsDropdownItemElement, ev: WcsDropdownItemCustomEvent<HTMLWcsDropdownItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLWcsDropdownItemElementEventMap>(type: K, listener: (this: HTMLWcsDropdownItemElement, ev: WcsDropdownItemCustomEvent<HTMLWcsDropdownItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLWcsDropdownItemElement: {
         prototype: HTMLWcsDropdownItemElement;
         new (): HTMLWcsDropdownItemElement;
     };
+    interface HTMLWcsEditableFieldElementEventMap {
+        "wcsChange": EditableComponentUpdateEvent;
+    }
     interface HTMLWcsEditableFieldElement extends Components.WcsEditableField, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLWcsEditableFieldElementEventMap>(type: K, listener: (this: HTMLWcsEditableFieldElement, ev: WcsEditableFieldCustomEvent<HTMLWcsEditableFieldElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLWcsEditableFieldElementEventMap>(type: K, listener: (this: HTMLWcsEditableFieldElement, ev: WcsEditableFieldCustomEvent<HTMLWcsEditableFieldElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLWcsEditableFieldElement: {
         prototype: HTMLWcsEditableFieldElement;
@@ -1532,23 +1612,47 @@ declare global {
         prototype: HTMLWcsGalacticMenuElement;
         new (): HTMLWcsGalacticMenuElement;
     };
+    interface HTMLWcsGridElementEventMap {
+        "wcsGridSelectionChange": WcsGridSelectionEventDetails;
+        "wcsGridAllSelectionChange": WcsGridAllRowSelectedEventDetails;
+    }
     /**
      * The grid component is a complex component used as an HTML table to display collections of data.
      * @cssprop --wcs-grid-highlight-color - Color for selected rows
      * @cssprop --wcs-grid-column-border-left - Left border of all grid headers
      */
     interface HTMLWcsGridElement extends Components.WcsGrid, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLWcsGridElementEventMap>(type: K, listener: (this: HTMLWcsGridElement, ev: WcsGridCustomEvent<HTMLWcsGridElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLWcsGridElementEventMap>(type: K, listener: (this: HTMLWcsGridElement, ev: WcsGridCustomEvent<HTMLWcsGridElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLWcsGridElement: {
         prototype: HTMLWcsGridElement;
         new (): HTMLWcsGridElement;
     };
+    interface HTMLWcsGridColumnElementEventMap {
+        "wcsSortChange": WcsGridColumnSortChangeEventDetails;
+        "wcsHiddenChange": boolean;
+    }
     /**
      * The grid column is a subcomponent of `wcs-grid` that represents a column of the table.
      * @cssprop --wcs-grid-column-border-left - Border separator between column names
      * @csspart [path]-column - CSS part for each column for styling. e.g: first_name-column, email-column
      */
     interface HTMLWcsGridColumnElement extends Components.WcsGridColumn, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLWcsGridColumnElementEventMap>(type: K, listener: (this: HTMLWcsGridColumnElement, ev: WcsGridColumnCustomEvent<HTMLWcsGridColumnElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLWcsGridColumnElementEventMap>(type: K, listener: (this: HTMLWcsGridColumnElement, ev: WcsGridColumnCustomEvent<HTMLWcsGridColumnElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLWcsGridColumnElement: {
         prototype: HTMLWcsGridColumnElement;
@@ -1563,10 +1667,21 @@ declare global {
         prototype: HTMLWcsGridCustomCellElement;
         new (): HTMLWcsGridCustomCellElement;
     };
+    interface HTMLWcsGridPaginationElementEventMap {
+        "wcsGridPaginationChange": WcsGridPaginationChangeEventDetails;
+    }
     /**
      * The grid pagination is a subcomponent of `wcs-grid`, slotted in `grid-pagination` under the `<table>` element.
      */
     interface HTMLWcsGridPaginationElement extends Components.WcsGridPagination, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLWcsGridPaginationElementEventMap>(type: K, listener: (this: HTMLWcsGridPaginationElement, ev: WcsGridPaginationCustomEvent<HTMLWcsGridPaginationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLWcsGridPaginationElementEventMap>(type: K, listener: (this: HTMLWcsGridPaginationElement, ev: WcsGridPaginationCustomEvent<HTMLWcsGridPaginationElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLWcsGridPaginationElement: {
         prototype: HTMLWcsGridPaginationElement;
@@ -1584,7 +1699,18 @@ declare global {
         prototype: HTMLWcsHintElement;
         new (): HTMLWcsHintElement;
     };
+    interface HTMLWcsHorizontalStepperElementEventMap {
+        "wcsHorizontalStepClick": HorizontalStepClickEvent;
+    }
     interface HTMLWcsHorizontalStepperElement extends Components.WcsHorizontalStepper, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLWcsHorizontalStepperElementEventMap>(type: K, listener: (this: HTMLWcsHorizontalStepperElement, ev: WcsHorizontalStepperCustomEvent<HTMLWcsHorizontalStepperElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLWcsHorizontalStepperElementEventMap>(type: K, listener: (this: HTMLWcsHorizontalStepperElement, ev: WcsHorizontalStepperCustomEvent<HTMLWcsHorizontalStepperElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLWcsHorizontalStepperElement: {
         prototype: HTMLWcsHorizontalStepperElement;
@@ -1596,6 +1722,12 @@ declare global {
         prototype: HTMLWcsIconElement;
         new (): HTMLWcsIconElement;
     };
+    interface HTMLWcsInputElementEventMap {
+        "wcsInput": KeyboardEvent;
+        "wcsChange": InputChangeEventDetail;
+        "wcsBlur": FocusEvent;
+        "wcsFocus": FocusEvent;
+    }
     /**
      * The input component is a form control that accepts a single line of text.
      * Implementation mainly inspired from Ionic Input Component.
@@ -1610,6 +1742,14 @@ declare global {
      * </details>
      */
     interface HTMLWcsInputElement extends Components.WcsInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLWcsInputElementEventMap>(type: K, listener: (this: HTMLWcsInputElement, ev: WcsInputCustomEvent<HTMLWcsInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLWcsInputElementEventMap>(type: K, listener: (this: HTMLWcsInputElement, ev: WcsInputCustomEvent<HTMLWcsInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLWcsInputElement: {
         prototype: HTMLWcsInputElement;
@@ -1645,6 +1785,9 @@ declare global {
         prototype: HTMLWcsMatIconElement;
         new (): HTMLWcsMatIconElement;
     };
+    interface HTMLWcsModalElementEventMap {
+        "wcsDialogClosed": void;
+    }
     /**
      * The modal component (also named dialog or popup) is an interface element that appears on top of the page content.
      * Use it to show a message, a confirmation dialog, or any other content like forms.
@@ -1662,6 +1805,14 @@ declare global {
      * @cssprop --wcs-modal-overflow-y - Overflow-y of the content
      */
     interface HTMLWcsModalElement extends Components.WcsModal, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLWcsModalElementEventMap>(type: K, listener: (this: HTMLWcsModalElement, ev: WcsModalCustomEvent<HTMLWcsModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLWcsModalElementEventMap>(type: K, listener: (this: HTMLWcsModalElement, ev: WcsModalCustomEvent<HTMLWcsModalElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLWcsModalElement: {
         prototype: HTMLWcsModalElement;
@@ -1730,33 +1881,80 @@ declare global {
         prototype: HTMLWcsProgressRadialElement;
         new (): HTMLWcsProgressRadialElement;
     };
+    interface HTMLWcsRadioElementEventMap {
+        "wcsRadioClick": RadioChosedEvent;
+    }
     interface HTMLWcsRadioElement extends Components.WcsRadio, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLWcsRadioElementEventMap>(type: K, listener: (this: HTMLWcsRadioElement, ev: WcsRadioCustomEvent<HTMLWcsRadioElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLWcsRadioElementEventMap>(type: K, listener: (this: HTMLWcsRadioElement, ev: WcsRadioCustomEvent<HTMLWcsRadioElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLWcsRadioElement: {
         prototype: HTMLWcsRadioElement;
         new (): HTMLWcsRadioElement;
     };
+    interface HTMLWcsRadioGroupElementEventMap {
+        "wcsChange": RadioGroupChangeEventDetail;
+    }
     interface HTMLWcsRadioGroupElement extends Components.WcsRadioGroup, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLWcsRadioGroupElementEventMap>(type: K, listener: (this: HTMLWcsRadioGroupElement, ev: WcsRadioGroupCustomEvent<HTMLWcsRadioGroupElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLWcsRadioGroupElementEventMap>(type: K, listener: (this: HTMLWcsRadioGroupElement, ev: WcsRadioGroupCustomEvent<HTMLWcsRadioGroupElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLWcsRadioGroupElement: {
         prototype: HTMLWcsRadioGroupElement;
         new (): HTMLWcsRadioGroupElement;
     };
+    interface HTMLWcsSelectElementEventMap {
+        "wcsChange": SelectChangeEventDetail;
+        "wcsFocus": void;
+        "wcsBlur": void;
+        "wcsFilterChange": SelectFilerChangeEventDetail;
+    }
     /**
      * The select component (also named combobox) is a form component that allows users to select one or more options
      * from a list.
      * Use it with several slotted `wcs-select-option` inside.
      */
     interface HTMLWcsSelectElement extends Components.WcsSelect, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLWcsSelectElementEventMap>(type: K, listener: (this: HTMLWcsSelectElement, ev: WcsSelectCustomEvent<HTMLWcsSelectElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLWcsSelectElementEventMap>(type: K, listener: (this: HTMLWcsSelectElement, ev: WcsSelectCustomEvent<HTMLWcsSelectElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLWcsSelectElement: {
         prototype: HTMLWcsSelectElement;
         new (): HTMLWcsSelectElement;
     };
+    interface HTMLWcsSelectOptionElementEventMap {
+        "wcsSelectOptionClick": SelectOptionChosedEvent;
+    }
     /**
      * The select option is a subcomponent of `wcs-select` that represents a single option in a select list.
      */
     interface HTMLWcsSelectOptionElement extends Components.WcsSelectOption, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLWcsSelectOptionElementEventMap>(type: K, listener: (this: HTMLWcsSelectOptionElement, ev: WcsSelectOptionCustomEvent<HTMLWcsSelectOptionElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLWcsSelectOptionElementEventMap>(type: K, listener: (this: HTMLWcsSelectOptionElement, ev: WcsSelectOptionCustomEvent<HTMLWcsSelectOptionElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLWcsSelectOptionElement: {
         prototype: HTMLWcsSelectOptionElement;
@@ -1796,22 +1994,47 @@ declare global {
         prototype: HTMLWcsSpinnerElement;
         new (): HTMLWcsSpinnerElement;
     };
+    interface HTMLWcsSwitchElementEventMap {
+        "wcsChange": SwitchChangeEventDetail;
+    }
     interface HTMLWcsSwitchElement extends Components.WcsSwitch, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLWcsSwitchElementEventMap>(type: K, listener: (this: HTMLWcsSwitchElement, ev: WcsSwitchCustomEvent<HTMLWcsSwitchElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLWcsSwitchElementEventMap>(type: K, listener: (this: HTMLWcsSwitchElement, ev: WcsSwitchCustomEvent<HTMLWcsSwitchElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLWcsSwitchElement: {
         prototype: HTMLWcsSwitchElement;
         new (): HTMLWcsSwitchElement;
     };
+    interface HTMLWcsTabElementEventMap {
+        "tabLoaded": void;
+    }
     /**
      * Tab content component.
      * Use this component to specify the content of a component.
      */
     interface HTMLWcsTabElement extends Components.WcsTab, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLWcsTabElementEventMap>(type: K, listener: (this: HTMLWcsTabElement, ev: WcsTabCustomEvent<HTMLWcsTabElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLWcsTabElementEventMap>(type: K, listener: (this: HTMLWcsTabElement, ev: WcsTabCustomEvent<HTMLWcsTabElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLWcsTabElement: {
         prototype: HTMLWcsTabElement;
         new (): HTMLWcsTabElement;
     };
+    interface HTMLWcsTabsElementEventMap {
+        "tabChange": WcsTabChangeEvent;
+    }
     /**
      * Tabs component to switch between tab content.
      * Use in conjuction with `wcs-tab`.
@@ -1826,11 +2049,25 @@ declare global {
      * @cssprop --wcs-tabs-padding-vertical - Vertical padding
      */
     interface HTMLWcsTabsElement extends Components.WcsTabs, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLWcsTabsElementEventMap>(type: K, listener: (this: HTMLWcsTabsElement, ev: WcsTabsCustomEvent<HTMLWcsTabsElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLWcsTabsElementEventMap>(type: K, listener: (this: HTMLWcsTabsElement, ev: WcsTabsCustomEvent<HTMLWcsTabsElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLWcsTabsElement: {
         prototype: HTMLWcsTabsElement;
         new (): HTMLWcsTabsElement;
     };
+    interface HTMLWcsTextareaElementEventMap {
+        "wcsChange": TextareaChangeEventDetail;
+        "wcsInput": KeyboardEvent;
+        "wcsBlur": FocusEvent;
+        "wcsFocus": FocusEvent;
+    }
     /**
      * Mainly inspired from Ionic Textarea Component
      * @cssprop --wcs-textarea-max-height - Max height of the text area component
@@ -1838,6 +2075,14 @@ declare global {
      * @cssprop --wcs-textarea-padding-right - Padding right of the text area. Take in consideration the transparent border of 2px around the textarea.
      */
     interface HTMLWcsTextareaElement extends Components.WcsTextarea, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLWcsTextareaElementEventMap>(type: K, listener: (this: HTMLWcsTextareaElement, ev: WcsTextareaCustomEvent<HTMLWcsTextareaElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLWcsTextareaElementEventMap>(type: K, listener: (this: HTMLWcsTextareaElement, ev: WcsTextareaCustomEvent<HTMLWcsTextareaElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLWcsTextareaElement: {
         prototype: HTMLWcsTextareaElement;
