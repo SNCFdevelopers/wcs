@@ -21,10 +21,15 @@ import { CounterFormlyPassengersExampleComponent } from './counter-example/count
 import { CounterFormlyDefaultValueComponent } from './counter-example/counter-formly-default-value.component';
 import { NativeSelectExampleComponent } from './select-example/native-select-example.component';
 import { AutocompleteSelectExampleComponent } from './select-example/autocomplete-select-example.component';
+import { AboutComponent } from "./about.component";
+import { MainExampleComponent } from "./main-example.component";
+import { AriaCurrentDirective } from './aria-current.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
+    AboutComponent,
+    MainExampleComponent,
     SelectExampleComponent,
     RadioGroupExampleComponent,
     GridExampleComponent,
@@ -38,7 +43,8 @@ import { AutocompleteSelectExampleComponent } from './select-example/autocomplet
     CounterFormlyPassengersExampleComponent,
     CounterFormlyDefaultValueComponent,
     NativeSelectExampleComponent,
-    AutocompleteSelectExampleComponent
+    AutocompleteSelectExampleComponent,
+    AriaCurrentDirective
   ],
   imports: [
     BrowserModule,
