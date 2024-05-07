@@ -1,22 +1,13 @@
-.App {
-  text-align: center;
+.main-nav {
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
+  height: 100vh;
 }
 
-.App-link {
-  color: #61dafb;
+main {
+  flex-grow: 1;
+  margin: var(--wcs-margin);
 }
