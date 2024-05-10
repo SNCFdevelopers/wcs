@@ -7,7 +7,25 @@ wcs-dropdown-item {
     line-height: 42px;
 }
 
-wcs-dropdown-item:hover, wcs-dropdown-item:focus {
+wcs-dropdown-item:hover {
     color: var(--wcs-primary);
     background-color: var(--wcs-light);
+}
+
+wcs-dropdown-item:focus-visible {
+    outline: solid 1px var(--wcs-primary);
+    outline-offset: -1px;
+    border-radius: var(--wcs-border-radius);
+    color: var(--wcs-primary);
+    background-color: var(--wcs-light);
+}
+
+@supports not selector(wcs-dropdown-item:focus-visible) {
+    wcs-dropdown-item:focus-within {
+        outline: solid 1px var(--wcs-primary);
+        outline-offset: -1px;
+        border-radius: var(--wcs-border-radius);
+        color: var(--wcs-primary);
+        background-color: var(--wcs-light);
+    }
 }

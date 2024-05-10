@@ -14,7 +14,7 @@ export class DropdownHeader {
 
     render() {
         return (
-            <Host slot="item">
+            <Host slot="item" tabindex="-1">
                 <slot/>
             </Host>
         );

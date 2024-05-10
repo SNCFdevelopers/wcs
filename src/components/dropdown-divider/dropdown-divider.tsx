@@ -11,7 +11,7 @@ import { Component, h, Host } from '@stencil/core';
 export class DropdownDivider {
     render() {
         return (
-            <Host slot="item"></Host>
+            <Host slot="item" tabindex="-1" aria-hidden="true"></Host>
         );
     }
 }

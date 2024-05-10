@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-08-27T09:21:49",
+  "timestamp": "2024-09-02T09:03:48",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -2107,6 +2107,11 @@
       "methods": [],
       "events": [],
       "listeners": [
+        {
+          "event": "blur",
+          "capture": false,
+          "passive": false
+        },
         {
           "event": "click",
           "target": "window",

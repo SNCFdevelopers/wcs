@@ -17,8 +17,7 @@ export class DropdownItem implements ComponentInterface {
         eventName: 'wcsDropdownItemClick',
     })
     wcsDropdownItemClick: EventEmitter<void>;
-
-
+    
     @Listen('mousedown')
     onMouseDown(_: MouseEvent): void {
         this.wcsDropdownItemClick.emit();
@@ -27,13 +26,15 @@ export class DropdownItem implements ComponentInterface {
     @Listen('keydown')
     onKeyDown(evt: KeyboardEvent): void {
         if (isSpaceKey(evt) || isEnterKey(evt)) {
+            evt.preventDefault();
+            evt.stopImmediatePropagation();
             this.wcsDropdownItemClick.emit();
         }
     }
 
     render() {
         return (
-            <Host slot="item" tabindex="0">
+            <Host slot="item" role="menuitem" tabindex="-1">
                 <slot/>
             </Host>
         );
