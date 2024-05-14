@@ -1,8 +1,26 @@
-import { Component, ComponentInterface, h, Prop } from '@stencil/core';
+import { Component, ComponentInterface, Element, forceUpdate, h, Prop, Watch } from '@stencil/core';
 import { WcsSize } from "../../shared-types";
+import { inheritAttributes } from "../../utils/helpers";
+
+
+const PROGRESS_BAR_ARIA_INHERITED_ATTRS = ['aria-label'];
 
 /**
- * Component displaying progress as a horizontal bar.
+ * The progress-bar component is a horizontal bar that indicates the current completion of a task.
+ * 
+ * ## Accessibility guidelines 💡
+ * > Aria attributes and how to display the progress-bar depend on the use case in your application :
+ * >  
+ * > - **Case 1 : decorative**  
+ * > If the progress-bar is used as a decoration _(if removed, the user doesn't lose any relevant information)_ or in the
+ * > context of another component _(such as progress-bar in a card, stepper, ...)_ => **you don't need to show the label nor add an aria-label**.
+ * > 
+ * > - **Case 2 : informative**  
+ * > If the progress-bar is used to convey important information _(e.g., form completion status, dashboard KPI)_, you need to :
+ * >   - **Provide a visible label** that describes the purpose of the progress-bar.
+ * >   - **Set the `showLabel` property to `true`** to show the percentage above the progress-bar.
+ * >   - Optionally, use aria-label to provide an accessible name if a visible label is not present.
+ * 
  * @cssprop --wcs-progress-bar-border-radius - Border radius
  * @cssprop --wcs-progress-bar-border-radius-small - Border radius for size small
  * @cssprop --wcs-progress-bar-animation-duration - Animation duration
@@ -13,6 +31,11 @@ import { WcsSize } from "../../shared-types";
   shadow: true
 })
 export class ProgressBar implements ComponentInterface {
+  
+  @Element() private el!: HTMLWcsProgressBarElement;
+
+  private inheritedAttributes: { [k: string]: any } = {};
+  
   /**
    * Specify the size of the progress bar.  
    * m = default, s = smaller
@@ -29,6 +52,20 @@ export class ProgressBar implements ComponentInterface {
    * Ranging from 0 to 100.
    */
   @Prop() value: number = 0;
+  
+  componentWillLoad(): Promise<void> | void {
+    this.inheritedAttributes = {
+      ...inheritAttributes(this.el, PROGRESS_BAR_ARIA_INHERITED_ATTRS)
+    };
+  }
+
+  @Watch('aria-label')
+  onAriaLabelChange() {
+    this.inheritedAttributes = {
+      ...inheritAttributes(this.el, PROGRESS_BAR_ARIA_INHERITED_ATTRS)
+    };
+    forceUpdate(this);
+  }
 
   render() {
     const style = {
@@ -37,11 +74,12 @@ export class ProgressBar implements ComponentInterface {
 
     return (
       <div class={this.rootClasses()}
-           role="meter"
+           role="progressbar"
            aria-valuemin="0"
            aria-valuemax="100"
            aria-valuenow={this.value}
-           aria-valuetext={this.value + '%'}>
+           aria-valuetext={this.value + '%'}
+           {...this.inheritedAttributes}>
         <div class="progress-bar" style={style}>
           {this.showLabel &&
             <span class="progress-label">

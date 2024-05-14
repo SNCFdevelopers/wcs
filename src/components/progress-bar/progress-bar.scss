@@ -8,11 +8,20 @@
 :host([size=s]) {
     .progress {
         height: 0.3125rem;
-        overflow: hidden;
         background-color: #fff;
         background-image: none;
         background-size: auto;
         border-radius: var(--wcs-internal-progress-bar-border-radius-small);
+
+        .progress-label {
+            font-size: 1.125rem;
+            bottom: calc(100% + 0.125rem);
+
+            sup {
+                font-size: 0.75rem;
+                top: -.3em;
+            }
+        }
     }
 }
 

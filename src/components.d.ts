@@ -847,7 +847,19 @@ export namespace Components {
         "text": string;
     }
     /**
-     * Component displaying progress as a horizontal bar.
+     * The progress-bar component is a horizontal bar that indicates the current completion of a task.
+     * ## Accessibility guidelines 💡
+     * > Aria attributes and how to display the progress-bar depend on the use case in your application :
+     * >  
+     * > - **Case 1 : decorative**  
+     * > If the progress-bar is used as a decoration _(if removed, the user doesn't lose any relevant information)_ or in the
+     * > context of another component _(such as progress-bar in a card, stepper, ...)_ => **you don't need to show the label nor add an aria-label**.
+     * > 
+     * > - **Case 2 : informative**  
+     * > If the progress-bar is used to convey important information _(e.g., form completion status, dashboard KPI)_, you need to :
+     * >   - **Provide a visible label** that describes the purpose of the progress-bar.
+     * >   - **Set the `showLabel` property to `true`** to show the percentage above the progress-bar.
+     * >   - Optionally, use aria-label to provide an accessible name if a visible label is not present.
      * @cssprop --wcs-progress-bar-border-radius - Border radius
      * @cssprop --wcs-progress-bar-border-radius-small - Border radius for size small
      * @cssprop --wcs-progress-bar-animation-duration - Animation duration
@@ -1984,7 +1996,19 @@ declare global {
         new (): HTMLWcsNavItemElement;
     };
     /**
-     * Component displaying progress as a horizontal bar.
+     * The progress-bar component is a horizontal bar that indicates the current completion of a task.
+     * ## Accessibility guidelines 💡
+     * > Aria attributes and how to display the progress-bar depend on the use case in your application :
+     * >  
+     * > - **Case 1 : decorative**  
+     * > If the progress-bar is used as a decoration _(if removed, the user doesn't lose any relevant information)_ or in the
+     * > context of another component _(such as progress-bar in a card, stepper, ...)_ => **you don't need to show the label nor add an aria-label**.
+     * > 
+     * > - **Case 2 : informative**  
+     * > If the progress-bar is used to convey important information _(e.g., form completion status, dashboard KPI)_, you need to :
+     * >   - **Provide a visible label** that describes the purpose of the progress-bar.
+     * >   - **Set the `showLabel` property to `true`** to show the percentage above the progress-bar.
+     * >   - Optionally, use aria-label to provide an accessible name if a visible label is not present.
      * @cssprop --wcs-progress-bar-border-radius - Border radius
      * @cssprop --wcs-progress-bar-border-radius-small - Border radius for size small
      * @cssprop --wcs-progress-bar-animation-duration - Animation duration
@@ -3123,7 +3147,19 @@ declare namespace LocalJSX {
         "text"?: string;
     }
     /**
-     * Component displaying progress as a horizontal bar.
+     * The progress-bar component is a horizontal bar that indicates the current completion of a task.
+     * ## Accessibility guidelines 💡
+     * > Aria attributes and how to display the progress-bar depend on the use case in your application :
+     * >  
+     * > - **Case 1 : decorative**  
+     * > If the progress-bar is used as a decoration _(if removed, the user doesn't lose any relevant information)_ or in the
+     * > context of another component _(such as progress-bar in a card, stepper, ...)_ => **you don't need to show the label nor add an aria-label**.
+     * > 
+     * > - **Case 2 : informative**  
+     * > If the progress-bar is used to convey important information _(e.g., form completion status, dashboard KPI)_, you need to :
+     * >   - **Provide a visible label** that describes the purpose of the progress-bar.
+     * >   - **Set the `showLabel` property to `true`** to show the percentage above the progress-bar.
+     * >   - Optionally, use aria-label to provide an accessible name if a visible label is not present.
      * @cssprop --wcs-progress-bar-border-radius - Border radius
      * @cssprop --wcs-progress-bar-border-radius-small - Border radius for size small
      * @cssprop --wcs-progress-bar-animation-duration - Animation duration
@@ -3865,7 +3901,19 @@ declare module "@stencil/core" {
             "wcs-nav": LocalJSX.WcsNav & JSXBase.HTMLAttributes<HTMLWcsNavElement>;
             "wcs-nav-item": LocalJSX.WcsNavItem & JSXBase.HTMLAttributes<HTMLWcsNavItemElement>;
             /**
-             * Component displaying progress as a horizontal bar.
+             * The progress-bar component is a horizontal bar that indicates the current completion of a task.
+             * ## Accessibility guidelines 💡
+             * > Aria attributes and how to display the progress-bar depend on the use case in your application :
+             * >  
+             * > - **Case 1 : decorative**  
+             * > If the progress-bar is used as a decoration _(if removed, the user doesn't lose any relevant information)_ or in the
+             * > context of another component _(such as progress-bar in a card, stepper, ...)_ => **you don't need to show the label nor add an aria-label**.
+             * > 
+             * > - **Case 2 : informative**  
+             * > If the progress-bar is used to convey important information _(e.g., form completion status, dashboard KPI)_, you need to :
+             * >   - **Provide a visible label** that describes the purpose of the progress-bar.
+             * >   - **Set the `showLabel` property to `true`** to show the percentage above the progress-bar.
+             * >   - Optionally, use aria-label to provide an accessible name if a visible label is not present.
              * @cssprop --wcs-progress-bar-border-radius - Border radius
              * @cssprop --wcs-progress-bar-border-radius-small - Border radius for size small
              * @cssprop --wcs-progress-bar-animation-duration - Animation duration
