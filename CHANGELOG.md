@@ -11,7 +11,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-for new features.
+- **select**: add a red outline when the `wcs-form-field` is in error
+- **native-select**: add a red outline when the `wcs-form-field` is in error
 
 ### Changed
 

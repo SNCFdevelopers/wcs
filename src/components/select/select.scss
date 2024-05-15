@@ -8,6 +8,7 @@
     --wcs-select-placeholder-color: var(--wcs-text-medium);
     --wcs-select-value-color: var(--wcs-primary);
     --wcs-select-border-color: transparent;
+    --wcs-select-outline-color: var(--wcs-primary);
     --wcs-select-overlay-max-height: 360px;
     --wcs-select-option-height: var(--wcs-size-m);
     --wcs-select-border-width: 1px;
@@ -46,9 +47,16 @@
     }
 }
 
+:host([aria-invalid=true]) {
+    --wcs-select-outline-color: var(--wcs-red) !important;
+    .wcs-select-control {
+        outline: solid 2px var(--wcs-select-outline-color);
+    }
+}
+
 :host(:not(.expanded):focus-visible) {
     .wcs-select-control {
-        @include focus-outline($border-radius: var(--wcs-select-border-radius), $outline-offset: 0);
+        @include focus-outline(var(--wcs-select-outline-color), var(--wcs-select-border-radius), $outline-offset: 0);
     }
 }
 
@@ -225,7 +233,7 @@ label {
     }
 
     input:focus-within {
-        @include focus-outline(var(--wcs-primary), var(--wcs-border-radius), 0);
+        @include focus-outline(var(--wcs-select-outline-color), var(--wcs-border-radius), 0);
     }
 
     input::placeholder {

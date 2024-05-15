@@ -15,6 +15,7 @@
     --wcs-select-native-background-color: var(--wcs-light);
     --wcs-select-native-placeholder-color: var(--wcs-text-medium);
     --wcs-select-native-value-color: var(--wcs-primary);
+    --wcs-select-native-outline-color: var(--wcs-primary);
     --wcs-select-native-border-color: transparent;
     --wcs-select-native-overlay-max-height: 360px;
     --wcs-select-native-border-width: 1px;
@@ -43,6 +44,11 @@
     color: var(--wcs-text-disabled);
 }
 
+::slotted(select[aria-invalid=true]) {
+    --wcs-select-native-outline-color: var(--wcs-red) !important;
+    outline: solid 2px var(--wcs-select-native-outline-color);
+}
+
 :host([data-disabled]) {
     .select-wrapper {
         .arrow-container {
@@ -66,7 +72,7 @@
 }
 
 ::slotted(select:focus-visible) {
-    @include focus-outline($border-radius: var(--wcs-select-border-radius), $outline-offset: 0);
+    @include focus-outline(var(--wcs-select-native-outline-color), var(--wcs-select-native-border-radius), $outline-offset: 0);
     border-radius: var(--wcs-select-native-border-radius);
 }
 
