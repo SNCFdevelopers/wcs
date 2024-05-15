@@ -1,7 +1,7 @@
 # WcsReact
 
-[![npm version](https://img.shields.io/npm/v/wcs-react?style=for-the-badge)](https://www.npmjs.com/package/wcs-react)
-[![Storybook](https://img.shields.io/badge/React-222.svg?logo=react&style=for-the-badge&logoColor=61DAFB)](https://react.dev/)
+[![npm version](https://img.shields.io/npm/v/wcs-react)](https://www.npmjs.com/package/wcs-react)
+[![React](https://img.shields.io/badge/React-222.svg?logo=react&logoColor=61DAFB)](https://react.dev/)
 
 
 This project is the React integration of the [wcs-core package](https://www.npmjs.com/package/wcs-core).  

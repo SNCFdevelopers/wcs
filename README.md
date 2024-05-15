@@ -4,12 +4,12 @@
 
 # Web Components SNCF
 
-[![pipeline](https://img.shields.io/gitlab/pipeline-status/SNCF%2Fwcs?branch=master&style=for-the-badge)](https://img.shields.io/gitlab/pipeline-status/SNCF%2Fwcs?branch=master&style=for-the-badge)
-[![npm version](https://img.shields.io/gitlab/v/tag/13813721?color=success&label=release&style=for-the-badge)](https://img.shields.io/gitlab/v/tag/13813721?color=success&label=release&style=for-the-badge)
-[![downloads](https://img.shields.io/npm/dt/wcs-core?style=for-the-badge)](https://img.shields.io/npm/dt/wcs-core?style=for-the-badge)
+[![npm version](https://img.shields.io/npm/v/wcs-core?color=success&label=release)](https://www.npmjs.com/package/wcs-core)
+[![downloads](https://img.shields.io/npm/dt/wcs-core)](https://www.npmjs.com/package/wcs-core)
+[![pipeline](https://img.shields.io/gitlab/pipeline-status/SNCF%2Fwcs?branch=master)](https://gitlab.com/SNCF/wcs/-/pipelines)
 
-[![Built With Stencil](https://img.shields.io/badge/Built%20With%20Stencil-16161d.svg?logo=stackblitz&style=for-the-badge)](https://stenciljs.com)
-[![Storybook](https://img.shields.io/badge/Storybook-ff4785.svg?logo=storybook&style=for-the-badge&logoColor=fff)](https://storybook.js.org/)
+[![Built With Stencil](https://img.shields.io/badge/Built%20With%20Stencil-16161d.svg?logo=stackblitz)](https://stenciljs.com)
+[![Storybook](https://img.shields.io/badge/Storybook-ff4785.svg?logo=storybook&logoColor=fff)](https://storybook.js.org/)
 
 ### **OFFICIAL DOCUMENTATION** 👉 [WCS.DEV.SNCF](https://wcs.dev.sncf)
 
@@ -50,6 +50,7 @@ Major versions releases :
 - **v2** 👉 Jun 2021
 - **v3** 👉 Feb 2023
 - **v4** 👉 Sep 2023
+- **v5** 👉 May 2024
 
     
 ### Example usage

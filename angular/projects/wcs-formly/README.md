@@ -1,8 +1,8 @@
 # WcsFormly
 
-[![npm version](https://img.shields.io/npm/v/wcs-formly?style=for-the-badge)](https://www.npmjs.com/package/wcs-formly)
-[![Storybook](https://img.shields.io/badge/Angular-fff.svg?logo=angular&style=for-the-badge&logoColor=DD0031)](https://angular.io/)
-[![Storybook](https://img.shields.io/badge/Formly-fff.svg?logo=angularuniversal&style=for-the-badge&logoColor=DD0031)](https://formly.dev/)
+[![npm version](https://img.shields.io/npm/v/wcs-formly)](https://www.npmjs.com/package/wcs-formly)
+[![Angular](https://img.shields.io/badge/Angular-fff.svg?logo=angular&logoColor=DD0031)](https://angular.io/)
+[![Formly](https://img.shields.io/badge/Formly-fff.svg?logoColor=DD0031)](https://formly.dev/)
 
 
 This project is the Formly integration of the [wcs-core package](https://www.npmjs.com/package/wcs-core).  

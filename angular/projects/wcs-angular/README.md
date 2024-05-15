@@ -1,7 +1,7 @@
 # WcsAngular
 
-[![npm version](https://img.shields.io/npm/v/wcs-angular?style=for-the-badge)](https://www.npmjs.com/package/wcs-angular)
-[![Storybook](https://img.shields.io/badge/Angular-fff.svg?logo=angular&style=for-the-badge&logoColor=DD0031)](https://angular.io/)
+[![npm version](https://img.shields.io/npm/v/wcs-angular)](https://www.npmjs.com/package/wcs-angular)
+[![Angular](https://img.shields.io/badge/Angular-fff.svg?logo=angular&logoColor=DD0031)](https://angular.io/)
 
 
 This project is the Angular integration of the [wcs-core package](https://www.npmjs.com/package/wcs-core).  
