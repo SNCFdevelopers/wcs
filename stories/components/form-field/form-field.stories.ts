@@ -1,32 +1,21 @@
-import { Meta, StoryFn } from '@storybook/web-components';
+import { Meta, StoryFn, StoryObj } from '@storybook/web-components';
 import { html } from 'lit-html';
-// @ts-ignore
-import formFieldDocumentation from './form-field-documentation.md';
-// @ts-ignore
-import tooltipOnLabelDocumentation from './tooltip-on-label-documentation.md'
 import { getComponentArgs } from '../../utils/args-generation';
 const meta: Meta = {
     title: 'Components/Form Field',
     component: 'wcs-form-field',
     argTypes: getComponentArgs('wcs-form-field'),
-    parameters: {
-        docs: {
-            description: {
-                component: formFieldDocumentation
-            }
-        }
-    },
     subcomponents: {
         'WcsLabel': 'wcs-label',
         'WcsHint': 'wcs-hint',
         'WcsError': 'wcs-error',
     },
     decorators: [(story) => html`
-        <style>
-            wcs-form-field {
-                margin: 24px 0;
-            }
-        </style>${story()}`],
+    <style>
+        wcs-form-field {
+            margin: 24px 0;
+        }
+    </style>${story()}`],
 };
 export default meta;
 
@@ -35,43 +24,54 @@ interface FormFieldStoriesParams {
 }
 
 const Template: StoryFn<Partial<FormFieldStoriesParams>> = (args) => html`
-    ${Input(args)}
-    ${Select(args)}
-    ${Radio(args)}
-    ${TextArea(args)}
-    ${Switch(args)}
+    ${InputTemplate(args, this)}
+    ${SelectTemplate(args, this)}
+    ${RadioTemplate(args, this)}
+    ${TextAreaTemplate(args, this)}
+    ${SwitchTemplate(args, this)}
+    ${CounterTemplate(args, this)}
     <br>
-    ${Checkbox(args)}
+    ${CheckboxTemplate(args, this)}
     <br>
-    ${Button(args)}
+    ${ButtonTemplate(args, this)}
 `;
 
-export const Default = Template.bind({});
-Default.args = {};
+/**
+ * Full form example
+ */
+export const Default: StoryObj = {
+    render: (args) => Template(args, this),
+    args: {
+        isError: false,
+    }
+}
 
 const InputTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) => html`
     <wcs-form-field ?is-error=${args.isError}>
         <wcs-label>Enter your name</wcs-label>
-        <wcs-input placeholder="John doe"></wcs-input>
-        <wcs-hint>A name is something that describe a person, like you can call the person by his name, you get it?
-        </wcs-hint>
-        <wcs-error>Your name is not valid, please do the needful following <a
-            href="https://www.service-public.fr/particuliers/vosdroits/F1656">this</a>.
+        <wcs-input placeholder="John Doe"></wcs-input>
+        <wcs-hint>A name is something that describes a person</wcs-hint>
+        <wcs-error>Your name is not valid, please do what is necessary
+            <a href="https://www.service-public.fr/particuliers/vosdroits/F1656">here</a>.
         </wcs-error>
     </wcs-form-field>
 `;
-export const Input = InputTemplate.bind({});
-Input.args = {};
+export const Input: StoryObj = {
+    render: (args) => InputTemplate(args, this),
+    args: {
+        ...Default.args
+    }
+}
 
 const SelectTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) => html`
     <wcs-form-field ?is-error=${args.isError}>
-        <wcs-label>What is your country music you're comming from, dude? (select custom)</wcs-label>
+        <wcs-label>What country music are you coming from, dude? (select custom)</wcs-label>
         <wcs-select placeholder="Select a country (select custom)" required>
             <wcs-select-option>France</wcs-select-option>
             <wcs-select-option>Germany</wcs-select-option>
             <wcs-select-option>Japan</wcs-select-option>
         </wcs-select>
-        <wcs-hint>You can call the person by his country music</wcs-hint>
+        <wcs-hint>You can identify the person by the country music he lives in</wcs-hint>
         <wcs-error>Your country is not valid</wcs-error>
     </wcs-form-field>
 
@@ -79,7 +79,7 @@ const SelectTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) => html`
     <wcs-form-field ?is-error=${args.isError}>
         <wcs-label>What was your last answer ? (select native)</wcs-label>
         <wcs-native-select required>
-            <select name="cannot answer this answer twice" id="#selectNatSiveCountry" required>
+            <select name="last-answer" id="native-select-country" required>
                 <option value="Don't know">I Don't know</option>
                 <option value="Yes">Yes</option>
             </select>
@@ -88,8 +88,12 @@ const SelectTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) => html`
         <wcs-error>Your brain is broken</wcs-error>
     </wcs-form-field>
 `;
-export const Select = SelectTemplate.bind({});
-Select.args = {};
+export const Select: StoryObj = {
+    render: (args) => SelectTemplate(args, this),
+    args: {
+        ...Default.args
+    }
+}
 
 const RadioTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) => html`
     <wcs-form-field ?is-error=${args.isError}>
@@ -101,50 +105,94 @@ const RadioTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) => html`
             <wcs-radio name="SA" label="Gares & Connexions" value="4"></wcs-radio>
             <wcs-radio name="SA" label="Rail Logistics Europe (FRET)" value="5"></wcs-radio>
         </wcs-radio-group>
+        <wcs-error>Give us a valid company</wcs-error>
         <wcs-hint>An animal can have several subsidiaries</wcs-hint>
-        <wcs-error>Please, give us a valid color</wcs-error>
 `;
-export const Radio = RadioTemplate.bind({});
-Radio.args = {};
+export const Radio: StoryObj = {
+    render: (args) => RadioTemplate(args, this),
+    args: {
+        ...Default.args
+    }
+}
 
 const TextAreaTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) => html`
     <wcs-form-field ?is-error=${args.isError}>
         <wcs-label>What do you think about the fact that you are filling a fake form?</wcs-label>
         <wcs-textarea placeholder="Type your message" rows="6" cols="80"></wcs-textarea>
-        <wcs-hint>Do anyone will ever read you?</wcs-hint>
+        <wcs-hint>Does anyone will ever read you?</wcs-hint>
         <wcs-error>You can't say that</wcs-error>
     </wcs-form-field>
 `;
-export const TextArea = TextAreaTemplate.bind({});
-TextArea.args = {};
+export const TextArea: StoryObj = {
+    render: (args) => TextAreaTemplate(args, this),
+    args: {
+        ...Default.args
+    }
+}
 
 const SwitchTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) => html`
     <wcs-form-field ?is-error=${args.isError}>
-        <wcs-label>I agree to provide personal and corporate data to Jeff</wcs-label>
-        <wcs-switch id="error-switch-1" checked="true"></wcs-switch>
+        <wcs-label>Agreement</wcs-label>
+        <wcs-switch id="error-switch-1" checked="true">
+            I agree to provide personal and corporate data to Jeff
+        </wcs-switch>
         <wcs-hint>This option does not change anything, Jeff will still read you</wcs-hint>
-        <wcs-error>Please, \$\{userName\}, try hard</wcs-error>
+        <wcs-error>Not really optional, so please check this</wcs-error>
     </wcs-form-field>
 `;
-export const Switch = SwitchTemplate.bind({});
-Switch.args = {};
+export const Switch: StoryObj = {
+    render: (args) => SwitchTemplate(args, this),
+    args: {
+        ...Default.args
+    }
+}
+
+const CounterTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) => {
+    return html`
+        <wcs-form-field ?is-error=${args.isError}>
+            <wcs-label>Number of questions you understood</wcs-label>
+            <wcs-counter label="Number of passengers" min="0" max="120" step="12"></wcs-counter>
+            <wcs-hint>The number of understood questions cannot exceed the number of comprehensible questions</wcs-hint>
+            <wcs-error>0 is not a valid number, the number cannot exceed 8</wcs-error>
+        </wcs-form-field>
+    `;
+};
+export const Counter: StoryObj = {
+    render: (args) => CounterTemplate(args, this),
+    args: {
+        ...Default.args
+    }
+}
 
 
 const ButtonTemplate: StoryFn<Partial<FormFieldStoriesParams>> = () => html`
-    <wcs-button class="wcs-primary">
+    <wcs-button class="wcs-primary" (click)="">
         Submit
     </wcs-button>
 `;
-export const Button = ButtonTemplate.bind({});
-Button.args = {};
+export const Button: StoryObj = {
+    render: (args) => ButtonTemplate(args, this),
+    args: {
+        ...Default.args
+    }
+}
 
-const CheckboxTemplate: StoryFn<Partial<FormFieldStoriesParams>> = () => html`
-    <wcs-checkbox>Did you read all questions?</wcs-checkbox>
+const CheckboxTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) => html`
+    <wcs-form-field ?is-error=${args.isError}>
+        <wcs-label>Confirmation</wcs-label>
+        <wcs-checkbox>Did you read all questions?</wcs-checkbox>
+        <wcs-hint>Make sure all questions are understood</wcs-hint>
+        <wcs-error>You are lying</wcs-error>
+    </wcs-form-field>
 `;
-export const Checkbox = CheckboxTemplate.bind({});
-Checkbox.args = {};
+export const Checkbox: StoryObj = {
+    render: (args) => CheckboxTemplate(args, this),
+    args: {
+        ...Default.args
+    }
+}
 
-const SelectButtonTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) => html`
+const PrefixSuffixGroupTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) => html`
     <wcs-form-field ?is-error=${args.isError}>
         <wcs-select id="form-field-ex-3" slot="prefix" placeholder="Country" multiple style="width: 200px;">
             <wcs-select-option>France</wcs-select-option>
@@ -153,14 +201,14 @@ const SelectButtonTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) =>
         </wcs-select>
         <wcs-input placeholder="Region"></wcs-input>
         <wcs-button shape="square" slot="suffix" ripple="false">
-            <wcs-mat-icon icon="search" role="img" aria-label="Rechercher"></wcs-mat-icon>
+            <wcs-mat-icon icon="search" role="img" aria-label="Search"></wcs-mat-icon>
         </wcs-button>
     </wcs-form-field>
 
     <wcs-form-field ?is-error=${args.isError}>
         <wcs-input placeholder="Region"></wcs-input>
         <wcs-button shape="square" slot="suffix" ripple="false">
-            <wcs-mat-icon icon="search" role="img" aria-label="Rechercher"></wcs-mat-icon>
+            <wcs-mat-icon icon="search" role="img" aria-label="Search"></wcs-mat-icon>
         </wcs-button>
     </wcs-form-field>
 
@@ -179,14 +227,18 @@ const SelectButtonTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) =>
             <wcs-select-option value="Germany">Germany</wcs-select-option>
             <wcs-select-option value="Japan">Japan</wcs-select-option>
         </wcs-select>
-        <wcs-select placeholder="Selectionner information..." slot="suffix">
-            <wcs-select-option value="nbGares">Nombre de gares</wcs-select-option>
-            <wcs-select-option value="nbLignes">Nombre de lignes de trains</wcs-select-option>
+        <wcs-select placeholder="Select data..." slot="suffix">
+            <wcs-select-option value="nbStations">Number of train stations</wcs-select-option>
+            <wcs-select-option value="nbLines">Number of train lines</wcs-select-option>
         </wcs-select>
     </wcs-form-field>
 `;
-export const PrefixSuffixGroup = SelectButtonTemplate.bind({});
-PrefixSuffixGroup.args = {};
+export const PrefixSuffixGroup: StoryObj = {
+    render: (args) => PrefixSuffixGroupTemplate(args, this),
+    args: {
+        ...Default.args
+    }
+}
 
 const TooltipOnLabelTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) => html`
     <wcs-form-field ?is-error=${args.isError}>
@@ -194,75 +246,27 @@ const TooltipOnLabelTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) 
             Enter your name
             <wcs-mat-icon size="s" icon="help" id="help"></wcs-mat-icon>
         </wcs-label>
-        <wcs-tooltip for="help" position="right">Logoden biniou degemer mat an penn ar bed c’har, se seizh sae Kernev
-            diwezhañ foenn goulenn yac’h dad, kastell pegen stivell dre chokolad Montroulez plijet.
+        <wcs-tooltip for="help" position="right">
+            Logoden biniou degemer mat an penn ar bed c’har, se seizh sae Kernev diwezhañ foenn goulenn yac’h dad,
+            kastell pegen stivell dre chokolad Montroulez plijet.
         </wcs-tooltip>
-        <wcs-input required placeholder="John doe"></wcs-input>
-        <wcs-hint>A name is something that describe a person, like you can call the person by his name, you get it?
-        </wcs-hint>
-        <wcs-error>Your name is not valid, please do the needful following <a
-            href="https://www.service-public.fr/particuliers/vosdroits/F1656">this</a>.
+        <wcs-input required placeholder="John Doe"></wcs-input>
+        <wcs-hint>A name is something that describe a person, like you can call the person by his name, you get it?</wcs-hint>
+        <wcs-error>Your name is not valid, please do what is necessary
+            <a href="https://www.service-public.fr/particuliers/vosdroits/F1656">here</a>.
         </wcs-error>
     </wcs-form-field>
 `;
-export const TooltipOnLabel = TooltipOnLabelTemplate.bind({});
-TooltipOnLabel.parameters = {
-    docs: {
-        description: {
-            story: tooltipOnLabelDocumentation,
-        },
-    },
-};
-TooltipOnLabel.args = {};
-
-const TooltipOnTwoSelectsTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args: Partial<FormFieldStoriesParams>) => html`
-    <wcs-form-field ?is-error=${args.isError}>
-        <wcs-select placeholder="All" slot="prefix">
-            <wcs-select-option value="1" chip-background-color="var(--wcs-pink)">One</wcs-select-option>
-            <wcs-select-option value="2" chip-background-color="var(--wcs-yellow)" chip-color="var(--wcs-black)">Two</wcs-select-option>
-            <wcs-select-option value="3" chip-background-color="var(--wcs-red)">Three</wcs-select-option>
-        </wcs-select>
-        <wcs-select placeholder="Selectionner..." slot="suffix">
-            <wcs-select-option value="1" chip-background-color="var(--wcs-pink)">One</wcs-select-option>
-            <wcs-select-option value="2" chip-background-color="var(--wcs-yellow)" chip-color="var(--wcs-black)">Two</wcs-select-option>
-            <wcs-select-option value="3" chip-background-color="var(--wcs-red)">Three</wcs-select-option>
-        </wcs-select>
-    </wcs-form-field>
-`;
-
-export const TooltipOnTwoSelects = TooltipOnTwoSelectsTemplate.bind({});
-TooltipOnTwoSelects.args = {};
-
-const InputsDateTamplates : StoryFn<Partial<FormFieldStoriesParams>> = (args: Partial<FormFieldStoriesParams>) => html`
-    <div style="display: flex; flex-direction: row; gap: var(--wcs-base-margin); align-items: center">
-        <wcs-form-field ?is-error=${args.isError}>
-            <wcs-label>What is your country ?</wcs-label>
-            <wcs-select placeholder="Select a country" required>
-                <wcs-select-option>France</wcs-select-option>
-                <wcs-select-option>Germany</wcs-select-option>
-                <wcs-select-option>Japan</wcs-select-option>
-            </wcs-select>
-            <wcs-hint>You can call the person by his country music</wcs-hint>
-            <wcs-error>Your country is not valid</wcs-error>
-        </wcs-form-field>
-
-        <wcs-form-field ?is-error=${args.isError}>
-            <wcs-label>Enter your name</wcs-label>
-            <wcs-input placeholder="John doe"></wcs-input>
-            <wcs-hint>A name is something that describe a person, like you can call the person by his name, you get it?
-            </wcs-hint>
-            <wcs-error>Your name is not valid, please do the needful following <a
-                href="https://www.service-public.fr/particuliers/vosdroits/F1656">this</a>.
-            </wcs-error>
-        </wcs-form-field>
-
-        <wcs-form-field ?is-error=${args.isError}>
-            <wcs-label>Enter first date</wcs-label>
-            <wcs-input type="date"></wcs-input>
-            <wcs-hint>The first date is the first date to set</wcs-hint>
-            <wcs-error>Your first date is not valid</wcs-error>
-        </wcs-form-field>
-    </div>
-`;
-export const Inputs = InputsDateTamplates.bind({});
-Inputs.args = {};
+/**
+ * In the most complex cases, where a hint would not be enough, you can use a tooltip on the label of a wcs field to add
+ * information to the user (for example with rich html content).
+ *
+ * However, try to limit this scenario as much as possible as it complicates the user experience and relies on less
+ * discoverable content.
+ */
+export const TooltipOnLabel: StoryObj = {
+    render: (args) => TooltipOnLabelTemplate(args, this),
+    args: {
+        ...Default.args
+    }
+}

@@ -2,8 +2,34 @@ import { Component, ComponentInterface, Element, h, Host, Prop, State, Watch } f
 import { isMutableAriaAttribute } from "../../utils/mutable-aria-attribute";
 
 /**
- * TODO:
- * - [ ] Suffix button style
+ * Form field component wraps the native input element and add some more functionality on top of it.
+ *
+ * You can use the `wcs-form-field` to wrap any of these components :
+ * - `wcs-input`
+ * - `wcs-textarea`
+ * - `wcs-radio-group`
+ * - `wcs-switch`
+ * - `wcs-checkbox`
+ * - `wcs-native-select`
+ * - `wcs-select`
+ * - `wcs-counter`
+ *
+ * For non-supported slotted component, you can use the `required` attribute on the wrapped component to tell the
+ * form-field that it is required. It will add a red star after the label of the form field.
+ * 
+ * ## Accessibility guidelines 💡
+ * - Each form control should be identified with a unique `wcs-label`
+ * - Don't forget to add form validation to make sure the data is correctly formatted
+ * - If the `wcs-label` is required, the form control must have the `required` HTML attribute and vice-versa (this is normally automatically set)
+ * - The form should not be submittable if at least one required form control is not filled
+ * - Hints are optional and should only be used to add extra information
+ * 
+ * @slot label - Automatically filled when a `wcs-label` is provided
+ * @slot <no-name> - The main slot containing the wrapped component
+ * @slot prefix - (Optional) Display a component as prefix. See "Prefix Suffix Group" story for more info.
+ * @slot suffix - (Optional) Display a component as suffix. See "Prefix Suffix Group" story for more info.
+ * @slot error - Automatically filled when a `wcs-error` is provided
+ * @slot messages - Automatically filled when a `wcs-hint` is provided
  */
 @Component({
     tag: 'wcs-form-field',

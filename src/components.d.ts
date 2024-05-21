@@ -332,6 +332,14 @@ export namespace Components {
          */
         "value": any;
     }
+    /**
+     * The `wcs-error` should always be wrapped in a `wcs-form-field`.
+     * It is used to display a red message under the field indicating an incorrect user input.
+     * ## Accessibility guidelines 💡
+     * - Provide a relevant error message to inform the users what they should change to make the field valid
+     * - `aria-description` will be automatically added to the field for screen readers
+     * - `aria-invalid="true"` will be automatically added to the field for screen readers
+     */
     interface WcsError {
     }
     interface WcsField {
@@ -343,8 +351,24 @@ export namespace Components {
     interface WcsFooter {
     }
     /**
-     * TODO:
-     * - [ ] Suffix button style
+     * Form field component wraps the native input element and add some more functionality on top of it.
+     * You can use the `wcs-form-field` to wrap any of these components :
+     * - `wcs-input`
+     * - `wcs-textarea`
+     * - `wcs-radio-group`
+     * - `wcs-switch`
+     * - `wcs-checkbox`
+     * - `wcs-native-select`
+     * - `wcs-select`
+     * - `wcs-counter`
+     * For non-supported slotted component, you can use the `required` attribute on the wrapped component to tell the
+     * form-field that it is required. It will add a red star after the label of the form field.
+     * ## Accessibility guidelines 💡
+     * - Each form control should be identified with a unique `wcs-label`
+     * - Don't forget to add form validation to make sure the data is correctly formatted
+     * - If the `wcs-label` is required, the form control must have the `required` HTML attribute and vice-versa (this is normally automatically set)
+     * - The form should not be submittable if at least one required form control is not filled
+     * - Hints are optional and should only be used to add extra information
      */
     interface WcsFormField {
         /**
@@ -490,6 +514,13 @@ export namespace Components {
     }
     interface WcsHeader {
     }
+    /**
+     * The `wcs-hint` should always be wrapped in a `wcs-form-field`.
+     * It is used to display an informative message under the field indicating an incorrect user input.
+     * ## Accessibility guidelines 💡
+     * - Provide a relevant hint message to inform the users about the format, how the data should be filled in, or what is the purpose of the field
+     * - `aria-description` will be automatically added to the field for screen readers
+     */
     interface WcsHint {
         /**
           * Whether the component should display the small version of the hint
@@ -672,7 +703,17 @@ export namespace Components {
          */
         "value"?: string | number | null;
     }
+    /**
+     * The `wcs-label` should always be wrapped in a `wcs-form-field`.
+     * It is used to caption a form control component.
+     * ## Accessibility guidelines 💡
+     * - Use concise name for the label. If you want to describe more your form control, add a `wcs-hint`
+     * - Use the required flag only as an indication to inform users that the form control is required
+     */
     interface WcsLabel {
+        /**
+          * If `true`, marks the label with a red star. Automatically added if the wrapped component inside the `wcs-form-field` already has the `required` attribute.
+         */
         "required": boolean;
     }
     interface WcsListItem {
@@ -1560,6 +1601,14 @@ declare global {
         prototype: HTMLWcsEditableFieldElement;
         new (): HTMLWcsEditableFieldElement;
     };
+    /**
+     * The `wcs-error` should always be wrapped in a `wcs-form-field`.
+     * It is used to display a red message under the field indicating an incorrect user input.
+     * ## Accessibility guidelines 💡
+     * - Provide a relevant error message to inform the users what they should change to make the field valid
+     * - `aria-description` will be automatically added to the field for screen readers
+     * - `aria-invalid="true"` will be automatically added to the field for screen readers
+     */
     interface HTMLWcsErrorElement extends Components.WcsError, HTMLStencilElement {
     }
     var HTMLWcsErrorElement: {
@@ -1591,8 +1640,24 @@ declare global {
         new (): HTMLWcsFooterElement;
     };
     /**
-     * TODO:
-     * - [ ] Suffix button style
+     * Form field component wraps the native input element and add some more functionality on top of it.
+     * You can use the `wcs-form-field` to wrap any of these components :
+     * - `wcs-input`
+     * - `wcs-textarea`
+     * - `wcs-radio-group`
+     * - `wcs-switch`
+     * - `wcs-checkbox`
+     * - `wcs-native-select`
+     * - `wcs-select`
+     * - `wcs-counter`
+     * For non-supported slotted component, you can use the `required` attribute on the wrapped component to tell the
+     * form-field that it is required. It will add a red star after the label of the form field.
+     * ## Accessibility guidelines 💡
+     * - Each form control should be identified with a unique `wcs-label`
+     * - Don't forget to add form validation to make sure the data is correctly formatted
+     * - If the `wcs-label` is required, the form control must have the `required` HTML attribute and vice-versa (this is normally automatically set)
+     * - The form should not be submittable if at least one required form control is not filled
+     * - Hints are optional and should only be used to add extra information
      */
     interface HTMLWcsFormFieldElement extends Components.WcsFormField, HTMLStencilElement {
     }
@@ -1693,6 +1758,13 @@ declare global {
         prototype: HTMLWcsHeaderElement;
         new (): HTMLWcsHeaderElement;
     };
+    /**
+     * The `wcs-hint` should always be wrapped in a `wcs-form-field`.
+     * It is used to display an informative message under the field indicating an incorrect user input.
+     * ## Accessibility guidelines 💡
+     * - Provide a relevant hint message to inform the users about the format, how the data should be filled in, or what is the purpose of the field
+     * - `aria-description` will be automatically added to the field for screen readers
+     */
     interface HTMLWcsHintElement extends Components.WcsHint, HTMLStencilElement {
     }
     var HTMLWcsHintElement: {
@@ -1755,6 +1827,13 @@ declare global {
         prototype: HTMLWcsInputElement;
         new (): HTMLWcsInputElement;
     };
+    /**
+     * The `wcs-label` should always be wrapped in a `wcs-form-field`.
+     * It is used to caption a form control component.
+     * ## Accessibility guidelines 💡
+     * - Use concise name for the label. If you want to describe more your form control, add a `wcs-hint`
+     * - Use the required flag only as an indication to inform users that the form control is required
+     */
     interface HTMLWcsLabelElement extends Components.WcsLabel, HTMLStencilElement {
     }
     var HTMLWcsLabelElement: {
@@ -2449,6 +2528,14 @@ declare namespace LocalJSX {
          */
         "value"?: any;
     }
+    /**
+     * The `wcs-error` should always be wrapped in a `wcs-form-field`.
+     * It is used to display a red message under the field indicating an incorrect user input.
+     * ## Accessibility guidelines 💡
+     * - Provide a relevant error message to inform the users what they should change to make the field valid
+     * - `aria-description` will be automatically added to the field for screen readers
+     * - `aria-invalid="true"` will be automatically added to the field for screen readers
+     */
     interface WcsError {
     }
     interface WcsField {
@@ -2460,8 +2547,24 @@ declare namespace LocalJSX {
     interface WcsFooter {
     }
     /**
-     * TODO:
-     * - [ ] Suffix button style
+     * Form field component wraps the native input element and add some more functionality on top of it.
+     * You can use the `wcs-form-field` to wrap any of these components :
+     * - `wcs-input`
+     * - `wcs-textarea`
+     * - `wcs-radio-group`
+     * - `wcs-switch`
+     * - `wcs-checkbox`
+     * - `wcs-native-select`
+     * - `wcs-select`
+     * - `wcs-counter`
+     * For non-supported slotted component, you can use the `required` attribute on the wrapped component to tell the
+     * form-field that it is required. It will add a red star after the label of the form field.
+     * ## Accessibility guidelines 💡
+     * - Each form control should be identified with a unique `wcs-label`
+     * - Don't forget to add form validation to make sure the data is correctly formatted
+     * - If the `wcs-label` is required, the form control must have the `required` HTML attribute and vice-versa (this is normally automatically set)
+     * - The form should not be submittable if at least one required form control is not filled
+     * - Hints are optional and should only be used to add extra information
      */
     interface WcsFormField {
         /**
@@ -2627,6 +2730,13 @@ declare namespace LocalJSX {
     }
     interface WcsHeader {
     }
+    /**
+     * The `wcs-hint` should always be wrapped in a `wcs-form-field`.
+     * It is used to display an informative message under the field indicating an incorrect user input.
+     * ## Accessibility guidelines 💡
+     * - Provide a relevant hint message to inform the users about the format, how the data should be filled in, or what is the purpose of the field
+     * - `aria-description` will be automatically added to the field for screen readers
+     */
     interface WcsHint {
         /**
           * Whether the component should display the small version of the hint
@@ -2814,7 +2924,17 @@ declare namespace LocalJSX {
          */
         "value"?: string | number | null;
     }
+    /**
+     * The `wcs-label` should always be wrapped in a `wcs-form-field`.
+     * It is used to caption a form control component.
+     * ## Accessibility guidelines 💡
+     * - Use concise name for the label. If you want to describe more your form control, add a `wcs-hint`
+     * - Use the required flag only as an indication to inform users that the form control is required
+     */
     interface WcsLabel {
+        /**
+          * If `true`, marks the label with a red star. Automatically added if the wrapped component inside the `wcs-form-field` already has the `required` attribute.
+         */
         "required"?: boolean;
     }
     interface WcsListItem {
@@ -3507,14 +3627,38 @@ declare module "@stencil/core" {
              */
             "wcs-dropdown-item": LocalJSX.WcsDropdownItem & JSXBase.HTMLAttributes<HTMLWcsDropdownItemElement>;
             "wcs-editable-field": LocalJSX.WcsEditableField & JSXBase.HTMLAttributes<HTMLWcsEditableFieldElement>;
+            /**
+             * The `wcs-error` should always be wrapped in a `wcs-form-field`.
+             * It is used to display a red message under the field indicating an incorrect user input.
+             * ## Accessibility guidelines 💡
+             * - Provide a relevant error message to inform the users what they should change to make the field valid
+             * - `aria-description` will be automatically added to the field for screen readers
+             * - `aria-invalid="true"` will be automatically added to the field for screen readers
+             */
             "wcs-error": LocalJSX.WcsError & JSXBase.HTMLAttributes<HTMLWcsErrorElement>;
             "wcs-field": LocalJSX.WcsField & JSXBase.HTMLAttributes<HTMLWcsFieldElement>;
             "wcs-field-content": LocalJSX.WcsFieldContent & JSXBase.HTMLAttributes<HTMLWcsFieldContentElement>;
             "wcs-field-label": LocalJSX.WcsFieldLabel & JSXBase.HTMLAttributes<HTMLWcsFieldLabelElement>;
             "wcs-footer": LocalJSX.WcsFooter & JSXBase.HTMLAttributes<HTMLWcsFooterElement>;
             /**
-             * TODO:
-             * - [ ] Suffix button style
+             * Form field component wraps the native input element and add some more functionality on top of it.
+             * You can use the `wcs-form-field` to wrap any of these components :
+             * - `wcs-input`
+             * - `wcs-textarea`
+             * - `wcs-radio-group`
+             * - `wcs-switch`
+             * - `wcs-checkbox`
+             * - `wcs-native-select`
+             * - `wcs-select`
+             * - `wcs-counter`
+             * For non-supported slotted component, you can use the `required` attribute on the wrapped component to tell the
+             * form-field that it is required. It will add a red star after the label of the form field.
+             * ## Accessibility guidelines 💡
+             * - Each form control should be identified with a unique `wcs-label`
+             * - Don't forget to add form validation to make sure the data is correctly formatted
+             * - If the `wcs-label` is required, the form control must have the `required` HTML attribute and vice-versa (this is normally automatically set)
+             * - The form should not be submittable if at least one required form control is not filled
+             * - Hints are optional and should only be used to add extra information
              */
             "wcs-form-field": LocalJSX.WcsFormField & JSXBase.HTMLAttributes<HTMLWcsFormFieldElement>;
             "wcs-galactic": LocalJSX.WcsGalactic & JSXBase.HTMLAttributes<HTMLWcsGalacticElement>;
@@ -3540,6 +3684,13 @@ declare module "@stencil/core" {
              */
             "wcs-grid-pagination": LocalJSX.WcsGridPagination & JSXBase.HTMLAttributes<HTMLWcsGridPaginationElement>;
             "wcs-header": LocalJSX.WcsHeader & JSXBase.HTMLAttributes<HTMLWcsHeaderElement>;
+            /**
+             * The `wcs-hint` should always be wrapped in a `wcs-form-field`.
+             * It is used to display an informative message under the field indicating an incorrect user input.
+             * ## Accessibility guidelines 💡
+             * - Provide a relevant hint message to inform the users about the format, how the data should be filled in, or what is the purpose of the field
+             * - `aria-description` will be automatically added to the field for screen readers
+             */
             "wcs-hint": LocalJSX.WcsHint & JSXBase.HTMLAttributes<HTMLWcsHintElement>;
             "wcs-horizontal-stepper": LocalJSX.WcsHorizontalStepper & JSXBase.HTMLAttributes<HTMLWcsHorizontalStepperElement>;
             "wcs-icon": LocalJSX.WcsIcon & JSXBase.HTMLAttributes<HTMLWcsIconElement>;
@@ -3557,6 +3708,13 @@ declare module "@stencil/core" {
              * </details>
              */
             "wcs-input": LocalJSX.WcsInput & JSXBase.HTMLAttributes<HTMLWcsInputElement>;
+            /**
+             * The `wcs-label` should always be wrapped in a `wcs-form-field`.
+             * It is used to caption a form control component.
+             * ## Accessibility guidelines 💡
+             * - Use concise name for the label. If you want to describe more your form control, add a `wcs-hint`
+             * - Use the required flag only as an indication to inform users that the form control is required
+             */
             "wcs-label": LocalJSX.WcsLabel & JSXBase.HTMLAttributes<HTMLWcsLabelElement>;
             "wcs-list-item": LocalJSX.WcsListItem & JSXBase.HTMLAttributes<HTMLWcsListItemElement>;
             "wcs-list-item-properties": LocalJSX.WcsListItemProperties & JSXBase.HTMLAttributes<HTMLWcsListItemPropertiesElement>;

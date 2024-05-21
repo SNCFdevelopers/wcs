@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-05-03T15:25:45",
+  "timestamp": "2024-05-16T16:26:21",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -2442,7 +2442,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-error",
       "readme": "# wcs-error\r\n\r\n\r\n\r",
-      "docs": "",
+      "docs": "The `wcs-error` should always be wrapped in a `wcs-form-field`.\r\nIt is used to display a red message under the field indicating an incorrect user input.\r\n\r\n## Accessibility guidelines 💡\r\n- Provide a relevant error message to inform the users what they should change to make the field valid\r\n- `aria-description` will be automatically added to the field for screen readers\r\n- `aria-invalid=\"true\"` will be automatically added to the field for screen readers",
       "docsTags": [],
       "usage": {},
       "props": [],
@@ -2587,8 +2587,33 @@
       "encapsulation": "shadow",
       "tag": "wcs-form-field",
       "readme": "# Form field\r\n\r\n\r",
-      "docs": "TODO:\r\n- [ ] Suffix button style",
-      "docsTags": [],
+      "docs": "Form field component wraps the native input element and add some more functionality on top of it.\r\n\r\nYou can use the `wcs-form-field` to wrap any of these components :\r\n- `wcs-input`\r\n- `wcs-textarea`\r\n- `wcs-radio-group`\r\n- `wcs-switch`\r\n- `wcs-checkbox`\r\n- `wcs-native-select`\r\n- `wcs-select`\r\n- `wcs-counter`\r\n\r\nFor non-supported slotted component, you can use the `required` attribute on the wrapped component to tell the\r\nform-field that it is required. It will add a red star after the label of the form field.\r\n\r\n## Accessibility guidelines 💡\r\n- Each form control should be identified with a unique `wcs-label`\r\n- Don't forget to add form validation to make sure the data is correctly formatted\r\n- If the `wcs-label` is required, the form control must have the `required` HTML attribute and vice-versa (this is normally automatically set)\r\n- The form should not be submittable if at least one required form control is not filled\r\n- Hints are optional and should only be used to add extra information",
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "label - Automatically filled when a `wcs-label` is provided"
+        },
+        {
+          "name": "slot",
+          "text": "<no-name> - The main slot containing the wrapped component"
+        },
+        {
+          "name": "slot",
+          "text": "prefix - (Optional) Display a component as prefix. See \"Prefix Suffix Group\" story for more info."
+        },
+        {
+          "name": "slot",
+          "text": "suffix - (Optional) Display a component as suffix. See \"Prefix Suffix Group\" story for more info."
+        },
+        {
+          "name": "slot",
+          "text": "error - Automatically filled when a `wcs-error` is provided"
+        },
+        {
+          "name": "slot",
+          "text": "messages - Automatically filled when a `wcs-hint` is provided"
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -2618,7 +2643,32 @@
       "events": [],
       "listeners": [],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "<no-name>",
+          "docs": "The main slot containing the wrapped component"
+        },
+        {
+          "name": "error",
+          "docs": "Automatically filled when a `wcs-error` is provided"
+        },
+        {
+          "name": "label",
+          "docs": "Automatically filled when a `wcs-label` is provided"
+        },
+        {
+          "name": "messages",
+          "docs": "Automatically filled when a `wcs-hint` is provided"
+        },
+        {
+          "name": "prefix",
+          "docs": "(Optional) Display a component as prefix. See \"Prefix Suffix Group\" story for more info."
+        },
+        {
+          "name": "suffix",
+          "docs": "(Optional) Display a component as suffix. See \"Prefix Suffix Group\" story for more info."
+        }
+      ],
       "parts": [],
       "dependents": [
         "wcs-editable-field"
@@ -3604,7 +3654,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-hint",
       "readme": "# wcs-hint\r\n\r\n\r\n\r",
-      "docs": "",
+      "docs": "The `wcs-hint` should always be wrapped in a `wcs-form-field`.\r\nIt is used to display an informative message under the field indicating an incorrect user input.\r\n\r\n## Accessibility guidelines 💡\r\n- Provide a relevant hint message to inform the users about the format, how the data should be filled in, or what is the purpose of the field\r\n- `aria-description` will be automatically added to the field for screen readers",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -5180,7 +5230,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-label",
       "readme": "# wcs-label\r\n\r\n\r\n\r",
-      "docs": "",
+      "docs": "The `wcs-label` should always be wrapped in a `wcs-form-field`.\r\nIt is used to caption a form control component.\r\n\r\n## Accessibility guidelines 💡\r\n- Use concise name for the label. If you want to describe more your form control, add a `wcs-hint`\r\n- Use the required flag only as an indication to inform users that the form control is required",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -5195,7 +5245,7 @@
           "mutable": false,
           "attr": "required",
           "reflectToAttr": true,
-          "docs": "",
+          "docs": "If `true`, marks the label with a red star.\r\nAutomatically added if the wrapped component inside the `wcs-form-field` already has the `required` attribute.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -5713,7 +5763,7 @@
             "references": {
               "WcsNativeSelectSize": {
                 "location": "local",
-                "path": "C:/Users/9703514Y/Sources/Repos/wcs/src/components/native-select/native-select.tsx",
+                "path": "C:/Users/Rémi/Documents/Repos/wcs/src/components/native-select/native-select.tsx",
                 "id": "src/components/native-select/native-select.tsx::WcsNativeSelectSize"
               }
             }
