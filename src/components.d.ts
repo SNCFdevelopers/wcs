@@ -844,17 +844,16 @@ export namespace Components {
          */
         "updateStyles": () => Promise<void>;
     }
+    /**
+     * The nav component is a container for navigation links to other pages of the website.
+     */
     interface WcsNav {
     }
+    /**
+     * The nav-item component is a subcomponent of `wcs-nav` and should always be used inside it.  
+     * They contain links to navigate to other pages of the website.
+     */
     interface WcsNavItem {
-        /**
-          * Attributes mapped to a <a> tag.  Don't forget to specify [routerLink] if using in conjuction with angular router.
-         */
-        "href": string;
-        /**
-          * This attribute specify the text of the item.
-         */
-        "text": string;
     }
     /**
      * The progress-bar component is a horizontal bar that indicates the current completion of a task.
@@ -2045,12 +2044,19 @@ declare global {
         prototype: HTMLWcsNativeSelectElement;
         new (): HTMLWcsNativeSelectElement;
     };
+    /**
+     * The nav component is a container for navigation links to other pages of the website.
+     */
     interface HTMLWcsNavElement extends Components.WcsNav, HTMLStencilElement {
     }
     var HTMLWcsNavElement: {
         prototype: HTMLWcsNavElement;
         new (): HTMLWcsNavElement;
     };
+    /**
+     * The nav-item component is a subcomponent of `wcs-nav` and should always be used inside it.  
+     * They contain links to navigate to other pages of the website.
+     */
     interface HTMLWcsNavItemElement extends Components.WcsNavItem, HTMLStencilElement {
     }
     var HTMLWcsNavItemElement: {
@@ -3252,17 +3258,16 @@ declare namespace LocalJSX {
          */
         "size"?: WcsNativeSelectSize;
     }
+    /**
+     * The nav component is a container for navigation links to other pages of the website.
+     */
     interface WcsNav {
     }
+    /**
+     * The nav-item component is a subcomponent of `wcs-nav` and should always be used inside it.  
+     * They contain links to navigate to other pages of the website.
+     */
     interface WcsNavItem {
-        /**
-          * Attributes mapped to a <a> tag.  Don't forget to specify [routerLink] if using in conjuction with angular router.
-         */
-        "href"?: string;
-        /**
-          * This attribute specify the text of the item.
-         */
-        "text"?: string;
     }
     /**
      * The progress-bar component is a horizontal bar that indicates the current completion of a task.
@@ -4081,7 +4086,14 @@ declare module "@stencil/core" {
              * - It is strongly recommended to use select-native when you don't have to support the multi-selection feature
              */
             "wcs-native-select": LocalJSX.WcsNativeSelect & JSXBase.HTMLAttributes<HTMLWcsNativeSelectElement>;
+            /**
+             * The nav component is a container for navigation links to other pages of the website.
+             */
             "wcs-nav": LocalJSX.WcsNav & JSXBase.HTMLAttributes<HTMLWcsNavElement>;
+            /**
+             * The nav-item component is a subcomponent of `wcs-nav` and should always be used inside it.  
+             * They contain links to navigate to other pages of the website.
+             */
             "wcs-nav-item": LocalJSX.WcsNavItem & JSXBase.HTMLAttributes<HTMLWcsNavItemElement>;
             /**
              * The progress-bar component is a horizontal bar that indicates the current completion of a task.

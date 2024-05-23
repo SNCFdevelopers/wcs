@@ -4,13 +4,10 @@
 <!-- Auto Generated Below -->
 
 
-## Properties
+## Overview
 
-| Property | Attribute | Description                                                                                                       | Type     | Default     |
-| -------- | --------- | ----------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| `href`   | `href`    | Attributes mapped to a <a> tag.  Don't forget to specify [routerLink] if using in conjuction with angular router. | `string` | `undefined` |
-| `text`   | `text`    | This attribute specify the text of the item.                                                                      | `string` | `''`        |
-
+The nav-item component is a subcomponent of `wcs-nav` and should always be used inside it.  
+They contain links to navigate to other pages of the website.
 
 ----------------------------------------------
 

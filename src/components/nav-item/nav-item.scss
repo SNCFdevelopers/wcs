@@ -4,9 +4,11 @@
 wcs-nav-item {
     display: block;
     cursor: pointer;
+    font-weight: 500;
 
     a {
         display: flex;
+        position: relative;
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -23,7 +25,7 @@ wcs-nav-item {
         font-size: 0.75rem;
         color: var(--wcs-contrast);
 
-        &:not(.active) {
+        &:not(wcs-nav-item.active, wcs-nav-item:has(> .active)) {
             border-bottom: 1px solid rgba(255, 255, 255, .2);
         }
 
@@ -41,14 +43,26 @@ wcs-nav-item {
     }
 
     @include for-tablet-landscape-down {
-        &:focus-within {
+        &:has(a:focus-visible) {
             @include focus-outline(var(--wcs-primary), 0.1rem, 1px);
+        }
+
+        @supports not selector(&:has(a:focus-visible)){
+            &:focus-within {
+                @include focus-outline(var(--wcs-primary), 0.1rem, 1px);
+            }
         }
     }
 
     @include for-desktop-up {
-        &:focus-within {
+        &:has(a:focus-visible) {
             @include focus-outline(var(--wcs-white), 0.1rem, -2px);
+        }
+
+        @supports not selector(&:has(a:focus-visible)){
+            &:focus-within {
+                @include focus-outline(var(--wcs-white), 0.1rem, -2px);
+            }
         }
     }
 
@@ -66,18 +80,14 @@ wcs-nav-item[slot=bottom] {
     a {
         @include for-desktop-up {
             border-top: 1px solid rgba(255, 255, 255, .2);
-            border-bottom: none;
+            border-bottom: none !important;
         }
     }
 }
 
-.wcs-nav-item-text {
-    font-weight: 500;
-}
-
-.active,
-wcs-nav-item:hover,
-wcs-nav-item:focus-within {
+wcs-nav-item.active,
+wcs-nav-item:has(> .active),
+wcs-nav-item:hover {
     background-blend-mode: multiply;
     background-color: rgba(0,0,0,0.15);
 /*
@@ -91,3 +101,27 @@ wcs-nav-item:focus-within {
     }
 }
 
+// For the indicator on the active nav-item :
+wcs-nav-item.active, wcs-nav-item:has(> .active) {
+    a::after {
+        position: absolute;
+        right: 0;
+        width: calc(var(--wcs-base-size) / 2);
+        height: calc(var(--wcs-base-size) * 3);
+        content: "";
+        /* TODO: replace later with design token */
+        background-color: #A9D9FF;
+        border-radius: 8px 0 0 8px;
+    }
+
+    @include for-tablet-landscape-down {
+        a::after {
+            right: auto;
+            bottom: 0;
+            width: calc(var(--wcs-base-size) * 3);
+            height: calc(var(--wcs-base-size) / 2);
+            background-color: var(--wcs-primary);
+            border-radius: 8px 8px 0 0;
+        }
+    }
+}

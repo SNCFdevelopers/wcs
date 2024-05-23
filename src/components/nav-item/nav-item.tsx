@@ -1,27 +1,17 @@
-import { Element, Component, ComponentInterface, h, Listen, Prop } from '@stencil/core';
+import { Element, Component, ComponentInterface, h, Listen, Host } from '@stencil/core';
 import { isEnterKey } from "../../utils/helpers";
 
+/**
+ * The nav-item component is a subcomponent of `wcs-nav` and should always be used inside it.  
+ * They contain links to navigate to other pages of the website.
+ */
 @Component({
     tag: 'wcs-nav-item',
     styleUrl: 'nav-item.scss'
 })
 export class NavItem implements ComponentInterface {
     @Element() private el: HTMLElement;
-
-    /**
-     * This attribute specify the text of the item.
-     */
-    @Prop({reflect: true})
-    text: string = '';
-
-    /**
-     * Attributes mapped to a <a> tag.
-     *
-     * Don't forget to specify [routerLink] if using in conjuction with angular router.
-     */
-    @Prop({reflect: true})
-    href: string;
-
+    
     @Listen('keydown')
     onKeyDown(_event: KeyboardEvent) {
         if (isEnterKey(_event)) {
@@ -31,12 +21,9 @@ export class NavItem implements ComponentInterface {
 
     render() {
         return (
-            <a href={this.href} class="wcs-nav-item-container">
+            <Host role="listitem">
                 <slot/>
-                <span class="wcs-nav-item-text">
-                    {this.text}
-                </span>
-            </a>
+            </Host>
         );
     }
 }

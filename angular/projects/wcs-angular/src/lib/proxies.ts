@@ -1152,14 +1152,13 @@ export declare interface WcsNav extends Components.WcsNav {}
 
 
 @ProxyCmp({
-  inputs: ['href', 'text']
 })
 @Component({
   selector: 'wcs-nav-item',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['href', 'text'],
+  inputs: [],
 })
 export class WcsNavItem {
   protected el: HTMLElement;

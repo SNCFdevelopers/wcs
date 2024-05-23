@@ -209,15 +209,22 @@ Now, lets create the navbar component. It contains the navigation bar of your pr
         </div>
         <!-- your about modal content (CGU, version, etc...) s-->
     </wcs-modal>
-    <wcs-nav class="nav">
-      <wcs-nav-item id="home" text="Accueil" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-        <wcs-mat-icon icon="home"></wcs-mat-icon>
+    <wcs-nav class="nav" aria-label="Menu principal">
+      <wcs-nav-item id="home">
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <wcs-mat-icon icon="home"></wcs-mat-icon>
+          <span>Accueil</span>
+        </a>
       </wcs-nav-item>
-      <wcs-nav-item id="other" text="Autre" routerLink="/other" routerLinkActive="active">
-        <wcs-mat-icon icon="other"></wcs-mat-icon>
+      <wcs-nav-item id="other">
+        <a routerLink="/other" routerLinkActive="active">
+          <wcs-mat-icon icon="other"></wcs-mat-icon>
+          <span>Autre</span>
+        </a>
       </wcs-nav-item>
-      <wcs-nav-item id="about" slot="bottom" text="A propos" (click)="showAboutModal = true">
+      <wcs-nav-item id="about" slot="bottom" (click)="showAboutModal = true">
         <wcs-mat-icon icon="help"></wcs-mat-icon>
+        <span>A propos</span>  
       </wcs-nav-item>
     </wcs-nav>
   `,

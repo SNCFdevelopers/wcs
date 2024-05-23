@@ -8033,9 +8033,36 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "",
+          "description": "The nav component is a container for navigation links to other pages of the website.",
           "name": "Nav",
+          "slots": [
+            {
+              "description": "Bottom part of the nav to put to nav-items at the end",
+              "name": "bottom"
+            }
+          ],
           "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsProgressBarElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "method",
+              "name": "onAriaLabelChange"
+            },
             {
               "kind": "method",
               "name": "render"
@@ -8071,7 +8098,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "",
+          "description": "The nav-item component is a subcomponent of `wcs-nav` and should always be used inside it.  \r\nThey contain links to navigate to other pages of the website.",
           "name": "NavItem",
           "members": [
             {
@@ -8081,23 +8108,6 @@
                 "text": "HTMLElement"
               },
               "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "text",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "description": "This attribute specify the text of the item."
-            },
-            {
-              "kind": "field",
-              "name": "href",
-              "type": {
-                "text": "string"
-              },
-              "description": "Attributes mapped to a <a> tag.\r\n\r\nDon't forget to specify [routerLink] if using in conjuction with angular router."
             },
             {
               "kind": "method",
@@ -8114,22 +8124,6 @@
             {
               "kind": "method",
               "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "text",
-              "fieldName": "text",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "href",
-              "fieldName": "href",
-              "type": {
-                "text": "string"
-              }
             }
           ],
           "tagName": "wcs-nav-item",

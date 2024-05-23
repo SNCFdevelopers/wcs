@@ -8,6 +8,19 @@ nav {
     width: 6.25rem;
     height: 100%;
 
+    div[role="list"] {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+
+        @include for-tablet-landscape-down {
+            flex-direction: row;
+        }
+    }
+
     @include for-tablet-landscape-down {
         flex-direction: row;
         background-image: linear-gradient(0deg, var(--wcs-light), var(--wcs-light));

@@ -2,6 +2,9 @@ import {Meta} from '@storybook/addon-docs';
 
 <Meta title="Documentation/Migrations/v5 to v6"/>
 
+
+<style>{`h3 { border-bottom: 1px solid rgb(38 85 115 / 15%) !important }`}</style>
+
 # Migrate from v5 to v6
 
 WCS v6 contains breaking changes only in the following packages:
@@ -66,7 +69,68 @@ You can still know which radio is selected in the **group** by relying on the `w
 
 **For the `wcsFilterChange` event,** interface `SelectFilerChangeEventDetail` has been renamed to `SelectFilterChangeEventDetail` (missing letter).
 👉 If you were importing the TypeScript interface `SelectFilerChangeEventDetail` in your project, make sure you rename it to `SelectFilterChangeEventDetail`.
- 
+
+
+### wcs-nav and wcs-nav-item
+
+Motivated by accessibility and flexibility concerns, there are breaking changes in the API and templating of the business navigation bar :
+- You now have to add your own `<a>` element inside the `<wcs-nav-item>`. WCS won't generate it for you anymore.
+- Attribute `href` is now removed : replace it with a native `href` attribute on your `<a>` element
+- Attribute `text` is now removed. Replace it with a `<span>` inside your `<a>` element
+
+**Template before ❌**
+```html
+<wcs-nav aria-label="Main menu">
+⠀⠀⠀⠀<wcs-nav-item text="Example" href="/example">
+⠀⠀⠀⠀    <wcs-mat-icon icon="train"></wcs-mat-icon>
+⠀⠀⠀⠀</wcs-nav-item>
+⠀⠀⠀⠀<wcs-nav-item slot="bottom" text="About" href="/about">
+⠀⠀⠀⠀    <wcs-mat-icon icon="question_mark"></wcs-mat-icon>
+⠀⠀⠀⠀</wcs-nav-item>
+</wcs-nav>
+```
+
+**Template after ✅**
+```html
+<wcs-nav aria-label="Main menu">
+⠀⠀⠀⠀<wcs-nav-item>
+        <a href="/example">
+    ⠀⠀⠀⠀    <wcs-mat-icon icon="train"></wcs-mat-icon>
+            <span>Example</span>
+        </a>
+⠀⠀⠀⠀</wcs-nav-item>
+⠀⠀⠀⠀<wcs-nav-item slot="bottom">
+        <a href="/about">
+    ⠀⠀⠀⠀    <wcs-mat-icon icon="question_mark"></wcs-mat-icon>
+            <span>About</span>
+        </a>
+⠀⠀⠀⠀</wcs-nav-item>
+</wcs-nav>
+```
+
+**Angular**  
+The `routerLink` and `routerLinkActive` should be added on the `<a>` from now on :
+```html
+<wcs-nav-item text="Example">
+    <a routerLink="/example" routerLinkActive="active">
+        <wcs-mat-icon icon="train"></wcs-mat-icon>
+        <span>Example</span>
+    </a>
+</wcs-nav-item>
+```
+
+**React**  
+You can use a `<NavLink>` inside a `<WcsNavItem>` :
+```html
+<WcsNavItem text="Example">
+    <NavLink to="/example">
+        <WcsMatIcon icon="train"></WcsMatIcon>
+        <span>Example</span>
+    </NavLink>
+</WcsNavItem>
+```
+
+
 ## wcs-angular
 
 ### wcs-radio
@@ -81,6 +145,10 @@ The `wcs-editable-field` component has been updated to match the [changes](#wcs-
 
 The `wcs-select` component has been updated to match the [changes](#wcs-select) in `wcs-core`.
 
+### wcs-nav and wcs-nav-item
+
+The `wcs-nav` and `wcs-nav-item` components have been updated to match the [changes](#wcs-nav-and-wcs-nav-item) in `wcs-core`.
+
 ## wcs-react
 
 ### wcs-radio
@@ -94,3 +162,7 @@ The `wcs-editable-field` component has been updated to match the [changes](#wcs-
 ### wcs-select
 
 The `wcs-select` component has been updated to match the [changes](#wcs-select) in `wcs-core`.
+
+### wcs-nav and wcs-nav-item
+
+The `wcs-nav` and `wcs-nav-item` components have been updated to match the [changes](#wcs-nav-and-wcs-nav-item) in `wcs-core`.
