@@ -298,6 +298,22 @@ export namespace Components {
      */
     interface WcsDropdownItem {
     }
+    /**
+     * The editable-field component can be used to simplify the user experience, avoiding the use of a redirection to a form
+     * to edit the data of an entity. You can use it with these wrapped components : `wcs-input`, `wcs-textarea`, `wcs-select`. 
+     * This component is not present in the SNCF design system specifications, so we tried to build it in the most
+     * "discoverable" way possible (for users who interact with), but it's a first version.
+     * **How to use ❓**  
+     * This component is mostly used with a server that returns a response to the input sent through the `wcsChange` event.
+     * It has 3 internal states :
+     * - DISPLAY = the default state of the editable-field
+     * - EDIT = the editable-field is editable, the user should input the data
+     * - LOADING = the data is submitted and the editable-field is waiting for a **response**
+     * A **response** is needed to get the component out of the LOADING state. You can either :
+     * - Set the `value` property to a different value to tell the component to refresh and go back into DISPLAY state
+     * - Use the `successHandler` callback through the `wcsChange` event (see interface [EditableComponentUpdateEvent](https://gitlab.com/SNCF/wcs/-/blob/develop/src/components/editable-field/editable-field-interface.tsx))
+     * - Use the `errorHandler` callback through the `wcsChange` event (see interface [EditableComponentUpdateEvent](https://gitlab.com/SNCF/wcs/-/blob/develop/src/components/editable-field/editable-field-interface.tsx))
+     */
     interface WcsEditableField {
         /**
           * Error message displayed under the field if validation failed.
@@ -1587,6 +1603,22 @@ declare global {
     interface HTMLWcsEditableFieldElementEventMap {
         "wcsChange": EditableComponentUpdateEvent;
     }
+    /**
+     * The editable-field component can be used to simplify the user experience, avoiding the use of a redirection to a form
+     * to edit the data of an entity. You can use it with these wrapped components : `wcs-input`, `wcs-textarea`, `wcs-select`. 
+     * This component is not present in the SNCF design system specifications, so we tried to build it in the most
+     * "discoverable" way possible (for users who interact with), but it's a first version.
+     * **How to use ❓**  
+     * This component is mostly used with a server that returns a response to the input sent through the `wcsChange` event.
+     * It has 3 internal states :
+     * - DISPLAY = the default state of the editable-field
+     * - EDIT = the editable-field is editable, the user should input the data
+     * - LOADING = the data is submitted and the editable-field is waiting for a **response**
+     * A **response** is needed to get the component out of the LOADING state. You can either :
+     * - Set the `value` property to a different value to tell the component to refresh and go back into DISPLAY state
+     * - Use the `successHandler` callback through the `wcsChange` event (see interface [EditableComponentUpdateEvent](https://gitlab.com/SNCF/wcs/-/blob/develop/src/components/editable-field/editable-field-interface.tsx))
+     * - Use the `errorHandler` callback through the `wcsChange` event (see interface [EditableComponentUpdateEvent](https://gitlab.com/SNCF/wcs/-/blob/develop/src/components/editable-field/editable-field-interface.tsx))
+     */
     interface HTMLWcsEditableFieldElement extends Components.WcsEditableField, HTMLStencilElement {
         addEventListener<K extends keyof HTMLWcsEditableFieldElementEventMap>(type: K, listener: (this: HTMLWcsEditableFieldElement, ev: WcsEditableFieldCustomEvent<HTMLWcsEditableFieldElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2490,6 +2522,22 @@ declare namespace LocalJSX {
          */
         "onWcsDropdownItemClick"?: (event: WcsDropdownItemCustomEvent<void>) => void;
     }
+    /**
+     * The editable-field component can be used to simplify the user experience, avoiding the use of a redirection to a form
+     * to edit the data of an entity. You can use it with these wrapped components : `wcs-input`, `wcs-textarea`, `wcs-select`. 
+     * This component is not present in the SNCF design system specifications, so we tried to build it in the most
+     * "discoverable" way possible (for users who interact with), but it's a first version.
+     * **How to use ❓**  
+     * This component is mostly used with a server that returns a response to the input sent through the `wcsChange` event.
+     * It has 3 internal states :
+     * - DISPLAY = the default state of the editable-field
+     * - EDIT = the editable-field is editable, the user should input the data
+     * - LOADING = the data is submitted and the editable-field is waiting for a **response**
+     * A **response** is needed to get the component out of the LOADING state. You can either :
+     * - Set the `value` property to a different value to tell the component to refresh and go back into DISPLAY state
+     * - Use the `successHandler` callback through the `wcsChange` event (see interface [EditableComponentUpdateEvent](https://gitlab.com/SNCF/wcs/-/blob/develop/src/components/editable-field/editable-field-interface.tsx))
+     * - Use the `errorHandler` callback through the `wcsChange` event (see interface [EditableComponentUpdateEvent](https://gitlab.com/SNCF/wcs/-/blob/develop/src/components/editable-field/editable-field-interface.tsx))
+     */
     interface WcsEditableField {
         /**
           * Error message displayed under the field if validation failed.
@@ -2504,7 +2552,7 @@ declare namespace LocalJSX {
          */
         "label": string;
         /**
-          * event called at each (valid) update of the field.
+          * Event called at each (valid) update of the field.
          */
         "onWcsChange"?: (event: WcsEditableFieldCustomEvent<EditableComponentUpdateEvent>) => void;
         /**
@@ -3626,6 +3674,22 @@ declare module "@stencil/core" {
              * You must add `wcs-dropdown-item` to `wcs-dropdown`
              */
             "wcs-dropdown-item": LocalJSX.WcsDropdownItem & JSXBase.HTMLAttributes<HTMLWcsDropdownItemElement>;
+            /**
+             * The editable-field component can be used to simplify the user experience, avoiding the use of a redirection to a form
+             * to edit the data of an entity. You can use it with these wrapped components : `wcs-input`, `wcs-textarea`, `wcs-select`. 
+             * This component is not present in the SNCF design system specifications, so we tried to build it in the most
+             * "discoverable" way possible (for users who interact with), but it's a first version.
+             * **How to use ❓**  
+             * This component is mostly used with a server that returns a response to the input sent through the `wcsChange` event.
+             * It has 3 internal states :
+             * - DISPLAY = the default state of the editable-field
+             * - EDIT = the editable-field is editable, the user should input the data
+             * - LOADING = the data is submitted and the editable-field is waiting for a **response**
+             * A **response** is needed to get the component out of the LOADING state. You can either :
+             * - Set the `value` property to a different value to tell the component to refresh and go back into DISPLAY state
+             * - Use the `successHandler` callback through the `wcsChange` event (see interface [EditableComponentUpdateEvent](https://gitlab.com/SNCF/wcs/-/blob/develop/src/components/editable-field/editable-field-interface.tsx))
+             * - Use the `errorHandler` callback through the `wcsChange` event (see interface [EditableComponentUpdateEvent](https://gitlab.com/SNCF/wcs/-/blob/develop/src/components/editable-field/editable-field-interface.tsx))
+             */
             "wcs-editable-field": LocalJSX.WcsEditableField & JSXBase.HTMLAttributes<HTMLWcsEditableFieldElement>;
             /**
              * The `wcs-error` should always be wrapped in a `wcs-form-field`.

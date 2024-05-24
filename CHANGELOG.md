@@ -33,7 +33,7 @@ for now removed features.
 - **switch**: change focus style to surround the input + the label
 - **list-item**: update style to fix unnecessary padding-left on a single `wcs-list-item-property` 
 - **accordion**: fix the font-family not rendering properly
-- **doc**: improve `wcs-form-field`, `wcs-hint`, `wcs-label` and `wcs-error` documentation
+- **doc**: improve `wcs-form-field`, `wcs-hint`, `wcs-label`, `wcs-error` and `wcs-editable-field` documentation
 
 ### Security
 

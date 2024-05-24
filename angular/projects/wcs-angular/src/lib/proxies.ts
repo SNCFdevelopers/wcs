@@ -518,7 +518,7 @@ import type { EditableComponentUpdateEvent as IWcsEditableFieldEditableComponent
 
 export declare interface WcsEditableField extends Components.WcsEditableField {
   /**
-   * event called at each (valid) update of the field.
+   * Event called at each (valid) update of the field.
    */
   wcsChange: EventEmitter<CustomEvent<IWcsEditableFieldEditableComponentUpdateEvent>>;
 }

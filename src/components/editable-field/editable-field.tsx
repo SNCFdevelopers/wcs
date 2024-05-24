@@ -26,6 +26,25 @@ enum EditableComponentState {
     LOAD
 }
 
+/**
+ * The editable-field component can be used to simplify the user experience, avoiding the use of a redirection to a form
+ * to edit the data of an entity. You can use it with these wrapped components : `wcs-input`, `wcs-textarea`, `wcs-select`. 
+ *
+ * This component is not present in the SNCF design system specifications, so we tried to build it in the most
+ * "discoverable" way possible (for users who interact with), but it's a first version.
+ * 
+ * **How to use ❓**  
+ * This component is mostly used with a server that returns a response to the input sent through the `wcsChange` event.
+ * It has 3 internal states :
+ * - DISPLAY = the default state of the editable-field
+ * - EDIT = the editable-field is editable, the user should input the data
+ * - LOADING = the data is submitted and the editable-field is waiting for a **response**
+ *
+ * A **response** is needed to get the component out of the LOADING state. You can either :
+ * - Set the `value` property to a different value to tell the component to refresh and go back into DISPLAY state
+ * - Use the `successHandler` callback through the `wcsChange` event (see interface [EditableComponentUpdateEvent](https://gitlab.com/SNCF/wcs/-/blob/develop/src/components/editable-field/editable-field-interface.tsx))
+ * - Use the `errorHandler` callback through the `wcsChange` event (see interface [EditableComponentUpdateEvent](https://gitlab.com/SNCF/wcs/-/blob/develop/src/components/editable-field/editable-field-interface.tsx))
+ */
 @Component({
     tag: 'wcs-editable-field',
     styleUrl: 'editable-field.scss',
@@ -44,7 +63,7 @@ export class EditableField implements ComponentInterface {
      */
     @Prop() label!: string;
     /**
-     * event called at each (valid) update of the field.
+     * Event called at each (valid) update of the field.
      */
     @Event() wcsChange!: EventEmitter<EditableComponentUpdateEvent>;
     /**
@@ -63,12 +82,10 @@ export class EditableField implements ComponentInterface {
      * Function used to format the value
      */
     @Prop() formatFn: FormatFn<any>;
-
     /**
      * Error message displayed under the field if validation failed.
      */
     @Prop() errorMsg: string = null;
-
     /**
      * Specify the size (height) of the editable field.
      */

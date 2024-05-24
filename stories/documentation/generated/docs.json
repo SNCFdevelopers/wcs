@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-05-16T16:26:21",
+  "timestamp": "2024-05-24T14:08:48",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -2174,7 +2174,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-editable-field",
       "readme": "# Editable fields\r\n\r",
-      "docs": "",
+      "docs": "The editable-field component can be used to simplify the user experience, avoiding the use of a redirection to a form\r\nto edit the data of an entity. You can use it with these wrapped components : `wcs-input`, `wcs-textarea`, `wcs-select`. \r\n\r\nThis component is not present in the SNCF design system specifications, so we tried to build it in the most\r\n\"discoverable\" way possible (for users who interact with), but it's a first version.\r\n\r\n**How to use ❓**  \r\nThis component is mostly used with a server that returns a response to the input sent through the `wcsChange` event.\r\nIt has 3 internal states :\r\n- DISPLAY = the default state of the editable-field\r\n- EDIT = the editable-field is editable, the user should input the data\r\n- LOADING = the data is submitted and the editable-field is waiting for a **response**\r\n\r\nA **response** is needed to get the component out of the LOADING state. You can either :\r\n- Set the `value` property to a different value to tell the component to refresh and go back into DISPLAY state\r\n- Use the `successHandler` callback through the `wcsChange` event (see interface [EditableComponentUpdateEvent](https://gitlab.com/SNCF/wcs/-/blob/develop/src/components/editable-field/editable-field-interface.tsx))\r\n- Use the `errorHandler` callback through the `wcsChange` event (see interface [EditableComponentUpdateEvent](https://gitlab.com/SNCF/wcs/-/blob/develop/src/components/editable-field/editable-field-interface.tsx))",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -2406,7 +2406,7 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "event called at each (valid) update of the field.",
+          "docs": "Event called at each (valid) update of the field.",
           "docsTags": []
         }
       ],
@@ -9332,7 +9332,7 @@
       "path": "src/components/editable-field/editable-field-interface.tsx"
     },
     "src/components/editable-field/editable-field-interface.tsx::EditableComponentUpdateEvent": {
-      "declaration": "export interface EditableComponentUpdateEvent {\r\n    newValue: any; // We use any for now, but when components typings will support template, change for parameterized type\r\n    /**\r\n     * Permet de sortir de l'état LOAD pour aller vers l'état DISPLAY\r\n     * À n'utiliser que lorsque la valeur n'est pas systématiquement mise à jour à chaque événement.\r\n     */\r\n    successHandler: () => void;\r\n    errorhandler: () => void;\r\n}",
+      "declaration": "export interface EditableComponentUpdateEvent {\r\n    /**\r\n     * The new value sent by the component inside the `wcs-editable-field`\r\n     */\r\n    newValue: any; // We use any for now, but when components typings will support template, change for parameterized type\r\n    /**\r\n     * Used to get from LOAD state to DISPLAY state.  \r\n     * Only use to commit the value, when the value is not systematically updated at every event firing\r\n     */\r\n    successHandler: () => void;\r\n    /**\r\n     * Used to get from LOAD state to DISPLAY state.  \r\n     * Only use to discard the value, when the value should not be updated \r\n     */\r\n    // FIXME (next-release): rename to `errorHandler`\r\n    errorhandler: () => void;\r\n}",
       "docstring": "",
       "path": "src/components/editable-field/editable-field-interface.tsx"
     },

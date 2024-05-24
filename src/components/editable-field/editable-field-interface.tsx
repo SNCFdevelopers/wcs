@@ -4,12 +4,20 @@ export type ValidateFn<T> = (value: T) => boolean;
 export type FormatFn<T> = (value: T) => string;
 
 export interface EditableComponentUpdateEvent {
+    /**
+     * The new value sent by the component inside the `wcs-editable-field`
+     */
     newValue: any; // We use any for now, but when components typings will support template, change for parameterized type
     /**
-     * Permet de sortir de l'état LOAD pour aller vers l'état DISPLAY
-     * À n'utiliser que lorsque la valeur n'est pas systématiquement mise à jour à chaque événement.
+     * Used to get from LOAD state to DISPLAY state.  
+     * Only use to commit the value, when the value is not systematically updated at every event firing
      */
     successHandler: () => void;
+    /**
+     * Used to get from LOAD state to DISPLAY state.  
+     * Only use to discard the value, when the value should not be updated 
+     */
+    // FIXME (next-release): rename to `errorHandler`
     errorhandler: () => void;
 }
 
