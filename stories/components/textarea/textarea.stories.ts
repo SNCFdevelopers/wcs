@@ -1,78 +1,126 @@
-import { Meta, StoryFn, StoryObj } from '@storybook/web-components';
-import { html } from 'lit-html';
-import { getComponentArgs } from '../../utils/args-generation';
+import { Meta, StoryObj } from '@storybook/web-components';
+import { html, nothing } from 'lit-html';
+import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { withActions } from '@storybook/addon-actions/decorator';
 
-/**
- * ## Accessibility
- * 
- * `wcs-textarea` is a wrapper around the native textarea element which is located inside its shadow DOM. All the
- * **aria attributes** you set on `wcs-textarea` are passed to the **native textarea** element **during the first render 
- * of the component**. If you need to use them as you would with a native textarea, you can do so.
- * 
- * If you need to **dynamically change the aria attributes after the first render**, you can use the `setAriaAttribute`
- * js method of `wcs-textarea`.
- * 
- * ```javascript
- * const wcsTextarea = document.querySelector('wcs-textarea');
- * await wcsTextarea.setAriaAttribute('aria-label', 'new label');
- * ```
- * 
- * If you use wcs-textarea outside a wcs-form-field, you have to manage the label and the error message yourself.
- * You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.
- */
+import { getComponentArgs } from '../../utils/args-generation';
+import {
+    WcsTextareaInputMode,
+    WcsTextareaEnterKeyHint,
+    WcsTextareaResize,
+    WcsTextareaInputState,
+    WcsTextareaWrap
+} from '../../../src/components/textarea/textarea-interface';
+
 const meta: Meta = {
     title: 'Components/Textarea',
     component: 'wcs-textarea',
     argTypes: getComponentArgs('wcs-textarea'),
+    args: {
+        placeholder: 'Placeholder',
+    },
     parameters: {
         actions: {
-            handles: [
-                'wcsBlur',
-                'wcsChange',
-                'wcsFocus',
-                'wcsInput'
-            ]
-        }
+            handles: ['wcsBlur', 'wcsChange', 'wcsFocus', 'wcsInput'],
+        },
     },
-    decorators: [withActions]
+    decorators: [withActions],
 };
 
 export default meta;
 
-const Template: StoryFn<Partial<{ icon: string, autoGrow: boolean, debounce: number, disabled: boolean, ariaLabel: string, placeholder: string, value: string, resize: string, state: string }>> = (args) => html`
-    <wcs-textarea icon=${args.icon}
-                  ?auto-grow="${args.autoGrow}"
-                  debounce=${args.debounce}
-                  ?disabled="${args.disabled}"
-                  .state="${args.state}"
-                  resize="${args.resize ?? 'auto'}"
-                  placeholder=${args.placeholder}
-                  aria-label=${args.ariaLabel}
-                  value=${args.value}>
+type TextareaStoryArgs = {
+    ariaLabel: string;
+    autocapitalize?: string;
+    autofocus?: boolean;
+    autoGrow?: boolean;
+    class?: string;
+    clearOnEdit?: boolean;
+    cols?: number;
+    debounce?: number;
+    disabled?: boolean;
+    enterkeyhint?: WcsTextareaEnterKeyHint;
+    icon?: string;
+    inputmode?: WcsTextareaInputMode;
+    maxlength?: number;
+    minlength?: number;
+    name?: string;
+    placeholder: string;
+    readonly?: boolean;
+    required?: boolean;
+    resize?: WcsTextareaResize;
+    rows?: number;
+    spellcheck?: boolean;
+    state?: WcsTextareaInputState;
+    value?: string | null;
+    wrap?: WcsTextareaWrap;
+    '--wcs-textarea-padding-left'?: string;
+    '--wcs-textarea-padding-right'?: string;
+};
+
+const renderWcsTextarea = (args: TextareaStoryArgs) => html`
+    <wcs-textarea
+        aria-label=${args.ariaLabel || nothing}
+        autocapitalize=${ifDefined(args.autocapitalize)}
+        ?autofocus=${args.autofocus}
+        ?auto-grow=${args.autoGrow}
+        class=${ifDefined(args.class)}
+        ?clear-on-edit=${args.clearOnEdit}
+        cols=${ifDefined(args.cols)}
+        debounce=${ifDefined(args.debounce)}
+        ?disabled=${args.disabled}
+        enterkeyhint=${ifDefined(args.enterkeyhint)}
+        icon=${ifDefined(args.icon)}
+        inputmode=${ifDefined(args.inputmode)}
+        maxlength=${ifDefined(args.maxlength)}
+        minlength=${ifDefined(args.minlength)}
+        name=${ifDefined(args.name)}
+        placeholder=${args.placeholder}
+        ?readonly=${args.readonly}
+        ?required=${args.required}
+        rows=${ifDefined(args.rows)}
+        ?spellcheck=${args.spellcheck}
+        resize=${ifDefined(args.resize)}
+        state=${ifDefined(args.state)}
+        value=${ifDefined(args.value)}
+        wrap=${ifDefined(args.wrap)}
+    >
     </wcs-textarea>
 `;
 
-export const Default = Template.bind({});
-Default.args = {
-    placeholder: 'Placeholder',
-    ariaLabel: 'Textarea default',
-    disabled: false
+/**
+ * If you're using a `wcs-textarea` in a form, it is advised to wrap it inside a [wcs-form-field](.?path=/docs/components-form-field--documentation).
+ */
+export const Default: StoryObj<TextareaStoryArgs> = {
+    render: (args) => renderWcsTextarea(args),
+    args: {
+        ariaLabel: 'Textarea default',
+    },
 };
 
-export const WithPrefixIcon = Template.bind({});
-WithPrefixIcon.args = {
-    placeholder: 'Placeholder',
-    ariaLabel: 'Textarea with prefix icon',
-    disabled: false,
-    icon: 'verified'
+/**
+ * Add a prefix icon before the input field to improve the semantics of your forms.  
+ * The `icon` property changes the type of material icon displayed.
+ * The rendered `wcs-mat-icon` will always be size="m" and family="filled".
+ */
+export const WithPrefixIcon: StoryObj<TextareaStoryArgs> = {
+    render: (args) => renderWcsTextarea(args),
+    args: {
+        ariaLabel: 'Textarea with prefix icon',
+        icon: 'verified',
+    },
 };
 
-export const Disabled = Template.bind({});
-Disabled.args = {
-    placeholder: 'Placeholder',
-    ariaLabel: 'Textarea disabled',
-    disabled: true
+/**
+ * The input can be disabled by setting the `disabled` property to `true`.
+ * It will prevent the user from interacting with the component.
+ */
+export const Disabled: StoryObj<TextareaStoryArgs> = {
+    render: (args) => renderWcsTextarea(args),
+    args: {
+        ariaLabel: 'Textarea disabled',
+        disabled: true,
+    },
 };
 
 /**
@@ -80,29 +128,38 @@ Disabled.args = {
  * - `--wcs-textarea-padding-left`
  * - `--wcs-textarea-padding-right`
  */
-export const CustomPaddings: StoryObj = {
+export const CustomPaddings: StoryObj<TextareaStoryArgs> = {
     render: (args) => html`
         <style>
             .custom-padding {
-                --wcs-textarea-padding-left: ${args["--wcs-textarea-padding-left"]};
-                --wcs-textarea-padding-right: ${args["--wcs-textarea-padding-right"]};
+                --wcs-textarea-padding-left: ${args['--wcs-textarea-padding-left']};
+                --wcs-textarea-padding-right: ${args['--wcs-textarea-padding-right']};
             }
         </style>
-        <wcs-textarea icon=${args.icon}
-                      class="custom-padding"
-                      ?auto-grow="${args.autoGrow}"
-                      ?disabled="${args.disabled}"
-                      .state="${args.state}"
-                      resize="${args.resize ?? 'auto'}"
-                      placeholder=${args.placeholder}
-                      aria-label=${args.ariaLabel}
-                      value=${args.value}>
-        </wcs-textarea>
+        ${renderWcsTextarea({ ...args, class: 'custom-padding' })}
     `,
     args: {
-        ...Default.args,
         ariaLabel: 'Textarea custom paddings',
-        "--wcs-textarea-padding-left": "2rem",
-        "--wcs-textarea-padding-right": "2rem"
-    }
-}
+        '--wcs-textarea-padding-left': '2rem',
+        '--wcs-textarea-padding-right': '2rem',
+    },
+};
+
+/**
+ * At the moment horizontal resizing is only possible if you add some custom CSS to the component,
+ * for example by overriding the `width` or `max-width` property value.
+ */
+export const Resizing: StoryObj<TextareaStoryArgs> = {
+    render: (args) => html`
+        <style>
+            .resizing {
+                width: fit-content;
+            }
+        </style>
+        ${renderWcsTextarea({ ...args, class: 'resizing' })}
+    `,
+    args: {
+        ariaLabel: 'Textarea custom size',
+        resize: 'both',
+    },
+};

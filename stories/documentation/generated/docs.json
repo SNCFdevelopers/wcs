@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-05-30T13:46:43",
+  "timestamp": "2024-06-05T15:52:37",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -8059,7 +8059,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-textarea",
       "readme": "# Textarea\r\n\r\n\r\n\r",
-      "docs": "Mainly inspired from Ionic Textarea Component",
+      "docs": "Mainly inspired from Ionic Textarea Component.\r\n\r\n## Accessibility guidelines 💡\r\n> `wcs-textarea` is a wrapper around the native textarea element which is located inside its shadow DOM. All the\r\n> **aria attributes** you set on `wcs-textarea` are passed to the **native textarea** element **during the first render of the component**.\r\n> If you need to use them as you would with a native textarea, you can do so.\r\n\r\n> If you need to **dynamically change the aria attributes after the first render**, you can use the `setAriaAttribute`\r\n> JS method of `wcs-textarea` :\r\n\r\n> ```javascript\r\n> const wcsTextarea = document.querySelector('wcs-textarea');\r\n> await wcsTextarea.setAriaAttribute('aria-label', 'new label');\r\n> ```\r\n\r\n> If you use wcs-textarea outside a wcs-form-field, you have to manage the label and the error message yourself.\r\n> You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.",
       "docsTags": [
         {
           "name": "cssprop",
@@ -8175,7 +8175,7 @@
           "mutable": false,
           "attr": "cols",
           "reflectToAttr": false,
-          "docs": "The visible width of the text control, in average character widths. If it is specified, it must be a positive integer.",
+          "docs": "The visible width of the text control, in average character widths. If it is specified, it must be a positive integer.  \r\nNote : at the moment, modifying the width is only possible if you add some custom CSS to the component,\r\nfor example by overriding the `width` CSS property. See the Resize section for an example on how to do it.",
           "docsTags": [],
           "values": [
             {
@@ -8233,14 +8233,20 @@
           "name": "enterkeyhint",
           "type": "\"done\" | \"enter\" | \"go\" | \"next\" | \"previous\" | \"search\" | \"send\"",
           "complexType": {
-            "original": "'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send'",
+            "original": "WcsTextareaEnterKeyHint",
             "resolved": "\"done\" | \"enter\" | \"go\" | \"next\" | \"previous\" | \"search\" | \"send\"",
-            "references": {}
+            "references": {
+              "WcsTextareaEnterKeyHint": {
+                "location": "import",
+                "path": "./textarea-interface",
+                "id": "src/components/textarea/textarea-interface.ts::WcsTextareaEnterKeyHint"
+              }
+            }
           },
           "mutable": false,
           "attr": "enterkeyhint",
           "reflectToAttr": false,
-          "docs": "A hint to the browser for which enter key to display.\r\nPossible values: `\"enter\"`, `\"done\"`, `\"go\"`, `\"next\"`,\r\n`\"previous\"`, `\"search\"`, and `\"send\"`.",
+          "docs": "A hint to the browser for which enter key to display.",
           "docsTags": [],
           "values": [
             {
@@ -8300,14 +8306,20 @@
           "name": "inputmode",
           "type": "\"decimal\" | \"email\" | \"none\" | \"numeric\" | \"search\" | \"tel\" | \"text\" | \"url\"",
           "complexType": {
-            "original": "'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search'",
+            "original": "WcsTextareaInputMode",
             "resolved": "\"decimal\" | \"email\" | \"none\" | \"numeric\" | \"search\" | \"tel\" | \"text\" | \"url\"",
-            "references": {}
+            "references": {
+              "WcsTextareaInputMode": {
+                "location": "import",
+                "path": "./textarea-interface",
+                "id": "src/components/textarea/textarea-interface.ts::WcsTextareaInputMode"
+              }
+            }
           },
           "mutable": false,
           "attr": "inputmode",
           "reflectToAttr": false,
-          "docs": "A hint to the browser for which keyboard to display.\r\nPossible values: `\"none\"`, `\"text\"`, `\"tel\"`, `\"url\"`,\r\n`\"email\"`, `\"numeric\"`, `\"decimal\"`, and `\"search\"`.",
+          "docs": "A hint to the browser for which keyboard to display.",
           "docsTags": [],
           "values": [
             {
@@ -8479,14 +8491,20 @@
           "name": "resize",
           "type": "\"both\" | \"horizontal\" | \"none\" | \"vertical\"",
           "complexType": {
-            "original": "'both' | 'none' | 'vertical' | 'horizontal'",
+            "original": "WcsTextareaResize",
             "resolved": "\"both\" | \"horizontal\" | \"none\" | \"vertical\"",
-            "references": {}
+            "references": {
+              "WcsTextareaResize": {
+                "location": "import",
+                "path": "./textarea-interface",
+                "id": "src/components/textarea/textarea-interface.ts::WcsTextareaResize"
+              }
+            }
           },
           "mutable": false,
           "attr": "resize",
           "reflectToAttr": true,
-          "docs": "Indicates how the textarea should be resizable.\r\nPossible values 'both' | 'none' | 'vertical' | 'horizontal'",
+          "docs": "Indicates how the textarea should be resizable.  \r\nNote : at the moment horizontal resizing is only possible if you add custom CSS to the component,\r\nsee the Resize section for an example.",
           "docsTags": [],
           "values": [
             {
@@ -8556,9 +8574,15 @@
           "name": "state",
           "type": "\"error\" | \"initial\"",
           "complexType": {
-            "original": "'initial' | 'error'",
+            "original": "WcsTextareaInputState",
             "resolved": "\"error\" | \"initial\"",
-            "references": {}
+            "references": {
+              "WcsTextareaInputState": {
+                "location": "import",
+                "path": "./textarea-interface",
+                "id": "src/components/textarea/textarea-interface.ts::WcsTextareaInputState"
+              }
+            }
           },
           "mutable": false,
           "attr": "state",
@@ -8605,9 +8629,15 @@
           "name": "wrap",
           "type": "\"hard\" | \"off\" | \"soft\"",
           "complexType": {
-            "original": "'hard' | 'soft' | 'off'",
+            "original": "WcsTextareaWrap",
             "resolved": "\"hard\" | \"off\" | \"soft\"",
-            "references": {}
+            "references": {
+              "WcsTextareaWrap": {
+                "location": "import",
+                "path": "./textarea-interface",
+                "id": "src/components/textarea/textarea-interface.ts::WcsTextareaWrap"
+              }
+            }
           },
           "mutable": false,
           "attr": "wrap",
@@ -9505,6 +9535,31 @@
       "declaration": "export interface WcsTabChangeEvent {\r\n    tabName: string;\r\n    tabIndex: number;\r\n    selectedKey: any;\r\n}",
       "docstring": "",
       "path": "src/components/tabs/tabs-interface.ts"
+    },
+    "src/components/textarea/textarea-interface.ts::WcsTextareaInputMode": {
+      "declaration": "export type WcsTextareaInputMode = 'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search';",
+      "docstring": "",
+      "path": "src/components/textarea/textarea-interface.ts"
+    },
+    "src/components/textarea/textarea-interface.ts::WcsTextareaEnterKeyHint": {
+      "declaration": "export type WcsTextareaEnterKeyHint = 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send';",
+      "docstring": "",
+      "path": "src/components/textarea/textarea-interface.ts"
+    },
+    "src/components/textarea/textarea-interface.ts::WcsTextareaInputState": {
+      "declaration": "export type WcsTextareaInputState = 'initial' | 'error';",
+      "docstring": "",
+      "path": "src/components/textarea/textarea-interface.ts"
+    },
+    "src/components/textarea/textarea-interface.ts::WcsTextareaWrap": {
+      "declaration": "export type WcsTextareaWrap = 'hard' | 'soft' | 'off';",
+      "docstring": "",
+      "path": "src/components/textarea/textarea-interface.ts"
+    },
+    "src/components/textarea/textarea-interface.ts::WcsTextareaResize": {
+      "declaration": "export type WcsTextareaResize = 'both' | 'none' | 'vertical' | 'horizontal';",
+      "docstring": "",
+      "path": "src/components/textarea/textarea-interface.ts"
     },
     "src/components/textarea/textarea-interface.ts::TextareaChangeEventDetail": {
       "declaration": "export interface TextareaChangeEventDetail {\r\n    value: string | undefined | null;\r\n}",

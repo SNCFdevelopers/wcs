@@ -29,7 +29,7 @@ import { WcsSkeletonAnimation } from "./components/skeleton/skeleton-interface";
 import { WcsSpinnerMode } from "./components/spinner/spinner-interface";
 import { SwitchChangeEventDetail, SwitchLabelAlignment } from "./components/switch/switch-interface";
 import { WcsTabChangeEvent, WcsTabsAlignment } from "./components/tabs/tabs-interface";
-import { TextareaChangeEventDetail } from "./components/textarea/textarea-interface";
+import { TextareaChangeEventDetail, WcsTextareaEnterKeyHint, WcsTextareaInputMode, WcsTextareaInputState, WcsTextareaResize, WcsTextareaWrap } from "./components/textarea/textarea-interface";
 import { WcsTooltipAppendTo, WcsTooltipPosition } from "./components/tooltip/tooltip-interface";
 export { BadgeColor, BadgeShape, BadgeSize } from "./components/badge/badge-interface";
 export { WcsButtonMode, WcsButtonShape, WcsButtonSize, WcsButtonType } from "./components/button/button-interface";
@@ -55,7 +55,7 @@ export { WcsSkeletonAnimation } from "./components/skeleton/skeleton-interface";
 export { WcsSpinnerMode } from "./components/spinner/spinner-interface";
 export { SwitchChangeEventDetail, SwitchLabelAlignment } from "./components/switch/switch-interface";
 export { WcsTabChangeEvent, WcsTabsAlignment } from "./components/tabs/tabs-interface";
-export { TextareaChangeEventDetail } from "./components/textarea/textarea-interface";
+export { TextareaChangeEventDetail, WcsTextareaEnterKeyHint, WcsTextareaInputMode, WcsTextareaInputState, WcsTextareaResize, WcsTextareaWrap } from "./components/textarea/textarea-interface";
 export { WcsTooltipAppendTo, WcsTooltipPosition } from "./components/tooltip/tooltip-interface";
 export namespace Components {
     interface WcsAccordion {
@@ -1118,7 +1118,19 @@ export namespace Components {
         "selectedKey": any;
     }
     /**
-     * Mainly inspired from Ionic Textarea Component
+     * Mainly inspired from Ionic Textarea Component.
+     * ## Accessibility guidelines 💡
+     * > `wcs-textarea` is a wrapper around the native textarea element which is located inside its shadow DOM. All the
+     * > **aria attributes** you set on `wcs-textarea` are passed to the **native textarea** element **during the first render of the component**.
+     * > If you need to use them as you would with a native textarea, you can do so.
+     * > If you need to **dynamically change the aria attributes after the first render**, you can use the `setAriaAttribute`
+     * > JS method of `wcs-textarea` :
+     * > ```javascript
+     * > const wcsTextarea = document.querySelector('wcs-textarea');
+     * > await wcsTextarea.setAriaAttribute('aria-label', 'new label');
+     * > ```
+     * > If you use wcs-textarea outside a wcs-form-field, you have to manage the label and the error message yourself.
+     * > You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.
      * @cssprop --wcs-textarea-max-height - Max height of the text area component
      * @cssprop --wcs-textarea-padding-left - Padding left of the text area. Take in consideration the transparent border of 2px around the textarea.
      * @cssprop --wcs-textarea-padding-right - Padding right of the text area. Take in consideration the transparent border of 2px around the textarea.
@@ -1141,7 +1153,7 @@ export namespace Components {
          */
         "clearOnEdit": boolean;
         /**
-          * The visible width of the text control, in average character widths. If it is specified, it must be a positive integer.
+          * The visible width of the text control, in average character widths. If it is specified, it must be a positive integer.   Note : at the moment, modifying the width is only possible if you add some custom CSS to the component, for example by overriding the `width` CSS property. See the Resize section for an example on how to do it.
          */
         "cols"?: number;
         /**
@@ -1153,9 +1165,9 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
-          * A hint to the browser for which enter key to display. Possible values: `"enter"`, `"done"`, `"go"`, `"next"`, `"previous"`, `"search"`, and `"send"`.
+          * A hint to the browser for which enter key to display.
          */
-        "enterkeyhint"?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send';
+        "enterkeyhint"?: WcsTextareaEnterKeyHint;
         /**
           * This is required for a WebKit bug which requires us to blur and focus an input to properly focus the input in an item with delegatesFocus. It will no longer be needed with iOS 14.
          */
@@ -1173,9 +1185,9 @@ export namespace Components {
          */
         "icon": string;
         /**
-          * A hint to the browser for which keyboard to display. Possible values: `"none"`, `"text"`, `"tel"`, `"url"`, `"email"`, `"numeric"`, `"decimal"`, and `"search"`.
+          * A hint to the browser for which keyboard to display.
          */
-        "inputmode"?: 'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search';
+        "inputmode"?: WcsTextareaInputMode;
         /**
           * If the value of the type attribute is `text`, `email`, `search`, `password`, `tel`, or `url`, this attribute specifies the maximum number of characters that the user can enter.
          */
@@ -1201,9 +1213,9 @@ export namespace Components {
          */
         "required": boolean;
         /**
-          * Indicates how the textarea should be resizable. Possible values 'both' | 'none' | 'vertical' | 'horizontal'
+          * Indicates how the textarea should be resizable.   Note : at the moment horizontal resizing is only possible if you add custom CSS to the component, see the Resize section for an example.
          */
-        "resize"?: 'both' | 'none' | 'vertical' | 'horizontal';
+        "resize"?: WcsTextareaResize;
         /**
           * The number of visible text lines for the control.
          */
@@ -1224,7 +1236,7 @@ export namespace Components {
         /**
           * Specifies the state of the input. By default the input is in an initial state but you can set it to 'error' state if the data given by the user is not valid.
          */
-        "state": 'initial' | 'error';
+        "state": WcsTextareaInputState;
         /**
           * The value of the textarea.
          */
@@ -1232,7 +1244,7 @@ export namespace Components {
         /**
           * Indicates how the control wraps text.
          */
-        "wrap"?: 'hard' | 'soft' | 'off';
+        "wrap"?: WcsTextareaWrap;
     }
     /**
      * Tooltips are used to provide additional information for features available on the website. These can improve the user
@@ -2180,7 +2192,19 @@ declare global {
         "wcsFocus": FocusEvent;
     }
     /**
-     * Mainly inspired from Ionic Textarea Component
+     * Mainly inspired from Ionic Textarea Component.
+     * ## Accessibility guidelines 💡
+     * > `wcs-textarea` is a wrapper around the native textarea element which is located inside its shadow DOM. All the
+     * > **aria attributes** you set on `wcs-textarea` are passed to the **native textarea** element **during the first render of the component**.
+     * > If you need to use them as you would with a native textarea, you can do so.
+     * > If you need to **dynamically change the aria attributes after the first render**, you can use the `setAriaAttribute`
+     * > JS method of `wcs-textarea` :
+     * > ```javascript
+     * > const wcsTextarea = document.querySelector('wcs-textarea');
+     * > await wcsTextarea.setAriaAttribute('aria-label', 'new label');
+     * > ```
+     * > If you use wcs-textarea outside a wcs-form-field, you have to manage the label and the error message yourself.
+     * > You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.
      * @cssprop --wcs-textarea-max-height - Max height of the text area component
      * @cssprop --wcs-textarea-padding-left - Padding left of the text area. Take in consideration the transparent border of 2px around the textarea.
      * @cssprop --wcs-textarea-padding-right - Padding right of the text area. Take in consideration the transparent border of 2px around the textarea.
@@ -3395,7 +3419,19 @@ declare namespace LocalJSX {
         "selectedKey"?: any;
     }
     /**
-     * Mainly inspired from Ionic Textarea Component
+     * Mainly inspired from Ionic Textarea Component.
+     * ## Accessibility guidelines 💡
+     * > `wcs-textarea` is a wrapper around the native textarea element which is located inside its shadow DOM. All the
+     * > **aria attributes** you set on `wcs-textarea` are passed to the **native textarea** element **during the first render of the component**.
+     * > If you need to use them as you would with a native textarea, you can do so.
+     * > If you need to **dynamically change the aria attributes after the first render**, you can use the `setAriaAttribute`
+     * > JS method of `wcs-textarea` :
+     * > ```javascript
+     * > const wcsTextarea = document.querySelector('wcs-textarea');
+     * > await wcsTextarea.setAriaAttribute('aria-label', 'new label');
+     * > ```
+     * > If you use wcs-textarea outside a wcs-form-field, you have to manage the label and the error message yourself.
+     * > You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.
      * @cssprop --wcs-textarea-max-height - Max height of the text area component
      * @cssprop --wcs-textarea-padding-left - Padding left of the text area. Take in consideration the transparent border of 2px around the textarea.
      * @cssprop --wcs-textarea-padding-right - Padding right of the text area. Take in consideration the transparent border of 2px around the textarea.
@@ -3418,7 +3454,7 @@ declare namespace LocalJSX {
          */
         "clearOnEdit"?: boolean;
         /**
-          * The visible width of the text control, in average character widths. If it is specified, it must be a positive integer.
+          * The visible width of the text control, in average character widths. If it is specified, it must be a positive integer.   Note : at the moment, modifying the width is only possible if you add some custom CSS to the component, for example by overriding the `width` CSS property. See the Resize section for an example on how to do it.
          */
         "cols"?: number;
         /**
@@ -3430,9 +3466,9 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * A hint to the browser for which enter key to display. Possible values: `"enter"`, `"done"`, `"go"`, `"next"`, `"previous"`, `"search"`, and `"send"`.
+          * A hint to the browser for which enter key to display.
          */
-        "enterkeyhint"?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send';
+        "enterkeyhint"?: WcsTextareaEnterKeyHint;
         /**
           * This is required for a WebKit bug which requires us to blur and focus an input to properly focus the input in an item with delegatesFocus. It will no longer be needed with iOS 14.
          */
@@ -3442,9 +3478,9 @@ declare namespace LocalJSX {
          */
         "icon"?: string;
         /**
-          * A hint to the browser for which keyboard to display. Possible values: `"none"`, `"text"`, `"tel"`, `"url"`, `"email"`, `"numeric"`, `"decimal"`, and `"search"`.
+          * A hint to the browser for which keyboard to display.
          */
-        "inputmode"?: 'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search';
+        "inputmode"?: WcsTextareaInputMode;
         /**
           * If the value of the type attribute is `text`, `email`, `search`, `password`, `tel`, or `url`, this attribute specifies the maximum number of characters that the user can enter.
          */
@@ -3486,9 +3522,9 @@ declare namespace LocalJSX {
          */
         "required"?: boolean;
         /**
-          * Indicates how the textarea should be resizable. Possible values 'both' | 'none' | 'vertical' | 'horizontal'
+          * Indicates how the textarea should be resizable.   Note : at the moment horizontal resizing is only possible if you add custom CSS to the component, see the Resize section for an example.
          */
-        "resize"?: 'both' | 'none' | 'vertical' | 'horizontal';
+        "resize"?: WcsTextareaResize;
         /**
           * The number of visible text lines for the control.
          */
@@ -3500,7 +3536,7 @@ declare namespace LocalJSX {
         /**
           * Specifies the state of the input. By default the input is in an initial state but you can set it to 'error' state if the data given by the user is not valid.
          */
-        "state"?: 'initial' | 'error';
+        "state"?: WcsTextareaInputState;
         /**
           * The value of the textarea.
          */
@@ -3508,7 +3544,7 @@ declare namespace LocalJSX {
         /**
           * Indicates how the control wraps text.
          */
-        "wrap"?: 'hard' | 'soft' | 'off';
+        "wrap"?: WcsTextareaWrap;
     }
     /**
      * Tooltips are used to provide additional information for features available on the website. These can improve the user
@@ -3886,7 +3922,19 @@ declare module "@stencil/core" {
              */
             "wcs-tabs": LocalJSX.WcsTabs & JSXBase.HTMLAttributes<HTMLWcsTabsElement>;
             /**
-             * Mainly inspired from Ionic Textarea Component
+             * Mainly inspired from Ionic Textarea Component.
+             * ## Accessibility guidelines 💡
+             * > `wcs-textarea` is a wrapper around the native textarea element which is located inside its shadow DOM. All the
+             * > **aria attributes** you set on `wcs-textarea` are passed to the **native textarea** element **during the first render of the component**.
+             * > If you need to use them as you would with a native textarea, you can do so.
+             * > If you need to **dynamically change the aria attributes after the first render**, you can use the `setAriaAttribute`
+             * > JS method of `wcs-textarea` :
+             * > ```javascript
+             * > const wcsTextarea = document.querySelector('wcs-textarea');
+             * > await wcsTextarea.setAriaAttribute('aria-label', 'new label');
+             * > ```
+             * > If you use wcs-textarea outside a wcs-form-field, you have to manage the label and the error message yourself.
+             * > You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.
              * @cssprop --wcs-textarea-max-height - Max height of the text area component
              * @cssprop --wcs-textarea-padding-left - Padding left of the text area. Take in consideration the transparent border of 2px around the textarea.
              * @cssprop --wcs-textarea-padding-right - Padding right of the text area. Take in consideration the transparent border of 2px around the textarea.

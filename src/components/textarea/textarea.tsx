@@ -14,11 +14,34 @@ import {
     readTask
 } from '@stencil/core';
 import { debounceEvent, inheritAriaAttributes, inheritAttributes, raf } from '../../utils/helpers';
-import { TextareaChangeEventDetail } from './textarea-interface';
+import { 
+    TextareaChangeEventDetail,
+    WcsTextareaInputMode, 
+    WcsTextareaEnterKeyHint, 
+    WcsTextareaResize, 
+    WcsTextareaInputState,
+    WcsTextareaWrap
+} from './textarea-interface';
 import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
 
 /**
- * Mainly inspired from Ionic Textarea Component
+ * Mainly inspired from Ionic Textarea Component.
+ * 
+ * ## Accessibility guidelines 💡
+ * > `wcs-textarea` is a wrapper around the native textarea element which is located inside its shadow DOM. All the
+ * > **aria attributes** you set on `wcs-textarea` are passed to the **native textarea** element **during the first render of the component**.
+ * > If you need to use them as you would with a native textarea, you can do so.
+ *
+ * > If you need to **dynamically change the aria attributes after the first render**, you can use the `setAriaAttribute`
+ * > JS method of `wcs-textarea` :
+ * 
+ * > ```javascript
+ * > const wcsTextarea = document.querySelector('wcs-textarea');
+ * > await wcsTextarea.setAriaAttribute('aria-label', 'new label');
+ * > ```
+ *
+ * > If you use wcs-textarea outside a wcs-form-field, you have to manage the label and the error message yourself.
+ * > You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.
  *
  * @cssprop --wcs-textarea-max-height - Max height of the text area component
  * @cssprop --wcs-textarea-padding-left - Padding left of the text area. Take in consideration the transparent border of 2px around the textarea.
@@ -89,17 +112,13 @@ export class Textarea implements ComponentInterface, MutableAriaAttribute {
 
     /**
      * A hint to the browser for which keyboard to display.
-     * Possible values: `"none"`, `"text"`, `"tel"`, `"url"`,
-     * `"email"`, `"numeric"`, `"decimal"`, and `"search"`.
      */
-    @Prop() inputmode?: 'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search';
+    @Prop() inputmode?: WcsTextareaInputMode;
 
     /**
      * A hint to the browser for which enter key to display.
-     * Possible values: `"enter"`, `"done"`, `"go"`, `"next"`,
-     * `"previous"`, `"search"`, and `"send"`.
      */
-    @Prop() enterkeyhint?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send';
+    @Prop() enterkeyhint?: WcsTextareaEnterKeyHint;
 
     /**
      * If the value of the type attribute is `text`, `email`, `search`, `password`, `tel`, or `url`, this attribute specifies the maximum number of characters that the user can enter.
@@ -139,10 +158,12 @@ export class Textarea implements ComponentInterface, MutableAriaAttribute {
     /**
      * Specifies the state of the input. By default the input is in an initial state but you can set it to 'error' state if the data given by the user is not valid.
      */
-    @Prop({reflect: true}) state: 'initial' | 'error' = 'initial';
+    @Prop({reflect: true}) state: WcsTextareaInputState = 'initial';
 
     /**
-     * The visible width of the text control, in average character widths. If it is specified, it must be a positive integer.
+     * The visible width of the text control, in average character widths. If it is specified, it must be a positive integer.  
+     * Note : at the moment, modifying the width is only possible if you add some custom CSS to the component,
+     * for example by overriding the `width` CSS property. See the Resize section for an example on how to do it.
      */
     @Prop() cols?: number;
 
@@ -154,7 +175,7 @@ export class Textarea implements ComponentInterface, MutableAriaAttribute {
     /**
      * Indicates how the control wraps text.
      */
-    @Prop() wrap?: 'hard' | 'soft' | 'off';
+    @Prop() wrap?: WcsTextareaWrap;
 
     /**
      * If `true`, the element height will increase based on the value.
@@ -167,10 +188,11 @@ export class Textarea implements ComponentInterface, MutableAriaAttribute {
     @Prop({mutable: true}) value?: string | null = '';
 
     /**
-     * Indicates how the textarea should be resizable.
-     * Possible values 'both' | 'none' | 'vertical' | 'horizontal'
+     * Indicates how the textarea should be resizable.  
+     * Note : at the moment horizontal resizing is only possible if you add custom CSS to the component,
+     * see the Resize section for an example.
      */
-    @Prop({reflect: true}) resize?: 'both' | 'none' | 'vertical' | 'horizontal';
+    @Prop({reflect: true}) resize?: WcsTextareaResize;
 
     /**
      * Update the native input element when the value changes

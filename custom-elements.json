@@ -1000,44 +1000,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/accordion-content/accordion-content.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "AccordionContent",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-accordion-content",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "AccordionContent",
-          "declaration": {
-            "name": "AccordionContent",
-            "module": "components/accordion-content/accordion-content.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-accordion-content",
-          "declaration": {
-            "name": "AccordionContent",
-            "module": "components/accordion-content/accordion-content.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/accordion-header/accordion-header.tsx",
       "declarations": [
         {
@@ -1070,6 +1032,44 @@
           "declaration": {
             "name": "AccordionHeader",
             "module": "components/accordion-header/accordion-header.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/accordion-content/accordion-content.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "AccordionContent",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-accordion-content",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "AccordionContent",
+          "declaration": {
+            "name": "AccordionContent",
+            "module": "components/accordion-content/accordion-content.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-accordion-content",
+          "declaration": {
+            "name": "AccordionContent",
+            "module": "components/accordion-content/accordion-content.tsx"
           }
         }
       ]
@@ -2631,17 +2631,17 @@
           "members": [
             {
               "kind": "field",
-              "name": "el",
+              "name": "spinButton",
               "type": {
-                "text": "HTMLElement"
+                "text": "HTMLSpanElement"
               },
               "privacy": "private"
             },
             {
               "kind": "field",
-              "name": "spinButton",
+              "name": "counterContainer",
               "type": {
-                "text": "HTMLSpanElement"
+                "text": "HTMLDivElement"
               },
               "privacy": "private"
             },
@@ -2794,11 +2794,6 @@
             {
               "kind": "method",
               "name": "notifyChange",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "getCounterContainer",
               "privacy": "private"
             },
             {
@@ -7285,99 +7280,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/mat-icon/mat-icon-interface.tsx",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/mat-icon/mat-icon.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "MatIcon",
-          "members": [
-            {
-              "kind": "field",
-              "name": "icon",
-              "type": {
-                "text": "string"
-              },
-              "description": "Use the icon name from Material Icons"
-            },
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "MaterialIconSize"
-              },
-              "default": "'m'",
-              "description": "Size of the icon"
-            },
-            {
-              "kind": "field",
-              "name": "family",
-              "type": {
-                "text": "MaterialIconFamily"
-              },
-              "default": "'filled'",
-              "description": "Family of the icon"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "icon",
-              "fieldName": "icon",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "size",
-              "fieldName": "size",
-              "type": {
-                "text": "MaterialIconSize"
-              }
-            },
-            {
-              "name": "family",
-              "fieldName": "family",
-              "type": {
-                "text": "MaterialIconFamily"
-              }
-            }
-          ],
-          "tagName": "wcs-mat-icon",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "MatIcon",
-          "declaration": {
-            "name": "MatIcon",
-            "module": "components/mat-icon/mat-icon.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-mat-icon",
-          "declaration": {
-            "name": "MatIcon",
-            "module": "components/mat-icon/mat-icon.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/modal/modal-interface.ts",
       "declarations": [],
       "exports": []
@@ -7644,6 +7546,99 @@
           "declaration": {
             "name": "Modal",
             "module": "components/modal/modal.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/mat-icon/mat-icon-interface.tsx",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/mat-icon/mat-icon.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MatIcon",
+          "members": [
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "description": "Use the icon name from Material Icons"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "MaterialIconSize"
+              },
+              "default": "'m'",
+              "description": "Size of the icon"
+            },
+            {
+              "kind": "field",
+              "name": "family",
+              "type": {
+                "text": "MaterialIconFamily"
+              },
+              "default": "'filled'",
+              "description": "Family of the icon"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "icon",
+              "fieldName": "icon",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "size",
+              "fieldName": "size",
+              "type": {
+                "text": "MaterialIconSize"
+              }
+            },
+            {
+              "name": "family",
+              "fieldName": "family",
+              "type": {
+                "text": "MaterialIconFamily"
+              }
+            }
+          ],
+          "tagName": "wcs-mat-icon",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MatIcon",
+          "declaration": {
+            "name": "MatIcon",
+            "module": "components/mat-icon/mat-icon.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-mat-icon",
+          "declaration": {
+            "name": "MatIcon",
+            "module": "components/mat-icon/mat-icon.tsx"
           }
         }
       ]
@@ -9790,12 +9785,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/skeleton/skeleton-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/skeleton-circle/skeleton-circle.tsx",
       "declarations": [
         {
@@ -9865,6 +9854,12 @@
           }
         }
       ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/skeleton/skeleton-interface.ts",
+      "declarations": [],
+      "exports": []
     },
     {
       "kind": "javascript-module",
@@ -10643,578 +10638,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/textarea/textarea-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/textarea/textarea.e2e.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/textarea/textarea.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Mainly inspired from Ionic Textarea Component",
-          "name": "Textarea",
-          "cssProperties": [
-            {
-              "description": "Max height of the text area component",
-              "name": "--wcs-textarea-max-height"
-            },
-            {
-              "description": "Padding left of the text area. Take in consideration the transparent border of 2px around the textarea.",
-              "name": "--wcs-textarea-padding-left"
-            },
-            {
-              "description": "Padding right of the text area. Take in consideration the transparent border of 2px around the textarea.",
-              "name": "--wcs-textarea-padding-right"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "nativeInput",
-              "type": {
-                "text": "HTMLTextAreaElement | undefined"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inputId",
-              "privacy": "private",
-              "default": "`wcs-textarea-${textareaIds++}`"
-            },
-            {
-              "kind": "field",
-              "name": "didBlurAfterEdit",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "hasFocus",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "autocapitalize",
-              "type": {
-                "text": "string"
-              },
-              "default": "'none'",
-              "description": "Indicates whether and how the text value should be automatically capitalized as it is entered/edited by the user."
-            },
-            {
-              "kind": "field",
-              "name": "autofocus",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "This Boolean attribute lets you specify that a form control should have input focus when the page loads."
-            },
-            {
-              "kind": "field",
-              "name": "clearOnEdit",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "If `true`, the value will be cleared after focus upon edit. Defaults to `true` when `type` is `\"password\"`, `false` for all other types."
-            },
-            {
-              "kind": "field",
-              "name": "debounce",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "Set the amount of time, in milliseconds, to wait to trigger the `wcsInput` event after each keystroke.\r\nThis also impacts form bindings such as `ngModel` or `v-model`."
-            },
-            {
-              "kind": "method",
-              "name": "debounceChanged",
-              "privacy": "protected"
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "If `true`, the user cannot interact with the textarea."
-            },
-            {
-              "kind": "field",
-              "name": "icon",
-              "type": {
-                "text": "string"
-              },
-              "description": "Name of the material icon to add to the input"
-            },
-            {
-              "kind": "field",
-              "name": "inputmode",
-              "type": {
-                "text": "'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search' | undefined"
-              },
-              "description": "A hint to the browser for which keyboard to display.\r\nPossible values: `\"none\"`, `\"text\"`, `\"tel\"`, `\"url\"`,\r\n`\"email\"`, `\"numeric\"`, `\"decimal\"`, and `\"search\"`."
-            },
-            {
-              "kind": "field",
-              "name": "enterkeyhint",
-              "type": {
-                "text": "'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send' | undefined"
-              },
-              "description": "A hint to the browser for which enter key to display.\r\nPossible values: `\"enter\"`, `\"done\"`, `\"go\"`, `\"next\"`,\r\n`\"previous\"`, `\"search\"`, and `\"send\"`."
-            },
-            {
-              "kind": "field",
-              "name": "maxlength",
-              "type": {
-                "text": "number | undefined"
-              },
-              "description": "If the value of the type attribute is `text`, `email`, `search`, `password`, `tel`, or `url`, this attribute specifies the maximum number of characters that the user can enter."
-            },
-            {
-              "kind": "field",
-              "name": "minlength",
-              "type": {
-                "text": "number | undefined"
-              },
-              "description": "If the value of the type attribute is `text`, `email`, `search`, `password`, `tel`, or `url`, this attribute specifies the minimum number of characters that the user can enter."
-            },
-            {
-              "kind": "field",
-              "name": "name",
-              "type": {
-                "text": "string"
-              },
-              "description": "The name of the control, which is submitted with the form data."
-            },
-            {
-              "kind": "field",
-              "name": "placeholder",
-              "type": {
-                "text": "string | null | undefined"
-              },
-              "description": "Instructional text that shows before the input has a value."
-            },
-            {
-              "kind": "field",
-              "name": "readonly",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "If `true`, the user cannot modify the value."
-            },
-            {
-              "kind": "field",
-              "name": "required",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "If `true`, the user must fill in a value before submitting a form."
-            },
-            {
-              "kind": "field",
-              "name": "spellcheck",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "If `true`, the element will have its spelling and grammar checked."
-            },
-            {
-              "kind": "field",
-              "name": "state",
-              "type": {
-                "text": "'initial' | 'error'"
-              },
-              "default": "'initial'",
-              "description": "Specifies the state of the input. By default the input is in an initial state but you can set it to 'error' state if the data given by the user is not valid."
-            },
-            {
-              "kind": "field",
-              "name": "cols",
-              "type": {
-                "text": "number | undefined"
-              },
-              "description": "The visible width of the text control, in average character widths. If it is specified, it must be a positive integer."
-            },
-            {
-              "kind": "field",
-              "name": "rows",
-              "type": {
-                "text": "number | undefined"
-              },
-              "description": "The number of visible text lines for the control."
-            },
-            {
-              "kind": "field",
-              "name": "wrap",
-              "type": {
-                "text": "'hard' | 'soft' | 'off' | undefined"
-              },
-              "description": "Indicates how the control wraps text."
-            },
-            {
-              "kind": "field",
-              "name": "autoGrow",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "If `true`, the element height will increase based on the value."
-            },
-            {
-              "kind": "field",
-              "name": "value",
-              "type": {
-                "text": "string | null | undefined"
-              },
-              "default": "''",
-              "description": "The value of the textarea."
-            },
-            {
-              "kind": "field",
-              "name": "resize",
-              "type": {
-                "text": "'both' | 'none' | 'vertical' | 'horizontal' | undefined"
-              },
-              "description": "Indicates how the textarea should be resizable.\r\nPossible values 'both' | 'none' | 'vertical' | 'horizontal'"
-            },
-            {
-              "kind": "method",
-              "name": "valueChanged",
-              "privacy": "protected",
-              "description": "Update the native input element when the value changes"
-            },
-            {
-              "kind": "method",
-              "name": "runAutoGrow",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "fitContent",
-              "description": "This method make the textarea automatically adopt the size of the content without a scroll bar"
-            },
-            {
-              "kind": "method",
-              "name": "setFocus",
-              "deprecated": "use the native focus method instead  \r\nSets focus on the native `textarea` in `wcs-textarea`."
-            },
-            {
-              "kind": "method",
-              "name": "getInputElement",
-              "return": {
-                "type": {
-                  "text": "Promise<HTMLTextAreaElement>"
-                }
-              },
-              "description": "Returns the native `<textarea>` element used under the hood."
-            },
-            {
-              "kind": "method",
-              "name": "checkClearOnEdit",
-              "privacy": "private",
-              "description": "Check if we need to clear the text input if clearOnEdit is enabled"
-            },
-            {
-              "kind": "method",
-              "name": "focusChange",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "hasValue",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "boolean"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "getValue",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "string"
-                }
-              }
-            },
-            {
-              "kind": "field",
-              "name": "onInput",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "onChange",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "onFocus",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "onBlur",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "onKeyDown",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "fire-focus-events",
-              "fieldName": "fireFocusEvents"
-            },
-            {
-              "name": "autocapitalize",
-              "fieldName": "autocapitalize"
-            },
-            {
-              "name": "autofocus",
-              "fieldName": "autofocus"
-            },
-            {
-              "name": "clear-on-edit",
-              "fieldName": "clearOnEdit"
-            },
-            {
-              "name": "debounce",
-              "fieldName": "debounce"
-            },
-            {
-              "name": "disabled",
-              "fieldName": "disabled"
-            },
-            {
-              "name": "icon",
-              "fieldName": "icon",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "inputmode",
-              "fieldName": "inputmode",
-              "type": {
-                "text": "'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search'"
-              }
-            },
-            {
-              "name": "enterkeyhint",
-              "fieldName": "enterkeyhint",
-              "type": {
-                "text": "'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send'"
-              }
-            },
-            {
-              "name": "maxlength",
-              "fieldName": "maxlength",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "minlength",
-              "fieldName": "minlength",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "name",
-              "fieldName": "name",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "placeholder",
-              "fieldName": "placeholder",
-              "type": {
-                "text": "string | null"
-              }
-            },
-            {
-              "name": "readonly",
-              "fieldName": "readonly"
-            },
-            {
-              "name": "required",
-              "fieldName": "required"
-            },
-            {
-              "name": "spellcheck",
-              "fieldName": "spellcheck"
-            },
-            {
-              "name": "state",
-              "fieldName": "state",
-              "type": {
-                "text": "'initial' | 'error'"
-              }
-            },
-            {
-              "name": "cols",
-              "fieldName": "cols",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "rows",
-              "fieldName": "rows",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "wrap",
-              "fieldName": "wrap",
-              "type": {
-                "text": "'hard' | 'soft' | 'off'"
-              }
-            },
-            {
-              "name": "auto-grow",
-              "fieldName": "autoGrow"
-            },
-            {
-              "name": "value",
-              "fieldName": "value",
-              "type": {
-                "text": "string | null"
-              }
-            },
-            {
-              "name": "resize",
-              "fieldName": "resize",
-              "type": {
-                "text": "'both' | 'none' | 'vertical' | 'horizontal'"
-              }
-            }
-          ],
-          "tagName": "wcs-textarea",
-          "events": [
-            {
-              "name": "wcsChange",
-              "type": {
-                "text": "EventEmitter<TextareaChangeEventDetail>"
-              },
-              "description": "Emitted when the input value has changed.- See https://developer.mozilla.org/en-US/docs/Web/Events/change"
-            },
-            {
-              "name": "wcsInput",
-              "type": {
-                "text": "EventEmitter<KeyboardEvent>"
-              },
-              "description": "Emitted when a keyboard input occurred. See https://developer.mozilla.org/en-US/docs/Web/Events/input"
-            },
-            {
-              "name": "wcsBlur",
-              "type": {
-                "text": "EventEmitter<FocusEvent>"
-              },
-              "description": "Emitted when the input loses focus."
-            },
-            {
-              "name": "wcsFocus",
-              "type": {
-                "text": "EventEmitter<FocusEvent>"
-              },
-              "description": "Emitted when the input has focus."
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Textarea",
-          "declaration": {
-            "name": "Textarea",
-            "module": "components/textarea/textarea.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-textarea",
-          "declaration": {
-            "name": "Textarea",
-            "module": "components/textarea/textarea.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/tooltip/tooltip-interface.ts",
       "declarations": [],
       "exports": []
@@ -11463,6 +10886,578 @@
           "declaration": {
             "name": "Tooltip",
             "module": "components/tooltip/tooltip.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/textarea/textarea-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/textarea/textarea.e2e.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/textarea/textarea.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Mainly inspired from Ionic Textarea Component.\r\n\r\n## Accessibility guidelines 💡\r\n> `wcs-textarea` is a wrapper around the native textarea element which is located inside its shadow DOM. All the\r\n> **aria attributes** you set on `wcs-textarea` are passed to the **native textarea** element **during the first render of the component**.\r\n> If you need to use them as you would with a native textarea, you can do so.\r\n\r\n> If you need to **dynamically change the aria attributes after the first render**, you can use the `setAriaAttribute`\r\n> JS method of `wcs-textarea` :\r\n\r\n> ```javascript\r\n> const wcsTextarea = document.querySelector('wcs-textarea');\r\n> await wcsTextarea.setAriaAttribute('aria-label', 'new label');\r\n> ```\r\n\r\n> If you use wcs-textarea outside a wcs-form-field, you have to manage the label and the error message yourself.\r\n> You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.",
+          "name": "Textarea",
+          "cssProperties": [
+            {
+              "description": "Max height of the text area component",
+              "name": "--wcs-textarea-max-height"
+            },
+            {
+              "description": "Padding left of the text area. Take in consideration the transparent border of 2px around the textarea.",
+              "name": "--wcs-textarea-padding-left"
+            },
+            {
+              "description": "Padding right of the text area. Take in consideration the transparent border of 2px around the textarea.",
+              "name": "--wcs-textarea-padding-right"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "nativeInput",
+              "type": {
+                "text": "HTMLTextAreaElement | undefined"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inputId",
+              "privacy": "private",
+              "default": "`wcs-textarea-${textareaIds++}`"
+            },
+            {
+              "kind": "field",
+              "name": "didBlurAfterEdit",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "hasFocus",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "autocapitalize",
+              "type": {
+                "text": "string"
+              },
+              "default": "'none'",
+              "description": "Indicates whether and how the text value should be automatically capitalized as it is entered/edited by the user."
+            },
+            {
+              "kind": "field",
+              "name": "autofocus",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "This Boolean attribute lets you specify that a form control should have input focus when the page loads."
+            },
+            {
+              "kind": "field",
+              "name": "clearOnEdit",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "If `true`, the value will be cleared after focus upon edit. Defaults to `true` when `type` is `\"password\"`, `false` for all other types."
+            },
+            {
+              "kind": "field",
+              "name": "debounce",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "Set the amount of time, in milliseconds, to wait to trigger the `wcsInput` event after each keystroke.\r\nThis also impacts form bindings such as `ngModel` or `v-model`."
+            },
+            {
+              "kind": "method",
+              "name": "debounceChanged",
+              "privacy": "protected"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "If `true`, the user cannot interact with the textarea."
+            },
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "description": "Name of the material icon to add to the input"
+            },
+            {
+              "kind": "field",
+              "name": "inputmode",
+              "type": {
+                "text": "WcsTextareaInputMode | undefined"
+              },
+              "description": "A hint to the browser for which keyboard to display."
+            },
+            {
+              "kind": "field",
+              "name": "enterkeyhint",
+              "type": {
+                "text": "WcsTextareaEnterKeyHint | undefined"
+              },
+              "description": "A hint to the browser for which enter key to display."
+            },
+            {
+              "kind": "field",
+              "name": "maxlength",
+              "type": {
+                "text": "number | undefined"
+              },
+              "description": "If the value of the type attribute is `text`, `email`, `search`, `password`, `tel`, or `url`, this attribute specifies the maximum number of characters that the user can enter."
+            },
+            {
+              "kind": "field",
+              "name": "minlength",
+              "type": {
+                "text": "number | undefined"
+              },
+              "description": "If the value of the type attribute is `text`, `email`, `search`, `password`, `tel`, or `url`, this attribute specifies the minimum number of characters that the user can enter."
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "description": "The name of the control, which is submitted with the form data."
+            },
+            {
+              "kind": "field",
+              "name": "placeholder",
+              "type": {
+                "text": "string | null | undefined"
+              },
+              "description": "Instructional text that shows before the input has a value."
+            },
+            {
+              "kind": "field",
+              "name": "readonly",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "If `true`, the user cannot modify the value."
+            },
+            {
+              "kind": "field",
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "If `true`, the user must fill in a value before submitting a form."
+            },
+            {
+              "kind": "field",
+              "name": "spellcheck",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "If `true`, the element will have its spelling and grammar checked."
+            },
+            {
+              "kind": "field",
+              "name": "state",
+              "type": {
+                "text": "WcsTextareaInputState"
+              },
+              "default": "'initial'",
+              "description": "Specifies the state of the input. By default the input is in an initial state but you can set it to 'error' state if the data given by the user is not valid."
+            },
+            {
+              "kind": "field",
+              "name": "cols",
+              "type": {
+                "text": "number | undefined"
+              },
+              "description": "The visible width of the text control, in average character widths. If it is specified, it must be a positive integer.  \r\nNote : at the moment, modifying the width is only possible if you add some custom CSS to the component,\r\nfor example by overriding the `width` CSS property. See the Resize section for an example on how to do it."
+            },
+            {
+              "kind": "field",
+              "name": "rows",
+              "type": {
+                "text": "number | undefined"
+              },
+              "description": "The number of visible text lines for the control."
+            },
+            {
+              "kind": "field",
+              "name": "wrap",
+              "type": {
+                "text": "WcsTextareaWrap | undefined"
+              },
+              "description": "Indicates how the control wraps text."
+            },
+            {
+              "kind": "field",
+              "name": "autoGrow",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "If `true`, the element height will increase based on the value."
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "string | null | undefined"
+              },
+              "default": "''",
+              "description": "The value of the textarea."
+            },
+            {
+              "kind": "field",
+              "name": "resize",
+              "type": {
+                "text": "WcsTextareaResize | undefined"
+              },
+              "description": "Indicates how the textarea should be resizable.  \r\nNote : at the moment horizontal resizing is only possible if you add custom CSS to the component,\r\nsee the Resize section for an example."
+            },
+            {
+              "kind": "method",
+              "name": "valueChanged",
+              "privacy": "protected",
+              "description": "Update the native input element when the value changes"
+            },
+            {
+              "kind": "method",
+              "name": "runAutoGrow",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "fitContent",
+              "description": "This method make the textarea automatically adopt the size of the content without a scroll bar"
+            },
+            {
+              "kind": "method",
+              "name": "setFocus",
+              "deprecated": "use the native focus method instead  \r\nSets focus on the native `textarea` in `wcs-textarea`."
+            },
+            {
+              "kind": "method",
+              "name": "getInputElement",
+              "return": {
+                "type": {
+                  "text": "Promise<HTMLTextAreaElement>"
+                }
+              },
+              "description": "Returns the native `<textarea>` element used under the hood."
+            },
+            {
+              "kind": "method",
+              "name": "checkClearOnEdit",
+              "privacy": "private",
+              "description": "Check if we need to clear the text input if clearOnEdit is enabled"
+            },
+            {
+              "kind": "method",
+              "name": "focusChange",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "hasValue",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "getValue",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            },
+            {
+              "kind": "field",
+              "name": "onInput",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "onChange",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "onFocus",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "onBlur",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "onKeyDown",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "fire-focus-events",
+              "fieldName": "fireFocusEvents"
+            },
+            {
+              "name": "autocapitalize",
+              "fieldName": "autocapitalize"
+            },
+            {
+              "name": "autofocus",
+              "fieldName": "autofocus"
+            },
+            {
+              "name": "clear-on-edit",
+              "fieldName": "clearOnEdit"
+            },
+            {
+              "name": "debounce",
+              "fieldName": "debounce"
+            },
+            {
+              "name": "disabled",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "icon",
+              "fieldName": "icon",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "inputmode",
+              "fieldName": "inputmode",
+              "type": {
+                "text": "WcsTextareaInputMode"
+              }
+            },
+            {
+              "name": "enterkeyhint",
+              "fieldName": "enterkeyhint",
+              "type": {
+                "text": "WcsTextareaEnterKeyHint"
+              }
+            },
+            {
+              "name": "maxlength",
+              "fieldName": "maxlength",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "minlength",
+              "fieldName": "minlength",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "name",
+              "fieldName": "name",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "placeholder",
+              "fieldName": "placeholder",
+              "type": {
+                "text": "string | null"
+              }
+            },
+            {
+              "name": "readonly",
+              "fieldName": "readonly"
+            },
+            {
+              "name": "required",
+              "fieldName": "required"
+            },
+            {
+              "name": "spellcheck",
+              "fieldName": "spellcheck"
+            },
+            {
+              "name": "state",
+              "fieldName": "state",
+              "type": {
+                "text": "WcsTextareaInputState"
+              }
+            },
+            {
+              "name": "cols",
+              "fieldName": "cols",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "rows",
+              "fieldName": "rows",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "wrap",
+              "fieldName": "wrap",
+              "type": {
+                "text": "WcsTextareaWrap"
+              }
+            },
+            {
+              "name": "auto-grow",
+              "fieldName": "autoGrow"
+            },
+            {
+              "name": "value",
+              "fieldName": "value",
+              "type": {
+                "text": "string | null"
+              }
+            },
+            {
+              "name": "resize",
+              "fieldName": "resize",
+              "type": {
+                "text": "WcsTextareaResize"
+              }
+            }
+          ],
+          "tagName": "wcs-textarea",
+          "events": [
+            {
+              "name": "wcsChange",
+              "type": {
+                "text": "EventEmitter<TextareaChangeEventDetail>"
+              },
+              "description": "Emitted when the input value has changed.- See https://developer.mozilla.org/en-US/docs/Web/Events/change"
+            },
+            {
+              "name": "wcsInput",
+              "type": {
+                "text": "EventEmitter<KeyboardEvent>"
+              },
+              "description": "Emitted when a keyboard input occurred. See https://developer.mozilla.org/en-US/docs/Web/Events/input"
+            },
+            {
+              "name": "wcsBlur",
+              "type": {
+                "text": "EventEmitter<FocusEvent>"
+              },
+              "description": "Emitted when the input loses focus."
+            },
+            {
+              "name": "wcsFocus",
+              "type": {
+                "text": "EventEmitter<FocusEvent>"
+              },
+              "description": "Emitted when the input has focus."
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Textarea",
+          "declaration": {
+            "name": "Textarea",
+            "module": "components/textarea/textarea.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-textarea",
+          "declaration": {
+            "name": "Textarea",
+            "module": "components/textarea/textarea.tsx"
           }
         }
       ]
