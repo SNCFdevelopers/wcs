@@ -33,23 +33,37 @@
 }
 
 :host {
-    box-sizing: border-box;
-    height: var(--wcs-counter-host-height);
     --wcs-input-icon-color: var(--wcs-text-medium);
     --wcs-internal-input-border-radius: calc(var(--wcs-border-radius) * 10); // 80 px
     --wcs-internal-input-border-width: 2px;
-    font-family: var(--wcs-font-sans-serif);
-    font-size: var(--wcs-counter-font-size);
-    font-weight: bold;
     display: flex;
-    align-items: center;
-    padding: var(--wcs-counter-host-padding);
-    width: fit-content;
-    overflow: hidden;
-    border-radius: var(--wcs-internal-input-border-radius);
-    background-color: var(--wcs-light);
-    border: var(--wcs-internal-input-border-width) solid var(--wcs-light);
-    background-clip: padding-box;
+
+    .counter {
+        box-sizing: border-box;
+        height: var(--wcs-counter-host-height);
+        font-family: var(--wcs-font-sans-serif);
+        font-size: var(--wcs-counter-font-size);
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        padding: var(--wcs-counter-host-padding);
+        width: fit-content;
+        overflow: hidden;
+        border-radius: var(--wcs-internal-input-border-radius);
+        background-color: var(--wcs-light);
+        border: var(--wcs-internal-input-border-width) solid var(--wcs-light);
+        background-clip: padding-box;
+
+        &:has(.current-value:focus-visible) {
+            @include focus-outline($border-radius: 999rem);
+        }
+
+        @supports not selector(&:has(.current-value:focus-visible)){
+            &:focus-within {
+                @include focus-outline($border-radius: 999rem);
+            }
+        }
+    }
 
     .counter-container {
         height: var(--wcs-counter-host-height);
@@ -73,10 +87,8 @@
         bottom: calc((var(--wcs-counter-host-height) / 2) * -1);
     }
 
-    span.current-value {
-        &:focus-visible {
-            @include focus-outline;
-        }
+    .current-value {
+        outline: none;
     }
 
     .animate-up {

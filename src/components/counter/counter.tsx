@@ -1,7 +1,6 @@
 import {
     Component,
     ComponentInterface,
-    Element,
     Event,
     EventEmitter,
     h,
@@ -28,8 +27,8 @@ const ANIMATION_DURATION = 0.175 // seconds
     },
 })
 export class Counter implements ComponentInterface, MutableAriaAttribute {
-    @Element() private el!: HTMLElement;
     private spinButton!: HTMLSpanElement;
+    private counterContainer!: HTMLDivElement;
 
     /**
      * Specify the size (height) of the counter.
@@ -171,11 +170,6 @@ export class Counter implements ComponentInterface, MutableAriaAttribute {
         });
     }
     
-    private getCounterContainer = (): HTMLDivElement => {
-        return Array.from(this.el.shadowRoot.children)
-            .find(el => el.tagName === 'DIV') as HTMLDivElement;
-    }
-
     private handleDecrement = () => {
         if (this.disabled) return;
         if (this.min === undefined || this.value > this.min) {
@@ -205,16 +199,15 @@ export class Counter implements ComponentInterface, MutableAriaAttribute {
         // method to mutate the displayedValue.
         this.animateRunning = true;  
 
-        const counterContainer = this.getCounterContainer();
-        const outliers = Array.from(counterContainer.children)
+        const outliers = Array.from(this.counterContainer.children)
             .filter((span: HTMLSpanElement) => span.classList.contains('outliers'));
 
-        counterContainer.classList.add('animate-' + direction);
+        this.counterContainer.classList.add('animate-' + direction);
         outliers.forEach((span: HTMLSpanElement) => {
             span.hidden = false;
         });
         setTimeout(() => {
-            counterContainer.classList.remove('animate-' + direction);
+            this.counterContainer.classList.remove('animate-' + direction);
             outliers.forEach((span: HTMLSpanElement) => {
                 span.hidden = true;
             });
@@ -227,46 +220,48 @@ export class Counter implements ComponentInterface, MutableAriaAttribute {
     render() {
         return (
             <Host>
-                <wcs-button class="wcs-primary"
-                            shape="round"
-                            size="s"
-                            tabindex={-1}
-                            onClick={() => this.handleDecrement()}
-                            onBlur={(event) => this.wcsBlur.emit(event)}
-                            disabled={this.disabled || this.value === this.min}>
-                    <wcs-mat-icon icon="remove" size="s"></wcs-mat-icon>
-                </wcs-button>
-                <div class="counter-container">
-                    <span id="outlier-down"
-                          class="outliers"
-                          hidden
-                          aria-hidden="true">{this.displayedValue - this.step}</span>
-                    <span tabindex={this.disabled ? -1 : 0}
-                          role="spinbutton"
-                          ref={(el) => this.spinButton = el}
-                          class="current-value"
-                          onBlur={(event) => this.wcsBlur.emit(event)}
-                          onKeyDown={(event) => this.onKeyDown(event)}
-                          aria-disabled={this.disabled ? 'true' : null}
-                          aria-valuenow={this.value}
-                          aria-valuetext={this.value}
-                          aria-valuemin={this.min}
-                          aria-valuemax={this.max}
-                          aria-label={this.label}>{this.displayedValue}</span>
-                    <span id="outlier-up" 
-                          class="outliers"
-                          hidden
-                          aria-hidden="true">{this.displayedValue + this.step}</span>
+                <div class="counter">
+                    <wcs-button class="wcs-primary"
+                                shape="round"
+                                size="s"
+                                tabindex={-1}
+                                onClick={() => this.handleDecrement()}
+                                onBlur={(event) => this.wcsBlur.emit(event)}
+                                disabled={this.disabled || this.value === this.min}>
+                        <wcs-mat-icon icon="remove" size="s"></wcs-mat-icon>  
+                    </wcs-button>
+                    <div class="counter-container" ref={input => this.counterContainer = input}>
+                        <span id="outlier-down"
+                              class="outliers"
+                              hidden
+                              aria-hidden="true">{this.displayedValue - this.step}</span>
+                        <span tabindex={this.disabled ? -1 : 0}
+                              role="spinbutton"
+                              ref={(el) => this.spinButton = el}
+                              class="current-value"
+                              onBlur={(event) => this.wcsBlur.emit(event)}
+                              onKeyDown={(event) => this.onKeyDown(event)}
+                              aria-disabled={this.disabled ? 'true' : null}
+                              aria-valuenow={this.value}
+                              aria-valuetext={this.value}
+                              aria-valuemin={this.min}
+                              aria-valuemax={this.max}
+                              aria-label={this.label}>{this.displayedValue}</span>
+                        <span id="outlier-up"
+                              class="outliers"
+                              hidden
+                              aria-hidden="true">{this.displayedValue + this.step}</span>
+                    </div>
+                    <wcs-button class="wcs-primary"
+                                shape="round"
+                                size="s"
+                                tabindex={-1}
+                                onClick={() => this.handleIncrement()}
+                                onBlur={(event) => this.wcsBlur.emit(event)}
+                                disabled={this.disabled || this.value === this.max}>
+                        <wcs-mat-icon icon="add" size="s"></wcs-mat-icon>
+                    </wcs-button>
                 </div>
-                <wcs-button class="wcs-primary"
-                            shape="round"
-                            size="s"
-                            tabindex={-1}
-                            onClick={() => this.handleIncrement()}
-                            onBlur={(event) => this.wcsBlur.emit(event)}
-                            disabled={this.disabled || this.value === this.max}>
-                    <wcs-mat-icon icon="add" size="s"></wcs-mat-icon>
-                </wcs-button>
             </Host>
         );
     }
