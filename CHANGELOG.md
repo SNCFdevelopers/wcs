@@ -37,6 +37,7 @@ for now removed features.
 - **textarea**: fix debounce behavior by using `wcsInput` event instead of `wcsChange`
 - **input**: fix debounce behavior by using `wcsInput` event instead of `wcsChange`
 - **counter**: improve keyboard focus style
+- **header**: (accessibility) add missing aria attributes
 
 ### Security
 

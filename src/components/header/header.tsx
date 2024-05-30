@@ -1,6 +1,5 @@
 import { Component, ComponentInterface, h } from '@stencil/core';
 
-
 /**
  * @slot logo SNCF Logo
  * @slot title Title of your application
@@ -20,7 +19,7 @@ export class Header implements ComponentInterface {
 
     render() {
         return (
-            <header>
+            <header role="banner">
                 <slot name="logo"/>
                 <slot name="title"/>
                 <slot name="actions"/>
