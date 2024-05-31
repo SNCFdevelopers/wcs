@@ -92,10 +92,15 @@ export class Input implements ComponentInterface, MutableAriaAttribute {
     @Prop() clearOnEdit?: boolean;
 
     /**
-     * Set the amount of time, in milliseconds, to wait to trigger the `wcsChange` event after each keystroke.
+     * Set the amount of time, in milliseconds, to wait to trigger the `wcsInput` event after each keystroke.
      * This also impacts form bindings such as `ngModel` or `v-model`.
      */
     @Prop() debounce = 0;
+
+    @Watch('debounce')
+    protected debounceChanged() {
+        this.wcsInput = debounceEvent(this.wcsInput, this.debounce);
+    }
 
     /**
      * Prefix displayed before the text field contents. This is not included in the value.
@@ -106,11 +111,6 @@ export class Input implements ComponentInterface, MutableAriaAttribute {
      * Suffix displayed after the text field contents. This is not included in the value.
      */
     @Prop() suffixLabel: string;
-
-    @Watch('debounce')
-    protected debounceChanged() {
-        this.wcsChange = debounceEvent(this.wcsChange, this.debounce);
-    }
 
     /**
      * If `true`, the user cannot interact with the input.

@@ -67,13 +67,14 @@ export class Textarea implements ComponentInterface, MutableAriaAttribute {
     @Prop({mutable: true}) clearOnEdit = false;
 
     /**
-     * Set the amount of time, in milliseconds, to wait to trigger the `wcsChange` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.
+     * Set the amount of time, in milliseconds, to wait to trigger the `wcsInput` event after each keystroke.
+     * This also impacts form bindings such as `ngModel` or `v-model`.
      */
     @Prop() debounce = 0;
 
     @Watch('debounce')
     protected debounceChanged() {
-        this.wcsChange = debounceEvent(this.wcsChange, this.debounce);
+        this.wcsInput = debounceEvent(this.wcsInput, this.debounce);
     }
 
     /**

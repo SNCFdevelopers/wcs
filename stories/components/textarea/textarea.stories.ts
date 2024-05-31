@@ -40,9 +40,10 @@ const meta: Meta = {
 
 export default meta;
 
-const Template: StoryFn<Partial<{ icon: string, autoGrow: boolean, disabled: boolean, ariaLabel: string, placeholder: string, value: string, resize: string, state: string }>> = (args) => html`
+const Template: StoryFn<Partial<{ icon: string, autoGrow: boolean, debounce: number, disabled: boolean, ariaLabel: string, placeholder: string, value: string, resize: string, state: string }>> = (args) => html`
     <wcs-textarea icon=${args.icon}
                   ?auto-grow="${args.autoGrow}"
+                  debounce=${args.debounce}
                   ?disabled="${args.disabled}"
                   .state="${args.state}"
                   resize="${args.resize ?? 'auto'}"
