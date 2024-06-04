@@ -304,14 +304,18 @@ Finally, the app-nav component
 @Component({
   selector: 'app-nav',
   template: `
-    <wcs-com-nav appName="MON APPLICATION">
+    <wcs-com-nav appName="MON APPLICATION" aria-label="Menu principal">
         <wcs-com-nav-submenu label="Domaine" panelTitle="Title" panelDescription="description">
-            <a routerLink="...">
-              Un lien
-            </a>
-            <a routerLink="...">
-              Un autre lien
-            </a>
+            <wcs-com-nav-item>
+                <a routerLink="...">
+                  Un lien
+                </a>
+            </wcs-com-nav-item>
+            <wcs-com-nav-item>
+                <a routerLink="...">
+                  Un autre lien
+                </a>
+            </wcs-com-nav-item>
         </wcs-com-nav-submenu>
         <div slot="actions">
             Show user connected or connexion

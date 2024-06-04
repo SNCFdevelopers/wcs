@@ -11,7 +11,7 @@ import {
     EventEmitter, Method
 } from '@stencil/core';
 import {MenuOpenedEventDetail} from '../com-nav/com-nav-interface';
-import {isEnterKey, isEscapeKey, isSpaceKey} from "../../utils/helpers";
+import {getCssRootPropertyValue, isEnterKey, isEscapeKey, isSpaceKey} from "../../utils/helpers";
 import {registerCloseHandlerForFocusOutEventOn} from "../com-nav/com-nav-utils";
 
 
@@ -36,9 +36,36 @@ export class ComNavSubmenu implements ComponentInterface {
      */
     @Event() wcsClickOnFinalAction: EventEmitter<void>;
 
+    private menuItemsId = `wcs-com-nav-submenu-items`;
+    private resizeObserver: ResizeObserver;
+    /**
+     * To re-trigger re-render in order to render a button in case of desktop or a heading in mobile case
+     * @private
+     */
+    @State() private currentActiveSizing: 'desktop' | 'mobile' = 'desktop';
+
     componentWillLoad(): Promise<void> | void {
         const slottedCategoryItems = this.el.querySelectorAll(':scope > wcs-com-nav-category:not([slot])');
         registerCloseHandlerForFocusOutEventOn<HTMLWcsComNavCategoryElement>(slottedCategoryItems, WCS_COM_NAV_CATEGORY);
+    }
+
+    componentDidLoad(): void {
+        if(!this.resizeObserver) {
+            const smallBreakpoint = getCssRootPropertyValue('--wcs-phone-breakpoint-max-width') || '576px';
+            const smallBreakpointValue = parseInt(smallBreakpoint, 10);
+
+            this.resizeObserver = new ResizeObserver(entry => {
+                const cr = entry[0].contentRect;
+                const paddingRight = cr.right - cr.width;
+                const paddingLeft = cr.left;
+                if (cr.width < smallBreakpointValue - (paddingLeft + paddingRight)) {
+                    this.currentActiveSizing = 'mobile';
+                } else {
+                    this.currentActiveSizing = 'desktop';
+                }
+            });
+            this.resizeObserver.observe(document.body);
+        }
     }
 
     /**
@@ -104,17 +131,6 @@ export class ComNavSubmenu implements ComponentInterface {
         }
     }
 
-    /**
-     * Open the menu if it is closed and closed the menu if it is already opened
-     * @param _event the keyboard event
-     * @private
-     */
-    private handleMenuKeyDown(_event: KeyboardEvent) {
-        if ((isSpaceKey(_event)) || isEnterKey(_event)) {
-            this.menuOpen = !this.menuOpen;
-        }
-    }
-
     private handleMenuItemsClick(evt: UIEvent) {
         if ((evt.target as HTMLElement).tagName === 'A') {
             this.close();
@@ -134,26 +150,35 @@ export class ComNavSubmenu implements ComponentInterface {
         this.close();
     }
 
+    disconnectedCallback(): void {
+        this.resizeObserver?.disconnect();
+    }
 
     render(): any {
         return (
-            <Host onClick={evt => this.onClick(evt)}>
-                <div tabindex={screen.width < 576 ? "-1" : "0"}
-                     onClick={_ => this.menuOpen = !this.menuOpen}
-                     onKeyDown={evt => this.handleMenuKeyDown(evt)}
-                     class="menu-button">
-                    <span class="label">{this.label}</span><span class="arrow-container"><span
-                    class="arrow-icon" data-open={this.menuOpen}>&#xf107;</span></span>
-                </div>
+            <Host onClick={evt => this.onClick(evt)} role="listitem">
+                {this.currentActiveSizing === 'mobile' ?
+                    <h2 role="presentation" class="menu-button">
+                        <span class="label">{this.label}</span><span class="arrow-container">
+                        <span class="arrow-icon" data-open={this.menuOpen}>&#xf107;</span></span>
+                    </h2>
+                    : <button onClick={_ => this.menuOpen = !this.menuOpen}
+                              aria-expanded={this.menuOpen ? 'true' : 'false'}
+                              aria-controls={this.menuItemsId}
+                              class="menu-button">
+                        <span class="label">{this.label}</span><span class="arrow-container">
+                        <span aria-hidden="true" class="arrow-icon" data-open={this.menuOpen}>&#xf107;</span></span>
+                    </button>
+                }
                 <div class="drawer" data-open={this.menuOpen} tabIndex={-1}>
-                    <div class="drawer-container">
-                        <div class="drawer-content">
-                            <div class="drawer-description">
-                                <h3>{this.panelTitle}</h3>
-                                <p>{this.panelDescription}</p>
-                            </div>
-                            <div class="menu-items"
-                                 onClick={(evt) => this.handleMenuItemsClick(evt)}
+                <div class="drawer-container">
+                    <div class="drawer-content">
+                        <div class="drawer-description">
+                            <h3>{this.panelTitle}</h3>
+                            <p>{this.panelDescription}</p>
+                        </div>
+                        <div role="list" aria-label={this.label} id={this.menuItemsId} class="menu-items"
+                             onClick={(evt) => this.handleMenuItemsClick(evt)}
                                  onKeyDown={evt => this.handleMenuItemsKeyDown(evt)}>
                                 <slot/>
                             </div>
@@ -163,6 +188,4 @@ export class ComNavSubmenu implements ComponentInterface {
             </Host>
         );
     }
-
-
 }

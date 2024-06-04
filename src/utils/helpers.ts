@@ -226,3 +226,7 @@ export function isTabKey(evt: KeyboardEvent) {
 export function isCtrlA(evt: KeyboardEvent) {
     return evt.key === 'a' && evt.ctrlKey;
 }
+
+export function getCssRootPropertyValue(name: string): string | null {
+    return window.getComputedStyle(document.body).getPropertyValue(name) || null;
+}

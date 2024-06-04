@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-08-19T07:44:51",
+  "timestamp": "2024-08-27T09:21:49",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -1120,8 +1120,21 @@
       "encapsulation": "shadow",
       "tag": "wcs-com-nav",
       "readme": "# Communication Navbar\r\n\r\nThis component is the implementation of the navigation bar dedicated to communication design.\r\n\r\n```html\r\n\r\n\r\n```\r\n\r",
-      "docs": "This component is the implementation of the navigation bar dedicated to communication design.\r\n\r\n```html\r\n\r\n\r\n```",
-      "docsTags": [],
+      "docs": "*Part of communication design system*\r\n\r\nThe com-nav component is a container for navigation links to external or internal pages of the website.",
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "<no-name> - Default slot containing all the menu declarations"
+        },
+        {
+          "name": "slot",
+          "text": "app-name - (Optional) Extra slot for the application name"
+        },
+        {
+          "name": "slot",
+          "text": "actions - Slot for actions placed on the right part of the container"
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -1167,7 +1180,20 @@
         }
       ],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "<no-name>",
+          "docs": "Default slot containing all the menu declarations"
+        },
+        {
+          "name": "actions",
+          "docs": "Slot for actions placed on the right part of the container"
+        },
+        {
+          "name": "app-name",
+          "docs": "(Optional) Extra slot for the application name"
+        }
+      ],
       "parts": [],
       "dependents": [],
       "dependencies": [],
@@ -1305,6 +1331,25 @@
           "passive": false
         }
       ],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "src/components/com-nav-item/com-nav-item.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-com-nav-item",
+      "readme": "# com-nav-item\r\n\r\n\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [],
+      "methods": [],
+      "events": [],
+      "listeners": [],
       "styles": [],
       "slots": [],
       "parts": [],

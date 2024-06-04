@@ -321,6 +321,27 @@ export declare interface WcsComNavCategory extends Components.WcsComNavCategory 
 
 
 @ProxyCmp({
+})
+@Component({
+  selector: 'wcs-com-nav-item',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: [],
+})
+export class WcsComNavItem {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface WcsComNavItem extends Components.WcsComNavItem {}
+
+
+@ProxyCmp({
   inputs: ['label', 'panelDescription', 'panelTitle'],
   methods: ['close', 'open']
 })

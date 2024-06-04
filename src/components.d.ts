@@ -186,6 +186,10 @@ export namespace Components {
         "name": string;
         "setAriaAttribute": (attr: AriaAttributeName, value: string) => Promise<void>;
     }
+    /**
+     * *Part of communication design system*
+     * The com-nav component is a container for navigation links to external or internal pages of the website.
+     */
     interface WcsComNav {
         /**
           * Name of the application to be displayed in the menu bar
@@ -202,6 +206,8 @@ export namespace Components {
           * Opens the category
          */
         "open": () => Promise<void>;
+    }
+    interface WcsComNavItem {
     }
     interface WcsComNavSubmenu {
         /**
@@ -1539,6 +1545,10 @@ declare global {
         prototype: HTMLWcsCheckboxElement;
         new (): HTMLWcsCheckboxElement;
     };
+    /**
+     * *Part of communication design system*
+     * The com-nav component is a container for navigation links to external or internal pages of the website.
+     */
     interface HTMLWcsComNavElement extends Components.WcsComNav, HTMLStencilElement {
     }
     var HTMLWcsComNavElement: {
@@ -1562,6 +1572,12 @@ declare global {
     var HTMLWcsComNavCategoryElement: {
         prototype: HTMLWcsComNavCategoryElement;
         new (): HTMLWcsComNavCategoryElement;
+    };
+    interface HTMLWcsComNavItemElement extends Components.WcsComNavItem, HTMLStencilElement {
+    }
+    var HTMLWcsComNavItemElement: {
+        prototype: HTMLWcsComNavItemElement;
+        new (): HTMLWcsComNavItemElement;
     };
     interface HTMLWcsComNavSubmenuElementEventMap {
         "wcsSubmenuOpened": MenuOpenedEventDetail;
@@ -2351,6 +2367,7 @@ declare global {
         "wcs-checkbox": HTMLWcsCheckboxElement;
         "wcs-com-nav": HTMLWcsComNavElement;
         "wcs-com-nav-category": HTMLWcsComNavCategoryElement;
+        "wcs-com-nav-item": HTMLWcsComNavItemElement;
         "wcs-com-nav-submenu": HTMLWcsComNavSubmenuElement;
         "wcs-counter": HTMLWcsCounterElement;
         "wcs-divider": HTMLWcsDividerElement;
@@ -2542,6 +2559,10 @@ declare namespace LocalJSX {
          */
         "onWcsFocus"?: (event: WcsCheckboxCustomEvent<FocusEvent>) => void;
     }
+    /**
+     * *Part of communication design system*
+     * The com-nav component is a container for navigation links to external or internal pages of the website.
+     */
     interface WcsComNav {
         /**
           * Name of the application to be displayed in the menu bar
@@ -2552,6 +2573,8 @@ declare namespace LocalJSX {
         "label"?: string;
         "onWcsCategoryItemClicked"?: (event: WcsComNavCategoryCustomEvent<UIEvent>) => void;
         "onWcsCategoryOpened"?: (event: WcsComNavCategoryCustomEvent<CategoryOpenedEventDetail>) => void;
+    }
+    interface WcsComNavItem {
     }
     interface WcsComNavSubmenu {
         "label"?: string;
@@ -3795,6 +3818,7 @@ declare namespace LocalJSX {
         "wcs-checkbox": WcsCheckbox;
         "wcs-com-nav": WcsComNav;
         "wcs-com-nav-category": WcsComNavCategory;
+        "wcs-com-nav-item": WcsComNavItem;
         "wcs-com-nav-submenu": WcsComNavSubmenu;
         "wcs-counter": WcsCounter;
         "wcs-divider": WcsDivider;
@@ -3870,8 +3894,13 @@ declare module "@stencil/core" {
             "wcs-card": LocalJSX.WcsCard & JSXBase.HTMLAttributes<HTMLWcsCardElement>;
             "wcs-card-body": LocalJSX.WcsCardBody & JSXBase.HTMLAttributes<HTMLWcsCardBodyElement>;
             "wcs-checkbox": LocalJSX.WcsCheckbox & JSXBase.HTMLAttributes<HTMLWcsCheckboxElement>;
+            /**
+             * *Part of communication design system*
+             * The com-nav component is a container for navigation links to external or internal pages of the website.
+             */
             "wcs-com-nav": LocalJSX.WcsComNav & JSXBase.HTMLAttributes<HTMLWcsComNavElement>;
             "wcs-com-nav-category": LocalJSX.WcsComNavCategory & JSXBase.HTMLAttributes<HTMLWcsComNavCategoryElement>;
+            "wcs-com-nav-item": LocalJSX.WcsComNavItem & JSXBase.HTMLAttributes<HTMLWcsComNavItemElement>;
             "wcs-com-nav-submenu": LocalJSX.WcsComNavSubmenu & JSXBase.HTMLAttributes<HTMLWcsComNavSubmenuElement>;
             /**
              * Counter component, meant to be used for small range of values (e.g : 0 - 5).<br>

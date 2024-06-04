@@ -130,7 +130,63 @@ You can use a `<NavLink>` inside a `<WcsNavItem>` :
 </WcsNavItem>
 ```
 
+### wcs-com-nav
 
+For accessibility reasons, we have created new components which served to contains links were added to simplify the accessibility requirements for `<wcs-com-nav>`:
+
+- `<wcs-com-nav-item>` which can have `<a>` as child
+
+On top of that, we handle new accessibility features which allow given aria-label to nav-bar and menu hamburger
+in mobile layout.
+
+- By providing `aria-label` to `wcs-com-nav` you can describe what is the name of the menu bar and to describe the name of the button which opens the mobile menu overlay
+
+Please refer to the example below in order to facilitate your migration :
+
+#### How to Migrate
+
+1. Wrap all your `<a>` with the new `<wcs-com-nav-item>` component
+2. If you have not already done so, add an `aria-label` on `wcs-com-nav`
+
+**Template before ❌**
+
+To add simple link to `wcs-com-nav`, you've done something like that
+
+```html
+<wcs-com-nav app-name="Application">
+    <a href="https://sncf.com" target="_blank">Ressource externe</a>
+    <wcs-com-nav-submenu label="Sous menu" panel-title="Sous Menu" panel-description="Autre sous-menu avec catégories">
+        <a href="#">Un lien</a>
+        <wcs-com-nav-category label="Une catégorie">
+            <a href="#">Un sous-lien</a>
+        </wcs-com-nav-category>    
+    </wcs-com-nav-submenu>    
+</wcs-com-nav>
+```
+
+**Template after ✅** 
+
+On top of the three new wrapper around links, you can take advantage from the migration with these new feature :
+
+- To provide `aria-label` on `wcs-com-nav` (it updates the aria-label of the `nav` element in the shadow DOM under the hood)
+
+```html
+<wcs-com-nav app-name="Application" aria-label="Newly Supported">
+    <wcs-com-nav-item>
+        <a href="https://sncf.com" target="_blank">Ressource externe</a>
+    </wcs-com-nav-item>
+    <wcs-com-nav-submenu label="Sous menu" panel-title="Sous Menu" panel-description="Autre sous-menu avec catégories">
+        <wcs-com-nav-item>
+            <a href="#">Un lien</a>
+        </wcs-com-nav-item>
+        <wcs-com-nav-category label="Une catégorie">
+            <wcs-com-nav-item>
+                <a href="#">Un sous-lien</a>
+             </wcs-com-nav-item>
+        </wcs-com-nav-category>
+    </wcs-com-nav-submenu>
+</wcs-com-nav>
+```
 
 ### wcs-input
 

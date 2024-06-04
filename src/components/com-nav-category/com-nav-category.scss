@@ -1,46 +1,53 @@
 @import '../../style/focus-outline.scss';
+@import '../com-nav/com-nav-focus.scss';
+@import '../../style/breakpoints.scss';
 
 :host{
     display: block;
-    padding-bottom: var(--wcs-padding);
+    height: fit-content;
+
+    button {
+        background: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        font: inherit;
+        color: inherit;
+        cursor: initial;
+    }
+
     .label-container {
-        display: block;
-        padding-left: calc(9 * var(--wcs-base-margin));
-        color: var(--wcs-gray);
-    }
-    ::slotted(a):after {
-        font-family: icons;
-        padding-left: var(--wcs-base-margin);
-        font-size: 0.6rem;
-        content: "\f107";
-        line-height: 1;
-        box-sizing: border-box;
-    }
-
-    ::slotted(a) {
-        display: block;
-        cursor: pointer;
-        text-decoration: none;
+        margin: 0;
         font-size: 16px;
+        font-weight: 500;
+
+        display: block;
         color: var(--wcs-gray);
-        padding-left: calc(12 * var(--wcs-base-margin));
-        padding-top: calc(1.5 * var(--wcs-base-margin));
-        padding-bottom: calc(1.5 * var(--wcs-base-margin));
+
+        .arrow-container {
+            display: none;
+        }
+
+        .arrow-icon {
+            display: none;
+        }
     }
 
-    /**For mobile*/
-    ::slotted(a:focus-visible) {
-        @include focus-outline(var(--wcs-primary), 2px, 0.1rem);
-    }
-
-    @supports not selector(::slotted(a:focus-visible)) {
-        ::slotted(a:focus-within) {
-            @include focus-outline(var(--wcs-primary), 2px, 0.1rem);
+    .item-container {
+        display: flex;
+        flex-direction: column;
+        gap: calc(1.5 * var(--wcs-base-margin));
+        margin-left: calc(3 * var(--wcs-base-margin));
+        margin-top: calc(1.5 * var(--wcs-base-margin));
+        
+        ::slotted(wcs-com-nav-item) {
+            color: var(--wcs-gray);
+            font-weight: 400;
         }
     }
 }
 
-@media screen and (min-width: 576px) {
+@include for-tablet-portrait-up {
     :host {
         padding-bottom: unset;
 
@@ -48,22 +55,35 @@
             display: none;
         }
 
-        .label:after {
-            font-family: icons;
-            padding-left: var(--wcs-base-margin);
-            font-size: 0.6rem;
-            content: "\f107";
-            line-height: 1;
-            box-sizing: border-box;
+        button {
+            cursor: pointer;
         }
 
         .label-container {
+            display: flex;
+            align-items: center;
+            gap: var(--wcs-base-margin);
+
+            font-weight: 400;
+
             cursor: pointer;
             user-select: none;
             display: flex;
             align-items: center;
             padding-left: unset;
             color: var(--wcs-white);
+
+            .arrow-icon {
+                display: inline-block;
+                font-family: icons;
+                font-size: 0.6rem;
+                line-height: 1;
+                box-sizing: border-box;
+            }
+        
+            .arrow-container {
+                display: unset;
+            }
         }
 
         .label-container:focus-visible   {
@@ -76,7 +96,7 @@
             }
         }
 
-        .label-container[data-open]:after {
+        button.label-container[aria-expanded="true"]:after {
             position: absolute;
             left: calc(calc(calc(100% / 2) + calc(var(--wcs-com-content-max-width) / 8)) - calc(1.125rem / 2));
             z-index: 2;
@@ -98,29 +118,22 @@
             background-color: rgba(0, 0, 0, 0.15);
             box-sizing: border-box;
             height: calc(100%);
+
+            margin-left: unset;
+            margin-top: unset;
+
             display: flex;
             flex-direction: column;
+            gap: 24px;
             align-items: start;
 
-            ::slotted(a:not(:first-child)) {
-                margin-top: 24px;
-            }
-            ::slotted(a) {
-                display: unset;
+            ::slotted(wcs-com-nav-item) {
                 color: var(--wcs-white);
-                padding-left: unset;
-                padding-top: unset;
-                padding-bottom: unset;
+                font-weight: 400;
             }
 
-            ::slotted(a:focus-visible) {
-                @include focus-outline(var(--wcs-white), 2px, 0.1rem);
-            }
-
-            @supports not selector(::slotted(a:focus-visible)) {
-                ::slotted(a:focus-within) {
-                    @include focus-outline(var(--wcs-white), 2px, 0.1rem);
-                }
+            ::slotted(wcs-com-nav-item:focus-within) {
+                @include com-nav-submenu-item-desktop-focus-outline;
             }
         }
     }

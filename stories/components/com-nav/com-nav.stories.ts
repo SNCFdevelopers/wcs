@@ -1,50 +1,96 @@
-import { Meta, StoryFn } from '@storybook/web-components';
+import { Meta, StoryFn, StoryObj } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { getComponentArgs } from '../../utils/args-generation';
+import comNavDocumentation from './com-nav-documentation.md';
 
 const meta: Meta = {
     title: 'Components/DS Communication/Nav',
     component: 'wcs-com-nav',
-    argTypes: getComponentArgs('wcs-com-nav'),
+    argTypes: {
+        ...getComponentArgs('wcs-com-nav'),
+        ariaLabel: {
+            description: 'An optional aria-label can be added'
+        },
+    },
+    parameters: {
+        docs: {
+            description: {
+                component: comNavDocumentation
+            }
+        }
+    },
 };
 export default meta;
 
-const Template: StoryFn<Partial<{ appName: string, displayGalactic: boolean }>> = (args) => html`
+type ComNavArgs = {
+    appName: string,
+    ariaLabel: string,
+    displayGalactic: boolean
+}
+
+const Template: StoryFn<Partial<ComNavArgs>> = (args) => html`
     ${args.displayGalactic ? html`
         <wcs-galactic text="NomSuperApp est un site SNCF">
             <wcs-galactic-menu text="TOUT SNCF">
-                <div style="margin-bottom: 8px"><a href="#" style="text-decoration: none; color: var(--wcs-white)">CGU</a></div>
-                <div style="margin-bottom: 8px"><a href="#" style="text-decoration: none; color: var(--wcs-white)">À Propos</a>
+                <div style="margin-bottom: 8px">
+                    <a href="cgu" style="text-decoration: none; color: var(--wcs-white)">CGU</a></div>
+                <div style="margin-bottom: 8px">
+                    <a href="about" style="text-decoration: none; color: var(--wcs-white)">À Propos</a>
                 </div>
-                <div style="margin-bottom: 8px"><a href="#" style="text-decoration: none; color: var(--wcs-white)">Un autre
-                    lien</a></div>
+                <div style="margin-bottom: 8px">
+                    <a href="another" style="text-decoration: none; color: var(--wcs-white)">Un autre lien</a>
+                </div>
                 <wcs-button shape="small">Un bouton</wcs-button>
             </wcs-galactic-menu>
         </wcs-galactic>
     ` : ''}
-    <wcs-com-nav app-name=${args.appName}>
+    <wcs-com-nav app-name=${args.appName} aria-label="${args.ariaLabel}">
         <wcs-com-nav-submenu label="Sous menu" panel-title="Sous Menu"
                              panel-description="Nullam id dolor id nibh ultricies vehicula ut id elit. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.">
-            <a href="#">Loisirs & Tourisme</a>
-            <a href="#">Toutes les lignes</a>
-            <a href="#">Services mobiles</a>
-            <a href="#">Au quotidien</a>
-            <a href="#">Le réseau</a>
+            <wcs-com-nav-item>
+                <a href="hobbies" @click=${e => e.preventDefault()}>Loisirs & Tourisme</a>
+            </wcs-com-nav-item>
+            <wcs-com-nav-item>
+                <a href="lines" @click=${e => e.preventDefault()}>Toutes les lignes</a>
+            </wcs-com-nav-item>
+            <wcs-com-nav-item>
+                <a href="mobiles" @click=${e => e.preventDefault()}>Services mobiles</a>
+            </wcs-com-nav-item>
+            <wcs-com-nav-item>
+                <a href="daily" @click=${e => e.preventDefault()}>Au quotidien</a>
+            </wcs-com-nav-item>
+            <wcs-com-nav-item>
+                <a href="network" @click=${e => e.preventDefault()}>Le réseau</a>
+            </wcs-com-nav-item>
         </wcs-com-nav-submenu>
         <wcs-com-nav-submenu label="Autre sous menu" panel-title="Autre Sous Menu"
                              panel-description="Un autre sous menu avec des catégories. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.">
-            <a href="#">Le réseau</a>
+            <wcs-com-nav-item>
+                <a href="network" @click=${e => e.preventDefault()}>Le réseau</a>
+            </wcs-com-nav-item>
             <wcs-com-nav-category label="Une catégorie">
-                <a href="#">Services mobiles text plus long</a>
-                <a href="#">Au quotidien</a>
-                <a href="#">Le réseau</a>
+                <wcs-com-nav-item>
+                    <a href="services" @click=${e => e.preventDefault()}>Services mobiles text plus long</a>
+                </wcs-com-nav-item>
+                <wcs-com-nav-item>
+                    <a href="daily" @click=${e => e.preventDefault()}>Au quotidien</a>
+                </wcs-com-nav-item>
+                <wcs-com-nav-item>
+                    <a href="network" @click=${e => e.preventDefault()}>Le réseau</a>
+                </wcs-com-nav-item>
             </wcs-com-nav-category>
             <wcs-com-nav-category label="Une catégorie">
-                <a href="#">1</a>
-                <a href="#">2</a>
+                <wcs-com-nav-item>
+                    <a href="1" @click=${e => e.preventDefault()}>1</a>
+                </wcs-com-nav-item>
+                <wcs-com-nav-item>
+                    <a href="2" @click=${e => e.preventDefault()}>2</a>
+                </wcs-com-nav-item>
             </wcs-com-nav-category>
         </wcs-com-nav-submenu>
-        <a href="https://sncf.com" target="_blank">Ressource externe</a>
+        <wcs-com-nav-item>
+            <a href="https://sncf.com" target="_blank">Ressource externe</a>
+        </wcs-com-nav-item>
         <div slot="actions">
             <wcs-button mode="clear" class="wcs-dark">Connexion</wcs-button>
         </div>
@@ -54,30 +100,58 @@ const Template: StoryFn<Partial<{ appName: string, displayGalactic: boolean }>> 
         Contenu du site
     </div>`;
 
-export const Default = Template.bind({});
-Default.args = {appName: 'Application'};
+export const Default: StoryObj<ComNavArgs> = {
+    render: (args) => Template(args, this),
+    args: {
+        appName: 'Application',
+        ariaLabel: 'Menu principal',
+    }
+}
 
-export const WithGalactic = Template.bind({});
-WithGalactic.args = {appName: 'Application', displayGalactic: true};
+/**
+ * The com-nav is commonly used with the [galactic bar component](.?path=/docs/components-ds-communication-galactic--documentation).
+ */
+export const WithGalactic: StoryObj<ComNavArgs> = {
+    render: (args) => Template(args, this),
+    args: {
+        ...Default.args,
+        displayGalactic: true
+    }
+}
 
-const TopLevelLinkTemplateTemplate: StoryFn<Partial<{ appName: string, displayGalactic: boolean }>> = (args) => html`
+/**
+ * If your navigation is simple and doesn't include a lot of submenus you can only display top-level links.
+ */
+export const OnlyTopLevelLinks: StoryObj<ComNavArgs> = {
+    render: (args) => html`
     ${args.displayGalactic ? html`
         <wcs-galactic text="NomSuperApp est un site SNCF">
             <wcs-galactic-menu text="TOUT SNCF">
-                <div style="margin-bottom: 8px"><a href="#" style="text-decoration: none; color: var(--wcs-white)">CGU</a></div>
-                <div style="margin-bottom: 8px"><a href="#" style="text-decoration: none; color: var(--wcs-white)">À Propos</a>
+                <div style="margin-bottom: 8px">
+                    <a href="cgu" style="text-decoration: none; color: var(--wcs-white)" @click=${e => e.preventDefault()}>CGU</a></div>
+                <div style="margin-bottom: 8px">
+                    <a href="about" style="text-decoration: none; color: var(--wcs-white)" @click=${e => e.preventDefault()}>À Propos</a>
                 </div>
-                <div style="margin-bottom: 8px"><a href="#" style="text-decoration: none; color: var(--wcs-white)">Un autre
-                    lien</a></div>
+                <div style="margin-bottom: 8px">
+                    <a href="another" style="text-decoration: none; color: var(--wcs-white)" @click=${e => e.preventDefault()}>Un autre lien</a>
+                </div>
                 <wcs-button shape="small">Un bouton</wcs-button>
             </wcs-galactic-menu>
         </wcs-galactic>
     ` : ''}
-    <wcs-com-nav app-name=${args.appName}>
-        <a>Navigation</a>
-        <a>Un autre item</a>
-        <a>Encore ?</a>
-        <a href="https://sncf.com" target="_blank">Ressource externe</a>
+    <wcs-com-nav app-name=${args.appName} aria-label=${args.ariaLabel}>
+        <wcs-com-nav-item>
+            <a href="navigation" @click=${e => e.preventDefault()}>Navigation</a>
+        </wcs-com-nav-item>
+        <wcs-com-nav-item>
+            <a href="another" @click=${e => e.preventDefault()}>Un autre item</a>
+        </wcs-com-nav-item>
+        <wcs-com-nav-item>
+            <a href="another" @click=${e => e.preventDefault()}>Encore ?</a>
+        </wcs-com-nav-item>
+        <wcs-com-nav-item>
+            <a href="https://sncf.com" target="_blank">Ressource externe</a>
+        </wcs-com-nav-item>
         <div slot="actions">
             <wcs-button mode="clear" class="wcs-dark">Connexion</wcs-button>
         </div>
@@ -85,7 +159,8 @@ const TopLevelLinkTemplateTemplate: StoryFn<Partial<{ appName: string, displayGa
     <div
         style="height: 300px; width: 100%; display: flex; justify-content:center; align-items: center; text-align: center">
         Contenu du site
-    </div>`;
-
-export const OnlyTopLevelLinks = TopLevelLinkTemplateTemplate.bind({});
-OnlyTopLevelLinks.args = {appName: 'Application'};
+    </div>`,
+    args: {
+        ...Default.args
+    }
+}

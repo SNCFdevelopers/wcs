@@ -1,13 +1,27 @@
 @import '../../style/focus-outline.scss';
+@import '../com-nav/com-nav-focus.scss';
+@import '../../style/breakpoints.scss';
 
 :host {
     display: block;
     padding-bottom: var(--wcs-padding);
 
+    button {
+        background: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        font: inherit;
+        color: inherit;
+        cursor: pointer;
+    }
+
     .menu-button {
+        margin: 0;
+        font-size: 16px;
+
         display: block;
         font-weight: 500;
-        padding-left: calc(3 * var(--wcs-base-margin));
     }
 
     .arrow-icon {
@@ -37,43 +51,30 @@
     .drawer-description {
         display: none;
     }
-    .menu-items {
-        ::slotted(a):after {
-            font-family: icons;
-            padding-left: var(--wcs-base-margin);
-            font-size: 0.6rem;
-            content: "\f107";
-            line-height: 1;
-            box-sizing: border-box;
-        }
 
-        ::slotted(a) {
-            user-select: none;
-            cursor: pointer;
-            text-decoration: none;
-            font-size: 16px;
+    .menu-items {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        ::slotted(wcs-com-nav-item) {
             color: var(--wcs-gray);
             font-weight: 500;
-            display: block;
-            padding-top: calc(1.5 * var(--wcs-base-margin));
-            padding-bottom: calc(1.5 * var(--wcs-base-margin));
-            padding-left: calc(6 * var(--wcs-base-margin));
-        }
-
-        /**For mobile*/
-        ::slotted(a:focus-visible){
-            @include focus-outline(var(--wcs-primary), 2px, 0.1rem);
-        }
-
-        @supports not selector(::slotted(a:focus-visible)) {
-            ::slotted(a:focus-within) {
-                @include focus-outline(var(--wcs-primary), 2px, 0.1rem);
-            }
         }
     }
 }
 
-@media screen and (min-width: 576px) {
+@include for-phone-only {
+    :host {
+        .menu-items {
+            margin-top: calc(1.5 * var(--wcs-base-margin));
+            margin-left: calc(3 * var(--wcs-base-margin));
+            gap: calc(3 * var(--wcs-base-margin));
+        }
+    }
+}
+
+@include for-tablet-portrait-up {
     :host {
         height: 100%;
         padding-bottom: unset;
@@ -156,27 +157,13 @@
             flex-direction: column;
             align-items: flex-end;
 
-            ::slotted(*:not(:first-child)) {
-                margin-top: 24px;
-            }
-
-            ::slotted(a) {
+            ::slotted(wcs-com-nav-item) {
                 color: var(--wcs-white);
                 font-weight: 400;
-                display: unset;
-                padding-top: unset;
-                padding-bottom: unset;
-                padding-left: unset;
             }
 
-            ::slotted(a:focus-visible){
-                @include focus-outline(var(--wcs-white), 2px, 0.1rem);
-            }
-
-            @supports not selector(::slotted(a:focus-visible)) {
-                ::slotted(a:focus-within) {
-                    @include focus-outline(var(--wcs-white), 2px, 0.1rem);
-                }
+            ::slotted(wcs-com-nav-item:focus-within) {
+                @include com-nav-submenu-item-desktop-focus-outline;
             }
         }
 

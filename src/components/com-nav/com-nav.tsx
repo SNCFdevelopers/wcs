@@ -1,9 +1,32 @@
-import {Component, Host, h, Prop, Element, ComponentInterface, State, Listen} from '@stencil/core';
-import {registerCloseHandlerForFocusOutEventOn} from "./com-nav-utils";
-import { isEnterKey, isEscapeKey, isSpaceKey } from "../../utils/helpers";
+import {
+    Component,
+    Host,
+    h,
+    Prop,
+    Element,
+    ComponentInterface,
+    State,
+    Listen,
+    Watch,
+    forceUpdate
+} from '@stencil/core';
+import { registerCloseHandlerForFocusOutEventOn } from "./com-nav-utils";
+import { getCssRootPropertyValue, inheritAttributes, isEscapeKey } from "../../utils/helpers";
+
+
+const COM_NAV_ARIA_INHERITED_ATTRS = ['aria-label'];
 
 const WCS_COM_NAV_SUBMENU_TAG_NAME = 'WCS-COM-NAV-SUBMENU';
 
+/**
+ * *Part of communication design system*
+ *
+ * The com-nav component is a container for navigation links to external or internal pages of the website.
+ *
+ * @slot <no-name> - Default slot containing all the menu declarations
+ * @slot app-name - (Optional) Extra slot for the application name
+ * @slot actions - Slot for actions placed on the right part of the container
+ */
 @Component({
     tag: 'wcs-com-nav',
     styleUrl: 'com-nav.scss',
@@ -20,6 +43,8 @@ export class ComNav implements ComponentInterface {
     private resizeObserver: ResizeObserver;
     private hasAlreadyRegisteredClickHandlerOnSlottedLink: boolean = false;
 
+    private inheritedAttributes: { [k: string]: any } = {};
+
     private mobileMenuIconClick() {
         this.mobileMenuOpen = !this.mobileMenuOpen;
     }
@@ -29,27 +54,45 @@ export class ComNav implements ComponentInterface {
     }
 
     componentWillLoad(): Promise<void> | void {
-        this.resizeObserver = new ResizeObserver(entry => {
-            const cr = entry[0].contentRect;
-            const paddingRight = cr.right - cr.width;
-            const paddingLeft = cr.left;
-            if (cr.width < 576 - (paddingLeft + paddingRight)) {
-                this.currentActiveSizing = 'mobile';
-            } else {
-                this.currentActiveSizing = 'desktop';
-            }
-        });
-        this.resizeObserver.observe(document.body);
+        this.inheritedAttributes = {
+            ...inheritAttributes(this.el, COM_NAV_ARIA_INHERITED_ATTRS)
+        };
 
         const slottedNavigableItems = this.el.querySelectorAll(':scope > wcs-com-nav-submenu:not([slot]), :scope > a:not([slot])');
         registerCloseHandlerForFocusOutEventOn<HTMLWcsComNavSubmenuElement>(slottedNavigableItems, WCS_COM_NAV_SUBMENU_TAG_NAME);
     }
 
+    componentDidLoad(): void {
+        if(!this.resizeObserver) {
+            const smallBreakpoint = getCssRootPropertyValue('--wcs-phone-breakpoint-max-width') || '576px';
+            const smallBreakpointValue = parseInt(smallBreakpoint, 10);            
+            
+            this.resizeObserver = new ResizeObserver(entry => {
+                const cr = entry[0].contentRect;
+                const paddingRight = cr.right - cr.width;
+                const paddingLeft = cr.left;
+                if (cr.width < smallBreakpointValue - (paddingLeft + paddingRight)) {
+                    this.currentActiveSizing = 'mobile';
+                } else {
+                    this.currentActiveSizing = 'desktop';
+                }
+            });
+            this.resizeObserver.observe(document.body);
+        }
+    }
+
     componentDidRender() {
         this.registerHandlerToCloseMobileMenuOnClickOnSlottedLinkTag();
     }
-
-
+    
+    @Watch('aria-label')
+    onAriaLabelChange() {
+        this.inheritedAttributes = {
+            ...inheritAttributes(this.el, COM_NAV_ARIA_INHERITED_ATTRS)
+        };
+        forceUpdate(this);
+    }
+    
     private registerHandlerToCloseMobileMenuOnClickOnSlottedLinkTag() {
         if (this.hasAlreadyRegisteredClickHandlerOnSlottedLink) return;
 
@@ -88,8 +131,9 @@ export class ComNav implements ComponentInterface {
     }
 
     //endregion
-
     render() {
+        const menuAriaLabel = this.inheritedAttributes['aria-label'] || undefined;
+        
         return (
             <Host>
                 <div class="container">
@@ -97,32 +141,34 @@ export class ComNav implements ComponentInterface {
                         <div class="app-name">{this.appName}
                             <slot name="app-name"/>
                         </div>
-                        <div class="menu-bar">
-                            {this.currentActiveSizing === 'desktop' ? <slot/> : null}
-                        </div>
+                        {this.currentActiveSizing === 'desktop' ?
+                            <nav role="navigation" {...this.inheritedAttributes}>
+                                <div class="menu-bar" role="list">
+                                    {this.currentActiveSizing === 'desktop' 
+                                        ? <slot/> 
+                                        : null}
+                                </div>
+                            </nav>
+                            : null}
                     </div>
                     <div class="container-right">
                         <slot name="actions"/>
-                        <span id="mobile-menu-icon" tabindex={0} data-mobile-open={this.mobileMenuOpen}
-                              onClick={() => this.mobileMenuIconClick()} onKeyDown={evt => this.mobileMenuIconOnKeyDown(evt)}></span>
+                        {this.currentActiveSizing === 'mobile' ?
+                            <nav id="wcs-com-nav-mobile-menu" role="navigation" {...this.inheritedAttributes}>
+                                <button id="mobile-menu-icon"
+                                    aria-label={menuAriaLabel}
+                                    aria-expanded={this.mobileMenuOpen ? "true" : "false"}
+                                    aria-controls="wcs-com-nav-mobile-menu"
+                                    onClick={() => this.mobileMenuIconClick()}></button>
+                                {this.currentActiveSizing === 'mobile'
+                                    ? <div class="mobile-overlay" data-mobile-open={this.mobileMenuOpen} role="list"><slot /></div>
+                                    : null}
+                            </nav>
+                            : null}
                     </div>
-                </div>
-                <div class="mobile-overlay" data-mobile-open={this.mobileMenuOpen}>
-                    {this.currentActiveSizing === 'mobile' ? <slot/> : null}
                 </div>
             </Host>
         );
-    }
-
-    /**
-     * Handle the keydown event on the mobile menu icon. Open the menu if the user press space or enter.
-     * @param evt The keydown event.
-     * @private
-     */
-    private mobileMenuIconOnKeyDown(evt: KeyboardEvent) {
-        if (isSpaceKey(evt) || isEnterKey(evt)) {
-            this.mobileMenuIconClick();
-        }
     }
 
     /**
@@ -131,7 +177,7 @@ export class ComNav implements ComponentInterface {
      */
     @Listen('keydown', {target: 'window'})
     exitMobileMenuOnKeyDown(evt: KeyboardEvent) {
-        if(isEscapeKey(evt)) {
+        if (isEscapeKey(evt)) {
             this.mobileMenuOpen = false;
         }
     }

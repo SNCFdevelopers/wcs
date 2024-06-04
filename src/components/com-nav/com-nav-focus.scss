@@ -1,0 +1,15 @@
+@import '../../style/focus-outline.scss';
+
+@mixin com-nav-item-mobile-focus-outline {
+    @include focus-outline(var(--wcs-primary), 2px, 0.5rem);
+}
+
+// Focus outline for com nav item in menu-bar
+@mixin com-nav-item-desktop-focus-outline {
+    @include focus-outline(var(--wcs-primary), 2px, 0.1rem);
+}
+
+// Focus outline for sub-menu item and category item
+@mixin com-nav-submenu-item-desktop-focus-outline {
+    @include focus-outline(var(--wcs-white), 2px, 0.1rem);
+}

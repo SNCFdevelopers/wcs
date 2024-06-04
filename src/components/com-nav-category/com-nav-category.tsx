@@ -11,7 +11,7 @@ import {
     State
 } from '@stencil/core';
 import { CategoryOpenedEventDetail } from '../com-nav/com-nav-interface';
-import {isEnterKey, isSpaceKey} from "../../utils/helpers";
+import { getCssRootPropertyValue, isEnterKey, isSpaceKey } from "../../utils/helpers";
 
 @Component({
     tag: 'wcs-com-nav-category',
@@ -25,6 +25,14 @@ export class ComNavCategory implements ComponentInterface {
     @Event() wcsCategoryOpened: EventEmitter<CategoryOpenedEventDetail>;
     @Event() wcsCategoryItemClicked: EventEmitter<UIEvent>;
 
+    private categoryItemsId = `wcs-com-nav-category-items`;
+    private resizeObserver: ResizeObserver;
+    /**
+     * To re-trigger re-render in order to render a button in case of desktop or a heading in mobile case
+     * @private
+     */
+    @State() private currentActiveSizing: 'desktop' | 'mobile' = 'desktop';
+
     @Listen('click', {target: 'window'})
     onWindowClickEvent(_: MouseEvent) {
         if (this.categoryOpen) this.categoryOpen = false;
@@ -37,14 +45,23 @@ export class ComNavCategory implements ComponentInterface {
         }
     }
 
-    /**
-     * Open the menu if it is closed and closed the menu if it is already opened
-     * @param _event the keyboard event
-     * @private
-     */
-    private handleMenuKeyDown(_event: KeyboardEvent) {
-        if ((isSpaceKey(_event)) || isEnterKey(_event)) {
-            this.categoryOpen = !this.categoryOpen;
+    componentDidLoad(): void {
+        if(!this.resizeObserver) {
+            const smallBreakpoint = getCssRootPropertyValue('--wcs-phone-breakpoint-max-width') || '576px';
+            const smallBreakpointValue = parseInt(smallBreakpoint, 10);
+    
+            this.resizeObserver = new ResizeObserver(entry => {
+                const cr = entry[0].contentRect;
+                const paddingRight = cr.right - cr.width;
+                const paddingLeft = cr.left;
+    
+                if (cr.width < smallBreakpointValue - (paddingLeft + paddingRight)) {
+                    this.currentActiveSizing = 'mobile';
+                } else {
+                    this.currentActiveSizing = 'desktop';
+                }
+            });
+            this.resizeObserver.observe(document.body);
         }
     }
 
@@ -97,19 +114,36 @@ export class ComNavCategory implements ComponentInterface {
         }
     }
 
+    disconnectedCallback(): void {
+        this.resizeObserver?.disconnect();
+    }
+
     render(): any {
         return (
-            <Host onClick={evt => this.onClick(evt)}>
-                <div tabindex={screen.width < 576 ? "-1" : "0"}
-                     class="label-container"
-                     data-open={this.categoryOpen}
-                     onKeyDown={evt => this.handleMenuKeyDown(evt)}
-                     onClick={_ => this.categoryOpen = !this.categoryOpen}><span class="label">{this.label}</span></div>
+            <Host role={"listitem"} onClick={evt => this.onClick(evt)}>
+                {
+                    this.currentActiveSizing === 'mobile' ?
+                        <h3 role="presentation" class="label-container">
+                            <span class="label">{this.label}</span>
+                        </h3>
+                        : <button class="label-container"
+                            aria-controls={this.categoryItemsId}
+                            aria-expanded={this.categoryOpen ? 'true' : 'false'}
+                            onClick={_ => this.categoryOpen = !this.categoryOpen}>
+                            <span class="label">{this.label}</span>
+                            <span class="arrow-container">
+                                <span aria-hidden="true" class="arrow-icon">&#xf107;</span>
+                            </span>
+                        </button>
+                }
                 <div class="item-container"
-                     tabIndex={-1}
-                     data-open={this.categoryOpen}
-                     onKeyDown={evt => this.handleCategoryItemsKeyDown(evt)}
-                     onClick={(evt) => this.handleItemClick(evt)}>
+                    role="list"
+                    aria-label={this.label}
+                    id={this.categoryItemsId}
+                    tabIndex={-1}
+                    data-open={this.categoryOpen}
+                    onKeyDown={evt => this.handleCategoryItemsKeyDown(evt)}
+                    onClick={(evt) => this.handleItemClick(evt)}>
                     <slot/>
                 </div>
             </Host>

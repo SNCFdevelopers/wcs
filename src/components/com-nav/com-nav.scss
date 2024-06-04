@@ -1,9 +1,12 @@
 @import '../../style/focus-outline.scss';
+@import './com-nav-focus.scss';
+@import '../../style/breakpoints.scss';
 
 :host {
+    --wcs-com-nav-menu-bar-height: 75px;
     display: block;
     position: relative;
-    height: 75px;
+    height: var(--wcs-com-nav-menu-bar-height);
     border-bottom: solid 1px var(--wcs-text-light);
 
     .container {
@@ -13,6 +16,11 @@
         align-items: center;
         flex-direction: row;
         justify-content: space-between;
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
     }
 
     .container-left {
@@ -38,39 +46,6 @@
         display: none;
     }
 
-    ::slotted(a) {
-        padding-top: calc(1.5 * var(--wcs-base-margin));
-        padding-bottom: calc(1.5 * var(--wcs-base-margin));
-        padding-left: calc(3 * var(--wcs-base-margin));
-        display: flex;
-        align-items: center;
-        height: 100%;
-        font-size: 16px;
-        cursor: pointer;
-        font-weight: 500;
-        color: var(--wcs-gray);
-        text-decoration: none;
-    }
-
-    ::slotted(a):after {
-        font-family: icons;
-        padding-left: var(--wcs-base-margin);
-        font-size: 0.6rem;
-        content: "\f107";
-        line-height: 1;
-        box-sizing: border-box;
-    }
-
-    ::slotted(a:focus-visible) {
-        @include focus-outline(var(--wcs-primary), 2px, 0.1rem);
-    }
-
-    @supports not selector(::slotted(a:focus-visible)) {
-        ::slotted(a:focus-within) {
-            @include focus-outline(var(--wcs-primary), 2px, 0.1rem);
-        }
-    }
-
     #mobile-menu-icon {
         height: 24px;
         padding-left: calc(2 * var(--wcs-base-margin));
@@ -92,6 +67,16 @@
         }
     }
 
+    button {
+        background: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        font: inherit;
+        color: inherit;
+        cursor: pointer;
+    }
+
     #mobile-menu-icon:after {
         font-family: icons;
         font-size: 24px;
@@ -100,9 +85,11 @@
         line-height: 1;
         box-sizing: border-box;
     }
-        #mobile-menu-icon[data-mobile-open]:after {
-            content: "\f129";
-        }
+
+    #mobile-menu-icon[aria-expanded="true"]:after {
+        content: "\f129";
+    }
+    
     .mobile-overlay {
         display: none;
     }
@@ -110,21 +97,35 @@
     .mobile-overlay[data-mobile-open] {
         padding-top: calc(2 * var(--wcs-base-margin));
         padding-bottom: calc(2 * var(--wcs-base-margin));
-        position: relative;
-        top: 0;
+        padding-left: var(--wcs-padding);
+        padding-right: var(--wcs-padding);
+        position: absolute;
+        top: var(--wcs-com-nav-menu-bar-height);
         left: 0;
         right: 0;
-        display: block;
+        display: flex;
+        flex-direction: column;
+        gap: var(--wcs-padding);
         z-index: 9999;
         background-color: var(--wcs-white);
+
+        
+        ::slotted(wcs-com-nav-item) {
+            color: var(--wcs-gray);
+            font-weight: 500;
+        }
     }
 }
 
-@media screen and (min-width: 576px) {
+@include for-tablet-portrait-up {
     :host {
         .container {
             margin: 0 auto;
             max-width: var(--wcs-com-content-max-width);
+        }
+
+        nav {
+            height: 100%;
         }
 
         .menu-bar {
@@ -137,14 +138,15 @@
                 margin-left: 40px;
             }
 
-            ::slotted(a:focus-visible) {
-                @include focus-outline(var(--wcs-primary), 2px, 0.1rem);
+            ::slotted(wcs-com-nav-item) {
+                height: 100%;
+                color: var(--wcs-gray);
+                font-weight: 500;
             }
 
-            @supports not selector(::slotted(a:focus-visible)) {
-                ::slotted(a:focus-within) {
-                    @include focus-outline(var(--wcs-primary), 2px, 0.1rem);
-                }
+            // Focus style for nav item in menu bar
+            ::slotted(wcs-com-nav-item:focus-within) {
+                @include com-nav-item-desktop-focus-outline;
             }
         }
 
@@ -154,12 +156,6 @@
 
         .mobile-overlay {
             display: none !important;
-        }
-
-        ::slotted(a) {
-            padding-top: unset;
-            padding-bottom: unset;
-            padding-left: unset;
         }
     }
 }

@@ -1,0 +1,65 @@
+@import '../../style/focus-outline.scss';
+@import '../com-nav/com-nav-focus.scss';
+
+/* Default style and mobile behaviour */
+:host {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--wcs-base-margin);
+    height: fit-content;
+
+    font: inherit;
+
+    ::slotted(a) {
+        /* Default */
+        user-select: none;
+        cursor: pointer;
+        text-decoration: none;
+        font-size: 16px;
+        color: inherit;
+        font-weight: inherit;
+
+        display: flex;
+        align-items: center;
+    }
+
+    /* Common behaviour between Large Screen and Small Screens */
+    .arrow-icon {
+        display: inline-block;
+        font-family: icons;
+        font-size: 0.6rem;
+        line-height: 1;
+        box-sizing: border-box;
+    }
+
+    .arrow-container {
+        display: unset;
+    }
+
+    /**For mobile*/
+    ::slotted(a:focus-visible) {
+        outline: none;
+    }
+
+    &:host(:focus-within) {
+        @include com-nav-item-mobile-focus-outline;
+    }
+}
+
+/* Large screen, specific behaviour */
+@media screen and (min-width: 576px) {
+    :host {
+        ::slotted(a) {
+            display: flex;
+            align-items: center;
+            height: 100%;
+
+            /* Reset for pc */
+            padding-top: unset;
+            padding-bottom: unset;
+            padding-left: unset;
+        }
+
+        // Focus outline style is handling by com-nav, com-nav-submenu and com-nav-category in desktop mode
+    }
+}

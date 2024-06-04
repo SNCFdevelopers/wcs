@@ -1,28 +1,35 @@
 // Based on this article https://www.freecodecamp.org/news/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862/
 // TODO: Verify this is working with the resolution we have at SNCF
 
+$wcs-phone-breakpoint-max-width: 576px;
+$wcs-tablet-portrait-breakpoint-min-width: 577px;
+$wcs-tablet-landscape-breakpoint-min-width: 900px;
+$wcs-tablet-landscape-breakpoint-max-width: 1199px;
+$wcs-desktop-breakpoint-min-width: 1200px;
+$wcs-big-desktop-breakpoint-min-width: 1800px;
+
 @mixin for-phone-only {
-    @media (max-width: 599px) { @content; }
+    @media (max-width: $wcs-phone-breakpoint-max-width) { @content; }
 }
 
 /// 600 -> 900
 /// This is a doc comment :/
 @mixin for-tablet-portrait-up {
-    @media (min-width: 600px) { @content; }
+    @media (min-width: $wcs-tablet-portrait-breakpoint-min-width) { @content; }
 }
 
 @mixin for-tablet-landscape-up {
-    @media (min-width: 900px) { @content; }
+    @media (min-width: $wcs-tablet-landscape-breakpoint-min-width) { @content; }
 }
 
 @mixin for-tablet-landscape-down {
-    @media (max-width: 1199px) { @content; }
+    @media (max-width: $wcs-tablet-landscape-breakpoint-max-width) { @content; }
 }
 
 @mixin for-desktop-up {
-    @media (min-width: 1200px) { @content; }
+    @media (min-width: $wcs-desktop-breakpoint-min-width) { @content; }
 }
 
 @mixin for-big-desktop-up {
-    @media (min-width: 1800px) { @content; }
+    @media (min-width: $wcs-big-desktop-breakpoint-min-width) { @content; }
 }

@@ -2,12 +2,25 @@
   height: 100vh;
 }
 
-.main-container {
+.main-container[data-business-mode] {
   display: flex;
+  flex-direction: row;
   height: 100vh;
+}
+
+.main-container[data-communication-mode] {
+  width: var(--wcs-com-content-max-width);
+  margin: 0px auto;
+  flex-grow: 1;
 }
 
 main {
   flex-grow: 1;
   margin: var(--wcs-margin);
+}
+
+.switch-mode {
+  display: flex;
+  flex-direction: row;
+  gap: calc(var(--wcs-margin) / 2);
 }

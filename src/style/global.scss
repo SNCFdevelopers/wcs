@@ -1,6 +1,7 @@
 @import 'colors.scss';
 @import 'overlay.scss';
 @import 'tooltip.scss';
+@import 'breakpoints.scss';
 @import "~tippy.js/dist/tippy.css"; // For tooltip component
 
 :root {
@@ -59,6 +60,16 @@
     --wcs-margin-l: calc(1.5 * var(--wcs-base-size)); // l = 12px
     --wcs-margin-m: var(--wcs-base-size); // m = 8px (default)
     --wcs-margin-s: calc(0.5 * var(--wcs-base-size)); // s = 4px
+
+    // Breakpoints
+    // SCSS variables are defined in breakpoints.scss
+    --wcs-phone-breakpoint-max-width: #{$wcs-phone-breakpoint-max-width};
+    --wcs-tablet-portrait-breakpoint-min-width: #{$wcs-tablet-portrait-breakpoint-min-width};
+    --wcs-tablet-landscape-breakpoint-min-width: #{$wcs-tablet-landscape-breakpoint-min-width};
+    --wcs-tablet-landscape-breakpoint-max-width: #{$wcs-tablet-landscape-breakpoint-max-width};
+    --wcs-desktop-breakpoint-min-width: #{$wcs-desktop-breakpoint-min-width};
+    --wcs-big-desktop-breakpoint-min-width: #{$wcs-big-desktop-breakpoint-min-width};
+    // Others
 
     --wcs-com-content-max-width: 1024px;
     // TODO: Should be moved in wcs-tabs

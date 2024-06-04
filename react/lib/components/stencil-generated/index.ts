@@ -20,6 +20,7 @@ export const WcsCardBody = /*@__PURE__*/createReactComponent<JSX.WcsCardBody, HT
 export const WcsCheckbox = /*@__PURE__*/createReactComponent<JSX.WcsCheckbox, HTMLWcsCheckboxElement>('wcs-checkbox');
 export const WcsComNav = /*@__PURE__*/createReactComponent<JSX.WcsComNav, HTMLWcsComNavElement>('wcs-com-nav');
 export const WcsComNavCategory = /*@__PURE__*/createReactComponent<JSX.WcsComNavCategory, HTMLWcsComNavCategoryElement>('wcs-com-nav-category');
+export const WcsComNavItem = /*@__PURE__*/createReactComponent<JSX.WcsComNavItem, HTMLWcsComNavItemElement>('wcs-com-nav-item');
 export const WcsComNavSubmenu = /*@__PURE__*/createReactComponent<JSX.WcsComNavSubmenu, HTMLWcsComNavSubmenuElement>('wcs-com-nav-submenu');
 export const WcsCounter = /*@__PURE__*/createReactComponent<JSX.WcsCounter, HTMLWcsCounterElement>('wcs-counter');
 export const WcsDivider = /*@__PURE__*/createReactComponent<JSX.WcsDivider, HTMLWcsDividerElement>('wcs-divider');
