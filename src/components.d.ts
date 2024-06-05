@@ -16,7 +16,7 @@ import { WcsDropdownPlacement } from "./components/dropdown/dropdown-interface";
 import { EditableComponentUpdateEvent, EditableFieldType, FormatFn, ValidateFn, WcsEditableFieldSize } from "./components/editable-field/editable-field-interface";
 import { WcsCellFormatter, WcsGridAllRowSelectedEventDetails, WcsGridColumnSortChangeEventDetails, WcsGridPaginationChangeEventDetails, WcsGridSelectionConfig, WcsGridSelectionEventDetails, WcsSortFn, WcsSortOrder } from "./components/grid/grid-interface";
 import { HorizontalStepClickEvent, HorizontalStepConfig, HorizontalStepperMode } from "./components/horizontal-stepper/horizontal-stepper-interface";
-import { AutocompleteTypes, InputChangeEventDetail, TextFieldTypes, WcsInputSize } from "./components/input/input-interface";
+import { AutocompleteTypes, InputChangeEventDetail, TextFieldTypes, WcsInputAutocorrect, WcsInputEnterKeyHint, WcsInputInputMode, WcsInputSize, WcsInputState } from "./components/input/input-interface";
 import { MaterialIconFamily, MaterialIconSize } from "./components/mat-icon/mat-icon-interface";
 import { ModalSize } from "./components/modal/modal-interface";
 import { WcsNativeSelectSize } from "./components/native-select/native-select-interface";
@@ -42,7 +42,7 @@ export { WcsDropdownPlacement } from "./components/dropdown/dropdown-interface";
 export { EditableComponentUpdateEvent, EditableFieldType, FormatFn, ValidateFn, WcsEditableFieldSize } from "./components/editable-field/editable-field-interface";
 export { WcsCellFormatter, WcsGridAllRowSelectedEventDetails, WcsGridColumnSortChangeEventDetails, WcsGridPaginationChangeEventDetails, WcsGridSelectionConfig, WcsGridSelectionEventDetails, WcsSortFn, WcsSortOrder } from "./components/grid/grid-interface";
 export { HorizontalStepClickEvent, HorizontalStepConfig, HorizontalStepperMode } from "./components/horizontal-stepper/horizontal-stepper-interface";
-export { AutocompleteTypes, InputChangeEventDetail, TextFieldTypes, WcsInputSize } from "./components/input/input-interface";
+export { AutocompleteTypes, InputChangeEventDetail, TextFieldTypes, WcsInputAutocorrect, WcsInputEnterKeyHint, WcsInputInputMode, WcsInputSize, WcsInputState } from "./components/input/input-interface";
 export { MaterialIconFamily, MaterialIconSize } from "./components/mat-icon/mat-icon-interface";
 export { ModalSize } from "./components/modal/modal-interface";
 export { WcsNativeSelectSize } from "./components/native-select/native-select-interface";
@@ -570,15 +570,18 @@ export namespace Components {
     /**
      * The input component is a form control that accepts a single line of text.
      * Implementation mainly inspired from Ionic Input Component.
-     * <details>
-     *     <summary>Accessibility guidelines 💡</summary>
-     *     > - Provide a `<wcs-label>` next to the input
-     *     > - Use the `disabled` prop to add the HTML `disabled` attribute to the `input`
-     *     > - Use the `readonly` prop to add the HTML `readonly` attribute to the `input`
-     *     > - Use the `autofocus` prop to add the HTML `autofocus` attribute to the `input`. Use it if you want your input focus
-     *     automatically when the page load
-     *     > - Adapt the `type` to lets user enter information more easily (_ex: `type="number"` for an input which only accept numbers entry_)
-     * </details>
+     * ## Accessibility guidelines 💡
+     * > `wcs-input` is a wrapper around the native input element which is located inside its shadow DOM. All the
+     * > **aria attributes** you set on `wcs-input` are passed to the **native input** element **during the first render of the component**.
+     * > If you need to use them as you would with a native input, you can do so.
+     * > If you need to **dynamically change the aria attributes after the first render**, you can use the `setAriaAttribute` 
+     * > JS method of `wcs-input`.
+     * > ```javascript
+     * > const wcsInput = document.querySelector('wcs-input');
+     * > await wcsInput.setAriaAttribute('aria-label', 'new label');
+     * > ```
+     * > If you use wcs-input outside a wcs-form-field, you have to manage the label and the error message yourself.
+     * > You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.
      */
     interface WcsInput {
         /**
@@ -596,7 +599,7 @@ export namespace Components {
         /**
           * Whether auto correction should be enabled when the user is entering/editing the text value.
          */
-        "autocorrect": 'on' | 'off';
+        "autocorrect": WcsInputAutocorrect;
         /**
           * This Boolean attribute lets you specify that a form control should have input focus when the page loads.
          */
@@ -618,9 +621,9 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
-          * A hint to the browser for which enter key to display. Possible values: `"enter"`, `"done"`, `"go"`, `"next"`, `"previous"`, `"search"`, and `"send"`.
+          * A hint to the browser for which enter key to display.
          */
-        "enterkeyhint"?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send';
+        "enterkeyhint"?: WcsInputEnterKeyHint;
         /**
           * This is required for a WebKit bug which requires us to blur and focus an input to properly focus the input in an item with delegatesFocus. It will no longer be needed with iOS 14.
          */
@@ -634,9 +637,9 @@ export namespace Components {
          */
         "icon": string;
         /**
-          * A hint to the browser for which keyboard to display. Possible values: `"none"`, `"text"`, `"tel"`, `"url"`, `"email"`, `"numeric"`, `"decimal"`, and `"search"`.
+          * A hint to the browser for which keyboard to display.
          */
-        "inputmode"?: 'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search';
+        "inputmode"?: WcsInputInputMode;
         /**
           * The maximum value, which must not be less than its minimum (min attribute) value.
          */
@@ -701,7 +704,7 @@ export namespace Components {
         /**
           * Specifies the state of the input. By default the input is in an normal state but you can to set it to 'error' state if the data given by the user is not valid.
          */
-        "state": 'initial' | 'error';
+        "state": WcsInputState;
         /**
           * Works with the min and max attributes to limit the increments at which a value can be set. Possible values are: `"any"` or a positive floating point number.
          */
@@ -1873,15 +1876,18 @@ declare global {
     /**
      * The input component is a form control that accepts a single line of text.
      * Implementation mainly inspired from Ionic Input Component.
-     * <details>
-     *     <summary>Accessibility guidelines 💡</summary>
-     *     > - Provide a `<wcs-label>` next to the input
-     *     > - Use the `disabled` prop to add the HTML `disabled` attribute to the `input`
-     *     > - Use the `readonly` prop to add the HTML `readonly` attribute to the `input`
-     *     > - Use the `autofocus` prop to add the HTML `autofocus` attribute to the `input`. Use it if you want your input focus
-     *     automatically when the page load
-     *     > - Adapt the `type` to lets user enter information more easily (_ex: `type="number"` for an input which only accept numbers entry_)
-     * </details>
+     * ## Accessibility guidelines 💡
+     * > `wcs-input` is a wrapper around the native input element which is located inside its shadow DOM. All the
+     * > **aria attributes** you set on `wcs-input` are passed to the **native input** element **during the first render of the component**.
+     * > If you need to use them as you would with a native input, you can do so.
+     * > If you need to **dynamically change the aria attributes after the first render**, you can use the `setAriaAttribute` 
+     * > JS method of `wcs-input`.
+     * > ```javascript
+     * > const wcsInput = document.querySelector('wcs-input');
+     * > await wcsInput.setAriaAttribute('aria-label', 'new label');
+     * > ```
+     * > If you use wcs-input outside a wcs-form-field, you have to manage the label and the error message yourself.
+     * > You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.
      */
     interface HTMLWcsInputElement extends Components.WcsInput, HTMLStencilElement {
         addEventListener<K extends keyof HTMLWcsInputElementEventMap>(type: K, listener: (this: HTMLWcsInputElement, ev: WcsInputCustomEvent<HTMLWcsInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2896,15 +2902,18 @@ declare namespace LocalJSX {
     /**
      * The input component is a form control that accepts a single line of text.
      * Implementation mainly inspired from Ionic Input Component.
-     * <details>
-     *     <summary>Accessibility guidelines 💡</summary>
-     *     > - Provide a `<wcs-label>` next to the input
-     *     > - Use the `disabled` prop to add the HTML `disabled` attribute to the `input`
-     *     > - Use the `readonly` prop to add the HTML `readonly` attribute to the `input`
-     *     > - Use the `autofocus` prop to add the HTML `autofocus` attribute to the `input`. Use it if you want your input focus
-     *     automatically when the page load
-     *     > - Adapt the `type` to lets user enter information more easily (_ex: `type="number"` for an input which only accept numbers entry_)
-     * </details>
+     * ## Accessibility guidelines 💡
+     * > `wcs-input` is a wrapper around the native input element which is located inside its shadow DOM. All the
+     * > **aria attributes** you set on `wcs-input` are passed to the **native input** element **during the first render of the component**.
+     * > If you need to use them as you would with a native input, you can do so.
+     * > If you need to **dynamically change the aria attributes after the first render**, you can use the `setAriaAttribute` 
+     * > JS method of `wcs-input`.
+     * > ```javascript
+     * > const wcsInput = document.querySelector('wcs-input');
+     * > await wcsInput.setAriaAttribute('aria-label', 'new label');
+     * > ```
+     * > If you use wcs-input outside a wcs-form-field, you have to manage the label and the error message yourself.
+     * > You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.
      */
     interface WcsInput {
         /**
@@ -2922,7 +2931,7 @@ declare namespace LocalJSX {
         /**
           * Whether auto correction should be enabled when the user is entering/editing the text value.
          */
-        "autocorrect"?: 'on' | 'off';
+        "autocorrect"?: WcsInputAutocorrect;
         /**
           * This Boolean attribute lets you specify that a form control should have input focus when the page loads.
          */
@@ -2944,9 +2953,9 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * A hint to the browser for which enter key to display. Possible values: `"enter"`, `"done"`, `"go"`, `"next"`, `"previous"`, `"search"`, and `"send"`.
+          * A hint to the browser for which enter key to display.
          */
-        "enterkeyhint"?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send';
+        "enterkeyhint"?: WcsInputEnterKeyHint;
         /**
           * This is required for a WebKit bug which requires us to blur and focus an input to properly focus the input in an item with delegatesFocus. It will no longer be needed with iOS 14.
          */
@@ -2956,9 +2965,9 @@ declare namespace LocalJSX {
          */
         "icon"?: string;
         /**
-          * A hint to the browser for which keyboard to display. Possible values: `"none"`, `"text"`, `"tel"`, `"url"`, `"email"`, `"numeric"`, `"decimal"`, and `"search"`.
+          * A hint to the browser for which keyboard to display.
          */
-        "inputmode"?: 'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search';
+        "inputmode"?: WcsInputInputMode;
         /**
           * The maximum value, which must not be less than its minimum (min attribute) value.
          */
@@ -3030,7 +3039,7 @@ declare namespace LocalJSX {
         /**
           * Specifies the state of the input. By default the input is in an normal state but you can to set it to 'error' state if the data given by the user is not valid.
          */
-        "state"?: 'initial' | 'error';
+        "state"?: WcsInputState;
         /**
           * Works with the min and max attributes to limit the increments at which a value can be set. Possible values are: `"any"` or a positive floating point number.
          */
@@ -3875,15 +3884,18 @@ declare module "@stencil/core" {
             /**
              * The input component is a form control that accepts a single line of text.
              * Implementation mainly inspired from Ionic Input Component.
-             * <details>
-             *     <summary>Accessibility guidelines 💡</summary>
-             *     > - Provide a `<wcs-label>` next to the input
-             *     > - Use the `disabled` prop to add the HTML `disabled` attribute to the `input`
-             *     > - Use the `readonly` prop to add the HTML `readonly` attribute to the `input`
-             *     > - Use the `autofocus` prop to add the HTML `autofocus` attribute to the `input`. Use it if you want your input focus
-             *     automatically when the page load
-             *     > - Adapt the `type` to lets user enter information more easily (_ex: `type="number"` for an input which only accept numbers entry_)
-             * </details>
+             * ## Accessibility guidelines 💡
+             * > `wcs-input` is a wrapper around the native input element which is located inside its shadow DOM. All the
+             * > **aria attributes** you set on `wcs-input` are passed to the **native input** element **during the first render of the component**.
+             * > If you need to use them as you would with a native input, you can do so.
+             * > If you need to **dynamically change the aria attributes after the first render**, you can use the `setAriaAttribute` 
+             * > JS method of `wcs-input`.
+             * > ```javascript
+             * > const wcsInput = document.querySelector('wcs-input');
+             * > await wcsInput.setAriaAttribute('aria-label', 'new label');
+             * > ```
+             * > If you use wcs-input outside a wcs-form-field, you have to manage the label and the error message yourself.
+             * > You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.
              */
             "wcs-input": LocalJSX.WcsInput & JSXBase.HTMLAttributes<HTMLWcsInputElement>;
             /**

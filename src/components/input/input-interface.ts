@@ -12,7 +12,6 @@ export type AutocompleteTypes = (
 
 export type TextFieldTypes = 'date' | 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'url' | 'time' | 'week' | 'month' | 'datetime-local' | 'file';
 
-
 export const WcsInputSizeValues = ['s', 'm', 'l'] as const; // as const keyword is used to infer and preserve the exact literal values of an array or object.
 
 export type WcsInputSize = Extract<WcsSize, typeof WcsInputSizeValues[number]>;
@@ -21,6 +20,14 @@ export function isWcsInputSize(size: string): size is WcsInputSize {
     // @ts-ignore : ignore size type, as it is checked with WcsInputSizeValues
     return WcsInputSizeValues.includes(size);
 }
+
+export type WcsInputAutocorrect = 'on' | 'off';
+
+export type WcsInputEnterKeyHint = 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send';
+
+export type WcsInputInputMode = 'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search';
+
+export type WcsInputState = 'initial' | 'error';
 
 export interface InputChangeEventDetail {
     value: string | undefined | null;

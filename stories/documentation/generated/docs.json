@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-06-13T14:33:29",
+  "timestamp": "2024-06-14T08:54:55",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -4012,7 +4012,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-input",
       "readme": "# Input\r\n\r",
-      "docs": "The input component is a form control that accepts a single line of text.\r\nImplementation mainly inspired from Ionic Input Component.\r\n\r\n\r\n<details>\r\n    <summary>Accessibility guidelines 💡</summary>\r\n    > - Provide a `<wcs-label>` next to the input\r\n    > - Use the `disabled` prop to add the HTML `disabled` attribute to the `input`\r\n    > - Use the `readonly` prop to add the HTML `readonly` attribute to the `input`\r\n    > - Use the `autofocus` prop to add the HTML `autofocus` attribute to the `input`. Use it if you want your input focus\r\n    automatically when the page load\r\n    > - Adapt the `type` to lets user enter information more easily (_ex: `type=\"number\"` for an input which only accept numbers entry_)\r\n</details>",
+      "docs": "The input component is a form control that accepts a single line of text.\r\nImplementation mainly inspired from Ionic Input Component.\r\n\r\n## Accessibility guidelines 💡\r\n> `wcs-input` is a wrapper around the native input element which is located inside its shadow DOM. All the\r\n> **aria attributes** you set on `wcs-input` are passed to the **native input** element **during the first render of the component**.\r\n> If you need to use them as you would with a native input, you can do so.\r\n\r\n> If you need to **dynamically change the aria attributes after the first render**, you can use the `setAriaAttribute` \r\n> JS method of `wcs-input`.\r\n\r\n> ```javascript\r\n> const wcsInput = document.querySelector('wcs-input');\r\n> await wcsInput.setAriaAttribute('aria-label', 'new label');\r\n> ```\r\n\r\n> If you use wcs-input outside a wcs-form-field, you have to manage the label and the error message yourself.\r\n> You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -4304,9 +4304,15 @@
           "name": "autocorrect",
           "type": "\"off\" | \"on\"",
           "complexType": {
-            "original": "'on' | 'off'",
+            "original": "WcsInputAutocorrect",
             "resolved": "\"off\" | \"on\"",
-            "references": {}
+            "references": {
+              "WcsInputAutocorrect": {
+                "location": "import",
+                "path": "./input-interface",
+                "id": "src/components/input/input-interface.ts::WcsInputAutocorrect"
+              }
+            }
           },
           "mutable": false,
           "attr": "autocorrect",
@@ -4440,14 +4446,20 @@
           "name": "enterkeyhint",
           "type": "\"done\" | \"enter\" | \"go\" | \"next\" | \"previous\" | \"search\" | \"send\"",
           "complexType": {
-            "original": "'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send'",
+            "original": "WcsInputEnterKeyHint",
             "resolved": "\"done\" | \"enter\" | \"go\" | \"next\" | \"previous\" | \"search\" | \"send\"",
-            "references": {}
+            "references": {
+              "WcsInputEnterKeyHint": {
+                "location": "import",
+                "path": "./input-interface",
+                "id": "src/components/input/input-interface.ts::WcsInputEnterKeyHint"
+              }
+            }
           },
           "mutable": false,
           "attr": "enterkeyhint",
           "reflectToAttr": false,
-          "docs": "A hint to the browser for which enter key to display.\r\nPossible values: `\"enter\"`, `\"done\"`, `\"go\"`, `\"next\"`,\r\n`\"previous\"`, `\"search\"`, and `\"send\"`.",
+          "docs": "A hint to the browser for which enter key to display.",
           "docsTags": [],
           "values": [
             {
@@ -4507,14 +4519,20 @@
           "name": "inputmode",
           "type": "\"decimal\" | \"email\" | \"none\" | \"numeric\" | \"search\" | \"tel\" | \"text\" | \"url\"",
           "complexType": {
-            "original": "'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search'",
+            "original": "WcsInputInputMode",
             "resolved": "\"decimal\" | \"email\" | \"none\" | \"numeric\" | \"search\" | \"tel\" | \"text\" | \"url\"",
-            "references": {}
+            "references": {
+              "WcsInputInputMode": {
+                "location": "import",
+                "path": "./input-interface",
+                "id": "src/components/input/input-interface.ts::WcsInputInputMode"
+              }
+            }
           },
           "mutable": false,
           "attr": "inputmode",
           "reflectToAttr": false,
-          "docs": "A hint to the browser for which keyboard to display.\r\nPossible values: `\"none\"`, `\"text\"`, `\"tel\"`, `\"url\"`,\r\n`\"email\"`, `\"numeric\"`, `\"decimal\"`, and `\"search\"`.",
+          "docs": "A hint to the browser for which keyboard to display.",
           "docsTags": [],
           "values": [
             {
@@ -4850,9 +4868,15 @@
           "name": "state",
           "type": "\"error\" | \"initial\"",
           "complexType": {
-            "original": "'initial' | 'error'",
+            "original": "WcsInputState",
             "resolved": "\"error\" | \"initial\"",
-            "references": {}
+            "references": {
+              "WcsInputState": {
+                "location": "import",
+                "path": "./input-interface",
+                "id": "src/components/input/input-interface.ts::WcsInputState"
+              }
+            }
           },
           "mutable": false,
           "attr": "state",
@@ -9428,8 +9452,28 @@
       "docstring": "",
       "path": "src/components/input/input-interface.ts"
     },
+    "src/components/input/input-interface.ts::WcsInputAutocorrect": {
+      "declaration": "export type WcsInputAutocorrect = 'on' | 'off';",
+      "docstring": "",
+      "path": "src/components/input/input-interface.ts"
+    },
+    "src/components/input/input-interface.ts::WcsInputEnterKeyHint": {
+      "declaration": "export type WcsInputEnterKeyHint = 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send';",
+      "docstring": "",
+      "path": "src/components/input/input-interface.ts"
+    },
     "src/components/input/input-interface.ts::WcsInputSize": {
       "declaration": "export type WcsInputSize = Extract<WcsSize, typeof WcsInputSizeValues[number]>;",
+      "docstring": "",
+      "path": "src/components/input/input-interface.ts"
+    },
+    "src/components/input/input-interface.ts::WcsInputInputMode": {
+      "declaration": "export type WcsInputInputMode = 'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search';",
+      "docstring": "",
+      "path": "src/components/input/input-interface.ts"
+    },
+    "src/components/input/input-interface.ts::WcsInputState": {
+      "declaration": "export type WcsInputState = 'initial' | 'error';",
       "docstring": "",
       "path": "src/components/input/input-interface.ts"
     },

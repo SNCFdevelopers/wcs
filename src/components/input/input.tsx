@@ -1,11 +1,29 @@
 import {
-    Build, Component,
-    ComponentInterface, Element, Event, EventEmitter, h, Host, Method, Prop,
-    State, Watch
+    Build,
+    Component,
+    ComponentInterface,
+    Element,
+    Event,
+    EventEmitter,
+    h,
+    Host,
+    Method,
+    Prop,
+    State,
+    Watch
 } from '@stencil/core';
 import { debounceEvent, findItemLabel, inheritAriaAttributes, inheritAttributes } from '../../utils/helpers';
 import {
-    AutocompleteTypes, InputChangeEventDetail, isWcsInputSize, TextFieldTypes, WcsInputSize, WcsInputSizeValues
+    AutocompleteTypes,
+    InputChangeEventDetail,
+    isWcsInputSize,
+    TextFieldTypes,
+    WcsInputSize,
+    WcsInputSizeValues,
+    WcsInputAutocorrect,
+    WcsInputEnterKeyHint,
+    WcsInputInputMode,
+    WcsInputState
 } from './input-interface';
 import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
 
@@ -13,21 +31,26 @@ import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-ari
  * The input component is a form control that accepts a single line of text.
  * Implementation mainly inspired from Ionic Input Component.
  *
+ * ## Accessibility guidelines 💡
+ * > `wcs-input` is a wrapper around the native input element which is located inside its shadow DOM. All the
+ * > **aria attributes** you set on `wcs-input` are passed to the **native input** element **during the first render of the component**.
+ * > If you need to use them as you would with a native input, you can do so.
  *
- * <details>
- *     <summary>Accessibility guidelines 💡</summary>
- *     > - Provide a `<wcs-label>` next to the input
- *     > - Use the `disabled` prop to add the HTML `disabled` attribute to the `input`
- *     > - Use the `readonly` prop to add the HTML `readonly` attribute to the `input`
- *     > - Use the `autofocus` prop to add the HTML `autofocus` attribute to the `input`. Use it if you want your input focus
- *     automatically when the page load
- *     > - Adapt the `type` to lets user enter information more easily (_ex: `type="number"` for an input which only accept numbers entry_)
- * </details>
+ * > If you need to **dynamically change the aria attributes after the first render**, you can use the `setAriaAttribute` 
+ * > JS method of `wcs-input`.
+ *
+ * > ```javascript
+ * > const wcsInput = document.querySelector('wcs-input');
+ * > await wcsInput.setAriaAttribute('aria-label', 'new label');
+ * > ```
+ * 
+ * > If you use wcs-input outside a wcs-form-field, you have to manage the label and the error message yourself.
+ * > You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.
  */
 @Component({
     tag: 'wcs-input',
     styleUrl: 'input.scss',
-    shadow: {delegatesFocus: true},
+    shadow: { delegatesFocus: true },
 })
 export class Input implements ComponentInterface, MutableAriaAttribute {
     private nativeInput?: HTMLInputElement;
@@ -35,7 +58,6 @@ export class Input implements ComponentInterface, MutableAriaAttribute {
     private didBlurAfterEdit = false;
     private inheritedAttributes: { [k: string]: any } = {};
     private iconPassword = "visibility";
-
 
     /**
      * This is required for a WebKit bug which requires us to
@@ -73,7 +95,7 @@ export class Input implements ComponentInterface, MutableAriaAttribute {
     /**
      * Whether auto correction should be enabled when the user is entering/editing the text value.
      */
-    @Prop() autocorrect: 'on' | 'off' = 'off';
+    @Prop() autocorrect: WcsInputAutocorrect = 'off';
 
     /**
      * This Boolean attribute lets you specify that a form control should have input focus when the page loads.
@@ -119,10 +141,8 @@ export class Input implements ComponentInterface, MutableAriaAttribute {
 
     /**
      * A hint to the browser for which enter key to display.
-     * Possible values: `"enter"`, `"done"`, `"go"`, `"next"`,
-     * `"previous"`, `"search"`, and `"send"`.
      */
-    @Prop() enterkeyhint?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send';
+    @Prop() enterkeyhint?: WcsInputEnterKeyHint;
 
     /**
      * Specify the size (height) of the input.
@@ -136,10 +156,8 @@ export class Input implements ComponentInterface, MutableAriaAttribute {
 
     /**
      * A hint to the browser for which keyboard to display.
-     * Possible values: `"none"`, `"text"`, `"tel"`, `"url"`,
-     * `"email"`, `"numeric"`, `"decimal"`, and `"search"`.
      */
-    @Prop() inputmode?: 'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search';
+    @Prop() inputmode?: WcsInputInputMode;
 
     /**
      * The maximum value, which must not be less than its minimum (min attribute) value.
@@ -208,7 +226,7 @@ export class Input implements ComponentInterface, MutableAriaAttribute {
      * Specifies the state of the input. By default the input is in an normal state but you can to set it to 'error'
      * state if the data given by the user is not valid.
      */
-    @Prop({reflect: true}) state: 'initial' | 'error' = 'initial';
+    @Prop({reflect: true}) state: WcsInputState = 'initial';
 
     /**
      * Works with the min and max attributes to limit the increments at which a value can be set.
