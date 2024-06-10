@@ -113,6 +113,10 @@ git push
 
 - https://nolanlawson.com/2022/11/28/shadow-dom-and-accessibility-the-trouble-with-aria/
 
+### HTML attributes vs. DOM properties
+- https://stackoverflow.com/a/6004028 : explication simple
+- https://jakearchibald.com/2024/attributes-vs-properties : explication détaillée
+
 ## Issues to track
 
 - https://github.com/storybookjs/storybook/issues/15436 : pour la présence des private props dans storybook
