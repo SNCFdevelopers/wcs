@@ -7,6 +7,13 @@ const hasOptions = prop => prop?.type.includes(' | ')
 const isFunction = prop => prop?.type.includes('=>') || prop?.type.includes('func')
 const optionsLength = prop => hasOptions(prop) ? prop.values?.length : 0;
 const deprecatedBadge = () => `<wcs-badge class="wcs-warning" color="lighter">Deprecated</wcs-badge>\n`;
+/**
+ * If the type is a union type, sort the corresponding string in alphabetical order,
+ * returns the same string otherwise.
+ * This is needed because Stencil (since v4) reorders orginal union types in docs.json.
+ */
+const normalizeType = (type: string | undefined): string | undefined =>
+    type?.split(' | ').sort().join(' | ');
 
 /**
  * Returns a mapped control for a given component property
@@ -15,7 +22,8 @@ const deprecatedBadge = () => `<wcs-badge class="wcs-warning" color="lighter">De
  * @param prop Property of a component (e.g. "size" for wcs-button)
  */
 const getControl = (prop): { type?: string, [opts: string]: any } => {
-    switch (prop.type) {
+    const normalizedType = normalizeType(prop.type);
+    switch (normalizedType) {
         case 'boolean':
         case 'boolean | undefined':
             return {type: 'boolean'}
@@ -29,10 +37,12 @@ const getControl = (prop): { type?: string, [opts: string]: any } => {
         case 'string':
         case 'string | undefined':
         case 'null | string | undefined':
+        case 'number | string':
         case 'number | string | undefined':
             return {type: 'text'}
 
         case 'number':
+        case '[number, number] | number':
         case 'number | undefined':
         case 'null | number | undefined':
             return {type: 'number', min: 0}

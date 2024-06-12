@@ -74,6 +74,8 @@ export class Tooltip implements ComponentInterface {
      * Specifies the maximum width of the tooltip. Useful to prevent it from being too horizontally wide to read.
      *
      * If the viewport's width is smaller than maxWidth, core CSS ensures the tippy remains smaller than the screen.
+     * 
+     * To test it on WCS documentation page, add 'px' to the control value (string type in this case).
      */
     @Prop()
     maxWidth: string | number = 350;
