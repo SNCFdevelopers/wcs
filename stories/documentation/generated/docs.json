@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-06-12T14:15:07",
+  "timestamp": "2024-06-13T14:33:29",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -5762,9 +5762,9 @@
             "resolved": "\"l\" | \"m\"",
             "references": {
               "WcsNativeSelectSize": {
-                "location": "local",
-                "path": "C:/Users/9703514Y/Sources/Repos/wcs/src/components/native-select/native-select.tsx",
-                "id": "src/components/native-select/native-select.tsx::WcsNativeSelectSize"
+                "location": "import",
+                "path": "./native-select-interface",
+                "id": "src/components/native-select/native-select-interface.ts::WcsNativeSelectSize"
               }
             }
           },
@@ -9263,16 +9263,6 @@
     }
   ],
   "typeLibrary": {
-    "src/components/native-select/native-select.tsx::WcsNativeSelectSize": {
-      "declaration": "export type WcsNativeSelectSize = Extract<WcsSize, 'l' | 'm'>;",
-      "docstring": "",
-      "path": "src/components/native-select/native-select.tsx"
-    },
-    "src/utils/mutable-aria-attribute.ts::AriaAttributeName": {
-      "declaration": "export type AriaAttributeName = `aria-${string}` | 'role';",
-      "docstring": "",
-      "path": "src/utils/mutable-aria-attribute.ts"
-    },
     "src/components/badge/badge-interface.ts::BadgeShape": {
       "declaration": "export type BadgeShape = 'normal' | 'rounded';",
       "docstring": "",
@@ -9322,6 +9312,11 @@
       "declaration": "export interface CheckboxChangeEventDetail {\r\n    checked: boolean;\r\n}",
       "docstring": "",
       "path": "src/components/checkbox/checkbox-interface.ts"
+    },
+    "src/utils/mutable-aria-attribute.ts::AriaAttributeName": {
+      "declaration": "export type AriaAttributeName = `aria-${string}` | 'role';",
+      "docstring": "",
+      "path": "src/utils/mutable-aria-attribute.ts"
     },
     "src/components/com-nav/com-nav-interface.ts::CategoryOpenedEventDetail": {
       "declaration": "export interface CategoryOpenedEventDetail {\r\n    categoryElement: HTMLWcsComNavCategoryElement;\r\n}",
@@ -9462,6 +9457,11 @@
       "declaration": "export type ModalSize = 's' | 'm' | 'l' | 'xl';",
       "docstring": "",
       "path": "src/components/modal/modal-interface.ts"
+    },
+    "src/components/native-select/native-select-interface.ts::WcsNativeSelectSize": {
+      "declaration": "export type WcsNativeSelectSize = Extract<WcsSize, 'l' | 'm'>;",
+      "docstring": "",
+      "path": "src/components/native-select/native-select-interface.ts"
     },
     "src/shared-types.ts::WcsSize": {
       "declaration": "export type WcsSize = 'xs' | 's' | 'm' | 'l' | 'xl';",

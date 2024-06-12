@@ -19,7 +19,7 @@ import { HorizontalStepClickEvent, HorizontalStepConfig, HorizontalStepperMode }
 import { AutocompleteTypes, InputChangeEventDetail, TextFieldTypes, WcsInputSize } from "./components/input/input-interface";
 import { MaterialIconFamily, MaterialIconSize } from "./components/mat-icon/mat-icon-interface";
 import { ModalSize } from "./components/modal/modal-interface";
-import { WcsNativeSelectSize } from "./components/native-select/native-select";
+import { WcsNativeSelectSize } from "./components/native-select/native-select-interface";
 import { CssTypes, WcsSize } from "./shared-types";
 import { RadioGroupChangeEventDetail, RadioGroupMode } from "./components/radio-group/radio-group-interface";
 import { RadioChosedEvent } from "./components/radio/radio-interface";
@@ -45,7 +45,7 @@ export { HorizontalStepClickEvent, HorizontalStepConfig, HorizontalStepperMode }
 export { AutocompleteTypes, InputChangeEventDetail, TextFieldTypes, WcsInputSize } from "./components/input/input-interface";
 export { MaterialIconFamily, MaterialIconSize } from "./components/mat-icon/mat-icon-interface";
 export { ModalSize } from "./components/modal/modal-interface";
-export { WcsNativeSelectSize } from "./components/native-select/native-select";
+export { WcsNativeSelectSize } from "./components/native-select/native-select-interface";
 export { CssTypes, WcsSize } from "./shared-types";
 export { RadioGroupChangeEventDetail, RadioGroupMode } from "./components/radio-group/radio-group-interface";
 export { RadioChosedEvent } from "./components/radio/radio-interface";

@@ -1000,44 +1000,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/accordion-header/accordion-header.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "AccordionHeader",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-accordion-header",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "AccordionHeader",
-          "declaration": {
-            "name": "AccordionHeader",
-            "module": "components/accordion-header/accordion-header.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-accordion-header",
-          "declaration": {
-            "name": "AccordionHeader",
-            "module": "components/accordion-header/accordion-header.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/accordion-content/accordion-content.tsx",
       "declarations": [
         {
@@ -1070,6 +1032,44 @@
           "declaration": {
             "name": "AccordionContent",
             "module": "components/accordion-content/accordion-content.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/accordion-header/accordion-header.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "AccordionHeader",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-accordion-header",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "AccordionHeader",
+          "declaration": {
+            "name": "AccordionHeader",
+            "module": "components/accordion-header/accordion-header.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-accordion-header",
+          "declaration": {
+            "name": "AccordionHeader",
+            "module": "components/accordion-header/accordion-header.tsx"
           }
         }
       ]
@@ -1199,44 +1199,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/app/app.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "App",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-app",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "App",
-          "declaration": {
-            "name": "App",
-            "module": "components/app/app.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-app",
-          "declaration": {
-            "name": "App",
-            "module": "components/app/app.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/action-bar/action-bar.tsx",
       "declarations": [
         {
@@ -1303,6 +1265,44 @@
           "declaration": {
             "name": "ActionBar",
             "module": "components/action-bar/action-bar.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/app/app.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "App",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-app",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "App",
+          "declaration": {
+            "name": "App",
+            "module": "components/app/app.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-app",
+          "declaration": {
+            "name": "App",
+            "module": "components/app/app.tsx"
           }
         }
       ]
@@ -1950,6 +1950,187 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/com-nav-category/com-nav-category.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "ComNavCategory",
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsComNavCategoryElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "categoryOpen",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "onWindowClickEvent",
+              "parameters": [
+                {
+                  "name": "_",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "onSubmenuOpened",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "CustomEvent<CategoryOpenedEventDetail>"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleMenuKeyDown",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "_event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  },
+                  "description": "the keyboard event"
+                }
+              ],
+              "description": "Open the menu if it is closed and closed the menu if it is already opened"
+            },
+            {
+              "kind": "method",
+              "name": "handleCategoryItemsKeyDown",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "_event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  },
+                  "description": "the keyboard event"
+                }
+              ],
+              "description": "Handle key down on category items"
+            },
+            {
+              "kind": "method",
+              "name": "close",
+              "description": "Close the category"
+            },
+            {
+              "kind": "method",
+              "name": "open",
+              "description": "Opens the category"
+            },
+            {
+              "kind": "method",
+              "name": "onClick",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "evt",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ],
+              "description": "When the user clicks on the menu, we do not propagate the native event and we launch a custom event to manage\r\nthe closing of the menu correctly"
+            },
+            {
+              "kind": "method",
+              "name": "handleItemClick",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "evt",
+                  "type": {
+                    "text": "UIEvent"
+                  }
+                }
+              ],
+              "description": "Close the category and fire item click if we detect a mouse click on a slotted `a` element."
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "label",
+              "fieldName": "label",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "tagName": "wcs-com-nav-category",
+          "events": [
+            {
+              "name": "wcsCategoryOpened",
+              "type": {
+                "text": "EventEmitter<CategoryOpenedEventDetail>"
+              }
+            },
+            {
+              "name": "wcsCategoryItemClicked",
+              "type": {
+                "text": "EventEmitter<UIEvent>"
+              }
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ComNavCategory",
+          "declaration": {
+            "name": "ComNavCategory",
+            "module": "components/com-nav-category/com-nav-category.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-com-nav-category",
+          "declaration": {
+            "name": "ComNavCategory",
+            "module": "components/com-nav-category/com-nav-category.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/com-nav/com-nav-interface.ts",
       "declarations": [],
       "exports": []
@@ -2142,187 +2323,6 @@
           "declaration": {
             "name": "ComNav",
             "module": "components/com-nav/com-nav.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/com-nav-category/com-nav-category.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "ComNavCategory",
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsComNavCategoryElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "label",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "categoryOpen",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "default": "false"
-            },
-            {
-              "kind": "method",
-              "name": "onWindowClickEvent",
-              "parameters": [
-                {
-                  "name": "_",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "onSubmenuOpened",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "CustomEvent<CategoryOpenedEventDetail>"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "handleMenuKeyDown",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "_event",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  },
-                  "description": "the keyboard event"
-                }
-              ],
-              "description": "Open the menu if it is closed and closed the menu if it is already opened"
-            },
-            {
-              "kind": "method",
-              "name": "handleCategoryItemsKeyDown",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "_event",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  },
-                  "description": "the keyboard event"
-                }
-              ],
-              "description": "Handle key down on category items"
-            },
-            {
-              "kind": "method",
-              "name": "close",
-              "description": "Close the category"
-            },
-            {
-              "kind": "method",
-              "name": "open",
-              "description": "Opens the category"
-            },
-            {
-              "kind": "method",
-              "name": "onClick",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "evt",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ],
-              "description": "When the user clicks on the menu, we do not propagate the native event and we launch a custom event to manage\r\nthe closing of the menu correctly"
-            },
-            {
-              "kind": "method",
-              "name": "handleItemClick",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "evt",
-                  "type": {
-                    "text": "UIEvent"
-                  }
-                }
-              ],
-              "description": "Close the category and fire item click if we detect a mouse click on a slotted `a` element."
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "label",
-              "fieldName": "label",
-              "type": {
-                "text": "string"
-              }
-            }
-          ],
-          "tagName": "wcs-com-nav-category",
-          "events": [
-            {
-              "name": "wcsCategoryOpened",
-              "type": {
-                "text": "EventEmitter<CategoryOpenedEventDetail>"
-              }
-            },
-            {
-              "name": "wcsCategoryItemClicked",
-              "type": {
-                "text": "EventEmitter<UIEvent>"
-              }
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ComNavCategory",
-          "declaration": {
-            "name": "ComNavCategory",
-            "module": "components/com-nav-category/com-nav-category.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-com-nav-category",
-          "declaration": {
-            "name": "ComNavCategory",
-            "module": "components/com-nav-category/com-nav-category.tsx"
           }
         }
       ]
@@ -2905,44 +2905,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/divider/divider.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Divider",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-divider",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Divider",
-          "declaration": {
-            "name": "Divider",
-            "module": "components/divider/divider.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-divider",
-          "declaration": {
-            "name": "Divider",
-            "module": "components/divider/divider.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/dropdown/dropdown-interface.ts",
       "declarations": [],
       "exports": []
@@ -3240,6 +3202,44 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/divider/divider.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Divider",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-divider",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Divider",
+          "declaration": {
+            "name": "Divider",
+            "module": "components/divider/divider.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-divider",
+          "declaration": {
+            "name": "Divider",
+            "module": "components/divider/divider.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/dropdown-divider/dropdown-divider.tsx",
       "declarations": [
         {
@@ -3272,50 +3272,6 @@
           "declaration": {
             "name": "DropdownDivider",
             "module": "components/dropdown-divider/dropdown-divider.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/dropdown-header/dropdown-header.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "You can add `wcs-dropdown-header` before a group of items to describe it",
-          "name": "DropdownHeader",
-          "slots": [
-            {
-              "description": "the slot that contains the header's name",
-              "name": "<no-name>"
-            }
-          ],
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-dropdown-header",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "DropdownHeader",
-          "declaration": {
-            "name": "DropdownHeader",
-            "module": "components/dropdown-header/dropdown-header.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-dropdown-header",
-          "declaration": {
-            "name": "DropdownHeader",
-            "module": "components/dropdown-header/dropdown-header.tsx"
           }
         }
       ]
@@ -3402,6 +3358,88 @@
           "declaration": {
             "name": "DropdownItem",
             "module": "components/dropdown-item/dropdown-item.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/dropdown-header/dropdown-header.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "You can add `wcs-dropdown-header` before a group of items to describe it",
+          "name": "DropdownHeader",
+          "slots": [
+            {
+              "description": "the slot that contains the header's name",
+              "name": "<no-name>"
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-dropdown-header",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "DropdownHeader",
+          "declaration": {
+            "name": "DropdownHeader",
+            "module": "components/dropdown-header/dropdown-header.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-dropdown-header",
+          "declaration": {
+            "name": "DropdownHeader",
+            "module": "components/dropdown-header/dropdown-header.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/error/error.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The `wcs-error` should always be wrapped in a `wcs-form-field`.\r\nIt is used to display a red message under the field indicating an incorrect user input.\r\n\r\n## Accessibility guidelines 💡\r\n- Provide a relevant error message to inform the users what they should change to make the field valid\r\n- `aria-description` will be automatically added to the field for screen readers\r\n- `aria-invalid=\"true\"` will be automatically added to the field for screen readers",
+          "name": "Label",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-error",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Label",
+          "declaration": {
+            "name": "Label",
+            "module": "components/error/error.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-error",
+          "declaration": {
+            "name": "Label",
+            "module": "components/error/error.tsx"
           }
         }
       ]
@@ -3814,19 +3852,19 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/error/error.tsx",
+      "path": "components/field-content/field-content.tsx",
       "declarations": [
         {
           "kind": "class",
-          "description": "The `wcs-error` should always be wrapped in a `wcs-form-field`.\r\nIt is used to display a red message under the field indicating an incorrect user input.\r\n\r\n## Accessibility guidelines 💡\r\n- Provide a relevant error message to inform the users what they should change to make the field valid\r\n- `aria-description` will be automatically added to the field for screen readers\r\n- `aria-invalid=\"true\"` will be automatically added to the field for screen readers",
-          "name": "Label",
+          "description": "",
+          "name": "FieldContent",
           "members": [
             {
               "kind": "method",
               "name": "render"
             }
           ],
-          "tagName": "wcs-error",
+          "tagName": "wcs-field-content",
           "events": [],
           "customElement": true
         }
@@ -3834,18 +3872,18 @@
       "exports": [
         {
           "kind": "js",
-          "name": "Label",
+          "name": "FieldContent",
           "declaration": {
-            "name": "Label",
-            "module": "components/error/error.tsx"
+            "name": "FieldContent",
+            "module": "components/field-content/field-content.tsx"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "wcs-error",
+          "name": "wcs-field-content",
           "declaration": {
-            "name": "Label",
-            "module": "components/error/error.tsx"
+            "name": "FieldContent",
+            "module": "components/field-content/field-content.tsx"
           }
         }
       ]
@@ -3894,82 +3932,6 @@
           "declaration": {
             "name": "Field",
             "module": "components/field/field.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/field-content/field-content.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "FieldContent",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-field-content",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "FieldContent",
-          "declaration": {
-            "name": "FieldContent",
-            "module": "components/field-content/field-content.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-field-content",
-          "declaration": {
-            "name": "FieldContent",
-            "module": "components/field-content/field-content.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/field-label/field-label.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "FieldLabel",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-field-label",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "FieldLabel",
-          "declaration": {
-            "name": "FieldLabel",
-            "module": "components/field-label/field-label.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-field-label",
-          "declaration": {
-            "name": "FieldLabel",
-            "module": "components/field-label/field-label.tsx"
           }
         }
       ]
@@ -4027,6 +3989,44 @@
           "declaration": {
             "name": "Footer",
             "module": "components/footer/footer.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/field-label/field-label.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "FieldLabel",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-field-label",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "FieldLabel",
+          "declaration": {
+            "name": "FieldLabel",
+            "module": "components/field-label/field-label.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-field-label",
+          "declaration": {
+            "name": "FieldLabel",
+            "module": "components/field-label/field-label.tsx"
           }
         }
       ]
@@ -5250,6 +5250,81 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/grid-custom-cell/grid-custom-cell.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The grid custom cell is a subcomponent of `wcs-grid`.",
+          "name": "GridCustomCell",
+          "members": [
+            {
+              "kind": "field",
+              "name": "columnId",
+              "type": {
+                "text": "string"
+              },
+              "description": "ID of the column for which to render the cell"
+            },
+            {
+              "kind": "field",
+              "name": "rowId",
+              "type": {
+                "text": "any"
+              },
+              "description": "Key value of the object rendered for the cell's row"
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "column-id",
+              "fieldName": "columnId",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "row-id",
+              "fieldName": "rowId",
+              "type": {
+                "text": "any"
+              }
+            }
+          ],
+          "tagName": "wcs-grid-custom-cell",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "GridCustomCell",
+          "declaration": {
+            "name": "GridCustomCell",
+            "module": "components/grid-custom-cell/grid-custom-cell.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-grid-custom-cell",
+          "declaration": {
+            "name": "GridCustomCell",
+            "module": "components/grid-custom-cell/grid-custom-cell.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/grid-column/grid-column.tsx",
       "declarations": [
         {
@@ -5560,81 +5635,6 @@
           "declaration": {
             "name": "GridSortArrow",
             "module": "components/grid-column/grid-sort-arrow.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/grid-custom-cell/grid-custom-cell.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The grid custom cell is a subcomponent of `wcs-grid`.",
-          "name": "GridCustomCell",
-          "members": [
-            {
-              "kind": "field",
-              "name": "columnId",
-              "type": {
-                "text": "string"
-              },
-              "description": "ID of the column for which to render the cell"
-            },
-            {
-              "kind": "field",
-              "name": "rowId",
-              "type": {
-                "text": "any"
-              },
-              "description": "Key value of the object rendered for the cell's row"
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "column-id",
-              "fieldName": "columnId",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "row-id",
-              "fieldName": "rowId",
-              "type": {
-                "text": "any"
-              }
-            }
-          ],
-          "tagName": "wcs-grid-custom-cell",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "GridCustomCell",
-          "declaration": {
-            "name": "GridCustomCell",
-            "module": "components/grid-custom-cell/grid-custom-cell.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-grid-custom-cell",
-          "declaration": {
-            "name": "GridCustomCell",
-            "module": "components/grid-custom-cell/grid-custom-cell.tsx"
           }
         }
       ]
@@ -7645,6 +7645,12 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/native-select/native-select-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/native-select/native-select.tsx",
       "declarations": [
         {
@@ -9611,84 +9617,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/skeleton/skeleton-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/skeleton-circle/skeleton-circle.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Use a skeleton circle as a placeholder round images, illustrations or components",
-          "name": "SkeletonCircle",
-          "members": [
-            {
-              "kind": "field",
-              "name": "animation",
-              "type": {
-                "text": "WcsSkeletonAnimation"
-              },
-              "default": "'glide'",
-              "description": "Specifies the animation of the skeleton"
-            },
-            {
-              "kind": "field",
-              "name": "radius",
-              "type": {
-                "text": "number"
-              },
-              "default": "50",
-              "description": "Specifies the radius of the circle in px"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "animation",
-              "fieldName": "animation",
-              "type": {
-                "text": "WcsSkeletonAnimation"
-              }
-            },
-            {
-              "name": "radius",
-              "fieldName": "radius",
-              "type": {
-                "text": "number"
-              }
-            }
-          ],
-          "tagName": "wcs-skeleton-circle",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "SkeletonCircle",
-          "declaration": {
-            "name": "SkeletonCircle",
-            "module": "components/skeleton-circle/skeleton-circle.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-skeleton-circle",
-          "declaration": {
-            "name": "SkeletonCircle",
-            "module": "components/skeleton-circle/skeleton-circle.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/select-option/select-option-interface.ts",
       "declarations": [],
       "exports": []
@@ -9878,6 +9806,84 @@
           "declaration": {
             "name": "SelectOption",
             "module": "components/select-option/select-option.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/skeleton/skeleton-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/skeleton-circle/skeleton-circle.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Use a skeleton circle as a placeholder round images, illustrations or components",
+          "name": "SkeletonCircle",
+          "members": [
+            {
+              "kind": "field",
+              "name": "animation",
+              "type": {
+                "text": "WcsSkeletonAnimation"
+              },
+              "default": "'glide'",
+              "description": "Specifies the animation of the skeleton"
+            },
+            {
+              "kind": "field",
+              "name": "radius",
+              "type": {
+                "text": "number"
+              },
+              "default": "50",
+              "description": "Specifies the radius of the circle in px"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "animation",
+              "fieldName": "animation",
+              "type": {
+                "text": "WcsSkeletonAnimation"
+              }
+            },
+            {
+              "name": "radius",
+              "fieldName": "radius",
+              "type": {
+                "text": "number"
+              }
+            }
+          ],
+          "tagName": "wcs-skeleton-circle",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SkeletonCircle",
+          "declaration": {
+            "name": "SkeletonCircle",
+            "module": "components/skeleton-circle/skeleton-circle.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-skeleton-circle",
+          "declaration": {
+            "name": "SkeletonCircle",
+            "module": "components/skeleton-circle/skeleton-circle.tsx"
           }
         }
       ]

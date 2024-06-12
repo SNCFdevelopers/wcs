@@ -1,9 +1,8 @@
 import { Component, h, ComponentInterface, State, Prop, Host, Element, Method } from '@stencil/core';
-import { SelectArrow } from '../select/select-arrow';
-import { WcsSize } from "../../shared-types";
-import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
 
-export type WcsNativeSelectSize = Extract<WcsSize, 'l' | 'm'>; // todo: move into common file with custom select
+import { SelectArrow } from '../select/select-arrow';
+import { WcsNativeSelectSize } from './native-select-interface';
+import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
 
 /**
  * The `wcs-native-select` component is designed to accept a native `<select>` element as a slotted child. This choice

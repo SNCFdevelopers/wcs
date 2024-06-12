@@ -12,7 +12,7 @@ export type WcsSelectFilterFn = (optionEl: HTMLWcsSelectOptionElement, filter: s
 
 /**
  * Default filtering function. Compares the string start of wcs-select-option element's text content
- * with your filter input. 
+ * with your filter input.
  * @param optionEl - wcs-select-option element
  * @param filter - input filter field value
  * @constructor
