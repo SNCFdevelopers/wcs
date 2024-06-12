@@ -11,6 +11,25 @@ experience or simply show additional information. Tooltips appear when the user 
 
 Note that this component is based on the Tippy.js library : https://atomiks.github.io/tippyjs/
 
+## Accessibility guidelines 💡
+
+The problem is that impaired users may not be able to see what is the information provided by the tooltip. To solve
+this problem, the tooltip should be served with some aria attributes to make it accessible.
+
+Aria-features `wcs-tooltip` respect:
+- dismiss when the user presses the `Escape` key
+- has a `role=tooltip`
+
+But you have to provide the "link" between the element you want to describe and the tooltip. To do this, you have to
+provide the "visual description" you add on the `wcs-tooltip` to the `aria-label` attribute or the `aria-description` as soon as the attribute will be available 
+of the element you want to describe .
+
+Example:
+```
+<wcs-tooltip>Trashed items</wcs-tooltip>
+<wcs-button aria-label="Trashed items">Trash</wcs-button>
+```
+
 ## Properties
 
 | Property      | Attribute     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Type                                                 | Default              |

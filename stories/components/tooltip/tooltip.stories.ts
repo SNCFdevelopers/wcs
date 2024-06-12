@@ -24,6 +24,7 @@ const Template: StoryFn<Partial<{ content: string, position: WcsTooltipPosition,
     <div style="padding: 50px 0 0 200px;"><!-- div to add space for the tooltip to demonstrate the positioning property -->
         <wcs-button shape="small" id=${`tooltiped-button-${tooltip_unique_element_id_idx}`}>Hover to show tooltip</wcs-button>
         <wcs-tooltip
+            id=${`tooltip-${tooltip_unique_element_id_idx}`}
             for=${`tooltiped-button-${tooltip_unique_element_id_idx}`}
             max-width=${ifDefined(args.maxWidth)}
             ?interactive=${args.interactive}

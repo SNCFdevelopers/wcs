@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, h, Host, Prop, Element, Watch, Method } from '@stencil/core';
+import { Component, ComponentInterface, h, Host, Prop, Element, Watch, Method, Listen } from '@stencil/core';
 import { WcsTooltipAppendTo, WcsTooltipPosition } from './tooltip-interface';
 
 // We use the Tippy.js library for the tooltip. At first by using directly the styles of tippy because
@@ -8,6 +8,7 @@ import { WcsTooltipAppendTo, WcsTooltipPosition } from './tooltip-interface';
 // "Headless" mode where the rendering of the tooltip will be entirely in our charge, without
 // modifications in the API : https://atomiks.github.io/tippyjs/v6/headless-tippy/
 import tippy, { Instance, Props } from 'tippy.js';
+import { isEscapeKey } from "../../utils/helpers";
 
 /**
  * Tooltips are used to provide additional information for features available on the website. These can improve the user
@@ -15,6 +16,25 @@ import tippy, { Instance, Props } from 'tippy.js';
  * (for longer content).
  *
  * Note that this component is based on the Tippy.js library : https://atomiks.github.io/tippyjs/
+ * 
+ * ## Accessibility guidelines 💡
+ * 
+ * The problem is that impaired users may not be able to see what is the information provided by the tooltip. To solve
+ * this problem, the tooltip should be served with some aria attributes to make it accessible.
+ *
+ * Aria-features `wcs-tooltip` respect:
+ * - dismiss when the user presses the `Escape` key
+ * - has a `role=tooltip`
+ *
+ * But you have to provide the "link" between the element you want to describe and the tooltip. To do this, you have to
+ * provide the "visual description" you add on the `wcs-tooltip` to the `aria-label` attribute or the `aria-description` as soon as the attribute will be available 
+ * of the element you want to describe .
+ * 
+ * Example:
+ * ```
+ * <wcs-tooltip>Trashed items</wcs-tooltip>
+ * <wcs-button aria-label="Trashed items">Trash</wcs-button>
+ * ```
  */
 @Component({
     tag: 'wcs-tooltip',
@@ -136,6 +156,15 @@ export class Tooltip implements ComponentInterface {
             trigger: this.trigger
         });
     }
+    
+    @Listen('keydown', { target: 'window' })
+    async handleKeyDown(ev: KeyboardEvent) {
+        if (isEscapeKey(ev)) {
+            if(this.tippyInstance.state.isShown) {
+                await this.hide();
+            }
+        }
+    }
 
     private getTooltipContentFromPropAndSlot() {
         if (this.content) {
@@ -209,7 +238,7 @@ export class Tooltip implements ComponentInterface {
 
     render() {
         return (
-            <Host>
+            <Host role={"tooltip"}>
                 <slot onSlotchange={_ => this.updateTippyContent()}/>
             </Host>
         );
