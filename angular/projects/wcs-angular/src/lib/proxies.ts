@@ -244,7 +244,7 @@ export class WcsCheckbox {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['wcsChange']);
+    proxyOutputs(this, this.el, ['wcsChange', 'wcsFocus', 'wcsBlur']);
   }
 }
 
@@ -256,6 +256,14 @@ export declare interface WcsCheckbox extends Components.WcsCheckbox {
    * Emitted when the checked property has changed.
    */
   wcsChange: EventEmitter<CustomEvent<IWcsCheckboxCheckboxChangeEventDetail>>;
+  /**
+   * Emitted when the checkbox has focus.
+   */
+  wcsFocus: EventEmitter<CustomEvent<FocusEvent>>;
+  /**
+   * Emitted when the checkbox loses focus.
+   */
+  wcsBlur: EventEmitter<CustomEvent<FocusEvent>>;
 }
 
 

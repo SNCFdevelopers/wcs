@@ -1038,6 +1038,44 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/accordion-header/accordion-header.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "AccordionHeader",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-accordion-header",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "AccordionHeader",
+          "declaration": {
+            "name": "AccordionHeader",
+            "module": "components/accordion-header/accordion-header.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-accordion-header",
+          "declaration": {
+            "name": "AccordionHeader",
+            "module": "components/accordion-header/accordion-header.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/accordion-panel/accordion-panel.tsx",
       "declarations": [
         {
@@ -1161,44 +1199,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/accordion-header/accordion-header.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "AccordionHeader",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-accordion-header",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "AccordionHeader",
-          "declaration": {
-            "name": "AccordionHeader",
-            "module": "components/accordion-header/accordion-header.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-accordion-header",
-          "declaration": {
-            "name": "AccordionHeader",
-            "module": "components/accordion-header/accordion-header.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/action-bar/action-bar.tsx",
       "declarations": [
         {
@@ -1265,6 +1265,44 @@
           "declaration": {
             "name": "ActionBar",
             "module": "components/action-bar/action-bar.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/app/app.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "App",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-app",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "App",
+          "declaration": {
+            "name": "App",
+            "module": "components/app/app.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-app",
+          "declaration": {
+            "name": "App",
+            "module": "components/app/app.tsx"
           }
         }
       ]
@@ -1359,44 +1397,6 @@
           "declaration": {
             "name": "Badge",
             "module": "components/badge/badge.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/app/app.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "App",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-app",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "App",
-          "declaration": {
-            "name": "App",
-            "module": "components/app/app.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-app",
-          "declaration": {
-            "name": "App",
-            "module": "components/app/app.tsx"
           }
         }
       ]
@@ -1885,6 +1885,30 @@
             },
             {
               "kind": "method",
+              "name": "handleFocus",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "FocusEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleBlur",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "FocusEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
               "name": "render"
             }
           ],
@@ -1924,6 +1948,20 @@
                 "text": "EventEmitter<CheckboxChangeEventDetail>"
               },
               "description": "Emitted when the checked property has changed."
+            },
+            {
+              "name": "wcsFocus",
+              "type": {
+                "text": "EventEmitter<FocusEvent>"
+              },
+              "description": "Emitted when the checkbox has focus."
+            },
+            {
+              "name": "wcsBlur",
+              "type": {
+                "text": "EventEmitter<FocusEvent>"
+              },
+              "description": "Emitted when the checkbox loses focus."
             }
           ],
           "customElement": true
@@ -4033,74 +4071,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/galactic/galactic.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Galactic",
-          "members": [
-            {
-              "kind": "field",
-              "name": "text",
-              "type": {
-                "text": "string"
-              },
-              "description": "Text to display in the bar"
-            },
-            {
-              "kind": "field",
-              "name": "show",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "text",
-              "fieldName": "text",
-              "type": {
-                "text": "string"
-              }
-            }
-          ],
-          "tagName": "wcs-galactic",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Galactic",
-          "declaration": {
-            "name": "Galactic",
-            "module": "components/galactic/galactic.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-galactic",
-          "declaration": {
-            "name": "Galactic",
-            "module": "components/galactic/galactic.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/form-field/form-field.tsx",
       "declarations": [
         {
@@ -4323,6 +4293,74 @@
           "declaration": {
             "name": "FormField",
             "module": "components/form-field/form-field.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/galactic/galactic.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Galactic",
+          "members": [
+            {
+              "kind": "field",
+              "name": "text",
+              "type": {
+                "text": "string"
+              },
+              "description": "Text to display in the bar"
+            },
+            {
+              "kind": "field",
+              "name": "show",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "text",
+              "fieldName": "text",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "tagName": "wcs-galactic",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Galactic",
+          "declaration": {
+            "name": "Galactic",
+            "module": "components/galactic/galactic.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-galactic",
+          "declaration": {
+            "name": "Galactic",
+            "module": "components/galactic/galactic.tsx"
           }
         }
       ]
@@ -5566,81 +5604,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/grid-custom-cell/grid-custom-cell.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The grid custom cell is a subcomponent of `wcs-grid`.",
-          "name": "GridCustomCell",
-          "members": [
-            {
-              "kind": "field",
-              "name": "columnId",
-              "type": {
-                "text": "string"
-              },
-              "description": "ID of the column for which to render the cell"
-            },
-            {
-              "kind": "field",
-              "name": "rowId",
-              "type": {
-                "text": "any"
-              },
-              "description": "Key value of the object rendered for the cell's row"
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "column-id",
-              "fieldName": "columnId",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "row-id",
-              "fieldName": "rowId",
-              "type": {
-                "text": "any"
-              }
-            }
-          ],
-          "tagName": "wcs-grid-custom-cell",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "GridCustomCell",
-          "declaration": {
-            "name": "GridCustomCell",
-            "module": "components/grid-custom-cell/grid-custom-cell.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-grid-custom-cell",
-          "declaration": {
-            "name": "GridCustomCell",
-            "module": "components/grid-custom-cell/grid-custom-cell.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/grid-pagination/grid-pagination-arrow.tsx",
       "declarations": [
         {
@@ -5896,37 +5859,56 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/header/header.tsx",
+      "path": "components/grid-custom-cell/grid-custom-cell.tsx",
       "declarations": [
         {
           "kind": "class",
-          "description": "",
-          "name": "Header",
-          "slots": [
-            {
-              "description": "SNCF Logo",
-              "name": "logo"
-            },
-            {
-              "description": "Title of your application",
-              "name": "title"
-            },
-            {
-              "description": "Actions such as buttons, dropdown or any useful information to always display on your application",
-              "name": "actions"
-            }
-          ],
+          "description": "The grid custom cell is a subcomponent of `wcs-grid`.",
+          "name": "GridCustomCell",
           "members": [
             {
-              "kind": "method",
-              "name": "hostData"
+              "kind": "field",
+              "name": "columnId",
+              "type": {
+                "text": "string"
+              },
+              "description": "ID of the column for which to render the cell"
+            },
+            {
+              "kind": "field",
+              "name": "rowId",
+              "type": {
+                "text": "any"
+              },
+              "description": "Key value of the object rendered for the cell's row"
             },
             {
               "kind": "method",
-              "name": "render"
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
             }
           ],
-          "tagName": "wcs-header",
+          "attributes": [
+            {
+              "name": "column-id",
+              "fieldName": "columnId",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "row-id",
+              "fieldName": "rowId",
+              "type": {
+                "text": "any"
+              }
+            }
+          ],
+          "tagName": "wcs-grid-custom-cell",
           "events": [],
           "customElement": true
         }
@@ -5934,18 +5916,18 @@
       "exports": [
         {
           "kind": "js",
-          "name": "Header",
+          "name": "GridCustomCell",
           "declaration": {
-            "name": "Header",
-            "module": "components/header/header.tsx"
+            "name": "GridCustomCell",
+            "module": "components/grid-custom-cell/grid-custom-cell.tsx"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "wcs-header",
+          "name": "wcs-grid-custom-cell",
           "declaration": {
-            "name": "Header",
-            "module": "components/header/header.tsx"
+            "name": "GridCustomCell",
+            "module": "components/grid-custom-cell/grid-custom-cell.tsx"
           }
         }
       ]
@@ -6002,6 +5984,62 @@
           "declaration": {
             "name": "Hint",
             "module": "components/hint/hint.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/header/header.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Header",
+          "slots": [
+            {
+              "description": "SNCF Logo",
+              "name": "logo"
+            },
+            {
+              "description": "Title of your application",
+              "name": "title"
+            },
+            {
+              "description": "Actions such as buttons, dropdown or any useful information to always display on your application",
+              "name": "actions"
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "hostData"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-header",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Header",
+          "declaration": {
+            "name": "Header",
+            "module": "components/header/header.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-header",
+          "declaration": {
+            "name": "Header",
+            "module": "components/header/header.tsx"
           }
         }
       ]
@@ -7876,44 +7914,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/nav/nav.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Nav",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-nav",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Nav",
-          "declaration": {
-            "name": "Nav",
-            "module": "components/nav/nav.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-nav",
-          "declaration": {
-            "name": "Nav",
-            "module": "components/nav/nav.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/nav-item/nav-item.tsx",
       "declarations": [
         {
@@ -7999,6 +7999,44 @@
           "declaration": {
             "name": "NavItem",
             "module": "components/nav-item/nav-item.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/nav/nav.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Nav",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-nav",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Nav",
+          "declaration": {
+            "name": "Nav",
+            "module": "components/nav/nav.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-nav",
+          "declaration": {
+            "name": "Nav",
+            "module": "components/nav/nav.tsx"
           }
         }
       ]
@@ -9897,6 +9935,78 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/skeleton-circle/skeleton-circle.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Use a skeleton circle as a placeholder round images, illustrations or components",
+          "name": "SkeletonCircle",
+          "members": [
+            {
+              "kind": "field",
+              "name": "animation",
+              "type": {
+                "text": "WcsSkeletonAnimation"
+              },
+              "default": "'glide'",
+              "description": "Specifies the animation of the skeleton"
+            },
+            {
+              "kind": "field",
+              "name": "radius",
+              "type": {
+                "text": "number"
+              },
+              "default": "50",
+              "description": "Specifies the radius of the circle in px"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "animation",
+              "fieldName": "animation",
+              "type": {
+                "text": "WcsSkeletonAnimation"
+              }
+            },
+            {
+              "name": "radius",
+              "fieldName": "radius",
+              "type": {
+                "text": "number"
+              }
+            }
+          ],
+          "tagName": "wcs-skeleton-circle",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SkeletonCircle",
+          "declaration": {
+            "name": "SkeletonCircle",
+            "module": "components/skeleton-circle/skeleton-circle.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-skeleton-circle",
+          "declaration": {
+            "name": "SkeletonCircle",
+            "module": "components/skeleton-circle/skeleton-circle.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/skeleton-rectangle/skeleton-rectangle.tsx",
       "declarations": [
         {
@@ -10007,78 +10117,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/skeleton-circle/skeleton-circle.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Use a skeleton circle as a placeholder round images, illustrations or components",
-          "name": "SkeletonCircle",
-          "members": [
-            {
-              "kind": "field",
-              "name": "animation",
-              "type": {
-                "text": "WcsSkeletonAnimation"
-              },
-              "default": "'glide'",
-              "description": "Specifies the animation of the skeleton"
-            },
-            {
-              "kind": "field",
-              "name": "radius",
-              "type": {
-                "text": "number"
-              },
-              "default": "50",
-              "description": "Specifies the radius of the circle in px"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "animation",
-              "fieldName": "animation",
-              "type": {
-                "text": "WcsSkeletonAnimation"
-              }
-            },
-            {
-              "name": "radius",
-              "fieldName": "radius",
-              "type": {
-                "text": "number"
-              }
-            }
-          ],
-          "tagName": "wcs-skeleton-circle",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "SkeletonCircle",
-          "declaration": {
-            "name": "SkeletonCircle",
-            "module": "components/skeleton-circle/skeleton-circle.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-skeleton-circle",
-          "declaration": {
-            "name": "SkeletonCircle",
-            "module": "components/skeleton-circle/skeleton-circle.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/skeleton-text/skeleton-text.tsx",
       "declarations": [
         {
@@ -10145,68 +10183,6 @@
           "declaration": {
             "name": "SkeletonText",
             "module": "components/skeleton-text/skeleton-text.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/spinner/spinner-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/spinner/spinner.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Spinner",
-          "members": [
-            {
-              "kind": "field",
-              "name": "mode",
-              "type": {
-                "text": "WcsSpinnerMode"
-              },
-              "default": "'border'",
-              "description": "Indicates the spinner display mode.\r\nAccepted values: `border` or `growing`"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "mode",
-              "fieldName": "mode",
-              "type": {
-                "text": "WcsSpinnerMode"
-              }
-            }
-          ],
-          "tagName": "wcs-spinner",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Spinner",
-          "declaration": {
-            "name": "Spinner",
-            "module": "components/spinner/spinner.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-spinner",
-          "declaration": {
-            "name": "Spinner",
-            "module": "components/spinner/spinner.tsx"
           }
         }
       ]
@@ -10358,6 +10334,68 @@
           "declaration": {
             "name": "Switch",
             "module": "components/switch/switch.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/spinner/spinner-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/spinner/spinner.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Spinner",
+          "members": [
+            {
+              "kind": "field",
+              "name": "mode",
+              "type": {
+                "text": "WcsSpinnerMode"
+              },
+              "default": "'border'",
+              "description": "Indicates the spinner display mode.\r\nAccepted values: `border` or `growing`"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "mode",
+              "fieldName": "mode",
+              "type": {
+                "text": "WcsSpinnerMode"
+              }
+            }
+          ],
+          "tagName": "wcs-spinner",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Spinner",
+          "declaration": {
+            "name": "Spinner",
+            "module": "components/spinner/spinner.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-spinner",
+          "declaration": {
+            "name": "Spinner",
+            "module": "components/spinner/spinner.tsx"
           }
         }
       ]
@@ -10738,6 +10776,272 @@
           "declaration": {
             "name": "Tabs",
             "module": "components/tabs/tabs.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/tooltip/tooltip-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/tooltip/tooltip.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Tooltips are used to provide additional information for features available on the website. These can improve the user\r\nexperience or simply show additional information. Tooltips appear when the user rolls over or clicks on them\r\n(for longer content).\r\n\r\nNote that this component is based on the Tippy.js library : https://atomiks.github.io/tippyjs/\r\n\r\n## Accessibility guidelines 💡\r\n\r\nThe problem is that impaired users may not be able to see what is the information provided by the tooltip. To solve\r\nthis problem, the tooltip should be served with some aria attributes to make it accessible.\r\n\r\nAria-features `wcs-tooltip` respect:\r\n- dismiss when the user presses the `Escape` key\r\n- has a `role=tooltip`\r\n\r\nBut you have to provide the \"link\" between the element you want to describe and the tooltip. To do this, you have to\r\nprovide the \"visual description\" you add on the `wcs-tooltip` to the `aria-label` attribute or the `aria-description` as soon as the attribute will be available \r\nof the element you want to describe .\r\n\r\nExample:\r\n```\r\n<wcs-tooltip>Trashed items</wcs-tooltip>\r\n<wcs-button aria-label=\"Trashed items\">Trash</wcs-button>\r\n```",
+          "name": "Tooltip",
+          "members": [
+            {
+              "kind": "field",
+              "name": "for",
+              "type": {
+                "text": "string"
+              },
+              "description": "The **id** of the element the tooltip's going to describe.\r\n\r\nThis property cannot be modified after initialization."
+            },
+            {
+              "kind": "field",
+              "name": "position",
+              "type": {
+                "text": "WcsTooltipPosition"
+              },
+              "default": "'bottom'",
+              "description": "Where the tooltip is going to show relative to the element it's describing."
+            },
+            {
+              "kind": "field",
+              "name": "interactive",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Determines if the tooltip has interactive content inside of it, so that it can be hovered over and clicked inside\r\nwithout hiding."
+            },
+            {
+              "kind": "field",
+              "name": "maxWidth",
+              "type": {
+                "text": "string | number"
+              },
+              "default": "350",
+              "description": "Specifies the maximum width of the tooltip. Useful to prevent it from being too horizontally wide to read.\r\n\r\nIf the viewport's width is smaller than maxWidth, core CSS ensures the tippy remains smaller than the screen.\r\n\r\nTo test it on WCS documentation page, add 'px' to the control value (string type in this case)."
+            },
+            {
+              "kind": "field",
+              "name": "delay",
+              "type": {
+                "text": "number | [number, number]"
+              },
+              "default": "0",
+              "description": "Delay in ms once a trigger event is fired before the tooltip shows or hides.\r\n\r\nYou can provide an array with two values to define a different duration for show and hide.\r\n\r\n`[showDelay, hideDelay]`\r\n\r\nUse null to use default value."
+            },
+            {
+              "kind": "field",
+              "name": "duration",
+              "type": {
+                "text": "number | [number, number]"
+              },
+              "default": "[300, 250]",
+              "description": "Duration in ms of the transition animation."
+            },
+            {
+              "kind": "field",
+              "name": "trigger",
+              "type": {
+                "text": "string"
+              },
+              "default": "'mouseenter focus'",
+              "description": "Determines the events that cause the tooltip to show. Multiple event names are separated by spaces.\r\n\r\nSee: https://atomiks.github.io/tippyjs/v6/all-props/#trigger"
+            },
+            {
+              "kind": "field",
+              "name": "theme",
+              "type": {
+                "text": "string"
+              },
+              "default": "'wcs'",
+              "description": "Allows you to change the theme used by tippy.\r\n\r\nThe WCS theme is used by default and uses the WCS CSS variables.\r\n\r\nYou can create a theme by following this documentation and choosing a custom name :\r\nhttps://atomiks.github.io/tippyjs/v6/themes/"
+            },
+            {
+              "kind": "field",
+              "name": "content",
+              "type": {
+                "text": "string"
+              },
+              "description": "You can use this property instead of the slot API to affect content in the tooltip.\r\n\r\nThis makes it easier to manage the update if the tooltip contains elements that are not mutated when their\r\ncontent changes. Indeed, if the slot is used, the tooltip is updated only if the structure of the slotted DOM\r\nchanges (the DOM must be mutated).\r\n\r\nThe two APIs are not mutually exclusive, if both are filled in (the prop + the slot) the rendering will first\r\ndisplay the content of this property and then the slotted elements."
+            },
+            {
+              "kind": "field",
+              "name": "appendTo",
+              "type": {
+                "text": "WcsTooltipAppendTo"
+              },
+              "description": "The element to append the tooltip to. Default behaviour is `() => document.body`. If interactive: true,\r\nthe default behavior is appendTo: \"parent\"\r\n\r\nSee: https://atomiks.github.io/tippyjs/v6/all-props/#appendto"
+            },
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsTooltipElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "tippyInstance",
+              "type": {
+                "text": "Instance<Props>"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyDown",
+              "parameters": [
+                {
+                  "name": "ev",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "getTooltipContentFromPropAndSlot",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "updateProps",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "updateTippyContent",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "hide",
+              "description": "Programmatically hide the tooltip"
+            },
+            {
+              "kind": "method",
+              "name": "show",
+              "description": "Programmatically show the tooltip"
+            },
+            {
+              "kind": "method",
+              "name": "disable",
+              "description": "Temporarily prevent the tooltip from showing or hiding"
+            },
+            {
+              "kind": "method",
+              "name": "enable",
+              "description": "Re-enable a disabled tooltip"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "for",
+              "fieldName": "for",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "position",
+              "fieldName": "position",
+              "type": {
+                "text": "WcsTooltipPosition"
+              }
+            },
+            {
+              "name": "interactive",
+              "fieldName": "interactive",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "max-width",
+              "fieldName": "maxWidth",
+              "type": {
+                "text": "string | number"
+              }
+            },
+            {
+              "name": "delay",
+              "fieldName": "delay",
+              "type": {
+                "text": "number | [number, number]"
+              }
+            },
+            {
+              "name": "duration",
+              "fieldName": "duration",
+              "type": {
+                "text": "number | [number, number]"
+              }
+            },
+            {
+              "name": "trigger",
+              "fieldName": "trigger",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "theme",
+              "fieldName": "theme",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "content",
+              "fieldName": "content",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "append-to",
+              "fieldName": "appendTo",
+              "type": {
+                "text": "WcsTooltipAppendTo"
+              }
+            }
+          ],
+          "tagName": "wcs-tooltip",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Tooltip",
+          "declaration": {
+            "name": "Tooltip",
+            "module": "components/tooltip/tooltip.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-tooltip",
+          "declaration": {
+            "name": "Tooltip",
+            "module": "components/tooltip/tooltip.tsx"
           }
         }
       ]
@@ -11310,272 +11614,6 @@
           "declaration": {
             "name": "Textarea",
             "module": "components/textarea/textarea.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/tooltip/tooltip-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/tooltip/tooltip.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Tooltips are used to provide additional information for features available on the website. These can improve the user\r\nexperience or simply show additional information. Tooltips appear when the user rolls over or clicks on them\r\n(for longer content).\r\n\r\nNote that this component is based on the Tippy.js library : https://atomiks.github.io/tippyjs/\r\n\r\n## Accessibility guidelines 💡\r\n\r\nThe problem is that impaired users may not be able to see what is the information provided by the tooltip. To solve\r\nthis problem, the tooltip should be served with some aria attributes to make it accessible.\r\n\r\nAria-features `wcs-tooltip` respect:\r\n- dismiss when the user presses the `Escape` key\r\n- has a `role=tooltip`\r\n\r\nBut you have to provide the \"link\" between the element you want to describe and the tooltip. To do this, you have to\r\nprovide the \"visual description\" you add on the `wcs-tooltip` to the `aria-label` attribute or the `aria-description` as soon as the attribute will be available \r\nof the element you want to describe .\r\n\r\nExample:\r\n```\r\n<wcs-tooltip>Trashed items</wcs-tooltip>\r\n<wcs-button aria-label=\"Trashed items\">Trash</wcs-button>\r\n```",
-          "name": "Tooltip",
-          "members": [
-            {
-              "kind": "field",
-              "name": "for",
-              "type": {
-                "text": "string"
-              },
-              "description": "The **id** of the element the tooltip's going to describe.\r\n\r\nThis property cannot be modified after initialization."
-            },
-            {
-              "kind": "field",
-              "name": "position",
-              "type": {
-                "text": "WcsTooltipPosition"
-              },
-              "default": "'bottom'",
-              "description": "Where the tooltip is going to show relative to the element it's describing."
-            },
-            {
-              "kind": "field",
-              "name": "interactive",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Determines if the tooltip has interactive content inside of it, so that it can be hovered over and clicked inside\r\nwithout hiding."
-            },
-            {
-              "kind": "field",
-              "name": "maxWidth",
-              "type": {
-                "text": "string | number"
-              },
-              "default": "350",
-              "description": "Specifies the maximum width of the tooltip. Useful to prevent it from being too horizontally wide to read.\r\n\r\nIf the viewport's width is smaller than maxWidth, core CSS ensures the tippy remains smaller than the screen.\r\n\r\nTo test it on WCS documentation page, add 'px' to the control value (string type in this case)."
-            },
-            {
-              "kind": "field",
-              "name": "delay",
-              "type": {
-                "text": "number | [number, number]"
-              },
-              "default": "0",
-              "description": "Delay in ms once a trigger event is fired before the tooltip shows or hides.\r\n\r\nYou can provide an array with two values to define a different duration for show and hide.\r\n\r\n`[showDelay, hideDelay]`\r\n\r\nUse null to use default value."
-            },
-            {
-              "kind": "field",
-              "name": "duration",
-              "type": {
-                "text": "number | [number, number]"
-              },
-              "default": "[300, 250]",
-              "description": "Duration in ms of the transition animation."
-            },
-            {
-              "kind": "field",
-              "name": "trigger",
-              "type": {
-                "text": "string"
-              },
-              "default": "'mouseenter focus'",
-              "description": "Determines the events that cause the tooltip to show. Multiple event names are separated by spaces.\r\n\r\nSee: https://atomiks.github.io/tippyjs/v6/all-props/#trigger"
-            },
-            {
-              "kind": "field",
-              "name": "theme",
-              "type": {
-                "text": "string"
-              },
-              "default": "'wcs'",
-              "description": "Allows you to change the theme used by tippy.\r\n\r\nThe WCS theme is used by default and uses the WCS CSS variables.\r\n\r\nYou can create a theme by following this documentation and choosing a custom name :\r\nhttps://atomiks.github.io/tippyjs/v6/themes/"
-            },
-            {
-              "kind": "field",
-              "name": "content",
-              "type": {
-                "text": "string"
-              },
-              "description": "You can use this property instead of the slot API to affect content in the tooltip.\r\n\r\nThis makes it easier to manage the update if the tooltip contains elements that are not mutated when their\r\ncontent changes. Indeed, if the slot is used, the tooltip is updated only if the structure of the slotted DOM\r\nchanges (the DOM must be mutated).\r\n\r\nThe two APIs are not mutually exclusive, if both are filled in (the prop + the slot) the rendering will first\r\ndisplay the content of this property and then the slotted elements."
-            },
-            {
-              "kind": "field",
-              "name": "appendTo",
-              "type": {
-                "text": "WcsTooltipAppendTo"
-              },
-              "description": "The element to append the tooltip to. Default behaviour is `() => document.body`. If interactive: true,\r\nthe default behavior is appendTo: \"parent\"\r\n\r\nSee: https://atomiks.github.io/tippyjs/v6/all-props/#appendto"
-            },
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsTooltipElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "tippyInstance",
-              "type": {
-                "text": "Instance<Props>"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleKeyDown",
-              "parameters": [
-                {
-                  "name": "ev",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "getTooltipContentFromPropAndSlot",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "updateProps",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "updateTippyContent",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "hide",
-              "description": "Programmatically hide the tooltip"
-            },
-            {
-              "kind": "method",
-              "name": "show",
-              "description": "Programmatically show the tooltip"
-            },
-            {
-              "kind": "method",
-              "name": "disable",
-              "description": "Temporarily prevent the tooltip from showing or hiding"
-            },
-            {
-              "kind": "method",
-              "name": "enable",
-              "description": "Re-enable a disabled tooltip"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "for",
-              "fieldName": "for",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "position",
-              "fieldName": "position",
-              "type": {
-                "text": "WcsTooltipPosition"
-              }
-            },
-            {
-              "name": "interactive",
-              "fieldName": "interactive",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "max-width",
-              "fieldName": "maxWidth",
-              "type": {
-                "text": "string | number"
-              }
-            },
-            {
-              "name": "delay",
-              "fieldName": "delay",
-              "type": {
-                "text": "number | [number, number]"
-              }
-            },
-            {
-              "name": "duration",
-              "fieldName": "duration",
-              "type": {
-                "text": "number | [number, number]"
-              }
-            },
-            {
-              "name": "trigger",
-              "fieldName": "trigger",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "theme",
-              "fieldName": "theme",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "content",
-              "fieldName": "content",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "append-to",
-              "fieldName": "appendTo",
-              "type": {
-                "text": "WcsTooltipAppendTo"
-              }
-            }
-          ],
-          "tagName": "wcs-tooltip",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Tooltip",
-          "declaration": {
-            "name": "Tooltip",
-            "module": "components/tooltip/tooltip.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-tooltip",
-          "declaration": {
-            "name": "Tooltip",
-            "module": "components/tooltip/tooltip.tsx"
           }
         }
       ]

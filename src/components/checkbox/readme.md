@@ -19,7 +19,9 @@
 
 | Event       | Description                                    | Type                                     |
 | ----------- | ---------------------------------------------- | ---------------------------------------- |
+| `wcsBlur`   | Emitted when the checkbox loses focus.         | `CustomEvent<FocusEvent>`                |
 | `wcsChange` | Emitted when the checked property has changed. | `CustomEvent<CheckboxChangeEventDetail>` |
+| `wcsFocus`  | Emitted when the checkbox has focus.           | `CustomEvent<FocusEvent>`                |
 
 
 ## Methods

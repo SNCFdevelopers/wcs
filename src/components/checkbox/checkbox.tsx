@@ -6,13 +6,13 @@ import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-ari
     tag: 'wcs-checkbox',
     styleUrl: 'checkbox.scss',
     shadow: {
-        delegatesFocus: true
-    }
+        delegatesFocus: true,
+    },
 })
 export class Checkbox implements ComponentInterface, MutableAriaAttribute {
     private checkboxId = `wcs-checkbox-${checkboxIds++}`;
     private input!: HTMLInputElement;
-    
+
     @Prop() name = this.checkboxId;
     /**
      * If `true` the checkbox is in indeterminate state.
@@ -39,6 +39,16 @@ export class Checkbox implements ComponentInterface, MutableAriaAttribute {
      */
     @Event() wcsChange!: EventEmitter<CheckboxChangeEventDetail>;
 
+    /**
+     * Emitted when the checkbox has focus.
+     */
+    @Event() wcsFocus!: EventEmitter<FocusEvent>;
+
+    /**
+     * Emitted when the checkbox loses focus.
+     */
+    @Event() wcsBlur!: EventEmitter<FocusEvent>;
+
     @Method()
     async setAriaAttribute(attr: AriaAttributeName, value: string) {
         this.input.setAttribute(attr, value);
@@ -48,26 +58,37 @@ export class Checkbox implements ComponentInterface, MutableAriaAttribute {
         this.indeterminate = false;
         this.checked = !this.checked;
         this.wcsChange.emit({
-            checked: this.checked
+            checked: this.checked,
         });
+    }
+
+    handleFocus(event: FocusEvent) {
+        this.wcsFocus.emit(event);
+    }
+
+    handleBlur(event: FocusEvent) {
+        this.wcsBlur.emit(event);
     }
 
     render() {
         return (
             <Host>
                 <label htmlFor={this.name} class="wcs-container" aria-disabled={this.disabled}>
-                    <input onChange={(evt) => this.handleChange(evt)}
-                           checked={this.checked}
-                           class="wcs-checkbox"
-                           type="checkbox"
-                           ref={(el) => this.input = el}
-                           name={this.name}
-                           disabled={this.disabled}
-                           id={this.name}>
-                    </input>
+                    <input
+                        onBlur={this.handleBlur.bind(this)}
+                        onChange={this.handleChange.bind(this)}
+                        onFocus={this.handleFocus.bind(this)}
+                        checked={this.checked}
+                        class="wcs-checkbox"
+                        type="checkbox"
+                        ref={(el) => (this.input = el)}
+                        name={this.name}
+                        disabled={this.disabled}
+                        id={this.name}
+                    ></input>
                     <span class="wcs-checkmark"></span>
                     <span class="text">
-                        <slot/>
+                        <slot />
                     </span>
                 </label>
             </Host>

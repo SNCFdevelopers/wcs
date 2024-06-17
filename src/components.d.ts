@@ -1523,6 +1523,8 @@ declare global {
     };
     interface HTMLWcsCheckboxElementEventMap {
         "wcsChange": CheckboxChangeEventDetail;
+        "wcsFocus": FocusEvent;
+        "wcsBlur": FocusEvent;
     }
     interface HTMLWcsCheckboxElement extends Components.WcsCheckbox, HTMLStencilElement {
         addEventListener<K extends keyof HTMLWcsCheckboxElementEventMap>(type: K, listener: (this: HTMLWcsCheckboxElement, ev: WcsCheckboxCustomEvent<HTMLWcsCheckboxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2516,9 +2518,17 @@ declare namespace LocalJSX {
         "labelAlignment"?: CheckboxLabelAlignment;
         "name"?: string;
         /**
+          * Emitted when the checkbox loses focus.
+         */
+        "onWcsBlur"?: (event: WcsCheckboxCustomEvent<FocusEvent>) => void;
+        /**
           * Emitted when the checked property has changed.
          */
         "onWcsChange"?: (event: WcsCheckboxCustomEvent<CheckboxChangeEventDetail>) => void;
+        /**
+          * Emitted when the checkbox has focus.
+         */
+        "onWcsFocus"?: (event: WcsCheckboxCustomEvent<FocusEvent>) => void;
     }
     interface WcsComNav {
         /**

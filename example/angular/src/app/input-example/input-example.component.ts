@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-input-example',
@@ -17,12 +18,25 @@ import { Component, OnInit } from '@angular/core';
     <wcs-textarea [(ngModel)]="textareaText1" auto-grow placeholder="exemple d'un textarea bindé avec ngModel"></wcs-textarea>
     Textarea 2
     <wcs-textarea [(ngModel)]="textareaText1" auto-grow placeholder="exemple d'un textarea bindé avec ngModel"></wcs-textarea>
+
+    <h3>Erreur si la checkbox reste décochée après une première interaction</h3>
+    <wcs-form-field [isError]="isChecked.touched && isChecked.invalid">
+      <wcs-label>Checkbox</wcs-label>
+      <wcs-checkbox [formControl]="isChecked">
+        placeholder
+      </wcs-checkbox>
+      <wcs-error>
+        <wcs-mat-icon size="s" icon="info" family="filled"></wcs-mat-icon>
+        Veuillez renseigner ce champ
+      </wcs-error>
+    </wcs-form-field>
   `,
   styles: []
 })
 export class InputExampleComponent implements OnInit {
   public inputText1: string;
   public textareaText1: string;
+  public isChecked = new FormControl(false, [Validators.requiredTrue]);
 
   constructor() {
   }

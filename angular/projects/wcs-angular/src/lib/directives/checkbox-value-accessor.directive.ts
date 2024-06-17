@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Injector } from '@angular/core';
+import { Directive, ElementRef, HostListener, Injector } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { CheckboxChangeEventDetail } from '../../../../../../dist/types/components/checkbox/checkbox-interface';
 
@@ -40,10 +40,14 @@ export class CheckboxValueAccessorDirective implements ControlValueAccessor {
     this.onChange = fn;
   }
 
-  /**
-   * Not implemented for now
-   */
-  // tslint:disable-next-line:typedef
-  registerOnTouched(fn) {
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+  }
+
+  @HostListener('wcsBlur', ['$event.target'])
+  _handleBlurEvent(el: any): void {
+    if (el === this.el.nativeElement) {
+      this.onTouched();
+    }
   }
 }
