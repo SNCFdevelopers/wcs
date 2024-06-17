@@ -39,6 +39,7 @@ for now removed features.
 - **counter**: improve keyboard focus style
 - **header**: (accessibility) add missing aria attributes
 - **progress-bar**: improve accessibility
+- **progress-radial**: improve accessibility
 - **tooltip**: accessibility problems
     - Hide tooltip when press escape key.
 - **horizontal-stepper**: (accessibility) add missing aria attributes and keyboard navigation

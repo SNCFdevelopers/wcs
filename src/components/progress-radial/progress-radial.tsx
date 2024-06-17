@@ -1,7 +1,24 @@
-import { Component, Prop, ComponentInterface, h } from '@stencil/core';
+import { Component, Prop, ComponentInterface, h, Element, Watch, forceUpdate } from '@stencil/core';
+import { inheritAttributes } from "../../utils/helpers";
+
+const PROGRESS_RADIAL_ARIA_INHERITED_ATTRS = ['aria-label'];
 
 /**
  * The progress-radial component is a circular progress bar that indicates the current completion of a task. 
+ *
+ * ## Accessibility guidelines 💡
+ * > Aria attributes and how to display the progress-radial depend on the use case in your application :
+ * >
+ * > - **Case 1 : decorative**
+ * > If the progress-radial is used as a decoration _(if removed, the user doesn't lose any relevant information)_ or in the
+ * > context of another component _(such as progress-radial in a card)_ => **you don't need to show the label nor add an aria-label**.
+ * >
+ * > - **Case 2 : informative**
+ * > If the progress-radial is used to convey important information _(e.g., form completion status, dashboard KPI)_, you need to :
+ * >   - **Provide a visible label** that describes the purpose of the progress-radial.
+ * >   - **Set the `showLabel` property to `true`** to show the percentage inside the progress-radial.
+ * >   - Optionally, use aria-label to provide an accessible name if a visible label is not present.
+ *
  */
 @Component({
     tag: 'wcs-progress-radial',
@@ -9,6 +26,11 @@ import { Component, Prop, ComponentInterface, h } from '@stencil/core';
     shadow: true
 })
 export class ProgressRadial implements ComponentInterface {
+    
+    @Element() private el!: HTMLWcsProgressRadialElement;
+
+    private inheritedAttributes: { [k: string]: any } = {};
+    
     /** The initial background image size (120x120) as specified in the background-image css property of .progress-circle */
     private backgroundImageSize: number = 120;
     
@@ -18,11 +40,34 @@ export class ProgressRadial implements ComponentInterface {
     @Prop() showLabel: boolean = false;
     /** The value of the progress radial. Prefer values between 0 and 100. */
     @Prop() value: number = 0;
+    
+    componentWillLoad(): Promise<void> | void {
+        this.inheritedAttributes = {
+            ...inheritAttributes(this.el, PROGRESS_RADIAL_ARIA_INHERITED_ATTRS)
+        };
+    }
+
+    @Watch('aria-label')
+    onAriaLabelChange() {
+        this.inheritedAttributes = {
+            ...inheritAttributes(this.el, PROGRESS_RADIAL_ARIA_INHERITED_ATTRS)
+        };
+        forceUpdate(this);
+    }
+
 
     render() {
         const { backgroundImageSize, halfSize } = { backgroundImageSize: this.backgroundImageSize, halfSize: this.backgroundImageSize / 2 };
         return (
-            <div class="progress-circle" data-component="radial-progress" style={this.getSize()}>
+            <div class="progress-circle"
+                 data-component="radial-progress"
+                 style={this.getSize()}
+                 role="progressbar"
+                 aria-valuemin="0"
+                 aria-valuemax="100"
+                 aria-valuenow={this.value}
+                 aria-valuetext={this.value + '%'}
+                 {...this.inheritedAttributes}>
                 <svg class="progress-circle-figure"
                     data-role="figure"
                     viewBox={`0 0 ${backgroundImageSize} ${backgroundImageSize}`}
@@ -37,15 +82,6 @@ export class ProgressRadial implements ComponentInterface {
                         </span>
                     </div>
                 }
-                <input data-role="control"
-                       class="sr-only"
-                       type="range"
-                       role="meter"
-                       aria-valuemin="0"
-                       aria-valuemax="100"
-                       aria-valuenow={this.value} 
-                       aria-valuetext={this.value + '%'}
-                       value={this.value} />
             </div>
         );
     }
