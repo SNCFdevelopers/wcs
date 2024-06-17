@@ -1,14 +1,13 @@
-import { Meta, StoryFn } from '@storybook/web-components';
+import { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit-html';
 import {
     HorizontalStepClickEvent,
     HorizontalStepConfig,
     HorizontalStepperMode
 } from '../../../src/components/horizontal-stepper/horizontal-stepper-interface';
-import { createRef, ref } from 'lit-html/directives/ref.js';
+import { createRef, Ref, ref } from 'lit-html/directives/ref.js';
 import { HorizontalStepper } from '../../../src/components/horizontal-stepper/horizontal-stepper';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
-// @ts-ignore
 import { withActions } from '@storybook/addon-actions/decorator';
 import { getComponentArgs } from '../../utils/args-generation';
 
@@ -55,58 +54,72 @@ StepTextButton {
 };
 export default meta;
 
-const horizontalStepperRef = createRef();
+type HorizontalStepperArgs = {
+    checkOnComplete: boolean,
+    mode: HorizontalStepperMode,
+    steps: HorizontalStepConfig[],
+    currentStep: number
+}
 
-const Template: StoryFn<Partial<{ checkOnComplete: boolean, mode: HorizontalStepperMode, steps: HorizontalStepConfig[], currentStep: number }>> = (args) => html`
+const Template = (args: HorizontalStepperArgs, stepperRef: Ref<Element>) => html`
     <wcs-horizontal-stepper ?check-on-complete=${args.checkOnComplete}
                             current-step=${ifDefined(args.currentStep)}
                             mode=${args.mode}
                             .steps=${args.steps}
                             id="horizontal-stepper"
-                            ${ref(horizontalStepperRef)}
+                            ${ref(stepperRef)}
                             @wcsHorizontalStepClick=${stepClickHandler}></wcs-horizontal-stepper>
     <br/>
-    <wcs-button mode="clear" @click=${onPreviousButtonClick}>Previous</wcs-button>
-    <wcs-button mode="clear" @click=${onNextButtonClick}>Next</wcs-button>
+    <wcs-button mode="clear" @click=${(e: MouseEvent) => onPreviousButtonClick(e, stepperRef)}>Previous</wcs-button>
+    <wcs-button mode="clear" @click=${(e: MouseEvent) => onNextButtonClick(e, stepperRef)}>Next</wcs-button>
 `;
 
 const stepClickHandler = (event: CustomEvent<HorizontalStepClickEvent>) => {
-    (event.target as any as HorizontalStepper).currentStep = event.detail.index;
+    (event.target as HorizontalStepper).currentStep = event.detail.index;
 }
 
-const onPreviousButtonClick = _ => {
-    (horizontalStepperRef.value as any as HorizontalStepper).previous();
+const onPreviousButtonClick = (_: Event, ref: Ref<Element>) => {
+    (ref.value as HorizontalStepper).previous();
 }
 
-const onNextButtonClick = _ => {
-    (horizontalStepperRef.value as any as HorizontalStepper).next();
+const onNextButtonClick = (_: Event, ref: Ref<Element>) => {
+    (ref.value as any as HorizontalStepper).next();
 }
 
-export const Default = Template.bind({});
-Default.args = {
-    mode: 'linear',
-    checkOnComplete: false,
-    steps: [
-        {text: 'Initialisation', button: {kind: 'Icon', iconName: 'location_on'}},
-        {text: 'Désactivé', disable: true, button: {kind: 'Icon', iconName: 'remove_circle_outline'}},
-        {text: 'Informations personnelles', button: {kind: 'Icon', iconName: 'person'}},
-        {text: 'Dossier', button: {kind: 'Icon', iconName: 'folder'}},
-        {text: 'Finalisation', button: {kind: 'Icon', iconName: 'analytics', family: 'filled'}}
-    ]
+export const Default: StoryObj<HorizontalStepperArgs> = {
+    render: (args) => {
+        const defaultHorizontalStepperRef = createRef();
+        return Template(args, defaultHorizontalStepperRef)
+    },
+    args: {
+        mode: 'linear',
+        checkOnComplete: false,
+        steps: [
+            {text: 'Initialisation', button: {kind: 'Icon', iconName: 'location_on'}},
+            {text: 'Désactivé', disable: true, button: {kind: 'Icon', iconName: 'remove_circle_outline'}},
+            {text: 'Informations personnelles', button: {kind: 'Icon', iconName: 'person'}},
+            {text: 'Dossier', button: {kind: 'Icon', iconName: 'folder'}},
+            {text: 'Finalisation', button: {kind: 'Icon', iconName: 'analytics', family: 'filled'}}
+        ]
+    }
 };
 
-
-export const TextWithoutLabelLinear = Template.bind({});
-TextWithoutLabelLinear.args = {
-    checkOnComplete: true,
-    mode: 'linear',
-    steps: [
-        {button: {kind: 'Text', text: '1'}},
-        {button: {kind: 'Text', text: '2'}},
-        {button: {kind: 'Text', text: '3'}},
-        {disable: true, button: {kind: 'Text', text: '4'}},
-        {button: {kind: 'Text', text: '5'}},
-        {complete: true, button: {kind: 'Text', text: '6'}},
-        {button: {kind: 'Text', text: '7'}},
-    ]
-};
+export const TextWithoutLabelLinear: StoryObj<HorizontalStepperArgs> = {
+    render: (args) => {
+        const textWithoutLabelLinearHorizontalStepperRef = createRef();
+        return Template(args, textWithoutLabelLinearHorizontalStepperRef)
+    },
+    args: {
+        checkOnComplete: true,
+        mode: 'linear',
+        steps: [
+            {button: {kind: 'Text', text: '1'}},
+            {button: {kind: 'Text', text: '2'}},
+            {button: {kind: 'Text', text: '3'}},
+            {disable: true, button: {kind: 'Text', text: '4'}},
+            {button: {kind: 'Text', text: '5'}},
+            {complete: true, button: {kind: 'Text', text: '6'}},
+            {button: {kind: 'Text', text: '7'}},
+        ]
+    }
+}
