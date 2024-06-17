@@ -3,12 +3,24 @@ We're looking for contributors in all way. If you're an user and have problems, 
 
 If you want to contribute to the project, we'll be happy to welcome you, contact us and we'll see from there.
 
-## Environments
+## Deployment environments and CI/CD
 
 Documentation is available at 
 - https://wcs.dev.sncf/ for production (latest release)
 - https://lemon-bush-001d04303-develop.westeurope.3.azurestaticapps.net/ for development environment
-- https://lemon-bush-001d04303-review.westeurope.3.azurestaticapps.net/ for review environment
+- https://lemon-bush-001d04303-devreview.westeurope.3.azurestaticapps.net/ for developers review environment
+- https://lemon-bush-001d04303-featurereview.westeurope.3.azurestaticapps.net/ for design, accessibility teams review environment
+
+### Deploy a branch to a review environment
+
+* Go to Gitlab
+* CI/CD > Pipelines
+* Blue Run pipeline button at top right
+* Choose the desired branch
+* Variable: enter dev-review or feature-review
+* Run pipeline
+
+*The pipeline run with 3 jobs: test, build and deploy-mr-tmp-env*
 
 ## Hacking on WCS
 ### StackBlitz 
