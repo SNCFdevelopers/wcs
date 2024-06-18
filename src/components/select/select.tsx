@@ -197,10 +197,10 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
     @Event() wcsChange!: EventEmitter<SelectChangeEventDetail>;
 
     /** Emitted when the select has focus. */
-    @Event() wcsFocus!: EventEmitter<void>;
+    @Event() wcsFocus!: EventEmitter<FocusEvent>;
 
     /** Emitted when the select loses focus. */
-    @Event() wcsBlur!: EventEmitter<void>;
+    @Event() wcsBlur!: EventEmitter<FocusEvent>;
 
     /** Emitted when the autocomplete filter has changed. */
     @Event() wcsFilterChange!: EventEmitter<SelectFilerChangeEventDetail>;
@@ -894,10 +894,11 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
     }
 
     @Listen('focus')
-    onFocus() {
+    onFocus(event: FocusEvent) {
         if (this.autocomplete) {
             this.focusAutocompleteInput();
         }
+        this.wcsFocus.emit(event);
     }
 
     private focusAutocompleteInput(): void {
@@ -905,6 +906,17 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
     }
 
     //endregion
+
+    @Listen('blur', { capture: true })
+    onBlur(event: FocusEvent) {
+        // Avoid emitting a wcsBlur event when the relatedTarget of the blur event is a child or the select itself
+        const target = event.relatedTarget as HTMLElement;
+        if (this.el.contains(target)) {
+            return;
+        }
+        
+        this.wcsBlur.emit(event);
+    }
 
     componentDidRender() {
         this.popper?.update();

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-06-19T18:56:58",
+  "timestamp": "2024-06-19T18:58:26",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -6959,12 +6959,17 @@
       "events": [
         {
           "event": "wcsBlur",
-          "detail": "void",
+          "detail": "FocusEvent",
           "bubbles": true,
           "complexType": {
-            "original": "void",
-            "resolved": "void",
-            "references": {}
+            "original": "FocusEvent",
+            "resolved": "FocusEvent",
+            "references": {
+              "FocusEvent": {
+                "location": "global",
+                "id": "global::FocusEvent"
+              }
+            }
           },
           "cancelable": true,
           "composed": true,
@@ -7013,12 +7018,17 @@
         },
         {
           "event": "wcsFocus",
-          "detail": "void",
+          "detail": "FocusEvent",
           "bubbles": true,
           "complexType": {
-            "original": "void",
-            "resolved": "void",
-            "references": {}
+            "original": "FocusEvent",
+            "resolved": "FocusEvent",
+            "references": {
+              "FocusEvent": {
+                "location": "global",
+                "id": "global::FocusEvent"
+              }
+            }
           },
           "cancelable": true,
           "composed": true,
@@ -7050,6 +7060,11 @@
         },
         {
           "event": "focus",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "blur",
           "capture": false,
           "passive": false
         }

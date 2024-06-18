@@ -20,11 +20,6 @@ export class SelectValueAccessor implements ControlValueAccessor {
   constructor(protected injector: Injector, protected el: ElementRef) {
   }
 
-  @HostListener('wcsChange', ['$event.detail.value'])
-  _handleInputEvent(value: any): void {
-      this.onChange(value);
-  }
-
   // tslint:disable-next-line:typedef
   writeValue(value) {
     this.el.nativeElement.value = value;
@@ -34,7 +29,19 @@ export class SelectValueAccessor implements ControlValueAccessor {
     this.onChange = fn;
   }
 
+  @HostListener('wcsChange', ['$event.detail.value'])
+  _handleInputEvent(value: any): void {
+      this.onChange(value);
+  }
+
   registerOnTouched(fn: any): void {
     this.onTouched = fn;
+  }
+
+  @HostListener('wcsBlur', ['$event.target'])
+  _handleBlurEvent(el: any): void {
+    if (el === this.el.nativeElement) {
+      this.onTouched();
+    }
   }
 }

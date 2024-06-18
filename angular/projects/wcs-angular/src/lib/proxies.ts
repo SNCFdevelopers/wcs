@@ -1300,11 +1300,11 @@ export declare interface WcsSelect extends Components.WcsSelect {
   /**
    * Emitted when the select has focus.
    */
-  wcsFocus: EventEmitter<CustomEvent<void>>;
+  wcsFocus: EventEmitter<CustomEvent<FocusEvent>>;
   /**
    * Emitted when the select loses focus.
    */
-  wcsBlur: EventEmitter<CustomEvent<void>>;
+  wcsBlur: EventEmitter<CustomEvent<FocusEvent>>;
   /**
    * Emitted when the autocomplete filter has changed.
    */

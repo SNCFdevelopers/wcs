@@ -38,10 +38,10 @@ Use it with several slotted `wcs-select-option` inside.
 
 | Event             | Description                                       | Type                                        |
 | ----------------- | ------------------------------------------------- | ------------------------------------------- |
-| `wcsBlur`         | Emitted when the select loses focus.              | `CustomEvent<void>`                         |
+| `wcsBlur`         | Emitted when the select loses focus.              | `CustomEvent<FocusEvent>`                   |
 | `wcsChange`       | Emitted when the value has changed.               | `CustomEvent<SelectChangeEventDetail>`      |
 | `wcsFilterChange` | Emitted when the autocomplete filter has changed. | `CustomEvent<SelectFilerChangeEventDetail>` |
-| `wcsFocus`        | Emitted when the select has focus.                | `CustomEvent<void>`                         |
+| `wcsFocus`        | Emitted when the select has focus.                | `CustomEvent<FocusEvent>`                   |
 
 
 ## Methods

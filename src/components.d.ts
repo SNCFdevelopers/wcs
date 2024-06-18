@@ -2116,8 +2116,8 @@ declare global {
     };
     interface HTMLWcsSelectElementEventMap {
         "wcsChange": SelectChangeEventDetail;
-        "wcsFocus": void;
-        "wcsBlur": void;
+        "wcsFocus": FocusEvent;
+        "wcsBlur": FocusEvent;
         "wcsFilterChange": SelectFilerChangeEventDetail;
     }
     /**
@@ -3351,7 +3351,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the select loses focus.
          */
-        "onWcsBlur"?: (event: WcsSelectCustomEvent<void>) => void;
+        "onWcsBlur"?: (event: WcsSelectCustomEvent<FocusEvent>) => void;
         /**
           * Emitted when the value has changed.
          */
@@ -3363,7 +3363,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the select has focus.
          */
-        "onWcsFocus"?: (event: WcsSelectCustomEvent<void>) => void;
+        "onWcsFocus"?: (event: WcsSelectCustomEvent<FocusEvent>) => void;
         /**
           * The text to display when the select is empty.
          */

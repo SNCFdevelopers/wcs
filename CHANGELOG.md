@@ -11,7 +11,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-- **select**: add a red outline when the `wcs-form-field` is in error
+- **select**: 
+    - add a red outline when the `wcs-form-field` is in error
+    - emit wcsFocus and wcsBlur events
+    - add onTouched support for Angular
 - **native-select**: add a red outline when the `wcs-form-field` is in error
 - **checkbox**:
     - add wcsFocus and wcsBlur events
