@@ -718,7 +718,7 @@ export class WcsGrid {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['wcsGridSelectionChange', 'wcsGridAllSelectionChange']);
+    proxyOutputs(this, this.el, ['wcsGridSelectionChange', 'wcsGridAllSelectionChange', 'wcsFocus', 'wcsBlur']);
   }
 }
 
@@ -735,6 +735,14 @@ export declare interface WcsGrid extends Components.WcsGrid {
    * Event emitted when all rows are selected or unselected
    */
   wcsGridAllSelectionChange: EventEmitter<CustomEvent<IWcsGridWcsGridAllRowSelectedEventDetails>>;
+  /**
+   * Event emitted when the grid has focus.
+   */
+  wcsFocus: EventEmitter<CustomEvent<FocusEvent>>;
+  /**
+   * Event emitted when the grid loses focus.
+   */
+  wcsBlur: EventEmitter<CustomEvent<FocusEvent>>;
 }
 
 

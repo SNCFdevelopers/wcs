@@ -98,6 +98,14 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
      * Event emitted when all rows are selected or unselected
      */
     @Event() wcsGridAllSelectionChange!: EventEmitter<WcsGridAllRowSelectedEventDetails>;
+    /**
+     * Event emitted when the grid has focus.
+     */
+    @Event() wcsFocus!: EventEmitter<FocusEvent>;
+    /**
+     * Event emitted when the grid loses focus.
+     */
+    @Event() wcsBlur!: EventEmitter<FocusEvent>;
     
     /**
      * Used to track the focus position in the grid for keyboard navigation.  
@@ -127,8 +135,14 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
     }
     
     @Listen('focus')
-    onFocus() {
+    onFocus(event: FocusEvent) {
         this.getElementToFocusAtCursorPosition()?.focus();
+        this.wcsFocus.emit(event);
+    }
+
+    @Listen('blur')
+    onBlur(event: FocusEvent) {
+        this.wcsBlur.emit(event);
     }
 
     /**

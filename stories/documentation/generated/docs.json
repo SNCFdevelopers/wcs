@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-06-19T19:00:12",
+  "timestamp": "2024-06-19T19:01:13",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -3012,6 +3012,44 @@
       "methods": [],
       "events": [
         {
+          "event": "wcsBlur",
+          "detail": "FocusEvent",
+          "bubbles": true,
+          "complexType": {
+            "original": "FocusEvent",
+            "resolved": "FocusEvent",
+            "references": {
+              "FocusEvent": {
+                "location": "global",
+                "id": "global::FocusEvent"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Event emitted when the grid loses focus.",
+          "docsTags": []
+        },
+        {
+          "event": "wcsFocus",
+          "detail": "FocusEvent",
+          "bubbles": true,
+          "complexType": {
+            "original": "FocusEvent",
+            "resolved": "FocusEvent",
+            "references": {
+              "FocusEvent": {
+                "location": "global",
+                "id": "global::FocusEvent"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Event emitted when the grid has focus.",
+          "docsTags": []
+        },
+        {
           "event": "wcsGridAllSelectionChange",
           "detail": "WcsGridAllRowSelectedEventDetails",
           "bubbles": true,
@@ -3055,6 +3093,11 @@
       "listeners": [
         {
           "event": "focus",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "blur",
           "capture": false,
           "passive": false
         },

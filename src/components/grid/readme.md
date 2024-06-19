@@ -24,6 +24,8 @@ The grid component is a complex component used as an HTML table to display colle
 
 | Event                       | Description                                            | Type                                             |
 | --------------------------- | ------------------------------------------------------ | ------------------------------------------------ |
+| `wcsBlur`                   | Event emitted when the grid loses focus.               | `CustomEvent<FocusEvent>`                        |
+| `wcsFocus`                  | Event emitted when the grid has focus.                 | `CustomEvent<FocusEvent>`                        |
 | `wcsGridAllSelectionChange` | Event emitted when all rows are selected or unselected | `CustomEvent<WcsGridAllRowSelectedEventDetails>` |
 | `wcsGridSelectionChange`    | Event emitted when a row is selected or unselected     | `CustomEvent<WcsGridSelectionEventDetails>`      |
 

@@ -45,4 +45,11 @@ export class GridValueAccessorDirective implements ControlValueAccessor {
   registerOnTouched(fn: any): void {
     this.onTouched = fn;
   }
+
+  @HostListener('wcsBlur', ['$event.target'])
+  _handleBlurEvent(el: any): void {
+    if (el === this.el.nativeElement) {
+      this.onTouched();
+    }
+  }
 }

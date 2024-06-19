@@ -49,7 +49,9 @@ const meta: Meta = {
                 'wcsGridAllSelectionChange',
                 'wcsGridPaginationChange',
                 'wcsSortChange',
-                'wcsHiddenChange'
+                'wcsHiddenChange',
+                'wcsBlur',
+                'wcsFocus'
             ]
         },
     },

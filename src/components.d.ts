@@ -1770,6 +1770,8 @@ declare global {
     interface HTMLWcsGridElementEventMap {
         "wcsGridSelectionChange": WcsGridSelectionEventDetails;
         "wcsGridAllSelectionChange": WcsGridAllRowSelectedEventDetails;
+        "wcsFocus": FocusEvent;
+        "wcsBlur": FocusEvent;
     }
     /**
      * The grid component is a complex component used as an HTML table to display collections of data.
@@ -2770,6 +2772,14 @@ declare namespace LocalJSX {
           * Flag to display a spinner during data loading
          */
         "loading"?: boolean;
+        /**
+          * Event emitted when the grid loses focus.
+         */
+        "onWcsBlur"?: (event: WcsGridCustomEvent<FocusEvent>) => void;
+        /**
+          * Event emitted when the grid has focus.
+         */
+        "onWcsFocus"?: (event: WcsGridCustomEvent<FocusEvent>) => void;
         /**
           * Event emitted when all rows are selected or unselected
          */
