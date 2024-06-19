@@ -5,7 +5,9 @@ import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-ari
 @Component({
     tag: 'wcs-switch',
     styleUrl: 'switch.scss',
-    shadow: true
+    shadow: {
+        delegatesFocus: true,
+    }
 })
 export class Switch implements ComponentInterface, MutableAriaAttribute {
     private switchId = `wcs-switch-${switchIds++}`;
@@ -19,11 +21,6 @@ export class Switch implements ComponentInterface, MutableAriaAttribute {
     @Prop({reflect: true}) checked = false;
 
     /**
-     * Emitted when the checked property has changed.
-     */
-    @Event() wcsChange!: EventEmitter<SwitchChangeEventDetail>;
-
-    /**
      * Specifie the alignment of the switch with the label content
      */
     @Prop({reflect: true}) labelAlignment: SwitchLabelAlignment = 'center';
@@ -33,11 +30,34 @@ export class Switch implements ComponentInterface, MutableAriaAttribute {
      */
     @Prop() disabled: boolean = false;
 
+    /**
+     * Emitted when the checked property has changed.
+     */
+    @Event() wcsChange!: EventEmitter<SwitchChangeEventDetail>;
+
+    /**
+     * Emitted when the switch has focus.
+     */
+    @Event() wcsFocus!: EventEmitter<FocusEvent>;
+    
+    /**
+     * Emitted when the switch loses focus.
+     */
+    @Event() wcsBlur!: EventEmitter<FocusEvent>;
+
     toggleChange(_event: Event) {
         this.checked = !this.checked;
         this.wcsChange.emit({
             checked: this.checked
         });
+    }
+
+    handleFocus(event: FocusEvent) {
+        this.wcsFocus.emit(event);
+    }
+
+    handleBlur(event: FocusEvent) {
+        this.wcsBlur.emit(event);
     }
 
     @Method()
@@ -49,7 +69,9 @@ export class Switch implements ComponentInterface, MutableAriaAttribute {
         return (
             <Host>
                 <label htmlFor={this.name} class="wcs-container" aria-disabled={this.disabled}>
-                    <input onChange={(evt) => this.toggleChange(evt)}
+                    <input onBlur={this.handleBlur.bind(this)}
+                           onChange={(evt) => this.toggleChange(evt)}
+                           onFocus={this.handleFocus.bind(this)}
                            checked={this.checked}
                            class="wcs-switch"
                            type="checkbox"

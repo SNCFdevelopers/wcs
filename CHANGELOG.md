@@ -19,6 +19,9 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **checkbox**:
     - add wcsFocus and wcsBlur events
     - add onTouched support for Angular
+- **switch**:
+    - add wcsFocus and wcsBlur events
+    - add onTouched support for Angular
 
 ### Changed
 

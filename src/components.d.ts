@@ -2195,6 +2195,8 @@ declare global {
     };
     interface HTMLWcsSwitchElementEventMap {
         "wcsChange": SwitchChangeEventDetail;
+        "wcsFocus": FocusEvent;
+        "wcsBlur": FocusEvent;
     }
     interface HTMLWcsSwitchElement extends Components.WcsSwitch, HTMLStencilElement {
         addEventListener<K extends keyof HTMLWcsSwitchElementEventMap>(type: K, listener: (this: HTMLWcsSwitchElement, ev: WcsSwitchCustomEvent<HTMLWcsSwitchElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3482,9 +3484,17 @@ declare namespace LocalJSX {
         "labelAlignment"?: SwitchLabelAlignment;
         "name"?: string;
         /**
+          * Emitted when the switch loses focus.
+         */
+        "onWcsBlur"?: (event: WcsSwitchCustomEvent<FocusEvent>) => void;
+        /**
           * Emitted when the checked property has changed.
          */
         "onWcsChange"?: (event: WcsSwitchCustomEvent<SwitchChangeEventDetail>) => void;
+        /**
+          * Emitted when the switch has focus.
+         */
+        "onWcsFocus"?: (event: WcsSwitchCustomEvent<FocusEvent>) => void;
     }
     /**
      * Tab content component.

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-06-19T18:58:26",
+  "timestamp": "2024-06-19T19:00:12",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -7817,6 +7817,25 @@
       ],
       "events": [
         {
+          "event": "wcsBlur",
+          "detail": "FocusEvent",
+          "bubbles": true,
+          "complexType": {
+            "original": "FocusEvent",
+            "resolved": "FocusEvent",
+            "references": {
+              "FocusEvent": {
+                "location": "global",
+                "id": "global::FocusEvent"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the switch loses focus.",
+          "docsTags": []
+        },
+        {
           "event": "wcsChange",
           "detail": "SwitchChangeEventDetail",
           "bubbles": true,
@@ -7834,6 +7853,25 @@
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the checked property has changed.",
+          "docsTags": []
+        },
+        {
+          "event": "wcsFocus",
+          "detail": "FocusEvent",
+          "bubbles": true,
+          "complexType": {
+            "original": "FocusEvent",
+            "resolved": "FocusEvent",
+            "references": {
+              "FocusEvent": {
+                "location": "global",
+                "id": "global::FocusEvent"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the switch has focus.",
           "docsTags": []
         }
       ],

@@ -18,7 +18,9 @@
 
 | Event       | Description                                    | Type                                   |
 | ----------- | ---------------------------------------------- | -------------------------------------- |
+| `wcsBlur`   | Emitted when the switch loses focus.           | `CustomEvent<FocusEvent>`              |
 | `wcsChange` | Emitted when the checked property has changed. | `CustomEvent<SwitchChangeEventDetail>` |
+| `wcsFocus`  | Emitted when the switch has focus.             | `CustomEvent<FocusEvent>`              |
 
 
 ## Methods

@@ -7914,44 +7914,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/nav/nav.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Nav",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-nav",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Nav",
-          "declaration": {
-            "name": "Nav",
-            "module": "components/nav/nav.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-nav",
-          "declaration": {
-            "name": "Nav",
-            "module": "components/nav/nav.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/nav-item/nav-item.tsx",
       "declarations": [
         {
@@ -8037,6 +7999,44 @@
           "declaration": {
             "name": "NavItem",
             "module": "components/nav-item/nav-item.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/nav/nav.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Nav",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-nav",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Nav",
+          "declaration": {
+            "name": "Nav",
+            "module": "components/nav/nav.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-nav",
+          "declaration": {
+            "name": "Nav",
+            "module": "components/nav/nav.tsx"
           }
         }
       ]
@@ -10343,6 +10343,30 @@
             },
             {
               "kind": "method",
+              "name": "handleFocus",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "FocusEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleBlur",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "FocusEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
               "name": "setAriaAttribute",
               "parameters": [
                 {
@@ -10396,6 +10420,20 @@
                 "text": "EventEmitter<SwitchChangeEventDetail>"
               },
               "description": "Emitted when the checked property has changed."
+            },
+            {
+              "name": "wcsFocus",
+              "type": {
+                "text": "EventEmitter<FocusEvent>"
+              },
+              "description": "Emitted when the switch has focus."
+            },
+            {
+              "name": "wcsBlur",
+              "type": {
+                "text": "EventEmitter<FocusEvent>"
+              },
+              "description": "Emitted when the switch loses focus."
             }
           ],
           "customElement": true
@@ -10416,76 +10454,6 @@
           "declaration": {
             "name": "Switch",
             "module": "components/switch/switch.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/tab/tab.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Tab content component.\r\nUse this component to specify the content of a component.",
-          "name": "Tab",
-          "members": [
-            {
-              "kind": "field",
-              "name": "header",
-              "type": {
-                "text": "string"
-              },
-              "description": "The header you want to be displayed for this tab."
-            },
-            {
-              "kind": "field",
-              "name": "itemKey",
-              "type": {
-                "text": "any"
-              },
-              "description": "The id of the tab. It should be unique."
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "header",
-              "fieldName": "header",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "item-key",
-              "fieldName": "itemKey",
-              "type": {
-                "text": "any"
-              }
-            }
-          ],
-          "tagName": "wcs-tab",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Tab",
-          "declaration": {
-            "name": "Tab",
-            "module": "components/tab/tab.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-tab",
-          "declaration": {
-            "name": "Tab",
-            "module": "components/tab/tab.tsx"
           }
         }
       ]
@@ -10796,6 +10764,76 @@
           "declaration": {
             "name": "Tabs",
             "module": "components/tabs/tabs.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/tab/tab.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Tab content component.\r\nUse this component to specify the content of a component.",
+          "name": "Tab",
+          "members": [
+            {
+              "kind": "field",
+              "name": "header",
+              "type": {
+                "text": "string"
+              },
+              "description": "The header you want to be displayed for this tab."
+            },
+            {
+              "kind": "field",
+              "name": "itemKey",
+              "type": {
+                "text": "any"
+              },
+              "description": "The id of the tab. It should be unique."
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "header",
+              "fieldName": "header",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "item-key",
+              "fieldName": "itemKey",
+              "type": {
+                "text": "any"
+              }
+            }
+          ],
+          "tagName": "wcs-tab",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Tab",
+          "declaration": {
+            "name": "Tab",
+            "module": "components/tab/tab.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-tab",
+          "declaration": {
+            "name": "Tab",
+            "module": "components/tab/tab.tsx"
           }
         }
       ]
