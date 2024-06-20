@@ -1,6 +1,7 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/web-components';
-import { html, nothing } from 'lit-html';
+import { html } from 'lit-html';
 import { getComponentArgs } from '../../utils/args-generation';
+import { ifDefined } from "lit-html/directives/if-defined.js";
 
 const meta: Meta = {
     title: 'Components/Select/Subcomponents/Select Option',
@@ -25,24 +26,24 @@ const Template: StoryFn = (args: Partial<SelectOptionArgs & { multiple: boolean,
     <div style="min-height: 200px">
         <wcs-form-field>
             <wcs-label>Choose an option</wcs-label>
-            <wcs-select id="theselect"
+            <wcs-select id="select1"
                         placeholder="My placeholder"
-                        value="${args.value}"
+                        value="${ifDefined(args.value)}"
                         ?multiple="${args.multiple}"
                         ?chips="${args.chips}" name="The select">
                 <wcs-select-option value="1"
                                    ?disabled="${args.disabled}"
                                    ?selected="${args.selected}"
-                                   chip-color="${args.chipColor ?? nothing}"
-                                   chip-background-color="${args.chipBackgroundColor ?? nothing}">One</wcs-select-option>
+                                   chip-color="${ifDefined(args.chipColor)}"
+                                   chip-background-color="${ifDefined(args.chipBackgroundColor)}">One</wcs-select-option>
                 <wcs-select-option value="2"
                                    ?selected="${args.selected}"
-                                   chip-color="${args.chipColor ?? nothing}"
-                                   chip-background-color="${args.chipBackgroundColor ?? nothing}">Two</wcs-select-option>
+                                   chip-color="${ifDefined(args.chipColor)}"
+                                   chip-background-color="${ifDefined(args.chipBackgroundColor)}">Two</wcs-select-option>
                 <wcs-select-option value="3"
                                    ?selected="${args.selected}"
-                                   chip-color="${args.chipColor ?? nothing}"
-                                   chip-background-color="${args.chipBackgroundColor ?? nothing}">Three</wcs-select-option>
+                                   chip-color="${ifDefined(args.chipColor)}"
+                                   chip-background-color="${ifDefined(args.chipBackgroundColor)}">Three</wcs-select-option>
             </wcs-select>
         </wcs-form-field>
     </div>
@@ -85,5 +86,71 @@ export const CustomChip: StoryObj = {
         chips: true,
         chipColor: 'var(--wcs-black)',
         chipBackgroundColor: 'var(--wcs-green)'
+    }
+}
+
+
+/**
+ * It is a bad UX practice to have a text that is too long to be displayed in the select.  
+ * However, if you do not have the choice :
+ * - You may add a `title` HTML attribute to show on hover what is the full text
+ * - For better UX, you can add these properties on your text to show that the text is overflowing :
+ *
+ * ```css
+ * display: block;
+ * overflow: hidden;
+ * white-space: nowrap;
+ * text-overflow: ellipsis;
+ * ```
+ * 
+ * - If you are on mobile, use a [native-select](.?path=/docs/components-native-select--documentation) instead.
+ * The overflow will be natively handled by your device. 
+ */
+export const LargeTexts = {
+    render: (args) => html`
+        <style>
+            wcs-select{
+                width: 400px;
+            }
+            .overflowing {
+                display: block;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+        </style>
+        <div style="min-height: 200px">
+            <wcs-form-field>
+            <wcs-label>Choose an option</wcs-label>
+            <wcs-select id="select2"
+                        placeholder="My placeholder"
+                        value="${ifDefined(args.value)}"
+                        ?multiple="${args.multiple}"
+                        multiple
+                        ?chips="${args.chips}" name="The select">
+                <wcs-select-option value="1"
+                                   title="This is a long option that will exceed the container width and overflow"
+                                   ?disabled="${args.disabled}"
+                                   ?selected="${args.selected}"
+                                   chip-color="${ifDefined(args.chipColor)}"
+                                   chip-background-color="${ifDefined(args.chipBackgroundColor)}">
+                    <span class="overflowing">
+                        This is a long option that will exceed the container width and overflow
+                    </span>
+                </wcs-select-option>
+                <wcs-select-option value="2"
+                                   ?selected="${args.selected}"
+                                   chip-color="${ifDefined(args.chipColor)}"
+                                   chip-background-color="${ifDefined(args.chipBackgroundColor)}">Two</wcs-select-option>
+                <wcs-select-option value="3"
+                                   ?selected="${args.selected}"
+                                   chip-color="${ifDefined(args.chipColor)}"
+                                   chip-background-color="${ifDefined(args.chipBackgroundColor)}">Three</wcs-select-option>
+            </wcs-select>
+        </wcs-form-field>
+        </div>
+    `,
+    args: {
+        ...Default.args,
     }
 }

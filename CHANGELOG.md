@@ -11,7 +11,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-for new features.
+- **select-option**: add a documentation about handling large text in options
 
 ### Changed
 
