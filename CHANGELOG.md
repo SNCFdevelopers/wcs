@@ -11,6 +11,32 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+for new features.
+
+### Changed
+
+for changes in existing functionality.
+
+### Deprecated
+
+for soon-to-be removed features.
+
+### Removed
+
+for now removed features.
+
+### Fixed
+
+for any bug fixes.
+
+### Security
+
+in case of vulnerabilities.
+
+## [5.1.0] - 2024-06-26
+
+### Added
+
 - **select**: 
     - add a red outline when the `wcs-form-field` is in error
     - emit wcsFocus and wcsBlur events
@@ -25,18 +51,6 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **grid**:
     - add wcsFocus and wcsBlur events
     - add onTouched support for Angular
-
-### Changed
-
-for changes in existing functionality.
-
-### Deprecated
-
-for soon-to-be removed features.
-
-### Removed
-
-for now removed features.
 
 ### Fixed
 
@@ -55,10 +69,6 @@ for now removed features.
 - **tooltip**: accessibility problems
     - Hide tooltip when press escape key.
 - **horizontal-stepper**: (accessibility) add missing aria attributes and keyboard navigation
-
-### Security
-
-in case of vulnerabilities.
 
 ## [5.0.0] - 2024-05-02
 
