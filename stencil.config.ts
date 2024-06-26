@@ -29,7 +29,8 @@ export const config: Config = {
     outputTargets: [
         angularOutputTarget({
             componentCorePackage: 'wcs-core',
-            directivesProxyFile: './angular/projects/wcs-angular/src/lib/proxies.ts'
+            directivesProxyFile: './angular/projects/wcs-angular/src/lib/proxies.ts',
+            outputType: 'component'
         }),
         {
             type: 'dist',

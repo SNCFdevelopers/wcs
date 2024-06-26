@@ -6,7 +6,7 @@ import { Meta } from '@storybook/addon-docs';
 
 You can install WCS in your Angular or React projects for now.  
 
-## Angular <img width="30" alt="Angular Logo" src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Angular_full_color_logo.svg"></img>
+## Angular (with modules) <img width="30" alt="Angular Logo" src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Angular_full_color_logo.svg"></img>
 
 > Want to see what a fully configured WcsAngular project looks like? [StackBlitz WcsAngular Template](https://stackblitz.com/edit/wcs-angular-template)
 
@@ -167,6 +167,180 @@ export class AppModule { }
 ```html
 <wcs-button class="wcs-primary">Click me!</wcs-button>
 ```
+
+</center>
+
+## Angular (standalone) <img width="30" alt="Angular Logo" src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Angular_full_color_logo.svg"></img>
+
+For now, the standalone version of WCS angular bindings is not yet available. So we use the module oriented version of WCS.
+
+We plan to release the standalone version in the v6.
+
+> Want to see what a fully configured WcsAngular standalone project looks like? See the example project in `./example/angular-standalone`.
+
+1. **Install `wcs-core` and `wcs-angular` packages.**
+
+```
+npm install wcs-core wcs-angular
+```
+
+2. **Register the web components loader script in your `main.ts`.**
+
+```typescript
+// main.ts
+import { defineCustomElements } from 'wcs-core/loader';
+...
+defineCustomElements();
+```
+
+> If you want a compatibility with **older browsers (IE 11, ...)**,
+> you should add the `applyPolyfills()` that surround the
+`defineCustomElements()` function.
+```typescript
+// main.ts
+import { applyPolyfills, defineCustomElements } from 'wcs-core/loader';
+...
+applyPolyfills().then(() => {
+  defineCustomElements();
+});
+```
+
+3. **Add the `WcsAngular` module to your App component.**
+
+```typescript
+// app.component.ts
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet, WcsAngularModule],
+  template: `
+    ...
+  `,
+  styles: [`
+    ...
+  `]
+})
+export class AppComponent {
+    ...
+}
+
+```
+
+4. **Import the wcs stylesheet**
+
+> If you **use** scss : add this at the top of your global style file (`styles.scss`)
+```css
+/* styles.scss */
+@import "wcs-core/dist/wcs/wcs.css";
+```
+
+> If you **don't** use scss : add this to your `angular.json` file
+```json
+// angular.json
+ "architect": {
+    "build": {
+        "builder": "@angular-devkit/build-angular:ng-packagr",
+        "options": {
+            ...
+            // add this :
+            "styles": [
+              "src/styles.scss",
+              "wcs-core/dist/wcs/wcs.css"
+            ],
+            ...
+        },
+        ...
+    },
+ },
+```
+
+💡 We provide a base stylesheet in [wcs/doc/base.scss](https://gitlab.com/SNCF/wcs/-/blob/master/doc/base.scss)
+
+5. **Add the font faces**
+
+* Create a folder **containing the fonts** _(e.g.: `src/assets/fonts`)_
+* Download the **Avenir** font from the Angular example project : [wcs/example/angular/src/fonts](https://gitlab.com/SNCF/wcs/-/tree/master/example/angular/src/assets/fonts)
+* Create a folder **containing the icons** _(e.g.: `src/assets/fonts/icons`)_
+* Download the **SNCF** icons from the Angular example project : [wcs/example/angular/src/fonts/icons](https://gitlab.com/SNCF/wcs/-/tree/master/example/angular/src/assets/fonts/icons)
+* Add the font faces in your `styles.scss` or `styles.css` :
+
+```css
+/* styles.scss */
+
+@import 'wcs-core/dist/wcs/wcs.css'; // added previously
+
+@font-face {
+  font-family: Avenir;
+  src: url("assets/fonts/avenir-lighter.woff");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: Avenir;
+  src: url("assets/fonts/avenir-book.woff");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Avenir;
+  src: url("assets/fonts/avenir-medium.woff");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: Avenir;
+  src: url("assets/fonts/avenir-black.woff");
+  font-weight: 900;
+}
+
+@font-face {
+    font-family: "icons";
+    src: url("assets/fonts/icons/icons.eot?#iefix") format("embedded-opentype"),
+    url("assets/fonts/icons/icons.woff2") format("woff2"),
+    url("assets/fonts/icons/icons.woff") format("woff"),
+    url("assets/fonts/icons/icons.ttf") format("truetype"),
+    url("assets/fonts/icons/icons.svg#icons") format("svg");
+}
+
+/* Include material icons fonts */
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialicons/v139/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+}
+@font-face {
+    font-family: 'Material Icons Outlined';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialiconsoutlined/v108/gok-H7zzDkdnRel8-DQ6KAXJ69wP1tGnf4ZGhUce.woff2) format('woff2');
+}
+@font-face {
+    font-family: 'Material Icons Two Tone';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialiconstwotone/v111/hESh6WRmNCxEqUmNyh3JDeGxjVVyMg4tHGctNCu0.woff2) format('woff2');
+}
+@font-face {
+    font-family: 'Material Icons Round';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialiconsround/v107/LDItaoyNOAY6Uewc665JcIzCKsKc_M9flwmP.woff2) format('woff2');
+}
+@font-face {
+    font-family: 'Material Icons Sharp';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialiconssharp/v108/oPWQ_lt5nv4pWNJpghLP75WiFR4kLh3kvmvR.woff2) format('woff2');
+}
+```
+<center>
+
+    #### 🎉 You're ready for Angular ! 🎉
+    ##### Try to use your first component : [wcs-button](./?path=/story/components-button--default)
+    ```html
+    <wcs-button class="wcs-primary">Click me!</wcs-button>
+    ```
 
 </center>
 
