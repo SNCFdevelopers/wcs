@@ -1,4 +1,5 @@
 @import '../../style/focus-outline.scss';
+@import '../../style/placeholder.scss';
 
 :host {
     --wcs-input-icon-color: var(--wcs-text-medium);
@@ -14,11 +15,6 @@
     border: var(--wcs-internal-input-border-width) solid var(--wcs-light);
     background-clip: padding-box;
 
-    ::placeholder {
-        font-weight: 400;
-        font-style: italic;
-    }
-
     input {
         overflow: hidden;
         min-height: var(--wcs-size-xs);
@@ -31,6 +27,10 @@
         padding: 0 calc(var(--wcs-padding) - var(--wcs-internal-input-border-width));
         font-size: var(--wcs-input-font-size, 1rem);
         line-height: 1.5;
+
+        &::placeholder {
+            @include placeholder;
+        }
     }
 
     input:focus {

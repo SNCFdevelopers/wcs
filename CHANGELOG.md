@@ -27,7 +27,7 @@ for now removed features.
 
 ### Fixed
 
-for any bug fixes.
+- **input**: fix placeholder style for Firefox
 
 ### Security
 

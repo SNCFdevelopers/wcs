@@ -1,5 +1,6 @@
-@import "../../style/ripple.scss";
+@import '../../style/ripple.scss';
 @import '../../style/focus-outline.scss';
+@import '../../style/placeholder.scss';
 
 :host {
     --wcs-select-ligther-percentage: 40;
@@ -230,15 +231,14 @@ label {
         font-weight: var(--wcs-font-weight-form-value) !important;
         font-size: var(--wcs-select-font-size);
         line-height: 1.5;
+
+        &::placeholder {
+            @include placeholder;
+        }
     }
 
     input:focus-within {
         @include focus-outline(var(--wcs-select-outline-color), var(--wcs-border-radius), 0);
-    }
-
-    input::placeholder {
-        font-style: italic;
-        font-weight: 400;
     }
 }
 
