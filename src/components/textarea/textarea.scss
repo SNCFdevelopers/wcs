@@ -1,4 +1,5 @@
 @import '../../style/focus-outline.scss';
+@import '../../style/placeholder.scss';
 
 :host {
     --wcs-textarea-icon-color: var(--wcs-text-medium);
@@ -16,11 +17,6 @@
     background-color: var(--wcs-light);
     border: var(--wcs-internal-textarea-border-width) solid var(--wcs-light);
     background-clip: padding-box;
-
-    ::placeholder {
-        font-weight: 400;
-        font-style: italic;
-    }
 
     textarea {
         overflow: auto;
@@ -41,6 +37,10 @@
         padding-right:var(--wcs-internal-textarea-padding-right);
         font-size: 1rem;
         line-height: 1.5;
+
+        &::placeholder {
+            @include placeholder;
+        }
     }
 
     textarea:focus {

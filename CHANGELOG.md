@@ -28,6 +28,7 @@ for now removed features.
 ### Fixed
 
 - **input**: fix placeholder style for Firefox
+- **textarea**: fix placeholder style for Firefox
 
 ### Security
 
