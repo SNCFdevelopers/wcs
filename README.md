@@ -128,9 +128,9 @@ npm test
 
 To launch a specific suite of tests you can simply launch
 ```sh
-npm run test:e2e path_to_tests_file
+npm run test:e2e:file path_to_tests_file
 # Example: you must be at the root of the project
-npm run test:e2e src/components/tabs/tabs.e2e.ts
+npm run test:e2e:file src/components/tabs/tabs.e2e.ts
 ```
 
 ### License
