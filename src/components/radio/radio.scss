@@ -43,7 +43,7 @@
             background: no-repeat 50% / 50% 50%;
         }
     }
-    
+
     input:focus-visible + label {
         transition: none;
         @include focus-outline($border-radius: 0.5rem, $outline-offset: 2px);
@@ -63,8 +63,8 @@
     }
 }
 
-:host([mode=radio][checked]),
-:host([mode=horizontal][checked]) {
+:host([mode=radio].checked),
+:host([mode=horizontal].checked) {
     label {
         color: var(--wcs-primary);
 
@@ -149,7 +149,7 @@
     }
 }
 
-:host([mode=option][checked]) {
+:host([mode=option].checked) {
     label {
         font-weight: 500 !important;
         color: var(--wcs-primary);

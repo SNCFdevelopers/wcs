@@ -6,11 +6,11 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type                                  | Default     |
-| -------- | --------- | ----------- | ------------------------------------- | ----------- |
-| `mode`   | `mode`    |             | `"horizontal" \| "option" \| "radio"` | `'radio'`   |
-| `name`   | `name`    |             | `any`                                 | `undefined` |
-| `value`  | `value`   |             | `any`                                 | `undefined` |
+| Property | Attribute | Description                                                                          | Type                                  | Default     |
+| -------- | --------- | ------------------------------------------------------------------------------------ | ------------------------------------- | ----------- |
+| `mode`   | `mode`    | The display mode of the control to be set on all radio button children               | `"horizontal" \| "option" \| "radio"` | `'radio'`   |
+| `name`   | `name`    | The name of the control to be set on all radio button children                       | `any`                                 | `undefined` |
+| `value`  | `value`   | The value of the radio-group. Automatically reflects which radio button is selected. | `any`                                 | `undefined` |
 
 
 ## Events

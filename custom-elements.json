@@ -3890,6 +3890,54 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/field/field.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Field",
+          "slots": [
+            {
+              "description": "Label of the field",
+              "name": "label"
+            },
+            {
+              "description": "Content of the field",
+              "name": "content"
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-field",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Field",
+          "declaration": {
+            "name": "Field",
+            "module": "components/field/field.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-field",
+          "declaration": {
+            "name": "Field",
+            "module": "components/field/field.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/field-content/field-content.tsx",
       "declarations": [
         {
@@ -3960,54 +4008,6 @@
           "declaration": {
             "name": "FieldLabel",
             "module": "components/field-label/field-label.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/field/field.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Field",
-          "slots": [
-            {
-              "description": "Label of the field",
-              "name": "label"
-            },
-            {
-              "description": "Content of the field",
-              "name": "content"
-            }
-          ],
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-field",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Field",
-          "declaration": {
-            "name": "Field",
-            "module": "components/field/field.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-field",
-          "declaration": {
-            "name": "Field",
-            "module": "components/field/field.tsx"
           }
         }
       ]
@@ -4580,6 +4580,31 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/grid/grid-radio.tsx",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "GridRadio",
+          "parameters": [
+            {
+              "name": "{\r\n        checked,\r\n        row,\r\n        rowIndex,\r\n        totalRows,\r\n        onClick\r\n    }"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "GridRadio",
+          "declaration": {
+            "name": "GridRadio",
+            "module": "components/grid/grid-radio.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/grid/grid.e2e.ts",
       "declarations": [],
       "exports": []
@@ -4804,7 +4829,7 @@
               "name": "getElementToFocusAtCursorPosition",
               "return": {
                 "type": {
-                  "text": "HTMLTableCellElement | HTMLWcsCheckboxElement | HTMLWcsRadioElement"
+                  "text": "HTMLTableCellElement | HTMLWcsCheckboxElement | HTMLInputElement"
                 }
               },
               "description": "Returns the element to focus at the current cursor position : it can be a cell (td, th) to focus or a nested\r\ncheckbox / radio element if the selection mode is single or multiple"
@@ -5384,6 +5409,14 @@
             },
             {
               "kind": "field",
+              "name": "buttonOrDiv",
+              "type": {
+                "text": "HTMLButtonElement | HTMLDivElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
               "name": "path",
               "type": {
                 "text": "string"
@@ -5497,6 +5530,21 @@
                   }
                 }
               ]
+            },
+            {
+              "kind": "method",
+              "name": "getTabIndex",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "getTagName",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "delegateFocusToButton",
+              "privacy": "private"
             },
             {
               "kind": "method",
@@ -5740,62 +5788,6 @@
           "declaration": {
             "name": "GridCustomCell",
             "module": "components/grid-custom-cell/grid-custom-cell.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/header/header.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Header",
-          "slots": [
-            {
-              "description": "SNCF Logo",
-              "name": "logo"
-            },
-            {
-              "description": "Title of your application",
-              "name": "title"
-            },
-            {
-              "description": "Actions such as buttons, dropdown or any useful information to always display on your application",
-              "name": "actions"
-            }
-          ],
-          "members": [
-            {
-              "kind": "method",
-              "name": "hostData"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-header",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Header",
-          "declaration": {
-            "name": "Header",
-            "module": "components/header/header.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-header",
-          "declaration": {
-            "name": "Header",
-            "module": "components/header/header.tsx"
           }
         }
       ]
@@ -6051,6 +6043,62 @@
           "declaration": {
             "name": "GridPagination",
             "module": "components/grid-pagination/grid-pagination.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/header/header.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Header",
+          "slots": [
+            {
+              "description": "SNCF Logo",
+              "name": "logo"
+            },
+            {
+              "description": "Title of your application",
+              "name": "title"
+            },
+            {
+              "description": "Actions such as buttons, dropdown or any useful information to always display on your application",
+              "name": "actions"
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "hostData"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-header",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Header",
+          "declaration": {
+            "name": "Header",
+            "module": "components/header/header.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-header",
+          "declaration": {
+            "name": "Header",
+            "module": "components/header/header.tsx"
           }
         }
       ]
@@ -8390,14 +8438,6 @@
             },
             {
               "kind": "field",
-              "name": "inputEl",
-              "type": {
-                "text": "HTMLInputElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
               "name": "el",
               "type": {
                 "text": "HTMLWcsRadioElement"
@@ -8406,34 +8446,39 @@
             },
             {
               "kind": "field",
-              "name": "mode",
+              "name": "checked",
               "type": {
-                "text": "RadioGroupMode"
+                "text": "boolean"
               },
-              "default": "'radio'"
+              "privacy": "private",
+              "default": "false",
+              "description": "If `true`, the radio is selected."
+            },
+            {
+              "kind": "field",
+              "name": "radioTabIndex",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "-1",
+              "description": "The tabindex of the radio button"
             },
             {
               "kind": "field",
               "name": "value",
               "type": {
                 "text": "any | any[] | undefined | null"
-              }
+              },
+              "description": "Sets a unique value for each radio, used to identify which radio button in a group is selected"
             },
             {
               "kind": "field",
               "name": "label",
               "type": {
                 "text": "string"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "checked",
-              "type": {
-                "text": "boolean"
               },
-              "default": "false",
-              "description": "If `true`, the radio is selected."
+              "description": "The label text displayed for the user"
             },
             {
               "kind": "field",
@@ -8445,33 +8490,48 @@
               "description": "If `true`, the user cannot interact with the radio."
             },
             {
-              "kind": "field",
-              "name": "name",
-              "type": {
-                "text": "string"
-              },
-              "description": "Giving every radio button the same name is mandatory to group them"
-            },
-            {
               "kind": "method",
-              "name": "onKeyDown",
+              "name": "onFocus",
               "parameters": [
                 {
-                  "name": "_event",
+                  "name": "ev",
                   "type": {
-                    "text": "KeyboardEvent"
+                    "text": "FocusEvent"
                   }
                 }
               ]
             },
             {
               "kind": "method",
-              "name": "checkedChanged",
+              "name": "onBlur",
               "parameters": [
                 {
-                  "name": "newValue",
+                  "name": "ev",
                   "type": {
-                    "text": "boolean"
+                    "text": "FocusEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "getClosestRadioGroup",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "HTMLWcsRadioGroupElement | null"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "onChange",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "_",
+                  "type": {
+                    "text": "Event"
                   }
                 }
               ]
@@ -8487,13 +8547,6 @@
           ],
           "attributes": [
             {
-              "name": "mode",
-              "fieldName": "mode",
-              "type": {
-                "text": "RadioGroupMode"
-              }
-            },
-            {
               "name": "value",
               "fieldName": "value",
               "type": {
@@ -8508,10 +8561,6 @@
               }
             },
             {
-              "name": "checked",
-              "fieldName": "checked"
-            },
-            {
               "name": "disabled",
               "fieldName": "disabled"
             },
@@ -8521,6 +8570,13 @@
               "type": {
                 "text": "string"
               }
+            },
+            {
+              "name": "mode",
+              "fieldName": "mode",
+              "type": {
+                "text": "RadioGroupMode"
+              }
             }
           ],
           "tagName": "wcs-radio",
@@ -8529,7 +8585,22 @@
               "name": "wcsRadioClick",
               "type": {
                 "text": "EventEmitter<RadioChosedEvent>"
-              }
+              },
+              "description": "Emitted when the radio is clicked or Space/Enter is pressed above an unchecked radio"
+            },
+            {
+              "name": "wcsBlur",
+              "type": {
+                "text": "EventEmitter<FocusEvent>"
+              },
+              "description": "Emitted when the radio loses focus."
+            },
+            {
+              "name": "wcsFocus",
+              "type": {
+                "text": "EventEmitter<FocusEvent>"
+              },
+              "description": "Emitted when the radio has focus."
             }
           ],
           "customElement": true
@@ -8577,25 +8648,6 @@
           "members": [
             {
               "kind": "field",
-              "name": "value",
-              "type": {
-                "text": "any | any[] | undefined | null"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "name"
-            },
-            {
-              "kind": "field",
-              "name": "mode",
-              "type": {
-                "text": "RadioGroupMode"
-              },
-              "default": "'radio'"
-            },
-            {
-              "kind": "field",
               "name": "el",
               "type": {
                 "text": "HTMLWcsRadioGroupElement"
@@ -8603,38 +8655,86 @@
               "privacy": "private"
             },
             {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "any | any[] | undefined | null"
+              },
+              "description": "The value of the radio-group. Automatically reflects which radio button is selected."
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "description": "The name of the control to be set on all radio button children"
+            },
+            {
+              "kind": "field",
+              "name": "mode",
+              "type": {
+                "text": "RadioGroupMode"
+              },
+              "default": "'radio'",
+              "description": "The display mode of the control to be set on all radio button children"
+            },
+            {
               "kind": "method",
               "name": "onValueChangeHandler",
               "parameters": [
                 {
-                  "name": "newValue",
+                  "name": "value",
                   "type": {
-                    "text": "any"
+                    "text": "any | undefined"
                   }
                 }
               ]
             },
             {
-              "kind": "field",
-              "name": "options",
-              "type": {
-                "text": "HTMLWcsRadioElement[]"
-              },
-              "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "field",
-              "name": "optionsNotDisabled",
-              "type": {
-                "text": "HTMLWcsRadioElement[]"
-              },
-              "privacy": "private",
-              "readonly": true
+              "kind": "method",
+              "name": "onSlotChange"
             },
             {
               "kind": "method",
-              "name": "selectedOptionChanged",
+              "name": "updateAllRadioState"
+            },
+            {
+              "kind": "method",
+              "name": "updateAllRadioModeAndName"
+            },
+            {
+              "kind": "method",
+              "name": "updateRadioTabIndex",
+              "parameters": [
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "any | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "getSlottedRadios",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "HTMLWcsRadioElement[]"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "getSlottedRadiosNotDisabled",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "HTMLWcsRadioElement[]"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handleRadioClick",
               "parameters": [
                 {
                   "name": "event",
@@ -8652,37 +8752,6 @@
                   "name": "ev",
                   "type": {
                     "text": "KeyboardEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "handleKeyUp",
-              "parameters": [
-                {
-                  "name": "ev",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "updateOptionsState",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string"
-                  }
-                },
-                {
-                  "name": "markAsChecked",
-                  "type": {
-                    "text": "boolean"
                   }
                 }
               ]
@@ -10016,12 +10085,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/skeleton/skeleton-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/skeleton-circle/skeleton-circle.tsx",
       "declarations": [
         {
@@ -10201,6 +10264,12 @@
           }
         }
       ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/skeleton/skeleton-interface.ts",
+      "declarations": [],
+      "exports": []
     },
     {
       "kind": "javascript-module",

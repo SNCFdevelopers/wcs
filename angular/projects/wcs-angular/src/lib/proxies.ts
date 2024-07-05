@@ -1218,21 +1218,21 @@ export declare interface WcsProgressRadial extends Components.WcsProgressRadial 
 
 
 @ProxyCmp({
-  inputs: ['checked', 'disabled', 'label', 'mode', 'name', 'value']
+  inputs: ['disabled', 'label', 'value']
 })
 @Component({
   selector: 'wcs-radio',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['checked', 'disabled', 'label', 'mode', 'name', 'value'],
+  inputs: ['disabled', 'label', 'value'],
 })
 export class WcsRadio {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['wcsRadioClick']);
+    proxyOutputs(this, this.el, ['wcsRadioClick', 'wcsBlur', 'wcsFocus']);
   }
 }
 
@@ -1240,8 +1240,18 @@ export class WcsRadio {
 import type { RadioChosedEvent as IWcsRadioRadioChosedEvent } from 'wcs-core';
 
 export declare interface WcsRadio extends Components.WcsRadio {
-
+  /**
+   * Emitted when the radio is clicked or Space/Enter is pressed above an unchecked radio
+   */
   wcsRadioClick: EventEmitter<CustomEvent<IWcsRadioRadioChosedEvent>>;
+  /**
+   * Emitted when the radio loses focus.
+   */
+  wcsBlur: EventEmitter<CustomEvent<FocusEvent>>;
+  /**
+   * Emitted when the radio has focus.
+   */
+  wcsFocus: EventEmitter<CustomEvent<FocusEvent>>;
 }
 
 

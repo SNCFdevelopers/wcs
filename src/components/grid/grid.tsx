@@ -165,6 +165,7 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
     getElementToFocusAtCursorPosition(): HTMLTableCellElement | HTMLWcsCheckboxElement | HTMLWcsRadioElement {
         const el = this.gridElementsWithCoordinates.find(cell =>
             cell.col === this.cursorPosition?.col && cell.row === this.cursorPosition?.row)?.el;
+        // TODO : fix this selector
         return this.hasSelectionColumn()
             ? el.querySelector('wcs-checkbox,wcs-radio') ?? el
             : el;
@@ -546,8 +547,9 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
             case 'single': 
                 return <td aria-colindex={this.atLeastOneColumnHidden() ? 1 : null}
                            tabIndex={this.cursorPosition?.col === 0 && rowIndex + 1 === this.cursorPosition?.row ? 0 : -1}>
-                    <wcs-radio tabIndex={-1}
-                               checked={row.selected} onWcsRadioClick={this.onRowSelection.bind(this, row)}/>
+                    {/* TODO : migrer ça vers des radio natifs avec le style de WCS (mixin radio) }
+                    {/*<wcs-radio tabIndex={-1}*/}
+                    {/*           checked={row.selected} onWcsRadioClick={this.onRowSelection.bind(this, row)}/>*/}
                 </td>;
             case 'multiple': 
                 return <td aria-colindex={this.atLeastOneColumnHidden() ? 1 : null}

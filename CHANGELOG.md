@@ -16,7 +16,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
-for changes in existing functionality.
+- **radio**: properties `name` and `mode` and no longer needed and should only be placed on `wcs-radio-group` from now on
 
 ### Deprecated
 
@@ -24,7 +24,7 @@ for soon-to-be removed features.
 
 ### Removed
 
-for now removed features.
+- **radio**: remove `checked` property. See v5 → v6 migration for more info.
 
 ### Fixed
 

@@ -1,0 +1,52 @@
+import {Meta} from '@storybook/addon-docs';
+
+<Meta title="Documentation/Migrations/v5 to v6"/>
+
+# Migrate from v5 to v6
+
+WCS v5 contains breaking changes only in the following packages:
+- wcs-core
+- wcs-angular
+- wcs-react
+
+## wcs-core
+
+### wcs-radio
+
+- The property **checked** on `wcs-radio` has been removed.
+- The `wcs-radio-group` now totally controls its wcs-radios and reflects the currently selected one with `value`.
+- You don't need to set `name` and `mode` on the radio children anymore. 
+
+> 💡 Please remember that a `wcs-radio` should always be wrapped within a `wcs-radio-group`.
+
+**Before :**  
+```html
+<wcs-radio-group value="1" name="choice" mode="radio" aria-label="Default radio group">
+    <wcs-radio label="One" name="choice" mode="radio" value="1" checked></wcs-radio>
+    <wcs-radio label="Two" name="choice" mode="radio" value="2"></wcs-radio>
+    <wcs-radio label="Three" name="choice" mode="radio" value="3"></wcs-radio>
+</wcs-radio-group>
+```
+
+**After :**  
+```html
+<wcs-radio-group value="1" name="choice" mode="radio" aria-label="Default radio group">
+    <wcs-radio label="One" value="1"></wcs-radio>
+    <wcs-radio label="Two" value="2"></wcs-radio>
+    <wcs-radio label="Three" value="3"></wcs-radio>
+</wcs-radio-group>
+```
+
+You can still know which radio is selected in the **group** by relying on the `wcsChange` event or on the `value` property. 
+
+## wcs-angular
+
+### wcs-radio
+
+The `wcs-radio` component has been updated to match the [changes](#wcs-radio) in `wcs-core`.
+
+## wcs-react
+
+### wcs-radio
+
+The `wcs-radio` component has been updated to match the [changes](#wcs-radio) in `wcs-core`.

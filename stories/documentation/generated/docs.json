@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-06-27T09:50:34",
+  "timestamp": "2024-08-09T15:36:07",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -3174,14 +3174,12 @@
       "parts": [],
       "dependents": [],
       "dependencies": [
-        "wcs-radio",
         "wcs-checkbox",
         "wcs-spinner",
         "wcs-button"
       ],
       "dependencyGraph": {
         "wcs-grid": [
-          "wcs-radio",
           "wcs-checkbox",
           "wcs-spinner",
           "wcs-button"
@@ -3584,7 +3582,7 @@
             "resolved": "number",
             "references": {}
           },
-          "mutable": false,
+          "mutable": true,
           "attr": "current-page",
           "reflectToAttr": false,
           "docs": "The current page of the pagination. First page starts at index 0.",
@@ -6312,28 +6310,6 @@
       "usage": {},
       "props": [
         {
-          "name": "checked",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": true,
-          "attr": "checked",
-          "reflectToAttr": true,
-          "docs": "If `true`, the radio is selected.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
           "name": "disabled",
           "type": "boolean",
           "complexType": {
@@ -6366,65 +6342,7 @@
           "mutable": true,
           "attr": "label",
           "reflectToAttr": true,
-          "docs": "",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "mode",
-          "type": "\"horizontal\" | \"option\" | \"radio\"",
-          "complexType": {
-            "original": "RadioGroupMode",
-            "resolved": "\"horizontal\" | \"option\" | \"radio\"",
-            "references": {
-              "RadioGroupMode": {
-                "location": "import",
-                "path": "../radio-group/radio-group-interface",
-                "id": "src/components/radio-group/radio-group-interface.ts::RadioGroupMode"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "mode",
-          "reflectToAttr": true,
-          "docs": "",
-          "docsTags": [],
-          "default": "'radio'",
-          "values": [
-            {
-              "value": "horizontal",
-              "type": "string"
-            },
-            {
-              "value": "option",
-              "type": "string"
-            },
-            {
-              "value": "radio",
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "name",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "name",
-          "reflectToAttr": false,
-          "docs": "Giving every radio button the same name is mandatory to group them",
+          "docs": "The label text displayed for the user",
           "docsTags": [],
           "values": [
             {
@@ -6445,7 +6363,7 @@
           "mutable": true,
           "attr": "value",
           "reflectToAttr": true,
-          "docs": "",
+          "docs": "Sets a unique value for each radio, used to identify which radio button in a group is selected",
           "docsTags": [],
           "values": [
             {
@@ -6458,6 +6376,44 @@
       ],
       "methods": [],
       "events": [
+        {
+          "event": "wcsBlur",
+          "detail": "FocusEvent",
+          "bubbles": true,
+          "complexType": {
+            "original": "FocusEvent",
+            "resolved": "FocusEvent",
+            "references": {
+              "FocusEvent": {
+                "location": "global",
+                "id": "global::FocusEvent"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the radio loses focus.",
+          "docsTags": []
+        },
+        {
+          "event": "wcsFocus",
+          "detail": "FocusEvent",
+          "bubbles": true,
+          "complexType": {
+            "original": "FocusEvent",
+            "resolved": "FocusEvent",
+            "references": {
+              "FocusEvent": {
+                "location": "global",
+                "id": "global::FocusEvent"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the radio has focus.",
+          "docsTags": []
+        },
         {
           "event": "wcsRadioClick",
           "detail": "RadioChosedEvent",
@@ -6475,29 +6431,17 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "",
+          "docs": "Emitted when the radio is clicked or Space/Enter is pressed above an unchecked radio",
           "docsTags": []
         }
       ],
-      "listeners": [
-        {
-          "event": "keydown",
-          "capture": false,
-          "passive": false
-        }
-      ],
+      "listeners": [],
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "wcs-grid"
-      ],
+      "dependents": [],
       "dependencies": [],
-      "dependencyGraph": {
-        "wcs-grid": [
-          "wcs-radio"
-        ]
-      }
+      "dependencyGraph": {}
     },
     {
       "filePath": "src/components/radio-group/radio-group.tsx",
@@ -6525,7 +6469,7 @@
           "mutable": false,
           "attr": "mode",
           "reflectToAttr": true,
-          "docs": "",
+          "docs": "The display mode of the control to be set on all radio button children",
           "docsTags": [],
           "default": "'radio'",
           "values": [
@@ -6556,7 +6500,7 @@
           "mutable": false,
           "attr": "name",
           "reflectToAttr": true,
-          "docs": "",
+          "docs": "The name of the control to be set on all radio button children",
           "docsTags": [],
           "values": [
             {
@@ -6574,10 +6518,10 @@
             "resolved": "any",
             "references": {}
           },
-          "mutable": false,
+          "mutable": true,
           "attr": "value",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "The value of the radio-group. Automatically reflects which radio button is selected.",
           "docsTags": [],
           "values": [
             {
@@ -6669,11 +6613,6 @@
         },
         {
           "event": "keydown",
-          "capture": false,
-          "passive": false
-        },
-        {
-          "event": "keyup",
           "capture": false,
           "passive": false
         }

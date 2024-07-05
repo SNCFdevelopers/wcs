@@ -919,25 +919,41 @@ export namespace Components {
     }
     interface WcsRadio {
         /**
-          * If `true`, the radio is selected.
-         */
-        "checked": boolean;
-        /**
           * If `true`, the user cannot interact with the radio.
          */
         "disabled": boolean;
+        /**
+          * The label text displayed for the user
+         */
         "label": string;
+        /**
+          * The display mode of the control, automatically set by the radio group.   (You shouldn't set this prop by yourself)
+         */
         "mode": RadioGroupMode;
         /**
-          * Giving every radio button the same name is mandatory to group them
+          * The name of the control, automatically set by the radio group.   (You shouldn't set this prop by yourself)
          */
         "name": string;
+        "setTabIndex": (value: number) => Promise<void>;
+        "updateState": () => Promise<void>;
+        /**
+          * Sets a unique value for each radio, used to identify which radio button in a group is selected
+         */
         "value": any | any[] | undefined | null;
     }
     interface WcsRadioGroup {
+        /**
+          * The display mode of the control to be set on all radio button children
+         */
         "mode": RadioGroupMode;
+        /**
+          * The name of the control to be set on all radio button children
+         */
         "name": any;
         "setAriaAttribute": (attr: AriaAttributeName, value: string) => Promise<void>;
+        /**
+          * The value of the radio-group. Automatically reflects which radio button is selected.
+         */
         "value": any | any[] | undefined | null;
     }
     /**
@@ -2088,6 +2104,8 @@ declare global {
     };
     interface HTMLWcsRadioElementEventMap {
         "wcsRadioClick": RadioChosedEvent;
+        "wcsBlur": FocusEvent;
+        "wcsFocus": FocusEvent;
     }
     interface HTMLWcsRadioElement extends Components.WcsRadio, HTMLStencilElement {
         addEventListener<K extends keyof HTMLWcsRadioElementEventMap>(type: K, listener: (this: HTMLWcsRadioElement, ev: WcsRadioCustomEvent<HTMLWcsRadioElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3309,29 +3327,54 @@ declare namespace LocalJSX {
     }
     interface WcsRadio {
         /**
-          * If `true`, the radio is selected.
-         */
-        "checked"?: boolean;
-        /**
           * If `true`, the user cannot interact with the radio.
          */
         "disabled"?: boolean;
+        /**
+          * The label text displayed for the user
+         */
         "label"?: string;
+        /**
+          * The display mode of the control, automatically set by the radio group.   (You shouldn't set this prop by yourself)
+         */
         "mode"?: RadioGroupMode;
         /**
-          * Giving every radio button the same name is mandatory to group them
+          * The name of the control, automatically set by the radio group.   (You shouldn't set this prop by yourself)
          */
         "name"?: string;
+        /**
+          * Emitted when the radio loses focus.
+         */
+        "onWcsBlur"?: (event: WcsRadioCustomEvent<FocusEvent>) => void;
+        /**
+          * Emitted when the radio has focus.
+         */
+        "onWcsFocus"?: (event: WcsRadioCustomEvent<FocusEvent>) => void;
+        /**
+          * Emitted when the radio is clicked or Space/Enter is pressed above an unchecked radio
+         */
         "onWcsRadioClick"?: (event: WcsRadioCustomEvent<RadioChosedEvent>) => void;
+        /**
+          * Sets a unique value for each radio, used to identify which radio button in a group is selected
+         */
         "value"?: any | any[] | undefined | null;
     }
     interface WcsRadioGroup {
+        /**
+          * The display mode of the control to be set on all radio button children
+         */
         "mode"?: RadioGroupMode;
+        /**
+          * The name of the control to be set on all radio button children
+         */
         "name"?: any;
         /**
           * Emitted when the value has changed.
          */
         "onWcsChange"?: (event: WcsRadioGroupCustomEvent<RadioGroupChangeEventDetail>) => void;
+        /**
+          * The value of the radio-group. Automatically reflects which radio button is selected.
+         */
         "value"?: any | any[] | undefined | null;
     }
     /**

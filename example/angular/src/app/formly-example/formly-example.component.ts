@@ -95,6 +95,7 @@ export class FormlyExampleComponent implements OnInit {
           id: 'fieldRadio',
           key: 'fieldRadio',
           type: 'radio',
+          name: 'choice1',
           props: {
             label: 'Champ de type radio',
             options: this.options
@@ -108,6 +109,7 @@ export class FormlyExampleComponent implements OnInit {
           id: 'fieldRadioHorizontal',
           key: 'fieldRadioHorizontal',
           type: 'radio',
+          name: 'choice2',
           props: {
             attributes: {
               mode: 'horizontal'
@@ -117,6 +119,23 @@ export class FormlyExampleComponent implements OnInit {
             styles: {
               input: {width: '100%'},
             }
+          },
+          expressions: {
+            'props.disabled': 'model.disabled',
+            'props.required': 'model.required'
+          }
+        },
+        {
+          id: 'fieldRadioOption',
+          key: 'fieldRadioOption',
+          type: 'radio',
+          name: 'choice3',
+          props: {
+            attributes: {
+              mode: 'option'
+            },
+            label: 'Champ de type radio option',
+            options: this.options
           },
           expressions: {
             'props.disabled': 'model.disabled',
