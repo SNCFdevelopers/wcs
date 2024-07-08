@@ -39,6 +39,25 @@ WCS v5 contains breaking changes only in the following packages:
 
 You can still know which radio is selected in the **group** by relying on the `wcsChange` event or on the `value` property. 
 
+### wcs-grid
+
+**💡 (Only applies if you are doing E2E testing on the grid)**  
+> The above changes of the [wcs-radio](#wcs-radio) modifies the semantic structure of the `wcs-grid` with
+> `selection-config="single"`. The displayed radios are now native `<input type="radio">` instead of `<wcs-radio>`
+> 
+> **Before (example with Playwright) :**  
+> ```ts
+> await page.locator('wcs-grid >> shadow=table tbody tr td wcs-radio');
+> ```
+> 
+> **After (example with Playwright) :**  
+> ```ts
+> await page.locator('wcs-grid >> shadow=table tbody tr td .grid-radio'); // If you want the full div
+> await page.locator('wcs-grid >> shadow=table tbody tr td input[type="radio"]'); // If you want the native input only
+> ```
+
+
+
 ## wcs-angular
 
 ### wcs-radio

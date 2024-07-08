@@ -30,6 +30,7 @@ import { v4 as uuid } from 'uuid';
 import { cloneDeep, get, isEqual } from 'lodash-es';
 import { GridPagination } from '../grid-pagination/grid-pagination';
 import { getActionForKeyboardEvent, KeyboardEventAssociatedAction } from "./grid-keyboard-event";
+import { GridRadio } from "./grid-radio";
 
 interface GridElementWithCoordinates {
     el: HTMLTableCellElement,
@@ -47,7 +48,7 @@ interface GridElementWithCoordinates {
  */
 @Component({
     tag: 'wcs-grid',
-    styleUrl: 'grid.scss',
+    styleUrls: ['grid.scss', 'grid-radio.scss'],
     shadow: true
 })
 export class Grid implements ComponentInterface, ComponentDidLoad {
@@ -162,12 +163,11 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
      * Returns the element to focus at the current cursor position : it can be a cell (td, th) to focus or a nested
      * checkbox / radio element if the selection mode is single or multiple
      */
-    getElementToFocusAtCursorPosition(): HTMLTableCellElement | HTMLWcsCheckboxElement | HTMLWcsRadioElement {
+    getElementToFocusAtCursorPosition(): HTMLTableCellElement | HTMLWcsCheckboxElement | HTMLInputElement {
         const el = this.gridElementsWithCoordinates.find(cell =>
             cell.col === this.cursorPosition?.col && cell.row === this.cursorPosition?.row)?.el;
-        // TODO : fix this selector
         return this.hasSelectionColumn()
-            ? el.querySelector('wcs-checkbox,wcs-radio') ?? el
+            ? el.querySelector('wcs-checkbox,input[type="radio"]') ?? el
             : el;
     }
     
@@ -547,9 +547,15 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
             case 'single': 
                 return <td aria-colindex={this.atLeastOneColumnHidden() ? 1 : null}
                            tabIndex={this.cursorPosition?.col === 0 && rowIndex + 1 === this.cursorPosition?.row ? 0 : -1}>
-                    {/* TODO : migrer ça vers des radio natifs avec le style de WCS (mixin radio) }
-                    {/*<wcs-radio tabIndex={-1}*/}
-                    {/*           checked={row.selected} onWcsRadioClick={this.onRowSelection.bind(this, row)}/>*/}
+                    <GridRadio checked={row.selected}
+                               row={row}
+                               rowIndex={rowIndex + 1}
+                               totalRows={this.rows.length}
+                               onClick={ (row) => {
+                                   if (!row.selected) {
+                                       this.onRowSelection(row)
+                                   }
+                               }}/>
                 </td>;
             case 'multiple': 
                 return <td aria-colindex={this.atLeastOneColumnHidden() ? 1 : null}

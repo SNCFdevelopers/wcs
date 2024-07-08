@@ -20,9 +20,9 @@ describe('Grid component', () => {
                 const eventSpy = await simpleGrid.spyOnEvent('wcsGridSelectionChange');
 
                 // When
-                const wcsRadioFirstRow = await page.find('wcs-grid >>> table tbody tr:first-child td wcs-radio');
+                const gridRadioFirstRow = await page.find('wcs-grid >>> table tbody tr:first-child td .grid-radio');
 
-                await wcsRadioFirstRow.click();
+                await gridRadioFirstRow.click();
 
                 // Then
                 expect(eventSpy)

@@ -1,0 +1,53 @@
+@import '../../style/focus-outline.scss';
+
+.grid-radio {
+
+    width: fit-content;
+    cursor: pointer;
+    padding: 0.125rem;
+
+    &:has(input:focus-visible) {
+        @include focus-outline($outline-offset: 4px);
+    }
+
+    /* If the selector focus-visible is not supported by the browser, use focus-within instead */
+    @supports not selector(:has(input:focus-visible)){
+        &:focus-within {
+            @include focus-outline($outline-offset: 4px);
+        }
+    }
+
+    input {
+        position: absolute;
+        opacity: 0;
+        height: 1px;
+        width: 1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
+    }
+
+    &::before {
+        content: "";
+        display: flex;
+        border-radius: 50%;
+        border: 2px solid var(--wcs-text-disabled);
+        position: relative;
+        width: 1.125rem;
+        height: 1.125rem;
+        box-sizing: border-box;
+        background-color: var(--wcs-white);
+        transition: 0.175s ease-in-out;
+    }
+
+    &.checked {
+        &::before {
+            border-color: var(--wcs-primary);
+            background-color: var(--wcs-primary);
+            outline: solid 2px var(--wcs-white);
+            outline-offset: -4px;
+        }
+    }
+
+
+}
