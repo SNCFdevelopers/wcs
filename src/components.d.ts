@@ -14,7 +14,7 @@ import { CategoryOpenedEventDetail, MenuOpenedEventDetail } from "./components/c
 import { CounterChangeEventDetail, WcsCounterSize } from "./components/counter/counter-interface";
 import { WcsDropdownPlacement } from "./components/dropdown/dropdown-interface";
 import { EditableComponentUpdateEvent, EditableFieldType, FormatFn, ValidateFn, WcsEditableFieldSize } from "./components/editable-field/editable-field-interface";
-import { WcsCellFormatter, WcsGridAllRowSelectedEventDetails, WcsGridColumnSortChangeEventDetails, WcsGridPaginationChangeEventDetails, WcsGridSelectionConfig, WcsGridSelectionEventDetails, WcsSortFn, WcsSortOrder } from "./components/grid/grid-interface";
+import { RowCssPartsFn, WcsCellFormatter, WcsGridAllRowSelectedEventDetails, WcsGridColumnSortChangeEventDetails, WcsGridPaginationChangeEventDetails, WcsGridSelectionConfig, WcsGridSelectionEventDetails, WcsSortFn, WcsSortOrder } from "./components/grid/grid-interface";
 import { HorizontalStepClickEvent, HorizontalStepConfig, HorizontalStepperMode } from "./components/horizontal-stepper/horizontal-stepper-interface";
 import { AutocompleteTypes, InputChangeEventDetail, TextFieldTypes, WcsInputAutocorrect, WcsInputEnterKeyHint, WcsInputInputMode, WcsInputSize, WcsInputState } from "./components/input/input-interface";
 import { MaterialIconFamily, MaterialIconSize } from "./components/mat-icon/mat-icon-interface";
@@ -40,7 +40,7 @@ export { CategoryOpenedEventDetail, MenuOpenedEventDetail } from "./components/c
 export { CounterChangeEventDetail, WcsCounterSize } from "./components/counter/counter-interface";
 export { WcsDropdownPlacement } from "./components/dropdown/dropdown-interface";
 export { EditableComponentUpdateEvent, EditableFieldType, FormatFn, ValidateFn, WcsEditableFieldSize } from "./components/editable-field/editable-field-interface";
-export { WcsCellFormatter, WcsGridAllRowSelectedEventDetails, WcsGridColumnSortChangeEventDetails, WcsGridPaginationChangeEventDetails, WcsGridSelectionConfig, WcsGridSelectionEventDetails, WcsSortFn, WcsSortOrder } from "./components/grid/grid-interface";
+export { RowCssPartsFn, WcsCellFormatter, WcsGridAllRowSelectedEventDetails, WcsGridColumnSortChangeEventDetails, WcsGridPaginationChangeEventDetails, WcsGridSelectionConfig, WcsGridSelectionEventDetails, WcsSortFn, WcsSortOrder } from "./components/grid/grid-interface";
 export { HorizontalStepClickEvent, HorizontalStepConfig, HorizontalStepperMode } from "./components/horizontal-stepper/horizontal-stepper-interface";
 export { AutocompleteTypes, InputChangeEventDetail, TextFieldTypes, WcsInputAutocorrect, WcsInputEnterKeyHint, WcsInputInputMode, WcsInputSize, WcsInputState } from "./components/input/input-interface";
 export { MaterialIconFamily, MaterialIconSize } from "./components/mat-icon/mat-icon-interface";
@@ -418,6 +418,10 @@ export namespace Components {
           * Flag to display a spinner during data loading
          */
         "loading": boolean;
+        /**
+          * Function to add css parts to the grid rows, this allows you to customize the rows with css parts directly in you're application stylesheet.
+         */
+        "rowCssPartsFn": RowCssPartsFn;
         /**
           * Name of the object's key that will be used to display the cells whose `keyValue` attribute matches to the object's value for this key.
          */
@@ -2788,6 +2792,10 @@ declare namespace LocalJSX {
           * Event emitted when a row is selected or unselected
          */
         "onWcsGridSelectionChange"?: (event: WcsGridCustomEvent<WcsGridSelectionEventDetails>) => void;
+        /**
+          * Function to add css parts to the grid rows, this allows you to customize the rows with css parts directly in you're application stylesheet.
+         */
+        "rowCssPartsFn"?: RowCssPartsFn;
         /**
           * Name of the object's key that will be used to display the cells whose `keyValue` attribute matches to the object's value for this key.
          */

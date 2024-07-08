@@ -310,6 +310,57 @@ export const CellStyling: StoryObj = {
 }
 
 /* ************************************************************************ *
+ *                         Row styling                                      *
+ * ************************************************************************ */
+
+/**
+ * **Customize your rows (style only)**
+ * 
+ * For simple customization needs, you can add [css parts](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_shadow_parts) to the rows, depending on the data they contain.
+ * 
+ * To achieve this, you can use the `rowCssPartsFn` property of the `wcs-grid` element. This function is evaluated
+ * for each row and should return an array of parts names or an empty array (or null/undefined) if there are no parts.
+ * 
+ * **e.g.:** In the following example, the row containing the currently selected item will have a green background.
+ * 
+ * The `rowCssPartsFn` prop is set like so :
+ * 
+ * ```typescript
+ * const rowCssPartsFn = (row) => row.selected ? ['current-selected-row'] : [] // or null/undefined
+ * ```
+ * 
+ * And here is the associated CSS :
+ * 
+ * ```css
+ * #grid-row-styling::part(current-selected-row) {
+ *   background-color: var(--wcs-green);
+ * }
+ * ```
+ * 
+ * Note: you can add multiple parts to a row and then style them in your CSS.
+ */
+export const RowStyling: StoryObj = {
+    render: (args: GridArgs) => html`
+        <wcs-grid id="grid-row-styling" .data=${args.data} .rowCssPartsFn=${args.rowCssPartsFn} selection-config="single">
+            <wcs-grid-column name="First Name" path="first_name" sort></wcs-grid-column>
+            <wcs-grid-column name="Last Name" path="last_name" sort></wcs-grid-column>
+            <wcs-grid-column name="Email" path="email" sort></wcs-grid-column>
+            <wcs-grid-column name="IP Address" path="ip_address" sort></wcs-grid-column>
+        </wcs-grid>
+
+        <style>
+            #grid-row-styling::part(current-selected-row) {
+                background-color: var(--wcs-green);
+            }
+        </style>
+    `,
+    args: {
+        data: sampleData,
+        rowCssPartsFn: (row) => row.selected ? ['current-selected-row'] : []
+    }
+}
+
+/* ************************************************************************ *
  *                              Selection                                   *
  * ************************************************************************ */
 /**

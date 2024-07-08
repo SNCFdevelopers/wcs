@@ -16,14 +16,14 @@ import {
 } from '@stencil/core';
 import {
     getSortOrderInteger,
-    HyperFunc,
+    HyperFunc, RowCssPartsFn,
     WcsGridAllRowSelectedEventDetails,
     WcsGridCell,
     WcsGridColumnSortChangeEventDetails,
     WcsGridPaginationChangeEventDetails,
     WcsGridRow,
     WcsGridRowData,
-    WcsGridSelectionConfig, 
+    WcsGridSelectionConfig,
     WcsGridSelectionEventDetails,
 } from './grid-interface';
 import { v4 as uuid } from 'uuid';
@@ -84,6 +84,11 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
      * object's value for this key.
      */
     @Prop() rowIdPath: string;
+    /**
+     * Function to add css parts to the grid rows, this allows you to customize the rows with css parts directly
+     * in you're application stylesheet.
+     */
+    @Prop() rowCssPartsFn: RowCssPartsFn = (_) => null;
     @State() private columns: HTMLWcsGridColumnElement[];
     @State() private paginationEl: HTMLWcsGridPaginationElement;
     /**
@@ -643,6 +648,7 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
     private renderRow(row: WcsGridRow, rowIndex: number) {
         let hiddenColumnCount = 0;
         return <tr class={row.selected ? 'selected' : ''}
+                   part={this.rowCssPartsWithoutEmptyList(row)?.join(' ')}
                    aria-selected={row.selected ? 'true' : null}
                    aria-rowindex={rowIndex + 2}>
             {this.renderSelectionColumn(row, rowIndex)}
@@ -665,6 +671,11 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
                 }
             )}
         </tr>;
+    }
+    
+    private rowCssPartsWithoutEmptyList(row: WcsGridRow): string[] | null | undefined {
+        const parts = this.rowCssPartsFn(row);
+        return parts?.length === 0 ? null : parts;
     }
 }
 

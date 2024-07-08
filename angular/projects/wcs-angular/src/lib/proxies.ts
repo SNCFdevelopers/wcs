@@ -704,14 +704,14 @@ export declare interface WcsGalacticMenu extends Components.WcsGalacticMenu {}
 
 
 @ProxyCmp({
-  inputs: ['data', 'loading', 'rowIdPath', 'selectedItems', 'selectionConfig', 'serverMode', 'wcsGridPaginationId']
+  inputs: ['data', 'loading', 'rowCssPartsFn', 'rowIdPath', 'selectedItems', 'selectionConfig', 'serverMode', 'wcsGridPaginationId']
 })
 @Component({
   selector: 'wcs-grid',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['data', 'loading', 'rowIdPath', 'selectedItems', 'selectionConfig', 'serverMode', 'wcsGridPaginationId'],
+  inputs: ['data', 'loading', 'rowCssPartsFn', 'rowIdPath', 'selectedItems', 'selectionConfig', 'serverMode', 'wcsGridPaginationId'],
 })
 export class WcsGrid {
   protected el: HTMLElement;

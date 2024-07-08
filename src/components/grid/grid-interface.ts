@@ -6,6 +6,15 @@ export type WcsSortFn = (a: any, b: any, column: HTMLWcsGridColumnElement) => -1
 
 export type WcsCellFormatter = (_h: HyperFunc<VNode>, column: HTMLWcsGridColumnElement, rowData: WcsGridRowData) => HTMLElement | HTMLElement[];
 
+/**
+ * Function that returns an array of CSS parts for a row. Should return an empty array or null/undefined if there are no parts.
+ *
+ * @param row The row data
+ * @returns An array of parts names. Empty array or null/undefined if there are no parts.
+ */
+export type RowCssPartsFn = (row: WcsGridRow) => string[] | null | undefined;
+
+
 export interface WcsGridColumnSortChangeEventDetails {
     sortFn: WcsSortFn;
     order: WcsSortOrder;

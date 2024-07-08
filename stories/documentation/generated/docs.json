@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-06-26T09:44:35",
+  "timestamp": "2024-06-27T09:50:34",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -2880,6 +2880,33 @@
           "values": [
             {
               "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "rowCssPartsFn",
+          "type": "(row: WcsGridRow) => string[]",
+          "complexType": {
+            "original": "RowCssPartsFn",
+            "resolved": "(row: WcsGridRow) => string[]",
+            "references": {
+              "RowCssPartsFn": {
+                "location": "import",
+                "path": "./grid-interface",
+                "id": "src/components/grid/grid-interface.ts::RowCssPartsFn"
+              }
+            }
+          },
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "Function to add css parts to the grid rows, this allows you to customize the rows with css parts directly\r\nin you're application stylesheet.",
+          "docsTags": [],
+          "default": "(_) => null",
+          "values": [
+            {
+              "type": "(row: WcsGridRow) => string[]"
             }
           ],
           "optional": false,
@@ -9539,6 +9566,11 @@
     },
     "src/components/grid/grid-interface.ts::WcsGridSelectionConfig": {
       "declaration": "export type WcsGridSelectionConfig = 'none' | 'single' | 'multiple';",
+      "docstring": "",
+      "path": "src/components/grid/grid-interface.ts"
+    },
+    "src/components/grid/grid-interface.ts::RowCssPartsFn": {
+      "declaration": "(row: WcsGridRow) => string[] | null | undefined",
       "docstring": "",
       "path": "src/components/grid/grid-interface.ts"
     },
