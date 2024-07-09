@@ -30,6 +30,7 @@ import { isEnterKey, isSpaceKey } from "../../utils/helpers";
 })
 export class GridColumn implements ComponentInterface {
     @Element() private el: HTMLWcsGridColumnElement;
+    private buttonOrDiv: HTMLButtonElement | HTMLDivElement;
     /**
      * Represents the name of the field from the `data` object (e.g: first_name, last_name, email, ...)
      */
@@ -120,28 +121,48 @@ export class GridColumn implements ComponentInterface {
                 return 'none';
         }
     }
+    
+    private getTabIndex() {
+        return this.cursorPosition?.col === this.columnPosition
+        && this.cursorPosition?.row === 0 ? 0 : -1;
+    }
+
+    private getTagName() {
+        return this.sort ? 'button' : 'div';
+    }
+    
+    private delegateFocusToButton() {
+        if (this.sort) {
+            this.buttonOrDiv.focus();
+        }
+    }
 
     render(): any {
+        const ButtonOrDiv = this.getTagName();
         return (<Host slot="grid-column">
             <th style={{width: this.width}}
                 class={this.sort ? 'pointer' : ''}
-                role={this.sort ? 'button' : null}
+                tabIndex={this.sort ? -1 : this.getTabIndex()}
                 scope="col"
-                tabIndex={this.columnPosition === this.cursorPosition?.col && this.cursorPosition?.row === 0 ? 0 : -1}
                 onClick={this.onSortClick.bind(this)}
                 onKeyDown={this.handleSortKeyDown.bind(this)}
-                aria-sort={this.getSortOrderForAriaSort(this.sortOrder)}>
-                <div class="grid-column-th-content">
+                onFocus={this.delegateFocusToButton.bind(this)}
+                aria-sort={this.sort ? this.getSortOrderForAriaSort(this.sortOrder) : null}>
+                <ButtonOrDiv class="grid-column-th-content"
+                        ref={(el: HTMLButtonElement | HTMLDivElement) => this.buttonOrDiv = el}
+                        tabIndex={this.sort ? this.getTabIndex() : -1}>
                     <span>{this.name}</span>
                     {
                         this.sort ? <GridSortArrow state={this.sortOrder}/> : ''
                     }
-                </div>
+                </ButtonOrDiv>
             </th>
         </Host>)
     }
 
     private onSortClick() {
+        if (!this.sort) return;
+        
         // @Watch on sortOrder property will trigger wcsSortChange event
         this.sortOrder = this.sortOrder === 'none' || this.sortOrder === 'desc' ? 'asc' : 'desc';
     }

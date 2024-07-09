@@ -31,6 +31,7 @@ for now removed features.
 - **input**: fix placeholder style for Firefox
 - **textarea**: fix placeholder style for Firefox
 - **grid**: an error was thrown in console when change current page (grid pagination) 
+- **grid-column**: (accessibility) use button instead of div inside sortable columns for accessibility reasons
 
 ### Security
 
