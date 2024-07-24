@@ -22,6 +22,10 @@
     width: 100%;
 }
 
+::slotted(wcs-native-select:not([slot=prefix])) {
+    width: 100%;
+}
+
 // Label style
 ::slotted(label) {
     font-weight: 500;
