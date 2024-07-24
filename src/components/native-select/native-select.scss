@@ -2,6 +2,23 @@
 
 :host {
     box-sizing: border-box;
+
+    --wcs-select-native-border-radius: var(--wcs-border-radius);
+    --wcs-select-native-background-color: var(--wcs-light);
+    --wcs-select-native-outline-color: var(--wcs-primary);
+
+    --wcs-select-native-value-color: var(--wcs-primary);
+
+    --wcs-select-native-placeholder-color: var(--wcs-text-medium);
+    --wcs-select-native-placeholder-font-weight: 400;
+    --wcs-select-native-placeholder-font-style: italic;
+
+    --wcs-select-native-option-color: black;
+    --wcs-select-native-option-font-style: normal;
+
+    --wcs-select-native-option-selected-color: white;
+    --wcs-select-native-option-selected-font-weight: 500;
+    --wcs-select-native-option-selected-font-style: normal;
 }
 
 ::slotted(select) {
@@ -10,21 +27,11 @@
     -webkit-appearance: none !important;
     appearance: none !important;
 
-    --wcs-select-native-ligther-percentage: 40;
-    --wcs-select-native-border-radius: var(--wcs-border-radius);
-    --wcs-select-native-background-color: var(--wcs-light);
-    --wcs-select-native-placeholder-color: var(--wcs-text-medium);
-    --wcs-select-native-value-color: var(--wcs-primary);
-    --wcs-select-native-outline-color: var(--wcs-primary);
-    --wcs-select-native-border-color: transparent;
-    --wcs-select-native-overlay-max-height: 360px;
-    --wcs-select-native-border-width: 1px;
-
     background-color: var(--wcs-select-native-background-color);
 
-    color: var(--wcs-select-native-color);
+    color: var(--wcs-select-native-value-color);
 
-    border-radius: var(--wcs-border-radius);
+    border-radius: var(--wcs-select-native-border-radius);
     border: none;
 
     outline: none;
@@ -89,7 +96,7 @@ svg {
 }
 
 .arrow {
-    fill: var(--wcs-primary);
+    fill: var(--wcs-select-native-value-color);
 }
 
 .arrow-container {

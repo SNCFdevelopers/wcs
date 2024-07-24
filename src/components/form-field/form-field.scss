@@ -45,7 +45,17 @@
     --wcs-select-value-color: var(--wcs-white);
     --wcs-select-placeholder-color: var(--wcs-white);
     --wcs-select-border-color: var(--wcs-gray-light);
+
+    // Prefixed native select
+    --wcs-select-native-border-radius: var(--wcs-border-radius) 0 0 var(--wcs-border-radius);
+    --wcs-select-native-background-color: var(--wcs-gray-light);
+    --wcs-select-native-value-color: var(--wcs-white);
+    --wcs-select-native-placeholder-color: var(--wcs-white);
+    --wcs-select-native-border-color: var(--wcs-gray-light);
+
+    --wcs-select-native-option-color: white;
 }
+
 
 ::slotted([slot=suffix]) {
     // Make button square on left side
@@ -53,4 +63,7 @@
 
     // Make select square on left side
     --wcs-select-border-radius: 0 var(--wcs-border-radius) var(--wcs-border-radius) 0 ;
+
+    // Make native select square on left side
+    --wcs-select-native-border-radius: 0 var(--wcs-border-radius) var(--wcs-border-radius) 0;
 }

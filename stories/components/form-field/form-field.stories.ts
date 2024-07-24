@@ -232,6 +232,25 @@ const PrefixSuffixGroupTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (arg
             <wcs-select-option value="nbLines">Number of train lines</wcs-select-option>
         </wcs-select>
     </wcs-form-field>
+
+    <wcs-form-field ?is-error=${args.isError}>
+        <wcs-native-select slot="prefix" style="width: 200px;">
+            <select name="select-default" id="select-default">
+                <option disabled selected hidden>All</option>
+                <option value="France">France</option>
+                <option value="Germany">Germany</option>
+                <option value="Japan">Japan</option>
+            </select>
+        </wcs-native-select>
+        <wcs-native-select slot="suffix">
+            <select name="select-default" id="select-default">
+                <option disabled selected hidden>Placeholder du select</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3" disabled>Three</option>
+            </select>
+        </wcs-native-select>
+    </wcs-form-field>
 `;
 export const PrefixSuffixGroup: StoryObj = {
     render: (args) => PrefixSuffixGroupTemplate(args, this),

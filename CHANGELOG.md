@@ -32,6 +32,7 @@ for now removed features.
 - **textarea**: fix placeholder style for Firefox
 - **grid**: an error was thrown in console when change current page (grid pagination) 
 - **grid-column**: (accessibility) use button instead of div inside sortable columns for accessibility reasons
+- **form-field**: fix prefix suffix group style for native select
 
 ### Security
 

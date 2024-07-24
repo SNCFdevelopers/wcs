@@ -117,13 +117,13 @@ export class NativeSelect implements ComponentInterface, MutableAriaAttribute {
      * @private
      */
     private applySelectedOptionStylesOnNativeSlottedSelectElement() {
-        this.selectElement.style.color = "var(--wcs-primary)";
-        this.selectElement.style.fontStyle = 'normal';
-        this.selectElement.style.fontWeight = '500';
+        this.selectElement.style.color = "var(--wcs-select-native-value-color)";
+        this.selectElement.style.fontStyle = "var(--wcs-select-native-option-selected-font-style)";
+        this.selectElement.style.fontWeight = "var(--wcs-select-native-option-selected-font-weight)";
         Array.from(this.selectElement.options).forEach(option => {
-            option.style.fontStyle = 'normal';
+            option.style.fontStyle = "var(--wcs-select-native-option-font-style)";
             if (!option.disabled) {
-                option.style.color = "black";
+                option.style.color = "var(--wcs-select-native-option-color)";
             }
         });
     }
@@ -135,13 +135,13 @@ export class NativeSelect implements ComponentInterface, MutableAriaAttribute {
      * @private
      */
     private applyPlaceholderStylesOnNativeSlottedSelectElement() {
-        this.selectElement.style.color = "var(--wcs-text-medium)";
-        this.selectElement.style.fontWeight = '400';
-        this.selectElement.style.fontStyle = 'italic';
+        this.selectElement.style.color = "var(--wcs-select-native-placeholder-color)";
+        this.selectElement.style.fontWeight = "var(--wcs-select-native-placeholder-font-weight";
+        this.selectElement.style.fontStyle = "var(--wcs-select-native-placeholder-font-style)";
         Array.from(this.selectElement.options).forEach(option => {
-            option.style.fontStyle = 'normal';
+            option.style.fontStyle = "var(--wcs-select-native-option-font-style)";
             if (!option.disabled) {
-                option.style.color = "black";
+                option.style.color = "var(--wcs-select-native-option-color)";
             }
         });
     }
