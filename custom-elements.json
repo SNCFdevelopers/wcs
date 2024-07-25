@@ -1303,44 +1303,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/app/app.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "App",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-app",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "App",
-          "declaration": {
-            "name": "App",
-            "module": "components/app/app.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-app",
-          "declaration": {
-            "name": "App",
-            "module": "components/app/app.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/action-bar/action-bar.tsx",
       "declarations": [
         {
@@ -1407,6 +1369,44 @@
           "declaration": {
             "name": "ActionBar",
             "module": "components/action-bar/action-bar.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/app/app.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "App",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-app",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "App",
+          "declaration": {
+            "name": "App",
+            "module": "components/app/app.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-app",
+          "declaration": {
+            "name": "App",
+            "module": "components/app/app.tsx"
           }
         }
       ]
@@ -1507,44 +1507,6 @@
           "declaration": {
             "name": "Badge",
             "module": "components/badge/badge.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/card-body/card-body.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The card-body is a subcomponent of `wcs-card`. It represents content of the card with an extra padding around.",
-          "name": "CardBody",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-card-body",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "CardBody",
-          "declaration": {
-            "name": "CardBody",
-            "module": "components/card-body/card-body.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-card-body",
-          "declaration": {
-            "name": "CardBody",
-            "module": "components/card-body/card-body.tsx"
           }
         }
       ]
@@ -1925,6 +1887,44 @@
           "declaration": {
             "name": "Card",
             "module": "components/card/card.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/card-body/card-body.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The card-body is a subcomponent of `wcs-card`. It represents content of the card with an extra padding around.",
+          "name": "CardBody",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-card-body",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CardBody",
+          "declaration": {
+            "name": "CardBody",
+            "module": "components/card-body/card-body.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-card-body",
+          "declaration": {
+            "name": "CardBody",
+            "module": "components/card-body/card-body.tsx"
           }
         }
       ]
@@ -2599,6 +2599,44 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/com-nav-item/com-nav-item.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The com-nav-item is a subcomponent of `wcs-com-nav`. It represents a list-item wrapper around a link.",
+          "name": "ComNavItem",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-com-nav-item",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ComNavItem",
+          "declaration": {
+            "name": "ComNavItem",
+            "module": "components/com-nav-item/com-nav-item.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-com-nav-item",
+          "declaration": {
+            "name": "ComNavItem",
+            "module": "components/com-nav-item/com-nav-item.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/com-nav-submenu/com-nav-submenu.tsx",
       "declarations": [
         {
@@ -2875,82 +2913,6 @@
           "declaration": {
             "name": "ComNavSubmenu",
             "module": "components/com-nav-submenu/com-nav-submenu.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/com-nav-item/com-nav-item.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The com-nav-item is a subcomponent of `wcs-com-nav`. It represents a list-item wrapper around a link.",
-          "name": "ComNavItem",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-com-nav-item",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ComNavItem",
-          "declaration": {
-            "name": "ComNavItem",
-            "module": "components/com-nav-item/com-nav-item.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-com-nav-item",
-          "declaration": {
-            "name": "ComNavItem",
-            "module": "components/com-nav-item/com-nav-item.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/divider/divider.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Divider",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-divider",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Divider",
-          "declaration": {
-            "name": "Divider",
-            "module": "components/divider/divider.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-divider",
-          "declaration": {
-            "name": "Divider",
-            "module": "components/divider/divider.tsx"
           }
         }
       ]
@@ -3306,6 +3268,44 @@
           "declaration": {
             "name": "Counter",
             "module": "components/counter/counter.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/divider/divider.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Divider",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-divider",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Divider",
+          "declaration": {
+            "name": "Divider",
+            "module": "components/divider/divider.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-divider",
+          "declaration": {
+            "name": "Divider",
+            "module": "components/divider/divider.tsx"
           }
         }
       ]
@@ -3787,6 +3787,50 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/dropdown-header/dropdown-header.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "You can add `wcs-dropdown-header` before a group of items to describe it",
+          "name": "DropdownHeader",
+          "slots": [
+            {
+              "description": "the slot that contains the header's name",
+              "name": "<no-name>"
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-dropdown-header",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "DropdownHeader",
+          "declaration": {
+            "name": "DropdownHeader",
+            "module": "components/dropdown-header/dropdown-header.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-dropdown-header",
+          "declaration": {
+            "name": "DropdownHeader",
+            "module": "components/dropdown-header/dropdown-header.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/dropdown-item/dropdown-item.tsx",
       "declarations": [
         {
@@ -3867,50 +3911,6 @@
           "declaration": {
             "name": "DropdownItem",
             "module": "components/dropdown-item/dropdown-item.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/dropdown-header/dropdown-header.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "You can add `wcs-dropdown-header` before a group of items to describe it",
-          "name": "DropdownHeader",
-          "slots": [
-            {
-              "description": "the slot that contains the header's name",
-              "name": "<no-name>"
-            }
-          ],
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-dropdown-header",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "DropdownHeader",
-          "declaration": {
-            "name": "DropdownHeader",
-            "module": "components/dropdown-header/dropdown-header.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-dropdown-header",
-          "declaration": {
-            "name": "DropdownHeader",
-            "module": "components/dropdown-header/dropdown-header.tsx"
           }
         }
       ]
@@ -6815,117 +6815,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/icon/icon.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The icon component is a graphic symbol designed to visually indicate the purpose of an interface element.",
-          "name": "Icon",
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "nativeIcon",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "icon",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px'"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "icon",
-              "fieldName": "icon",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "size",
-              "fieldName": "size",
-              "type": {
-                "text": "'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px'"
-              }
-            }
-          ],
-          "tagName": "wcs-icon",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Icon",
-          "declaration": {
-            "name": "Icon",
-            "module": "components/icon/icon.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-icon",
-          "declaration": {
-            "name": "Icon",
-            "module": "components/icon/icon.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/horizontal-stepper/horizontal-step.tsx",
       "declarations": [
         {
@@ -6933,7 +6822,7 @@
           "name": "HorizontalStep",
           "parameters": [
             {
-              "name": "{\r\n        step,\r\n        checkOnComplete,\r\n        complete,\r\n        passed,\r\n        active,\r\n        first,\r\n        disable,\r\n        index,\r\n        tabIndex,\r\n        total,\r\n        onClick\r\n    }"
+              "name": "{\r\n        step,\r\n        checkOnComplete,\r\n        complete,\r\n        passed,\r\n        active,\r\n        first,\r\n        disable,\r\n        onClick\r\n    }"
             }
           ]
         }
@@ -7016,15 +6905,6 @@
               "description": "Used to know which current step index is selected (component internal calculations mainly for the animation)"
             },
             {
-              "kind": "field",
-              "name": "focusedStepIndex",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "description": "To keep track of the focused step index for accessibility"
-            },
-            {
               "kind": "method",
               "name": "onCurrentStepChange",
               "parameters": [
@@ -7070,52 +6950,6 @@
                   "name": "direction",
                   "type": {
                     "text": "'backward' | 'forward'"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "field",
-              "name": "stepsButtons",
-              "type": {
-                "text": "HTMLButtonElement[] | []"
-              },
-              "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "method",
-              "name": "handleKeyDown",
-              "parameters": [
-                {
-                  "name": "ev",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "focusClosestStep",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "direction",
-                  "type": {
-                    "text": "'next' | 'previous'"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "focusStep",
-              "parameters": [
-                {
-                  "name": "index",
-                  "type": {
-                    "text": "number"
                   }
                 }
               ]
@@ -7245,6 +7079,117 @@
           "declaration": {
             "name": "HorizontalStepper",
             "module": "components/horizontal-stepper/horizontal-stepper.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/icon/icon.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The icon component is a graphic symbol designed to visually indicate the purpose of an interface element.",
+          "name": "Icon",
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeIcon",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px'"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "icon",
+              "fieldName": "icon",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "size",
+              "fieldName": "size",
+              "type": {
+                "text": "'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px'"
+              }
+            }
+          ],
+          "tagName": "wcs-icon",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Icon",
+          "declaration": {
+            "name": "Icon",
+            "module": "components/icon/icon.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-icon",
+          "declaration": {
+            "name": "Icon",
+            "module": "components/icon/icon.tsx"
           }
         }
       ]
@@ -8112,6 +8057,44 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/list-item-property/list-item-property.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The list-item-property is a subcomponent of `wcs-list-item`.\r\nWrapped in a `wcs-list-item-properties`, it represents a property to describe an item.",
+          "name": "ListItemProperty",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-list-item-property",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ListItemProperty",
+          "declaration": {
+            "name": "ListItemProperty",
+            "module": "components/list-item-property/list-item-property.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-list-item-property",
+          "declaration": {
+            "name": "ListItemProperty",
+            "module": "components/list-item-property/list-item-property.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/mat-icon/mat-icon-interface.tsx",
       "declarations": [],
       "exports": []
@@ -8571,44 +8554,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/list-item-property/list-item-property.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The list-item-property is a subcomponent of `wcs-list-item`.\r\nWrapped in a `wcs-list-item-properties`, it represents a property to describe an item.",
-          "name": "ListItemProperty",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-list-item-property",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ListItemProperty",
-          "declaration": {
-            "name": "ListItemProperty",
-            "module": "components/list-item-property/list-item-property.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-list-item-property",
-          "declaration": {
-            "name": "ListItemProperty",
-            "module": "components/list-item-property/list-item-property.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/native-select/native-select-interface.ts",
       "declarations": [],
       "exports": []
@@ -8764,64 +8709,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/nav-item/nav-item.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The nav-item component is a subcomponent of `wcs-nav` and should always be used inside it.  \r\nThey contain links to navigate to other pages of the website.",
-          "name": "NavItem",
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "onKeyDown",
-              "parameters": [
-                {
-                  "name": "_event",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-nav-item",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "NavItem",
-          "declaration": {
-            "name": "NavItem",
-            "module": "components/nav-item/nav-item.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-nav-item",
-          "declaration": {
-            "name": "NavItem",
-            "module": "components/nav-item/nav-item.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/nav/nav.tsx",
       "declarations": [
         {
@@ -8909,18 +8796,90 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/progress-radial/progress-radial.tsx",
+      "path": "components/nav-item/nav-item.tsx",
       "declarations": [
         {
           "kind": "class",
-          "description": "The progress-radial component is a circular progress bar that indicates the current completion of a task. \r\n\r\n## Accessibility guidelines 💡\r\n> Aria attributes and how to display the progress-radial depend on the use case in your application :\r\n>\r\n> - **Case 1 : decorative**\r\n> If the progress-radial is used as a decoration _(if removed, the user doesn't lose any relevant information)_ or in the\r\n> context of another component _(such as progress-radial in a card)_ => **you don't need to show the label nor add an aria-label**.\r\n>\r\n> - **Case 2 : informative**\r\n> If the progress-radial is used to convey important information _(e.g., form completion status, dashboard KPI)_, you need to :\r\n>   - **Provide a visible label** that describes the purpose of the progress-radial.\r\n>   - **Set the `showLabel` property to `true`** to show the percentage inside the progress-radial.\r\n>   - Optionally, use aria-label to provide an accessible name if a visible label is not present.",
-          "name": "ProgressRadial",
+          "description": "The nav-item component is a subcomponent of `wcs-nav` and should always be used inside it.  \r\nThey contain links to navigate to other pages of the website.",
+          "name": "NavItem",
           "members": [
             {
               "kind": "field",
               "name": "el",
               "type": {
-                "text": "HTMLWcsProgressRadialElement"
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "onKeyDown",
+              "parameters": [
+                {
+                  "name": "_event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-nav-item",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "NavItem",
+          "declaration": {
+            "name": "NavItem",
+            "module": "components/nav-item/nav-item.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-nav-item",
+          "declaration": {
+            "name": "NavItem",
+            "module": "components/nav-item/nav-item.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/progress-bar/progress-bar.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The progress-bar component is a horizontal bar that indicates the current completion of a task.\r\n\r\n## Accessibility guidelines 💡\r\n> Aria attributes and how to display the progress-bar depend on the use case in your application :\r\n>\r\n> - **Case 1 : decorative**\r\n> If the progress-bar is used as a decoration _(if removed, the user doesn't lose any relevant information)_ or in the\r\n> context of another component _(such as progress-bar in a card, stepper, ...)_ => **you don't need to show the label nor add an aria-label**.\r\n>\r\n> - **Case 2 : informative**\r\n> If the progress-bar is used to convey important information _(e.g., form completion status, dashboard KPI)_, you need to :\r\n>   - **Provide a visible label** that describes the purpose of the progress-bar.\r\n>   - **Set the `showLabel` property to `true`** to show the percentage above the progress-bar.\r\n>   - Optionally, use aria-label to provide an accessible name if a visible label is not present.",
+          "name": "ProgressBar",
+          "cssProperties": [
+            {
+              "description": "Border radius",
+              "name": "--wcs-progress-bar-border-radius"
+            },
+            {
+              "description": "Border radius for size small",
+              "name": "--wcs-progress-bar-border-radius-small"
+            },
+            {
+              "description": "Animation duration",
+              "name": "--wcs-progress-bar-animation-duration"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsProgressBarElement"
               },
               "privacy": "private"
             },
@@ -8943,22 +8902,12 @@
             },
             {
               "kind": "field",
-              "name": "backgroundImageSize",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "default": "120",
-              "description": "The initial background image size (120x120) as specified in the background-image css property of .progress-circle"
-            },
-            {
-              "kind": "field",
               "name": "size",
               "type": {
-                "text": "number"
+                "text": "Extract<WcsSize, 'm' | 's'>"
               },
-              "default": "120",
-              "description": "The size of the progress radial (in px)"
+              "default": "'m'",
+              "description": "Specify the size of the progress bar.\r\nm = default, s = smaller"
             },
             {
               "kind": "field",
@@ -8967,7 +8916,7 @@
                 "text": "boolean"
               },
               "default": "false",
-              "description": "Whether the component should display the % label inside"
+              "description": "Whether it displays a label indicating the percentage of progress above the bar."
             },
             {
               "kind": "field",
@@ -8976,7 +8925,7 @@
                 "text": "number"
               },
               "default": "0",
-              "description": "The value of the progress radial. Prefer values between 0 and 100."
+              "description": "The actual value of the progress.\r\nRanging from 0 to 100."
             },
             {
               "kind": "method",
@@ -9002,11 +8951,12 @@
             },
             {
               "kind": "method",
-              "name": "getSvgStyle"
-            },
-            {
-              "kind": "method",
-              "name": "getSize"
+              "name": "rootClasses",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
             }
           ],
           "attributes": [
@@ -9014,7 +8964,7 @@
               "name": "size",
               "fieldName": "size",
               "type": {
-                "text": "number"
+                "text": "Extract<WcsSize, 'm' | 's'>"
               }
             },
             {
@@ -9032,7 +8982,7 @@
               }
             }
           ],
-          "tagName": "wcs-progress-radial",
+          "tagName": "wcs-progress-bar",
           "events": [],
           "customElement": true
         }
@@ -9040,18 +8990,18 @@
       "exports": [
         {
           "kind": "js",
-          "name": "ProgressRadial",
+          "name": "ProgressBar",
           "declaration": {
-            "name": "ProgressRadial",
-            "module": "components/progress-radial/progress-radial.tsx"
+            "name": "ProgressBar",
+            "module": "components/progress-bar/progress-bar.tsx"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "wcs-progress-radial",
+          "name": "wcs-progress-bar",
           "declaration": {
-            "name": "ProgressRadial",
-            "module": "components/progress-radial/progress-radial.tsx"
+            "name": "ProgressBar",
+            "module": "components/progress-bar/progress-bar.tsx"
           }
         }
       ]
@@ -9303,32 +9253,18 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/progress-bar/progress-bar.tsx",
+      "path": "components/progress-radial/progress-radial.tsx",
       "declarations": [
         {
           "kind": "class",
-          "description": "The progress-bar component is a horizontal bar that indicates the current completion of a task.\r\n\r\n## Accessibility guidelines 💡\r\n> Aria attributes and how to display the progress-bar depend on the use case in your application :\r\n>\r\n> - **Case 1 : decorative**\r\n> If the progress-bar is used as a decoration _(if removed, the user doesn't lose any relevant information)_ or in the\r\n> context of another component _(such as progress-bar in a card, stepper, ...)_ => **you don't need to show the label nor add an aria-label**.\r\n>\r\n> - **Case 2 : informative**\r\n> If the progress-bar is used to convey important information _(e.g., form completion status, dashboard KPI)_, you need to :\r\n>   - **Provide a visible label** that describes the purpose of the progress-bar.\r\n>   - **Set the `showLabel` property to `true`** to show the percentage above the progress-bar.\r\n>   - Optionally, use aria-label to provide an accessible name if a visible label is not present.",
-          "name": "ProgressBar",
-          "cssProperties": [
-            {
-              "description": "Border radius",
-              "name": "--wcs-progress-bar-border-radius"
-            },
-            {
-              "description": "Border radius for size small",
-              "name": "--wcs-progress-bar-border-radius-small"
-            },
-            {
-              "description": "Animation duration",
-              "name": "--wcs-progress-bar-animation-duration"
-            }
-          ],
+          "description": "The progress-radial component is a circular progress bar that indicates the current completion of a task. \r\n\r\n## Accessibility guidelines 💡\r\n> Aria attributes and how to display the progress-radial depend on the use case in your application :\r\n>\r\n> - **Case 1 : decorative**\r\n> If the progress-radial is used as a decoration _(if removed, the user doesn't lose any relevant information)_ or in the\r\n> context of another component _(such as progress-radial in a card)_ => **you don't need to show the label nor add an aria-label**.\r\n>\r\n> - **Case 2 : informative**\r\n> If the progress-radial is used to convey important information _(e.g., form completion status, dashboard KPI)_, you need to :\r\n>   - **Provide a visible label** that describes the purpose of the progress-radial.\r\n>   - **Set the `showLabel` property to `true`** to show the percentage inside the progress-radial.\r\n>   - Optionally, use aria-label to provide an accessible name if a visible label is not present.",
+          "name": "ProgressRadial",
           "members": [
             {
               "kind": "field",
               "name": "el",
               "type": {
-                "text": "HTMLWcsProgressBarElement"
+                "text": "HTMLWcsProgressRadialElement"
               },
               "privacy": "private"
             },
@@ -9351,12 +9287,22 @@
             },
             {
               "kind": "field",
+              "name": "backgroundImageSize",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "120",
+              "description": "The initial background image size (120x120) as specified in the background-image css property of .progress-circle"
+            },
+            {
+              "kind": "field",
               "name": "size",
               "type": {
-                "text": "Extract<WcsSize, 'm' | 's'>"
+                "text": "number"
               },
-              "default": "'m'",
-              "description": "Specify the size of the progress bar.\r\nm = default, s = smaller"
+              "default": "120",
+              "description": "The size of the progress radial (in px)"
             },
             {
               "kind": "field",
@@ -9365,7 +9311,7 @@
                 "text": "boolean"
               },
               "default": "false",
-              "description": "Whether it displays a label indicating the percentage of progress above the bar."
+              "description": "Whether the component should display the % label inside"
             },
             {
               "kind": "field",
@@ -9374,7 +9320,7 @@
                 "text": "number"
               },
               "default": "0",
-              "description": "The actual value of the progress.\r\nRanging from 0 to 100."
+              "description": "The value of the progress radial. Prefer values between 0 and 100."
             },
             {
               "kind": "method",
@@ -9400,12 +9346,11 @@
             },
             {
               "kind": "method",
-              "name": "rootClasses",
-              "return": {
-                "type": {
-                  "text": "string"
-                }
-              }
+              "name": "getSvgStyle"
+            },
+            {
+              "kind": "method",
+              "name": "getSize"
             }
           ],
           "attributes": [
@@ -9413,7 +9358,7 @@
               "name": "size",
               "fieldName": "size",
               "type": {
-                "text": "Extract<WcsSize, 'm' | 's'>"
+                "text": "number"
               }
             },
             {
@@ -9431,7 +9376,7 @@
               }
             }
           ],
-          "tagName": "wcs-progress-bar",
+          "tagName": "wcs-progress-radial",
           "events": [],
           "customElement": true
         }
@@ -9439,18 +9384,18 @@
       "exports": [
         {
           "kind": "js",
-          "name": "ProgressBar",
+          "name": "ProgressRadial",
           "declaration": {
-            "name": "ProgressBar",
-            "module": "components/progress-bar/progress-bar.tsx"
+            "name": "ProgressRadial",
+            "module": "components/progress-radial/progress-radial.tsx"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "wcs-progress-bar",
+          "name": "wcs-progress-radial",
           "declaration": {
-            "name": "ProgressBar",
-            "module": "components/progress-bar/progress-bar.tsx"
+            "name": "ProgressRadial",
+            "module": "components/progress-radial/progress-radial.tsx"
           }
         }
       ]

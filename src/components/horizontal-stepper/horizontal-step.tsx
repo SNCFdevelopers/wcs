@@ -7,9 +7,6 @@ interface HorizontalStepProps {
     complete: boolean;
     passed: boolean;
     active: boolean;
-    index: number;
-    tabIndex: number;
-    total: number;
     first: boolean;
     disable: boolean;
     onClick: (step: HorizontalStepConfig) => void;
@@ -24,26 +21,23 @@ export const HorizontalStep: FunctionalComponent<HorizontalStepProps> = (
         active,
         first,
         disable,
-        index,
-        tabIndex,
-        total,
         onClick
     }) => {
     return (
-        <li class="graphic-step" data-first={first} aria-label={step.text}>
-            {first ? null : (<wcs-progress-bar value={passed ? 100 : 0}></wcs-progress-bar>)}
-            <button class={{'button-step': true, 'active': active, 'complete': complete, 'disable': disable}}
-                        role={'tab'}
-                        tabindex={tabIndex}
-                        aria-label={step.text}
-                        aria-selected={active ? 'true' : 'false'}
-                        aria-posinset={index}
-                        aria-setsize={total}
-                        onClick={_ => onClick(step)}
-                        disabled={disable}>{getButtonContent(step.button, checkOnComplete, complete, active)}</button>
+        /*
+        When using list-style: none in CSS, it removes the semantic of the list in Safari.
+        So we add role="list" manually to provide semantic to screen readers
+        https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html
+        https://css-tricks.com/snippets/css/remove-list-markers-without-affecting-semantics/ 
+         */
+        <li role="listitem" class="graphic-step" data-first={first}>
+            {first ? null : (<wcs-progress-bar value={passed ? 100 : 0} aria-hidden="true"></wcs-progress-bar>)}
             <wcs-button style={{'backgroundColor': 'white'}}
-                        tabindex={-1}
+                        aria-label={step.text}
                         onClick={_ => onClick(step)}
+                        ref={(el: HTMLWcsButtonElement) => {
+                            active ? el.setAriaAttribute('aria-current', 'step') : el.setAriaAttribute('aria-current', null)
+                        }}
                         shape="round" mode={(active || complete) && !step.disable ? 'plain' : 'stroked'}
                         disabled={disable}>
                 {getButtonContent(step.button, checkOnComplete, complete, active)}

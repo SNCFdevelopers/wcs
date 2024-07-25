@@ -5,7 +5,7 @@ import {
     Event,
     EventEmitter,
     h,
-    Host, Listen,
+    Host,
     Method,
     Prop,
     State,
@@ -52,15 +52,8 @@ export class HorizontalStepper implements ComponentInterface {
      */
     @State() private internalCurrentStepIndex: number;
 
-    /**
-     * To keep track of the focused step index for accessibility
-     * @private
-     */
-    @State() private focusedStepIndex: number = this.currentStep ?? 0;
-
     componentWillLoad(): Promise<void> | void {
         this.internalCurrentStepIndex = this.currentStep;
-        this.focusedStepIndex = this.currentStep;
         if (this.steps.length < 1) {
             throw new Error('You must add at least one step');
         }
@@ -76,11 +69,6 @@ export class HorizontalStepper implements ComponentInterface {
                 for (let i = 0; i < stepInterval; i++) {
                     setTimeout(() => {
                         this.internalCurrentStepIndex -= (oldValue - newValue) > 0 ? 1 : -1;
-                        
-                        // Ensure the focusedStepIndex is changed only at the end of the animation
-                        if (this.internalCurrentStepIndex === this.currentStep) {
-                            this.focusedStepIndex = this.internalCurrentStepIndex;
-                        }
                         
                         if (i === stepInterval - 1) {
                             this.el.style.removeProperty('--wcs-progress-bar-animation-duration');
@@ -110,56 +98,17 @@ export class HorizontalStepper implements ComponentInterface {
             }
         }
     }
-    
-    private get stepsButtons(): HTMLButtonElement[] | [] {
-        return Array.from(this.el.shadowRoot.querySelectorAll('.steps li .button-step'));
-    }
-    
-    @Listen('keydown')
-    handleKeyDown(ev: KeyboardEvent) {
-        if (ev.key === 'ArrowRight') {
-            this.focusClosestStep('next');
-        } else if (ev.key === 'ArrowLeft') {
-            this.focusClosestStep('previous');
-        }
-    }
-    
-    private focusClosestStep(direction: 'next' | 'previous') {
-        const stepsButtons = this.stepsButtons;
-        
-        switch (direction) {
-            case 'next':
-                for (let i = this.focusedStepIndex + 1; i < stepsButtons.length; i++) {
-                    if (!stepsButtons[i].disabled) {
-                        this.focusedStepIndex = i;
-                        this.focusStep(this.focusedStepIndex);
-                        return;
-                    }
-                }
-                break;
-            case 'previous':
-                for (let i = this.focusedStepIndex - 1; i >= 0; i--) {
-                    if (!stepsButtons[i].disabled) {
-                        this.focusedStepIndex = i;
-                        this.focusStep(this.focusedStepIndex);
-                        return;
-                    }
-                }
-                break;
-        }
-    }
-    
-    focusStep(index: number) {
-        const step = this.stepsButtons[index] as HTMLButtonElement;
-        if (step) {
-            requestAnimationFrame(() => step.focus());
-        }
-    }
 
     render(): any {
         return (
             <Host>
-                <ul class="steps" role='tablist' aria-orientation={"horizontal"}>
+                {/* 
+                When using list-style: none in CSS, it removes the semantic of the list in Safari.
+                So we add role="list" manually to provide semantic to screen readers
+                https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html
+                https://css-tricks.com/snippets/css/remove-list-markers-without-affecting-semantics/ 
+                */}
+                <ul role="list" class="steps">
                     {this.steps.map((step: HorizontalStepConfig, index) =>
                         (<HorizontalStep step={step}
                                          passed={index <= this.internalCurrentStepIndex}
@@ -167,9 +116,6 @@ export class HorizontalStepper implements ComponentInterface {
                                          complete={this.isComplete(step, index)}
                                          active={index === this.internalCurrentStepIndex}
                                          first={index === 0}
-                                         index={index + 1}
-                                         tabIndex={this.focusedStepIndex === index ? 0 : -1}
-                                         total={this.steps.length}
                                          disable={this.isDisable(step, index)}
                                          onClick={step => this.wcsHorizontalStepClick.emit({step, index})}
                             />
@@ -189,7 +135,7 @@ export class HorizontalStepper implements ComponentInterface {
         if (this.steps.map(s => s.text).every(s => !s)) {
             return null;
         } else {
-            return <div class="label-container">
+            return <div class="label-container" aria-hidden="true">
                 {this.steps.map((step, index) =>
                     (<div data-first={index === 0} data-current={index === this.internalCurrentStepIndex && !step.disable}
                           data-disable={this.isDisable(step, index)} data-last={index === this.steps.length - 1}>

@@ -53,6 +53,7 @@ for soon-to-be removed features.
   - fix width of the native select when it is in a form-field (fill now 100% of the available place)
 - **select**: on autocomplete mode, disable default autocomplete suggestion of user-agents
 - **dropdown**: improve accessibility
+- **stepper**: (accessibility) use aria-current="true" instead of tab pattern (does not work with Voice Over)
 
 ### Security
 
