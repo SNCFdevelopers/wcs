@@ -30,6 +30,7 @@ for now removed features.
 
 - **input**: fix placeholder style for Firefox
 - **textarea**: fix placeholder style for Firefox
+- **grid**: an error was thrown in console when change current page (grid pagination) 
 
 ### Security
 

@@ -297,6 +297,8 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
             .filter(x => ['TD', 'TH']
             .includes((x as HTMLElement).nodeName))[0] as HTMLTableCellElement;
         
+        if(!clickedGridElement) return; // it can be the grid pagination node, we don't want to handle it
+        
         const clickedGridElementWithCoordinates = this.gridElementsWithCoordinates.find(e => e.el === clickedGridElement);
         
         this.cursorPosition = {

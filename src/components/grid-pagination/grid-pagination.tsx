@@ -29,7 +29,7 @@ export class GridPagination implements ComponentInterface {
     /**
      * The current page of the pagination. First page starts at index 0.
      */
-    @Prop() currentPage: number = GridPagination.INDEX_FIRST_PAGE;
+    @Prop({mutable: true}) currentPage: number = GridPagination.INDEX_FIRST_PAGE;
     /**
      * Maximum number of elements shown per page.  
      * Default is the first value of `availablePageSizes`.
