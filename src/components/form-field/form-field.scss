@@ -44,11 +44,12 @@
 
 // Prefixed select
 ::slotted([slot=prefix]) {
-    --wcs-select-border-radius: var(--wcs-border-radius) 0 0 var(--wcs-border-radius);
-    --wcs-select-background-color: var(--wcs-gray-light);
+    --wcs-select-control-border-radius: var(--wcs-border-radius) 0 0 var(--wcs-border-radius);
+    --wcs-select-control-background-color: var(--wcs-gray-light);
     --wcs-select-value-color: var(--wcs-white);
     --wcs-select-placeholder-color: var(--wcs-white);
-    --wcs-select-border-color: var(--wcs-gray-light);
+    --wcs-select-control-border-color-default: var(--wcs-gray-light);
+    --wcs-select-control-arrow-color: var(--wcs-white);
 
     // Prefixed native select
     --wcs-select-native-border-radius: var(--wcs-border-radius) 0 0 var(--wcs-border-radius);
@@ -66,7 +67,7 @@
     --wcs-button-border-radius: 0 var(--wcs-border-radius) var(--wcs-border-radius) 0;
 
     // Make select square on left side
-    --wcs-select-border-radius: 0 var(--wcs-border-radius) var(--wcs-border-radius) 0 ;
+    --wcs-select-control-border-radius: 0 var(--wcs-border-radius) var(--wcs-border-radius) 0 ;
 
     // Make native select square on left side
     --wcs-select-native-border-radius: 0 var(--wcs-border-radius) var(--wcs-border-radius) 0;

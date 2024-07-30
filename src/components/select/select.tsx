@@ -84,6 +84,66 @@ const SELECT_INHERITED_ATTRS = ['tabindex', 'title'];
  * Use it with several slotted `wcs-select-option` inside.
  *
  * @slot filter-no-result Contains the customizable "No result found" div (autocomplete mode only).
+ * 
+ * @cssprop --wcs-select-control-arrow-color - Color of the select arrow
+ * @cssprop --wcs-select-control-arrow-color-disabled - Color of the select arrow when disabled
+ * 
+ * @cssprop --wcs-select-control-background-color - Background color of the select control
+ * @cssprop --wcs-select-control-ripple-color - Ripple color of the select control
+ * 
+ * @cssprop --wcs-select-control-line-height - Line height of the select control
+ * 
+ * @cssprop --wcs-select-control-border-radius - Border radius of the select control
+ * @cssprop --wcs-select-control-border-width - Border width of the select control when not focused
+ * @cssprop --wcs-select-control-border-width-active - Border width of the select control when active
+ * @cssprop --wcs-select-control-border-width-focus - Border width of the select control when focused
+ * 
+ * @cssprop --wcs-select-control-border-color-default - Border color of the select control when not focused
+ * @cssprop --wcs-select-control-border-color-error - Border color of the select control when error
+ * @cssprop --wcs-select-control-border-color-active - Border color of the select control when active (select is opened)
+ * @cssprop --wcs-select-control-border-color-focus - Border color of the select control when focused (not opened, but the control is focused)
+ * 
+ * @cssprop --wcs-select-value-color - Text color of the select value when not focused 
+ * @cssprop --wcs-select-value-font-weight - Font weight of the select value
+ * 
+ * @cssprop --wcs-select-placeholder-color - Text color of the select placeholder
+ * @cssprop --wcs-select-placeholder-font-weight - Font weight of the select placeholder
+ * @cssprop --wcs-select-placeholder-font-style - Font style of the select placeholder
+ *
+ * @cssprop --wcs-select-text-color-disabled - Text color of the select when disabled
+ *
+ * @cssprop --wcs-select-control-border-style-default - Border style of the select control when not focused
+ * @cssprop --wcs-select-control-border-style-focus - Border style of the select control when focused
+ * @cssprop --wcs-select-control-border-style-error - Border style of the select control when error
+ * 
+ * @cssprop --wcs-select-control-chips-gap - Gap between chips (only in multiple mode)
+ *
+ * @cssprop --wcs-select-control-height-m - Height of the select control in medium size
+ * @cssprop --wcs-select-control-height-l - Height of the select control in large size
+ * 
+ * @cssprop --wcs-select-control-autocomplete-padding-vertical-m - Padding vertical (top - bottom) of the select control in size m
+ * @cssprop --wcs-select-control-autocomplete-padding-vertical-l - Padding vertical (top - bottom) of the select control in size l
+ * @cssprop --wcs-select-control-padding-horizontal-m - Padding horizontal (left - right) in medium size
+ * @cssprop --wcs-select-control-padding-horizontal-l - Padding horizontal (left - right) in large size
+ * 
+ * @cssprop --wcs-select-control-font-size-m - Font size of the select in size m
+ * @cssprop --wcs-select-control-font-size-l - Font size of the select in size m
+ * 
+ * 
+ * @cssprop --wcs-select-control-chip-color-default - Color default of the select chip
+ * @cssprop --wcs-select-control-chip-color-disabled - Color disabled of the select chip
+ * @cssprop --wcs-select-control-chip-background-color-default - Background color default of the select chip
+ * @cssprop --wcs-select-control-chip-background-color-disabled - Disabled background color of the select chip
+ * @cssprop --wcs-select-control-chip-padding-vertical - Padding vertical (top - bottom) of the select chip
+ * @cssprop --wcs-select-control-chip-padding-horizontal - Padding horizontal (left - right) of the select chip
+ * @cssprop --wcs-select-control-chip-line-height - Line height of the select chip
+ * @cssprop --wcs-select-control-chip-border-radius - Border radius of the select chip
+ * 
+ * @cssprop --wcs-select-overlay-max-height - Max height of the select overlay
+ * @cssprop --wcs-select-overlay-background-color - Background color of the select overlay
+ * @cssprop --wcs-select-overlay-border-width - Border width of the select overlay
+ * @cssprop --wcs-select-overlay-border-color - Border color of the select overlay
+ * @cssprop --wcs-select-overlay-border-radius - Border radius of the overlay
  */
 @Component({
     tag: 'wcs-select',

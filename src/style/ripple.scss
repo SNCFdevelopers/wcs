@@ -5,7 +5,7 @@
 @mixin ripple {
     @include mdc-ripple-surface;
     @include mdc-ripple-radius-bounded;
-    @include mdc-states-base-color(#999);
+    @include mdc-states-base-color(rgba(153, 153, 153, 0.1));
     @include mdc-states-hover-opacity(.1);
     @include mdc-states-focus-opacity(.2);
     @include mdc-states-press-opacity(.3);

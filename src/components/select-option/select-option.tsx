@@ -5,6 +5,31 @@ import {isEnterKey, generateUniqueId, isSpaceKey} from "../../utils/helpers";
 
 /**
  * The select option is a subcomponent of `wcs-select` that represents a single option in a select list.
+ * 
+ * @cssprop --wcs-select-option-background-color-default - Default background color of the option
+ * @cssprop --wcs-select-option-background-color-hover - Background color of the option when hovered
+ * @cssprop --wcs-select-option-background-color-selected - Background color of the option when selected
+ * @cssprop --wcs-select-option-background-color-focus - Background color of the option when focused
+ * 
+ * @cssprop --wcs-select-option-border-color-focus - Border color for autocomplete mode
+ * @cssprop --wcs-select-option-border-width-focus - Border width for autocomplete mode
+ * @cssprop --wcs-select-option-border-style-focus - Border style of the option when focused
+ * 
+ * @cssprop --wcs-select-option-height - Height of the option
+ * @cssprop --wcs-select-option-padding-horizontal - Horizontal padding of the option
+ * @cssprop --wcs-select-option-padding-vertical - Vertical padding of the option
+ * 
+ * @cssprop --wcs-select-option-text-font-size - Font size of the option text
+ * @cssprop --wcs-select-option-text-font-weight - Font weight of the option text
+ * @cssprop --wcs-select-option-text-color-default - Default color of the option text
+ * @cssprop --wcs-select-option-text-color-focus - Color of the option text when focused
+ * @cssprop --wcs-select-option-text-color-hover - Color of the option text when hovered
+ * @cssprop --wcs-select-option-text-color-selected - Color of the option text when selected
+ * 
+ * @cssprop --wcs-select-option-ripple-color - Color of the ripple effect
+ * @cssprop --wcs-select-option-checkbox-color - Color of the checkbox
+ * 
+ * @cssprop --wcs-select-option-gap - Gap between the checkbox and the text
  */
 @Component({
     tag: 'wcs-select-option',

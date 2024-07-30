@@ -407,12 +407,6 @@ export const AutocompleteWithMultipleAndChipsMode = {
  */
 export const SpecialCases: StoryObj = {
     render: (args) => html`
-    <style>
-    .error-indicator {
-        border: solid 1px red;
-        border-radius: var(--wcs-border-radius);
-    }
-    </style>
     <div style="min-height: 450px">
         <wcs-form-field ?is-error=${args.isError} id="form-field">
             <wcs-label>Favorite railway stations</wcs-label>
@@ -457,8 +451,6 @@ function handleChange(v: any) {
   
   // @ts-ignore
     document.querySelector('#form-field').setAttribute('is-error', isError ? 'true' : 'false');
-  // @ts-ignore
-    document.querySelector("#select-special-cases").classList.toggle('error-indicator', isError);
   
   if (isError) {
       // @ts-ignore

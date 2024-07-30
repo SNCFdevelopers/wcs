@@ -1,6 +1,10 @@
 {
     "semantic": {
         "spacing": {
+            "small": {
+                "$type": "dimension",
+                "$value": "{primitive.size.40}"
+            },
             "base": {
                 "$type": "dimension",
                 "$value": "{semantic.size.base}"
@@ -30,6 +34,12 @@
             "xs": {
                 "$type": "dimension",
                 "$value": "{primitive.size.240}"
+            },
+            "overlay": {
+                "max-height": {
+                    "$type": "dimension",
+                    "$value": "360px"
+                }
             }
         },
         "border": {
@@ -122,10 +132,19 @@
                         "$type": "color",
                         "$value": "{semantic.color.primary}"
                     },
+                    "active": {
+                        "$type":"color",
+                        "$value": "{semantic.color.primary}"
+                    },
                     "disabled": {
                         "$type": "color",
                         "$value": "{semantic.color.disabled}"
                     }
+                },
+                "surface": {
+                    "$description": "Border color for surface like card, modal, overlay of a select...",
+                    "$type": "color",
+                    "$value": "{primitive.color.neutral.300}"
                 }
             },
             "background": {
@@ -162,6 +181,16 @@
                             "$description": "Can be used by secondary elements which must have a hover state (button, dropdown...)",
                             "$type": "color",
                             "$value": "{primitive.color.bleu-acier.100}"
+                        },
+                        "selected": {
+                            "$description": "Background of a selected secondary action elements (select option)",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu-acier.300}"
+                        },
+                        "focus": {
+                            "$description": "Background of a focused secondary action elements (button, select option)",
+                            "$type": "color",
+                            "$value": "{primitive.color.transparent}"
                         }
                     },
                     "tertiary": {
@@ -195,6 +224,11 @@
                     }
                 },
                 "surface": {
+                    "primary": {
+                        "$description": "Background of a surface like a card, modal, overlay of a select...",
+                        "$type": "color",
+                        "$value": "{primitive.color.neutral.0}"
+                    },
                     "tertiary": {
                         "$description": "Tertiary background (used for background of prefix and suffix of input/form-field, also in other components)",
                         "$type": "color",
@@ -279,6 +313,11 @@
                         "$type": "color",
                         "$value": "{semantic.color.primary}"
                     }
+                },
+                "form-field": {
+                    "$description": "Ripple applied to an form-field control (select)",
+                    "$type": "color",
+                    "$value": "{semantic.color.primary}"
                 }
             }
         },

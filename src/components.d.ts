@@ -1170,6 +1170,50 @@ export namespace Components {
      * The select component (also named combobox) is a form component that allows users to select one or more options
      * from a list.
      * Use it with several slotted `wcs-select-option` inside.
+     * @cssprop --wcs-select-control-arrow-color - Color of the select arrow
+     * @cssprop --wcs-select-control-arrow-color-disabled - Color of the select arrow when disabled
+     * @cssprop --wcs-select-control-background-color - Background color of the select control
+     * @cssprop --wcs-select-control-ripple-color - Ripple color of the select control
+     * @cssprop --wcs-select-control-line-height - Line height of the select control
+     * @cssprop --wcs-select-control-border-radius - Border radius of the select control
+     * @cssprop --wcs-select-control-border-width - Border width of the select control when not focused
+     * @cssprop --wcs-select-control-border-width-active - Border width of the select control when active
+     * @cssprop --wcs-select-control-border-width-focus - Border width of the select control when focused
+     * @cssprop --wcs-select-control-border-color-default - Border color of the select control when not focused
+     * @cssprop --wcs-select-control-border-color-error - Border color of the select control when error
+     * @cssprop --wcs-select-control-border-color-active - Border color of the select control when active (select is opened)
+     * @cssprop --wcs-select-control-border-color-focus - Border color of the select control when focused (not opened, but the control is focused)
+     * @cssprop --wcs-select-value-color - Text color of the select value when not focused
+     * @cssprop --wcs-select-value-font-weight - Font weight of the select value
+     * @cssprop --wcs-select-placeholder-color - Text color of the select placeholder
+     * @cssprop --wcs-select-placeholder-font-weight - Font weight of the select placeholder
+     * @cssprop --wcs-select-placeholder-font-style - Font style of the select placeholder
+     * @cssprop --wcs-select-text-color-disabled - Text color of the select when disabled
+     * @cssprop --wcs-select-control-border-style-default - Border style of the select control when not focused
+     * @cssprop --wcs-select-control-border-style-focus - Border style of the select control when focused
+     * @cssprop --wcs-select-control-border-style-error - Border style of the select control when error
+     * @cssprop --wcs-select-control-chips-gap - Gap between chips (only in multiple mode)
+     * @cssprop --wcs-select-control-height-m - Height of the select control in medium size
+     * @cssprop --wcs-select-control-height-l - Height of the select control in large size
+     * @cssprop --wcs-select-control-autocomplete-padding-vertical-m - Padding vertical (top - bottom) of the select control in size m
+     * @cssprop --wcs-select-control-autocomplete-padding-vertical-l - Padding vertical (top - bottom) of the select control in size l
+     * @cssprop --wcs-select-control-padding-horizontal-m - Padding horizontal (left - right) in medium size
+     * @cssprop --wcs-select-control-padding-horizontal-l - Padding horizontal (left - right) in large size
+     * @cssprop --wcs-select-control-font-size-m - Font size of the select in size m
+     * @cssprop --wcs-select-control-font-size-l - Font size of the select in size m
+     * @cssprop --wcs-select-control-chip-color-default - Color default of the select chip
+     * @cssprop --wcs-select-control-chip-color-disabled - Color disabled of the select chip
+     * @cssprop --wcs-select-control-chip-background-color-default - Background color default of the select chip
+     * @cssprop --wcs-select-control-chip-background-color-disabled - Disabled background color of the select chip
+     * @cssprop --wcs-select-control-chip-padding-vertical - Padding vertical (top - bottom) of the select chip
+     * @cssprop --wcs-select-control-chip-padding-horizontal - Padding horizontal (left - right) of the select chip
+     * @cssprop --wcs-select-control-chip-line-height - Line height of the select chip
+     * @cssprop --wcs-select-control-chip-border-radius - Border radius of the select chip
+     * @cssprop --wcs-select-overlay-max-height - Max height of the select overlay
+     * @cssprop --wcs-select-overlay-background-color - Background color of the select overlay
+     * @cssprop --wcs-select-overlay-border-width - Border width of the select overlay
+     * @cssprop --wcs-select-overlay-border-color - Border color of the select overlay
+     * @cssprop --wcs-select-overlay-border-radius - Border radius of the overlay
      */
     interface WcsSelect {
         /**
@@ -1228,6 +1272,25 @@ export namespace Components {
     }
     /**
      * The select option is a subcomponent of `wcs-select` that represents a single option in a select list.
+     * @cssprop --wcs-select-option-background-color-default - Default background color of the option
+     * @cssprop --wcs-select-option-background-color-hover - Background color of the option when hovered
+     * @cssprop --wcs-select-option-background-color-selected - Background color of the option when selected
+     * @cssprop --wcs-select-option-background-color-focus - Background color of the option when focused
+     * @cssprop --wcs-select-option-border-color-focus - Border color for autocomplete mode
+     * @cssprop --wcs-select-option-border-width-focus - Border width for autocomplete mode
+     * @cssprop --wcs-select-option-border-style-focus - Border style of the option when focused
+     * @cssprop --wcs-select-option-height - Height of the option
+     * @cssprop --wcs-select-option-padding-horizontal - Horizontal padding of the option
+     * @cssprop --wcs-select-option-padding-vertical - Vertical padding of the option
+     * @cssprop --wcs-select-option-text-font-size - Font size of the option text
+     * @cssprop --wcs-select-option-text-font-weight - Font weight of the option text
+     * @cssprop --wcs-select-option-text-color-default - Default color of the option text
+     * @cssprop --wcs-select-option-text-color-focus - Color of the option text when focused
+     * @cssprop --wcs-select-option-text-color-hover - Color of the option text when hovered
+     * @cssprop --wcs-select-option-text-color-selected - Color of the option text when selected
+     * @cssprop --wcs-select-option-ripple-color - Color of the ripple effect
+     * @cssprop --wcs-select-option-checkbox-color - Color of the checkbox
+     * @cssprop --wcs-select-option-gap - Gap between the checkbox and the text
      */
     interface WcsSelectOption {
         /**
@@ -2586,6 +2649,50 @@ declare global {
      * The select component (also named combobox) is a form component that allows users to select one or more options
      * from a list.
      * Use it with several slotted `wcs-select-option` inside.
+     * @cssprop --wcs-select-control-arrow-color - Color of the select arrow
+     * @cssprop --wcs-select-control-arrow-color-disabled - Color of the select arrow when disabled
+     * @cssprop --wcs-select-control-background-color - Background color of the select control
+     * @cssprop --wcs-select-control-ripple-color - Ripple color of the select control
+     * @cssprop --wcs-select-control-line-height - Line height of the select control
+     * @cssprop --wcs-select-control-border-radius - Border radius of the select control
+     * @cssprop --wcs-select-control-border-width - Border width of the select control when not focused
+     * @cssprop --wcs-select-control-border-width-active - Border width of the select control when active
+     * @cssprop --wcs-select-control-border-width-focus - Border width of the select control when focused
+     * @cssprop --wcs-select-control-border-color-default - Border color of the select control when not focused
+     * @cssprop --wcs-select-control-border-color-error - Border color of the select control when error
+     * @cssprop --wcs-select-control-border-color-active - Border color of the select control when active (select is opened)
+     * @cssprop --wcs-select-control-border-color-focus - Border color of the select control when focused (not opened, but the control is focused)
+     * @cssprop --wcs-select-value-color - Text color of the select value when not focused
+     * @cssprop --wcs-select-value-font-weight - Font weight of the select value
+     * @cssprop --wcs-select-placeholder-color - Text color of the select placeholder
+     * @cssprop --wcs-select-placeholder-font-weight - Font weight of the select placeholder
+     * @cssprop --wcs-select-placeholder-font-style - Font style of the select placeholder
+     * @cssprop --wcs-select-text-color-disabled - Text color of the select when disabled
+     * @cssprop --wcs-select-control-border-style-default - Border style of the select control when not focused
+     * @cssprop --wcs-select-control-border-style-focus - Border style of the select control when focused
+     * @cssprop --wcs-select-control-border-style-error - Border style of the select control when error
+     * @cssprop --wcs-select-control-chips-gap - Gap between chips (only in multiple mode)
+     * @cssprop --wcs-select-control-height-m - Height of the select control in medium size
+     * @cssprop --wcs-select-control-height-l - Height of the select control in large size
+     * @cssprop --wcs-select-control-autocomplete-padding-vertical-m - Padding vertical (top - bottom) of the select control in size m
+     * @cssprop --wcs-select-control-autocomplete-padding-vertical-l - Padding vertical (top - bottom) of the select control in size l
+     * @cssprop --wcs-select-control-padding-horizontal-m - Padding horizontal (left - right) in medium size
+     * @cssprop --wcs-select-control-padding-horizontal-l - Padding horizontal (left - right) in large size
+     * @cssprop --wcs-select-control-font-size-m - Font size of the select in size m
+     * @cssprop --wcs-select-control-font-size-l - Font size of the select in size m
+     * @cssprop --wcs-select-control-chip-color-default - Color default of the select chip
+     * @cssprop --wcs-select-control-chip-color-disabled - Color disabled of the select chip
+     * @cssprop --wcs-select-control-chip-background-color-default - Background color default of the select chip
+     * @cssprop --wcs-select-control-chip-background-color-disabled - Disabled background color of the select chip
+     * @cssprop --wcs-select-control-chip-padding-vertical - Padding vertical (top - bottom) of the select chip
+     * @cssprop --wcs-select-control-chip-padding-horizontal - Padding horizontal (left - right) of the select chip
+     * @cssprop --wcs-select-control-chip-line-height - Line height of the select chip
+     * @cssprop --wcs-select-control-chip-border-radius - Border radius of the select chip
+     * @cssprop --wcs-select-overlay-max-height - Max height of the select overlay
+     * @cssprop --wcs-select-overlay-background-color - Background color of the select overlay
+     * @cssprop --wcs-select-overlay-border-width - Border width of the select overlay
+     * @cssprop --wcs-select-overlay-border-color - Border color of the select overlay
+     * @cssprop --wcs-select-overlay-border-radius - Border radius of the overlay
      */
     interface HTMLWcsSelectElement extends Components.WcsSelect, HTMLStencilElement {
         addEventListener<K extends keyof HTMLWcsSelectElementEventMap>(type: K, listener: (this: HTMLWcsSelectElement, ev: WcsSelectCustomEvent<HTMLWcsSelectElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2606,6 +2713,25 @@ declare global {
     }
     /**
      * The select option is a subcomponent of `wcs-select` that represents a single option in a select list.
+     * @cssprop --wcs-select-option-background-color-default - Default background color of the option
+     * @cssprop --wcs-select-option-background-color-hover - Background color of the option when hovered
+     * @cssprop --wcs-select-option-background-color-selected - Background color of the option when selected
+     * @cssprop --wcs-select-option-background-color-focus - Background color of the option when focused
+     * @cssprop --wcs-select-option-border-color-focus - Border color for autocomplete mode
+     * @cssprop --wcs-select-option-border-width-focus - Border width for autocomplete mode
+     * @cssprop --wcs-select-option-border-style-focus - Border style of the option when focused
+     * @cssprop --wcs-select-option-height - Height of the option
+     * @cssprop --wcs-select-option-padding-horizontal - Horizontal padding of the option
+     * @cssprop --wcs-select-option-padding-vertical - Vertical padding of the option
+     * @cssprop --wcs-select-option-text-font-size - Font size of the option text
+     * @cssprop --wcs-select-option-text-font-weight - Font weight of the option text
+     * @cssprop --wcs-select-option-text-color-default - Default color of the option text
+     * @cssprop --wcs-select-option-text-color-focus - Color of the option text when focused
+     * @cssprop --wcs-select-option-text-color-hover - Color of the option text when hovered
+     * @cssprop --wcs-select-option-text-color-selected - Color of the option text when selected
+     * @cssprop --wcs-select-option-ripple-color - Color of the ripple effect
+     * @cssprop --wcs-select-option-checkbox-color - Color of the checkbox
+     * @cssprop --wcs-select-option-gap - Gap between the checkbox and the text
      */
     interface HTMLWcsSelectOptionElement extends Components.WcsSelectOption, HTMLStencilElement {
         addEventListener<K extends keyof HTMLWcsSelectOptionElementEventMap>(type: K, listener: (this: HTMLWcsSelectOptionElement, ev: WcsSelectOptionCustomEvent<HTMLWcsSelectOptionElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -4039,6 +4165,50 @@ declare namespace LocalJSX {
      * The select component (also named combobox) is a form component that allows users to select one or more options
      * from a list.
      * Use it with several slotted `wcs-select-option` inside.
+     * @cssprop --wcs-select-control-arrow-color - Color of the select arrow
+     * @cssprop --wcs-select-control-arrow-color-disabled - Color of the select arrow when disabled
+     * @cssprop --wcs-select-control-background-color - Background color of the select control
+     * @cssprop --wcs-select-control-ripple-color - Ripple color of the select control
+     * @cssprop --wcs-select-control-line-height - Line height of the select control
+     * @cssprop --wcs-select-control-border-radius - Border radius of the select control
+     * @cssprop --wcs-select-control-border-width - Border width of the select control when not focused
+     * @cssprop --wcs-select-control-border-width-active - Border width of the select control when active
+     * @cssprop --wcs-select-control-border-width-focus - Border width of the select control when focused
+     * @cssprop --wcs-select-control-border-color-default - Border color of the select control when not focused
+     * @cssprop --wcs-select-control-border-color-error - Border color of the select control when error
+     * @cssprop --wcs-select-control-border-color-active - Border color of the select control when active (select is opened)
+     * @cssprop --wcs-select-control-border-color-focus - Border color of the select control when focused (not opened, but the control is focused)
+     * @cssprop --wcs-select-value-color - Text color of the select value when not focused
+     * @cssprop --wcs-select-value-font-weight - Font weight of the select value
+     * @cssprop --wcs-select-placeholder-color - Text color of the select placeholder
+     * @cssprop --wcs-select-placeholder-font-weight - Font weight of the select placeholder
+     * @cssprop --wcs-select-placeholder-font-style - Font style of the select placeholder
+     * @cssprop --wcs-select-text-color-disabled - Text color of the select when disabled
+     * @cssprop --wcs-select-control-border-style-default - Border style of the select control when not focused
+     * @cssprop --wcs-select-control-border-style-focus - Border style of the select control when focused
+     * @cssprop --wcs-select-control-border-style-error - Border style of the select control when error
+     * @cssprop --wcs-select-control-chips-gap - Gap between chips (only in multiple mode)
+     * @cssprop --wcs-select-control-height-m - Height of the select control in medium size
+     * @cssprop --wcs-select-control-height-l - Height of the select control in large size
+     * @cssprop --wcs-select-control-autocomplete-padding-vertical-m - Padding vertical (top - bottom) of the select control in size m
+     * @cssprop --wcs-select-control-autocomplete-padding-vertical-l - Padding vertical (top - bottom) of the select control in size l
+     * @cssprop --wcs-select-control-padding-horizontal-m - Padding horizontal (left - right) in medium size
+     * @cssprop --wcs-select-control-padding-horizontal-l - Padding horizontal (left - right) in large size
+     * @cssprop --wcs-select-control-font-size-m - Font size of the select in size m
+     * @cssprop --wcs-select-control-font-size-l - Font size of the select in size m
+     * @cssprop --wcs-select-control-chip-color-default - Color default of the select chip
+     * @cssprop --wcs-select-control-chip-color-disabled - Color disabled of the select chip
+     * @cssprop --wcs-select-control-chip-background-color-default - Background color default of the select chip
+     * @cssprop --wcs-select-control-chip-background-color-disabled - Disabled background color of the select chip
+     * @cssprop --wcs-select-control-chip-padding-vertical - Padding vertical (top - bottom) of the select chip
+     * @cssprop --wcs-select-control-chip-padding-horizontal - Padding horizontal (left - right) of the select chip
+     * @cssprop --wcs-select-control-chip-line-height - Line height of the select chip
+     * @cssprop --wcs-select-control-chip-border-radius - Border radius of the select chip
+     * @cssprop --wcs-select-overlay-max-height - Max height of the select overlay
+     * @cssprop --wcs-select-overlay-background-color - Background color of the select overlay
+     * @cssprop --wcs-select-overlay-border-width - Border width of the select overlay
+     * @cssprop --wcs-select-overlay-border-color - Border color of the select overlay
+     * @cssprop --wcs-select-overlay-border-radius - Border radius of the overlay
      */
     interface WcsSelect {
         /**
@@ -4104,6 +4274,25 @@ declare namespace LocalJSX {
     }
     /**
      * The select option is a subcomponent of `wcs-select` that represents a single option in a select list.
+     * @cssprop --wcs-select-option-background-color-default - Default background color of the option
+     * @cssprop --wcs-select-option-background-color-hover - Background color of the option when hovered
+     * @cssprop --wcs-select-option-background-color-selected - Background color of the option when selected
+     * @cssprop --wcs-select-option-background-color-focus - Background color of the option when focused
+     * @cssprop --wcs-select-option-border-color-focus - Border color for autocomplete mode
+     * @cssprop --wcs-select-option-border-width-focus - Border width for autocomplete mode
+     * @cssprop --wcs-select-option-border-style-focus - Border style of the option when focused
+     * @cssprop --wcs-select-option-height - Height of the option
+     * @cssprop --wcs-select-option-padding-horizontal - Horizontal padding of the option
+     * @cssprop --wcs-select-option-padding-vertical - Vertical padding of the option
+     * @cssprop --wcs-select-option-text-font-size - Font size of the option text
+     * @cssprop --wcs-select-option-text-font-weight - Font weight of the option text
+     * @cssprop --wcs-select-option-text-color-default - Default color of the option text
+     * @cssprop --wcs-select-option-text-color-focus - Color of the option text when focused
+     * @cssprop --wcs-select-option-text-color-hover - Color of the option text when hovered
+     * @cssprop --wcs-select-option-text-color-selected - Color of the option text when selected
+     * @cssprop --wcs-select-option-ripple-color - Color of the ripple effect
+     * @cssprop --wcs-select-option-checkbox-color - Color of the checkbox
+     * @cssprop --wcs-select-option-gap - Gap between the checkbox and the text
      */
     interface WcsSelectOption {
         /**
@@ -4988,10 +5177,73 @@ declare module "@stencil/core" {
              * The select component (also named combobox) is a form component that allows users to select one or more options
              * from a list.
              * Use it with several slotted `wcs-select-option` inside.
+             * @cssprop --wcs-select-control-arrow-color - Color of the select arrow
+             * @cssprop --wcs-select-control-arrow-color-disabled - Color of the select arrow when disabled
+             * @cssprop --wcs-select-control-background-color - Background color of the select control
+             * @cssprop --wcs-select-control-ripple-color - Ripple color of the select control
+             * @cssprop --wcs-select-control-line-height - Line height of the select control
+             * @cssprop --wcs-select-control-border-radius - Border radius of the select control
+             * @cssprop --wcs-select-control-border-width - Border width of the select control when not focused
+             * @cssprop --wcs-select-control-border-width-active - Border width of the select control when active
+             * @cssprop --wcs-select-control-border-width-focus - Border width of the select control when focused
+             * @cssprop --wcs-select-control-border-color-default - Border color of the select control when not focused
+             * @cssprop --wcs-select-control-border-color-error - Border color of the select control when error
+             * @cssprop --wcs-select-control-border-color-active - Border color of the select control when active (select is opened)
+             * @cssprop --wcs-select-control-border-color-focus - Border color of the select control when focused (not opened, but the control is focused)
+             * @cssprop --wcs-select-value-color - Text color of the select value when not focused
+             * @cssprop --wcs-select-value-font-weight - Font weight of the select value
+             * @cssprop --wcs-select-placeholder-color - Text color of the select placeholder
+             * @cssprop --wcs-select-placeholder-font-weight - Font weight of the select placeholder
+             * @cssprop --wcs-select-placeholder-font-style - Font style of the select placeholder
+             * @cssprop --wcs-select-text-color-disabled - Text color of the select when disabled
+             * @cssprop --wcs-select-control-border-style-default - Border style of the select control when not focused
+             * @cssprop --wcs-select-control-border-style-focus - Border style of the select control when focused
+             * @cssprop --wcs-select-control-border-style-error - Border style of the select control when error
+             * @cssprop --wcs-select-control-chips-gap - Gap between chips (only in multiple mode)
+             * @cssprop --wcs-select-control-height-m - Height of the select control in medium size
+             * @cssprop --wcs-select-control-height-l - Height of the select control in large size
+             * @cssprop --wcs-select-control-autocomplete-padding-vertical-m - Padding vertical (top - bottom) of the select control in size m
+             * @cssprop --wcs-select-control-autocomplete-padding-vertical-l - Padding vertical (top - bottom) of the select control in size l
+             * @cssprop --wcs-select-control-padding-horizontal-m - Padding horizontal (left - right) in medium size
+             * @cssprop --wcs-select-control-padding-horizontal-l - Padding horizontal (left - right) in large size
+             * @cssprop --wcs-select-control-font-size-m - Font size of the select in size m
+             * @cssprop --wcs-select-control-font-size-l - Font size of the select in size m
+             * @cssprop --wcs-select-control-chip-color-default - Color default of the select chip
+             * @cssprop --wcs-select-control-chip-color-disabled - Color disabled of the select chip
+             * @cssprop --wcs-select-control-chip-background-color-default - Background color default of the select chip
+             * @cssprop --wcs-select-control-chip-background-color-disabled - Disabled background color of the select chip
+             * @cssprop --wcs-select-control-chip-padding-vertical - Padding vertical (top - bottom) of the select chip
+             * @cssprop --wcs-select-control-chip-padding-horizontal - Padding horizontal (left - right) of the select chip
+             * @cssprop --wcs-select-control-chip-line-height - Line height of the select chip
+             * @cssprop --wcs-select-control-chip-border-radius - Border radius of the select chip
+             * @cssprop --wcs-select-overlay-max-height - Max height of the select overlay
+             * @cssprop --wcs-select-overlay-background-color - Background color of the select overlay
+             * @cssprop --wcs-select-overlay-border-width - Border width of the select overlay
+             * @cssprop --wcs-select-overlay-border-color - Border color of the select overlay
+             * @cssprop --wcs-select-overlay-border-radius - Border radius of the overlay
              */
             "wcs-select": LocalJSX.WcsSelect & JSXBase.HTMLAttributes<HTMLWcsSelectElement>;
             /**
              * The select option is a subcomponent of `wcs-select` that represents a single option in a select list.
+             * @cssprop --wcs-select-option-background-color-default - Default background color of the option
+             * @cssprop --wcs-select-option-background-color-hover - Background color of the option when hovered
+             * @cssprop --wcs-select-option-background-color-selected - Background color of the option when selected
+             * @cssprop --wcs-select-option-background-color-focus - Background color of the option when focused
+             * @cssprop --wcs-select-option-border-color-focus - Border color for autocomplete mode
+             * @cssprop --wcs-select-option-border-width-focus - Border width for autocomplete mode
+             * @cssprop --wcs-select-option-border-style-focus - Border style of the option when focused
+             * @cssprop --wcs-select-option-height - Height of the option
+             * @cssprop --wcs-select-option-padding-horizontal - Horizontal padding of the option
+             * @cssprop --wcs-select-option-padding-vertical - Vertical padding of the option
+             * @cssprop --wcs-select-option-text-font-size - Font size of the option text
+             * @cssprop --wcs-select-option-text-font-weight - Font weight of the option text
+             * @cssprop --wcs-select-option-text-color-default - Default color of the option text
+             * @cssprop --wcs-select-option-text-color-focus - Color of the option text when focused
+             * @cssprop --wcs-select-option-text-color-hover - Color of the option text when hovered
+             * @cssprop --wcs-select-option-text-color-selected - Color of the option text when selected
+             * @cssprop --wcs-select-option-ripple-color - Color of the ripple effect
+             * @cssprop --wcs-select-option-checkbox-color - Color of the checkbox
+             * @cssprop --wcs-select-option-gap - Gap between the checkbox and the text
              */
             "wcs-select-option": LocalJSX.WcsSelectOption & JSXBase.HTMLAttributes<HTMLWcsSelectOptionElement>;
             /**

@@ -2372,6 +2372,44 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/card-body/card-body.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The card-body is a subcomponent of `wcs-card`. It represents content of the card with an extra padding around.",
+          "name": "CardBody",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-card-body",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CardBody",
+          "declaration": {
+            "name": "CardBody",
+            "module": "components/card-body/card-body.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-card-body",
+          "declaration": {
+            "name": "CardBody",
+            "module": "components/card-body/card-body.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/card/card-interface.ts",
       "declarations": [],
       "exports": []
@@ -2427,44 +2465,6 @@
           "declaration": {
             "name": "Card",
             "module": "components/card/card.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/card-body/card-body.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The card-body is a subcomponent of `wcs-card`. It represents content of the card with an extra padding around.",
-          "name": "CardBody",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-card-body",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "CardBody",
-          "declaration": {
-            "name": "CardBody",
-            "module": "components/card-body/card-body.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-card-body",
-          "declaration": {
-            "name": "CardBody",
-            "module": "components/card-body/card-body.tsx"
           }
         }
       ]
@@ -2608,6 +2608,10 @@
                   }
                 }
               ]
+            },
+            {
+              "kind": "method",
+              "name": "onSlotChange"
             },
             {
               "kind": "method",
@@ -4966,44 +4970,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/field-content/field-content.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The field-content is a subcomponent of `wcs-field`. It represents the text content of the field.",
-          "name": "FieldContent",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-field-content",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "FieldContent",
-          "declaration": {
-            "name": "FieldContent",
-            "module": "components/field-content/field-content.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-field-content",
-          "declaration": {
-            "name": "FieldContent",
-            "module": "components/field-content/field-content.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/field-label/field-label.tsx",
       "declarations": [
         {
@@ -5036,6 +5002,44 @@
           "declaration": {
             "name": "FieldLabel",
             "module": "components/field-label/field-label.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/field-content/field-content.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The field-content is a subcomponent of `wcs-field`. It represents the text content of the field.",
+          "name": "FieldContent",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-field-content",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "FieldContent",
+          "declaration": {
+            "name": "FieldContent",
+            "module": "components/field-content/field-content.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-field-content",
+          "declaration": {
+            "name": "FieldContent",
+            "module": "components/field-content/field-content.tsx"
           }
         }
       ]
@@ -10573,6 +10577,184 @@
           "kind": "class",
           "description": "The select component (also named combobox) is a form component that allows users to select one or more options\r\nfrom a list.\r\nUse it with several slotted `wcs-select-option` inside.",
           "name": "Select",
+          "cssProperties": [
+            {
+              "description": "Color of the select arrow",
+              "name": "--wcs-select-control-arrow-color"
+            },
+            {
+              "description": "Color of the select arrow when disabled",
+              "name": "--wcs-select-control-arrow-color-disabled"
+            },
+            {
+              "description": "Background color of the select control",
+              "name": "--wcs-select-control-background-color"
+            },
+            {
+              "description": "Ripple color of the select control",
+              "name": "--wcs-select-control-ripple-color"
+            },
+            {
+              "description": "Line height of the select control",
+              "name": "--wcs-select-control-line-height"
+            },
+            {
+              "description": "Border radius of the select control",
+              "name": "--wcs-select-control-border-radius"
+            },
+            {
+              "description": "Border width of the select control when not focused",
+              "name": "--wcs-select-control-border-width"
+            },
+            {
+              "description": "Border width of the select control when active",
+              "name": "--wcs-select-control-border-width-active"
+            },
+            {
+              "description": "Border width of the select control when focused",
+              "name": "--wcs-select-control-border-width-focus"
+            },
+            {
+              "description": "Border color of the select control when not focused",
+              "name": "--wcs-select-control-border-color-default"
+            },
+            {
+              "description": "Border color of the select control when error",
+              "name": "--wcs-select-control-border-color-error"
+            },
+            {
+              "description": "Border color of the select control when active (select is opened)",
+              "name": "--wcs-select-control-border-color-active"
+            },
+            {
+              "description": "Border color of the select control when focused (not opened, but the control is focused)",
+              "name": "--wcs-select-control-border-color-focus"
+            },
+            {
+              "description": "Text color of the select value when not focused",
+              "name": "--wcs-select-value-color"
+            },
+            {
+              "description": "Font weight of the select value",
+              "name": "--wcs-select-value-font-weight"
+            },
+            {
+              "description": "Text color of the select placeholder",
+              "name": "--wcs-select-placeholder-color"
+            },
+            {
+              "description": "Font weight of the select placeholder",
+              "name": "--wcs-select-placeholder-font-weight"
+            },
+            {
+              "description": "Font style of the select placeholder",
+              "name": "--wcs-select-placeholder-font-style"
+            },
+            {
+              "description": "Text color of the select when disabled",
+              "name": "--wcs-select-text-color-disabled"
+            },
+            {
+              "description": "Border style of the select control when not focused",
+              "name": "--wcs-select-control-border-style-default"
+            },
+            {
+              "description": "Border style of the select control when focused",
+              "name": "--wcs-select-control-border-style-focus"
+            },
+            {
+              "description": "Border style of the select control when error",
+              "name": "--wcs-select-control-border-style-error"
+            },
+            {
+              "description": "Gap between chips (only in multiple mode)",
+              "name": "--wcs-select-control-chips-gap"
+            },
+            {
+              "description": "Height of the select control in medium size",
+              "name": "--wcs-select-control-height-m"
+            },
+            {
+              "description": "Height of the select control in large size",
+              "name": "--wcs-select-control-height-l"
+            },
+            {
+              "description": "Padding vertical (top - bottom) of the select control in size m",
+              "name": "--wcs-select-control-autocomplete-padding-vertical-m"
+            },
+            {
+              "description": "Padding vertical (top - bottom) of the select control in size l",
+              "name": "--wcs-select-control-autocomplete-padding-vertical-l"
+            },
+            {
+              "description": "Padding horizontal (left - right) in medium size",
+              "name": "--wcs-select-control-padding-horizontal-m"
+            },
+            {
+              "description": "Padding horizontal (left - right) in large size",
+              "name": "--wcs-select-control-padding-horizontal-l"
+            },
+            {
+              "description": "Font size of the select in size m",
+              "name": "--wcs-select-control-font-size-m"
+            },
+            {
+              "description": "Font size of the select in size m",
+              "name": "--wcs-select-control-font-size-l"
+            },
+            {
+              "description": "Color default of the select chip",
+              "name": "--wcs-select-control-chip-color-default"
+            },
+            {
+              "description": "Color disabled of the select chip",
+              "name": "--wcs-select-control-chip-color-disabled"
+            },
+            {
+              "description": "Background color default of the select chip",
+              "name": "--wcs-select-control-chip-background-color-default"
+            },
+            {
+              "description": "Disabled background color of the select chip",
+              "name": "--wcs-select-control-chip-background-color-disabled"
+            },
+            {
+              "description": "Padding vertical (top - bottom) of the select chip",
+              "name": "--wcs-select-control-chip-padding-vertical"
+            },
+            {
+              "description": "Padding horizontal (left - right) of the select chip",
+              "name": "--wcs-select-control-chip-padding-horizontal"
+            },
+            {
+              "description": "Line height of the select chip",
+              "name": "--wcs-select-control-chip-line-height"
+            },
+            {
+              "description": "Border radius of the select chip",
+              "name": "--wcs-select-control-chip-border-radius"
+            },
+            {
+              "description": "Max height of the select overlay",
+              "name": "--wcs-select-overlay-max-height"
+            },
+            {
+              "description": "Background color of the select overlay",
+              "name": "--wcs-select-overlay-background-color"
+            },
+            {
+              "description": "Border width of the select overlay",
+              "name": "--wcs-select-overlay-border-width"
+            },
+            {
+              "description": "Border color of the select overlay",
+              "name": "--wcs-select-overlay-border-color"
+            },
+            {
+              "description": "Border radius of the overlay",
+              "name": "--wcs-select-overlay-border-radius"
+            }
+          ],
           "slots": [
             {
               "description": "Contains the customizable \"No result found\" div (autocomplete mode only).",
@@ -11474,6 +11656,84 @@
           "kind": "class",
           "description": "The select option is a subcomponent of `wcs-select` that represents a single option in a select list.",
           "name": "SelectOption",
+          "cssProperties": [
+            {
+              "description": "Default background color of the option",
+              "name": "--wcs-select-option-background-color-default"
+            },
+            {
+              "description": "Background color of the option when hovered",
+              "name": "--wcs-select-option-background-color-hover"
+            },
+            {
+              "description": "Background color of the option when selected",
+              "name": "--wcs-select-option-background-color-selected"
+            },
+            {
+              "description": "Background color of the option when focused",
+              "name": "--wcs-select-option-background-color-focus"
+            },
+            {
+              "description": "Border color for autocomplete mode",
+              "name": "--wcs-select-option-border-color-focus"
+            },
+            {
+              "description": "Border width for autocomplete mode",
+              "name": "--wcs-select-option-border-width-focus"
+            },
+            {
+              "description": "Border style of the option when focused",
+              "name": "--wcs-select-option-border-style-focus"
+            },
+            {
+              "description": "Height of the option",
+              "name": "--wcs-select-option-height"
+            },
+            {
+              "description": "Horizontal padding of the option",
+              "name": "--wcs-select-option-padding-horizontal"
+            },
+            {
+              "description": "Vertical padding of the option",
+              "name": "--wcs-select-option-padding-vertical"
+            },
+            {
+              "description": "Font size of the option text",
+              "name": "--wcs-select-option-text-font-size"
+            },
+            {
+              "description": "Font weight of the option text",
+              "name": "--wcs-select-option-text-font-weight"
+            },
+            {
+              "description": "Default color of the option text",
+              "name": "--wcs-select-option-text-color-default"
+            },
+            {
+              "description": "Color of the option text when focused",
+              "name": "--wcs-select-option-text-color-focus"
+            },
+            {
+              "description": "Color of the option text when hovered",
+              "name": "--wcs-select-option-text-color-hover"
+            },
+            {
+              "description": "Color of the option text when selected",
+              "name": "--wcs-select-option-text-color-selected"
+            },
+            {
+              "description": "Color of the ripple effect",
+              "name": "--wcs-select-option-ripple-color"
+            },
+            {
+              "description": "Color of the checkbox",
+              "name": "--wcs-select-option-checkbox-color"
+            },
+            {
+              "description": "Gap between the checkbox and the text",
+              "name": "--wcs-select-option-gap"
+            }
+          ],
           "members": [
             {
               "kind": "field",
@@ -12185,76 +12445,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/tab/tab.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Tab content component.\r\nUse this component to specify the content of a component.",
-          "name": "Tab",
-          "members": [
-            {
-              "kind": "field",
-              "name": "header",
-              "type": {
-                "text": "string"
-              },
-              "description": "The header you want to be displayed for this tab."
-            },
-            {
-              "kind": "field",
-              "name": "itemKey",
-              "type": {
-                "text": "any"
-              },
-              "description": "The id of the tab. It should be unique."
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "header",
-              "fieldName": "header",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "item-key",
-              "fieldName": "itemKey",
-              "type": {
-                "text": "any"
-              }
-            }
-          ],
-          "tagName": "wcs-tab",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Tab",
-          "declaration": {
-            "name": "Tab",
-            "module": "components/tab/tab.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-tab",
-          "declaration": {
-            "name": "Tab",
-            "module": "components/tab/tab.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/tabs/tabs-interface.ts",
       "declarations": [],
       "exports": []
@@ -12594,6 +12784,76 @@
           "declaration": {
             "name": "Tabs",
             "module": "components/tabs/tabs.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/tab/tab.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Tab content component.\r\nUse this component to specify the content of a component.",
+          "name": "Tab",
+          "members": [
+            {
+              "kind": "field",
+              "name": "header",
+              "type": {
+                "text": "string"
+              },
+              "description": "The header you want to be displayed for this tab."
+            },
+            {
+              "kind": "field",
+              "name": "itemKey",
+              "type": {
+                "text": "any"
+              },
+              "description": "The id of the tab. It should be unique."
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "header",
+              "fieldName": "header",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "item-key",
+              "fieldName": "itemKey",
+              "type": {
+                "text": "any"
+              }
+            }
+          ],
+          "tagName": "wcs-tab",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Tab",
+          "declaration": {
+            "name": "Tab",
+            "module": "components/tab/tab.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-tab",
+          "declaration": {
+            "name": "Tab",
+            "module": "components/tab/tab.tsx"
           }
         }
       ]

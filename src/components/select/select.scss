@@ -1,20 +1,87 @@
 @import '../../style/ripple.scss';
-@import '../../style/focus-outline.scss';
 @import '../../style/placeholder.scss';
 
 :host {
-    --wcs-select-ligther-percentage: 40;
-    --wcs-select-border-radius: var(--wcs-border-radius);
-    --wcs-select-background-color: var(--wcs-light);
-    --wcs-select-placeholder-color: var(--wcs-text-medium);
+    // region to be removed before migration to design tokens
+    // Global
+    --wcs-select-ligther-percentage: 40; // TODO: view to migrate to design tokens later (used on 'close' icon of a chip)
+
+    --wcs-select-text-color-disabled: var(--wcs-text-disabled);
     --wcs-select-value-color: var(--wcs-primary);
-    --wcs-select-border-color: transparent;
-    --wcs-select-outline-color: var(--wcs-primary);
+    --wcs-select-value-font-weight: 500;
+
+    --wcs-select-placeholder-color: var(--wcs-text-medium);
+    --wcs-select-placeholder-font-weight: 400;
+    --wcs-select-placeholder-font-style: italic;
+
+    // Control
+    --wcs-select-control-border-radius: var(--wcs-border-radius);
+    --wcs-select-control-line-height: 1.5;
+
+    --wcs-select-control-background-color: var(--wcs-light);
+    --wcs-select-control-ripple-color: #999;
+
+    --wcs-select-control-arrow-color: var(--wcs-primary);
+    --wcs-select-control-arrow-color-disabled: var(--wcs-text-disabled);
+
+    --wcs-select-control-chips-gap: 4px;
+
+    --wcs-select-control-border-color-default: transparent;
+    --wcs-select-control-border-color-active: var(--wcs-text-light);
+    --wcs-select-control-border-color-focus: var(--wcs-primary);
+    --wcs-select-control-border-color-error: var(--wcs-red);
+
+    --wcs-select-control-border-style-default: solid;
+    --wcs-select-control-border-style-focus: dashed;
+    --wcs-select-control-border-style-error: solid;
+
+    --wcs-internal-control-border-width: var(--wcs-select-control-border-width);
+    --wcs-select-control-border-width: 2px;
+    --wcs-select-control-border-width-active: 1px;
+    --wcs-select-control-border-width-focus: 2px;
+
+    --wcs-select-control-padding-horizontal-m: var(--wcs-padding);
+    --wcs-select-control-padding-horizontal-l: var(--wcs-padding);
+
+    --wcs-select-control-height: 40px;
+    --wcs-select-control-height-m: var(--wcs-size-m);
+    --wcs-select-control-height-l: var(--wcs-size-l);
+    --wcs-internal-select-chip-size: var(--wcs-size-s);
+    --wcs-select-chip-size-m: calc(var(--wcs-size-s) - 2px);
+    --wcs-select-chip-size-l: var(--wcs-size-s);
+    --wcs-select-control-font-size: var(--wcs-select-control-font-size-m, 1rem);
+    --wcs-select-control-font-size-m: 1rem;
+    --wcs-select-control-font-size-l: 1.0625rem;
+
+    // Overlay
     --wcs-select-overlay-max-height: 360px;
-    --wcs-select-option-height: var(--wcs-size-m);
-    --wcs-select-border-width: 1px;
+    --wcs-select-overlay-background-color: var(--wcs-white);
+    --wcs-select-overlay-border-width: 1px;
+    --wcs-select-overlay-border-color: var(--wcs-text-light);
+    --wcs-select-overlay-border-radius: var(--wcs-border-radius);
+
+    // Chips
+    --wcs-select-control-chip-color-default: var(--wcs-contrast);
+    --wcs-select-control-chip-color-disabled: var(--wcs-text-disabled);
+    --wcs-select-control-chip-background-color-default: var(--wcs-base);
+    --wcs-select-control-chip-background-color-disabled: #E3E3E3;
+    --wcs-select-control-chip-padding-vertical: calc(calc(var(--wcs-padding) - 8px) / 2);
+    --wcs-select-control-chip-padding-horizontal: var(--wcs-padding);
+    --wcs-select-control-chip-line-height: 1.375;
+    --wcs-select-control-chip-border-radius: 0.75rem;
+
+    // Autocomplete
+    // (select height - chips height) / 2 - border width / 2
+    --wcs-select-control-autocomplete-padding-vertical-m: calc(((var(--wcs-size-m) - var(--wcs-internal-select-chip-size)) / 2) - var(--wcs-internal-control-border-width));
+    --wcs-select-control-autocomplete-padding-vertical-l: calc(((var(--wcs-size-l) - var(--wcs-internal-select-chip-size)) / 2) - var(--wcs-internal-control-border-width));
+
+    // No Result Container
+    --wcs-select-internal-noresult-padding-horizontal: var(--wcs-margin);
+
+    // endregion
 
     display: block;
+    min-height: var(--wcs-select-control-height);
     position: relative;
     outline: none;
     user-select: none;
@@ -25,13 +92,17 @@
         flex-shrink: 0;
     }
 
+    .wcs-select-control {
+        min-height: var(--wcs-select-control-height);
+    }
+
     .arrow {
-        fill: var(--wcs-select-value-color);
+        fill: var(--wcs-select-control-arrow-color);
     }
 
     .chip {
-        fill: var(--wcs-contrast);
-        opacity: calc((100 - var(--wcs-select-ligther-percentage)) / 100);
+        fill: var(--wcs-select-control-chip-color-default);
+        opacity: calc((100 - var(--wcs-select-ligther-percentage)) / 100); // TODO, see later to migrate to design tokens
 
         &:hover {
             opacity: 100;
@@ -39,9 +110,195 @@
     }
 }
 
-:host(.expanded) {
+:host(.token-migration) {
+    // Global
+    --wcs-select-ligther-percentage: 40; // TODO: view to migrate to design tokens later (used on 'close' icon of a chip)
+    --wcs-select-control-border-radius: var(--wcs-semantic-border-radius-base);
 
-    --wcs-select-border-color: var(--wcs-text-light);
+    --wcs-select-text-color-disabled: var(--wcs-semantic-color-foreground-form-field-disabled);
+    --wcs-select-value-color: var(--wcs-semantic-color-foreground-form-field-value);
+    --wcs-select-value-font-weight: var(--wcs-semantic-font-weight-medium);
+
+    --wcs-select-placeholder-color: var(--wcs-semantic-color-foreground-form-field-placeholder);
+    --wcs-select-placeholder-font-weight: var(--wcs-semantic-font-weight-regular);
+    --wcs-select-placeholder-font-style: var(--wcs-semantic-font-style-form-field-placeholder);
+
+    // Control
+    --wcs-select-control-line-height: 1.5;
+
+    --wcs-select-control-background-color: var(--wcs-semantic-color-background-form-field-default);
+    --wcs-select-control-ripple-color: var(--wcs-semantic-color-ripple-form-field);
+
+    --wcs-select-control-arrow-color: var(--wcs-semantic-color-primary);
+    --wcs-select-control-arrow-color-disabled: var(--wcs-semantic-color-foreground-form-field-disabled);
+
+    --wcs-select-control-chips-gap: var(--wcs-semantic-spacing-small);
+
+    --wcs-select-control-border-color-default: var(--wcs-semantic-color-border-form-field-default);
+    --wcs-select-control-border-color-active: var(--wcs-semantic-color-border-form-field-active); // when the select is opened
+    --wcs-select-control-border-color-focus: var(--wcs-semantic-color-border-focus-control);
+    --wcs-select-control-border-color-error: var(--wcs-semantic-color-error);
+
+    --wcs-select-control-border-style-default: solid;
+    --wcs-select-control-border-style-error: solid;
+    --wcs-select-control-border-style-focus: var(--wcs-semantic-border-style-focus-control);
+
+    --wcs-internal-control-border-width: var(--wcs-select-control-border-width);
+    --wcs-select-control-border-width: var(--wcs-semantic-border-width-default);
+    --wcs-select-control-border-width-active: var(--wcs-semantic-border-width-large);
+    --wcs-select-control-border-width-focus: var(--wcs-semantic-border-width-large);
+
+    --wcs-select-control-padding-horizontal-m: var(--wcs-semantic-padding-size-m-horizontal);
+    --wcs-select-control-padding-horizontal-l: var(--wcs-semantic-padding-size-l-horizontal);
+
+    --wcs-select-control-height: var(--wcs-select-control-height-m);
+    --wcs-select-control-height-m: var(--wcs-semantic-size-m);
+    --wcs-select-control-height-l: var(--wcs-semantic-size-l);
+    --wcs-internal-select-chip-size: var(--wcs-semantic-size-s);
+    --wcs-select-control-font-size: var(--wcs-select-control-font-size-m, 1rem);
+    --wcs-select-control-font-size-m: var(--wcs-semantic-font-size-m);
+    --wcs-select-control-font-size-l: var(--wcs-semantic-font-size-l);
+
+    // Overlay
+    --wcs-select-overlay-max-height: var(--wcs-semantic-size-overlay-max-height);
+    --wcs-select-overlay-background-color: var(--wcs-semantic-color-background-surface-primary);
+    --wcs-select-overlay-border-width: var(--wcs-semantic-border-width-default);
+    --wcs-select-overlay-border-color: var(--wcs-semantic-color-border-surface);
+    --wcs-select-overlay-border-radius: var(--wcs-semantic-border-radius-base);
+
+    // Chips
+    --wcs-select-control-chip-color-default: var(--wcs-semantic-color-foreground-action-primary-default);
+    --wcs-select-control-chip-color-disabled: var(--wcs-semantic-color-disabled);
+    --wcs-select-control-chip-background-color-default: var(--wcs-semantic-color-background-action-primary-default);
+    --wcs-select-control-chip-background-color-disabled: var(--wcs-semantic-color-background-action-primary-disabled);
+    --wcs-select-control-chip-padding-vertical: var(--wcs-semantic-padding-size-s-vertical);
+    --wcs-select-control-chip-padding-horizontal: var(--wcs-semantic-padding-size-s-horizontal);
+    --wcs-select-control-chip-line-height: 1.375;
+    --wcs-select-control-chip-border-radius: var(--wcs-semantic-border-radius-base);
+
+    // Autocomplete
+    --wcs-select-control-autocomplete-padding-vertical-m: var(--wcs-semantic-padding-size-s-vertical);
+    --wcs-select-control-autocomplete-padding-vertical-l: var(--wcs-semantic-padding-size-s-vertical);
+
+    // No Result Container
+    --wcs-select-internal-noresult-padding-horizontal: var(--wcs-semantic-padding-size-m-horizontal);
+}
+
+@mixin select-control-outline-active {
+    outline: var(--wcs-select-control-border-width-active) var(--wcs-select-control-border-style-default) var(--wcs-select-control-border-color-active);
+    outline-offset: calc(var(--wcs-select-control-border-width-active) * -1);
+}
+
+@mixin select-control-outline-focus {
+    outline: var(--wcs-select-control-border-style-focus) var(--wcs-select-control-border-width-focus) var(--wcs-select-control-border-color-focus);
+    outline-offset: calc(var(--wcs-select-control-border-width-focus) * -1);
+}
+
+@mixin select-control-outline-error {
+    outline: var(--wcs-select-control-border-width) var(--wcs-select-control-border-style-error) var(--wcs-select-control-border-color-error);
+}
+
+.wcs-select-control {
+    box-sizing: border-box;
+
+    @include ripple;
+
+    // This property is used to set the ripple color (take inspiration from button.scss)
+    &::before,
+    &::after {
+        background-color: var(--wcs-select-control-ripple-color);
+    }
+
+    display: flex;
+    align-items: center;
+
+    background-color: var(--wcs-select-control-background-color);
+    border-radius: var(--wcs-select-control-border-radius);
+    outline: var(--wcs-select-control-border-color-default) solid var(--wcs-select-control-border-width); // because some theme might use default border
+    outline-offset: calc(var(--wcs-select-control-border-width) * -1);
+
+    font-size: var(--wcs-select-control-font-size, 1rem);
+    line-height: var(--wcs-select-control-line-height);
+    cursor: pointer;
+
+    padding-left: var(--wcs-select-control-padding-horizontal-m);
+    padding-right: calc(var(--wcs-select-control-padding-horizontal-m) - 4px); // 4px is the blank space inside the arrow svg on the right
+}
+
+label {
+    &.wcs-select-placeholder {
+        color: var(--wcs-select-placeholder-color);
+        font-style: var(--wcs-select-placeholder-font-style);
+        font-weight: var(--wcs-select-placeholder-font-weight);
+    }
+
+    &.wcs-select-value {
+        color: var(--wcs-select-value-color);
+        font-style: normal;
+        font-weight: var(--wcs-select-value-font-weight);
+    }
+
+    cursor: pointer;
+    transition: color 125ms ease-in;
+    // Hide overflowing display text
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &::after {
+        // https://stackoverflow.com/questions/51640141/font-style-italic-makes-text-protrude-from-container-cutting-off-text
+        content: '';
+        padding: 1px;
+    }
+}
+
+.wcs-select-value-container {
+    max-width: calc(100% - calc(24px + var(--wcs-base-margin))); // 24px (width of arrow svg) + 8px of padding = 32px
+    padding-right: 8px; // to avoid overflow on arrow
+
+    display: flex;
+    flex-direction: row;
+    gap: var(--wcs-select-control-chips-gap);
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.wcs-select-chip {
+    box-sizing: border-box;
+    height: var(--wcs-internal-select-chip-size);
+    line-height: var(--wcs-select-control-chip-line-height);
+    color: var(--wcs-select-control-chip-color-default);
+    background-color: var(--wcs-select-control-chip-background-color-default);
+    border-radius: var(--wcs-select-control-chip-border-radius);
+    display: flex;
+    align-items: center;
+    padding: var(--wcs-select-control-chip-padding-vertical) var(--wcs-select-control-chip-padding-horizontal);
+    overflow: initial;
+    z-index: 1;
+}
+
+.wcs-select-options {
+    display: none;
+    position: absolute;
+    z-index: 999999999;
+
+    border: solid var(--wcs-select-overlay-border-width) var(--wcs-select-overlay-border-color);
+    border-radius: var(--wcs-select-overlay-border-radius);
+
+    max-height: var(--wcs-select-overlay-max-height);
+    overflow-y: auto;
+    width: calc(100% - calc(2 * var(--wcs-select-control-border-width)));
+
+    background-color: var(--wcs-select-overlay-background-color);
+    color: var(--wcs-text-medium);
+}
+
+:host(.expanded) {
+    --wcs-internal-control-border-width: var(--wcs-select-control-border-width-active);
+
+    .wcs-select-control {
+        @include select-control-outline-active;
+    }
 
     .wcs-select-options {
         display: block;
@@ -49,15 +306,16 @@
 }
 
 :host([aria-invalid=true]) {
-    --wcs-select-outline-color: var(--wcs-red) !important;
     .wcs-select-control {
-        outline: solid 2px var(--wcs-select-outline-color);
+        @include select-control-outline-error;
     }
 }
 
 :host(:not(.expanded):focus-visible) {
+    --wcs-internal-control-border-width: var(--wcs-select-control-border-width-focus);
+
     .wcs-select-control {
-        @include focus-outline(var(--wcs-select-outline-color), var(--wcs-select-border-radius), $outline-offset: 0);
+        @include select-control-outline-focus;
     }
 }
 
@@ -71,67 +329,64 @@
     }
 
     label {
-        color: var(--wcs-text-disabled);
+        color: var(--wcs-select-text-color-disabled);
     }
 
     .arrow {
-        fill: var(--wcs-text-medium);
+        fill: var(--wcs-select-control-arrow-color-disabled);
     }
-}
 
-label {
-    padding-left: calc(var(--wcs-padding)/2 - var(--wcs-select-border-width));
-    padding-right: calc(var(--wcs-padding) - var(--wcs-select-border-width));
-    font-weight: 500;
-    cursor: pointer;
-    color: var(--wcs-select-color);
-    transition: color 125ms ease-in;
-    // Hide overflowing display text
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    .wcs-select-chip {
+        color: var(--wcs-select-control-chip-color-disabled);
+        background-color: var(--wcs-select-control-chip-background-color-disabled);
+    }
+
+    .chip {
+        fill: var(--wcs-select-control-chip-color-disabled);
+    }
 }
 
 :host([size=m]) {
-    min-height: var(--wcs-size-m);
-    --wcs-select-font-size: 1rem;
-    --wcs-internal-select-chip-size: calc(var(--wcs-size-s) - 2px);
+    --wcs-select-control-font-size: var(--wcs-select-control-font-size-m);
+    --wcs-select-control-height: var(--wcs-select-control-height-m);
+    --wcs-internal-select-chip-size: var(--wcs-select-chip-size-m);
 
     .wcs-select-control {
-        min-height: var(--wcs-size-m);
+        padding-left: var(--wcs-select-control-padding-horizontal-m);
+        padding-right: calc(var(--wcs-select-control-padding-horizontal-m) - 4px); // 4px is the blank space inside the arrow svg on the right
     }
 
-    // Autocomplete
     &:host([autocomplete]) {
         .autocomplete-field {
-            height: calc(var(--wcs-size-s) - 2px);
+            height: calc(var(--wcs-select-control-height) - var(--wcs-select-control-autocomplete-padding-vertical-m) * 2);
         }
+
         .wcs-select-value-container {
-            // (select height - chips height) / 2 - border width / 2
-            padding-top: calc(calc(calc(var(--wcs-size-m) - var(--wcs-internal-select-chip-size)) / 2) - var(--wcs-select-border-width));
-            padding-bottom: calc(calc(calc(var(--wcs-size-m) - var(--wcs-internal-select-chip-size)) / 2) - var(--wcs-select-border-width));
+            // (select height - chips height) / 2 - border width
+            padding-top: var(--wcs-select-control-autocomplete-padding-vertical-m);
+            padding-bottom: var(--wcs-select-control-autocomplete-padding-vertical-m);
         }
     }
 }
 
 :host([size=l]) {
-    min-height: var(--wcs-size-l);
-    --wcs-select-font-size: 1.0625rem;
-    --wcs-internal-select-chip-size: var(--wcs-size-s);
+    --wcs-select-control-font-size: var(--wcs-select-control-font-size-l);
+    --wcs-select-control-height: var(--wcs-select-control-height-l);
+    --wcs-internal-select-chip-size: var(--wcs-select-chip-size-l);
 
     .wcs-select-control {
-        min-height: var(--wcs-size-l);
+        padding-left: var(--wcs-select-control-padding-horizontal-l);
+        padding-right: calc(var(--wcs-select-control-padding-horizontal-l) - 4px); // 4px is the blank space inside the arrow svg on the right
     }
 
-    // Autocomplete
     &:host([autocomplete]) {
         .autocomplete-field {
-            height: var(--wcs-size-s);
+            height: calc(var(--wcs-select-control-height) - var(--wcs-select-control-autocomplete-padding-vertical-l) * 2);
         }
+
         .wcs-select-value-container {
-            // (select height - chips height) / 2 - border width / 2
-            padding-top: calc(calc(calc(var(--wcs-size-l) - var(--wcs-internal-select-chip-size)) / 2) - var(--wcs-select-border-width));
-            padding-bottom: calc(calc(calc(var(--wcs-size-l) - var(--wcs-internal-select-chip-size)) / 2) - var(--wcs-select-border-width));
+            padding-top: var(--wcs-select-control-autocomplete-padding-vertical-l);
+            padding-bottom: var(--wcs-select-control-autocomplete-padding-vertical-l);
         }
     }
 }
@@ -140,115 +395,56 @@ label {
     .wcs-select-control {
         flex-wrap: wrap;
     }
+
+    .wcs-select-value-container {
+        margin-top: 4px;
+        margin-bottom: 4px;
+    }
 }
 
-.wcs-select-control {
-    box-sizing: border-box;
-
-    @include ripple;
-    display: flex;
-    align-items: center;
-    padding-right: var(--wcs-text-padding);
-    background-color: var(--wcs-select-background-color);
-    border-radius: var(--wcs-select-border-radius);
-    border: var(--wcs-select-border-color) solid var(--wcs-select-border-width);
-    font-size: var(--wcs-select-font-size, 1rem);
-    line-height: 1.5;
-    cursor: pointer;
-}
-
-.wcs-select-placeholder {
-    color: var(--wcs-select-placeholder-color);
-    font-style: italic;
-    font-weight: 400;
-}
-
-.wcs-select-value {
-    color: var(--wcs-select-value-color);
-    font-weight: var(--wcs-font-weight-form-value);
-}
-
-.wcs-select-value-container {
-    margin-top: 4px;
-    margin-bottom: 4px;
-    margin-left: calc(var(--wcs-margin) / 2);
-
-    max-width: calc(100% - calc(24px + var(--wcs-base-margin))); // 24px (width of arrow svg) + 8px of padding = 32px
-
-    display: flex;
-    flex-direction: row;
-    gap: 4px;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.wcs-select-chip {
-    box-sizing: border-box;
-    height: var(--wcs-internal-select-chip-size);
-    line-height: 1.375;
-    color: var(--wcs-contrast);
-    background-color: var(--wcs-base);
-    border-radius: 0.75rem;
-    display: flex;
-    align-items: center;
-    padding: calc(calc(var(--wcs-padding) - 8px) / 2) var(--wcs-padding);
-    overflow: initial;
-    z-index: 1;
-}
-
-.wcs-select-options {
-    display: none;
-    position: absolute;
-    z-index: 999999999;
-
-    border: solid var(--wcs-select-border-width) var(--wcs-select-border-color);
-    border-radius: var(--wcs-select-border-radius);
-
-    max-height: var(--wcs-select-overlay-max-height);
-    overflow-y: auto;
-    width: calc(100% - calc(2 * var(--wcs-select-border-width)));
-
-    background-color: var(--wcs-white);
-    color: var(--wcs-text-medium);
-}
 
 :host([autocomplete]) {
     .wcs-select-value-container {
         margin: 0;
         width: 100%;
-        padding-left: var(--wcs-padding-m);
     }
 
     input {
-        border-radius: var(--wcs-border-radius);
         font: unset;
         background-color: transparent;
         outline: none;
         border: none;
-        padding: 0 var(--wcs-margin);
+        padding: unset;
 
-        color: var(--wcs-primary);
-        font-weight: var(--wcs-font-weight-form-value) !important;
-        font-size: var(--wcs-select-font-size);
-        line-height: 1.5;
+        color: var(--wcs-select-value-color);
+        font-weight: var(--wcs-select-value-font-weight) !important;
+        font-size: var(--wcs-select-control-font-size);
+        line-height: inherit;
 
         &::placeholder {
-            @include placeholder;
+            @include placeholder(var(--wcs-select-placeholder-color), var(--wcs-select-placeholder-font-weight), var(--wcs-select-placeholder-font-style));
         }
     }
+}
 
-    input:focus-within {
-        @include focus-outline(var(--wcs-select-outline-color), var(--wcs-border-radius), 0);
+:host([autocomplete]:focus-within) {
+    .wcs-select-control {
+        @include select-control-outline-focus;
     }
 }
 
 .autocomplete-field {
     width: 0;
     min-width: 50px;
-    border-radius: var(--wcs-border-radius);
     flex-grow: 1;
 }
 
 .noresult-container {
-    margin: var(--wcs-margin);
+    padding-left: var(--wcs-select-internal-noresult-padding-horizontal);
+    padding-right: var(--wcs-select-internal-noresult-padding-horizontal);
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: var(--wcs-select-control-height);
 }

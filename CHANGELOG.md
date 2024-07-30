@@ -27,6 +27,17 @@ for soon-to-be removed features.
 
 - **input**: remove `--wcs-input-icon-color` css variable. Use `--wcs-input-icon-color-default`, `--wcs-input-icon-color-focus`, `--wcs-input-icon-color-disabled` instead.
 - **textarea**: remove `--wcs-textarea-icon-color` css variable. Use `--wcs-textarea-icon-color-default`, `--wcs-textarea-icon-color-focus`, `--wcs-textarea-icon-color-disabled` instead.
+- **select**
+  - remove `--wcs-select-background-color` css variable.
+    - To edit background color of the control, use `--wcs-select-control-background-color` instead
+    - To edit background color of the control, use `--wcs-select-overlay-background-color` instead
+  - remove `--wcs-select-border-color` css variable. Use `--wcs-select-control-border-color-default`, `--wcs-select-control-border-color-active`, `--wcs-select-control-border-color-focus` and `--wcs-select-control-border-color-error` instead
+  - remove `--wcs-select-outline-color`, use `--wcs-select-control-border-color-focus` instead
+  - remove `--wcs-select-option-height` on select, you have to edit `--wcs-select-option-height` on `wcs-select-option` directly
+  - remove `--wcs-select-border-width`. You have to use `--wcs-select-overlay-border-width` for overlay and `--wcs-select-control-border-width`, `--wcs-select-control-border-width-active`, `--wcs-select-control-border-width-focus` instead
+  - remove `--wcs-select-border-radius`. 
+    - You have to use `--wcs-select-control-border-radius` instead to edit the border radius of the control
+    - You have to use `--wcs-select-overlay-border-radius` instead to edit the border radius of the overlay
 
 ### Fixed
 
