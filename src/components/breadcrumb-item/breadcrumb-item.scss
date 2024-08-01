@@ -1,0 +1,26 @@
+@import '../../style/focus-outline.scss';
+
+:host {
+    display: flex;
+    align-items: baseline;
+    max-height: 24px;
+    font-size: 1rem;
+    color: var(--wcs-gray);
+    line-height: 1.375;
+
+    ::slotted(a) {
+        display: block;
+        height: 100%;
+        padding: 1px 2px;
+        font-weight: 500;
+        color: var(--wcs-primary);
+        text-decoration: none;
+        border-radius: 2px;
+    }
+    ::slotted(a:focus-visible ) {
+        @include focus-outline($border-radius: 2px, $outline-offset: 0);
+    }
+    ::slotted(a:hover) {
+        text-decoration: underline;
+    }
+}

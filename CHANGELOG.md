@@ -18,14 +18,15 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **radio**:
   - add style for checked AND disabled radios
   - emit wcsFocus and wcsBlur events
-- **wcs-nav-item**: add a visual indicator for the current active item
+- **nav-item**: add a visual indicator for the current active item
+- **breadcrumb**: add new breadcrumb and breadcrumb-item components
 
 ### Changed
 
 - **radio**: properties `name` and `mode` and no longer needed and should only be placed on `wcs-radio-group` from now on
 - **editable-field**: rename `errorhandler` to `errorHandler`
 - **select**: rename `SelectFilerChangeEventDetail` to `SelectFilterChangeEventDetail`
-- **wcs-nav-item**: anchor elements are now slotted. See v5 → v6 migration for more info.
+- **nav-item**: anchor elements are now slotted. See v5 → v6 migration for more info.
 
 ### Deprecated
 
@@ -34,7 +35,7 @@ for soon-to-be removed features.
 ### Removed
 
 - **radio**: remove `checked` property. See v5 → v6 migration for more info.
-- **wcs-nav-item**: remove `href` and `text` properties. See v5 → v6 migration for more info.
+- **nav-item**: remove `href` and `text` properties. See v5 → v6 migration for more info.
 - **input**:
   - remove previously deprecated `setFocus` method
   - remove `clearOnEdit` and `clearInput` properties. See v5 → v6 migration for more info.
@@ -96,7 +97,7 @@ in case of vulnerabilities.
 - **tooltip**: accessibility problems
     - Hide tooltip when press escape key.
 - **horizontal-stepper**: (accessibility) add missing aria attributes and keyboard navigation
-- **wcs-nav, wcs-nav-item** : improve business nav accessibility (missing aria and semantics)
+- **nav, nav-item** : improve business nav accessibility (missing aria and semantics)
 
 ## [5.0.0] - 2024-05-02
 

@@ -1,8 +1,8 @@
-import { WcsButton, WcsComNav, WcsComNavItem } from "wcs-react";
-import React from "react";
-import { NavLink } from "react-router-dom";
+import { ReactElement } from 'react';
+import { WcsButton, WcsComNav, WcsComNavItem } from 'wcs-react';
+import { NavLink } from 'react-router-dom';
 
-export default function ComNav() {
+export default function ComNav(): ReactElement {
     return (
         <WcsComNav app-name="Application" aria-label="Super menu de navigation">
             <WcsComNavItem>

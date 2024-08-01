@@ -164,6 +164,49 @@ export declare interface WcsBadge extends Components.WcsBadge {}
 
 
 @ProxyCmp({
+  inputs: ['ariaLabelExpandButton', 'itemsAfterCollapse', 'itemsBeforeCollapse', 'maxItems']
+})
+@Component({
+  selector: 'wcs-breadcrumb',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['ariaLabelExpandButton', 'itemsAfterCollapse', 'itemsBeforeCollapse', 'maxItems'],
+})
+export class WcsBreadcrumb {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface WcsBreadcrumb extends Components.WcsBreadcrumb {}
+
+
+@ProxyCmp({
+})
+@Component({
+  selector: 'wcs-breadcrumb-item',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: [],
+})
+export class WcsBreadcrumbItem {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface WcsBreadcrumbItem extends Components.WcsBreadcrumbItem {}
+
+
+@ProxyCmp({
   inputs: ['disabled', 'href', 'loading', 'mode', 'ripple', 'shape', 'size', 'target', 'type'],
   methods: ['setAriaAttribute']
 })

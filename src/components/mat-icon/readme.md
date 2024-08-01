@@ -40,6 +40,7 @@ Type: `Promise<void>`
 
 ### Used by
 
+ - [wcs-breadcrumb](../breadcrumb)
  - [wcs-counter](../counter)
  - [wcs-editable-field](../editable-field)
  - [wcs-galactic-menu](../galactic-menu)
@@ -51,6 +52,7 @@ Type: `Promise<void>`
 ### Graph
 ```mermaid
 graph TD;
+  wcs-breadcrumb --> wcs-mat-icon
   wcs-counter --> wcs-mat-icon
   wcs-editable-field --> wcs-mat-icon
   wcs-galactic-menu --> wcs-mat-icon

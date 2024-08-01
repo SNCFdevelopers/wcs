@@ -136,6 +136,17 @@ export namespace Components {
         "size": BadgeSize;
     }
     /**
+     * A breadcrumb trail consists of a list of links to the parent pages of the current page in hierarchical order.  
+     * It helps users find their place within a website or web application. Breadcrumbs are often placed horizontally before a page's main content.  
+     * ## Accessibility guidelines 💡
+     * > If the last item is a link to the current page, you must set the `aria-current` attribute to `page`.  
+     * > If the element representing the current page is not a link, aria-current is optional.
+     */
+    interface WcsBreadcrumb {
+    }
+    interface WcsBreadcrumbItem {
+    }
+    /**
      * The button component is used to trigger an action. It can also be a link when specifying href.
      * ## Accessibility guidelines 💡
      * > If your button doesn't contain text but only an image, you must set a relevant aria-label on the icon 👉 [see "Square" story below](#square)
@@ -1612,6 +1623,25 @@ declare global {
         new (): HTMLWcsBadgeElement;
     };
     /**
+     * A breadcrumb trail consists of a list of links to the parent pages of the current page in hierarchical order.  
+     * It helps users find their place within a website or web application. Breadcrumbs are often placed horizontally before a page's main content.  
+     * ## Accessibility guidelines 💡
+     * > If the last item is a link to the current page, you must set the `aria-current` attribute to `page`.  
+     * > If the element representing the current page is not a link, aria-current is optional.
+     */
+    interface HTMLWcsBreadcrumbElement extends Components.WcsBreadcrumb, HTMLStencilElement {
+    }
+    var HTMLWcsBreadcrumbElement: {
+        prototype: HTMLWcsBreadcrumbElement;
+        new (): HTMLWcsBreadcrumbElement;
+    };
+    interface HTMLWcsBreadcrumbItemElement extends Components.WcsBreadcrumbItem, HTMLStencilElement {
+    }
+    var HTMLWcsBreadcrumbItemElement: {
+        prototype: HTMLWcsBreadcrumbItemElement;
+        new (): HTMLWcsBreadcrumbItemElement;
+    };
+    /**
      * The button component is used to trigger an action. It can also be a link when specifying href.
      * ## Accessibility guidelines 💡
      * > If your button doesn't contain text but only an image, you must set a relevant aria-label on the icon 👉 [see "Square" story below](#square)
@@ -2523,6 +2553,8 @@ declare global {
         "wcs-action-bar": HTMLWcsActionBarElement;
         "wcs-app": HTMLWcsAppElement;
         "wcs-badge": HTMLWcsBadgeElement;
+        "wcs-breadcrumb": HTMLWcsBreadcrumbElement;
+        "wcs-breadcrumb-item": HTMLWcsBreadcrumbItemElement;
         "wcs-button": HTMLWcsButtonElement;
         "wcs-card": HTMLWcsCardElement;
         "wcs-card-body": HTMLWcsCardBodyElement;
@@ -2657,6 +2689,17 @@ declare namespace LocalJSX {
           * Specify the size of the badge.
          */
         "size"?: BadgeSize;
+    }
+    /**
+     * A breadcrumb trail consists of a list of links to the parent pages of the current page in hierarchical order.  
+     * It helps users find their place within a website or web application. Breadcrumbs are often placed horizontally before a page's main content.  
+     * ## Accessibility guidelines 💡
+     * > If the last item is a link to the current page, you must set the `aria-current` attribute to `page`.  
+     * > If the element representing the current page is not a link, aria-current is optional.
+     */
+    interface WcsBreadcrumb {
+    }
+    interface WcsBreadcrumbItem {
     }
     /**
      * The button component is used to trigger an action. It can also be a link when specifying href.
@@ -4048,6 +4091,8 @@ declare namespace LocalJSX {
         "wcs-action-bar": WcsActionBar;
         "wcs-app": WcsApp;
         "wcs-badge": WcsBadge;
+        "wcs-breadcrumb": WcsBreadcrumb;
+        "wcs-breadcrumb-item": WcsBreadcrumbItem;
         "wcs-button": WcsButton;
         "wcs-card": WcsCard;
         "wcs-card-body": WcsCardBody;
@@ -4137,6 +4182,15 @@ declare module "@stencil/core" {
              * @cssprop --wcs-badge-ligther-percentage - Define the opacity rate to apply to the badge
              */
             "wcs-badge": LocalJSX.WcsBadge & JSXBase.HTMLAttributes<HTMLWcsBadgeElement>;
+            /**
+             * A breadcrumb trail consists of a list of links to the parent pages of the current page in hierarchical order.  
+             * It helps users find their place within a website or web application. Breadcrumbs are often placed horizontally before a page's main content.  
+             * ## Accessibility guidelines 💡
+             * > If the last item is a link to the current page, you must set the `aria-current` attribute to `page`.  
+             * > If the element representing the current page is not a link, aria-current is optional.
+             */
+            "wcs-breadcrumb": LocalJSX.WcsBreadcrumb & JSXBase.HTMLAttributes<HTMLWcsBreadcrumbElement>;
+            "wcs-breadcrumb-item": LocalJSX.WcsBreadcrumbItem & JSXBase.HTMLAttributes<HTMLWcsBreadcrumbItemElement>;
             /**
              * The button component is used to trigger an action. It can also be a link when specifying href.
              * ## Accessibility guidelines 💡

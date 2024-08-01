@@ -57,6 +57,7 @@ Type: `Promise<void>`
 
 ### Used by
 
+ - [wcs-breadcrumb](../breadcrumb)
  - [wcs-counter](../counter)
  - [wcs-dropdown](../dropdown)
  - [wcs-grid](../grid)
@@ -72,6 +73,7 @@ Type: `Promise<void>`
 ```mermaid
 graph TD;
   wcs-button --> wcs-spinner
+  wcs-breadcrumb --> wcs-button
   wcs-counter --> wcs-button
   wcs-dropdown --> wcs-button
   wcs-grid --> wcs-button

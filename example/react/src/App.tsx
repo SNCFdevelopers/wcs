@@ -1,31 +1,34 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { defineCustomElements, WcsMatIcon, WcsSwitch } from 'wcs-react';
+import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
+
 import './App.css';
-import { defineCustomElements, WcsButton, WcsDivider, WcsMatIcon, WcsSwitch } from 'wcs-react';
-import { createBrowserRouter, Link, Outlet, RouterProvider } from "react-router-dom";
-import Header from "./components/header";
-import Nav from "./components/nav";
-import Example from "./routes/example";
-import ComNav from "./components/com-nav";
+
+import Header from './components/header';
+import Nav from './components/nav';
+import ComNav from './components/com-nav';
+import Example from './routes/example';
+import About from './routes/about';
 
 // @ts-ignore
 defineCustomElements();
 
-
 export const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <Root/>,
     children: [
+      {
+        path: '/',
+        element: <Example/>
+      },
       {
         path: '/example',
         element: <Example/>
       },
       {
         path: '/about',
-        element: <div>
-          <p>This is the about page</p>
-          <Link to="/example">Go back to example</Link>
-        </div>
+        element: <About />
       }
     ]
   },
@@ -37,24 +40,31 @@ function Root() {
     
   return (
     <div className="App">
-      {isBusinessNavActive ? <header className="App-header"><Header/></header> : null}
-      {!isBusinessNavActive ? ComNav() : null}  
-      <div className="main-container" data-business-mode={isBusinessNavActive ? "" : undefined} data-communication-mode={!isBusinessNavActive ? "" : undefined}>
-        {isBusinessNavActive ? Nav() : null}
+      {isBusinessNavActive ? (
+        <header className="App-header">
+          <Header />
+        </header>
+        ) : (
+        <ComNav />
+      )}
+      <div
+        className="main-container"
+        data-business-mode={isBusinessNavActive ? "" : undefined}
+        data-communication-mode={!isBusinessNavActive ? "" : undefined}
+      >
+        {isBusinessNavActive ? <Nav /> : null}
         <main>
           <section>
-            <h1>WCS React Sandbox</h1>
-            
-            <p>Switch below the layout you want between "Business" and "Communication"</p>  
+            <p className="switch-mode-description">
+              Click below to switch between "Business" and "Communication" layouts
+            </p>
             <div className="switch-mode">
                 <WcsMatIcon icon="campaign" family="filled"></WcsMatIcon>
                 <WcsSwitch checked={isBusinessNavActive} onWcsChange={() => setIsBusinessNavActive(!isBusinessNavActive)}>
                 </WcsSwitch>
                 <WcsMatIcon icon="business_center" family="filled"></WcsMatIcon>
             </div>
-              
-            <p>This app is a sandbox to test the react components bindings.</p>
-            <WcsDivider style={{marginBottom: 'var(--wcs-margin)'}}/>
+
             <div className="content">
               <Outlet/>
             </div>

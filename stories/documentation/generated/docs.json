@@ -520,6 +520,143 @@
       "dependencyGraph": {}
     },
     {
+      "filePath": "src/components/breadcrumb/breadcrumb.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-breadcrumb",
+      "readme": "# wcs-breadcrumb\r\n\r\n\r\n\r",
+      "docs": "A breadcrumb trail consists of a list of links to the parent pages of the current page in hierarchical order.  \r\nIt helps users find their place within a website or web application. Breadcrumbs are often placed horizontally before a page's main content.\r\n\r\n## Accessibility guidelines 💡\r\n> - If the last item is a link to the current page, you must set the `aria-current` attribute to `page`.\r\n> - If the element representing the current page is not a link, `aria-current` is optional.\r\n> - The **aria attributes** you set on `wcs-breadcrumb` are passed to the native `nav` element located inside its shadow DOM.\r\n> - You can set the attributes : `aria-label`, `aria-labelledby` and `role`. By default, `aria-label` is set to `Breadcrumb`.",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "ariaLabelExpandButton",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "aria-label-expand-button",
+          "reflectToAttr": false,
+          "docs": "Set `aria-label` for the expand button when the breadcrumb is collapsed.",
+          "docsTags": [],
+          "default": "'Show all breadcrumb items'",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "itemsAfterCollapse",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "items-after-collapse",
+          "reflectToAttr": false,
+          "docs": "The number of breadcrumb items to show after the expand button.\r\nIf `itemsBeforeCollapse` + `itemsAfterCollapse` is greater than `maxItems`,\r\nthe breadcrumb will not be collapsed.",
+          "docsTags": [],
+          "default": "2",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "itemsBeforeCollapse",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "items-before-collapse",
+          "reflectToAttr": false,
+          "docs": "The number of breadcrumb items to show before the expand button.\r\nIf `itemsBeforeCollapse` + `itemsAfterCollapse` is greater than `maxItems`,\r\nthe breadcrumb will not be collapsed.",
+          "docsTags": [],
+          "default": "1",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "maxItems",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "max-items",
+          "reflectToAttr": false,
+          "docs": "If the number of breadcrumb items exceeds this maximum,\r\nthe breadcrumb will collapse and show an expand button.  \r\nIf this prop is `undefined`, breadcrumb items will never collapse.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": true,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "wcs-button",
+        "wcs-mat-icon"
+      ],
+      "dependencyGraph": {
+        "wcs-breadcrumb": [
+          "wcs-button",
+          "wcs-mat-icon"
+        ],
+        "wcs-button": [
+          "wcs-spinner"
+        ]
+      }
+    },
+    {
+      "filePath": "src/components/breadcrumb-item/breadcrumb-item.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-breadcrumb-item",
+      "readme": "# wcs-breadcrumb-item\r\n\r\n\r\n\r",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
       "filePath": "src/components/button/button.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-button",
@@ -849,6 +986,7 @@
       "slots": [],
       "parts": [],
       "dependents": [
+        "wcs-breadcrumb",
         "wcs-counter",
         "wcs-dropdown",
         "wcs-grid",
@@ -862,6 +1000,9 @@
       "dependencyGraph": {
         "wcs-button": [
           "wcs-spinner"
+        ],
+        "wcs-breadcrumb": [
+          "wcs-button"
         ],
         "wcs-counter": [
           "wcs-button"
@@ -6282,6 +6423,7 @@
       "slots": [],
       "parts": [],
       "dependents": [
+        "wcs-breadcrumb",
         "wcs-counter",
         "wcs-editable-field",
         "wcs-galactic-menu",
@@ -6292,6 +6434,9 @@
       ],
       "dependencies": [],
       "dependencyGraph": {
+        "wcs-breadcrumb": [
+          "wcs-mat-icon"
+        ],
         "wcs-counter": [
           "wcs-mat-icon"
         ],

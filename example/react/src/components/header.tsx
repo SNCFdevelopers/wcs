@@ -1,7 +1,7 @@
-import { WcsButton, WcsHeader } from "wcs-react";
-import React from "react";
+import { ReactElement } from 'react';
+import { WcsButton, WcsHeader } from 'wcs-react';
 
-export default function Header() {
+export default function Header(): ReactElement {
   
   return (
     <WcsHeader>

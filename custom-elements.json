@@ -1061,44 +1061,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/accordion-content/accordion-content.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The accordion-content is a subcomponent of `wcs-accordion`. It represents the text / content below an expanded accordion.",
-          "name": "AccordionContent",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-accordion-content",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "AccordionContent",
-          "declaration": {
-            "name": "AccordionContent",
-            "module": "components/accordion-content/accordion-content.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-accordion-content",
-          "declaration": {
-            "name": "AccordionContent",
-            "module": "components/accordion-content/accordion-content.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/accordion-header/accordion-header.tsx",
       "declarations": [
         {
@@ -1131,6 +1093,44 @@
           "declaration": {
             "name": "AccordionHeader",
             "module": "components/accordion-header/accordion-header.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/accordion-content/accordion-content.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The accordion-content is a subcomponent of `wcs-accordion`. It represents the text / content below an expanded accordion.",
+          "name": "AccordionContent",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-accordion-content",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "AccordionContent",
+          "declaration": {
+            "name": "AccordionContent",
+            "module": "components/accordion-content/accordion-content.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-accordion-content",
+          "declaration": {
+            "name": "AccordionContent",
+            "module": "components/accordion-content/accordion-content.tsx"
           }
         }
       ]
@@ -1507,6 +1507,269 @@
           "declaration": {
             "name": "Badge",
             "module": "components/badge/badge.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/breadcrumb/breadcrumb.e2e.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/breadcrumb/breadcrumb.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "A breadcrumb trail consists of a list of links to the parent pages of the current page in hierarchical order.  \r\nIt helps users find their place within a website or web application. Breadcrumbs are often placed horizontally before a page's main content.\r\n\r\n## Accessibility guidelines 💡\r\n> - If the last item is a link to the current page, you must set the `aria-current` attribute to `page`.\r\n> - If the element representing the current page is not a link, `aria-current` is optional.\r\n> - The **aria attributes** you set on `wcs-breadcrumb` are passed to the native `nav` element located inside its shadow DOM.\r\n> - You can set the attributes : `aria-label`, `aria-labelledby` and `role`. By default, `aria-label` is set to `Breadcrumb`.",
+          "name": "Breadcrumb",
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "maxItems",
+              "type": {
+                "text": "number | undefined"
+              },
+              "description": "If the number of breadcrumb items exceeds this maximum,\r\nthe breadcrumb will collapse and show an expand button."
+            },
+            {
+              "kind": "field",
+              "name": "itemsBeforeCollapse",
+              "type": {
+                "text": "number"
+              },
+              "default": "1",
+              "description": "The number of breadcrumb items to show before the expand button.\r\nIf `itemsBeforeCollapse` + `itemsAfterCollapse` is greater than `maxItems`,\r\nthe breadcrumb will not be collapsed."
+            },
+            {
+              "kind": "field",
+              "name": "itemsAfterCollapse",
+              "type": {
+                "text": "number"
+              },
+              "default": "2",
+              "description": "The number of breadcrumb items to show after the expand button.\r\nIf `itemsBeforeCollapse` + `itemsAfterCollapse` is greater than `maxItems`,\r\nthe breadcrumb will not be collapsed."
+            },
+            {
+              "kind": "field",
+              "name": "ariaLabelExpandButton",
+              "type": {
+                "text": "string | undefined"
+              },
+              "default": "'Show all breadcrumb items'",
+              "description": "Set `aria-label` for the expand button when the breadcrumb is collapsed."
+            },
+            {
+              "kind": "field",
+              "name": "showHiddenItems",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false",
+              "description": "Show breadcrumb items that are inside the hidden-items slot."
+            },
+            {
+              "kind": "method",
+              "name": "getBreadcrumbItems",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "HTMLWcsBreadcrumbItemElement[]"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "shouldCollapseItems",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "updateCollapsedViewMode",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "showAllItems",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "assignSlotNamesForCollapsedItems",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "description": "Setting slot names on breadcrumb items allows to leverage JSX in the render method."
+            },
+            {
+              "kind": "method",
+              "name": "assignSlotNamesForNonCollapsedItems",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handleSlotChange",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderExpandAllButton",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "JSX.Element"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handleCollapsePropsChange"
+            },
+            {
+              "kind": "method",
+              "name": "handleAriaAttributeChange"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "max-items",
+              "fieldName": "maxItems",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "items-before-collapse",
+              "fieldName": "itemsBeforeCollapse",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "items-after-collapse",
+              "fieldName": "itemsAfterCollapse",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "aria-label-expand-button",
+              "fieldName": "ariaLabelExpandButton",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "tagName": "wcs-breadcrumb",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Breadcrumb",
+          "declaration": {
+            "name": "Breadcrumb",
+            "module": "components/breadcrumb/breadcrumb.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-breadcrumb",
+          "declaration": {
+            "name": "Breadcrumb",
+            "module": "components/breadcrumb/breadcrumb.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/breadcrumb-item/breadcrumb-item.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "BreadcrumbItem",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-breadcrumb-item",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "BreadcrumbItem",
+          "declaration": {
+            "name": "BreadcrumbItem",
+            "module": "components/breadcrumb-item/breadcrumb-item.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-breadcrumb-item",
+          "declaration": {
+            "name": "BreadcrumbItem",
+            "module": "components/breadcrumb-item/breadcrumb-item.tsx"
           }
         }
       ]
@@ -2156,6 +2419,12 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/com-nav/com-nav-size.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/com-nav/com-nav-utils.ts",
       "declarations": [
         {
@@ -2183,6 +2452,23 @@
             }
           ],
           "description": "This function add event handlers on the navigableItems list. The handlers call the function close() on the nodeName.\r\n\r\nT: type class of the nodeNameToClose param (must have a close function)"
+        },
+        {
+          "kind": "function",
+          "name": "comNavDidLoadWithResizeObserver",
+          "return": {
+            "type": {
+              "text": "ResizeObserver"
+            }
+          },
+          "parameters": [
+            {
+              "name": "comNavElement",
+              "type": {
+                "text": "ComNav | ComNavSubmenu | ComNavCategory"
+              }
+            }
+          ]
         }
       ],
       "exports": [
@@ -2191,6 +2477,14 @@
           "name": "registerCloseHandlerForFocusOutEventOn",
           "declaration": {
             "name": "registerCloseHandlerForFocusOutEventOn",
+            "module": "components/com-nav/com-nav-utils.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "comNavDidLoadWithResizeObserver",
+          "declaration": {
+            "name": "comNavDidLoadWithResizeObserver",
             "module": "components/com-nav/com-nav-utils.ts"
           }
         }
@@ -2263,9 +2557,9 @@
               "kind": "field",
               "name": "currentActiveSizing",
               "type": {
-                "text": "'desktop' | 'mobile'"
+                "text": "ComNavSize"
               },
-              "privacy": "private"
+              "privacy": "public"
             },
             {
               "kind": "field",
@@ -2440,7 +2734,7 @@
               "kind": "field",
               "name": "currentActiveSizing",
               "type": {
-                "text": "'desktop' | 'mobile'"
+                "text": "ComNavSize"
               },
               "privacy": "private",
               "default": "'desktop'",
@@ -2717,7 +3011,7 @@
               "kind": "field",
               "name": "currentActiveSizing",
               "type": {
-                "text": "'desktop' | 'mobile'"
+                "text": "ComNavSize"
               },
               "privacy": "private",
               "default": "'desktop'",
@@ -3917,6 +4211,44 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/error/error.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The `wcs-error` should always be wrapped in a `wcs-form-field`.\r\nIt is used to display a red message under the field indicating an incorrect user input.\r\n\r\n## Accessibility guidelines 💡\r\n- Provide a relevant error message to inform the users what they should change to make the field valid\r\n- `aria-description` will be automatically added to the field for screen readers\r\n- `aria-invalid=\"true\"` will be automatically added to the field for screen readers",
+          "name": "Label",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-error",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Label",
+          "declaration": {
+            "name": "Label",
+            "module": "components/error/error.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-error",
+          "declaration": {
+            "name": "Label",
+            "module": "components/error/error.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/editable-field/editable-field-interface.tsx",
       "declarations": [
         {
@@ -4361,6 +4693,44 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/field-content/field-content.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The field-content is a subcomponent of `wcs-field`. It represents the text content of the field.",
+          "name": "FieldContent",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-field-content",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "FieldContent",
+          "declaration": {
+            "name": "FieldContent",
+            "module": "components/field-content/field-content.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-field-content",
+          "declaration": {
+            "name": "FieldContent",
+            "module": "components/field-content/field-content.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/field/field.tsx",
       "declarations": [
         {
@@ -4403,44 +4773,6 @@
           "declaration": {
             "name": "Field",
             "module": "components/field/field.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/field-content/field-content.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The field-content is a subcomponent of `wcs-field`. It represents the text content of the field.",
-          "name": "FieldContent",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-field-content",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "FieldContent",
-          "declaration": {
-            "name": "FieldContent",
-            "module": "components/field-content/field-content.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-field-content",
-          "declaration": {
-            "name": "FieldContent",
-            "module": "components/field-content/field-content.tsx"
           }
         }
       ]
@@ -9008,6 +9340,155 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/progress-radial/progress-radial.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The progress-radial component is a circular progress bar that indicates the current completion of a task. \r\n\r\n## Accessibility guidelines 💡\r\n> Aria attributes and how to display the progress-radial depend on the use case in your application :\r\n>\r\n> - **Case 1 : decorative**\r\n> If the progress-radial is used as a decoration _(if removed, the user doesn't lose any relevant information)_ or in the\r\n> context of another component _(such as progress-radial in a card)_ => **you don't need to show the label nor add an aria-label**.\r\n>\r\n> - **Case 2 : informative**\r\n> If the progress-radial is used to convey important information _(e.g., form completion status, dashboard KPI)_, you need to :\r\n>   - **Provide a visible label** that describes the purpose of the progress-radial.\r\n>   - **Set the `showLabel` property to `true`** to show the percentage inside the progress-radial.\r\n>   - Optionally, use aria-label to provide an accessible name if a visible label is not present.",
+          "name": "ProgressRadial",
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsProgressRadialElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeProgress",
+              "type": {
+                "text": "HTMLDivElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "backgroundImageSize",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "120",
+              "description": "The initial background image size (120x120) as specified in the background-image css property of .progress-circle"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "number"
+              },
+              "default": "120",
+              "description": "The size of the progress radial (in px)"
+            },
+            {
+              "kind": "field",
+              "name": "showLabel",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Whether the component should display the % label inside"
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "The value of the progress radial. Prefer values between 0 and 100."
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            },
+            {
+              "kind": "method",
+              "name": "getSvgStyle"
+            },
+            {
+              "kind": "method",
+              "name": "getSize"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "size",
+              "fieldName": "size",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "show-label",
+              "fieldName": "showLabel",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "value",
+              "fieldName": "value",
+              "type": {
+                "text": "number"
+              }
+            }
+          ],
+          "tagName": "wcs-progress-radial",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ProgressRadial",
+          "declaration": {
+            "name": "ProgressRadial",
+            "module": "components/progress-radial/progress-radial.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-progress-radial",
+          "declaration": {
+            "name": "ProgressRadial",
+            "module": "components/progress-radial/progress-radial.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/radio/radio-interface.ts",
       "declarations": [],
       "exports": []
@@ -9247,155 +9728,6 @@
           "declaration": {
             "name": "Radio",
             "module": "components/radio/radio.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/progress-radial/progress-radial.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The progress-radial component is a circular progress bar that indicates the current completion of a task. \r\n\r\n## Accessibility guidelines 💡\r\n> Aria attributes and how to display the progress-radial depend on the use case in your application :\r\n>\r\n> - **Case 1 : decorative**\r\n> If the progress-radial is used as a decoration _(if removed, the user doesn't lose any relevant information)_ or in the\r\n> context of another component _(such as progress-radial in a card)_ => **you don't need to show the label nor add an aria-label**.\r\n>\r\n> - **Case 2 : informative**\r\n> If the progress-radial is used to convey important information _(e.g., form completion status, dashboard KPI)_, you need to :\r\n>   - **Provide a visible label** that describes the purpose of the progress-radial.\r\n>   - **Set the `showLabel` property to `true`** to show the percentage inside the progress-radial.\r\n>   - Optionally, use aria-label to provide an accessible name if a visible label is not present.",
-          "name": "ProgressRadial",
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsProgressRadialElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "nativeProgress",
-              "type": {
-                "text": "HTMLDivElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "backgroundImageSize",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "default": "120",
-              "description": "The initial background image size (120x120) as specified in the background-image css property of .progress-circle"
-            },
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "number"
-              },
-              "default": "120",
-              "description": "The size of the progress radial (in px)"
-            },
-            {
-              "kind": "field",
-              "name": "showLabel",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Whether the component should display the % label inside"
-            },
-            {
-              "kind": "field",
-              "name": "value",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "The value of the progress radial. Prefer values between 0 and 100."
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            },
-            {
-              "kind": "method",
-              "name": "getSvgStyle"
-            },
-            {
-              "kind": "method",
-              "name": "getSize"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "size",
-              "fieldName": "size",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "show-label",
-              "fieldName": "showLabel",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "value",
-              "fieldName": "value",
-              "type": {
-                "text": "number"
-              }
-            }
-          ],
-          "tagName": "wcs-progress-radial",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ProgressRadial",
-          "declaration": {
-            "name": "ProgressRadial",
-            "module": "components/progress-radial/progress-radial.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-progress-radial",
-          "declaration": {
-            "name": "ProgressRadial",
-            "module": "components/progress-radial/progress-radial.tsx"
           }
         }
       ]
@@ -11379,76 +11711,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/tab/tab.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Tab content component.\r\nUse this component to specify the content of a component.",
-          "name": "Tab",
-          "members": [
-            {
-              "kind": "field",
-              "name": "header",
-              "type": {
-                "text": "string"
-              },
-              "description": "The header you want to be displayed for this tab."
-            },
-            {
-              "kind": "field",
-              "name": "itemKey",
-              "type": {
-                "text": "any"
-              },
-              "description": "The id of the tab. It should be unique."
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "header",
-              "fieldName": "header",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "item-key",
-              "fieldName": "itemKey",
-              "type": {
-                "text": "any"
-              }
-            }
-          ],
-          "tagName": "wcs-tab",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Tab",
-          "declaration": {
-            "name": "Tab",
-            "module": "components/tab/tab.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-tab",
-          "declaration": {
-            "name": "Tab",
-            "module": "components/tab/tab.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/tabs/tabs-interface.ts",
       "declarations": [],
       "exports": []
@@ -11788,6 +12050,76 @@
           "declaration": {
             "name": "Tabs",
             "module": "components/tabs/tabs.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/tab/tab.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Tab content component.\r\nUse this component to specify the content of a component.",
+          "name": "Tab",
+          "members": [
+            {
+              "kind": "field",
+              "name": "header",
+              "type": {
+                "text": "string"
+              },
+              "description": "The header you want to be displayed for this tab."
+            },
+            {
+              "kind": "field",
+              "name": "itemKey",
+              "type": {
+                "text": "any"
+              },
+              "description": "The id of the tab. It should be unique."
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "header",
+              "fieldName": "header",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "item-key",
+              "fieldName": "itemKey",
+              "type": {
+                "text": "any"
+              }
+            }
+          ],
+          "tagName": "wcs-tab",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Tab",
+          "declaration": {
+            "name": "Tab",
+            "module": "components/tab/tab.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-tab",
+          "declaration": {
+            "name": "Tab",
+            "module": "components/tab/tab.tsx"
           }
         }
       ]

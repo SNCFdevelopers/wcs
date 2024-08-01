@@ -29,6 +29,15 @@ body {
   font-weight: 900;
 }
 
+@font-face {
+  font-family: "icons";
+  src: url("assets/fonts/icons/icons.eot?#iefix") format("embedded-opentype"),
+       url("assets/fonts/icons/icons.woff2") format("woff2"),
+       url("assets/fonts/icons/icons.woff") format("woff"),
+       url("assets/fonts/icons/icons.ttf") format("truetype"),
+       url("assets/fonts/icons/icons.svg#icons") format("svg");
+}
+
 // Examples for class passed in template option of formly radio
 .value1 {
   --wcs-primary: var(--wcs-green);

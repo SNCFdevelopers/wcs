@@ -19,8 +19,13 @@ main {
   margin: var(--wcs-margin);
 }
 
+.switch-mode-description {
+  margin: calc(var(--wcs-margin) / 2) 0;
+}
+
 .switch-mode {
   display: flex;
   flex-direction: row;
   gap: calc(var(--wcs-margin) / 2);
+  margin-bottom: calc(var(--wcs-margin) * 3);
 }
