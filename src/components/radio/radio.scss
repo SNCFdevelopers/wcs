@@ -77,6 +77,18 @@
     }
 }
 
+:host([mode=radio][disabled].checked),
+:host([mode=horizontal][disabled].checked) {
+    label {
+        color: var(--wcs-text-disabled);
+
+        &:before {
+            border-color: var(--wcs-text-disabled);
+            background-color: var(--wcs-text-disabled);
+        }
+    }
+}
+
 :host([mode=radio]:hover):not([disabled]),
 :host([mode=horizontal]:hover):not([disabled]) {
     label {
