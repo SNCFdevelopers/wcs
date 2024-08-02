@@ -273,7 +273,7 @@ export const AutocompleteWithCustomSlot = {
                         ?chips="${args.chips}">
                 ${args.departments.map(({value, name}) => html`<wcs-select-option value="${value}">${name}</wcs-select-option>
                 `)}
-                <div slot="wcs-select-filter-noresult" class="my-custom-container">
+                <div slot="filter-no-result" class="my-custom-container">
                     <span>Aucun résultat trouvé</span>
                     <wcs-mat-icon icon="sentiment_dissatisfied"></wcs-mat-icon>
                 </div>
