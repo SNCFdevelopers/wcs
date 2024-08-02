@@ -2372,44 +2372,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/card-body/card-body.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The card-body is a subcomponent of `wcs-card`. It represents content of the card with an extra padding around.",
-          "name": "CardBody",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-card-body",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "CardBody",
-          "declaration": {
-            "name": "CardBody",
-            "module": "components/card-body/card-body.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-card-body",
-          "declaration": {
-            "name": "CardBody",
-            "module": "components/card-body/card-body.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/card/card-interface.ts",
       "declarations": [],
       "exports": []
@@ -2465,6 +2427,44 @@
           "declaration": {
             "name": "Card",
             "module": "components/card/card.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/card-body/card-body.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The card-body is a subcomponent of `wcs-card`. It represents content of the card with an extra padding around.",
+          "name": "CardBody",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-card-body",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CardBody",
+          "declaration": {
+            "name": "CardBody",
+            "module": "components/card-body/card-body.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-card-body",
+          "declaration": {
+            "name": "CardBody",
+            "module": "components/card-body/card-body.tsx"
           }
         }
       ]
@@ -5327,6 +5327,74 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/galactic/galactic.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Galactic",
+          "members": [
+            {
+              "kind": "field",
+              "name": "text",
+              "type": {
+                "text": "string"
+              },
+              "description": "Text to display in the bar"
+            },
+            {
+              "kind": "field",
+              "name": "show",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "text",
+              "fieldName": "text",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "tagName": "wcs-galactic",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Galactic",
+          "declaration": {
+            "name": "Galactic",
+            "module": "components/galactic/galactic.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-galactic",
+          "declaration": {
+            "name": "Galactic",
+            "module": "components/galactic/galactic.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/galactic-menu/galactic-menu.tsx",
       "declarations": [
         {
@@ -5493,74 +5561,6 @@
           "declaration": {
             "name": "Galactic",
             "module": "components/galactic-menu/galactic-menu.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/galactic/galactic.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Galactic",
-          "members": [
-            {
-              "kind": "field",
-              "name": "text",
-              "type": {
-                "text": "string"
-              },
-              "description": "Text to display in the bar"
-            },
-            {
-              "kind": "field",
-              "name": "show",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "text",
-              "fieldName": "text",
-              "type": {
-                "text": "string"
-              }
-            }
-          ],
-          "tagName": "wcs-galactic",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Galactic",
-          "declaration": {
-            "name": "Galactic",
-            "module": "components/galactic/galactic.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-galactic",
-          "declaration": {
-            "name": "Galactic",
-            "module": "components/galactic/galactic.tsx"
           }
         }
       ]
@@ -7372,6 +7372,62 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/hint/hint.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The `wcs-hint` should always be wrapped in a `wcs-form-field`.\r\nIt is used to display an informative message under the field indicating an incorrect user input.\r\n\r\n## Accessibility guidelines 💡\r\n- Provide a relevant hint message to inform the users about the format, how the data should be filled in, or what is the purpose of the field\r\n- `aria-description` will be automatically added to the field for screen readers",
+          "name": "Hint",
+          "members": [
+            {
+              "kind": "field",
+              "name": "small",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Whether the component should display the small version of the hint"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "small",
+              "fieldName": "small",
+              "type": {
+                "text": "boolean"
+              }
+            }
+          ],
+          "tagName": "wcs-hint",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Hint",
+          "declaration": {
+            "name": "Hint",
+            "module": "components/hint/hint.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-hint",
+          "declaration": {
+            "name": "Hint",
+            "module": "components/hint/hint.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/horizontal-stepper/horizontal-step.tsx",
       "declarations": [
         {
@@ -7747,62 +7803,6 @@
           "declaration": {
             "name": "Icon",
             "module": "components/icon/icon.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/hint/hint.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The `wcs-hint` should always be wrapped in a `wcs-form-field`.\r\nIt is used to display an informative message under the field indicating an incorrect user input.\r\n\r\n## Accessibility guidelines 💡\r\n- Provide a relevant hint message to inform the users about the format, how the data should be filled in, or what is the purpose of the field\r\n- `aria-description` will be automatically added to the field for screen readers",
-          "name": "Hint",
-          "members": [
-            {
-              "kind": "field",
-              "name": "small",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Whether the component should display the small version of the hint"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "small",
-              "fieldName": "small",
-              "type": {
-                "text": "boolean"
-              }
-            }
-          ],
-          "tagName": "wcs-hint",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Hint",
-          "declaration": {
-            "name": "Hint",
-            "module": "components/hint/hint.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-hint",
-          "declaration": {
-            "name": "Hint",
-            "module": "components/hint/hint.tsx"
           }
         }
       ]
@@ -8706,19 +8706,37 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/list-item-property/list-item-property.tsx",
+      "path": "components/list-item/list-item.tsx",
       "declarations": [
         {
           "kind": "class",
-          "description": "The list-item-property is a subcomponent of `wcs-list-item`.\r\nWrapped in a `wcs-list-item-properties`, it represents a property to describe an item.",
-          "name": "ListItemProperty",
+          "description": "Lists are used for grouping a collection of related items.\r\n\r\nStandard lists can be used either with or without icons. Depending on the context, the list can have one or more\r\nactions (favourite, download, delete, etc.). Use standard lists with a unique action when each line has an action.",
+          "name": "ListItem",
           "members": [
+            {
+              "kind": "field",
+              "name": "activated",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "True if the item is active. Adds a background color that highlights it."
+            },
             {
               "kind": "method",
               "name": "render"
             }
           ],
-          "tagName": "wcs-list-item-property",
+          "attributes": [
+            {
+              "name": "activated",
+              "fieldName": "activated",
+              "type": {
+                "text": "boolean"
+              }
+            }
+          ],
+          "tagName": "wcs-list-item",
           "events": [],
           "customElement": true
         }
@@ -8726,18 +8744,18 @@
       "exports": [
         {
           "kind": "js",
-          "name": "ListItemProperty",
+          "name": "ListItem",
           "declaration": {
-            "name": "ListItemProperty",
-            "module": "components/list-item-property/list-item-property.tsx"
+            "name": "ListItem",
+            "module": "components/list-item/list-item.tsx"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "wcs-list-item-property",
+          "name": "wcs-list-item",
           "declaration": {
-            "name": "ListItemProperty",
-            "module": "components/list-item-property/list-item-property.tsx"
+            "name": "ListItem",
+            "module": "components/list-item/list-item.tsx"
           }
         }
       ]
@@ -8776,6 +8794,44 @@
           "declaration": {
             "name": "ListItemProperties",
             "module": "components/list-item-properties/list-item-properties.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/list-item-property/list-item-property.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The list-item-property is a subcomponent of `wcs-list-item`.\r\nWrapped in a `wcs-list-item-properties`, it represents a property to describe an item.",
+          "name": "ListItemProperty",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-list-item-property",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ListItemProperty",
+          "declaration": {
+            "name": "ListItemProperty",
+            "module": "components/list-item-property/list-item-property.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-list-item-property",
+          "declaration": {
+            "name": "ListItemProperty",
+            "module": "components/list-item-property/list-item-property.tsx"
           }
         }
       ]
@@ -8912,62 +8968,6 @@
           "declaration": {
             "name": "MatIcon",
             "module": "components/mat-icon/mat-icon.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/list-item/list-item.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Lists are used for grouping a collection of related items.\r\n\r\nStandard lists can be used either with or without icons. Depending on the context, the list can have one or more\r\nactions (favourite, download, delete, etc.). Use standard lists with a unique action when each line has an action.",
-          "name": "ListItem",
-          "members": [
-            {
-              "kind": "field",
-              "name": "activated",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "True if the item is active. Adds a background color that highlights it."
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "activated",
-              "fieldName": "activated",
-              "type": {
-                "text": "boolean"
-              }
-            }
-          ],
-          "tagName": "wcs-list-item",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ListItem",
-          "declaration": {
-            "name": "ListItem",
-            "module": "components/list-item/list-item.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-list-item",
-          "declaration": {
-            "name": "ListItem",
-            "module": "components/list-item/list-item.tsx"
           }
         }
       ]
@@ -12620,16 +12620,112 @@
           "name": "Textarea",
           "cssProperties": [
             {
-              "description": "Max height of the text area component",
+              "description": "Default icon color whe the textarea is not focused",
+              "name": "--wcs-textarea-icon-color-default"
+            },
+            {
+              "description": "Icon color when the textarea is focused",
+              "name": "--wcs-textarea-icon-color-focus"
+            },
+            {
+              "description": "Icon color when the textarea is disabled",
+              "name": "--wcs-textarea-icon-color-disabled"
+            },
+            {
+              "description": "Background color of the textarea",
+              "name": "--wcs-textarea-background-color"
+            },
+            {
+              "description": "Border radius of the left side of the textarea",
+              "name": "--wcs-textarea-border-radius-left"
+            },
+            {
+              "description": "Border radius of the right side of the textarea",
+              "name": "--wcs-textarea-border-radius-right"
+            },
+            {
+              "description": "Border width of the textarea when not focused",
+              "name": "--wcs-textarea-border-width"
+            },
+            {
+              "description": "Border width of the textarea when focused",
+              "name": "--wcs-textarea-border-width-focus"
+            },
+            {
+              "description": "Default border color of the textarea when not focused",
+              "name": "--wcs-textarea-border-color-default"
+            },
+            {
+              "description": "Border color of the textarea when in error state",
+              "name": "--wcs-textarea-border-color-error"
+            },
+            {
+              "description": " Border color of the textarea when focused",
+              "name": "--wcs-textarea-border-color-focus"
+            },
+            {
+              "description": "Color of the value when the textarea is not focused",
+              "name": "--wcs-textarea-value-color"
+            },
+            {
+              "description": "Font weight of the textarea value",
+              "name": "--wcs-textarea-value-font-weight"
+            },
+            {
+              "description": "Color of the textarea placeholder",
+              "name": "--wcs-textarea-placeholder-color"
+            },
+            {
+              "description": "Font weight of the textarea placeholder",
+              "name": "--wcs-textarea-placeholder-font-weight"
+            },
+            {
+              "description": "Font style of the textarea placeholder",
+              "name": "--wcs-textarea-placeholder-font-style"
+            },
+            {
+              "description": "Color of the value when the textarea is disabled",
+              "name": "--wcs-textarea-text-color-disabled"
+            },
+            {
+              "description": "Border style default of the textarea when not focused",
+              "name": "--wcs-textarea-border-style-default"
+            },
+            {
+              "description": "Border style default of the textarea in error state",
+              "name": "--wcs-textarea-border-style-error"
+            },
+            {
+              "description": "Border style default of the textarea when focused",
+              "name": "--wcs-textarea-border-style-focus"
+            },
+            {
+              "description": "Min height of the textarea component",
+              "name": "--wcs-textarea-min-height"
+            },
+            {
+              "description": "Max height of the textarea component",
               "name": "--wcs-textarea-max-height"
             },
             {
-              "description": "Padding left of the text area. Take in consideration the transparent border of 2px around the textarea.",
+              "description": "Padding top of the textarea",
+              "name": "--wcs-textarea-padding-top"
+            },
+            {
+              "description": "Padding bottom of the textarea",
+              "name": "--wcs-textarea-padding-bottom"
+            },
+            {
+              "description": "Padding left of the textarea",
               "name": "--wcs-textarea-padding-left"
             },
             {
-              "description": "Padding right of the text area. Take in consideration the transparent border of 2px around the textarea.",
+              "description": "Padding right of the textarea",
               "name": "--wcs-textarea-padding-right"
+            },
+            {
+              "description": "Gap between textarea and icon (prefix/suffix)",
+              "name": "--wcs-textarea-gap"
             }
           ],
           "members": [

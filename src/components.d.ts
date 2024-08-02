@@ -1395,9 +1395,33 @@ export namespace Components {
      * ## Accessibility guidelines 💡
      * > - If you use wcs-textarea outside a wcs-form-field, you have to manage the label and the error message yourself.
      * > You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.
-     * @cssprop --wcs-textarea-max-height - Max height of the text area component
-     * @cssprop --wcs-textarea-padding-left - Padding left of the text area. Take in consideration the transparent border of 2px around the textarea.
-     * @cssprop --wcs-textarea-padding-right - Padding right of the text area. Take in consideration the transparent border of 2px around the textarea.
+     * @cssprop --wcs-textarea-icon-color-default - Default icon color whe the textarea is not focused
+     * @cssprop --wcs-textarea-icon-color-focus - Icon color when the textarea is focused
+     * @cssprop --wcs-textarea-icon-color-disabled - Icon color when the textarea is disabled
+     * @cssprop --wcs-textarea-background-color - Background color of the textarea
+     * @cssprop --wcs-textarea-border-radius-left - Border radius of the left side of the textarea
+     * @cssprop --wcs-textarea-border-radius-right - Border radius of the right side of the textarea
+     * @cssprop --wcs-textarea-border-width - Border width of the textarea when not focused
+     * @cssprop --wcs-textarea-border-width-focus - Border width of the textarea when focused
+     * @cssprop --wcs-textarea-border-color-default - Default border color of the textarea when not focused
+     * @cssprop --wcs-textarea-border-color-error - Border color of the textarea when in error state
+     * @cssprop --wcs-textarea-border-color-focus -  Border color of the textarea when focused
+     * @cssprop --wcs-textarea-value-color - Color of the value when the textarea is not focused
+     * @cssprop --wcs-textarea-value-font-weight - Font weight of the textarea value
+     * @cssprop --wcs-textarea-placeholder-color - Color of the textarea placeholder
+     * @cssprop --wcs-textarea-placeholder-font-weight - Font weight of the textarea placeholder
+     * @cssprop --wcs-textarea-placeholder-font-style - Font style of the textarea placeholder
+     * @cssprop --wcs-textarea-text-color-disabled - Color of the value when the textarea is disabled
+     * @cssprop --wcs-textarea-border-style-default - Border style default of the textarea when not focused
+     * @cssprop --wcs-textarea-border-style-error - Border style default of the textarea in error state
+     * @cssprop --wcs-textarea-border-style-focus - Border style default of the textarea when focused
+     * @cssprop --wcs-textarea-min-height - Min height of the textarea component
+     * @cssprop --wcs-textarea-max-height - Max height of the textarea component
+     * @cssprop --wcs-textarea-padding-top - Padding top of the textarea
+     * @cssprop --wcs-textarea-padding-bottom - Padding bottom of the textarea
+     * @cssprop --wcs-textarea-padding-left - Padding left of the textarea
+     * @cssprop --wcs-textarea-padding-right - Padding right of the textarea
+     * @cssprop --wcs-textarea-gap - Gap between textarea and icon (prefix/suffix)
      */
     interface WcsTextarea {
         /**
@@ -2720,9 +2744,33 @@ declare global {
      * ## Accessibility guidelines 💡
      * > - If you use wcs-textarea outside a wcs-form-field, you have to manage the label and the error message yourself.
      * > You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.
-     * @cssprop --wcs-textarea-max-height - Max height of the text area component
-     * @cssprop --wcs-textarea-padding-left - Padding left of the text area. Take in consideration the transparent border of 2px around the textarea.
-     * @cssprop --wcs-textarea-padding-right - Padding right of the text area. Take in consideration the transparent border of 2px around the textarea.
+     * @cssprop --wcs-textarea-icon-color-default - Default icon color whe the textarea is not focused
+     * @cssprop --wcs-textarea-icon-color-focus - Icon color when the textarea is focused
+     * @cssprop --wcs-textarea-icon-color-disabled - Icon color when the textarea is disabled
+     * @cssprop --wcs-textarea-background-color - Background color of the textarea
+     * @cssprop --wcs-textarea-border-radius-left - Border radius of the left side of the textarea
+     * @cssprop --wcs-textarea-border-radius-right - Border radius of the right side of the textarea
+     * @cssprop --wcs-textarea-border-width - Border width of the textarea when not focused
+     * @cssprop --wcs-textarea-border-width-focus - Border width of the textarea when focused
+     * @cssprop --wcs-textarea-border-color-default - Default border color of the textarea when not focused
+     * @cssprop --wcs-textarea-border-color-error - Border color of the textarea when in error state
+     * @cssprop --wcs-textarea-border-color-focus -  Border color of the textarea when focused
+     * @cssprop --wcs-textarea-value-color - Color of the value when the textarea is not focused
+     * @cssprop --wcs-textarea-value-font-weight - Font weight of the textarea value
+     * @cssprop --wcs-textarea-placeholder-color - Color of the textarea placeholder
+     * @cssprop --wcs-textarea-placeholder-font-weight - Font weight of the textarea placeholder
+     * @cssprop --wcs-textarea-placeholder-font-style - Font style of the textarea placeholder
+     * @cssprop --wcs-textarea-text-color-disabled - Color of the value when the textarea is disabled
+     * @cssprop --wcs-textarea-border-style-default - Border style default of the textarea when not focused
+     * @cssprop --wcs-textarea-border-style-error - Border style default of the textarea in error state
+     * @cssprop --wcs-textarea-border-style-focus - Border style default of the textarea when focused
+     * @cssprop --wcs-textarea-min-height - Min height of the textarea component
+     * @cssprop --wcs-textarea-max-height - Max height of the textarea component
+     * @cssprop --wcs-textarea-padding-top - Padding top of the textarea
+     * @cssprop --wcs-textarea-padding-bottom - Padding bottom of the textarea
+     * @cssprop --wcs-textarea-padding-left - Padding left of the textarea
+     * @cssprop --wcs-textarea-padding-right - Padding right of the textarea
+     * @cssprop --wcs-textarea-gap - Gap between textarea and icon (prefix/suffix)
      */
     interface HTMLWcsTextareaElement extends Components.WcsTextarea, HTMLStencilElement {
         addEventListener<K extends keyof HTMLWcsTextareaElementEventMap>(type: K, listener: (this: HTMLWcsTextareaElement, ev: WcsTextareaCustomEvent<HTMLWcsTextareaElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -4244,9 +4292,33 @@ declare namespace LocalJSX {
      * ## Accessibility guidelines 💡
      * > - If you use wcs-textarea outside a wcs-form-field, you have to manage the label and the error message yourself.
      * > You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.
-     * @cssprop --wcs-textarea-max-height - Max height of the text area component
-     * @cssprop --wcs-textarea-padding-left - Padding left of the text area. Take in consideration the transparent border of 2px around the textarea.
-     * @cssprop --wcs-textarea-padding-right - Padding right of the text area. Take in consideration the transparent border of 2px around the textarea.
+     * @cssprop --wcs-textarea-icon-color-default - Default icon color whe the textarea is not focused
+     * @cssprop --wcs-textarea-icon-color-focus - Icon color when the textarea is focused
+     * @cssprop --wcs-textarea-icon-color-disabled - Icon color when the textarea is disabled
+     * @cssprop --wcs-textarea-background-color - Background color of the textarea
+     * @cssprop --wcs-textarea-border-radius-left - Border radius of the left side of the textarea
+     * @cssprop --wcs-textarea-border-radius-right - Border radius of the right side of the textarea
+     * @cssprop --wcs-textarea-border-width - Border width of the textarea when not focused
+     * @cssprop --wcs-textarea-border-width-focus - Border width of the textarea when focused
+     * @cssprop --wcs-textarea-border-color-default - Default border color of the textarea when not focused
+     * @cssprop --wcs-textarea-border-color-error - Border color of the textarea when in error state
+     * @cssprop --wcs-textarea-border-color-focus -  Border color of the textarea when focused
+     * @cssprop --wcs-textarea-value-color - Color of the value when the textarea is not focused
+     * @cssprop --wcs-textarea-value-font-weight - Font weight of the textarea value
+     * @cssprop --wcs-textarea-placeholder-color - Color of the textarea placeholder
+     * @cssprop --wcs-textarea-placeholder-font-weight - Font weight of the textarea placeholder
+     * @cssprop --wcs-textarea-placeholder-font-style - Font style of the textarea placeholder
+     * @cssprop --wcs-textarea-text-color-disabled - Color of the value when the textarea is disabled
+     * @cssprop --wcs-textarea-border-style-default - Border style default of the textarea when not focused
+     * @cssprop --wcs-textarea-border-style-error - Border style default of the textarea in error state
+     * @cssprop --wcs-textarea-border-style-focus - Border style default of the textarea when focused
+     * @cssprop --wcs-textarea-min-height - Min height of the textarea component
+     * @cssprop --wcs-textarea-max-height - Max height of the textarea component
+     * @cssprop --wcs-textarea-padding-top - Padding top of the textarea
+     * @cssprop --wcs-textarea-padding-bottom - Padding bottom of the textarea
+     * @cssprop --wcs-textarea-padding-left - Padding left of the textarea
+     * @cssprop --wcs-textarea-padding-right - Padding right of the textarea
+     * @cssprop --wcs-textarea-gap - Gap between textarea and icon (prefix/suffix)
      */
     interface WcsTextarea {
         /**
@@ -4969,9 +5041,33 @@ declare module "@stencil/core" {
              * ## Accessibility guidelines 💡
              * > - If you use wcs-textarea outside a wcs-form-field, you have to manage the label and the error message yourself.
              * > You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.
-             * @cssprop --wcs-textarea-max-height - Max height of the text area component
-             * @cssprop --wcs-textarea-padding-left - Padding left of the text area. Take in consideration the transparent border of 2px around the textarea.
-             * @cssprop --wcs-textarea-padding-right - Padding right of the text area. Take in consideration the transparent border of 2px around the textarea.
+             * @cssprop --wcs-textarea-icon-color-default - Default icon color whe the textarea is not focused
+             * @cssprop --wcs-textarea-icon-color-focus - Icon color when the textarea is focused
+             * @cssprop --wcs-textarea-icon-color-disabled - Icon color when the textarea is disabled
+             * @cssprop --wcs-textarea-background-color - Background color of the textarea
+             * @cssprop --wcs-textarea-border-radius-left - Border radius of the left side of the textarea
+             * @cssprop --wcs-textarea-border-radius-right - Border radius of the right side of the textarea
+             * @cssprop --wcs-textarea-border-width - Border width of the textarea when not focused
+             * @cssprop --wcs-textarea-border-width-focus - Border width of the textarea when focused
+             * @cssprop --wcs-textarea-border-color-default - Default border color of the textarea when not focused
+             * @cssprop --wcs-textarea-border-color-error - Border color of the textarea when in error state
+             * @cssprop --wcs-textarea-border-color-focus -  Border color of the textarea when focused
+             * @cssprop --wcs-textarea-value-color - Color of the value when the textarea is not focused
+             * @cssprop --wcs-textarea-value-font-weight - Font weight of the textarea value
+             * @cssprop --wcs-textarea-placeholder-color - Color of the textarea placeholder
+             * @cssprop --wcs-textarea-placeholder-font-weight - Font weight of the textarea placeholder
+             * @cssprop --wcs-textarea-placeholder-font-style - Font style of the textarea placeholder
+             * @cssprop --wcs-textarea-text-color-disabled - Color of the value when the textarea is disabled
+             * @cssprop --wcs-textarea-border-style-default - Border style default of the textarea when not focused
+             * @cssprop --wcs-textarea-border-style-error - Border style default of the textarea in error state
+             * @cssprop --wcs-textarea-border-style-focus - Border style default of the textarea when focused
+             * @cssprop --wcs-textarea-min-height - Min height of the textarea component
+             * @cssprop --wcs-textarea-max-height - Max height of the textarea component
+             * @cssprop --wcs-textarea-padding-top - Padding top of the textarea
+             * @cssprop --wcs-textarea-padding-bottom - Padding bottom of the textarea
+             * @cssprop --wcs-textarea-padding-left - Padding left of the textarea
+             * @cssprop --wcs-textarea-padding-right - Padding right of the textarea
+             * @cssprop --wcs-textarea-gap - Gap between textarea and icon (prefix/suffix)
              */
             "wcs-textarea": LocalJSX.WcsTextarea & JSXBase.HTMLAttributes<HTMLWcsTextareaElement>;
             /**

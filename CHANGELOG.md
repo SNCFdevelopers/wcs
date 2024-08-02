@@ -26,6 +26,7 @@ for soon-to-be removed features.
 #### CSS
 
 - **input**: remove `--wcs-input-icon-color` css variable. Use `--wcs-input-icon-color-default`, `--wcs-input-icon-color-focus`, `--wcs-input-icon-color-disabled` instead.
+- **textarea**: remove `--wcs-textarea-icon-color` css variable. Use `--wcs-textarea-icon-color-default`, `--wcs-textarea-icon-color-focus`, `--wcs-textarea-icon-color-disabled` instead.
 
 ### Fixed
 

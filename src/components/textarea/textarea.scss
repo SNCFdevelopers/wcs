@@ -2,44 +2,79 @@
 @import '../../style/placeholder.scss';
 
 :host {
-    --wcs-textarea-icon-color: var(--wcs-text-medium);
+    // region to be removed before migration to design tokens
+    --wcs-textarea-value-color: var(--wcs-primary);
+    --wcs-textarea-text-color-disabled: var(--wcs-text-disabled);
+    --wcs-textarea-value-font-weight: var(--wcs-font-weight-form-value);
+
+    --wcs-textarea-placeholder-color: var(--wcs-text-medium);
+    --wcs-textarea-placeholder-font-weight: 400;
+    --wcs-textarea-placeholder-font-style: italic;
+
+    --wcs-textarea-icon-color-default: var(--wcs-text-medium);
+    --wcs-textarea-icon-color-disabled: var(--wcs-text-disabled);
+    --wcs-textarea-icon-color-focus: var(--wcs-primary);
+
+    --wcs-textarea-gap: var(--wcs-base-margin);
+
+    --wcs-textarea-border-color-default: transparent;
+    --wcs-textarea-border-color-focus: var(--wcs-primary);
+    --wcs-textarea-border-color-error: var(--wcs-red);
+
+    --wcs-textarea-border-style-default: solid;
+    --wcs-textarea-border-style-error: solid;
+    --wcs-textarea-border-style-focus: dashed;
+
+    --wcs-textarea-border-width: 2px;
+    --wcs-textarea-border-width-focus: 2px;
     --wcs-internal-textarea-border-radius-left: var(--wcs-textarea-border-radius-left, var(--wcs-border-radius));
     --wcs-internal-textarea-border-radius-right: var(--wcs-textarea-border-radius-right, var(--wcs-border-radius));
-    --wcs-internal-textarea-border-width: 2px;
-    --wcs-internal-textarea-padding-left: var(--wcs-textarea-padding-left, calc(var(--wcs-padding) - var(--wcs-border-size)));
-    --wcs-internal-textarea-padding-right: var(--wcs-textarea-padding-right, calc(var(--wcs-padding) - var(--wcs-border-size)));
+
+    --wcs-textarea-padding-top: calc(var(--wcs-padding) / 2);
+    --wcs-textarea-padding-bottom: calc(var(--wcs-padding) / 2);
+    --wcs-internal-textarea-padding-left: var(--wcs-textarea-padding-left, var(--wcs-padding));
+    --wcs-internal-textarea-padding-right: var(--wcs-textarea-padding-right, var(--wcs-padding));
+
+    --wcs-textarea-min-height: var(--wcs-size-m);
     --wcs-internal-textarea-max-height: var(--wcs-textarea-max-height, unset);
+
+    --wcs-textarea-background-color: var(--wcs-light);
+    // endregion
 
     display: flex;
     flex-direction: row;
+    align-items: center;
+    gap: var(--wcs-textarea-gap);
     width: 100%;
     border-radius: var(--wcs-internal-textarea-border-radius-left) var(--wcs-internal-textarea-border-radius-right) var(--wcs-internal-textarea-border-radius-right) var(--wcs-internal-textarea-border-radius-left);
-    background-color: var(--wcs-light);
-    border: var(--wcs-internal-textarea-border-width) solid var(--wcs-light);
+    background-color: var(--wcs-textarea-background-color);
+    outline: var(--wcs-textarea-border-style-default) var(--wcs-textarea-border-width) var(--wcs-textarea-border-color-default);
+    outline-offset: calc(-1 * var(--wcs-textarea-border-width));
     background-clip: padding-box;
 
+    box-sizing: border-box;
+
     textarea {
+        box-sizing: border-box;
+        font-family: inherit;
         overflow: auto;
         flex: 1;
         width: 100%;
-        box-sizing: border-box;
-        min-height: var(--wcs-size-m);
+        min-height: var(--wcs-textarea-min-height);
         max-height: var(--wcs-internal-textarea-max-height);
         background-color: transparent;
-        font-family: var(--wcs-font-sans-serif);
-        color: var(--wcs-primary);
-        font-weight: var(--wcs-font-weight-form-value) !important;
+        color: var(--wcs-textarea-value-color);
+        font-weight: var(--wcs-textarea-value-font-weight) !important;
         border: none;
-        // On divise --wcs-internal-input-border-width par deux car la valeur du padding est appliquée en haut et en bas
-        padding-top: calc(calc(var(--wcs-padding) / 2) - calc(var(--wcs-internal-textarea-border-width) / 2));
-        padding-bottom: calc(calc(var(--wcs-padding) / 2) - calc(var(--wcs-internal-textarea-border-width) / 2));
+        padding-top: var(--wcs-textarea-padding-top);
+        padding-bottom: var(--wcs-textarea-padding-bottom);
         padding-left: var(--wcs-internal-textarea-padding-left);
-        padding-right:var(--wcs-internal-textarea-padding-right);
+        padding-right: var(--wcs-internal-textarea-padding-right);
         font-size: 1rem;
         line-height: 1.5;
 
         &::placeholder {
-            @include placeholder;
+            @include placeholder(var(--wcs-textarea-placeholder-color), var(--wcs-textarea-placeholder-font-weight), var(--wcs-textarea-placeholder-font-style));
         }
     }
 
@@ -49,28 +84,81 @@
     }
 
     wcs-mat-icon {
-        position: relative;
-        margin-top: 7px;
-        margin-left: 8px;
-        margin-right: -8px;
+        margin-left: var(--wcs-internal-textarea-padding-left);
+        color: var(--wcs-textarea-icon-color-default);
     }
+}
+
+:host(.token-migration) {
+    --wcs-textarea-text-color-disabled: var(--wcs-semantic-color-foreground-form-field-disabled);
+    --wcs-textarea-value-color: var(--wcs-semantic-color-foreground-form-field-value);
+    --wcs-textarea-value-font-weight: var(--wcs-semantic-font-weight-medium);
+
+    --wcs-textarea-placeholder-color: var(--wcs-semantic-color-foreground-form-field-placeholder);
+    --wcs-textarea-placeholder-font-weight: var(--wcs-semantic-font-weight-regular);
+    --wcs-textarea-placeholder-font-style: var(--wcs-semantic-font-style-form-field-placeholder);
+
+    --wcs-textarea-icon-color-default: var(--wcs-semantic-color-primary);
+    --wcs-textarea-icon-color-disabled: var(--wcs-semantic-color-foreground-form-field-disabled);
+    --wcs-textarea-icon-color-focus: var(--wcs-semantic-color-primary);
+
+    --wcs-textarea-border-color-default: var(--wcs-semantic-color-border-form-field-default);
+    --wcs-textarea-border-color-error: var(--wcs-semantic-color-error);
+    --wcs-textarea-border-color-focus: var(--wcs-semantic-color-border-focus-control);
+
+    --wcs-textarea-border-style-default: solid;
+    --wcs-textarea-border-style-error: solid;
+    --wcs-textarea-border-style-focus: var(--wcs-semantic-border-style-focus-control);
+
+    --wcs-internal-textarea-border-radius-left: var(--wcs-textarea-border-radius-left, var(--wcs-semantic-border-radius-base));
+    --wcs-internal-textarea-border-radius-right: var(--wcs-textarea-border-radius-right, var(--wcs-semantic-border-radius-base));
+
+    --wcs-textarea-border-width: var(--wcs-semantic-border-width-default);
+    --wcs-textarea-border-width-focus: var(--wcs-semantic-border-width-large);
+
+    --wcs-textarea-gap: var(--wcs-semantic-spacing-base);
+
+    --wcs-textarea-padding-top: var(--wcs-semantic-padding-size-m-vertical);
+    --wcs-textarea-padding-bottom: var(--wcs-semantic-padding-size-m-vertical);
+    --wcs-internal-textarea-padding-left: var(--wcs-textarea-padding-left, var(--wcs-semantic-padding-size-m-horizontal));
+    --wcs-internal-textarea-padding-right: var(--wcs-textarea-padding-right, var(--wcs-semantic-padding-size-m-horizontal));
+
+    --wcs-textarea-min-height: var(--wcs-semantic-size-m);
+    --wcs-internal-textarea-max-height: var(--wcs-textarea-max-height, unset);
+
+    --wcs-textarea-background-color: var(--wcs-semantic-color-background-form-field-default);
 }
 
 :host([disabled]) {
     textarea {
-        color: var(--wcs-text-disabled);
+        color: var(--wcs-textarea-text-color-disabled);
         cursor: not-allowed;
+
+        &::placeholder {
+            color: var(--wcs-textarea-text-color-disabled);
+        }
+    }
+
+    wcs-mat-icon {
+        color: var(--wcs-textarea-icon-color-disabled);
+    }
+}
+
+:host([icon]) {
+    textarea {
+        padding-left: 0;
     }
 }
 
 :host([state=error]) {
-    border-color: var(--wcs-red) !important;
+    outline-color: var(--wcs-textarea-border-color-error) !important;
 }
 
 :host(:focus-within) {
-    border: dashed var(--wcs-internal-textarea-border-width) var(--wcs-primary);
+    outline: var(--wcs-textarea-border-style-focus) var(--wcs-textarea-border-width-focus) var(--wcs-textarea-border-color-focus);
+    outline-offset: calc(var(--wcs-textarea-border-width-focus) * -1);
 
     wcs-mat-icon {
-        color: var(--wcs-primary);
+        color: var(--wcs-textarea-icon-color-focus);
     }
 }
