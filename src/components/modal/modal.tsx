@@ -165,7 +165,7 @@ export class Modal implements ComponentInterface {
 
     @Listen('keydown', {target: 'document'})
     onKeyDown(event: KeyboardEvent) {
-        if (this.show && this.showCloseButton && event.key === 'Escape') {
+        if (this.show && event.key === 'Escape') {
             this.close();
         }
 

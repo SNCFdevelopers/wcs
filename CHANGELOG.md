@@ -37,6 +37,7 @@ for now removed features.
   - fix prefix suffix group style for native select
   - fix width of the native select when it is in a form-field (fill now 100% of the available place)
 - **grid**: an error was thrown in console when change current page (grid pagination)
+- **modal**: when press escape key and `show-close-button` is present on modal, it now closes it
 
 ### Security
 
