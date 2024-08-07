@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Injector } from '@angular/core';
+import { Directive, ElementRef, HostListener, Injector } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { RadioGroupChangeEventDetail } from '../../../../../../dist/types/components/radio-group/radio-group-interface';
 
@@ -25,22 +25,24 @@ export class RadioGroupValueAccessor implements ControlValueAccessor {
     });
   }
 
-  // tslint:disable-next-line:typedef
-  writeValue(value) {
+  writeValue(value: any): void {
     this.value = value;
     this.el.nativeElement.value = this.value;
   }
 
-  // tslint:disable-next-line:typedef
-  registerOnChange(fn) {
+  registerOnChange(fn: any): void {
     this.onChange = fn;
   }
 
-  /**
-   * Not implemented for now
-   */
-  // tslint:disable-next-line:typedef
-  registerOnTouched(fn) {
+  @HostListener('wcsBlur', ['$event'])
+  _handleBlurEvent(ev: any): void {
+    if (!this.el.nativeElement.contains(ev.detail.relatedTarget)) {
+      this.onTouched();
+    }
+  }
+
+  registerOnTouched(fn: any) {
+    this.onTouched = fn;
   }
 
 }

@@ -8589,6 +8589,13 @@
               "description": "Emitted when the radio is clicked or Space/Enter is pressed above an unchecked radio"
             },
             {
+              "name": "wcsRadioCheck",
+              "type": {
+                "text": "EventEmitter<void>"
+              },
+              "description": "This event is called to notify the group and uncheck all other radios"
+            },
+            {
               "name": "wcsBlur",
               "type": {
                 "text": "EventEmitter<FocusEvent>"
@@ -10085,6 +10092,12 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/skeleton/skeleton-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/skeleton-circle/skeleton-circle.tsx",
       "declarations": [
         {
@@ -10264,12 +10277,6 @@
           }
         }
       ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/skeleton/skeleton-interface.ts",
-      "declarations": [],
-      "exports": []
     },
     {
       "kind": "javascript-module",

@@ -13,7 +13,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - **select-option**: add a documentation about handling large text in options
 - **grid**: add support for row styling with css parts
-- **radio**: add style for checked AND disabled radios
+- **radio-group**: add onTouched support for Angular
+- **radio**:
+  - add style for checked AND disabled radios
+  - emit wcsFocus and wcsBlur events
 
 ### Changed
 

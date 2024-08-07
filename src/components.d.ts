@@ -2104,6 +2104,7 @@ declare global {
     };
     interface HTMLWcsRadioElementEventMap {
         "wcsRadioClick": RadioChosedEvent;
+        "wcsRadioCheck": void;
         "wcsBlur": FocusEvent;
         "wcsFocus": FocusEvent;
     }
@@ -3350,6 +3351,10 @@ declare namespace LocalJSX {
           * Emitted when the radio has focus.
          */
         "onWcsFocus"?: (event: WcsRadioCustomEvent<FocusEvent>) => void;
+        /**
+          * This event is called to notify the group and uncheck all other radios
+         */
+        "onWcsRadioCheck"?: (event: WcsRadioCustomEvent<void>) => void;
         /**
           * Emitted when the radio is clicked or Space/Enter is pressed above an unchecked radio
          */

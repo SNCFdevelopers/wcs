@@ -1232,7 +1232,7 @@ export class WcsRadio {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['wcsRadioClick', 'wcsBlur', 'wcsFocus']);
+    proxyOutputs(this, this.el, ['wcsRadioClick', 'wcsRadioCheck', 'wcsBlur', 'wcsFocus']);
   }
 }
 
@@ -1244,6 +1244,10 @@ export declare interface WcsRadio extends Components.WcsRadio {
    * Emitted when the radio is clicked or Space/Enter is pressed above an unchecked radio
    */
   wcsRadioClick: EventEmitter<CustomEvent<IWcsRadioRadioChosedEvent>>;
+  /**
+   * This event is called to notify the group and uncheck all other radios
+   */
+  wcsRadioCheck: EventEmitter<CustomEvent<void>>;
   /**
    * Emitted when the radio loses focus.
    */

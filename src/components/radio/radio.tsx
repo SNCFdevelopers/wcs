@@ -57,14 +57,14 @@ export class Radio implements ComponentInterface {
     @Event({ eventName: 'wcsRadioClick' }) wcsRadioClick: EventEmitter<RadioChosedEvent>
 
     /**
-     * Emitted when the radio has focus.
-     */
-    @Event() wcsFocus!: EventEmitter<FocusEvent>;
-
-    /**
      * Emitted when the radio loses focus.
      */
     @Event() wcsBlur!: EventEmitter<FocusEvent>;
+
+    /**
+     * Emitted when the radio has focus.
+     */
+    @Event() wcsFocus!: EventEmitter<FocusEvent>;
 
     /**
      * The name of the control, automatically set by the radio group.  

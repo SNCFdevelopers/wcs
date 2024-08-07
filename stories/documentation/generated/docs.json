@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-08-09T15:36:07",
+  "timestamp": "2024-08-09T14:14:42",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -6412,6 +6412,20 @@
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the radio has focus.",
+          "docsTags": []
+        },
+        {
+          "event": "wcsRadioCheck",
+          "detail": "void",
+          "bubbles": true,
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "This event is called to notify the group and uncheck all other radios",
           "docsTags": []
         },
         {

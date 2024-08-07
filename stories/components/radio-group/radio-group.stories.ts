@@ -32,7 +32,9 @@ const meta: Meta = {
         actions: {
             handles: [
                 'wcsChange',
-                'wcsRadioClick'
+                'wcsRadioClick',
+                'wcsFocus',
+                'wcsBlur'
             ]
         },
     },
