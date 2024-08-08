@@ -97,7 +97,7 @@ export const Default: StoryObj = {
  *     
  *     myEditableField.addEventListener("wcsChange", (e) => {
  *         successHandler = e.detail.successHandler; 
- *         errorHandler = e.detail.errorhandler;
+ *         errorHandler = e.detail.errorHandler;
  *     });
  *      
  *     callSuccess() {
@@ -123,7 +123,7 @@ export const UsingCallbacks: StoryObj = {
             // @ts-ignore
             document.querySelector('#editable-field-ex-2').addEventListener("wcsChange", (e) => {
                 successHandler = e.detail.successHandler; 
-                errorHandler = e.detail.errorhandler;
+                errorHandler = e.detail.errorHandler;
             });
         });
         

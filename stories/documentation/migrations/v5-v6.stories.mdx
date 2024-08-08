@@ -4,7 +4,7 @@ import {Meta} from '@storybook/addon-docs';
 
 # Migrate from v5 to v6
 
-WCS v5 contains breaking changes only in the following packages:
+WCS v6 contains breaking changes only in the following packages:
 - wcs-core
 - wcs-angular
 - wcs-react
@@ -56,6 +56,11 @@ You can still know which radio is selected in the **group** by relying on the `w
 > await page.locator('wcs-grid >> shadow=table tbody tr td input[type="radio"]'); // If you want the native input only
 > ```
 
+### wcs-editable-field
+
+**For the `wcsChange` event,** interface member `EditableComponentUpdateEvent.errorhandler` has been renamed to `EditableComponentUpdateEvent.errorHandler` (camel case).
+- If you were importing the TypeScript interface `EditableComponentUpdateEvent` in your project, make sure you rename `errorHandler` correctly.
+- If you were using the `errorHandler` callback in any way, make sure you rename it accordingly too.
 
 
 ## wcs-angular
@@ -64,8 +69,16 @@ You can still know which radio is selected in the **group** by relying on the `w
 
 The `wcs-radio` component has been updated to match the [changes](#wcs-radio) in `wcs-core`.
 
+### wcs-editable-field
+
+The `wcs-editable-field` component has been updated to match the [changes](#wcs-editable-field) in `wcs-core`.
+
 ## wcs-react
 
 ### wcs-radio
 
 The `wcs-radio` component has been updated to match the [changes](#wcs-radio) in `wcs-core`.
+
+### wcs-editable-field
+
+The `wcs-editable-field` component has been updated to match the [changes](#wcs-editable-field) in `wcs-core`.

@@ -17,8 +17,7 @@ export interface EditableComponentUpdateEvent {
      * Used to get from LOAD state to DISPLAY state.  
      * Only use to discard the value, when the value should not be updated 
      */
-    // FIXME (next-release): rename to `errorHandler`
-    errorhandler: () => void;
+    errorHandler: () => void;
 }
 
 export const WcsEditableFieldSizeValues = ['m', 'l'] as const; // as const keyword is used to infer and preserve the exact literal values of an array or object.

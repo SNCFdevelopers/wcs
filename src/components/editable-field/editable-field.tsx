@@ -206,7 +206,7 @@ export class EditableField implements ComponentInterface {
                     this.wcsChange.emit({
                         newValue: this.currentValue,
                         successHandler: () => this.forceDisplayStateAndValidate(),
-                        errorhandler: () => this.errorHandler()
+                        errorHandler: () => this.errorHandler()
                     });
                 }
             }
