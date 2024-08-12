@@ -17,7 +17,7 @@ import { interpret, Interpreter, Machine, MachineConfig, MachineOptions } from '
 import {
     isWcsSelectSize,
     SelectChangeEventDetail,
-    SelectFilerChangeEventDetail,
+    SelectFilterChangeEventDetail,
     WcsDefaultSelectFilterFn,
     WcsSelectFilterFn,
     WcsSelectSize,
@@ -203,7 +203,7 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
     @Event() wcsBlur!: EventEmitter<FocusEvent>;
 
     /** Emitted when the autocomplete filter has changed. */
-    @Event() wcsFilterChange!: EventEmitter<SelectFilerChangeEventDetail>;
+    @Event() wcsFilterChange!: EventEmitter<SelectFilterChangeEventDetail>;
 
     /** Open the component. */
     @Method()

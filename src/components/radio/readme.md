@@ -20,7 +20,6 @@
 | --------------- | ------------------------------------------------------------------------------------ | ------------------------------- |
 | `wcsBlur`       | Emitted when the radio loses focus.                                                  | `CustomEvent<FocusEvent>`       |
 | `wcsFocus`      | Emitted when the radio has focus.                                                    | `CustomEvent<FocusEvent>`       |
-| `wcsRadioCheck` | This event is called to notify the group and uncheck all other radios                | `CustomEvent<void>`             |
 | `wcsRadioClick` | Emitted when the radio is clicked or Space/Enter is pressed above an unchecked radio | `CustomEvent<RadioChosedEvent>` |
 
 

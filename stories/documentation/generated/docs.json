@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-08-09T14:14:42",
+  "timestamp": "2024-08-13T09:54:09",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -6415,20 +6415,6 @@
           "docsTags": []
         },
         {
-          "event": "wcsRadioCheck",
-          "detail": "void",
-          "bubbles": true,
-          "complexType": {
-            "original": "void",
-            "resolved": "void",
-            "references": {}
-          },
-          "cancelable": true,
-          "composed": true,
-          "docs": "This event is called to notify the group and uncheck all other radios",
-          "docsTags": []
-        },
-        {
           "event": "wcsRadioClick",
           "detail": "RadioChosedEvent",
           "bubbles": true,
@@ -7021,16 +7007,16 @@
         },
         {
           "event": "wcsFilterChange",
-          "detail": "SelectFilerChangeEventDetail",
+          "detail": "SelectFilterChangeEventDetail",
           "bubbles": true,
           "complexType": {
-            "original": "SelectFilerChangeEventDetail",
-            "resolved": "SelectFilerChangeEventDetail",
+            "original": "SelectFilterChangeEventDetail",
+            "resolved": "SelectFilterChangeEventDetail",
             "references": {
-              "SelectFilerChangeEventDetail": {
+              "SelectFilterChangeEventDetail": {
                 "location": "import",
                 "path": "./select-interface",
-                "id": "src/components/select/select-interface.ts::SelectFilerChangeEventDetail"
+                "id": "src/components/select/select-interface.ts::SelectFilterChangeEventDetail"
               }
             }
           },
@@ -9508,7 +9494,7 @@
       "path": "src/components/editable-field/editable-field-interface.tsx"
     },
     "src/components/editable-field/editable-field-interface.tsx::EditableComponentUpdateEvent": {
-      "declaration": "export interface EditableComponentUpdateEvent {\r\n    /**\r\n     * The new value sent by the component inside the `wcs-editable-field`\r\n     */\r\n    newValue: any; // We use any for now, but when components typings will support template, change for parameterized type\r\n    /**\r\n     * Used to get from LOAD state to DISPLAY state.  \r\n     * Only use to commit the value, when the value is not systematically updated at every event firing\r\n     */\r\n    successHandler: () => void;\r\n    /**\r\n     * Used to get from LOAD state to DISPLAY state.  \r\n     * Only use to discard the value, when the value should not be updated \r\n     */\r\n    // FIXME (next-release): rename to `errorHandler`\r\n    errorhandler: () => void;\r\n}",
+      "declaration": "export interface EditableComponentUpdateEvent {\r\n    /**\r\n     * The new value sent by the component inside the `wcs-editable-field`\r\n     */\r\n    newValue: any; // We use any for now, but when components typings will support template, change for parameterized type\r\n    /**\r\n     * Used to get from LOAD state to DISPLAY state.  \r\n     * Only use to commit the value, when the value is not systematically updated at every event firing\r\n     */\r\n    successHandler: () => void;\r\n    /**\r\n     * Used to get from LOAD state to DISPLAY state.  \r\n     * Only use to discard the value, when the value should not be updated \r\n     */\r\n    errorHandler: () => void;\r\n}",
       "docstring": "",
       "path": "src/components/editable-field/editable-field-interface.tsx"
     },
@@ -9667,8 +9653,8 @@
       "docstring": "",
       "path": "src/components/select/select-interface.ts"
     },
-    "src/components/select/select-interface.ts::SelectFilerChangeEventDetail": {
-      "declaration": "export interface SelectFilerChangeEventDetail {\r\n    value: string | number | undefined | null;\r\n}",
+    "src/components/select/select-interface.ts::SelectFilterChangeEventDetail": {
+      "declaration": "export interface SelectFilterChangeEventDetail {\r\n    value: string | number | undefined | null;\r\n}",
       "docstring": "",
       "path": "src/components/select/select-interface.ts"
     },

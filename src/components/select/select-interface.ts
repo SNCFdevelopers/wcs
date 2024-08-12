@@ -4,7 +4,7 @@ export interface SelectChangeEventDetail {
     value: any | any[] | undefined | null;
 }
 
-export interface SelectFilerChangeEventDetail {
+export interface SelectFilterChangeEventDetail {
     value: string | number | undefined | null;
 }
 

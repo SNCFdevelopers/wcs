@@ -22,6 +22,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - **radio**: properties `name` and `mode` and no longer needed and should only be placed on `wcs-radio-group` from now on
 - **editable-field**: rename `errorhandler` to `errorHandler`
+- **select**: rename `SelectFilerChangeEventDetail` to `SelectFilterChangeEventDetail`
 
 ### Deprecated
 

@@ -23,7 +23,7 @@ import { WcsNativeSelectSize } from "./components/native-select/native-select-in
 import { CssTypes, WcsSize } from "./shared-types";
 import { RadioGroupChangeEventDetail, RadioGroupMode } from "./components/radio-group/radio-group-interface";
 import { RadioChosedEvent } from "./components/radio/radio-interface";
-import { SelectChangeEventDetail, SelectFilerChangeEventDetail, WcsSelectFilterFn, WcsSelectSize } from "./components/select/select-interface";
+import { SelectChangeEventDetail, SelectFilterChangeEventDetail, WcsSelectFilterFn, WcsSelectSize } from "./components/select/select-interface";
 import { SelectOptionChosedEvent } from "./components/select-option/select-option-interface";
 import { WcsSkeletonAnimation } from "./components/skeleton/skeleton-interface";
 import { WcsSpinnerMode } from "./components/spinner/spinner-interface";
@@ -49,7 +49,7 @@ export { WcsNativeSelectSize } from "./components/native-select/native-select-in
 export { CssTypes, WcsSize } from "./shared-types";
 export { RadioGroupChangeEventDetail, RadioGroupMode } from "./components/radio-group/radio-group-interface";
 export { RadioChosedEvent } from "./components/radio/radio-interface";
-export { SelectChangeEventDetail, SelectFilerChangeEventDetail, WcsSelectFilterFn, WcsSelectSize } from "./components/select/select-interface";
+export { SelectChangeEventDetail, SelectFilterChangeEventDetail, WcsSelectFilterFn, WcsSelectSize } from "./components/select/select-interface";
 export { SelectOptionChosedEvent } from "./components/select-option/select-option-interface";
 export { WcsSkeletonAnimation } from "./components/skeleton/skeleton-interface";
 export { WcsSpinnerMode } from "./components/spinner/spinner-interface";
@@ -2142,7 +2142,7 @@ declare global {
         "wcsChange": SelectChangeEventDetail;
         "wcsFocus": FocusEvent;
         "wcsBlur": FocusEvent;
-        "wcsFilterChange": SelectFilerChangeEventDetail;
+        "wcsFilterChange": SelectFilterChangeEventDetail;
     }
     /**
      * The select component (also named combobox) is a form component that allows users to select one or more options
@@ -3422,7 +3422,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the autocomplete filter has changed.
          */
-        "onWcsFilterChange"?: (event: WcsSelectCustomEvent<SelectFilerChangeEventDetail>) => void;
+        "onWcsFilterChange"?: (event: WcsSelectCustomEvent<SelectFilterChangeEventDetail>) => void;
         /**
           * Emitted when the select has focus.
          */

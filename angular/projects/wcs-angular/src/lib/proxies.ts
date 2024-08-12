@@ -1232,7 +1232,7 @@ export class WcsRadio {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['wcsRadioClick', 'wcsRadioCheck', 'wcsBlur', 'wcsFocus']);
+    proxyOutputs(this, this.el, ['wcsRadioClick', 'wcsBlur', 'wcsFocus']);
   }
 }
 
@@ -1244,10 +1244,6 @@ export declare interface WcsRadio extends Components.WcsRadio {
    * Emitted when the radio is clicked or Space/Enter is pressed above an unchecked radio
    */
   wcsRadioClick: EventEmitter<CustomEvent<IWcsRadioRadioChosedEvent>>;
-  /**
-   * This event is called to notify the group and uncheck all other radios
-   */
-  wcsRadioCheck: EventEmitter<CustomEvent<void>>;
   /**
    * Emitted when the radio loses focus.
    */
@@ -1312,7 +1308,7 @@ export class WcsSelect {
 
 
 import type { SelectChangeEventDetail as IWcsSelectSelectChangeEventDetail } from 'wcs-core';
-import type { SelectFilerChangeEventDetail as IWcsSelectSelectFilerChangeEventDetail } from 'wcs-core';
+import type { SelectFilterChangeEventDetail as IWcsSelectSelectFilterChangeEventDetail } from 'wcs-core';
 
 export declare interface WcsSelect extends Components.WcsSelect {
   /**
@@ -1330,7 +1326,7 @@ export declare interface WcsSelect extends Components.WcsSelect {
   /**
    * Emitted when the autocomplete filter has changed.
    */
-  wcsFilterChange: EventEmitter<CustomEvent<IWcsSelectSelectFilerChangeEventDetail>>;
+  wcsFilterChange: EventEmitter<CustomEvent<IWcsSelectSelectFilterChangeEventDetail>>;
 }
 
 
@@ -1541,7 +1537,7 @@ import type { WcsTabChangeEvent as IWcsTabsWcsTabChangeEvent } from 'wcs-core';
 
 export declare interface WcsTabs extends Components.WcsTabs {
   /**
-   * 
+   *
 Emitted when the selected tab change.
    */
   tabChange: EventEmitter<CustomEvent<IWcsTabsWcsTabChangeEvent>>;

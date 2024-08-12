@@ -36,12 +36,12 @@ Use it with several slotted `wcs-select-option` inside.
 
 ## Events
 
-| Event             | Description                                       | Type                                        |
-| ----------------- | ------------------------------------------------- | ------------------------------------------- |
-| `wcsBlur`         | Emitted when the select loses focus.              | `CustomEvent<FocusEvent>`                   |
-| `wcsChange`       | Emitted when the value has changed.               | `CustomEvent<SelectChangeEventDetail>`      |
-| `wcsFilterChange` | Emitted when the autocomplete filter has changed. | `CustomEvent<SelectFilerChangeEventDetail>` |
-| `wcsFocus`        | Emitted when the select has focus.                | `CustomEvent<FocusEvent>`                   |
+| Event             | Description                                       | Type                                         |
+| ----------------- | ------------------------------------------------- | -------------------------------------------- |
+| `wcsBlur`         | Emitted when the select loses focus.              | `CustomEvent<FocusEvent>`                    |
+| `wcsChange`       | Emitted when the value has changed.               | `CustomEvent<SelectChangeEventDetail>`       |
+| `wcsFilterChange` | Emitted when the autocomplete filter has changed. | `CustomEvent<SelectFilterChangeEventDetail>` |
+| `wcsFocus`        | Emitted when the select has focus.                | `CustomEvent<FocusEvent>`                    |
 
 
 ## Methods
