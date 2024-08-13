@@ -55,7 +55,6 @@ import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-ari
 export class Input implements ComponentInterface, MutableAriaAttribute {
     private nativeInput?: HTMLInputElement;
     private inputId = `wcs-input-${inputIds++}`;
-    private didBlurAfterEdit = false;
     private inheritedAttributes: { [k: string]: any } = {};
     private iconPassword = "visibility";
 
@@ -68,8 +67,6 @@ export class Input implements ComponentInterface, MutableAriaAttribute {
      * @internal
      */
     @Prop() fireFocusEvents = true;
-
-    @State() private hasFocus = false;
 
     @State() private passwordReveal = false;
 
@@ -101,17 +98,6 @@ export class Input implements ComponentInterface, MutableAriaAttribute {
      * This Boolean attribute lets you specify that a form control should have input focus when the page loads.
      */
     @Prop() autofocus = false;
-
-    /**
-     * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
-     */
-    @Prop() clearInput = false;
-
-    /**
-     * If `true`, the value will be cleared after focus upon edit.
-     * Defaults to `true` when `type` is `"password"`, `false` for all other types.
-     */
-    @Prop() clearOnEdit?: boolean;
 
     /**
      * Set the amount of time, in milliseconds, to wait to trigger the `wcsInput` event after each keystroke.
@@ -330,14 +316,7 @@ export class Input implements ComponentInterface, MutableAriaAttribute {
             this.nativeInput.setAttribute(attr, value);
         }
     }
-
-    private shouldClearOnEdit() {
-        const {type, clearOnEdit} = this;
-        return (clearOnEdit === undefined)
-            ? type === 'password'
-            : clearOnEdit;
-    }
-
+    
     private getValueAsString(): string {
         return typeof this.value === 'number' ? this.value.toString() :
             (this.value || '').toString();
@@ -356,67 +335,15 @@ export class Input implements ComponentInterface, MutableAriaAttribute {
     }
 
     private onBlur = (ev: FocusEvent) => {
-        this.hasFocus = false;
-        this.focusChanged();
-
         if (this.fireFocusEvents) {
             this.wcsBlur.emit(ev);
         }
     }
 
     private onFocus = (ev: FocusEvent) => {
-        this.hasFocus = true;
-        this.focusChanged();
-
         if (this.fireFocusEvents) {
             this.wcsFocus.emit(ev);
         }
-    }
-
-    private onKeydown = (ev: KeyboardEvent) => {
-        if (this.shouldClearOnEdit()) {
-            // Did the input value change after it was blurred and edited?
-            // Do not clear if user is hitting Enter to submit form
-            if (this.didBlurAfterEdit && this.hasValue() && ev.key !== 'Enter') {
-                // Clear the input
-                this.clearTextInput();
-            }
-
-            // Reset the flag
-            this.didBlurAfterEdit = false;
-        }
-    }
-
-    private clearTextInput = (ev?: Event) => {
-        if (this.clearInput && !this.readonly && !this.disabled && ev) {
-            ev.preventDefault();
-            ev.stopPropagation();
-
-            // Attempt to focus input again after pressing clear button
-            this.setFocus();
-        }
-
-        this.value = '';
-
-        /**
-         * This is needed for clearOnEdit
-         * Otherwise the value will not be cleared
-         * if user is inside the input
-         */
-        if (this.nativeInput) {
-            this.nativeInput.value = '';
-        }
-    }
-
-    private focusChanged() {
-        // If clearOnEdit is enabled and the input blurred but has a value, set a flag
-        if (!this.hasFocus && this.shouldClearOnEdit() && this.hasValue()) {
-            this.didBlurAfterEdit = true;
-        }
-    }
-
-    private hasValue(): boolean {
-        return this.getValueAsString().length > 0;
     }
 
     private passwordRevealIconClick(): void {
@@ -474,7 +401,6 @@ export class Input implements ComponentInterface, MutableAriaAttribute {
                     onChange={this.onChange}
                     onBlur={this.onBlur}
                     onFocus={this.onFocus}
-                    onKeyDown={this.onKeydown}
                     {...this.inheritedAttributes}
                 />
                 {this.type === "password" ? (<wcs-mat-icon class="toggle_password" icon={this.iconPassword} size="m"  onClick={() => this.passwordRevealIconClick()}></wcs-mat-icon>) : null}

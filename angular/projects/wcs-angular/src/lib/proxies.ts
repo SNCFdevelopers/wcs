@@ -929,7 +929,7 @@ export declare interface WcsIcon extends Components.WcsIcon {}
 
 
 @ProxyCmp({
-  inputs: ['accept', 'autocapitalize', 'autocomplete', 'autocorrect', 'autofocus', 'clearInput', 'clearOnEdit', 'debounce', 'disabled', 'enterkeyhint', 'icon', 'inputmode', 'max', 'maxlength', 'min', 'minlength', 'multiple', 'name', 'pattern', 'placeholder', 'prefixLabel', 'readonly', 'required', 'size', 'spellcheck', 'state', 'step', 'suffixLabel', 'type', 'value'],
+  inputs: ['accept', 'autocapitalize', 'autocomplete', 'autocorrect', 'autofocus', 'debounce', 'disabled', 'enterkeyhint', 'icon', 'inputmode', 'max', 'maxlength', 'min', 'minlength', 'multiple', 'name', 'pattern', 'placeholder', 'prefixLabel', 'readonly', 'required', 'size', 'spellcheck', 'state', 'step', 'suffixLabel', 'type', 'value'],
   methods: ['setFocus', 'getInputElement', 'setAriaAttribute']
 })
 @Component({
@@ -937,7 +937,7 @@ export declare interface WcsIcon extends Components.WcsIcon {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['accept', 'autocapitalize', 'autocomplete', 'autocorrect', 'autofocus', 'clearInput', 'clearOnEdit', 'debounce', 'disabled', 'enterkeyhint', 'icon', 'inputmode', 'max', 'maxlength', 'min', 'minlength', 'multiple', 'name', 'pattern', 'placeholder', 'prefixLabel', 'readonly', 'required', 'size', 'spellcheck', 'state', 'step', 'suffixLabel', 'type', 'value'],
+  inputs: ['accept', 'autocapitalize', 'autocomplete', 'autocorrect', 'autofocus', 'debounce', 'disabled', 'enterkeyhint', 'icon', 'inputmode', 'max', 'maxlength', 'min', 'minlength', 'multiple', 'name', 'pattern', 'placeholder', 'prefixLabel', 'readonly', 'required', 'size', 'spellcheck', 'state', 'step', 'suffixLabel', 'type', 'value'],
 })
 export class WcsInput {
   protected el: HTMLElement;

@@ -612,14 +612,6 @@ export namespace Components {
          */
         "autofocus": boolean;
         /**
-          * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
-         */
-        "clearInput": boolean;
-        /**
-          * If `true`, the value will be cleared after focus upon edit. Defaults to `true` when `type` is `"password"`, `false` for all other types.
-         */
-        "clearOnEdit"?: boolean;
-        /**
           * Set the amount of time, in milliseconds, to wait to trigger the `wcsInput` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.
          */
         "debounce": number;
@@ -3023,14 +3015,6 @@ declare namespace LocalJSX {
           * This Boolean attribute lets you specify that a form control should have input focus when the page loads.
          */
         "autofocus"?: boolean;
-        /**
-          * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
-         */
-        "clearInput"?: boolean;
-        /**
-          * If `true`, the value will be cleared after focus upon edit. Defaults to `true` when `type` is `"password"`, `false` for all other types.
-         */
-        "clearOnEdit"?: boolean;
         /**
           * Set the amount of time, in milliseconds, to wait to trigger the `wcsInput` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`.
          */

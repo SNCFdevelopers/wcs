@@ -51,8 +51,6 @@ type InputStoryArgs = {
     autocomplete?: AutocompleteTypes;
     autocorrect?: WcsInputAutocorrect;
     autofocus?: boolean;
-    clearInput?: boolean;
-    clearOnEdit?: boolean;
     debounce?: number;
     disabled?: boolean;
     enterkeyhint?: WcsInputEnterKeyHint;
@@ -88,8 +86,6 @@ const renderWcsInput = (args: InputStoryArgs) => html`
         autocomplete=${ifDefined(args.autocomplete)}
         autocorrect=${ifDefined(args.autocorrect)}
         ?autofocus=${args.autofocus}
-        ?clear-input=${args.clearInput}
-        ?clear-on-edit=${args.clearOnEdit}
         debounce=${ifDefined(args.debounce)}
         ?disabled=${args.disabled}
         enterkeyhint=${ifDefined(args.enterkeyhint)}

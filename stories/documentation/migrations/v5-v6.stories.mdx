@@ -131,6 +131,52 @@ You can use a `<NavLink>` inside a `<WcsNavItem>` :
 ```
 
 
+
+### wcs-input
+
+1. **`clearInput` property has been removed.**
+> This was used to show an icon when the input is filled in, clicking it would clear the input.
+
+You can replace it by a `type="search"`, your browser will natively show a cross that clears the input field when filled.
+<wcs-input type="search" placeholder="Enter your name"></wcs-input>
+
+Alternatively, you can use a wcs-button in a form-field suffix group and clear the input field when you click it :
+```html
+<wcs-form-field>
+    <wcs-input placeholder="Enter your name"></wcs-input>
+    <wcs-button shape="square" slot="suffix">
+        <wcs-mat-icon icon="clear" role="img" aria-label="Clear input"></wcs-mat-icon>
+    </wcs-button>
+</wcs-form-field>
+```
+
+<wcs-form-field>
+    <wcs-input placeholder="Enter your name" id="input1"></wcs-input>
+    <wcs-button shape="square" slot="suffix"
+                onClick={() => {
+                    const input = document.getElementById('input1')
+                    input.value = '';
+                    input.focus();
+                }}>
+        <wcs-mat-icon icon="clear" role="img" aria-label="Clear input"></wcs-mat-icon>
+    </wcs-button>
+</wcs-form-field>
+
+2. **`clearOnEdit` property has been removed.**
+> This was used to clear the value after focus upon edit, mainly used for type password.
+
+
+You can replace it by listening event `wcsFocus` to reproduce this behavior :
+```ts
+myInput.addEventListener('wcsFocus', () => {
+    myInput.value = '';
+})
+```
+
+<wcs-input placeholder="Enter your name" id="input2" onFocus={() => document.getElementById('input2').value = ''}></wcs-input>
+
+
+
 ## wcs-angular
 
 ### wcs-radio
@@ -149,6 +195,10 @@ The `wcs-select` component has been updated to match the [changes](#wcs-select) 
 
 The `wcs-nav` and `wcs-nav-item` components have been updated to match the [changes](#wcs-nav-and-wcs-nav-item) in `wcs-core`.
 
+### wcs-input
+
+The `wcs-input` component has been updated to match the [changes](#wcs-input) in `wcs-core`.
+
 ## wcs-react
 
 ### wcs-radio
@@ -166,3 +216,7 @@ The `wcs-select` component has been updated to match the [changes](#wcs-select) 
 ### wcs-nav and wcs-nav-item
 
 The `wcs-nav` and `wcs-nav-item` components have been updated to match the [changes](#wcs-nav-and-wcs-nav-item) in `wcs-core`.
+
+### wcs-input
+
+The `wcs-input` component has been updated to match the [changes](#wcs-input) in `wcs-core`.
