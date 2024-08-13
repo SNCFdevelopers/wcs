@@ -1190,10 +1190,6 @@ export namespace Components {
          */
         "autofocus": boolean;
         /**
-          * If `true`, the value will be cleared after focus upon edit. Defaults to `true` when `type` is `"password"`, `false` for all other types.
-         */
-        "clearOnEdit": boolean;
-        /**
           * The visible width of the text control, in average character widths. If it is specified, it must be a positive integer.   Note : at the moment, modifying the width is only possible if you add some custom CSS to the component, for example by overriding the `width` CSS property. See the Resize section for an example on how to do it.
          */
         "cols"?: number;
@@ -3637,10 +3633,6 @@ declare namespace LocalJSX {
           * This Boolean attribute lets you specify that a form control should have input focus when the page loads.
          */
         "autofocus"?: boolean;
-        /**
-          * If `true`, the value will be cleared after focus upon edit. Defaults to `true` when `type` is `"password"`, `false` for all other types.
-         */
-        "clearOnEdit"?: boolean;
         /**
           * The visible width of the text control, in average character widths. If it is specified, it must be a positive integer.   Note : at the moment, modifying the width is only possible if you add some custom CSS to the component, for example by overriding the `width` CSS property. See the Resize section for an example on how to do it.
          */

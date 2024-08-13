@@ -1544,7 +1544,7 @@ Emitted when the selected tab change.
 
 
 @ProxyCmp({
-  inputs: ['autoGrow', 'autocapitalize', 'autofocus', 'clearOnEdit', 'cols', 'debounce', 'disabled', 'enterkeyhint', 'icon', 'inputmode', 'maxlength', 'minlength', 'name', 'placeholder', 'readonly', 'required', 'resize', 'rows', 'spellcheck', 'state', 'value', 'wrap'],
+  inputs: ['autoGrow', 'autocapitalize', 'autofocus', 'cols', 'debounce', 'disabled', 'enterkeyhint', 'icon', 'inputmode', 'maxlength', 'minlength', 'name', 'placeholder', 'readonly', 'required', 'resize', 'rows', 'spellcheck', 'state', 'value', 'wrap'],
   methods: ['setAriaAttribute', 'fitContent', 'setFocus', 'getInputElement']
 })
 @Component({
@@ -1552,7 +1552,7 @@ Emitted when the selected tab change.
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['autoGrow', 'autocapitalize', 'autofocus', 'clearOnEdit', 'cols', 'debounce', 'disabled', 'enterkeyhint', 'icon', 'inputmode', 'maxlength', 'minlength', 'name', 'placeholder', 'readonly', 'required', 'resize', 'rows', 'spellcheck', 'state', 'value', 'wrap'],
+  inputs: ['autoGrow', 'autocapitalize', 'autofocus', 'cols', 'debounce', 'disabled', 'enterkeyhint', 'icon', 'inputmode', 'maxlength', 'minlength', 'name', 'placeholder', 'readonly', 'required', 'resize', 'rows', 'spellcheck', 'state', 'value', 'wrap'],
 })
 export class WcsTextarea {
   protected el: HTMLElement;

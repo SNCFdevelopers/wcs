@@ -35,7 +35,6 @@ type TextareaStoryArgs = {
     autofocus?: boolean;
     autoGrow?: boolean;
     class?: string;
-    clearOnEdit?: boolean;
     cols?: number;
     debounce?: number;
     disabled?: boolean;
@@ -65,7 +64,6 @@ const renderWcsTextarea = (args: TextareaStoryArgs) => html`
         ?autofocus=${args.autofocus}
         ?auto-grow=${args.autoGrow}
         class=${ifDefined(args.class)}
-        ?clear-on-edit=${args.clearOnEdit}
         cols=${ifDefined(args.cols)}
         debounce=${ifDefined(args.debounce)}
         ?disabled=${args.disabled}

@@ -3,7 +3,6 @@ import {
     ComponentInterface,
     Method,
     Prop,
-    State,
     Watch,
     h,
     Host,
@@ -57,7 +56,6 @@ import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-ari
 export class Textarea implements ComponentInterface, MutableAriaAttribute {
     private nativeInput?: HTMLTextAreaElement;
     private inputId = `wcs-textarea-${textareaIds++}`;
-    private didBlurAfterEdit = false;
     private inheritedAttributes: { [k: string]: any } = {};
 
     /**
@@ -72,8 +70,6 @@ export class Textarea implements ComponentInterface, MutableAriaAttribute {
 
     @Element() private el!: HTMLElement;
 
-    @State() private hasFocus = false;
-
     /**
      * Indicates whether and how the text value should be automatically capitalized as it is entered/edited by the user.
      */
@@ -83,11 +79,6 @@ export class Textarea implements ComponentInterface, MutableAriaAttribute {
      * This Boolean attribute lets you specify that a form control should have input focus when the page loads.
      */
     @Prop() autofocus = false;
-
-    /**
-     * If `true`, the value will be cleared after focus upon edit. Defaults to `true` when `type` is `"password"`, `false` for all other types.
-     */
-    @Prop({mutable: true}) clearOnEdit = false;
 
     /**
      * Set the amount of time, in milliseconds, to wait to trigger the `wcsInput` event after each keystroke.
@@ -312,35 +303,6 @@ export class Textarea implements ComponentInterface, MutableAriaAttribute {
         return Promise.resolve(this.nativeInput!);
     }
 
-    /**
-     * Check if we need to clear the text input if clearOnEdit is enabled
-     */
-    private checkClearOnEdit() {
-        if (!this.clearOnEdit) {
-            return;
-        }
-
-        // Did the input value change after it was blurred and edited?
-        if (this.didBlurAfterEdit && this.hasValue()) {
-            // Clear the input
-            this.value = '';
-        }
-
-        // Reset the flag
-        this.didBlurAfterEdit = false;
-    }
-
-    private focusChange() {
-        // If clearOnEdit is enabled and the input blurred but has a value, set a flag
-        if (this.clearOnEdit && !this.hasFocus && this.hasValue()) {
-            this.didBlurAfterEdit = true;
-        }
-    }
-
-    private hasValue(): boolean {
-        return this.getValue() !== '';
-    }
-
     private getValue(): string {
         return this.value || '';
     }
@@ -357,25 +319,15 @@ export class Textarea implements ComponentInterface, MutableAriaAttribute {
     }
 
     private onFocus = (ev: FocusEvent) => {
-        this.hasFocus = true;
-        this.focusChange();
-
         if (this.fireFocusEvents) {
             this.wcsFocus.emit(ev);
         }
     }
 
     private onBlur = (ev: FocusEvent) => {
-        this.hasFocus = false;
-        this.focusChange();
-
         if (this.fireFocusEvents) {
             this.wcsBlur.emit(ev);
         }
-    }
-
-    private onKeyDown = () => {
-        this.checkClearOnEdit();
     }
 
     render() {
@@ -411,7 +363,6 @@ export class Textarea implements ComponentInterface, MutableAriaAttribute {
                     onChange={this.onChange}
                     onBlur={this.onBlur}
                     onFocus={this.onFocus}
-                    onKeyDown={this.onKeyDown}
                     style={style}
                     {...this.inheritedAttributes}
                     {...inheritAriaAttributes(this.el)}
