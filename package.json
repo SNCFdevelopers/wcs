@@ -24,7 +24,7 @@
         "test": "stencil test --spec --e2e",
         "test:watch": "stencil test --spec --e2e --watchAll",
         "test:e2e": "stencil test --e2e",
-        "test:e2e:file": "stencil test --e2e --",
+        "test:e2e:file": "stencil test --e2e --watch --",
         "update-version": "node scripts/update-version.js",
         "update-develop": "node scripts/update-develop-from-master.js",
         "storybook": "storybook dev -p 6006",

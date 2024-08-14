@@ -2,7 +2,12 @@ import { Meta, StoryObj } from '@storybook/web-components';
 import { html, nothing } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { useArgs } from '@storybook/preview-api';
+
 import { getComponentArgs } from '../../utils/args-generation';
+import {
+    NAV_ARIA_LABEL_DEFAULT,
+    EXPAND_BTN_ARIA_LABEL_DEFAULT
+} from '../../../src/components/breadcrumb/breadcrumb-constants';
 
 const meta: Meta = {
     title: 'Components/Breadcrumb',
@@ -14,7 +19,7 @@ const meta: Meta = {
             type: 'string',
             table: {
                 defaultValue: {
-                    summary: 'Breadcrumb'
+                    summary: NAV_ARIA_LABEL_DEFAULT
                 },
             }
         },
@@ -24,7 +29,7 @@ const meta: Meta = {
             type: 'string',
             table: {
                 defaultValue: {
-                    summary: 'Show all breadcrumb items'
+                    summary: EXPAND_BTN_ARIA_LABEL_DEFAULT
                 },
             }
         }
@@ -124,7 +129,7 @@ export const CollapsedBreadcrumbItems: StoryObj<BreadcrumbStoryArgs> = {
             if (args.breadcrumbItems) {
                 const previousItems = [...args.breadcrumbItems];
                 previousItems[previousItems.length - 1].href = '/item';
-                updateArgs({ ...args, breadcrumbItems: [...previousItems, { text: 'Item' }] });
+                updateArgs({ ...args, breadcrumbItems: [...previousItems, { text: 'Item ' + STORY_COLLAPSED_BREADCRUMB_ITEMS_ID++ }] });
             }
         };
 
@@ -167,3 +172,5 @@ export const CollapsedBreadcrumbItems: StoryObj<BreadcrumbStoryArgs> = {
         breadcrumbItems: initialItems,
     },
 };
+
+let STORY_COLLAPSED_BREADCRUMB_ITEMS_ID = 0;

@@ -16,41 +16,32 @@ nav.wcs-breadcrumb-container {
         padding: 0;
         list-style: none;
 
-        ::slotted(wcs-breadcrumb-item),
-        .item-not-slotted {
+        ::slotted(wcs-breadcrumb-item) {
             margin-right: var(--wcs-base-margin);
-
-            &::after {
-                content: '\f107';
-                margin-left: 6px;
-                font-family: icons;
-                color: var(--wcs-primary);
-                font-size: 0.5rem;
-            }
         }
 
         ::slotted(wcs-breadcrumb-item:last-child) {
             margin-right: 0;
-
-            &::after {
-                content: '';
-            }
         }
 
         .item-not-slotted {
-            align-items: center;
             display: flex;
-
-            &::after {
-                margin-left: 7px;
-                transform: translateY(1px);
-            }
+            align-items: center;
+            margin-right: var(--wcs-base-margin);
 
             wcs-button[size="s"] {
                 --wcs-button-min-width: 24px;
                 --wcs-button-min-height: 20px;
                 --wcs-button-border-radius: 2px;
                 transform: translateY(2px);
+            }
+
+            .item-icon {
+                margin-left: 7px;
+                font-family: "icons";
+                font-size: 0.5rem;
+                color: var(--wcs-primary);
+                transform: translateY(1px);
             }
         }
     }

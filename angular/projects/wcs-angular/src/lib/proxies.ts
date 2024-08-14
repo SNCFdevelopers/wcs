@@ -164,7 +164,8 @@ export declare interface WcsBadge extends Components.WcsBadge {}
 
 
 @ProxyCmp({
-  inputs: ['ariaLabelExpandButton', 'itemsAfterCollapse', 'itemsBeforeCollapse', 'maxItems']
+  inputs: ['ariaLabelExpandButton', 'itemsAfterCollapse', 'itemsBeforeCollapse', 'maxItems'],
+  methods: ['setAriaAttribute']
 })
 @Component({
   selector: 'wcs-breadcrumb',
