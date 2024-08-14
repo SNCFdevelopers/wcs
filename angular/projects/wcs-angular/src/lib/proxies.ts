@@ -1536,7 +1536,7 @@ import type { WcsTabChangeEvent as IWcsTabsWcsTabChangeEvent } from 'wcs-core';
 
 export declare interface WcsTabs extends Components.WcsTabs {
   /**
-   *
+   * 
 Emitted when the selected tab change.
    */
   tabChange: EventEmitter<CustomEvent<IWcsTabsWcsTabChangeEvent>>;

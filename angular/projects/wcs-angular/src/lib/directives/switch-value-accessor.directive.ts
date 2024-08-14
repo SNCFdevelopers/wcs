@@ -1,6 +1,6 @@
 import { Directive, ElementRef, HostListener, Injector } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SwitchChangeEventDetail } from '../../../../../../dist/types/components/switch/switch-interface';
+import { SwitchChangeEventDetail } from 'wcs-core';
 
 @Directive({
   /* tslint:disable-next-line:directive-selector */

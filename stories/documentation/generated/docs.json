@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-06-19T14:50:39",
+  "timestamp": "2024-08-14T08:18:26",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -1039,6 +1039,25 @@
       ],
       "events": [
         {
+          "event": "wcsBlur",
+          "detail": "FocusEvent",
+          "bubbles": true,
+          "complexType": {
+            "original": "FocusEvent",
+            "resolved": "FocusEvent",
+            "references": {
+              "FocusEvent": {
+                "location": "global",
+                "id": "global::FocusEvent"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the checkbox loses focus.",
+          "docsTags": []
+        },
+        {
           "event": "wcsChange",
           "detail": "CheckboxChangeEventDetail",
           "bubbles": true,
@@ -1056,6 +1075,25 @@
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the checked property has changed.",
+          "docsTags": []
+        },
+        {
+          "event": "wcsFocus",
+          "detail": "FocusEvent",
+          "bubbles": true,
+          "complexType": {
+            "original": "FocusEvent",
+            "resolved": "FocusEvent",
+            "references": {
+              "FocusEvent": {
+                "location": "global",
+                "id": "global::FocusEvent"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the checkbox has focus.",
           "docsTags": []
         }
       ],
@@ -2848,6 +2886,33 @@
           "required": false
         },
         {
+          "name": "rowCssPartsFn",
+          "type": "(row: WcsGridRow) => string[]",
+          "complexType": {
+            "original": "RowCssPartsFn",
+            "resolved": "(row: WcsGridRow) => string[]",
+            "references": {
+              "RowCssPartsFn": {
+                "location": "import",
+                "path": "./grid-interface",
+                "id": "src/components/grid/grid-interface.ts::RowCssPartsFn"
+              }
+            }
+          },
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "Function to add css parts to the grid rows, this allows you to customize the rows with css parts directly\r\nin you're application stylesheet.",
+          "docsTags": [],
+          "default": "(_) => null",
+          "values": [
+            {
+              "type": "(row: WcsGridRow) => string[]"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "rowIdPath",
           "type": "string",
           "complexType": {
@@ -2974,6 +3039,44 @@
       "methods": [],
       "events": [
         {
+          "event": "wcsBlur",
+          "detail": "FocusEvent",
+          "bubbles": true,
+          "complexType": {
+            "original": "FocusEvent",
+            "resolved": "FocusEvent",
+            "references": {
+              "FocusEvent": {
+                "location": "global",
+                "id": "global::FocusEvent"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Event emitted when the grid loses focus.",
+          "docsTags": []
+        },
+        {
+          "event": "wcsFocus",
+          "detail": "FocusEvent",
+          "bubbles": true,
+          "complexType": {
+            "original": "FocusEvent",
+            "resolved": "FocusEvent",
+            "references": {
+              "FocusEvent": {
+                "location": "global",
+                "id": "global::FocusEvent"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Event emitted when the grid has focus.",
+          "docsTags": []
+        },
+        {
           "event": "wcsGridAllSelectionChange",
           "detail": "WcsGridAllRowSelectedEventDetails",
           "bubbles": true,
@@ -3017,6 +3120,11 @@
       "listeners": [
         {
           "event": "focus",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "blur",
           "capture": false,
           "passive": false
         },
@@ -3066,14 +3174,12 @@
       "parts": [],
       "dependents": [],
       "dependencies": [
-        "wcs-radio",
         "wcs-checkbox",
         "wcs-spinner",
         "wcs-button"
       ],
       "dependencyGraph": {
         "wcs-grid": [
-          "wcs-radio",
           "wcs-checkbox",
           "wcs-spinner",
           "wcs-button"
@@ -3476,7 +3582,7 @@
             "resolved": "number",
             "references": {}
           },
-          "mutable": false,
+          "mutable": true,
           "attr": "current-page",
           "reflectToAttr": false,
           "docs": "The current page of the pagination. First page starts at index 0.",
@@ -6170,28 +6276,6 @@
       "usage": {},
       "props": [
         {
-          "name": "checked",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": true,
-          "attr": "checked",
-          "reflectToAttr": true,
-          "docs": "If `true`, the radio is selected.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
           "name": "disabled",
           "type": "boolean",
           "complexType": {
@@ -6224,65 +6308,7 @@
           "mutable": true,
           "attr": "label",
           "reflectToAttr": true,
-          "docs": "",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "mode",
-          "type": "\"horizontal\" | \"option\" | \"radio\"",
-          "complexType": {
-            "original": "RadioGroupMode",
-            "resolved": "\"horizontal\" | \"option\" | \"radio\"",
-            "references": {
-              "RadioGroupMode": {
-                "location": "import",
-                "path": "../radio-group/radio-group-interface",
-                "id": "src/components/radio-group/radio-group-interface.ts::RadioGroupMode"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "mode",
-          "reflectToAttr": true,
-          "docs": "",
-          "docsTags": [],
-          "default": "'radio'",
-          "values": [
-            {
-              "value": "horizontal",
-              "type": "string"
-            },
-            {
-              "value": "option",
-              "type": "string"
-            },
-            {
-              "value": "radio",
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "name",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "name",
-          "reflectToAttr": false,
-          "docs": "Giving every radio button the same name is mandatory to group them",
+          "docs": "The label text displayed for the user",
           "docsTags": [],
           "values": [
             {
@@ -6303,7 +6329,7 @@
           "mutable": true,
           "attr": "value",
           "reflectToAttr": true,
-          "docs": "",
+          "docs": "Sets a unique value for each radio, used to identify which radio button in a group is selected",
           "docsTags": [],
           "values": [
             {
@@ -6316,6 +6342,44 @@
       ],
       "methods": [],
       "events": [
+        {
+          "event": "wcsBlur",
+          "detail": "FocusEvent",
+          "bubbles": true,
+          "complexType": {
+            "original": "FocusEvent",
+            "resolved": "FocusEvent",
+            "references": {
+              "FocusEvent": {
+                "location": "global",
+                "id": "global::FocusEvent"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the radio loses focus.",
+          "docsTags": []
+        },
+        {
+          "event": "wcsFocus",
+          "detail": "FocusEvent",
+          "bubbles": true,
+          "complexType": {
+            "original": "FocusEvent",
+            "resolved": "FocusEvent",
+            "references": {
+              "FocusEvent": {
+                "location": "global",
+                "id": "global::FocusEvent"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the radio has focus.",
+          "docsTags": []
+        },
         {
           "event": "wcsRadioClick",
           "detail": "RadioChosedEvent",
@@ -6333,29 +6397,17 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "",
+          "docs": "Emitted when the radio is clicked or Space/Enter is pressed above an unchecked radio",
           "docsTags": []
         }
       ],
-      "listeners": [
-        {
-          "event": "keydown",
-          "capture": false,
-          "passive": false
-        }
-      ],
+      "listeners": [],
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "wcs-grid"
-      ],
+      "dependents": [],
       "dependencies": [],
-      "dependencyGraph": {
-        "wcs-grid": [
-          "wcs-radio"
-        ]
-      }
+      "dependencyGraph": {}
     },
     {
       "filePath": "src/components/radio-group/radio-group.tsx",
@@ -6383,7 +6435,7 @@
           "mutable": false,
           "attr": "mode",
           "reflectToAttr": true,
-          "docs": "",
+          "docs": "The display mode of the control to be set on all radio button children",
           "docsTags": [],
           "default": "'radio'",
           "values": [
@@ -6414,7 +6466,7 @@
           "mutable": false,
           "attr": "name",
           "reflectToAttr": true,
-          "docs": "",
+          "docs": "The name of the control to be set on all radio button children",
           "docsTags": [],
           "values": [
             {
@@ -6432,10 +6484,10 @@
             "resolved": "any",
             "references": {}
           },
-          "mutable": false,
+          "mutable": true,
           "attr": "value",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "The value of the radio-group. Automatically reflects which radio button is selected.",
           "docsTags": [],
           "values": [
             {
@@ -6527,11 +6579,6 @@
         },
         {
           "event": "keydown",
-          "capture": false,
-          "passive": false
-        },
-        {
-          "event": "keyup",
           "capture": false,
           "passive": false
         }
@@ -6887,12 +6934,17 @@
       "events": [
         {
           "event": "wcsBlur",
-          "detail": "void",
+          "detail": "FocusEvent",
           "bubbles": true,
           "complexType": {
-            "original": "void",
-            "resolved": "void",
-            "references": {}
+            "original": "FocusEvent",
+            "resolved": "FocusEvent",
+            "references": {
+              "FocusEvent": {
+                "location": "global",
+                "id": "global::FocusEvent"
+              }
+            }
           },
           "cancelable": true,
           "composed": true,
@@ -6921,16 +6973,16 @@
         },
         {
           "event": "wcsFilterChange",
-          "detail": "SelectFilerChangeEventDetail",
+          "detail": "SelectFilterChangeEventDetail",
           "bubbles": true,
           "complexType": {
-            "original": "SelectFilerChangeEventDetail",
-            "resolved": "SelectFilerChangeEventDetail",
+            "original": "SelectFilterChangeEventDetail",
+            "resolved": "SelectFilterChangeEventDetail",
             "references": {
-              "SelectFilerChangeEventDetail": {
+              "SelectFilterChangeEventDetail": {
                 "location": "import",
                 "path": "./select-interface",
-                "id": "src/components/select/select-interface.ts::SelectFilerChangeEventDetail"
+                "id": "src/components/select/select-interface.ts::SelectFilterChangeEventDetail"
               }
             }
           },
@@ -6941,12 +6993,17 @@
         },
         {
           "event": "wcsFocus",
-          "detail": "void",
+          "detail": "FocusEvent",
           "bubbles": true,
           "complexType": {
-            "original": "void",
-            "resolved": "void",
-            "references": {}
+            "original": "FocusEvent",
+            "resolved": "FocusEvent",
+            "references": {
+              "FocusEvent": {
+                "location": "global",
+                "id": "global::FocusEvent"
+              }
+            }
           },
           "cancelable": true,
           "composed": true,
@@ -6979,6 +7036,11 @@
         {
           "event": "focus",
           "capture": false,
+          "passive": false
+        },
+        {
+          "event": "blur",
+          "capture": true,
           "passive": false
         }
       ],
@@ -7730,6 +7792,25 @@
       ],
       "events": [
         {
+          "event": "wcsBlur",
+          "detail": "FocusEvent",
+          "bubbles": true,
+          "complexType": {
+            "original": "FocusEvent",
+            "resolved": "FocusEvent",
+            "references": {
+              "FocusEvent": {
+                "location": "global",
+                "id": "global::FocusEvent"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the switch loses focus.",
+          "docsTags": []
+        },
+        {
           "event": "wcsChange",
           "detail": "SwitchChangeEventDetail",
           "bubbles": true,
@@ -7747,6 +7828,25 @@
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when the checked property has changed.",
+          "docsTags": []
+        },
+        {
+          "event": "wcsFocus",
+          "detail": "FocusEvent",
+          "bubbles": true,
+          "complexType": {
+            "original": "FocusEvent",
+            "resolved": "FocusEvent",
+            "references": {
+              "FocusEvent": {
+                "location": "global",
+                "id": "global::FocusEvent"
+              }
+            }
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the switch has focus.",
           "docsTags": []
         }
       ],
@@ -9360,7 +9460,7 @@
       "path": "src/components/editable-field/editable-field-interface.tsx"
     },
     "src/components/editable-field/editable-field-interface.tsx::EditableComponentUpdateEvent": {
-      "declaration": "export interface EditableComponentUpdateEvent {\r\n    /**\r\n     * The new value sent by the component inside the `wcs-editable-field`\r\n     */\r\n    newValue: any; // We use any for now, but when components typings will support template, change for parameterized type\r\n    /**\r\n     * Used to get from LOAD state to DISPLAY state.  \r\n     * Only use to commit the value, when the value is not systematically updated at every event firing\r\n     */\r\n    successHandler: () => void;\r\n    /**\r\n     * Used to get from LOAD state to DISPLAY state.  \r\n     * Only use to discard the value, when the value should not be updated \r\n     */\r\n    // FIXME (next-release): rename to `errorHandler`\r\n    errorhandler: () => void;\r\n}",
+      "declaration": "export interface EditableComponentUpdateEvent {\r\n    /**\r\n     * The new value sent by the component inside the `wcs-editable-field`\r\n     */\r\n    newValue: any; // We use any for now, but when components typings will support template, change for parameterized type\r\n    /**\r\n     * Used to get from LOAD state to DISPLAY state.  \r\n     * Only use to commit the value, when the value is not systematically updated at every event firing\r\n     */\r\n    successHandler: () => void;\r\n    /**\r\n     * Used to get from LOAD state to DISPLAY state.  \r\n     * Only use to discard the value, when the value should not be updated \r\n     */\r\n    errorHandler: () => void;\r\n}",
       "docstring": "",
       "path": "src/components/editable-field/editable-field-interface.tsx"
     },
@@ -9371,6 +9471,11 @@
     },
     "src/components/grid/grid-interface.ts::WcsGridSelectionConfig": {
       "declaration": "export type WcsGridSelectionConfig = 'none' | 'single' | 'multiple';",
+      "docstring": "",
+      "path": "src/components/grid/grid-interface.ts"
+    },
+    "src/components/grid/grid-interface.ts::RowCssPartsFn": {
+      "declaration": "(row: WcsGridRow) => string[] | null | undefined",
       "docstring": "",
       "path": "src/components/grid/grid-interface.ts"
     },
@@ -9514,8 +9619,8 @@
       "docstring": "",
       "path": "src/components/select/select-interface.ts"
     },
-    "src/components/select/select-interface.ts::SelectFilerChangeEventDetail": {
-      "declaration": "export interface SelectFilerChangeEventDetail {\r\n    value: string | number | undefined | null;\r\n}",
+    "src/components/select/select-interface.ts::SelectFilterChangeEventDetail": {
+      "declaration": "export interface SelectFilterChangeEventDetail {\r\n    value: string | number | undefined | null;\r\n}",
       "docstring": "",
       "path": "src/components/select/select-interface.ts"
     },

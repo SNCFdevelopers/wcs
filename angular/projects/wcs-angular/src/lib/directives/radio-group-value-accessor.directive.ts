@@ -1,6 +1,6 @@
 import { Directive, ElementRef, HostListener, Injector } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { RadioGroupChangeEventDetail } from '../../../../../../dist/types/components/radio-group/radio-group-interface';
+import { RadioGroupChangeEventDetail } from 'wcs-core';
 
 @Directive({
   // tslint:disable-next-line:directive-selector

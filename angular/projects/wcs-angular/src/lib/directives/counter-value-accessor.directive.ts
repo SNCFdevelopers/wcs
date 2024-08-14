@@ -1,6 +1,6 @@
 import { Directive, ElementRef, HostListener, Injector } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { CounterChangeEventDetail } from '../../../../../../dist/types/components/counter/counter-interface';
+import { CounterChangeEventDetail } from 'wcs-core';
 
 @Directive({
   /* tslint:disable-next-line:directive-selector */

@@ -1,6 +1,6 @@
 import { Directive, ElementRef, HostListener, Injector } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { CheckboxChangeEventDetail } from '../../../../../../dist/types/components/checkbox/checkbox-interface';
+import { CheckboxChangeEventDetail } from 'wcs-core';
 
 @Directive({
   /* tslint:disable-next-line:directive-selector */
