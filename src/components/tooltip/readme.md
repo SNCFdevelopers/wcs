@@ -27,8 +27,8 @@ of the element you want to describe .
 Example:
 
 ```html
-<wcs-tooltip>Trashed items</wcs-tooltip>
-<wcs-button aria-label="Trashed items">Trash</wcs-button>
+<wcs-tooltip for="my-button">Trashed items</wcs-tooltip>
+<wcs-button id="my-button" aria-label="Trashed items">Trash</wcs-button>
 ```
 
 ## Properties

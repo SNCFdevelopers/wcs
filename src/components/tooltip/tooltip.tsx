@@ -33,9 +33,13 @@ import { isEscapeKey } from "../../utils/helpers";
  * Example:
  * 
  * ```html
- * <wcs-tooltip>Trashed items</wcs-tooltip>
- * <wcs-button aria-label="Trashed items">Trash</wcs-button>
+ * <wcs-tooltip for="my-button">Trashed items</wcs-tooltip>
+ * <wcs-button id="my-button" aria-label="Trashed items">Trash</wcs-button>
  * ```
+ * 
+ * @cssprop --wcs-tooltip-background-color - Background color of the tooltip
+ * @cssprop --wcs-tooltip-text-color - Text color of the tooltip
+ * @cssprop --wcs-tooltip-padding - Padding of the tooltip
  */
 @Component({
     tag: 'wcs-tooltip',

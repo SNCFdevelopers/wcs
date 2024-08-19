@@ -113,9 +113,9 @@ export const Interactive = {
         ...Default.args,
         position: 'bottom',
         interactive: true,
-        tooltipInnerHtml: `<h3>Content title</h3>
+        tooltipInnerHtml: `<h3 style="margin-top: 0">Content title</h3>
 <p>Logoden biniou degemer mat an penn ar bed perak stourm nebeut draonienn ael berr, soubañ torgenn seizhvet gwener araok eor kribañ troc’hañ gwenn vered tan.</p>
-<a href="https://www.logoden-biniou.com/" style="display: block; color: var(--wcs-primary); margin: 12px 0" target="_blank">logoden-biniou</a>
+<a href="https://www.logoden-biniou.com/" style="display: block; color: inherit; margin: 12px 0" target="_blank">logoden-biniou</a>
 <wcs-button shape="small">C'est un grand oui !</wcs-button>`
     }
 }

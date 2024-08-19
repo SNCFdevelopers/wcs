@@ -1,21 +1,36 @@
 .tippy-box[data-theme~='wcs'] {
-    background-color: var(--wcs-black);
-    color: var(--wcs-white);
+    // region to be removed before migration to design tokens
+    --wcs-tooltip-background-color: var(--wcs-black);
+    --wcs-tooltip-text-color: var(--wcs-white);
+    --wcs-tooltip-padding: 4px 8px;
+    // endregion
+
+    background-color: var(--wcs-tooltip-background-color);
+    color: var(--wcs-tooltip-text-color);
+}
+
+.token-migration {
+    .tippy-box[data-theme~='wcs'] {
+        --wcs-tooltip-background-color:  var(--wcs-semantic-color-background-surface-inverse);
+        --wcs-tooltip-text-color: var(--wcs-semantic-color-text-inverse);
+        --wcs-tooltip-padding: var(--wcs-semantic-spacing-small) var(--wcs-semantic-spacing-base);
+    }
 }
 
 .tippy-box[data-theme~='wcs'][data-placement^='top'] > .tippy-arrow::before {
-    border-top-color: var(--wcs-black);
+    border-top-color: var(--wcs-tooltip-background-color);
 }
 .tippy-box[data-theme~='wcs'][data-placement^='bottom'] > .tippy-arrow::before {
-    border-bottom-color: var(--wcs-black);
+    border-bottom-color: var(--wcs-tooltip-background-color);
 }
 .tippy-box[data-theme~='wcs'][data-placement^='left'] > .tippy-arrow::before {
-    border-left-color: var(--wcs-black);
+    border-left-color: var(--wcs-tooltip-background-color);
 }
 .tippy-box[data-theme~='wcs'][data-placement^='right'] > .tippy-arrow::before {
-    border-right-color: var(--wcs-black);
+    border-right-color: var(--wcs-tooltip-background-color);
 }
 
 .tippy-content {
     overflow-wrap: break-word;
+    padding: var(--wcs-tooltip-padding);
 }
