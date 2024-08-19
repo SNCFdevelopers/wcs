@@ -278,7 +278,7 @@ export class EditableField implements ComponentInterface {
                     (this.spiedElement as HTMLWcsInputElement).focus();
                 } else if (this.type === 'textarea') {
                     (this.spiedElement as HTMLWcsTextareaElement).fitContent();
-                    (this.spiedElement as HTMLWcsTextareaElement).setFocus();
+                    (this.spiedElement as HTMLWcsTextareaElement).focus();
                 }
             }, DELAY_FOR_RENDER)
         }

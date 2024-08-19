@@ -1545,7 +1545,7 @@ Emitted when the selected tab change.
 
 @ProxyCmp({
   inputs: ['autoGrow', 'autocapitalize', 'autofocus', 'cols', 'debounce', 'disabled', 'enterkeyhint', 'icon', 'inputmode', 'maxlength', 'minlength', 'name', 'placeholder', 'readonly', 'required', 'resize', 'rows', 'spellcheck', 'state', 'value', 'wrap'],
-  methods: ['setAriaAttribute', 'fitContent', 'setFocus', 'getInputElement']
+  methods: ['setAriaAttribute', 'fitContent', 'getInputElement']
 })
 @Component({
   selector: 'wcs-textarea',

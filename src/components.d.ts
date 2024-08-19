@@ -1259,10 +1259,6 @@ export namespace Components {
          */
         "setBlur": () => Promise<void>;
         /**
-          * @deprecated use the native focus method instead   Sets focus on the native `textarea` in `wcs-textarea`.
-         */
-        "setFocus": () => Promise<void>;
-        /**
           * If `true`, the element will have its spelling and grammar checked.
          */
         "spellcheck": boolean;

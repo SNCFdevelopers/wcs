@@ -101,17 +101,6 @@ Type: `Promise<void>`
 
 
 
-### `setFocus() => Promise<void>`
-
-<span style="color:red">**[DEPRECATED]**</span> use the native focus method instead  
-Sets focus on the native `textarea` in `wcs-textarea`.<br/><br/>
-
-#### Returns
-
-Type: `Promise<void>`
-
-
-
 
 ## Dependencies
 

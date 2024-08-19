@@ -37,7 +37,9 @@ for soon-to-be removed features.
 - **input**:
   - remove previously deprecated `setFocus` method
   - remove `clearOnEdit` and `clearInput` properties. See v5 → v6 migration for more info.
-- **textarea**: remove `clearOnEdit` property. See v5 → v6 migration for more info.
+- **textarea**:
+  - remove previously deprecated `setFocus` method
+  - remove `clearOnEdit` property. See v5 → v6 migration for more info.
 
 ### Fixed
 

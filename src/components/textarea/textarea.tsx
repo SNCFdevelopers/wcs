@@ -272,17 +272,6 @@ export class Textarea implements ComponentInterface, MutableAriaAttribute {
     }
 
     /**
-     * @deprecated use the native focus method instead  
-     * Sets focus on the native `textarea` in `wcs-textarea`.
-     */
-    @Method()
-    async setFocus() {
-        if (this.nativeInput) {
-            this.nativeInput.focus();
-        }
-    }
-
-    /**
      * Sets blur on the native `textarea` in `wcs-textarea`. Use this method instead of the global
      * `textarea.blur()`.
      * @internal

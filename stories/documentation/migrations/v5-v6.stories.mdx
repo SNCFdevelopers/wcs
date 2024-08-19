@@ -186,10 +186,19 @@ myInput.focus(); // After
 
 ### wcs-textarea
 
-**`clearOnEdit` property has been removed.**
+1. **`clearOnEdit` property has been removed.**
 > This was used to clear the value after focus upon edit.
 
 Apply the same changes as [wcs-input (see above)](#wcs-input) in `wcs-core`.
+
+2. **Previously deprecated method `setFocus` has been removed**
+
+Since v4.2.0, `setFocus` method on `wcs-textarea` was deprecated. It is now removed, you should use native `.focus()` from now on. 
+
+```ts
+myTextarea.setFocus(); // Before
+myTextarea.focus(); // After
+```
 
 ## wcs-angular
 
