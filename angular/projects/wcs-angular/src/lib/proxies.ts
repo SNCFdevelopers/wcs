@@ -930,7 +930,7 @@ export declare interface WcsIcon extends Components.WcsIcon {}
 
 @ProxyCmp({
   inputs: ['accept', 'autocapitalize', 'autocomplete', 'autocorrect', 'autofocus', 'debounce', 'disabled', 'enterkeyhint', 'icon', 'inputmode', 'max', 'maxlength', 'min', 'minlength', 'multiple', 'name', 'pattern', 'placeholder', 'prefixLabel', 'readonly', 'required', 'size', 'spellcheck', 'state', 'step', 'suffixLabel', 'type', 'value'],
-  methods: ['setFocus', 'getInputElement', 'setAriaAttribute']
+  methods: ['getInputElement', 'setAriaAttribute']
 })
 @Component({
   selector: 'wcs-input',

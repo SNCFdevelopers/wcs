@@ -34,7 +34,9 @@ for soon-to-be removed features.
 
 - **radio**: remove `checked` property. See v5 → v6 migration for more info.
 - **wcs-nav-item**: remove `href` and `text` properties. See v5 → v6 migration for more info.
-- **input**: remove `clearOnEdit` and `clearInput` properties. See v5 → v6 migration for more info.
+- **input**:
+  - remove previously deprecated `setFocus` method
+  - remove `clearOnEdit` and `clearInput` properties. See v5 → v6 migration for more info.
 - **textarea**: remove `clearOnEdit` property. See v5 → v6 migration for more info.
 
 ### Fixed

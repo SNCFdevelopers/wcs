@@ -275,7 +275,7 @@ export class EditableField implements ComponentInterface {
             const DELAY_FOR_RENDER = 20;
             setTimeout(() => {
                 if (this.type === 'input') {
-                    (this.spiedElement as HTMLWcsInputElement).setFocus();
+                    (this.spiedElement as HTMLWcsInputElement).focus();
                 } else if (this.type === 'textarea') {
                     (this.spiedElement as HTMLWcsTextareaElement).fitContent();
                     (this.spiedElement as HTMLWcsTextareaElement).setFocus();

@@ -175,6 +175,15 @@ myInput.addEventListener('wcsFocus', () => {
 
 <wcs-input placeholder="Enter your name" id="input2" onFocus={() => document.getElementById('input2').value = ''}></wcs-input>
 
+3. **Previously deprecated method `setFocus` has been removed**
+
+Since v4.2.0, `setFocus` method on `wcs-input` was deprecated. It is now removed, you should use native `.focus()` from now on. 
+
+```ts
+myInput.setFocus(); // Before
+myInput.focus(); // After
+```
+
 ### wcs-textarea
 
 **`clearOnEdit` property has been removed.**

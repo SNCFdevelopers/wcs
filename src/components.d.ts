@@ -689,10 +689,6 @@ export namespace Components {
          */
         "setBlur": () => Promise<void>;
         /**
-          * @deprecated use the native focus method instead Sets focus on the native `input` in `wcs-input`.
-         */
-        "setFocus": () => Promise<void>;
-        /**
           * Specify the size (height) of the input.
          */
         "size": WcsInputSize;

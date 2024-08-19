@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-08-14T08:18:26",
+  "timestamp": "2024-08-19T07:39:36",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -4468,49 +4468,6 @@
           "required": false
         },
         {
-          "name": "clearInput",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "clear-input",
-          "reflectToAttr": false,
-          "docs": "If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "clearOnEdit",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "clear-on-edit",
-          "reflectToAttr": false,
-          "docs": "If `true`, the value will be cleared after focus upon edit.\r\nDefaults to `true` when `type` is `\"password\"`, `false` for all other types.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "debounce",
           "type": "number",
           "complexType": {
@@ -5229,34 +5186,6 @@
           ],
           "docs": "",
           "docsTags": []
-        },
-        {
-          "name": "setFocus",
-          "returns": {
-            "type": "Promise<void>",
-            "docs": ""
-          },
-          "complexType": {
-            "signature": "() => Promise<void>",
-            "parameters": [],
-            "references": {
-              "Promise": {
-                "location": "global",
-                "id": "global::Promise"
-              }
-            },
-            "return": "Promise<void>"
-          },
-          "signature": "setFocus() => Promise<void>",
-          "parameters": [],
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "use the native focus method instead\r\nSets focus on the native `input` in `wcs-input`."
-            }
-          ],
-          "deprecation": "use the native focus method instead\r\nSets focus on the native `input` in `wcs-input`."
         }
       ],
       "events": [
@@ -8228,28 +8157,6 @@
           "attr": "autofocus",
           "reflectToAttr": false,
           "docs": "This Boolean attribute lets you specify that a form control should have input focus when the page loads.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "clearOnEdit",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": true,
-          "attr": "clear-on-edit",
-          "reflectToAttr": false,
-          "docs": "If `true`, the value will be cleared after focus upon edit. Defaults to `true` when `type` is `\"password\"`, `false` for all other types.",
           "docsTags": [],
           "default": "false",
           "values": [

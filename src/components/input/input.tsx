@@ -280,17 +280,6 @@ export class Input implements ComponentInterface, MutableAriaAttribute {
     }
 
     /**
-     * @deprecated use the native focus method instead
-     * Sets focus on the native `input` in `wcs-input`.
-     */
-    @Method()
-    async setFocus() {
-        if (this.nativeInput) {
-            this.nativeInput.focus();
-        }
-    }
-
-    /**
      * Sets blur on the native `input` in `wcs-input`. Use this method instead of the global
      * `input.blur()`.
      * @internal
