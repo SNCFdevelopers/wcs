@@ -44,12 +44,20 @@
     height: 2rem;
     vertical-align: text-bottom;
     border-radius: 50%;
+
+    --wcs-spinner-dashed-background-circle: #E4E3E2FF;
+    --wcs-spinner-rotating-circle-color: var(--wcs-base);
+}
+
+:host(.token-migration) {
+    --wcs-spinner-dashed-background-circle: var(--wcs-semantic-color-foreground-action-primary-default);
+    --wcs-spinner-rotating-circle-color: var(--wcs-semantic-color-primary);
 }
 
 :host([mode="border"]) {
     svg {
         & .dashed-background-circle {
-            stroke: #E4E3E2FF;
+            stroke: var(--wcs-spinner-dashed-background-circle);
             stroke-width: 7px;
             stroke-dasharray: 3,3;
             stroke-dashoffset: 1;
@@ -61,7 +69,7 @@
         }
 
         & .dash-rotating-circle {
-            stroke: var(--wcs-base);
+            stroke: var(--wcs-spinner-rotating-circle-color);
             stroke-width: 8px;
             stroke-linecap: round;
             animation: wcs-spinner-dash 1.5s ease-in-out infinite;

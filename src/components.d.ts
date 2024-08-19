@@ -188,6 +188,37 @@ export namespace Components {
      * This means you'll receive click events on a disabled wcs button.
      * If you're using the button with a library like Angular or React, they have internal mechanisms to prevent this behavior. Your callbacks will therefore not be called.
      * To fix this problem, we plan to provide a wcsClick event in addition to the native click for applications developed without frameworks.
+     * @cssprop --wcs-button-plain-color-default - Text/icon color of a plain button
+     * @cssprop --wcs-button-stroked-color-default - text/icon color of a stroked button
+     * @cssprop --wcs-button-clear-color-default - text/icon color of a clear button
+     * @cssprop --wcs-button-color-disabled - text/icon color disabled for mode plain, stroked, clear
+     * @cssprop --wcs-button-plain-background-color-default background color of a plain button
+     * @cssprop --wcs-button-plain-background-color-disabled - disabled background color of a plain button
+     * @cssprop --wcs-button-stroked-background-color-default background color of a stroked button
+     * @cssprop --wcs-button-stroked-background-color-disabled - disabled background color of a stroked button
+     * @cssprop --wcs-button-clear-background-color-default background color of a clear button
+     * @cssprop --wcs-button-clear-background-color-disabled - disabled background color of a clear button
+     * @cssprop --wcs-button-plain-ripple-color-default - ripple background color of a plain button
+     * @cssprop --wcs-button-stroked-ripple-color-default - ripple background color of a stroked button
+     * @cssprop --wcs-button-clear-ripple-color-default - ripple background color of a clear button
+     * @cssprop --wcs-button-border-radius-default - border radius for a default button
+     * @cssprop --wcs-button-border-radius-rounded - border radius for a rounded button
+     * @cssprop --wcs-button-stroked-border-width - border width of a stroked button
+     * @cssprop --wcs-button-stroked-border-color-default - default border color of a stroked button
+     * @cssprop --wcs-button-stroked-border-color-disabled - disabled border color of a stroked button
+     * @cssprop --wcs-button-height-s - height for a size s button
+     * @cssprop --wcs-button-font-size-s - font-size for a size s button
+     * @cssprop --wcs-button-padding-horizontal-size-s - padding horizontal for a size s button
+     * @cssprop --wcs-button-padding-vertical-size-s - padding vertical for a size s button
+     * @cssprop --wcs-button-height-m - height for a size m button
+     * @cssprop --wcs-button-font-size-m - font-size for a size m button
+     * @cssprop --wcs-button-padding-horizontal-size-m - padding horizontal for a size m button
+     * @cssprop --wcs-button-padding-vertical-size-m - padding vertical for a size m button
+     * @cssprop --wcs-button-height-l - height for a size l button
+     * @cssprop --wcs-button-font-size-l - font-size for a size l button
+     * @cssprop --wcs-button-padding-horizontal-size-l - padding horizontal for a size l button
+     * @cssprop --wcs-button-padding-vertical-size-l - padding vertical for a size l button
+     * @cssprop --wcs-button-font-weight - font weight of a plain,stroked,clear button
      */
     interface WcsButton {
         /**
@@ -1721,6 +1752,37 @@ declare global {
      * This means you'll receive click events on a disabled wcs button.
      * If you're using the button with a library like Angular or React, they have internal mechanisms to prevent this behavior. Your callbacks will therefore not be called.
      * To fix this problem, we plan to provide a wcsClick event in addition to the native click for applications developed without frameworks.
+     * @cssprop --wcs-button-plain-color-default - Text/icon color of a plain button
+     * @cssprop --wcs-button-stroked-color-default - text/icon color of a stroked button
+     * @cssprop --wcs-button-clear-color-default - text/icon color of a clear button
+     * @cssprop --wcs-button-color-disabled - text/icon color disabled for mode plain, stroked, clear
+     * @cssprop --wcs-button-plain-background-color-default background color of a plain button
+     * @cssprop --wcs-button-plain-background-color-disabled - disabled background color of a plain button
+     * @cssprop --wcs-button-stroked-background-color-default background color of a stroked button
+     * @cssprop --wcs-button-stroked-background-color-disabled - disabled background color of a stroked button
+     * @cssprop --wcs-button-clear-background-color-default background color of a clear button
+     * @cssprop --wcs-button-clear-background-color-disabled - disabled background color of a clear button
+     * @cssprop --wcs-button-plain-ripple-color-default - ripple background color of a plain button
+     * @cssprop --wcs-button-stroked-ripple-color-default - ripple background color of a stroked button
+     * @cssprop --wcs-button-clear-ripple-color-default - ripple background color of a clear button
+     * @cssprop --wcs-button-border-radius-default - border radius for a default button
+     * @cssprop --wcs-button-border-radius-rounded - border radius for a rounded button
+     * @cssprop --wcs-button-stroked-border-width - border width of a stroked button
+     * @cssprop --wcs-button-stroked-border-color-default - default border color of a stroked button
+     * @cssprop --wcs-button-stroked-border-color-disabled - disabled border color of a stroked button
+     * @cssprop --wcs-button-height-s - height for a size s button
+     * @cssprop --wcs-button-font-size-s - font-size for a size s button
+     * @cssprop --wcs-button-padding-horizontal-size-s - padding horizontal for a size s button
+     * @cssprop --wcs-button-padding-vertical-size-s - padding vertical for a size s button
+     * @cssprop --wcs-button-height-m - height for a size m button
+     * @cssprop --wcs-button-font-size-m - font-size for a size m button
+     * @cssprop --wcs-button-padding-horizontal-size-m - padding horizontal for a size m button
+     * @cssprop --wcs-button-padding-vertical-size-m - padding vertical for a size m button
+     * @cssprop --wcs-button-height-l - height for a size l button
+     * @cssprop --wcs-button-font-size-l - font-size for a size l button
+     * @cssprop --wcs-button-padding-horizontal-size-l - padding horizontal for a size l button
+     * @cssprop --wcs-button-padding-vertical-size-l - padding vertical for a size l button
+     * @cssprop --wcs-button-font-weight - font weight of a plain,stroked,clear button
      */
     interface HTMLWcsButtonElement extends Components.WcsButton, HTMLStencilElement {
     }
@@ -2835,6 +2897,37 @@ declare namespace LocalJSX {
      * This means you'll receive click events on a disabled wcs button.
      * If you're using the button with a library like Angular or React, they have internal mechanisms to prevent this behavior. Your callbacks will therefore not be called.
      * To fix this problem, we plan to provide a wcsClick event in addition to the native click for applications developed without frameworks.
+     * @cssprop --wcs-button-plain-color-default - Text/icon color of a plain button
+     * @cssprop --wcs-button-stroked-color-default - text/icon color of a stroked button
+     * @cssprop --wcs-button-clear-color-default - text/icon color of a clear button
+     * @cssprop --wcs-button-color-disabled - text/icon color disabled for mode plain, stroked, clear
+     * @cssprop --wcs-button-plain-background-color-default background color of a plain button
+     * @cssprop --wcs-button-plain-background-color-disabled - disabled background color of a plain button
+     * @cssprop --wcs-button-stroked-background-color-default background color of a stroked button
+     * @cssprop --wcs-button-stroked-background-color-disabled - disabled background color of a stroked button
+     * @cssprop --wcs-button-clear-background-color-default background color of a clear button
+     * @cssprop --wcs-button-clear-background-color-disabled - disabled background color of a clear button
+     * @cssprop --wcs-button-plain-ripple-color-default - ripple background color of a plain button
+     * @cssprop --wcs-button-stroked-ripple-color-default - ripple background color of a stroked button
+     * @cssprop --wcs-button-clear-ripple-color-default - ripple background color of a clear button
+     * @cssprop --wcs-button-border-radius-default - border radius for a default button
+     * @cssprop --wcs-button-border-radius-rounded - border radius for a rounded button
+     * @cssprop --wcs-button-stroked-border-width - border width of a stroked button
+     * @cssprop --wcs-button-stroked-border-color-default - default border color of a stroked button
+     * @cssprop --wcs-button-stroked-border-color-disabled - disabled border color of a stroked button
+     * @cssprop --wcs-button-height-s - height for a size s button
+     * @cssprop --wcs-button-font-size-s - font-size for a size s button
+     * @cssprop --wcs-button-padding-horizontal-size-s - padding horizontal for a size s button
+     * @cssprop --wcs-button-padding-vertical-size-s - padding vertical for a size s button
+     * @cssprop --wcs-button-height-m - height for a size m button
+     * @cssprop --wcs-button-font-size-m - font-size for a size m button
+     * @cssprop --wcs-button-padding-horizontal-size-m - padding horizontal for a size m button
+     * @cssprop --wcs-button-padding-vertical-size-m - padding vertical for a size m button
+     * @cssprop --wcs-button-height-l - height for a size l button
+     * @cssprop --wcs-button-font-size-l - font-size for a size l button
+     * @cssprop --wcs-button-padding-horizontal-size-l - padding horizontal for a size l button
+     * @cssprop --wcs-button-padding-vertical-size-l - padding vertical for a size l button
+     * @cssprop --wcs-button-font-weight - font weight of a plain,stroked,clear button
      */
     interface WcsButton {
         /**
@@ -4357,6 +4450,37 @@ declare module "@stencil/core" {
              * This means you'll receive click events on a disabled wcs button.
              * If you're using the button with a library like Angular or React, they have internal mechanisms to prevent this behavior. Your callbacks will therefore not be called.
              * To fix this problem, we plan to provide a wcsClick event in addition to the native click for applications developed without frameworks.
+             * @cssprop --wcs-button-plain-color-default - Text/icon color of a plain button
+             * @cssprop --wcs-button-stroked-color-default - text/icon color of a stroked button
+             * @cssprop --wcs-button-clear-color-default - text/icon color of a clear button
+             * @cssprop --wcs-button-color-disabled - text/icon color disabled for mode plain, stroked, clear
+             * @cssprop --wcs-button-plain-background-color-default background color of a plain button
+             * @cssprop --wcs-button-plain-background-color-disabled - disabled background color of a plain button
+             * @cssprop --wcs-button-stroked-background-color-default background color of a stroked button
+             * @cssprop --wcs-button-stroked-background-color-disabled - disabled background color of a stroked button
+             * @cssprop --wcs-button-clear-background-color-default background color of a clear button
+             * @cssprop --wcs-button-clear-background-color-disabled - disabled background color of a clear button
+             * @cssprop --wcs-button-plain-ripple-color-default - ripple background color of a plain button
+             * @cssprop --wcs-button-stroked-ripple-color-default - ripple background color of a stroked button
+             * @cssprop --wcs-button-clear-ripple-color-default - ripple background color of a clear button
+             * @cssprop --wcs-button-border-radius-default - border radius for a default button
+             * @cssprop --wcs-button-border-radius-rounded - border radius for a rounded button
+             * @cssprop --wcs-button-stroked-border-width - border width of a stroked button
+             * @cssprop --wcs-button-stroked-border-color-default - default border color of a stroked button
+             * @cssprop --wcs-button-stroked-border-color-disabled - disabled border color of a stroked button
+             * @cssprop --wcs-button-height-s - height for a size s button
+             * @cssprop --wcs-button-font-size-s - font-size for a size s button
+             * @cssprop --wcs-button-padding-horizontal-size-s - padding horizontal for a size s button
+             * @cssprop --wcs-button-padding-vertical-size-s - padding vertical for a size s button
+             * @cssprop --wcs-button-height-m - height for a size m button
+             * @cssprop --wcs-button-font-size-m - font-size for a size m button
+             * @cssprop --wcs-button-padding-horizontal-size-m - padding horizontal for a size m button
+             * @cssprop --wcs-button-padding-vertical-size-m - padding vertical for a size m button
+             * @cssprop --wcs-button-height-l - height for a size l button
+             * @cssprop --wcs-button-font-size-l - font-size for a size l button
+             * @cssprop --wcs-button-padding-horizontal-size-l - padding horizontal for a size l button
+             * @cssprop --wcs-button-padding-vertical-size-l - padding vertical for a size l button
+             * @cssprop --wcs-button-font-weight - font weight of a plain,stroked,clear button
              */
             "wcs-button": LocalJSX.WcsButton & JSXBase.HTMLAttributes<HTMLWcsButtonElement>;
             /**

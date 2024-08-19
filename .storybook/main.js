@@ -7,6 +7,7 @@ const config = {
     },
     staticDirs: [
         './../dist/wcs',
+        './../design-tokens/dist',
         './../src/assets/fonts',
         './../stories/assets/images',
     ],

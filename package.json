@@ -12,13 +12,15 @@
     "unpkg": "dist/wcs/wcs.js",
     "files": [
         "dist/",
-        "loader/"
+        "loader/",
+        "design-tokens/dist/"
     ],
     "scripts": {
         "build:stencil": "stencil build",
         "generate-custom-element-manifest": "cd src && custom-elements-manifest analyze --stencil --outdir ../",
         "generate-docs-json": "stencil build --docs-json ./stories/documentation/generated/docs.json",
-        "build": "stencil build && npm run generate-custom-element-manifest && npm run build-storybook",
+        "build": "npm run generate-design-tokens && stencil build && npm run generate-custom-element-manifest && npm run build-storybook",
+        "generate-design-tokens": "node design-tokens/index.mjs ",
         "watch:stencil": "stencil build --dev --watch",
         "start": "concurrently --names \"Stencil,Storybook\" -c \"bgBlue.bold,bgMagenta.bold\" \"stencil build --dev --watch\" \"npm run storybook\"",
         "test": "stencil test --spec --e2e",
@@ -71,7 +73,8 @@
         "storybook": "^7.0.24",
         "tslib": "2.5.0",
         "typescript": "4.9.5",
-        "webpack-watch-files-plugin": "^1.2.0"
+        "webpack-watch-files-plugin": "^1.2.0",
+        "style-dictionary": "^4.0.1"
     },
     "dependencies": {
         "@popperjs/core": "^2.9.3",

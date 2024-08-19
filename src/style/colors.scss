@@ -1,39 +1,142 @@
-.wcs-primary {
-    --wcs-base: var(--wcs-primary);
-    --wcs-contrast: var(--wcs-white);
+body:not(:has(.token-migration)) {
+    .wcs-primary {
+        --wcs-base: var(--wcs-primary);
+        --wcs-contrast: var(--wcs-white);
+    }
+
+    .wcs-secondary {
+        --wcs-base: var(--wcs-gray-light);
+        --wcs-contrast: var(--wcs-white);
+    }
+
+    .wcs-success {
+        --wcs-base: var(--wcs-green);
+        --wcs-contrast: var(--wcs-gray-darker);
+    }
+
+    .wcs-warning {
+        --wcs-base: var(--wcs-yellow);
+        --wcs-contrast: var(--wcs-gray-darker);
+    }
+
+    .wcs-info {
+        --wcs-base: var(--wcs-cyan);
+        --wcs-contrast: var(--wcs-white);
+    }
+
+    .wcs-danger {
+        --wcs-base: var(--wcs-red);
+        --wcs-contrast: var(--wcs-white);
+    }
+
+    .wcs-dark {
+        --wcs-base: var(--wcs-gray-dark);
+        --wcs-contrast: var(--wcs-white);
+    }
+
+    .wcs-light {
+        --wcs-base: var(--wcs-light);
+        --wcs-contrast: var(--wcs-gray-darker);
+    }
 }
 
-.wcs-secondary {
-    --wcs-base: var(--wcs-gray-light);
-    --wcs-contrast: var(--wcs-white);
-}
+// TODO: refactor colors.scss at the end of migration
+body.token-migration {
+    .wcs-secondary {
+        --wcs-semantic-color-background-action-primary-default: var(--wcs-gray-light);
 
-.wcs-success {
-    --wcs-base: var(--wcs-green);
-    --wcs-contrast: var(--wcs-gray-darker);
-}
+        --wcs-semantic-color-foreground-action-primary-default: var(--wcs-white);
+        --wcs-semantic-color-foreground-action-secondary-default: var(--wcs-gray-light);
+        --wcs-semantic-color-foreground-action-tertiary-default: var(--wcs-gray-light);
 
-.wcs-warning {
-    --wcs-base: var(--wcs-yellow);
-    --wcs-contrast: var(--wcs-gray-darker);
-}
+        --wcs-semantic-color-border-action-secondary-default: var(--wcs-gray-light);
 
-.wcs-info {
-    --wcs-base: var(--wcs-cyan);
-    --wcs-contrast: var(--wcs-white);
-}
+        --wcs-semantic-color-ripple-action-primary: var(--wcs-white);
+        --wcs-semantic-color-ripple-action-secondary: var(--wcs-gray-light);
+        --wcs-semantic-color-ripple-action-tertiary: var(--wcs-gray-light);
+    }
 
-.wcs-danger {
-    --wcs-base: var(--wcs-red);
-    --wcs-contrast: var(--wcs-white);
-}
+    .wcs-success {
+        --wcs-semantic-color-background-action-primary-default: var(--wcs-green);
 
-.wcs-dark {
-    --wcs-base: var(--wcs-gray-dark);
-    --wcs-contrast: var(--wcs-white);
-}
+        --wcs-semantic-color-foreground-action-primary-default: var(--wcs-gray-darker);
+        --wcs-semantic-color-foreground-action-secondary-default: var(--wcs-green);
+        --wcs-semantic-color-foreground-action-tertiary-default: var(--wcs-green);
 
-.wcs-light {
-    --wcs-base: var(--wcs-light);
-    --wcs-contrast: var(--wcs-gray-darker);
+        --wcs-semantic-color-border-action-secondary-default: var(--wcs-green);
+
+        --wcs-semantic-color-ripple-action-primary: var(--wcs-gray-darker);
+        --wcs-semantic-color-ripple-action-secondary: var(--wcs-green);
+        --wcs-semantic-color-ripple-action-tertiary: var(--wcs-green);;
+    }
+
+    .wcs-warning {
+        --wcs-semantic-color-background-action-primary-default: var(--wcs-yellow);
+
+        --wcs-semantic-color-foreground-action-primary-default: var(--wcs-gray-darker);
+        --wcs-semantic-color-foreground-action-secondary-default: var(--wcs-yellow);
+        --wcs-semantic-color-foreground-action-tertiary-default: var(--wcs-yellow);
+
+        --wcs-semantic-color-border-action-secondary-default: var(--wcs-yellow);
+
+        --wcs-semantic-color-ripple-action-primary: var(--wcs-gray-darker);
+        --wcs-semantic-color-ripple-action-secondary: var(--wcs-yellow);
+        --wcs-semantic-color-ripple-action-tertiary: var(--wcs-yellow);
+    }
+
+    .wcs-info {
+        --wcs-semantic-color-background-action-primary-default: var(--wcs-cyan);
+
+        --wcs-semantic-color-foreground-action-primary-default: var(--wcs-white);
+        --wcs-semantic-color-foreground-action-secondary-default: var(--wcs-cyan);
+        --wcs-semantic-color-foreground-action-tertiary-default: var(--wcs-cyan);
+
+        --wcs-semantic-color-border-action-secondary-default: var(--wcs-cyan);
+
+        --wcs-semantic-color-ripple-action-primary: var(--wcs-white);
+        --wcs-semantic-color-ripple-action-secondary: var(--wcs-cyan);
+        --wcs-semantic-color-ripple-action-tertiary: var(--wcs-cyan);
+    }
+
+    .wcs-danger {
+        --wcs-semantic-color-background-action-primary-default: var(--wcs-red);
+
+        --wcs-semantic-color-foreground-action-primary-default: var(--wcs-white);
+        --wcs-semantic-color-foreground-action-secondary-default: var(--wcs-red);
+        --wcs-semantic-color-foreground-action-tertiary-default: var(--wcs-red);
+
+        --wcs-semantic-color-border-action-secondary-default: var(--wcs-red);
+
+        --wcs-semantic-color-ripple-action-primary: var(--wcs-white);
+        --wcs-semantic-color-ripple-action-secondary: var(--wcs-red);
+        --wcs-semantic-color-ripple-action-tertiary: var(--wcs-red);
+    }
+
+    .wcs-dark {
+        --wcs-semantic-color-background-action-primary-default: var(--wcs-gray-dark);
+
+        --wcs-semantic-color-foreground-action-primary-default: var(--wcs-white);
+        --wcs-semantic-color-foreground-action-secondary-default: var(--wcs-gray-dark);
+        --wcs-semantic-color-foreground-action-tertiary-default: var(--wcs-gray-dark);
+
+        --wcs-semantic-color-border-action-secondary-default: var(--wcs-gray-dark);
+
+        --wcs-semantic-color-ripple-action-primary: var(--wcs-white);
+        --wcs-semantic-color-ripple-action-secondary: var(--wcs-gray-dark);
+        --wcs-semantic-color-ripple-action-tertiary: var(--wcs-gray-dark);
+    }
+
+    .wcs-light {
+        --wcs-semantic-color-background-action-primary-default: var(--wcs-light);
+
+        --wcs-semantic-color-foreground-action-primary-default: var(--wcs-gray-darker);
+        --wcs-semantic-color-foreground-action-secondary-default: var(--wcs-light);
+        --wcs-semantic-color-foreground-action-tertiary-default: var(--wcs-light);
+
+        --wcs-semantic-color-border-action-secondary-default: var(--wcs-light);
+
+        --wcs-semantic-color-ripple-action-primary: var(--wcs-gray-darker);
+        --wcs-semantic-color-ripple-action-secondary: var(--wcs-light);
+        --wcs-semantic-color-ripple-action-tertiary: var(--wcs-light);
+    }
 }

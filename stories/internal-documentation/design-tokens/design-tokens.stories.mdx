@@ -1,5 +1,6 @@
 import { Meta } from '@storybook/addon-docs';
 import DesignTokenSchema from './wcs-design-tokens-diagram.png';
+import DesignTokenFromJSONToCssSchema from './wcs-design-tokens-from-JSON-to-css.png';
 
 <Meta title="Internal Docs/Design Tokens" />
 
@@ -16,3 +17,13 @@ If a components needs a special personalization for one design system only, it s
 Here is a simple diagram to illustrate the design tokens approach in WCS: 
 
 <img src={DesignTokenSchema} alt="" />
+
+## Agnostic structure
+
+We're based the declaration of design tokens on [Design Tokens Format Module](https://tr.designtokens.org/format). It's document which describes the technical specification for a file format (JSON) to exchange design tokens between different tools.
+
+Below is a diagram to illustrate the process from design tokens declaration in JSON to the CSS files transformed based on the JSON files.
+
+<img src={DesignTokenFromJSONToCssSchema} alt="Design tokens from JSON to CSS Schema" />
+
+We called the JSON file, the source of truth. As you see on the diagram, it's the based source to declare tokens, and it's shared between Design Apps and WCS git repository. It's allow both of design and development team to share and use the same tokens in the CSS and in the design apps variables. 

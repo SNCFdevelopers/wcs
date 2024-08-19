@@ -1,0 +1,268 @@
+{
+    "semantic": {
+        "spacing": {
+            "base": {
+                "$type": "dimension",
+                "$value": "{semantic.size.base}"
+            }
+        },
+        "size": {
+            "base": {
+                "$type": "dimension",
+                "$value": "{primitive.size.80}"
+            },
+            "xl": {
+                "$type": "dimension",
+                "$value": "{primitive.size.560}"
+            },
+            "l": {
+                "$type": "dimension",
+                "$value": "{primitive.size.480}"
+            },
+            "m": {
+                "$type": "dimension",
+                "$value": "{primitive.size.400}"
+            },
+            "s": {
+                "$type": "dimension",
+                "$value": "{primitive.size.320}"
+            },
+            "xs": {
+                "$type": "dimension",
+                "$value": "{primitive.size.240}"
+            }
+        },
+        "border": {
+            "radius": {
+                "base": {
+                    "$type": "dimension",
+                    "$value": "{primitive.size.base}"
+                },
+                "round": {
+                    "$type": "dimension",
+                    "$value": "{primitive.size.320}"
+                }
+            },
+            "width": {
+                "base": {
+                    "$type": "dimension",
+                    "$value": "{primitive.size.10}"
+                }
+            }
+        },
+        "color": {
+            "primary": {
+                "$type": "color",
+                "$value": "{primitive.color.parme.500}"
+            },
+            "disabled": {
+                "$description": "Base disabled color",
+                "$type": "color",
+                "$value": "{primitive.color.neutral.500}"
+            },
+            "border": {
+                "action": {
+                    "secondary": {
+                        "default": {
+                            "$type": "color",
+                            "$value": "{semantic.color.primary}"
+                        },
+                        "disabled": {
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.100}"
+                        }
+                    }
+                },
+                "default": {
+                    "$type": "color",
+                    "$value": "{semantic.color.primary}"
+                },
+                "disabled": {
+                    "$type": "color",
+                    "$value": "{primitive.color.neutral.100}"
+                },
+                "focus": {
+                    "$type": "color",
+                    "$value": "{semantic.color.primary}"
+                }
+            },
+            "background": {
+                "action": {
+                    "primary": {
+                        "default": {
+                            "$description": "Default primary background for elements like button, dropdown...",
+                            "$type": "color",
+                            "$value": "{semantic.color.primary}"
+                        },
+                        "disabled": {
+                            "$description": "Disabled primary background for element like a button, dropdown, switch...",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.100}"
+                        },
+                        "hover": {
+                            "$description": "Can be used by primary elements which must have a hover state (button, dropdown...)",
+                            "$type": "color",
+                            "$value": "{primitive.color.parme.600}"
+                        }
+                    },
+                    "secondary": {
+                        "default": {
+                            "$description": "Default secondary background for elements like button, dropdown...",
+                            "$type": "color",
+                            "$value": "{primitive.color.transparent}"
+                        },
+                        "disabled": {
+                            "$description": "Disabled secondary background for element like a button, dropdown, switch...",
+                            "$type": "color",
+                            "$value": "{primitive.color.transparent}"
+                        },
+                        "hover": {
+                            "$description": "Can be used by secondary elements which must have a hover state (button, dropdown...)",
+                            "$type": "color",
+                            "$value": "{primitive.color.parme.100}"
+                        }
+                    },
+                    "tertiary": {
+                        "default": {
+                            "$description": "Default tertiary background for elements like button, dropdown...",
+                            "$type": "color",
+                            "$value": "{primitive.color.transparent}"
+                        },
+                        "disabled": {
+                            "$description": "Disabled tertiary background for element like a button, dropdown, switch...",
+                            "$type": "color",
+                            "$value": "{primitive.color.transparent}"
+                        },
+                        "hover": {
+                            "$description": "Can be used by tertiary elements which must have a hover state (button, dropdown...)",
+                            "$type": "color",
+                            "$value": "{primitive.color.parme.100}"
+                        }
+                    }
+                }
+            },
+            "foreground": {
+                "$description": "The layer on top of a background",
+                "action": {
+                    "primary": {
+                        "default": {
+                            "$description": "The layer on top of a primary background",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.0}"
+                        }
+                    },
+                    "secondary": {
+                        "default": {
+                            "$description": "The layer on top of a secondary background",
+                            "$type": "color",
+                            "$value": "{semantic.color.primary}"
+                        }
+                    },
+                    "tertiary": {
+                        "default": {
+                            "$description": "The layer on top of a tertiary background",
+                            "$type": "color",
+                            "$value": "{semantic.color.primary}"
+                        }
+                    }
+                }
+            },
+            "text": {
+                "primary": {
+                    "$description": "Primary color for text like heading, label",
+                    "$type": "color",
+                    "$value": "{primitive.color.neutral.1000}"
+                },
+                "secondary": {
+                    "$description": "Secondary color for text like paragraph",
+                    "$type": "color",
+                    "$value": "{primitive.color.neutral.700}"
+                },
+                "tertiary": {
+                    "$description": "Tertiary color for text like placeholder",
+                    "$type": "color",
+                    "$value": "{primitive.color.neutral.600}"
+                }
+            },
+            "ripple": {
+                "action": {
+                    "primary": {
+                        "$description": "Ripple applied to an primary action background (on a button, dropdown...)",
+                        "$type": "color",
+                        "$value": "{primitive.color.neutral.0}"
+                    },
+                    "secondary": {
+                        "$description": "Ripple applied to an secondary action background (on a button, dropdown...)",
+                        "$type": "color",
+                        "$value": "{semantic.color.primary}"
+                    },
+                    "tertiary": {
+                        "$description": "Ripple applied to an secondary action background (on a button, dropdown...)",
+                        "$type": "color",
+                        "$value": "{semantic.color.primary}"
+                    }
+                }
+            }
+        },
+        "font": {
+            "size": {
+                "base": {
+                    "$type": "dimension",
+                    "$value": "16px"
+                },
+                "s": {
+                    "$type": "dimension",
+                    "$value": "15px"
+                },
+                "m": {
+                    "$type": "dimension",
+                    "$value": "16px"
+                },
+                "l": {
+                    "$type": "dimension",
+                    "$value": "17px"
+                }
+            },
+            "weight": {
+                "bold": {
+                    "$type": "number",
+                    "$value": "{primitive.font.weight.500}"
+                }
+            }
+        },
+        "padding": {
+            "size": {
+                "s": {
+                    "horizontal": {
+                        "$type": "dimension",
+                        "$value": "12px"
+                    },
+                    "vertical": {
+                        "$type": "dimension",
+                        "$value": "4px"
+                    }
+                },
+                "m": {
+                    "horizontal": {
+                        "$type": "dimension",
+                        "$value": "16px"
+                    },
+                    "vertical": {
+                        "$type": "dimension",
+                        "$value": "8px"
+                    }
+                },
+                "l": {
+                    "horizontal": {
+                        "$type": "dimension",
+                        "$value": "16px"
+                    },
+                    "vertical": {
+                        "$type": "dimension",
+                        "$value": "12px"
+                    }
+                }
+            }
+        }
+    }
+}

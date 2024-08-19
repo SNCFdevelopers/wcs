@@ -6,11 +6,90 @@
 :host {
     display: inline-block;
     // FIXME : remove those fallback values when design tokens are set
-    --wcs-button-color: var(--wcs-contrast, var(--wcs-white, white));
-    --wcs-button-background-color: var(--wcs-base, var(--wcs-primary, #0074AF));
-    --wcs-button-ripple-color: var(--wcs-contrast, var(--wcs-white, white));
-    --wcs-button-border-radius: var(--wcs-border-radius);
-    --wcs-button-border-color: var(--wcs-base);
+    --wcs-button-color: var(--wcs-button-plain-color-default, var(--wcs-white, white));
+    --wcs-button-plain-color-default: var(--wcs-contrast);
+    --wcs-button-color-disabled: var(--wcs-text-disabled);
+    --wcs-button-stroked-color-default: var(--wcs-base);
+    --wcs-button-clear-color-default: var(--wcs-base);
+
+    --wcs-button-background-color: var(--wcs-button-plain-background-color-default);
+    --wcs-button-plain-background-color-default: var(--wcs-base, var(--wcs-primary, #0074AF));
+    --wcs-button-plain-background-color-disabled: var(--wcs-light, var(--wcs-light, transparent));
+
+    --wcs-button-ripple-color: var(--wcs-button-plain-ripple-color-default, var(--wcs-white, white));
+    --wcs-button-plain-ripple-color-default: var(--wcs-contrast, var(--wcs-white, white));
+    --wcs-button-stroked-ripple-color-default: var(--wcs-base, var(--wcs-primary, #0088ce));
+    --wcs-button-clear-ripple-color-default: var(--wcs-base, var(--wcs-primary, #0088ce));
+    --wcs-button-border-radius: var(--wcs-button-border-radius-default);
+    --wcs-button-border-radius-default: var(--wcs-border-radius);
+    --wcs-button-border-radius-rounded: 2rem;
+
+    --wcs-button-stroked-border-color: var(--wcs-button-stroked-border-color-default);
+    --wcs-button-stroked-border-width: 1px;
+    --wcs-button-stroked-border-color-default: var(--wcs-base);
+    --wcs-button-stroked-border-color-disabled: var(--wcs-light);
+
+    --wcs-button-height-s: var(--wcs-size-s);
+    --wcs-button-font-size-s: 0.9375rem;
+    --wcs-button-padding-horizontal-size-s: var(--wcs-padding);
+    --wcs-button-padding-vertical-size-s: var(--wcs-padding-s);
+
+    --wcs-button-height-m: var(--wcs-size-m);
+    --wcs-button-font-size-m: 1rem;
+    --wcs-button-padding-horizontal-size-m: var(--wcs-padding);
+    --wcs-button-padding-vertical-size-m: var(--wcs-padding-m);
+
+    --wcs-button-height-l: var(--wcs-size-l);
+    --wcs-button-font-size-l: 1.0625rem;
+    --wcs-button-padding-horizontal-size-l: var(--wcs-padding);
+    --wcs-button-padding-vertical-size-l: var(--wcs-padding-l);
+
+    --wcs-button-font-weight: 500;
+}
+
+:host(.token-migration) {
+    --wcs-button-color: var(--wcs-button-plain-color-default, var(--wcs-white, white));
+    --wcs-button-plain-color-default: var(--wcs-semantic-color-foreground-action-primary-default, var(--wcs-white, white));
+    --wcs-button-color-disabled: var(--wcs-semantic-color-disabled);
+    --wcs-button-stroked-color-default: var(--wcs-semantic-color-foreground-action-secondary-default);
+    --wcs-button-clear-color-default: var(--wcs-semantic-color-foreground-action-tertiary-default);
+
+    --wcs-button-plain-background-color-default: var(--wcs-semantic-color-background-action-primary-default, var(--wcs-primary, #0074AF));
+    --wcs-button-plain-background-color-disabled: var(--wcs-semantic-color-background-action-primary-disabled, var(--wcs-light, transparent));
+    --wcs-button-stroked-background-color-default: var(--wcs-semantic-color-background-action-secondary-default, transparent);
+    --wcs-button-stroked-background-color-disabled: var(--wcs-semantic-color-background-action-secondary-disabled, transparent);
+    --wcs-button-clear-background-color-default: var(--wcs-semantic-color-background-action-tertiary-default, transparent);
+    --wcs-button-clear-background-color-disabled: var(--wcs-semantic-color-background-action-tertiary-disabled, transparent);
+
+    --wcs-button-ripple-color: var(--wcs-button-plain-ripple-color-default, var(--wcs-white, white));
+    --wcs-button-plain-ripple-color-default: var(--wcs-semantic-color-ripple-action-primary, var(--wcs-white, white));
+    --wcs-button-stroked-ripple-color-default: var(--wcs-semantic-color-ripple-action-secondary, var(--wcs-primary, #0088ce));
+    --wcs-button-clear-ripple-color-default: var(--wcs-semantic-color-ripple-action-tertiary, var(--wcs-primary, #0088ce));
+    --wcs-button-border-radius: var(--wcs-button-border-radius-default);
+    --wcs-button-border-radius-default: var(--wcs-semantic-border-radius-base);
+    --wcs-button-border-radius-rounded: var(--wcs-semantic-border-radius-round);
+
+    --wcs-button-stroked-border-color: var(--wcs-button-stroked-border-color-default);
+    --wcs-button-stroked-border-width: var(--wcs-semantic-border-width-base);
+    --wcs-button-stroked-border-color-default: var(--wcs-semantic-color-border-action-secondary-default);
+    --wcs-button-stroked-border-color-disabled: var(--wcs-semantic-color-border-action-secondary-disabled);
+
+    --wcs-button-height-s: var(--wcs-semantic-size-s);
+    --wcs-button-font-size-s: var(--wcs-semantic-font-size-s);
+    --wcs-button-padding-horizontal-size-s: var(--wcs-semantic-padding-size-s-horizontal);
+    --wcs-button-padding-vertical-size-s: var(--wcs-semantic-padding-size-s-vertical);
+
+    --wcs-button-height-m: var(--wcs-semantic-size-m);
+    --wcs-button-font-size-m: var(--wcs-semantic-font-size-m);
+    --wcs-button-padding-horizontal-size-m: var(--wcs-semantic-padding-size-m-horizontal);
+    --wcs-button-padding-vertical-size-m: var(--wcs-semantic-padding-size-m-vertical);
+
+    --wcs-button-height-l: var(--wcs-semantic-size-l);
+    --wcs-button-font-size-l: var(--wcs-semantic-font-size-l);
+    --wcs-button-padding-horizontal-size-l: var(--wcs-semantic-padding-size-l-horizontal);
+    --wcs-button-padding-vertical-size-l: var(--wcs-semantic-padding-size-l-vertical);
+
+    --wcs-button-font-weight: var(--wcs-semantic-font-weight-bold);
 }
 
 .wcs-inner-button:focus-visible {
@@ -18,61 +97,82 @@
 }
 
 :host([mode=clear]) {
-    --wcs-button-border-color: transparent;
+    --wcs-button-stroked-border-color: transparent;
 
     .wcs-inner-button {
         box-shadow: none;
     }
 }
 
-:host([mode=clear]),
 :host([mode=stroked]) {
-    --wcs-button-color: var(--wcs-base);
+    --wcs-button-color: var(--wcs-button-stroked-color-default);
     --wcs-button-background-color: transparent;
 
     .wcs-inner-button {
         &::before,
         &::after {
-            --wcs-button-ripple-color: var(--wcs-base);
+            --wcs-button-ripple-color: var(--wcs-button-stroked-ripple-color-default);
+        }
+    }
+}
+
+:host([mode=clear]) {
+    --wcs-button-color: var(--wcs-button-clear-color-default);
+    --wcs-button-background-color: transparent;
+
+    .wcs-inner-button {
+        &::before,
+        &::after {
+            --wcs-button-ripple-color: var(--wcs-button-clear-ripple-color-default);
         }
     }
 }
 
 :host([size=l]) {
-    --wcs-button-padding: var(--wcs-padding-m) var(--wcs-padding);
-    --wcs-button-min-height: var(--wcs-size-l);
-    --wcs-button-min-width: var(--wcs-size-l);
-    --wcs-button-font-size: 1.0625rem;
+    --wcs-button-padding: var(--wcs-button-padding-vertical-size-l) var(--wcs-button-padding-horizontal-size-l);
+    --wcs-button-min-height: var(--wcs-button-height-l);
+    --wcs-button-min-width: var(--wcs-button-height-l);
+    --wcs-button-font-size: var(--wcs-button-font-size-l);
+
+    &:host([shape=round]), &:host([shape=square]) {
+        ::slotted(wcs-mat-icon) {
+            margin: calc(-1 * var(--wcs-button-padding-horizontal-size-l));
+        }
+    }
 }
 
 :host([size=m]) { // Default
-    --wcs-button-padding: var(--wcs-padding-m) var(--wcs-padding);
-    --wcs-button-min-height: var(--wcs-size-m);
-    --wcs-button-min-width: var(--wcs-size-m);
-    --wcs-button-font-size: 1rem;
+    --wcs-button-padding: var(--wcs-button-padding-vertical-size-m) var(--wcs-button-padding-horizontal-size-m);
+    --wcs-button-min-height: var(--wcs-button-height-m);
+    --wcs-button-min-width: var(--wcs-button-height-m);
+    --wcs-button-font-size: var(--wcs-button-font-size-m);
+
+    &:host([shape=round]), &:host([shape=square]) {
+        ::slotted(wcs-mat-icon) {
+            margin: calc(-1 * var(--wcs-button-padding-horizontal-size-m));
+        }
+    }
 }
 
 :host([size=s]) {
-    --wcs-button-padding: var(--wcs-padding-s) var(--wcs-padding);
-    --wcs-button-min-height: var(--wcs-size-s);
-    --wcs-button-min-width: var(--wcs-size-s);
-    --wcs-button-font-size: 0.9375rem;
+    --wcs-button-padding: var(--wcs-button-padding-vertical-size-s) var(--wcs-button-padding-horizontal-size-s);
+    --wcs-button-min-height: var(--wcs-button-height-s);
+    --wcs-button-min-width: var(--wcs-button-height-s);
+    --wcs-button-font-size: var(--wcs-button-font-size-s);
+
+    &:host([shape=round]), &:host([shape=square]) {
+        ::slotted(wcs-mat-icon) {
+            margin: calc(-1 * var(--wcs-button-padding-horizontal-size-s));
+        }
+    }
 }
 
 :host([shape=round]) {
-    --wcs-button-border-radius: 2rem;
-
-    ::slotted(wcs-mat-icon) {
-        margin: calc(-1 * var(--wcs-padding));
-    }
+    --wcs-button-border-radius: var(--wcs-button-border-radius-rounded);
 }
 
 :host([shape=square]) {
     --wcs-button-padding: 0;
-
-    ::slotted(wcs-mat-icon) {
-        margin: calc(-1 * var(--wcs-padding));
-    }
 }
 
 :host([shape=normal]) {
@@ -84,7 +184,7 @@
 
 :host([mode=stroked]) {
     .wcs-inner-button {
-        box-shadow: inset 0 0 0 1px var(--wcs-button-border-color);
+        box-shadow: inset 0 0 0 var(--wcs-button-stroked-border-width) var(--wcs-button-stroked-border-color);
     }
 }
 
@@ -109,24 +209,29 @@
 }
 
 :host([disabled]), :host([loading]) {
-    :host(not[loading]) {
-        --wcs-button-background-color: var(--wcs-light);
-    }
-    --wcs-button-color: var(--wcs-text-disabled);
     cursor: not-allowed;
 
     .wcs-inner-button {
-        // Fix for stroked button
-        --wcs-button-border-color: var(--wcs-light);
         opacity: 1;
         cursor: default;
         pointer-events: none;
     }
+}
 
-    &:host([mode=clear]),
-    &:host([disabled]) {
-        --wcs-button-background-color: transparent;
-    }
+
+
+:host([disabled]) {
+    --wcs-button-color: var(--wcs-button-color-disabled);
+    --wcs-button-background-color: var(--wcs-button-plain-background-color-disabled);
+}
+
+:host([mode=stroked][disabled]) {
+    --wcs-button-stroked-border-color: var(--wcs-button-stroked-border-color-disabled);
+    --wcs-button-background-color: var(--wcs-button-stroked-background-color-disabled);
+}
+
+:host([mode=clear][disabled])  {
+    --wcs-button-background-color: var(--wcs-button-clear-background-color-disabled);
 }
 
 .wcs-inner-button {
@@ -158,7 +263,7 @@
     text-transform: none;
     margin: 0;
     cursor: pointer;
-    font-weight: 500;
+    font-weight: var(--wcs-button-font-weight);
     text-align: center;
     white-space: nowrap;
     vertical-align: middle;
