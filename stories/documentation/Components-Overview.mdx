@@ -52,68 +52,79 @@ export default function ComponentsOverview() {
         </style>
     );
 
+    /**
+     * The components array containing all the cards to be displayed on the components overview.
+     * name: The name of the component
+     * displayName (optional): Overrides the name of the component to be displayed
+     * link: (optional): Overrides the link of the story
+     * fileType (optional): Override the type of file in the assets folder (default is png)
+     */
     const components = [
-        "Accordion",
-        "Actionbar",
-        "Badge",
-        "Button",
-        "Card",
-        "Checkbox",
-        "Counter",
-        "Divider",
-        "Dropdown",
-        "Editable-Field",
-        "Field",
-        "Footer",
-        "Form-Field",
-        "Grid",
-        "Header",
-        "Horizontal Stepper",
-        "Input",
-        "List-Item",
-        "Mat-Icon",
-        "Modal",
-        "Native-Select",
-        "Nav",
-        "Progress-Bar",
-        "Progress-Radial",
-        "Radio",
-        "Radio-Group",
-        "Select",
-        "Switch",
-        "Tabs",
-        "Textarea",
-        "Tooltip",
-    ];
+        { name: 'Accordion' },
+        { name: 'Actionbar', displayName: 'Actionbar (business)' },
+        { name: 'Badge' },
+        { name: 'Button' },
+        { name: 'Card' },
+        { name: 'Checkbox' },
+        { name: 'Com-Nav', displayName: 'Com-Nav (communication)', link: '/docs/components-ds-communication-nav--documentation' },
+        { name: 'Counter' },
+        { name: 'Divider' },
+        { name: 'Dropdown' },
+        { name: 'Editable-Field' },
+        { name: 'Field' },
+        { name: 'Footer' },
+        { name: 'Form-Field' },
+        { name: 'Galactic', displayName: 'Galactic (communication)', link: '/docs/components-ds-communication-galactic--documentation' },
+        { name: 'Grid' },
+        { name: 'Header', displayName: 'Header (business)' },
+        { name: 'Horizontal Stepper', displayName: 'Horizontal-Stepper' },
+        { name: 'Input' },
+        { name: 'List-Item' },
+        { name: 'Mat-Icon' },
+        { name: 'Modal' },
+        { name: 'Native-Select' },
+        { name: 'Nav', displayName: 'Nav (business)' },
+        { name: 'Progress-Bar' },
+        { name: 'Progress-Radial' },
+        { name: 'Radio', link: '/docs/components-radio-group--documentation'},
+        { name: 'Select' },
+        { name: 'Skeleton', fileType: 'gif' },
+        { name: 'Spinner', fileType: 'gif' },
+        { name: 'Switch' },
+        { name: 'Tabs' },
+        { name: 'Textarea' },
+        { name: 'Tooltip' }
+    ].sort((a, b) => a.name.localeCompare(b.name));
 
-    const DisplayCard = ({story, gif}) => {
-        const formattedStoryName = story.toLowerCase().replace(/\s/g, '');
-        const fileExtension = gif ? 'gif' : 'png';
+    const DisplayCard = ({ component }) => {
+        const { name, displayName, link, fileType } = component;
+
+        const formattedComponentName = name?.toLowerCase().replace(/\s/g, '');
+        const formattedLink = (link || `../?path=/docs/components-${formattedComponentName}--documentation`) + '#storybook-docs';
 
         return (
-            <a href={`../?path=/docs/components-${formattedStoryName}--documentation`} aria-label={story}>
+            <a href={formattedLink} aria-label={name}>
                 <div className="display-card">
-                    <b>{story}</b>
+                    <b>{displayName || name}</b>
                     <div className="divider"></div>
                     <div className="img-container">
-                        <img alt={`${story} preview`} src={`components-overview/${formattedStoryName}.${fileExtension}`}/>
+                        <img alt={`${name} preview`}
+                             src={`components-overview/${formattedComponentName}.${fileType || 'png'}`}/>
                     </div>
                 </div>
             </a>
         );
-    };
+    }
 
     return (
         <>
             {style}
             <div className="grid-container">
                 {
-                    components.sort().map((c) => (
-                        <DisplayCard key={c} story={c}></DisplayCard>
+                    components.map((c) => (
+                        <DisplayCard component={c}></DisplayCard>
                     ))
                 }
-                <DisplayCard story="Skeleton" gif></DisplayCard> { /* Extra : Animated skeleton component preview */}
-                <DisplayCard story="Spinner" gif></DisplayCard> { /* Extra : Animated spinner component preview */}
             </div>
         </>
     );
