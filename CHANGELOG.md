@@ -38,6 +38,8 @@ for soon-to-be removed features.
   - remove `--wcs-select-border-radius`. 
     - You have to use `--wcs-select-control-border-radius` instead to edit the border radius of the control
     - You have to use `--wcs-select-overlay-border-radius` instead to edit the border radius of the overlay
+- **native-select**
+    - remove `--wcs-select-native-outline-color` css property. Instead, use `--wcs-select-native-border-color-default`, `--wcs-select-native-border-color-focus`, `--wcs-select-native-border-color-error`
 
 ### Fixed
 

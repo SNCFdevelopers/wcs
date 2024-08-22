@@ -34,6 +34,47 @@ import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-ari
  * select is reset, you have to call the `updateStyles()` method manually.
  * - It is strongly recommended to use native-select when you don't have to support the multi-selection feature
  * - Use a native-select instead of a wcs-select if your application is mainly on mobile / tablet. The native behavior of the device will be used.
+ *
+ * @cssprop --wcs-select-native-arrow-color - Color of the select arrow
+ * @cssprop --wcs-select-native-arrow-color-disabled - Color of the select arrow when the select is disabled
+ * 
+ * @cssprop --wcs-select-native-background-color - Background color of the select
+ * 
+ * @cssprop --wcs-select-native-line-height - Line height of the select
+ * 
+ * @cssprop --wcs-select-native-border-radius - Border radius of the select
+ * 
+ * @cssprop --wcs-select-native-border-width - Border width of the select when not focused
+ * @cssprop --wcs-select-native-border-width-focus - Border width of the select when focused
+ * 
+ * @cssprop --wcs-select-native-border-style-default - Border style of the select when not focused 
+ * @cssprop --wcs-select-native-border-style-focus - Border style of the select when focused
+ * 
+ * @cssprop --wcs-select-native-border-color-default - Border color of the select when not focused
+ * @cssprop --wcs-select-native-border-color-focus - Border color of the select when focused
+ * @cssprop --wcs-select-native-border-color-error - Border color of the select when in error state
+ * 
+ * @cssprop --wcs-select-native-value-color - Color of the selected value
+ * @cssprop --wcs-select-native-value-font-weight - Font weight of the selected value
+ * @cssprop --wcs-select-native-value-font-style - Font style of the selected value
+ *
+ * @cssprop --wcs-select-native-placeholder-color - Color of the placeholder
+ * @cssprop --wcs-select-native-placeholder-font-weight - Font weight of the placeholder
+ * @cssprop --wcs-select-native-placeholder-font-style - Font style of the placeholder
+ * 
+ * @cssprop --wcs-select-native-text-color-disabled - Color of the text when the select is disabled
+ * 
+ * @cssprop --wcs-select-native-option-color - Text color of the options
+ * @cssprop --wcs-select-native-option-font-style - Font style of the options
+ * @cssprop --wcs-select-native-option-selected-color - Text color of the selected option
+ *
+ * @cssprop --wcs-select-native-padding-horizontal-m - Padding horizontal of the select when size is 'm'
+ * @cssprop --wcs-select-native-padding-horizontal-m - Padding horizontal of the select when size is 'l'
+ * 
+ * @cssprop --wcs-select-native-size-m - Height of the select when size is 'm'
+ * @cssprop --wcs-select-native-font-size-m - Font size of the select when size is 'm'
+ * @cssprop --wcs-select-native-size-l - Height of the select when size is 'l'
+ * @cssprop --wcs-select-native-font-size-l - Font size of the select when size is 'l'
  */
 @Component({
     tag: 'wcs-native-select',

@@ -1,15 +1,38 @@
-@import '../../style/focus-outline.scss';
-
 :host {
     box-sizing: border-box;
 
+    --wcs-select-native-line-height: 1.5;
+
+    --wcs-select-native-size-m: var(--wcs-size-m);
+    --wcs-select-native-font-size-m: 1rem;
+    --wcs-select-native-size-l: var(--wcs-size-l);
+    --wcs-select-native-font-size-l: 1rem;
+
     --wcs-select-native-border-radius: var(--wcs-border-radius);
     --wcs-select-native-background-color: var(--wcs-light);
-    --wcs-select-native-outline-color: var(--wcs-primary);
+
+    --wcs-select-native-border-color-default: transparent;
+    --wcs-select-native-border-color-focus: var(--wcs-primary);
+    --wcs-select-native-border-color-error: var(--wcs-red);
+
+    --wcs-select-native-border-style-default: solid;
+    --wcs-select-native-border-style-focus: dashed;
+
+    --wcs-select-native-border-width: 2px;
+    --wcs-select-native-border-width-focus: 2px;
 
     --wcs-select-native-value-color: var(--wcs-primary);
     --wcs-select-native-value-font-weight: 500;
-    --wcs-select-native-value-font-style: normal;
+    --wcs-select-native-value-font-style: normal; // ⚠️ UPDATE IN JS, IF REFACTOR THE NAME REFACTOR IN THE JS CODE
+
+    --wcs-select-native-padding-horizontal: var(--wcs-select-native-padding-horizontal-m);
+    --wcs-select-native-padding-horizontal-m: calc(var(--wcs-base-margin) * 2);
+    --wcs-select-native-padding-horizontal-l: calc(var(--wcs-base-margin) * 2);
+
+    --wcs-select-native-arrow-color: var(--wcs-primary);
+    --wcs-select-native-arrow-color-disabled: var(--wcs-text-medium);
+
+    --wcs-select-native-text-color-disabled: var(--wcs-text-disabled);
 
     --wcs-select-native-placeholder-color: var(--wcs-text-medium);
     --wcs-select-native-placeholder-font-weight: 400;
@@ -19,6 +42,50 @@
     --wcs-select-native-option-font-style: normal;
 
     --wcs-select-native-option-selected-color: white;
+}
+
+:host(.token-migration) {
+    --wcs-select-native-line-height: 1.5;
+
+    --wcs-select-native-size-m: var(--wcs-semantic-size-m);
+    --wcs-select-native-font-size-m: var(--wcs-semantic-font-size-m);
+    --wcs-select-native-size-l: var(--wcs-semantic-size-l);
+    --wcs-select-native-font-size-l: var(--wcs-semantic-font-size-l);
+
+    --wcs-select-native-border-radius: var(--wcs-semantic-border-radius-base);
+    --wcs-select-native-background-color: var(--wcs-semantic-color-background-form-field-default);
+
+    --wcs-select-native-border-color-default: var(--wcs-semantic-color-border-form-field-default);
+    --wcs-select-native-border-color-focus: var(--wcs-semantic-color-border-focus-control);
+    --wcs-select-native-border-color-error: var(--wcs-semantic-color-error);
+
+    --wcs-select-native-border-style-default: solid;
+    --wcs-select-native-border-style-focus: var(--wcs-semantic-border-style-focus-control);
+
+    --wcs-select-native-border-width: var(--wcs-semantic-border-width-default);
+    --wcs-select-native-border-width-focus: var(--wcs-semantic-border-width-large);
+
+    --wcs-select-native-value-color: var(--wcs-semantic-color-foreground-form-field-value);
+    --wcs-select-native-value-font-weight: var(--wcs-semantic-font-weight-medium);
+    --wcs-select-native-value-font-style: normal; // ⚠️ UPDATE IN JS, IF REFACTOR THE NAME REFACTOR IN THE JS CODE
+
+    --wcs-select-native-padding-horizontal: var(--wcs-select-native-padding-horizontal-m);
+    --wcs-select-native-padding-horizontal-m: var(--wcs-semantic-padding-size-m-horizontal);
+    --wcs-select-native-padding-horizontal-l: var(--wcs-semantic-padding-size-l-horizontal);
+
+    --wcs-select-native-arrow-color: var(--wcs-semantic-color-primary);
+    --wcs-select-native-arrow-color-disabled: var(--wcs-semantic-color-foreground-form-field-disabled);
+
+    --wcs-select-native-text-color-disabled: var(--wcs-semantic-color-foreground-form-field-disabled);
+
+    --wcs-select-native-placeholder-color: var(--wcs-semantic-color-foreground-form-field-placeholder);
+    --wcs-select-native-placeholder-font-weight: var(--wcs-semantic-font-weight-regular);
+    --wcs-select-native-placeholder-font-style: var(--wcs-semantic-font-style-form-field-placeholder);
+
+    --wcs-select-native-option-color: var(--wcs-semantic-color-text-primary);
+    --wcs-select-native-option-font-style: normal;
+
+    --wcs-select-native-option-selected-color: var(--wcs-semantic-color-text-primary);
 }
 
 ::slotted(select) {
@@ -34,53 +101,60 @@
     border-radius: var(--wcs-select-native-border-radius);
     border: none;
 
-    outline: none;
+    outline: var(--wcs-select-native-border-style-default) var(--wcs-select-native-border-width) var(--wcs-select-native-border-color-default);
+    outline-offset: calc(var(--wcs-select-native-border-width) * -1);
     user-select: none;
     cursor: pointer;
-    line-height: 1.5;
-    font-size: 1rem;
+    line-height: var(--wcs-select-native-line-height);
+    font-size: inherit;
 
     max-width: 100%;
     flex-grow: 1;
-    padding-right: calc((var(--wcs-base-margin) * 2) + 24px);
-    padding-left: calc(var(--wcs-base-margin) * 2);
+    padding-right: calc(var(--wcs-select-native-padding-horizontal) + 24px); // To not let text overflow on arrow icon, we add 24px of padding
+    padding-left: var(--wcs-select-native-padding-horizontal);
 }
 
 ::slotted(select:disabled) {
     cursor: not-allowed;
-    color: var(--wcs-text-disabled);
+    color: var(--wcs-select-native-text-color-disabled);
 }
 
 ::slotted(select[aria-invalid=true]) {
-    --wcs-select-native-outline-color: var(--wcs-red) !important;
-    outline: solid 2px var(--wcs-select-native-outline-color);
+    outline: var(--wcs-select-native-border-style-default) var(--wcs-select-native-border-width) var(--wcs-select-native-border-color-error);
+    outline-offset: calc(var(--wcs-select-native-border-width) * -1);
 }
 
 :host([data-disabled]) {
     .select-wrapper {
         .arrow-container {
             .arrow {
-                fill: var(--wcs-text-medium);
+                fill: var(--wcs-select-native-arrow-color-disabled);
             }
         }
     }
 }
 
 :host([data-size=m])  {
+    font-size: var(--wcs-select-native-font-size-m);
+    --wcs-select-native-padding-horizontal: var(--wcs-select-native-padding-horizontal-m);
+
     ::slotted(select) {
-        height: var(--wcs-size-m);
+        height: var(--wcs-select-native-size-m);
     }
 }
 
 :host([data-size=l]) {
+    font-size: var(--wcs-select-native-font-size-l);
+    --wcs-select-native-padding-horizontal: var(--wcs-select-native-padding-horizontal-l);
+
     ::slotted(select) {
-        height: var(--wcs-size-l);
+        height: var(--wcs-select-native-size-l);
     }
 }
 
 ::slotted(select:focus-visible) {
-    @include focus-outline(var(--wcs-select-native-outline-color), var(--wcs-select-native-border-radius), $outline-offset: 0);
-    border-radius: var(--wcs-select-native-border-radius);
+    outline: var(--wcs-select-native-border-style-focus) var(--wcs-select-native-border-width-focus) var(--wcs-select-native-border-color-focus);
+    outline-offset: calc(var(--wcs-select-native-border-width-focus) * -1);
 }
 
 .select-wrapper {
@@ -108,6 +182,6 @@ svg {
     position: absolute;
     top: 0;
     bottom: 0;
-    right: calc(var(--wcs-padding) - 1px);
+    right: calc(var(--wcs-select-native-padding-horizontal) - 4px); // 4px is the blank space inside the arrow svg on the right
     margin: auto 0;
 }
