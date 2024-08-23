@@ -136,7 +136,7 @@ export class NativeSelect implements ComponentInterface, MutableAriaAttribute {
      */
     private applyPlaceholderStylesOnNativeSlottedSelectElement() {
         this.selectElement.style.color = "var(--wcs-select-native-placeholder-color)";
-        this.selectElement.style.fontWeight = "var(--wcs-select-native-placeholder-font-weight";
+        this.selectElement.style.fontWeight = "var(--wcs-select-native-placeholder-font-weight)";
         this.selectElement.style.fontStyle = "var(--wcs-select-native-placeholder-font-style)";
         Array.from(this.selectElement.options).forEach(option => {
             option.style.fontStyle = "var(--wcs-select-native-option-font-style)";
