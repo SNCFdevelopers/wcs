@@ -1097,44 +1097,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/accordion-header/accordion-header.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The accordion-header is a subcomponent of `wcs-accordion`. It represents the heading text inside the accordion panel.",
-          "name": "AccordionHeader",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-accordion-header",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "AccordionHeader",
-          "declaration": {
-            "name": "AccordionHeader",
-            "module": "components/accordion-header/accordion-header.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-accordion-header",
-          "declaration": {
-            "name": "AccordionHeader",
-            "module": "components/accordion-header/accordion-header.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/accordion-content/accordion-content.tsx",
       "declarations": [
         {
@@ -1167,6 +1129,44 @@
           "declaration": {
             "name": "AccordionContent",
             "module": "components/accordion-content/accordion-content.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/accordion-header/accordion-header.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The accordion-header is a subcomponent of `wcs-accordion`. It represents the heading text inside the accordion panel.",
+          "name": "AccordionHeader",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-accordion-header",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "AccordionHeader",
+          "declaration": {
+            "name": "AccordionHeader",
+            "module": "components/accordion-header/accordion-header.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-accordion-header",
+          "declaration": {
+            "name": "AccordionHeader",
+            "module": "components/accordion-header/accordion-header.tsx"
           }
         }
       ]
@@ -3155,56 +3155,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/com-nav-item/com-nav-item.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The com-nav-item is a subcomponent of `wcs-com-nav`. It represents a list-item wrapper around a link.",
-          "name": "ComNavItem",
-          "members": [
-            {
-              "kind": "method",
-              "name": "onClick"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-com-nav-item",
-          "events": [
-            {
-              "name": "wcsClickOnFinalAction",
-              "type": {
-                "text": "EventEmitter<void>"
-              },
-              "description": "Emitted when a user click on a final navigation action.\r\n\r\nUsed by the com-nav component to close the mobile menu overlay when a user click on a final action."
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ComNavItem",
-          "declaration": {
-            "name": "ComNavItem",
-            "module": "components/com-nav-item/com-nav-item.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-com-nav-item",
-          "declaration": {
-            "name": "ComNavItem",
-            "module": "components/com-nav-item/com-nav-item.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/com-nav-submenu/com-nav-submenu.tsx",
       "declarations": [
         {
@@ -3474,6 +3424,56 @@
           "declaration": {
             "name": "ComNavSubmenu",
             "module": "components/com-nav-submenu/com-nav-submenu.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/com-nav-item/com-nav-item.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The com-nav-item is a subcomponent of `wcs-com-nav`. It represents a list-item wrapper around a link.",
+          "name": "ComNavItem",
+          "members": [
+            {
+              "kind": "method",
+              "name": "onClick"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-com-nav-item",
+          "events": [
+            {
+              "name": "wcsClickOnFinalAction",
+              "type": {
+                "text": "EventEmitter<void>"
+              },
+              "description": "Emitted when a user click on a final navigation action.\r\n\r\nUsed by the com-nav component to close the mobile menu overlay when a user click on a final action."
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ComNavItem",
+          "declaration": {
+            "name": "ComNavItem",
+            "module": "components/com-nav-item/com-nav-item.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-com-nav-item",
+          "declaration": {
+            "name": "ComNavItem",
+            "module": "components/com-nav-item/com-nav-item.tsx"
           }
         }
       ]
@@ -10085,6 +10085,156 @@
           "kind": "class",
           "description": "The radio component should always be wrapped in a `wcs-radio-group`.",
           "name": "Radio",
+          "cssProperties": [
+            {
+              "description": "Color of the text when the radio is not selected",
+              "name": "--wcs-radio-text-color-default"
+            },
+            {
+              "description": "Default font weight of the text",
+              "name": "--wcs-radio-text-font-weight-default"
+            },
+            {
+              "description": "Color of the text when the radio is selected",
+              "name": "--wcs-radio-text-color-selected"
+            },
+            {
+              "description": "Font weight of the text when the radio is selected",
+              "name": "--wcs-radio-text-font-weight-selected"
+            },
+            {
+              "description": "Color of the text when the radio is disabled",
+              "name": "--wcs-radio-text-color-disabled"
+            },
+            {
+              "description": "Color of the text when the radio is hovered",
+              "name": "--wcs-radio-text-color-hover"
+            },
+            {
+              "description": "Color of the outline when the radio is focused",
+              "name": "--wcs-radio-outline-color-focus"
+            },
+            {
+              "description": "Size of the checkmark circle",
+              "name": "--wcs-radio-checkmark-size"
+            },
+            {
+              "description": "Width of the border of the checkmark circle",
+              "name": "--wcs-radio-checkmark-border-width"
+            },
+            {
+              "description": "Color of the border of the checkmark circle when the radio's is not selected",
+              "name": "--wcs-radio-checkmark-border-color-default"
+            },
+            {
+              "description": "Color of the border of the checkmark circle when the radio is selected",
+              "name": "--wcs-radio-checkmark-border-color-selected"
+            },
+            {
+              "description": "Color of the border of the checkmark circle when the radio is hovered",
+              "name": "--wcs-radio-checkmark-border-color-hover"
+            },
+            {
+              "description": "Color of the border of the checkmark circle when the radio is disabled",
+              "name": "--wcs-radio-checkmark-border-color-disabled"
+            },
+            {
+              "description": "Background color of the checkmark circle when the radio's is not selected",
+              "name": "--wcs-radio-checkmark-background-color-default"
+            },
+            {
+              "description": "Background color of the checkmark circle when the radio's is selected",
+              "name": "--wcs-radio-checkmark-background-color-selected"
+            },
+            {
+              "description": "Background color of the checkmark circle when the radio is disabled",
+              "name": "--wcs-radio-checkmark-background-color-disabled"
+            },
+            {
+              "description": "Distance between the checkmark circle and the outline (inside the background)",
+              "name": "--wcs-radio-checkmark-outline-distance-with-checkmark-circle"
+            },
+            {
+              "description": "Width of the outline of the checkmark circle (inside the background)",
+              "name": "--wcs-radio-checkmark-outline-width"
+            },
+            {
+              "description": "Color of the outline of the checkmark circle (inside the background)",
+              "name": "--wcs-radio-checkmark-outline-color"
+            },
+            {
+              "description": "Gap between the radio checkmark circle and the label",
+              "name": "--wcs-radio-gap"
+            },
+            {
+              "description": "Background color of the radio option when not selected",
+              "name": "--wcs-radio-option-background-color-default"
+            },
+            {
+              "description": "Background color of the radio option when selected",
+              "name": "--wcs-radio-option-background-color-selected"
+            },
+            {
+              "description": "Background color of the radio option when selected and disabled",
+              "name": "--wcs-radio-option-background-color-selected-disabled"
+            },
+            {
+              "description": "Background color of the radio option not selected when hovered",
+              "name": "--wcs-radio-option-background-color-hover"
+            },
+            {
+              "description": "Background color of the radio option when disabled",
+              "name": "--wcs-radio-option-background-color-disabled"
+            },
+            {
+              "description": "Color of the text when the radio option is not selected",
+              "name": "--wcs-radio-option-text-color-default"
+            },
+            {
+              "description": "Default font weight of the text",
+              "name": "--wcs-radio-option-text-font-weight-default"
+            },
+            {
+              "description": "Color of the text when the radio option is selected",
+              "name": "--wcs-radio-option-text-color-selected"
+            },
+            {
+              "description": "Font weight of the text when the radio option is selected",
+              "name": "--wcs-radio-option-text-font-weight-selected"
+            },
+            {
+              "description": "Color of the text when the radio option not selected is hovered",
+              "name": "--wcs-radio-option-text-color-hover"
+            },
+            {
+              "description": "Color of the text when the radio option's is disabled",
+              "name": "--wcs-radio-option-text-color-disabled"
+            },
+            {
+              "description": "Border radius of the radio option",
+              "name": "--wcs-radio-option-border-radius"
+            },
+            {
+              "description": "Color of the outline when the radio option is focused",
+              "name": "--wcs-radio-option-outline-color-focus"
+            },
+            {
+              "description": "Padding top of the radio option",
+              "name": "--wcs-radio-option-padding-top"
+            },
+            {
+              "description": "Padding right of the radio option",
+              "name": "--wcs-radio-option-padding-right"
+            },
+            {
+              "description": "Padding bottom of the radio option",
+              "name": "--wcs-radio-option-padding-bottom"
+            },
+            {
+              "description": "Padding left of the radio option",
+              "name": "--wcs-radio-option-padding-left"
+            }
+          ],
           "members": [
             {
               "kind": "field",
@@ -10336,6 +10486,32 @@
           "kind": "class",
           "description": "",
           "name": "RadioGroup",
+          "cssProperties": [
+            {
+              "description": "Gap between each radio (checkmark + label) in horizontal mode",
+              "name": "--wcs-radio-group-gap"
+            },
+            {
+              "description": "Background color of the radio group option",
+              "name": "--wcs-radio-group-option-background-color"
+            },
+            {
+              "description": "Height of the radio group option",
+              "name": "--wcs-radio-group-option-height"
+            },
+            {
+              "description": "Padding of the radio group option",
+              "name": "--wcs-radio-group-option-padding"
+            },
+            {
+              "description": "Border radius of the radio group option",
+              "name": "--wcs-radio-group-option-border-radius"
+            },
+            {
+              "description": "Gap between each radio option",
+              "name": "--wcs-radio-group-option-gap"
+            }
+          ],
           "members": [
             {
               "kind": "field",

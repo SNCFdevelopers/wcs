@@ -21,6 +21,19 @@ import {
     isUpArrowKey
 } from "../../utils/helpers";
 
+/**
+ * @cssprop --wcs-radio-group-gap - Gap between each radio (checkmark + label) in horizontal mode
+ * 
+ *
+ * @cssprop --wcs-radio-group-option-background-color - Background color of the radio group option
+ * 
+ * @cssprop --wcs-radio-group-option-height - Height of the radio group option
+ * @cssprop --wcs-radio-group-option-padding - Padding of the radio group option
+ *  
+ * @cssprop --wcs-radio-group-option-border-radius - Border radius of the radio group option
+ * 
+ * @cssprop --wcs-radio-group-option-gap - Gap between each radio option
+ */
 @Component({
     tag: 'wcs-radio-group',
     styleUrl: 'radio-group.scss',

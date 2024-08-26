@@ -2,6 +2,125 @@
 
 :host {
     width: fit-content;
+
+    // region to be removed before migration to design tokens
+
+    // region mode Radio
+    --wcs-radio-text-color-default: var(--wcs-text-medium);
+    --wcs-radio-text-font-weight-default: 500;
+
+    --wcs-radio-text-color-selected: var(--wcs-primary);
+    --wcs-radio-text-font-weight-selected: 500;
+
+    --wcs-radio-text-color-disabled: var(--wcs-text-disabled);
+    --wcs-radio-text-color-hover: var(--wcs-primary);
+
+    --wcs-radio-checkmark-size: 1.125rem;
+    --wcs-radio-gap: var(--wcs-base-margin);
+
+    --wcs-radio-checkmark-border-width: 2px;
+    --wcs-radio-checkmark-border-color-default: var(--wcs-text-disabled);
+    --wcs-radio-checkmark-border-color-selected: var(--wcs-primary);
+    --wcs-radio-checkmark-border-color-hover: var(--wcs-primary);
+    --wcs-radio-checkmark-border-color-disabled: var(--wcs-text-disabled);
+
+    --wcs-radio-outline-color-focus: var(--wcs-primary);
+
+    --wcs-radio-checkmark-background-color-default: var(--wcs-white);
+    --wcs-radio-checkmark-background-color-selected: var(--wcs-primary);
+    --wcs-radio-checkmark-background-color-disabled: var(--wcs-text-disabled);
+
+    --wcs-radio-checkmark-outline-distance-with-checkmark-circle: 4px;
+    --wcs-radio-checkmark-outline-width: 2px;
+    --wcs-radio-checkmark-outline-color: var(--wcs-white);
+    // endregion
+
+    // region mode Option
+    --wcs-radio-option-text-color-default: var(--wcs-white);
+    --wcs-radio-option-text-font-weight-default: 500;
+
+    --wcs-radio-option-text-color-selected: var(--wcs-primary);
+    --wcs-radio-option-text-font-weight-selected: 500;
+
+    --wcs-radio-option-text-color-disabled: var(--wcs-text-medium);
+
+    --wcs-radio-option-background-color-default: transparent;
+    --wcs-radio-option-background-color-selected: var(--wcs-white);
+    --wcs-radio-option-background-color-selected-disabled: var(--wcs-white);
+    --wcs-radio-option-background-color-hover: var(--wcs-white);
+    --wcs-radio-option-background-color-disabled: transparent;
+
+    --wcs-radio-option-text-color-hover: var(--wcs-primary);
+
+    --wcs-radio-option-border-radius: 0.4375rem;
+
+    --wcs-radio-option-outline-color-focus: var(--wcs-white); // outline color for focus ring
+
+    --wcs-radio-option-padding-top: 4px;
+    --wcs-radio-option-padding-right: 16px;
+    --wcs-radio-option-padding-bottom: 4px;
+    --wcs-radio-option-padding-left: 16px;
+    // endregion
+
+    //endregion
+}
+
+:host(.token-migration) {
+    // region mode Radio
+    --wcs-radio-text-color-default: var(--wcs-semantic-color-text-secondary);
+    --wcs-radio-text-font-weight-default: var(--wcs-semantic-font-weight-medium);
+
+    --wcs-radio-text-color-selected: var(--wcs-semantic-color-text-primary);
+    --wcs-radio-text-font-weight-selected: var(--wcs-semantic-font-weight-medium);
+
+    --wcs-radio-text-color-disabled: var(--wcs-semantic-color-text-tertiary);
+    --wcs-radio-text-color-hover: var(--wcs-semantic-color-text-primary);
+
+    --wcs-radio-checkmark-size: 1.125rem; // for now, we let raw value to let adjust the size based on base font size
+
+    --wcs-radio-gap: var(--wcs-semantic-spacing-base);
+
+    --wcs-radio-outline-color-focus: var(--wcs-semantic-color-border-focus-base); // outline color for focus ring
+
+    --wcs-radio-checkmark-border-width: var(--wcs-semantic-border-width-large);
+    --wcs-radio-checkmark-border-color-default: var(--wcs-semantic-color-border-control-indicator-default);
+    --wcs-radio-checkmark-border-color-selected: var(--wcs-semantic-color-primary);
+    --wcs-radio-checkmark-border-color-hover: var(--wcs-semantic-color-primary);
+    --wcs-radio-checkmark-border-color-disabled: var(--wcs-semantic-color-border-control-indicator-disabled);
+
+    --wcs-radio-checkmark-background-color-default: transparent;
+    --wcs-radio-checkmark-background-color-selected: var(--wcs-semantic-color-background-control-indicator-selected);
+    --wcs-radio-checkmark-background-color-disabled: var(--wcs-semantic-color-background-control-indicator-disabled);
+
+    --wcs-radio-checkmark-outline-distance-with-checkmark-circle: calc(var(--wcs-semantic-spacing-base) / 2);
+    --wcs-radio-checkmark-outline-width: var(--wcs-semantic-border-width-large);
+    --wcs-radio-checkmark-outline-color: var(--wcs-semantic-color-foreground-control-indicator-selected);
+    // endregion
+
+    // region mode Option
+    --wcs-radio-option-background-color-default: var(--wcs-semantic-color-background-action-secondary-default);
+    --wcs-radio-option-background-color-selected: var(--wcs-semantic-color-background-action-primary-default);
+    --wcs-radio-option-background-color-selected-disabled: var(--wcs-semantic-color-background-action-primary-disabled);
+    --wcs-radio-option-background-color-hover: var(--wcs-semantic-color-background-action-secondary-hover);
+    --wcs-radio-option-background-color-disabled: var(--wcs-semantic-color-background-action-secondary-disabled);
+
+    --wcs-radio-option-text-color-default: var(--wcs-semantic-color-text-primary);
+    --wcs-radio-option-text-font-weight-default: var(--wcs-semantic-font-weight-regular);
+    --wcs-radio-option-text-color-selected: var(--wcs-semantic-color-foreground-action-primary-default);
+    --wcs-radio-option-text-font-weight-selected: var(--wcs-semantic-font-weight-regular);
+    --wcs-radio-option-text-color-hover: var(--wcs-semantic-color-text-primary);
+
+    --wcs-radio-option-text-color-disabled: var(--wcs-semantic-color-disabled);
+
+    --wcs-radio-option-outline-color-focus: var(--wcs-semantic-color-border-focus-base); // outline color for focus ring
+
+    --wcs-radio-option-border-radius: var(--wcs-semantic-border-radius-base);
+
+    --wcs-radio-option-padding-top: var(--wcs-semantic-padding-size-m-vertical);
+    --wcs-radio-option-padding-right: var(--wcs-semantic-padding-size-m-horizontal);
+    --wcs-radio-option-padding-bottom: var(--wcs-semantic-padding-size-m-vertical);
+    --wcs-radio-option-padding-left: var(--wcs-semantic-padding-size-m-horizontal);
+    // endregion
 }
 
 :host([mode=radio]),
@@ -18,24 +137,23 @@
 
     label {
         margin-bottom: 0;
-        color: var(--wcs-text-medium);
-        background-color: transparent;
-        font-weight: 500 !important;
+        color: var(--wcs-radio-text-color-default);
+        font-weight: var(--wcs-radio-text-font-weight-default) !important;
         display: inline-block;
 
         &:before {
             border-radius: 50%;
-            border: 2px solid var(--wcs-text-disabled);
+            border: var(--wcs-radio-checkmark-border-width) solid var(--wcs-radio-checkmark-border-color-default);
             position: relative;
-            width: 1.125rem;
-            height: 1.125rem;
+            width: var(--wcs-radio-checkmark-size);
+            height: var(--wcs-radio-checkmark-size);
             pointer-events: none;
             content: "";
-            background-color: var(--wcs-white);
+            background-color: var(--wcs-radio-checkmark-background-color-default);
         }
 
         &:after {
-            transition: 0.175s ease-in-out;
+            transition: background-color 0.175s ease-in-out;
             position: relative;
             width: 1.125rem;
             height: 1.125rem;
@@ -46,14 +164,18 @@
 
     input:focus-visible + label {
         transition: none;
-        @include focus-outline($border-radius: 0.5rem, $outline-offset: 2px);
+        @include focus-outline($outline-color: var(--wcs-radio-outline-color-focus), $border-radius: 0.5rem, $outline-offset: 2px);
     }
 }
 
 :host([disabled]) {
     label {
-        color: var(--wcs-text-disabled);
+        color: var(--wcs-radio-text-color-disabled);
         cursor: not-allowed;
+
+        &:before {
+            border-color: var(--wcs-radio-checkmark-border-color-disabled);
+        }
     }
 }
 
@@ -66,13 +188,14 @@
 :host([mode=radio].checked),
 :host([mode=horizontal].checked) {
     label {
-        color: var(--wcs-primary);
+        color: var(--wcs-radio-text-color-selected);
+        font-weight: var(--wcs-radio-text-font-weight-selected) !important;
 
         &:before {
-            border-color: var(--wcs-primary);
-            background-color: var(--wcs-primary);
-            outline: solid 2px var(--wcs-white);
-            outline-offset: -4px;
+            border-color: var(--wcs-radio-checkmark-border-color-selected);
+            background-color: var(--wcs-radio-checkmark-background-color-selected);
+            outline: solid var(--wcs-radio-checkmark-outline-width) var(--wcs-radio-checkmark-outline-color);
+            outline-offset: calc(-1 * var(--wcs-radio-checkmark-outline-distance-with-checkmark-circle));
         }
     }
 }
@@ -80,35 +203,33 @@
 :host([mode=radio][disabled].checked),
 :host([mode=horizontal][disabled].checked) {
     label {
-        color: var(--wcs-text-disabled);
+        color: var(--wcs-radio-text-color-disabled);
 
         &:before {
-            border-color: var(--wcs-text-disabled);
-            background-color: var(--wcs-text-disabled);
+            border-color: var(--wcs-radio-checkmark-border-color-disabled);
+            background-color: var(--wcs-radio-checkmark-background-color-disabled);
         }
     }
 }
 
-:host([mode=radio]:hover):not([disabled]),
-:host([mode=horizontal]:hover):not([disabled]) {
+:host([mode=radio]:hover:not([disabled])),
+:host([mode=horizontal]:hover:not([disabled])) {
     label {
-        color: var(--wcs-primary);
+        color: var(--wcs-radio-text-color-hover);
 
         &:before {
-            border-color: var(--wcs-primary);
+            border-color: var(--wcs-radio-checkmark-border-color-hover);
         }
     }
 }
 
 :host([mode=radio]) {
     label {
-        padding: 0.125rem;
         border: none;
-        transition: 0.175s ease-in-out;
 
         &:before {
-            transition: 0.175s ease-in-out;
-            margin-right: var(--wcs-base-margin);
+            transition: background-color 0.175s ease-in-out;
+            margin-right: var(--wcs-radio-gap);
             display: inline-block;
             top: 3px;
             box-sizing: border-box;
@@ -125,7 +246,7 @@
     label {
         &:before {
             transition: background-color 0.175s ease-in-out;
-            margin: auto auto var(--wcs-base-margin);
+            margin: auto auto var(--wcs-radio-gap);
             display: block;
         }
 
@@ -136,8 +257,7 @@
 }
 
 :host([mode=option]) {
-    padding: var(--wcs-base-margin) calc(var(--wcs-base-margin) / 2);
-    font-weight: 500 !important;
+    font-weight: var(--wcs-radio-option-text-font-weight-default) !important;
 
     input {
         position: absolute;
@@ -148,23 +268,45 @@
     }
 
     label {
-        padding: 5px calc(2 * var(--wcs-base-margin));
+        padding: var(--wcs-radio-option-padding-top) var(--wcs-radio-option-padding-right) var(--wcs-radio-option-padding-bottom) var(--wcs-radio-option-padding-left);
         margin-bottom: 0;
-        color: var(--wcs-white);
+        color: var(--wcs-radio-option-text-color-default);
         white-space: nowrap;
-        border-radius: 0.4375rem;
-        transition: 0.175s ease-in-out;
+        border-radius: var(--wcs-radio-option-border-radius);
+        transition: background-color 0.175s ease-in-out;
+        background-color: var(--wcs-radio-option-background-color-default);
     }
 
     input:focus-visible + label {
-        @include focus-outline(var(--wcs-white), 0.4375rem, 0.1rem);
+        @include focus-outline($outline-color: var(--wcs-radio-outline-color-focus), $border-radius: 0.4375rem, $outline-offset: 0.1rem);
+    }
+}
+
+:host([mode=option][disabled]) {
+    label {
+        color: var(--wcs-radio-option-text-color-disabled);
+        background-color: var(--wcs-radio-option-background-color-disabled);
+    }
+}
+
+:host([mode=option][disabled].checked) {
+    label {
+        color: var(--wcs-radio-option-text-color-disabled);
+        background-color: var(--wcs-radio-option-background-color-selected-disabled);
     }
 }
 
 :host([mode=option].checked) {
     label {
-        font-weight: 500 !important;
-        color: var(--wcs-primary);
-        background-color: var(--wcs-white);
+        font-weight: var(--wcs-radio-option-text-font-weight-selected) !important;
+        color: var(--wcs-radio-option-text-color-selected);
+        background-color: var(--wcs-radio-option-background-color-selected);
+    }
+}
+
+:host([mode=option]:hover:not(.checked):not([disabled])) {
+    label {
+        color: var(--wcs-radio-option-text-color-hover);
+        background-color: var(--wcs-radio-option-background-color-hover);
     }
 }

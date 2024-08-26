@@ -19,6 +19,54 @@ const RADIO_INHERITED_ATTRS = ['title'];
 
 /**
  * The radio component should always be wrapped in a `wcs-radio-group`.
+ * 
+ * @cssprop --wcs-radio-text-color-default - Color of the text when the radio is not selected
+ * @cssprop --wcs-radio-text-font-weight-default - Default font weight of the text
+ * @cssprop --wcs-radio-text-color-selected - Color of the text when the radio is selected
+ * @cssprop --wcs-radio-text-font-weight-selected - Font weight of the text when the radio is selected
+ * @cssprop --wcs-radio-text-color-disabled - Color of the text when the radio is disabled
+ * @cssprop --wcs-radio-text-color-hover - Color of the text when the radio is hovered
+ * 
+ * @cssprop --wcs-radio-outline-color-focus - Color of the outline when the radio is focused
+ * 
+ * @cssprop --wcs-radio-checkmark-size - Size of the checkmark circle
+ * @cssprop --wcs-radio-checkmark-border-width - Width of the border of the checkmark circle
+ * @cssprop --wcs-radio-checkmark-border-color-default - Color of the border of the checkmark circle when the radio's is not selected
+ * @cssprop --wcs-radio-checkmark-border-color-selected - Color of the border of the checkmark circle when the radio is selected
+ * @cssprop --wcs-radio-checkmark-border-color-hover - Color of the border of the checkmark circle when the radio is hovered
+ * @cssprop --wcs-radio-checkmark-border-color-disabled - Color of the border of the checkmark circle when the radio is disabled
+ * @cssprop --wcs-radio-checkmark-background-color-default - Background color of the checkmark circle when the radio's is not selected
+ * @cssprop --wcs-radio-checkmark-background-color-selected - Background color of the checkmark circle when the radio's is selected
+ * @cssprop --wcs-radio-checkmark-background-color-disabled - Background color of the checkmark circle when the radio is disabled
+ *
+ * @cssprop --wcs-radio-checkmark-outline-distance-with-checkmark-circle - Distance between the checkmark circle and the outline (inside the background)
+ * @cssprop --wcs-radio-checkmark-outline-width - Width of the outline of the checkmark circle (inside the background)
+ * @cssprop --wcs-radio-checkmark-outline-color - Color of the outline of the checkmark circle (inside the background)
+ * 
+ * @cssprop --wcs-radio-gap - Gap between the radio checkmark circle and the label
+ *
+ * 
+ * @cssprop --wcs-radio-option-background-color-default - Background color of the radio option when not selected
+ * @cssprop --wcs-radio-option-background-color-selected - Background color of the radio option when selected
+ * @cssprop --wcs-radio-option-background-color-selected-disabled - Background color of the radio option when selected and disabled
+ * @cssprop --wcs-radio-option-background-color-hover - Background color of the radio option not selected when hovered
+ * @cssprop --wcs-radio-option-background-color-disabled - Background color of the radio option when disabled
+ * 
+ * @cssprop --wcs-radio-option-text-color-default - Color of the text when the radio option is not selected
+ * @cssprop --wcs-radio-option-text-font-weight-default - Default font weight of the text
+ * @cssprop --wcs-radio-option-text-color-selected - Color of the text when the radio option is selected
+ * @cssprop --wcs-radio-option-text-font-weight-selected - Font weight of the text when the radio option is selected
+ * @cssprop --wcs-radio-option-text-color-hover - Color of the text when the radio option not selected is hovered
+ * 
+ * @cssprop --wcs-radio-option-text-color-disabled - Color of the text when the radio option's is disabled
+ *
+ * @cssprop --wcs-radio-option-border-radius - Border radius of the radio option
+ * @cssprop --wcs-radio-option-outline-color-focus - Color of the outline when the radio option is focused
+ * 
+ * @cssprop --wcs-radio-option-padding-top - Padding top of the radio option
+ * @cssprop --wcs-radio-option-padding-right - Padding right of the radio option
+ * @cssprop --wcs-radio-option-padding-bottom - Padding bottom of the radio option
+ * @cssprop --wcs-radio-option-padding-left - Padding left of the radio option
  */
 @Component({
     tag: 'wcs-radio',

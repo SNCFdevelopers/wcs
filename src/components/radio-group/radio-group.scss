@@ -1,30 +1,52 @@
 :host {
     display: flex;
+
+    // region to be removed before migration to design tokens
+
+    // region Radio
+    --wcs-radio-group-gap: 4px;
+    // endregion
+
+    // region Option
+    --wcs-radio-group-option-height: 40px;
+    --wcs-radio-group-option-gap: var(--wcs-base-margin);
+    --wcs-radio-group-option-padding: 4px;
+    --wcs-radio-group-option-border-radius: 0.6875rem;
+    --wcs-radio-group-option-background-color: #4d4f53;
+    // endregion
+
+    // endregion
+}
+
+:host(.token-migration) {
+    // region Radio
+    --wcs-radio-group-gap: var(--wcs-semantic-spacing-base);
+    // endregion
+
+    // region Option
+    --wcs-radio-group-option-height: var(--wcs-semantic-size-m);
+    --wcs-radio-group-option-gap: var(--wcs-semantic-spacing-small);
+    --wcs-radio-group-option-padding: var(--wcs-semantic-padding-small) var(--wcs-semantic-padding-small);
+    --wcs-radio-group-option-border-radius: var(--wcs-semantic-border-radius-base);
+    --wcs-radio-group-option-background-color: var(--wcs-semantic-color-background-surface-accent-lighter);
+    // endregion
 }
 
 :host([mode=radio]) {
     flex-direction: column;
-
-    ::slotted([slot=option]:first-child) {
-        margin-top: 0;
-    }
-
-    ::slotted([slot=option]:last-child) {
-        margin-bottom: 0;
-    }
-
-    ::slotted([slot=options]) {
-        margin-top: calc(var(--wcs-base-margin) / 2);
-        margin-bottom: calc(var(--wcs-base-margin) / 2);
-    }
+    gap: var(--wcs-radio-group-gap);
 }
 
 :host([mode=option]) {
+    box-sizing: border-box;
+    height: var(--wcs-radio-group-option-height);
     display: inline-flex;
     flex-direction: row;
-    padding: calc(var(--wcs-base-margin) / 4);
-    background-color: #4d4f53;
-    border-radius: 0.6875rem;
+    align-items: center;
+    gap: var(--wcs-radio-group-option-gap);
+    padding: var(--wcs-radio-group-option-padding);
+    background-color: var(--wcs-radio-group-option-background-color);
+    border-radius: var(--wcs-radio-group-option-border-radius);
 }
 
 :host([mode=horizontal]) {

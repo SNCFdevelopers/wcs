@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-11-07T15:15:04",
+  "timestamp": "2024-11-08T09:58:44",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -7792,7 +7792,156 @@
       "tag": "wcs-radio",
       "readme": "# wcs-radio\r\n\r\n\r\n\r",
       "docs": "The radio component should always be wrapped in a `wcs-radio-group`.",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-text-color-default - Color of the text when the radio is not selected"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-text-font-weight-default - Default font weight of the text"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-text-color-selected - Color of the text when the radio is selected"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-text-font-weight-selected - Font weight of the text when the radio is selected"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-text-color-disabled - Color of the text when the radio is disabled"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-text-color-hover - Color of the text when the radio is hovered"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-outline-color-focus - Color of the outline when the radio is focused"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-checkmark-size - Size of the checkmark circle"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-checkmark-border-width - Width of the border of the checkmark circle"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-checkmark-border-color-default - Color of the border of the checkmark circle when the radio's is not selected"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-checkmark-border-color-selected - Color of the border of the checkmark circle when the radio is selected"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-checkmark-border-color-hover - Color of the border of the checkmark circle when the radio is hovered"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-checkmark-border-color-disabled - Color of the border of the checkmark circle when the radio is disabled"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-checkmark-background-color-default - Background color of the checkmark circle when the radio's is not selected"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-checkmark-background-color-selected - Background color of the checkmark circle when the radio's is selected"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-checkmark-background-color-disabled - Background color of the checkmark circle when the radio is disabled"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-checkmark-outline-distance-with-checkmark-circle - Distance between the checkmark circle and the outline (inside the background)"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-checkmark-outline-width - Width of the outline of the checkmark circle (inside the background)"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-checkmark-outline-color - Color of the outline of the checkmark circle (inside the background)"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-gap - Gap between the radio checkmark circle and the label"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-option-background-color-default - Background color of the radio option when not selected"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-option-background-color-selected - Background color of the radio option when selected"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-option-background-color-selected-disabled - Background color of the radio option when selected and disabled"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-option-background-color-hover - Background color of the radio option not selected when hovered"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-option-background-color-disabled - Background color of the radio option when disabled"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-option-text-color-default - Color of the text when the radio option is not selected"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-option-text-font-weight-default - Default font weight of the text"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-option-text-color-selected - Color of the text when the radio option is selected"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-option-text-font-weight-selected - Font weight of the text when the radio option is selected"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-option-text-color-hover - Color of the text when the radio option not selected is hovered"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-option-text-color-disabled - Color of the text when the radio option's is disabled"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-option-border-radius - Border radius of the radio option"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-option-outline-color-focus - Color of the outline when the radio option is focused"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-option-padding-top - Padding top of the radio option"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-option-padding-right - Padding right of the radio option"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-option-padding-bottom - Padding bottom of the radio option"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-option-padding-left - Padding left of the radio option"
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -7985,7 +8134,32 @@
       "tag": "wcs-radio-group",
       "readme": "# Radio Group\r\n\r\n\r",
       "docs": "",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-group-gap - Gap between each radio (checkmark + label) in horizontal mode"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-group-option-background-color - Background color of the radio group option"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-group-option-height - Height of the radio group option"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-group-option-padding - Padding of the radio group option"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-group-option-border-radius - Border radius of the radio group option"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-group-option-gap - Gap between each radio option"
+        }
+      ],
       "usage": {},
       "props": [
         {
