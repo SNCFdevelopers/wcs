@@ -23,7 +23,9 @@ for soon-to-be removed features.
 
 ### Removed
 
-for now removed features.
+#### CSS
+
+- **input**: remove `--wcs-input-icon-color` css variable. Use `--wcs-input-icon-color-default`, `--wcs-input-icon-color-focus`, `--wcs-input-icon-color-disabled` instead.
 
 ### Fixed
 

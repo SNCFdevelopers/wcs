@@ -1,6 +1,10 @@
 {
     "semantic": {
         "spacing": {
+            "small": {
+                "$type": "dimension",
+                "$value": "{primitive.size.40}"
+            },
             "base": {
                 "$type": "dimension",
                 "$value": "{semantic.size.base}"
@@ -30,10 +34,20 @@
             "xs": {
                 "$type": "dimension",
                 "$value": "{primitive.size.240}"
+            },
+            "overlay": {
+                "max-height": {
+                    "$type": "dimension",
+                    "$value": "360px"
+                }
             }
         },
         "border": {
             "radius": {
+                "small": {
+                    "$type": "dimension",
+                    "$value": "{primitive.size.40}"
+                },
                 "base": {
                     "$type": "dimension",
                     "$value": "{primitive.size.base}"
@@ -44,13 +58,28 @@
                 }
             },
             "width": {
-                "base": {
+                "default": {
                     "$type": "dimension",
                     "$value": "{primitive.size.10}"
                 },
-                "focus": {
+                "large": {
+                    "$description": "Used for focus border especially",
                     "$type": "dimension",
                     "$value": "{primitive.size.20}"
+                }
+            },
+            "style": {
+                "focus": {
+                    "base": {
+                        "$description": "Focus style for base elements like button, dropdown, counter, switch...",
+                        "$type": "string",
+                        "$value": "dashed"
+                    },
+                    "control": {
+                        "$description": "Focus style for control elements like input, select, textarea...",
+                        "$type": "string",
+                        "$value": "solid"
+                    }
                 }
             }
         },
@@ -63,6 +92,11 @@
                 "$description": "Base disabled color",
                 "$type": "color",
                 "$value": "{primitive.color.neutral.500}"
+            },
+            "error": {
+                "$description": "Main color to indicate an error state",
+                "$type": "color",
+                "$value": "{primitive.color.rouge-assistance.500}"
             },
             "border": {
                 "action": {
@@ -86,8 +120,26 @@
                     "$value": "{primitive.color.neutral.100}"
                 },
                 "focus": {
-                    "$type": "color",
-                    "$value": "{semantic.color.primary}"
+                    "base": {
+                        "$description": "Border color on focus for base elements like button, dropdown, counter, switch...",
+                        "$type": "color",
+                        "$value": "{primitive.color.parme.700}"
+                    },
+                    "control": {
+                        "$description": "Border color on focus for control elements like input, select, textarea...",
+                        "$type": "color",
+                        "$value": "{semantic.color.primary}"
+                    }
+                },
+                "form-field": {
+                    "default": {
+                        "$type": "color",
+                        "$value": "{primitive.color.transparent}"
+                    },
+                    "disabled": {
+                        "$type": "color",
+                        "$value": "{semantic.color.background.form-field.disabled}"
+                    }
                 }
             },
             "background": {
@@ -143,6 +195,25 @@
                             "$value": "{primitive.color.parme.100}"
                         }
                     }
+                },
+                "form-field": {
+                    "default": {
+                        "$description": "Default background of form-field like input, select, textarea...",
+                        "$type": "color",
+                        "$value": "{primitive.color.neutral.100}"
+                    },
+                    "disabled": {
+                        "$description": "Disabled background of form-field like input, select, textarea...",
+                        "$type": "color",
+                        "$value": "{primitive.color.neutral.100}"
+                    }
+                },
+                "surface": {
+                    "tertiary": {
+                        "$description": "Tertiary background (used for background of prefix and suffix of input/form-field, also in other components)",
+                        "$type": "color",
+                        "$value": "{primitive.color.neutral.400}"
+                    }
                 }
             },
             "foreground": {
@@ -168,6 +239,23 @@
                             "$type": "color",
                             "$value": "{semantic.color.primary}"
                         }
+                    }
+                },
+                "form-field": {
+                    "value": {
+                        "$description": "The value on top of a form-field background",
+                        "$type": "color",
+                        "$value": "{semantic.color.primary}"
+                    },
+                    "placeholder": {
+                        "$description": "The placeholder on top of a form-field background",
+                        "$type": "color",
+                        "$value": "{semantic.color.text.tertiary}"
+                    },
+                    "disabled": {
+                        "$description": "The layer on top of a form-field disabled background",
+                        "$type": "color",
+                        "$value": "{semantic.color.disabled}"
                     }
                 }
             },
@@ -228,13 +316,41 @@
                 }
             },
             "weight": {
-                "bold": {
+                "medium": {
                     "$type": "number",
                     "$value": "{primitive.font.weight.500}"
+                },
+                "roman": {
+                    "$type": "number",
+                    "$value": "{primitive.font.weight.400}"
+                },
+                "light": {
+                    "$type": "number",
+                    "$value": "{primitive.font.weight.300}"
+                },
+                "thin": {
+                    "$type": "number",
+                    "$value": "{primitive.font.weight.100}"
+                }
+            },
+            "style": {
+                "form-field": {
+                    "placeholder": {
+                        "$type": "string",
+                        "$value": "normal"
+                    }
                 }
             }
         },
         "padding": {
+            "small": {
+                "$type": "dimension",
+                "$value": "{primitive.size.40}"
+            },
+            "big": {
+                "$type": "dimension",
+                "$value": "{primitive.size.160}"
+            },
             "size": {
                 "s": {
                     "horizontal": {

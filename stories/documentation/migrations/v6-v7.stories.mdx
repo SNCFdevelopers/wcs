@@ -1,0 +1,23 @@
+import {Meta} from '@storybook/addon-docs';
+
+<Meta title="Documentation/Migrations/v6 to v7"/>
+
+# Migrate from v6 to v7
+
+WCS v7 contains breaking changes only in the following packages:
+- wcs-core
+- wcs-angular
+- wcs-react
+
+## wcs-core
+
+### CSS Variables
+
+During Design Tokens migration, we have **reviewed and updated certain CSS variables names on several components**. If you have used **any of the following CSS variables below**, you need to **update them** in your project or use the new ones.
+
+#### wcs-input
+
+- `--wcs-input-icon-color` has been **deleted**. Use these one instead
+    - `--wcs-input-icon-color-default`: default icon color
+    - `--wcs-input-icon-color-focus`: icon color on focus
+    - `--wcs-input-icon-color-disabled`: icon color when disabled

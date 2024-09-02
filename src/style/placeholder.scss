@@ -1,6 +1,7 @@
-@mixin placeholder($color: var(--wcs-text-medium)) {
+// TODO: migrate to design tokens
+@mixin placeholder($color: var(--wcs-text-medium), $font-weight: 400, $font-style: var(--wcs-semantic-font-style-form-field-placeholder, italic)) {
     color: $color;
     opacity: 1;
-    font-weight: 400;
-    font-style: italic;
+    font-weight: $font-weight;
+    font-style: $font-style;
 }

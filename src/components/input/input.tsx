@@ -42,6 +42,51 @@ const INPUT_INHERITED_ATTRS = ['tabindex', 'title'];
  * ## Accessibility guidelines 💡
  * > - If you use wcs-input outside a wcs-form-field, you have to manage the label and the error message yourself.
  * > You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.
+ * 
+ * @cssprop --wcs-input-icon-color-default - default icon color when the input is not focused
+ * @cssprop --wcs-input-icon-color-focus - icon color when the input is focused
+ * @cssprop --wcs-input-icon-color-disabled - icon color when the input is disabled
+ *
+ * @cssprop --wcs-input-background-color - background color of the input
+ *
+ * @cssprop --wcs-input-border-radius-left - border radius of the left side of the input
+ * @cssprop --wcs-input-border-radius-right - border radius of the right side of the input
+ * 
+ * @cssprop --wcs-input-border-width - border width of the input
+ * @cssprop --wcs-input-border-width-focus - border width of the input when focused
+ *
+ * @cssprop --wcs-input-height-l - large height of the input
+ * @cssprop --wcs-input-height-m - medium height of the input
+ * @cssprop --wcs-input-height-s - small height of the input
+ * @cssprop --wcs-input-font-size-l - large font size of the input
+ * @cssprop --wcs-input-font-size-m - medium font size of the input
+ * @cssprop --wcs-input-font-size-s - small font size of the input
+ *
+ * @cssprop --wcs-input-border-style-default - default border style of the input
+ * @cssprop --wcs-input-border-style-focus - border style of the input when focused
+ * 
+ * @cssprop --wcs-input-prefix-suffix-background-color - background color of the suffix/prefix
+ * @cssprop --wcs-input-prefix-suffix-color - color of the suffix/prefix
+ * @cssprop --wcs-input-prefix-suffix-font-weight - font weight of the suffix/prefix
+ *
+ * @cssprop --wcs-input-border-color-default - default border color of the input when not focused
+ * @cssprop --wcs-input-border-color-focus - border color of the input when focused
+ * @cssprop --wcs-input-border-color-error - border color of the input when in error state
+ *
+ * @cssprop --wcs-input-value-color - color of the input value
+ * @cssprop --wcs-input-value-font-weight - font weight of the input value
+ * 
+ * @cssprop --wcs-input-placeholder-color - color of the input placeholder
+ * @cssprop --wcs-input-placeholder-font-weight - font weight of the input placeholder
+ * @cssprop --wcs-input-placeholder-font-style - font style of the input placeholder
+ * 
+ * @cssprop --wcs-input-text-color-disabled - color of the input when disabled
+ *
+ * @cssprop --wcs-input-padding-horizontal-s - horizontal padding of the input in small size
+ * @cssprop --wcs-input-padding-horizontal-m - horizontal padding of the input in medium size
+ * @cssprop --wcs-input-padding-horizontal-l - horizontal padding of the input in large size
+ * 
+ * @cssprop --wcs-input-gap - gap between text input and icon
  */
 @Component({
     tag: 'wcs-input',

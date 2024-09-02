@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-10-23T14:34:05",
+  "timestamp": "2024-10-24T15:51:41",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -5126,7 +5126,136 @@
       "tag": "wcs-input",
       "readme": "# Input\r\n\r",
       "docs": "The input component is a form control that accepts a single line of text.\r\nImplementation mainly inspired from Ionic Input Component.\r\n\r\n## Accessibility guidelines 💡\r\n> - If you use wcs-input outside a wcs-form-field, you have to manage the label and the error message yourself.\r\n> You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "cssprop",
+          "text": "--wcs-input-icon-color-default - default icon color when the input is not focused"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-input-icon-color-focus - icon color when the input is focused"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-input-icon-color-disabled - icon color when the input is disabled"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-input-background-color - background color of the input"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-input-border-radius-left - border radius of the left side of the input"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-input-border-radius-right - border radius of the right side of the input"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-input-border-width - border width of the input"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-input-border-width-focus - border width of the input when focused"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-input-height-l - large height of the input"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-input-height-m - medium height of the input"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-input-height-s - small height of the input"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-input-font-size-l - large font size of the input"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-input-font-size-m - medium font size of the input"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-input-font-size-s - small font size of the input"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-input-border-style-default - default border style of the input"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-input-border-style-focus - border style of the input when focused"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-input-prefix-suffix-background-color - background color of the suffix/prefix"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-input-prefix-suffix-color - color of the suffix/prefix"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-input-prefix-suffix-font-weight - font weight of the suffix/prefix"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-input-border-color-default - default border color of the input when not focused"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-input-border-color-focus - border color of the input when focused"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-input-border-color-error - border color of the input when in error state"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-input-value-color - color of the input value"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-input-value-font-weight - font weight of the input value"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-input-placeholder-color - color of the input placeholder"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-input-placeholder-font-weight - font weight of the input placeholder"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-input-placeholder-font-style - font style of the input placeholder"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-input-text-color-disabled - color of the input when disabled"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-input-padding-horizontal-s - horizontal padding of the input in small size"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-input-padding-horizontal-m - horizontal padding of the input in medium size"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-input-padding-horizontal-l - horizontal padding of the input in large size"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-input-gap - gap between text input and icon"
+        }
+      ],
       "usage": {},
       "props": [
         {

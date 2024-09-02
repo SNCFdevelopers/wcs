@@ -2,34 +2,80 @@
 @import '../../style/placeholder.scss';
 
 :host {
-    --wcs-input-icon-color: var(--wcs-text-medium);
-    --wcs-internal-input-border-radius-left: var(--wcs-input-border-radius-left, var(--wcs-border-radius));
-    --wcs-internal-input-border-radius-right: var(--wcs-input-border-radius-right, var(--wcs-border-radius));
-    --wcs-internal-input-border-width: 2px;
+    // region to be removed before migration to design tokens
+    --wcs-input-icon-color-default: var(--wcs-text-medium);
+    --wcs-input-icon-color-focus: var(--wcs-primary);
+    --wcs-input-icon-color-disabled: var(--wcs-text-disabled);
+
+    --wcs-input-background-color: var(--wcs-light);
+
+    --wcs-input-prefix-suffix-background-color: var(--wcs-text-disabled);
+    --wcs-input-prefix-suffix-color: var(--wcs-white);
+    --wcs-input-prefix-suffix-font-weight: var(--wcs-font-weight-form-value);
+
+    --wcs-input-border-style-default: solid;
+    --wcs-input-border-style-focus: dashed;
+
+    --wcs-input-border-color-default: transparent;
+    --wcs-input-border-color-focus: var(--wcs-primary);
+    --wcs-input-border-color-error: var(--wcs-red);
+
+    --wcs-internal-input-border-radius-left: var(--wcs-input-border-radius-left, var(--wcs-border-radius)); // Overridden from prefix suffix group in form-field
+    --wcs-internal-input-border-radius-right: var(--wcs-input-border-radius-right, var(--wcs-border-radius)); // Overridden from prefix suffix group in form-field
+    --wcs-input-border-width: 2px;
+    --wcs-input-border-width-focus: 2px;
+
+    --wcs-input-value-color: var(--wcs-primary);
+    --wcs-input-value-font-weight: var(--wcs-font-weight-form-value);
+
+    --wcs-input-placeholder-color: var(--wcs-text-medium);
+    --wcs-input-placeholder-font-weight: 400;
+    --wcs-input-placeholder-font-style: italic;
+
+    --wcs-input-text-color-disabled: var(--wcs-text-disabled);
+
+    --wcs-input-min-height: var(--wcs-size-s);
+    --wcs-input-height-l: var(--wcs-size-l);
+    --wcs-input-height-m: var(--wcs-size-m);
+    --wcs-input-height-s: var(--wcs-size-s);
+    --wcs-input-font-size-l: 1.0625rem;
+    --wcs-input-font-size-m: 1rem;
+    --wcs-input-font-size-s: 0.9375rem;
+
+    --wcs-input-padding-horizontal-s: 14px;
+    --wcs-input-padding-horizontal-m: var(--wcs-padding);
+    --wcs-input-padding-horizontal-l: var(--wcs-padding);
+    --wcs-input-gap: var(--wcs-base-size);
+
+    // endregion
+
     display: flex;
     width: 100%;
     height: var(--wcs-input-host-height);
     box-sizing: border-box;
     border-radius: var(--wcs-internal-input-border-radius-left) var(--wcs-internal-input-border-radius-right) var(--wcs-internal-input-border-radius-right) var(--wcs-internal-input-border-radius-left);
-    background-color: var(--wcs-light);
-    border: var(--wcs-internal-input-border-width) solid var(--wcs-light);
+    background-color: var(--wcs-input-background-color);
+    outline: var(--wcs-input-border-style-default) var(--wcs-input-border-width) var(--wcs-input-border-color-default);
+    outline-offset: calc(var(--wcs-input-border-width) * -1);
     background-clip: padding-box;
+
+    gap: var(--wcs-input-gap);
 
     input {
         overflow: hidden;
-        min-height: var(--wcs-size-xs);
+        height: var(--wcs-input-host-height);
         width: 100%;
+        padding: 0; // Reset padding from user agent stylesheet, it's the container that will handle padding
         background-color: transparent;
         font-family: var(--wcs-font-sans-serif);
-        color: var(--wcs-primary);
-        font-weight: var(--wcs-font-weight-form-value) !important;
+        color: var(--wcs-input-value-color);
+        font-weight: var(--wcs-input-value-font-weight) !important;
         border: none;
-        padding: 0 calc(var(--wcs-padding) - var(--wcs-internal-input-border-width));
         font-size: var(--wcs-input-font-size, 1rem);
         line-height: 1.5;
 
         &::placeholder {
-            @include placeholder;
+            @include placeholder(var(--wcs-input-placeholder-color), var(--wcs-input-placeholder-font-weight), var(--wcs-input-placeholder-font-style));
         }
     }
 
@@ -38,105 +84,141 @@
         outline: 0;
     }
 
-    wcs-mat-icon {
-        position: relative;
-        margin-left: 8px;
-        margin-right: -8px;
-    }
-
     .toggle_password {
         cursor: pointer;
-        margin-left: -8px;
-        margin-right: 8px;
     }
 
-
     .prefix, .suffix {
-        color: var(--wcs-white);
+        color: var(--wcs-input-prefix-suffix-color);
         display: flex;
         white-space: nowrap;
         align-items: center;
         font-size: var(--wcs-input-font-size, 1rem);
-        padding: 0 calc(var(--wcs-padding) / 2);
-        font-weight: var(--wcs-font-weight-form-value) !important;
-        background-color: var(--wcs-text-disabled);
+        padding: 0 calc(var(--wcs-input-padding-horizontal-m) / 2);
+        font-weight: var(--wcs-input-prefix-suffix-font-weight) !important;
+        background-color: var(--wcs-input-prefix-suffix-background-color);
     }
 
     .prefix {
         border-radius: var(--wcs-internal-input-border-radius-left) 0 0 var(--wcs-internal-input-border-radius-left);
-        margin: calc(-1 * var(--wcs-internal-input-border-width)) 0 calc(-1 * var(--wcs-internal-input-border-width)) calc(-1 * var(--wcs-internal-input-border-width));
-        border-left: solid var(--wcs-internal-input-border-width) transparent;
-        border-top: solid var(--wcs-internal-input-border-width) transparent;
-        border-bottom: solid var(--wcs-internal-input-border-width) transparent;
     }
 
     .suffix {
         border-radius: 0 var(--wcs-internal-input-border-radius-right) var(--wcs-internal-input-border-radius-right) 0;
-        margin: calc(-1 * var(--wcs-internal-input-border-width)) calc(-1 * var(--wcs-internal-input-border-width)) calc(-1 * var(--wcs-internal-input-border-width)) 0px;
-        border-right: solid var(--wcs-internal-input-border-width) transparent;
-        border-top: solid var(--wcs-internal-input-border-width) transparent;
-        border-bottom: solid var(--wcs-internal-input-border-width) transparent;
     }
+
+    wcs-mat-icon {
+        color: var(--wcs-input-icon-color-default);
+    }
+}
+
+:host(.token-migration) {
+    --wcs-input-icon-color-default: var(--wcs-semantic-color-primary);
+    --wcs-input-icon-color-focus: var(--wcs-semantic-color-primary);
+    --wcs-input-icon-color-disabled: var(--wcs-semantic-color-foreground-form-field-disabled);
+
+    --wcs-input-background-color: var(--wcs-semantic-color-background-form-field-default);
+
+    --wcs-internal-input-border-radius-left: var(--wcs-input-border-radius-left, var(--wcs-semantic-border-radius-base)); // Overridden from prefix suffix group in form-field
+    --wcs-internal-input-border-radius-right: var(--wcs-input-border-radius-right, var(--wcs-semantic-border-radius-base)); // Overridden from prefix suffix group in form-field
+
+    --wcs-input-border-width: var(--wcs-semantic-border-width-default);
+    --wcs-input-border-width-focus: var(--wcs-semantic-border-width-large);
+
+    --wcs-input-height-l: var(--wcs-semantic-size-l);
+    --wcs-input-height-m: var(--wcs-semantic-size-m);
+    --wcs-input-height-s: var(--wcs-semantic-size-s);
+    --wcs-input-font-size-l: var(--wcs-semantic-font-size-l);
+    --wcs-input-font-size-m: var(--wcs-semantic-font-size-m);
+    --wcs-input-font-size-s: var(--wcs-semantic-font-size-s);
+
+    --wcs-input-prefix-suffix-background-color: var(--wcs-semantic-color-background-surface-tertiary);
+    --wcs-input-prefix-suffix-color: var(--wcs-semantic-color-text-secondary);
+    --wcs-input-prefix-suffix-font-weight: var(--wcs-semantic-font-weight-medium);
+
+    --wcs-input-border-style-default: solid;
+    --wcs-input-border-style-focus: var(--wcs-semantic-border-style-focus-control);
+
+    --wcs-input-border-color-default: var(--wcs-semantic-color-border-form-field-default);
+    --wcs-input-border-color-focus: var(--wcs-semantic-color-border-focus-control);
+    --wcs-input-border-color-error: var(--wcs-semantic-color-error);
+
+    --wcs-input-value-color: var(--wcs-semantic-color-foreground-form-field-value);
+    --wcs-input-value-font-weight: var(--wcs-semantic-font-weight-medium);
+
+    --wcs-input-placeholder-color: var(--wcs-semantic-color-foreground-form-field-placeholder);
+    --wcs-input-placeholder-font-weight: var(--wcs-semantic-font-weight-roman);
+    --wcs-input-placeholder-font-style: var(--wcs-semantic-font-style-form-field-placeholder);
+
+    --wcs-input-text-color-disabled: var(--wcs-semantic-color-foreground-form-field-disabled);
+
+    --wcs-input-min-height: var(--wcs-semantic-size-s);
+    --wcs-input-padding-horizontal-s: var(--wcs-semantic-padding-size-s-horizontal);
+    --wcs-input-padding-horizontal-m: var(--wcs-semantic-padding-size-m-horizontal);
+    --wcs-input-padding-horizontal-l: var(--wcs-semantic-padding-size-l-horizontal);
+    --wcs-input-gap: var(--wcs-semantic-spacing-base);
 }
 
 :host([size=l]) {
-    --wcs-input-host-height: var(--wcs-size-l);
-    --wcs-input-font-size: 1.0625rem;
+    --wcs-input-host-height: var(--wcs-input-height-l);
+    --wcs-input-font-size: var(--wcs-input-font-size-l);
+
+    padding-left: calc(var(--wcs-input-padding-horizontal-l));
+    padding-right: calc(var(--wcs-input-padding-horizontal-l));
 }
 
 :host([size=m]) { // Default
-    --wcs-input-host-height: var(--wcs-size-m);
-    --wcs-input-font-size: 1rem;
+    --wcs-input-host-height: var(--wcs-input-height-m);
+    --wcs-input-font-size: var(--wcs-input-font-size-m);
+
+    padding-left: calc(var(--wcs-input-padding-horizontal-m));
+    padding-right: calc(var(--wcs-input-padding-horizontal-m));
 }
 
 :host([size=s]) {
-    --wcs-input-host-height: var(--wcs-size-s);
-    --wcs-input-font-size: 0.9375rem;
+    --wcs-input-host-height: var(--wcs-input-height-s);
+    --wcs-input-font-size: var(--wcs-input-font-size-s);
+
+    padding-left: calc(var(--wcs-input-padding-horizontal-s));
+    padding-right: calc(var(--wcs-input-padding-horizontal-s));
 }
 
 :host([state=error]) {
-    border-color: var(--wcs-red) !important;
+    outline-color: var(--wcs-input-border-color-error) !important;
 }
 
 :host([data-has-prefix]) {
-    input {
-        padding-left: calc(var(--wcs-padding) / 2);
-    }
+    padding-left: 0;
 }
 
 :host([data-has-suffix]) {
-    input {
-        padding-left: calc(var(--wcs-padding) / 2);
-    }
+    padding-right: 0;
 }
 
 :host([disabled]) {
+    cursor: not-allowed; // padding is handled by the container, so we need to set cursor not allowed on it
+
     input {
-        color: var(--wcs-text-disabled);
         cursor: not-allowed;
+        color: var(--wcs-input-text-color-disabled);
     }
 
     .prefix, .suffix {
         color: var(--wcs-light);
+        cursor: text; // reset cursor to text for prefix and suffix, to be able to select text
+    }
+
+    wcs-mat-icon {
+        color: var(--wcs-input-icon-color-disabled);
+        cursor: not-allowed;
     }
 }
 
 :host(:focus-within) {
-    border: dashed var(--wcs-internal-input-border-width) var(--wcs-primary);
-
-    .prefix {
-        border-left: dashed var(--wcs-internal-input-border-width) var(--wcs-primary);
-        border-top: dashed var(--wcs-internal-input-border-width) var(--wcs-primary);
-        border-bottom: dashed var(--wcs-internal-input-border-width) var(--wcs-primary);
-    }
-
-    .suffix {
-        border-right: dashed var(--wcs-internal-input-border-width) var(--wcs-primary);
-        border-top: dashed var(--wcs-internal-input-border-width) var(--wcs-primary);
-        border-bottom: dashed var(--wcs-internal-input-border-width) var(--wcs-primary);
-    }
+    outline: var(--wcs-input-border-style-focus) var(--wcs-input-border-width-focus) var(--wcs-input-border-color-focus);
+    outline-offset: calc(var(--wcs-input-border-width-focus) * -1);
 
     wcs-mat-icon {
-        color: var(--wcs-primary);
+        color: var(--wcs-input-icon-color-focus);
     }
 }

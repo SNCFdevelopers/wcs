@@ -1097,44 +1097,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/accordion-header/accordion-header.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The accordion-header is a subcomponent of `wcs-accordion`. It represents the heading text inside the accordion panel.",
-          "name": "AccordionHeader",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-accordion-header",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "AccordionHeader",
-          "declaration": {
-            "name": "AccordionHeader",
-            "module": "components/accordion-header/accordion-header.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-accordion-header",
-          "declaration": {
-            "name": "AccordionHeader",
-            "module": "components/accordion-header/accordion-header.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/accordion-content/accordion-content.tsx",
       "declarations": [
         {
@@ -1167,6 +1129,44 @@
           "declaration": {
             "name": "AccordionContent",
             "module": "components/accordion-content/accordion-content.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/accordion-header/accordion-header.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The accordion-header is a subcomponent of `wcs-accordion`. It represents the heading text inside the accordion panel.",
+          "name": "AccordionHeader",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-accordion-header",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "AccordionHeader",
+          "declaration": {
+            "name": "AccordionHeader",
+            "module": "components/accordion-header/accordion-header.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-accordion-header",
+          "declaration": {
+            "name": "AccordionHeader",
+            "module": "components/accordion-header/accordion-header.tsx"
           }
         }
       ]
@@ -2372,6 +2372,44 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/card-body/card-body.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The card-body is a subcomponent of `wcs-card`. It represents content of the card with an extra padding around.",
+          "name": "CardBody",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-card-body",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CardBody",
+          "declaration": {
+            "name": "CardBody",
+            "module": "components/card-body/card-body.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-card-body",
+          "declaration": {
+            "name": "CardBody",
+            "module": "components/card-body/card-body.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/card/card-interface.ts",
       "declarations": [],
       "exports": []
@@ -2427,44 +2465,6 @@
           "declaration": {
             "name": "Card",
             "module": "components/card/card.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/card-body/card-body.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The card-body is a subcomponent of `wcs-card`. It represents content of the card with an extra padding around.",
-          "name": "CardBody",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-card-body",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "CardBody",
-          "declaration": {
-            "name": "CardBody",
-            "module": "components/card-body/card-body.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-card-body",
-          "declaration": {
-            "name": "CardBody",
-            "module": "components/card-body/card-body.tsx"
           }
         }
       ]
@@ -5327,74 +5327,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/galactic/galactic.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Galactic",
-          "members": [
-            {
-              "kind": "field",
-              "name": "text",
-              "type": {
-                "text": "string"
-              },
-              "description": "Text to display in the bar"
-            },
-            {
-              "kind": "field",
-              "name": "show",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "text",
-              "fieldName": "text",
-              "type": {
-                "text": "string"
-              }
-            }
-          ],
-          "tagName": "wcs-galactic",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Galactic",
-          "declaration": {
-            "name": "Galactic",
-            "module": "components/galactic/galactic.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-galactic",
-          "declaration": {
-            "name": "Galactic",
-            "module": "components/galactic/galactic.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/galactic-menu/galactic-menu.tsx",
       "declarations": [
         {
@@ -5561,6 +5493,74 @@
           "declaration": {
             "name": "Galactic",
             "module": "components/galactic-menu/galactic-menu.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/galactic/galactic.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Galactic",
+          "members": [
+            {
+              "kind": "field",
+              "name": "text",
+              "type": {
+                "text": "string"
+              },
+              "description": "Text to display in the bar"
+            },
+            {
+              "kind": "field",
+              "name": "show",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "text",
+              "fieldName": "text",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "tagName": "wcs-galactic",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Galactic",
+          "declaration": {
+            "name": "Galactic",
+            "module": "components/galactic/galactic.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-galactic",
+          "declaration": {
+            "name": "Galactic",
+            "module": "components/galactic/galactic.tsx"
           }
         }
       ]
@@ -7642,62 +7642,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/hint/hint.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The `wcs-hint` should always be wrapped in a `wcs-form-field`.\r\nIt is used to display an informative message under the field indicating an incorrect user input.\r\n\r\n## Accessibility guidelines 💡\r\n- Provide a relevant hint message to inform the users about the format, how the data should be filled in, or what is the purpose of the field\r\n- `aria-description` will be automatically added to the field for screen readers",
-          "name": "Hint",
-          "members": [
-            {
-              "kind": "field",
-              "name": "small",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Whether the component should display the small version of the hint"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "small",
-              "fieldName": "small",
-              "type": {
-                "text": "boolean"
-              }
-            }
-          ],
-          "tagName": "wcs-hint",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Hint",
-          "declaration": {
-            "name": "Hint",
-            "module": "components/hint/hint.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-hint",
-          "declaration": {
-            "name": "Hint",
-            "module": "components/hint/hint.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/icon/icon.tsx",
       "declarations": [
         {
@@ -7809,6 +7753,62 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/hint/hint.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The `wcs-hint` should always be wrapped in a `wcs-form-field`.\r\nIt is used to display an informative message under the field indicating an incorrect user input.\r\n\r\n## Accessibility guidelines 💡\r\n- Provide a relevant hint message to inform the users about the format, how the data should be filled in, or what is the purpose of the field\r\n- `aria-description` will be automatically added to the field for screen readers",
+          "name": "Hint",
+          "members": [
+            {
+              "kind": "field",
+              "name": "small",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Whether the component should display the small version of the hint"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "small",
+              "fieldName": "small",
+              "type": {
+                "text": "boolean"
+              }
+            }
+          ],
+          "tagName": "wcs-hint",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Hint",
+          "declaration": {
+            "name": "Hint",
+            "module": "components/hint/hint.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-hint",
+          "declaration": {
+            "name": "Hint",
+            "module": "components/hint/hint.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/input/input-interface.ts",
       "declarations": [
         {
@@ -7870,6 +7870,136 @@
           "kind": "class",
           "description": "The input component is a form control that accepts a single line of text.\r\nImplementation mainly inspired from Ionic Input Component.\r\n\r\n## Accessibility guidelines 💡\r\n> - If you use wcs-input outside a wcs-form-field, you have to manage the label and the error message yourself.\r\n> You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.",
           "name": "Input",
+          "cssProperties": [
+            {
+              "description": "default icon color when the input is not focused",
+              "name": "--wcs-input-icon-color-default"
+            },
+            {
+              "description": "icon color when the input is focused",
+              "name": "--wcs-input-icon-color-focus"
+            },
+            {
+              "description": "icon color when the input is disabled",
+              "name": "--wcs-input-icon-color-disabled"
+            },
+            {
+              "description": "background color of the input",
+              "name": "--wcs-input-background-color"
+            },
+            {
+              "description": "border radius of the left side of the input",
+              "name": "--wcs-input-border-radius-left"
+            },
+            {
+              "description": "border radius of the right side of the input",
+              "name": "--wcs-input-border-radius-right"
+            },
+            {
+              "description": "border width of the input",
+              "name": "--wcs-input-border-width"
+            },
+            {
+              "description": "border width of the input when focused",
+              "name": "--wcs-input-border-width-focus"
+            },
+            {
+              "description": "large height of the input",
+              "name": "--wcs-input-height-l"
+            },
+            {
+              "description": "medium height of the input",
+              "name": "--wcs-input-height-m"
+            },
+            {
+              "description": "small height of the input",
+              "name": "--wcs-input-height-s"
+            },
+            {
+              "description": "large font size of the input",
+              "name": "--wcs-input-font-size-l"
+            },
+            {
+              "description": "medium font size of the input",
+              "name": "--wcs-input-font-size-m"
+            },
+            {
+              "description": "small font size of the input",
+              "name": "--wcs-input-font-size-s"
+            },
+            {
+              "description": "default border style of the input",
+              "name": "--wcs-input-border-style-default"
+            },
+            {
+              "description": "border style of the input when focused",
+              "name": "--wcs-input-border-style-focus"
+            },
+            {
+              "description": "background color of the suffix/prefix",
+              "name": "--wcs-input-prefix-suffix-background-color"
+            },
+            {
+              "description": "color of the suffix/prefix",
+              "name": "--wcs-input-prefix-suffix-color"
+            },
+            {
+              "description": "font weight of the suffix/prefix",
+              "name": "--wcs-input-prefix-suffix-font-weight"
+            },
+            {
+              "description": "default border color of the input when not focused",
+              "name": "--wcs-input-border-color-default"
+            },
+            {
+              "description": "border color of the input when focused",
+              "name": "--wcs-input-border-color-focus"
+            },
+            {
+              "description": "border color of the input when in error state",
+              "name": "--wcs-input-border-color-error"
+            },
+            {
+              "description": "color of the input value",
+              "name": "--wcs-input-value-color"
+            },
+            {
+              "description": "font weight of the input value",
+              "name": "--wcs-input-value-font-weight"
+            },
+            {
+              "description": "color of the input placeholder",
+              "name": "--wcs-input-placeholder-color"
+            },
+            {
+              "description": "font weight of the input placeholder",
+              "name": "--wcs-input-placeholder-font-weight"
+            },
+            {
+              "description": "font style of the input placeholder",
+              "name": "--wcs-input-placeholder-font-style"
+            },
+            {
+              "description": "color of the input when disabled",
+              "name": "--wcs-input-text-color-disabled"
+            },
+            {
+              "description": "horizontal padding of the input in small size",
+              "name": "--wcs-input-padding-horizontal-s"
+            },
+            {
+              "description": "horizontal padding of the input in medium size",
+              "name": "--wcs-input-padding-horizontal-m"
+            },
+            {
+              "description": "horizontal padding of the input in large size",
+              "name": "--wcs-input-padding-horizontal-l"
+            },
+            {
+              "description": "gap between text input and icon",
+              "name": "--wcs-input-gap"
+            }
+          ],
           "members": [
             {
               "kind": "field",
@@ -8576,37 +8706,19 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/list-item/list-item.tsx",
+      "path": "components/list-item-property/list-item-property.tsx",
       "declarations": [
         {
           "kind": "class",
-          "description": "Lists are used for grouping a collection of related items.\r\n\r\nStandard lists can be used either with or without icons. Depending on the context, the list can have one or more\r\nactions (favourite, download, delete, etc.). Use standard lists with a unique action when each line has an action.",
-          "name": "ListItem",
+          "description": "The list-item-property is a subcomponent of `wcs-list-item`.\r\nWrapped in a `wcs-list-item-properties`, it represents a property to describe an item.",
+          "name": "ListItemProperty",
           "members": [
-            {
-              "kind": "field",
-              "name": "activated",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "True if the item is active. Adds a background color that highlights it."
-            },
             {
               "kind": "method",
               "name": "render"
             }
           ],
-          "attributes": [
-            {
-              "name": "activated",
-              "fieldName": "activated",
-              "type": {
-                "text": "boolean"
-              }
-            }
-          ],
-          "tagName": "wcs-list-item",
+          "tagName": "wcs-list-item-property",
           "events": [],
           "customElement": true
         }
@@ -8614,18 +8726,18 @@
       "exports": [
         {
           "kind": "js",
-          "name": "ListItem",
+          "name": "ListItemProperty",
           "declaration": {
-            "name": "ListItem",
-            "module": "components/list-item/list-item.tsx"
+            "name": "ListItemProperty",
+            "module": "components/list-item-property/list-item-property.tsx"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "wcs-list-item",
+          "name": "wcs-list-item-property",
           "declaration": {
-            "name": "ListItem",
-            "module": "components/list-item/list-item.tsx"
+            "name": "ListItemProperty",
+            "module": "components/list-item-property/list-item-property.tsx"
           }
         }
       ]
@@ -8664,44 +8776,6 @@
           "declaration": {
             "name": "ListItemProperties",
             "module": "components/list-item-properties/list-item-properties.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/list-item-property/list-item-property.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The list-item-property is a subcomponent of `wcs-list-item`.\r\nWrapped in a `wcs-list-item-properties`, it represents a property to describe an item.",
-          "name": "ListItemProperty",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-list-item-property",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ListItemProperty",
-          "declaration": {
-            "name": "ListItemProperty",
-            "module": "components/list-item-property/list-item-property.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-list-item-property",
-          "declaration": {
-            "name": "ListItemProperty",
-            "module": "components/list-item-property/list-item-property.tsx"
           }
         }
       ]
@@ -8838,6 +8912,62 @@
           "declaration": {
             "name": "MatIcon",
             "module": "components/mat-icon/mat-icon.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/list-item/list-item.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Lists are used for grouping a collection of related items.\r\n\r\nStandard lists can be used either with or without icons. Depending on the context, the list can have one or more\r\nactions (favourite, download, delete, etc.). Use standard lists with a unique action when each line has an action.",
+          "name": "ListItem",
+          "members": [
+            {
+              "kind": "field",
+              "name": "activated",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "True if the item is active. Adds a background color that highlights it."
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "activated",
+              "fieldName": "activated",
+              "type": {
+                "text": "boolean"
+              }
+            }
+          ],
+          "tagName": "wcs-list-item",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ListItem",
+          "declaration": {
+            "name": "ListItem",
+            "module": "components/list-item/list-item.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-list-item",
+          "declaration": {
+            "name": "ListItem",
+            "module": "components/list-item/list-item.tsx"
           }
         }
       ]
@@ -9825,194 +9955,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/radio-group/radio-group-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/radio-group/radio-group.e2e.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/radio-group/radio-group.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "RadioGroup",
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsRadioGroupElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "value",
-              "type": {
-                "text": "any | any[] | undefined | null"
-              },
-              "description": "The value of the radio-group. Automatically reflects which radio button is selected."
-            },
-            {
-              "kind": "field",
-              "name": "name",
-              "description": "The name of the control to be set on all radio button children"
-            },
-            {
-              "kind": "field",
-              "name": "mode",
-              "type": {
-                "text": "RadioGroupMode"
-              },
-              "default": "'radio'",
-              "description": "The display mode of the control to be set on all radio button children"
-            },
-            {
-              "kind": "method",
-              "name": "onValueChangeHandler",
-              "parameters": [
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "any | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "onSlotChange"
-            },
-            {
-              "kind": "method",
-              "name": "updateAllRadioState"
-            },
-            {
-              "kind": "method",
-              "name": "updateAllRadioModeAndName"
-            },
-            {
-              "kind": "method",
-              "name": "updateRadioTabIndex",
-              "parameters": [
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "any | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "getSlottedRadios",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "HTMLWcsRadioElement[]"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "getSlottedRadiosNotDisabled",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "HTMLWcsRadioElement[]"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "handleRadioClick",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "CustomEvent<RadioChosedEvent>"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "handleKeyDown",
-              "parameters": [
-                {
-                  "name": "ev",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "value",
-              "fieldName": "value",
-              "type": {
-                "text": "any | any[] | undefined | null"
-              }
-            },
-            {
-              "name": "name",
-              "fieldName": "name"
-            },
-            {
-              "name": "mode",
-              "fieldName": "mode",
-              "type": {
-                "text": "RadioGroupMode"
-              }
-            }
-          ],
-          "tagName": "wcs-radio-group",
-          "events": [
-            {
-              "name": "wcsChange",
-              "type": {
-                "text": "EventEmitter<RadioGroupChangeEventDetail>"
-              },
-              "description": "Emitted when the value has changed."
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "RadioGroup",
-          "declaration": {
-            "name": "RadioGroup",
-            "module": "components/radio-group/radio-group.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-radio-group",
-          "declaration": {
-            "name": "RadioGroup",
-            "module": "components/radio-group/radio-group.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/radio/radio-interface.ts",
       "declarations": [],
       "exports": []
@@ -10252,6 +10194,194 @@
           "declaration": {
             "name": "Radio",
             "module": "components/radio/radio.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/radio-group/radio-group-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/radio-group/radio-group.e2e.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/radio-group/radio-group.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "RadioGroup",
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsRadioGroupElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "any | any[] | undefined | null"
+              },
+              "description": "The value of the radio-group. Automatically reflects which radio button is selected."
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "description": "The name of the control to be set on all radio button children"
+            },
+            {
+              "kind": "field",
+              "name": "mode",
+              "type": {
+                "text": "RadioGroupMode"
+              },
+              "default": "'radio'",
+              "description": "The display mode of the control to be set on all radio button children"
+            },
+            {
+              "kind": "method",
+              "name": "onValueChangeHandler",
+              "parameters": [
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "any | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "onSlotChange"
+            },
+            {
+              "kind": "method",
+              "name": "updateAllRadioState"
+            },
+            {
+              "kind": "method",
+              "name": "updateAllRadioModeAndName"
+            },
+            {
+              "kind": "method",
+              "name": "updateRadioTabIndex",
+              "parameters": [
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "any | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "getSlottedRadios",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "HTMLWcsRadioElement[]"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "getSlottedRadiosNotDisabled",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "HTMLWcsRadioElement[]"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handleRadioClick",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "CustomEvent<RadioChosedEvent>"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyDown",
+              "parameters": [
+                {
+                  "name": "ev",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "value",
+              "fieldName": "value",
+              "type": {
+                "text": "any | any[] | undefined | null"
+              }
+            },
+            {
+              "name": "name",
+              "fieldName": "name"
+            },
+            {
+              "name": "mode",
+              "fieldName": "mode",
+              "type": {
+                "text": "RadioGroupMode"
+              }
+            }
+          ],
+          "tagName": "wcs-radio-group",
+          "events": [
+            {
+              "name": "wcsChange",
+              "type": {
+                "text": "EventEmitter<RadioGroupChangeEventDetail>"
+              },
+              "description": "Emitted when the value has changed."
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "RadioGroup",
+          "declaration": {
+            "name": "RadioGroup",
+            "module": "components/radio-group/radio-group.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-radio-group",
+          "declaration": {
+            "name": "RadioGroup",
+            "module": "components/radio-group/radio-group.tsx"
           }
         }
       ]
@@ -12055,6 +12185,76 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/tab/tab.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Tab content component.\r\nUse this component to specify the content of a component.",
+          "name": "Tab",
+          "members": [
+            {
+              "kind": "field",
+              "name": "header",
+              "type": {
+                "text": "string"
+              },
+              "description": "The header you want to be displayed for this tab."
+            },
+            {
+              "kind": "field",
+              "name": "itemKey",
+              "type": {
+                "text": "any"
+              },
+              "description": "The id of the tab. It should be unique."
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "header",
+              "fieldName": "header",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "item-key",
+              "fieldName": "itemKey",
+              "type": {
+                "text": "any"
+              }
+            }
+          ],
+          "tagName": "wcs-tab",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Tab",
+          "declaration": {
+            "name": "Tab",
+            "module": "components/tab/tab.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-tab",
+          "declaration": {
+            "name": "Tab",
+            "module": "components/tab/tab.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/tabs/tabs-interface.ts",
       "declarations": [],
       "exports": []
@@ -12394,76 +12594,6 @@
           "declaration": {
             "name": "Tabs",
             "module": "components/tabs/tabs.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/tab/tab.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Tab content component.\r\nUse this component to specify the content of a component.",
-          "name": "Tab",
-          "members": [
-            {
-              "kind": "field",
-              "name": "header",
-              "type": {
-                "text": "string"
-              },
-              "description": "The header you want to be displayed for this tab."
-            },
-            {
-              "kind": "field",
-              "name": "itemKey",
-              "type": {
-                "text": "any"
-              },
-              "description": "The id of the tab. It should be unique."
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "header",
-              "fieldName": "header",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "item-key",
-              "fieldName": "itemKey",
-              "type": {
-                "text": "any"
-              }
-            }
-          ],
-          "tagName": "wcs-tab",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Tab",
-          "declaration": {
-            "name": "Tab",
-            "module": "components/tab/tab.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-tab",
-          "declaration": {
-            "name": "Tab",
-            "module": "components/tab/tab.tsx"
           }
         }
       ]

@@ -5,6 +5,7 @@
 
 :host {
     display: inline-block;
+    // region to be removed before migration to design tokens
     // FIXME : remove those fallback values when design tokens are set
     --wcs-button-color: var(--wcs-button-plain-color-default, var(--wcs-white, white));
     --wcs-button-plain-color-default: var(--wcs-contrast);
@@ -48,6 +49,7 @@
     --wcs-button-padding-vertical-size-l: var(--wcs-padding-l);
 
     --wcs-button-font-weight: 500;
+    // endregion
 }
 
 :host(.token-migration) {
@@ -57,8 +59,8 @@
     --wcs-button-stroked-color-default: var(--wcs-semantic-color-foreground-action-secondary-default);
     --wcs-button-clear-color-default: var(--wcs-semantic-color-foreground-action-tertiary-default);
 
-    --wcs-button-focus-outline-color: var(--wcs-semantic-color-primary);
-    --wcs-button-focus-outline-border-width: var(--wcs-semantic-border-width-focus);
+    --wcs-button-focus-outline-color: var(--wcs-semantic-color-border-focus-base);
+    --wcs-button-focus-outline-border-width: var(--wcs-semantic-border-width-large);
 
     --wcs-button-plain-background-color-default: var(--wcs-semantic-color-background-action-primary-default, var(--wcs-primary, #0074AF));
     --wcs-button-plain-background-color-disabled: var(--wcs-semantic-color-background-action-primary-disabled, var(--wcs-light, transparent));
@@ -76,7 +78,7 @@
     --wcs-button-border-radius-rounded: var(--wcs-semantic-border-radius-round);
 
     --wcs-button-stroked-border-color: var(--wcs-button-stroked-border-color-default);
-    --wcs-button-stroked-border-width: var(--wcs-semantic-border-width-base);
+    --wcs-button-stroked-border-width: var(--wcs-semantic-border-width-default);
     --wcs-button-stroked-border-color-default: var(--wcs-semantic-color-border-action-secondary-default);
     --wcs-button-stroked-border-color-disabled: var(--wcs-semantic-color-border-action-secondary-disabled);
 
@@ -95,7 +97,7 @@
     --wcs-button-padding-horizontal-size-l: var(--wcs-semantic-padding-size-l-horizontal);
     --wcs-button-padding-vertical-size-l: var(--wcs-semantic-padding-size-l-vertical);
 
-    --wcs-button-font-weight: var(--wcs-semantic-font-weight-bold);
+    --wcs-button-font-weight: var(--wcs-semantic-font-weight-medium);
 }
 
 .wcs-inner-button:focus-visible {
