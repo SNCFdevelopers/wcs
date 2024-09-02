@@ -1534,6 +1534,27 @@ export namespace Components {
     }
     /**
      * The switch component is a control used to switch between on and off state.
+     * @cssprop --wcs-switch-outline-color-focus - Color of the focus outline
+     * @cssprop --wcs-switch-text-color-default - Color of the text when the switch is not selected
+     * @cssprop --wcs-switch-text-color-selected - Color of the text when the switch is selected
+     * @cssprop --wcs-switch-text-color-hover - Color of the text when the switch is hovered
+     * @cssprop --wcs-switch-text-color-disabled - Color of the text when the switch is disabled
+     * @cssprop --wcs-switch-background-color-initial - Background color of the switch when not selected
+     * @cssprop --wcs-switch-background-color-final - Background color of the switch when selected
+     * @cssprop --wcs-switch-background-color-disabled - Background color of the switch when disabled
+     * @cssprop --wcs-switch-background-color-disabled-selected - Background color of the switch when disabled and selected
+     * @cssprop --wcs-switch-height - Height of the switch
+     * @cssprop --wcs-switch-width - Width of the switch
+     * @cssprop --wcs-switch-border-radius - Border radius of the switch
+     * @cssprop --wcs-switch-padding-horizontal - Horizontal padding of the switch
+     * @cssprop --wcs-switch-padding-vertical - Vertical padding of the switch
+     * @cssprop --wcs-switch-dot-color-initial - Color of the dot when not selected
+     * @cssprop --wcs-switch-dot-color-final - Color of the dot when selected
+     * @cssprop --wcs-switch-dot-color-disabled - Color of the dot when disabled
+     * @cssprop --wcs-switch-dot-color-disabled-selected - Color of the dot when disabled and selected
+     * @cssprop --wcs-switch-dot-translate-x - Horizontal translation of the dot (from left to right = right to left)
+     * @cssprop --wcs-switch-dot-size - Size of the dot
+     * @cssprop --wcs-switch-gap - Gap between the switch and the text
      */
     interface WcsSwitch {
         /**
@@ -3090,6 +3111,27 @@ declare global {
     }
     /**
      * The switch component is a control used to switch between on and off state.
+     * @cssprop --wcs-switch-outline-color-focus - Color of the focus outline
+     * @cssprop --wcs-switch-text-color-default - Color of the text when the switch is not selected
+     * @cssprop --wcs-switch-text-color-selected - Color of the text when the switch is selected
+     * @cssprop --wcs-switch-text-color-hover - Color of the text when the switch is hovered
+     * @cssprop --wcs-switch-text-color-disabled - Color of the text when the switch is disabled
+     * @cssprop --wcs-switch-background-color-initial - Background color of the switch when not selected
+     * @cssprop --wcs-switch-background-color-final - Background color of the switch when selected
+     * @cssprop --wcs-switch-background-color-disabled - Background color of the switch when disabled
+     * @cssprop --wcs-switch-background-color-disabled-selected - Background color of the switch when disabled and selected
+     * @cssprop --wcs-switch-height - Height of the switch
+     * @cssprop --wcs-switch-width - Width of the switch
+     * @cssprop --wcs-switch-border-radius - Border radius of the switch
+     * @cssprop --wcs-switch-padding-horizontal - Horizontal padding of the switch
+     * @cssprop --wcs-switch-padding-vertical - Vertical padding of the switch
+     * @cssprop --wcs-switch-dot-color-initial - Color of the dot when not selected
+     * @cssprop --wcs-switch-dot-color-final - Color of the dot when selected
+     * @cssprop --wcs-switch-dot-color-disabled - Color of the dot when disabled
+     * @cssprop --wcs-switch-dot-color-disabled-selected - Color of the dot when disabled and selected
+     * @cssprop --wcs-switch-dot-translate-x - Horizontal translation of the dot (from left to right = right to left)
+     * @cssprop --wcs-switch-dot-size - Size of the dot
+     * @cssprop --wcs-switch-gap - Gap between the switch and the text
      */
     interface HTMLWcsSwitchElement extends Components.WcsSwitch, HTMLStencilElement {
         addEventListener<K extends keyof HTMLWcsSwitchElementEventMap>(type: K, listener: (this: HTMLWcsSwitchElement, ev: WcsSwitchCustomEvent<HTMLWcsSwitchElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -4834,6 +4876,27 @@ declare namespace LocalJSX {
     }
     /**
      * The switch component is a control used to switch between on and off state.
+     * @cssprop --wcs-switch-outline-color-focus - Color of the focus outline
+     * @cssprop --wcs-switch-text-color-default - Color of the text when the switch is not selected
+     * @cssprop --wcs-switch-text-color-selected - Color of the text when the switch is selected
+     * @cssprop --wcs-switch-text-color-hover - Color of the text when the switch is hovered
+     * @cssprop --wcs-switch-text-color-disabled - Color of the text when the switch is disabled
+     * @cssprop --wcs-switch-background-color-initial - Background color of the switch when not selected
+     * @cssprop --wcs-switch-background-color-final - Background color of the switch when selected
+     * @cssprop --wcs-switch-background-color-disabled - Background color of the switch when disabled
+     * @cssprop --wcs-switch-background-color-disabled-selected - Background color of the switch when disabled and selected
+     * @cssprop --wcs-switch-height - Height of the switch
+     * @cssprop --wcs-switch-width - Width of the switch
+     * @cssprop --wcs-switch-border-radius - Border radius of the switch
+     * @cssprop --wcs-switch-padding-horizontal - Horizontal padding of the switch
+     * @cssprop --wcs-switch-padding-vertical - Vertical padding of the switch
+     * @cssprop --wcs-switch-dot-color-initial - Color of the dot when not selected
+     * @cssprop --wcs-switch-dot-color-final - Color of the dot when selected
+     * @cssprop --wcs-switch-dot-color-disabled - Color of the dot when disabled
+     * @cssprop --wcs-switch-dot-color-disabled-selected - Color of the dot when disabled and selected
+     * @cssprop --wcs-switch-dot-translate-x - Horizontal translation of the dot (from left to right = right to left)
+     * @cssprop --wcs-switch-dot-size - Size of the dot
+     * @cssprop --wcs-switch-gap - Gap between the switch and the text
      */
     interface WcsSwitch {
         /**
@@ -5861,6 +5924,27 @@ declare module "@stencil/core" {
             "wcs-spinner": LocalJSX.WcsSpinner & JSXBase.HTMLAttributes<HTMLWcsSpinnerElement>;
             /**
              * The switch component is a control used to switch between on and off state.
+             * @cssprop --wcs-switch-outline-color-focus - Color of the focus outline
+             * @cssprop --wcs-switch-text-color-default - Color of the text when the switch is not selected
+             * @cssprop --wcs-switch-text-color-selected - Color of the text when the switch is selected
+             * @cssprop --wcs-switch-text-color-hover - Color of the text when the switch is hovered
+             * @cssprop --wcs-switch-text-color-disabled - Color of the text when the switch is disabled
+             * @cssprop --wcs-switch-background-color-initial - Background color of the switch when not selected
+             * @cssprop --wcs-switch-background-color-final - Background color of the switch when selected
+             * @cssprop --wcs-switch-background-color-disabled - Background color of the switch when disabled
+             * @cssprop --wcs-switch-background-color-disabled-selected - Background color of the switch when disabled and selected
+             * @cssprop --wcs-switch-height - Height of the switch
+             * @cssprop --wcs-switch-width - Width of the switch
+             * @cssprop --wcs-switch-border-radius - Border radius of the switch
+             * @cssprop --wcs-switch-padding-horizontal - Horizontal padding of the switch
+             * @cssprop --wcs-switch-padding-vertical - Vertical padding of the switch
+             * @cssprop --wcs-switch-dot-color-initial - Color of the dot when not selected
+             * @cssprop --wcs-switch-dot-color-final - Color of the dot when selected
+             * @cssprop --wcs-switch-dot-color-disabled - Color of the dot when disabled
+             * @cssprop --wcs-switch-dot-color-disabled-selected - Color of the dot when disabled and selected
+             * @cssprop --wcs-switch-dot-translate-x - Horizontal translation of the dot (from left to right = right to left)
+             * @cssprop --wcs-switch-dot-size - Size of the dot
+             * @cssprop --wcs-switch-gap - Gap between the switch and the text
              */
             "wcs-switch": LocalJSX.WcsSwitch & JSXBase.HTMLAttributes<HTMLWcsSwitchElement>;
             /**

@@ -54,7 +54,7 @@
                 },
                 "round": {
                     "$type": "dimension",
-                    "$value": "{primitive.size.320}"
+                    "$value": "{primitive.size.max}"
                 }
             },
             "width": {
@@ -275,6 +275,11 @@
                         "$description": "Background of a surface like a card, modal, overlay of a select...",
                         "$type": "color",
                         "$value": "{primitive.color.neutral.0}"
+                    },
+                    "secondary": {
+                        "$description": "Background of a secondary surface like a switch, counter...",
+                        "$type": "color",
+                        "$value": "{primitive.color.neutral.100}"
                     },
                     "tertiary": {
                         "$description": "Tertiary background (used for background of prefix and suffix of control, also in other components)",

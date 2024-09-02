@@ -44,10 +44,13 @@ for soon-to-be removed features.
     - You have to use `--wcs-select-overlay-border-radius` instead to edit the border radius of the overlay
 - **native-select**
     - remove `--wcs-select-native-outline-color` css property. Instead, use `--wcs-select-native-border-color-default`, `--wcs-select-native-border-color-focus`, `--wcs-select-native-border-color-error`
+- **switch**
+  - remove `--wcs-switch-bullet-color-initial` and `--wcs-switch-bullet-color-final`. Instead, use `--wcs-switch-dot-color-initial` and `--wcs-switch-dot-color-final`
+  - remove `--wcs-switch-text-color`. Instead, use `--wcs-switch-text-color-default`, `--wcs-switch-text-color-selected`, `--wcs-switch-text-color-hover`, `--wcs-switch-text-color-disabled`
 
 ### Fixed
 
-for any bug fixes.
+- **switch**: fix display bug when resizing the window
 
 ### Security
 

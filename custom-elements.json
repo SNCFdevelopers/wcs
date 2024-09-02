@@ -1549,52 +1549,346 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/breadcrumb/breadcrumb-constants.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "NAV_ARIA_LABEL_DEFAULT",
+          "type": {
+            "text": "string"
+          },
+          "default": "'Fil d\\'Ariane'"
+        },
+        {
+          "kind": "variable",
+          "name": "EXPAND_BTN_ARIA_LABEL_DEFAULT",
+          "type": {
+            "text": "string"
+          },
+          "default": "'Étendre le fil d\\'Ariane'"
+        },
+        {
+          "kind": "variable",
+          "name": "ICONS_FONT_CHEVRON_UNICODE",
+          "type": {
+            "text": "string"
+          },
+          "default": "'\\uF107'"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "NAV_ARIA_LABEL_DEFAULT",
+          "declaration": {
+            "name": "NAV_ARIA_LABEL_DEFAULT",
+            "module": "components/breadcrumb/breadcrumb-constants.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "EXPAND_BTN_ARIA_LABEL_DEFAULT",
+          "declaration": {
+            "name": "EXPAND_BTN_ARIA_LABEL_DEFAULT",
+            "module": "components/breadcrumb/breadcrumb-constants.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "ICONS_FONT_CHEVRON_UNICODE",
+          "declaration": {
+            "name": "ICONS_FONT_CHEVRON_UNICODE",
+            "module": "components/breadcrumb/breadcrumb-constants.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/breadcrumb/breadcrumb.e2e.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/breadcrumb/breadcrumb.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "A breadcrumb trail consists of a list of links to the parent pages of the current page in hierarchical order.  \r\nIt helps users find their place within a website or web application. Breadcrumbs are often placed horizontally before a page's main content.\r\n\r\n## Accessibility guidelines 💡\r\n> - If the last item is a link to the current page, you must set the `aria-current` attribute to `page` on `wcs-breadcrumb-item`.\r\n> - If the element representing the current page is not a link, `aria-current` is optional.\r\n> - You can set the attribute `aria-label` on `wcs-breadcrumb`, it will be passed to the native `nav` element located inside its shadow DOM. \r\n>   You can find the `aria-label` default value in the table below. If your application is in English, you can set it to `Breadcrumb`.\r\n> - You can do the same thing for the `aria-label` of the expand button when the breadcrumb is collapsed. You can find its default value\r\n>   in the table below too.  \r\n> - If you need to **dynamically change the `aria-label` attribute of `wcs-breadcrumb` after the first render**, you can use the \r\n>   `setAriaAttribute` JS method (example below). For the expand button however, you can update the prop `ariaLabelExpandButton`.  \r\n>   Note: we're working on updating the component automatically when attributes change. \r\n\r\n> ```javascript\r\n> const wcsButton = document.querySelector('wcs-button');\r\n> await wcsButton.setAriaAttribute('aria-label', 'new label');\r\n> ```",
+          "name": "Breadcrumb",
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "navEl",
+              "type": {
+                "text": "HTMLElement | undefined"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "expandBtnEl",
+              "type": {
+                "text": "HTMLWcsButtonElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "maxItems",
+              "type": {
+                "text": "number | undefined"
+              },
+              "description": "If the number of breadcrumb items exceeds this maximum,\r\nthe breadcrumb will collapse and show an expand button.  \r\nIf this prop is `undefined`, breadcrumb items will never collapse."
+            },
+            {
+              "kind": "field",
+              "name": "itemsBeforeCollapse",
+              "type": {
+                "text": "number"
+              },
+              "default": "1",
+              "description": "The number of breadcrumb items to show before the expand button.\r\nIf `itemsBeforeCollapse` + `itemsAfterCollapse` is greater than `maxItems`,\r\nthe breadcrumb will not be collapsed."
+            },
+            {
+              "kind": "field",
+              "name": "itemsAfterCollapse",
+              "type": {
+                "text": "number"
+              },
+              "default": "2",
+              "description": "The number of breadcrumb items to show after the expand button.\r\nIf `itemsBeforeCollapse` + `itemsAfterCollapse` is greater than `maxItems`,\r\nthe breadcrumb will not be collapsed."
+            },
+            {
+              "kind": "field",
+              "name": "ariaLabelExpandButton",
+              "type": {
+                "text": "string | undefined"
+              },
+              "default": "EXPAND_BTN_ARIA_LABEL_DEFAULT",
+              "description": "Set `aria-label` for the expand button when the breadcrumb is collapsed."
+            },
+            {
+              "kind": "field",
+              "name": "showHiddenItems",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false",
+              "description": "Show breadcrumb items that are inside the hidden-items slot."
+            },
+            {
+              "kind": "method",
+              "name": "handleCollapsePropsChange"
+            },
+            {
+              "kind": "method",
+              "name": "handleAriaLabelExpandBtnChange",
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "getBreadcrumbItems",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "HTMLWcsBreadcrumbItemElement[]"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "shouldCollapseItems",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "updateCollapsedViewMode",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "assignSlotNamesForCollapsedViewMode",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "description": "Setting slot names on breadcrumb items allows to leverage JSX in the render method."
+            },
+            {
+              "kind": "method",
+              "name": "assignSlotNamesForNonCollapsedViewMode",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handleSlotChange",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handleOnExpandBtnClick",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "setFocusToFirstHiddenItem",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "description": "Avoid losing focus after clicking the expand button.\r\nWe need to give focus back to the first breadcrumb item link that was hidden before."
+            },
+            {
+              "kind": "method",
+              "name": "renderExpandAllButton",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "JSX.Element"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "max-items",
+              "fieldName": "maxItems",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "items-before-collapse",
+              "fieldName": "itemsBeforeCollapse",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "items-after-collapse",
+              "fieldName": "itemsAfterCollapse",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "aria-label-expand-button",
+              "fieldName": "ariaLabelExpandButton",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "tagName": "wcs-breadcrumb",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Breadcrumb",
+          "declaration": {
+            "name": "Breadcrumb",
+            "module": "components/breadcrumb/breadcrumb.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-breadcrumb",
+          "declaration": {
+            "name": "Breadcrumb",
+            "module": "components/breadcrumb/breadcrumb.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/breadcrumb-item/breadcrumb-item.tsx",
       "declarations": [
         {
           "kind": "class",
-          "description": "The breadcrumb item represents a link inside a breadcrumb.",
+          "description": "",
           "name": "BreadcrumbItem",
-          "cssProperties": [
-            {
-              "description": "Maximum height of the breadcrumb item",
-              "name": "--wcs-breadcrumb-item-max-height"
-            },
-            {
-              "description": "Color of the breadcrumb item icon",
-              "name": "--wcs-breadcrumb-item-icon-color"
-            },
-            {
-              "description": "Font size of the breadcrumb item icon",
-              "name": "--wcs-breadcrumb-item-icon-font-size"
-            },
-            {
-              "description": "Gap between text and chevron icon",
-              "name": "--wcs-breadcrumb-item-gap"
-            },
-            {
-              "description": "Color of the breadcrumb item link",
-              "name": "--wcs-breadcrumb-item-link-color"
-            },
-            {
-              "description": "Font weight of the breadcrumb item link",
-              "name": "--wcs-breadcrumb-item-link-font-weight"
-            },
-            {
-              "description": "Border width of the breadcrumb item when focused",
-              "name": "--wcs-breadcrumb-item-border-width-focus"
-            },
-            {
-              "description": "Border color of the breadcrumb item when focused",
-              "name": "--wcs-breadcrumb-item-border-color-focus"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Main container slot",
-              "name": "<no-name>"
-            }
-          ],
           "members": [
             {
               "kind": "method",
@@ -2177,248 +2471,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/com-nav/com-nav-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/com-nav/com-nav-size.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/com-nav/com-nav-utils.ts",
-      "declarations": [
-        {
-          "kind": "function",
-          "name": "registerCloseHandlerForFocusOutEventOn",
-          "return": {
-            "type": {
-              "text": "void"
-            }
-          },
-          "parameters": [
-            {
-              "name": "navigableItems",
-              "type": {
-                "text": "NodeListOf<Element>"
-              },
-              "description": "items on which focusout event listeners must be added"
-            },
-            {
-              "name": "nodeNameToClose",
-              "type": {
-                "text": "string"
-              },
-              "description": "nodeName of the element we want to close in the event path"
-            }
-          ],
-          "description": "This function add event handlers on the navigableItems list. The handlers call the function close() on the nodeName.\r\n\r\nT: type class of the nodeNameToClose param (must have a close function)"
-        },
-        {
-          "kind": "function",
-          "name": "comNavDidLoadWithResizeObserver",
-          "return": {
-            "type": {
-              "text": "ResizeObserver"
-            }
-          },
-          "parameters": [
-            {
-              "name": "comNavElement",
-              "type": {
-                "text": "ComNav | ComNavSubmenu | ComNavCategory"
-              }
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "registerCloseHandlerForFocusOutEventOn",
-          "declaration": {
-            "name": "registerCloseHandlerForFocusOutEventOn",
-            "module": "components/com-nav/com-nav-utils.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "comNavDidLoadWithResizeObserver",
-          "declaration": {
-            "name": "comNavDidLoadWithResizeObserver",
-            "module": "components/com-nav/com-nav-utils.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/com-nav/com-nav.e2e.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/com-nav/com-nav.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "*Part of communication design system*\r\n\r\nThe com-nav component is a container for navigation links to external or internal pages of the website.",
-          "name": "ComNav",
-          "slots": [
-            {
-              "description": "Default slot containing all the menu declarations",
-              "name": "<no-name>"
-            },
-            {
-              "description": "(Optional) Extra slot for the application name",
-              "name": "app-name"
-            },
-            {
-              "description": "Slot for actions placed on the right part of the container",
-              "name": "actions"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsComNavElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "appName",
-              "type": {
-                "text": "string"
-              },
-              "description": "Name of the application to be displayed in the menu bar"
-            },
-            {
-              "kind": "field",
-              "name": "mobileMenuOpen",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "currentActiveSizing",
-              "type": {
-                "text": "ComNavSize"
-              },
-              "privacy": "public"
-            },
-            {
-              "kind": "field",
-              "name": "resizeObserver",
-              "type": {
-                "text": "ResizeObserver"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "mobileMenuIconClick",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "closeMobileMenu",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "onClickOnFinalAction"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            },
-            {
-              "kind": "method",
-              "name": "exitMobileMenuOnKeyDown",
-              "parameters": [
-                {
-                  "name": "evt",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  },
-                  "description": "keydown event on window target."
-                }
-              ],
-              "description": "Close the mobile menu if the user press escape."
-            }
-          ],
-          "attributes": [
-            {
-              "name": "app-name",
-              "fieldName": "appName",
-              "type": {
-                "text": "string"
-              }
-            }
-          ],
-          "tagName": "wcs-com-nav",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ComNav",
-          "declaration": {
-            "name": "ComNav",
-            "module": "components/com-nav/com-nav.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-com-nav",
-          "declaration": {
-            "name": "ComNav",
-            "module": "components/com-nav/com-nav.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/checkbox/checkbox-interface.ts",
       "declarations": [],
       "exports": []
@@ -2740,6 +2792,248 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/com-nav/com-nav-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/com-nav/com-nav-size.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/com-nav/com-nav-utils.ts",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "registerCloseHandlerForFocusOutEventOn",
+          "return": {
+            "type": {
+              "text": "void"
+            }
+          },
+          "parameters": [
+            {
+              "name": "navigableItems",
+              "type": {
+                "text": "NodeListOf<Element>"
+              },
+              "description": "items on which focusout event listeners must be added"
+            },
+            {
+              "name": "nodeNameToClose",
+              "type": {
+                "text": "string"
+              },
+              "description": "nodeName of the element we want to close in the event path"
+            }
+          ],
+          "description": "This function add event handlers on the navigableItems list. The handlers call the function close() on the nodeName.\r\n\r\nT: type class of the nodeNameToClose param (must have a close function)"
+        },
+        {
+          "kind": "function",
+          "name": "comNavDidLoadWithResizeObserver",
+          "return": {
+            "type": {
+              "text": "ResizeObserver"
+            }
+          },
+          "parameters": [
+            {
+              "name": "comNavElement",
+              "type": {
+                "text": "ComNav | ComNavSubmenu | ComNavCategory"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "registerCloseHandlerForFocusOutEventOn",
+          "declaration": {
+            "name": "registerCloseHandlerForFocusOutEventOn",
+            "module": "components/com-nav/com-nav-utils.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "comNavDidLoadWithResizeObserver",
+          "declaration": {
+            "name": "comNavDidLoadWithResizeObserver",
+            "module": "components/com-nav/com-nav-utils.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/com-nav/com-nav.e2e.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/com-nav/com-nav.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "*Part of communication design system*\r\n\r\nThe com-nav component is a container for navigation links to external or internal pages of the website.",
+          "name": "ComNav",
+          "slots": [
+            {
+              "description": "Default slot containing all the menu declarations",
+              "name": "<no-name>"
+            },
+            {
+              "description": "(Optional) Extra slot for the application name",
+              "name": "app-name"
+            },
+            {
+              "description": "Slot for actions placed on the right part of the container",
+              "name": "actions"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsComNavElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "appName",
+              "type": {
+                "text": "string"
+              },
+              "description": "Name of the application to be displayed in the menu bar"
+            },
+            {
+              "kind": "field",
+              "name": "mobileMenuOpen",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "currentActiveSizing",
+              "type": {
+                "text": "ComNavSize"
+              },
+              "privacy": "public"
+            },
+            {
+              "kind": "field",
+              "name": "resizeObserver",
+              "type": {
+                "text": "ResizeObserver"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "mobileMenuIconClick",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "closeMobileMenu",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "onClickOnFinalAction"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            },
+            {
+              "kind": "method",
+              "name": "exitMobileMenuOnKeyDown",
+              "parameters": [
+                {
+                  "name": "evt",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  },
+                  "description": "keydown event on window target."
+                }
+              ],
+              "description": "Close the mobile menu if the user press escape."
+            }
+          ],
+          "attributes": [
+            {
+              "name": "app-name",
+              "fieldName": "appName",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "tagName": "wcs-com-nav",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ComNav",
+          "declaration": {
+            "name": "ComNav",
+            "module": "components/com-nav/com-nav.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-com-nav",
+          "declaration": {
+            "name": "ComNav",
+            "module": "components/com-nav/com-nav.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/com-nav-category/com-nav-category.tsx",
       "declarations": [
         {
@@ -2959,348 +3253,50 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/breadcrumb/breadcrumb-constants.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "NAV_ARIA_LABEL_DEFAULT",
-          "type": {
-            "text": "string"
-          },
-          "default": "'Fil d\\'Ariane'"
-        },
-        {
-          "kind": "variable",
-          "name": "EXPAND_BTN_ARIA_LABEL_DEFAULT",
-          "type": {
-            "text": "string"
-          },
-          "default": "'Étendre le fil d\\'Ariane'"
-        },
-        {
-          "kind": "variable",
-          "name": "ICONS_FONT_CHEVRON_UNICODE",
-          "type": {
-            "text": "string"
-          },
-          "default": "'\\uF107'"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "NAV_ARIA_LABEL_DEFAULT",
-          "declaration": {
-            "name": "NAV_ARIA_LABEL_DEFAULT",
-            "module": "components/breadcrumb/breadcrumb-constants.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "EXPAND_BTN_ARIA_LABEL_DEFAULT",
-          "declaration": {
-            "name": "EXPAND_BTN_ARIA_LABEL_DEFAULT",
-            "module": "components/breadcrumb/breadcrumb-constants.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "ICONS_FONT_CHEVRON_UNICODE",
-          "declaration": {
-            "name": "ICONS_FONT_CHEVRON_UNICODE",
-            "module": "components/breadcrumb/breadcrumb-constants.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/breadcrumb/breadcrumb.e2e.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/breadcrumb/breadcrumb.tsx",
+      "path": "components/com-nav-item/com-nav-item.tsx",
       "declarations": [
         {
           "kind": "class",
-          "description": "A breadcrumb trail consists of a list of links to the parent pages of the current page in hierarchical order.  \r\nIt helps users find their place within a website or web application. Breadcrumbs are often placed horizontally before a page's main content.\r\n\r\n## Accessibility guidelines 💡\r\n> - If the last item is a link to the current page, you must set the `aria-current` attribute to `page` on `wcs-breadcrumb-item`.\r\n> - If the element representing the current page is not a link, `aria-current` is optional.\r\n> - You can set the attribute `aria-label` on `wcs-breadcrumb`, it will be passed to the native `nav` element located inside its shadow DOM. \r\n>   You can find the `aria-label` default value in the table below. If your application is in English, you can set it to `Breadcrumb`.\r\n> - You can do the same thing for the `aria-label` of the expand button when the breadcrumb is collapsed. You can find its default value\r\n>   in the table below too.  \r\n> - If you need to **dynamically change the `aria-label` attribute of `wcs-breadcrumb` after the first render**, you can use the \r\n>   `setAriaAttribute` JS method (example below). For the expand button however, you can update the prop `ariaLabelExpandButton`.  \r\n>   Note: we're working on updating the component automatically when attributes change. \r\n\r\n> ```javascript\r\n> const wcsButton = document.querySelector('wcs-button');\r\n> await wcsButton.setAriaAttribute('aria-label', 'new label');\r\n> ```",
-          "name": "Breadcrumb",
-          "cssProperties": [
-            {
-              "description": "Icon color",
-              "name": "--wcs-breadcrumb-icon-color"
-            },
-            {
-              "description": "Icon font size",
-              "name": "--wcs-breadcrumb-icon-font-size"
-            },
-            {
-              "description": "Gap between breadcrumb items",
-              "name": "--wcs-breadcrumb-gap"
-            }
-          ],
+          "description": "The com-nav-item is a subcomponent of `wcs-com-nav`. It represents a list-item wrapper around a link.",
+          "name": "ComNavItem",
           "members": [
             {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "navEl",
-              "type": {
-                "text": "HTMLElement | undefined"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "expandBtnEl",
-              "type": {
-                "text": "HTMLWcsButtonElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "maxItems",
-              "type": {
-                "text": "number | undefined"
-              },
-              "description": "If the number of breadcrumb items exceeds this maximum,\r\nthe breadcrumb will collapse and show an expand button.  \r\nIf this prop is `undefined`, breadcrumb items will never collapse."
-            },
-            {
-              "kind": "field",
-              "name": "itemsBeforeCollapse",
-              "type": {
-                "text": "number"
-              },
-              "default": "1",
-              "description": "The number of breadcrumb items to show before the expand button.\r\nIf `itemsBeforeCollapse` + `itemsAfterCollapse` is greater than `maxItems`,\r\nthe breadcrumb will not be collapsed."
-            },
-            {
-              "kind": "field",
-              "name": "itemsAfterCollapse",
-              "type": {
-                "text": "number"
-              },
-              "default": "2",
-              "description": "The number of breadcrumb items to show after the expand button.\r\nIf `itemsBeforeCollapse` + `itemsAfterCollapse` is greater than `maxItems`,\r\nthe breadcrumb will not be collapsed."
-            },
-            {
-              "kind": "field",
-              "name": "ariaLabelExpandButton",
-              "type": {
-                "text": "string | undefined"
-              },
-              "default": "EXPAND_BTN_ARIA_LABEL_DEFAULT",
-              "description": "Set `aria-label` for the expand button when the breadcrumb is collapsed."
-            },
-            {
-              "kind": "field",
-              "name": "showHiddenItems",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "default": "false",
-              "description": "Show breadcrumb items that are inside the hidden-items slot."
-            },
-            {
               "kind": "method",
-              "name": "handleCollapsePropsChange"
-            },
-            {
-              "kind": "method",
-              "name": "handleAriaLabelExpandBtnChange",
-              "parameters": [
-                {
-                  "name": "newValue",
-                  "type": {
-                    "text": "string"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "getBreadcrumbItems",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "HTMLWcsBreadcrumbItemElement[]"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "shouldCollapseItems",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "boolean"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "updateCollapsedViewMode",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "assignSlotNamesForCollapsedViewMode",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              },
-              "description": "Setting slot names on breadcrumb items allows to leverage JSX in the render method."
-            },
-            {
-              "kind": "method",
-              "name": "assignSlotNamesForNonCollapsedViewMode",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "handleSlotChange",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "handleOnExpandBtnClick",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "setFocusToFirstHiddenItem",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              },
-              "description": "Avoid losing focus after clicking the expand button.\r\nWe need to give focus back to the first breadcrumb item link that was hidden before."
-            },
-            {
-              "kind": "method",
-              "name": "renderExpandAllButton",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "JSX.Element"
-                }
-              }
+              "name": "onClick"
             },
             {
               "kind": "method",
               "name": "render"
             }
           ],
-          "attributes": [
+          "tagName": "wcs-com-nav-item",
+          "events": [
             {
-              "name": "max-items",
-              "fieldName": "maxItems",
+              "name": "wcsClickOnFinalAction",
               "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "items-before-collapse",
-              "fieldName": "itemsBeforeCollapse",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "items-after-collapse",
-              "fieldName": "itemsAfterCollapse",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "aria-label-expand-button",
-              "fieldName": "ariaLabelExpandButton",
-              "type": {
-                "text": "string"
-              }
+                "text": "EventEmitter<void>"
+              },
+              "description": "Emitted when a user click on a final navigation action.\r\n\r\nUsed by the com-nav component to close the mobile menu overlay when a user click on a final action."
             }
           ],
-          "tagName": "wcs-breadcrumb",
-          "events": [],
           "customElement": true
         }
       ],
       "exports": [
         {
           "kind": "js",
-          "name": "Breadcrumb",
+          "name": "ComNavItem",
           "declaration": {
-            "name": "Breadcrumb",
-            "module": "components/breadcrumb/breadcrumb.tsx"
+            "name": "ComNavItem",
+            "module": "components/com-nav-item/com-nav-item.tsx"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "wcs-breadcrumb",
+          "name": "wcs-com-nav-item",
           "declaration": {
-            "name": "Breadcrumb",
-            "module": "components/breadcrumb/breadcrumb.tsx"
+            "name": "ComNavItem",
+            "module": "components/com-nav-item/com-nav-item.tsx"
           }
         }
       ]
@@ -3937,50 +3933,38 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/com-nav-item/com-nav-item.tsx",
+      "path": "components/divider/divider.tsx",
       "declarations": [
         {
           "kind": "class",
-          "description": "The com-nav-item is a subcomponent of `wcs-com-nav`. It represents a list-item wrapper around a link.",
-          "name": "ComNavItem",
+          "description": "",
+          "name": "Divider",
           "members": [
-            {
-              "kind": "method",
-              "name": "onClick"
-            },
             {
               "kind": "method",
               "name": "render"
             }
           ],
-          "tagName": "wcs-com-nav-item",
-          "events": [
-            {
-              "name": "wcsClickOnFinalAction",
-              "type": {
-                "text": "EventEmitter<void>"
-              },
-              "description": "Emitted when a user click on a final navigation action.\r\n\r\nUsed by the com-nav component to close the mobile menu overlay when a user click on a final action."
-            }
-          ],
+          "tagName": "wcs-divider",
+          "events": [],
           "customElement": true
         }
       ],
       "exports": [
         {
           "kind": "js",
-          "name": "ComNavItem",
+          "name": "Divider",
           "declaration": {
-            "name": "ComNavItem",
-            "module": "components/com-nav-item/com-nav-item.tsx"
+            "name": "Divider",
+            "module": "components/divider/divider.tsx"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "wcs-com-nav-item",
+          "name": "wcs-divider",
           "declaration": {
-            "name": "ComNavItem",
-            "module": "components/com-nav-item/com-nav-item.tsx"
+            "name": "Divider",
+            "module": "components/divider/divider.tsx"
           }
         }
       ]
@@ -4048,76 +4032,6 @@
           "kind": "class",
           "description": "The dropdown component use a wcs-button under the hood, so you can use the same css classes as the button to style the\r\ndropdown.",
           "name": "Dropdown",
-          "cssProperties": [
-            {
-              "description": "Outline color of dropdown when focus it",
-              "name": "--wcs-dropdown-outline-color-focus"
-            },
-            {
-              "description": "Color of the arrow indicator when the dropdown is plain",
-              "name": "--wcs-dropdown-plain-arrow-color"
-            },
-            {
-              "description": "Color of the arrow indicator when the dropdown is stroked",
-              "name": "--wcs-dropdown-stroked-arrow-color"
-            },
-            {
-              "description": "Color of the arrow indicator when the dropdown is not filled",
-              "name": "--wcs-dropdown-clear-arrow-color"
-            },
-            {
-              "description": "Base color of the arrow indicator when the dropdown is disabled",
-              "name": "--wcs-dropdown-arrow-color-disabled"
-            },
-            {
-              "description": "Horizontal padding of the dropdown button when size is small",
-              "name": "--wcs-dropdown-padding-horizontal-size-s"
-            },
-            {
-              "description": "Horizontal padding of the dropdown button when size is medium",
-              "name": "--wcs-dropdown-padding-horizontal-size-m"
-            },
-            {
-              "description": "Horizontal padding of the dropdown button when size is large",
-              "name": "--wcs-dropdown-padding-horizontal-size-l"
-            },
-            {
-              "description": "Vertical padding of the dropdown button when size is small",
-              "name": "--wcs-dropdown-padding-vertical-size-s"
-            },
-            {
-              "description": "Vertical padding of the dropdown button when size is medium",
-              "name": "--wcs-dropdown-padding-vertical-size-m"
-            },
-            {
-              "description": "Vertical padding of the dropdown button when size is large",
-              "name": "--wcs-dropdown-padding-vertical-size-l"
-            },
-            {
-              "description": "Defines the vertical padding inside the dropdown overlay",
-              "name": "--wcs-dropdown-overlay-padding-vertical"
-            },
-            {
-              "description": "Specifies the maximum height of the dropdown overlay",
-              "name": "--wcs-dropdown-overlay-max-height"
-            },
-            {
-              "description": "Determines the background color of the dropdown overlay",
-              "name": "--wcs-dropdown-overlay-background-color"
-            },
-            {
-              "description": "Sets the border width of the dropdown overlay",
-              "name": "--wcs-dropdown-overlay-border-width"
-            },
-            {
-              "description": "Defines the border radius of the dropdown overlay",
-              "name": "--wcs-dropdown-overlay-border-radius"
-            },
-            {
-              "description": "Specifies the border color of the dropdown overlay",
-              "name": "--wcs-dropdown-overlay-border-color"
-            }
-          ],
           "slots": [
             {
               "description": "The slot containing the placeholder displayed in button",
@@ -4494,44 +4408,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/divider/divider.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Divider",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-divider",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Divider",
-          "declaration": {
-            "name": "Divider",
-            "module": "components/divider/divider.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-divider",
-          "declaration": {
-            "name": "Divider",
-            "module": "components/divider/divider.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/dropdown-divider/dropdown-divider.tsx",
       "declarations": [
         {
@@ -4620,60 +4496,6 @@
           "kind": "class",
           "description": "You must add `wcs-dropdown-item` to `wcs-dropdown`",
           "name": "DropdownItem",
-          "cssProperties": [
-            {
-              "description": "Height of the dropdown item",
-              "name": "--wcs-dropdown-item-height"
-            },
-            {
-              "description": "Padding horizontal",
-              "name": "--wcs-dropdown-item-padding-horizontal"
-            },
-            {
-              "description": "Padding vertical",
-              "name": "--wcs-dropdown-item-padding-vertical"
-            },
-            {
-              "description": "Font weight of the dropdown item",
-              "name": "--wcs-dropdown-item-text-font-weight"
-            },
-            {
-              "description": "Default text color of the dropdown item",
-              "name": "--wcs-dropdown-item-text-color-default"
-            },
-            {
-              "description": "Text color of the dropdown item when focused",
-              "name": "--wcs-dropdown-item-text-color-focus"
-            },
-            {
-              "description": "Text color of the dropdown item when hovered",
-              "name": "--wcs-dropdown-item-text-color-hover"
-            },
-            {
-              "description": "Default background color of the dropdown item",
-              "name": "--wcs-dropdown-item-background-color-default"
-            },
-            {
-              "description": "Background color of the dropdown item when focused",
-              "name": "--wcs-dropdown-item-background-color-focus"
-            },
-            {
-              "description": "Background color of the dropdown item when hovered",
-              "name": "--wcs-dropdown-item-background-color-hover"
-            },
-            {
-              "description": "Border width of the dropdown item when focused",
-              "name": "--wcs-dropdown-item-border-width-focus"
-            },
-            {
-              "description": "Border color of the dropdown item when focused",
-              "name": "--wcs-dropdown-item-border-color-focus"
-            },
-            {
-              "description": "Border radius of the dropdown item when focused",
-              "name": "--wcs-dropdown-item-border-radius-focus"
-            }
-          ],
           "slots": [
             {
               "description": "the slot that contains the item's name",
@@ -7255,6 +7077,105 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/header/header.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The header component is an element that appears across the top of all pages on a website or application; it contains the logo, the site name and main actions.",
+          "name": "Header",
+          "slots": [
+            {
+              "description": "SNCF Logo",
+              "name": "logo"
+            },
+            {
+              "description": "Title of your application",
+              "name": "title"
+            },
+            {
+              "description": "Actions such as buttons, dropdown or any useful information to always display on your application",
+              "name": "actions"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeHeader",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "hostData"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-header",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Header",
+          "declaration": {
+            "name": "Header",
+            "module": "components/header/header.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-header",
+          "declaration": {
+            "name": "Header",
+            "module": "components/header/header.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/grid-pagination/grid-pagination-arrow.tsx",
       "declarations": [
         {
@@ -7547,105 +7468,6 @@
           "declaration": {
             "name": "GridPagination",
             "module": "components/grid-pagination/grid-pagination.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/header/header.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The header component is an element that appears across the top of all pages on a website or application; it contains the logo, the site name and main actions.",
-          "name": "Header",
-          "slots": [
-            {
-              "description": "SNCF Logo",
-              "name": "logo"
-            },
-            {
-              "description": "Title of your application",
-              "name": "title"
-            },
-            {
-              "description": "Actions such as buttons, dropdown or any useful information to always display on your application",
-              "name": "actions"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "nativeHeader",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "hostData"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-header",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Header",
-          "declaration": {
-            "name": "Header",
-            "module": "components/header/header.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-header",
-          "declaration": {
-            "name": "Header",
-            "module": "components/header/header.tsx"
           }
         }
       ]
@@ -8083,6 +7905,102 @@
           "declaration": {
             "name": "Icon",
             "module": "components/icon/icon.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/label/label.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The `wcs-label` should always be wrapped in a `wcs-form-field`.\r\nIt is used to caption a form control component.\r\n\r\n## Accessibility guidelines 💡\r\n- Use concise name for the label. If you want to describe more your form control, add a `wcs-hint`\r\n- Use the required flag only as an indication to inform users that the form control is required",
+          "name": "Label",
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeLabel",
+              "type": {
+                "text": "HTMLLabelElement | undefined"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "If `true`, marks the label with a red star.\r\nAutomatically added if the wrapped component inside the `wcs-form-field` already has the `required` attribute."
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "required",
+              "fieldName": "required"
+            }
+          ],
+          "tagName": "wcs-label",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Label",
+          "declaration": {
+            "name": "Label",
+            "module": "components/label/label.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-label",
+          "declaration": {
+            "name": "Label",
+            "module": "components/label/label.tsx"
           }
         }
       ]
@@ -8884,102 +8802,6 @@
           "declaration": {
             "name": "Input",
             "module": "components/input/input.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/label/label.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The `wcs-label` should always be wrapped in a `wcs-form-field`.\r\nIt is used to caption a form control component.\r\n\r\n## Accessibility guidelines 💡\r\n- Use concise name for the label. If you want to describe more your form control, add a `wcs-hint`\r\n- Use the required flag only as an indication to inform users that the form control is required",
-          "name": "Label",
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "nativeLabel",
-              "type": {
-                "text": "HTMLLabelElement | undefined"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "required",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "If `true`, marks the label with a red star.\r\nAutomatically added if the wrapped component inside the `wcs-form-field` already has the `required` attribute."
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "required",
-              "fieldName": "required"
-            }
-          ],
-          "tagName": "wcs-label",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Label",
-          "declaration": {
-            "name": "Label",
-            "module": "components/label/label.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-label",
-          "declaration": {
-            "name": "Label",
-            "module": "components/label/label.tsx"
           }
         }
       ]
@@ -12497,6 +12319,78 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/skeleton-circle/skeleton-circle.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Use a skeleton circle as a placeholder round images, illustrations or components",
+          "name": "SkeletonCircle",
+          "members": [
+            {
+              "kind": "field",
+              "name": "animation",
+              "type": {
+                "text": "WcsSkeletonAnimation"
+              },
+              "default": "'glide'",
+              "description": "Specifies the animation of the skeleton"
+            },
+            {
+              "kind": "field",
+              "name": "radius",
+              "type": {
+                "text": "number"
+              },
+              "default": "50",
+              "description": "Specifies the radius of the circle in px"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "animation",
+              "fieldName": "animation",
+              "type": {
+                "text": "WcsSkeletonAnimation"
+              }
+            },
+            {
+              "name": "radius",
+              "fieldName": "radius",
+              "type": {
+                "text": "number"
+              }
+            }
+          ],
+          "tagName": "wcs-skeleton-circle",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SkeletonCircle",
+          "declaration": {
+            "name": "SkeletonCircle",
+            "module": "components/skeleton-circle/skeleton-circle.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-skeleton-circle",
+          "declaration": {
+            "name": "SkeletonCircle",
+            "module": "components/skeleton-circle/skeleton-circle.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/skeleton-rectangle/skeleton-rectangle.tsx",
       "declarations": [
         {
@@ -12601,78 +12495,6 @@
           "declaration": {
             "name": "SkeletonRectangle",
             "module": "components/skeleton-rectangle/skeleton-rectangle.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/skeleton-circle/skeleton-circle.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Use a skeleton circle as a placeholder round images, illustrations or components",
-          "name": "SkeletonCircle",
-          "members": [
-            {
-              "kind": "field",
-              "name": "animation",
-              "type": {
-                "text": "WcsSkeletonAnimation"
-              },
-              "default": "'glide'",
-              "description": "Specifies the animation of the skeleton"
-            },
-            {
-              "kind": "field",
-              "name": "radius",
-              "type": {
-                "text": "number"
-              },
-              "default": "50",
-              "description": "Specifies the radius of the circle in px"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "animation",
-              "fieldName": "animation",
-              "type": {
-                "text": "WcsSkeletonAnimation"
-              }
-            },
-            {
-              "name": "radius",
-              "fieldName": "radius",
-              "type": {
-                "text": "number"
-              }
-            }
-          ],
-          "tagName": "wcs-skeleton-circle",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "SkeletonCircle",
-          "declaration": {
-            "name": "SkeletonCircle",
-            "module": "components/skeleton-circle/skeleton-circle.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-skeleton-circle",
-          "declaration": {
-            "name": "SkeletonCircle",
-            "module": "components/skeleton-circle/skeleton-circle.tsx"
           }
         }
       ]
@@ -12847,6 +12669,92 @@
           "kind": "class",
           "description": "The switch component is a control used to switch between on and off state.",
           "name": "Switch",
+          "cssProperties": [
+            {
+              "description": "Color of the focus outline",
+              "name": "--wcs-switch-outline-color-focus"
+            },
+            {
+              "description": "Color of the text when the switch is not selected",
+              "name": "--wcs-switch-text-color-default"
+            },
+            {
+              "description": "Color of the text when the switch is selected",
+              "name": "--wcs-switch-text-color-selected"
+            },
+            {
+              "description": "Color of the text when the switch is hovered",
+              "name": "--wcs-switch-text-color-hover"
+            },
+            {
+              "description": "Color of the text when the switch is disabled",
+              "name": "--wcs-switch-text-color-disabled"
+            },
+            {
+              "description": "Background color of the switch when not selected",
+              "name": "--wcs-switch-background-color-initial"
+            },
+            {
+              "description": "Background color of the switch when selected",
+              "name": "--wcs-switch-background-color-final"
+            },
+            {
+              "description": "Background color of the switch when disabled",
+              "name": "--wcs-switch-background-color-disabled"
+            },
+            {
+              "description": "Background color of the switch when disabled and selected",
+              "name": "--wcs-switch-background-color-disabled-selected"
+            },
+            {
+              "description": "Height of the switch",
+              "name": "--wcs-switch-height"
+            },
+            {
+              "description": "Width of the switch",
+              "name": "--wcs-switch-width"
+            },
+            {
+              "description": "Border radius of the switch",
+              "name": "--wcs-switch-border-radius"
+            },
+            {
+              "description": "Horizontal padding of the switch",
+              "name": "--wcs-switch-padding-horizontal"
+            },
+            {
+              "description": "Vertical padding of the switch",
+              "name": "--wcs-switch-padding-vertical"
+            },
+            {
+              "description": "Color of the dot when not selected",
+              "name": "--wcs-switch-dot-color-initial"
+            },
+            {
+              "description": "Color of the dot when selected",
+              "name": "--wcs-switch-dot-color-final"
+            },
+            {
+              "description": "Color of the dot when disabled",
+              "name": "--wcs-switch-dot-color-disabled"
+            },
+            {
+              "description": "Color of the dot when disabled and selected",
+              "name": "--wcs-switch-dot-color-disabled-selected"
+            },
+            {
+              "description": "Horizontal translation of the dot (from left to right = right to left)",
+              "name": "--wcs-switch-dot-translate-x"
+            },
+            {
+              "description": "Size of the dot",
+              "name": "--wcs-switch-dot-size"
+            },
+            {
+              "description": "Gap between the switch and the text",
+              "name": "--wcs-switch-gap"
+            }
+          ],
           "members": [
             {
               "kind": "field",
