@@ -45,8 +45,18 @@ export const Disabled = Template.bind({});
 Disabled.args = {
     checked: false,
     indeterminate: false,
-    name: 'checkbox-id',
+    name: 'checkbox-disabled',
     label: 'Une checkbox',
     labelAlignment: 'center',
     disabled: true
+};
+
+export const Indeterminate = Template.bind({});
+Indeterminate.args = {
+    checked: false,
+    indeterminate: true,
+    name: 'checkbox-indeterminate',
+    label: 'Une checkbox',
+    labelAlignment: 'center',
+    disabled: false
 };

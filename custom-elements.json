@@ -2483,6 +2483,104 @@
           "kind": "class",
           "description": "The checkbox component is an input for choosing one or more items from a set by checking / unchecking it.",
           "name": "Checkbox",
+          "cssProperties": [
+            {
+              "description": "Border radius of the focus outline",
+              "name": "--wcs-checkbox-outline-radius-focus"
+            },
+            {
+              "description": "Color of the focus outline",
+              "name": "--wcs-checkbox-outline-color-focus"
+            },
+            {
+              "description": "Color of the text when the checkbox is not selected",
+              "name": "--wcs-checkbox-text-color-default"
+            },
+            {
+              "description": "Default font weight of the text",
+              "name": "--wcs-checkbox-text-font-weight-default"
+            },
+            {
+              "description": "Color of the text when the checkbox is disabled",
+              "name": "--wcs-checkbox-text-color-disabled"
+            },
+            {
+              "description": "Color of the text when the checkbox is hovered",
+              "name": "--wcs-checkbox-text-color-hover"
+            },
+            {
+              "description": "Color of the text when the checkbox is selected",
+              "name": "--wcs-checkbox-text-color-selected"
+            },
+            {
+              "description": "Font weight of the text when the checkbox is selected",
+              "name": "--wcs-checkbox-text-font-weight-selected"
+            },
+            {
+              "description": "Color of the border when the checkbox is not selected",
+              "name": "--wcs-checkbox-border-color-default"
+            },
+            {
+              "description": "Color of the border when the checkbox is hovered",
+              "name": "--wcs-checkbox-border-color-hover"
+            },
+            {
+              "description": "Color of the border when the checkbox is disabled",
+              "name": "--wcs-checkbox-border-color-disabled"
+            },
+            {
+              "description": "Color of the border when the checkbox is in indeterminate state",
+              "name": "--wcs-checkbox-border-color-indeterminate"
+            },
+            {
+              "description": "Color of the border when the checkbox is selected",
+              "name": "--wcs-checkbox-border-color-selected"
+            },
+            {
+              "description": "Border radius of the checkbox",
+              "name": "--wcs-checkbox-border-radius"
+            },
+            {
+              "description": "Width of the border of the checkbox",
+              "name": "--wcs-checkbox-border-width"
+            },
+            {
+              "description": "Background color of the checkbox when in indeterminate state",
+              "name": "--wcs-checkbox-background-color-indeterminate"
+            },
+            {
+              "description": "Background color of the checkbox when selected",
+              "name": "--wcs-checkbox-background-color-selected"
+            },
+            {
+              "description": "Background color of the checkbox when disabled",
+              "name": "--wcs-checkbox-background-color-disabled"
+            },
+            {
+              "description": "Color of the checkmark",
+              "name": "--wcs-checkmark-color"
+            },
+            {
+              "description": "Height of the checkmark (From the bottom left to the top right of the checkmark)",
+              "name": "--wcs-checkmark-height"
+            },
+            {
+              "description": "Width of the checkmark (From the bottom right to the top left of the checkmark)",
+              "name": "--wcs-checkmark-width"
+            },
+            {
+              "description": "Width of the border of the checkmark",
+              "name": "--wcs-checkmark-border-width"
+            },
+            {
+              "description": "Size of the checkbox",
+              "name": "--wcs-checkbox-size"
+            },
+            {
+              "description": "Gap between the checkbox and the label",
+              "name": "--wcs-checkbox-gap"
+            }
+          ],
           "members": [
             {
               "kind": "field",
@@ -12403,78 +12501,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/skeleton-text/skeleton-text.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Use a skeleton text as a placeholder for titles or paragraphs.",
-          "name": "SkeletonText",
-          "members": [
-            {
-              "kind": "field",
-              "name": "animation",
-              "type": {
-                "text": "WcsSkeletonAnimation"
-              },
-              "default": "'glide'",
-              "description": "Specifies the animation of the skeleton"
-            },
-            {
-              "kind": "field",
-              "name": "height",
-              "type": {
-                "text": "'h1' | 'h2' | 'h3' | 'caption' | 'body'"
-              },
-              "default": "'body'",
-              "description": "Specifies the line height of the text skeleton"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "animation",
-              "fieldName": "animation",
-              "type": {
-                "text": "WcsSkeletonAnimation"
-              }
-            },
-            {
-              "name": "height",
-              "fieldName": "height",
-              "type": {
-                "text": "'h1' | 'h2' | 'h3' | 'caption' | 'body'"
-              }
-            }
-          ],
-          "tagName": "wcs-skeleton-text",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "SkeletonText",
-          "declaration": {
-            "name": "SkeletonText",
-            "module": "components/skeleton-text/skeleton-text.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-skeleton-text",
-          "declaration": {
-            "name": "SkeletonText",
-            "module": "components/skeleton-text/skeleton-text.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/spinner/spinner-interface.ts",
       "declarations": [],
       "exports": []
@@ -12553,6 +12579,148 @@
           "declaration": {
             "name": "Spinner",
             "module": "components/spinner/spinner.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/skeleton-text/skeleton-text.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Use a skeleton text as a placeholder for titles or paragraphs.",
+          "name": "SkeletonText",
+          "members": [
+            {
+              "kind": "field",
+              "name": "animation",
+              "type": {
+                "text": "WcsSkeletonAnimation"
+              },
+              "default": "'glide'",
+              "description": "Specifies the animation of the skeleton"
+            },
+            {
+              "kind": "field",
+              "name": "height",
+              "type": {
+                "text": "'h1' | 'h2' | 'h3' | 'caption' | 'body'"
+              },
+              "default": "'body'",
+              "description": "Specifies the line height of the text skeleton"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "animation",
+              "fieldName": "animation",
+              "type": {
+                "text": "WcsSkeletonAnimation"
+              }
+            },
+            {
+              "name": "height",
+              "fieldName": "height",
+              "type": {
+                "text": "'h1' | 'h2' | 'h3' | 'caption' | 'body'"
+              }
+            }
+          ],
+          "tagName": "wcs-skeleton-text",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SkeletonText",
+          "declaration": {
+            "name": "SkeletonText",
+            "module": "components/skeleton-text/skeleton-text.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-skeleton-text",
+          "declaration": {
+            "name": "SkeletonText",
+            "module": "components/skeleton-text/skeleton-text.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/tab/tab.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Tab content component.\r\nUse this component to specify the content of a component.",
+          "name": "Tab",
+          "members": [
+            {
+              "kind": "field",
+              "name": "header",
+              "type": {
+                "text": "string"
+              },
+              "description": "The header you want to be displayed for this tab."
+            },
+            {
+              "kind": "field",
+              "name": "itemKey",
+              "type": {
+                "text": "any"
+              },
+              "description": "The id of the tab. It should be unique."
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "header",
+              "fieldName": "header",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "item-key",
+              "fieldName": "itemKey",
+              "type": {
+                "text": "any"
+              }
+            }
+          ],
+          "tagName": "wcs-tab",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Tab",
+          "declaration": {
+            "name": "Tab",
+            "module": "components/tab/tab.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-tab",
+          "declaration": {
+            "name": "Tab",
+            "module": "components/tab/tab.tsx"
           }
         }
       ]
@@ -12759,76 +12927,6 @@
           "declaration": {
             "name": "Switch",
             "module": "components/switch/switch.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/tab/tab.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Tab content component.\r\nUse this component to specify the content of a component.",
-          "name": "Tab",
-          "members": [
-            {
-              "kind": "field",
-              "name": "header",
-              "type": {
-                "text": "string"
-              },
-              "description": "The header you want to be displayed for this tab."
-            },
-            {
-              "kind": "field",
-              "name": "itemKey",
-              "type": {
-                "text": "any"
-              },
-              "description": "The id of the tab. It should be unique."
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "header",
-              "fieldName": "header",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "item-key",
-              "fieldName": "itemKey",
-              "type": {
-                "text": "any"
-              }
-            }
-          ],
-          "tagName": "wcs-tab",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Tab",
-          "declaration": {
-            "name": "Tab",
-            "module": "components/tab/tab.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-tab",
-          "declaration": {
-            "name": "Tab",
-            "module": "components/tab/tab.tsx"
           }
         }
       ]

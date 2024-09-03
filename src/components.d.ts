@@ -273,6 +273,30 @@ export namespace Components {
     }
     /**
      * The checkbox component is an input for choosing one or more items from a set by checking / unchecking it.
+     * @cssprop --wcs-checkbox-outline-radius-focus - Border radius of the focus outline
+     * @cssprop --wcs-checkbox-outline-color-focus - Color of the focus outline
+     * @cssprop --wcs-checkbox-text-color-default - Color of the text when the checkbox is not selected
+     * @cssprop --wcs-checkbox-text-font-weight-default - Default font weight of the text
+     * @cssprop --wcs-checkbox-text-color-disabled - Color of the text when the checkbox is disabled
+     * @cssprop --wcs-checkbox-text-color-hover - Color of the text when the checkbox is hovered
+     * @cssprop --wcs-checkbox-text-color-selected - Color of the text when the checkbox is selected
+     * @cssprop --wcs-checkbox-text-font-weight-selected - Font weight of the text when the checkbox is selected
+     * @cssprop --wcs-checkbox-border-color-default - Color of the border when the checkbox is not selected
+     * @cssprop --wcs-checkbox-border-color-hover - Color of the border when the checkbox is hovered
+     * @cssprop --wcs-checkbox-border-color-disabled - Color of the border when the checkbox is disabled
+     * @cssprop --wcs-checkbox-border-color-indeterminate - Color of the border when the checkbox is in indeterminate state
+     * @cssprop --wcs-checkbox-border-color-selected - Color of the border when the checkbox is selected
+     * @cssprop --wcs-checkbox-border-radius - Border radius of the checkbox
+     * @cssprop --wcs-checkbox-border-width - Width of the border of the checkbox
+     * @cssprop --wcs-checkbox-background-color-indeterminate - Background color of the checkbox when in indeterminate state
+     * @cssprop --wcs-checkbox-background-color-selected - Background color of the checkbox when selected
+     * @cssprop --wcs-checkbox-background-color-disabled - Background color of the checkbox when disabled
+     * @cssprop --wcs-checkmark-color - Color of the checkmark
+     * @cssprop --wcs-checkmark-height - Height of the checkmark (From the bottom left to the top right of the checkmark)
+     * @cssprop --wcs-checkmark-width - Width of the checkmark (From the bottom right to the top left of the checkmark)
+     * @cssprop --wcs-checkmark-border-width - Width of the border of the checkmark
+     * @cssprop --wcs-checkbox-size - Size of the checkbox
+     * @cssprop --wcs-checkbox-gap - Gap between the checkbox and the label
      */
     interface WcsCheckbox {
         /**
@@ -2015,6 +2039,30 @@ declare global {
     }
     /**
      * The checkbox component is an input for choosing one or more items from a set by checking / unchecking it.
+     * @cssprop --wcs-checkbox-outline-radius-focus - Border radius of the focus outline
+     * @cssprop --wcs-checkbox-outline-color-focus - Color of the focus outline
+     * @cssprop --wcs-checkbox-text-color-default - Color of the text when the checkbox is not selected
+     * @cssprop --wcs-checkbox-text-font-weight-default - Default font weight of the text
+     * @cssprop --wcs-checkbox-text-color-disabled - Color of the text when the checkbox is disabled
+     * @cssprop --wcs-checkbox-text-color-hover - Color of the text when the checkbox is hovered
+     * @cssprop --wcs-checkbox-text-color-selected - Color of the text when the checkbox is selected
+     * @cssprop --wcs-checkbox-text-font-weight-selected - Font weight of the text when the checkbox is selected
+     * @cssprop --wcs-checkbox-border-color-default - Color of the border when the checkbox is not selected
+     * @cssprop --wcs-checkbox-border-color-hover - Color of the border when the checkbox is hovered
+     * @cssprop --wcs-checkbox-border-color-disabled - Color of the border when the checkbox is disabled
+     * @cssprop --wcs-checkbox-border-color-indeterminate - Color of the border when the checkbox is in indeterminate state
+     * @cssprop --wcs-checkbox-border-color-selected - Color of the border when the checkbox is selected
+     * @cssprop --wcs-checkbox-border-radius - Border radius of the checkbox
+     * @cssprop --wcs-checkbox-border-width - Width of the border of the checkbox
+     * @cssprop --wcs-checkbox-background-color-indeterminate - Background color of the checkbox when in indeterminate state
+     * @cssprop --wcs-checkbox-background-color-selected - Background color of the checkbox when selected
+     * @cssprop --wcs-checkbox-background-color-disabled - Background color of the checkbox when disabled
+     * @cssprop --wcs-checkmark-color - Color of the checkmark
+     * @cssprop --wcs-checkmark-height - Height of the checkmark (From the bottom left to the top right of the checkmark)
+     * @cssprop --wcs-checkmark-width - Width of the checkmark (From the bottom right to the top left of the checkmark)
+     * @cssprop --wcs-checkmark-border-width - Width of the border of the checkmark
+     * @cssprop --wcs-checkbox-size - Size of the checkbox
+     * @cssprop --wcs-checkbox-gap - Gap between the checkbox and the label
      */
     interface HTMLWcsCheckboxElement extends Components.WcsCheckbox, HTMLStencilElement {
         addEventListener<K extends keyof HTMLWcsCheckboxElementEventMap>(type: K, listener: (this: HTMLWcsCheckboxElement, ev: WcsCheckboxCustomEvent<HTMLWcsCheckboxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3379,6 +3427,30 @@ declare namespace LocalJSX {
     }
     /**
      * The checkbox component is an input for choosing one or more items from a set by checking / unchecking it.
+     * @cssprop --wcs-checkbox-outline-radius-focus - Border radius of the focus outline
+     * @cssprop --wcs-checkbox-outline-color-focus - Color of the focus outline
+     * @cssprop --wcs-checkbox-text-color-default - Color of the text when the checkbox is not selected
+     * @cssprop --wcs-checkbox-text-font-weight-default - Default font weight of the text
+     * @cssprop --wcs-checkbox-text-color-disabled - Color of the text when the checkbox is disabled
+     * @cssprop --wcs-checkbox-text-color-hover - Color of the text when the checkbox is hovered
+     * @cssprop --wcs-checkbox-text-color-selected - Color of the text when the checkbox is selected
+     * @cssprop --wcs-checkbox-text-font-weight-selected - Font weight of the text when the checkbox is selected
+     * @cssprop --wcs-checkbox-border-color-default - Color of the border when the checkbox is not selected
+     * @cssprop --wcs-checkbox-border-color-hover - Color of the border when the checkbox is hovered
+     * @cssprop --wcs-checkbox-border-color-disabled - Color of the border when the checkbox is disabled
+     * @cssprop --wcs-checkbox-border-color-indeterminate - Color of the border when the checkbox is in indeterminate state
+     * @cssprop --wcs-checkbox-border-color-selected - Color of the border when the checkbox is selected
+     * @cssprop --wcs-checkbox-border-radius - Border radius of the checkbox
+     * @cssprop --wcs-checkbox-border-width - Width of the border of the checkbox
+     * @cssprop --wcs-checkbox-background-color-indeterminate - Background color of the checkbox when in indeterminate state
+     * @cssprop --wcs-checkbox-background-color-selected - Background color of the checkbox when selected
+     * @cssprop --wcs-checkbox-background-color-disabled - Background color of the checkbox when disabled
+     * @cssprop --wcs-checkmark-color - Color of the checkmark
+     * @cssprop --wcs-checkmark-height - Height of the checkmark (From the bottom left to the top right of the checkmark)
+     * @cssprop --wcs-checkmark-width - Width of the checkmark (From the bottom right to the top left of the checkmark)
+     * @cssprop --wcs-checkmark-border-width - Width of the border of the checkmark
+     * @cssprop --wcs-checkbox-size - Size of the checkbox
+     * @cssprop --wcs-checkbox-gap - Gap between the checkbox and the label
      */
     interface WcsCheckbox {
         /**
@@ -5091,6 +5163,30 @@ declare module "@stencil/core" {
             "wcs-card-body": LocalJSX.WcsCardBody & JSXBase.HTMLAttributes<HTMLWcsCardBodyElement>;
             /**
              * The checkbox component is an input for choosing one or more items from a set by checking / unchecking it.
+             * @cssprop --wcs-checkbox-outline-radius-focus - Border radius of the focus outline
+             * @cssprop --wcs-checkbox-outline-color-focus - Color of the focus outline
+             * @cssprop --wcs-checkbox-text-color-default - Color of the text when the checkbox is not selected
+             * @cssprop --wcs-checkbox-text-font-weight-default - Default font weight of the text
+             * @cssprop --wcs-checkbox-text-color-disabled - Color of the text when the checkbox is disabled
+             * @cssprop --wcs-checkbox-text-color-hover - Color of the text when the checkbox is hovered
+             * @cssprop --wcs-checkbox-text-color-selected - Color of the text when the checkbox is selected
+             * @cssprop --wcs-checkbox-text-font-weight-selected - Font weight of the text when the checkbox is selected
+             * @cssprop --wcs-checkbox-border-color-default - Color of the border when the checkbox is not selected
+             * @cssprop --wcs-checkbox-border-color-hover - Color of the border when the checkbox is hovered
+             * @cssprop --wcs-checkbox-border-color-disabled - Color of the border when the checkbox is disabled
+             * @cssprop --wcs-checkbox-border-color-indeterminate - Color of the border when the checkbox is in indeterminate state
+             * @cssprop --wcs-checkbox-border-color-selected - Color of the border when the checkbox is selected
+             * @cssprop --wcs-checkbox-border-radius - Border radius of the checkbox
+             * @cssprop --wcs-checkbox-border-width - Width of the border of the checkbox
+             * @cssprop --wcs-checkbox-background-color-indeterminate - Background color of the checkbox when in indeterminate state
+             * @cssprop --wcs-checkbox-background-color-selected - Background color of the checkbox when selected
+             * @cssprop --wcs-checkbox-background-color-disabled - Background color of the checkbox when disabled
+             * @cssprop --wcs-checkmark-color - Color of the checkmark
+             * @cssprop --wcs-checkmark-height - Height of the checkmark (From the bottom left to the top right of the checkmark)
+             * @cssprop --wcs-checkmark-width - Width of the checkmark (From the bottom right to the top left of the checkmark)
+             * @cssprop --wcs-checkmark-border-width - Width of the border of the checkmark
+             * @cssprop --wcs-checkbox-size - Size of the checkbox
+             * @cssprop --wcs-checkbox-gap - Gap between the checkbox and the label
              */
             "wcs-checkbox": LocalJSX.WcsCheckbox & JSXBase.HTMLAttributes<HTMLWcsCheckboxElement>;
             /**

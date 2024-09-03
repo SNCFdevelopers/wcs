@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-11-08T09:58:44",
+  "timestamp": "2024-11-08T10:55:07",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -1277,7 +1277,104 @@
       "tag": "wcs-checkbox",
       "readme": "# Checkbox\r\n\r\n\r",
       "docs": "The checkbox component is an input for choosing one or more items from a set by checking / unchecking it.",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "cssprop",
+          "text": "--wcs-checkbox-outline-radius-focus - Border radius of the focus outline"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-checkbox-outline-color-focus - Color of the focus outline"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-checkbox-text-color-default - Color of the text when the checkbox is not selected"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-checkbox-text-font-weight-default - Default font weight of the text"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-checkbox-text-color-disabled - Color of the text when the checkbox is disabled"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-checkbox-text-color-hover - Color of the text when the checkbox is hovered"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-checkbox-text-color-selected - Color of the text when the checkbox is selected"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-checkbox-text-font-weight-selected - Font weight of the text when the checkbox is selected"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-checkbox-border-color-default - Color of the border when the checkbox is not selected"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-checkbox-border-color-hover - Color of the border when the checkbox is hovered"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-checkbox-border-color-disabled - Color of the border when the checkbox is disabled"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-checkbox-border-color-indeterminate - Color of the border when the checkbox is in indeterminate state"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-checkbox-border-color-selected - Color of the border when the checkbox is selected"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-checkbox-border-radius - Border radius of the checkbox"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-checkbox-border-width - Width of the border of the checkbox"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-checkbox-background-color-indeterminate - Background color of the checkbox when in indeterminate state"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-checkbox-background-color-selected - Background color of the checkbox when selected"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-checkbox-background-color-disabled - Background color of the checkbox when disabled"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-checkmark-color - Color of the checkmark"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-checkmark-height - Height of the checkmark (From the bottom left to the top right of the checkmark)"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-checkmark-width - Width of the checkmark (From the bottom right to the top left of the checkmark)"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-checkmark-border-width - Width of the border of the checkmark"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-checkbox-size - Size of the checkbox"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-checkbox-gap - Gap between the checkbox and the label"
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -1312,7 +1409,7 @@
           },
           "mutable": false,
           "attr": "disabled",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "Specify wether the checkbox is disabled or not.",
           "docsTags": [],
           "default": "false",

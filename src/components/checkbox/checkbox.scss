@@ -1,18 +1,108 @@
 @import '../../style/focus-outline.scss';
 
 :host {
-    --wcs-checkbox-border-color: var(--wcs-text-medium);
-    --wcs-checkbox-text-color: var(--wcs-text-medium);
+    // region to be removed before migration to design tokens
+    --wcs-checkbox-border-color: var(--wcs-checkbox-border-color-default);
+
+    --wcs-checkbox-border-color-default: var(--wcs-text-medium);
+    --wcs-checkbox-border-color-hover: var(--wcs-primary);
+    --wcs-checkbox-border-color-disabled: var(--wcs-light);
+    --wcs-checkbox-border-color-indeterminate: var(--wcs-primary);
+    --wcs-checkbox-border-color-selected: var(--wcs-primary);
+
+    --wcs-checkbox-border-radius: 3px;
+    --wcs-checkbox-border-width: 2px;
+
+    --wcs-checkbox-size: 1.125rem;
+
+    --wcs-checkbox-text-color-default: var(--wcs-text-medium);
+    --wcs-checkbox-text-color-disabled: var(--wcs-text-disabled);
+    --wcs-checkbox-text-color-hover: var(--wcs-primary);
+    --wcs-checkbox-text-color-selected: var(--wcs-primary);
+
+    --wcs-checkbox-text-font-weight-default: 500;
+    --wcs-checkbox-text-font-weight-selected: 500;
+
+    --wcs-checkbox-background-color-indeterminate: var(--wcs-primary);
+    --wcs-checkbox-background-color-selected: var(--wcs-primary);
+    --wcs-checkbox-background-color-disabled: var(--wcs-light);
+
+    --wcs-checkbox-outline-radius-focus: calc(var(--wcs-border-radius) / 2);
+    --wcs-checkbox-outline-color-focus: var(--wcs-primary);
+
+    --wcs-checkbox-gap: 6px;
+
+    --wcs-checkmark-color: var(--wcs-white);
+    --wcs-checkmark-height: 10px;
+    --wcs-checkmark-width: 5px;
+    --wcs-checkmark-border-width: 3px;
+
+    --wcs-indeterminate-bar-width: calc(var(--wcs-checkbox-size) * 0.75);
+    --wcs-indeterminate-bar-height: 2px;
+    --wcs-indeterminate-bar-border-radius: 1px;
+    --wcs-indeterminate-bar-background-color: var(--wcs-white);
+    // endregion
+
     display: flex;
 }
 
+:host(.token-migration) {
+    --wcs-checkbox-border-color: var(--wcs-checkbox-border-color-default);
+
+    --wcs-checkbox-border-color-default: var(--wcs-semantic-color-border-control-indicator-default);
+    --wcs-checkbox-border-color-hover: var(--wcs-semantic-color-primary);
+    --wcs-checkbox-border-color-disabled: var(--wcs-semantic-color-background-control-indicator-disabled);
+    --wcs-checkbox-border-color-indeterminate: var(--wcs-semantic-color-primary);
+    --wcs-checkbox-border-color-selected: var(--wcs-semantic-color-primary);
+
+    --wcs-checkbox-border-radius: var(--wcs-semantic-border-radius-small);
+    --wcs-checkbox-border-width: var(--wcs-semantic-border-width-large);
+
+    --wcs-checkbox-size: 1.125rem;
+
+    --wcs-checkbox-text-color-default: var(--wcs-semantic-color-text-secondary);
+    --wcs-checkbox-text-color-disabled: var(--wcs-semantic-color-text-tertiary);
+    --wcs-checkbox-text-color-hover: var(--wcs-semantic-color-text-primary);
+    --wcs-checkbox-text-color-selected: var(--wcs-semantic-color-text-primary);
+
+    --wcs-checkbox-text-font-weight-default: var(--wcs-semantic-font-weight-medium);
+    --wcs-checkbox-text-font-weight-selected: var(--wcs-semantic-font-weight-medium);
+
+    --wcs-checkbox-background-color-indeterminate: var(--wcs-semantic-color-primary);
+    --wcs-checkbox-background-color-selected: var(--wcs-semantic-color-background-control-indicator-selected);
+    --wcs-checkbox-background-color-disabled: var(--wcs-semantic-color-background-control-indicator-disabled);
+
+    --wcs-checkbox-outline-radius-focus: var(--wcs-semantic-border-radius-small);
+    --wcs-checkbox-outline-color-focus: var(--wcs-semantic-color-border-focus-base);
+
+    --wcs-checkbox-gap: var(--wcs-semantic-spacing-base);
+    --wcs-checkmark-color: var(--wcs-semantic-color-foreground-control-indicator-selected);
+    --wcs-checkmark-height: 10px;
+    --wcs-checkmark-width: 5px;
+    --wcs-checkmark-border-width: 3px;
+
+    --wcs-indeterminate-bar-width: calc(var(--wcs-checkbox-size) * 0.75);
+    --wcs-indeterminate-bar-height: 2px;
+    --wcs-indeterminate-bar-border-radius: 1px;
+    --wcs-indeterminate-bar-background-color: var(--wcs-semantic-color-foreground-control-indicator-selected);
+}
+
 :host([disabled]) {
-    --wcs-checkbox-border-color: var(--wcs-light);
-    --wcs-checkbox-text-color: var(--wcs-text-disabled);
+    .text {
+        color: var(--wcs-checkbox-text-color-disabled);
+    }
+
+    .wcs-checkmark {
+        border-color: var(--wcs-checkbox-border-color-disabled);
+    }
 
     .wcs-container {
         cursor: not-allowed;
     }
+}
+
+:host([checked]:not([indeterminate][disabled])) {
+    --wcs-checkbox-border-color: var(--wcs-checkbox-border-color-selected);
 }
 
 .wcs-checkmark {
@@ -25,9 +115,8 @@
     position: relative;
     font-size: 1rem;
     user-select: none;
-    font-weight: 500;
     display: flex;
-    gap: 6px;
+    gap: var(--wcs-checkbox-gap);
 }
 
 .wcs-container:not([aria-disabled]) {
@@ -65,45 +154,54 @@
 }
 
 .wcs-container:hover:not([aria-disabled]), input:focus {
-    --wcs-checkbox-border-color: var(--wcs-primary);
+    .text {
+        color: var(--wcs-checkbox-text-color-hover);
+    }
 
-    --wcs-checkbox-text-color: var(--wcs-primary);
+    .wcs-checkmark {
+        border-color: var(--wcs-checkbox-border-color-hover);
+    }
 }
 
 .wcs-container:has(input:focus-visible) {
-    @include focus-outline($border-radius: calc(var(--wcs-border-radius) / 2));
+    @include focus-outline($outline-color: var(--wcs-checkbox-outline-color-focus), $border-radius: var(--wcs-checkbox-outline-radius-focus));
 }
 
 @supports not selector(.wcs-container:has(input:focus-visible)){
     .wcs-container:focus-within {
-        @include focus-outline($border-radius: calc(var(--wcs-border-radius) /2));
+        @include focus-outline($outline-color: var(--wcs-checkbox-outline-color-focus), $border-radius: var(--wcs-checkbox-outline-radius-focus));
     }
 }
 
 /* Create a custom checkbox */
 .wcs-checkmark {
     flex: 0 0 1.125rem;
-    width: 1.125rem;
-    height: 1.125rem;
-    border: 2px solid var(--wcs-checkbox-border-color);
-    border-radius: 3px;
+    width: var(--wcs-checkbox-size);
+    height: var(--wcs-checkbox-size);
+    border: var(--wcs-checkbox-border-width) solid var(--wcs-checkbox-border-color);
+    border-radius: var(--wcs-checkbox-border-radius);
 }
 
 :host([indeterminate]) {
     .wcs-checkmark {
-        --wcs-checkbox-border-color: var(--wcs-primary);
-        background: var(--wcs-primary);
+        border-color: var(--wcs-checkbox-border-color-indeterminate);
+        background: var(--wcs-checkbox-background-color-indeterminate);
+    }
+}
+
+:host([indeterminate][disabled]) {
+    .wcs-checkmark {
+        border-color: var(--wcs-checkbox-border-color-disabled);
+        background: var(--wcs-checkbox-background-color-disabled);
     }
 }
 
 /* When the checkbox is checked, add a blue background */
 .wcs-container:not([aria-disabled]) input:checked~.wcs-checkmark {
-    background-color: var(--wcs-primary);
-    --wcs-checkbox-border-color: var(--wcs-primary);
+    background-color: var(--wcs-checkbox-background-color-selected);
 }
 .wcs-container[aria-disabled] input:checked~.wcs-checkmark {
-    background-color: var(--wcs-light);
-    --wcs-checkbox-border-color: var(--wcs-light);
+    background-color: var(--wcs-checkbox-background-color-disabled);
 }
 
 /* Create the wcs-checkmark/indicator (hidden when not checked) */
@@ -113,33 +211,51 @@
     display: none;
 }
 
-/* Show the wcs-checkmark when checked */
-.wcs-container input:checked~.wcs-checkmark:after {
-    display: flex;
+.wcs-checkmark {
+    position: relative;
 }
 
+:host([checked]), :host([indeterminate]) {
+    /* Show the wcs-checkmark when checked */
+    .wcs-container input~.wcs-checkmark:after {
+        display: flex;
+    }
+}
 
+:host(:not([indeterminate])) {
+    /* Style the wcs-checkmark/indicator */
+    .wcs-container .wcs-checkmark:after {
+        left: 5px; // TODO: calculate with rem
+        width: var(--wcs-checkmark-width);
+        height: var(--wcs-checkmark-height);
+        border: solid var(--wcs-checkmark-color, white);
+        border-width: 0 var(--wcs-checkmark-border-width) var(--wcs-checkmark-border-width) 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+}
 
-/* Style the wcs-checkmark/indicator */
-.wcs-container .wcs-checkmark:after {
-    left: 7px;
-    width: 5px;
-    height: 10px;
-    border: solid var(--wcs-white, white);
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
+:host([indeterminate]) {
+    .wcs-container .wcs-checkmark:after {
+        position: absolute;
+        background-color: var(--wcs-indeterminate-bar-background-color);
+        left: calc(50% - (var(--wcs-indeterminate-bar-width) / 2));
+        top: calc(50% - (var(--wcs-indeterminate-bar-height) / 2));
+        width: var(--wcs-indeterminate-bar-width);
+        height: var(--wcs-indeterminate-bar-height);
+        border-radius: var(--wcs-indeterminate-bar-border-radius);
+    }
+}
+
+.wcs-container:not([aria-disabled]) input:not(:checked)~.text {
+    color: var(--wcs-checkbox-text-color-default);
+    font-weight: var(--wcs-checkbox-text-font-weight-default, 500);
 }
 
 .wcs-container:not([aria-disabled]) input:checked~.text {
-    --wcs-checkbox-text-color: var(--wcs-primary);
-}
-
-.text {
-    color: var(--wcs-checkbox-text-color);
-    font-weight: 500;
-    line-height: 1.375;
+    color: var(--wcs-checkbox-text-color-selected);
+    font-weight: var(--wcs-checkbox-text-font-weight-selected, 500);
 }
 
 .hidden {
