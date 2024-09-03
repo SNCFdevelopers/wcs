@@ -11,14 +11,9 @@ import {
     EventEmitter, Method
 } from '@stencil/core';
 import {MenuOpenedEventDetail} from '../com-nav/com-nav-interface';
-import {
-    getCssRootPropertyValue,
-    inheritAriaAttributes, inheritAttributes,
-    isEnterKey,
-    isEscapeKey,
-    isSpaceKey, setOrRemoveAttribute
-} from "../../utils/helpers";
-import {registerCloseHandlerForFocusOutEventOn} from "../com-nav/com-nav-utils";
+import { inheritAriaAttributes, inheritAttributes, isEnterKey, isEscapeKey, isSpaceKey, setOrRemoveAttribute } from "../../utils/helpers";
+import { comNavDidLoadWithResizeObserver, registerCloseHandlerForFocusOutEventOn } from "../com-nav/com-nav-utils";
+import { ComNavSize } from "../com-nav/com-nav-size";
 import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
 
 const COM_NAV_SUBMENU_INHERITED_ATTRS = ['title'];
@@ -56,7 +51,7 @@ export class ComNavSubmenu implements ComponentInterface, MutableAriaAttribute {
      * To re-trigger re-render in order to render a button in case of desktop or a heading in mobile case
      * @private
      */
-    @State() private currentActiveSizing: 'desktop' | 'mobile' = 'desktop';
+    @State() public currentActiveSizing: ComNavSize = 'desktop';
 
     componentWillLoad(): Promise<void> | void {
         const slottedCategoryItems = this.el.querySelectorAll(':scope > wcs-com-nav-category:not([slot])');
@@ -70,19 +65,7 @@ export class ComNavSubmenu implements ComponentInterface, MutableAriaAttribute {
 
     componentDidLoad(): void {
         if(!this.resizeObserver) {
-            const smallBreakpoint = getCssRootPropertyValue('--wcs-phone-breakpoint-max-width') || '576px';
-            const smallBreakpointValue = parseInt(smallBreakpoint, 10);
-
-            this.resizeObserver = new ResizeObserver(entry => {
-                const cr = entry[0].contentRect;
-                const paddingRight = cr.right - cr.width;
-                const paddingLeft = cr.left;
-                if (cr.width < smallBreakpointValue - (paddingLeft + paddingRight)) {
-                    this.currentActiveSizing = 'mobile';
-                } else {
-                    this.currentActiveSizing = 'desktop';
-                }
-            });
+            this.resizeObserver = comNavDidLoadWithResizeObserver(this);
             this.resizeObserver.observe(document.body);
         }
     }

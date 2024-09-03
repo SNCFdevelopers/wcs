@@ -1,3 +1,8 @@
+import { getCssRootPropertyValue } from "../../utils/helpers";
+import { ComNav } from "./com-nav";
+import { ComNavSubmenu } from "../com-nav-submenu/com-nav-submenu";
+import { ComNavCategory } from "../com-nav-category/com-nav-category";
+
 /**
  * This function add event handlers on the navigableItems list. The handlers call the function close() on the nodeName.
  *
@@ -30,4 +35,20 @@ function eventTargetNodeNameEquals(nodeName: string) {
 
 function isEventThrownFromChildOfNodeNameToClose(eventComposedPath: EventTarget[], nodeName: string) {
     return eventComposedPath.map(x => (x as HTMLElement).nodeName).indexOf(nodeName) !== -1;
+}
+
+export function comNavDidLoadWithResizeObserver(comNavElement: ComNav | ComNavSubmenu | ComNavCategory): ResizeObserver {
+    const smallBreakpoint = getCssRootPropertyValue('--wcs-phone-breakpoint-max-width') || '575px';
+    const smallBreakpointValue = parseInt(smallBreakpoint, 10);
+
+    return new ResizeObserver(entry => {
+        const cr = entry[0].contentRect;
+        const paddingRight = cr.right - cr.width;
+        const paddingLeft = cr.left;
+        if (cr.width <= smallBreakpointValue - (paddingLeft + paddingRight)) {
+            comNavElement.currentActiveSizing = 'mobile';
+        } else {
+            comNavElement.currentActiveSizing = 'desktop';
+        }
+    });
 }

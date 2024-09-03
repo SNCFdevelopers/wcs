@@ -10,9 +10,10 @@ import {
     Prop,
     State,
 } from '@stencil/core';
-import { registerCloseHandlerForFocusOutEventOn } from "./com-nav-utils";
-import { getCssRootPropertyValue, inheritAriaAttributes, inheritAttributes, isEscapeKey } from "../../utils/helpers";
+import { comNavDidLoadWithResizeObserver, registerCloseHandlerForFocusOutEventOn } from "./com-nav-utils";
+import { inheritAriaAttributes, inheritAttributes, isEscapeKey } from "../../utils/helpers";
 import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
+import { ComNavSize } from "./com-nav-size";
 
 
 const COM_NAV_INHERITED_ATTRS = ['title'];
@@ -41,7 +42,7 @@ export class ComNav implements ComponentInterface, MutableAriaAttribute {
     @Prop() appName: string;
 
     @State() private mobileMenuOpen: boolean = false;
-    @State() private currentActiveSizing: 'desktop' | 'mobile';
+    @State() public currentActiveSizing: ComNavSize;
     private resizeObserver: ResizeObserver;
     private hasAlreadyRegisteredClickHandlerOnSlottedLink: boolean = false;
 
@@ -65,19 +66,7 @@ export class ComNav implements ComponentInterface, MutableAriaAttribute {
 
     componentDidLoad(): void {
         if(!this.resizeObserver) {
-            const smallBreakpoint = getCssRootPropertyValue('--wcs-phone-breakpoint-max-width') || '576px';
-            const smallBreakpointValue = parseInt(smallBreakpoint, 10);            
-            
-            this.resizeObserver = new ResizeObserver(entry => {
-                const cr = entry[0].contentRect;
-                const paddingRight = cr.right - cr.width;
-                const paddingLeft = cr.left;
-                if (cr.width < smallBreakpointValue - (paddingLeft + paddingRight)) {
-                    this.currentActiveSizing = 'mobile';
-                } else {
-                    this.currentActiveSizing = 'desktop';
-                }
-            });
+            this.resizeObserver = comNavDidLoadWithResizeObserver(this);
             this.resizeObserver.observe(document.body);
         }
     }
