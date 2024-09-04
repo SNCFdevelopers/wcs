@@ -54,6 +54,7 @@ for soon-to-be removed features.
 - **select**: on autocomplete mode, disable default autocomplete suggestion of user-agents
 - **dropdown**: improve accessibility
 - **stepper**: (accessibility) use aria-current="true" instead of tab pattern (does not work with Voice Over)
+- **modal**: focusable elements were not updated during the opening lifecycle
 
 ### Security
 

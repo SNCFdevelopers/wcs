@@ -189,10 +189,11 @@ export class Modal implements ComponentInterface, MutableAriaAttribute {
         }
 
         if (this.show) {
-            const firstElement = this.firstFocusableElement;
-            const lastElement = this.lastFocusableElement;
-
             if (isTabKey(event)) {
+                this.updateFocusableElements(); // XXX: maybe a performance issue
+                const firstElement = this.firstFocusableElement;
+                const lastElement = this.lastFocusableElement;
+
                 if (event.shiftKey && isElementFocused(firstElement)) {
                     event.preventDefault();
                     lastElement.focus();
@@ -229,7 +230,11 @@ export class Modal implements ComponentInterface, MutableAriaAttribute {
                             <slot name="header"></slot>
                         </h1>
                         {this.showCloseButton && (
-                            <wcs-button shape="round" mode="clear" class="wcs-dark" aria-label={this.closeButtonAriaLabel}
+                            <wcs-button shape="round" 
+                                        mode="clear" 
+                                        id="wcs-modal-close-button" 
+                                        class="wcs-dark" 
+                                        aria-label={this.closeButtonAriaLabel}
                                         onClick={($event) => this.onCloseButtonClick($event)}>
                                 <wcs-mat-icon icon="close"></wcs-mat-icon>
                             </wcs-button>)
