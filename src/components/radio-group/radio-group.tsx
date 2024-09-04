@@ -6,7 +6,7 @@ import {
     EventEmitter,
     h,
     Host,
-    Listen, Method,
+    Listen,
     Prop,
     Watch
 } from '@stencil/core';
@@ -20,14 +20,13 @@ import {
     isTabKey,
     isUpArrowKey
 } from "../../utils/helpers";
-import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
 
 @Component({
     tag: 'wcs-radio-group',
     styleUrl: 'radio-group.scss',
     shadow: true
 })
-export class RadioGroup implements ComponentInterface, MutableAriaAttribute {
+export class RadioGroup implements ComponentInterface {
     @Element() private el!: HTMLWcsRadioGroupElement;
     
     /**
@@ -149,14 +148,9 @@ export class RadioGroup implements ComponentInterface, MutableAriaAttribute {
         }
     }
 
-    @Method()
-    async setAriaAttribute(attr: AriaAttributeName, value: string) {
-        this.el.setAttribute(attr, value);
-    }
-
     render() {
         return (
-            <Host role={"radiogroup"}>
+            <Host role="radiogroup">
                 <slot name="option" onSlotchange={this.onSlotChange.bind(this)}/>
             </Host>
         );

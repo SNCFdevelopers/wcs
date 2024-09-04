@@ -3,6 +3,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+A component used to display a [Material Icon](https://fonts.google.com/icons). Can be useful when used in wcs-grid or in a wcs-button.
+
 ## Properties
 
 | Property | Attribute | Description                           | Type                                                          | Default     |
@@ -10,6 +14,26 @@
 | `family` | `family`  | Family of the icon                    | `"filled" \| "outlined" \| "rounded" \| "sharp" \| "twotone"` | `'filled'`  |
 | `icon`   | `icon`    | Use the icon name from Material Icons | `string`                                                      | `undefined` |
 | `size`   | `size`    | Size of the icon                      | `"l" \| "m" \| "s" \| "xl"`                                   | `'m'`       |
+
+
+## Methods
+
+### `setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>`
+
+
+
+#### Parameters
+
+| Name    | Type                         | Description |
+| ------- | ---------------------------- | ----------- |
+| `attr`  | `"role" \| `aria-${string}`` |             |
+| `value` | `string`                     |             |
+
+#### Returns
+
+Type: `Promise<void>`
+
+
 
 
 ## Dependencies

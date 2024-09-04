@@ -31,6 +31,26 @@ The grid component is a complex component used as an HTML table to display colle
 | `wcsGridSelectionChange`    | Event emitted when a row is selected or unselected     | `CustomEvent<WcsGridSelectionEventDetails>`      |
 
 
+## Methods
+
+### `setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>`
+
+
+
+#### Parameters
+
+| Name    | Type                         | Description |
+| ------- | ---------------------------- | ----------- |
+| `attr`  | `"role" \| `aria-${string}`` |             |
+| `value` | `string`                     |             |
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Slots
 
 | Slot                | Description                                                        |

@@ -25,7 +25,8 @@ provide the "visual description" you add on the `wcs-tooltip` to the `aria-label
 of the element you want to describe .
 
 Example:
-```
+
+```html
 <wcs-tooltip>Trashed items</wcs-tooltip>
 <wcs-button aria-label="Trashed items">Trash</wcs-button>
 ```

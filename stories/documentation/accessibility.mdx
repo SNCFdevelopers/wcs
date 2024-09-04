@@ -1,0 +1,203 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Documentation/Accessibility" />
+
+<style>{`
+  #accessibility { display: inline-flex }
+`}</style>
+
+# Accessibility
+<img alt="Accessibility icon" src="./accessibility.svg" height="32"/>
+<br/>
+
+## About accessibility
+
+Accessibility is a mandatory subject in modern web developement. WCS respect these principles by providing accessible
+components. We plan on a constant evolution of the accessibility coverage on all our components.
+
+On each component documentation page, you can find relevant information on how to use the component correctly and make
+it the most accessible possible for screen readers and all users.
+
+<img alt="WCS Button contrast preview" src="./accessibility-contrast.png" height="100"/>
+
+**Please note that using accessible component doesn't necessarliy make your application fully accessible.**
+You have to take in consideration good practices and additional use case that may affect the user experience.
+If you need to add relevant attributes to improve the experience of your application, please refer to the use cases below :
+
+## Attributes
+
+### On component loading
+
+When adding an aria-attribute to a component, it will be automatically inherited and moved to the native component in the shadow DOM :
+
+**Example :**
+```html
+<wcs-button aria-label="My button" shape="normal" size="m"></wcs-button>
+```
+
+Will become in your browser DOM :
+```html
+<wcs-button shape="normal" size="m">
+    #shadow-root
+    <button aria-label="My button"></button>
+</wcs-button>
+```
+
+The screen readers will then be able to read the label correctly, since only the `<button>` is parsed in the accessibility tree.
+When a component doesn't have a specific native element inside but a `slot`, there is no need to inherit attributes
+since you have full control of what you are putting in your DOM.
+
+### Dynamically
+
+If you need to update any attribute dynamically, you can use the following javascript method that every component implements :
+
+```ts
+const myComponent = document.querySelector('wcs-my-component'); // use ViewChild with Angular / ref with React
+await myComponent.setAriaAttribute('aria-label', 'new label');
+```
+
+This will ensure the component is re-rendered and the attribute is correctly mutated.
+
+### Concerned components
+
+Some component does not have any semantic or the need to add aria attributes. This is because either :
+- their implementation is really simple and doesn't have to respect this attribute inheritance pattern
+- the content is slotted and the developer can modify the attributes directly in their template.
+- all the attributes are accessible and customizable on the host element directly
+
+
+<div style={{display: 'flex', gap: 40, justifyContent: 'space-between'}}>
+    <div>
+        These component **have attribute inheritance** ✅:
+        - accordion-panel
+        - button
+        - checkbox
+        - com-nav
+        - com-nav-category
+        - com-nav-submenu
+        - counter
+        - dropdown
+        - galactic-menu
+        - grid
+        - grid-column
+        - grid-pagination
+        - header
+        - horizontal-stepper
+        - icon
+        - input
+        - label
+        - mat-icon
+        - modal
+        - nav
+        - progress-bar
+        - progress-radial
+        - radio
+        - select
+        - switch
+        - tabs
+        - textarea
+    </div>
+
+    <div>
+        These component **doesn't need attribute inheritance** ❌ _(because...)_:
+        - accordion _(slotted)_
+        - accordion-content _(slotted)_
+        - accordion-header _(slotted)_
+        - action-bar _(slotted)_
+        - badge _(no semantic needed, slotted)_
+        - card _(no semantic needed, slotted)_
+        - card-body _(no semantic needed, slotted)_
+        - com-nav-item _(slotted, attributes are on the host element)_
+        - divider _(no semantic needed)_
+        - dropdown-divider _(slotted, attributes are on the host element)_
+        - dropdown-header _(slotted, attributes are on the host element)_
+        - dropdown-item _(slotted, attributes are on the host element)_
+        - editable-field _(slotted)_
+        - error _(slotted, attributes are on the host element)_
+        - field _(slotted)_
+        - field-content _(slotted)_
+        - field-label _(slotted)_
+        - footer _(slotted, attributes are on the host element)_
+        - form-field _(slotted)_
+        - galactic _(slotted)_
+        - grid-custom-cell _(slotted)_
+        - hint _(slotted_)
+        - list-item _(slotted, attributes are on the host element)_
+        - list-item-properties _(slotted)_
+        - list-item-property _(slotted)_
+        - native-select _(slotted with a `select`)_
+        - nav-item  _(slotted with an `a`, attributes are on the host element)_
+        - radio-group _(attributes are on the host element, radio are slotted inside)_
+        - select-option _(slotted, no shadow)_
+        - skeleton-circle _(no semantic needed)_
+        - skeleton-rectangle _(no semantic needed)_
+        - skeleton-text _(no semantic needed)_
+        - spinner _(attributes are on the host element)_
+        - tab _(slotted, attributes are on the host element)_
+        - tooltip _(slotted, attributes are on the host element)_
+    </div>
+</div>
+
+
+### Concerned attributes
+
+> **Note :** WCS components use [shadow DOM](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM).
+
+The following attributes must be referenced with IDs (IDREF) and therefore **won't work** ❌ because of cross-root ARIA:
+
+- [aria-activedescendant](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-activedescendant)
+- [aria-controls](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-controls)
+- [aria-describedby](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby)
+- [aria-details](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-details)
+- [aria-errormessage](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-errormessage)
+- [aria-flowto](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-flowto)
+- [aria-labelledby](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby)
+- [aria-owns](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-owns)
+
+Every other attribute will **work correctly** ✅:
+
+- [role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles)
+- [title](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/title)
+- [tabindex](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex)
+- [aria-atomic](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-atomic)
+- [aria-autocomplete](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-autocomplete)
+- [aria-braillelabel](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-braillelabel)
+- [aria-brailleroledescription](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-brailleroledescription)
+- [aria-busy](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-busy)
+- [aria-checked](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-checked)
+- [aria-colcount](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-colcount)
+- [aria-colindex](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-colindex)
+- [aria-colindextext](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-colindextext)
+- [aria-colspan](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-colspan)
+- [aria-current](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-current)
+- [aria-description](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-description)
+- [aria-disabled](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-disabled)
+- [aria-expanded](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-expanded)
+- [aria-haspopup](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-haspopup)
+- [aria-hidden](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-hidden)
+- [aria-invalid](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-invalid)
+- [aria-keyshortcuts](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-keyshortcuts)
+- [aria-label](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label)
+- [aria-level](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-level)
+- [aria-live](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-live)
+- [aria-multiline](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-multiline)
+- [aria-multiselectable](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-multiselectable)
+- [aria-orientation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-orientation)
+- [aria-placeholder](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-placeholder)
+- [aria-posinset](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-posinset)
+- [aria-pressed](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-pressed)
+- [aria-readonly](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-readonly)
+- [aria-relevant](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-relevant)
+- [aria-required](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-required)
+- [aria-roledescription](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-roledescription)
+- [aria-rowcount](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-rowcount)
+- [aria-rowindex](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-rowindex)
+- [aria-rowindextext](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-rowindextext)
+- [aria-rowspan](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-rowspan)
+- [aria-selected](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-selected)
+- [aria-setsize](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-setsize)
+- [aria-sort](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-sort)
+- [aria-valuemax](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-valuemax)
+- [aria-valuemin](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-valuemin)
+- [aria-valuenow](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-valuenow)
+- [aria-valuetext](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-valuetext)

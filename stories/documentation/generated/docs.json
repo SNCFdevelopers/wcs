@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-09-02T09:03:48",
+  "timestamp": "2024-09-05T15:43:57",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -11,7 +11,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-accordion",
       "readme": "# wcs-accordion\r\n\r\n\r\n\r",
-      "docs": "",
+      "docs": "The accordion component is a vertical stack of interactive headings used to toggle the display of further information.",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -103,7 +103,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-accordion-content",
       "readme": "# wcs-accordion-content\r\n\r\n\r\n\r",
-      "docs": "",
+      "docs": "The accordion-content is a subcomponent of `wcs-accordion`. It represents the text / content below an expanded accordion.",
       "docsTags": [],
       "usage": {},
       "props": [],
@@ -122,7 +122,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-accordion-header",
       "readme": "# wcs-accordion-header\r\n\r\n\r\n\r",
-      "docs": "",
+      "docs": "The accordion-header is a subcomponent of `wcs-accordion`. It represents the heading text inside the accordion panel.",
       "docsTags": [],
       "usage": {},
       "props": [],
@@ -141,7 +141,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-accordion-panel",
       "readme": "# wcs-accordion-panel\r\n\r\n\r\n\r",
-      "docs": "",
+      "docs": "The accordion-panel is a subcomponent of `wcs-accordion`. It represents every panel of the accordion that can be expanded.",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -256,6 +256,55 @@
           "parameters": [],
           "docs": "",
           "docsTags": []
+        },
+        {
+          "name": "setAriaAttribute",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+            "parameters": [
+              {
+                "name": "attr",
+                "type": "\"role\" | `aria-${string}`",
+                "docs": ""
+              },
+              {
+                "name": "value",
+                "type": "string",
+                "docs": ""
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "AriaAttributeName": {
+                "location": "import",
+                "path": "../../utils/mutable-aria-attribute",
+                "id": "src/utils/mutable-aria-attribute.ts::AriaAttributeName"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+          "parameters": [
+            {
+              "name": "attr",
+              "type": "\"role\" | `aria-${string}`",
+              "docs": ""
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "docs": ""
+            }
+          ],
+          "docs": "",
+          "docsTags": []
         }
       ],
       "events": [
@@ -287,7 +336,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-action-bar",
       "readme": "# Action bar\r\n\r\n\r",
-      "docs": "",
+      "docs": "The action-bar component is a group of elements appearing across the top of all pages on a business application.",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -347,8 +396,13 @@
       "encapsulation": "shadow",
       "tag": "wcs-badge",
       "readme": "# Badge\r\n\r",
-      "docs": "",
-      "docsTags": [],
+      "docs": "The badge component is a small label, generally appearing inside or in proximity to another larger interface component,\r\nrepresenting a status, property, or some other metadata.",
+      "docsTags": [
+        {
+          "name": "cssprop",
+          "text": "--wcs-badge-ligther-percentage - Define the opacity rate to apply to the badge"
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -470,7 +524,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-button",
       "readme": "# Button\r\n\r",
-      "docs": "Button component, can also be a link when specifying href.\r\n\r\n## Click event\r\n\r\nThe WCS button relies on the native click event to pass a user click to your app.\r\nFor now, it's not possible for us to prevent the click event to be fired when the button's disabled attribute is true.\r\nThis means you'll receive click events on a disabled wcs button.\r\nIf you're using the button with a library like Angular or React, they have internal mechanisms to prevent this behavior. Your callbacks will therefore not be called.\r\nTo fix this problem, we plan to provide a wcsClick event in addition to the native click for applications developed without frameworks.",
+      "docs": "The button component is used to trigger an action. It can also be a link when specifying href.\r\n\r\n## Accessibility guidelines 💡\r\n> If your button doesn't contain text but only an image, you must set a relevant aria-label on the icon 👉 [see \"Square\" story below](#square)\r\n\r\n## Click event\r\n\r\nThe WCS button relies on the native click event to pass a user click to your app.\r\nFor now, it's not possible for us to prevent the click event to be fired when the button's disabled attribute is true.\r\nThis means you'll receive click events on a disabled wcs button.\r\nIf you're using the button with a library like Angular or React, they have internal mechanisms to prevent this behavior. Your callbacks will therefore not be called.\r\nTo fix this problem, we plan to provide a wcsClick event in addition to the native click for applications developed without frameworks.",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -732,7 +786,57 @@
           "required": false
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "name": "setAriaAttribute",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+            "parameters": [
+              {
+                "name": "attr",
+                "type": "\"role\" | `aria-${string}`",
+                "docs": ""
+              },
+              {
+                "name": "value",
+                "type": "string",
+                "docs": ""
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "AriaAttributeName": {
+                "location": "import",
+                "path": "../../utils/mutable-aria-attribute",
+                "id": "src/utils/mutable-aria-attribute.ts::AriaAttributeName"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+          "parameters": [
+            {
+              "name": "attr",
+              "type": "\"role\" | `aria-${string}`",
+              "docs": ""
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "docs": ""
+            }
+          ],
+          "docs": "",
+          "docsTags": []
+        }
+      ],
       "events": [],
       "listeners": [
         {
@@ -784,7 +888,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-card",
       "readme": "# Card\r\n\r",
-      "docs": "",
+      "docs": "The card component is a container that display content such as text, images, buttons, and lists.  \r\nA card can be a single component, but is often made up of a header, title, subtitle, and content.",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -837,7 +941,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-card-body",
       "readme": "# Card body\r\n\r\n\r\n\r",
-      "docs": "",
+      "docs": "The card-body is a subcomponent of `wcs-card`. It represents content of the card with an extra padding around.",
       "docsTags": [],
       "usage": {},
       "props": [],
@@ -856,7 +960,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-checkbox",
       "readme": "# Checkbox\r\n\r\n\r",
-      "docs": "",
+      "docs": "The checkbox component is an input for choosing one or more items from a set by checking / unchecking it.",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -994,7 +1098,7 @@
             "docs": ""
           },
           "complexType": {
-            "signature": "(attr: AriaAttributeName, value: string) => Promise<void>",
+            "signature": "(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
             "parameters": [
               {
                 "name": "attr",
@@ -1020,7 +1124,7 @@
             },
             "return": "Promise<void>"
           },
-          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string) => Promise<void>",
+          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
           "parameters": [
             {
               "name": "attr",
@@ -1159,7 +1263,57 @@
           "required": false
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "name": "setAriaAttribute",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+            "parameters": [
+              {
+                "name": "attr",
+                "type": "\"role\" | `aria-${string}`",
+                "docs": ""
+              },
+              {
+                "name": "value",
+                "type": "string",
+                "docs": ""
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "AriaAttributeName": {
+                "location": "import",
+                "path": "../../utils/mutable-aria-attribute",
+                "id": "src/utils/mutable-aria-attribute.ts::AriaAttributeName"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+          "parameters": [
+            {
+              "name": "attr",
+              "type": "\"role\" | `aria-${string}`",
+              "docs": ""
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "docs": ""
+            }
+          ],
+          "docs": "",
+          "docsTags": []
+        }
+      ],
       "events": [],
       "listeners": [
         {
@@ -1204,7 +1358,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-com-nav-category",
       "readme": "# wcs-com-nav-category\r\n\r\n\r\n\r",
-      "docs": "",
+      "docs": "The com-nav-category is a subcomponent of `wcs-com-nav`. It represents a category nested inside a `wcs-com-nav-submenu`.",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -1273,6 +1427,55 @@
           "signature": "open() => Promise<void>",
           "parameters": [],
           "docs": "Opens the category",
+          "docsTags": []
+        },
+        {
+          "name": "setAriaAttribute",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+            "parameters": [
+              {
+                "name": "attr",
+                "type": "\"role\" | `aria-${string}`",
+                "docs": ""
+              },
+              {
+                "name": "value",
+                "type": "string",
+                "docs": ""
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "AriaAttributeName": {
+                "location": "import",
+                "path": "../../utils/mutable-aria-attribute",
+                "id": "src/utils/mutable-aria-attribute.ts::AriaAttributeName"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+          "parameters": [
+            {
+              "name": "attr",
+              "type": "\"role\" | `aria-${string}`",
+              "docs": ""
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "docs": ""
+            }
+          ],
+          "docs": "",
           "docsTags": []
         }
       ],
@@ -1343,7 +1546,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-com-nav-item",
       "readme": "# com-nav-item\r\n\r\n\r\n\r",
-      "docs": "",
+      "docs": "The com-nav-item is a subcomponent of `wcs-com-nav`. It represents a list-item wrapper around a link.",
       "docsTags": [],
       "usage": {},
       "props": [],
@@ -1362,7 +1565,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-com-nav-submenu",
       "readme": "# wcs-com-nav-submenu\r\n\r\n\r\n\r",
-      "docs": "",
+      "docs": "The com-nav-submenu is a subcomponent of `wcs-com-nav`. It represents an expandable menu containing more items or categories.",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -1473,6 +1676,55 @@
           "signature": "open() => Promise<void>",
           "parameters": [],
           "docs": "Opens the menu",
+          "docsTags": []
+        },
+        {
+          "name": "setAriaAttribute",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+            "parameters": [
+              {
+                "name": "attr",
+                "type": "\"role\" | `aria-${string}`",
+                "docs": ""
+              },
+              {
+                "name": "value",
+                "type": "string",
+                "docs": ""
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "AriaAttributeName": {
+                "location": "import",
+                "path": "../../utils/mutable-aria-attribute",
+                "id": "src/utils/mutable-aria-attribute.ts::AriaAttributeName"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+          "parameters": [
+            {
+              "name": "attr",
+              "type": "\"role\" | `aria-${string}`",
+              "docs": ""
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "docs": ""
+            }
+          ],
+          "docs": "",
           "docsTags": []
         }
       ],
@@ -1723,7 +1975,7 @@
             "docs": ""
           },
           "complexType": {
-            "signature": "(attr: AriaAttributeName, value: string) => Promise<void>",
+            "signature": "(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
             "parameters": [
               {
                 "name": "attr",
@@ -1749,7 +2001,7 @@
             },
             "return": "Promise<void>"
           },
-          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string) => Promise<void>",
+          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
           "parameters": [
             {
               "name": "attr",
@@ -2104,7 +2356,57 @@
           "required": false
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "name": "setAriaAttribute",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+            "parameters": [
+              {
+                "name": "attr",
+                "type": "\"role\" | `aria-${string}`",
+                "docs": ""
+              },
+              {
+                "name": "value",
+                "type": "string",
+                "docs": ""
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "AriaAttributeName": {
+                "location": "import",
+                "path": "../../utils/mutable-aria-attribute",
+                "id": "src/utils/mutable-aria-attribute.ts::AriaAttributeName"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+          "parameters": [
+            {
+              "name": "attr",
+              "type": "\"role\" | `aria-${string}`",
+              "docs": ""
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "docs": ""
+            }
+          ],
+          "docs": "",
+          "docsTags": []
+        }
+      ],
       "events": [],
       "listeners": [
         {
@@ -2262,7 +2564,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-editable-field",
       "readme": "# Editable fields\r\n\r",
-      "docs": "The editable-field component can be used to simplify the user experience, avoiding the use of a redirection to a form\r\nto edit the data of an entity. You can use it with these wrapped components : `wcs-input`, `wcs-textarea`, `wcs-select`. \r\n\r\nThis component is not present in the SNCF design system specifications, so we tried to build it in the most\r\n\"discoverable\" way possible (for users who interact with), but it's a first version.\r\n\r\n**How to use ❓**  \r\nThis component is mostly used with a server that returns a response to the input sent through the `wcsChange` event.\r\nIt has 3 internal states :\r\n- DISPLAY = the default state of the editable-field\r\n- EDIT = the editable-field is editable, the user should input the data\r\n- LOADING = the data is submitted and the editable-field is waiting for a **response**\r\n\r\nA **response** is needed to get the component out of the LOADING state. You can either :\r\n- Set the `value` property to a different value to tell the component to refresh and go back into DISPLAY state\r\n- Use the `successHandler` callback through the `wcsChange` event (see interface [EditableComponentUpdateEvent](https://gitlab.com/SNCF/wcs/-/blob/develop/src/components/editable-field/editable-field-interface.tsx))\r\n- Use the `errorHandler` callback through the `wcsChange` event (see interface [EditableComponentUpdateEvent](https://gitlab.com/SNCF/wcs/-/blob/develop/src/components/editable-field/editable-field-interface.tsx))",
+      "docs": "The editable-field component can be used to simplify the user experience, avoiding the use of a redirection to a form\r\nto edit the data of an entity. You can use it with these wrapped components : `wcs-input`, `wcs-textarea`, `wcs-select`. \r\n\r\nThis component is not present in the SNCF design system specifications, so we tried to build it in the most\r\n\"discoverable\" way possible (for users who interact with), but it's a first version.\r\n\r\n**How to use ❓**  \r\nThis component is mostly used with a server that returns a response to the input sent through the `wcsChange` event.\r\nIt has 3 internal states :\r\n- DISPLAY = the default state of the editable-field\r\n- EDIT = the editable-field is editable, the user should input the data\r\n- LOADING = the data is submitted and the editable-field is waiting for a **response**\r\n\r\nA **response** is needed to get the component out of the LOADING state. You can either :\r\n- Set the `value` property to a different value to tell the component to refresh and go back into DISPLAY state\r\n- Use the `successHandler` callback through the `wcsChange` event (see interface [EditableComponentUpdateEvent](https://gitlab.com/SNCF/wcs/-/blob/develop/src/components/editable-field/editable-field-interface.tsx))\r\n- Use the `errorHandler` callback through the `wcsChange` event (see interface [EditableComponentUpdateEvent](https://gitlab.com/SNCF/wcs/-/blob/develop/src/components/editable-field/editable-field-interface.tsx))\r\n\r\n**Accessibility guidelines 💡**  \r\n\r\n> - Aria attributes are put on the native component on the first rendering with the `label` and `errorMsg` you provided \r\n> - Additional aria attributes put on `<wcs-editable-field>` won't inherit onto the native component : you must use the `setAriaAttribute` method.",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -2555,7 +2857,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-field",
       "readme": "# Field\r\n\r",
-      "docs": "",
+      "docs": "This field component can be used to display the details of an entity. It is built around the label and the content of the field.",
       "docsTags": [
         {
           "name": "slot",
@@ -2592,7 +2894,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-field-content",
       "readme": "# wcs-field-content\r\n\r\n\r\n\r",
-      "docs": "",
+      "docs": "The field-content is a subcomponent of `wcs-field`. It represents the text content of the field.",
       "docsTags": [],
       "usage": {},
       "props": [],
@@ -2611,7 +2913,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-field-label",
       "readme": "# wcs-field-label\r\n\r\n\r\n\r",
-      "docs": "",
+      "docs": "The field-label is a subcomponent of `wcs-field`. It represents the label or title of the field.",
       "docsTags": [],
       "usage": {},
       "props": [],
@@ -2630,7 +2932,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-footer",
       "readme": "# Footer\r\n\r",
-      "docs": "",
+      "docs": "The footer component has been designed to leave as much customization as possible to the developer. The footers are often specific to the application developed.",
       "docsTags": [
         {
           "name": "slot",
@@ -2675,7 +2977,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-form-field",
       "readme": "# Form field\r\n\r\n\r",
-      "docs": "Form field component wraps the native input element and add some more functionality on top of it.\r\n\r\nYou can use the `wcs-form-field` to wrap any of these components :\r\n- `wcs-input`\r\n- `wcs-textarea`\r\n- `wcs-radio-group`\r\n- `wcs-switch`\r\n- `wcs-checkbox`\r\n- `wcs-native-select`\r\n- `wcs-select`\r\n- `wcs-counter`\r\n\r\nFor non-supported slotted component, you can use the `required` attribute on the wrapped component to tell the\r\nform-field that it is required. It will add a red star after the label of the form field.\r\n\r\n## Accessibility guidelines 💡\r\n- Each form control should be identified with a unique `wcs-label`\r\n- Don't forget to add form validation to make sure the data is correctly formatted\r\n- If the `wcs-label` is required, the form control must have the `required` HTML attribute and vice-versa (this is normally automatically set)\r\n- The form should not be submittable if at least one required form control is not filled\r\n- Hints are optional and should only be used to add extra information",
+      "docs": "Form field component wraps the native input element and add some more functionality on top of it.\r\n\r\nYou can use the `wcs-form-field` to wrap any of these components :\r\n- `wcs-input`\r\n- `wcs-textarea`\r\n- `wcs-radio-group`\r\n- `wcs-switch`\r\n- `wcs-checkbox`\r\n- `wcs-native-select`\r\n- `wcs-select`\r\n- `wcs-counter`\r\n\r\nFor non-supported slotted component, you can use the `required` attribute on the wrapped component to tell the\r\nform-field that it is required. It will add a red star after the label of the form field.\r\n\r\n## Accessibility guidelines 💡\r\n- Each form control should be identified with a unique `wcs-label`\r\n- Don't forget to add form validation to make sure the data is correctly formatted\r\n- If the `wcs-label` is required, the form control must have the `required` HTML attribute and vice-versa (this is normally automatically set)\r\n- The form should not be submittable if at least one required form control is not filled\r\n- Hints are optional and should only be used to add extra information\r\n- Additional aria attributes put on `<wcs-form-field>` won't inherit onto the native component : you must use the `setAriaAttribute` method.",
       "docsTags": [
         {
           "name": "slot",
@@ -2840,7 +3142,57 @@
           "required": false
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "name": "setAriaAttribute",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+            "parameters": [
+              {
+                "name": "attr",
+                "type": "\"role\" | `aria-${string}`",
+                "docs": ""
+              },
+              {
+                "name": "value",
+                "type": "string",
+                "docs": ""
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "AriaAttributeName": {
+                "location": "import",
+                "path": "../../utils/mutable-aria-attribute",
+                "id": "src/utils/mutable-aria-attribute.ts::AriaAttributeName"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+          "parameters": [
+            {
+              "name": "attr",
+              "type": "\"role\" | `aria-${string}`",
+              "docs": ""
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "docs": ""
+            }
+          ],
+          "docs": "",
+          "docsTags": []
+        }
+      ],
       "events": [],
       "listeners": [
         {
@@ -3086,7 +3438,57 @@
           "required": false
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "name": "setAriaAttribute",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+            "parameters": [
+              {
+                "name": "attr",
+                "type": "\"role\" | `aria-${string}`",
+                "docs": ""
+              },
+              {
+                "name": "value",
+                "type": "string",
+                "docs": ""
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "AriaAttributeName": {
+                "location": "import",
+                "path": "../../utils/mutable-aria-attribute",
+                "id": "src/utils/mutable-aria-attribute.ts::AriaAttributeName"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+          "parameters": [
+            {
+              "name": "attr",
+              "type": "\"role\" | `aria-${string}`",
+              "docs": ""
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "docs": ""
+            }
+          ],
+          "docs": "",
+          "docsTags": []
+        }
+      ],
       "events": [
         {
           "event": "wcsBlur",
@@ -3487,7 +3889,57 @@
           "required": false
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "name": "setAriaAttribute",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+            "parameters": [
+              {
+                "name": "attr",
+                "type": "\"role\" | `aria-${string}`",
+                "docs": ""
+              },
+              {
+                "name": "value",
+                "type": "string",
+                "docs": ""
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "AriaAttributeName": {
+                "location": "import",
+                "path": "../../utils/mutable-aria-attribute",
+                "id": "src/utils/mutable-aria-attribute.ts::AriaAttributeName"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+          "parameters": [
+            {
+              "name": "attr",
+              "type": "\"role\" | `aria-${string}`",
+              "docs": ""
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "docs": ""
+            }
+          ],
+          "docs": "",
+          "docsTags": []
+        }
+      ],
       "events": [
         {
           "event": "wcsHiddenChange",
@@ -3713,7 +4165,57 @@
           "required": false
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "name": "setAriaAttribute",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+            "parameters": [
+              {
+                "name": "attr",
+                "type": "\"role\" | `aria-${string}`",
+                "docs": ""
+              },
+              {
+                "name": "value",
+                "type": "string",
+                "docs": ""
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "AriaAttributeName": {
+                "location": "import",
+                "path": "../../utils/mutable-aria-attribute",
+                "id": "src/utils/mutable-aria-attribute.ts::AriaAttributeName"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+          "parameters": [
+            {
+              "name": "attr",
+              "type": "\"role\" | `aria-${string}`",
+              "docs": ""
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "docs": ""
+            }
+          ],
+          "docs": "",
+          "docsTags": []
+        }
+      ],
       "events": [
         {
           "event": "wcsGridPaginationChange",
@@ -3765,7 +4267,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-header",
       "readme": "# Header\r\n\r",
-      "docs": "",
+      "docs": "The header component is an element that appears across the top of all pages on a website or application; it contains the logo, the site name and main actions.",
       "docsTags": [
         {
           "name": "slot",
@@ -3782,7 +4284,57 @@
       ],
       "usage": {},
       "props": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "setAriaAttribute",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+            "parameters": [
+              {
+                "name": "attr",
+                "type": "\"role\" | `aria-${string}`",
+                "docs": ""
+              },
+              {
+                "name": "value",
+                "type": "string",
+                "docs": ""
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "AriaAttributeName": {
+                "location": "import",
+                "path": "../../utils/mutable-aria-attribute",
+                "id": "src/utils/mutable-aria-attribute.ts::AriaAttributeName"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+          "parameters": [
+            {
+              "name": "attr",
+              "type": "\"role\" | `aria-${string}`",
+              "docs": ""
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "docs": ""
+            }
+          ],
+          "docs": "",
+          "docsTags": []
+        }
+      ],
       "events": [],
       "listeners": [],
       "styles": [],
@@ -4059,7 +4611,7 @@
       "encapsulation": "none",
       "tag": "wcs-icon",
       "readme": "# Icon\r\n\r\n\r\n\r",
-      "docs": "",
+      "docs": "The icon component is a graphic symbol designed to visually indicate the purpose of an interface element.",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -4159,7 +4711,57 @@
           "required": false
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "name": "setAriaAttribute",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+            "parameters": [
+              {
+                "name": "attr",
+                "type": "\"role\" | `aria-${string}`",
+                "docs": ""
+              },
+              {
+                "name": "value",
+                "type": "string",
+                "docs": ""
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "AriaAttributeName": {
+                "location": "import",
+                "path": "../../utils/mutable-aria-attribute",
+                "id": "src/utils/mutable-aria-attribute.ts::AriaAttributeName"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+          "parameters": [
+            {
+              "name": "attr",
+              "type": "\"role\" | `aria-${string}`",
+              "docs": ""
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "docs": ""
+            }
+          ],
+          "docs": "",
+          "docsTags": []
+        }
+      ],
       "events": [],
       "listeners": [],
       "styles": [],
@@ -4174,7 +4776,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-input",
       "readme": "# Input\r\n\r",
-      "docs": "The input component is a form control that accepts a single line of text.\r\nImplementation mainly inspired from Ionic Input Component.\r\n\r\n## Accessibility guidelines 💡\r\n> `wcs-input` is a wrapper around the native input element which is located inside its shadow DOM. All the\r\n> **aria attributes** you set on `wcs-input` are passed to the **native input** element **during the first render of the component**.\r\n> If you need to use them as you would with a native input, you can do so.\r\n\r\n> If you need to **dynamically change the aria attributes after the first render**, you can use the `setAriaAttribute` \r\n> JS method of `wcs-input`.\r\n\r\n> ```javascript\r\n> const wcsInput = document.querySelector('wcs-input');\r\n> await wcsInput.setAriaAttribute('aria-label', 'new label');\r\n> ```\r\n\r\n> If you use wcs-input outside a wcs-form-field, you have to manage the label and the error message yourself.\r\n> You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.",
+      "docs": "The input component is a form control that accepts a single line of text.\r\nImplementation mainly inspired from Ionic Input Component.\r\n\r\n## Accessibility guidelines 💡\r\n> - If you use wcs-input outside a wcs-form-field, you have to manage the label and the error message yourself.\r\n> You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -5195,7 +5797,7 @@
             "docs": ""
           },
           "complexType": {
-            "signature": "(attr: AriaAttributeName, value: string) => Promise<void>",
+            "signature": "(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
             "parameters": [
               {
                 "name": "attr",
@@ -5221,7 +5823,7 @@
             },
             "return": "Promise<void>"
           },
-          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string) => Promise<void>",
+          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
           "parameters": [
             {
               "name": "attr",
@@ -5372,7 +5974,57 @@
           "required": false
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "name": "setAriaAttribute",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+            "parameters": [
+              {
+                "name": "attr",
+                "type": "\"role\" | `aria-${string}`",
+                "docs": ""
+              },
+              {
+                "name": "value",
+                "type": "string",
+                "docs": ""
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "AriaAttributeName": {
+                "location": "import",
+                "path": "../../utils/mutable-aria-attribute",
+                "id": "src/utils/mutable-aria-attribute.ts::AriaAttributeName"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+          "parameters": [
+            {
+              "name": "attr",
+              "type": "\"role\" | `aria-${string}`",
+              "docs": ""
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "docs": ""
+            }
+          ],
+          "docs": "",
+          "docsTags": []
+        }
+      ],
       "events": [],
       "listeners": [],
       "styles": [],
@@ -5387,7 +6039,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-list-item",
       "readme": "# List Item\r\n\r",
-      "docs": "",
+      "docs": "Lists are used for grouping a collection of related items.\r\n\r\nStandard lists can be used either with or without icons. Depending on the context, the list can have one or more\r\nactions (favourite, download, delete, etc.). Use standard lists with a unique action when each line has an action.",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -5429,7 +6081,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-list-item-properties",
       "readme": "# wcs-list-item-properties\r\n\r\n\r\n\r",
-      "docs": "",
+      "docs": "The list-item-properties is a subcomponent of `wcs-list-item`. It represents a wrapper for a list of several `wcs-property`.",
       "docsTags": [],
       "usage": {},
       "props": [],
@@ -5448,7 +6100,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-list-item-property",
       "readme": "# wcs-list-item-property\r\n\r\n\r\n\r",
-      "docs": "",
+      "docs": "The list-item-property is a subcomponent of `wcs-list-item`.\r\nWrapped in a `wcs-list-item-properties`, it represents a property to describe an item.",
       "docsTags": [],
       "usage": {},
       "props": [],
@@ -5467,7 +6119,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-mat-icon",
       "readme": "# Material Icon\r\n\r",
-      "docs": "",
+      "docs": "A component used to display a [Material Icon](https://fonts.google.com/icons). Can be useful when used in wcs-grid or in a wcs-button.",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -5579,7 +6231,57 @@
           "required": false
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "name": "setAriaAttribute",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+            "parameters": [
+              {
+                "name": "attr",
+                "type": "\"role\" | `aria-${string}`",
+                "docs": ""
+              },
+              {
+                "name": "value",
+                "type": "string",
+                "docs": ""
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "AriaAttributeName": {
+                "location": "import",
+                "path": "../../utils/mutable-aria-attribute",
+                "id": "src/utils/mutable-aria-attribute.ts::AriaAttributeName"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+          "parameters": [
+            {
+              "name": "attr",
+              "type": "\"role\" | `aria-${string}`",
+              "docs": ""
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "docs": ""
+            }
+          ],
+          "docs": "",
+          "docsTags": []
+        }
+      ],
       "events": [],
       "listeners": [],
       "styles": [],
@@ -5624,7 +6326,7 @@
       "encapsulation": "none",
       "tag": "wcs-modal",
       "readme": "# Modal\r\n\r\n## Modal without backdrop\r\n\r\n```html\r\n<wcs-modal id=\"modal-2\" backdrop=\"false\" show-close-button=\"true\">\r\n    <div slot=\"header\">Modal title</div>\r\n    Voulez-vous quittez la page ? \r\n    <br/>\r\n    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a cursus mi. Nullam et sem mi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce sollicitudin pellentesque libero nec elementum.\r\n    <div slot=\"actions\">\r\n        <wcs-button class=\"wcs-dark\" mode=\"stroked\">C'est non</wcs-button>\r\n        <wcs-button>J'accepte</wcs-button>\r\n    </div>\r\n</wcs-modal>\r\n```\r\n\r\n<wcs-button onclick=\"getElementById('modal-2').setAttribute('show', true)\" id=\"btn-modal-2-show\">\r\n    Afficher la boîte de dialogue\r\n</wcs-button>\r\n\r",
-      "docs": "The modal component (also named dialog or popup) is an interface element that appears on top of the page content.\r\nUse it to show a message, a confirmation dialog, or any other content like forms.\r\n\r\n<details>\r\n    <summary>Accessibility guidelines 💡</summary>\r\n    > - Modal element has `role=\"dialog\"` and `aria-modal=\"true\"`\r\n    > - Keyboard navigation is trapped inside the modal\r\n    > - It is mandatory to set the `modal-trigger-controls-id` to the id of the element that opens the dialog, in order\r\n    > to focus it upon dialog dismissal.\r\n    > - The modal can be closed at any time by pressing the Escape key.\r\n    >\r\n    > - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/\r\n</details>",
+      "docs": "The modal component (also named dialog or popup) is an interface element that appears on top of the page content.\r\nUse it to show a message, a confirmation dialog, or any other content like forms.\r\n\r\n## Accessibility guidelines 💡\r\n> - Modal element has `role=\"dialog\"` and `aria-modal=\"true\"`\r\n> - Keyboard navigation is trapped inside the modal\r\n> - It is mandatory to set the `modal-trigger-controls-id` to the id of the element that opens the dialog, in order\r\n> to focus it upon dialog dismissal.\r\n> - The modal can be closed at any time by pressing the Escape key.\r\n>\r\n> - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/",
       "docsTags": [
         {
           "name": "cssprop",
@@ -5649,6 +6351,28 @@
       ],
       "usage": {},
       "props": [
+        {
+          "name": "closeButtonAriaLabel",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "close-button-aria-label",
+          "reflectToAttr": false,
+          "docs": "Specifies the aria-label present on the close button when the modal is opened.  \r\nOnly use when `showCloseButton` is `true`.",
+          "docsTags": [],
+          "default": "'Fermer'",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
         {
           "name": "hideActions",
           "type": "boolean",
@@ -5804,7 +6528,57 @@
           "required": false
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "name": "setAriaAttribute",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+            "parameters": [
+              {
+                "name": "attr",
+                "type": "\"role\" | `aria-${string}`",
+                "docs": ""
+              },
+              {
+                "name": "value",
+                "type": "string",
+                "docs": ""
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "AriaAttributeName": {
+                "location": "import",
+                "path": "../../utils/mutable-aria-attribute",
+                "id": "src/utils/mutable-aria-attribute.ts::AriaAttributeName"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+          "parameters": [
+            {
+              "name": "attr",
+              "type": "\"role\" | `aria-${string}`",
+              "docs": ""
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "docs": ""
+            }
+          ],
+          "docs": "",
+          "docsTags": []
+        }
+      ],
       "events": [
         {
           "event": "wcsDialogClosed",
@@ -5865,7 +6639,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-native-select",
       "readme": "# wcs-select-native\r\n\r\n\r\n\r",
-      "docs": "The `wcs-native-select` component is designed to accept a native `<select>` element as a slotted child. This choice\r\nallows developers to bind the `<select>` element using the framework of their choice, without the need to re-expose all the\r\nproperties of the `<select>` and `<option>` elements in this component.\r\n\r\nThe component wraps the native `<select>` element and provides custom styles and behavior, while preserving the native\r\nfunctionality and accessibility.\r\n\r\n### ✅ Guidance\r\n\r\n- To have a placeholder, you must have an option as child which has `selected` attribute and `disabled`\r\nattribute. You can add the `hidden` attribute to don't show the placeholder option in the options overlay.\r\n\r\n### Example usage\r\n\r\n```html\r\n<wcs-native-select>\r\n  <select>\r\n    <option value=\"option1\">Option 1</option>\r\n    <option value=\"option2\">Option 2</option>\r\n    <option value=\"option3\">Option 3</option>\r\n  </select>\r\n</wcs-native-select>\r\n```\r\n\r\n### Note\r\n- We did not find a way to detect when the select is reset, if you want to apply the placeholder style when the\r\nselect is reset, you have to call the `updateStyles()` method manually.\r\n- It is strongly recommended to use select-native when you don't have to support the multi-selection feature",
+      "docs": "The `wcs-native-select` component is designed to accept a native `<select>` element as a slotted child. This choice\r\nallows developers to bind the `<select>` element using the framework of their choice, without the need to re-expose all the\r\nproperties of the `<select>` and `<option>` elements in this component.\r\n\r\nThe component wraps the native `<select>` element and provides custom styles and behavior, while preserving the native\r\nfunctionality and accessibility.\r\n\r\n### ✅ Guidance\r\n\r\n- To have a placeholder, you must have an option as child which has `selected` attribute and `disabled`\r\nattribute. You can add the `hidden` attribute to don't show the placeholder option in the options overlay.\r\n\r\n### Example usage\r\n\r\n```html\r\n<wcs-native-select>\r\n  <select>\r\n    <option value=\"option1\">Option 1</option>\r\n    <option value=\"option2\">Option 2</option>\r\n    <option value=\"option3\">Option 3</option>\r\n  </select>\r\n</wcs-native-select>\r\n```\r\n\r\n### Note\r\n- We did not find a way to detect when the select is reset, if you want to apply the placeholder style when the\r\nselect is reset, you have to call the `updateStyles()` method manually.\r\n- It is strongly recommended to use native-select when you don't have to support the multi-selection feature\r\n- Use a native-select instead of a wcs-select if your application is mainly on mobile / tablet. The native behavior of the device will be used.",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -5904,55 +6678,6 @@
         }
       ],
       "methods": [
-        {
-          "name": "setAriaAttribute",
-          "returns": {
-            "type": "Promise<void>",
-            "docs": ""
-          },
-          "complexType": {
-            "signature": "(attr: AriaAttributeName, value: string) => Promise<void>",
-            "parameters": [
-              {
-                "name": "attr",
-                "type": "\"role\" | `aria-${string}`",
-                "docs": ""
-              },
-              {
-                "name": "value",
-                "type": "string",
-                "docs": ""
-              }
-            ],
-            "references": {
-              "Promise": {
-                "location": "global",
-                "id": "global::Promise"
-              },
-              "AriaAttributeName": {
-                "location": "import",
-                "path": "../../utils/mutable-aria-attribute",
-                "id": "src/utils/mutable-aria-attribute.ts::AriaAttributeName"
-              }
-            },
-            "return": "Promise<void>"
-          },
-          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string) => Promise<void>",
-          "parameters": [
-            {
-              "name": "attr",
-              "type": "\"role\" | `aria-${string}`",
-              "docs": ""
-            },
-            {
-              "name": "value",
-              "type": "string",
-              "docs": ""
-            }
-          ],
-          "docs": "",
-          "docsTags": []
-        },
         {
           "name": "updateStyles",
           "returns": {
@@ -5999,7 +6724,57 @@
       ],
       "usage": {},
       "props": [],
-      "methods": [],
+      "methods": [
+        {
+          "name": "setAriaAttribute",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+            "parameters": [
+              {
+                "name": "attr",
+                "type": "\"role\" | `aria-${string}`",
+                "docs": ""
+              },
+              {
+                "name": "value",
+                "type": "string",
+                "docs": ""
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "AriaAttributeName": {
+                "location": "import",
+                "path": "../../utils/mutable-aria-attribute",
+                "id": "src/utils/mutable-aria-attribute.ts::AriaAttributeName"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+          "parameters": [
+            {
+              "name": "attr",
+              "type": "\"role\" | `aria-${string}`",
+              "docs": ""
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "docs": ""
+            }
+          ],
+          "docs": "",
+          "docsTags": []
+        }
+      ],
       "events": [],
       "listeners": [],
       "styles": [],
@@ -6044,7 +6819,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-progress-bar",
       "readme": "# Progress bar\r\n\r",
-      "docs": "The progress-bar component is a horizontal bar that indicates the current completion of a task.\r\n\r\n## Accessibility guidelines 💡\r\n> Aria attributes and how to display the progress-bar depend on the use case in your application :\r\n>  \r\n> - **Case 1 : decorative**  \r\n> If the progress-bar is used as a decoration _(if removed, the user doesn't lose any relevant information)_ or in the\r\n> context of another component _(such as progress-bar in a card, stepper, ...)_ => **you don't need to show the label nor add an aria-label**.\r\n> \r\n> - **Case 2 : informative**  \r\n> If the progress-bar is used to convey important information _(e.g., form completion status, dashboard KPI)_, you need to :\r\n>   - **Provide a visible label** that describes the purpose of the progress-bar.\r\n>   - **Set the `showLabel` property to `true`** to show the percentage above the progress-bar.\r\n>   - Optionally, use aria-label to provide an accessible name if a visible label is not present.",
+      "docs": "The progress-bar component is a horizontal bar that indicates the current completion of a task.\r\n\r\n## Accessibility guidelines 💡\r\n> Aria attributes and how to display the progress-bar depend on the use case in your application :\r\n>\r\n> - **Case 1 : decorative**\r\n> If the progress-bar is used as a decoration _(if removed, the user doesn't lose any relevant information)_ or in the\r\n> context of another component _(such as progress-bar in a card, stepper, ...)_ => **you don't need to show the label nor add an aria-label**.\r\n>\r\n> - **Case 2 : informative**\r\n> If the progress-bar is used to convey important information _(e.g., form completion status, dashboard KPI)_, you need to :\r\n>   - **Provide a visible label** that describes the purpose of the progress-bar.\r\n>   - **Set the `showLabel` property to `true`** to show the percentage above the progress-bar.\r\n>   - Optionally, use aria-label to provide an accessible name if a visible label is not present.",
       "docsTags": [
         {
           "name": "cssprop",
@@ -6104,7 +6879,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
-          "docs": "Specify the size of the progress bar.  \r\nm = default, s = smaller",
+          "docs": "Specify the size of the progress bar.\r\nm = default, s = smaller",
           "docsTags": [],
           "default": "'m'",
           "values": [
@@ -6143,7 +6918,57 @@
           "required": false
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "name": "setAriaAttribute",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+            "parameters": [
+              {
+                "name": "attr",
+                "type": "\"role\" | `aria-${string}`",
+                "docs": ""
+              },
+              {
+                "name": "value",
+                "type": "string",
+                "docs": ""
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "AriaAttributeName": {
+                "location": "import",
+                "path": "../../utils/mutable-aria-attribute",
+                "id": "src/utils/mutable-aria-attribute.ts::AriaAttributeName"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+          "parameters": [
+            {
+              "name": "attr",
+              "type": "\"role\" | `aria-${string}`",
+              "docs": ""
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "docs": ""
+            }
+          ],
+          "docs": "",
+          "docsTags": []
+        }
+      ],
       "events": [],
       "listeners": [],
       "styles": [],
@@ -6235,7 +7060,57 @@
           "required": false
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "name": "setAriaAttribute",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+            "parameters": [
+              {
+                "name": "attr",
+                "type": "\"role\" | `aria-${string}`",
+                "docs": ""
+              },
+              {
+                "name": "value",
+                "type": "string",
+                "docs": ""
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "AriaAttributeName": {
+                "location": "import",
+                "path": "../../utils/mutable-aria-attribute",
+                "id": "src/utils/mutable-aria-attribute.ts::AriaAttributeName"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+          "parameters": [
+            {
+              "name": "attr",
+              "type": "\"role\" | `aria-${string}`",
+              "docs": ""
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "docs": ""
+            }
+          ],
+          "docs": "",
+          "docsTags": []
+        }
+      ],
       "events": [],
       "listeners": [],
       "styles": [],
@@ -6250,7 +7125,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-radio",
       "readme": "# wcs-radio\r\n\r\n\r\n\r",
-      "docs": "",
+      "docs": "The radio component should always be wrapped in a `wcs-radio-group`.",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -6319,7 +7194,57 @@
           "required": false
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "name": "setAriaAttribute",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+            "parameters": [
+              {
+                "name": "attr",
+                "type": "\"role\" | `aria-${string}`",
+                "docs": ""
+              },
+              {
+                "name": "value",
+                "type": "string",
+                "docs": ""
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "AriaAttributeName": {
+                "location": "import",
+                "path": "../../utils/mutable-aria-attribute",
+                "id": "src/utils/mutable-aria-attribute.ts::AriaAttributeName"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+          "parameters": [
+            {
+              "name": "attr",
+              "type": "\"role\" | `aria-${string}`",
+              "docs": ""
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "docs": ""
+            }
+          ],
+          "docs": "",
+          "docsTags": []
+        }
+      ],
       "events": [
         {
           "event": "wcsBlur",
@@ -6477,57 +7402,7 @@
           "required": false
         }
       ],
-      "methods": [
-        {
-          "name": "setAriaAttribute",
-          "returns": {
-            "type": "Promise<void>",
-            "docs": ""
-          },
-          "complexType": {
-            "signature": "(attr: AriaAttributeName, value: string) => Promise<void>",
-            "parameters": [
-              {
-                "name": "attr",
-                "type": "\"role\" | `aria-${string}`",
-                "docs": ""
-              },
-              {
-                "name": "value",
-                "type": "string",
-                "docs": ""
-              }
-            ],
-            "references": {
-              "Promise": {
-                "location": "global",
-                "id": "global::Promise"
-              },
-              "AriaAttributeName": {
-                "location": "import",
-                "path": "../../utils/mutable-aria-attribute",
-                "id": "src/utils/mutable-aria-attribute.ts::AriaAttributeName"
-              }
-            },
-            "return": "Promise<void>"
-          },
-          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string) => Promise<void>",
-          "parameters": [
-            {
-              "name": "attr",
-              "type": "\"role\" | `aria-${string}`",
-              "docs": ""
-            },
-            {
-              "name": "value",
-              "type": "string",
-              "docs": ""
-            }
-          ],
-          "docs": "",
-          "docsTags": []
-        }
-      ],
+      "methods": [],
       "events": [
         {
           "event": "wcsChange",
@@ -6867,7 +7742,7 @@
             "docs": ""
           },
           "complexType": {
-            "signature": "(attr: AriaAttributeName, value: string) => Promise<void>",
+            "signature": "(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
             "parameters": [
               {
                 "name": "attr",
@@ -6893,7 +7768,7 @@
             },
             "return": "Promise<void>"
           },
-          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string) => Promise<void>",
+          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
           "parameters": [
             {
               "name": "attr",
@@ -7543,7 +8418,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-spinner",
       "readme": "# Spinner\r\n\r",
-      "docs": "",
+      "docs": "The spinner component is visual indicator that showing a process is happening in the background but the interface is\r\nnot yet ready for interaction.  \r\nIf your page structure is simple or the loading time is long (> 300ms), use [wcs-skeleton](.?path=/docs/components-skeleton--documentation) instead.",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -7610,7 +8485,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-switch",
       "readme": "# Switch\r\n\r\n\r",
-      "docs": "",
+      "docs": "The switch component is a control used to switch between on and off state.",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -7726,7 +8601,7 @@
             "docs": ""
           },
           "complexType": {
-            "signature": "(attr: AriaAttributeName, value: string) => Promise<void>",
+            "signature": "(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
             "parameters": [
               {
                 "name": "attr",
@@ -7752,7 +8627,7 @@
             },
             "return": "Promise<void>"
           },
-          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string) => Promise<void>",
+          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
           "parameters": [
             {
               "name": "attr",
@@ -8092,7 +8967,57 @@
           "required": false
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "name": "setAriaAttribute",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+            "parameters": [
+              {
+                "name": "attr",
+                "type": "\"role\" | `aria-${string}`",
+                "docs": ""
+              },
+              {
+                "name": "value",
+                "type": "string",
+                "docs": ""
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "AriaAttributeName": {
+                "location": "import",
+                "path": "../../utils/mutable-aria-attribute",
+                "id": "src/utils/mutable-aria-attribute.ts::AriaAttributeName"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+          "parameters": [
+            {
+              "name": "attr",
+              "type": "\"role\" | `aria-${string}`",
+              "docs": ""
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "docs": ""
+            }
+          ],
+          "docs": "",
+          "docsTags": []
+        }
+      ],
       "events": [
         {
           "event": "tabChange",
@@ -8134,7 +9059,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-textarea",
       "readme": "# Textarea\r\n\r\n\r\n\r",
-      "docs": "Mainly inspired from Ionic Textarea Component.\r\n\r\n## Accessibility guidelines 💡\r\n> `wcs-textarea` is a wrapper around the native textarea element which is located inside its shadow DOM. All the\r\n> **aria attributes** you set on `wcs-textarea` are passed to the **native textarea** element **during the first render of the component**.\r\n> If you need to use them as you would with a native textarea, you can do so.\r\n\r\n> If you need to **dynamically change the aria attributes after the first render**, you can use the `setAriaAttribute`\r\n> JS method of `wcs-textarea` :\r\n\r\n> ```javascript\r\n> const wcsTextarea = document.querySelector('wcs-textarea');\r\n> await wcsTextarea.setAriaAttribute('aria-label', 'new label');\r\n> ```\r\n\r\n> If you use wcs-textarea outside a wcs-form-field, you have to manage the label and the error message yourself.\r\n> You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.",
+      "docs": "Mainly inspired from Ionic Textarea Component.\r\n\r\n## Accessibility guidelines 💡\r\n> - If you use wcs-textarea outside a wcs-form-field, you have to manage the label and the error message yourself.\r\n> You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.",
       "docsTags": [
         {
           "name": "cssprop",
@@ -8771,7 +9696,7 @@
             "docs": ""
           },
           "complexType": {
-            "signature": "(attr: AriaAttributeName, value: string) => Promise<void>",
+            "signature": "(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
             "parameters": [
               {
                 "name": "attr",
@@ -8797,7 +9722,7 @@
             },
             "return": "Promise<void>"
           },
-          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string) => Promise<void>",
+          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
           "parameters": [
             {
               "name": "attr",
@@ -8912,7 +9837,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-tooltip",
       "readme": "# Tooltip\r\n\r",
-      "docs": "Tooltips are used to provide additional information for features available on the website. These can improve the user\r\nexperience or simply show additional information. Tooltips appear when the user rolls over or clicks on them\r\n(for longer content).\r\n\r\nNote that this component is based on the Tippy.js library : https://atomiks.github.io/tippyjs/\r\n\r\n## Accessibility guidelines 💡\r\n\r\nThe problem is that impaired users may not be able to see what is the information provided by the tooltip. To solve\r\nthis problem, the tooltip should be served with some aria attributes to make it accessible.\r\n\r\nAria-features `wcs-tooltip` respect:\r\n- dismiss when the user presses the `Escape` key\r\n- has a `role=tooltip`\r\n\r\nBut you have to provide the \"link\" between the element you want to describe and the tooltip. To do this, you have to\r\nprovide the \"visual description\" you add on the `wcs-tooltip` to the `aria-label` attribute or the `aria-description` as soon as the attribute will be available \r\nof the element you want to describe .\r\n\r\nExample:\r\n```\r\n<wcs-tooltip>Trashed items</wcs-tooltip>\r\n<wcs-button aria-label=\"Trashed items\">Trash</wcs-button>\r\n```",
+      "docs": "Tooltips are used to provide additional information for features available on the website. These can improve the user\r\nexperience or simply show additional information. Tooltips appear when the user rolls over or clicks on them\r\n(for longer content).\r\n\r\nNote that this component is based on the Tippy.js library : https://atomiks.github.io/tippyjs/\r\n\r\n## Accessibility guidelines 💡\r\n\r\nThe problem is that impaired users may not be able to see what is the information provided by the tooltip. To solve\r\nthis problem, the tooltip should be served with some aria attributes to make it accessible.\r\n\r\nAria-features `wcs-tooltip` respect:\r\n- dismiss when the user presses the `Escape` key\r\n- has a `role=tooltip`\r\n\r\nBut you have to provide the \"link\" between the element you want to describe and the tooltip. To do this, you have to\r\nprovide the \"visual description\" you add on the `wcs-tooltip` to the `aria-label` attribute or the `aria-description` as soon as the attribute will be available \r\nof the element you want to describe .\r\n\r\nExample:\r\n\r\n```html\r\n<wcs-tooltip>Trashed items</wcs-tooltip>\r\n<wcs-button aria-label=\"Trashed items\">Trash</wcs-button>\r\n```",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -9288,6 +10213,11 @@
     }
   ],
   "typeLibrary": {
+    "src/utils/mutable-aria-attribute.ts::AriaAttributeName": {
+      "declaration": "export type AriaAttributeName = `aria-${string}` | 'role';",
+      "docstring": "",
+      "path": "src/utils/mutable-aria-attribute.ts"
+    },
     "src/components/badge/badge-interface.ts::BadgeShape": {
       "declaration": "export type BadgeShape = 'normal' | 'rounded';",
       "docstring": "",
@@ -9337,11 +10267,6 @@
       "declaration": "export interface CheckboxChangeEventDetail {\r\n    checked: boolean;\r\n}",
       "docstring": "",
       "path": "src/components/checkbox/checkbox-interface.ts"
-    },
-    "src/utils/mutable-aria-attribute.ts::AriaAttributeName": {
-      "declaration": "export type AriaAttributeName = `aria-${string}` | 'role';",
-      "docstring": "",
-      "path": "src/utils/mutable-aria-attribute.ts"
     },
     "src/components/com-nav/com-nav-interface.ts::CategoryOpenedEventDetail": {
       "declaration": "export interface CategoryOpenedEventDetail {\r\n    categoryElement: HTMLWcsComNavCategoryElement;\r\n}",

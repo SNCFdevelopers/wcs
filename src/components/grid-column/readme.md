@@ -32,6 +32,26 @@ The grid column is a subcomponent of `wcs-grid` that represents a column of the 
 | `wcsSortChange`   | Event emitted when the sort of the column is changed.            | `CustomEvent<WcsGridColumnSortChangeEventDetails>` |
 
 
+## Methods
+
+### `setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>`
+
+
+
+#### Parameters
+
+| Name    | Type                         | Description |
+| ------- | ---------------------------- | ----------- |
+| `attr`  | `"role" \| `aria-${string}`` |             |
+| `value` | `string`                     |             |
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

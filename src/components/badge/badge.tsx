@@ -1,6 +1,12 @@
 import { Component, ComponentInterface, h, Prop } from '@stencil/core';
 import { BadgeColor, BadgeShape, BadgeSize } from './badge-interface';
 
+/**
+ * The badge component is a small label, generally appearing inside or in proximity to another larger interface component,
+ * representing a status, property, or some other metadata.  
+ *
+ * @cssprop --wcs-badge-ligther-percentage - Define the opacity rate to apply to the badge
+ */
 @Component({
     tag: 'wcs-badge',
     styleUrl: 'badge.scss',

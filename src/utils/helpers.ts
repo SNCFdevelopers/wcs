@@ -125,6 +125,24 @@ export const inheritAriaAttributes = (el: HTMLElement, ignoreList?: string[]) =>
     return inheritAttributes(el, attributesToInherit);
 };
 
+/**
+ * Dynamically add or remove an attribute on the element.
+ * If the value of the attribute is null or undefined, the attribute is removed.
+ *
+ * @param el - The HTMLElement
+ * @param attr - The attribute to be added or removed
+ * @param value - The value of the attribute
+ */
+export function setOrRemoveAttribute(el: HTMLElement, attr: string, value: string | null | undefined) {
+    if (el) {
+        if (value === undefined || value === null) {
+            el.removeAttribute(attr);
+        } else {
+            el.setAttribute(attr, value);
+        }
+    }
+}
+
 export const findItemLabel = (componentEl: HTMLElement): HTMLWcsLabelElement | null => {
     const itemEl = componentEl.closest('wcs-form-field');
     if (itemEl) {

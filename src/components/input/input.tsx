@@ -12,7 +12,13 @@ import {
     State,
     Watch
 } from '@stencil/core';
-import { debounceEvent, findItemLabel, inheritAriaAttributes, inheritAttributes } from '../../utils/helpers';
+import {
+    debounceEvent,
+    findItemLabel,
+    inheritAriaAttributes,
+    inheritAttributes,
+    setOrRemoveAttribute
+} from '../../utils/helpers';
 import {
     AutocompleteTypes,
     InputChangeEventDetail,
@@ -27,24 +33,14 @@ import {
 } from './input-interface';
 import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
 
+const INPUT_INHERITED_ATTRS = ['tabindex', 'title'];
+
 /**
  * The input component is a form control that accepts a single line of text.
  * Implementation mainly inspired from Ionic Input Component.
  *
  * ## Accessibility guidelines 💡
- * > `wcs-input` is a wrapper around the native input element which is located inside its shadow DOM. All the
- * > **aria attributes** you set on `wcs-input` are passed to the **native input** element **during the first render of the component**.
- * > If you need to use them as you would with a native input, you can do so.
- *
- * > If you need to **dynamically change the aria attributes after the first render**, you can use the `setAriaAttribute` 
- * > JS method of `wcs-input`.
- *
- * > ```javascript
- * > const wcsInput = document.querySelector('wcs-input');
- * > await wcsInput.setAriaAttribute('aria-label', 'new label');
- * > ```
- * 
- * > If you use wcs-input outside a wcs-form-field, you have to manage the label and the error message yourself.
+ * > - If you use wcs-input outside a wcs-form-field, you have to manage the label and the error message yourself.
  * > You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.
  */
 @Component({
@@ -53,6 +49,7 @@ import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-ari
     shadow: { delegatesFocus: true },
 })
 export class Input implements ComponentInterface, MutableAriaAttribute {
+    @Element() private el!: HTMLElement;
     private nativeInput?: HTMLInputElement;
     private inputId = `wcs-input-${inputIds++}`;
     private inheritedAttributes: { [k: string]: any } = {};
@@ -69,8 +66,6 @@ export class Input implements ComponentInterface, MutableAriaAttribute {
     @Prop() fireFocusEvents = true;
 
     @State() private passwordReveal = false;
-
-    @Element() private el!: HTMLElement;
 
     /**
      * If the value of the type attribute is `"file"`, then this attribute will indicate the types of files that the
@@ -253,11 +248,11 @@ export class Input implements ComponentInterface, MutableAriaAttribute {
     componentWillLoad() {
         this.inheritedAttributes = {
             ...inheritAriaAttributes(this.el),
-            ...inheritAttributes(this.el, ['tabindex', 'title'])
+            ...inheritAttributes(this.el, INPUT_INHERITED_ATTRS)
         };
 
         if (!isWcsInputSize(this.size)) {
-            console.error(`Invalid size value for wcs-input : "${this.size}". Must be one of "${WcsInputSizeValues.join(', ')}"`);
+            console.warn(`Invalid size value for wcs-input : "${this.size}". Must be one of "${WcsInputSizeValues.join(', ')}"`);
             this.size = "m"; // Default fallback value
         }
     }
@@ -300,10 +295,8 @@ export class Input implements ComponentInterface, MutableAriaAttribute {
     }
 
     @Method()
-    async setAriaAttribute(attr: AriaAttributeName, value: string) {
-        if (this.nativeInput) {
-            this.nativeInput.setAttribute(attr, value);
-        }
+    async setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) {
+        setOrRemoveAttribute(this.nativeInput, attr, value);
     }
     
     private getValueAsString(): string {

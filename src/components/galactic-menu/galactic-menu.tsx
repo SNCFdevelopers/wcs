@@ -1,6 +1,17 @@
-import { Component, ComponentInterface, Element, h, Host, Listen, Prop, State } from '@stencil/core';
+import { Component, ComponentInterface, Element, h, Host, Listen, Method, Prop, State } from '@stencil/core';
 import { Instance, createPopper } from '@popperjs/core';
-import { clickInsideElement, isEnterKey, isEscapeKey, isSpaceKey } from '../../utils/helpers';
+import {
+    clickInsideElement,
+    inheritAriaAttributes,
+    inheritAttributes,
+    isEnterKey,
+    isEscapeKey,
+    isSpaceKey, setOrRemoveAttribute
+} from '../../utils/helpers';
+import { AriaAttributeName } from "../../utils/mutable-aria-attribute";
+
+
+const GALACTIC_MENU_INHERITED_ATTRS = ['tabindex', 'title'];
 
 @Component({
     tag: 'wcs-galactic-menu',
@@ -10,6 +21,8 @@ import { clickInsideElement, isEnterKey, isEscapeKey, isSpaceKey } from '../../u
 export class Galactic implements ComponentInterface {
     @Element() private el: HTMLWcsGalacticMenuElement;
     private menuButton!: HTMLWcsMatIconElement;
+    private inheritedAttributes: { [k: string]: any } = {};
+    
     @State() private showPopoverMenu: boolean = false;
     private popper: Instance;
     /**
@@ -34,6 +47,19 @@ export class Galactic implements ComponentInterface {
             ]
         });
     }
+
+    componentWillLoad(): Promise<void> | void {
+        this.inheritedAttributes = {
+            ...inheritAriaAttributes(this.el),
+            ...inheritAttributes(this.el, GALACTIC_MENU_INHERITED_ATTRS),
+        };
+    }
+
+    @Method()
+    async setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) {
+        setOrRemoveAttribute(this.menuButton, attr, value);
+    }
+
 
     @Listen('click', {target: 'window'})
     onWindowClickEvent(event: MouseEvent) {
@@ -86,7 +112,8 @@ export class Galactic implements ComponentInterface {
                               aria-expanded={this.showPopoverMenu ? "true" : "false"}
                               ref={el => {this.menuButton = el}}
                               onClick={_ => this.toggleMenu()}
-                              onKeyDown={e => this.handleMenuButtonKeyDown(e)}></wcs-mat-icon>
+                              onKeyDown={e => this.handleMenuButtonKeyDown(e)}
+                              {...this.inheritedAttributes}></wcs-mat-icon>
                 <span id="menu" role="menu" data-show={this.showPopoverMenu}>
                     <div id="arrow" data-popper-arrow />
                     <slot/>

@@ -3,6 +3,30 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+The header component is an element that appears across the top of all pages on a website or application; it contains the logo, the site name and main actions.
+
+## Methods
+
+### `setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>`
+
+
+
+#### Parameters
+
+| Name    | Type                         | Description |
+| ------- | ---------------------------- | ----------- |
+| `attr`  | `"role" \| `aria-${string}`` |             |
+| `value` | `string`                     |             |
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Slots
 
 | Slot                                                                                                          | Description |

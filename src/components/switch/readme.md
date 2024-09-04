@@ -4,6 +4,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+The switch component is a control used to switch between on and off state.
+
 ## Properties
 
 | Property         | Attribute         | Description                                                 | Type                            | Default         |
@@ -25,7 +29,7 @@
 
 ## Methods
 
-### `setAriaAttribute(attr: AriaAttributeName, value: string) => Promise<void>`
+### `setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>`
 
 
 

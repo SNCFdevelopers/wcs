@@ -25,7 +25,13 @@ import {
 } from './select-interface';
 import { SelectArrow } from './select-arrow';
 import { SelectOptionChosedEvent, SelectOptionValue } from '../select-option/select-option-interface';
-import { isElement, generateUniqueId, findItemLabel } from '../../utils/helpers';
+import {
+    isElement,
+    generateUniqueId,
+    findItemLabel,
+    inheritAriaAttributes,
+    inheritAttributes, setOrRemoveAttribute
+} from '../../utils/helpers';
 import { SelectChips } from './select-chips';
 import { MDCRipple } from '@material/ripple';
 import { createPopper, Instance } from '@popperjs/core';
@@ -70,6 +76,8 @@ const SELECT_MACHINE_CONFIG: MachineConfig<any, SelectStateSchema, SelectEvent> 
     }
 };
 
+const SELECT_INHERITED_ATTRS = ['tabindex', 'title'];
+
 /**
  * The select component (also named combobox) is a form component that allows users to select one or more options
  * from a list.
@@ -83,6 +91,9 @@ const SELECT_MACHINE_CONFIG: MachineConfig<any, SelectStateSchema, SelectEvent> 
     shadow: true
 })
 export class Select implements ComponentInterface, MutableAriaAttribute {
+    @Element() private el!: HTMLWcsSelectElement;
+    private inheritedAttributes: { [k: string]: any } = {};
+    
     private stateService!: Interpreter<any, SelectStateSchema, SelectEvent>;
 
     private selectId = `wcs-select-${selectIds++}`;
@@ -118,8 +129,6 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
     // Only used for autocomplete.
     private lastHighlightedOptionElement: HTMLWcsSelectOptionElement | null;
     private autocompleteInput: HTMLInputElement;
-
-    @Element() private el!: HTMLWcsSelectElement;
 
     /** Wether the select is expanded */
     @State()
@@ -368,17 +377,27 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
 
     componentWillLoad(): Promise<void> | void {
         if (!isWcsSelectSize(this.size)) {
-            console.error(`Invalid size value for wcs-select : "${this.size}". Must be one of "${WcsSelectSizeValue.join(', ')}"`);
+            console.warn(`Invalid size value for wcs-select : "${this.size}". Must be one of "${WcsSelectSizeValue.join(', ')}"`);
             this.size = "m"; // Default fallback value
+        }
+        
+        // XXX : special case on this component for attribute inheritance
+        // We only move attributes on the native input when autocomplete is true.
+        // Otherwise, all attributes are on the Host, so we do not need to inherit those.
+        if (this.autocomplete) {
+            this.inheritedAttributes = {
+                ...inheritAriaAttributes(this.el),
+                ...inheritAttributes(this.el, SELECT_INHERITED_ATTRS),
+            };
         }
     }
 
     @Method()
-    async setAriaAttribute(attr: AriaAttributeName, value: string) {
+    async setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) {
         if(this.autocomplete === false) {
-            this.el.setAttribute(attr, value);
+            setOrRemoveAttribute(this.el, attr, value);
         } else {
-            this.autocompleteInput.setAttribute(attr, value);
+            setOrRemoveAttribute(this.autocompleteInput, attr, value);
         }
     }
 
@@ -963,7 +982,8 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
                                                          onBlur={(e) => this.onAutocompleteFieldBlur(e)}
                                                          placeholder={this.values?.length ? null : this.placeholder}
                                                          onInput={(e) => this.onAutocompleteInputEvent(e)}
-                                                         ref={el => this.autocompleteInput = el}/>
+                                                         ref={el => this.autocompleteInput = el}
+                                                         {...this.inheritedAttributes}/>
                         }
                     </div>
                     <SelectArrow up={this.expanded}/>

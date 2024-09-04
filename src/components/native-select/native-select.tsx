@@ -2,7 +2,6 @@ import { Component, h, ComponentInterface, State, Prop, Host, Element, Method } 
 
 import { SelectArrow } from '../select/select-arrow';
 import { WcsNativeSelectSize } from './native-select-interface';
-import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
 
 /**
  * The `wcs-native-select` component is designed to accept a native `<select>` element as a slotted child. This choice
@@ -32,14 +31,15 @@ import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-ari
  * ### Note
  * - We did not find a way to detect when the select is reset, if you want to apply the placeholder style when the
  * select is reset, you have to call the `updateStyles()` method manually.
- * - It is strongly recommended to use select-native when you don't have to support the multi-selection feature
+ * - It is strongly recommended to use native-select when you don't have to support the multi-selection feature
+ * - Use a native-select instead of a wcs-select if your application is mainly on mobile / tablet. The native behavior of the device will be used. 
  */
 @Component({
     tag: 'wcs-native-select',
     styleUrl: 'native-select.scss',
     shadow: true
 })
-export class NativeSelect implements ComponentInterface, MutableAriaAttribute {
+export class NativeSelect implements ComponentInterface {
     /**
      * The `size` property controls the size of the slotted `select` element by adjusting its padding.
      * There are two possible size options:
@@ -58,13 +58,6 @@ export class NativeSelect implements ComponentInterface, MutableAriaAttribute {
 
     private observer: MutationObserver;
     private readonly SLOTTED_SELECT_TRACKED_ATTRIBUTES_LIST = ['disabled'];
-
-
-    @Method()
-    async setAriaAttribute(attr: AriaAttributeName, value: string) {
-        this.selectElement.setAttribute(attr, value);
-    }
-
 
     componentWillLoad() {
         this.selectElement = this.el.querySelector('select');

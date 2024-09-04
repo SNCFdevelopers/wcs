@@ -1,1 +1,0 @@
-The appendTo property allows the user to append the tooltip to a specific Element instead of body. If interactive: true, the default behavior is appendTo: "parent".

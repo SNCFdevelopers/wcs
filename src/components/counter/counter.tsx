@@ -1,6 +1,6 @@
 import {
     Component,
-    ComponentInterface,
+    ComponentInterface, Element,
     Event,
     EventEmitter,
     h,
@@ -9,9 +9,19 @@ import {
     State,
     Watch
 } from '@stencil/core';
-import { isEndKey, isHomeKey, isKeydown, isKeyup } from '../../utils/helpers';
+import {
+    inheritAriaAttributes,
+    inheritAttributes,
+    isEndKey,
+    isHomeKey,
+    isKeydown,
+    isKeyup,
+    setOrRemoveAttribute
+} from '../../utils/helpers';
 import { CounterChangeEventDetail, isWcsCounterSize, WcsCounterSize, WcsCounterSizeValues } from './counter-interface';
 import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
+
+const COUNTER_INHERITED_ATTRS = ['tabindex', 'title'];
 
 const ANIMATION_DURATION = 0.175 // seconds
 
@@ -27,8 +37,10 @@ const ANIMATION_DURATION = 0.175 // seconds
     },
 })
 export class Counter implements ComponentInterface, MutableAriaAttribute {
+    @Element() private el!: HTMLElement;
     private spinButton!: HTMLSpanElement;
     private counterContainer!: HTMLDivElement;
+    private inheritedAttributes: { [k: string]: any } = {};
 
     /**
      * Specify the size (height) of the counter.
@@ -89,14 +101,20 @@ export class Counter implements ComponentInterface, MutableAriaAttribute {
         this.handleValueChange();
 
         if (!isWcsCounterSize(this.size)) {
-            console.error(`Invalid size value for wcs-counter : "${this.size}". Must be one of "${WcsCounterSizeValues.join(', ')}"`);
+            console.warn(`Invalid size value for wcs-counter : "${this.size}". Must be one of "${WcsCounterSizeValues.join(', ')}"`);
             this.size = "m"; // Default fallback value
         }
+
+        this.inheritedAttributes = {
+            ...inheritAriaAttributes(this.el),
+            ...inheritAttributes(this.el, COUNTER_INHERITED_ATTRS),
+        };
     }
+    
 
     @Method()
-    async setAriaAttribute(attr: AriaAttributeName, value: string) {
-        this.spinButton.setAttribute(attr, value);
+    async setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) {
+        setOrRemoveAttribute(this.spinButton, attr, value);
     }
     
     /**
@@ -246,7 +264,8 @@ export class Counter implements ComponentInterface, MutableAriaAttribute {
                               aria-valuetext={this.value}
                               aria-valuemin={this.min}
                               aria-valuemax={this.max}
-                              aria-label={this.label}>{this.displayedValue}</span>
+                              aria-label={this.label}
+                              {...this.inheritedAttributes}>{this.displayedValue}</span>
                         <span id="outlier-up"
                               class="outliers"
                               hidden

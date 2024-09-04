@@ -4,6 +4,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+The action-bar component is a group of elements appearing across the top of all pages on a business application.
+
 ## Properties
 
 | Property | Attribute | Description                                                                                                                              | Type      | Default     |

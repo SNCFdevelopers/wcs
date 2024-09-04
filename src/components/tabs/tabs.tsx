@@ -9,10 +9,14 @@ import {
     Watch,
     h,
     Host,
-    Listen
+    Listen, Method
 } from '@stencil/core';
 
 import { WcsTabsAlignment, WcsTabChangeEvent } from './tabs-interface';
+import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
+import { inheritAriaAttributes, inheritAttributes, setOrRemoveAttribute } from "../../utils/helpers";
+
+const TABS_INHERITED_ATTRS = [];
 
 /**
  * Tabs component to switch between tab content.
@@ -35,7 +39,11 @@ import { WcsTabsAlignment, WcsTabChangeEvent } from './tabs-interface';
     styleUrl: 'tabs.scss',
     shadow: true,
 })
-export class Tabs implements ComponentInterface {
+export class Tabs implements ComponentInterface, MutableAriaAttribute {
+    @Element() private el!: HTMLWcsTabsElement;
+    private nativeTablist!: HTMLElement;
+    private inheritedAttributes: { [k: string]: any } = {};
+    
     /**
      * Tab headers alignment.
      */
@@ -67,8 +75,6 @@ export class Tabs implements ComponentInterface {
      * Emitted when the selected tab change.
      */
     @Event() tabChange!: EventEmitter<WcsTabChangeEvent>;
-
-    @Element() private el!: HTMLWcsTabsElement;
 
     @State() private headers: string[] = [];
 
@@ -210,6 +216,18 @@ export class Tabs implements ComponentInterface {
         }
     }
 
+    componentWillLoad(): Promise<void> | void {
+        this.inheritedAttributes = {
+            ...inheritAriaAttributes(this.el),
+            ...inheritAttributes(this.el, TABS_INHERITED_ATTRS),
+        };
+    }
+
+    @Method()
+    async setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) {
+        setOrRemoveAttribute(this.nativeTablist, attr, value);
+    }
+
     private updateTabVisibility() {
         this.tabs.forEach((el: HTMLWcsTabElement, idx: number) => {
             if (idx !== this.currentActiveTabIndex) {
@@ -227,7 +245,11 @@ export class Tabs implements ComponentInterface {
     render() {
         return (
             <Host>
-                <div class="wcs-tabs-headers" role="tablist" aria-label={this.description}>
+                <div class="wcs-tabs-headers"
+                     role="tablist"
+                     ref={(el) => (this.nativeTablist = el)}
+                     aria-label={this.description}
+                     {...this.inheritedAttributes}>
                     {this.headers.map((header, idx) =>
                         <div class={'wcs-tab-header ' + (this.currentActiveTabIndex === idx ? 'active' : '')}
                              onClick={() => this.selectTabAndEmitChangeEvent(idx)}

@@ -5,7 +5,7 @@ import {
     Event,
     EventEmitter,
     h,
-    Host,
+    Host, Method,
     Prop,
     Watch
 } from '@stencil/core';
@@ -16,7 +16,16 @@ import {
     WcsSortOrder
 } from '../grid/grid-interface';
 import { GridSortArrow } from './grid-sort-arrow';
-import { isEnterKey, isSpaceKey } from "../../utils/helpers";
+import {
+    inheritAriaAttributes,
+    inheritAttributes,
+    isEnterKey,
+    isSpaceKey,
+    setOrRemoveAttribute
+} from "../../utils/helpers";
+import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
+
+const GRID_COLUMN_INHERITED_ATTRS = ['tabindex', 'title'];
 
 /**
  * The grid column is a subcomponent of `wcs-grid` that represents a column of the table.
@@ -28,9 +37,11 @@ import { isEnterKey, isSpaceKey } from "../../utils/helpers";
     styleUrl: 'grid-column.scss',
     shadow: true
 })
-export class GridColumn implements ComponentInterface {
+export class GridColumn implements ComponentInterface, MutableAriaAttribute {
     @Element() private el: HTMLWcsGridColumnElement;
+    private nativeTh!: HTMLTableHeaderCellElement;
     private buttonOrDiv: HTMLButtonElement | HTMLDivElement;
+    private inheritedAttributes: { [k: string]: any } = {};
     /**
      * Represents the name of the field from the `data` object (e.g: first_name, last_name, email, ...)
      */
@@ -90,6 +101,18 @@ export class GridColumn implements ComponentInterface {
      * @internal
      */
     @Prop() public columnPosition: number;
+    
+    componentWillLoad(): Promise<void> | void {
+        this.inheritedAttributes = {
+            ...inheritAriaAttributes(this.el),
+            ...inheritAttributes(this.el, GRID_COLUMN_INHERITED_ATTRS),
+        };
+    }
+    
+    @Method()
+    async setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) {
+        setOrRemoveAttribute(this.nativeTh, attr, value);
+    }
 
     @Watch('hidden')
     parseMyObjectProp(newValue: boolean) {
@@ -147,7 +170,10 @@ export class GridColumn implements ComponentInterface {
                 onClick={this.onSortClick.bind(this)}
                 onKeyDown={this.handleSortKeyDown.bind(this)}
                 onFocus={this.delegateFocusToButton.bind(this)}
-                aria-sort={this.sort ? this.getSortOrderForAriaSort(this.sortOrder) : null}>
+                aria-sort={this.sort ? this.getSortOrderForAriaSort(this.sortOrder) : null}
+                ref={(el) => (this.nativeTh = el)}
+                {...this.inheritedAttributes}
+            >
                 <ButtonOrDiv class="grid-column-th-content"
                         ref={(el: HTMLButtonElement | HTMLDivElement) => this.buttonOrDiv = el}
                         tabIndex={this.sort ? this.getTabIndex() : -1}>

@@ -1,7 +1,13 @@
-import { Component, ComponentInterface, Event, EventEmitter, h, Host, Method, Prop } from '@stencil/core';
+import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Method, Prop } from '@stencil/core';
 import { SwitchChangeEventDetail, SwitchLabelAlignment } from './switch-interface';
 import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
+import { inheritAriaAttributes, inheritAttributes, setOrRemoveAttribute } from "../../utils/helpers";
 
+const SWITCH_INHERITED_ATTRS = ['tabindex'];
+
+/**
+ * The switch component is a control used to switch between on and off state.
+ */
 @Component({
     tag: 'wcs-switch',
     styleUrl: 'switch.scss',
@@ -10,8 +16,10 @@ import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-ari
     }
 })
 export class Switch implements ComponentInterface, MutableAriaAttribute {
+    @Element() private el!: HTMLElement;
     private switchId = `wcs-switch-${switchIds++}`;
-    private input!: HTMLInputElement;
+    private nativeInput!: HTMLInputElement;
+    private inheritedAttributes: { [k: string]: any } = {};
 
     @Prop() name = this.switchId;
 
@@ -60,9 +68,16 @@ export class Switch implements ComponentInterface, MutableAriaAttribute {
         this.wcsBlur.emit(event);
     }
 
+    componentWillLoad(): Promise<void> | void {
+        this.inheritedAttributes = {
+            ...inheritAriaAttributes(this.el),
+            ...inheritAttributes(this.el, SWITCH_INHERITED_ATTRS),
+        };
+    }
+    
     @Method()
-    async setAriaAttribute(attr: AriaAttributeName, value: string) {
-        this.input.setAttribute(attr, value);
+    async setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) {
+        setOrRemoveAttribute(this.nativeInput, attr, value);
     }
 
     render() {
@@ -73,12 +88,13 @@ export class Switch implements ComponentInterface, MutableAriaAttribute {
                            onChange={(evt) => this.toggleChange(evt)}
                            onFocus={this.handleFocus.bind(this)}
                            checked={this.checked}
+                           id={this.name}
                            class="wcs-switch"
                            type="checkbox"
                            name={this.name}
                            disabled={this.disabled}
-                           ref={el => {this.input = el}}
-                           id={this.name}>
+                           ref={el => {this.nativeInput = el}}
+                           {...this.inheritedAttributes}>
                     </input>
                     <span class="wcs-checkmark"></span>
                     <span class="text">

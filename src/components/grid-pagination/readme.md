@@ -27,6 +27,26 @@ The grid pagination is a subcomponent of `wcs-grid`, slotted in `grid-pagination
 | `wcsGridPaginationChange` | Event emitted when the pagination changes. | `CustomEvent<WcsGridPaginationChangeEventDetails>` |
 
 
+## Methods
+
+### `setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>`
+
+
+
+#### Parameters
+
+| Name    | Type                         | Description |
+| ------- | ---------------------------- | ----------- |
+| `attr`  | `"role" \| `aria-${string}`` |             |
+| `value` | `string`                     |             |
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Dependencies
 
 ### Depends on

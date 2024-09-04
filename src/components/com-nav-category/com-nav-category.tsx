@@ -11,15 +11,30 @@ import {
     State
 } from '@stencil/core';
 import { CategoryOpenedEventDetail } from '../com-nav/com-nav-interface';
-import { getCssRootPropertyValue, isEnterKey, isSpaceKey } from "../../utils/helpers";
+import {
+    getCssRootPropertyValue,
+    inheritAriaAttributes,
+    inheritAttributes,
+    isEnterKey,
+    isSpaceKey, setOrRemoveAttribute
+} from "../../utils/helpers";
+import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
 
+const COM_NAV_CATEGORY_INHERITED_ATTRS = ['title'];
+
+/**
+ * The com-nav-category is a subcomponent of `wcs-com-nav`. It represents a category nested inside a `wcs-com-nav-submenu`.
+ */
 @Component({
     tag: 'wcs-com-nav-category',
     styleUrl: 'com-nav-category.scss',
     shadow: true,
 })
-export class ComNavCategory implements ComponentInterface {
+export class ComNavCategory implements ComponentInterface, MutableAriaAttribute {
     @Element() private el!: HTMLWcsComNavCategoryElement;
+    private nativeButton!: HTMLButtonElement;
+    private inheritedAttributes: { [k: string]: any } = {};
+    
     @Prop() label: string;
     @State() private categoryOpen: boolean = false;
     @Event() wcsCategoryOpened: EventEmitter<CategoryOpenedEventDetail>;
@@ -75,6 +90,18 @@ export class ComNavCategory implements ComponentInterface {
             this.handleItemClick(_event);
         }
     }
+    
+    componentWillLoad(): Promise<void> | void {
+        this.inheritedAttributes = {
+            ...inheritAriaAttributes(this.el),
+            ...inheritAttributes(this.el, COM_NAV_CATEGORY_INHERITED_ATTRS)
+        };
+    }
+
+    @Method()
+    async setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) {
+        setOrRemoveAttribute(this.nativeButton, attr, value);
+    }
 
     /**
      * Close the category
@@ -129,7 +156,9 @@ export class ComNavCategory implements ComponentInterface {
                         : <button class="label-container"
                             aria-controls={this.categoryItemsId}
                             aria-expanded={this.categoryOpen ? 'true' : 'false'}
-                            onClick={_ => this.categoryOpen = !this.categoryOpen}>
+                            ref={(el) => (this.nativeButton = el)}
+                            onClick={_ => this.categoryOpen = !this.categoryOpen}
+                            {...this.inheritedAttributes}>
                             <span class="label">{this.label}</span>
                             <span class="arrow-container">
                                 <span aria-hidden="true" class="arrow-icon">&#xf107;</span>

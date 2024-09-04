@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+The accordion-panel is a subcomponent of `wcs-accordion`. It represents every panel of the accordion that can be expanded.
+
 ## Properties
 
 | Property                 | Attribute                   | Description                                                                                                                                                                                 | Type      | Default |
@@ -27,6 +31,23 @@
 ### `close() => Promise<void>`
 
 
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>`
+
+
+
+#### Parameters
+
+| Name    | Type                         | Description |
+| ------- | ---------------------------- | ----------- |
+| `attr`  | `"role" \| `aria-${string}`` |             |
+| `value` | `string`                     |             |
 
 #### Returns
 

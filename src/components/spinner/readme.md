@@ -3,6 +3,12 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+The spinner component is visual indicator that showing a process is happening in the background but the interface is
+not yet ready for interaction.  
+If your page structure is simple or the loading time is long (> 300ms), use [wcs-skeleton](.?path=/docs/components-skeleton--documentation) instead.
+
 ## Properties
 
 | Property | Attribute | Description                                                                | Type                    | Default    |

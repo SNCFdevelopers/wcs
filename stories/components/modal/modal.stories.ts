@@ -28,6 +28,7 @@ interface ModalStoryArgs {
     withoutBackdrop: boolean,
     show: boolean,
     showCloseButton: boolean,
+    closeButtonAriaLabel: string,
     size: ModalSize,
     hideActions: boolean
 }
@@ -46,6 +47,7 @@ const Template: StoryFn<Partial<ModalStoryArgs>> = (args) => {
                    ${ref(modalRef)}
                    ?without-backdrop=${args.withoutBackdrop}
                    ?show-close-button=${args.showCloseButton}
+                   close-button-aria-label=${args.closeButtonAriaLabel}
                    size=${ifDefined(args.size)}
                    ?hide-actions=${args.hideActions}>
             <div slot="header">Titre de la modale</div>
@@ -73,6 +75,7 @@ export const Default: StoryObj<ModalStoryArgs> = {
     args: {
         show: false,
         showCloseButton: true,
+        closeButtonAriaLabel: 'Fermer',
         modalTriggerControlsId: "modal-trigger-controls-0"
     }
 };
@@ -167,6 +170,7 @@ export const OverflowAndMaxHeight: StoryObj = {
                        ${ref(modalRef)}
                        ?without-backdrop=${args.withoutBackdrop}
                        ?show-close-button=${args.showCloseButton}
+                       close-button-label=${args.closeButtonLabel}
                        size=${ifDefined(args.size)}
                        ?hide-actions=${args.hideActions}>
                 <div slot="header">Custom height and overflow modal</div>

@@ -1,7 +1,8 @@
-import { Component, Prop, ComponentInterface, h, Element, Watch, forceUpdate } from '@stencil/core';
-import { inheritAttributes } from "../../utils/helpers";
+import { Component, Prop, ComponentInterface, h, Element, Method } from '@stencil/core';
+import { inheritAriaAttributes, inheritAttributes, setOrRemoveAttribute } from "../../utils/helpers";
+import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
 
-const PROGRESS_RADIAL_ARIA_INHERITED_ATTRS = ['aria-label'];
+const PROGRESS_RADIAL_ARIA_INHERITED_ATTRS = ['title'];
 
 /**
  * The progress-radial component is a circular progress bar that indicates the current completion of a task. 
@@ -25,10 +26,10 @@ const PROGRESS_RADIAL_ARIA_INHERITED_ATTRS = ['aria-label'];
     styleUrl: 'progress-radial.scss',
     shadow: true
 })
-export class ProgressRadial implements ComponentInterface {
+export class ProgressRadial implements ComponentInterface, MutableAriaAttribute {
     
     @Element() private el!: HTMLWcsProgressRadialElement;
-
+    private nativeProgress!: HTMLDivElement;
     private inheritedAttributes: { [k: string]: any } = {};
     
     /** The initial background image size (120x120) as specified in the background-image css property of .progress-circle */
@@ -43,18 +44,15 @@ export class ProgressRadial implements ComponentInterface {
     
     componentWillLoad(): Promise<void> | void {
         this.inheritedAttributes = {
-            ...inheritAttributes(this.el, PROGRESS_RADIAL_ARIA_INHERITED_ATTRS)
+            ...inheritAriaAttributes(this.el),
+            ...inheritAttributes(this.el, PROGRESS_RADIAL_ARIA_INHERITED_ATTRS),
         };
     }
 
-    @Watch('aria-label')
-    onAriaLabelChange() {
-        this.inheritedAttributes = {
-            ...inheritAttributes(this.el, PROGRESS_RADIAL_ARIA_INHERITED_ATTRS)
-        };
-        forceUpdate(this);
+    @Method()
+    async setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) {
+        setOrRemoveAttribute(this.nativeProgress, attr, value);
     }
-
 
     render() {
         const { backgroundImageSize, halfSize } = { backgroundImageSize: this.backgroundImageSize, halfSize: this.backgroundImageSize / 2 };
@@ -67,6 +65,7 @@ export class ProgressRadial implements ComponentInterface {
                  aria-valuemax="100"
                  aria-valuenow={this.value}
                  aria-valuetext={this.value + '%'}
+                 ref={(el) => (this.nativeProgress = el)}
                  {...this.inheritedAttributes}>
                 <svg class="progress-circle-figure"
                     data-role="figure"

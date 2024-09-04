@@ -23,12 +23,12 @@ export class SkeletonRectangle implements ComponentInterface {
      * Adds a border radius on the skeleton if true
      */
     @Prop({reflect: true}) rounded: boolean = false;
-    
+
     /**
      * Specifies the height of the skeleton (can be any valid CSS value)
      */
     @Prop({reflect: true}) height: CssTypes.Height = 'auto';
-    
+
     /**
      * Specifies the width of the skeleton (can be any valid CSS value)
      */

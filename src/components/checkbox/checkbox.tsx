@@ -1,7 +1,13 @@
-import { Component, Prop, Event, EventEmitter, ComponentInterface, h, Host, Method } from '@stencil/core';
+import { Component, Prop, Event, EventEmitter, ComponentInterface, h, Host, Method, Element } from '@stencil/core';
 import { CheckboxChangeEventDetail, CheckboxLabelAlignment } from './checkbox-interface';
 import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
+import { inheritAriaAttributes, inheritAttributes, setOrRemoveAttribute } from "../../utils/helpers";
 
+const CHECKBOX_INHERITED_ATTRS = ['tabindex', 'title'];
+
+/**
+ * The checkbox component is an input for choosing one or more items from a set by checking / unchecking it.
+ */
 @Component({
     tag: 'wcs-checkbox',
     styleUrl: 'checkbox.scss',
@@ -10,8 +16,10 @@ import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-ari
     },
 })
 export class Checkbox implements ComponentInterface, MutableAriaAttribute {
+    @Element() private el!: HTMLElement;
+    private nativeInput!: HTMLInputElement;
+    private inheritedAttributes: { [k: string]: any } = {};
     private checkboxId = `wcs-checkbox-${checkboxIds++}`;
-    private input!: HTMLInputElement;
 
     @Prop() name = this.checkboxId;
     /**
@@ -49,9 +57,16 @@ export class Checkbox implements ComponentInterface, MutableAriaAttribute {
      */
     @Event() wcsBlur!: EventEmitter<FocusEvent>;
 
+    componentWillLoad(): Promise<void> | void {
+        this.inheritedAttributes = {
+            ...inheritAriaAttributes(this.el),
+            ...inheritAttributes(this.el, CHECKBOX_INHERITED_ATTRS),
+        };
+    }
+
     @Method()
-    async setAriaAttribute(attr: AriaAttributeName, value: string) {
-        this.input.setAttribute(attr, value);
+    async setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) {
+        setOrRemoveAttribute(this.nativeInput, attr, value);
     }
 
     handleChange(_event: Event) {
@@ -81,10 +96,11 @@ export class Checkbox implements ComponentInterface, MutableAriaAttribute {
                         checked={this.checked}
                         class="wcs-checkbox"
                         type="checkbox"
-                        ref={(el) => (this.input = el)}
+                        ref={(el) => (this.nativeInput = el)}
                         name={this.name}
                         disabled={this.disabled}
                         id={this.name}
+                        {...this.inheritedAttributes}
                     ></input>
                     <span class="wcs-checkmark"></span>
                     <span class="text">

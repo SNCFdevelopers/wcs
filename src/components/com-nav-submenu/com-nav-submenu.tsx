@@ -11,19 +11,33 @@ import {
     EventEmitter, Method
 } from '@stencil/core';
 import {MenuOpenedEventDetail} from '../com-nav/com-nav-interface';
-import {getCssRootPropertyValue, isEnterKey, isEscapeKey, isSpaceKey} from "../../utils/helpers";
+import {
+    getCssRootPropertyValue,
+    inheritAriaAttributes, inheritAttributes,
+    isEnterKey,
+    isEscapeKey,
+    isSpaceKey, setOrRemoveAttribute
+} from "../../utils/helpers";
 import {registerCloseHandlerForFocusOutEventOn} from "../com-nav/com-nav-utils";
+import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
 
+const COM_NAV_SUBMENU_INHERITED_ATTRS = ['title'];
 
 const WCS_COM_NAV_CATEGORY = 'WCS-COM-NAV-CATEGORY';
 
+/**
+ * The com-nav-submenu is a subcomponent of `wcs-com-nav`. It represents an expandable menu containing more items or categories.
+ */
 @Component({
     tag: 'wcs-com-nav-submenu',
     styleUrl: 'com-nav-submenu.scss',
     shadow: true,
 })
-export class ComNavSubmenu implements ComponentInterface {
+export class ComNavSubmenu implements ComponentInterface, MutableAriaAttribute {
     @Element() private el!: HTMLWcsComNavSubmenuElement;
+    private nativeButton!: HTMLButtonElement;
+    private inheritedAttributes: { [k: string]: any } = {};
+    
     @Prop() label: string;
     @Prop() panelTitle: string;
     @Prop() panelDescription: string;
@@ -47,6 +61,11 @@ export class ComNavSubmenu implements ComponentInterface {
     componentWillLoad(): Promise<void> | void {
         const slottedCategoryItems = this.el.querySelectorAll(':scope > wcs-com-nav-category:not([slot])');
         registerCloseHandlerForFocusOutEventOn<HTMLWcsComNavCategoryElement>(slottedCategoryItems, WCS_COM_NAV_CATEGORY);
+
+        this.inheritedAttributes = {
+            ...inheritAriaAttributes(this.el),
+            ...inheritAttributes(this.el, COM_NAV_SUBMENU_INHERITED_ATTRS)
+        };
     }
 
     componentDidLoad(): void {
@@ -93,6 +112,11 @@ export class ComNavSubmenu implements ComponentInterface {
         if (isEscapeKey(_event) && this.menuOpen) {
             this.menuOpen = false;
         }
+    }
+
+    @Method()
+    async setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) {
+        setOrRemoveAttribute(this.nativeButton, attr, value);
     }
 
     /**
@@ -165,7 +189,9 @@ export class ComNavSubmenu implements ComponentInterface {
                     : <button onClick={_ => this.menuOpen = !this.menuOpen}
                               aria-expanded={this.menuOpen ? 'true' : 'false'}
                               aria-controls={this.menuItemsId}
-                              class="menu-button">
+                              class="menu-button"
+                              ref={(el) => (this.nativeButton = el)}
+                              {...this.inheritedAttributes}>
                         <span class="label">{this.label}</span><span class="arrow-container">
                         <span aria-hidden="true" class="arrow-icon" data-open={this.menuOpen}>&#xf107;</span></span>
                     </button>

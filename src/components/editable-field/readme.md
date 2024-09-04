@@ -23,6 +23,11 @@ A **response** is needed to get the component out of the LOADING state. You can 
 - Use the `successHandler` callback through the `wcsChange` event (see interface [EditableComponentUpdateEvent](https://gitlab.com/SNCF/wcs/-/blob/develop/src/components/editable-field/editable-field-interface.tsx))
 - Use the `errorHandler` callback through the `wcsChange` event (see interface [EditableComponentUpdateEvent](https://gitlab.com/SNCF/wcs/-/blob/develop/src/components/editable-field/editable-field-interface.tsx))
 
+**Accessibility guidelines 💡**  
+
+> - Aria attributes are put on the native component on the first rendering with the `label` and `errorMsg` you provided 
+> - Additional aria attributes put on `<wcs-editable-field>` won't inherit onto the native component : you must use the `setAriaAttribute` method.
+
 ## Properties
 
 | Property             | Attribute   | Description                                                        | Type                                | Default     |

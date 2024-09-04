@@ -1,4 +1,4 @@
-A component used to display a [Material Icon](https://fonts.google.com/icons). Can be useful when used in wcs-grid.
+A component used to display a [Material Icon](https://fonts.google.com/icons). Can be useful when used in wcs-grid or in a wcs-button.
 
 When used directly in another Web Component, the global CSS stylesheet doesn't apply to material-icons.
 In this case you can use the Mat-icon with its integrated material stylesheet.
@@ -46,7 +46,7 @@ Here is an example of the font face declaration, you can add these lines in the 
 ```
 
 
-<summary>Accessibility guidelines 💡</summary>
+## Accessibility guidelines 💡
 > - The icon name is always hidden to assistive technologies
 > - If the icon is NOT decorative and should carry some information, add a role image and an aria-label :
 > ```

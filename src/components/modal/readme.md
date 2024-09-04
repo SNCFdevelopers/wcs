@@ -27,21 +27,20 @@
 The modal component (also named dialog or popup) is an interface element that appears on top of the page content.
 Use it to show a message, a confirmation dialog, or any other content like forms.
 
-<details>
-    <summary>Accessibility guidelines 💡</summary>
-    > - Modal element has `role="dialog"` and `aria-modal="true"`
-    > - Keyboard navigation is trapped inside the modal
-    > - It is mandatory to set the `modal-trigger-controls-id` to the id of the element that opens the dialog, in order
-    > to focus it upon dialog dismissal.
-    > - The modal can be closed at any time by pressing the Escape key.
-    >
-    > - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
-</details>
+## Accessibility guidelines 💡
+> - Modal element has `role="dialog"` and `aria-modal="true"`
+> - Keyboard navigation is trapped inside the modal
+> - It is mandatory to set the `modal-trigger-controls-id` to the id of the element that opens the dialog, in order
+> to focus it upon dialog dismissal.
+> - The modal can be closed at any time by pressing the Escape key.
+>
+> - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
 
 ## Properties
 
 | Property                 | Attribute                   | Description                                                                                                                                                                                                                | Type                        | Default     |
 | ------------------------ | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- | ----------- |
+| `closeButtonAriaLabel`   | `close-button-aria-label`   | Specifies the aria-label present on the close button when the modal is opened.   Only use when `showCloseButton` is `true`.                                                                                                | `string`                    | `'Fermer'`  |
 | `hideActions`            | `hide-actions`              | Specifies whether the component should hide the actions slot or not                                                                                                                                                        | `boolean`                   | `false`     |
 | `modalTriggerControlsId` | `modal-trigger-controls-id` | Specifies which element id controls the modal                                                                                                                                                                              | `string`                    | `undefined` |
 | `show`                   | `show`                      | Displays the modal                                                                                                                                                                                                         | `boolean`                   | `false`     |
@@ -55,6 +54,26 @@ Use it to show a message, a confirmation dialog, or any other content like forms
 | Event             | Description                                                        | Type                |
 | ----------------- | ------------------------------------------------------------------ | ------------------- |
 | `wcsDialogClosed` | Triggered when the user leaves the dialog with the closing button. | `CustomEvent<void>` |
+
+
+## Methods
+
+### `setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>`
+
+
+
+#### Parameters
+
+| Name    | Type                         | Description |
+| ------- | ---------------------------- | ----------- |
+| `attr`  | `"role" \| `aria-${string}`` |             |
+| `value` | `string`                     |             |
+
+#### Returns
+
+Type: `Promise<void>`
+
+
 
 
 ## Slots

@@ -9,19 +9,7 @@ The input component is a form control that accepts a single line of text.
 Implementation mainly inspired from Ionic Input Component.
 
 ## Accessibility guidelines 💡
-> `wcs-input` is a wrapper around the native input element which is located inside its shadow DOM. All the
-> **aria attributes** you set on `wcs-input` are passed to the **native input** element **during the first render of the component**.
-> If you need to use them as you would with a native input, you can do so.
-
-> If you need to **dynamically change the aria attributes after the first render**, you can use the `setAriaAttribute` 
-> JS method of `wcs-input`.
-
-> ```javascript
-> const wcsInput = document.querySelector('wcs-input');
-> await wcsInput.setAriaAttribute('aria-label', 'new label');
-> ```
-
-> If you use wcs-input outside a wcs-form-field, you have to manage the label and the error message yourself.
+> - If you use wcs-input outside a wcs-form-field, you have to manage the label and the error message yourself.
 > You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.
 
 ## Properties
@@ -80,7 +68,7 @@ Type: `Promise<HTMLInputElement>`
 
 
 
-### `setAriaAttribute(attr: AriaAttributeName, value: string) => Promise<void>`
+### `setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>`
 
 
 

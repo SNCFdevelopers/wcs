@@ -8,7 +8,8 @@ import {
     State,
     Host,
     Element,
-    Watch, Listen
+    Watch,
+    Listen
 } from '@stencil/core';
 import {
     EditableComponentUpdateEvent,
@@ -44,6 +45,11 @@ enum EditableComponentState {
  * - Set the `value` property to a different value to tell the component to refresh and go back into DISPLAY state
  * - Use the `successHandler` callback through the `wcsChange` event (see interface [EditableComponentUpdateEvent](https://gitlab.com/SNCF/wcs/-/blob/develop/src/components/editable-field/editable-field-interface.tsx))
  * - Use the `errorHandler` callback through the `wcsChange` event (see interface [EditableComponentUpdateEvent](https://gitlab.com/SNCF/wcs/-/blob/develop/src/components/editable-field/editable-field-interface.tsx))
+ * 
+ * **Accessibility guidelines 💡**  
+ * 
+ * > - Aria attributes are put on the native component on the first rendering with the `label` and `errorMsg` you provided 
+ * > - Additional aria attributes put on `<wcs-editable-field>` won't inherit onto the native component : you must use the `setAriaAttribute` method.
  */
 @Component({
     tag: 'wcs-editable-field',
@@ -52,6 +58,7 @@ enum EditableComponentState {
 })
 export class EditableField implements ComponentInterface {
     @Element() private el!: HTMLWcsEditableFieldElement;
+    
 
     @State() private currentState: EditableComponentState = EditableComponentState.DISPLAY;
     /**
@@ -100,7 +107,7 @@ export class EditableField implements ComponentInterface {
 
     componentWillLoad(): Promise<void> | void {
         if(!isWcsEditableFieldSize(this.size)) {
-            console.error(`Invalid size value for wcs-editable-field : "${this.size}". Must be one of "${WcsEditableFieldSizeValues.join(', ')}"`);
+            console.warn(`Invalid size value for wcs-editable-field : "${this.size}". Must be one of "${WcsEditableFieldSizeValues.join(', ')}"`);
             this.size = "m"; // Default fallback value
         }
         this.currentValue = this.value;

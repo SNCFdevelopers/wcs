@@ -34,7 +34,8 @@ attribute. You can add the `hidden` attribute to don't show the placeholder opti
 ### Note
 - We did not find a way to detect when the select is reset, if you want to apply the placeholder style when the
 select is reset, you have to call the `updateStyles()` method manually.
-- It is strongly recommended to use select-native when you don't have to support the multi-selection feature
+- It is strongly recommended to use native-select when you don't have to support the multi-selection feature
+- Use a native-select instead of a wcs-select if your application is mainly on mobile / tablet. The native behavior of the device will be used.
 
 ## Properties
 
@@ -44,23 +45,6 @@ select is reset, you have to call the `updateStyles()` method manually.
 
 
 ## Methods
-
-### `setAriaAttribute(attr: AriaAttributeName, value: string) => Promise<void>`
-
-
-
-#### Parameters
-
-| Name    | Type                         | Description |
-| ------- | ---------------------------- | ----------- |
-| `attr`  | `"role" \| `aria-${string}`` |             |
-| `value` | `string`                     |             |
-
-#### Returns
-
-Type: `Promise<void>`
-
-
 
 ### `updateStyles() => Promise<void>`
 

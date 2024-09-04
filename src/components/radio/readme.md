@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+The radio component should always be wrapped in a `wcs-radio-group`.
+
 ## Properties
 
 | Property   | Attribute  | Description                                                                                    | Type      | Default     |
@@ -21,6 +25,26 @@
 | `wcsBlur`       | Emitted when the radio loses focus.                                                  | `CustomEvent<FocusEvent>`       |
 | `wcsFocus`      | Emitted when the radio has focus.                                                    | `CustomEvent<FocusEvent>`       |
 | `wcsRadioClick` | Emitted when the radio is clicked or Space/Enter is pressed above an unchecked radio | `CustomEvent<RadioChosedEvent>` |
+
+
+## Methods
+
+### `setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>`
+
+
+
+#### Parameters
+
+| Name    | Type                         | Description |
+| ------- | ---------------------------- | ----------- |
+| `attr`  | `"role" \| `aria-${string}`` |             |
+| `value` | `string`                     |             |
+
+#### Returns
+
+Type: `Promise<void>`
+
+
 
 
 ----------------------------------------------

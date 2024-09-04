@@ -1,4 +1,4 @@
-import {Component, ComponentInterface, Element, h, Listen, Prop, Watch} from '@stencil/core';
+import { Component, ComponentInterface, Element, h, Listen, Method, Prop, Watch } from '@stencil/core';
 
 import { MDCRipple } from '@material/ripple';
 
@@ -10,11 +10,17 @@ import {
     WcsButtonSizeValues,
     WcsButtonType
 } from './button-interface';
-import { hasShadowDom } from '../../utils/helpers';
+import { hasShadowDom, inheritAriaAttributes, inheritAttributes, setOrRemoveAttribute } from '../../utils/helpers';
+import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
+
+const BUTTON_INHERITED_ATTRS = ['tabindex', 'title'];
 
 /**
- * Button component, can also be a link when specifying href.
- *
+ * The button component is used to trigger an action. It can also be a link when specifying href.
+ * 
+ * ## Accessibility guidelines 💡
+ * > If your button doesn't contain text but only an image, you must set a relevant aria-label on the icon 👉 [see "Square" story below](#square)
+ * 
  * ## Click event
  *
  * The WCS button relies on the native click event to pass a user click to your app.
@@ -30,8 +36,10 @@ import { hasShadowDom } from '../../utils/helpers';
         delegatesFocus: true
     }
 })
-export class Button implements ComponentInterface {
+export class Button implements ComponentInterface, MutableAriaAttribute {
     @Element() private el!: HTMLElement;
+    private nativeButton?: HTMLButtonElement | HTMLAnchorElement;
+    private inheritedAttributes: { [k: string]: any } = {};
 
     /**
      * Specify the button type.
@@ -110,13 +118,23 @@ export class Button implements ComponentInterface {
 
     componentWillLoad(): Promise<void> | void {
         if (!isWcsButtonSize(this.size)) {
-            console.error(`Invalid size value for wcs-button : "${this.size}". Must be one of "${WcsButtonSizeValues.join(', ')}"`);
+            console.warn(`Invalid size value for wcs-button : "${this.size}". Must be one of "${WcsButtonSizeValues.join(', ')}"`);
             this.size = "m"; // Default fallback value
         }
+
+        this.inheritedAttributes = {
+            ...inheritAriaAttributes(this.el),
+            ...inheritAttributes(this.el, BUTTON_INHERITED_ATTRS),
+        };
     }
 
     componentDidLoad() {
         this.mdcRipple = new MDCRipple(this.el.shadowRoot.querySelector('.wcs-inner-button'));
+    }
+    
+    @Method()
+    async setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) {
+        setOrRemoveAttribute(this.nativeButton, attr, value);
     }
 
     private enabledRippleEffect() {
@@ -150,6 +168,8 @@ export class Button implements ComponentInterface {
                 {...attrs}
                 class="wcs-inner-button"
                 disabled = {this.disabled || this.loading}
+                ref={(el: HTMLButtonElement | HTMLAnchorElement) => this.nativeButton = el}
+                {...this.inheritedAttributes}
             >
                 {
                     this.loading && <wcs-spinner></wcs-spinner>

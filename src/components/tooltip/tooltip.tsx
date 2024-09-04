@@ -31,7 +31,8 @@ import { isEscapeKey } from "../../utils/helpers";
  * of the element you want to describe .
  * 
  * Example:
- * ```
+ * 
+ * ```html
  * <wcs-tooltip>Trashed items</wcs-tooltip>
  * <wcs-button aria-label="Trashed items">Trash</wcs-button>
  * ```
@@ -240,7 +241,7 @@ export class Tooltip implements ComponentInterface {
 
     render() {
         return (
-            <Host role={"tooltip"}>
+            <Host role="tooltip">
                 <slot onSlotchange={_ => this.updateTippyContent()}/>
             </Host>
         );

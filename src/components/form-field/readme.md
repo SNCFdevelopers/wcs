@@ -27,6 +27,7 @@ form-field that it is required. It will add a red star after the label of the fo
 - If the `wcs-label` is required, the form control must have the `required` HTML attribute and vice-versa (this is normally automatically set)
 - The form should not be submittable if at least one required form control is not filled
 - Hints are optional and should only be used to add extra information
+- Additional aria attributes put on `<wcs-form-field>` won't inherit onto the native component : you must use the `setAriaAttribute` method.
 
 ## Properties
 

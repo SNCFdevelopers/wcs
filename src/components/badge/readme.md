@@ -3,6 +3,11 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+The badge component is a small label, generally appearing inside or in proximity to another larger interface component,
+representing a status, property, or some other metadata.
+
 ## Properties
 
 | Property | Attribute | Description                                                                                                      | Type                     | Default     |

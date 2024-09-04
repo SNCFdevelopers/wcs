@@ -1,6 +1,8 @@
 import { Component, ComponentInterface, h, Host } from '@stencil/core';
 
 /**
+ * The footer component has been designed to leave as much customization as possible to the developer. The footers are often specific to the application developed.
+ * 
  * @slot <no-name> Main container slot
  * @slot end-left Bottom-left part of the footer
  * @slot end-right Bottom-right part of the footer

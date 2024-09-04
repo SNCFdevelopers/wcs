@@ -5,7 +5,10 @@
 
 ## Overview
 
-Button component, can also be a link when specifying href.
+The button component is used to trigger an action. It can also be a link when specifying href.
+
+## Accessibility guidelines 💡
+> If your button doesn't contain text but only an image, you must set a relevant aria-label on the icon 👉 [see "Square" story below](#square)
 
 ## Click event
 
@@ -28,6 +31,26 @@ To fix this problem, we plan to provide a wcsClick event in addition to the nati
 | `size`     | `size`     | Specify the size of the button.                                                                                                                                     | `"l" \| "m" \| "s"`               | `'m'`       |
 | `target`   | `target`   | Specifies where to open the linked document when using href (see prop above)<br/> Default '_self' will open the linked document in the same frame as it was clicked | `"_blank" \| "_self"`             | `undefined` |
 | `type`     | `type`     | Specify the button type.                                                                                                                                            | `"button" \| "submit"`            | `'button'`  |
+
+
+## Methods
+
+### `setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>`
+
+
+
+#### Parameters
+
+| Name    | Type                         | Description |
+| ------- | ---------------------------- | ----------- |
+| `attr`  | `"role" \| `aria-${string}`` |             |
+| `value` | `string`                     |             |
+
+#### Returns
+
+Type: `Promise<void>`
+
+
 
 
 ## Dependencies

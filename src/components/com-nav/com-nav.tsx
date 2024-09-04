@@ -1,20 +1,21 @@
 import {
     Component,
-    Host,
-    h,
-    Prop,
-    Element,
     ComponentInterface,
-    State,
+    Element,
+    forceUpdate,
+    h,
+    Host,
     Listen,
-    Watch,
-    forceUpdate
+    Method,
+    Prop,
+    State,
 } from '@stencil/core';
 import { registerCloseHandlerForFocusOutEventOn } from "./com-nav-utils";
-import { getCssRootPropertyValue, inheritAttributes, isEscapeKey } from "../../utils/helpers";
+import { getCssRootPropertyValue, inheritAriaAttributes, inheritAttributes, isEscapeKey } from "../../utils/helpers";
+import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
 
 
-const COM_NAV_ARIA_INHERITED_ATTRS = ['aria-label'];
+const COM_NAV_INHERITED_ATTRS = ['title'];
 
 const WCS_COM_NAV_SUBMENU_TAG_NAME = 'WCS-COM-NAV-SUBMENU';
 
@@ -32,8 +33,9 @@ const WCS_COM_NAV_SUBMENU_TAG_NAME = 'WCS-COM-NAV-SUBMENU';
     styleUrl: 'com-nav.scss',
     shadow: true,
 })
-export class ComNav implements ComponentInterface {
+export class ComNav implements ComponentInterface, MutableAriaAttribute {
     @Element() private el!: HTMLWcsComNavElement;
+    private inheritedAttributes: { [k: string]: any } = {};
 
     /** Name of the application to be displayed in the menu bar */
     @Prop() appName: string;
@@ -42,8 +44,6 @@ export class ComNav implements ComponentInterface {
     @State() private currentActiveSizing: 'desktop' | 'mobile';
     private resizeObserver: ResizeObserver;
     private hasAlreadyRegisteredClickHandlerOnSlottedLink: boolean = false;
-
-    private inheritedAttributes: { [k: string]: any } = {};
 
     private mobileMenuIconClick() {
         this.mobileMenuOpen = !this.mobileMenuOpen;
@@ -55,7 +55,8 @@ export class ComNav implements ComponentInterface {
 
     componentWillLoad(): Promise<void> | void {
         this.inheritedAttributes = {
-            ...inheritAttributes(this.el, COM_NAV_ARIA_INHERITED_ATTRS)
+            ...inheritAriaAttributes(this.el),
+            ...inheritAttributes(this.el, COM_NAV_INHERITED_ATTRS)
         };
 
         const slottedNavigableItems = this.el.querySelectorAll(':scope > wcs-com-nav-submenu:not([slot]), :scope > a:not([slot])');
@@ -85,11 +86,11 @@ export class ComNav implements ComponentInterface {
         this.registerHandlerToCloseMobileMenuOnClickOnSlottedLinkTag();
     }
     
-    @Watch('aria-label')
-    onAriaLabelChange() {
-        this.inheritedAttributes = {
-            ...inheritAttributes(this.el, COM_NAV_ARIA_INHERITED_ATTRS)
-        };
+    @Method()
+    async setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) {
+        // XXX: Special case on this component because of the desktop / mobile mode that re-renders the <nav> element,
+        // making it lose all its attribute
+        this.inheritedAttributes[attr] = value;
         forceUpdate(this);
     }
     

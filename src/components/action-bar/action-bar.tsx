@@ -1,5 +1,8 @@
 import { Component, ComponentInterface, Element, h, Host, Prop, State } from '@stencil/core';
 
+/**
+ * The action-bar component is a group of elements appearing across the top of all pages on a business application.
+ */
 @Component({
     tag: 'wcs-action-bar',
     styleUrl: 'action-bar.scss',

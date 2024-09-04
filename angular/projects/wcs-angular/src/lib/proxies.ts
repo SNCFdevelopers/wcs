@@ -73,7 +73,7 @@ export declare interface WcsAccordionHeader extends Components.WcsAccordionHeade
 
 @ProxyCmp({
   inputs: ['groupContentWithHeader', 'hideActionText', 'highlight', 'open'],
-  methods: ['close']
+  methods: ['setAriaAttribute', 'close']
 })
 @Component({
   selector: 'wcs-accordion-panel',
@@ -164,7 +164,8 @@ export declare interface WcsBadge extends Components.WcsBadge {}
 
 
 @ProxyCmp({
-  inputs: ['disabled', 'href', 'loading', 'mode', 'ripple', 'shape', 'size', 'target', 'type']
+  inputs: ['disabled', 'href', 'loading', 'mode', 'ripple', 'shape', 'size', 'target', 'type'],
+  methods: ['setAriaAttribute']
 })
 @Component({
   selector: 'wcs-button',
@@ -268,7 +269,8 @@ export declare interface WcsCheckbox extends Components.WcsCheckbox {
 
 
 @ProxyCmp({
-  inputs: ['appName']
+  inputs: ['appName'],
+  methods: ['setAriaAttribute']
 })
 @Component({
   selector: 'wcs-com-nav',
@@ -291,7 +293,7 @@ export declare interface WcsComNav extends Components.WcsComNav {}
 
 @ProxyCmp({
   inputs: ['label'],
-  methods: ['close', 'open']
+  methods: ['setAriaAttribute', 'close', 'open']
 })
 @Component({
   selector: 'wcs-com-nav-category',
@@ -343,7 +345,7 @@ export declare interface WcsComNavItem extends Components.WcsComNavItem {}
 
 @ProxyCmp({
   inputs: ['label', 'panelDescription', 'panelTitle'],
-  methods: ['close', 'open']
+  methods: ['setAriaAttribute', 'close', 'open']
 })
 @Component({
   selector: 'wcs-com-nav-submenu',
@@ -433,7 +435,8 @@ export declare interface WcsDivider extends Components.WcsDivider {}
 
 
 @ProxyCmp({
-  inputs: ['disabled', 'mode', 'noArrow', 'placement', 'shape', 'size']
+  inputs: ['disabled', 'mode', 'noArrow', 'placement', 'shape', 'size'],
+  methods: ['setAriaAttribute']
 })
 @Component({
   selector: 'wcs-dropdown',
@@ -703,7 +706,8 @@ export declare interface WcsGalactic extends Components.WcsGalactic {}
 
 
 @ProxyCmp({
-  inputs: ['text']
+  inputs: ['text'],
+  methods: ['setAriaAttribute']
 })
 @Component({
   selector: 'wcs-galactic-menu',
@@ -725,7 +729,8 @@ export declare interface WcsGalacticMenu extends Components.WcsGalacticMenu {}
 
 
 @ProxyCmp({
-  inputs: ['data', 'loading', 'rowCssPartsFn', 'rowIdPath', 'selectedItems', 'selectionConfig', 'serverMode', 'wcsGridPaginationId']
+  inputs: ['data', 'loading', 'rowCssPartsFn', 'rowIdPath', 'selectedItems', 'selectionConfig', 'serverMode', 'wcsGridPaginationId'],
+  methods: ['setAriaAttribute']
 })
 @Component({
   selector: 'wcs-grid',
@@ -768,7 +773,8 @@ export declare interface WcsGrid extends Components.WcsGrid {
 
 
 @ProxyCmp({
-  inputs: ['customCells', 'formatter', 'hidden', 'name', 'path', 'sort', 'sortFn', 'sortOrder', 'width']
+  inputs: ['customCells', 'formatter', 'hidden', 'name', 'path', 'sort', 'sortFn', 'sortOrder', 'width'],
+  methods: ['setAriaAttribute']
 })
 @Component({
   selector: 'wcs-grid-column',
@@ -824,7 +830,8 @@ export declare interface WcsGridCustomCell extends Components.WcsGridCustomCell 
 
 
 @ProxyCmp({
-  inputs: ['availablePageSizes', 'currentPage', 'itemsCount', 'pageCount', 'pageSize']
+  inputs: ['availablePageSizes', 'currentPage', 'itemsCount', 'pageCount', 'pageSize'],
+  methods: ['setAriaAttribute']
 })
 @Component({
   selector: 'wcs-grid-pagination',
@@ -854,6 +861,7 @@ export declare interface WcsGridPagination extends Components.WcsGridPagination 
 
 
 @ProxyCmp({
+  methods: ['setAriaAttribute']
 })
 @Component({
   selector: 'wcs-header',
@@ -928,7 +936,8 @@ export declare interface WcsHorizontalStepper extends Components.WcsHorizontalSt
 
 
 @ProxyCmp({
-  inputs: ['icon', 'size']
+  inputs: ['icon', 'size'],
+  methods: ['setAriaAttribute']
 })
 @Component({
   selector: 'wcs-icon',
@@ -993,7 +1002,8 @@ export declare interface WcsInput extends Components.WcsInput {
 
 
 @ProxyCmp({
-  inputs: ['required']
+  inputs: ['required'],
+  methods: ['setAriaAttribute']
 })
 @Component({
   selector: 'wcs-label',
@@ -1079,7 +1089,8 @@ export declare interface WcsListItemProperty extends Components.WcsListItemPrope
 
 
 @ProxyCmp({
-  inputs: ['family', 'icon', 'size']
+  inputs: ['family', 'icon', 'size'],
+  methods: ['setAriaAttribute']
 })
 @Component({
   selector: 'wcs-mat-icon',
@@ -1101,14 +1112,15 @@ export declare interface WcsMatIcon extends Components.WcsMatIcon {}
 
 
 @ProxyCmp({
-  inputs: ['hideActions', 'modalTriggerControlsId', 'show', 'showCloseButton', 'size', 'withoutBackdrop']
+  inputs: ['closeButtonAriaLabel', 'hideActions', 'modalTriggerControlsId', 'show', 'showCloseButton', 'size', 'withoutBackdrop'],
+  methods: ['setAriaAttribute']
 })
 @Component({
   selector: 'wcs-modal',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['hideActions', 'modalTriggerControlsId', 'show', 'showCloseButton', 'size', 'withoutBackdrop'],
+  inputs: ['closeButtonAriaLabel', 'hideActions', 'modalTriggerControlsId', 'show', 'showCloseButton', 'size', 'withoutBackdrop'],
 })
 export class WcsModal {
   protected el: HTMLElement;
@@ -1130,7 +1142,7 @@ export declare interface WcsModal extends Components.WcsModal {
 
 @ProxyCmp({
   inputs: ['size'],
-  methods: ['setAriaAttribute', 'updateStyles']
+  methods: ['updateStyles']
 })
 @Component({
   selector: 'wcs-native-select',
@@ -1152,6 +1164,7 @@ export declare interface WcsNativeSelect extends Components.WcsNativeSelect {}
 
 
 @ProxyCmp({
+  methods: ['setAriaAttribute']
 })
 @Component({
   selector: 'wcs-nav',
@@ -1194,7 +1207,8 @@ export declare interface WcsNavItem extends Components.WcsNavItem {}
 
 
 @ProxyCmp({
-  inputs: ['showLabel', 'size', 'value']
+  inputs: ['showLabel', 'size', 'value'],
+  methods: ['setAriaAttribute']
 })
 @Component({
   selector: 'wcs-progress-bar',
@@ -1216,7 +1230,8 @@ export declare interface WcsProgressBar extends Components.WcsProgressBar {}
 
 
 @ProxyCmp({
-  inputs: ['showLabel', 'size', 'value']
+  inputs: ['showLabel', 'size', 'value'],
+  methods: ['setAriaAttribute']
 })
 @Component({
   selector: 'wcs-progress-radial',
@@ -1238,7 +1253,8 @@ export declare interface WcsProgressRadial extends Components.WcsProgressRadial 
 
 
 @ProxyCmp({
-  inputs: ['disabled', 'label', 'value']
+  inputs: ['disabled', 'label', 'value'],
+  methods: ['setAriaAttribute']
 })
 @Component({
   selector: 'wcs-radio',
@@ -1276,8 +1292,7 @@ export declare interface WcsRadio extends Components.WcsRadio {
 
 
 @ProxyCmp({
-  inputs: ['mode', 'name', 'value'],
-  methods: ['setAriaAttribute']
+  inputs: ['mode', 'name', 'value']
 })
 @Component({
   selector: 'wcs-radio-group',
@@ -1534,7 +1549,8 @@ export declare interface WcsTab extends Components.WcsTab {
 
 
 @ProxyCmp({
-  inputs: ['align', 'description', 'gutter', 'headersOnly', 'selectedIndex', 'selectedKey']
+  inputs: ['align', 'description', 'gutter', 'headersOnly', 'selectedIndex', 'selectedKey'],
+  methods: ['setAriaAttribute']
 })
 @Component({
   selector: 'wcs-tabs',

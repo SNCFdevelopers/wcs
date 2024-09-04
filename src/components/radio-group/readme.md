@@ -20,26 +20,6 @@
 | `wcsChange` | Emitted when the value has changed. | `CustomEvent<RadioGroupChangeEventDetail>` |
 
 
-## Methods
-
-### `setAriaAttribute(attr: AriaAttributeName, value: string) => Promise<void>`
-
-
-
-#### Parameters
-
-| Name    | Type                         | Description |
-| ------- | ---------------------------- | ----------- |
-| `attr`  | `"role" \| `aria-${string}`` |             |
-| `value` | `string`                     |             |
-
-#### Returns
-
-Type: `Promise<void>`
-
-
-
-
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

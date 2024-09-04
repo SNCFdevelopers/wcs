@@ -5,11 +5,11 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { AriaAttributeName } from "./utils/mutable-aria-attribute";
 import { BadgeColor, BadgeShape, BadgeSize } from "./components/badge/badge-interface";
 import { WcsButtonMode, WcsButtonShape, WcsButtonSize, WcsButtonType } from "./components/button/button-interface";
 import { CardMode } from "./components/card/card-interface";
 import { CheckboxChangeEventDetail, CheckboxLabelAlignment } from "./components/checkbox/checkbox-interface";
-import { AriaAttributeName } from "./utils/mutable-aria-attribute";
 import { CategoryOpenedEventDetail, MenuOpenedEventDetail } from "./components/com-nav/com-nav-interface";
 import { CounterChangeEventDetail, WcsCounterSize } from "./components/counter/counter-interface";
 import { WcsDropdownPlacement } from "./components/dropdown/dropdown-interface";
@@ -31,11 +31,11 @@ import { SwitchChangeEventDetail, SwitchLabelAlignment } from "./components/swit
 import { WcsTabChangeEvent, WcsTabsAlignment } from "./components/tabs/tabs-interface";
 import { TextareaChangeEventDetail, WcsTextareaEnterKeyHint, WcsTextareaInputMode, WcsTextareaInputState, WcsTextareaResize, WcsTextareaWrap } from "./components/textarea/textarea-interface";
 import { WcsTooltipAppendTo, WcsTooltipPosition } from "./components/tooltip/tooltip-interface";
+export { AriaAttributeName } from "./utils/mutable-aria-attribute";
 export { BadgeColor, BadgeShape, BadgeSize } from "./components/badge/badge-interface";
 export { WcsButtonMode, WcsButtonShape, WcsButtonSize, WcsButtonType } from "./components/button/button-interface";
 export { CardMode } from "./components/card/card-interface";
 export { CheckboxChangeEventDetail, CheckboxLabelAlignment } from "./components/checkbox/checkbox-interface";
-export { AriaAttributeName } from "./utils/mutable-aria-attribute";
 export { CategoryOpenedEventDetail, MenuOpenedEventDetail } from "./components/com-nav/com-nav-interface";
 export { CounterChangeEventDetail, WcsCounterSize } from "./components/counter/counter-interface";
 export { WcsDropdownPlacement } from "./components/dropdown/dropdown-interface";
@@ -58,6 +58,9 @@ export { WcsTabChangeEvent, WcsTabsAlignment } from "./components/tabs/tabs-inte
 export { TextareaChangeEventDetail, WcsTextareaEnterKeyHint, WcsTextareaInputMode, WcsTextareaInputState, WcsTextareaResize, WcsTextareaWrap } from "./components/textarea/textarea-interface";
 export { WcsTooltipAppendTo, WcsTooltipPosition } from "./components/tooltip/tooltip-interface";
 export namespace Components {
+    /**
+     * The accordion component is a vertical stack of interactive headings used to toggle the display of further information.
+     */
     interface WcsAccordion {
         /**
           * Specifies wether accordion-panel components should group the content with header in one card if true, there will be only one card with the header and the content Nothing change when the panel is close
@@ -72,10 +75,19 @@ export namespace Components {
          */
         "highlight": boolean;
     }
+    /**
+     * The accordion-content is a subcomponent of `wcs-accordion`. It represents the text / content below an expanded accordion.
+     */
     interface WcsAccordionContent {
     }
+    /**
+     * The accordion-header is a subcomponent of `wcs-accordion`. It represents the heading text inside the accordion panel.
+     */
     interface WcsAccordionHeader {
     }
+    /**
+     * The accordion-panel is a subcomponent of `wcs-accordion`. It represents every panel of the accordion that can be expanded.
+     */
     interface WcsAccordionPanel {
         "close": () => Promise<void>;
         /**
@@ -91,7 +103,11 @@ export namespace Components {
          */
         "highlight": boolean;
         "open": boolean;
+        "setAriaAttribute": (attr: AriaAttributeName, value: string | null | undefined) => Promise<void>;
     }
+    /**
+     * The action-bar component is a group of elements appearing across the top of all pages on a business application.
+     */
     interface WcsActionBar {
         /**
           * Determines if the action bar should have a border at the bottom. You should not use this property if a gutter is already present on tabs
@@ -100,6 +116,11 @@ export namespace Components {
     }
     interface WcsApp {
     }
+    /**
+     * The badge component is a small label, generally appearing inside or in proximity to another larger interface component,
+     * representing a status, property, or some other metadata.
+     * @cssprop --wcs-badge-ligther-percentage - Define the opacity rate to apply to the badge
+     */
     interface WcsBadge {
         /**
           * Allows you to change the color of the badge to make it less bright (based on the color chosen by the CSS class).
@@ -115,7 +136,9 @@ export namespace Components {
         "size": BadgeSize;
     }
     /**
-     * Button component, can also be a link when specifying href.
+     * The button component is used to trigger an action. It can also be a link when specifying href.
+     * ## Accessibility guidelines 💡
+     * > If your button doesn't contain text but only an image, you must set a relevant aria-label on the icon 👉 [see "Square" story below](#square)
      * ## Click event
      * The WCS button relies on the native click event to pass a user click to your app.
      * For now, it's not possible for us to prevent the click event to be fired when the button's disabled attribute is true.
@@ -144,6 +167,7 @@ export namespace Components {
           * Specify whether the button should have a ripple effect or not.
          */
         "ripple": boolean;
+        "setAriaAttribute": (attr: AriaAttributeName, value: string | null | undefined) => Promise<void>;
         /**
           * Specify the shape of the button.
          */
@@ -161,11 +185,21 @@ export namespace Components {
          */
         "type": WcsButtonType;
     }
+    /**
+     * The card component is a container that display content such as text, images, buttons, and lists.  
+     * A card can be a single component, but is often made up of a header, title, subtitle, and content.
+     */
     interface WcsCard {
         "mode": CardMode;
     }
+    /**
+     * The card-body is a subcomponent of `wcs-card`. It represents content of the card with an extra padding around.
+     */
     interface WcsCardBody {
     }
+    /**
+     * The checkbox component is an input for choosing one or more items from a set by checking / unchecking it.
+     */
     interface WcsCheckbox {
         /**
           * If `true`, the checkbox is selected.
@@ -184,7 +218,7 @@ export namespace Components {
          */
         "labelAlignment": CheckboxLabelAlignment;
         "name": string;
-        "setAriaAttribute": (attr: AriaAttributeName, value: string) => Promise<void>;
+        "setAriaAttribute": (attr: AriaAttributeName, value: string | null | undefined) => Promise<void>;
     }
     /**
      * *Part of communication design system*
@@ -195,7 +229,11 @@ export namespace Components {
           * Name of the application to be displayed in the menu bar
          */
         "appName": string;
+        "setAriaAttribute": (attr: AriaAttributeName, value: string | null | undefined) => Promise<void>;
     }
+    /**
+     * The com-nav-category is a subcomponent of `wcs-com-nav`. It represents a category nested inside a `wcs-com-nav-submenu`.
+     */
     interface WcsComNavCategory {
         /**
           * Close the category
@@ -206,9 +244,16 @@ export namespace Components {
           * Opens the category
          */
         "open": () => Promise<void>;
+        "setAriaAttribute": (attr: AriaAttributeName, value: string | null | undefined) => Promise<void>;
     }
+    /**
+     * The com-nav-item is a subcomponent of `wcs-com-nav`. It represents a list-item wrapper around a link.
+     */
     interface WcsComNavItem {
     }
+    /**
+     * The com-nav-submenu is a subcomponent of `wcs-com-nav`. It represents an expandable menu containing more items or categories.
+     */
     interface WcsComNavSubmenu {
         /**
           * Close the menu
@@ -221,6 +266,7 @@ export namespace Components {
         "open": () => Promise<void>;
         "panelDescription": string;
         "panelTitle": string;
+        "setAriaAttribute": (attr: AriaAttributeName, value: string | null | undefined) => Promise<void>;
     }
     /**
      * Counter component, meant to be used for small range of values (e.g : 0 - 5).<br>
@@ -243,7 +289,7 @@ export namespace Components {
           * The minimum value of the counter. If the value of the min attribute isn't set, then the element has no minimum value.
          */
         "min"?: number;
-        "setAriaAttribute": (attr: AriaAttributeName, value: string) => Promise<void>;
+        "setAriaAttribute": (attr: AriaAttributeName, value: string | null | undefined) => Promise<void>;
         /**
           * Specify the size (height) of the counter.
          */
@@ -280,6 +326,7 @@ export namespace Components {
           * placement of the dropdown's popover
          */
         "placement": WcsDropdownPlacement;
+        "setAriaAttribute": (attr: AriaAttributeName, value: string | null | undefined) => Promise<void>;
         /**
           * Dropdown's button shape
          */
@@ -319,6 +366,9 @@ export namespace Components {
      * - Set the `value` property to a different value to tell the component to refresh and go back into DISPLAY state
      * - Use the `successHandler` callback through the `wcsChange` event (see interface [EditableComponentUpdateEvent](https://gitlab.com/SNCF/wcs/-/blob/develop/src/components/editable-field/editable-field-interface.tsx))
      * - Use the `errorHandler` callback through the `wcsChange` event (see interface [EditableComponentUpdateEvent](https://gitlab.com/SNCF/wcs/-/blob/develop/src/components/editable-field/editable-field-interface.tsx))
+     * **Accessibility guidelines 💡**  
+     * > - Aria attributes are put on the native component on the first rendering with the `label` and `errorMsg` you provided 
+     * > - Additional aria attributes put on `<wcs-editable-field>` won't inherit onto the native component : you must use the `setAriaAttribute` method.
      */
     interface WcsEditableField {
         /**
@@ -364,12 +414,24 @@ export namespace Components {
      */
     interface WcsError {
     }
+    /**
+     * This field component can be used to display the details of an entity. It is built around the label and the content of the field.
+     */
     interface WcsField {
     }
+    /**
+     * The field-content is a subcomponent of `wcs-field`. It represents the text content of the field.
+     */
     interface WcsFieldContent {
     }
+    /**
+     * The field-label is a subcomponent of `wcs-field`. It represents the label or title of the field.
+     */
     interface WcsFieldLabel {
     }
+    /**
+     * The footer component has been designed to leave as much customization as possible to the developer. The footers are often specific to the application developed.
+     */
     interface WcsFooter {
     }
     /**
@@ -391,6 +453,7 @@ export namespace Components {
      * - If the `wcs-label` is required, the form control must have the `required` HTML attribute and vice-versa (this is normally automatically set)
      * - The form should not be submittable if at least one required form control is not filled
      * - Hints are optional and should only be used to add extra information
+     * - Additional aria attributes put on `<wcs-form-field>` won't inherit onto the native component : you must use the `setAriaAttribute` method.
      */
     interface WcsFormField {
         /**
@@ -405,6 +468,7 @@ export namespace Components {
         "text": string;
     }
     interface WcsGalacticMenu {
+        "setAriaAttribute": (attr: AriaAttributeName, value: string | null | undefined) => Promise<void>;
         /**
           * Text to be displayed in the galactic bar
          */
@@ -444,6 +508,7 @@ export namespace Components {
           * Manage sort and pagination with a backend server when set to `true`
          */
         "serverMode": boolean;
+        "setAriaAttribute": (attr: AriaAttributeName, value: string | null | undefined) => Promise<void>;
         /**
           * Automatically set by the component to reference the wcs-grid-pagination HTML element by its id.
          */
@@ -483,6 +548,7 @@ export namespace Components {
           * Represents the name of the field from the `data` object (e.g: first_name, last_name, email, ...)
          */
         "path": string;
+        "setAriaAttribute": (attr: AriaAttributeName, value: string | null | undefined) => Promise<void>;
         /**
           * Make the column sortable.
          */
@@ -537,8 +603,13 @@ export namespace Components {
           * Maximum number of elements shown per page.   Default is the first value of `availablePageSizes`.
          */
         "pageSize": number;
+        "setAriaAttribute": (attr: AriaAttributeName, value: string | null | undefined) => Promise<void>;
     }
+    /**
+     * The header component is an element that appears across the top of all pages on a website or application; it contains the logo, the site name and main actions.
+     */
     interface WcsHeader {
+        "setAriaAttribute": (attr: AriaAttributeName, value: string | null | undefined) => Promise<void>;
     }
     /**
      * The `wcs-hint` should always be wrapped in a `wcs-form-field`.
@@ -576,24 +647,19 @@ export namespace Components {
          */
         "steps": HorizontalStepConfig[];
     }
+    /**
+     * The icon component is a graphic symbol designed to visually indicate the purpose of an interface element.
+     */
     interface WcsIcon {
         "icon": string;
+        "setAriaAttribute": (attr: AriaAttributeName, value: string | null | undefined) => Promise<void>;
         "size": 'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px';
     }
     /**
      * The input component is a form control that accepts a single line of text.
      * Implementation mainly inspired from Ionic Input Component.
      * ## Accessibility guidelines 💡
-     * > `wcs-input` is a wrapper around the native input element which is located inside its shadow DOM. All the
-     * > **aria attributes** you set on `wcs-input` are passed to the **native input** element **during the first render of the component**.
-     * > If you need to use them as you would with a native input, you can do so.
-     * > If you need to **dynamically change the aria attributes after the first render**, you can use the `setAriaAttribute` 
-     * > JS method of `wcs-input`.
-     * > ```javascript
-     * > const wcsInput = document.querySelector('wcs-input');
-     * > await wcsInput.setAriaAttribute('aria-label', 'new label');
-     * > ```
-     * > If you use wcs-input outside a wcs-form-field, you have to manage the label and the error message yourself.
+     * > - If you use wcs-input outside a wcs-form-field, you have to manage the label and the error message yourself.
      * > You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.
      */
     interface WcsInput {
@@ -689,7 +755,7 @@ export namespace Components {
           * If `true`, the user must fill in a value before submitting a form.
          */
         "required": boolean;
-        "setAriaAttribute": (attr: AriaAttributeName, value: string) => Promise<void>;
+        "setAriaAttribute": (attr: AriaAttributeName, value: string | null | undefined) => Promise<void>;
         /**
           * Sets blur on the native `input` in `wcs-input`. Use this method instead of the global `input.blur()`.
          */
@@ -735,17 +801,33 @@ export namespace Components {
           * If `true`, marks the label with a red star. Automatically added if the wrapped component inside the `wcs-form-field` already has the `required` attribute.
          */
         "required": boolean;
+        "setAriaAttribute": (attr: AriaAttributeName, value: string | null | undefined) => Promise<void>;
     }
+    /**
+     * Lists are used for grouping a collection of related items.
+     * Standard lists can be used either with or without icons. Depending on the context, the list can have one or more
+     * actions (favourite, download, delete, etc.). Use standard lists with a unique action when each line has an action.
+     */
     interface WcsListItem {
         /**
           * True if the item is active. Adds a background color that highlights it.
          */
         "activated": boolean;
     }
+    /**
+     * The list-item-properties is a subcomponent of `wcs-list-item`. It represents a wrapper for a list of several `wcs-property`.
+     */
     interface WcsListItemProperties {
     }
+    /**
+     * The list-item-property is a subcomponent of `wcs-list-item`.
+     * Wrapped in a `wcs-list-item-properties`, it represents a property to describe an item.
+     */
     interface WcsListItemProperty {
     }
+    /**
+     * A component used to display a [Material Icon](https://fonts.google.com/icons). Can be useful when used in wcs-grid or in a wcs-button.
+     */
     interface WcsMatIcon {
         /**
           * Family of the icon
@@ -755,6 +837,7 @@ export namespace Components {
           * Use the icon name from Material Icons
          */
         "icon": string;
+        "setAriaAttribute": (attr: AriaAttributeName, value: string | null | undefined) => Promise<void>;
         /**
           * Size of the icon
          */
@@ -763,20 +846,22 @@ export namespace Components {
     /**
      * The modal component (also named dialog or popup) is an interface element that appears on top of the page content.
      * Use it to show a message, a confirmation dialog, or any other content like forms.
-     * <details>
-     *     <summary>Accessibility guidelines 💡</summary>
-     *     > - Modal element has `role="dialog"` and `aria-modal="true"`
-     *     > - Keyboard navigation is trapped inside the modal
-     *     > - It is mandatory to set the `modal-trigger-controls-id` to the id of the element that opens the dialog, in order
-     *     > to focus it upon dialog dismissal.
-     *     > - The modal can be closed at any time by pressing the Escape key.
-     *     >
-     *     > - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
-     * </details>
+     * ## Accessibility guidelines 💡
+     * > - Modal element has `role="dialog"` and `aria-modal="true"`
+     * > - Keyboard navigation is trapped inside the modal
+     * > - It is mandatory to set the `modal-trigger-controls-id` to the id of the element that opens the dialog, in order
+     * > to focus it upon dialog dismissal.
+     * > - The modal can be closed at any time by pressing the Escape key.
+     * >
+     * > - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
      * @cssprop --wcs-modal-max-height - Max height of the main container
      * @cssprop --wcs-modal-overflow-y - Overflow-y of the content
      */
     interface WcsModal {
+        /**
+          * Specifies the aria-label present on the close button when the modal is opened.   Only use when `showCloseButton` is `true`.
+         */
+        "closeButtonAriaLabel": string;
         /**
           * Specifies whether the component should hide the actions slot or not
          */
@@ -786,6 +871,7 @@ export namespace Components {
           * @private
          */
         "modalTriggerControlsId": string;
+        "setAriaAttribute": (attr: AriaAttributeName, value: string | null | undefined) => Promise<void>;
         /**
           * Displays the modal
          */
@@ -825,10 +911,10 @@ export namespace Components {
      * ### Note
      * - We did not find a way to detect when the select is reset, if you want to apply the placeholder style when the
      * select is reset, you have to call the `updateStyles()` method manually.
-     * - It is strongly recommended to use select-native when you don't have to support the multi-selection feature
+     * - It is strongly recommended to use native-select when you don't have to support the multi-selection feature
+     * - Use a native-select instead of a wcs-select if your application is mainly on mobile / tablet. The native behavior of the device will be used.
      */
     interface WcsNativeSelect {
-        "setAriaAttribute": (attr: AriaAttributeName, value: string) => Promise<void>;
         /**
           * The `size` property controls the size of the slotted `select` element by adjusting its padding. There are two possible size options: - 'm': medium size - 'l': large size  The default value is 'm'.
          */
@@ -842,6 +928,7 @@ export namespace Components {
      * The nav component is a container for navigation links to other pages of the website.
      */
     interface WcsNav {
+        "setAriaAttribute": (attr: AriaAttributeName, value: string | null | undefined) => Promise<void>;
     }
     /**
      * The nav-item component is a subcomponent of `wcs-nav` and should always be used inside it.  
@@ -853,12 +940,12 @@ export namespace Components {
      * The progress-bar component is a horizontal bar that indicates the current completion of a task.
      * ## Accessibility guidelines 💡
      * > Aria attributes and how to display the progress-bar depend on the use case in your application :
-     * >  
-     * > - **Case 1 : decorative**  
+     * >
+     * > - **Case 1 : decorative**
      * > If the progress-bar is used as a decoration _(if removed, the user doesn't lose any relevant information)_ or in the
      * > context of another component _(such as progress-bar in a card, stepper, ...)_ => **you don't need to show the label nor add an aria-label**.
-     * > 
-     * > - **Case 2 : informative**  
+     * >
+     * > - **Case 2 : informative**
      * > If the progress-bar is used to convey important information _(e.g., form completion status, dashboard KPI)_, you need to :
      * >   - **Provide a visible label** that describes the purpose of the progress-bar.
      * >   - **Set the `showLabel` property to `true`** to show the percentage above the progress-bar.
@@ -868,12 +955,13 @@ export namespace Components {
      * @cssprop --wcs-progress-bar-animation-duration - Animation duration
      */
     interface WcsProgressBar {
+        "setAriaAttribute": (attr: AriaAttributeName, value: string | null | undefined) => Promise<void>;
         /**
           * Whether it displays a label indicating the percentage of progress above the bar.
          */
         "showLabel": boolean;
         /**
-          * Specify the size of the progress bar.   m = default, s = smaller
+          * Specify the size of the progress bar. m = default, s = smaller
          */
         "size": Extract<WcsSize, 'm' | 's'>;
         /**
@@ -897,6 +985,7 @@ export namespace Components {
      * >   - Optionally, use aria-label to provide an accessible name if a visible label is not present.
      */
     interface WcsProgressRadial {
+        "setAriaAttribute": (attr: AriaAttributeName, value: string | null | undefined) => Promise<void>;
         /**
           * Whether the component should display the % label inside
          */
@@ -910,6 +999,9 @@ export namespace Components {
          */
         "value": number;
     }
+    /**
+     * The radio component should always be wrapped in a `wcs-radio-group`.
+     */
     interface WcsRadio {
         /**
           * If `true`, the user cannot interact with the radio.
@@ -927,6 +1019,7 @@ export namespace Components {
           * The name of the control, automatically set by the radio group.   (You shouldn't set this prop by yourself)
          */
         "name": string;
+        "setAriaAttribute": (attr: AriaAttributeName, value: string | null | undefined) => Promise<void>;
         "setTabIndex": (value: number) => Promise<void>;
         "updateState": () => Promise<void>;
         /**
@@ -943,7 +1036,6 @@ export namespace Components {
           * The name of the control to be set on all radio button children
          */
         "name": any;
-        "setAriaAttribute": (attr: AriaAttributeName, value: string) => Promise<void>;
         /**
           * The value of the radio-group. Automatically reflects which radio button is selected.
          */
@@ -995,7 +1087,7 @@ export namespace Components {
           * The text to display when the select is empty.
          */
         "placeholder"?: string | null;
-        "setAriaAttribute": (attr: AriaAttributeName, value: string) => Promise<void>;
+        "setAriaAttribute": (attr: AriaAttributeName, value: string | null | undefined) => Promise<void>;
         /**
           * Specify the size (height) of the select.
          */
@@ -1088,12 +1180,20 @@ export namespace Components {
          */
         "height": 'h1' | 'h2' | 'h3' | 'caption' | 'body';
     }
+    /**
+     * The spinner component is visual indicator that showing a process is happening in the background but the interface is
+     * not yet ready for interaction.  
+     * If your page structure is simple or the loading time is long (> 300ms), use [wcs-skeleton](.?path=/docs/components-skeleton--documentation) instead.
+     */
     interface WcsSpinner {
         /**
           * Indicates the spinner display mode. Accepted values: `border` or `growing`
          */
         "mode": WcsSpinnerMode;
     }
+    /**
+     * The switch component is a control used to switch between on and off state.
+     */
     interface WcsSwitch {
         /**
           * If `true`, the switch is selected.
@@ -1108,7 +1208,7 @@ export namespace Components {
          */
         "labelAlignment": SwitchLabelAlignment;
         "name": string;
-        "setAriaAttribute": (attr: AriaAttributeName, value: string) => Promise<void>;
+        "setAriaAttribute": (attr: AriaAttributeName, value: string | null | undefined) => Promise<void>;
     }
     /**
      * Tab content component.
@@ -1159,20 +1259,12 @@ export namespace Components {
          */
         "selectedIndex": number;
         "selectedKey": any;
+        "setAriaAttribute": (attr: AriaAttributeName, value: string | null | undefined) => Promise<void>;
     }
     /**
      * Mainly inspired from Ionic Textarea Component.
      * ## Accessibility guidelines 💡
-     * > `wcs-textarea` is a wrapper around the native textarea element which is located inside its shadow DOM. All the
-     * > **aria attributes** you set on `wcs-textarea` are passed to the **native textarea** element **during the first render of the component**.
-     * > If you need to use them as you would with a native textarea, you can do so.
-     * > If you need to **dynamically change the aria attributes after the first render**, you can use the `setAriaAttribute`
-     * > JS method of `wcs-textarea` :
-     * > ```javascript
-     * > const wcsTextarea = document.querySelector('wcs-textarea');
-     * > await wcsTextarea.setAriaAttribute('aria-label', 'new label');
-     * > ```
-     * > If you use wcs-textarea outside a wcs-form-field, you have to manage the label and the error message yourself.
+     * > - If you use wcs-textarea outside a wcs-form-field, you have to manage the label and the error message yourself.
      * > You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.
      * @cssprop --wcs-textarea-max-height - Max height of the text area component
      * @cssprop --wcs-textarea-padding-left - Padding left of the text area. Take in consideration the transparent border of 2px around the textarea.
@@ -1259,7 +1351,7 @@ export namespace Components {
           * The number of visible text lines for the control.
          */
         "rows"?: number;
-        "setAriaAttribute": (attr: AriaAttributeName, value: string) => Promise<void>;
+        "setAriaAttribute": (attr: AriaAttributeName, value: string | null | undefined) => Promise<void>;
         /**
           * Sets blur on the native `textarea` in `wcs-textarea`. Use this method instead of the global `textarea.blur()`.
          */
@@ -1296,7 +1388,7 @@ export namespace Components {
      * provide the "visual description" you add on the `wcs-tooltip` to the `aria-label` attribute or the `aria-description` as soon as the attribute will be available 
      * of the element you want to describe .
      * Example:
-     * ```
+     * ```html
      * <wcs-tooltip>Trashed items</wcs-tooltip>
      * <wcs-button aria-label="Trashed items">Trash</wcs-button>
      * ```
@@ -1446,18 +1538,27 @@ export interface WcsTextareaCustomEvent<T> extends CustomEvent<T> {
     target: HTMLWcsTextareaElement;
 }
 declare global {
+    /**
+     * The accordion component is a vertical stack of interactive headings used to toggle the display of further information.
+     */
     interface HTMLWcsAccordionElement extends Components.WcsAccordion, HTMLStencilElement {
     }
     var HTMLWcsAccordionElement: {
         prototype: HTMLWcsAccordionElement;
         new (): HTMLWcsAccordionElement;
     };
+    /**
+     * The accordion-content is a subcomponent of `wcs-accordion`. It represents the text / content below an expanded accordion.
+     */
     interface HTMLWcsAccordionContentElement extends Components.WcsAccordionContent, HTMLStencilElement {
     }
     var HTMLWcsAccordionContentElement: {
         prototype: HTMLWcsAccordionContentElement;
         new (): HTMLWcsAccordionContentElement;
     };
+    /**
+     * The accordion-header is a subcomponent of `wcs-accordion`. It represents the heading text inside the accordion panel.
+     */
     interface HTMLWcsAccordionHeaderElement extends Components.WcsAccordionHeader, HTMLStencilElement {
     }
     var HTMLWcsAccordionHeaderElement: {
@@ -1467,6 +1568,9 @@ declare global {
     interface HTMLWcsAccordionPanelElementEventMap {
         "wcsOpenChange": boolean;
     }
+    /**
+     * The accordion-panel is a subcomponent of `wcs-accordion`. It represents every panel of the accordion that can be expanded.
+     */
     interface HTMLWcsAccordionPanelElement extends Components.WcsAccordionPanel, HTMLStencilElement {
         addEventListener<K extends keyof HTMLWcsAccordionPanelElementEventMap>(type: K, listener: (this: HTMLWcsAccordionPanelElement, ev: WcsAccordionPanelCustomEvent<HTMLWcsAccordionPanelElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -1481,6 +1585,9 @@ declare global {
         prototype: HTMLWcsAccordionPanelElement;
         new (): HTMLWcsAccordionPanelElement;
     };
+    /**
+     * The action-bar component is a group of elements appearing across the top of all pages on a business application.
+     */
     interface HTMLWcsActionBarElement extends Components.WcsActionBar, HTMLStencilElement {
     }
     var HTMLWcsActionBarElement: {
@@ -1493,6 +1600,11 @@ declare global {
         prototype: HTMLWcsAppElement;
         new (): HTMLWcsAppElement;
     };
+    /**
+     * The badge component is a small label, generally appearing inside or in proximity to another larger interface component,
+     * representing a status, property, or some other metadata.
+     * @cssprop --wcs-badge-ligther-percentage - Define the opacity rate to apply to the badge
+     */
     interface HTMLWcsBadgeElement extends Components.WcsBadge, HTMLStencilElement {
     }
     var HTMLWcsBadgeElement: {
@@ -1500,7 +1612,9 @@ declare global {
         new (): HTMLWcsBadgeElement;
     };
     /**
-     * Button component, can also be a link when specifying href.
+     * The button component is used to trigger an action. It can also be a link when specifying href.
+     * ## Accessibility guidelines 💡
+     * > If your button doesn't contain text but only an image, you must set a relevant aria-label on the icon 👉 [see "Square" story below](#square)
      * ## Click event
      * The WCS button relies on the native click event to pass a user click to your app.
      * For now, it's not possible for us to prevent the click event to be fired when the button's disabled attribute is true.
@@ -1514,12 +1628,19 @@ declare global {
         prototype: HTMLWcsButtonElement;
         new (): HTMLWcsButtonElement;
     };
+    /**
+     * The card component is a container that display content such as text, images, buttons, and lists.  
+     * A card can be a single component, but is often made up of a header, title, subtitle, and content.
+     */
     interface HTMLWcsCardElement extends Components.WcsCard, HTMLStencilElement {
     }
     var HTMLWcsCardElement: {
         prototype: HTMLWcsCardElement;
         new (): HTMLWcsCardElement;
     };
+    /**
+     * The card-body is a subcomponent of `wcs-card`. It represents content of the card with an extra padding around.
+     */
     interface HTMLWcsCardBodyElement extends Components.WcsCardBody, HTMLStencilElement {
     }
     var HTMLWcsCardBodyElement: {
@@ -1531,6 +1652,9 @@ declare global {
         "wcsFocus": FocusEvent;
         "wcsBlur": FocusEvent;
     }
+    /**
+     * The checkbox component is an input for choosing one or more items from a set by checking / unchecking it.
+     */
     interface HTMLWcsCheckboxElement extends Components.WcsCheckbox, HTMLStencilElement {
         addEventListener<K extends keyof HTMLWcsCheckboxElementEventMap>(type: K, listener: (this: HTMLWcsCheckboxElement, ev: WcsCheckboxCustomEvent<HTMLWcsCheckboxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -1559,6 +1683,9 @@ declare global {
         "wcsCategoryOpened": CategoryOpenedEventDetail;
         "wcsCategoryItemClicked": UIEvent;
     }
+    /**
+     * The com-nav-category is a subcomponent of `wcs-com-nav`. It represents a category nested inside a `wcs-com-nav-submenu`.
+     */
     interface HTMLWcsComNavCategoryElement extends Components.WcsComNavCategory, HTMLStencilElement {
         addEventListener<K extends keyof HTMLWcsComNavCategoryElementEventMap>(type: K, listener: (this: HTMLWcsComNavCategoryElement, ev: WcsComNavCategoryCustomEvent<HTMLWcsComNavCategoryElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -1573,6 +1700,9 @@ declare global {
         prototype: HTMLWcsComNavCategoryElement;
         new (): HTMLWcsComNavCategoryElement;
     };
+    /**
+     * The com-nav-item is a subcomponent of `wcs-com-nav`. It represents a list-item wrapper around a link.
+     */
     interface HTMLWcsComNavItemElement extends Components.WcsComNavItem, HTMLStencilElement {
     }
     var HTMLWcsComNavItemElement: {
@@ -1583,6 +1713,9 @@ declare global {
         "wcsSubmenuOpened": MenuOpenedEventDetail;
         "wcsClickOnFinalAction": void;
     }
+    /**
+     * The com-nav-submenu is a subcomponent of `wcs-com-nav`. It represents an expandable menu containing more items or categories.
+     */
     interface HTMLWcsComNavSubmenuElement extends Components.WcsComNavSubmenu, HTMLStencilElement {
         addEventListener<K extends keyof HTMLWcsComNavSubmenuElementEventMap>(type: K, listener: (this: HTMLWcsComNavSubmenuElement, ev: WcsComNavSubmenuCustomEvent<HTMLWcsComNavSubmenuElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -1691,6 +1824,9 @@ declare global {
      * - Set the `value` property to a different value to tell the component to refresh and go back into DISPLAY state
      * - Use the `successHandler` callback through the `wcsChange` event (see interface [EditableComponentUpdateEvent](https://gitlab.com/SNCF/wcs/-/blob/develop/src/components/editable-field/editable-field-interface.tsx))
      * - Use the `errorHandler` callback through the `wcsChange` event (see interface [EditableComponentUpdateEvent](https://gitlab.com/SNCF/wcs/-/blob/develop/src/components/editable-field/editable-field-interface.tsx))
+     * **Accessibility guidelines 💡**  
+     * > - Aria attributes are put on the native component on the first rendering with the `label` and `errorMsg` you provided 
+     * > - Additional aria attributes put on `<wcs-editable-field>` won't inherit onto the native component : you must use the `setAriaAttribute` method.
      */
     interface HTMLWcsEditableFieldElement extends Components.WcsEditableField, HTMLStencilElement {
         addEventListener<K extends keyof HTMLWcsEditableFieldElementEventMap>(type: K, listener: (this: HTMLWcsEditableFieldElement, ev: WcsEditableFieldCustomEvent<HTMLWcsEditableFieldElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -1720,24 +1856,36 @@ declare global {
         prototype: HTMLWcsErrorElement;
         new (): HTMLWcsErrorElement;
     };
+    /**
+     * This field component can be used to display the details of an entity. It is built around the label and the content of the field.
+     */
     interface HTMLWcsFieldElement extends Components.WcsField, HTMLStencilElement {
     }
     var HTMLWcsFieldElement: {
         prototype: HTMLWcsFieldElement;
         new (): HTMLWcsFieldElement;
     };
+    /**
+     * The field-content is a subcomponent of `wcs-field`. It represents the text content of the field.
+     */
     interface HTMLWcsFieldContentElement extends Components.WcsFieldContent, HTMLStencilElement {
     }
     var HTMLWcsFieldContentElement: {
         prototype: HTMLWcsFieldContentElement;
         new (): HTMLWcsFieldContentElement;
     };
+    /**
+     * The field-label is a subcomponent of `wcs-field`. It represents the label or title of the field.
+     */
     interface HTMLWcsFieldLabelElement extends Components.WcsFieldLabel, HTMLStencilElement {
     }
     var HTMLWcsFieldLabelElement: {
         prototype: HTMLWcsFieldLabelElement;
         new (): HTMLWcsFieldLabelElement;
     };
+    /**
+     * The footer component has been designed to leave as much customization as possible to the developer. The footers are often specific to the application developed.
+     */
     interface HTMLWcsFooterElement extends Components.WcsFooter, HTMLStencilElement {
     }
     var HTMLWcsFooterElement: {
@@ -1763,6 +1911,7 @@ declare global {
      * - If the `wcs-label` is required, the form control must have the `required` HTML attribute and vice-versa (this is normally automatically set)
      * - The form should not be submittable if at least one required form control is not filled
      * - Hints are optional and should only be used to add extra information
+     * - Additional aria attributes put on `<wcs-form-field>` won't inherit onto the native component : you must use the `setAriaAttribute` method.
      */
     interface HTMLWcsFormFieldElement extends Components.WcsFormField, HTMLStencilElement {
     }
@@ -1859,6 +2008,9 @@ declare global {
         prototype: HTMLWcsGridPaginationElement;
         new (): HTMLWcsGridPaginationElement;
     };
+    /**
+     * The header component is an element that appears across the top of all pages on a website or application; it contains the logo, the site name and main actions.
+     */
     interface HTMLWcsHeaderElement extends Components.WcsHeader, HTMLStencilElement {
     }
     var HTMLWcsHeaderElement: {
@@ -1898,6 +2050,9 @@ declare global {
         prototype: HTMLWcsHorizontalStepperElement;
         new (): HTMLWcsHorizontalStepperElement;
     };
+    /**
+     * The icon component is a graphic symbol designed to visually indicate the purpose of an interface element.
+     */
     interface HTMLWcsIconElement extends Components.WcsIcon, HTMLStencilElement {
     }
     var HTMLWcsIconElement: {
@@ -1914,16 +2069,7 @@ declare global {
      * The input component is a form control that accepts a single line of text.
      * Implementation mainly inspired from Ionic Input Component.
      * ## Accessibility guidelines 💡
-     * > `wcs-input` is a wrapper around the native input element which is located inside its shadow DOM. All the
-     * > **aria attributes** you set on `wcs-input` are passed to the **native input** element **during the first render of the component**.
-     * > If you need to use them as you would with a native input, you can do so.
-     * > If you need to **dynamically change the aria attributes after the first render**, you can use the `setAriaAttribute` 
-     * > JS method of `wcs-input`.
-     * > ```javascript
-     * > const wcsInput = document.querySelector('wcs-input');
-     * > await wcsInput.setAriaAttribute('aria-label', 'new label');
-     * > ```
-     * > If you use wcs-input outside a wcs-form-field, you have to manage the label and the error message yourself.
+     * > - If you use wcs-input outside a wcs-form-field, you have to manage the label and the error message yourself.
      * > You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.
      */
     interface HTMLWcsInputElement extends Components.WcsInput, HTMLStencilElement {
@@ -1953,24 +2099,39 @@ declare global {
         prototype: HTMLWcsLabelElement;
         new (): HTMLWcsLabelElement;
     };
+    /**
+     * Lists are used for grouping a collection of related items.
+     * Standard lists can be used either with or without icons. Depending on the context, the list can have one or more
+     * actions (favourite, download, delete, etc.). Use standard lists with a unique action when each line has an action.
+     */
     interface HTMLWcsListItemElement extends Components.WcsListItem, HTMLStencilElement {
     }
     var HTMLWcsListItemElement: {
         prototype: HTMLWcsListItemElement;
         new (): HTMLWcsListItemElement;
     };
+    /**
+     * The list-item-properties is a subcomponent of `wcs-list-item`. It represents a wrapper for a list of several `wcs-property`.
+     */
     interface HTMLWcsListItemPropertiesElement extends Components.WcsListItemProperties, HTMLStencilElement {
     }
     var HTMLWcsListItemPropertiesElement: {
         prototype: HTMLWcsListItemPropertiesElement;
         new (): HTMLWcsListItemPropertiesElement;
     };
+    /**
+     * The list-item-property is a subcomponent of `wcs-list-item`.
+     * Wrapped in a `wcs-list-item-properties`, it represents a property to describe an item.
+     */
     interface HTMLWcsListItemPropertyElement extends Components.WcsListItemProperty, HTMLStencilElement {
     }
     var HTMLWcsListItemPropertyElement: {
         prototype: HTMLWcsListItemPropertyElement;
         new (): HTMLWcsListItemPropertyElement;
     };
+    /**
+     * A component used to display a [Material Icon](https://fonts.google.com/icons). Can be useful when used in wcs-grid or in a wcs-button.
+     */
     interface HTMLWcsMatIconElement extends Components.WcsMatIcon, HTMLStencilElement {
     }
     var HTMLWcsMatIconElement: {
@@ -1983,16 +2144,14 @@ declare global {
     /**
      * The modal component (also named dialog or popup) is an interface element that appears on top of the page content.
      * Use it to show a message, a confirmation dialog, or any other content like forms.
-     * <details>
-     *     <summary>Accessibility guidelines 💡</summary>
-     *     > - Modal element has `role="dialog"` and `aria-modal="true"`
-     *     > - Keyboard navigation is trapped inside the modal
-     *     > - It is mandatory to set the `modal-trigger-controls-id` to the id of the element that opens the dialog, in order
-     *     > to focus it upon dialog dismissal.
-     *     > - The modal can be closed at any time by pressing the Escape key.
-     *     >
-     *     > - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
-     * </details>
+     * ## Accessibility guidelines 💡
+     * > - Modal element has `role="dialog"` and `aria-modal="true"`
+     * > - Keyboard navigation is trapped inside the modal
+     * > - It is mandatory to set the `modal-trigger-controls-id` to the id of the element that opens the dialog, in order
+     * > to focus it upon dialog dismissal.
+     * > - The modal can be closed at any time by pressing the Escape key.
+     * >
+     * > - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
      * @cssprop --wcs-modal-max-height - Max height of the main container
      * @cssprop --wcs-modal-overflow-y - Overflow-y of the content
      */
@@ -2032,7 +2191,8 @@ declare global {
      * ### Note
      * - We did not find a way to detect when the select is reset, if you want to apply the placeholder style when the
      * select is reset, you have to call the `updateStyles()` method manually.
-     * - It is strongly recommended to use select-native when you don't have to support the multi-selection feature
+     * - It is strongly recommended to use native-select when you don't have to support the multi-selection feature
+     * - Use a native-select instead of a wcs-select if your application is mainly on mobile / tablet. The native behavior of the device will be used.
      */
     interface HTMLWcsNativeSelectElement extends Components.WcsNativeSelect, HTMLStencilElement {
     }
@@ -2063,12 +2223,12 @@ declare global {
      * The progress-bar component is a horizontal bar that indicates the current completion of a task.
      * ## Accessibility guidelines 💡
      * > Aria attributes and how to display the progress-bar depend on the use case in your application :
-     * >  
-     * > - **Case 1 : decorative**  
+     * >
+     * > - **Case 1 : decorative**
      * > If the progress-bar is used as a decoration _(if removed, the user doesn't lose any relevant information)_ or in the
      * > context of another component _(such as progress-bar in a card, stepper, ...)_ => **you don't need to show the label nor add an aria-label**.
-     * > 
-     * > - **Case 2 : informative**  
+     * >
+     * > - **Case 2 : informative**
      * > If the progress-bar is used to convey important information _(e.g., form completion status, dashboard KPI)_, you need to :
      * >   - **Provide a visible label** that describes the purpose of the progress-bar.
      * >   - **Set the `showLabel` property to `true`** to show the percentage above the progress-bar.
@@ -2109,6 +2269,9 @@ declare global {
         "wcsBlur": FocusEvent;
         "wcsFocus": FocusEvent;
     }
+    /**
+     * The radio component should always be wrapped in a `wcs-radio-group`.
+     */
     interface HTMLWcsRadioElement extends Components.WcsRadio, HTMLStencilElement {
         addEventListener<K extends keyof HTMLWcsRadioElementEventMap>(type: K, listener: (this: HTMLWcsRadioElement, ev: WcsRadioCustomEvent<HTMLWcsRadioElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2213,6 +2376,11 @@ declare global {
         prototype: HTMLWcsSkeletonTextElement;
         new (): HTMLWcsSkeletonTextElement;
     };
+    /**
+     * The spinner component is visual indicator that showing a process is happening in the background but the interface is
+     * not yet ready for interaction.  
+     * If your page structure is simple or the loading time is long (> 300ms), use [wcs-skeleton](.?path=/docs/components-skeleton--documentation) instead.
+     */
     interface HTMLWcsSpinnerElement extends Components.WcsSpinner, HTMLStencilElement {
     }
     var HTMLWcsSpinnerElement: {
@@ -2224,6 +2392,9 @@ declare global {
         "wcsFocus": FocusEvent;
         "wcsBlur": FocusEvent;
     }
+    /**
+     * The switch component is a control used to switch between on and off state.
+     */
     interface HTMLWcsSwitchElement extends Components.WcsSwitch, HTMLStencilElement {
         addEventListener<K extends keyof HTMLWcsSwitchElementEventMap>(type: K, listener: (this: HTMLWcsSwitchElement, ev: WcsSwitchCustomEvent<HTMLWcsSwitchElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2298,16 +2469,7 @@ declare global {
     /**
      * Mainly inspired from Ionic Textarea Component.
      * ## Accessibility guidelines 💡
-     * > `wcs-textarea` is a wrapper around the native textarea element which is located inside its shadow DOM. All the
-     * > **aria attributes** you set on `wcs-textarea` are passed to the **native textarea** element **during the first render of the component**.
-     * > If you need to use them as you would with a native textarea, you can do so.
-     * > If you need to **dynamically change the aria attributes after the first render**, you can use the `setAriaAttribute`
-     * > JS method of `wcs-textarea` :
-     * > ```javascript
-     * > const wcsTextarea = document.querySelector('wcs-textarea');
-     * > await wcsTextarea.setAriaAttribute('aria-label', 'new label');
-     * > ```
-     * > If you use wcs-textarea outside a wcs-form-field, you have to manage the label and the error message yourself.
+     * > - If you use wcs-textarea outside a wcs-form-field, you have to manage the label and the error message yourself.
      * > You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.
      * @cssprop --wcs-textarea-max-height - Max height of the text area component
      * @cssprop --wcs-textarea-padding-left - Padding left of the text area. Take in consideration the transparent border of 2px around the textarea.
@@ -2342,7 +2504,7 @@ declare global {
      * provide the "visual description" you add on the `wcs-tooltip` to the `aria-label` attribute or the `aria-description` as soon as the attribute will be available 
      * of the element you want to describe .
      * Example:
-     * ```
+     * ```html
      * <wcs-tooltip>Trashed items</wcs-tooltip>
      * <wcs-button aria-label="Trashed items">Trash</wcs-button>
      * ```
@@ -2420,6 +2582,9 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    /**
+     * The accordion component is a vertical stack of interactive headings used to toggle the display of further information.
+     */
     interface WcsAccordion {
         /**
           * Specifies wether accordion-panel components should group the content with header in one card if true, there will be only one card with the header and the content Nothing change when the panel is close
@@ -2434,10 +2599,19 @@ declare namespace LocalJSX {
          */
         "highlight"?: boolean;
     }
+    /**
+     * The accordion-content is a subcomponent of `wcs-accordion`. It represents the text / content below an expanded accordion.
+     */
     interface WcsAccordionContent {
     }
+    /**
+     * The accordion-header is a subcomponent of `wcs-accordion`. It represents the heading text inside the accordion panel.
+     */
     interface WcsAccordionHeader {
     }
+    /**
+     * The accordion-panel is a subcomponent of `wcs-accordion`. It represents every panel of the accordion that can be expanded.
+     */
     interface WcsAccordionPanel {
         /**
           * Specifies wether the component should group the content with header in one card if true, there will be only one card with the header and the content Nothing change when the panel is close
@@ -2454,6 +2628,9 @@ declare namespace LocalJSX {
         "onWcsOpenChange"?: (event: WcsAccordionPanelCustomEvent<boolean>) => void;
         "open"?: boolean;
     }
+    /**
+     * The action-bar component is a group of elements appearing across the top of all pages on a business application.
+     */
     interface WcsActionBar {
         /**
           * Determines if the action bar should have a border at the bottom. You should not use this property if a gutter is already present on tabs
@@ -2462,6 +2639,11 @@ declare namespace LocalJSX {
     }
     interface WcsApp {
     }
+    /**
+     * The badge component is a small label, generally appearing inside or in proximity to another larger interface component,
+     * representing a status, property, or some other metadata.
+     * @cssprop --wcs-badge-ligther-percentage - Define the opacity rate to apply to the badge
+     */
     interface WcsBadge {
         /**
           * Allows you to change the color of the badge to make it less bright (based on the color chosen by the CSS class).
@@ -2477,7 +2659,9 @@ declare namespace LocalJSX {
         "size"?: BadgeSize;
     }
     /**
-     * Button component, can also be a link when specifying href.
+     * The button component is used to trigger an action. It can also be a link when specifying href.
+     * ## Accessibility guidelines 💡
+     * > If your button doesn't contain text but only an image, you must set a relevant aria-label on the icon 👉 [see "Square" story below](#square)
      * ## Click event
      * The WCS button relies on the native click event to pass a user click to your app.
      * For now, it's not possible for us to prevent the click event to be fired when the button's disabled attribute is true.
@@ -2523,11 +2707,21 @@ declare namespace LocalJSX {
          */
         "type"?: WcsButtonType;
     }
+    /**
+     * The card component is a container that display content such as text, images, buttons, and lists.  
+     * A card can be a single component, but is often made up of a header, title, subtitle, and content.
+     */
     interface WcsCard {
         "mode"?: CardMode;
     }
+    /**
+     * The card-body is a subcomponent of `wcs-card`. It represents content of the card with an extra padding around.
+     */
     interface WcsCardBody {
     }
+    /**
+     * The checkbox component is an input for choosing one or more items from a set by checking / unchecking it.
+     */
     interface WcsCheckbox {
         /**
           * If `true`, the checkbox is selected.
@@ -2569,13 +2763,22 @@ declare namespace LocalJSX {
          */
         "appName"?: string;
     }
+    /**
+     * The com-nav-category is a subcomponent of `wcs-com-nav`. It represents a category nested inside a `wcs-com-nav-submenu`.
+     */
     interface WcsComNavCategory {
         "label"?: string;
         "onWcsCategoryItemClicked"?: (event: WcsComNavCategoryCustomEvent<UIEvent>) => void;
         "onWcsCategoryOpened"?: (event: WcsComNavCategoryCustomEvent<CategoryOpenedEventDetail>) => void;
     }
+    /**
+     * The com-nav-item is a subcomponent of `wcs-com-nav`. It represents a list-item wrapper around a link.
+     */
     interface WcsComNavItem {
     }
+    /**
+     * The com-nav-submenu is a subcomponent of `wcs-com-nav`. It represents an expandable menu containing more items or categories.
+     */
     interface WcsComNavSubmenu {
         "label"?: string;
         /**
@@ -2694,6 +2897,9 @@ declare namespace LocalJSX {
      * - Set the `value` property to a different value to tell the component to refresh and go back into DISPLAY state
      * - Use the `successHandler` callback through the `wcsChange` event (see interface [EditableComponentUpdateEvent](https://gitlab.com/SNCF/wcs/-/blob/develop/src/components/editable-field/editable-field-interface.tsx))
      * - Use the `errorHandler` callback through the `wcsChange` event (see interface [EditableComponentUpdateEvent](https://gitlab.com/SNCF/wcs/-/blob/develop/src/components/editable-field/editable-field-interface.tsx))
+     * **Accessibility guidelines 💡**  
+     * > - Aria attributes are put on the native component on the first rendering with the `label` and `errorMsg` you provided 
+     * > - Additional aria attributes put on `<wcs-editable-field>` won't inherit onto the native component : you must use the `setAriaAttribute` method.
      */
     interface WcsEditableField {
         /**
@@ -2743,12 +2949,24 @@ declare namespace LocalJSX {
      */
     interface WcsError {
     }
+    /**
+     * This field component can be used to display the details of an entity. It is built around the label and the content of the field.
+     */
     interface WcsField {
     }
+    /**
+     * The field-content is a subcomponent of `wcs-field`. It represents the text content of the field.
+     */
     interface WcsFieldContent {
     }
+    /**
+     * The field-label is a subcomponent of `wcs-field`. It represents the label or title of the field.
+     */
     interface WcsFieldLabel {
     }
+    /**
+     * The footer component has been designed to leave as much customization as possible to the developer. The footers are often specific to the application developed.
+     */
     interface WcsFooter {
     }
     /**
@@ -2770,6 +2988,7 @@ declare namespace LocalJSX {
      * - If the `wcs-label` is required, the form control must have the `required` HTML attribute and vice-versa (this is normally automatically set)
      * - The form should not be submittable if at least one required form control is not filled
      * - Hints are optional and should only be used to add extra information
+     * - Additional aria attributes put on `<wcs-form-field>` won't inherit onto the native component : you must use the `setAriaAttribute` method.
      */
     interface WcsFormField {
         /**
@@ -2945,6 +3164,9 @@ declare namespace LocalJSX {
          */
         "pageSize"?: number;
     }
+    /**
+     * The header component is an element that appears across the top of all pages on a website or application; it contains the logo, the site name and main actions.
+     */
     interface WcsHeader {
     }
     /**
@@ -2985,6 +3207,9 @@ declare namespace LocalJSX {
          */
         "steps"?: HorizontalStepConfig[];
     }
+    /**
+     * The icon component is a graphic symbol designed to visually indicate the purpose of an interface element.
+     */
     interface WcsIcon {
         "icon"?: string;
         "size"?: 'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px';
@@ -2993,16 +3218,7 @@ declare namespace LocalJSX {
      * The input component is a form control that accepts a single line of text.
      * Implementation mainly inspired from Ionic Input Component.
      * ## Accessibility guidelines 💡
-     * > `wcs-input` is a wrapper around the native input element which is located inside its shadow DOM. All the
-     * > **aria attributes** you set on `wcs-input` are passed to the **native input** element **during the first render of the component**.
-     * > If you need to use them as you would with a native input, you can do so.
-     * > If you need to **dynamically change the aria attributes after the first render**, you can use the `setAriaAttribute` 
-     * > JS method of `wcs-input`.
-     * > ```javascript
-     * > const wcsInput = document.querySelector('wcs-input');
-     * > await wcsInput.setAriaAttribute('aria-label', 'new label');
-     * > ```
-     * > If you use wcs-input outside a wcs-form-field, you have to manage the label and the error message yourself.
+     * > - If you use wcs-input outside a wcs-form-field, you have to manage the label and the error message yourself.
      * > You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.
      */
     interface WcsInput {
@@ -3152,16 +3368,31 @@ declare namespace LocalJSX {
          */
         "required"?: boolean;
     }
+    /**
+     * Lists are used for grouping a collection of related items.
+     * Standard lists can be used either with or without icons. Depending on the context, the list can have one or more
+     * actions (favourite, download, delete, etc.). Use standard lists with a unique action when each line has an action.
+     */
     interface WcsListItem {
         /**
           * True if the item is active. Adds a background color that highlights it.
          */
         "activated"?: boolean;
     }
+    /**
+     * The list-item-properties is a subcomponent of `wcs-list-item`. It represents a wrapper for a list of several `wcs-property`.
+     */
     interface WcsListItemProperties {
     }
+    /**
+     * The list-item-property is a subcomponent of `wcs-list-item`.
+     * Wrapped in a `wcs-list-item-properties`, it represents a property to describe an item.
+     */
     interface WcsListItemProperty {
     }
+    /**
+     * A component used to display a [Material Icon](https://fonts.google.com/icons). Can be useful when used in wcs-grid or in a wcs-button.
+     */
     interface WcsMatIcon {
         /**
           * Family of the icon
@@ -3179,20 +3410,22 @@ declare namespace LocalJSX {
     /**
      * The modal component (also named dialog or popup) is an interface element that appears on top of the page content.
      * Use it to show a message, a confirmation dialog, or any other content like forms.
-     * <details>
-     *     <summary>Accessibility guidelines 💡</summary>
-     *     > - Modal element has `role="dialog"` and `aria-modal="true"`
-     *     > - Keyboard navigation is trapped inside the modal
-     *     > - It is mandatory to set the `modal-trigger-controls-id` to the id of the element that opens the dialog, in order
-     *     > to focus it upon dialog dismissal.
-     *     > - The modal can be closed at any time by pressing the Escape key.
-     *     >
-     *     > - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
-     * </details>
+     * ## Accessibility guidelines 💡
+     * > - Modal element has `role="dialog"` and `aria-modal="true"`
+     * > - Keyboard navigation is trapped inside the modal
+     * > - It is mandatory to set the `modal-trigger-controls-id` to the id of the element that opens the dialog, in order
+     * > to focus it upon dialog dismissal.
+     * > - The modal can be closed at any time by pressing the Escape key.
+     * >
+     * > - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
      * @cssprop --wcs-modal-max-height - Max height of the main container
      * @cssprop --wcs-modal-overflow-y - Overflow-y of the content
      */
     interface WcsModal {
+        /**
+          * Specifies the aria-label present on the close button when the modal is opened.   Only use when `showCloseButton` is `true`.
+         */
+        "closeButtonAriaLabel"?: string;
         /**
           * Specifies whether the component should hide the actions slot or not
          */
@@ -3245,7 +3478,8 @@ declare namespace LocalJSX {
      * ### Note
      * - We did not find a way to detect when the select is reset, if you want to apply the placeholder style when the
      * select is reset, you have to call the `updateStyles()` method manually.
-     * - It is strongly recommended to use select-native when you don't have to support the multi-selection feature
+     * - It is strongly recommended to use native-select when you don't have to support the multi-selection feature
+     * - Use a native-select instead of a wcs-select if your application is mainly on mobile / tablet. The native behavior of the device will be used.
      */
     interface WcsNativeSelect {
         /**
@@ -3268,12 +3502,12 @@ declare namespace LocalJSX {
      * The progress-bar component is a horizontal bar that indicates the current completion of a task.
      * ## Accessibility guidelines 💡
      * > Aria attributes and how to display the progress-bar depend on the use case in your application :
-     * >  
-     * > - **Case 1 : decorative**  
+     * >
+     * > - **Case 1 : decorative**
      * > If the progress-bar is used as a decoration _(if removed, the user doesn't lose any relevant information)_ or in the
      * > context of another component _(such as progress-bar in a card, stepper, ...)_ => **you don't need to show the label nor add an aria-label**.
-     * > 
-     * > - **Case 2 : informative**  
+     * >
+     * > - **Case 2 : informative**
      * > If the progress-bar is used to convey important information _(e.g., form completion status, dashboard KPI)_, you need to :
      * >   - **Provide a visible label** that describes the purpose of the progress-bar.
      * >   - **Set the `showLabel` property to `true`** to show the percentage above the progress-bar.
@@ -3288,7 +3522,7 @@ declare namespace LocalJSX {
          */
         "showLabel"?: boolean;
         /**
-          * Specify the size of the progress bar.   m = default, s = smaller
+          * Specify the size of the progress bar. m = default, s = smaller
          */
         "size"?: Extract<WcsSize, 'm' | 's'>;
         /**
@@ -3325,6 +3559,9 @@ declare namespace LocalJSX {
          */
         "value"?: number;
     }
+    /**
+     * The radio component should always be wrapped in a `wcs-radio-group`.
+     */
     interface WcsRadio {
         /**
           * If `true`, the user cannot interact with the radio.
@@ -3524,12 +3761,20 @@ declare namespace LocalJSX {
          */
         "height"?: 'h1' | 'h2' | 'h3' | 'caption' | 'body';
     }
+    /**
+     * The spinner component is visual indicator that showing a process is happening in the background but the interface is
+     * not yet ready for interaction.  
+     * If your page structure is simple or the loading time is long (> 300ms), use [wcs-skeleton](.?path=/docs/components-skeleton--documentation) instead.
+     */
     interface WcsSpinner {
         /**
           * Indicates the spinner display mode. Accepted values: `border` or `growing`
          */
         "mode"?: WcsSpinnerMode;
     }
+    /**
+     * The switch component is a control used to switch between on and off state.
+     */
     interface WcsSwitch {
         /**
           * If `true`, the switch is selected.
@@ -3620,16 +3865,7 @@ declare namespace LocalJSX {
     /**
      * Mainly inspired from Ionic Textarea Component.
      * ## Accessibility guidelines 💡
-     * > `wcs-textarea` is a wrapper around the native textarea element which is located inside its shadow DOM. All the
-     * > **aria attributes** you set on `wcs-textarea` are passed to the **native textarea** element **during the first render of the component**.
-     * > If you need to use them as you would with a native textarea, you can do so.
-     * > If you need to **dynamically change the aria attributes after the first render**, you can use the `setAriaAttribute`
-     * > JS method of `wcs-textarea` :
-     * > ```javascript
-     * > const wcsTextarea = document.querySelector('wcs-textarea');
-     * > await wcsTextarea.setAriaAttribute('aria-label', 'new label');
-     * > ```
-     * > If you use wcs-textarea outside a wcs-form-field, you have to manage the label and the error message yourself.
+     * > - If you use wcs-textarea outside a wcs-form-field, you have to manage the label and the error message yourself.
      * > You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.
      * @cssprop --wcs-textarea-max-height - Max height of the text area component
      * @cssprop --wcs-textarea-padding-left - Padding left of the text area. Take in consideration the transparent border of 2px around the textarea.
@@ -3756,7 +3992,7 @@ declare namespace LocalJSX {
      * provide the "visual description" you add on the `wcs-tooltip` to the `aria-label` attribute or the `aria-description` as soon as the attribute will be available 
      * of the element you want to describe .
      * Example:
-     * ```
+     * ```html
      * <wcs-tooltip>Trashed items</wcs-tooltip>
      * <wcs-button aria-label="Trashed items">Trash</wcs-button>
      * ```
@@ -3874,15 +4110,37 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            /**
+             * The accordion component is a vertical stack of interactive headings used to toggle the display of further information.
+             */
             "wcs-accordion": LocalJSX.WcsAccordion & JSXBase.HTMLAttributes<HTMLWcsAccordionElement>;
+            /**
+             * The accordion-content is a subcomponent of `wcs-accordion`. It represents the text / content below an expanded accordion.
+             */
             "wcs-accordion-content": LocalJSX.WcsAccordionContent & JSXBase.HTMLAttributes<HTMLWcsAccordionContentElement>;
+            /**
+             * The accordion-header is a subcomponent of `wcs-accordion`. It represents the heading text inside the accordion panel.
+             */
             "wcs-accordion-header": LocalJSX.WcsAccordionHeader & JSXBase.HTMLAttributes<HTMLWcsAccordionHeaderElement>;
+            /**
+             * The accordion-panel is a subcomponent of `wcs-accordion`. It represents every panel of the accordion that can be expanded.
+             */
             "wcs-accordion-panel": LocalJSX.WcsAccordionPanel & JSXBase.HTMLAttributes<HTMLWcsAccordionPanelElement>;
+            /**
+             * The action-bar component is a group of elements appearing across the top of all pages on a business application.
+             */
             "wcs-action-bar": LocalJSX.WcsActionBar & JSXBase.HTMLAttributes<HTMLWcsActionBarElement>;
             "wcs-app": LocalJSX.WcsApp & JSXBase.HTMLAttributes<HTMLWcsAppElement>;
+            /**
+             * The badge component is a small label, generally appearing inside or in proximity to another larger interface component,
+             * representing a status, property, or some other metadata.
+             * @cssprop --wcs-badge-ligther-percentage - Define the opacity rate to apply to the badge
+             */
             "wcs-badge": LocalJSX.WcsBadge & JSXBase.HTMLAttributes<HTMLWcsBadgeElement>;
             /**
-             * Button component, can also be a link when specifying href.
+             * The button component is used to trigger an action. It can also be a link when specifying href.
+             * ## Accessibility guidelines 💡
+             * > If your button doesn't contain text but only an image, you must set a relevant aria-label on the icon 👉 [see "Square" story below](#square)
              * ## Click event
              * The WCS button relies on the native click event to pass a user click to your app.
              * For now, it's not possible for us to prevent the click event to be fired when the button's disabled attribute is true.
@@ -3891,16 +4149,35 @@ declare module "@stencil/core" {
              * To fix this problem, we plan to provide a wcsClick event in addition to the native click for applications developed without frameworks.
              */
             "wcs-button": LocalJSX.WcsButton & JSXBase.HTMLAttributes<HTMLWcsButtonElement>;
+            /**
+             * The card component is a container that display content such as text, images, buttons, and lists.  
+             * A card can be a single component, but is often made up of a header, title, subtitle, and content.
+             */
             "wcs-card": LocalJSX.WcsCard & JSXBase.HTMLAttributes<HTMLWcsCardElement>;
+            /**
+             * The card-body is a subcomponent of `wcs-card`. It represents content of the card with an extra padding around.
+             */
             "wcs-card-body": LocalJSX.WcsCardBody & JSXBase.HTMLAttributes<HTMLWcsCardBodyElement>;
+            /**
+             * The checkbox component is an input for choosing one or more items from a set by checking / unchecking it.
+             */
             "wcs-checkbox": LocalJSX.WcsCheckbox & JSXBase.HTMLAttributes<HTMLWcsCheckboxElement>;
             /**
              * *Part of communication design system*
              * The com-nav component is a container for navigation links to external or internal pages of the website.
              */
             "wcs-com-nav": LocalJSX.WcsComNav & JSXBase.HTMLAttributes<HTMLWcsComNavElement>;
+            /**
+             * The com-nav-category is a subcomponent of `wcs-com-nav`. It represents a category nested inside a `wcs-com-nav-submenu`.
+             */
             "wcs-com-nav-category": LocalJSX.WcsComNavCategory & JSXBase.HTMLAttributes<HTMLWcsComNavCategoryElement>;
+            /**
+             * The com-nav-item is a subcomponent of `wcs-com-nav`. It represents a list-item wrapper around a link.
+             */
             "wcs-com-nav-item": LocalJSX.WcsComNavItem & JSXBase.HTMLAttributes<HTMLWcsComNavItemElement>;
+            /**
+             * The com-nav-submenu is a subcomponent of `wcs-com-nav`. It represents an expandable menu containing more items or categories.
+             */
             "wcs-com-nav-submenu": LocalJSX.WcsComNavSubmenu & JSXBase.HTMLAttributes<HTMLWcsComNavSubmenuElement>;
             /**
              * Counter component, meant to be used for small range of values (e.g : 0 - 5).<br>
@@ -3940,6 +4217,9 @@ declare module "@stencil/core" {
              * - Set the `value` property to a different value to tell the component to refresh and go back into DISPLAY state
              * - Use the `successHandler` callback through the `wcsChange` event (see interface [EditableComponentUpdateEvent](https://gitlab.com/SNCF/wcs/-/blob/develop/src/components/editable-field/editable-field-interface.tsx))
              * - Use the `errorHandler` callback through the `wcsChange` event (see interface [EditableComponentUpdateEvent](https://gitlab.com/SNCF/wcs/-/blob/develop/src/components/editable-field/editable-field-interface.tsx))
+             * **Accessibility guidelines 💡**  
+             * > - Aria attributes are put on the native component on the first rendering with the `label` and `errorMsg` you provided 
+             * > - Additional aria attributes put on `<wcs-editable-field>` won't inherit onto the native component : you must use the `setAriaAttribute` method.
              */
             "wcs-editable-field": LocalJSX.WcsEditableField & JSXBase.HTMLAttributes<HTMLWcsEditableFieldElement>;
             /**
@@ -3951,9 +4231,21 @@ declare module "@stencil/core" {
              * - `aria-invalid="true"` will be automatically added to the field for screen readers
              */
             "wcs-error": LocalJSX.WcsError & JSXBase.HTMLAttributes<HTMLWcsErrorElement>;
+            /**
+             * This field component can be used to display the details of an entity. It is built around the label and the content of the field.
+             */
             "wcs-field": LocalJSX.WcsField & JSXBase.HTMLAttributes<HTMLWcsFieldElement>;
+            /**
+             * The field-content is a subcomponent of `wcs-field`. It represents the text content of the field.
+             */
             "wcs-field-content": LocalJSX.WcsFieldContent & JSXBase.HTMLAttributes<HTMLWcsFieldContentElement>;
+            /**
+             * The field-label is a subcomponent of `wcs-field`. It represents the label or title of the field.
+             */
             "wcs-field-label": LocalJSX.WcsFieldLabel & JSXBase.HTMLAttributes<HTMLWcsFieldLabelElement>;
+            /**
+             * The footer component has been designed to leave as much customization as possible to the developer. The footers are often specific to the application developed.
+             */
             "wcs-footer": LocalJSX.WcsFooter & JSXBase.HTMLAttributes<HTMLWcsFooterElement>;
             /**
              * Form field component wraps the native input element and add some more functionality on top of it.
@@ -3974,6 +4266,7 @@ declare module "@stencil/core" {
              * - If the `wcs-label` is required, the form control must have the `required` HTML attribute and vice-versa (this is normally automatically set)
              * - The form should not be submittable if at least one required form control is not filled
              * - Hints are optional and should only be used to add extra information
+             * - Additional aria attributes put on `<wcs-form-field>` won't inherit onto the native component : you must use the `setAriaAttribute` method.
              */
             "wcs-form-field": LocalJSX.WcsFormField & JSXBase.HTMLAttributes<HTMLWcsFormFieldElement>;
             "wcs-galactic": LocalJSX.WcsGalactic & JSXBase.HTMLAttributes<HTMLWcsGalacticElement>;
@@ -3998,6 +4291,9 @@ declare module "@stencil/core" {
              * The grid pagination is a subcomponent of `wcs-grid`, slotted in `grid-pagination` under the `<table>` element.
              */
             "wcs-grid-pagination": LocalJSX.WcsGridPagination & JSXBase.HTMLAttributes<HTMLWcsGridPaginationElement>;
+            /**
+             * The header component is an element that appears across the top of all pages on a website or application; it contains the logo, the site name and main actions.
+             */
             "wcs-header": LocalJSX.WcsHeader & JSXBase.HTMLAttributes<HTMLWcsHeaderElement>;
             /**
              * The `wcs-hint` should always be wrapped in a `wcs-form-field`.
@@ -4011,21 +4307,15 @@ declare module "@stencil/core" {
              * The horizontal-stepper is a representation of a user’s progress through a series of discrete steps.
              */
             "wcs-horizontal-stepper": LocalJSX.WcsHorizontalStepper & JSXBase.HTMLAttributes<HTMLWcsHorizontalStepperElement>;
+            /**
+             * The icon component is a graphic symbol designed to visually indicate the purpose of an interface element.
+             */
             "wcs-icon": LocalJSX.WcsIcon & JSXBase.HTMLAttributes<HTMLWcsIconElement>;
             /**
              * The input component is a form control that accepts a single line of text.
              * Implementation mainly inspired from Ionic Input Component.
              * ## Accessibility guidelines 💡
-             * > `wcs-input` is a wrapper around the native input element which is located inside its shadow DOM. All the
-             * > **aria attributes** you set on `wcs-input` are passed to the **native input** element **during the first render of the component**.
-             * > If you need to use them as you would with a native input, you can do so.
-             * > If you need to **dynamically change the aria attributes after the first render**, you can use the `setAriaAttribute` 
-             * > JS method of `wcs-input`.
-             * > ```javascript
-             * > const wcsInput = document.querySelector('wcs-input');
-             * > await wcsInput.setAriaAttribute('aria-label', 'new label');
-             * > ```
-             * > If you use wcs-input outside a wcs-form-field, you have to manage the label and the error message yourself.
+             * > - If you use wcs-input outside a wcs-form-field, you have to manage the label and the error message yourself.
              * > You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.
              */
             "wcs-input": LocalJSX.WcsInput & JSXBase.HTMLAttributes<HTMLWcsInputElement>;
@@ -4037,23 +4327,36 @@ declare module "@stencil/core" {
              * - Use the required flag only as an indication to inform users that the form control is required
              */
             "wcs-label": LocalJSX.WcsLabel & JSXBase.HTMLAttributes<HTMLWcsLabelElement>;
+            /**
+             * Lists are used for grouping a collection of related items.
+             * Standard lists can be used either with or without icons. Depending on the context, the list can have one or more
+             * actions (favourite, download, delete, etc.). Use standard lists with a unique action when each line has an action.
+             */
             "wcs-list-item": LocalJSX.WcsListItem & JSXBase.HTMLAttributes<HTMLWcsListItemElement>;
+            /**
+             * The list-item-properties is a subcomponent of `wcs-list-item`. It represents a wrapper for a list of several `wcs-property`.
+             */
             "wcs-list-item-properties": LocalJSX.WcsListItemProperties & JSXBase.HTMLAttributes<HTMLWcsListItemPropertiesElement>;
+            /**
+             * The list-item-property is a subcomponent of `wcs-list-item`.
+             * Wrapped in a `wcs-list-item-properties`, it represents a property to describe an item.
+             */
             "wcs-list-item-property": LocalJSX.WcsListItemProperty & JSXBase.HTMLAttributes<HTMLWcsListItemPropertyElement>;
+            /**
+             * A component used to display a [Material Icon](https://fonts.google.com/icons). Can be useful when used in wcs-grid or in a wcs-button.
+             */
             "wcs-mat-icon": LocalJSX.WcsMatIcon & JSXBase.HTMLAttributes<HTMLWcsMatIconElement>;
             /**
              * The modal component (also named dialog or popup) is an interface element that appears on top of the page content.
              * Use it to show a message, a confirmation dialog, or any other content like forms.
-             * <details>
-             *     <summary>Accessibility guidelines 💡</summary>
-             *     > - Modal element has `role="dialog"` and `aria-modal="true"`
-             *     > - Keyboard navigation is trapped inside the modal
-             *     > - It is mandatory to set the `modal-trigger-controls-id` to the id of the element that opens the dialog, in order
-             *     > to focus it upon dialog dismissal.
-             *     > - The modal can be closed at any time by pressing the Escape key.
-             *     >
-             *     > - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
-             * </details>
+             * ## Accessibility guidelines 💡
+             * > - Modal element has `role="dialog"` and `aria-modal="true"`
+             * > - Keyboard navigation is trapped inside the modal
+             * > - It is mandatory to set the `modal-trigger-controls-id` to the id of the element that opens the dialog, in order
+             * > to focus it upon dialog dismissal.
+             * > - The modal can be closed at any time by pressing the Escape key.
+             * >
+             * > - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
              * @cssprop --wcs-modal-max-height - Max height of the main container
              * @cssprop --wcs-modal-overflow-y - Overflow-y of the content
              */
@@ -4080,7 +4383,8 @@ declare module "@stencil/core" {
              * ### Note
              * - We did not find a way to detect when the select is reset, if you want to apply the placeholder style when the
              * select is reset, you have to call the `updateStyles()` method manually.
-             * - It is strongly recommended to use select-native when you don't have to support the multi-selection feature
+             * - It is strongly recommended to use native-select when you don't have to support the multi-selection feature
+             * - Use a native-select instead of a wcs-select if your application is mainly on mobile / tablet. The native behavior of the device will be used.
              */
             "wcs-native-select": LocalJSX.WcsNativeSelect & JSXBase.HTMLAttributes<HTMLWcsNativeSelectElement>;
             /**
@@ -4096,12 +4400,12 @@ declare module "@stencil/core" {
              * The progress-bar component is a horizontal bar that indicates the current completion of a task.
              * ## Accessibility guidelines 💡
              * > Aria attributes and how to display the progress-bar depend on the use case in your application :
-             * >  
-             * > - **Case 1 : decorative**  
+             * >
+             * > - **Case 1 : decorative**
              * > If the progress-bar is used as a decoration _(if removed, the user doesn't lose any relevant information)_ or in the
              * > context of another component _(such as progress-bar in a card, stepper, ...)_ => **you don't need to show the label nor add an aria-label**.
-             * > 
-             * > - **Case 2 : informative**  
+             * >
+             * > - **Case 2 : informative**
              * > If the progress-bar is used to convey important information _(e.g., form completion status, dashboard KPI)_, you need to :
              * >   - **Provide a visible label** that describes the purpose of the progress-bar.
              * >   - **Set the `showLabel` property to `true`** to show the percentage above the progress-bar.
@@ -4127,6 +4431,9 @@ declare module "@stencil/core" {
              * >   - Optionally, use aria-label to provide an accessible name if a visible label is not present.
              */
             "wcs-progress-radial": LocalJSX.WcsProgressRadial & JSXBase.HTMLAttributes<HTMLWcsProgressRadialElement>;
+            /**
+             * The radio component should always be wrapped in a `wcs-radio-group`.
+             */
             "wcs-radio": LocalJSX.WcsRadio & JSXBase.HTMLAttributes<HTMLWcsRadioElement>;
             "wcs-radio-group": LocalJSX.WcsRadioGroup & JSXBase.HTMLAttributes<HTMLWcsRadioGroupElement>;
             /**
@@ -4152,7 +4459,15 @@ declare module "@stencil/core" {
              * Use a skeleton text as a placeholder for titles or paragraphs.
              */
             "wcs-skeleton-text": LocalJSX.WcsSkeletonText & JSXBase.HTMLAttributes<HTMLWcsSkeletonTextElement>;
+            /**
+             * The spinner component is visual indicator that showing a process is happening in the background but the interface is
+             * not yet ready for interaction.  
+             * If your page structure is simple or the loading time is long (> 300ms), use [wcs-skeleton](.?path=/docs/components-skeleton--documentation) instead.
+             */
             "wcs-spinner": LocalJSX.WcsSpinner & JSXBase.HTMLAttributes<HTMLWcsSpinnerElement>;
+            /**
+             * The switch component is a control used to switch between on and off state.
+             */
             "wcs-switch": LocalJSX.WcsSwitch & JSXBase.HTMLAttributes<HTMLWcsSwitchElement>;
             /**
              * Tab content component.
@@ -4176,16 +4491,7 @@ declare module "@stencil/core" {
             /**
              * Mainly inspired from Ionic Textarea Component.
              * ## Accessibility guidelines 💡
-             * > `wcs-textarea` is a wrapper around the native textarea element which is located inside its shadow DOM. All the
-             * > **aria attributes** you set on `wcs-textarea` are passed to the **native textarea** element **during the first render of the component**.
-             * > If you need to use them as you would with a native textarea, you can do so.
-             * > If you need to **dynamically change the aria attributes after the first render**, you can use the `setAriaAttribute`
-             * > JS method of `wcs-textarea` :
-             * > ```javascript
-             * > const wcsTextarea = document.querySelector('wcs-textarea');
-             * > await wcsTextarea.setAriaAttribute('aria-label', 'new label');
-             * > ```
-             * > If you use wcs-textarea outside a wcs-form-field, you have to manage the label and the error message yourself.
+             * > - If you use wcs-textarea outside a wcs-form-field, you have to manage the label and the error message yourself.
              * > You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.
              * @cssprop --wcs-textarea-max-height - Max height of the text area component
              * @cssprop --wcs-textarea-padding-left - Padding left of the text area. Take in consideration the transparent border of 2px around the textarea.
@@ -4207,7 +4513,7 @@ declare module "@stencil/core" {
              * provide the "visual description" you add on the `wcs-tooltip` to the `aria-label` attribute or the `aria-description` as soon as the attribute will be available 
              * of the element you want to describe .
              * Example:
-             * ```
+             * ```html
              * <wcs-tooltip>Trashed items</wcs-tooltip>
              * <wcs-button aria-label="Trashed items">Trash</wcs-button>
              * ```

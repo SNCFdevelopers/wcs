@@ -21,6 +21,26 @@ It is used to caption a form control component.
 | `required` | `required` | If `true`, marks the label with a red star. Automatically added if the wrapped component inside the `wcs-form-field` already has the `required` attribute. | `boolean` | `false` |
 
 
+## Methods
+
+### `setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>`
+
+
+
+#### Parameters
+
+| Name    | Type                         | Description |
+| ------- | ---------------------------- | ----------- |
+| `attr`  | `"role" \| `aria-${string}`` |             |
+| `value` | `string`                     |             |
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

@@ -12,7 +12,14 @@ import {
 } from '@stencil/core';
 import { RadioChosedEvent } from './radio-interface';
 import { RadioGroupMode } from '../radio-group/radio-group-interface';
+import { inheritAriaAttributes, inheritAttributes, setOrRemoveAttribute } from "../../utils/helpers";
+import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
 
+const RADIO_INHERITED_ATTRS = ['title'];
+
+/**
+ * The radio component should always be wrapped in a `wcs-radio-group`.
+ */
 @Component({
     tag: 'wcs-radio',
     styleUrl: 'radio.scss',
@@ -20,9 +27,11 @@ import { RadioGroupMode } from '../radio-group/radio-group-interface';
         delegatesFocus: true
     }
 })
-export class Radio implements ComponentInterface {
+export class Radio implements ComponentInterface, MutableAriaAttribute {
     private inputId = `wcs-rb-${radioButtonIds++}`;
     @Element() private el!: HTMLWcsRadioElement;
+    private nativeRadio!: HTMLInputElement;
+    private inheritedAttributes: { [k: string]: any } = {};
     
     /**
      * If `true`, the radio is selected. 
@@ -99,6 +108,11 @@ export class Radio implements ComponentInterface {
         this.radioTabIndex = value;
     }
 
+    @Method()
+    async setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) {
+        setOrRemoveAttribute(this.nativeRadio, attr, value);
+    }
+
     onFocus(ev: FocusEvent) {
         this.wcsFocus.emit(ev);
     }
@@ -116,6 +130,11 @@ export class Radio implements ComponentInterface {
             // If no value was given we use the text content instead.
             this.value = this.el.innerText || '';
         }
+        
+        this.inheritedAttributes = {
+            ...inheritAriaAttributes(this.el),
+            ...inheritAttributes(this.el, RADIO_INHERITED_ATTRS),
+        };
     }
     
     private onChange(_: Event) {
@@ -156,6 +175,8 @@ export class Radio implements ComponentInterface {
                     onBlur={this.onBlur.bind(this)}
                     aria-disabled={this.disabled ? 'true' : null}
                     aria-checked={`${this.checked}`}
+                    ref={(el) => (this.nativeRadio = el)}
+                    {...this.inheritedAttributes}
                 />
                 <label htmlFor={`${this.inputId}`}>{this.label}</label>
             </Host>

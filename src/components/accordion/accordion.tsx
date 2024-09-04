@@ -1,5 +1,8 @@
 import { Component, Element, h, Host, Listen, Prop, Watch } from '@stencil/core';
 
+/**
+ * The accordion component is a vertical stack of interactive headings used to toggle the display of further information.
+ */
 @Component({
     tag: 'wcs-accordion',
     // styleUrl: 'accordion.scss',

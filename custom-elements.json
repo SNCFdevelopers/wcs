@@ -237,6 +237,34 @@
         },
         {
           "kind": "function",
+          "name": "setOrRemoveAttribute",
+          "parameters": [
+            {
+              "name": "el",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "description": "The HTMLElement"
+            },
+            {
+              "name": "attr",
+              "type": {
+                "text": "string"
+              },
+              "description": "The attribute to be added or removed"
+            },
+            {
+              "name": "value",
+              "type": {
+                "text": "string | null | undefined"
+              },
+              "description": "The value of the attribute"
+            }
+          ],
+          "description": "Dynamically add or remove an attribute on the element.\r\nIf the value of the attribute is null or undefined, the attribute is removed."
+        },
+        {
+          "kind": "function",
           "name": "findItemLabel",
           "return": {
             "type": {
@@ -573,6 +601,14 @@
         },
         {
           "kind": "js",
+          "name": "setOrRemoveAttribute",
+          "declaration": {
+            "name": "setOrRemoveAttribute",
+            "module": "utils/helpers.ts"
+          }
+        },
+        {
+          "kind": "js",
           "name": "findItemLabel",
           "declaration": {
             "name": "findItemLabel",
@@ -868,7 +904,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "",
+          "description": "The accordion component is a vertical stack of interactive headings used to toggle the display of further information.",
           "name": "Accordion",
           "members": [
             {
@@ -1029,7 +1065,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "",
+          "description": "The accordion-content is a subcomponent of `wcs-accordion`. It represents the text / content below an expanded accordion.",
           "name": "AccordionContent",
           "members": [
             {
@@ -1067,7 +1103,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "",
+          "description": "The accordion-header is a subcomponent of `wcs-accordion`. It represents the heading text inside the accordion panel.",
           "name": "AccordionHeader",
           "members": [
             {
@@ -1105,9 +1141,34 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "",
+          "description": "The accordion-panel is a subcomponent of `wcs-accordion`. It represents every panel of the accordion that can be expanded.",
           "name": "AccordionPanel",
           "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeButton",
+              "type": {
+                "text": "HTMLButtonElement | undefined"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
             {
               "kind": "field",
               "name": "open",
@@ -1151,6 +1212,24 @@
                   "name": "newValue",
                   "type": {
                     "text": "boolean"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
                   }
                 }
               ]
@@ -1224,11 +1303,49 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/action-bar/action-bar.tsx",
+      "path": "components/app/app.tsx",
       "declarations": [
         {
           "kind": "class",
           "description": "",
+          "name": "App",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-app",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "App",
+          "declaration": {
+            "name": "App",
+            "module": "components/app/app.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-app",
+          "declaration": {
+            "name": "App",
+            "module": "components/app/app.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/action-bar/action-bar.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The action-bar component is a group of elements appearing across the top of all pages on a business application.",
           "name": "ActionBar",
           "members": [
             {
@@ -1296,44 +1413,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/app/app.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "App",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-app",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "App",
-          "declaration": {
-            "name": "App",
-            "module": "components/app/app.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-app",
-          "declaration": {
-            "name": "App",
-            "module": "components/app/app.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/badge/badge-interface.ts",
       "declarations": [],
       "exports": []
@@ -1344,8 +1423,14 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "",
+          "description": "The badge component is a small label, generally appearing inside or in proximity to another larger interface component,\r\nrepresenting a status, property, or some other metadata.",
           "name": "Badge",
+          "cssProperties": [
+            {
+              "description": "Define the opacity rate to apply to the badge",
+              "name": "--wcs-badge-ligther-percentage"
+            }
+          ],
           "members": [
             {
               "kind": "field",
@@ -1428,72 +1513,11 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/card/card-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/card/card.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Card",
-          "members": [
-            {
-              "kind": "field",
-              "name": "mode",
-              "type": {
-                "text": "CardMode"
-              },
-              "default": "'raised'"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "mode",
-              "fieldName": "mode",
-              "type": {
-                "text": "CardMode"
-              }
-            }
-          ],
-          "tagName": "wcs-card",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Card",
-          "declaration": {
-            "name": "Card",
-            "module": "components/card/card.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-card",
-          "declaration": {
-            "name": "Card",
-            "module": "components/card/card.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/card-body/card-body.tsx",
       "declarations": [
         {
           "kind": "class",
-          "description": "",
+          "description": "The card-body is a subcomponent of `wcs-card`. It represents content of the card with an extra padding around.",
           "name": "CardBody",
           "members": [
             {
@@ -1586,7 +1610,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "Button component, can also be a link when specifying href.\r\n\r\n## Click event\r\n\r\nThe WCS button relies on the native click event to pass a user click to your app.\r\nFor now, it's not possible for us to prevent the click event to be fired when the button's disabled attribute is true.\r\nThis means you'll receive click events on a disabled wcs button.\r\nIf you're using the button with a library like Angular or React, they have internal mechanisms to prevent this behavior. Your callbacks will therefore not be called.\r\nTo fix this problem, we plan to provide a wcsClick event in addition to the native click for applications developed without frameworks.",
+          "description": "The button component is used to trigger an action. It can also be a link when specifying href.\r\n\r\n## Accessibility guidelines 💡\r\n> If your button doesn't contain text but only an image, you must set a relevant aria-label on the icon 👉 [see \"Square\" story below](#square)\r\n\r\n## Click event\r\n\r\nThe WCS button relies on the native click event to pass a user click to your app.\r\nFor now, it's not possible for us to prevent the click event to be fired when the button's disabled attribute is true.\r\nThis means you'll receive click events on a disabled wcs button.\r\nIf you're using the button with a library like Angular or React, they have internal mechanisms to prevent this behavior. Your callbacks will therefore not be called.\r\nTo fix this problem, we plan to provide a wcsClick event in addition to the native click for applications developed without frameworks.",
           "name": "Button",
           "members": [
             {
@@ -1596,6 +1620,23 @@
                 "text": "HTMLElement"
               },
               "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeButton",
+              "type": {
+                "text": "HTMLButtonElement | HTMLAnchorElement | undefined"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
             },
             {
               "kind": "field",
@@ -1696,6 +1737,24 @@
                 }
               ],
               "description": "Native event click is emit event if we decide to stop propagation of it"
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
             },
             {
               "kind": "method",
@@ -1811,6 +1870,67 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/card/card-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/card/card.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The card component is a container that display content such as text, images, buttons, and lists.  \r\nA card can be a single component, but is often made up of a header, title, subtitle, and content.",
+          "name": "Card",
+          "members": [
+            {
+              "kind": "field",
+              "name": "mode",
+              "type": {
+                "text": "CardMode"
+              },
+              "default": "'raised'"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "mode",
+              "fieldName": "mode",
+              "type": {
+                "text": "CardMode"
+              }
+            }
+          ],
+          "tagName": "wcs-card",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Card",
+          "declaration": {
+            "name": "Card",
+            "module": "components/card/card.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-card",
+          "declaration": {
+            "name": "Card",
+            "module": "components/card/card.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/checkbox/checkbox-interface.ts",
       "declarations": [],
       "exports": []
@@ -1821,22 +1941,39 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "",
+          "description": "The checkbox component is an input for choosing one or more items from a set by checking / unchecking it.",
           "name": "Checkbox",
           "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeInput",
+              "type": {
+                "text": "HTMLInputElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
             {
               "kind": "field",
               "name": "checkboxId",
               "privacy": "private",
               "default": "`wcs-checkbox-${checkboxIds++}`"
-            },
-            {
-              "kind": "field",
-              "name": "input",
-              "type": {
-                "text": "HTMLInputElement"
-              },
-              "privacy": "private"
             },
             {
               "kind": "field",
@@ -1891,7 +2028,7 @@
                 {
                   "name": "value",
                   "type": {
-                    "text": "string"
+                    "text": "string | null | undefined"
                   }
                 }
               ]
@@ -2098,6 +2235,15 @@
             },
             {
               "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
               "name": "appName",
               "type": {
                 "text": "string"
@@ -2139,22 +2285,27 @@
               "default": "false"
             },
             {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
               "kind": "method",
               "name": "mobileMenuIconClick",
               "privacy": "private"
             },
             {
               "kind": "method",
-              "name": "onAriaLabelChange"
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
             },
             {
               "kind": "method",
@@ -2227,7 +2378,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "",
+          "description": "The com-nav-category is a subcomponent of `wcs-com-nav`. It represents a category nested inside a `wcs-com-nav-submenu`.",
           "name": "ComNavCategory",
           "members": [
             {
@@ -2237,6 +2388,23 @@
                 "text": "HTMLWcsComNavCategoryElement"
               },
               "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeButton",
+              "type": {
+                "text": "HTMLButtonElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
             },
             {
               "kind": "field",
@@ -2316,6 +2484,24 @@
                 }
               ],
               "description": "Handle key down on category items"
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
             },
             {
               "kind": "method",
@@ -2413,49 +2599,11 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/com-nav-item/com-nav-item.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "ComNavItem",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-com-nav-item",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ComNavItem",
-          "declaration": {
-            "name": "ComNavItem",
-            "module": "components/com-nav-item/com-nav-item.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-com-nav-item",
-          "declaration": {
-            "name": "ComNavItem",
-            "module": "components/com-nav-item/com-nav-item.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/com-nav-submenu/com-nav-submenu.tsx",
       "declarations": [
         {
           "kind": "class",
-          "description": "",
+          "description": "The com-nav-submenu is a subcomponent of `wcs-com-nav`. It represents an expandable menu containing more items or categories.",
           "name": "ComNavSubmenu",
           "members": [
             {
@@ -2465,6 +2613,23 @@
                 "text": "HTMLWcsComNavSubmenuElement"
               },
               "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeButton",
+              "type": {
+                "text": "HTMLButtonElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
             },
             {
               "kind": "field",
@@ -2558,6 +2723,24 @@
                 }
               ],
               "description": "Close the menu when escape is pressed"
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
             },
             {
               "kind": "method",
@@ -2698,6 +2881,82 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/com-nav-item/com-nav-item.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The com-nav-item is a subcomponent of `wcs-com-nav`. It represents a list-item wrapper around a link.",
+          "name": "ComNavItem",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-com-nav-item",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ComNavItem",
+          "declaration": {
+            "name": "ComNavItem",
+            "module": "components/com-nav-item/com-nav-item.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-com-nav-item",
+          "declaration": {
+            "name": "ComNavItem",
+            "module": "components/com-nav-item/com-nav-item.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/divider/divider.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Divider",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-divider",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Divider",
+          "declaration": {
+            "name": "Divider",
+            "module": "components/divider/divider.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-divider",
+          "declaration": {
+            "name": "Divider",
+            "module": "components/divider/divider.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/counter/counter-interface.ts",
       "declarations": [
         {
@@ -2762,6 +3021,14 @@
           "members": [
             {
               "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
               "name": "spinButton",
               "type": {
                 "text": "HTMLSpanElement"
@@ -2775,6 +3042,15 @@
                 "text": "HTMLDivElement"
               },
               "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
             },
             {
               "kind": "field",
@@ -2866,7 +3142,7 @@
                 {
                   "name": "value",
                   "type": {
-                    "text": "string"
+                    "text": "string | null | undefined"
                   }
                 }
               ]
@@ -3118,12 +3394,39 @@
             },
             {
               "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
               "name": "nativeButton",
               "type": {
                 "text": "HTMLButtonElement"
               },
               "privacy": "private",
               "description": "This button is visually hidden. It used to carry all aria attributes and acts as the controller of the menu.\r\nThe wcs-button could not handle the aria-controls and aria-activedescendant attributes because of the IDREF\r\nnot passing from a shadow-dom through another."
+            },
+            {
+              "kind": "field",
+              "name": "wcsButton",
+              "type": {
+                "text": "HTMLWcsButtonElement"
+              },
+              "privacy": "private",
+              "description": "This button is shown on the user interface, and visually receives focus and catch click events.  \r\nIt is hidden to screen readers since the native button carries all the aria informations."
+            },
+            {
+              "kind": "field",
+              "name": "popoverDiv",
+              "type": {
+                "text": "HTMLDivElement"
+              },
+              "privacy": "private",
+              "description": "This div is shown on the user interface when the dropdown is expanded."
             },
             {
               "kind": "field",
@@ -3193,14 +3496,6 @@
               "name": "popper",
               "type": {
                 "text": "Instance"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "buttonTextColor",
-              "type": {
-                "text": "string"
               },
               "privacy": "private"
             },
@@ -3290,6 +3585,24 @@
                   "name": "_event",
                   "type": {
                     "text": "KeyboardEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
                   }
                 }
               ]
@@ -3474,88 +3787,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/divider/divider.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Divider",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-divider",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Divider",
-          "declaration": {
-            "name": "Divider",
-            "module": "components/divider/divider.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-divider",
-          "declaration": {
-            "name": "Divider",
-            "module": "components/divider/divider.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/dropdown-header/dropdown-header.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "You can add `wcs-dropdown-header` before a group of items to describe it",
-          "name": "DropdownHeader",
-          "slots": [
-            {
-              "description": "the slot that contains the header's name",
-              "name": "<no-name>"
-            }
-          ],
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-dropdown-header",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "DropdownHeader",
-          "declaration": {
-            "name": "DropdownHeader",
-            "module": "components/dropdown-header/dropdown-header.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-dropdown-header",
-          "declaration": {
-            "name": "DropdownHeader",
-            "module": "components/dropdown-header/dropdown-header.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/dropdown-item/dropdown-item.tsx",
       "declarations": [
         {
@@ -3642,6 +3873,50 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/dropdown-header/dropdown-header.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "You can add `wcs-dropdown-header` before a group of items to describe it",
+          "name": "DropdownHeader",
+          "slots": [
+            {
+              "description": "the slot that contains the header's name",
+              "name": "<no-name>"
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-dropdown-header",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "DropdownHeader",
+          "declaration": {
+            "name": "DropdownHeader",
+            "module": "components/dropdown-header/dropdown-header.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-dropdown-header",
+          "declaration": {
+            "name": "DropdownHeader",
+            "module": "components/dropdown-header/dropdown-header.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/editable-field/editable-field-interface.tsx",
       "declarations": [
         {
@@ -3695,7 +3970,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "The editable-field component can be used to simplify the user experience, avoiding the use of a redirection to a form\r\nto edit the data of an entity. You can use it with these wrapped components : `wcs-input`, `wcs-textarea`, `wcs-select`. \r\n\r\nThis component is not present in the SNCF design system specifications, so we tried to build it in the most\r\n\"discoverable\" way possible (for users who interact with), but it's a first version.\r\n\r\n**How to use ❓**  \r\nThis component is mostly used with a server that returns a response to the input sent through the `wcsChange` event.\r\nIt has 3 internal states :\r\n- DISPLAY = the default state of the editable-field\r\n- EDIT = the editable-field is editable, the user should input the data\r\n- LOADING = the data is submitted and the editable-field is waiting for a **response**\r\n\r\nA **response** is needed to get the component out of the LOADING state. You can either :\r\n- Set the `value` property to a different value to tell the component to refresh and go back into DISPLAY state\r\n- Use the `successHandler` callback through the `wcsChange` event (see interface [EditableComponentUpdateEvent](https://gitlab.com/SNCF/wcs/-/blob/develop/src/components/editable-field/editable-field-interface.tsx))\r\n- Use the `errorHandler` callback through the `wcsChange` event (see interface [EditableComponentUpdateEvent](https://gitlab.com/SNCF/wcs/-/blob/develop/src/components/editable-field/editable-field-interface.tsx))",
+          "description": "The editable-field component can be used to simplify the user experience, avoiding the use of a redirection to a form\r\nto edit the data of an entity. You can use it with these wrapped components : `wcs-input`, `wcs-textarea`, `wcs-select`. \r\n\r\nThis component is not present in the SNCF design system specifications, so we tried to build it in the most\r\n\"discoverable\" way possible (for users who interact with), but it's a first version.\r\n\r\n**How to use ❓**  \r\nThis component is mostly used with a server that returns a response to the input sent through the `wcsChange` event.\r\nIt has 3 internal states :\r\n- DISPLAY = the default state of the editable-field\r\n- EDIT = the editable-field is editable, the user should input the data\r\n- LOADING = the data is submitted and the editable-field is waiting for a **response**\r\n\r\nA **response** is needed to get the component out of the LOADING state. You can either :\r\n- Set the `value` property to a different value to tell the component to refresh and go back into DISPLAY state\r\n- Use the `successHandler` callback through the `wcsChange` event (see interface [EditableComponentUpdateEvent](https://gitlab.com/SNCF/wcs/-/blob/develop/src/components/editable-field/editable-field-interface.tsx))\r\n- Use the `errorHandler` callback through the `wcsChange` event (see interface [EditableComponentUpdateEvent](https://gitlab.com/SNCF/wcs/-/blob/develop/src/components/editable-field/editable-field-interface.tsx))\r\n\r\n**Accessibility guidelines 💡**  \r\n\r\n> - Aria attributes are put on the native component on the first rendering with the `label` and `errorMsg` you provided \r\n> - Additional aria attributes put on `<wcs-editable-field>` won't inherit onto the native component : you must use the `setAriaAttribute` method.",
           "name": "EditableField",
           "members": [
             {
@@ -4090,7 +4365,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "",
+          "description": "This field component can be used to display the details of an entity. It is built around the label and the content of the field.",
           "name": "Field",
           "slots": [
             {
@@ -4138,7 +4413,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "",
+          "description": "The field-content is a subcomponent of `wcs-field`. It represents the text content of the field.",
           "name": "FieldContent",
           "members": [
             {
@@ -4176,7 +4451,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "",
+          "description": "The field-label is a subcomponent of `wcs-field`. It represents the label or title of the field.",
           "name": "FieldLabel",
           "members": [
             {
@@ -4214,7 +4489,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "",
+          "description": "The footer component has been designed to leave as much customization as possible to the developer. The footers are often specific to the application developed.",
           "name": "Footer",
           "slots": [
             {
@@ -4271,7 +4546,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "Form field component wraps the native input element and add some more functionality on top of it.\r\n\r\nYou can use the `wcs-form-field` to wrap any of these components :\r\n- `wcs-input`\r\n- `wcs-textarea`\r\n- `wcs-radio-group`\r\n- `wcs-switch`\r\n- `wcs-checkbox`\r\n- `wcs-native-select`\r\n- `wcs-select`\r\n- `wcs-counter`\r\n\r\nFor non-supported slotted component, you can use the `required` attribute on the wrapped component to tell the\r\nform-field that it is required. It will add a red star after the label of the form field.\r\n\r\n## Accessibility guidelines 💡\r\n- Each form control should be identified with a unique `wcs-label`\r\n- Don't forget to add form validation to make sure the data is correctly formatted\r\n- If the `wcs-label` is required, the form control must have the `required` HTML attribute and vice-versa (this is normally automatically set)\r\n- The form should not be submittable if at least one required form control is not filled\r\n- Hints are optional and should only be used to add extra information",
+          "description": "Form field component wraps the native input element and add some more functionality on top of it.\r\n\r\nYou can use the `wcs-form-field` to wrap any of these components :\r\n- `wcs-input`\r\n- `wcs-textarea`\r\n- `wcs-radio-group`\r\n- `wcs-switch`\r\n- `wcs-checkbox`\r\n- `wcs-native-select`\r\n- `wcs-select`\r\n- `wcs-counter`\r\n\r\nFor non-supported slotted component, you can use the `required` attribute on the wrapped component to tell the\r\nform-field that it is required. It will add a red star after the label of the form field.\r\n\r\n## Accessibility guidelines 💡\r\n- Each form control should be identified with a unique `wcs-label`\r\n- Don't forget to add form validation to make sure the data is correctly formatted\r\n- If the `wcs-label` is required, the form control must have the `required` HTML attribute and vice-versa (this is normally automatically set)\r\n- The form should not be submittable if at least one required form control is not filled\r\n- Hints are optional and should only be used to add extra information\r\n- Additional aria attributes put on `<wcs-form-field>` won't inherit onto the native component : you must use the `setAriaAttribute` method.",
           "name": "FormField",
           "slots": [
             {
@@ -4588,6 +4863,15 @@
             },
             {
               "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
               "name": "showPopoverMenu",
               "type": {
                 "text": "boolean"
@@ -4620,6 +4904,24 @@
               "kind": "field",
               "name": "tooltip",
               "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
             },
             {
               "kind": "method",
@@ -4841,6 +5143,23 @@
                 "text": "HTMLWcsGridElement"
               },
               "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeTable",
+              "type": {
+                "text": "HTMLTableElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
             },
             {
               "kind": "field",
@@ -5149,6 +5468,24 @@
                   "name": "data",
                   "type": {
                     "text": "any[]"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
                   }
                 }
               ]
@@ -5605,11 +5942,28 @@
             },
             {
               "kind": "field",
+              "name": "nativeTh",
+              "type": {
+                "text": "HTMLTableHeaderCellElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
               "name": "buttonOrDiv",
               "type": {
                 "text": "HTMLButtonElement | HTMLDivElement"
               },
               "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
             },
             {
               "kind": "field",
@@ -5686,6 +6040,24 @@
               },
               "default": "false",
               "description": "Flag to hide the column."
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
             },
             {
               "kind": "method",
@@ -6024,6 +6396,31 @@
           "members": [
             {
               "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeNav",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
               "name": "INDEX_FIRST_PAGE",
               "type": {
                 "text": "number"
@@ -6075,6 +6472,24 @@
               },
               "default": "1",
               "description": "Max number of pages.  \r\n- **Grid in `Server mode`** : You have to set `pageCount` = `itemsCount` divided by `pageSize`.  \r\n- **Grid not in Server mode** : Do not set it manually : pageCount is set and updated every pagination refresh."
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
             },
             {
               "kind": "method",
@@ -6249,7 +6664,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "",
+          "description": "The header component is an element that appears across the top of all pages on a website or application; it contains the logo, the site name and main actions.",
           "name": "Header",
           "slots": [
             {
@@ -6266,6 +6681,49 @@
             }
           ],
           "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeHeader",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
             {
               "kind": "method",
               "name": "hostData"
@@ -6351,6 +6809,117 @@
           "declaration": {
             "name": "Hint",
             "module": "components/hint/hint.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/icon/icon.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The icon component is a graphic symbol designed to visually indicate the purpose of an interface element.",
+          "name": "Icon",
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeIcon",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px'"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "icon",
+              "fieldName": "icon",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "size",
+              "fieldName": "size",
+              "type": {
+                "text": "'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px'"
+              }
+            }
+          ],
+          "tagName": "wcs-icon",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Icon",
+          "declaration": {
+            "name": "Icon",
+            "module": "components/icon/icon.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-icon",
+          "declaration": {
+            "name": "Icon",
+            "module": "components/icon/icon.tsx"
           }
         }
       ]
@@ -6682,127 +7251,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/icon/icon.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Icon",
-          "members": [
-            {
-              "kind": "field",
-              "name": "icon",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px'"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "icon",
-              "fieldName": "icon",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "size",
-              "fieldName": "size",
-              "type": {
-                "text": "'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px'"
-              }
-            }
-          ],
-          "tagName": "wcs-icon",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Icon",
-          "declaration": {
-            "name": "Icon",
-            "module": "components/icon/icon.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-icon",
-          "declaration": {
-            "name": "Icon",
-            "module": "components/icon/icon.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/label/label.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The `wcs-label` should always be wrapped in a `wcs-form-field`.\r\nIt is used to caption a form control component.\r\n\r\n## Accessibility guidelines 💡\r\n- Use concise name for the label. If you want to describe more your form control, add a `wcs-hint`\r\n- Use the required flag only as an indication to inform users that the form control is required",
-          "name": "Label",
-          "members": [
-            {
-              "kind": "field",
-              "name": "required",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "If `true`, marks the label with a red star.\r\nAutomatically added if the wrapped component inside the `wcs-form-field` already has the `required` attribute."
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "required",
-              "fieldName": "required"
-            }
-          ],
-          "tagName": "wcs-label",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Label",
-          "declaration": {
-            "name": "Label",
-            "module": "components/label/label.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-label",
-          "declaration": {
-            "name": "Label",
-            "module": "components/label/label.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/input/input-interface.ts",
       "declarations": [
         {
@@ -6862,9 +7310,17 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "The input component is a form control that accepts a single line of text.\r\nImplementation mainly inspired from Ionic Input Component.\r\n\r\n## Accessibility guidelines 💡\r\n> `wcs-input` is a wrapper around the native input element which is located inside its shadow DOM. All the\r\n> **aria attributes** you set on `wcs-input` are passed to the **native input** element **during the first render of the component**.\r\n> If you need to use them as you would with a native input, you can do so.\r\n\r\n> If you need to **dynamically change the aria attributes after the first render**, you can use the `setAriaAttribute` \r\n> JS method of `wcs-input`.\r\n\r\n> ```javascript\r\n> const wcsInput = document.querySelector('wcs-input');\r\n> await wcsInput.setAriaAttribute('aria-label', 'new label');\r\n> ```\r\n\r\n> If you use wcs-input outside a wcs-form-field, you have to manage the label and the error message yourself.\r\n> You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.",
+          "description": "The input component is a form control that accepts a single line of text.\r\nImplementation mainly inspired from Ionic Input Component.\r\n\r\n## Accessibility guidelines 💡\r\n> - If you use wcs-input outside a wcs-form-field, you have to manage the label and the error message yourself.\r\n> You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.",
           "name": "Input",
           "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
             {
               "kind": "field",
               "name": "nativeInput",
@@ -6905,14 +7361,6 @@
               },
               "privacy": "private",
               "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
             },
             {
               "kind": "field",
@@ -7179,7 +7627,7 @@
                 {
                   "name": "value",
                   "type": {
-                    "text": "string"
+                    "text": "string | null | undefined"
                   }
                 }
               ]
@@ -7474,11 +7922,107 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/label/label.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The `wcs-label` should always be wrapped in a `wcs-form-field`.\r\nIt is used to caption a form control component.\r\n\r\n## Accessibility guidelines 💡\r\n- Use concise name for the label. If you want to describe more your form control, add a `wcs-hint`\r\n- Use the required flag only as an indication to inform users that the form control is required",
+          "name": "Label",
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeLabel",
+              "type": {
+                "text": "HTMLLabelElement | undefined"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "If `true`, marks the label with a red star.\r\nAutomatically added if the wrapped component inside the `wcs-form-field` already has the `required` attribute."
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "required",
+              "fieldName": "required"
+            }
+          ],
+          "tagName": "wcs-label",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Label",
+          "declaration": {
+            "name": "Label",
+            "module": "components/label/label.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-label",
+          "declaration": {
+            "name": "Label",
+            "module": "components/label/label.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/list-item/list-item.tsx",
       "declarations": [
         {
           "kind": "class",
-          "description": "",
+          "description": "Lists are used for grouping a collection of related items.\r\n\r\nStandard lists can be used either with or without icons. Depending on the context, the list can have one or more\r\nactions (favourite, download, delete, etc.). Use standard lists with a unique action when each line has an action.",
           "name": "ListItem",
           "members": [
             {
@@ -7534,7 +8078,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "",
+          "description": "The list-item-properties is a subcomponent of `wcs-list-item`. It represents a wrapper for a list of several `wcs-property`.",
           "name": "ListItemProperties",
           "members": [
             {
@@ -7568,44 +8112,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/list-item-property/list-item-property.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "ListItemProperty",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-list-item-property",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ListItemProperty",
-          "declaration": {
-            "name": "ListItemProperty",
-            "module": "components/list-item-property/list-item-property.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-list-item-property",
-          "declaration": {
-            "name": "ListItemProperty",
-            "module": "components/list-item-property/list-item-property.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/mat-icon/mat-icon-interface.tsx",
       "declarations": [],
       "exports": []
@@ -7616,9 +8122,34 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "",
+          "description": "A component used to display a [Material Icon](https://fonts.google.com/icons). Can be useful when used in wcs-grid or in a wcs-button.",
           "name": "MatIcon",
           "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeIcon",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
             {
               "kind": "field",
               "name": "icon",
@@ -7644,6 +8175,24 @@
               },
               "default": "'filled'",
               "description": "Family of the icon"
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
             },
             {
               "kind": "method",
@@ -7709,7 +8258,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "The modal component (also named dialog or popup) is an interface element that appears on top of the page content.\r\nUse it to show a message, a confirmation dialog, or any other content like forms.\r\n\r\n<details>\r\n    <summary>Accessibility guidelines 💡</summary>\r\n    > - Modal element has `role=\"dialog\"` and `aria-modal=\"true\"`\r\n    > - Keyboard navigation is trapped inside the modal\r\n    > - It is mandatory to set the `modal-trigger-controls-id` to the id of the element that opens the dialog, in order\r\n    > to focus it upon dialog dismissal.\r\n    > - The modal can be closed at any time by pressing the Escape key.\r\n    >\r\n    > - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/\r\n</details>",
+          "description": "The modal component (also named dialog or popup) is an interface element that appears on top of the page content.\r\nUse it to show a message, a confirmation dialog, or any other content like forms.\r\n\r\n## Accessibility guidelines 💡\r\n> - Modal element has `role=\"dialog\"` and `aria-modal=\"true\"`\r\n> - Keyboard navigation is trapped inside the modal\r\n> - It is mandatory to set the `modal-trigger-controls-id` to the id of the element that opens the dialog, in order\r\n> to focus it upon dialog dismissal.\r\n> - The modal can be closed at any time by pressing the Escape key.\r\n>\r\n> - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/",
           "name": "Modal",
           "cssProperties": [
             {
@@ -7746,6 +8295,23 @@
             },
             {
               "kind": "field",
+              "name": "nativeDivDialog",
+              "type": {
+                "text": "HTMLDivElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
               "name": "withoutBackdrop",
               "type": {
                 "text": "boolean"
@@ -7770,6 +8336,15 @@
               },
               "default": "false",
               "description": "Specifies whether the component should display a close button.\r\nif false, it won't close the modal when the escape key is pressed."
+            },
+            {
+              "kind": "field",
+              "name": "closeButtonAriaLabel",
+              "type": {
+                "text": "string"
+              },
+              "default": "'Fermer'",
+              "description": "Specifies the aria-label present on the close button when the modal is opened.  \r\nOnly use when `showCloseButton` is `true`."
             },
             {
               "kind": "field",
@@ -7846,6 +8421,24 @@
             },
             {
               "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
               "name": "onShowChange"
             },
             {
@@ -7916,6 +8509,13 @@
               }
             },
             {
+              "name": "close-button-aria-label",
+              "fieldName": "closeButtonAriaLabel",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
               "name": "size",
               "fieldName": "size",
               "type": {
@@ -7971,46 +8571,19 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/nav/nav.tsx",
+      "path": "components/list-item-property/list-item-property.tsx",
       "declarations": [
         {
           "kind": "class",
-          "description": "The nav component is a container for navigation links to other pages of the website.",
-          "name": "Nav",
-          "slots": [
-            {
-              "description": "Bottom part of the nav to put to nav-items at the end",
-              "name": "bottom"
-            }
-          ],
+          "description": "The list-item-property is a subcomponent of `wcs-list-item`.\r\nWrapped in a `wcs-list-item-properties`, it represents a property to describe an item.",
+          "name": "ListItemProperty",
           "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsProgressBarElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "method",
-              "name": "onAriaLabelChange"
-            },
             {
               "kind": "method",
               "name": "render"
             }
           ],
-          "tagName": "wcs-nav",
+          "tagName": "wcs-list-item-property",
           "events": [],
           "customElement": true
         }
@@ -8018,18 +8591,18 @@
       "exports": [
         {
           "kind": "js",
-          "name": "Nav",
+          "name": "ListItemProperty",
           "declaration": {
-            "name": "Nav",
-            "module": "components/nav/nav.tsx"
+            "name": "ListItemProperty",
+            "module": "components/list-item-property/list-item-property.tsx"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "wcs-nav",
+          "name": "wcs-list-item-property",
           "declaration": {
-            "name": "Nav",
-            "module": "components/nav/nav.tsx"
+            "name": "ListItemProperty",
+            "module": "components/list-item-property/list-item-property.tsx"
           }
         }
       ]
@@ -8046,7 +8619,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "The `wcs-native-select` component is designed to accept a native `<select>` element as a slotted child. This choice\r\nallows developers to bind the `<select>` element using the framework of their choice, without the need to re-expose all the\r\nproperties of the `<select>` and `<option>` elements in this component.\r\n\r\nThe component wraps the native `<select>` element and provides custom styles and behavior, while preserving the native\r\nfunctionality and accessibility.\r\n\r\n### ✅ Guidance\r\n\r\n- To have a placeholder, you must have an option as child which has `selected` attribute and `disabled`\r\nattribute. You can add the `hidden` attribute to don't show the placeholder option in the options overlay.\r\n\r\n### Example usage\r\n\r\n```html\r\n<wcs-native-select>\r\n  <select>\r\n    <option value=\"option1\">Option 1</option>\r\n    <option value=\"option2\">Option 2</option>\r\n    <option value=\"option3\">Option 3</option>\r\n  </select>\r\n</wcs-native-select>\r\n```\r\n\r\n### Note\r\n- We did not find a way to detect when the select is reset, if you want to apply the placeholder style when the\r\nselect is reset, you have to call the `updateStyles()` method manually.\r\n- It is strongly recommended to use select-native when you don't have to support the multi-selection feature",
+          "description": "The `wcs-native-select` component is designed to accept a native `<select>` element as a slotted child. This choice\r\nallows developers to bind the `<select>` element using the framework of their choice, without the need to re-expose all the\r\nproperties of the `<select>` and `<option>` elements in this component.\r\n\r\nThe component wraps the native `<select>` element and provides custom styles and behavior, while preserving the native\r\nfunctionality and accessibility.\r\n\r\n### ✅ Guidance\r\n\r\n- To have a placeholder, you must have an option as child which has `selected` attribute and `disabled`\r\nattribute. You can add the `hidden` attribute to don't show the placeholder option in the options overlay.\r\n\r\n### Example usage\r\n\r\n```html\r\n<wcs-native-select>\r\n  <select>\r\n    <option value=\"option1\">Option 1</option>\r\n    <option value=\"option2\">Option 2</option>\r\n    <option value=\"option3\">Option 3</option>\r\n  </select>\r\n</wcs-native-select>\r\n```\r\n\r\n### Note\r\n- We did not find a way to detect when the select is reset, if you want to apply the placeholder style when the\r\nselect is reset, you have to call the `updateStyles()` method manually.\r\n- It is strongly recommended to use native-select when you don't have to support the multi-selection feature\r\n- Use a native-select instead of a wcs-select if your application is mainly on mobile / tablet. The native behavior of the device will be used.",
           "name": "NativeSelect",
           "members": [
             {
@@ -8108,24 +8681,6 @@
               "privacy": "private",
               "readonly": true,
               "default": "['disabled']"
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string"
-                  }
-                }
-              ]
             },
             {
               "kind": "method",
@@ -8267,24 +8822,16 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/progress-bar/progress-bar.tsx",
+      "path": "components/nav/nav.tsx",
       "declarations": [
         {
           "kind": "class",
-          "description": "The progress-bar component is a horizontal bar that indicates the current completion of a task.\r\n\r\n## Accessibility guidelines 💡\r\n> Aria attributes and how to display the progress-bar depend on the use case in your application :\r\n>  \r\n> - **Case 1 : decorative**  \r\n> If the progress-bar is used as a decoration _(if removed, the user doesn't lose any relevant information)_ or in the\r\n> context of another component _(such as progress-bar in a card, stepper, ...)_ => **you don't need to show the label nor add an aria-label**.\r\n> \r\n> - **Case 2 : informative**  \r\n> If the progress-bar is used to convey important information _(e.g., form completion status, dashboard KPI)_, you need to :\r\n>   - **Provide a visible label** that describes the purpose of the progress-bar.\r\n>   - **Set the `showLabel` property to `true`** to show the percentage above the progress-bar.\r\n>   - Optionally, use aria-label to provide an accessible name if a visible label is not present.",
-          "name": "ProgressBar",
-          "cssProperties": [
+          "description": "The nav component is a container for navigation links to other pages of the website.",
+          "name": "Nav",
+          "slots": [
             {
-              "description": "Border radius",
-              "name": "--wcs-progress-bar-border-radius"
-            },
-            {
-              "description": "Border radius for size small",
-              "name": "--wcs-progress-bar-border-radius-small"
-            },
-            {
-              "description": "Animation duration",
-              "name": "--wcs-progress-bar-animation-duration"
+              "description": "Bottom part of the nav to put to nav-items at the end",
+              "name": "bottom"
             }
           ],
           "members": [
@@ -8298,6 +8845,14 @@
             },
             {
               "kind": "field",
+              "name": "nativeNav",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
               "name": "inheritedAttributes",
               "type": {
                 "text": "{ [k: string]: any }"
@@ -8306,74 +8861,29 @@
               "default": "{}"
             },
             {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "Extract<WcsSize, 'm' | 's'>"
-              },
-              "default": "'m'",
-              "description": "Specify the size of the progress bar.  \r\nm = default, s = smaller"
-            },
-            {
-              "kind": "field",
-              "name": "showLabel",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Whether it displays a label indicating the percentage of progress above the bar."
-            },
-            {
-              "kind": "field",
-              "name": "value",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "The actual value of the progress.\r\nRanging from 0 to 100."
-            },
-            {
               "kind": "method",
-              "name": "onAriaLabelChange"
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
             },
             {
               "kind": "method",
               "name": "render"
-            },
-            {
-              "kind": "method",
-              "name": "rootClasses",
-              "return": {
-                "type": {
-                  "text": "string"
-                }
-              }
             }
           ],
-          "attributes": [
-            {
-              "name": "size",
-              "fieldName": "size",
-              "type": {
-                "text": "Extract<WcsSize, 'm' | 's'>"
-              }
-            },
-            {
-              "name": "show-label",
-              "fieldName": "showLabel",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "value",
-              "fieldName": "value",
-              "type": {
-                "text": "number"
-              }
-            }
-          ],
-          "tagName": "wcs-progress-bar",
+          "tagName": "wcs-nav",
           "events": [],
           "customElement": true
         }
@@ -8381,18 +8891,18 @@
       "exports": [
         {
           "kind": "js",
-          "name": "ProgressBar",
+          "name": "Nav",
           "declaration": {
-            "name": "ProgressBar",
-            "module": "components/progress-bar/progress-bar.tsx"
+            "name": "Nav",
+            "module": "components/nav/nav.tsx"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "wcs-progress-bar",
+          "name": "wcs-nav",
           "declaration": {
-            "name": "ProgressBar",
-            "module": "components/progress-bar/progress-bar.tsx"
+            "name": "Nav",
+            "module": "components/nav/nav.tsx"
           }
         }
       ]
@@ -8411,6 +8921,14 @@
               "name": "el",
               "type": {
                 "text": "HTMLWcsProgressRadialElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeProgress",
+              "type": {
+                "text": "HTMLDivElement"
               },
               "privacy": "private"
             },
@@ -8462,7 +8980,21 @@
             },
             {
               "kind": "method",
-              "name": "onAriaLabelChange"
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
             },
             {
               "kind": "method",
@@ -8536,7 +9068,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "",
+          "description": "The radio component should always be wrapped in a `wcs-radio-group`.",
           "name": "Radio",
           "members": [
             {
@@ -8552,6 +9084,23 @@
                 "text": "HTMLWcsRadioElement"
               },
               "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeRadio",
+              "type": {
+                "text": "HTMLInputElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
             },
             {
               "kind": "field",
@@ -8597,6 +9146,24 @@
               },
               "default": "false",
               "description": "If `true`, the user cannot interact with the radio."
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
             },
             {
               "kind": "method",
@@ -8736,6 +9303,160 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/progress-bar/progress-bar.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The progress-bar component is a horizontal bar that indicates the current completion of a task.\r\n\r\n## Accessibility guidelines 💡\r\n> Aria attributes and how to display the progress-bar depend on the use case in your application :\r\n>\r\n> - **Case 1 : decorative**\r\n> If the progress-bar is used as a decoration _(if removed, the user doesn't lose any relevant information)_ or in the\r\n> context of another component _(such as progress-bar in a card, stepper, ...)_ => **you don't need to show the label nor add an aria-label**.\r\n>\r\n> - **Case 2 : informative**\r\n> If the progress-bar is used to convey important information _(e.g., form completion status, dashboard KPI)_, you need to :\r\n>   - **Provide a visible label** that describes the purpose of the progress-bar.\r\n>   - **Set the `showLabel` property to `true`** to show the percentage above the progress-bar.\r\n>   - Optionally, use aria-label to provide an accessible name if a visible label is not present.",
+          "name": "ProgressBar",
+          "cssProperties": [
+            {
+              "description": "Border radius",
+              "name": "--wcs-progress-bar-border-radius"
+            },
+            {
+              "description": "Border radius for size small",
+              "name": "--wcs-progress-bar-border-radius-small"
+            },
+            {
+              "description": "Animation duration",
+              "name": "--wcs-progress-bar-animation-duration"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsProgressBarElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeProgress",
+              "type": {
+                "text": "HTMLDivElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "Extract<WcsSize, 'm' | 's'>"
+              },
+              "default": "'m'",
+              "description": "Specify the size of the progress bar.\r\nm = default, s = smaller"
+            },
+            {
+              "kind": "field",
+              "name": "showLabel",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Whether it displays a label indicating the percentage of progress above the bar."
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "The actual value of the progress.\r\nRanging from 0 to 100."
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            },
+            {
+              "kind": "method",
+              "name": "rootClasses",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "size",
+              "fieldName": "size",
+              "type": {
+                "text": "Extract<WcsSize, 'm' | 's'>"
+              }
+            },
+            {
+              "name": "show-label",
+              "fieldName": "showLabel",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "value",
+              "fieldName": "value",
+              "type": {
+                "text": "number"
+              }
+            }
+          ],
+          "tagName": "wcs-progress-bar",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ProgressBar",
+          "declaration": {
+            "name": "ProgressBar",
+            "module": "components/progress-bar/progress-bar.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-progress-bar",
+          "declaration": {
+            "name": "ProgressBar",
+            "module": "components/progress-bar/progress-bar.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/radio-group/radio-group-interface.ts",
       "declarations": [],
       "exports": []
@@ -8861,24 +9582,6 @@
                   "name": "ev",
                   "type": {
                     "text": "KeyboardEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string"
                   }
                 }
               ]
@@ -9136,6 +9839,23 @@
           "members": [
             {
               "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsSelectElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
               "name": "stateService",
               "type": {
                 "text": "Interpreter<any, SelectStateSchema, SelectEvent>"
@@ -9216,14 +9936,6 @@
               "name": "autocompleteInput",
               "type": {
                 "text": "HTMLInputElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsSelectElement"
               },
               "privacy": "private"
             },
@@ -9461,7 +10173,7 @@
                 {
                   "name": "value",
                   "type": {
-                    "text": "string"
+                    "text": "string | null | undefined"
                   }
                 }
               ]
@@ -10272,78 +10984,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/skeleton-text/skeleton-text.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Use a skeleton text as a placeholder for titles or paragraphs.",
-          "name": "SkeletonText",
-          "members": [
-            {
-              "kind": "field",
-              "name": "animation",
-              "type": {
-                "text": "WcsSkeletonAnimation"
-              },
-              "default": "'glide'",
-              "description": "Specifies the animation of the skeleton"
-            },
-            {
-              "kind": "field",
-              "name": "height",
-              "type": {
-                "text": "'h1' | 'h2' | 'h3' | 'caption' | 'body'"
-              },
-              "default": "'body'",
-              "description": "Specifies the line height of the text skeleton"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "animation",
-              "fieldName": "animation",
-              "type": {
-                "text": "WcsSkeletonAnimation"
-              }
-            },
-            {
-              "name": "height",
-              "fieldName": "height",
-              "type": {
-                "text": "'h1' | 'h2' | 'h3' | 'caption' | 'body'"
-              }
-            }
-          ],
-          "tagName": "wcs-skeleton-text",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "SkeletonText",
-          "declaration": {
-            "name": "SkeletonText",
-            "module": "components/skeleton-text/skeleton-text.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-skeleton-text",
-          "declaration": {
-            "name": "SkeletonText",
-            "module": "components/skeleton-text/skeleton-text.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/skeleton-rectangle/skeleton-rectangle.tsx",
       "declarations": [
         {
@@ -10454,6 +11094,78 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/skeleton-text/skeleton-text.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Use a skeleton text as a placeholder for titles or paragraphs.",
+          "name": "SkeletonText",
+          "members": [
+            {
+              "kind": "field",
+              "name": "animation",
+              "type": {
+                "text": "WcsSkeletonAnimation"
+              },
+              "default": "'glide'",
+              "description": "Specifies the animation of the skeleton"
+            },
+            {
+              "kind": "field",
+              "name": "height",
+              "type": {
+                "text": "'h1' | 'h2' | 'h3' | 'caption' | 'body'"
+              },
+              "default": "'body'",
+              "description": "Specifies the line height of the text skeleton"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "animation",
+              "fieldName": "animation",
+              "type": {
+                "text": "WcsSkeletonAnimation"
+              }
+            },
+            {
+              "name": "height",
+              "fieldName": "height",
+              "type": {
+                "text": "'h1' | 'h2' | 'h3' | 'caption' | 'body'"
+              }
+            }
+          ],
+          "tagName": "wcs-skeleton-text",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SkeletonText",
+          "declaration": {
+            "name": "SkeletonText",
+            "module": "components/skeleton-text/skeleton-text.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-skeleton-text",
+          "declaration": {
+            "name": "SkeletonText",
+            "module": "components/skeleton-text/skeleton-text.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/spinner/spinner-interface.ts",
       "declarations": [],
       "exports": []
@@ -10464,7 +11176,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "",
+          "description": "The spinner component is visual indicator that showing a process is happening in the background but the interface is\r\nnot yet ready for interaction.  \r\nIf your page structure is simple or the loading time is long (> 300ms), use [wcs-skeleton](.?path=/docs/components-skeleton--documentation) instead.",
           "name": "Spinner",
           "members": [
             {
@@ -10526,9 +11238,17 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "",
+          "description": "The switch component is a control used to switch between on and off state.",
           "name": "Switch",
           "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
             {
               "kind": "field",
               "name": "switchId",
@@ -10537,11 +11257,20 @@
             },
             {
               "kind": "field",
-              "name": "input",
+              "name": "nativeInput",
               "type": {
                 "text": "HTMLInputElement"
               },
               "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
             },
             {
               "kind": "field",
@@ -10623,7 +11352,7 @@
                 {
                   "name": "value",
                   "type": {
-                    "text": "string"
+                    "text": "string | null | undefined"
                   }
                 }
               ]
@@ -10810,6 +11539,31 @@
           "members": [
             {
               "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsTabsElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeTablist",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
               "name": "align",
               "type": {
                 "text": "WcsTabsAlignment"
@@ -10857,14 +11611,6 @@
                 "text": "string"
               },
               "description": "Description is used to provide aria-label for the tabs container which has `role=\"tablist\"`."
-            },
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsTabsElement"
-              },
-              "privacy": "private"
             },
             {
               "kind": "field",
@@ -10988,6 +11734,24 @@
             },
             {
               "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
               "name": "updateTabVisibility",
               "privacy": "private"
             },
@@ -11101,7 +11865,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "Mainly inspired from Ionic Textarea Component.\r\n\r\n## Accessibility guidelines 💡\r\n> `wcs-textarea` is a wrapper around the native textarea element which is located inside its shadow DOM. All the\r\n> **aria attributes** you set on `wcs-textarea` are passed to the **native textarea** element **during the first render of the component**.\r\n> If you need to use them as you would with a native textarea, you can do so.\r\n\r\n> If you need to **dynamically change the aria attributes after the first render**, you can use the `setAriaAttribute`\r\n> JS method of `wcs-textarea` :\r\n\r\n> ```javascript\r\n> const wcsTextarea = document.querySelector('wcs-textarea');\r\n> await wcsTextarea.setAriaAttribute('aria-label', 'new label');\r\n> ```\r\n\r\n> If you use wcs-textarea outside a wcs-form-field, you have to manage the label and the error message yourself.\r\n> You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.",
+          "description": "Mainly inspired from Ionic Textarea Component.\r\n\r\n## Accessibility guidelines 💡\r\n> - If you use wcs-textarea outside a wcs-form-field, you have to manage the label and the error message yourself.\r\n> You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.",
           "name": "Textarea",
           "cssProperties": [
             {
@@ -11118,6 +11882,14 @@
             }
           ],
           "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
             {
               "kind": "field",
               "name": "nativeInput",
@@ -11140,14 +11912,6 @@
               },
               "privacy": "private",
               "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
             },
             {
               "kind": "field",
@@ -11356,7 +12120,7 @@
                 {
                   "name": "value",
                   "type": {
-                    "text": "string"
+                    "text": "string | null | undefined"
                   }
                 }
               ]
@@ -11605,7 +12369,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "Tooltips are used to provide additional information for features available on the website. These can improve the user\r\nexperience or simply show additional information. Tooltips appear when the user rolls over or clicks on them\r\n(for longer content).\r\n\r\nNote that this component is based on the Tippy.js library : https://atomiks.github.io/tippyjs/\r\n\r\n## Accessibility guidelines 💡\r\n\r\nThe problem is that impaired users may not be able to see what is the information provided by the tooltip. To solve\r\nthis problem, the tooltip should be served with some aria attributes to make it accessible.\r\n\r\nAria-features `wcs-tooltip` respect:\r\n- dismiss when the user presses the `Escape` key\r\n- has a `role=tooltip`\r\n\r\nBut you have to provide the \"link\" between the element you want to describe and the tooltip. To do this, you have to\r\nprovide the \"visual description\" you add on the `wcs-tooltip` to the `aria-label` attribute or the `aria-description` as soon as the attribute will be available \r\nof the element you want to describe .\r\n\r\nExample:\r\n```\r\n<wcs-tooltip>Trashed items</wcs-tooltip>\r\n<wcs-button aria-label=\"Trashed items\">Trash</wcs-button>\r\n```",
+          "description": "Tooltips are used to provide additional information for features available on the website. These can improve the user\r\nexperience or simply show additional information. Tooltips appear when the user rolls over or clicks on them\r\n(for longer content).\r\n\r\nNote that this component is based on the Tippy.js library : https://atomiks.github.io/tippyjs/\r\n\r\n## Accessibility guidelines 💡\r\n\r\nThe problem is that impaired users may not be able to see what is the information provided by the tooltip. To solve\r\nthis problem, the tooltip should be served with some aria attributes to make it accessible.\r\n\r\nAria-features `wcs-tooltip` respect:\r\n- dismiss when the user presses the `Escape` key\r\n- has a `role=tooltip`\r\n\r\nBut you have to provide the \"link\" between the element you want to describe and the tooltip. To do this, you have to\r\nprovide the \"visual description\" you add on the `wcs-tooltip` to the `aria-label` attribute or the `aria-description` as soon as the attribute will be available \r\nof the element you want to describe .\r\n\r\nExample:\r\n\r\n```html\r\n<wcs-tooltip>Trashed items</wcs-tooltip>\r\n<wcs-button aria-label=\"Trashed items\">Trash</wcs-button>\r\n```",
           "name": "Tooltip",
           "members": [
             {

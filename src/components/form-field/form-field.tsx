@@ -23,6 +23,7 @@ import { isMutableAriaAttribute } from "../../utils/mutable-aria-attribute";
  * - If the `wcs-label` is required, the form control must have the `required` HTML attribute and vice-versa (this is normally automatically set)
  * - The form should not be submittable if at least one required form control is not filled
  * - Hints are optional and should only be used to add extra information
+ * - Additional aria attributes put on `<wcs-form-field>` won't inherit onto the native component : you must use the `setAriaAttribute` method.
  * 
  * @slot label - Automatically filled when a `wcs-label` is provided
  * @slot <no-name> - The main slot containing the wrapped component
@@ -60,7 +61,6 @@ export class FormField implements ComponentInterface {
         this.addRequiredMarkerToLabel();
         this.updateErrorStateOnInput(this.isError);
     }
-
 
     @Watch('isError')
     // @ts-ignore

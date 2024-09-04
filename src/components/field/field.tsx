@@ -1,6 +1,8 @@
 import { Component, ComponentInterface, h, Host, } from '@stencil/core';
 
 /**
+ * This field component can be used to display the details of an entity. It is built around the label and the content of the field.
+ * 
  * @slot label Label of the field
  * @slot content Content of the field
  */

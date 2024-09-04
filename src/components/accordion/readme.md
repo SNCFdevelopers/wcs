@@ -5,6 +5,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+The accordion component is a vertical stack of interactive headings used to toggle the display of further information.
+
 ## Properties
 
 | Property                 | Attribute                   | Description                                                                                                                                                                                                                                          | Type      | Default |

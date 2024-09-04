@@ -8,7 +8,7 @@ import {
     forceUpdate,
     h,
     Host,
-    Listen,
+    Listen, Method,
     Prop,
     State,
     VNode,
@@ -31,12 +31,16 @@ import { cloneDeep, get, isEqual } from 'lodash-es';
 import { GridPagination } from '../grid-pagination/grid-pagination';
 import { getActionForKeyboardEvent, KeyboardEventAssociatedAction } from "./grid-keyboard-event";
 import { GridRadio } from "./grid-radio";
+import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
+import { inheritAriaAttributes, inheritAttributes, setOrRemoveAttribute } from "../../utils/helpers";
 
 interface GridElementWithCoordinates {
     el: HTMLTableCellElement,
     row: number,
     col: number,
 }
+
+const GRID_INHERITED_ATTRS = ['title'];
 
 /**
  * The grid component is a complex component used as an HTML table to display collections of data.
@@ -51,8 +55,11 @@ interface GridElementWithCoordinates {
     styleUrls: ['grid.scss', 'grid-radio.scss'],
     shadow: true
 })
-export class Grid implements ComponentInterface, ComponentDidLoad {
+export class Grid implements ComponentInterface, ComponentDidLoad, MutableAriaAttribute {
     @Element() private el!: HTMLWcsGridElement;
+    private nativeTable!: HTMLTableElement;
+    private inheritedAttributes: { [k: string]: any } = {};
+    
     /**
      * Manage sort and pagination with a backend server when set to `true`
      */
@@ -372,6 +379,18 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
         this.refreshSort(true);
     }
 
+    componentWillLoad(): Promise<void> | void {
+        this.inheritedAttributes = {
+            ...inheritAriaAttributes(this.el),
+            ...inheritAttributes(this.el, GRID_INHERITED_ATTRS),
+        };
+    }
+
+    @Method()
+    async setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) {
+        setOrRemoveAttribute(this.nativeTable, attr, value);
+    }
+
     /**
      * Handle existing column's filters (defined before the grid is instantiated)
      * @private
@@ -609,8 +628,10 @@ export class Grid implements ComponentInterface, ComponentDidLoad {
           <Host>
               {
                   <table role="grid"
+                         ref={(el) => (this.nativeTable = el)}
                          aria-rowcount={!this.loading && this.rows?.length}
-                         aria-colcount={!this.loading && this.totalDisplayedColumnCount()}>
+                         aria-colcount={!this.loading && this.totalDisplayedColumnCount()}
+                         {...this.inheritedAttributes}>
                       <thead>
                       <tr aria-rowindex="1">
                           {

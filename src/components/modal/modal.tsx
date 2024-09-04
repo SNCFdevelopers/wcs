@@ -7,27 +7,28 @@ import {
     Host,
     Listen,
     Prop,
-    ComponentInterface, 
-    Watch
+    ComponentInterface,
+    Watch, Method
 } from '@stencil/core';
 import { ModalSize } from './modal-interface';
 import { isElementFocused, isFocusable } from "../../utils/accessibility";
-import { isTabKey } from "../../utils/helpers";
+import { inheritAriaAttributes, inheritAttributes, isTabKey, setOrRemoveAttribute } from "../../utils/helpers";
+import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
+
+const MODAL_INHERITED_ATTRS = [];
 
 /**
  * The modal component (also named dialog or popup) is an interface element that appears on top of the page content.
  * Use it to show a message, a confirmation dialog, or any other content like forms.
  *
- * <details>
- *     <summary>Accessibility guidelines 💡</summary>
- *     > - Modal element has `role="dialog"` and `aria-modal="true"`
- *     > - Keyboard navigation is trapped inside the modal
- *     > - It is mandatory to set the `modal-trigger-controls-id` to the id of the element that opens the dialog, in order
- *     > to focus it upon dialog dismissal.
- *     > - The modal can be closed at any time by pressing the Escape key.
- *     >
- *     > - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
- * </details>
+ * ## Accessibility guidelines 💡
+ * > - Modal element has `role="dialog"` and `aria-modal="true"`
+ * > - Keyboard navigation is trapped inside the modal
+ * > - It is mandatory to set the `modal-trigger-controls-id` to the id of the element that opens the dialog, in order
+ * > to focus it upon dialog dismissal.
+ * > - The modal can be closed at any time by pressing the Escape key.
+ * >
+ * > - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
  *
  * @cssprop --wcs-modal-max-height - Max height of the main container
  * @cssprop --wcs-modal-overflow-y - Overflow-y of the content
@@ -40,8 +41,10 @@ import { isTabKey } from "../../utils/helpers";
     styleUrl: 'modal.scss',
     shadow: false,
 })
-export class Modal implements ComponentInterface {
+export class Modal implements ComponentInterface, MutableAriaAttribute {
     @Element() private el: HTMLElement;
+    private nativeDivDialog!: HTMLDivElement;
+    private inheritedAttributes: { [k: string]: any } = {};
 
     /**
      * Specifies whether the component should display a backdrop on the entire page
@@ -63,6 +66,12 @@ export class Modal implements ComponentInterface {
      * if false, it won't close the modal when the escape key is pressed.
      */
     @Prop({reflect: true}) showCloseButton: boolean = false;
+
+    /**
+     * Specifies the aria-label present on the close button when the modal is opened.  
+     * Only use when `showCloseButton` is `true`.
+     */
+    @Prop() closeButtonAriaLabel: string = 'Fermer';
 
     /**
      * There are multiple sizes for modals. The default size is medium (m), however other sizes are available. Select the
@@ -110,6 +119,11 @@ export class Modal implements ComponentInterface {
         if (!this.modalTriggerControlsId) {
             console.warn('wcs-modal: You must provide the modal-trigger-controls-id attribute to the modal to make it to work properly');
         }
+
+        this.inheritedAttributes = {
+            ...inheritAriaAttributes(this.el),
+            ...inheritAttributes(this.el, MODAL_INHERITED_ATTRS),
+        };
     }
 
     componentDidLoad() {
@@ -122,6 +136,11 @@ export class Modal implements ComponentInterface {
             this.showAttributeChangedMarker = false;
             this.firstFocusableElement?.focus();
         }
+    }
+
+    @Method()
+    async setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) {
+        setOrRemoveAttribute(this.nativeDivDialog, attr, value);
     }
     
     @Watch("show")
@@ -202,13 +221,15 @@ export class Modal implements ComponentInterface {
                      aria-modal={true}
                      role={"dialog"}
                      aria-labelledby={modalTitleId}
+                     ref={(el) => (this.nativeDivDialog = el)}
+                     {...this.inheritedAttributes}
                 >
                     <div class="wcs-modal-header">
                         <h1 id={modalTitleId}>
                             <slot name="header"></slot>
                         </h1>
                         {this.showCloseButton && (
-                            <wcs-button shape="round" mode="clear" class="wcs-dark"
+                            <wcs-button shape="round" mode="clear" class="wcs-dark" aria-label={this.closeButtonAriaLabel}
                                         onClick={($event) => this.onCloseButtonClick($event)}>
                                 <wcs-mat-icon icon="close"></wcs-mat-icon>
                             </wcs-button>)

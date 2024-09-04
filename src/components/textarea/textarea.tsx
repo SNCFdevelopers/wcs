@@ -12,7 +12,13 @@ import {
     Build,
     readTask
 } from '@stencil/core';
-import { debounceEvent, inheritAriaAttributes, inheritAttributes, raf } from '../../utils/helpers';
+import {
+    debounceEvent,
+    inheritAriaAttributes,
+    inheritAttributes,
+    raf,
+    setOrRemoveAttribute
+} from '../../utils/helpers';
 import { 
     TextareaChangeEventDetail,
     WcsTextareaInputMode, 
@@ -23,23 +29,13 @@ import {
 } from './textarea-interface';
 import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
 
+const TEXTAREA_INHERITED_ATTRS = ['tabindex', 'title'];
+
 /**
  * Mainly inspired from Ionic Textarea Component.
  * 
  * ## Accessibility guidelines 💡
- * > `wcs-textarea` is a wrapper around the native textarea element which is located inside its shadow DOM. All the
- * > **aria attributes** you set on `wcs-textarea` are passed to the **native textarea** element **during the first render of the component**.
- * > If you need to use them as you would with a native textarea, you can do so.
- *
- * > If you need to **dynamically change the aria attributes after the first render**, you can use the `setAriaAttribute`
- * > JS method of `wcs-textarea` :
- * 
- * > ```javascript
- * > const wcsTextarea = document.querySelector('wcs-textarea');
- * > await wcsTextarea.setAriaAttribute('aria-label', 'new label');
- * > ```
- *
- * > If you use wcs-textarea outside a wcs-form-field, you have to manage the label and the error message yourself.
+ * > - If you use wcs-textarea outside a wcs-form-field, you have to manage the label and the error message yourself.
  * > You can use the `aria-label` attribute to provide a label for screen readers but adds no visual label.
  *
  * @cssprop --wcs-textarea-max-height - Max height of the text area component
@@ -54,6 +50,7 @@ import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-ari
     },
 })
 export class Textarea implements ComponentInterface, MutableAriaAttribute {
+    @Element() private el!: HTMLElement;
     private nativeInput?: HTMLTextAreaElement;
     private inputId = `wcs-textarea-${textareaIds++}`;
     private inheritedAttributes: { [k: string]: any } = {};
@@ -67,8 +64,6 @@ export class Textarea implements ComponentInterface, MutableAriaAttribute {
      * @internal
      */
     @Prop() fireFocusEvents = true;
-
-    @Element() private el!: HTMLElement;
 
     /**
      * Indicates whether and how the text value should be automatically capitalized as it is entered/edited by the user.
@@ -238,7 +233,7 @@ export class Textarea implements ComponentInterface, MutableAriaAttribute {
     componentWillLoad() {
         this.inheritedAttributes = {
             ...inheritAriaAttributes(this.el),
-            ...inheritAttributes(this.el, ['title'])
+            ...inheritAttributes(this.el, TEXTAREA_INHERITED_ATTRS)
         };
     }
 
@@ -257,10 +252,8 @@ export class Textarea implements ComponentInterface, MutableAriaAttribute {
     }
     
     @Method()
-    async setAriaAttribute(attr: AriaAttributeName, value: string) {
-        if (this.nativeInput) {
-            this.nativeInput.setAttribute(attr, value);
-        }
+    async setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) {
+        setOrRemoveAttribute(this.nativeInput, attr, value);
     }
 
     /**
@@ -354,7 +347,6 @@ export class Textarea implements ComponentInterface, MutableAriaAttribute {
                     onFocus={this.onFocus}
                     style={style}
                     {...this.inheritedAttributes}
-                    {...inheritAriaAttributes(this.el)}
                 >
             {value}
           </textarea>

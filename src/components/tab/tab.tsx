@@ -1,4 +1,4 @@
-import { Component, Prop, h, Host, Event, EventEmitter } from '@stencil/core';
+import { Component, Prop, h, Host, Event, EventEmitter, ComponentInterface } from '@stencil/core';
 
 /**
  * Tab content component.
@@ -9,7 +9,7 @@ import { Component, Prop, h, Host, Event, EventEmitter } from '@stencil/core';
     styleUrl: 'tab.scss',
     shadow: true,
 })
-export class Tab {
+export class Tab implements ComponentInterface {
     /**
      * The header you want to be displayed for this tab.
      */
@@ -35,7 +35,7 @@ export class Tab {
 
     render() {
         return (
-            <Host slot="wcs-tab" role={"tabpanel"}>
+            <Host slot="wcs-tab" role="tabpanel">
                 <slot></slot>
             </Host>
         );

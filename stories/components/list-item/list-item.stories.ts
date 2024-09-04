@@ -1,20 +1,11 @@
 import { Meta, StoryFn } from '@storybook/web-components';
 import { html } from 'lit-html';
-// @ts-ignore
-import listItemDocumentation from './list-item-documentation.md'
 import { getComponentArgs } from '../../utils/args-generation';
 
 const meta: Meta = {
     title: 'Components/List-item',
     component: 'wcs-list-item',
     argTypes: getComponentArgs('wcs-list-item'),
-    parameters: {
-        docs: {
-            description: {
-                component: listItemDocumentation
-            }
-        }
-    },
     subcomponents: {
         'WcsListItemProperties': 'wcs-list-item-properties',
         'WcsListItemProperty': 'wcs-list-item-property'

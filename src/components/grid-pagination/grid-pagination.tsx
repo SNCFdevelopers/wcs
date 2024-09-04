@@ -1,9 +1,9 @@
 import {
     Component,
-    ComponentInterface,
+    ComponentInterface, Element,
     Event, EventEmitter,
     h,
-    Host,
+    Host, Method,
     Prop
 } from '@stencil/core';
 import {
@@ -11,6 +11,10 @@ import {
 } from '../grid/grid-interface';
 import { SelectChangeEventDetail } from '../select/select-interface';
 import { GridPaginationArrow } from './grid-pagination-arrow';
+import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
+import { inheritAriaAttributes, inheritAttributes, setOrRemoveAttribute } from "../../utils/helpers";
+
+const GRID_PAGINATION_INHERITED_ATTRS = ['tabindex', 'title'];
 
 /**
  * The grid pagination is a subcomponent of `wcs-grid`, slotted in `grid-pagination` under the `<table>` element.
@@ -20,7 +24,11 @@ import { GridPaginationArrow } from './grid-pagination-arrow';
     styleUrl: 'grid-pagination.scss',
     shadow: true
 })
-export class GridPagination implements ComponentInterface {
+export class GridPagination implements ComponentInterface, MutableAriaAttribute {
+    @Element() private el!: HTMLElement;
+    private nativeNav!: HTMLElement;
+    private inheritedAttributes: { [k: string]: any } = {};
+    
     static readonly INDEX_FIRST_PAGE: number = 0;
     /**
      * Set the available page sizes in the pagination dropdown on the left.
@@ -51,6 +59,18 @@ export class GridPagination implements ComponentInterface {
      * Event emitted when the pagination changes.
      */
     @Event() wcsGridPaginationChange!: EventEmitter<WcsGridPaginationChangeEventDetails>;
+
+    componentWillLoad(): Promise<void> | void {
+        this.inheritedAttributes = {
+            ...inheritAriaAttributes(this.el),
+            ...inheritAttributes(this.el, GRID_PAGINATION_INHERITED_ATTRS),
+        };
+    }
+
+    @Method()
+    async setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) {
+        setOrRemoveAttribute(this.nativeNav, attr, value);
+    }
 
     private lastPage(): void {
         this.currentPage = this.pageCount - 1;
@@ -126,7 +146,7 @@ export class GridPagination implements ComponentInterface {
                     <span>{this.itemsCount} éléments</span>
                 </div>
 
-                <nav aria-label="pagination">
+                <nav aria-label="pagination" ref={(el) => (this.nativeNav = el)} {...this.inheritedAttributes}>
                     <ul class="page-management">
                         <li class="pagination-arrow" onClick={this.firstPage.bind(this)}>
                             <GridPaginationArrow active={this.canGoToPreviousPage()} order="previous" double></GridPaginationArrow>

@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Element, h, Host, Listen, Prop, State, Watch } from '@stencil/core';
+import { Component, ComponentInterface, Element, h, Host, Listen, Method, Prop, State, Watch } from '@stencil/core';
 import { SelectArrow } from '../select/select-arrow';
 import {
     isWcsButtonSize,
@@ -9,8 +9,16 @@ import {
 } from '../button/button-interface';
 import { createPopper, Instance } from '@popperjs/core';
 import { WcsDropdownPlacement } from './dropdown-interface';
-import { clickTargetIsElementOrChildren } from '../../utils/helpers';
+import {
+    clickTargetIsElementOrChildren,
+    inheritAriaAttributes,
+    inheritAttributes,
+    setOrRemoveAttribute
+} from '../../utils/helpers';
 import { getActionForKeyboardEvent, KeyboardEventAssociatedAction } from "./dropdown-keyboard-event";
+import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
+
+const DROPDOWN_INHERITED_ATTRS = ['tabindex'];
 
 /**
  * The dropdown component use a wcs-button under the hood, so you can use the same css classes as the button to style the
@@ -26,8 +34,9 @@ import { getActionForKeyboardEvent, KeyboardEventAssociatedAction } from "./drop
         delegatesFocus: true
     }
 })
-export class Dropdown implements ComponentInterface {
+export class Dropdown implements ComponentInterface, MutableAriaAttribute {
     @Element() private el: HTMLWcsDropdownElement;
+    private inheritedAttributes: { [k: string]: any } = {};
 
     /**
      * This button is visually hidden. It used to carry all aria attributes and acts as the controller of the menu.
@@ -38,7 +47,8 @@ export class Dropdown implements ComponentInterface {
     private nativeButton!: HTMLButtonElement;
 
     /**
-     * This button is shown on the user interface, and visually receives focus and catch click events.
+     * This button is shown on the user interface, and visually receives focus and catch click events.  
+     * It is hidden to screen readers since the native button carries all the aria informations.
      * @private
      */
     private wcsButton!: HTMLWcsButtonElement;
@@ -97,11 +107,6 @@ export class Dropdown implements ComponentInterface {
             console.warn(`Invalid size value for wcs-dropdown : "${this.size}". Must be one of "${WcsButtonSizeValues.join(', ')}"`);
             this.size = "m"; // Default fallback value
         }
-        
-        const buttonWrapper = this.wcsButton.shadowRoot.querySelector('button');
-        // FIXME : remove this line and add aria-hidden="true" to the <wcs-button> in the render when aria attribute inheritance is handled for wcs-button
-        buttonWrapper.setAttribute('aria-hidden', 'true');
-
 
         this.popper = createPopper(this.wcsButton, this.popoverDiv, {
             placement: this.placement,
@@ -167,6 +172,11 @@ export class Dropdown implements ComponentInterface {
         for (const actionFromKeyboardEvent of actionsFromKeyboardEvents) {
             this.doActionFromKeyboardEventAssociatedAction(actionFromKeyboardEvent);
         }
+    }
+    
+    @Method()
+    async setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) {
+        setOrRemoveAttribute(this.nativeButton, attr, value);
     }
 
     doActionFromKeyboardEventAssociatedAction(actionFromKeyboardEvent: KeyboardEventAssociatedAction) {
@@ -263,6 +273,13 @@ export class Dropdown implements ComponentInterface {
             this.popper.update();
         }
     }
+
+    componentWillLoad(): Promise<void> | void {
+        this.inheritedAttributes = {
+            ...inheritAriaAttributes(this.el),
+            ...inheritAttributes(this.el, DROPDOWN_INHERITED_ATTRS),
+        };
+    }
     
     render() {
         return (
@@ -275,9 +292,11 @@ export class Dropdown implements ComponentInterface {
                         aria-expanded={this.expanded ? 'true' : 'false'}
                         ref={el => this.nativeButton = el}
                         onClick={($event) => this.onButtonClick($event)}
-                        onBlur={($event) => $event.stopImmediatePropagation()}>Dropdown</button>
+                        onBlur={($event) => $event.stopImmediatePropagation()}
+                        {...this.inheritedAttributes}>Dropdown</button>
                 <wcs-button mode={this.mode} shape={this.shape} disabled={this.disabled} size={this.size}
                             ref={el => this.wcsButton = el}
+                            aria-hidden="true"
                             tabindex={-1}
                             onClick={($event) => this.onButtonClick($event)}
                             onBlur={(e) => e.stopImmediatePropagation()}>

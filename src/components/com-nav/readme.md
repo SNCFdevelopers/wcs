@@ -23,6 +23,26 @@ The com-nav component is a container for navigation links to external or interna
 | `appName` | `app-name` | Name of the application to be displayed in the menu bar | `string` | `undefined` |
 
 
+## Methods
+
+### `setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>`
+
+
+
+#### Parameters
+
+| Name    | Type                         | Description |
+| ------- | ---------------------------- | ----------- |
+| `attr`  | `"role" \| `aria-${string}`` |             |
+| `value` | `string`                     |             |
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Slots
 
 | Slot          | Description                                                |

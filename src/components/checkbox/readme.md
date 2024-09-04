@@ -4,6 +4,10 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+The checkbox component is an input for choosing one or more items from a set by checking / unchecking it.
+
 ## Properties
 
 | Property         | Attribute         | Description                                                   | Type                            | Default           |
@@ -26,7 +30,7 @@
 
 ## Methods
 
-### `setAriaAttribute(attr: AriaAttributeName, value: string) => Promise<void>`
+### `setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>`
 
 
 

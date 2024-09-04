@@ -1,7 +1,7 @@
 export type AriaAttributeName = `aria-${string}` | 'role';
 
 export interface MutableAriaAttribute {
-    setAriaAttribute(attr: AriaAttributeName, value: string): void;
+    setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined): void;
 }
 
 export function isMutableAriaAttribute(el: any): el is MutableAriaAttribute {

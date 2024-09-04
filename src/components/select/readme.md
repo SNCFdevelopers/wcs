@@ -66,7 +66,7 @@ Type: `Promise<void>`
 
 
 
-### `setAriaAttribute(attr: AriaAttributeName, value: string) => Promise<void>`
+### `setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>`
 
 
 
