@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-11-12T09:58:29",
+  "timestamp": "2024-11-13T14:33:18",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -2253,7 +2253,64 @@
       "tag": "wcs-counter",
       "readme": "# Input\r\n\r",
       "docs": "Counter component, meant to be used for small range of values (e.g : 0 - 5).<br>\r\nFor larger or specific ranges, please use [wcs-input (type number)](.?path=/docs/components-input--documentation)",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "cssprop",
+          "text": "--wcs-counter-outline-color-focus - Color of the focus outline"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-counter-value-color-default - Default color of the value"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-counter-value-color-disabled - Color of the text when the counter is disabled"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-counter-font-weight-default - Default font weight of the value"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-counter-font-weight-disabled - Font weight of the value when the counter is disabled"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-counter-background-color - Background color of the counter"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-counter-border-radius - Border radius of the counter"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-counter-height-m - Height medium of the counter"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-counter-height-l - Height large of the counter"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-counter-padding-m - Padding medium of the counter"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-counter-padding-l - Padding large of the counter"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-counter-font-size-m - Font size medium of the counter"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-counter-font-size-l - Font size large of the counter"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-counter-gap - Gap between the buttons and the label"
+        }
+      ],
       "usage": {},
       "props": [
         {

@@ -28,6 +28,26 @@ const ANIMATION_DURATION = 0.175 // seconds
 /**
  * Counter component, meant to be used for small range of values (e.g : 0 - 5).<br>
  * For larger or specific ranges, please use [wcs-input (type number)](.?path=/docs/components-input--documentation)
+ * 
+ * @cssprop --wcs-counter-outline-color-focus - Color of the focus outline
+ * 
+ * @cssprop --wcs-counter-value-color-default - Default color of the value 
+ * @cssprop --wcs-counter-value-color-disabled - Color of the text when the counter is disabled
+ * @cssprop --wcs-counter-font-weight-default - Default font weight of the value
+ * @cssprop --wcs-counter-font-weight-disabled - Font weight of the value when the counter is disabled
+ * 
+ * @cssprop --wcs-counter-background-color - Background color of the counter
+ * 
+ * @cssprop --wcs-counter-border-radius - Border radius of the counter
+ *
+ * @cssprop --wcs-counter-height-m - Height medium of the counter
+ * @cssprop --wcs-counter-height-l - Height large of the counter
+ * @cssprop --wcs-counter-padding-m - Padding medium of the counter
+ * @cssprop --wcs-counter-padding-l - Padding large of the counter
+ * @cssprop --wcs-counter-font-size-m - Font size medium of the counter
+ * @cssprop --wcs-counter-font-size-l - Font size large of the counter
+ * 
+ * @cssprop --wcs-counter-gap - Gap between the buttons and the label
  */
 @Component({
     tag: 'wcs-counter',

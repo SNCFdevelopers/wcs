@@ -33,45 +33,66 @@
 }
 
 :host {
-    --wcs-input-icon-color: var(--wcs-text-medium);
-    --wcs-internal-input-border-radius: calc(var(--wcs-border-radius) * 10); // 80 px
-    --wcs-internal-input-border-width: 2px;
+    // region to be removed before migration to design tokens
+    --wcs-counter-border-radius: calc(var(--wcs-border-radius) * 10); // 80 px
+
+    --wcs-counter-font-weight-default: bold;
+    --wcs-counter-font-weight-disabled: bold;
+    --wcs-counter-value-color-default: var(--wcs-black);
+    --wcs-counter-value-color-disabled: var(--wcs-text-disabled);
+
+    --wcs-counter-height-m: var(--wcs-size-m);
+    --wcs-counter-height-l: var(--wcs-size-l);
+    --wcs-counter-padding-m: 4px;
+    --wcs-counter-padding-l: 8px;
+    --wcs-counter-font-size-m: 1rem;
+    --wcs-counter-font-size-l: 1.0625rem;
+
+    --wcs-counter-background-color: var(--wcs-light);
+
+    --wcs-counter-gap: calc(2 * var(--wcs-base-margin));
+
+    --wcs-counter-outline-color-focus: var(--wcs-primary);
+
+    // endregion
+
     display: flex;
+
 
     .counter {
         box-sizing: border-box;
-        height: var(--wcs-counter-host-height);
+        height: var(--wcs-counter-height);
         font-family: var(--wcs-font-sans-serif);
         font-size: var(--wcs-counter-font-size);
-        font-weight: bold;
+        font-weight: var(--wcs-counter-font-weight-default);
+        color: var(--wcs-counter-value-color-default);
         display: flex;
         align-items: center;
-        padding: var(--wcs-counter-host-padding);
+        padding: var(--wcs-counter-padding);
         width: fit-content;
         overflow: hidden;
-        border-radius: var(--wcs-internal-input-border-radius);
-        background-color: var(--wcs-light);
-        border: var(--wcs-internal-input-border-width) solid var(--wcs-light);
+        border-radius: var(--wcs-counter-border-radius);
+        background-color: var(--wcs-counter-background-color);
         background-clip: padding-box;
 
         &:has(.current-value:focus-visible) {
-            @include focus-outline($border-radius: 999rem);
+            @include focus-outline($outline-color: var(--wcs-counter-outline-color-focus), $border-radius: var(--wcs-counter-border-radius), $outline-offset: 0);
         }
 
         @supports not selector(&:has(.current-value:focus-visible)){
             &:focus-within {
-                @include focus-outline($border-radius: 999rem);
+                @include focus-outline($outline-color: var(--wcs-counter-outline-color-focus), $border-radius: var(--wcs-counter-border-radius), $outline-offset: 0);
             }
         }
     }
 
     .counter-container {
-        height: var(--wcs-counter-host-height);
+        height: var(--wcs-counter-height);
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin: 0 calc(2* var(--wcs-base-margin));
+        margin: 0 var(--wcs-counter-gap);
         position: relative;
     }
 
@@ -80,11 +101,11 @@
     }
 
     #outlier-down {
-        top: calc((var(--wcs-counter-host-height) / 2) * -1);
+        top: calc((var(--wcs-counter-height) / 2) * -1);
     }
 
     #outlier-up {
-        bottom: calc((var(--wcs-counter-host-height) / 2) * -1);
+        bottom: calc((var(--wcs-counter-height) / 2) * -1);
     }
 
     .current-value {
@@ -104,19 +125,45 @@
     }
 }
 
+:host(.token-migration) {
+    --wcs-counter-border-radius: var(--wcs-semantic-border-radius-circular);
+
+    --wcs-counter-font-weight-default: var(--wcs-semantic-font-weight-medium);
+    --wcs-counter-font-weight-disabled: var(--wcs-semantic-font-weight-medium);
+    --wcs-counter-value-color-default: var(--wcs-semantic-color-text-primary);
+    --wcs-counter-value-color-disabled: var(--wcs-semantic-color-text-tertiary);
+
+    --wcs-counter-height-m: var(--wcs-semantic-size-m);
+    --wcs-counter-height-l: var(--wcs-semantic-size-l);
+    --wcs-counter-font-size-m: var(--wcs-semantic-font-size-m);
+    --wcs-counter-font-size-l: var(--wcs-semantic-font-size-l);
+    --wcs-counter-padding-m: var(--wcs-semantic-padding-small);
+    --wcs-counter-padding-l: var(--wcs-semantic-padding-large);
+
+    --wcs-counter-background-color: var(--wcs-semantic-color-background-surface-secondary);
+
+    --wcs-counter-gap: calc(2 * var(--wcs-semantic-spacing-base));
+
+    --wcs-counter-outline-color-focus: var(--wcs-semantic-color-border-focus-base);
+}
+
 :host([size='m']) { // Default
-    --wcs-counter-host-padding: 4px;
-    --wcs-counter-host-height: var(--wcs-size-m);
-    --wcs-counter-font-size: 1rem;
+    --wcs-counter-padding: var(--wcs-counter-padding-m);
+    --wcs-counter-height: var(--wcs-counter-height-m);
+    --wcs-counter-font-size: var(--wcs-counter-font-size-m);
 }
 
 :host([size='l']) {
-    --wcs-counter-host-padding: 8px;
-    --wcs-counter-host-height: var(--wcs-size-l);
-    --wcs-counter-font-size: 1.0625rem;
+    --wcs-counter-padding: var(--wcs-counter-padding-l);
+    --wcs-counter-height: var(--wcs-counter-height-l);
+    --wcs-counter-font-size: var(--wcs-counter-font-size-l);
 }
 
 :host([disabled]) {
     cursor: not-allowed;
-    color: var(--wcs-text-medium);
+
+    .counter {
+        color: var(--wcs-counter-value-color-disabled);
+        font-weight: var(--wcs-counter-font-weight-disabled);
+    }
 }

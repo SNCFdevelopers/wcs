@@ -47,6 +47,8 @@ for soon-to-be removed features.
 - **switch**
   - remove `--wcs-switch-bullet-color-initial` and `--wcs-switch-bullet-color-final`. Instead, use `--wcs-switch-dot-color-initial` and `--wcs-switch-dot-color-final`
   - remove `--wcs-switch-text-color`. Instead, use `--wcs-switch-text-color-default`, `--wcs-switch-text-color-selected`, `--wcs-switch-text-color-hover`, `--wcs-switch-text-color-disabled`
+- **counter**
+  - remove `--wcs-input-icon-color`. This variable was not used.
 
 ### Fixed
 
