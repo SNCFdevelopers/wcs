@@ -1,9 +1,21 @@
 :host {
-    margin-top: 0.25rem;
+    --wcs-hint-font-size-default: 1rem;
+    --wcs-hint-font-size-small: 0.75rem;
+    --wcs-hint-font-weight: 400;
+    --wcs-hint-color: var(--wcs-text-medium);
+
+    font-size: var(--wcs-hint-font-size-default);
+}
+
+:host(.token-migration) {
+    --wcs-hint-font-size-default: 0.75rem;
+    --wcs-hint-font-size-small: 0.75rem;
+    --wcs-hint-font-weight: var(--wcs-semantic-font-weight-regular);
+    --wcs-hint-color: var(--wcs-semantic-color-text-primary);
 }
 
 :host([small]) {
-    font-size: 0.75rem;
-    font-weight: 400;
-    color: var(--wcs-text-medium)
+    font-size: var(--wcs-hint-font-size-small);
+    font-weight: var(--wcs-hint-font-weight);
+    color: var(--wcs-hint-color)
 }

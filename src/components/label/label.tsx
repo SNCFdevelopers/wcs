@@ -11,6 +11,13 @@ const LABEL_INHERITED_ATTRS = ['title'];
  * ## Accessibility guidelines 💡
  * - Use concise name for the label. If you want to describe more your form control, add a `wcs-hint`
  * - Use the required flag only as an indication to inform users that the form control is required
+ * 
+ * @cssprop --wcs-label-color - Color of the text
+ * @cssprop --wcs-label-font-weight - Font weight of the text
+ * 
+ * @cssprop --wcs-label-required-marker-color - Color of the required marker
+ * 
+ * @cssprop --wcs-label-gap - Gap between text and required marker
  */
 @Component({
     tag: 'wcs-label',

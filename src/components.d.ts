@@ -568,6 +568,8 @@ export namespace Components {
      * - Provide a relevant error message to inform the users what they should change to make the field valid
      * - `aria-description` will be automatically added to the field for screen readers
      * - `aria-invalid="true"` will be automatically added to the field for screen readers
+     * @cssprop --wcs-error-color - Color of the text
+     * @cssprop --wcs-error-font-size-default - Font size
      */
     interface WcsError {
     }
@@ -611,6 +613,18 @@ export namespace Components {
      * - The form should not be submittable if at least one required form control is not filled
      * - Hints are optional and should only be used to add extra information
      * - Additional aria attributes put on `<wcs-form-field>` won't inherit onto the native component : you must use the `setAriaAttribute` method.
+     * @cssprop --wcs-form-field-gap - Defines the spacing between the label, input control, and hint messages.
+     * @cssprop --wcs-form-field-prefix-suffix-border-radius - Sets the border radius for both prefix and suffix elements.
+     * @cssprop --wcs-form-field-prefix-background-color-default - Background color default for prefix elements
+     * @cssprop --wcs-form-field-prefix-background-color-disabled - Background color for prefix elements when disabled
+     * @cssprop --wcs-form-field-prefix-background-color-hover - Background color for prefix elements when hovered
+     * @cssprop --wcs-form-field-prefix-border-color-default - Defines the default border color for prefix
+     * @cssprop --wcs-form-field-prefix-border-color-focus - Sets the border color for prefix elements when focused.
+     * @cssprop --wcs-form-field-prefix-border-color-disabled - Determines the border color for prefix elements when disabled.
+     * @cssprop --wcs-form-field-prefix-icon-color - Specifies the color of icons within prefix elements.
+     * @cssprop --wcs-form-field-prefix-value-color - Sets the color of values within prefix elements.
+     * @cssprop --wcs-form-field-prefix-placeholder-color - Defines the placeholder text color within prefix elements.
+     * @cssprop --wcs-form-field-prefix-color-disabled - Determines the text color for prefix elements when disabled.
      */
     interface WcsFormField {
         /**
@@ -788,6 +802,10 @@ export namespace Components {
      * ## Accessibility guidelines 💡
      * - Provide a relevant hint message to inform the users about the format, how the data should be filled in, or what is the purpose of the field
      * - `aria-description` will be automatically added to the field for screen readers
+     * @cssprop --wcs-hint-color - Color of the text
+     * @cssprop --wcs-hint-font-weight - Font weight of the text
+     * @cssprop --wcs-hint-font-size-default - Font size default of the text
+     * @cssprop --wcs-hint-font-size-small - Font size small of the text
      */
     interface WcsHint {
         /**
@@ -998,6 +1016,10 @@ export namespace Components {
      * ## Accessibility guidelines 💡
      * - Use concise name for the label. If you want to describe more your form control, add a `wcs-hint`
      * - Use the required flag only as an indication to inform users that the form control is required
+     * @cssprop --wcs-label-color - Color of the text
+     * @cssprop --wcs-label-font-weight - Font weight of the text
+     * @cssprop --wcs-label-required-marker-color - Color of the required marker
+     * @cssprop --wcs-label-gap - Gap between text and required marker
      */
     interface WcsLabel {
         /**
@@ -2405,6 +2427,8 @@ declare global {
      * - Provide a relevant error message to inform the users what they should change to make the field valid
      * - `aria-description` will be automatically added to the field for screen readers
      * - `aria-invalid="true"` will be automatically added to the field for screen readers
+     * @cssprop --wcs-error-color - Color of the text
+     * @cssprop --wcs-error-font-size-default - Font size
      */
     interface HTMLWcsErrorElement extends Components.WcsError, HTMLStencilElement {
     }
@@ -2468,6 +2492,18 @@ declare global {
      * - The form should not be submittable if at least one required form control is not filled
      * - Hints are optional and should only be used to add extra information
      * - Additional aria attributes put on `<wcs-form-field>` won't inherit onto the native component : you must use the `setAriaAttribute` method.
+     * @cssprop --wcs-form-field-gap - Defines the spacing between the label, input control, and hint messages.
+     * @cssprop --wcs-form-field-prefix-suffix-border-radius - Sets the border radius for both prefix and suffix elements.
+     * @cssprop --wcs-form-field-prefix-background-color-default - Background color default for prefix elements
+     * @cssprop --wcs-form-field-prefix-background-color-disabled - Background color for prefix elements when disabled
+     * @cssprop --wcs-form-field-prefix-background-color-hover - Background color for prefix elements when hovered
+     * @cssprop --wcs-form-field-prefix-border-color-default - Defines the default border color for prefix
+     * @cssprop --wcs-form-field-prefix-border-color-focus - Sets the border color for prefix elements when focused.
+     * @cssprop --wcs-form-field-prefix-border-color-disabled - Determines the border color for prefix elements when disabled.
+     * @cssprop --wcs-form-field-prefix-icon-color - Specifies the color of icons within prefix elements.
+     * @cssprop --wcs-form-field-prefix-value-color - Sets the color of values within prefix elements.
+     * @cssprop --wcs-form-field-prefix-placeholder-color - Defines the placeholder text color within prefix elements.
+     * @cssprop --wcs-form-field-prefix-color-disabled - Determines the text color for prefix elements when disabled.
      */
     interface HTMLWcsFormFieldElement extends Components.WcsFormField, HTMLStencilElement {
     }
@@ -2593,6 +2629,10 @@ declare global {
      * ## Accessibility guidelines 💡
      * - Provide a relevant hint message to inform the users about the format, how the data should be filled in, or what is the purpose of the field
      * - `aria-description` will be automatically added to the field for screen readers
+     * @cssprop --wcs-hint-color - Color of the text
+     * @cssprop --wcs-hint-font-weight - Font weight of the text
+     * @cssprop --wcs-hint-font-size-default - Font size default of the text
+     * @cssprop --wcs-hint-font-size-small - Font size small of the text
      */
     interface HTMLWcsHintElement extends Components.WcsHint, HTMLStencilElement {
     }
@@ -2694,6 +2734,10 @@ declare global {
      * ## Accessibility guidelines 💡
      * - Use concise name for the label. If you want to describe more your form control, add a `wcs-hint`
      * - Use the required flag only as an indication to inform users that the form control is required
+     * @cssprop --wcs-label-color - Color of the text
+     * @cssprop --wcs-label-font-weight - Font weight of the text
+     * @cssprop --wcs-label-required-marker-color - Color of the required marker
+     * @cssprop --wcs-label-gap - Gap between text and required marker
      */
     interface HTMLWcsLabelElement extends Components.WcsLabel, HTMLStencilElement {
     }
@@ -3893,6 +3937,8 @@ declare namespace LocalJSX {
      * - Provide a relevant error message to inform the users what they should change to make the field valid
      * - `aria-description` will be automatically added to the field for screen readers
      * - `aria-invalid="true"` will be automatically added to the field for screen readers
+     * @cssprop --wcs-error-color - Color of the text
+     * @cssprop --wcs-error-font-size-default - Font size
      */
     interface WcsError {
     }
@@ -3936,6 +3982,18 @@ declare namespace LocalJSX {
      * - The form should not be submittable if at least one required form control is not filled
      * - Hints are optional and should only be used to add extra information
      * - Additional aria attributes put on `<wcs-form-field>` won't inherit onto the native component : you must use the `setAriaAttribute` method.
+     * @cssprop --wcs-form-field-gap - Defines the spacing between the label, input control, and hint messages.
+     * @cssprop --wcs-form-field-prefix-suffix-border-radius - Sets the border radius for both prefix and suffix elements.
+     * @cssprop --wcs-form-field-prefix-background-color-default - Background color default for prefix elements
+     * @cssprop --wcs-form-field-prefix-background-color-disabled - Background color for prefix elements when disabled
+     * @cssprop --wcs-form-field-prefix-background-color-hover - Background color for prefix elements when hovered
+     * @cssprop --wcs-form-field-prefix-border-color-default - Defines the default border color for prefix
+     * @cssprop --wcs-form-field-prefix-border-color-focus - Sets the border color for prefix elements when focused.
+     * @cssprop --wcs-form-field-prefix-border-color-disabled - Determines the border color for prefix elements when disabled.
+     * @cssprop --wcs-form-field-prefix-icon-color - Specifies the color of icons within prefix elements.
+     * @cssprop --wcs-form-field-prefix-value-color - Sets the color of values within prefix elements.
+     * @cssprop --wcs-form-field-prefix-placeholder-color - Defines the placeholder text color within prefix elements.
+     * @cssprop --wcs-form-field-prefix-color-disabled - Determines the text color for prefix elements when disabled.
      */
     interface WcsFormField {
         /**
@@ -4136,6 +4194,10 @@ declare namespace LocalJSX {
      * ## Accessibility guidelines 💡
      * - Provide a relevant hint message to inform the users about the format, how the data should be filled in, or what is the purpose of the field
      * - `aria-description` will be automatically added to the field for screen readers
+     * @cssprop --wcs-hint-color - Color of the text
+     * @cssprop --wcs-hint-font-weight - Font weight of the text
+     * @cssprop --wcs-hint-font-size-default - Font size default of the text
+     * @cssprop --wcs-hint-font-size-small - Font size small of the text
      */
     interface WcsHint {
         /**
@@ -4354,6 +4416,10 @@ declare namespace LocalJSX {
      * ## Accessibility guidelines 💡
      * - Use concise name for the label. If you want to describe more your form control, add a `wcs-hint`
      * - Use the required flag only as an indication to inform users that the form control is required
+     * @cssprop --wcs-label-color - Color of the text
+     * @cssprop --wcs-label-font-weight - Font weight of the text
+     * @cssprop --wcs-label-required-marker-color - Color of the required marker
+     * @cssprop --wcs-label-gap - Gap between text and required marker
      */
     interface WcsLabel {
         /**
@@ -5553,6 +5619,8 @@ declare module "@stencil/core" {
              * - Provide a relevant error message to inform the users what they should change to make the field valid
              * - `aria-description` will be automatically added to the field for screen readers
              * - `aria-invalid="true"` will be automatically added to the field for screen readers
+             * @cssprop --wcs-error-color - Color of the text
+             * @cssprop --wcs-error-font-size-default - Font size
              */
             "wcs-error": LocalJSX.WcsError & JSXBase.HTMLAttributes<HTMLWcsErrorElement>;
             /**
@@ -5591,6 +5659,18 @@ declare module "@stencil/core" {
              * - The form should not be submittable if at least one required form control is not filled
              * - Hints are optional and should only be used to add extra information
              * - Additional aria attributes put on `<wcs-form-field>` won't inherit onto the native component : you must use the `setAriaAttribute` method.
+             * @cssprop --wcs-form-field-gap - Defines the spacing between the label, input control, and hint messages.
+             * @cssprop --wcs-form-field-prefix-suffix-border-radius - Sets the border radius for both prefix and suffix elements.
+             * @cssprop --wcs-form-field-prefix-background-color-default - Background color default for prefix elements
+             * @cssprop --wcs-form-field-prefix-background-color-disabled - Background color for prefix elements when disabled
+             * @cssprop --wcs-form-field-prefix-background-color-hover - Background color for prefix elements when hovered
+             * @cssprop --wcs-form-field-prefix-border-color-default - Defines the default border color for prefix
+             * @cssprop --wcs-form-field-prefix-border-color-focus - Sets the border color for prefix elements when focused.
+             * @cssprop --wcs-form-field-prefix-border-color-disabled - Determines the border color for prefix elements when disabled.
+             * @cssprop --wcs-form-field-prefix-icon-color - Specifies the color of icons within prefix elements.
+             * @cssprop --wcs-form-field-prefix-value-color - Sets the color of values within prefix elements.
+             * @cssprop --wcs-form-field-prefix-placeholder-color - Defines the placeholder text color within prefix elements.
+             * @cssprop --wcs-form-field-prefix-color-disabled - Determines the text color for prefix elements when disabled.
              */
             "wcs-form-field": LocalJSX.WcsFormField & JSXBase.HTMLAttributes<HTMLWcsFormFieldElement>;
             "wcs-galactic": LocalJSX.WcsGalactic & JSXBase.HTMLAttributes<HTMLWcsGalacticElement>;
@@ -5639,6 +5719,10 @@ declare module "@stencil/core" {
              * ## Accessibility guidelines 💡
              * - Provide a relevant hint message to inform the users about the format, how the data should be filled in, or what is the purpose of the field
              * - `aria-description` will be automatically added to the field for screen readers
+             * @cssprop --wcs-hint-color - Color of the text
+             * @cssprop --wcs-hint-font-weight - Font weight of the text
+             * @cssprop --wcs-hint-font-size-default - Font size default of the text
+             * @cssprop --wcs-hint-font-size-small - Font size small of the text
              */
             "wcs-hint": LocalJSX.WcsHint & JSXBase.HTMLAttributes<HTMLWcsHintElement>;
             /**
@@ -5695,6 +5779,10 @@ declare module "@stencil/core" {
              * ## Accessibility guidelines 💡
              * - Use concise name for the label. If you want to describe more your form control, add a `wcs-hint`
              * - Use the required flag only as an indication to inform users that the form control is required
+             * @cssprop --wcs-label-color - Color of the text
+             * @cssprop --wcs-label-font-weight - Font weight of the text
+             * @cssprop --wcs-label-required-marker-color - Color of the required marker
+             * @cssprop --wcs-label-gap - Gap between text and required marker
              */
             "wcs-label": LocalJSX.WcsLabel & JSXBase.HTMLAttributes<HTMLWcsLabelElement>;
             /**

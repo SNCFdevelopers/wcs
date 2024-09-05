@@ -49,6 +49,8 @@ for soon-to-be removed features.
   - remove `--wcs-switch-text-color`. Instead, use `--wcs-switch-text-color-default`, `--wcs-switch-text-color-selected`, `--wcs-switch-text-color-hover`, `--wcs-switch-text-color-disabled`
 - **counter**
   - remove `--wcs-input-icon-color`. This variable was not used.
+- **form-field**
+  - remove `--wcs-form-field-border-radius-left` and `--wcs-form-field-border-radius-right`. These variables were not used.
 
 ### Fixed
 

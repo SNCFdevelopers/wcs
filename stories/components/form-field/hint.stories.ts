@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit-html';
+import { createRef, ref, Ref } from 'lit-html/directives/ref.js';
 import { getComponentArgs } from '../../utils/args-generation';
 
 const meta: Meta = {
@@ -37,13 +38,10 @@ export const Default: StoryObj = {
 export const TextAreaWithCharactersLeft: StoryObj = {
   render: (args) => {
 
+    const spanRef = createRef<HTMLSpanElement>();
+      
     function handleTextAreaWcsInput(e: any) {
-      // @ts-ignore
-      const span = document.querySelector('span#char-left');
-      const textArea = e.target;
-      textArea.addEventListener('wcsInput', () => {
-        span.innerText = (textArea?.value?.length ?? 0) + '/255';
-      })
+        (spanRef.value as any).innerHTML = (e.target.value?.length ?? 0) + '/255';
     }
     
     return html`
@@ -54,7 +52,7 @@ export const TextAreaWithCharactersLeft: StoryObj = {
             <wcs-hint>
                 <div style="display: flex; justify-content: space-between; gap: var(--wcs-margin)">
                     <span>These data will not be sent to a big company that shall remain unnamed</span>
-                    <span id="char-left">0/255</span>
+                    <span id="char-left" ${ref(spanRef)}>0/255</span>
                 </div>
             </wcs-hint>
         </wcs-form-field>

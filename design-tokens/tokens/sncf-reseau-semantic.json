@@ -98,6 +98,11 @@
                 "$type": "color",
                 "$value": "{primitive.color.critical.500}"
             },
+            "required": {
+                "$description": "Main color to indicate a required state",
+                "$type": "color",
+                "$value": "{primitive.color.critical.500}"
+            },
             "border": {
                 "action": {
                     "secondary": {
@@ -154,6 +159,20 @@
                             "$description": "Disabled border color of a form-field indicator: radio, checkbox",
                             "$type": "color",
                             "$value": "{semantic.color.border.disabled}"
+                        }
+                    },
+                    "prefix": {
+                        "default": {
+                            "$type": "color",
+                            "$value": "{semantic.color.primary}"
+                        },
+                        "focus": {
+                            "$type": "color",
+                            "$value": "{semantic.color.border.focus.base}"
+                        },
+                        "disabled": {
+                            "$type": "color",
+                            "$value": "{semantic.color.border.control.disabled}"
                         }
                     }
                 },
@@ -268,6 +287,20 @@
                             "$type": "color",
                             "$value": "{primitive.color.neutral.300}"
                         }
+                    },
+                    "prefix": {
+                        "default": {
+                            "$type": "color",
+                            "$value": "{semantic.color.background.action.primary.default}"
+                        },
+                        "hover": {
+                            "$type": "color",
+                            "$value": "{semantic.color.background.action.primary.hover}"
+                        },
+                        "disabled": {
+                            "$type": "color",
+                            "$value": "{semantic.color.background.action.primary.disabled}"
+                        }
                     }
                 },
                 "surface": {
@@ -364,6 +397,20 @@
                             "$type": "color",
                             "$value": "{primitive.color.neutral.0}"
                         }
+                    },
+                    "prefix": {
+                        "placeholder": {
+                            "$type": "color",
+                            "$value": "{semantic.color.text.secondary}"
+                        },
+                        "value": {
+                            "$type": "color",
+                            "$value": "{semantic.color.text.primary}"
+                        },
+                        "disabled": {
+                            "$type": "color",
+                            "$value": "{semantic.color.disabled}"
+                        }
                     }
                 }
             },
@@ -382,6 +429,11 @@
                     "$description": "Tertiary color for text like placeholder",
                     "$type": "color",
                     "$value": "{primitive.color.neutral.600}"
+                },
+                "inverse": {
+                    "$description": "Inverse color for contrast (mostly white)",
+                    "$type": "color",
+                    "$value": "white"
                 }
             },
             "ripple": {

@@ -8,6 +8,9 @@ import { Component, ComponentInterface, h, Host } from '@stencil/core';
  * - Provide a relevant error message to inform the users what they should change to make the field valid
  * - `aria-description` will be automatically added to the field for screen readers
  * - `aria-invalid="true"` will be automatically added to the field for screen readers
+ * 
+ * @cssprop --wcs-error-color - Color of the text
+ * @cssprop --wcs-error-font-size-default - Font size
  */
 @Component({
     tag: 'wcs-error',

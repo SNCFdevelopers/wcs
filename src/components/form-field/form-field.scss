@@ -1,9 +1,104 @@
 :host {
-    --wcs-form-field-border-radius-left: var(--wcs-border-radius);
-    --wcs-form-field-border-radius-right: var(--wcs-border-radius);
+    // region to be removed before migration to design tokens
+    --wcs-form-field-gap: calc(var(--wcs-base-margin) / 2);
+    --wcs-form-field-prefix-suffix-border-radius: var(--wcs-border-radius);
+
+    --wcs-form-field-prefix-icon-color: var(--wcs-white);
+    --wcs-form-field-prefix-value-color: var(--wcs-white);
+    --wcs-form-field-prefix-placeholder-color: var(--wcs-white);
+    --wcs-form-field-prefix-color-disabled: var(--wcs-white);
+
+    --wcs-form-field-prefix-background-color-default: var(--wcs-gray-light);
+    --wcs-form-field-prefix-background-color-disabled: var(--wcs-gray-light);
+    --wcs-form-field-prefix-background-color-hover: var(--wcs-gray-light);
+
+    --wcs-form-field-prefix-border-color-default: var(--wcs-gray-light);
+    --wcs-form-field-prefix-border-color-focus: var(--wcs-gray-light);
+    --wcs-form-field-prefix-border-color-disabled: var(--wcs-gray-light);
+
+
+    // Prefixed select
+    ::slotted([slot=prefix]) {
+        --wcs-select-control-border-radius: var(--wcs-form-field-prefix-suffix-border-radius) 0 0 var(--wcs-form-field-prefix-suffix-border-radius);
+        --wcs-select-control-background-color: var(--wcs-form-field-prefix-background-color-default);
+        --wcs-select-value-color: var(--wcs-form-field-prefix-value-color);
+        --wcs-select-placeholder-color: var(--wcs-form-field-prefix-placeholder-color);
+        --wcs-select-control-border-color-default: var(--wcs-form-field-prefix-border-color-default);
+        --wcs-select-control-arrow-color: var(--wcs-form-field-prefix-icon-color);
+        --wcs-select-text-color-disabled: var(--wcs-form-field-prefix-color-disabled);
+        --wcs-select-control-arrow-color-disabled: var(--wcs-form-field-prefix-color-disabled);
+
+        // Prefixed native select
+        --wcs-select-native-border-radius: var(--wcs-form-field-prefix-suffix-border-radius) 0 0 var(--wcs-form-field-prefix-suffix-border-radius);
+        --wcs-select-native-background-color: var(--wcs-form-field-prefix-background-color-default);
+        --wcs-select-native-value-color: var(--wcs-form-field-prefix-value-color);
+        --wcs-select-native-arrow-color: var(--wcs-form-field-prefix-icon-color);
+        --wcs-select-native-placeholder-color: var(--wcs-form-field-prefix-placeholder-color);
+        --wcs-select-native-border-color-default: var(--wcs-form-field-prefix-border-color-default);
+        --wcs-select-native-text-color-disabled: var(--wcs-form-field-prefix-color-disabled);
+        --wcs-select-native-arrow-color-disabled: var(--wcs-form-field-prefix-color-disabled);
+
+        --wcs-select-native-option-color: var(--wcs-white);
+    }
+
+    ::slotted([slot=prefix][disabled]),
+    ::slotted([slot=prefix][data-disabled]) {
+        --wcs-select-control-background-color: var(--wcs-form-field-prefix-background-color-disabled);
+        --wcs-select-native-background-color: var(--wcs-form-field-prefix-background-color-disabled);
+    }
+
+    ::slotted([slot=prefix]:hover:not([disabled]):not([data-disabled])) {
+        --wcs-select-control-background-color: var(--wcs-form-field-prefix-background-color-hover);
+        --wcs-select-native-background-color: var(--wcs-form-field-prefix-background-color-hover);
+    }
+    // endregion
 
     display: flex;
     flex-direction: column;
+    gap: var(--wcs-form-field-gap);
+}
+
+:host(.token-migration) {
+    --wcs-form-field-gap: var(--wcs-semantic-spacing-small);
+
+    --wcs-form-field-prefix-suffix-border-radius: var(--wcs-semantic-border-radius-base);
+
+    --wcs-form-field-prefix-icon-color: var(--wcs-semantic-color-text-inverse);
+    --wcs-form-field-prefix-value-color: var(--wcs-semantic-color-text-inverse);
+    --wcs-form-field-prefix-placeholder-color: var(--wcs-semantic-color-text-inverse);
+    --wcs-form-field-prefix-color-disabled: var(--wcs-semantic-color-disabled);
+
+    --wcs-form-field-prefix-background-color-default: var(--wcs-semantic-color-background-control-prefix-default);
+    --wcs-form-field-prefix-background-color-disabled: var(--wcs-semantic-color-background-control-prefix-disabled);
+    --wcs-form-field-prefix-background-color-hover: var(--wcs-semantic-color-background-control-prefix-hover);
+
+    --wcs-form-field-prefix-border-color-default: var(--wcs-semantic-color-border-control-prefix-default);
+    --wcs-form-field-prefix-border-color-focus: var(--wcs-semantic-color-border-control-prefix-focus);
+    --wcs-form-field-prefix-border-color-disabled: var(--wcs-semantic-color-border-control-prefix-disabled);
+
+    // Prefixed select
+    ::slotted([slot=prefix]) {
+        --wcs-select-control-border-radius: var(--wcs-form-field-prefix-suffix-border-radius) 0 0 var(--wcs-form-field-prefix-suffix-border-radius);
+        --wcs-select-native-border-radius: var(--wcs-form-field-prefix-suffix-border-radius) 0 0 var(--wcs-form-field-prefix-suffix-border-radius);
+        --wcs-select-native-option-color: var(--wcs-semantic-color-text-inverse);
+        --wcs-select-native-arrow-color: var(--wcs-form-field-prefix-icon-color);
+        --wcs-select-control-arrow-color: var(--wcs-form-field-prefix-icon-color);
+
+        --wcs-semantic-color-border-control-default: var(--wcs-form-field-prefix-border-color-default);
+        --wcs-semantic-color-border-control-disabled: var(--wcs-form-field-prefix-border-color-disabled);
+        --wcs-semantic-color-border-control-active: var(--wcs-form-field-prefix-border-color-focus);
+        --wcs-semantic-color-border-focus-control: var(--wcs-form-field-prefix-border-color-focus);
+
+        --wcs-semantic-color-background-control-default: var(--wcs-form-field-prefix-background-color-default);
+        --wcs-semantic-color-foreground-control-value: var(--wcs-form-field-prefix-value-color);
+        --wcs-semantic-color-foreground-control-placeholder: var(--wcs-form-field-prefix-placeholder-color);
+        --wcs-semantic-color-foreground-control-disabled: var(--wcs-form-field-prefix-color-disabled);
+    }
+
+    ::slotted([slot=prefix][disabled]),
+    ::slotted([slot=prefix][data-disabled]) {
+        --wcs-semantic-color-background-control-default: var(--wcs-form-field-prefix-background-color-disabled);
+    }
 }
 
 .input-container {
@@ -26,12 +121,6 @@
     width: 100%;
 }
 
-// Label style
-::slotted(label) {
-    font-weight: 500;
-    margin-bottom: 8px;
-}
-
 // Make input square on left side if there is a prefix
 :host(.has-prefix) {
     --wcs-input-border-radius-left: 0;
@@ -42,33 +131,13 @@
     --wcs-input-border-radius-right: 0;
 }
 
-// Prefixed select
-::slotted([slot=prefix]) {
-    --wcs-select-control-border-radius: var(--wcs-border-radius) 0 0 var(--wcs-border-radius);
-    --wcs-select-control-background-color: var(--wcs-gray-light);
-    --wcs-select-value-color: var(--wcs-white);
-    --wcs-select-placeholder-color: var(--wcs-white);
-    --wcs-select-control-border-color-default: var(--wcs-gray-light);
-    --wcs-select-control-arrow-color: var(--wcs-white);
-
-    // Prefixed native select
-    --wcs-select-native-border-radius: var(--wcs-border-radius) 0 0 var(--wcs-border-radius);
-    --wcs-select-native-background-color: var(--wcs-gray-light);
-    --wcs-select-native-value-color: var(--wcs-white);
-    --wcs-select-native-placeholder-color: var(--wcs-white);
-    --wcs-select-native-border-color-default: var(--wcs-gray-light);
-
-    --wcs-select-native-option-color: white;
-}
-
-
 ::slotted([slot=suffix]) {
     // Make button square on left side
-    --wcs-button-border-radius: 0 var(--wcs-border-radius) var(--wcs-border-radius) 0;
+    --wcs-button-border-radius: 0 var(--wcs-form-field-prefix-suffix-border-radius) var(--wcs-form-field-prefix-suffix-border-radius) 0;
 
     // Make select square on left side
-    --wcs-select-control-border-radius: 0 var(--wcs-border-radius) var(--wcs-border-radius) 0 ;
+    --wcs-select-control-border-radius: 0 var(--wcs-form-field-prefix-suffix-border-radius) var(--wcs-form-field-prefix-suffix-border-radius) 0 ;
 
     // Make native select square on left side
-    --wcs-select-native-border-radius: 0 var(--wcs-border-radius) var(--wcs-border-radius) 0;
+    --wcs-select-native-border-radius: 0 var(--wcs-form-field-prefix-suffix-border-radius) var(--wcs-form-field-prefix-suffix-border-radius) 0;
 }

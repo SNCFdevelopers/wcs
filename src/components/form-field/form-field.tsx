@@ -31,6 +31,21 @@ import { isMutableAriaAttribute } from "../../utils/mutable-aria-attribute";
  * @slot suffix - (Optional) Display a component as suffix. See "Prefix Suffix Group" story for more info.
  * @slot error - Automatically filled when a `wcs-error` is provided
  * @slot messages - Automatically filled when a `wcs-hint` is provided
+ *
+ * @cssprop --wcs-form-field-gap - Defines the spacing between the label, input control, and hint messages.
+ * @cssprop --wcs-form-field-prefix-suffix-border-radius - Sets the border radius for both prefix and suffix elements.
+ * 
+ * @cssprop --wcs-form-field-prefix-background-color-default - Background color default for prefix elements
+ * @cssprop --wcs-form-field-prefix-background-color-disabled - Background color for prefix elements when disabled
+ * @cssprop --wcs-form-field-prefix-background-color-hover - Background color for prefix elements when hovered
+ * @cssprop --wcs-form-field-prefix-border-color-default - Defines the default border color for prefix
+ * @cssprop --wcs-form-field-prefix-border-color-focus - Sets the border color for prefix elements when focused.
+ * @cssprop --wcs-form-field-prefix-border-color-disabled - Determines the border color for prefix elements when disabled.
+ * 
+ * @cssprop --wcs-form-field-prefix-icon-color - Specifies the color of icons within prefix elements.
+ * @cssprop --wcs-form-field-prefix-value-color - Sets the color of values within prefix elements.
+ * @cssprop --wcs-form-field-prefix-placeholder-color - Defines the placeholder text color within prefix elements.
+ * @cssprop --wcs-form-field-prefix-color-disabled - Determines the text color for prefix elements when disabled.
  */
 @Component({
     tag: 'wcs-form-field',

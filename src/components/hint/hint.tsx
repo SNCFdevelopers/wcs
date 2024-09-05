@@ -7,6 +7,11 @@ import { Component, ComponentInterface, h, Host, Prop } from '@stencil/core';
  * ## Accessibility guidelines 💡
  * - Provide a relevant hint message to inform the users about the format, how the data should be filled in, or what is the purpose of the field
  * - `aria-description` will be automatically added to the field for screen readers
+ * 
+ * @cssprop --wcs-hint-color - Color of the text
+ * @cssprop --wcs-hint-font-weight - Font weight of the text
+ * @cssprop --wcs-hint-font-size-default - Font size default of the text
+ * @cssprop --wcs-hint-font-size-small - Font size small of the text
  */
 @Component({
     tag: 'wcs-hint',
