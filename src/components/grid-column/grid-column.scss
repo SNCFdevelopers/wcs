@@ -6,9 +6,10 @@
     display: contents;
 
     th {
-        color: var(--wcs-gray-dark);
-        background-color: var(--wcs-light);
+        color: var(--wcs-grid-header-text-color, var(--wcs-gray-dark));
+        background-color: var(--wcs-grid-header-background-color, var(--wcs-light));
         border-left: var(--wcs-grid-column-border-left);
+        border-radius: var(--wcs-grid-header-border-radius, 0);
         padding: calc(var(--wcs-padding) / 2) var(--wcs-padding);
         text-align: left;
 

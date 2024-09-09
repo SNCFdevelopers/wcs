@@ -19,7 +19,7 @@
 
     table {
         width: 100%;
-        border-spacing: 0;
+        border-spacing: var(--wcs-grid-gap, 0);
     }
 
     td {
@@ -30,10 +30,34 @@
         &:focus-visible {
             @include focus-outline($outline-offset: 0);
         }
+
+        &:first-child {
+            border-radius: var(--wcs-grid-first-cell-border-radius, 0);
+        }
+
+        &:last-child {
+            border-radius: var(--wcs-grid-last-cell-border-radius, 0);
+        }
+
+        &:not(:first-child) {
+            border-left: var(--wcs-grid-cell-separator-border, none);
+        }
+    }
+
+    tr {
+        background-color: var(--wcs-grid-row-background-color, unset);
+
+        &:nth-child(odd) {
+            background-color: var(--wcs-grid-row-odd-background-color, var(--wcs-grid-row-background-color));
+        }
+
+        &:nth-child(even) {
+            background-color: var(--wcs-grid-row-even-background-color, var(--wcs-grid-row-background-color));
+        }
     }
 
     tr:not(:last-child) td {
-        border-bottom: solid 1px var(--wcs-text-light);
+        border-bottom: var(--wcs-grid-cell-border-bottom, solid 1px var(--wcs-text-light));
     }
 
     .wcs-grid-selection-column {

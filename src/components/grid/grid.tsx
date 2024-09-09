@@ -47,6 +47,24 @@ const GRID_INHERITED_ATTRS = ['title'];
  *
  * @cssprop --wcs-grid-highlight-color - Color for selected rows
  * @cssprop --wcs-grid-column-border-left - Left border of all grid headers
+ * 
+ * @cssprop --wcs-grid-header-text-color - Text color of **all** headers
+ * @cssprop --wcs-grid-header-sort-arrow-color - Color of the sort arrow in **all** headers
+ * @cssprop --wcs-grid-header-background-color - Background color of **all** headers
+ * 
+ * @cssprop --wcs-grid-row-background-color - Background color of **all** rows
+ * @cssprop --wcs-grid-row-even-background-color - Background color of **even** rows
+ * @cssprop --wcs-grid-row-odd-background-color - Background color of **odd** rows
+ *  
+ * @cssprop --wcs-grid-gap - Gap between grid cells (horizontal, vertical using `border-spacing` property)
+ *  
+ * @cssprop --wcs-grid-first-cell-border-radius - Border radius of the first cell of a row
+ * @cssprop --wcs-grid-last-cell-border-radius - Border radius of the last cell of a row
+ * @cssprop --wcs-grid-cell-separator-border - Border between grid cells
+ * @cssprop --wcs-grid-cell-border-bottom - Border bottom of all grid cells
+ * 
+ * @cssprop --wcs-grid-header-border-radius - (For `wcs-grid-column`) Border radius of the header cell
+ * 
  * @slot grid-column - The slot containing the column of the grid in the `<thead>`
  * @slot grid-pagination - The slot containing the pagination of the grid below the `<table>`
  */

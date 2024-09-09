@@ -29,7 +29,11 @@ const GRID_COLUMN_INHERITED_ATTRS = ['tabindex', 'title'];
 
 /**
  * The grid column is a subcomponent of `wcs-grid` that represents a column of the table.
+ * 
  * @cssprop --wcs-grid-column-border-left - Border separator between column names
+ * @cssprop --wcs-grid-header-border-radius - Border radius of the header cell
+ * @cssprop --wcs-grid-header-background-color - Background color of the header cell
+ * 
  * @csspart [path]-column - CSS part for each column for styling. e.g: first_name-column, email-column
  */
 @Component({

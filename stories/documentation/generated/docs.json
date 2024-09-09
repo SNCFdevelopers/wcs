@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-09-11T13:13:48",
+  "timestamp": "2024-09-16T09:42:33",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -3427,6 +3427,54 @@
           "text": "--wcs-grid-column-border-left - Left border of all grid headers"
         },
         {
+          "name": "cssprop",
+          "text": "--wcs-grid-header-text-color - Text color of **all** headers"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-header-sort-arrow-color - Color of the sort arrow in **all** headers"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-header-background-color - Background color of **all** headers"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-row-background-color - Background color of **all** rows"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-row-even-background-color - Background color of **even** rows"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-row-odd-background-color - Background color of **odd** rows"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-gap - Gap between grid cells (horizontal, vertical using `border-spacing` property)"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-first-cell-border-radius - Border radius of the first cell of a row"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-last-cell-border-radius - Border radius of the last cell of a row"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-cell-separator-border - Border between grid cells"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-cell-border-bottom - Border bottom of all grid cells"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-header-border-radius - (For `wcs-grid-column`) Border radius of the header cell"
+        },
+        {
           "name": "slot",
           "text": "grid-column - The slot containing the column of the grid in the `<thead>`"
         },
@@ -3842,6 +3890,14 @@
         {
           "name": "cssprop",
           "text": "--wcs-grid-column-border-left - Border separator between column names"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-header-border-radius - Border radius of the header cell"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-header-background-color - Background color of the header cell"
         },
         {
           "name": "csspart",

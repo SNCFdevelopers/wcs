@@ -13,7 +13,9 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - **accessibility**: 💡 All components now inherit aria-attributes into their shadow DOM and exposes a `setAriaAttribute` method. See new documentation "Accessibility" on Storybook for more info. 
 - **select-option**: add a documentation about handling large text in options
-- **grid**: add support for row styling with css parts
+- **grid**:
+  - add support for row styling with css parts
+  - introduce new css variables for customization
 - **radio-group**: add onTouched support for Angular
 - **radio**:
   - add style for checked AND disabled radios

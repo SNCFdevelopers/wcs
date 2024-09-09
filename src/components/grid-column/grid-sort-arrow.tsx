@@ -14,7 +14,7 @@ export const GridSortArrow: FunctionalComponent<GridSortArrowProps> = ({ state }
             }
             .arrow{
                 transition: fill 175ms ease-in-out;
-                fill: var(--wcs-text-light);
+                fill: var(--wcs-grid-header-sort-arrow-color, var(--wcs-text-light));
             }
             .asc {
                 transform: scaleY(1) translateY(-6px);
