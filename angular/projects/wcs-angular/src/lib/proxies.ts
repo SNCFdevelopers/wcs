@@ -1366,7 +1366,7 @@ export declare interface WcsRadioGroup extends Components.WcsRadioGroup {
 
 
 @ProxyCmp({
-  inputs: ['autocomplete', 'chips', 'compareWith', 'disabled', 'filterFn', 'multiple', 'name', 'placeholder', 'size', 'value'],
+  inputs: ['autocomplete', 'chips', 'compareWith', 'disabled', 'filterFn', 'multiple', 'name', 'placeholder', 'serverMode', 'size', 'value'],
   methods: ['open', 'close', 'setAriaAttribute']
 })
 @Component({
@@ -1374,7 +1374,7 @@ export declare interface WcsRadioGroup extends Components.WcsRadioGroup {
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['autocomplete', 'chips', 'compareWith', 'disabled', 'filterFn', 'multiple', 'name', 'placeholder', 'size', 'value'],
+  inputs: ['autocomplete', 'chips', 'compareWith', 'disabled', 'filterFn', 'multiple', 'name', 'placeholder', 'serverMode', 'size', 'value'],
 })
 export class WcsSelect {
   protected el: HTMLElement;

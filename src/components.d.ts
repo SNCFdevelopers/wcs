@@ -1125,7 +1125,7 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
-          * Customizable sort function to change the comparison of values. If not provided, uses the default behavior : `option.textContent.toLowerCase().startsWith(filter.toLowerCase())`
+          * **Only works with `autocomplete` mode.**   Customizable sort function to change the comparison of values. If not provided, uses the default behavior : `option.textContent.toLowerCase().startsWith(filter.toLowerCase())`
          */
         "filterFn": WcsSelectFilterFn;
         /**
@@ -1144,6 +1144,10 @@ export namespace Components {
           * The text to display when the select is empty.
          */
         "placeholder"?: string | null;
+        /**
+          * **Only works with `autocomplete` mode.**   If `true`, the server mode disables the client-side filtering on your select and allows you to handle which options should be present in your DOM.
+         */
+        "serverMode": boolean;
         "setAriaAttribute": (attr: AriaAttributeName, value: string | null | undefined) => Promise<void>;
         /**
           * Specify the size (height) of the select.
@@ -3796,7 +3800,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * Customizable sort function to change the comparison of values. If not provided, uses the default behavior : `option.textContent.toLowerCase().startsWith(filter.toLowerCase())`
+          * **Only works with `autocomplete` mode.**   Customizable sort function to change the comparison of values. If not provided, uses the default behavior : `option.textContent.toLowerCase().startsWith(filter.toLowerCase())`
          */
         "filterFn"?: WcsSelectFilterFn;
         /**
@@ -3827,6 +3831,10 @@ declare namespace LocalJSX {
           * The text to display when the select is empty.
          */
         "placeholder"?: string | null;
+        /**
+          * **Only works with `autocomplete` mode.**   If `true`, the server mode disables the client-side filtering on your select and allows you to handle which options should be present in your DOM.
+         */
+        "serverMode"?: boolean;
         /**
           * Specify the size (height) of the select.
          */

@@ -169,6 +169,15 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
     autocomplete = false;
 
     /**
+     * **Only works with `autocomplete` mode.**  
+     * If `true`, the server mode disables the client-side filtering on your select and allows you to handle
+     * which options should be present in your DOM.
+     */
+    @Prop({reflect: true})
+    serverMode = false;
+
+    /**
+     * **Only works with `autocomplete` mode.**  
      * Customizable sort function to change the comparison of values. If not provided, uses the default behavior :
      * `option.textContent.toLowerCase().startsWith(filter.toLowerCase())`
      */
@@ -429,7 +438,9 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
                             // the blur event so that the displayed value reflect the current select value. 
                             // Indeed, we have to tell the component to take the current filter state manually at the 
                             // opening (because the input event of the autocomplete field is not fired at this point).
-                            this.handleAutocompleteValueChange(this.autocompleteValue ?? '');
+                            if (this.autocompleteValue && this.autocompleteValue !== '') {
+                                this.handleAutocompleteValueChange(this.autocompleteValue);
+                            }
                         }
                         this.clearHighlightOnLastHighlightedOption();
                         if (this.notDisabledOptions.length > 0) {
@@ -811,6 +822,11 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
 
     onSlotchange() {
         this.updateSelectedValue(this.value);
+        
+        // Server-mode only : "no result" slot should be visible dynamically if no option is present in the slot
+        if (this.autocomplete && this.serverMode) {
+            this.showNoResultFoundLabel = this.options.length < 1 ;
+        }
     }
 
     removeChip(v: SelectOptionValue) {
@@ -882,34 +898,39 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
             this.open();
         }
 
-        if (filter.length) {
-            const [matchingOptions, optionsToHide] = [[], []];
-            const filteringFunction: WcsSelectFilterFn = this.filterFn ?? WcsDefaultSelectFilterFn;
-            this.options.forEach((optionEl: HTMLWcsSelectOptionElement) =>
-                (filteringFunction(optionEl, filter) ? matchingOptions : optionsToHide).push(optionEl)
-            );
+        // Prevents client-side filtering logic from being applied when serverMode is enabled.
+        if (!this.serverMode) {
+            if (filter.length) {
+                const [matchingOptions, optionsToHide] = [[], []];
+                const filteringFunction: WcsSelectFilterFn = this.filterFn ?? WcsDefaultSelectFilterFn;
+                this.options.forEach((optionEl: HTMLWcsSelectOptionElement) =>
+                    (filteringFunction(optionEl, filter) ? matchingOptions : optionsToHide).push(optionEl)
+                );
 
-            this.showNoResultFoundLabel = matchingOptions.length === 0;
-            matchingOptions.forEach(o => {
-                o.hidden = false;
-                o.removeAttribute("aria-hidden");
-            });
-            optionsToHide.forEach(o => {
-                o.hidden = true;
-                o.setAttribute("aria-hidden", "true");
-            });
-        } else {
-            this.showNoResultFoundLabel = false;
-            this.options.forEach(o => {
-                o.hidden = false;
-                o.removeAttribute("aria-hidden");
+                this.showNoResultFoundLabel = matchingOptions.length === 0;
+                matchingOptions.forEach(o => {
+                    o.hidden = false;
+                    o.removeAttribute("aria-hidden");
+                });
+                optionsToHide.forEach(o => {
+                    o.hidden = true;
+                    o.setAttribute("aria-hidden", "true");
+                });
+            } else {
+                this.showNoResultFoundLabel = false;
+                this.options.forEach(o => {
+                    o.hidden = false;
+                    o.removeAttribute("aria-hidden");
+                });
+            }
+        }
+        
+        if (this.autocompleteValue !== filter) {
+            this.autocompleteValue = filter;
+            this.wcsFilterChange.emit({
+                value: filter,
             });
         }
-
-        this.autocompleteValue = filter;
-        this.wcsFilterChange.emit({
-            value: filter,
-        });
     }
 
     @Listen('focus')
@@ -1007,7 +1028,7 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
     }
 
     private onAutocompleteFieldBlur(_e: FocusEvent) {
-        if (this.multiple === false && this.autocomplete === true) {
+        if (this.multiple === false && this.autocomplete === true && this.hasValue) {
             this.autocompleteValue = this.displayText;
         }
     }

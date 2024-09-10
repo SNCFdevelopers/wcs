@@ -27,6 +27,14 @@ import { WcsFormlySelectProps } from "wcs-formly";
           <wcs-select-option value="Intercités">Intercités</wcs-select-option>
         </wcs-select>
 
+        <h3>Autocomplete server-mode</h3>
+        <wcs-select id="select-autocomplete-servermode"
+                    placeholder="Choose a train"
+                    (wcsFilterChange)="onFilterChange($event)"
+                    autocomplete server-mode>
+          <wcs-select-option *ngFor="let opt of myOptions" [value]="opt.value">{{ opt.label }}</wcs-select-option>
+        </wcs-select>
+
         <h3>Binding</h3>
         <p>Selected values : {{bindingAutocomplete}}</p>
         <wcs-select id="select-autocomplete-binding"
@@ -130,4 +138,21 @@ export class AutocompleteSelectExampleComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // For server-mode
+
+  private mockOptions = [
+    { label: 'TGV', value: 'tgv' },
+    { label: 'TER', value: 'ter' },
+    { label: 'RER', value: 'rer' },
+    { label: 'Charrette', value: 'charrette' },
+    { label: 'Intercités', value: 'intercites' },
+  ]
+
+  public myOptions = this.mockOptions;
+
+  onFilterChange($event: any) {
+    const filter = $event.detail.value;
+    // Simulate a call to the backend server that should return me a filtered list of options
+    this.myOptions = this.mockOptions.filter(opt => opt.value.toLowerCase().startsWith(filter.toLowerCase()));
+  }
 }

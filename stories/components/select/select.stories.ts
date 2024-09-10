@@ -4,6 +4,7 @@ import { getComponentArgs } from '../../utils/args-generation';
 import { WcsDefaultSelectFilterFn } from "../../../src/components/select/select-interface";
 import { withActions } from '@storybook/addon-actions/decorator';
 import { sampleDepartments } from "./select-sample-data";
+import { useArgs } from "@storybook/addons";
 
 const meta: Meta = {
     title: 'Components/Select',
@@ -49,6 +50,7 @@ export const Default: StoryObj = {
                             ?chips="${args.chips}" 
                             size=${args.size ?? nothing}
                             ?autocomplete=${args.autocomplete}
+                            ?server-mode=${args.serverMode}
                             .filterFn=${args.filterFn ?? nothing}}
                             name="${args.name ?? nothing}">
                     <wcs-select-option value="1" chip-background-color="var(--wcs-pink)">One</wcs-select-option>
@@ -193,28 +195,30 @@ export const OneOptionDisabled: StoryObj = {
  * If not specified, uses `WcsDefaultSelectFilterFn`
  * [(see source)](https://gitlab.com/SNCF/wcs/-/blob/develop/src/components/select/select-interface.ts?ref_type=heads)
  */
-export const Autocomplete = {
-    render: (args) => html`
-    <style>
-        wcs-select {
-            width: 400px;
-        }
-    </style>
+export const Autocomplete: StoryObj = {
+    render: (args) => {
+        return html`
+            <style>
+                wcs-select {
+                    width: 400px;
+                }
+            </style>
     <div style="min-height: 450px">
         <wcs-form-field>
             <wcs-label>Choose a French department</wcs-label>
             <wcs-select id="${args.id}"
                         @keydown="${event => {
-                            // FIXME : hotfix to avoid event bubbling to storybook keyboard shortcuts (A, F, D, etc...)
-                            // Will be fixed in Storybook v8 : https://github.com/storybookjs/storybook/pull/25625
-                            event.stopPropagation();
-                        }}"
+            // FIXME : hotfix to avoid event bubbling to storybook keyboard shortcuts (A, F, D, etc...)
+            // Will be fixed in Storybook v8 : https://github.com/storybookjs/storybook/pull/25625
+            event.stopPropagation();
+        }}"
                         name="${args.name ?? nothing}"
                         size="${args.size ?? nothing}"
                         value="${args.value ?? nothing}"
                         placeholder="${args.placeholder ?? nothing}"
                         .filterFn="${args.filterFn ?? nothing}"
                         ?autocomplete="${args.autocomplete}"
+                        ?server-mode="${args.serverMode}"
                         ?disabled="${args.disabled}"
                         ?multiple="${args.multiple}"
                         ?chips="${args.chips}">
@@ -223,16 +227,81 @@ export const Autocomplete = {
             </wcs-select>
         </wcs-form-field>
     </div>
-    `,
+    `},
     args: {
         ...Default.args,
         id: 'select-autocomplete',
         autocomplete: true,
-        filterFn: WcsDefaultSelectFilterFn,
+        serverMode: false,
         placeholder: 'Choose a French department',
         departments: sampleDepartments,
     }
 };
+
+/**
+ * **Autocomplete using a server**  
+ * If you want to filter the options with your backend server at each keystroke, you can set the select autocomplete to `server-mode`.
+ * 
+ * **Angular example :**  
+ * 
+ * 1. Declare a select in your template with autocomplete and server-mode
+ * 2. Map your options with `ngFor`
+ * 3. Listen to the `wcsFilterChange` event (optional: use a debounce) to update the options dynamically (with your backend filtering the results)
+ * 
+ * ```ts
+ *  <wcs-select placeholder="Choose a transport"
+ *              (wcsFilterChange)="onFilterChange($event)"
+ *              autocomplete server-mode>
+ *      <wcs-select-option *ngFor="let opt of myOptions" [value]="opt.value">{{ opt.label }}</wcs-select-option>
+ *  </wcs-select>
+ *         
+ *  // ...
+ *  
+ *  private mockOptions = [
+ *    { label: 'TGV', value: 'tgv' },
+ *    { label: 'TER', value: 'ter' },
+ *    { label: 'RER', value: 'rer' },
+ *    { label: 'Intercités', value: 'intercites' },
+ *  ]
+ *
+ *  public myOptions = this.mockOptions;
+ *
+ *  onFilterChange($event: any) {
+ *    const filter = $event.detail.value;
+ *    // Simulate a call to the backend server that should return me a filtered list of options
+ *    this.myOptions = this.mockOptions.filter(opt => opt.value.toLowerCase().startsWith(filter.toLowerCase()));
+ *  }
+ * ```
+ * 
+ */
+export const AutocompleteWithServerMode: StoryObj = {
+    render: (args) => html`
+        ${Autocomplete.render(args, this)}
+        <script>
+            const mySelect = document.getElementById('${args.id}')
+
+            mySelect.addEventListener('wcsFilterChange', (e) => {
+                // mock options from server
+                mySelect.querySelectorAll('wcs-select-option').forEach(option => {
+                    option.remove();
+                });
+
+                const options = ${JSON.stringify(sampleDepartments)};
+                const filterStr = e.detail.value;
+                options.forEach(({value, name}) => {
+                    if (name.toLowerCase().startsWith(filterStr.toLowerCase())) {
+                        mySelect.appendChild(document.createElement('wcs-select-option')).textContent = name;
+                    }
+                });
+            });
+        </script>
+    `,
+    args: {
+        ...Autocomplete.args,
+        id: 'select-autcomplete-server-mode',
+        serverMode: true,
+    }
+}
 
 /**
  * **Customize the "No result found" content**  
@@ -268,6 +337,7 @@ export const AutocompleteWithCustomSlot = {
                         placeholder="${args.placeholder ?? nothing}"
                         .filterFn="${args.filterFn ?? nothing}"
                         ?autocomplete="${args.autocomplete}"
+                        ?server-mode="${args.serverMode}"
                         ?disabled="${args.disabled}"
                         ?multiple="${args.multiple}"
                         ?chips="${args.chips}">
@@ -290,7 +360,7 @@ export const AutocompleteWithCustomSlot = {
  * The autocomplete mode with `multiple`.
  */
 export const AutocompleteMultiple = {
-    render: (args) => Autocomplete.render(args),
+    render: (args) => Autocomplete.render(args, this),
     args: {
         ...Autocomplete.args,
         id: 'select-autocomplete-multiple',
@@ -302,7 +372,7 @@ export const AutocompleteMultiple = {
  * The autocomplete mode also handles `multiple` and `chips` display.
  */
 export const AutocompleteWithMultipleAndChipsMode = {
-    render: (args) => Autocomplete.render(args),
+    render: (args) => Autocomplete.render(args, this),
     args: {
         ...Autocomplete.args,
         id: 'select-autocomplete-multiple-chips',
@@ -366,8 +436,8 @@ function handleChange(v: any) {
   const regions = v.target.value.map((value: any) => value.split("-")[1]);
   
   let isError = false;
-  let isErrorMultipleRegion = new Set(regions).size > 1;
-  let isErrorTooManyStations = v.target.value.length > 2;
+  const isErrorMultipleRegion = new Set(regions).size > 1;
+  const isErrorTooManyStations = v.target.value.length > 2;
   
   isError = isErrorMultipleRegion || isErrorTooManyStations;
   

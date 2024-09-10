@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-09-16T09:42:33",
+  "timestamp": "2024-09-17T12:56:21",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -7806,7 +7806,7 @@
           },
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "Customizable sort function to change the comparison of values. If not provided, uses the default behavior :\r\n`option.textContent.toLowerCase().startsWith(filter.toLowerCase())`",
+          "docs": "**Only works with `autocomplete` mode.**  \r\nCustomizable sort function to change the comparison of values. If not provided, uses the default behavior :\r\n`option.textContent.toLowerCase().startsWith(filter.toLowerCase())`",
           "docsTags": [],
           "values": [
             {
@@ -7878,6 +7878,28 @@
             }
           ],
           "optional": true,
+          "required": false
+        },
+        {
+          "name": "serverMode",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "server-mode",
+          "reflectToAttr": true,
+          "docs": "**Only works with `autocomplete` mode.**  \r\nIf `true`, the server mode disables the client-side filtering on your select and allows you to handle\r\nwhich options should be present in your DOM.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
           "required": false
         },
         {

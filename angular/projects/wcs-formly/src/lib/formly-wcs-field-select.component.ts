@@ -7,6 +7,7 @@ export type WcsFormlySelectProps = WcsFormlyFieldWrapperProps & {
   hideRequiredMarker?: boolean,
   multiple?: boolean,
   autocomplete?: boolean,
+  serverMode: boolean,
   filterFn?: WcsSelectFilterFn,
   size?: WcsSelectSize,
 };
@@ -24,6 +25,7 @@ export type WcsFormlySelectProps = WcsFormlyFieldWrapperProps & {
         [formControl]="formControl"
         [filterFn]="props.filterFn"
         [attr.autocomplete]="props.autocomplete ? true : null"
+        [attr.server-mode]="props.serverMode ? true : null"
         [attr.multiple]="props.multiple"
         [attr.disabled]="props.disabled ? true : null"
         [ngStyle]="props.styles?.input">
