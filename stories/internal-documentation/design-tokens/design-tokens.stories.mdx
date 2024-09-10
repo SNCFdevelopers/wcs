@@ -1,0 +1,18 @@
+import { Meta } from '@storybook/addon-docs';
+import DesignTokenSchema from './wcs-design-tokens-diagram.png';
+
+<Meta title="Internal Docs/Design Tokens" />
+
+# Design Tokens Implementation Principles
+
+Here are the principles that we follow to implement design tokens in WCS:
+- Each component **only** depends on the semantic design tokens layer.
+- The semantic layer should be consistent and not specific to components problematics.
+- The semantic layer is in charge of mapping semantic tokens to primitive tokens.
+- The primitive layer is in charge of mapping primitive names to values.
+
+If a components needs a special personalization for one design system only, it should be done in the corresponding overwrites file. Each overwrites file should be named with the design system it is overwriting. Even if there is no technical limitation to overwrite anything's in any components, the usage of overwrites should be limited to the minimum to avoid mess and confusion during maintenance (please!).
+
+Here is a simple diagram to illustrate the design tokens approach in WCS: 
+
+<img src={DesignTokenSchema} alt="" />
