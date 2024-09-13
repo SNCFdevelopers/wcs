@@ -11,6 +11,7 @@ import {
     Watch,
     Listen
 } from '@stencil/core';
+
 import {
     EditableComponentUpdateEvent,
     EditableFieldType,
@@ -20,12 +21,22 @@ import {
     WcsEditableFieldSize,
     WcsEditableFieldSizeValues
 } from './editable-field-interface';
+import { clickInsideElement, isEnterKey, isEscapeKey, isMouseEvent } from '../../utils/helpers';
 
 enum EditableComponentState {
     DISPLAY,
     EDIT,
     LOAD
 }
+
+/**
+ * Aria-label of the display button
+ */
+const EDIT_ARIA_LABEL = "Éditer";
+
+// We wait until the element is displayed on the page otherwise the focus does not work.
+// 20ms is a little more than a 16ms frame at 60fps.
+const DELAY_BEFORE_FOCUS = 20;
 
 /**
  * The editable-field component can be used to simplify the user experience, avoiding the use of a redirection to a form
@@ -50,37 +61,37 @@ enum EditableComponentState {
  * 
  * > - Aria attributes are put on the native component on the first rendering with the `label` and `errorMsg` you provided 
  * > - Additional aria attributes put on `<wcs-editable-field>` won't inherit onto the native component : you must use the `setAriaAttribute` method.
- *
- *
+ * 
  * @cssprop --wcs-editable-field-label-color - Color of the label text
  * @cssprop --wcs-editable-field-label-font-weight - Font weight of the label text
  * @cssprop --wcs-editable-field-label-gap - Gap between the label and the field
  * @cssprop --wcs-editable-field-label-font-size - Font size of the label text
- * 
+ *
  * @cssprop --wcs-editable-field-background-color - Background color of the editable field
  * @cssprop --wcs-editable-field-value-font-weight - Font weight of the field value text
  * @cssprop --wcs-editable-field-value-color-default - Default color of the field value text
  * @cssprop --wcs-editable-field-value-color-hover - Color of the field value text on hover
  * @cssprop --wcs-editable-field-value-color-readonly - Color of the field value text when readonly
- * 
+ *
  * @cssprop --wcs-editable-field-height-m - Height of the editable field in medium size
  * @cssprop --wcs-editable-field-height-l - Height of the editable field in large size
  * @cssprop --wcs-editable-field-font-size-m - Font size of the field value text in medium size
  * @cssprop --wcs-editable-field-font-size-l - Font size of the field value text in large size
- * 
+ *
  * @cssprop --wcs-editable-field-border-radius - Border radius of the editable field
  * @cssprop --wcs-editable-field-border-width - Border width of the editable field
  * @cssprop --wcs-editable-field-border-width-focus - Border width of the editable field when focused
  * @cssprop --wcs-editable-field-border-width-hover - Border width of the editable field on hover
  * @cssprop --wcs-editable-field-border-color-default - Default border color of the editable field
  * @cssprop --wcs-editable-field-border-color-hover - Border color of the editable field on hover
+ * @cssprop --wcs-editable-field-border-color-focus - Border color of the editable field on focus
  * @cssprop --wcs-editable-field-border-style - Border style of the editable field
- * 
+ *
  * @cssprop --wcs-editable-field-padding-vertical-m - Vertical padding of the editable field in medium size
  * @cssprop --wcs-editable-field-padding-vertical-l - Vertical padding of the editable field in large size
  * @cssprop --wcs-editable-field-padding-horizontal-m - Horizontal padding of the editable field in medium size
  * @cssprop --wcs-editable-field-padding-horizontal-l - Horizontal padding of the editable field in large size
- * 
+ *
  * @cssprop --wcs-editable-field-icon-color-readonly - Color of the icon when the field is readonly
  */
 @Component({
@@ -90,7 +101,10 @@ enum EditableComponentState {
 })
 export class EditableField implements ComponentInterface {
     @Element() private el!: HTMLWcsEditableFieldElement;
-    
+    private spiedElement: HTMLElement = null;
+    private editModeBtn: HTMLButtonElement;
+    private onInputKeydownCallback: (event: KeyboardEvent) => void;
+    private onWcsInputOrChangeCallback: (event: CustomEvent) => void;
 
     @State() private currentState: EditableComponentState = EditableComponentState.DISPLAY;
     /**
@@ -98,7 +112,8 @@ export class EditableField implements ComponentInterface {
      */
     @Prop() type: EditableFieldType = 'input';
     /**
-     * Label of the field
+     * Label of the field.  
+     * Will also be part of the edit button `aria-label`.
      */
     @Prop() label!: string;
     /**
@@ -132,9 +147,6 @@ export class EditableField implements ComponentInterface {
 
     @State() private isError: boolean = false;
 
-    // fixme: why this attr is never read?
-    // ignoreNextChangeEvent: boolean = false;
-    private spiedElement: HTMLElement = null;
     private currentValue: any = null;
 
     componentWillLoad(): Promise<void> | void {
@@ -145,7 +157,7 @@ export class EditableField implements ComponentInterface {
         this.currentValue = this.value;
     }
 
-    componentDidRender() {
+    componentDidLoad() {
         const assignedElements = (this.el.shadowRoot.querySelector('slot') as HTMLSlotElement).assignedElements();
         switch (this.type) {
             case 'input':
@@ -160,21 +172,43 @@ export class EditableField implements ComponentInterface {
         }
     }
 
+    disconnectedCallback(): void {
+        this.cleanUpSpiedElementEventListeners();
+    }
+
+    private keyboardSubmitHandler(event: KeyboardEvent): void {
+        const shouldValidateOnEnterKey = this.type === 'textarea' ? isEnterKey(event) && event.ctrlKey : isEnterKey(event);
+        if (shouldValidateOnEnterKey) {
+            this.sendCurrentValue();
+        }
+        if (isEscapeKey(event)) {
+            this.discardChanges();
+        }
+    }
+
+    private onWcsInputOrChange(event: CustomEvent) {
+        event.stopImmediatePropagation();
+        const value = this.type === 'select' ? event.detail.value : event.detail.target.value;
+        this.currentValue = value;
+        if (this.validateFn) {
+            this.isError = !this.validateFn(this.currentValue);
+        }
+    }
+
+    private cleanUpSpiedElementEventListeners(): void {
+        this.spiedElement?.removeEventListener('keydown', this.onInputKeydownCallback);
+        this.spiedElement?.removeEventListener('wcsInput', this.onWcsInputOrChangeCallback);
+        this.spiedElement?.removeEventListener('wcsChange', this.onWcsInputOrChangeCallback);
+    }
+
     private initWithInput(assignedElements: Element[]) {
         const element = assignedElements.filter(x => {
             return x.tagName === 'WCS-INPUT'
         })[0];
         if (!element) throw new Error('You must provide a slotted input element to handle edition');
         this.spiedElement = element as HTMLElement;
-        this.addInputHandlerForWcsComponents(this.spiedElement);
-        this.spiedElement.addEventListener('keydown', (event: KeyboardEvent) => {
-            if (event.key === 'Enter') {
-                this.sendCurrentValue();
-            }
-            if (event.key === 'Escape') {
-                this.discardChanges();
-            }
-        })
+        this.addWcsInputEventHandler(this.spiedElement);
+        this.addKeyDownHandler(this.spiedElement);
     }
 
     private initWithTextArea(assignedElements: Element[]) {
@@ -183,15 +217,8 @@ export class EditableField implements ComponentInterface {
         })[0];
         if (!element) throw new Error('You must provide a slotted textarea element to handle edition');
         this.spiedElement = element as HTMLElement;
-        this.addInputHandlerForWcsComponents(this.spiedElement);
-        this.spiedElement.addEventListener('keydown', (event: KeyboardEvent) => {
-            if (event.key === 'Enter' && event.ctrlKey) {
-                this.sendCurrentValue();
-            }
-            if (event.key === 'Escape') {
-                this.discardChanges();
-            }
-        })
+        this.addWcsInputEventHandler(this.spiedElement);
+        this.addKeyDownHandler(this.spiedElement);
     }
 
     private initWithSelect(assignedElements: Element[]) {
@@ -200,7 +227,7 @@ export class EditableField implements ComponentInterface {
         })[0];
         if (!element) throw new Error('You must provide a slotted select element to handle edition');
         this.spiedElement = element as HTMLElement;
-        this.addChangeHandlerForWcsComponents(this.spiedElement);
+        this.addWcsChangeEventHandler(this.spiedElement);
     }
 
     /**
@@ -209,14 +236,9 @@ export class EditableField implements ComponentInterface {
      * @param elt the element to subscribe to
      * @private
      */
-    private addChangeHandlerForWcsComponents(elt: HTMLElement) {
-        elt.addEventListener('wcsChange', (event: CustomEvent) => {
-            event.stopImmediatePropagation();
-            this.currentValue = event.detail.value;
-            if (this.validateFn) {
-                this.isError = !this.validateFn(this.currentValue);
-            }
-        });
+    private addWcsChangeEventHandler(elt: HTMLElement) {
+        this.onWcsInputOrChangeCallback = this.onWcsInputOrChange.bind(this);
+        elt.addEventListener('wcsChange', this.onWcsInputOrChangeCallback);
     }
 
     /**
@@ -224,20 +246,32 @@ export class EditableField implements ComponentInterface {
      * @param elt the element to subscribe to
      * @private
      */
-    private addInputHandlerForWcsComponents(elt: HTMLElement) {
-        elt.addEventListener('wcsInput', (event: CustomEvent) => {
-            event.stopImmediatePropagation();
-            this.currentValue = event.detail.target.value;
-            if (this.validateFn) {
-                this.isError = !this.validateFn(this.currentValue);
-            }
-        });
+    private addWcsInputEventHandler(elt: HTMLElement) {
+        this.onWcsInputOrChangeCallback = this.onWcsInputOrChange.bind(this);
+        elt.addEventListener('wcsInput', this.onWcsInputOrChangeCallback);
+    }
+
+    /**
+     * This method subscribes the component to the keydown events produced by the other WCS components 
+     * @param elt the element to subscribe to
+     * @private
+     */
+    private addKeyDownHandler(elt: HTMLElement) {
+        this.onInputKeydownCallback = this.keyboardSubmitHandler.bind(this);
+        elt.addEventListener('keydown', this.onInputKeydownCallback);
+    }
+
+    private focusEditModeBtn() {
+        setTimeout(() => {
+            this.editModeBtn?.focus();
+        }, DELAY_BEFORE_FOCUS);
     }
 
     private sendCurrentValue() {
         if (this.currentState === EditableComponentState.EDIT) {
             if (this.value === this.currentValue) {
-                this.currentState = EditableComponentState.DISPLAY
+                this.currentState = EditableComponentState.DISPLAY;
+                this.focusEditModeBtn();
             } else {
                 this.isError = this.validateFn ? !this.validateFn(this.currentValue) : false;
                 if (!this.isError) {
@@ -256,21 +290,26 @@ export class EditableField implements ComponentInterface {
         this.currentValue = this.value;
         this.currentState = EditableComponentState.DISPLAY;
         this.isError = false;
+        this.focusEditModeBtn();
     }
-
 
     forceDisplayStateAndValidate() {
         if (this.currentState === EditableComponentState.LOAD) {
             this.value = this.currentValue;
             this.currentState = EditableComponentState.DISPLAY;
+            this.focusEditModeBtn();
         } else {
             throw new Error('You cannot set display state from ' + EditableComponentState[this.currentState] + ' state');
         }
     }
 
+    // Process only mouse clicks, to avoid interfering with keyboard triggered button clicks. 
+    // In some browsers, pressing "Enter" or "Space" while focused on a button generates a click event
+    // with `event.detail` set to 0. It's a keyboard triggered click, not a real mouse click. 
     @Listen('click', {target: 'window'})
-    onWindowClickEvent(event: MouseEvent) {
-        if (!this.clickInsideComponent(event)) {
+    onWindowClickEvent(event: MouseEvent | KeyboardEvent) {
+        // Ensure only true mouse clicks are processed
+        if (isMouseEvent(event) && event.detail !== 0 && !clickInsideElement(event, this.el)) {
             if (this.currentState === EditableComponentState.EDIT) {
                 if (this.isError) {
                     this.discardChanges();
@@ -281,17 +320,11 @@ export class EditableField implements ComponentInterface {
         }
     }
 
-    private clickInsideComponent(event: MouseEvent) {
-        return event.x >= this.el.getBoundingClientRect().x && event.x <= this.el.getBoundingClientRect().x + this.el.getBoundingClientRect().width
-            && event.y >= this.el.getBoundingClientRect().y && event.y <= this.el.getBoundingClientRect().y + this.el.getBoundingClientRect().height;
-    }
-
     /**
      * discard changes and force component state to DISPLAY
      * <br/>
      * This method must be call when component is in LOAD state
      */
-
     errorHandler() {
         this.discardChanges();
     }
@@ -301,17 +334,13 @@ export class EditableField implements ComponentInterface {
         this.currentState = EditableComponentState.DISPLAY;
     }
 
-    private onDisplayContainerClick() {
+    private onDisplayContainerClick(): void {
         if (this.currentState === EditableComponentState.DISPLAY && this.readonly === false) {
             this.currentState = EditableComponentState.EDIT;
-            // fixme: why this attr is never read?
-            // this.ignoreNextChangeEvent = true;
             this.spiedElement['value'] = this.currentValue;
             if (this.validateFn) {
                 this.isError = !this.validateFn(this.currentValue);
             }
-            // We wait until the element is displayed on the page otherwise the focus does not work
-            const DELAY_FOR_RENDER = 20;
             setTimeout(() => {
                 if (this.type === 'input') {
                     (this.spiedElement as HTMLWcsInputElement).focus();
@@ -319,38 +348,8 @@ export class EditableField implements ComponentInterface {
                     (this.spiedElement as HTMLWcsTextareaElement).fitContent();
                     (this.spiedElement as HTMLWcsTextareaElement).focus();
                 }
-            }, DELAY_FOR_RENDER)
+            }, DELAY_BEFORE_FOCUS)
         }
-    }
-
-    render(): any {
-        const {formattedValue, formattedCurrentValue} = this.formatValues();
-        return (
-            <Host>
-                <div class="label">{this.label}</div>
-                <div
-                    class={'display-container ' + (this.currentState !== EditableComponentState.DISPLAY ? 'display-none' : '')}
-                    onClick={() => this.onDisplayContainerClick()}>
-                    {formattedValue}
-                    <wcs-mat-icon icon="edit" size="s"></wcs-mat-icon>
-                    {this.readonly ? this.getReadonlySvgIcon() : null}
-                </div>
-                <div
-                    class={'load-container ' + (this.currentState !== EditableComponentState.LOAD ? 'display-none' : '')}>
-                    {formattedCurrentValue}
-                    <wcs-spinner></wcs-spinner>
-                </div>
-                <wcs-form-field is-error={this.isError}
-                                class={'edit-container ' + (this.currentState !== EditableComponentState.EDIT ? 'display-none' : '')}>
-                    <slot/>
-                    {
-                        this.isError && this.errorMsg
-                            ? <wcs-error>{this.errorMsg}</wcs-error>
-                            : null
-                    }
-                </wcs-form-field>
-            </Host>
-        );
     }
 
     private getReadonlySvgIcon() {
@@ -382,7 +381,44 @@ export class EditableField implements ComponentInterface {
         }
         return {
             formattedValue: (formattedValue ? (<span>{formattedValue}</span>) : (<span></span>)),
+            formattedValueText: formattedValue,
             formattedCurrentValue: (formattedCurrentValue ? (<span>{formattedCurrentValue}</span>) : (<span></span>))
         };
+    }
+    
+    render(): any {
+        const {formattedValue, formattedValueText, formattedCurrentValue} = this.formatValues();
+        return (
+            <Host>
+                <div class="label">{this.label}</div>
+                <button
+                    type="button"
+                    class={'display-container ' + (this.currentState !== EditableComponentState.DISPLAY ? 'display-none' : '')}
+                    onClick={() => this.onDisplayContainerClick()}
+                    ref={(el) => this.editModeBtn = el}
+                    aria-label={`${EDIT_ARIA_LABEL} ${this.label} ${formattedValueText}`}
+                >
+                    {formattedValue}
+                    <wcs-mat-icon icon="edit" size="s"></wcs-mat-icon>
+                    {this.readonly ? this.getReadonlySvgIcon() : null}
+                </button>
+                <div
+                    class={'load-container ' + (this.currentState !== EditableComponentState.LOAD ? 'display-none' : '')}>
+                    {formattedCurrentValue}
+                    <wcs-spinner></wcs-spinner>
+                </div>
+                <wcs-form-field is-error={this.isError}
+                                class={'edit-container ' + (this.currentState !== EditableComponentState.EDIT ? 'display-none' : '')}
+                >
+                    <wcs-label class="visually-hidden">{this.label}</wcs-label>
+                    <slot/>
+                    {
+                        this.isError && this.errorMsg
+                            ? <wcs-error>{this.errorMsg}</wcs-error>
+                            : null
+                    }
+                </wcs-form-field>
+            </Host>
+        );
     }
 }

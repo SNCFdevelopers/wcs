@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-02-27T08:39:30",
+  "timestamp": "2025-02-28T15:35:26",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -1851,6 +1851,28 @@
         }
       ],
       "methods": [
+        {
+          "name": "getLabel",
+          "returns": {
+            "type": "Promise<string>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<string>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<string>"
+          },
+          "signature": "getLabel() => Promise<string>",
+          "parameters": [],
+          "docs": "Get the label text",
+          "docsTags": []
+        },
         {
           "name": "setAriaAttribute",
           "returns": {
@@ -3867,6 +3889,10 @@
         },
         {
           "name": "cssprop",
+          "text": "--wcs-editable-field-border-color-focus - Border color of the editable field on focus"
+        },
+        {
+          "name": "cssprop",
           "text": "--wcs-editable-field-border-style - Border style of the editable field"
         },
         {
@@ -3951,7 +3977,7 @@
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
-          "docs": "Label of the field",
+          "docs": "Label of the field.  \r\nWill also be part of the edit button `aria-label`.",
           "docsTags": [],
           "values": [
             {
@@ -4140,6 +4166,7 @@
         "wcs-mat-icon",
         "wcs-spinner",
         "wcs-form-field",
+        "wcs-label",
         "wcs-error"
       ],
       "dependencyGraph": {
@@ -4147,6 +4174,7 @@
           "wcs-mat-icon",
           "wcs-spinner",
           "wcs-form-field",
+          "wcs-label",
           "wcs-error"
         ]
       }
@@ -8053,9 +8081,15 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [],
+      "dependents": [
+        "wcs-editable-field"
+      ],
       "dependencies": [],
-      "dependencyGraph": {}
+      "dependencyGraph": {
+        "wcs-editable-field": [
+          "wcs-label"
+        ]
+      }
     },
     {
       "filePath": "src/components/list-item/list-item.tsx",
@@ -10296,7 +10330,57 @@
           "required": false
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "name": "setAriaAttribute",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+            "parameters": [
+              {
+                "name": "attr",
+                "type": "\"role\" | `aria-${string}`",
+                "docs": ""
+              },
+              {
+                "name": "value",
+                "type": "string",
+                "docs": ""
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "AriaAttributeName": {
+                "location": "import",
+                "path": "../../utils/mutable-aria-attribute",
+                "id": "src/utils/mutable-aria-attribute.ts::AriaAttributeName"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+          "parameters": [
+            {
+              "name": "attr",
+              "type": "\"role\" | `aria-${string}`",
+              "docs": ""
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "docs": ""
+            }
+          ],
+          "docs": "",
+          "docsTags": []
+        }
+      ],
       "events": [
         {
           "event": "wcsChange",
@@ -11993,6 +12077,28 @@
         }
       ],
       "methods": [
+        {
+          "name": "getLabel",
+          "returns": {
+            "type": "Promise<string>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<string>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<string>"
+          },
+          "signature": "getLabel() => Promise<string>",
+          "parameters": [],
+          "docs": "Get the label text",
+          "docsTags": []
+        },
         {
           "name": "setAriaAttribute",
           "returns": {

@@ -40,6 +40,11 @@ for now removed features.
 - **select**: `required` attribute was not reflected on focusable element
 - **nav**: handle letting put `button` inside `wcs-nav-item` for modal opening use cases from a `wcs-nav-item`
 - **tooltip**: set `aria-expanded` on `wcs-button` only when tooltip is on interactive mode
+- **editable-field**: improve accessibility :
+    - fix keyboard navigation
+    - handle focus correctly and add focused style
+    - handle label despite cross-root ARIA limitations
+    - handle error message for screen readers
 - **grid**: sort-arrow not correctly resizing in grid-columns
 
 ### Security

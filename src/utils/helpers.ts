@@ -207,7 +207,6 @@ export const clickInsideElement = (event: MouseEvent, element: HTMLElement): boo
         && event.y >= element.getBoundingClientRect().y && event.y <= element.getBoundingClientRect().y + element.getBoundingClientRect().height;
 }
 
-
 export const clickTargetIsElementOrChildren = (mouseEvent: MouseEvent, element: HTMLElement) => {
     return mouseEvent.target instanceof Node
         && element.contains(mouseEvent.target);
@@ -215,6 +214,13 @@ export const clickTargetIsElementOrChildren = (mouseEvent: MouseEvent, element: 
 
 export function generateUniqueId(componentName: string): string {
     return componentName + "-" + Math.random().toString(36);
+}
+
+/**
+ * `clientX` property doesn't exist on KeyboardEvent, we therefore deduce it's a MouseEvent.
+ */
+export function isMouseEvent(event: MouseEvent | KeyboardEvent): event is MouseEvent {
+    return 'clientX' in event;
 }
 
 export function isKeyup(evt: KeyboardEvent) {

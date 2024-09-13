@@ -695,6 +695,7 @@ export namespace Components {
      * @cssprop --wcs-editable-field-border-width-hover - Border width of the editable field on hover
      * @cssprop --wcs-editable-field-border-color-default - Default border color of the editable field
      * @cssprop --wcs-editable-field-border-color-hover - Border color of the editable field on hover
+     * @cssprop --wcs-editable-field-border-color-focus - Border color of the editable field on focus
      * @cssprop --wcs-editable-field-border-style - Border style of the editable field
      * @cssprop --wcs-editable-field-padding-vertical-m - Vertical padding of the editable field in medium size
      * @cssprop --wcs-editable-field-padding-vertical-l - Vertical padding of the editable field in large size
@@ -712,7 +713,7 @@ export namespace Components {
          */
         "formatFn": FormatFn<any>;
         /**
-          * Label of the field
+          * Label of the field.   Will also be part of the edit button `aria-label`.
          */
         "label": string;
         /**
@@ -3012,6 +3013,7 @@ declare global {
      * @cssprop --wcs-editable-field-border-width-hover - Border width of the editable field on hover
      * @cssprop --wcs-editable-field-border-color-default - Default border color of the editable field
      * @cssprop --wcs-editable-field-border-color-hover - Border color of the editable field on hover
+     * @cssprop --wcs-editable-field-border-color-focus - Border color of the editable field on focus
      * @cssprop --wcs-editable-field-border-style - Border style of the editable field
      * @cssprop --wcs-editable-field-padding-vertical-m - Vertical padding of the editable field in medium size
      * @cssprop --wcs-editable-field-padding-vertical-l - Vertical padding of the editable field in large size
@@ -4916,6 +4918,7 @@ declare namespace LocalJSX {
      * @cssprop --wcs-editable-field-border-width-hover - Border width of the editable field on hover
      * @cssprop --wcs-editable-field-border-color-default - Default border color of the editable field
      * @cssprop --wcs-editable-field-border-color-hover - Border color of the editable field on hover
+     * @cssprop --wcs-editable-field-border-color-focus - Border color of the editable field on focus
      * @cssprop --wcs-editable-field-border-style - Border style of the editable field
      * @cssprop --wcs-editable-field-padding-vertical-m - Vertical padding of the editable field in medium size
      * @cssprop --wcs-editable-field-padding-vertical-l - Vertical padding of the editable field in large size
@@ -4933,7 +4936,7 @@ declare namespace LocalJSX {
          */
         "formatFn"?: FormatFn<any>;
         /**
-          * Label of the field
+          * Label of the field.   Will also be part of the edit button `aria-label`.
          */
         "label": string;
         /**
@@ -7068,6 +7071,7 @@ declare module "@stencil/core" {
              * @cssprop --wcs-editable-field-border-width-hover - Border width of the editable field on hover
              * @cssprop --wcs-editable-field-border-color-default - Default border color of the editable field
              * @cssprop --wcs-editable-field-border-color-hover - Border color of the editable field on hover
+             * @cssprop --wcs-editable-field-border-color-focus - Border color of the editable field on focus
              * @cssprop --wcs-editable-field-border-style - Border style of the editable field
              * @cssprop --wcs-editable-field-padding-vertical-m - Vertical padding of the editable field in medium size
              * @cssprop --wcs-editable-field-padding-vertical-l - Vertical padding of the editable field in large size
