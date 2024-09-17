@@ -79,6 +79,20 @@ Finally, if you want to push modifications (for example the result of a rebase) 
 
 Don't forget to update the changelog and the StackBlitz templates version.
 
+> ⚠️ If you're going to release a major version, you should update the wcs archive documentation (https://gitlab.com/SNCF/wcs-archive)
+> ```gitexclude
+> # Go on the latest release branch
+> git checkout master
+> # Run a build of the projet
+> npm run build
+> # Copy the storybook-static folder to the wcs-archive repository in a new corresponding folder for the current version
+> # Commit and push the changes in the wcs-archive repository
+> # Go back to the wcs repository
+> # Revert all the change made during the build process
+> git checkout .
+> ```
+> Now you can follow the steps below to release the new version.
+
 ```sh
 # Make sure you're on develop branch
 git checkout develop
