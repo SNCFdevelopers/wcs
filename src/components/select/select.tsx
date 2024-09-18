@@ -291,9 +291,6 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
     private reset() {
         this.values = [];
         this.displayText = undefined;
-        if (this.autocomplete) {
-            this.autocompleteValue = undefined;
-        }
         this.options.forEach((opt: HTMLWcsSelectOptionElement) => {
             opt.selected = false;
         });

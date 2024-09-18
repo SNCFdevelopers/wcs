@@ -27,7 +27,7 @@ for now removed features.
 
 ### Fixed
 
-for any bug fixes.
+- **select**: fix autocomplete server-mode problem that was clearing the filter unintentionally
 
 ### Security
 
