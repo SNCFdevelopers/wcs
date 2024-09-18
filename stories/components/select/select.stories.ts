@@ -217,6 +217,7 @@ export const Autocomplete: StoryObj = {
                         value="${args.value ?? nothing}"
                         placeholder="${args.placeholder ?? nothing}"
                         .filterFn="${args.filterFn ?? nothing}"
+                        @wcsFilterChange="${args.serverMode ? (event) => handleFilterChangeServerMode(event) : nothing}"
                         ?autocomplete="${args.autocomplete}"
                         ?server-mode="${args.serverMode}"
                         ?disabled="${args.disabled}"
@@ -242,16 +243,16 @@ export const Autocomplete: StoryObj = {
  * **Autocomplete using a server**  
  * If you want to filter the options with your backend server at each keystroke, you can set the select autocomplete to `server-mode`.
  * 
- * **Angular example :**  
- * 
- * 1. Declare a select in your template with autocomplete and server-mode
- * 2. Map your options with `ngFor`
- * 3. Listen to the `wcsFilterChange` event (optional: use a debounce) to update the options dynamically (with your backend filtering the results)
+ * > **Angular example :**  
+ * > 
+ * > 1. Declare a select in your template with autocomplete and server-mode
+ * > 2. Map your options with `ngFor`
+ * > 3. Listen to the `wcsFilterChange` event (optional: use a debounce) to update the options dynamically (with your backend filtering the results)
  * 
  * ```ts
  *  <wcs-select placeholder="Choose a transport"
  *              (wcsFilterChange)="onFilterChange($event)"
- *              autocomplete server-mode>
+ *              autocomplete serverMode>
  *      <wcs-select-option *ngFor="let opt of myOptions" [value]="opt.value">{{ opt.label }}</wcs-select-option>
  *  </wcs-select>
  *         
@@ -266,7 +267,7 @@ export const Autocomplete: StoryObj = {
  *
  *  public myOptions = this.mockOptions;
  *
- *  onFilterChange($event: any) {
+ *  onFilterChange($event: CustomEvent<SelectFilterChangeEventDetail>) {
  *    const filter = $event.detail.value;
  *    // Simulate a call to the backend server that should return me a filtered list of options
  *    this.myOptions = this.mockOptions.filter(opt => opt.value.toLowerCase().startsWith(filter.toLowerCase()));
@@ -277,30 +278,30 @@ export const Autocomplete: StoryObj = {
 export const AutocompleteWithServerMode: StoryObj = {
     render: (args) => html`
         ${Autocomplete.render(args, this)}
-        <script>
-            const mySelect = document.getElementById('${args.id}')
-
-            mySelect.addEventListener('wcsFilterChange', (e) => {
-                // mock options from server
-                mySelect.querySelectorAll('wcs-select-option').forEach(option => {
-                    option.remove();
-                });
-
-                const options = ${JSON.stringify(sampleDepartments)};
-                const filterStr = e.detail.value;
-                options.forEach(({value, name}) => {
-                    if (name.toLowerCase().startsWith(filterStr.toLowerCase())) {
-                        mySelect.appendChild(document.createElement('wcs-select-option')).textContent = name;
-                    }
-                });
-            });
-        </script>
     `,
     args: {
         ...Autocomplete.args,
         id: 'select-autcomplete-server-mode',
         serverMode: true,
     }
+}
+
+function handleFilterChangeServerMode(ev: any) {
+    // @ts-ignore
+    Array.from(ev.target.children).forEach((option: HTMLWcsSelectOptionElement) => {
+        option.remove();
+    });
+
+    const filterStr = ev.detail.value;
+    sampleDepartments.forEach((department) => {
+        if (department.name.toLowerCase().startsWith(filterStr.toLowerCase())) {
+            // @ts-ignore
+            const optionToAppend = document.createElement('wcs-select-option')
+            optionToAppend.textContent = department.name;
+            optionToAppend.value = department.value;
+            ev.target.appendChild(optionToAppend);
+        }
+    });
 }
 
 /**
