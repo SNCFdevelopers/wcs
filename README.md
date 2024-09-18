@@ -18,6 +18,19 @@ It is built using  [Stencil](https://github.com/ionic-team/stencil) and document
 
 If you read this documentation on GitHub, only the development branch is updated at the moment. We use the [GitLab project](https://gitlab.com/SNCF/wcs/) for WCS development and releases.
 
+## Documentation archives
+
+If you are looking for the documentation of a specific version, you can find using the following links (we only keep the latest version of each major version) :
+
+| Version    | Documentation                           |
+|:-----------|:----------------------------------------|
+| v1         | Not archived                            |
+| v2         | Not archived                            |
+| v3         | Not archived                            |
+| v4         | Not archived                            |
+| v5 (5.1.0) | https://wcs-archive-852f99.gitlab.io/v5 |
+| Latest     | https://wcs.dev.sncf                    |
+
 ## Packages
 
 Here is the list of published npm packages and their goal :
