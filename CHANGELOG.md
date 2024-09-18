@@ -11,6 +11,39 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+for new features.
+
+### Changed
+
+for changes in existing functionality.
+
+### Deprecated
+
+for soon-to-be removed features.
+
+### Removed
+
+for now removed features.
+
+### Fixed
+
+for any bug fixes.
+
+### Security
+
+in case of vulnerabilities.
+
+## [6.0.0-rc.0] - 2024-09-18
+
+⚠ This version contains breaking changes in following packages :
+- wcs-core
+- wcs-angular
+- wcs-react
+
+To migrate, please refer to the storybook documentation (v5 to v6).
+
+### Added
+
 - **accessibility**: 💡 All components now inherit aria-attributes into their shadow DOM and exposes a `setAriaAttribute` method. See new documentation "Accessibility" on Storybook for more info. 
 - **select**: **add server-mode for select autocomplete** (read documentation)
 - **select-option**: add a documentation about handling large text in options
