@@ -1,5 +1,5 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/web-components';
-import { html } from 'lit-html';
+import { html, nothing } from 'lit-html';
 import { WcsTabChangeEvent, WcsTabsAlignment } from '../../../src/components/tabs/tabs-interface';
 // @ts-ignore
 import { getComponentArgs } from '../../utils/args-generation';
@@ -7,7 +7,12 @@ import { getComponentArgs } from '../../utils/args-generation';
 const meta: Meta = {
     title: 'Components/Tabs',
     component: 'wcs-tabs',
-    argTypes: getComponentArgs('wcs-tabs'),
+    argTypes: {
+        ...getComponentArgs('wcs-tabs'),
+        "aria-label": {
+            description: 'An optional aria-label can be added'
+        }
+    },
     parameters: {
         actions: {
             handles: [
@@ -28,10 +33,11 @@ interface TabsStoryArgs {
     selectedKey: any,
     headersOnly: boolean,
     gutter: boolean
+    "aria-label": string,
 }
 
 const Template: StoryFn<Partial<TabsStoryArgs>> = (args) => html`
-    <wcs-tabs accessibility-label= ${"Tabs par défaut"}
+    <wcs-tabs aria-label=${args["aria-label"] ?? nothing}
               align=${args.align}
               .selectedIndex=${args.selectedIndex}
               .selectedKey=${args.selectedKey}
@@ -47,7 +53,15 @@ const Template: StoryFn<Partial<TabsStoryArgs>> = (args) => html`
 `;
 
 export const Default: StoryObj<TabsStoryArgs> = {
-    render: (args: TabsStoryArgs) => Template(args, this)
+    render: (args: TabsStoryArgs) => Template(args, this),
+    args: {
+        align: 'start',
+        selectedIndex: 0,
+        selectedKey: 'firstTab',
+        headersOnly: false,
+        gutter: false,
+        "aria-label": "Tabs par défaut"
+    }
 };
 
 export const WithGutter: StoryObj<TabsStoryArgs> = {
@@ -63,9 +77,9 @@ function tabChangeHandler(event: CustomEvent<WcsTabChangeEvent>) {
     document.getElementById('tab-content').innerText = content;
 }
 
-const TemplateHeadersOnly: StoryFn<Partial<{}>> = (_) => html`
+const TemplateHeadersOnly: StoryFn<Partial<{}>> = (args) => html`
     <!-- Method 'tabChangeHandler' used to change the '#tab-content' div content -->
-    <wcs-tabs accessibility-label=${"Tabs avec évènement se déclenchant au moment du changement d'onget"}
+    <wcs-tabs aria-label=${args["aria-label"] ?? nothing}
     id="tabs-custom-content"
     headers-only
     selected-key="firstTab"
@@ -87,10 +101,14 @@ const TemplateHeadersOnly: StoryFn<Partial<{}>> = (_) => html`
  */
 export const HeadersOnly: StoryObj<TabsStoryArgs> = {
     render: (args: TabsStoryArgs) => TemplateHeadersOnly(args, this),
+    args: {
+        ...Default.args,
+        "aria-label": "Tabs avec évènement se déclenchant au moment du changement d'onget"
+    }
 };
 
-const TemplateScrollableTabs: StoryFn<Partial<{}>> = (_) => html`
-    <wcs-tabs accessibility-label= ${"Tabs avec un header scrollable"}>
+const TemplateScrollableTabs: StoryFn<Partial<{}>> = (args) => html`
+    <wcs-tabs aria-label=${args["aria-label"] ?? nothing}>
         <wcs-tab header="Premier">Premier contenu</wcs-tab>
         <wcs-tab header="Deuxième">Deuxième contenu</wcs-tab>
         <wcs-tab header="Troisième">Troisième contenu</wcs-tab>
@@ -115,9 +133,12 @@ const TemplateScrollableTabs: StoryFn<Partial<{}>> = (_) => html`
 `;
 
 export const ScrollableTabs: StoryObj<TabsStoryArgs> = {
-    render: (args: TabsStoryArgs) => TemplateScrollableTabs(args, this)
+    render: (args: TabsStoryArgs) => TemplateScrollableTabs(args, this),
+    args: {
+        ...Default.args,
+        "aria-label": "Tabs avec un header scrollable"
+    }
 };
-ScrollableTabs.args = {};
 
 let tabId = 0;
 
