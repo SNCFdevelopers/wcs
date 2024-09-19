@@ -21,6 +21,8 @@ const config = {
         "@storybook/addon-essentials",
         "@storybook/addon-docs",
         "@storybook/addon-a11y",
+        // Custom addons located in .storybook/addons
+        "./addons/versioning/register.js"
     ],
     async webpackFinal(config) {
         config.plugins.push(new WatchExternalFilesPlugin({

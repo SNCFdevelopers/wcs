@@ -123,7 +123,7 @@ export default function ComponentsOverview() {
             <div className="grid-container">
                 {
                     components.map((c) => (
-                        <DisplayCard component={c}></DisplayCard>
+                        <DisplayCard component={c} key={c.name}></DisplayCard>
                     ))
                 }
             </div>

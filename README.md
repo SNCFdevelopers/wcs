@@ -64,6 +64,7 @@ Major versions releases :
 - **v3** 👉 Feb 2023
 - **v4** 👉 Sep 2023
 - **v5** 👉 May 2024
+- **v6** 👉 Sep 2024
 
     
 ### Example usage
