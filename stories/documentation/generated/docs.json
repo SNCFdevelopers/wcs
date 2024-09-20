@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-10-07T09:35:05",
+  "timestamp": "2024-10-09T15:45:11",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -1513,11 +1513,6 @@
           "passive": false
         },
         {
-          "event": "wcsCategoryItemClicked",
-          "capture": false,
-          "passive": false
-        },
-        {
           "event": "keydown",
           "target": "window",
           "capture": false,
@@ -1672,25 +1667,6 @@
       ],
       "events": [
         {
-          "event": "wcsCategoryItemClicked",
-          "detail": "UIEvent",
-          "bubbles": true,
-          "complexType": {
-            "original": "UIEvent",
-            "resolved": "UIEvent",
-            "references": {
-              "UIEvent": {
-                "location": "global",
-                "id": "global::UIEvent"
-              }
-            }
-          },
-          "cancelable": true,
-          "composed": true,
-          "docs": "",
-          "docsTags": []
-        },
-        {
           "event": "wcsCategoryOpened",
           "detail": "CategoryOpenedEventDetail",
           "bubbles": true,
@@ -1742,8 +1718,29 @@
       "usage": {},
       "props": [],
       "methods": [],
-      "events": [],
-      "listeners": [],
+      "events": [
+        {
+          "event": "wcsClickOnFinalAction",
+          "detail": "void",
+          "bubbles": true,
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when a user click on a final navigation action.\r\n\r\nUsed by the com-nav component to close the mobile menu overlay when a user click on a final action.",
+          "docsTags": []
+        }
+      ],
+      "listeners": [
+        {
+          "event": "click",
+          "capture": false,
+          "passive": false
+        }
+      ],
       "styles": [],
       "slots": [],
       "parts": [],
@@ -1921,20 +1918,6 @@
       ],
       "events": [
         {
-          "event": "wcsClickOnFinalAction",
-          "detail": "void",
-          "bubbles": true,
-          "complexType": {
-            "original": "void",
-            "resolved": "void",
-            "references": {}
-          },
-          "cancelable": true,
-          "composed": true,
-          "docs": "Emitted when a user click on a final navigation action.\r\n\r\nUsed by the com-nav component to close the mobile menu overlay when a user click on a final action.",
-          "docsTags": []
-        },
-        {
           "event": "wcsSubmenuOpened",
           "detail": "MenuOpenedEventDetail",
           "bubbles": true,
@@ -1975,7 +1958,7 @@
           "passive": false
         },
         {
-          "event": "wcsCategoryItemClicked",
+          "event": "wcsClickOnFinalAction",
           "capture": false,
           "passive": false
         }

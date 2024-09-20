@@ -34,7 +34,6 @@ export class ComNavCategory implements ComponentInterface, MutableAriaAttribute 
     @Prop() label: string;
     @State() private categoryOpen: boolean = false;
     @Event() wcsCategoryOpened: EventEmitter<CategoryOpenedEventDetail>;
-    @Event() wcsCategoryItemClicked: EventEmitter<UIEvent>;
 
     private categoryItemsId = `wcs-com-nav-category-items`;
     private resizeObserver: ResizeObserver;
@@ -120,7 +119,6 @@ export class ComNavCategory implements ComponentInterface, MutableAriaAttribute 
     private handleItemClick(evt: UIEvent) {
         if ((evt.target as HTMLElement).tagName === 'A') {
             this.close();
-            this.wcsCategoryItemClicked.emit(evt);
         }
     }
 

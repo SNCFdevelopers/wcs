@@ -18,10 +18,9 @@ The com-nav-category is a subcomponent of `wcs-com-nav`. It represents a categor
 
 ## Events
 
-| Event                    | Description | Type                                     |
-| ------------------------ | ----------- | ---------------------------------------- |
-| `wcsCategoryItemClicked` |             | `CustomEvent<UIEvent>`                   |
-| `wcsCategoryOpened`      |             | `CustomEvent<CategoryOpenedEventDetail>` |
+| Event               | Description | Type                                     |
+| ------------------- | ----------- | ---------------------------------------- |
+| `wcsCategoryOpened` |             | `CustomEvent<CategoryOpenedEventDetail>` |
 
 
 ## Methods

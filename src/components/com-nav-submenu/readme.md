@@ -20,10 +20,9 @@ The com-nav-submenu is a subcomponent of `wcs-com-nav`. It represents an expanda
 
 ## Events
 
-| Event                   | Description                                                                                                                                                  | Type                                 |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------ |
-| `wcsClickOnFinalAction` | Emitted when a user click on a final navigation action.  Used by the com-nav component to close the mobile menu overlay when a user click on a final action. | `CustomEvent<void>`                  |
-| `wcsSubmenuOpened`      |                                                                                                                                                              | `CustomEvent<MenuOpenedEventDetail>` |
+| Event              | Description | Type                                 |
+| ------------------ | ----------- | ------------------------------------ |
+| `wcsSubmenuOpened` |             | `CustomEvent<MenuOpenedEventDetail>` |
 
 
 ## Methods

@@ -351,7 +351,7 @@ export class WcsComNavCategory {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['wcsCategoryOpened', 'wcsCategoryItemClicked']);
+    proxyOutputs(this, this.el, ['wcsCategoryOpened']);
   }
 }
 
@@ -361,8 +361,6 @@ import type { CategoryOpenedEventDetail as IWcsComNavCategoryCategoryOpenedEvent
 export declare interface WcsComNavCategory extends Components.WcsComNavCategory {
 
   wcsCategoryOpened: EventEmitter<CustomEvent<IWcsComNavCategoryCategoryOpenedEventDetail>>;
-
-  wcsCategoryItemClicked: EventEmitter<CustomEvent<UIEvent>>;
 }
 
 
@@ -380,11 +378,19 @@ export class WcsComNavItem {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['wcsClickOnFinalAction']);
   }
 }
 
 
-export declare interface WcsComNavItem extends Components.WcsComNavItem {}
+export declare interface WcsComNavItem extends Components.WcsComNavItem {
+  /**
+   * Emitted when a user click on a final navigation action.
+
+Used by the com-nav component to close the mobile menu overlay when a user click on a final action.
+   */
+  wcsClickOnFinalAction: EventEmitter<CustomEvent<void>>;
+}
 
 
 @ProxyCmp({
@@ -403,7 +409,7 @@ export class WcsComNavSubmenu {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['wcsSubmenuOpened', 'wcsClickOnFinalAction']);
+    proxyOutputs(this, this.el, ['wcsSubmenuOpened']);
   }
 }
 
@@ -413,12 +419,6 @@ import type { MenuOpenedEventDetail as IWcsComNavSubmenuMenuOpenedEventDetail } 
 export declare interface WcsComNavSubmenu extends Components.WcsComNavSubmenu {
 
   wcsSubmenuOpened: EventEmitter<CustomEvent<IWcsComNavSubmenuMenuOpenedEventDetail>>;
-  /**
-   * Emitted when a user click on a final navigation action.
-
-Used by the com-nav component to close the mobile menu overlay when a user click on a final action.
-   */
-  wcsClickOnFinalAction: EventEmitter<CustomEvent<void>>;
 }
 
 

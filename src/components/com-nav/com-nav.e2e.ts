@@ -17,26 +17,50 @@ describe('Com nav', () => {
                  <wcs-com-nav app-name="App Test">
                     <wcs-com-nav-submenu label="Sous menu" panel-title="Sous Menu"
                                          panel-description="Nullam id dolor id nibh ultricies vehicula ut id elit. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.">
-                        <a href="#">Loisirs & Tourisme</a>
-                        <a href="#">Toutes les lignes</a>
-                        <a href="#">Services mobiles</a>
-                        <a href="#">Au quotidien</a>
-                        <a href="#">Le réseau</a>
+                        <wcs-com-nav-item>
+                            <a href="#">Loisirs & Tourisme</a>
+                        </wcs-com-nav-item>
+                        <wcs-com-nav-item>
+                            <a href="#">Toutes les lignes</a>
+                        </wcs-com-nav-item>
+                        <wcs-com-nav-item>
+                            <a href="#">Services mobiles</a>
+                        </wcs-com-nav-item>
+                        <wcs-com-nav-item>
+                            <a href="#">Au quotidien</a>
+                        </wcs-com-nav-item>
+                        <wcs-com-nav-item>
+                            <a href="#">Le réseau</a>
+                        </wcs-com-nav-item>
                     </wcs-com-nav-submenu>
                     <wcs-com-nav-submenu label="Autre sous menu" panel-title="Autre Sous Menu"
                                          panel-description="Un autre sous menu avec des catégories. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.">
-                        <a href="#">Le réseau</a>
-                        <wcs-com-nav-category label="Une catégorie">
-                            <a href="#">Services mobiles text plus long</a>
-                            <a href="#">Au quotidien</a>
+                        <wcs-com-nav-item>
                             <a href="#">Le réseau</a>
+                        </wcs-com-nav-item>
+                        <wcs-com-nav-category label="Une catégorie">
+                            <wcs-com-nav-item>
+                                <a href="#">Services mobiles text plus long</a>
+                            </wcs-com-nav-item>
+                            <wcs-com-nav-item>
+                                <a href="#">Au quotidien</a>
+                            </wcs-com-nav-item>
+                            <wcs-com-nav-item>
+                                <a href="#">Le réseau</a>
+                            </wcs-com-nav-item>
                         </wcs-com-nav-category>
                         <wcs-com-nav-category label="Une catégorie">
-                            <a href="#">1</a>
-                            <a href="#">2</a>
+                            <wcs-com-nav-item>
+                                <a href="#">1</a>
+                            </wcs-com-nav-item>
+                            <wcs-com-nav-item>
+                                <a href="#">2</a>
+                            </wcs-com-nav-item>
                         </wcs-com-nav-category>
                     </wcs-com-nav-submenu>
-                    <a href="https://sncf.com" target="_blank">Ressource externe</a>
+                    <wcs-com-nav-item id="com-nav-item-last-item">
+                        <a href="https://sncf.com" target="_blank">Ressource externe</a>
+                    </wcs-com-nav-item>
                     <div slot="actions">
                         <wcs-button mode="clear" class="wcs-dark">Connexion</wcs-button>
                     </div>
@@ -104,6 +128,25 @@ describe('Com nav', () => {
                 await page.keyboard.press('Tab');
                 await page.keyboard.press('Tab');
                 await page.keyboard.press('Escape');
+
+                await page.waitForChanges();
+
+                // Then
+                const menu = await page.find('wcs-com-nav >>> .mobile-overlay');
+                expect(menu).not.toHaveAttribute('data-mobile-open');
+            });
+
+            it('should close the mobile menu when clicking on a wcs-com-nav-item', async () => {
+                // Given
+                const menuIcon = await page.find('wcs-com-nav >>> #mobile-menu-icon');
+                await menuIcon.tap();
+
+                // Wait for menu to open
+                await page.waitForChanges();
+
+                // When
+                const navItem = await page.find('#com-nav-item-last-item');
+                await navItem.click();
 
                 await page.waitForChanges();
 

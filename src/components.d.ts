@@ -1526,6 +1526,10 @@ export interface WcsComNavCategoryCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLWcsComNavCategoryElement;
 }
+export interface WcsComNavItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLWcsComNavItemElement;
+}
 export interface WcsComNavSubmenuCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLWcsComNavSubmenuElement;
@@ -1772,7 +1776,6 @@ declare global {
     };
     interface HTMLWcsComNavCategoryElementEventMap {
         "wcsCategoryOpened": CategoryOpenedEventDetail;
-        "wcsCategoryItemClicked": UIEvent;
     }
     /**
      * The com-nav-category is a subcomponent of `wcs-com-nav`. It represents a category nested inside a `wcs-com-nav-submenu`.
@@ -1791,10 +1794,21 @@ declare global {
         prototype: HTMLWcsComNavCategoryElement;
         new (): HTMLWcsComNavCategoryElement;
     };
+    interface HTMLWcsComNavItemElementEventMap {
+        "wcsClickOnFinalAction": void;
+    }
     /**
      * The com-nav-item is a subcomponent of `wcs-com-nav`. It represents a list-item wrapper around a link.
      */
     interface HTMLWcsComNavItemElement extends Components.WcsComNavItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLWcsComNavItemElementEventMap>(type: K, listener: (this: HTMLWcsComNavItemElement, ev: WcsComNavItemCustomEvent<HTMLWcsComNavItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLWcsComNavItemElementEventMap>(type: K, listener: (this: HTMLWcsComNavItemElement, ev: WcsComNavItemCustomEvent<HTMLWcsComNavItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLWcsComNavItemElement: {
         prototype: HTMLWcsComNavItemElement;
@@ -1802,7 +1816,6 @@ declare global {
     };
     interface HTMLWcsComNavSubmenuElementEventMap {
         "wcsSubmenuOpened": MenuOpenedEventDetail;
-        "wcsClickOnFinalAction": void;
     }
     /**
      * The com-nav-submenu is a subcomponent of `wcs-com-nav`. It represents an expandable menu containing more items or categories.
@@ -2917,23 +2930,22 @@ declare namespace LocalJSX {
      */
     interface WcsComNavCategory {
         "label"?: string;
-        "onWcsCategoryItemClicked"?: (event: WcsComNavCategoryCustomEvent<UIEvent>) => void;
         "onWcsCategoryOpened"?: (event: WcsComNavCategoryCustomEvent<CategoryOpenedEventDetail>) => void;
     }
     /**
      * The com-nav-item is a subcomponent of `wcs-com-nav`. It represents a list-item wrapper around a link.
      */
     interface WcsComNavItem {
+        /**
+          * Emitted when a user click on a final navigation action.  Used by the com-nav component to close the mobile menu overlay when a user click on a final action.
+         */
+        "onWcsClickOnFinalAction"?: (event: WcsComNavItemCustomEvent<void>) => void;
     }
     /**
      * The com-nav-submenu is a subcomponent of `wcs-com-nav`. It represents an expandable menu containing more items or categories.
      */
     interface WcsComNavSubmenu {
         "label"?: string;
-        /**
-          * Emitted when a user click on a final navigation action.  Used by the com-nav component to close the mobile menu overlay when a user click on a final action.
-         */
-        "onWcsClickOnFinalAction"?: (event: WcsComNavSubmenuCustomEvent<void>) => void;
         "onWcsSubmenuOpened"?: (event: WcsComNavSubmenuCustomEvent<MenuOpenedEventDetail>) => void;
         "panelDescription"?: string;
         "panelTitle"?: string;

@@ -38,12 +38,6 @@ export class ComNavSubmenu implements ComponentInterface, MutableAriaAttribute {
     @Prop() panelDescription: string;
     @State() private menuOpen: boolean = false;
     @Event() wcsSubmenuOpened: EventEmitter<MenuOpenedEventDetail>;
-    /**
-     * Emitted when a user click on a final navigation action.
-     *
-     * Used by the com-nav component to close the mobile menu overlay when a user click on a final action.
-     */
-    @Event() wcsClickOnFinalAction: EventEmitter<void>;
 
     private menuItemsId = `wcs-com-nav-submenu-items`;
     private resizeObserver: ResizeObserver;
@@ -141,7 +135,6 @@ export class ComNavSubmenu implements ComponentInterface, MutableAriaAttribute {
     private handleMenuItemsClick(evt: UIEvent) {
         if ((evt.target as HTMLElement).tagName === 'A') {
             this.close();
-            this.wcsClickOnFinalAction.emit();
         }
     }
 
@@ -150,7 +143,7 @@ export class ComNavSubmenu implements ComponentInterface, MutableAriaAttribute {
      * @param _
      * @private
      */
-    @Listen('wcsCategoryItemClicked')
+    @Listen('wcsClickOnFinalAction')
     // @ts-ignore
     private wcsCategoryItemClickedHandler(_: CustomEvent<UIEvent>) {
         // If a category item is clicked, we close the submenu drawer;

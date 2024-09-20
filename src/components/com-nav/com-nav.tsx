@@ -44,7 +44,6 @@ export class ComNav implements ComponentInterface, MutableAriaAttribute {
     @State() private mobileMenuOpen: boolean = false;
     @State() public currentActiveSizing: ComNavSize;
     private resizeObserver: ResizeObserver;
-    private hasAlreadyRegisteredClickHandlerOnSlottedLink: boolean = false;
 
     private mobileMenuIconClick() {
         this.mobileMenuOpen = !this.mobileMenuOpen;
@@ -70,10 +69,6 @@ export class ComNav implements ComponentInterface, MutableAriaAttribute {
             this.resizeObserver.observe(document.body);
         }
     }
-
-    componentDidRender() {
-        this.registerHandlerToCloseMobileMenuOnClickOnSlottedLinkTag();
-    }
     
     @Method()
     async setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) {
@@ -82,45 +77,22 @@ export class ComNav implements ComponentInterface, MutableAriaAttribute {
         this.inheritedAttributes[attr] = value;
         forceUpdate(this);
     }
-    
-    private registerHandlerToCloseMobileMenuOnClickOnSlottedLinkTag() {
-        if (this.hasAlreadyRegisteredClickHandlerOnSlottedLink) return;
 
-        const mainSlot = this.el.shadowRoot.querySelector('slot:not([name])') as HTMLSlotElement;
-        if (mainSlot) {
-            this.hasAlreadyRegisteredClickHandlerOnSlottedLink = true;
-            // If the user click on a `a` tag, we close the mobile menu overlay.
-            mainSlot.assignedElements().filter(e => e.tagName === 'A').forEach(a => {
-                    a.addEventListener('click', _ => {
-                        this.mobileMenuOpen = false;
-                    })
-                }
-            );
-
-        }
+    private closeMobileMenu() {
+        this.mobileMenuOpen = false;
     }
 
-    //region Handlers for mobile menu overlay visibility
-    //
     // In mobile mode, we have only one global drawer to display the menu, that why we have to listen the clicks events
     // in the root component (this component). In desktop mode, all submenus and categories manage their drawer its
     // opening state.
     //
-    // We listen to the click events fired by the sebmenu component and we close the mobile menu.
+    // We listen to the click events fired by the submenu component and we close the mobile menu.
     // In desktop mode, the submenu itself manages the closing of the menu.
     @Listen('wcsClickOnFinalAction')
     onClickOnFinalAction() {
-        this.mobileMenuOpen = false;
+        this.closeMobileMenu();
     }
-
-    // We also listen click events on the category menu items, to close the mobile menu.
-    // In desktop mode, the category itself manages the closing of the menu.
-    @Listen('wcsCategoryItemClicked')
-    onClickOnFinalActionCat() {
-        this.mobileMenuOpen = false;
-    }
-
-    //endregion
+    
     render() {
         const menuAriaLabel = this.inheritedAttributes['aria-label'] || undefined;
         
@@ -168,7 +140,7 @@ export class ComNav implements ComponentInterface, MutableAriaAttribute {
     @Listen('keydown', {target: 'window'})
     exitMobileMenuOnKeyDown(evt: KeyboardEvent) {
         if (isEscapeKey(evt)) {
-            this.mobileMenuOpen = false;
+            this.closeMobileMenu();
         }
     }
 }

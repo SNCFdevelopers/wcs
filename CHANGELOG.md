@@ -30,6 +30,7 @@ for now removed features.
 - **select**:
   - fix autocomplete server-mode problem that was clearing the filter unintentionally
   - improve autocomplete server-mode documentation
+- **com-nav**: close mobile menu when click on a link (`wcs-com-nav-item`)
 
 ### Security
 

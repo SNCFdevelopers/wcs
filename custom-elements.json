@@ -289,14 +289,14 @@
               "type": {
                 "text": "T[]"
               },
-              "description": "The list of items to search"
+              "description": "The source list of items"
             },
             {
               "name": "newList",
               "type": {
                 "text": "T[]"
               },
-              "description": "The list of items to search"
+              "description": "The target list of items"
             },
             {
               "name": "compareFn",
@@ -306,7 +306,7 @@
               "description": "The function to compare the items"
             }
           ],
-          "description": "Given a list of items, this function will return the item that matches the value"
+          "description": "Given two lists of items, this function will return the items that were removed, kept, and added compared to the source list."
         },
         {
           "kind": "function",
@@ -2721,15 +2721,6 @@
               "privacy": "private"
             },
             {
-              "kind": "field",
-              "name": "hasAlreadyRegisteredClickHandlerOnSlottedLink",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "default": "false"
-            },
-            {
               "kind": "method",
               "name": "mobileMenuIconClick",
               "privacy": "private"
@@ -2754,16 +2745,12 @@
             },
             {
               "kind": "method",
-              "name": "registerHandlerToCloseMobileMenuOnClickOnSlottedLinkTag",
+              "name": "closeMobileMenu",
               "privacy": "private"
             },
             {
               "kind": "method",
-              "name": "onClickOnFinalAction"
-            },
-            {
-              "kind": "method",
-              "name": "onClickOnFinalActionCat"
+              "name": "onClick"
             },
             {
               "kind": "method",
@@ -3012,12 +2999,6 @@
               "type": {
                 "text": "EventEmitter<CategoryOpenedEventDetail>"
               }
-            },
-            {
-              "name": "wcsCategoryItemClicked",
-              "type": {
-                "text": "EventEmitter<UIEvent>"
-              }
             }
           ],
           "customElement": true
@@ -3053,11 +3034,23 @@
           "members": [
             {
               "kind": "method",
+              "name": "onClick"
+            },
+            {
+              "kind": "method",
               "name": "render"
             }
           ],
           "tagName": "wcs-com-nav-item",
-          "events": [],
+          "events": [
+            {
+              "name": "wcsClickOnFinalAction",
+              "type": {
+                "text": "EventEmitter<void>"
+              },
+              "description": "Emitted when a user click on a final navigation action.\r\n\r\nUsed by the com-nav component to close the mobile menu overlay when a user click on a final action."
+            }
+          ],
           "customElement": true
         }
       ],
@@ -3331,13 +3324,6 @@
               "type": {
                 "text": "EventEmitter<MenuOpenedEventDetail>"
               }
-            },
-            {
-              "name": "wcsClickOnFinalAction",
-              "type": {
-                "text": "EventEmitter<void>"
-              },
-              "description": "Emitted when a user click on a final navigation action.\r\n\r\nUsed by the com-nav component to close the mobile menu overlay when a user click on a final action."
             }
           ],
           "customElement": true
@@ -6406,6 +6392,81 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/grid-custom-cell/grid-custom-cell.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The grid custom cell is a subcomponent of `wcs-grid`.",
+          "name": "GridCustomCell",
+          "members": [
+            {
+              "kind": "field",
+              "name": "columnId",
+              "type": {
+                "text": "string"
+              },
+              "description": "ID of the column for which to render the cell"
+            },
+            {
+              "kind": "field",
+              "name": "rowId",
+              "type": {
+                "text": "any"
+              },
+              "description": "Key value of the object rendered for the cell's row"
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "column-id",
+              "fieldName": "columnId",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "row-id",
+              "fieldName": "rowId",
+              "type": {
+                "text": "any"
+              }
+            }
+          ],
+          "tagName": "wcs-grid-custom-cell",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "GridCustomCell",
+          "declaration": {
+            "name": "GridCustomCell",
+            "module": "components/grid-custom-cell/grid-custom-cell.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-grid-custom-cell",
+          "declaration": {
+            "name": "GridCustomCell",
+            "module": "components/grid-custom-cell/grid-custom-cell.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/grid-column/grid-column.tsx",
       "declarations": [
         {
@@ -6782,81 +6843,6 @@
           "declaration": {
             "name": "GridSortArrow",
             "module": "components/grid-column/grid-sort-arrow.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/grid-custom-cell/grid-custom-cell.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The grid custom cell is a subcomponent of `wcs-grid`.",
-          "name": "GridCustomCell",
-          "members": [
-            {
-              "kind": "field",
-              "name": "columnId",
-              "type": {
-                "text": "string"
-              },
-              "description": "ID of the column for which to render the cell"
-            },
-            {
-              "kind": "field",
-              "name": "rowId",
-              "type": {
-                "text": "any"
-              },
-              "description": "Key value of the object rendered for the cell's row"
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "column-id",
-              "fieldName": "columnId",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "row-id",
-              "fieldName": "rowId",
-              "type": {
-                "text": "any"
-              }
-            }
-          ],
-          "tagName": "wcs-grid-custom-cell",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "GridCustomCell",
-          "declaration": {
-            "name": "GridCustomCell",
-            "module": "components/grid-custom-cell/grid-custom-cell.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-grid-custom-cell",
-          "declaration": {
-            "name": "GridCustomCell",
-            "module": "components/grid-custom-cell/grid-custom-cell.tsx"
           }
         }
       ]
@@ -7697,102 +7683,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/label/label.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The `wcs-label` should always be wrapped in a `wcs-form-field`.\r\nIt is used to caption a form control component.\r\n\r\n## Accessibility guidelines 💡\r\n- Use concise name for the label. If you want to describe more your form control, add a `wcs-hint`\r\n- Use the required flag only as an indication to inform users that the form control is required",
-          "name": "Label",
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "nativeLabel",
-              "type": {
-                "text": "HTMLLabelElement | undefined"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "required",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "If `true`, marks the label with a red star.\r\nAutomatically added if the wrapped component inside the `wcs-form-field` already has the `required` attribute."
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "required",
-              "fieldName": "required"
-            }
-          ],
-          "tagName": "wcs-label",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Label",
-          "declaration": {
-            "name": "Label",
-            "module": "components/label/label.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-label",
-          "declaration": {
-            "name": "Label",
-            "module": "components/label/label.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/input/input-interface.ts",
       "declarations": [
         {
@@ -8458,6 +8348,102 @@
           "declaration": {
             "name": "Input",
             "module": "components/input/input.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/label/label.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The `wcs-label` should always be wrapped in a `wcs-form-field`.\r\nIt is used to caption a form control component.\r\n\r\n## Accessibility guidelines 💡\r\n- Use concise name for the label. If you want to describe more your form control, add a `wcs-hint`\r\n- Use the required flag only as an indication to inform users that the form control is required",
+          "name": "Label",
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeLabel",
+              "type": {
+                "text": "HTMLLabelElement | undefined"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "If `true`, marks the label with a red star.\r\nAutomatically added if the wrapped component inside the `wcs-form-field` already has the `required` attribute."
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "required",
+              "fieldName": "required"
+            }
+          ],
+          "tagName": "wcs-label",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Label",
+          "declaration": {
+            "name": "Label",
+            "module": "components/label/label.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-label",
+          "declaration": {
+            "name": "Label",
+            "module": "components/label/label.tsx"
           }
         }
       ]
@@ -11171,6 +11157,12 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/skeleton/skeleton-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/select-option/select-option-interface.ts",
       "declarations": [],
       "exports": []
@@ -11363,12 +11355,6 @@
           }
         }
       ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/skeleton/skeleton-interface.ts",
-      "declarations": [],
-      "exports": []
     },
     {
       "kind": "javascript-module",
