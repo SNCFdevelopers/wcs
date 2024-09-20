@@ -54,7 +54,7 @@ const Template: StoryFn<WcsNavArgs & WcsNavItemArgs> = (args: WcsNavArgs & WcsNa
         navItem.children[0]?.removeAttribute('aria-current');
     });
     $event.target.closest('wcs-nav-item').classList.toggle('active', true);
-    $event.target.closest('a').setAttribute('aria-current', 'page');
+    $event.target.closest('a')?.setAttribute('aria-current', 'page');
   }
     
   return html`
