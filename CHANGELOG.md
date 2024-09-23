@@ -33,7 +33,7 @@ for now removed features.
 
 in case of vulnerabilities.
 
-## [6.0.0-rc.0] - 2024-09-18
+## [6.0.0-rc.1] - 2024-09-18
 
 ⚠ This version contains breaking changes in following packages :
 - wcs-core
@@ -64,10 +64,6 @@ To migrate, please refer to the storybook documentation (v5 to v6).
 - **select**: rename `SelectFilerChangeEventDetail` to `SelectFilterChangeEventDetail`
 - **nav-item**: anchor elements are now slotted. See v5 → v6 migration for more info.
 
-### Deprecated
-
-for soon-to-be removed features.
-
 ### Removed
 
 - **radio**: remove `checked` property. See v5 → v6 migration for more info.
@@ -92,10 +88,6 @@ for soon-to-be removed features.
 - **dropdown**: improve accessibility
 - **stepper**: (accessibility) use aria-current="true" instead of tab pattern (does not work with Voice Over)
 - **modal**: focusable elements were not updated during the opening lifecycle
-
-### Security
-
-in case of vulnerabilities.
 
 ## [5.1.0] - 2024-06-26
 
