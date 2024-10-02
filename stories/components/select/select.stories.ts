@@ -1,15 +1,18 @@
 import { Meta, StoryObj } from '@storybook/web-components';
 import { html, nothing } from 'lit-html';
 import { getComponentArgs } from '../../utils/args-generation';
-import { WcsDefaultSelectFilterFn } from "../../../src/components/select/select-interface";
 import { withActions } from '@storybook/addon-actions/decorator';
 import { sampleDepartments } from "./select-sample-data";
-import { useArgs } from "@storybook/addons";
 
 const meta: Meta = {
     title: 'Components/Select',
     component: 'wcs-select',
-    argTypes: getComponentArgs('wcs-select'),
+    argTypes: {
+        ...getComponentArgs('wcs-select'),
+        departments: {
+            description: 'Sample options for demo'
+        },
+    },
     parameters: {
         actions: {
             handles: [
@@ -17,6 +20,7 @@ const meta: Meta = {
                 'wcsFocus',
                 'wcsBlur',
                 'wcsFilterChange',
+                'wcsSelectOptionClick',
             ]
         }
     },
@@ -223,7 +227,8 @@ export const Autocomplete: StoryObj = {
                         ?disabled="${args.disabled}"
                         ?multiple="${args.multiple}"
                         ?chips="${args.chips}">
-                ${args.departments.map(({value, name}) => html`<wcs-select-option value="${value}">${name}</wcs-select-option>
+                ${args.departments.map(({value, hidden, disabled, name }) =>
+                    html`<wcs-select-option value="${value}" .hidden="${hidden}" .disabled="${disabled}">${name}</wcs-select-option>
                 `)}
             </wcs-select>
         </wcs-form-field>
@@ -274,6 +279,19 @@ export const Autocomplete: StoryObj = {
  *  }
  * ```
  * 
+ * > 💡 **It is advised to fetch some default option from your server** (e.g : first or relevant 10 results, favorite results...).
+ * > If you don't want any default value in your autocomplete select with server mode, you can add a disabled, invisible option.
+ * > This will ensure the "No result" slot will be shown after your first input :
+ * >
+ * > ```html
+ * > <wcs-select-option disabled hidden></wcs-select-option>
+ * > OR
+ * > <wcs-select-option disabled>Enter your search above</wcs-select-option>
+ * > OR
+ * > <div slot="options">Enter your search above</div>
+ * > ```
+ * >
+ * > **Make sure this option is removed after the first search to ensure the slot change is triggered.**  
  */
 export const AutocompleteWithServerMode: StoryObj = {
     render: (args) => html`
@@ -281,8 +299,9 @@ export const AutocompleteWithServerMode: StoryObj = {
     `,
     args: {
         ...Autocomplete.args,
-        id: 'select-autcomplete-server-mode',
+        id: 'select-autocomplete-server-mode',
         serverMode: true,
+        departments: sampleDepartments.slice(0, 10)
     }
 }
 
@@ -442,10 +461,13 @@ function handleChange(v: any) {
   
   isError = isErrorMultipleRegion || isErrorTooManyStations;
   
-  document.querySelector('#form-field').setAttribute('is-error', isError ? 'true' : 'false');
-  document.querySelector("#select-special-cases").classList.toggle('error-indicator', isError);
+  // @ts-ignore
+    document.querySelector('#form-field').setAttribute('is-error', isError ? 'true' : 'false');
+  // @ts-ignore
+    document.querySelector("#select-special-cases").classList.toggle('error-indicator', isError);
   
   if (isError) {
+      // @ts-ignore
       document.querySelector('#special-error').innerHTML = "⚠️" +
           (isErrorMultipleRegion ? " Chosen stations must be in the same region. " : "") +
           (isErrorTooManyStations ? " You can only select 2 stations. " : "");
