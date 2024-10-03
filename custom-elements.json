@@ -1703,6 +1703,90 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/breadcrumb-item/breadcrumb-item.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The breadcrumb item represents a link inside a breadcrumb.",
+          "name": "BreadcrumbItem",
+          "cssProperties": [
+            {
+              "description": "Maximum height of the breadcrumb item",
+              "name": "--wcs-breadcrumb-item-max-height"
+            },
+            {
+              "description": "Color of the breadcrumb item icon",
+              "name": "--wcs-breadcrumb-item-icon-color"
+            },
+            {
+              "description": "Font size of the breadcrumb item icon",
+              "name": "--wcs-breadcrumb-item-icon-font-size"
+            },
+            {
+              "description": "Gap between text and chevron icon",
+              "name": "--wcs-breadcrumb-item-gap"
+            },
+            {
+              "description": "Color of the breadcrumb item link",
+              "name": "--wcs-breadcrumb-item-link-color"
+            },
+            {
+              "description": "Font weight of the breadcrumb item link",
+              "name": "--wcs-breadcrumb-item-link-font-weight"
+            },
+            {
+              "description": "Border width of the breadcrumb item when focused",
+              "name": "--wcs-breadcrumb-item-border-width-focus"
+            },
+            {
+              "description": "Border color of the breadcrumb item when focused",
+              "name": "--wcs-breadcrumb-item-border-color-focus"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Main container slot",
+              "name": "<no-name>"
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "last",
+              "fieldName": "last"
+            }
+          ],
+          "tagName": "wcs-breadcrumb-item",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "BreadcrumbItem",
+          "declaration": {
+            "name": "BreadcrumbItem",
+            "module": "components/breadcrumb-item/breadcrumb-item.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-breadcrumb-item",
+          "declaration": {
+            "name": "BreadcrumbItem",
+            "module": "components/breadcrumb-item/breadcrumb-item.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/breadcrumb/breadcrumb-constants.ts",
       "declarations": [
         {
@@ -2045,90 +2129,6 @@
           "declaration": {
             "name": "Breadcrumb",
             "module": "components/breadcrumb/breadcrumb.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/breadcrumb-item/breadcrumb-item.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The breadcrumb item represents a link inside a breadcrumb.",
-          "name": "BreadcrumbItem",
-          "cssProperties": [
-            {
-              "description": "Maximum height of the breadcrumb item",
-              "name": "--wcs-breadcrumb-item-max-height"
-            },
-            {
-              "description": "Color of the breadcrumb item icon",
-              "name": "--wcs-breadcrumb-item-icon-color"
-            },
-            {
-              "description": "Font size of the breadcrumb item icon",
-              "name": "--wcs-breadcrumb-item-icon-font-size"
-            },
-            {
-              "description": "Gap between text and chevron icon",
-              "name": "--wcs-breadcrumb-item-gap"
-            },
-            {
-              "description": "Color of the breadcrumb item link",
-              "name": "--wcs-breadcrumb-item-link-color"
-            },
-            {
-              "description": "Font weight of the breadcrumb item link",
-              "name": "--wcs-breadcrumb-item-link-font-weight"
-            },
-            {
-              "description": "Border width of the breadcrumb item when focused",
-              "name": "--wcs-breadcrumb-item-border-width-focus"
-            },
-            {
-              "description": "Border color of the breadcrumb item when focused",
-              "name": "--wcs-breadcrumb-item-border-color-focus"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Main container slot",
-              "name": "<no-name>"
-            }
-          ],
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "last",
-              "fieldName": "last"
-            }
-          ],
-          "tagName": "wcs-breadcrumb-item",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "BreadcrumbItem",
-          "declaration": {
-            "name": "BreadcrumbItem",
-            "module": "components/breadcrumb-item/breadcrumb-item.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-breadcrumb-item",
-          "declaration": {
-            "name": "BreadcrumbItem",
-            "module": "components/breadcrumb-item/breadcrumb-item.tsx"
           }
         }
       ]
@@ -2663,6 +2663,50 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/card-body/card-body.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The card-body is a subcomponent of `wcs-card`. It represents content of the card with an extra padding around.",
+          "name": "CardBody",
+          "cssProperties": [
+            {
+              "description": "Padding of the card body",
+              "name": "--wcs-card-body-padding"
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-card-body",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CardBody",
+          "declaration": {
+            "name": "CardBody",
+            "module": "components/card-body/card-body.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-card-body",
+          "declaration": {
+            "name": "CardBody",
+            "module": "components/card-body/card-body.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/checkbox/checkbox-interface.ts",
       "declarations": [],
       "exports": []
@@ -2978,50 +3022,6 @@
           "declaration": {
             "name": "Checkbox",
             "module": "components/checkbox/checkbox.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/card-body/card-body.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The card-body is a subcomponent of `wcs-card`. It represents content of the card with an extra padding around.",
-          "name": "CardBody",
-          "cssProperties": [
-            {
-              "description": "Padding of the card body",
-              "name": "--wcs-card-body-padding"
-            }
-          ],
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-card-body",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "CardBody",
-          "declaration": {
-            "name": "CardBody",
-            "module": "components/card-body/card-body.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-card-body",
-          "declaration": {
-            "name": "CardBody",
-            "module": "components/card-body/card-body.tsx"
           }
         }
       ]
@@ -4227,44 +4227,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/divider/divider.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Divider",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-divider",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Divider",
-          "declaration": {
-            "name": "Divider",
-            "module": "components/divider/divider.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-divider",
-          "declaration": {
-            "name": "Divider",
-            "module": "components/divider/divider.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/dropdown/dropdown-interface.ts",
       "declarations": [],
       "exports": []
@@ -4766,6 +4728,44 @@
           "declaration": {
             "name": "Dropdown",
             "module": "components/dropdown/dropdown.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/divider/divider.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Divider",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-divider",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Divider",
+          "declaration": {
+            "name": "Divider",
+            "module": "components/divider/divider.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-divider",
+          "declaration": {
+            "name": "Divider",
+            "module": "components/divider/divider.tsx"
           }
         }
       ]
@@ -5680,6 +5680,52 @@
           "kind": "class",
           "description": "The footer component has been designed to leave as much customization as possible to the developer. The footers are often specific to the application developed.",
           "name": "Footer",
+          "cssProperties": [
+            {
+              "description": "Background color of the footer",
+              "name": "--wcs-footer-background-color"
+            },
+            {
+              "description": "Text color of the footer",
+              "name": "--wcs-footer-text-color"
+            },
+            {
+              "description": "Text color of the links in the footer",
+              "name": "--wcs-footer-link-text-color"
+            },
+            {
+              "description": "Text color of the links in the footer when hovered",
+              "name": "--wcs-footer-link-text-color-hover"
+            },
+            {
+              "description": "Font size of the links in the footer",
+              "name": "--wcs-footer-link-font-size"
+            },
+            {
+              "description": "Font weight of the links in the footer",
+              "name": "--wcs-footer-link-font-weight"
+            },
+            {
+              "description": "Gap between the links in the footer",
+              "name": "--wcs-footer-link-gap"
+            },
+            {
+              "description": "Vertical gap between the content and the two end slots",
+              "name": "--wcs-footer-gap"
+            },
+            {
+              "description": "Horizontal gap between the right and left end slots",
+              "name": "--wcs-footer-end-gap"
+            },
+            {
+              "description": "Max width of the footer for responsive purposes",
+              "name": "--wcs-footer-max-width"
+            },
+            {
+              "description": "Padding all around the content of the footer",
+              "name": "--wcs-footer-padding"
+            }
+          ],
           "slots": [
             {
               "description": "Main container slot",
@@ -9518,6 +9564,44 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/list-item-property/list-item-property.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The list-item-property is a subcomponent of `wcs-list-item`.\r\nWrapped in a `wcs-list-item-properties`, it represents a property to describe an item.",
+          "name": "ListItemProperty",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-list-item-property",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ListItemProperty",
+          "declaration": {
+            "name": "ListItemProperty",
+            "module": "components/list-item-property/list-item-property.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-list-item-property",
+          "declaration": {
+            "name": "ListItemProperty",
+            "module": "components/list-item-property/list-item-property.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/mat-icon/mat-icon-interface.tsx",
       "declarations": [],
       "exports": []
@@ -9648,44 +9732,6 @@
           "declaration": {
             "name": "MatIcon",
             "module": "components/mat-icon/mat-icon.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/list-item-property/list-item-property.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The list-item-property is a subcomponent of `wcs-list-item`.\r\nWrapped in a `wcs-list-item-properties`, it represents a property to describe an item.",
-          "name": "ListItemProperty",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-list-item-property",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ListItemProperty",
-          "declaration": {
-            "name": "ListItemProperty",
-            "module": "components/list-item-property/list-item-property.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-list-item-property",
-          "declaration": {
-            "name": "ListItemProperty",
-            "module": "components/list-item-property/list-item-property.tsx"
           }
         }
       ]
@@ -13019,6 +13065,12 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/skeleton/skeleton-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/skeleton-circle/skeleton-circle.tsx",
       "declarations": [
         {
@@ -13114,12 +13166,6 @@
           }
         }
       ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/skeleton/skeleton-interface.ts",
-      "declarations": [],
-      "exports": []
     },
     {
       "kind": "javascript-module",

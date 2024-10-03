@@ -1,21 +1,37 @@
 :host {
+    // region to be removed before migration to design tokens
+    --wcs-footer-background-color: var(--wcs-gray);
+    --wcs-footer-text-color: var(--wcs-white);
+    --wcs-footer-link-text-color: var(--wcs-text-disabled);
+    --wcs-footer-link-text-color-hover: var(--wcs-white);
+    --wcs-footer-link-font-size: 14px;
+    --wcs-footer-link-font-weight: 500;
+    --wcs-footer-link-gap: 35px;
+
+    --wcs-footer-gap: calc(2 * var(--wcs-base-margin));
+    --wcs-footer-end-gap: var(--wcs-base-margin);
+    --wcs-footer-max-width: var(--wcs-com-content-max-width);
+    --wcs-footer-padding: 20px;
+    // endregion
+
     display: block;
     width: 100%;
-    background-color: var(--wcs-gray);
-    color: white;
+    background-color: var(--wcs-footer-background-color);
+    color: var(--wcs-footer-text-color);
 
     .end {
-        margin-top: calc(2*var(--wcs-base-margin));
+        margin-top: var(--wcs-footer-gap);
+        gap: var(--wcs-footer-end-gap);
         width: 100%;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
         align-items: baseline;
-        gap: var(--wcs-base-margin);
 
         .end-left, .end-right {
             display: flex;
             flex-wrap: wrap;
+            column-gap: var(--wcs-footer-link-gap);
         }
 
         @media only screen and (max-width:1024px) {
@@ -25,25 +41,39 @@
         }
 
         slot[name=end-left]::slotted(a) {
-            color: var(--wcs-text-disabled);
-            text-decoration: none;
+            color: var(--wcs-footer-link-text-color, var(--wcs-footer-text-color));
             font-size: 14px;
             font-weight: 500;
-            margin-right: 35px;
+            text-decoration: none;
         }
 
         slot[name=end-left]::slotted(a:hover) {
-            color: var(--wcs-white);
+            color: var(--wcs-footer-link-text-color-hover);
         }
 
     }
 
     .container {
         margin: 0 auto;
-        max-width: var(--wcs-com-content-max-width);
         display: flex;
         flex-direction: column;
-        padding: 20px;
+        max-width: var(--wcs-footer-max-width);
+        padding: var(--wcs-footer-padding);
     }
 
+}
+
+:host(.token-migration) {
+    --wcs-footer-background-color: var(--wcs-semantic-color-background-surface-inverse);
+    --wcs-footer-text-color: var(--wcs-semantic-color-text-inverse);
+    --wcs-footer-link-text-color: var(--wcs-semantic-color-text-inverse);
+    --wcs-footer-link-text-color-hover:  var(--wcs-semantic-color-text-inverse);
+    --wcs-footer-link-font-size: var(--wcs-semantic-font-size-strong-2);
+    --wcs-footer-link-font-weight: var(--wcs-semantic-font-weight-medium);
+    --wcs-footer-link-gap: var(4 * --wcs-semantic-spacing-base);
+
+    --wcs-footer-gap: calc(2 * var(--wcs-semantic-spacing-base));
+    --wcs-footer-end-gap: calc(2 * var(--wcs-semantic-spacing-base));
+    --wcs-footer-max-width: var(--wcs-semantic-breakpoint-desktop, var(--wcs-com-content-max-width));
+    --wcs-footer-padding: calc(3 * var(--wcs-semantic-spacing-base));
 }

@@ -658,6 +658,17 @@ export namespace Components {
     }
     /**
      * The footer component has been designed to leave as much customization as possible to the developer. The footers are often specific to the application developed.
+     * @cssprop --wcs-footer-background-color - Background color of the footer
+     * @cssprop --wcs-footer-text-color - Text color of the footer
+     * @cssprop --wcs-footer-link-text-color - Text color of the links in the footer
+     * @cssprop --wcs-footer-link-text-color-hover - Text color of the links in the footer when hovered
+     * @cssprop --wcs-footer-link-font-size - Font size of the links in the footer
+     * @cssprop --wcs-footer-link-font-weight - Font weight of the links in the footer
+     * @cssprop --wcs-footer-link-gap - Gap between the links in the footer
+     * @cssprop --wcs-footer-gap - Vertical gap between the content and the two end slots
+     * @cssprop --wcs-footer-end-gap - Horizontal gap between the right and left end slots
+     * @cssprop --wcs-footer-max-width - Max width of the footer for responsive purposes
+     * @cssprop --wcs-footer-padding - Padding all around the content of the footer
      */
     interface WcsFooter {
     }
@@ -2645,6 +2656,17 @@ declare global {
     };
     /**
      * The footer component has been designed to leave as much customization as possible to the developer. The footers are often specific to the application developed.
+     * @cssprop --wcs-footer-background-color - Background color of the footer
+     * @cssprop --wcs-footer-text-color - Text color of the footer
+     * @cssprop --wcs-footer-link-text-color - Text color of the links in the footer
+     * @cssprop --wcs-footer-link-text-color-hover - Text color of the links in the footer when hovered
+     * @cssprop --wcs-footer-link-font-size - Font size of the links in the footer
+     * @cssprop --wcs-footer-link-font-weight - Font weight of the links in the footer
+     * @cssprop --wcs-footer-link-gap - Gap between the links in the footer
+     * @cssprop --wcs-footer-gap - Vertical gap between the content and the two end slots
+     * @cssprop --wcs-footer-end-gap - Horizontal gap between the right and left end slots
+     * @cssprop --wcs-footer-max-width - Max width of the footer for responsive purposes
+     * @cssprop --wcs-footer-padding - Padding all around the content of the footer
      */
     interface HTMLWcsFooterElement extends Components.WcsFooter, HTMLStencilElement {
     }
@@ -4251,6 +4273,17 @@ declare namespace LocalJSX {
     }
     /**
      * The footer component has been designed to leave as much customization as possible to the developer. The footers are often specific to the application developed.
+     * @cssprop --wcs-footer-background-color - Background color of the footer
+     * @cssprop --wcs-footer-text-color - Text color of the footer
+     * @cssprop --wcs-footer-link-text-color - Text color of the links in the footer
+     * @cssprop --wcs-footer-link-text-color-hover - Text color of the links in the footer when hovered
+     * @cssprop --wcs-footer-link-font-size - Font size of the links in the footer
+     * @cssprop --wcs-footer-link-font-weight - Font weight of the links in the footer
+     * @cssprop --wcs-footer-link-gap - Gap between the links in the footer
+     * @cssprop --wcs-footer-gap - Vertical gap between the content and the two end slots
+     * @cssprop --wcs-footer-end-gap - Horizontal gap between the right and left end slots
+     * @cssprop --wcs-footer-max-width - Max width of the footer for responsive purposes
+     * @cssprop --wcs-footer-padding - Padding all around the content of the footer
      */
     interface WcsFooter {
     }
@@ -6041,6 +6074,17 @@ declare module "@stencil/core" {
             "wcs-field-label": LocalJSX.WcsFieldLabel & JSXBase.HTMLAttributes<HTMLWcsFieldLabelElement>;
             /**
              * The footer component has been designed to leave as much customization as possible to the developer. The footers are often specific to the application developed.
+             * @cssprop --wcs-footer-background-color - Background color of the footer
+             * @cssprop --wcs-footer-text-color - Text color of the footer
+             * @cssprop --wcs-footer-link-text-color - Text color of the links in the footer
+             * @cssprop --wcs-footer-link-text-color-hover - Text color of the links in the footer when hovered
+             * @cssprop --wcs-footer-link-font-size - Font size of the links in the footer
+             * @cssprop --wcs-footer-link-font-weight - Font weight of the links in the footer
+             * @cssprop --wcs-footer-link-gap - Gap between the links in the footer
+             * @cssprop --wcs-footer-gap - Vertical gap between the content and the two end slots
+             * @cssprop --wcs-footer-end-gap - Horizontal gap between the right and left end slots
+             * @cssprop --wcs-footer-max-width - Max width of the footer for responsive purposes
+             * @cssprop --wcs-footer-padding - Padding all around the content of the footer
              */
             "wcs-footer": LocalJSX.WcsFooter & JSXBase.HTMLAttributes<HTMLWcsFooterElement>;
             /**
