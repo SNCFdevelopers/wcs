@@ -1,6 +1,14 @@
 @import "../skeleton/skeleton.scss";
 
 :host {
+    // region to be removed before migration to design tokens
+    --wcs-skeleton-circle-border-radius: 999rem;
+    // endregion
+
     aspect-ratio: 1/1;
-    border-radius: 999rem;
+    border-radius: var(--wcs-skeleton-circle-border-radius);
+}
+
+:host(.token-migration) {
+    --wcs-skeleton-circle-border-radius: var(--wcs-semantic-border-radius-circular);
 }

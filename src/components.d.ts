@@ -1572,6 +1572,12 @@ export namespace Components {
     }
     /**
      * Use a skeleton circle as a placeholder round images, illustrations or components
+     * @cssprop --wcs-skeleton-circle-border-radius - Border radius of the circle
+     * @cssprop --wcs-skeleton-height - _(Shared among all skeleton types)_<br/>Height of the skeleton
+     * @cssprop --wcs-skeleton-min-height - _(Shared among all skeleton types)_<br/> Minimum height of the skeleton
+     * @cssprop --wcs-skeleton-width - _(Shared among all skeleton types)_<br/> Width of the skeleton
+     * @cssprop --wcs-skeleton-background-color - _(Shared among all skeleton types)_<br/> Background color of the skeleton (default is a gradient)
+     * @cssprop --wcs-skeleton-animation-duration - _(Shared among all skeleton types)_<br/> Duration of the skeleton animation, if applicable
      */
     interface WcsSkeletonCircle {
         /**
@@ -1585,7 +1591,12 @@ export namespace Components {
     }
     /**
      * Use a skeleton rectangle as a placeholder for large images or square-shaped components
-     * @cssprop --wcs-skeleton-border-radius - Controls the border-radius of the 'rounded' skeleton rectangle (default 0.5rem)
+     * @cssprop --wcs-skeleton-border-radius - Border-radius of the skeleton. If not overridden, depends on the `rounded` attribute.
+     * @cssprop --wcs-skeleton-height - _(Shared among all skeleton types)_<br/>Height of the skeleton
+     * @cssprop --wcs-skeleton-min-height - _(Shared among all skeleton types)_<br/> Minimum height of the skeleton
+     * @cssprop --wcs-skeleton-width - _(Shared among all skeleton types)_<br/> Width of the skeleton
+     * @cssprop --wcs-skeleton-background-color - _(Shared among all skeleton types)_<br/> Background color of the skeleton (default is a gradient)
+     * @cssprop --wcs-skeleton-animation-duration - _(Shared among all skeleton types)_<br/> Duration of the skeleton animation, if applicable
      */
     interface WcsSkeletonRectangle {
         /**
@@ -1607,6 +1618,17 @@ export namespace Components {
     }
     /**
      * Use a skeleton text as a placeholder for titles or paragraphs.
+     * @cssprop --wcs-skeleton-text-height - Height of the skeleton text
+     * @cssprop --wcs-skeleton-text-height-h1 - Height of the skeleton text for heading 1
+     * @cssprop --wcs-skeleton-text-height-h2 - Height of the skeleton text for heading 2
+     * @cssprop --wcs-skeleton-text-height-h3 - Height of the skeleton text for heading 3
+     * @cssprop --wcs-skeleton-text-height-body - Height of the skeleton text for body
+     * @cssprop --wcs-skeleton-text-height-caption - Height of the skeleton text for caption
+     * @cssprop --wcs-skeleton-height - _(Shared among all skeleton types)_<br/>Height of the skeleton
+     * @cssprop --wcs-skeleton-min-height - _(Shared among all skeleton types)_<br/> Minimum height of the skeleton
+     * @cssprop --wcs-skeleton-width - _(Shared among all skeleton types)_<br/> Width of the skeleton
+     * @cssprop --wcs-skeleton-background-color - _(Shared among all skeleton types)_<br/> Background color of the skeleton (default is a gradient)
+     * @cssprop --wcs-skeleton-animation-duration - _(Shared among all skeleton types)_<br/> Duration of the skeleton animation, if applicable
      */
     interface WcsSkeletonText {
         /**
@@ -3266,6 +3288,12 @@ declare global {
     };
     /**
      * Use a skeleton circle as a placeholder round images, illustrations or components
+     * @cssprop --wcs-skeleton-circle-border-radius - Border radius of the circle
+     * @cssprop --wcs-skeleton-height - _(Shared among all skeleton types)_<br/>Height of the skeleton
+     * @cssprop --wcs-skeleton-min-height - _(Shared among all skeleton types)_<br/> Minimum height of the skeleton
+     * @cssprop --wcs-skeleton-width - _(Shared among all skeleton types)_<br/> Width of the skeleton
+     * @cssprop --wcs-skeleton-background-color - _(Shared among all skeleton types)_<br/> Background color of the skeleton (default is a gradient)
+     * @cssprop --wcs-skeleton-animation-duration - _(Shared among all skeleton types)_<br/> Duration of the skeleton animation, if applicable
      */
     interface HTMLWcsSkeletonCircleElement extends Components.WcsSkeletonCircle, HTMLStencilElement {
     }
@@ -3275,7 +3303,12 @@ declare global {
     };
     /**
      * Use a skeleton rectangle as a placeholder for large images or square-shaped components
-     * @cssprop --wcs-skeleton-border-radius - Controls the border-radius of the 'rounded' skeleton rectangle (default 0.5rem)
+     * @cssprop --wcs-skeleton-border-radius - Border-radius of the skeleton. If not overridden, depends on the `rounded` attribute.
+     * @cssprop --wcs-skeleton-height - _(Shared among all skeleton types)_<br/>Height of the skeleton
+     * @cssprop --wcs-skeleton-min-height - _(Shared among all skeleton types)_<br/> Minimum height of the skeleton
+     * @cssprop --wcs-skeleton-width - _(Shared among all skeleton types)_<br/> Width of the skeleton
+     * @cssprop --wcs-skeleton-background-color - _(Shared among all skeleton types)_<br/> Background color of the skeleton (default is a gradient)
+     * @cssprop --wcs-skeleton-animation-duration - _(Shared among all skeleton types)_<br/> Duration of the skeleton animation, if applicable
      */
     interface HTMLWcsSkeletonRectangleElement extends Components.WcsSkeletonRectangle, HTMLStencilElement {
     }
@@ -3285,6 +3318,17 @@ declare global {
     };
     /**
      * Use a skeleton text as a placeholder for titles or paragraphs.
+     * @cssprop --wcs-skeleton-text-height - Height of the skeleton text
+     * @cssprop --wcs-skeleton-text-height-h1 - Height of the skeleton text for heading 1
+     * @cssprop --wcs-skeleton-text-height-h2 - Height of the skeleton text for heading 2
+     * @cssprop --wcs-skeleton-text-height-h3 - Height of the skeleton text for heading 3
+     * @cssprop --wcs-skeleton-text-height-body - Height of the skeleton text for body
+     * @cssprop --wcs-skeleton-text-height-caption - Height of the skeleton text for caption
+     * @cssprop --wcs-skeleton-height - _(Shared among all skeleton types)_<br/>Height of the skeleton
+     * @cssprop --wcs-skeleton-min-height - _(Shared among all skeleton types)_<br/> Minimum height of the skeleton
+     * @cssprop --wcs-skeleton-width - _(Shared among all skeleton types)_<br/> Width of the skeleton
+     * @cssprop --wcs-skeleton-background-color - _(Shared among all skeleton types)_<br/> Background color of the skeleton (default is a gradient)
+     * @cssprop --wcs-skeleton-animation-duration - _(Shared among all skeleton types)_<br/> Duration of the skeleton animation, if applicable
      */
     interface HTMLWcsSkeletonTextElement extends Components.WcsSkeletonText, HTMLStencilElement {
     }
@@ -5118,6 +5162,12 @@ declare namespace LocalJSX {
     }
     /**
      * Use a skeleton circle as a placeholder round images, illustrations or components
+     * @cssprop --wcs-skeleton-circle-border-radius - Border radius of the circle
+     * @cssprop --wcs-skeleton-height - _(Shared among all skeleton types)_<br/>Height of the skeleton
+     * @cssprop --wcs-skeleton-min-height - _(Shared among all skeleton types)_<br/> Minimum height of the skeleton
+     * @cssprop --wcs-skeleton-width - _(Shared among all skeleton types)_<br/> Width of the skeleton
+     * @cssprop --wcs-skeleton-background-color - _(Shared among all skeleton types)_<br/> Background color of the skeleton (default is a gradient)
+     * @cssprop --wcs-skeleton-animation-duration - _(Shared among all skeleton types)_<br/> Duration of the skeleton animation, if applicable
      */
     interface WcsSkeletonCircle {
         /**
@@ -5131,7 +5181,12 @@ declare namespace LocalJSX {
     }
     /**
      * Use a skeleton rectangle as a placeholder for large images or square-shaped components
-     * @cssprop --wcs-skeleton-border-radius - Controls the border-radius of the 'rounded' skeleton rectangle (default 0.5rem)
+     * @cssprop --wcs-skeleton-border-radius - Border-radius of the skeleton. If not overridden, depends on the `rounded` attribute.
+     * @cssprop --wcs-skeleton-height - _(Shared among all skeleton types)_<br/>Height of the skeleton
+     * @cssprop --wcs-skeleton-min-height - _(Shared among all skeleton types)_<br/> Minimum height of the skeleton
+     * @cssprop --wcs-skeleton-width - _(Shared among all skeleton types)_<br/> Width of the skeleton
+     * @cssprop --wcs-skeleton-background-color - _(Shared among all skeleton types)_<br/> Background color of the skeleton (default is a gradient)
+     * @cssprop --wcs-skeleton-animation-duration - _(Shared among all skeleton types)_<br/> Duration of the skeleton animation, if applicable
      */
     interface WcsSkeletonRectangle {
         /**
@@ -5153,6 +5208,17 @@ declare namespace LocalJSX {
     }
     /**
      * Use a skeleton text as a placeholder for titles or paragraphs.
+     * @cssprop --wcs-skeleton-text-height - Height of the skeleton text
+     * @cssprop --wcs-skeleton-text-height-h1 - Height of the skeleton text for heading 1
+     * @cssprop --wcs-skeleton-text-height-h2 - Height of the skeleton text for heading 2
+     * @cssprop --wcs-skeleton-text-height-h3 - Height of the skeleton text for heading 3
+     * @cssprop --wcs-skeleton-text-height-body - Height of the skeleton text for body
+     * @cssprop --wcs-skeleton-text-height-caption - Height of the skeleton text for caption
+     * @cssprop --wcs-skeleton-height - _(Shared among all skeleton types)_<br/>Height of the skeleton
+     * @cssprop --wcs-skeleton-min-height - _(Shared among all skeleton types)_<br/> Minimum height of the skeleton
+     * @cssprop --wcs-skeleton-width - _(Shared among all skeleton types)_<br/> Width of the skeleton
+     * @cssprop --wcs-skeleton-background-color - _(Shared among all skeleton types)_<br/> Background color of the skeleton (default is a gradient)
+     * @cssprop --wcs-skeleton-animation-duration - _(Shared among all skeleton types)_<br/> Duration of the skeleton animation, if applicable
      */
     interface WcsSkeletonText {
         /**
@@ -6308,15 +6374,37 @@ declare module "@stencil/core" {
             "wcs-select-option": LocalJSX.WcsSelectOption & JSXBase.HTMLAttributes<HTMLWcsSelectOptionElement>;
             /**
              * Use a skeleton circle as a placeholder round images, illustrations or components
+             * @cssprop --wcs-skeleton-circle-border-radius - Border radius of the circle
+             * @cssprop --wcs-skeleton-height - _(Shared among all skeleton types)_<br/>Height of the skeleton
+             * @cssprop --wcs-skeleton-min-height - _(Shared among all skeleton types)_<br/> Minimum height of the skeleton
+             * @cssprop --wcs-skeleton-width - _(Shared among all skeleton types)_<br/> Width of the skeleton
+             * @cssprop --wcs-skeleton-background-color - _(Shared among all skeleton types)_<br/> Background color of the skeleton (default is a gradient)
+             * @cssprop --wcs-skeleton-animation-duration - _(Shared among all skeleton types)_<br/> Duration of the skeleton animation, if applicable
              */
             "wcs-skeleton-circle": LocalJSX.WcsSkeletonCircle & JSXBase.HTMLAttributes<HTMLWcsSkeletonCircleElement>;
             /**
              * Use a skeleton rectangle as a placeholder for large images or square-shaped components
-             * @cssprop --wcs-skeleton-border-radius - Controls the border-radius of the 'rounded' skeleton rectangle (default 0.5rem)
+             * @cssprop --wcs-skeleton-border-radius - Border-radius of the skeleton. If not overridden, depends on the `rounded` attribute.
+             * @cssprop --wcs-skeleton-height - _(Shared among all skeleton types)_<br/>Height of the skeleton
+             * @cssprop --wcs-skeleton-min-height - _(Shared among all skeleton types)_<br/> Minimum height of the skeleton
+             * @cssprop --wcs-skeleton-width - _(Shared among all skeleton types)_<br/> Width of the skeleton
+             * @cssprop --wcs-skeleton-background-color - _(Shared among all skeleton types)_<br/> Background color of the skeleton (default is a gradient)
+             * @cssprop --wcs-skeleton-animation-duration - _(Shared among all skeleton types)_<br/> Duration of the skeleton animation, if applicable
              */
             "wcs-skeleton-rectangle": LocalJSX.WcsSkeletonRectangle & JSXBase.HTMLAttributes<HTMLWcsSkeletonRectangleElement>;
             /**
              * Use a skeleton text as a placeholder for titles or paragraphs.
+             * @cssprop --wcs-skeleton-text-height - Height of the skeleton text
+             * @cssprop --wcs-skeleton-text-height-h1 - Height of the skeleton text for heading 1
+             * @cssprop --wcs-skeleton-text-height-h2 - Height of the skeleton text for heading 2
+             * @cssprop --wcs-skeleton-text-height-h3 - Height of the skeleton text for heading 3
+             * @cssprop --wcs-skeleton-text-height-body - Height of the skeleton text for body
+             * @cssprop --wcs-skeleton-text-height-caption - Height of the skeleton text for caption
+             * @cssprop --wcs-skeleton-height - _(Shared among all skeleton types)_<br/>Height of the skeleton
+             * @cssprop --wcs-skeleton-min-height - _(Shared among all skeleton types)_<br/> Minimum height of the skeleton
+             * @cssprop --wcs-skeleton-width - _(Shared among all skeleton types)_<br/> Width of the skeleton
+             * @cssprop --wcs-skeleton-background-color - _(Shared among all skeleton types)_<br/> Background color of the skeleton (default is a gradient)
+             * @cssprop --wcs-skeleton-animation-duration - _(Shared among all skeleton types)_<br/> Duration of the skeleton animation, if applicable
              */
             "wcs-skeleton-text": LocalJSX.WcsSkeletonText & JSXBase.HTMLAttributes<HTMLWcsSkeletonTextElement>;
             /**

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-11-18T15:20:10",
+  "timestamp": "2024-11-20T15:48:27",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -9903,7 +9903,32 @@
       "tag": "wcs-skeleton-circle",
       "readme": "# wcs-skeleton-circle\r\n\r\n\r\n\r",
       "docs": "Use a skeleton circle as a placeholder round images, illustrations or components",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "cssprop",
+          "text": "--wcs-skeleton-circle-border-radius - Border radius of the circle"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-skeleton-height - _(Shared among all skeleton types)_<br/>Height of the skeleton"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-skeleton-min-height - _(Shared among all skeleton types)_<br/> Minimum height of the skeleton"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-skeleton-width - _(Shared among all skeleton types)_<br/> Width of the skeleton"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-skeleton-background-color - _(Shared among all skeleton types)_<br/> Background color of the skeleton (default is a gradient)"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-skeleton-animation-duration - _(Shared among all skeleton types)_<br/> Duration of the skeleton animation, if applicable"
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -9985,7 +10010,27 @@
       "docsTags": [
         {
           "name": "cssprop",
-          "text": "--wcs-skeleton-border-radius - Controls the border-radius of the 'rounded' skeleton rectangle (default 0.5rem)"
+          "text": "--wcs-skeleton-border-radius - Border-radius of the skeleton. If not overridden, depends on the `rounded` attribute."
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-skeleton-height - _(Shared among all skeleton types)_<br/>Height of the skeleton"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-skeleton-min-height - _(Shared among all skeleton types)_<br/> Minimum height of the skeleton"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-skeleton-width - _(Shared among all skeleton types)_<br/> Width of the skeleton"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-skeleton-background-color - _(Shared among all skeleton types)_<br/> Background color of the skeleton (default is a gradient)"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-skeleton-animation-duration - _(Shared among all skeleton types)_<br/> Duration of the skeleton animation, if applicable"
         }
       ],
       "usage": {},
@@ -10134,7 +10179,52 @@
       "tag": "wcs-skeleton-text",
       "readme": "# wcs-skeleton-text\r\n\r\n\r\n\r",
       "docs": "Use a skeleton text as a placeholder for titles or paragraphs.",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "cssprop",
+          "text": "--wcs-skeleton-text-height - Height of the skeleton text"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-skeleton-text-height-h1 - Height of the skeleton text for heading 1"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-skeleton-text-height-h2 - Height of the skeleton text for heading 2"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-skeleton-text-height-h3 - Height of the skeleton text for heading 3"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-skeleton-text-height-body - Height of the skeleton text for body"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-skeleton-text-height-caption - Height of the skeleton text for caption"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-skeleton-height - _(Shared among all skeleton types)_<br/>Height of the skeleton"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-skeleton-min-height - _(Shared among all skeleton types)_<br/> Minimum height of the skeleton"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-skeleton-width - _(Shared among all skeleton types)_<br/> Width of the skeleton"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-skeleton-background-color - _(Shared among all skeleton types)_<br/> Background color of the skeleton (default is a gradient)"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-skeleton-animation-duration - _(Shared among all skeleton types)_<br/> Duration of the skeleton animation, if applicable"
+        }
+      ],
       "usage": {},
       "props": [
         {

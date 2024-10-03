@@ -484,6 +484,93 @@
                 "l": {
                     "$type": "dimension",
                     "$value": "17px"
+                },
+                "heading": {
+                    "1": {
+                        "$description": "Level 1 title heading",
+                        "$type": "font",
+                        "$value": "{primitive.size.420}"
+                    },
+                    "2": {
+                        "$description": "Level 2 title heading",
+                        "$type": "font",
+                        "$value": "{primitive.size.360}"
+                    },
+                    "3": {
+                        "$description": "Level 3 title heading",
+                        "$type": "font",
+                        "$value": "{primitive.size.300}"
+                    },
+                    "4": {
+                        "$description": "Level 4 title heading",
+                        "$type": "font",
+                        "$value": "{primitive.size.240}"
+                    },
+                    "5": {
+                        "$description": "Level 5 title heading",
+                        "$type": "font",
+                        "$value": "{primitive.size.200}"
+                    },
+                    "6": {
+                        "$description": "Level 6 title heading",
+                        "$type": "font",
+                        "$value": "{primitive.size.200}"
+                    }
+                },
+                "body": {
+                    "1": {
+                        "$description": "Body text for introduction or catchphrases",
+                        "$type": "font",
+                        "$value": "{primitive.size.200}"
+                    },
+                    "2": {
+                        "$description": "Body text only for news, blog for a more comfortable reading",
+                        "$type": "font",
+                        "$value": "{primitive.size.180}"
+                    },
+                    "3": {
+                        "$description": "Default body text for common paragraphs",
+                        "$type": "font",
+                        "$value": "{primitive.size.160}"
+                    }
+                },
+                "strong": {
+                    "1": {
+                        "$description": "Text used for buttons, links or other standard-sized actions",
+                        "$type": "font",
+                        "$value": "{primitive.size.160}"
+                    },
+                    "2": {
+                        "$description": "Text used for buttons, links or other smaller-sized actions",
+                        "$type": "font",
+                        "$value": "{primitive.size.140}"
+                    }
+                },
+                "caption": {
+                    "1": {
+                        "$description": "Use for minor mentions, captions or other information",
+                        "$type": "font",
+                        "$value": "{primitive.size.140}"
+                    },
+                    "2": {
+                        "$description": "Use for even-minor mentions, captions or other information",
+                        "$type": "font",
+                        "$value": "{primitive.size.120}"
+                    }
+                }
+            },
+            "line-height": {
+                "base": {
+                    "$type": "number",
+                    "$value": "{primitive.font.line-height.100}"
+                },
+                "medium": {
+                    "$type": "dimension",
+                    "$value": "{primitive.font.line-height.120}"
+                },
+                "large": {
+                    "$type": "dimension",
+                    "$value": "{primitive.font.line-height.140}"
                 }
             },
             "weight": {

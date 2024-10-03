@@ -50,7 +50,11 @@ export const Heights: StoryObj = {
 <wcs-skeleton-text animation=${args.animation}
                height="h3"></wcs-skeleton-text>
 
-<p>This is a caption</p>
+<p>This is a body paragraph</p>
+<wcs-skeleton-text animation=${args.animation}
+                   height="body"></wcs-skeleton-text>
+
+<p class="caption" style="font-size: var(--wcs-semantic-font-size-caption-1, 14px)">This is a caption</p>
 <wcs-skeleton-text animation=${args.animation}
                    height="caption"></wcs-skeleton-text>
 

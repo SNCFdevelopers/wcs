@@ -1,4 +1,12 @@
 :host {
+    // region to be removed before migration to design tokens
+    --wcs-skeleton-height: 100%;
+    --wcs-skeleton-min-height: 1rem;
+    --wcs-skeleton-width: 100%;
+    --wcs-skeleton-background-color: linear-gradient(90deg, rgba(0, 0, 0, 0.06) 25%, rgba(0, 0, 0, 0.15) 37%, rgba(0, 0, 0, 0.06) 63%);
+    --wcs-skeleton-animation-duration: 1.5s;
+    // endregion
+
     display: block;
     position: relative;
     overflow: hidden;
@@ -6,23 +14,22 @@
     span {
         display: flex;
         flex: 1 1 auto;
-        height: 100%;
-        width: 100%;
-        min-height: 1rem;
-        background: #ededed;
-        background: linear-gradient(90deg, rgba(0, 0, 0, 0.06) 25%, rgba(0, 0, 0, 0.15) 37%, rgba(0, 0, 0, 0.06) 63%);
+        height: var(--wcs-skeleton-height);
+        width: var(--wcs-skeleton-width);
+        min-height: var(--wcs-skeleton-min-height);
+        background: var(--wcs-skeleton-background-color);
         background-size: 400% 100%;
     }
 }
 
 :host([animation=glide]) {
     span {
-        animation: glide 1.5s ease-in-out 0.5s infinite;
+        animation: glide var(--wcs-skeleton-animation-duration) ease-in-out infinite;
     }
 }
 
 :host([animation=pulse]) {
-    animation: pulse 1.5s ease-in-out 0.5s infinite;
+    animation: pulse var(--wcs-skeleton-animation-duration) ease-in-out infinite;
 }
 
 @keyframes glide {
@@ -44,4 +51,12 @@
     100% {
         opacity: 1;
     }
+}
+
+:host(.token-migration) {
+    --wcs-skeleton-width: 100%;
+    --wcs-skeleton-height: 100%;
+    --wcs-skeleton-min-height: 1rem;
+    --wcs-skeleton-background-color: linear-gradient(90deg, rgba(0, 0, 0, 0.06) 25%, rgba(0, 0, 0, 0.15) 37%, rgba(0, 0, 0, 0.06) 63%);
+    --wcs-skeleton-animation-duration: var(wcs-semantic-motion-duration-animation-base);
 }
