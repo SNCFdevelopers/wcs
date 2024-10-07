@@ -30,7 +30,7 @@ import {
     generateUniqueId,
     findItemLabel,
     inheritAriaAttributes,
-    inheritAttributes, setOrRemoveAttribute
+    inheritAttributes, setOrRemoveAttribute, compareLists
 } from '../../utils/helpers';
 import { SelectChips } from './select-chips';
 import { MDCRipple } from '@material/ripple';
@@ -237,7 +237,7 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
 
     @Watch('value')
     onValueChangeHandler(newValue: any) {
-        this.updateSelectedValue(newValue);
+            this.updateSelectedValue(newValue);
     }
 
     private updateSelectedValue(value: any) {
@@ -250,22 +250,47 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
             if (!Array.isArray(value)) {
                 value = [value];
             }
-            this.values = [];
-
-            this.options.forEach((opt: HTMLWcsSelectOptionElement) => {
-                const isSelected = value ?
-                    value.findIndex(v => this.compareWith(opt.value, v)) !== -1
-                    : false;
-                if (isSelected) {
-                    this.values.push({
-                        value: opt.value,
-                        displayText: opt.innerText,
-                        chipColor: opt.chipColor,
-                        chipBackgroundColor: opt.chipBackgroundColor
-                    });
-                }
-                opt.selected = isSelected;
-            });
+            if (this.serverMode) {
+                // in server mode, we don't know all the possible select options, so we assume the value is correct,
+                // and we just sync the displayText and current available options
+                const compareResult = compareLists(this.values.map(v => v.value), value, this.compareWith);
+                compareResult.added.forEach(addedOption => {
+                    const option = Array.from(this.options).find(opt => this.compareWith(opt.value, addedOption)); 
+                    if (option) {
+                        this.values.push({
+                            value: option.value,
+                            displayText: option.innerText,
+                            chipColor: option.chipColor,
+                            chipBackgroundColor: option.chipBackgroundColor
+                        });
+                        option.selected = true;
+                    }
+                });
+                compareResult.removed.forEach(removedOption => {
+                    this.values = this.values.filter(v => !this.compareWith(v.value, removedOption));
+                    const removedOptionElement = Array.from(this.options).find(opt => this.compareWith(opt.value, removedOption));
+                    if (removedOptionElement) {
+                        removedOptionElement.selected = false;
+                    }
+                });
+            } else {
+                this.values = [];
+    
+                this.options.forEach((opt: HTMLWcsSelectOptionElement) => {
+                    const isSelected = value ?
+                        value.findIndex(v => this.compareWith(opt.value, v)) !== -1
+                        : false;
+                    if (isSelected) {
+                        this.values.push({
+                            value: opt.value,
+                            displayText: opt.innerText,
+                            chipColor: opt.chipColor,
+                            chipBackgroundColor: opt.chipBackgroundColor
+                        });
+                    }
+                    opt.selected = isSelected;
+                });
+            }
             // update select placeholder text
             this.displayText = this.values.length !== 0
                 ? this.values.map(v => v.displayText).join(', ')
@@ -499,27 +524,20 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
     }
 
     private handleOptionSelectedOnMultiple(event: SelectOptionChosedEvent) {
-        const index = this.values.findIndex(v => v.value === event.value);
+        const index = this.values.findIndex(v => this.compareWith(v.value, event.value));
         if (index === -1) {
-            const {value, displayText, chipColor, chipBackgroundColor} = event;
-            this.values.push({value, displayText, chipColor, chipBackgroundColor});
-            event.source.selected = true;
+            // this will trigger the watch on value and update the values model
+            this.value = [...this.values.map(v => v.value), event.value];
         } else {
-            event.source.selected = false;
-            this.values.splice(index, 1);
+            // this will trigger the watch on value and update the values model
+            this.value = this.values.filter(v => !this.compareWith(v.value, event.value)).map(v => v.value);
         }
         this.lastModifiedOptionElement = event.source;
-        this.updateValueWithValues();
-    }
 
-    private updateValueWithValues() {
-        this.value = this.values.map(v => v.value);
-        this.displayText = this.values.length !== 0
-            ? this.values.map(v => v.displayText).join(', ')
-            : undefined;
     }
 
     private handleOptionSelectedOnSingle(event: SelectOptionChosedEvent) {
+        // TODO: refactor this method as the handleOptionSelectedOnMultiple one, we just want to update the value field, and ensure that the component UI and model is updated only once in the updateSelectedValue methos
         // Reset other options to false if they were selected.
         this.options
             .forEach(option => {
@@ -818,7 +836,9 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
     }
 
     onSlotchange() {
-        this.updateSelectedValue(this.value);
+        if (this.serverMode && this.values) {
+            this.options.forEach(o => o.selected = this.values.some(v => this.compareWith(o.value, v.value)));
+        }
         
         // Server-mode only : "no result" slot should be visible dynamically if no option is present in the slot
         if (this.autocomplete && this.serverMode) {
@@ -959,6 +979,16 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
         this.popper?.update();
     }
 
+    private focusedAttributes() {
+        return !this.disabled ? {tabIndex: 0} : {};
+    }
+
+    private onAutocompleteFieldBlur(_e: FocusEvent) {
+        if (this.multiple === false && this.autocomplete === true && this.hasValue) {
+            this.autocompleteValue = this.displayText;
+        }
+    }
+
     render() {
         const ariaLabelValue = `${this.labelElement ? this.labelElement.innerText : ''} ${this.hasValue ? this.displayText : ''}`.trimEnd();
         return (
@@ -1018,16 +1048,6 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
                 </div>
             </Host>
         );
-    }
-
-    private focusedAttributes() {
-        return !this.disabled ? {tabIndex: 0} : {};
-    }
-
-    private onAutocompleteFieldBlur(_e: FocusEvent) {
-        if (this.multiple === false && this.autocomplete === true && this.hasValue) {
-            this.autocompleteValue = this.displayText;
-        }
     }
 }
 

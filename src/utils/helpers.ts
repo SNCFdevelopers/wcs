@@ -151,6 +151,25 @@ export const findItemLabel = (componentEl: HTMLElement): HTMLWcsLabelElement | n
     return null;
 };
 
+/**
+ * Given two lists of items, this function will return the items that were removed, kept, and added compared to the source list.
+ * @param sourceList - The source list of items
+ * @param newList - The target list of items
+ * @param compareFn - The function to compare the items
+ */
+export const compareLists: <T>(sourceList: T[], newList: T[], compareFn: (v1: T, v2: T) => boolean) => {
+    removed: T[];
+    kept: T[];
+    added: T[]
+} = <T>(sourceList: T[], newList: T[], compareFn: (v1: T, v2: T) => boolean) => {
+    const removed = sourceList.filter(val => !newList.some(newVal => compareFn(val, newVal)));
+    const kept = sourceList.filter(val => newList.some(newVal => compareFn(val, newVal)));
+    const added = newList.filter(val => !sourceList.some(sourceVal => compareFn(val, sourceVal)));
+
+    return { removed, kept, added };
+};
+
+
 declare const __zone_symbol__requestAnimationFrame: any;
 
 /**

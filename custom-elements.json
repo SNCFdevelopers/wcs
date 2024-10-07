@@ -282,6 +282,34 @@
         },
         {
           "kind": "function",
+          "name": "compareLists",
+          "parameters": [
+            {
+              "name": "sourceList",
+              "type": {
+                "text": "T[]"
+              },
+              "description": "The list of items to search"
+            },
+            {
+              "name": "newList",
+              "type": {
+                "text": "T[]"
+              },
+              "description": "The list of items to search"
+            },
+            {
+              "name": "compareFn",
+              "type": {
+                "text": "(v1: T, v2: T) => boolean"
+              },
+              "description": "The function to compare the items"
+            }
+          ],
+          "description": "Given a list of items, this function will return the item that matches the value"
+        },
+        {
+          "kind": "function",
           "name": "raf",
           "parameters": [
             {
@@ -612,6 +640,14 @@
           "name": "findItemLabel",
           "declaration": {
             "name": "findItemLabel",
+            "module": "utils/helpers.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "compareLists",
+          "declaration": {
+            "name": "compareLists",
             "module": "utils/helpers.ts"
           }
         },
@@ -3046,6 +3082,288 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/com-nav-submenu/com-nav-submenu.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The com-nav-submenu is a subcomponent of `wcs-com-nav`. It represents an expandable menu containing more items or categories.",
+          "name": "ComNavSubmenu",
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsComNavSubmenuElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeButton",
+              "type": {
+                "text": "HTMLButtonElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "panelTitle",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "panelDescription",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "menuOpen",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "menuItemsId",
+              "privacy": "private",
+              "default": "`wcs-com-nav-submenu-items`"
+            },
+            {
+              "kind": "field",
+              "name": "resizeObserver",
+              "type": {
+                "text": "ResizeObserver"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "currentActiveSizing",
+              "type": {
+                "text": "ComNavSize"
+              },
+              "privacy": "private",
+              "default": "'desktop'",
+              "description": "To re-trigger re-render in order to render a button in case of desktop or a heading in mobile case"
+            },
+            {
+              "kind": "method",
+              "name": "onWindowClickEvent",
+              "parameters": [
+                {
+                  "name": "_",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ],
+              "description": "If the user clicks outside the menu, we close it"
+            },
+            {
+              "kind": "method",
+              "name": "onSubmenuOpened",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "CustomEvent<MenuOpenedEventDetail>"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "onEscapeKeyDown",
+              "parameters": [
+                {
+                  "name": "_event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  },
+                  "description": "keydown event"
+                }
+              ],
+              "description": "Close the menu when escape is pressed"
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "close",
+              "description": "Close the menu"
+            },
+            {
+              "kind": "method",
+              "name": "open",
+              "description": "Opens the menu"
+            },
+            {
+              "kind": "method",
+              "name": "onClick",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "evt",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ],
+              "description": "When the user clicks on the menu, we do not propagate the native event and we launch a custom event to manage\r\nthe closing of the menu correctly"
+            },
+            {
+              "kind": "method",
+              "name": "handleMenuItemsKeyDown",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "_event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  },
+                  "description": "the keyboard event"
+                }
+              ],
+              "description": "Handle key down on menu items"
+            },
+            {
+              "kind": "method",
+              "name": "handleMenuItemsClick",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "evt",
+                  "type": {
+                    "text": "UIEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "wcsCategoryItemClickedHandler",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "_",
+                  "type": {
+                    "text": "CustomEvent<UIEvent>"
+                  }
+                }
+              ],
+              "description": "handle category item click to close the submenu"
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "label",
+              "fieldName": "label",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "panel-title",
+              "fieldName": "panelTitle",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "panel-description",
+              "fieldName": "panelDescription",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "tagName": "wcs-com-nav-submenu",
+          "events": [
+            {
+              "name": "wcsSubmenuOpened",
+              "type": {
+                "text": "EventEmitter<MenuOpenedEventDetail>"
+              }
+            },
+            {
+              "name": "wcsClickOnFinalAction",
+              "type": {
+                "text": "EventEmitter<void>"
+              },
+              "description": "Emitted when a user click on a final navigation action.\r\n\r\nUsed by the com-nav component to close the mobile menu overlay when a user click on a final action."
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ComNavSubmenu",
+          "declaration": {
+            "name": "ComNavSubmenu",
+            "module": "components/com-nav-submenu/com-nav-submenu.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-com-nav-submenu",
+          "declaration": {
+            "name": "ComNavSubmenu",
+            "module": "components/com-nav-submenu/com-nav-submenu.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/counter/counter-interface.ts",
       "declarations": [
         {
@@ -3395,288 +3713,6 @@
           "declaration": {
             "name": "Counter",
             "module": "components/counter/counter.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/com-nav-submenu/com-nav-submenu.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The com-nav-submenu is a subcomponent of `wcs-com-nav`. It represents an expandable menu containing more items or categories.",
-          "name": "ComNavSubmenu",
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsComNavSubmenuElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "nativeButton",
-              "type": {
-                "text": "HTMLButtonElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "label",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "panelTitle",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "panelDescription",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "menuOpen",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "menuItemsId",
-              "privacy": "private",
-              "default": "`wcs-com-nav-submenu-items`"
-            },
-            {
-              "kind": "field",
-              "name": "resizeObserver",
-              "type": {
-                "text": "ResizeObserver"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "currentActiveSizing",
-              "type": {
-                "text": "ComNavSize"
-              },
-              "privacy": "private",
-              "default": "'desktop'",
-              "description": "To re-trigger re-render in order to render a button in case of desktop or a heading in mobile case"
-            },
-            {
-              "kind": "method",
-              "name": "onWindowClickEvent",
-              "parameters": [
-                {
-                  "name": "_",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ],
-              "description": "If the user clicks outside the menu, we close it"
-            },
-            {
-              "kind": "method",
-              "name": "onSubmenuOpened",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "CustomEvent<MenuOpenedEventDetail>"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "onEscapeKeyDown",
-              "parameters": [
-                {
-                  "name": "_event",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  },
-                  "description": "keydown event"
-                }
-              ],
-              "description": "Close the menu when escape is pressed"
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "close",
-              "description": "Close the menu"
-            },
-            {
-              "kind": "method",
-              "name": "open",
-              "description": "Opens the menu"
-            },
-            {
-              "kind": "method",
-              "name": "onClick",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "evt",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ],
-              "description": "When the user clicks on the menu, we do not propagate the native event and we launch a custom event to manage\r\nthe closing of the menu correctly"
-            },
-            {
-              "kind": "method",
-              "name": "handleMenuItemsKeyDown",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "_event",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  },
-                  "description": "the keyboard event"
-                }
-              ],
-              "description": "Handle key down on menu items"
-            },
-            {
-              "kind": "method",
-              "name": "handleMenuItemsClick",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "evt",
-                  "type": {
-                    "text": "UIEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "wcsCategoryItemClickedHandler",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "_",
-                  "type": {
-                    "text": "CustomEvent<UIEvent>"
-                  }
-                }
-              ],
-              "description": "handle category item click to close the submenu"
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "label",
-              "fieldName": "label",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "panel-title",
-              "fieldName": "panelTitle",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "panel-description",
-              "fieldName": "panelDescription",
-              "type": {
-                "text": "string"
-              }
-            }
-          ],
-          "tagName": "wcs-com-nav-submenu",
-          "events": [
-            {
-              "name": "wcsSubmenuOpened",
-              "type": {
-                "text": "EventEmitter<MenuOpenedEventDetail>"
-              }
-            },
-            {
-              "name": "wcsClickOnFinalAction",
-              "type": {
-                "text": "EventEmitter<void>"
-              },
-              "description": "Emitted when a user click on a final navigation action.\r\n\r\nUsed by the com-nav component to close the mobile menu overlay when a user click on a final action."
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ComNavSubmenu",
-          "declaration": {
-            "name": "ComNavSubmenu",
-            "module": "components/com-nav-submenu/com-nav-submenu.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-com-nav-submenu",
-          "declaration": {
-            "name": "ComNavSubmenu",
-            "module": "components/com-nav-submenu/com-nav-submenu.tsx"
           }
         }
       ]
@@ -7661,6 +7697,102 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/label/label.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The `wcs-label` should always be wrapped in a `wcs-form-field`.\r\nIt is used to caption a form control component.\r\n\r\n## Accessibility guidelines 💡\r\n- Use concise name for the label. If you want to describe more your form control, add a `wcs-hint`\r\n- Use the required flag only as an indication to inform users that the form control is required",
+          "name": "Label",
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeLabel",
+              "type": {
+                "text": "HTMLLabelElement | undefined"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "If `true`, marks the label with a red star.\r\nAutomatically added if the wrapped component inside the `wcs-form-field` already has the `required` attribute."
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "required",
+              "fieldName": "required"
+            }
+          ],
+          "tagName": "wcs-label",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Label",
+          "declaration": {
+            "name": "Label",
+            "module": "components/label/label.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-label",
+          "declaration": {
+            "name": "Label",
+            "module": "components/label/label.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/input/input-interface.ts",
       "declarations": [
         {
@@ -8326,102 +8458,6 @@
           "declaration": {
             "name": "Input",
             "module": "components/input/input.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/label/label.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The `wcs-label` should always be wrapped in a `wcs-form-field`.\r\nIt is used to caption a form control component.\r\n\r\n## Accessibility guidelines 💡\r\n- Use concise name for the label. If you want to describe more your form control, add a `wcs-hint`\r\n- Use the required flag only as an indication to inform users that the form control is required",
-          "name": "Label",
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "nativeLabel",
-              "type": {
-                "text": "HTMLLabelElement | undefined"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "required",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "If `true`, marks the label with a red star.\r\nAutomatically added if the wrapped component inside the `wcs-form-field` already has the `required` attribute."
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "required",
-              "fieldName": "required"
-            }
-          ],
-          "tagName": "wcs-label",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Label",
-          "declaration": {
-            "name": "Label",
-            "module": "components/label/label.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-label",
-          "declaration": {
-            "name": "Label",
-            "module": "components/label/label.tsx"
           }
         }
       ]
@@ -10646,11 +10682,6 @@
             },
             {
               "kind": "method",
-              "name": "updateValueWithValues",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
               "name": "handleOptionSelectedOnSingle",
               "privacy": "private",
               "parameters": [
@@ -11000,10 +11031,6 @@
             },
             {
               "kind": "method",
-              "name": "render"
-            },
-            {
-              "kind": "method",
               "name": "focusedAttributes",
               "privacy": "private"
             },
@@ -11019,6 +11046,10 @@
                   }
                 }
               ]
+            },
+            {
+              "kind": "method",
+              "name": "render"
             }
           ],
           "attributes": [
