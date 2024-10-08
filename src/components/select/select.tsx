@@ -844,6 +844,11 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
         if (this.autocomplete && this.serverMode) {
             this.showNoResultFoundLabel = this.options.length < 1 ;
         }
+
+        if (this.multiple) {
+            this.options
+                .forEach((opt: HTMLWcsSelectOptionElement) => opt.multiple = true);
+        }
     }
 
     removeChip(v: SelectOptionValue) {
