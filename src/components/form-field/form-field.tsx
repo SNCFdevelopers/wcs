@@ -1,5 +1,6 @@
 import { Component, ComponentInterface, Element, h, Host, Prop, State, Watch } from '@stencil/core';
 import { isMutableAriaAttribute } from "../../utils/mutable-aria-attribute";
+import { normalizeWhitespace } from '../../utils/helpers';
 
 /**
  * Form field component wraps the native input element and add some more functionality on top of it.
@@ -148,16 +149,21 @@ export class FormField implements ComponentInterface {
     
     private updateAriaAttributes(): void {
         if(isMutableAriaAttribute(this.spiedElement)) {
-            this.spiedElement.setAriaAttribute('aria-label', this.label);
+            const ariaLabelParts: string[] = [normalizeWhitespace(this.label)];
 
+            if(this.description) {
+                ariaLabelParts.push(normalizeWhitespace(this.description));
+            }
+            
             // Sur les autres DS, généralement seul l'erreur est affichée et pas avec la description
             if(this.isError) {
-                if(this.error) this.spiedElement.setAriaAttribute('aria-description', this.error);
                 this.spiedElement.setAriaAttribute('aria-invalid', 'true');
+                ariaLabelParts.push(normalizeWhitespace(this.error));
             } else {
-                if(this.description) this.spiedElement.setAriaAttribute('aria-description', this.description);
                 this.spiedElement.setAriaAttribute('aria-invalid', 'false');
             }
+
+            this.spiedElement.setAriaAttribute('aria-label', ariaLabelParts.join(' '));
         }
     }
     

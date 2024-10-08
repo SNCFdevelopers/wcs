@@ -169,6 +169,19 @@ export const compareLists: <T>(sourceList: T[], newList: T[], compareFn: (v1: T,
     return { removed, kept, added };
 };
 
+/**
+ * Normalizes whitespace by replacing multiple consecutive whitespace characters 
+ * with a single space and removes leading and trailing whitespace.
+ * 
+ * @param content - String potentially containing multiple whitespace characters to normalize
+ * @returns Normalized string where sequences of whitespace are replaced by a single space
+ * 
+ * @example
+ * normalizeWhitespace("  Text   with    spaces  ") // Returns "Text with spaces"
+ */
+export function normalizeWhitespace(content: string): string {
+    return content.replace(/\s+/g, ' ').trim()
+}
 
 declare const __zone_symbol__requestAnimationFrame: any;
 
