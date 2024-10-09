@@ -232,6 +232,18 @@
                             "$type": "color",
                             "$value": "{primitive.color.parme.100}"
                         }
+                    },
+                    "neutral": {
+                        "default": {
+                            "$description": "Default neutral background for elements like dropdown menu item",
+                            "$type": "color",
+                            "$value": "{primitive.color.transparent}"
+                        },
+                        "hover": {
+                            "$description": "Hovered neutral background for element like dropdown menu item",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.100}"
+                        }
                     }
                 },
                 "control": {
@@ -305,6 +317,18 @@
                             "$description": "The layer on top of a tertiary background",
                             "$type": "color",
                             "$value": "{semantic.color.primary}"
+                        }
+                    },
+                    "neutral": {
+                        "default": {
+                            "$description": "Default neutral foreground for elements like dropdown menu item",
+                            "$type": "color",
+                            "$value": "{semantic.color.text.primary}"
+                        },
+                        "hover": {
+                            "$description": "Hovered neutral foreground for element like dropdown menu item",
+                            "$type": "color",
+                            "$value": "{semantic.color.text.primary}"
                         }
                     }
                 },

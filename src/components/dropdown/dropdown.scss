@@ -2,10 +2,66 @@
 
 :host {
     display: flex;
+
+    // region to be removed before migration to design tokens
+
+    --wcs-dropdown-outline-color-focus: var(--wcs-primary);
+
+    // Padding
+    --wcs-dropdown-padding-horizontal-size-s: 8px;
+    --wcs-dropdown-padding-horizontal-size-m: 16px;
+    --wcs-dropdown-padding-horizontal-size-l: 16px;
+    --wcs-dropdown-padding-vertical-size-s: var(--wcs-padding-s);
+    --wcs-dropdown-padding-vertical-size-m: 8px;
+    --wcs-dropdown-padding-vertical-size-l: 8px;
+
+    // Arrow color
+    --wcs-dropdown-plain-arrow-color: var(--wcs-contrast);
+    --wcs-dropdown-stroked-arrow-color: var(--wcs-primary);
+    --wcs-dropdown-clear-arrow-color: var(--wcs-primary);
+
+    --wcs-dropdown-arrow-color-disabled: var(--wcs-text-disabled);
+
+    // Overlay
+    --wcs-dropdown-overlay-padding-vertical-size: calc(var(--wcs-padding) / 2);
+    --wcs-dropdown-overlay-max-height: 360px;
+    --wcs-dropdown-overlay-background-color: var(--wcs-white);
+    --wcs-dropdown-overlay-border-width: 1px;
+    --wcs-dropdown-overlay-border-radius: var(--wcs-border-radius);
+    --wcs-dropdown-overlay-border-color: var(--wcs-text-light);
+
+    //endregion
+}
+
+:host(.token-migration) {
+    --wcs-dropdown-outline-color-focus: var(--wcs-semantic-color-border-focus-base);
+
+    // Padding
+    --wcs-dropdown-padding-horizontal-size-s: var(--wcs-semantic-padding-size-s-horizontal);
+    --wcs-dropdown-padding-horizontal-size-m: var(--wcs-semantic-padding-size-m-horizontal);
+    --wcs-dropdown-padding-horizontal-size-l: var(--wcs-semantic-padding-size-l-horizontal);
+    --wcs-dropdown-padding-vertical-size-s: var(--wcs-semantic-padding-size-s-vertical);
+    --wcs-dropdown-padding-vertical-size-m: var(--wcs-semantic-padding-size-m-vertical);
+    --wcs-dropdown-padding-vertical-size-l: var(--wcs-semantic-padding-size-l-vertical);
+
+    // Arrow color
+    --wcs-dropdown-plain-arrow-color: var(--wcs-semantic-color-foreground-action-primary-default);
+    --wcs-dropdown-stroked-arrow-color: var(--wcs-semantic-color-foreground-action-secondary-default);
+    --wcs-dropdown-clear-arrow-color: var(--wcs-semantic-color-foreground-action-tertiary-default);
+
+    --wcs-dropdown-arrow-color-disabled: var(--wcs-semantic-color-disabled);
+
+    // Overlay
+    --wcs-dropdown-overlay-padding-vertical-size: calc(var(--wcs-semantic-padding-small) * 2);
+    --wcs-dropdown-overlay-max-height: var(--wcs-semantic-size-overlay-max-height);
+    --wcs-dropdown-overlay-background-color: var(--wcs-semantic-color-background-surface-primary);
+    --wcs-dropdown-overlay-border-width: var(--wcs-semantic-border-width-default);
+    --wcs-dropdown-overlay-border-radius: var(--wcs-semantic-border-radius-base);
+    --wcs-dropdown-overlay-border-color: var(--wcs-semantic-color-border-surface);
 }
 
 wcs-button {
-    --wcs-button-padding: 8px 10px 8px 16px !important;
+    --wcs-button-padding: var(--wcs-dropdown-padding-vertical-size-m) calc(var(--wcs-dropdown-padding-horizontal-size-m) - 6px) var(--wcs-dropdown-padding-vertical-size-m) var(--wcs-dropdown-padding-horizontal-size-m) !important; // TODO: review
     height: fit-content;
 }
 
@@ -23,30 +79,48 @@ button {
 }
 
 button:focus-visible + wcs-button {
-    @include focus-outline($border-radius: var(--wcs-button-border-radius));
+    @include focus-outline($outline-color: var(--wcs-dropdown-outline-color-focus), $border-radius: var(--wcs-button-border-radius));
 }
 
 @supports not selector(button:focus-visible + wcs-button) {
     button:focus-within + wcs-button {
-        @include focus-outline($border-radius: var(--wcs-button-border-radius));
+        @include focus-outline($outline-color: var(--wcs-dropdown-outline-color-focus), $border-radius: var(--wcs-button-border-radius));
     }
 }
 
-:host([no-arrow]) {
+:host([no-arrow][size="s"]) {
     wcs-button {
-        --wcs-button-padding: 8px 16px 8px 16px !important;
+        --wcs-button-padding: var(--wcs-dropdown-padding-vertical-size-s) var(--wcs-dropdown-padding-horizontal-size-s) var(--wcs-dropdown-padding-vertical-size-s) var(--wcs-dropdown-padding-horizontal-size-s) !important;
     }
 }
 
-:host([size=s][no-arrow]) {
+:host([no-arrow][size="m"]) {
     wcs-button {
-        --wcs-button-padding: var(--wcs-padding-s) var(--wcs-padding-m) !important;
+        --wcs-button-padding: var(--wcs-dropdown-padding-vertical-size-m) var(--wcs-dropdown-padding-horizontal-size-m) var(--wcs-dropdown-padding-vertical-size-m) var(--wcs-dropdown-padding-horizontal-size-m) !important;
     }
 }
 
-:host([size=s]) {
+:host([no-arrow][size="l"]) {
     wcs-button {
-        --wcs-button-padding: var(--wcs-padding-s) calc(6px - var(--wcs-padding-s)) var(--wcs-padding-s) var(--wcs-padding-m) !important;
+        --wcs-button-padding: var(--wcs-dropdown-padding-vertical-size-l) var(--wcs-dropdown-padding-horizontal-size-l) var(--wcs-dropdown-padding-vertical-size-l) var(--wcs-dropdown-padding-horizontal-size-l) !important;
+    }
+}
+
+:host([size="s"]) {
+    wcs-button {
+        --wcs-button-padding: var(--wcs-dropdown-padding-vertical-size-s) calc(6px - var(--wcs-dropdown-padding-horizontal-size-s)) var(--wcs-dropdown-padding-vertical-size-s) var(--wcs-dropdown-padding-horizontal-size-s) !important;
+    }
+}
+
+:host([size="m"]) {
+    wcs-button {
+        --wcs-button-padding: var(--wcs-dropdown-padding-vertical-size-m) calc(var(--wcs-dropdown-padding-horizontal-size-m) - 6px) var(--wcs-dropdown-padding-vertical-size-m) var(--wcs-dropdown-padding-horizontal-size-m) !important;
+    }
+}
+
+:host([size="l"]) {
+    wcs-button {
+        --wcs-button-padding: var(--wcs-dropdown-padding-vertical-size-l) calc(var(--wcs-dropdown-padding-horizontal-size-l) - 6px) var(--wcs-dropdown-padding-vertical-size-l) var(--wcs-dropdown-padding-horizontal-size-l) !important;
     }
 }
 
@@ -56,9 +130,9 @@ button:focus-visible + wcs-button {
 
 .popover {
     display: none;
-    border: 1px solid #d7d7d7;
-    border-radius: var(--wcs-border-radius);
-    background-color: var(--wcs-white);
+    border: var(--wcs-dropdown-overlay-border-width) solid var(--wcs-dropdown-overlay-border-color);
+    border-radius: var(--wcs-dropdown-overlay-border-radius);
+    background-color: var(--wcs-dropdown-overlay-background-color);
     z-index: 9999;
 }
 
@@ -70,22 +144,35 @@ button:focus-visible + wcs-button {
 .container {
     border-radius: inherit;
     overflow: hidden;
-    padding: calc(var(--wcs-padding) / 2) 0;
-    background-color: var(--wcs-white);
+    padding: var(--wcs-dropdown-overlay-padding-vertical-size) 0;
+    background-color: var(--wcs-dropdown-overlay-background-color);
 }
 
-// FIXME : Workaround to display the SelectArrow in blue when the background is white / transparent
-// Remove this when the SelectArrow has its own tokens and background-contrast handling
-:host(:not([mode=plain])) {
+:host([mode=clear]) {
     // SVG arrow inside the button, on clear background
     .arrow {
-        fill: var(--wcs-primary);
+        fill: var(--wcs-dropdown-clear-arrow-color);
     }
 }
 
-// SVG arrow inside the button, on primary background
-.arrow {
-    fill: var(--wcs-contrast);
+:host([mode=stroked]) {
+    // SVG arrow inside the button, on stroked background
+    .arrow {
+        fill: var(--wcs-dropdown-stroked-arrow-color);
+    }
+}
+
+:host([mode=plain]) {
+    // SVG arrow inside the button, on primary background
+    .arrow {
+        fill: var(--wcs-dropdown-plain-arrow-color);
+    }
+}
+
+:host([disabled]) {
+    .arrow {
+        fill: var(--wcs-dropdown-arrow-color-disabled);
+    }
 }
 
 // Popover arrow

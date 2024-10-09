@@ -49,7 +49,7 @@
     --wcs-border-size: 2px;
     --wcs-border-radius: var(--wcs-base-size);
     --wcs-text-padding: var(--wcs-base-size);
-    --wcs-padding: calc(2 * var(--wcs-base-size));
+    --wcs-padding: calc(2 * var(--wcs-base-size)); // TODO: view usage before changing when migrate to design tokens. We can set base padding design token as value
     --wcs-padding-l: calc(1.5 * var(--wcs-base-size)); // l = 12px
     --wcs-padding-m: var(--wcs-base-size); // m = 8px (default)
     --wcs-padding-s: calc(0.5 * var(--wcs-base-size)); // s = 4px

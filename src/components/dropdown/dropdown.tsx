@@ -26,6 +26,27 @@ const DROPDOWN_INHERITED_ATTRS = ['tabindex'];
  * 
  * @slot placeholder - The slot containing the placeholder displayed in button
  * @slot item - The slot container the list of `wcs-dropdown-item` elements
+ * 
+ * @cssprop --wcs-dropdown-outline-color-focus - Outline color of dropdown when focus it
+ * 
+ * @cssprop --wcs-dropdown-plain-arrow-color - Color of the arrow indicator when the dropdown is plain
+ * @cssprop --wcs-dropdown-stroked-arrow-color - Color of the arrow indicator when the dropdown is stroked
+ * @cssprop --wcs-dropdown-clear-arrow-color - Color of the arrow indicator when the dropdown is not filled
+ * @cssprop --wcs-dropdown-arrow-color-disabled - Base color of the arrow indicator when the dropdown is disabled
+ * 
+ * @cssprop --wcs-dropdown-padding-horizontal-size-s - Horizontal padding of the dropdown button when size is small
+ * @cssprop --wcs-dropdown-padding-horizontal-size-m - Horizontal padding of the dropdown button when size is medium
+ * @cssprop --wcs-dropdown-padding-horizontal-size-l - Horizontal padding of the dropdown button when size is large
+ * @cssprop --wcs-dropdown-padding-vertical-size-s - Vertical padding of the dropdown button when size is small
+ * @cssprop --wcs-dropdown-padding-vertical-size-m - Vertical padding of the dropdown button when size is medium
+ * @cssprop --wcs-dropdown-padding-vertical-size-l - Vertical padding of the dropdown button when size is large
+ * 
+ * @cssprop --wcs-dropdown-overlay-padding-vertical - Defines the vertical padding inside the dropdown overlay
+ * @cssprop --wcs-dropdown-overlay-max-height - Specifies the maximum height of the dropdown overlay
+ * @cssprop --wcs-dropdown-overlay-background-color - Determines the background color of the dropdown overlay
+ * @cssprop --wcs-dropdown-overlay-border-width - Sets the border width of the dropdown overlay
+ * @cssprop --wcs-dropdown-overlay-border-radius - Defines the border radius of the dropdown overlay
+ * @cssprop --wcs-dropdown-overlay-border-color - Specifies the border color of the dropdown overlay
  */
 @Component({
     tag: 'wcs-dropdown',

@@ -4,6 +4,20 @@ import { isEnterKey, isSpaceKey } from "../../utils/helpers";
 /**
  * You must add `wcs-dropdown-item` to `wcs-dropdown`
  * @slot <no-name> the slot that contains the item's name
+ * 
+ * @cssprop --wcs-dropdown-item-height - Height of the dropdown item
+ * @cssprop --wcs-dropdown-item-padding-horizontal - Padding horizontal
+ * @cssprop --wcs-dropdown-item-padding-vertical - Padding vertical
+ * @cssprop --wcs-dropdown-item-text-font-weight - Font weight of the dropdown item
+ * @cssprop --wcs-dropdown-item-text-color-default - Default text color of the dropdown item 
+ * @cssprop --wcs-dropdown-item-text-color-focus - Text color of the dropdown item when focused
+ * @cssprop --wcs-dropdown-item-text-color-hover - Text color of the dropdown item when hovered
+ * @cssprop --wcs-dropdown-item-background-color-default - Default background color of the dropdown item
+ * @cssprop --wcs-dropdown-item-background-color-focus - Background color of the dropdown item when focused
+ * @cssprop --wcs-dropdown-item-background-color-hover - Background color of the dropdown item when hovered
+ * @cssprop --wcs-dropdown-item-border-width-focus - Border width of the dropdown item when focused
+ * @cssprop --wcs-dropdown-item-border-color-focus - Border color of the dropdown item when focused
+ * @cssprop --wcs-dropdown-item-border-radius-focus - Border radius of the dropdown item when focused
  */
 @Component({
     tag: 'wcs-dropdown-item',
