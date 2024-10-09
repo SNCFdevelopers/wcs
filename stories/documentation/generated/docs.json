@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-11-20T17:00:25",
+  "timestamp": "2024-11-20T17:33:34",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -12,7 +12,12 @@
       "tag": "wcs-accordion",
       "readme": "# wcs-accordion\r\n\r\n\r\n\r",
       "docs": "The accordion component is a vertical stack of interactive headings used to toggle the display of further information.",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "cssprop",
+          "text": "--wcs-accordion-gap - Gap between accordion panels"
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -104,7 +109,12 @@
       "tag": "wcs-accordion-content",
       "readme": "# wcs-accordion-content\r\n\r\n\r\n\r",
       "docs": "The accordion-content is a subcomponent of `wcs-accordion`. It represents the text / content below an expanded accordion.",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "cssprop",
+          "text": "--wcs-accordion-content-padding - Padding of the content"
+        }
+      ],
       "usage": {},
       "props": [],
       "methods": [],
@@ -142,7 +152,100 @@
       "tag": "wcs-accordion-panel",
       "readme": "# wcs-accordion-panel\r\n\r\n\r\n\r",
       "docs": "The accordion-panel is a subcomponent of `wcs-accordion`. It represents every panel of the accordion that can be expanded.",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "cssprop",
+          "text": "--wcs-accordion-panel-color-default - Default color of the accordion panel"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-accordion-panel-color-highlight - Highlight color of the accordion panel"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-accordion-panel-color-hover - Hover color of the accordion panel"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-accordion-panel-color-press - Press color of the accordion panel"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-accordion-panel-action-color-default - Default action color of the accordion panel"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-accordion-panel-action-color-highlight - Highlight action color of the accordion panel"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-accordion-panel-background-color-default - Default background color of the accordion panel"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-accordion-panel-background-color-highlight - Highlight background color of the accordion panel"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-accordion-panel-background-color-hover - Hover background color of the accordion panel"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-accordion-panel-background-color-press - Press background color of the accordion panel"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-accordion-panel-header-font-size - Font size of the accordion panel header"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-accordion-panel-header-font-weight - Font weight of the accordion panel header"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-accordion-panel-border-radius - Border radius of the accordion panel"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-accordion-panel-border-radius-open - Border radius of the open accordion panel"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-accordion-panel-padding-vertical - Vertical padding of the accordion panel"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-accordion-panel-padding-horizontal - Horizontal padding of the accordion panel"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-accordion-panel-header-border-width - Border width of the accordion panel header"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-accordion-panel-border-width - Border width of the accordion panel"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-accordion-panel-border-width-focus - Border width of the accordion panel when focused"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-accordion-panel-border-color - Border color of the accordion panel"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-accordion-panel-border-color-focus - Border color of the accordion panel when focused"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-accordion-panel-border-style-focus - Border style of the accordion panel when focused"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-accordion-transition-duration - Transition duration of the accordion panel"
+        }
+      ],
       "usage": {},
       "props": [
         {

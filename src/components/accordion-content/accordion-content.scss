@@ -1,4 +1,13 @@
 :host {
-    margin: calc(3 * var(--wcs-base-margin));
+    // region to be removed before migration to design tokens
+    --wcs-accordion-content-padding: calc(3 * var(--wcs-base-margin));
+    // endregion
+
+    padding: var(--wcs-accordion-content-padding);
     display: block;
+}
+
+
+:host(.token-migration) {
+    --wcs-accordion-content-padding: var(--wcs-semantic-spacing-base) calc(3 * var(--wcs-semantic-spacing-base)) var(--wcs-semantic-spacing-large) calc(3 * var(--wcs-semantic-spacing-base));
 }

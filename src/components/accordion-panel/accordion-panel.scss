@@ -1,28 +1,86 @@
+@mixin accordion-panel-focus {
+    outline: var(--wcs-accordion-panel-border-width-focus) var(--wcs-accordion-panel-border-style-focus) var(--wcs-accordion-panel-border-color-focus);
+}
+
 :host {
     display: flex;
     flex-direction: column;
     cursor: pointer;
-    margin-bottom: 16px;
+
+    // region to be removed before migration to design tokens
+    --wcs-accordion-panel-color-default: var(--wcs-primary);
+    --wcs-accordion-panel-color-highlight: var(--wcs-light);
+    --wcs-accordion-panel-color-hover: var(--wcs-primary);
+    --wcs-accordion-panel-color-press: var(--wcs-primary);
+    --wcs-accordion-panel-action-color-default: var(--wcs-primary);
+    --wcs-accordion-panel-action-color-highlight: var(--wcs-light);
+    --wcs-accordion-panel-background-color-default: var(--wcs-light);
+    --wcs-accordion-panel-background-color-highlight: var(--wcs-primary);
+    --wcs-accordion-panel-background-color-hover: var(--wcs-light);
+    --wcs-accordion-panel-background-color-press: var(--wcs-light);
+
+    --wcs-accordion-panel-header-font-size: 16px;
+    --wcs-accordion-panel-header-font-weight: 500;
+    --wcs-accordion-panel-border-radius: 7px;
+    --wcs-accordion-panel-border-radius-open: var(--wcs-accordion-panel-border-radius);
+    --wcs-accordion-panel-padding-vertical: 14px;
+    --wcs-accordion-panel-padding-horizontal: 24px;
+
+    --wcs-accordion-panel-header-border-width: 1px;
+
+    --wcs-accordion-panel-border-width: 0px;
+    --wcs-accordion-panel-border-width-focus: 2px;
+    --wcs-accordion-panel-border-color: transparent;
+    --wcs-accordion-panel-border-color-focus: var(--wcs-primary);
+
+    --wcs-accordion-panel-border-style-focus: solid;
+    --wcs-accordion-transition-duration: 150ms;
+    // endregion
+
+    border: var(--wcs-accordion-panel-border-width) solid var(--wcs-accordion-panel-border-color);
+    border-radius: var(--wcs-accordion-panel-border-radius);
 
     .header {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 14px 24px;
-        border-radius: 7px;
-        font-weight: 500;
+        padding: var(--wcs-accordion-panel-padding-vertical) var(--wcs-accordion-panel-padding-horizontal);
+        border-radius: var(--wcs-accordion-panel-border-radius);
+        font-weight: var(--wcs-accordion-panel-header-font-weight);
         // TODO replace px to rem
-        font-size: 16px;
+        font-size: var(--wcs-accordion-panel-header-font-size);
         font-family: var(--wcs-font-sans-serif);
-        color: var(--wcs-primary);
-        background-color: var(--wcs-light);
+        color: var(--wcs-accordion-panel-color-default);
+        background-color: var(--wcs-accordion-panel-background-color-default);
         border: none;
+
+        transition: background-color var(--wcs-accordion-transition-duration);
+
         @media (forced-colors: active) {
             // for WHCM
-            border: 1px solid ButtonBorder;
+            border: var(--wcs-accordion-panel-header-border-width) solid ButtonBorder;
         }
         &:focus-visible {
-            outline: 2px solid var(--wcs-primary);
+            @include accordion-panel-focus;
+        }
+
+        &:hover {
+            cursor: pointer;
+
+            color: var(--wcs-accordion-panel-color-hover);
+            background-color: var(--wcs-accordion-panel-background-color-hover);
+
+            .header-action {
+                color: var(--wcs-accordion-panel-color-hover);
+
+                .arrow {
+                    fill: var(--wcs-accordion-panel-color-hover);
+                }
+            }
+        }
+
+        &:active {
+            background-color: var(--wcs-accordion-panel-background-color-press);
         }
     }
 
@@ -31,8 +89,10 @@
         align-items: center;
         user-select: none;
 
+        color: var(--wcs-accordion-panel-action-color-default);
+
         .arrow {
-            fill: var(--wcs-primary);
+            fill: var(--wcs-accordion-panel-action-color-default);
         }
     }
 
@@ -42,8 +102,42 @@
 
 }
 
+:host(.token-migration) {
+    --wcs-accordion-panel-color-default: var(--wcs-semantic-color-text-primary);
+    --wcs-accordion-panel-color-highlight: var(--wcs-semantic-color-text-primary);
+    --wcs-accordion-panel-color-hover: var(--wcs-semantic-color-text-primary);
+    --wcs-accordion-panel-color-press: var(--wcs-semantic-color-text-primary);
+    --wcs-accordion-panel-action-color-default: var(--wcs-semantic-color-text-primary);
+    --wcs-accordion-panel-action-color-highlight: var(--wcs-semantic-color-text-primary);
+    --wcs-accordion-panel-background-color-default: var(--wcs-semantic-color-background-action-secondary-default);
+    --wcs-accordion-panel-background-color-highlight: var(--wcs-semantic-color-background-action-secondary-press);
+    --wcs-accordion-panel-background-color-hover: var(--wcs-semantic-color-background-action-secondary-hover);
+    --wcs-accordion-panel-background-color-press: var(--wcs-semantic-color-background-action-secondary-press);
+
+    --wcs-accordion-panel-header-font-weight: var(--wcs-semantic-font-weight-medium);
+    --wcs-accordion-panel-header-font-size: var(--wcs-semantic-font-size-heading-6);
+    --wcs-accordion-panel-border-radius: var(--wcs-semantic-border-radius-base);
+    --wcs-accordion-panel-border-radius-open: var(--wcs-accordion-panel-border-radius) var(--wcs-accordion-panel-border-radius) 0 0;
+    --wcs-accordion-panel-padding-vertical: var(--wcs-semantic-spacing-large);
+    --wcs-accordion-panel-padding-horizontal: calc(var(--wcs-semantic-spacing-base) * 3);
+
+    --wcs-accordion-panel-header-border-width: var(--wcs-semantic-border-width-surface);
+    --wcs-accordion-panel-border-width: var(--wcs-semantic-border-width-default);
+    --wcs-accordion-panel-border-width-focus: var(--wcs-semantic-border-width-large);
+    --wcs-accordion-panel-border-color: var(--wcs-semantic-color-border-surface);
+
+    --wcs-accordion-panel-border-color-focus: var(--wcs-semantic-color-border-focus-base);
+    --wcs-accordion-panel-border-style-focus: dashed;
+
+    --wcs-accordion-transition-duration: var(--wcs-semantic-motion-duration-feedback-base);
+}
+
 :host([open]) {
     margin-bottom: 0;
+
+    .header {
+        border-radius: var(--wcs-accordion-panel-border-radius-open);
+    }
 
     .content {
         display: block;
@@ -51,31 +145,35 @@
 
     &:host([group-content-with-header]) {
         .header {
-            border-radius: 7px 7px 0 0;
+            border-radius: var(--wcs-accordion-panel-border-radius-open);
             padding-bottom: 0;
         }
 
         .content {
-            border-radius: 0 0 7px 7px;
-            margin-bottom: 14px;
-            background-color: var(--wcs-light);
+            border-radius: 0 0 var(--wcs-accordion-panel-border-radius) var(--wcs-accordion-panel-border-radius);
+            margin-bottom: var(--wcs-);
+            background-color: var(--wcs-accordion-panel-background-color-default);
         }
     }
 
     &:host([highlight]) {
         .header {
-            background-color: var(--wcs-primary);
-            color: var(--wcs-light);
+            background-color: var(--wcs-accordion-panel-background-color-highlight);
+            color: var(--wcs-accordion-panel-color-highlight);
+        }
+
+        .header-action {
+            color: var(--wcs-accordion-panel-action-color-highlight);
         }
 
         .arrow {
-            fill: var(--wcs-light);
+            fill: var(--wcs-accordion-panel-color-highlight);
         }
 
         &:host([group-content-with-header]) {
             .content {
-                background-color: var(--wcs-primary);
-                color: var(--wcs-light);
+                background-color: var(--wcs-accordion-panel-background-color-highlight);
+                color: var(--wcs-accordion-panel-color-highlight);
             }
         }
     }

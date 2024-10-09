@@ -18,6 +18,31 @@ const ACCORDION_INHERITED_ATTRS = ['tabindex', 'title'];
 
 /**
  * The accordion-panel is a subcomponent of `wcs-accordion`. It represents every panel of the accordion that can be expanded.
+ * 
+ *
+ * @cssprop --wcs-accordion-panel-color-default - Default color of the accordion panel
+ * @cssprop --wcs-accordion-panel-color-highlight - Highlight color of the accordion panel
+ * @cssprop --wcs-accordion-panel-color-hover - Hover color of the accordion panel
+ * @cssprop --wcs-accordion-panel-color-press - Press color of the accordion panel
+ * @cssprop --wcs-accordion-panel-action-color-default - Default action color of the accordion panel
+ * @cssprop --wcs-accordion-panel-action-color-highlight - Highlight action color of the accordion panel
+ * @cssprop --wcs-accordion-panel-background-color-default - Default background color of the accordion panel
+ * @cssprop --wcs-accordion-panel-background-color-highlight - Highlight background color of the accordion panel
+ * @cssprop --wcs-accordion-panel-background-color-hover - Hover background color of the accordion panel
+ * @cssprop --wcs-accordion-panel-background-color-press - Press background color of the accordion panel
+ * @cssprop --wcs-accordion-panel-header-font-size - Font size of the accordion panel header
+ * @cssprop --wcs-accordion-panel-header-font-weight - Font weight of the accordion panel header
+ * @cssprop --wcs-accordion-panel-border-radius - Border radius of the accordion panel
+ * @cssprop --wcs-accordion-panel-border-radius-open - Border radius of the open accordion panel
+ * @cssprop --wcs-accordion-panel-padding-vertical - Vertical padding of the accordion panel
+ * @cssprop --wcs-accordion-panel-padding-horizontal - Horizontal padding of the accordion panel
+ * @cssprop --wcs-accordion-panel-header-border-width - Border width of the accordion panel header
+ * @cssprop --wcs-accordion-panel-border-width - Border width of the accordion panel
+ * @cssprop --wcs-accordion-panel-border-width-focus - Border width of the accordion panel when focused
+ * @cssprop --wcs-accordion-panel-border-color - Border color of the accordion panel
+ * @cssprop --wcs-accordion-panel-border-color-focus - Border color of the accordion panel when focused
+ * @cssprop --wcs-accordion-panel-border-style-focus - Border style of the accordion panel when focused
+ * @cssprop --wcs-accordion-transition-duration - Transition duration of the accordion panel
  */
 @Component({
     tag: 'wcs-accordion-panel',

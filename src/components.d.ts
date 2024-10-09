@@ -60,6 +60,7 @@ export { WcsTooltipAppendTo, WcsTooltipPosition } from "./components/tooltip/too
 export namespace Components {
     /**
      * The accordion component is a vertical stack of interactive headings used to toggle the display of further information.
+     * @cssprop --wcs-accordion-gap - Gap between accordion panels
      */
     interface WcsAccordion {
         /**
@@ -77,6 +78,7 @@ export namespace Components {
     }
     /**
      * The accordion-content is a subcomponent of `wcs-accordion`. It represents the text / content below an expanded accordion.
+     * @cssprop --wcs-accordion-content-padding - Padding of the content
      */
     interface WcsAccordionContent {
     }
@@ -87,6 +89,29 @@ export namespace Components {
     }
     /**
      * The accordion-panel is a subcomponent of `wcs-accordion`. It represents every panel of the accordion that can be expanded.
+     * @cssprop --wcs-accordion-panel-color-default - Default color of the accordion panel
+     * @cssprop --wcs-accordion-panel-color-highlight - Highlight color of the accordion panel
+     * @cssprop --wcs-accordion-panel-color-hover - Hover color of the accordion panel
+     * @cssprop --wcs-accordion-panel-color-press - Press color of the accordion panel
+     * @cssprop --wcs-accordion-panel-action-color-default - Default action color of the accordion panel
+     * @cssprop --wcs-accordion-panel-action-color-highlight - Highlight action color of the accordion panel
+     * @cssprop --wcs-accordion-panel-background-color-default - Default background color of the accordion panel
+     * @cssprop --wcs-accordion-panel-background-color-highlight - Highlight background color of the accordion panel
+     * @cssprop --wcs-accordion-panel-background-color-hover - Hover background color of the accordion panel
+     * @cssprop --wcs-accordion-panel-background-color-press - Press background color of the accordion panel
+     * @cssprop --wcs-accordion-panel-header-font-size - Font size of the accordion panel header
+     * @cssprop --wcs-accordion-panel-header-font-weight - Font weight of the accordion panel header
+     * @cssprop --wcs-accordion-panel-border-radius - Border radius of the accordion panel
+     * @cssprop --wcs-accordion-panel-border-radius-open - Border radius of the open accordion panel
+     * @cssprop --wcs-accordion-panel-padding-vertical - Vertical padding of the accordion panel
+     * @cssprop --wcs-accordion-panel-padding-horizontal - Horizontal padding of the accordion panel
+     * @cssprop --wcs-accordion-panel-header-border-width - Border width of the accordion panel header
+     * @cssprop --wcs-accordion-panel-border-width - Border width of the accordion panel
+     * @cssprop --wcs-accordion-panel-border-width-focus - Border width of the accordion panel when focused
+     * @cssprop --wcs-accordion-panel-border-color - Border color of the accordion panel
+     * @cssprop --wcs-accordion-panel-border-color-focus - Border color of the accordion panel when focused
+     * @cssprop --wcs-accordion-panel-border-style-focus - Border style of the accordion panel when focused
+     * @cssprop --wcs-accordion-transition-duration - Transition duration of the accordion panel
      */
     interface WcsAccordionPanel {
         "close": () => Promise<void>;
@@ -2053,6 +2078,7 @@ export interface WcsTextareaCustomEvent<T> extends CustomEvent<T> {
 declare global {
     /**
      * The accordion component is a vertical stack of interactive headings used to toggle the display of further information.
+     * @cssprop --wcs-accordion-gap - Gap between accordion panels
      */
     interface HTMLWcsAccordionElement extends Components.WcsAccordion, HTMLStencilElement {
     }
@@ -2062,6 +2088,7 @@ declare global {
     };
     /**
      * The accordion-content is a subcomponent of `wcs-accordion`. It represents the text / content below an expanded accordion.
+     * @cssprop --wcs-accordion-content-padding - Padding of the content
      */
     interface HTMLWcsAccordionContentElement extends Components.WcsAccordionContent, HTMLStencilElement {
     }
@@ -2083,6 +2110,29 @@ declare global {
     }
     /**
      * The accordion-panel is a subcomponent of `wcs-accordion`. It represents every panel of the accordion that can be expanded.
+     * @cssprop --wcs-accordion-panel-color-default - Default color of the accordion panel
+     * @cssprop --wcs-accordion-panel-color-highlight - Highlight color of the accordion panel
+     * @cssprop --wcs-accordion-panel-color-hover - Hover color of the accordion panel
+     * @cssprop --wcs-accordion-panel-color-press - Press color of the accordion panel
+     * @cssprop --wcs-accordion-panel-action-color-default - Default action color of the accordion panel
+     * @cssprop --wcs-accordion-panel-action-color-highlight - Highlight action color of the accordion panel
+     * @cssprop --wcs-accordion-panel-background-color-default - Default background color of the accordion panel
+     * @cssprop --wcs-accordion-panel-background-color-highlight - Highlight background color of the accordion panel
+     * @cssprop --wcs-accordion-panel-background-color-hover - Hover background color of the accordion panel
+     * @cssprop --wcs-accordion-panel-background-color-press - Press background color of the accordion panel
+     * @cssprop --wcs-accordion-panel-header-font-size - Font size of the accordion panel header
+     * @cssprop --wcs-accordion-panel-header-font-weight - Font weight of the accordion panel header
+     * @cssprop --wcs-accordion-panel-border-radius - Border radius of the accordion panel
+     * @cssprop --wcs-accordion-panel-border-radius-open - Border radius of the open accordion panel
+     * @cssprop --wcs-accordion-panel-padding-vertical - Vertical padding of the accordion panel
+     * @cssprop --wcs-accordion-panel-padding-horizontal - Horizontal padding of the accordion panel
+     * @cssprop --wcs-accordion-panel-header-border-width - Border width of the accordion panel header
+     * @cssprop --wcs-accordion-panel-border-width - Border width of the accordion panel
+     * @cssprop --wcs-accordion-panel-border-width-focus - Border width of the accordion panel when focused
+     * @cssprop --wcs-accordion-panel-border-color - Border color of the accordion panel
+     * @cssprop --wcs-accordion-panel-border-color-focus - Border color of the accordion panel when focused
+     * @cssprop --wcs-accordion-panel-border-style-focus - Border style of the accordion panel when focused
+     * @cssprop --wcs-accordion-transition-duration - Transition duration of the accordion panel
      */
     interface HTMLWcsAccordionPanelElement extends Components.WcsAccordionPanel, HTMLStencilElement {
         addEventListener<K extends keyof HTMLWcsAccordionPanelElementEventMap>(type: K, listener: (this: HTMLWcsAccordionPanelElement, ev: WcsAccordionPanelCustomEvent<HTMLWcsAccordionPanelElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3594,6 +3644,7 @@ declare global {
 declare namespace LocalJSX {
     /**
      * The accordion component is a vertical stack of interactive headings used to toggle the display of further information.
+     * @cssprop --wcs-accordion-gap - Gap between accordion panels
      */
     interface WcsAccordion {
         /**
@@ -3611,6 +3662,7 @@ declare namespace LocalJSX {
     }
     /**
      * The accordion-content is a subcomponent of `wcs-accordion`. It represents the text / content below an expanded accordion.
+     * @cssprop --wcs-accordion-content-padding - Padding of the content
      */
     interface WcsAccordionContent {
     }
@@ -3621,6 +3673,29 @@ declare namespace LocalJSX {
     }
     /**
      * The accordion-panel is a subcomponent of `wcs-accordion`. It represents every panel of the accordion that can be expanded.
+     * @cssprop --wcs-accordion-panel-color-default - Default color of the accordion panel
+     * @cssprop --wcs-accordion-panel-color-highlight - Highlight color of the accordion panel
+     * @cssprop --wcs-accordion-panel-color-hover - Hover color of the accordion panel
+     * @cssprop --wcs-accordion-panel-color-press - Press color of the accordion panel
+     * @cssprop --wcs-accordion-panel-action-color-default - Default action color of the accordion panel
+     * @cssprop --wcs-accordion-panel-action-color-highlight - Highlight action color of the accordion panel
+     * @cssprop --wcs-accordion-panel-background-color-default - Default background color of the accordion panel
+     * @cssprop --wcs-accordion-panel-background-color-highlight - Highlight background color of the accordion panel
+     * @cssprop --wcs-accordion-panel-background-color-hover - Hover background color of the accordion panel
+     * @cssprop --wcs-accordion-panel-background-color-press - Press background color of the accordion panel
+     * @cssprop --wcs-accordion-panel-header-font-size - Font size of the accordion panel header
+     * @cssprop --wcs-accordion-panel-header-font-weight - Font weight of the accordion panel header
+     * @cssprop --wcs-accordion-panel-border-radius - Border radius of the accordion panel
+     * @cssprop --wcs-accordion-panel-border-radius-open - Border radius of the open accordion panel
+     * @cssprop --wcs-accordion-panel-padding-vertical - Vertical padding of the accordion panel
+     * @cssprop --wcs-accordion-panel-padding-horizontal - Horizontal padding of the accordion panel
+     * @cssprop --wcs-accordion-panel-header-border-width - Border width of the accordion panel header
+     * @cssprop --wcs-accordion-panel-border-width - Border width of the accordion panel
+     * @cssprop --wcs-accordion-panel-border-width-focus - Border width of the accordion panel when focused
+     * @cssprop --wcs-accordion-panel-border-color - Border color of the accordion panel
+     * @cssprop --wcs-accordion-panel-border-color-focus - Border color of the accordion panel when focused
+     * @cssprop --wcs-accordion-panel-border-style-focus - Border style of the accordion panel when focused
+     * @cssprop --wcs-accordion-transition-duration - Transition duration of the accordion panel
      */
     interface WcsAccordionPanel {
         /**
@@ -5630,10 +5705,12 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             /**
              * The accordion component is a vertical stack of interactive headings used to toggle the display of further information.
+             * @cssprop --wcs-accordion-gap - Gap between accordion panels
              */
             "wcs-accordion": LocalJSX.WcsAccordion & JSXBase.HTMLAttributes<HTMLWcsAccordionElement>;
             /**
              * The accordion-content is a subcomponent of `wcs-accordion`. It represents the text / content below an expanded accordion.
+             * @cssprop --wcs-accordion-content-padding - Padding of the content
              */
             "wcs-accordion-content": LocalJSX.WcsAccordionContent & JSXBase.HTMLAttributes<HTMLWcsAccordionContentElement>;
             /**
@@ -5642,6 +5719,29 @@ declare module "@stencil/core" {
             "wcs-accordion-header": LocalJSX.WcsAccordionHeader & JSXBase.HTMLAttributes<HTMLWcsAccordionHeaderElement>;
             /**
              * The accordion-panel is a subcomponent of `wcs-accordion`. It represents every panel of the accordion that can be expanded.
+             * @cssprop --wcs-accordion-panel-color-default - Default color of the accordion panel
+             * @cssprop --wcs-accordion-panel-color-highlight - Highlight color of the accordion panel
+             * @cssprop --wcs-accordion-panel-color-hover - Hover color of the accordion panel
+             * @cssprop --wcs-accordion-panel-color-press - Press color of the accordion panel
+             * @cssprop --wcs-accordion-panel-action-color-default - Default action color of the accordion panel
+             * @cssprop --wcs-accordion-panel-action-color-highlight - Highlight action color of the accordion panel
+             * @cssprop --wcs-accordion-panel-background-color-default - Default background color of the accordion panel
+             * @cssprop --wcs-accordion-panel-background-color-highlight - Highlight background color of the accordion panel
+             * @cssprop --wcs-accordion-panel-background-color-hover - Hover background color of the accordion panel
+             * @cssprop --wcs-accordion-panel-background-color-press - Press background color of the accordion panel
+             * @cssprop --wcs-accordion-panel-header-font-size - Font size of the accordion panel header
+             * @cssprop --wcs-accordion-panel-header-font-weight - Font weight of the accordion panel header
+             * @cssprop --wcs-accordion-panel-border-radius - Border radius of the accordion panel
+             * @cssprop --wcs-accordion-panel-border-radius-open - Border radius of the open accordion panel
+             * @cssprop --wcs-accordion-panel-padding-vertical - Vertical padding of the accordion panel
+             * @cssprop --wcs-accordion-panel-padding-horizontal - Horizontal padding of the accordion panel
+             * @cssprop --wcs-accordion-panel-header-border-width - Border width of the accordion panel header
+             * @cssprop --wcs-accordion-panel-border-width - Border width of the accordion panel
+             * @cssprop --wcs-accordion-panel-border-width-focus - Border width of the accordion panel when focused
+             * @cssprop --wcs-accordion-panel-border-color - Border color of the accordion panel
+             * @cssprop --wcs-accordion-panel-border-color-focus - Border color of the accordion panel when focused
+             * @cssprop --wcs-accordion-panel-border-style-focus - Border style of the accordion panel when focused
+             * @cssprop --wcs-accordion-transition-duration - Transition duration of the accordion panel
              */
             "wcs-accordion-panel": LocalJSX.WcsAccordionPanel & JSXBase.HTMLAttributes<HTMLWcsAccordionPanelElement>;
             /**

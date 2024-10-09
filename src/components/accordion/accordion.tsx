@@ -2,10 +2,12 @@ import { Component, Element, h, Host, Listen, Prop, Watch } from '@stencil/core'
 
 /**
  * The accordion component is a vertical stack of interactive headings used to toggle the display of further information.
+ * 
+ * @cssprop --wcs-accordion-gap - Gap between accordion panels
  */
 @Component({
     tag: 'wcs-accordion',
-    // styleUrl: 'accordion.scss',
+    styleUrl: 'accordion.scss',
     shadow: true
 })
 export class Accordion {

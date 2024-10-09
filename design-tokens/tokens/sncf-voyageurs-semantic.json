@@ -207,6 +207,11 @@
                             "$type": "color",
                             "$value": "{primitive.color.vert.100}"
                         },
+                        "press": {
+                            "$description": "Can be used by secondary elements which must have a press state (button, dropdown...)",
+                            "$type": "color",
+                            "$value": "{primitive.color.vert.200}"
+                        },
                         "selected": {
                             "default": {
                                 "$description": "Background of a selected secondary action elements (select option)",
@@ -344,6 +349,11 @@
                             "$description": "The layer on top of a secondary background",
                             "$type": "color",
                             "$value": "{semantic.color.primary}"
+                        },
+                        "hover": {
+                            "$description": "The layer on top of a secondary background when hovered",
+                            "$type": "color",
+                            "$value": "{primitive.color.vert.600}"
                         }
                     },
                     "tertiary": {
@@ -504,7 +514,7 @@
                     "6": {
                         "$description": "Level 6 title heading",
                         "$type": "font",
-                        "$value": "{primitive.size.200}"
+                        "$value": "{primitive.size.180}"
                     }
                 },
                 "body": {
