@@ -11,7 +11,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-for new features.
+- **fonts**: add `Avenir Heavy` font (weight 800)
 
 ### Changed
 

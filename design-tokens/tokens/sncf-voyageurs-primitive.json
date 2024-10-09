@@ -115,6 +115,10 @@
                 "$type": "color",
                 "$value": "#00000000"
             },
+            "backdrop": {
+                "$type": "color",
+                "$value": "#002B2866"
+            },
             "vert": {
                 "100": {
                     "$description": "Vert Opaline",
@@ -322,24 +326,28 @@
                 "500": {
                     "$type": "number",
                     "$value": "500"
+                },
+                "800": {
+                    "$type": "number",
+                    "$value": "800"
                 }
             },
             "line-height": {
                 "100": {
                     "$type": "number",
-                    "$value": "100"
+                    "$value": "1"
                 },
                 "110": {
-                    "$type": "dimension",
-                    "$value": "110"
+                    "$type": "number",
+                    "$value": "1.1"
                 },
                 "120": {
-                    "$type": "dimension",
-                    "$value": "120"
+                    "$type": "number",
+                    "$value": "1.2"
                 },
                 "140": {
-                    "$type": "dimension",
-                    "$value": "140"
+                    "$type": "number",
+                    "$value": "1.4"
                 }
             }
         },

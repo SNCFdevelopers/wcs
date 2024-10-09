@@ -1202,6 +1202,22 @@ export namespace Components {
      * > - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
      * @cssprop --wcs-modal-max-height - Max height of the main container
      * @cssprop --wcs-modal-overflow-y - Overflow-y of the content
+     * @cssprop --wcs-modal-backdrop-color - Backdrop color of the modal
+     * @cssprop --wcs-modal-max-height - Max height of the main container
+     * @cssprop --wcs-modal-background-color - Background color of the modal
+     * @cssprop --wcs-modal-border-radius - Border radius of the modal
+     * @cssprop --wcs-modal-padding - Padding inside the modal
+     * @cssprop --wcs-modal-border-width - Border width of the modal
+     * @cssprop --wcs-modal-border-color - Border color of the modal
+     * @cssprop --wcs-modal-title-margin-bottom - Margin bottom of the modal title
+     * @cssprop --wcs-modal-title-font-size - Font size of the modal title
+     * @cssprop --wcs-modal-title-font-weight - Font weight of the modal title
+     * @cssprop --wcs-modal-title-line-height - Line height of the modal title
+     * @cssprop --wcs-modal-actions-margin-top - Margin top of the modal actions
+     * @cssprop --wcs-modal-width-s - Width of the modal for size small
+     * @cssprop --wcs-modal-width-m - Width of the modal for size medium
+     * @cssprop --wcs-modal-width-l - Width of the modal for size large
+     * @cssprop --wcs-modal-width-xl - Width of the modal for size extra large
      */
     interface WcsModal {
         /**
@@ -3100,6 +3116,22 @@ declare global {
      * > - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
      * @cssprop --wcs-modal-max-height - Max height of the main container
      * @cssprop --wcs-modal-overflow-y - Overflow-y of the content
+     * @cssprop --wcs-modal-backdrop-color - Backdrop color of the modal
+     * @cssprop --wcs-modal-max-height - Max height of the main container
+     * @cssprop --wcs-modal-background-color - Background color of the modal
+     * @cssprop --wcs-modal-border-radius - Border radius of the modal
+     * @cssprop --wcs-modal-padding - Padding inside the modal
+     * @cssprop --wcs-modal-border-width - Border width of the modal
+     * @cssprop --wcs-modal-border-color - Border color of the modal
+     * @cssprop --wcs-modal-title-margin-bottom - Margin bottom of the modal title
+     * @cssprop --wcs-modal-title-font-size - Font size of the modal title
+     * @cssprop --wcs-modal-title-font-weight - Font weight of the modal title
+     * @cssprop --wcs-modal-title-line-height - Line height of the modal title
+     * @cssprop --wcs-modal-actions-margin-top - Margin top of the modal actions
+     * @cssprop --wcs-modal-width-s - Width of the modal for size small
+     * @cssprop --wcs-modal-width-m - Width of the modal for size medium
+     * @cssprop --wcs-modal-width-l - Width of the modal for size large
+     * @cssprop --wcs-modal-width-xl - Width of the modal for size extra large
      */
     interface HTMLWcsModalElement extends Components.WcsModal, HTMLStencilElement {
         addEventListener<K extends keyof HTMLWcsModalElementEventMap>(type: K, listener: (this: HTMLWcsModalElement, ev: WcsModalCustomEvent<HTMLWcsModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -4958,6 +4990,22 @@ declare namespace LocalJSX {
      * > - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
      * @cssprop --wcs-modal-max-height - Max height of the main container
      * @cssprop --wcs-modal-overflow-y - Overflow-y of the content
+     * @cssprop --wcs-modal-backdrop-color - Backdrop color of the modal
+     * @cssprop --wcs-modal-max-height - Max height of the main container
+     * @cssprop --wcs-modal-background-color - Background color of the modal
+     * @cssprop --wcs-modal-border-radius - Border radius of the modal
+     * @cssprop --wcs-modal-padding - Padding inside the modal
+     * @cssprop --wcs-modal-border-width - Border width of the modal
+     * @cssprop --wcs-modal-border-color - Border color of the modal
+     * @cssprop --wcs-modal-title-margin-bottom - Margin bottom of the modal title
+     * @cssprop --wcs-modal-title-font-size - Font size of the modal title
+     * @cssprop --wcs-modal-title-font-weight - Font weight of the modal title
+     * @cssprop --wcs-modal-title-line-height - Line height of the modal title
+     * @cssprop --wcs-modal-actions-margin-top - Margin top of the modal actions
+     * @cssprop --wcs-modal-width-s - Width of the modal for size small
+     * @cssprop --wcs-modal-width-m - Width of the modal for size medium
+     * @cssprop --wcs-modal-width-l - Width of the modal for size large
+     * @cssprop --wcs-modal-width-xl - Width of the modal for size extra large
      */
     interface WcsModal {
         /**
@@ -6475,6 +6523,22 @@ declare module "@stencil/core" {
              * > - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
              * @cssprop --wcs-modal-max-height - Max height of the main container
              * @cssprop --wcs-modal-overflow-y - Overflow-y of the content
+             * @cssprop --wcs-modal-backdrop-color - Backdrop color of the modal
+             * @cssprop --wcs-modal-max-height - Max height of the main container
+             * @cssprop --wcs-modal-background-color - Background color of the modal
+             * @cssprop --wcs-modal-border-radius - Border radius of the modal
+             * @cssprop --wcs-modal-padding - Padding inside the modal
+             * @cssprop --wcs-modal-border-width - Border width of the modal
+             * @cssprop --wcs-modal-border-color - Border color of the modal
+             * @cssprop --wcs-modal-title-margin-bottom - Margin bottom of the modal title
+             * @cssprop --wcs-modal-title-font-size - Font size of the modal title
+             * @cssprop --wcs-modal-title-font-weight - Font weight of the modal title
+             * @cssprop --wcs-modal-title-line-height - Line height of the modal title
+             * @cssprop --wcs-modal-actions-margin-top - Margin top of the modal actions
+             * @cssprop --wcs-modal-width-s - Width of the modal for size small
+             * @cssprop --wcs-modal-width-m - Width of the modal for size medium
+             * @cssprop --wcs-modal-width-l - Width of the modal for size large
+             * @cssprop --wcs-modal-width-xl - Width of the modal for size extra large
              */
             "wcs-modal": LocalJSX.WcsModal & JSXBase.HTMLAttributes<HTMLWcsModalElement>;
             /**

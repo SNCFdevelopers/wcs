@@ -475,6 +475,11 @@
                     "$type": "color",
                     "$value": "{semantic.color.primary}"
                 }
+            },
+            "backdrop": {
+                "$description": "The layer behind a surface (modal)",
+                "$type": "color",
+                "$value": "{primitive.color.backdrop}"
             }
         },
         "font": {
@@ -575,15 +580,19 @@
                     "$value": "{primitive.font.line-height.100}"
                 },
                 "medium": {
-                    "$type": "dimension",
+                    "$type": "number",
                     "$value": "{primitive.font.line-height.120}"
                 },
                 "large": {
-                    "$type": "dimension",
+                    "$type": "number",
                     "$value": "{primitive.font.line-height.140}"
                 }
             },
             "weight": {
+                "heavy": {
+                    "$type": "number",
+                    "$value": "{primitive.font.weight.800}"
+                },
                 "medium": {
                     "$type": "number",
                     "$value": "{primitive.font.weight.500}"

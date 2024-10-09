@@ -1,4 +1,24 @@
 wcs-modal {
+    // region to be removed before migration to design tokens
+    --wcs-modal-backdrop-color: rgba(0, 0, 0, 0.4);
+    --wcs-modal-max-height: 80%;
+    --wcs-modal-background-color: #fff;
+    --wcs-modal-border-radius: 0.4375rem;
+    --wcs-modal-padding: 1.5rem;
+    --wcs-modal-border-width: 1px;
+    --wcs-modal-border-color: var(--wcs-text-light);
+    --wcs-modal-title-margin-bottom: 8px;
+    --wcs-modal-title-font-size: 24px;
+    --wcs-modal-title-font-weight: 400;
+    --wcs-modal-title-line-height: 1.2;
+    --wcs-modal-actions-margin-top: 20px;
+
+    --wcs-modal-width-s: 288px;
+    --wcs-modal-width-m: 480px;
+    --wcs-modal-width-l: 864px;
+    --wcs-modal-width-xl: 1200px;
+    // endregion
+
     z-index: 999;
     position: fixed;
     top: 0;
@@ -6,7 +26,7 @@ wcs-modal {
     left: 0;
     right: 0;
     display: none;
-    background: rgba(0, 0, 0, 0.4);
+    background: var(--wcs-modal-backdrop-color);
 }
 
 wcs-modal[show] {
@@ -24,7 +44,7 @@ wcs-modal[without-backdrop] {
     background-color: unset;
 
     .wcs-modal-container {
-        border: solid 1px var(--wcs-text-light);
+        border: solid var(--wcs-modal-border-width) var(--wcs-modal-border-color);
     }
 }
 
@@ -33,56 +53,76 @@ Modal window
  */
 .wcs-modal-container {
     max-height: var(--wcs-modal-max-height, 80%);
-    background-color: #fff;
+    background-color: var(--wcs-modal-background-color);
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: auto 1fr auto;
     box-sizing: border-box;
     pointer-events: auto;
     background-clip: padding-box;
-    border: 0 solid rgba(0, 0, 0, 0.2);
-    border-radius: 0.4375rem;
+    border-radius: var(--wcs-modal-border-radius);
     z-index: 20000;
-    padding: 1.375rem 1.875rem 1.875rem 1.875rem;
+    padding: var(--wcs-modal-padding);
 }
 
 .wcs-modal-container[data-size=s] {
-    width: 288px;
+    width: var(--wcs-modal-width-s);
 }
 
 .wcs-modal-container[data-size=m] {
-    width: 480px;
+    width: var(--wcs-modal-width-m);
 }
 
 .wcs-modal-container[data-size=l] {
-    width: 864px;
+    width: var(--wcs-modal-width-l);
 }
 
 .wcs-modal-container[data-size=xl] {
-    width: 1200px;
+    width: var(--wcs-modal-width-xl);
 }
 
 .wcs-modal-header {
+    /* h1 for semantic but h3 for style */
     h1 {
-        font-size: 24px;
-        font-weight: 400;
+        font-size: var(--wcs-modal-title-font-size);
+        font-weight: var(--wcs-modal-title-font-weight);
+        line-height: var(--wcs-modal-title-line-height);
         margin: 0;
     }
 
-    margin-bottom: 8px;
+    margin-bottom: var(--wcs-modal-title-margin-bottom);
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
 }
 
 .wcs-modal-content {
-    font-weight: 400;
-    font-size: 16px;
     overflow-y: var(--wcs-modal-overflow-y, auto);
 }
 
 .wcs-modal-actions {
-    margin-top: 20px;
+    margin-top: var(--wcs-modal-actions-margin-top);
     display: flex;
     justify-content: flex-end;
+}
+
+.token-migration {
+    --wcs-modal-backdrop-color: var(--wcs-semantic-color-backdrop);
+    --wcs-modal-max-height: 80%;
+    --wcs-modal-background-color: var(--wcs-semantic-color-background-surface-primary);
+    --wcs-modal-border-radius: var(--wcs-semantic-border-radius-base);
+    --wcs-modal-padding: calc(3 * var(--wcs-semantic-spacing-base));
+    --wcs-modal-border-width: var(--wcs-semantic-border-width-default);
+    --wcs-modal-border-color: var(--wcs-semantic-color-border-surface);
+    --wcs-modal-title-margin-bottom: var(--wcs-semantic-spacing-large);
+    --wcs-modal-title-font-size: var(--wcs-semantic-font-size-heading-3);
+    --wcs-modal-title-font-weight: var(--wcs-semantic-font-weight-heavy);
+    --wcs-modal-title-line-height: var(--wcs-primitive-font-line-height-medium);
+    --wcs-modal-actions-margin-top: var(--wcs-semantic-spacing-large);
+
+    // Specific component level tokens
+    --wcs-modal-width-s: 288px;
+    --wcs-modal-width-m: 480px;
+    --wcs-modal-width-l: 864px;
+    --wcs-modal-width-xl: 1200px;
 }
