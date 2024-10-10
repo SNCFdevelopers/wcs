@@ -973,6 +973,11 @@ export namespace Components {
      */
     interface WcsNativeSelect {
         /**
+          * If `true`, the user must fill in a value before submitting a form. It is propagated to the slotted select element
+         */
+        "required": boolean;
+        "setAriaAttribute": (attr: AriaAttributeName, value: string | null | undefined) => Promise<void>;
+        /**
           * The `size` property controls the size of the slotted `select` element by adjusting its padding. There are two possible size options: - 'm': medium size - 'l': large size  The default value is 'm'.
          */
         "size": WcsNativeSelectSize;
@@ -3657,6 +3662,10 @@ declare namespace LocalJSX {
      * - Use a native-select instead of a wcs-select if your application is mainly on mobile / tablet. The native behavior of the device will be used.
      */
     interface WcsNativeSelect {
+        /**
+          * If `true`, the user must fill in a value before submitting a form. It is propagated to the slotted select element
+         */
+        "required"?: boolean;
         /**
           * The `size` property controls the size of the slotted `select` element by adjusting its padding. There are two possible size options: - 'm': medium size - 'l': large size  The default value is 'm'.
          */

@@ -1,7 +1,8 @@
-import { Component, h, ComponentInterface, State, Prop, Host, Element, Method } from '@stencil/core';
+import { Component, h, ComponentInterface, State, Prop, Host, Element, Method, Watch } from '@stencil/core';
 
 import { SelectArrow } from '../select/select-arrow';
 import { WcsNativeSelectSize } from './native-select-interface';
+import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
 
 /**
  * The `wcs-native-select` component is designed to accept a native `<select>` element as a slotted child. This choice
@@ -32,14 +33,14 @@ import { WcsNativeSelectSize } from './native-select-interface';
  * - We did not find a way to detect when the select is reset, if you want to apply the placeholder style when the
  * select is reset, you have to call the `updateStyles()` method manually.
  * - It is strongly recommended to use native-select when you don't have to support the multi-selection feature
- * - Use a native-select instead of a wcs-select if your application is mainly on mobile / tablet. The native behavior of the device will be used. 
+ * - Use a native-select instead of a wcs-select if your application is mainly on mobile / tablet. The native behavior of the device will be used.
  */
 @Component({
     tag: 'wcs-native-select',
     styleUrl: 'native-select.scss',
     shadow: true
 })
-export class NativeSelect implements ComponentInterface {
+export class NativeSelect implements ComponentInterface, MutableAriaAttribute {
     /**
      * The `size` property controls the size of the slotted `select` element by adjusting its padding.
      * There are two possible size options:
@@ -49,6 +50,12 @@ export class NativeSelect implements ComponentInterface {
      * The default value is 'm'.
      */
     @Prop({reflect: true}) size: WcsNativeSelectSize = 'm';
+    /**
+     * If `true`, the user must fill in a value before submitting a form.
+     * It is propagated to the slotted select element
+     */
+    @Prop() required = false;
+    
     @Element() private el!: HTMLWcsNativeSelectElement;
 
     @State() private expanded: boolean = false;
@@ -59,6 +66,14 @@ export class NativeSelect implements ComponentInterface {
     private observer: MutationObserver;
     private readonly SLOTTED_SELECT_TRACKED_ATTRIBUTES_LIST = ['disabled'];
 
+    @Watch('required')
+    requiredChanged(newValue: boolean, oldValue: boolean) {
+        if(newValue !== oldValue) {
+            if(!this.selectElement) return;
+            this.selectElement.required = this.required;
+        }
+    }
+    
     componentWillLoad() {
         this.selectElement = this.el.querySelector('select');
         if (!this.selectElement) throw new Error("wcs-native-select must be used with a native slotted select, please refer to the documentation.");
@@ -87,6 +102,12 @@ export class NativeSelect implements ComponentInterface {
         });
         this.updateHostAttributeWithSlottedSelect();
         this.observer.observe(this.selectElement, {attributes: true});
+    }
+
+    @Method()
+    async setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) {
+        if(!this.selectElement) return;
+        this.selectElement.setAttribute(attr, value);
     }
 
     private onSelectedOptionChange(): void {

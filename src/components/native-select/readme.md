@@ -39,12 +39,30 @@ select is reset, you have to call the `updateStyles()` method manually.
 
 ## Properties
 
-| Property | Attribute | Description                                                                                                                                                                                          | Type         | Default |
-| -------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ------- |
-| `size`   | `size`    | The `size` property controls the size of the slotted `select` element by adjusting its padding. There are two possible size options: - 'm': medium size - 'l': large size  The default value is 'm'. | `"l" \| "m"` | `'m'`   |
+| Property   | Attribute  | Description                                                                                                                                                                                          | Type         | Default |
+| ---------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ------- |
+| `required` | `required` | If `true`, the user must fill in a value before submitting a form. It is propagated to the slotted select element                                                                                    | `boolean`    | `false` |
+| `size`     | `size`     | The `size` property controls the size of the slotted `select` element by adjusting its padding. There are two possible size options: - 'm': medium size - 'l': large size  The default value is 'm'. | `"l" \| "m"` | `'m'`   |
 
 
 ## Methods
+
+### `setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>`
+
+
+
+#### Parameters
+
+| Name    | Type                         | Description |
+| ------- | ---------------------------- | ----------- |
+| `attr`  | `"role" \| `aria-${string}`` |             |
+| `value` | `string`                     |             |
+
+#### Returns
+
+Type: `Promise<void>`
+
+
 
 ### `updateStyles() => Promise<void>`
 

@@ -1185,15 +1185,15 @@ export declare interface WcsModal extends Components.WcsModal {
 
 
 @ProxyCmp({
-  inputs: ['size'],
-  methods: ['updateStyles']
+  inputs: ['required', 'size'],
+  methods: ['setAriaAttribute', 'updateStyles']
 })
 @Component({
   selector: 'wcs-native-select',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['size'],
+  inputs: ['required', 'size'],
 })
 export class WcsNativeSelect {
   protected el: HTMLElement;

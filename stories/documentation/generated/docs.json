@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-10-09T15:45:11",
+  "timestamp": "2024-10-11T12:29:22",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -6872,6 +6872,28 @@
       "usage": {},
       "props": [
         {
+          "name": "required",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "required",
+          "reflectToAttr": false,
+          "docs": "If `true`, the user must fill in a value before submitting a form.\r\nIt is propagated to the slotted select element",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "size",
           "type": "\"l\" | \"m\"",
           "complexType": {
@@ -6906,6 +6928,55 @@
         }
       ],
       "methods": [
+        {
+          "name": "setAriaAttribute",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+            "parameters": [
+              {
+                "name": "attr",
+                "type": "\"role\" | `aria-${string}`",
+                "docs": ""
+              },
+              {
+                "name": "value",
+                "type": "string",
+                "docs": ""
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "AriaAttributeName": {
+                "location": "import",
+                "path": "../../utils/mutable-aria-attribute",
+                "id": "src/utils/mutable-aria-attribute.ts::AriaAttributeName"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>",
+          "parameters": [
+            {
+              "name": "attr",
+              "type": "\"role\" | `aria-${string}`",
+              "docs": ""
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "docs": ""
+            }
+          ],
+          "docs": "",
+          "docsTags": []
+        },
         {
           "name": "updateStyles",
           "returns": {

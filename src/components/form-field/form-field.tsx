@@ -111,7 +111,7 @@ export class FormField implements ComponentInterface {
 
 
     private initSpiedElement() {
-        const SUPPORTED_COMPONENTS = ['wcs-input', 'wcs-select', 'wcs-textarea', 'wcs-radio-group', 'wcs-switch', 'wcs-checkbox', 'wcs-native-select', 'wcs-counter'];
+        const SUPPORTED_COMPONENTS = ['wcs-input', 'wcs-select', 'wcs-native-select', 'wcs-textarea', 'wcs-radio-group', 'wcs-switch', 'wcs-checkbox', 'wcs-native-select', 'wcs-counter'];
 
         this.spiedElement = (this.el.shadowRoot.querySelector('slot:not([name])') as HTMLSlotElement)
             ?.assignedElements()
