@@ -7,7 +7,7 @@ export class Manifest {
         if (!json.name || !json.collections) {
             throw new Error('Invalid manifest format');
         }
-        if (json.collections.Primitive === undefined || json.collections.Semantic === undefined || json.collections.Component === undefined) {
+        if (json.collections.Primitive === undefined || json.collections.Semantic === undefined) {
             throw new Error('Invalid manifest format');
         }
         return new Manifest(json.collections);

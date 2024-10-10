@@ -1449,106 +1449,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/badge/badge-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/badge/badge.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The badge component is a small label, generally appearing inside or in proximity to another larger interface component,\r\nrepresenting a status, property, or some other metadata.",
-          "name": "Badge",
-          "cssProperties": [
-            {
-              "description": "Define the opacity rate to apply to the badge",
-              "name": "--wcs-badge-ligther-percentage"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "shape",
-              "type": {
-                "text": "BadgeShape"
-              },
-              "default": "'normal'",
-              "description": "Define the shape of the badge"
-            },
-            {
-              "kind": "field",
-              "name": "color",
-              "type": {
-                "text": "BadgeColor"
-              },
-              "default": "'initial'",
-              "description": "Allows you to change the color of the badge to make it less bright (based on the color chosen by the CSS class)."
-            },
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "BadgeSize"
-              },
-              "default": "'m'",
-              "description": "Specify the size of the badge."
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "shape",
-              "fieldName": "shape",
-              "type": {
-                "text": "BadgeShape"
-              }
-            },
-            {
-              "name": "color",
-              "fieldName": "color",
-              "type": {
-                "text": "BadgeColor"
-              }
-            },
-            {
-              "name": "size",
-              "fieldName": "size",
-              "type": {
-                "text": "BadgeSize"
-              }
-            }
-          ],
-          "tagName": "wcs-badge",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Badge",
-          "declaration": {
-            "name": "Badge",
-            "module": "components/badge/badge.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-badge",
-          "declaration": {
-            "name": "Badge",
-            "module": "components/badge/badge.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/breadcrumb/breadcrumb-constants.ts",
       "declarations": [
         {
@@ -1975,44 +1875,6 @@
           "declaration": {
             "name": "BreadcrumbItem",
             "module": "components/breadcrumb-item/breadcrumb-item.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/card-body/card-body.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The card-body is a subcomponent of `wcs-card`. It represents content of the card with an extra padding around.",
-          "name": "CardBody",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-card-body",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "CardBody",
-          "declaration": {
-            "name": "CardBody",
-            "module": "components/card-body/card-body.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-card-body",
-          "declaration": {
-            "name": "CardBody",
-            "module": "components/card-body/card-body.tsx"
           }
         }
       ]
@@ -2464,6 +2326,167 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/card/card-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/card/card.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The card component is a container that display content such as text, images, buttons, and lists.  \r\nA card can be a single component, but is often made up of a header, title, subtitle, and content.",
+          "name": "Card",
+          "members": [
+            {
+              "kind": "field",
+              "name": "mode",
+              "type": {
+                "text": "CardMode"
+              },
+              "default": "'raised'"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "mode",
+              "fieldName": "mode",
+              "type": {
+                "text": "CardMode"
+              }
+            }
+          ],
+          "tagName": "wcs-card",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Card",
+          "declaration": {
+            "name": "Card",
+            "module": "components/card/card.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-card",
+          "declaration": {
+            "name": "Card",
+            "module": "components/card/card.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/badge/badge-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/badge/badge.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The badge component is a small label, generally appearing inside or in proximity to another larger interface component,\r\nrepresenting a status, property, or some other metadata.",
+          "name": "Badge",
+          "cssProperties": [
+            {
+              "description": "Define the opacity rate to apply to the badge",
+              "name": "--wcs-badge-ligther-percentage"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "shape",
+              "type": {
+                "text": "BadgeShape"
+              },
+              "default": "'normal'",
+              "description": "Define the shape of the badge"
+            },
+            {
+              "kind": "field",
+              "name": "color",
+              "type": {
+                "text": "BadgeColor"
+              },
+              "default": "'initial'",
+              "description": "Allows you to change the color of the badge to make it less bright (based on the color chosen by the CSS class)."
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "BadgeSize"
+              },
+              "default": "'m'",
+              "description": "Specify the size of the badge."
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "shape",
+              "fieldName": "shape",
+              "type": {
+                "text": "BadgeShape"
+              }
+            },
+            {
+              "name": "color",
+              "fieldName": "color",
+              "type": {
+                "text": "BadgeColor"
+              }
+            },
+            {
+              "name": "size",
+              "fieldName": "size",
+              "type": {
+                "text": "BadgeSize"
+              }
+            }
+          ],
+          "tagName": "wcs-badge",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Badge",
+          "declaration": {
+            "name": "Badge",
+            "module": "components/badge/badge.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-badge",
+          "declaration": {
+            "name": "Badge",
+            "module": "components/badge/badge.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/checkbox/checkbox-interface.ts",
       "declarations": [],
       "exports": []
@@ -2785,42 +2808,19 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/card/card-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/card/card.tsx",
+      "path": "components/card-body/card-body.tsx",
       "declarations": [
         {
           "kind": "class",
-          "description": "The card component is a container that display content such as text, images, buttons, and lists.  \r\nA card can be a single component, but is often made up of a header, title, subtitle, and content.",
-          "name": "Card",
+          "description": "The card-body is a subcomponent of `wcs-card`. It represents content of the card with an extra padding around.",
+          "name": "CardBody",
           "members": [
-            {
-              "kind": "field",
-              "name": "mode",
-              "type": {
-                "text": "CardMode"
-              },
-              "default": "'raised'"
-            },
             {
               "kind": "method",
               "name": "render"
             }
           ],
-          "attributes": [
-            {
-              "name": "mode",
-              "fieldName": "mode",
-              "type": {
-                "text": "CardMode"
-              }
-            }
-          ],
-          "tagName": "wcs-card",
+          "tagName": "wcs-card-body",
           "events": [],
           "customElement": true
         }
@@ -2828,18 +2828,18 @@
       "exports": [
         {
           "kind": "js",
-          "name": "Card",
+          "name": "CardBody",
           "declaration": {
-            "name": "Card",
-            "module": "components/card/card.tsx"
+            "name": "CardBody",
+            "module": "components/card-body/card-body.tsx"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "wcs-card",
+          "name": "wcs-card-body",
           "declaration": {
-            "name": "Card",
-            "module": "components/card/card.tsx"
+            "name": "CardBody",
+            "module": "components/card-body/card-body.tsx"
           }
         }
       ]
@@ -3632,44 +3632,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/divider/divider.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Divider",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-divider",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Divider",
-          "declaration": {
-            "name": "Divider",
-            "module": "components/divider/divider.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-divider",
-          "declaration": {
-            "name": "Divider",
-            "module": "components/divider/divider.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/counter/counter-interface.ts",
       "declarations": [
         {
@@ -4077,6 +4039,44 @@
           "declaration": {
             "name": "Counter",
             "module": "components/counter/counter.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/divider/divider.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Divider",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-divider",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Divider",
+          "declaration": {
+            "name": "Divider",
+            "module": "components/divider/divider.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-divider",
+          "declaration": {
+            "name": "Divider",
+            "module": "components/divider/divider.tsx"
           }
         }
       ]
@@ -10416,6 +10416,40 @@
           "kind": "class",
           "description": "The progress-radial component is a circular progress bar that indicates the current completion of a task. \r\n\r\n## Accessibility guidelines 💡\r\n> Aria attributes and how to display the progress-radial depend on the use case in your application :\r\n>\r\n> - **Case 1 : decorative**\r\n> If the progress-radial is used as a decoration _(if removed, the user doesn't lose any relevant information)_ or in the\r\n> context of another component _(such as progress-radial in a card)_ => **you don't need to show the label nor add an aria-label**.\r\n>\r\n> - **Case 2 : informative**\r\n> If the progress-radial is used to convey important information _(e.g., form completion status, dashboard KPI)_, you need to :\r\n>   - **Provide a visible label** that describes the purpose of the progress-radial.\r\n>   - **Set the `showLabel` property to `true`** to show the percentage inside the progress-radial.\r\n>   - Optionally, use aria-label to provide an accessible name if a visible label is not present.",
           "name": "ProgressRadial",
+          "cssProperties": [
+            {
+              "description": "The width of the line that represents the rail of the progress radial",
+              "name": "--wcs-progress-radial-rail-width"
+            },
+            {
+              "description": "The space between each rail of the progress radial",
+              "name": "--wcs-progress-radial-rail-spacing"
+            },
+            {
+              "description": "The color of the rail of the progress radial",
+              "name": "--wcs-progress-bar-rail-color"
+            },
+            {
+              "description": "The background color of the bar on top of the rail",
+              "name": "--wcs-progress-radial-value-background-color"
+            },
+            {
+              "description": "The color of the label inside the progress radial",
+              "name": "--wcs-progress-radial-label-color"
+            },
+            {
+              "description": "The font size of the label inside the progress radial",
+              "name": "--wcs-progress-radial-label-font-size"
+            },
+            {
+              "description": "The font weight of the label inside the progress radial",
+              "name": "--wcs-progress-radial-label-font-weight"
+            },
+            {
+              "description": "The font size of the percentage inside the progress radial",
+              "name": "--wcs-progress-radial-label-percentage-font-size"
+            }
+          ],
           "members": [
             {
               "kind": "field",

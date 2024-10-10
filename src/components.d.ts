@@ -1255,6 +1255,14 @@ export namespace Components {
      * >   - **Provide a visible label** that describes the purpose of the progress-radial.
      * >   - **Set the `showLabel` property to `true`** to show the percentage inside the progress-radial.
      * >   - Optionally, use aria-label to provide an accessible name if a visible label is not present.
+     * @cssprop --wcs-progress-radial-rail-width - The width of the line that represents the rail of the progress radial
+     * @cssprop --wcs-progress-radial-rail-spacing - The space between each rail of the progress radial
+     * @cssprop --wcs-progress-bar-rail-color - The color of the rail of the progress radial
+     * @cssprop --wcs-progress-radial-value-background-color - The background color of the bar on top of the rail
+     * @cssprop --wcs-progress-radial-label-color - The color of the label inside the progress radial
+     * @cssprop --wcs-progress-radial-label-font-size - The font size of the label inside the progress radial
+     * @cssprop --wcs-progress-radial-label-font-weight - The font weight of the label inside the progress radial
+     * @cssprop --wcs-progress-radial-label-percentage-font-size - The font size of the percentage inside the progress radial
      */
     interface WcsProgressRadial {
         "setAriaAttribute": (attr: AriaAttributeName, value: string | null | undefined) => Promise<void>;
@@ -2959,6 +2967,14 @@ declare global {
      * >   - **Provide a visible label** that describes the purpose of the progress-radial.
      * >   - **Set the `showLabel` property to `true`** to show the percentage inside the progress-radial.
      * >   - Optionally, use aria-label to provide an accessible name if a visible label is not present.
+     * @cssprop --wcs-progress-radial-rail-width - The width of the line that represents the rail of the progress radial
+     * @cssprop --wcs-progress-radial-rail-spacing - The space between each rail of the progress radial
+     * @cssprop --wcs-progress-bar-rail-color - The color of the rail of the progress radial
+     * @cssprop --wcs-progress-radial-value-background-color - The background color of the bar on top of the rail
+     * @cssprop --wcs-progress-radial-label-color - The color of the label inside the progress radial
+     * @cssprop --wcs-progress-radial-label-font-size - The font size of the label inside the progress radial
+     * @cssprop --wcs-progress-radial-label-font-weight - The font weight of the label inside the progress radial
+     * @cssprop --wcs-progress-radial-label-percentage-font-size - The font size of the percentage inside the progress radial
      */
     interface HTMLWcsProgressRadialElement extends Components.WcsProgressRadial, HTMLStencilElement {
     }
@@ -4677,6 +4693,14 @@ declare namespace LocalJSX {
      * >   - **Provide a visible label** that describes the purpose of the progress-radial.
      * >   - **Set the `showLabel` property to `true`** to show the percentage inside the progress-radial.
      * >   - Optionally, use aria-label to provide an accessible name if a visible label is not present.
+     * @cssprop --wcs-progress-radial-rail-width - The width of the line that represents the rail of the progress radial
+     * @cssprop --wcs-progress-radial-rail-spacing - The space between each rail of the progress radial
+     * @cssprop --wcs-progress-bar-rail-color - The color of the rail of the progress radial
+     * @cssprop --wcs-progress-radial-value-background-color - The background color of the bar on top of the rail
+     * @cssprop --wcs-progress-radial-label-color - The color of the label inside the progress radial
+     * @cssprop --wcs-progress-radial-label-font-size - The font size of the label inside the progress radial
+     * @cssprop --wcs-progress-radial-label-font-weight - The font weight of the label inside the progress radial
+     * @cssprop --wcs-progress-radial-label-percentage-font-size - The font size of the percentage inside the progress radial
      */
     interface WcsProgressRadial {
         /**
@@ -5971,6 +5995,14 @@ declare module "@stencil/core" {
              * >   - **Provide a visible label** that describes the purpose of the progress-radial.
              * >   - **Set the `showLabel` property to `true`** to show the percentage inside the progress-radial.
              * >   - Optionally, use aria-label to provide an accessible name if a visible label is not present.
+             * @cssprop --wcs-progress-radial-rail-width - The width of the line that represents the rail of the progress radial
+             * @cssprop --wcs-progress-radial-rail-spacing - The space between each rail of the progress radial
+             * @cssprop --wcs-progress-bar-rail-color - The color of the rail of the progress radial
+             * @cssprop --wcs-progress-radial-value-background-color - The background color of the bar on top of the rail
+             * @cssprop --wcs-progress-radial-label-color - The color of the label inside the progress radial
+             * @cssprop --wcs-progress-radial-label-font-size - The font size of the label inside the progress radial
+             * @cssprop --wcs-progress-radial-label-font-weight - The font weight of the label inside the progress radial
+             * @cssprop --wcs-progress-radial-label-percentage-font-size - The font size of the percentage inside the progress radial
              */
             "wcs-progress-radial": LocalJSX.WcsProgressRadial & JSXBase.HTMLAttributes<HTMLWcsProgressRadialElement>;
             /**

@@ -20,6 +20,15 @@ const PROGRESS_RADIAL_ARIA_INHERITED_ATTRS = ['title'];
  * >   - **Set the `showLabel` property to `true`** to show the percentage inside the progress-radial.
  * >   - Optionally, use aria-label to provide an accessible name if a visible label is not present.
  *
+ * 
+ * @cssprop --wcs-progress-radial-rail-width - The width of the line that represents the rail of the progress radial
+ * @cssprop --wcs-progress-radial-rail-spacing - The space between each rail of the progress radial
+ * @cssprop --wcs-progress-bar-rail-color - The color of the rail of the progress radial
+ * @cssprop --wcs-progress-radial-value-background-color - The background color of the bar on top of the rail 
+ * @cssprop --wcs-progress-radial-label-color - The color of the label inside the progress radial
+ * @cssprop --wcs-progress-radial-label-font-size - The font size of the label inside the progress radial
+ * @cssprop --wcs-progress-radial-label-font-weight - The font weight of the label inside the progress radial
+ * @cssprop --wcs-progress-radial-label-percentage-font-size - The font size of the percentage inside the progress radial
  */
 @Component({
     tag: 'wcs-progress-radial',
@@ -67,6 +76,10 @@ export class ProgressRadial implements ComponentInterface, MutableAriaAttribute 
                  aria-valuetext={this.value + '%'}
                  ref={(el) => (this.nativeProgress = el)}
                  {...this.inheritedAttributes}>
+                <svg data-role="figure" class="circle-rail"
+                     viewBox={`0 0 ${backgroundImageSize} ${backgroundImageSize}`}>
+                    <circle cx={halfSize} cy={halfSize} r={54} stroke-width={12}/>
+                </svg>
                 <svg class="progress-circle-figure"
                     data-role="figure"
                     viewBox={`0 0 ${backgroundImageSize} ${backgroundImageSize}`}
