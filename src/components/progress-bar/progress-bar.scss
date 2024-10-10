@@ -1,25 +1,67 @@
 :host {
+    // region to be removed before migration to design tokens
     --wcs-internal-progress-bar-border-radius: var(--wcs-progress-bar-border-radius, 0.3125rem);
     --wcs-internal-progress-bar-border-radius-small: var(--wcs-progress-bar-border-radius-small, 0.15625rem);
     --wcs-internal-progress-bar-animation-duration: var(--wcs-progress-bar-animation-duration, 0.375s);
+
+    --wcs-progress-bar-height-m: 0.625rem;
+    --wcs-progress-bar-height-s: 0.3125rem;
+    --wcs-progress-bar-background-color: #fff;
+
+    --wcs-progress-bar-rail-color: #e1ded9;
+    --wcs-progress-bar-rail-spacing: 0.25rem;
+
+    --wcs-progress-bar-gap-s: 0.25rem;
+    --wcs-progress-bar-gap-m: 0.125rem;
+
+    --wcs-progress-bar-indicator-color: var(--wcs-primary);
+    --wcs-progress-bar-label-color: #4d4f53;
+    --wcs-progress-bar-label-font-size-s: 1.125rem;
+    --wcs-progress-bar-label-font-size-m: 1.5rem;
+    --wcs-progress-bar-label-font-weight: 500;
+    --wcs-progress-bar-label-percentage-font-size-s: 0.75rem;
+    --wcs-progress-bar-label-percentage-font-size-m: 0.875rem;
+    // endregion
 }
 
+:host(.token-migration) {
+    --wcs-internal-progress-bar-border-radius: var(--wcs-progress-bar-border-radius, var(--wcs-semantic-border-radius-circular));
+    --wcs-internal-progress-bar-border-radius-small: var(--wcs-progress-bar-border-radius-small, var(--wcs-semantic-border-radius-small));
+    --wcs-internal-progress-bar-animation-duration: var(--wcs-progress-bar-animation-duration, var(--wcs-semantic-motion-duration-animation-fast)); // maybe review because before it was 0.375s
+
+    --wcs-progress-bar-height-m: calc(var(--wcs-semantic-size-m) / 4);
+    --wcs-progress-bar-height-s: calc(var(--wcs-semantic-size-s) / 6);
+    --wcs-progress-bar-background-color: transparent;
+
+    --wcs-progress-bar-rail-color: var(--wcs-semantic-color-background-surface-tertiary);
+    --wcs-progress-bar-rail-spacing: var(--wcs-semantic-spacing-small);
+
+    --wcs-progress-bar-gap-s: var(--wcs-semantic-spacing-small);
+    --wcs-progress-bar-gap-m: var(--wcs-semantic-spacing-base);
+
+    --wcs-progress-bar-indicator-color: var(--wcs-semantic-color-background-surface-brand-default);
+    --wcs-progress-bar-label-color: var(--wcs-semantic-color-text-primary);
+    --wcs-progress-bar-label-font-size-s: var(--wcs-semantic-font-size-s);
+    --wcs-progress-bar-label-font-size-m: calc(1.5 * var(--wcs-semantic-font-size-m));
+    --wcs-progress-bar-label-font-weight: var(--wcs-semantic-font-weight-medium);
+    --wcs-progress-bar-label-percentage-font-size-s: calc(var(--wcs-semantic-font-size-s) * 0.7);
+    --wcs-progress-bar-label-percentage-font-size-m: calc(var(--wcs-semantic-font-size-m) * 0.7);
+}
 
 :host([size=s]) {
     .progress {
-        height: 0.3125rem;
-        background-color: #fff;
+        height: var(--wcs-progress-bar-height-s);
+        background-color: var(--wcs-progress-bar-background-color);
         background-image: none;
         background-size: auto;
         border-radius: var(--wcs-internal-progress-bar-border-radius-small);
 
         .progress-label {
-            font-size: 1.125rem;
-            bottom: calc(100% + 0.125rem);
+            font-size: var(--wcs-progress-bar-label-font-size-s);
+            bottom: calc(100% + var(--wcs-progress-bar-gap-s));
 
             sup {
-                font-size: 0.75rem;
-                top: -.3em;
+                font-size: var(--wcs-progress-bar-label-percentage-font-size-s);
             }
         }
     }
@@ -27,16 +69,15 @@
 
 .progress {
     display: flex;
-    height: 0.625rem;
-    font-size: 0.75rem;
-    color: #4d4f53;
-    background-color: #fff;
-    background-image: linear-gradient(90deg, #e1ded9 50%, transparent 50%);
-    background-size: 0.25rem 0.625rem;
+    height: var(--wcs-progress-bar-height-m);
+    color: var(--wcs-progress-bar-label-color);
+    background-color: var(--wcs-progress-bar-background-color);
+    background-image: linear-gradient(90deg, var(--wcs-progress-bar-rail-color), 50%, transparent 50%);
+    background-size: var(--wcs-progress-bar-rail-spacing) var(--wcs-progress-bar-height-m);
     border-radius: var(--wcs-internal-progress-bar-border-radius);
 
     &.has-label {
-        margin-top: 2.375rem;
+        margin-top: 2rem;
     }
 
     // FIXME: Temporary fix so the label doesn't appear before the bar
@@ -50,25 +91,27 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    color: #4d4f53;
+    color: var(--wcs-progress-bar-label-color);
     text-align: center;
-    background-color: var(--wcs-primary);
+    background-color: var(--wcs-progress-bar-indicator-color);
     border-radius: var(--wcs-internal-progress-bar-border-radius);
     transition: width var(--wcs-internal-progress-bar-animation-duration) ease-out;
 }
 
 .progress-label {
+    line-height: 1; // to remove extra-space (https://www.reddit.com/r/css/comments/z5zazq/mysterious_spacing_around_all_text_not_padding_or/
     position: absolute;
     right: 0;
-    bottom: calc(100% + 0.5rem);
-    font-size: 1.5rem;
-    font-weight: 500;
+    bottom: calc(100% + var(--wcs-progress-bar-gap-m));
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+
+    font-size: var(--wcs-progress-bar-label-font-size-m);
+    font-weight: var(--wcs-progress-bar-label-font-weight);
 
     sup {
-        font-size: 0.875rem;
-        top: -.5em;
-        position: relative;
-        line-height: 0;
-        vertical-align: baseline;
+        font-size: var(--wcs-progress-bar-label-percentage-font-size-m);
     }
 }

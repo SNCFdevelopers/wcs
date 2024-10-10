@@ -25,6 +25,21 @@ const PROGRESS_BAR_ARIA_INHERITED_ATTRS = ['title'];
  * @cssprop --wcs-progress-bar-border-radius - Border radius
  * @cssprop --wcs-progress-bar-border-radius-small - Border radius for size small
  * @cssprop --wcs-progress-bar-animation-duration - Animation duration
+ * 
+ * @cssprop --wcs-progress-bar-height-m - Height for size medium
+ * @cssprop --wcs-progress-bar-height-s - Height for size small
+ * @cssprop --wcs-progress-bar-background-color - Background color of the progress bar
+ * @cssprop --wcs-progress-bar-rail-color - Rail color (dashed line)
+ * @cssprop --wcs-progress-bar-rail-spacing - Space between the rail dashes
+ * @cssprop --wcs-progress-bar-gap-s - Gap between the progress bar and the label for size small
+ * @cssprop --wcs-progress-bar-gap-m - Gap between the progress bar and the label for size medium
+ * @cssprop --wcs-progress-bar-indicator-color - Color of the progress bar indicator (bar on top of the rail)
+ * @cssprop --wcs-progress-bar-label-color - Color of the label
+ * @cssprop --wcs-progress-bar-label-font-size-s - Font size of the label for size small
+ * @cssprop --wcs-progress-bar-label-font-size-m - Font size of the label for size medium
+ * @cssprop --wcs-progress-bar-label-font-weight - Font weight of the label
+ * @cssprop --wcs-progress-bar-label-percentage-font-size-s - Font size of the percentage for size small
+ * @cssprop --wcs-progress-bar-label-percentage-font-size-m - Font size of the percentage for size medium
  */
 @Component({
     tag: 'wcs-progress-bar',

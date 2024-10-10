@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-11-13T14:33:18",
+  "timestamp": "2024-11-15T09:14:15",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -3461,7 +3461,16 @@
       "tag": "wcs-error",
       "readme": "# wcs-error\r\n\r\n\r\n\r",
       "docs": "The `wcs-error` should always be wrapped in a `wcs-form-field`.\r\nIt is used to display a red message under the field indicating an incorrect user input.\r\n\r\n## Accessibility guidelines 💡\r\n- Provide a relevant error message to inform the users what they should change to make the field valid\r\n- `aria-description` will be automatically added to the field for screen readers\r\n- `aria-invalid=\"true\"` will be automatically added to the field for screen readers",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "cssprop",
+          "text": "--wcs-error-color - Color of the text"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-error-font-size-default - Font size"
+        }
+      ],
       "usage": {},
       "props": [],
       "methods": [],
@@ -3630,6 +3639,54 @@
         {
           "name": "slot",
           "text": "messages - Automatically filled when a `wcs-hint` is provided"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-form-field-gap - Defines the spacing between the label, input control, and hint messages."
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-form-field-prefix-suffix-border-radius - Sets the border radius for both prefix and suffix elements."
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-form-field-prefix-background-color-default - Background color default for prefix elements"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-form-field-prefix-background-color-disabled - Background color for prefix elements when disabled"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-form-field-prefix-background-color-hover - Background color for prefix elements when hovered"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-form-field-prefix-border-color-default - Defines the default border color for prefix"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-form-field-prefix-border-color-focus - Sets the border color for prefix elements when focused."
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-form-field-prefix-border-color-disabled - Determines the border color for prefix elements when disabled."
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-form-field-prefix-icon-color - Specifies the color of icons within prefix elements."
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-form-field-prefix-value-color - Sets the color of values within prefix elements."
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-form-field-prefix-placeholder-color - Defines the placeholder text color within prefix elements."
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-form-field-prefix-color-disabled - Determines the text color for prefix elements when disabled."
         }
       ],
       "usage": {},
@@ -5047,7 +5104,24 @@
       "tag": "wcs-hint",
       "readme": "# wcs-hint\r\n\r\n\r\n\r",
       "docs": "The `wcs-hint` should always be wrapped in a `wcs-form-field`.\r\nIt is used to display an informative message under the field indicating an incorrect user input.\r\n\r\n## Accessibility guidelines 💡\r\n- Provide a relevant hint message to inform the users about the format, how the data should be filled in, or what is the purpose of the field\r\n- `aria-description` will be automatically added to the field for screen readers",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "cssprop",
+          "text": "--wcs-hint-color - Color of the text"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-hint-font-weight - Font weight of the text"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-hint-font-size-default - Font size default of the text"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-hint-font-size-small - Font size small of the text"
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -6755,7 +6829,24 @@
       "tag": "wcs-label",
       "readme": "# wcs-label\r\n\r\n\r\n\r",
       "docs": "The `wcs-label` should always be wrapped in a `wcs-form-field`.\r\nIt is used to caption a form control component.\r\n\r\n## Accessibility guidelines 💡\r\n- Use concise name for the label. If you want to describe more your form control, add a `wcs-hint`\r\n- Use the required flag only as an indication to inform users that the form control is required",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "cssprop",
+          "text": "--wcs-label-color - Color of the text"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-label-font-weight - Font weight of the text"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-label-required-marker-color - Color of the required marker"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-label-gap - Gap between text and required marker"
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -7827,6 +7918,62 @@
         {
           "name": "cssprop",
           "text": "--wcs-progress-bar-animation-duration - Animation duration"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-progress-bar-height-m - Height for size medium"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-progress-bar-height-s - Height for size small"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-progress-bar-background-color - Background color of the progress bar"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-progress-bar-rail-color - Rail color (dashed line)"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-progress-bar-rail-spacing - Space between the rail dashes"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-progress-bar-gap-s - Gap between the progress bar and the label for size small"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-progress-bar-gap-m - Gap between the progress bar and the label for size medium"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-progress-bar-indicator-color - Color of the progress bar indicator (bar on top of the rail)"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-progress-bar-label-color - Color of the label"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-progress-bar-label-font-size-s - Font size of the label for size small"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-progress-bar-label-font-size-m - Font size of the label for size medium"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-progress-bar-label-font-weight - Font weight of the label"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-progress-bar-label-percentage-font-size-s - Font size of the percentage for size small"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-progress-bar-label-percentage-font-size-m - Font size of the percentage for size medium"
         }
       ],
       "usage": {},
