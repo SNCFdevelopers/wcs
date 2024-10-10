@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-11-15T14:50:00",
+  "timestamp": "2024-11-18T15:20:10",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -401,6 +401,58 @@
         {
           "name": "cssprop",
           "text": "--wcs-badge-ligther-percentage - Define the opacity rate to apply to the badge"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-badge-font-weight - Define the font weight of the badge"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-badge-height-l - Large height of the badge"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-badge-font-size-l - Large font size of the badge"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-badge-height-m - Medium height of the badge"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-badge-font-size-m - Font size of the badge"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-badge-height-s - Small height of the badge"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-badge-font-size-s - Small font size of the badge"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-badge-border-radius-default - Default border radius of the badge"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-badge-border-radius-round - Round border radius of the badge"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-badge-background-color - Background color of the badge"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-badge-color - Text color of the badge"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-badge-padding-vertical - Vertical padding of the badge"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-badge-padding-horizontal - Horizontal padding of the badge"
         }
       ],
       "usage": {},
@@ -3219,7 +3271,108 @@
       "tag": "wcs-editable-field",
       "readme": "# Editable fields\r\n\r",
       "docs": "The editable-field component can be used to simplify the user experience, avoiding the use of a redirection to a form\r\nto edit the data of an entity. You can use it with these wrapped components : `wcs-input`, `wcs-textarea`, `wcs-select`. \r\n\r\nThis component is not present in the SNCF design system specifications, so we tried to build it in the most\r\n\"discoverable\" way possible (for users who interact with), but it's a first version.\r\n\r\n**How to use ❓**  \r\nThis component is mostly used with a server that returns a response to the input sent through the `wcsChange` event.\r\nIt has 3 internal states :\r\n- DISPLAY = the default state of the editable-field\r\n- EDIT = the editable-field is editable, the user should input the data\r\n- LOADING = the data is submitted and the editable-field is waiting for a **response**\r\n\r\nA **response** is needed to get the component out of the LOADING state. You can either :\r\n- Set the `value` property to a different value to tell the component to refresh and go back into DISPLAY state\r\n- Use the `successHandler` callback through the `wcsChange` event (see interface [EditableComponentUpdateEvent](https://gitlab.com/SNCF/wcs/-/blob/develop/src/components/editable-field/editable-field-interface.tsx))\r\n- Use the `errorHandler` callback through the `wcsChange` event (see interface [EditableComponentUpdateEvent](https://gitlab.com/SNCF/wcs/-/blob/develop/src/components/editable-field/editable-field-interface.tsx))\r\n\r\n**Accessibility guidelines 💡**  \r\n\r\n> - Aria attributes are put on the native component on the first rendering with the `label` and `errorMsg` you provided \r\n> - Additional aria attributes put on `<wcs-editable-field>` won't inherit onto the native component : you must use the `setAriaAttribute` method.",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "cssprop",
+          "text": "--wcs-editable-field-label-color - Color of the label text"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-editable-field-label-font-weight - Font weight of the label text"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-editable-field-label-gap - Gap between the label and the field"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-editable-field-label-font-size - Font size of the label text"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-editable-field-background-color - Background color of the editable field"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-editable-field-value-font-weight - Font weight of the field value text"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-editable-field-value-color-default - Default color of the field value text"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-editable-field-value-color-hover - Color of the field value text on hover"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-editable-field-value-color-readonly - Color of the field value text when readonly"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-editable-field-height-m - Height of the editable field in medium size"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-editable-field-height-l - Height of the editable field in large size"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-editable-field-font-size-m - Font size of the field value text in medium size"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-editable-field-font-size-l - Font size of the field value text in large size"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-editable-field-border-radius - Border radius of the editable field"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-editable-field-border-width - Border width of the editable field"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-editable-field-border-width-focus - Border width of the editable field when focused"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-editable-field-border-width-hover - Border width of the editable field on hover"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-editable-field-border-color-hover - Border color of the editable field on hover"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-editable-field-border-color-default - Default border color of the editable field"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-editable-field-border-style - Border style of the editable field"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-editable-field-padding-horizontal-m - Horizontal padding of the editable field in medium size"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-editable-field-padding-vertical-m - Vertical padding of the editable field in medium size"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-editable-field-padding-horizontal-l - Horizontal padding of the editable field in large size"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-editable-field-padding-vertical-l - Vertical padding of the editable field in large size"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-editable-field-icon-color-readonly - Color of the icon when the field is readonly"
+        }
+      ],
       "usage": {},
       "props": [
         {

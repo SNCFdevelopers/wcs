@@ -1,4 +1,37 @@
 :host {
+    // region to be removed before migration to design tokens
+    --wcs-editable-field-label-color: var(--wcs-gray-light);
+    --wcs-editable-field-label-font-weight: 500;
+    --wcs-editable-field-label-gap: var(--wcs-base-margin);
+    --wcs-editable-field-label-font-size: var(--wcs-editable-field-font-size, 1rem);
+
+    --wcs-editable-field-background-color: var(--wcs-light);
+    --wcs-editable-field-value-font-weight: 500;
+    --wcs-editable-field-value-color-default: var(--wcs-gray);
+    --wcs-editable-field-value-color-hover: var(--wcs-primary);
+    --wcs-editable-field-value-color-readonly: var(--wcs-gray-light);
+    --wcs-editable-field-height-m: var(--wcs-size-m);
+    --wcs-editable-field-height-l: var(--wcs-size-l);
+    --wcs-editable-field-font-size-m: 1rem;
+    --wcs-editable-field-font-size-l: 1.0625rem;
+
+    --wcs-editable-field-border-radius: var(--wcs-border-radius);
+    --wcs-editable-field-border-width: var(--wcs-border-size);
+    --wcs-editable-field-border-width-focus: var(--wcs-border-size);
+    --wcs-editable-field-border-width-hover: var(--wcs-border-size);
+    --wcs-editable-field-border-color-hover: var(--wcs-primary);
+    --wcs-editable-field-border-color-default: transparent;
+    --wcs-editable-field-border-style: dashed;
+
+
+    --wcs-editable-field-padding-horizontal-m: calc(var(--wcs-padding) - var(--wcs-editable-field-border-width));
+    --wcs-editable-field-padding-vertical-m: calc(var(--wcs-padding-m) - var(--wcs-editable-field-border-width));
+    --wcs-editable-field-padding-horizontal-l: calc(var(--wcs-padding) - var(--wcs-editable-field-border-width));
+    --wcs-editable-field-padding-vertical-l: calc(var(--wcs-padding-l) - var(--wcs-editable-field-border-width));
+
+    --wcs-editable-field-icon-color-readonly: var(--wcs-text-medium);
+    // endregion
+
     display: block;
 
     .display-none {
@@ -6,10 +39,10 @@
     }
 
     .label {
-        margin-bottom: var(--wcs-base-margin);
-        font-weight: 500;
-        font-size: var(--wcs-editable-field-font-size);
-        color: var(--wcs-gray-light);
+        margin-bottom: var(--wcs-editable-field-label-gap);
+        font-weight: var(--wcs-editable-field-label-font-weight);
+        font-size: var(--wcs-editable-field-label-font-size);
+        color: var(--wcs-editable-field-label-color);
     }
 
     .edit-container {
@@ -27,15 +60,15 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color: var(--wcs-light);
-        border-radius: var(--wcs-border-radius);
+        background-color: var(--wcs-editable-field-background-color);
+        border-radius: var(--wcs-editable-field-border-radius);
         font-size: var(--wcs-editable-field-font-size);
         line-height: 1.5;
-        font-weight: 500;
-        color: var(--wcs-gray);
+        font-weight: var(--wcs-editable-field-value-font-weight);
+        color: var(--wcs-editable-field-value-color-default);
         padding: var(--wcs-editable-field-host-padding);
-        transition: 0.175s all;
-        border: solid 2px transparent;
+        transition: 150ms all;
+        outline: var(--wcs-editable-field-border-style) var(--wcs-editable-field-border-width) var(--wcs-editable-field-border-color-default);
     }
 
     .load-container {
@@ -44,15 +77,15 @@
         white-space: pre;
         display: flex;
         justify-content: space-between;
-        background-color: var(--wcs-light);
-        border-radius: var(--wcs-border-radius);
+        background-color: var(--wcs-editable-field-background-color);
+        border-radius: var(--wcs-editable-field-border-radius);
         font-size: var(--wcs-editable-field-font-size);
         line-height: 1.5;
-        font-weight: 500;
-        color: var(--wcs-gray);
+        font-weight: var(--wcs-editable-field-value-font-weight);
+        color: var(--wcs-editable-field-value-color-default);
         padding: var(--wcs-editable-field-host-padding);
-        transition: 0.175s all;
-        border: solid 2px transparent;
+        transition: 150ms all;
+        outline: var(--wcs-editable-field-border-style) var(--wcs-editable-field-border-width) var(--wcs-editable-field-border-color-default);
         align-items: center;
     }
 
@@ -62,13 +95,45 @@
     }
 
     .readonly-icon {
-        fill: var(--wcs-text-medium);
+        fill: var(--wcs-editable-field-icon-color-readonly);
     }
+}
+
+:host(.token-migration) {
+    --wcs-editable-field-label-color: var(--wcs-semantic-color-text-primary);
+    --wcs-editable-field-label-font-weight: var(--wcs-semantic-font-weight-medium);
+    --wcs-editable-field-label-gap: var(--wcs-semantic-spacing-base);
+    --wcs-editable-field-label-font-size: var(--wcs-semantic-font-size-m);
+
+    --wcs-editable-field-background-color: var(--wcs-semantic-color-background-control-default);
+    --wcs-editable-field-value-font-weight: var(--wcs-semantic-font-weight-medium);
+    --wcs-editable-field-value-color-default: var(--wcs-semantic-color-foreground-control-value);
+    --wcs-editable-field-value-color-hover: var(--wcs-semantic-color-primary);
+    --wcs-editable-field-value-color-readonly: var(--wcs-semantic-color-foreground-control-placeholder);
+    --wcs-editable-field-height-m: var(--wcs-semantic-size-m);
+    --wcs-editable-field-height-l: var(--wcs-semantic-size-l);
+    --wcs-editable-field-font-size-m: var(--wcs-semantic-font-size-m);
+    --wcs-editable-field-font-size-l: var(--wcs-semantic-font-size-l);
+
+    --wcs-editable-field-border-radius: var(--wcs-semantic-border-radius-base);
+    --wcs-editable-field-border-width: var(--wcs-semantic-border-width-default);
+    --wcs-editable-field-border-width-focus: var(--wcs-semantic-border-width-large);
+    --wcs-editable-field-border-width-hover: var(--wcs-semantic-border-width-default);
+    --wcs-editable-field-border-color-default: var(--wcs-semantic-color-border-control-default);
+    --wcs-editable-field-border-color-hover: var(--wcs-semantic-color-primary);
+    --wcs-editable-field-border-style: var(--wcs-semantic-border-style-focus-control);
+
+    --wcs-editable-field-padding-horizontal-m: calc(var(--wcs-semantic-padding-size-m-horizontal) - var(--wcs-editable-field-border-width));
+    --wcs-editable-field-padding-vertical-m: calc(var(--wcs-semantic-padding-size-m-vertical) - var(--wcs-editable-field-border-width));
+    --wcs-editable-field-padding-horizontal-l: calc(var(--wcs-semantic-padding-size-l-horizontal) - var(--wcs-editable-field-border-width));
+    --wcs-editable-field-padding-vertical-l: calc(var(--wcs-semantic-padding-size-l-vertical) - var(--wcs-editable-field-border-width));
+
+    --wcs-editable-field-icon-color-readonly: var(--wcs-semantic-color-foreground-control-placeholder);
 }
 
 :host([readonly]) {
     .display-container {
-        color: var(--wcs-gray-light);
+        color: var(--wcs-editable-field-value-color-readonly);
     }
 }
 
@@ -78,20 +143,20 @@
             display: flex;
             align-items: center;
         }
-        color: var(--wcs-primary);
+        color: var(--wcs-editable-field-value-color-hover);
         cursor: pointer;
-        border: dashed 2px var(--wcs-primary);
+        outline: var(--wcs-editable-field-border-style) var(--wcs-editable-field-border-width-hover) var(--wcs-editable-field-border-color-hover);
     }
 }
 
 :host([size=l]) {
-    --wcs-editable-field-host-padding: calc(var(--wcs-padding-l) - var(--wcs-border-size)) calc(var(--wcs-padding) - var(--wcs-border-size));
-    --wcs-editable-field-host-height: var(--wcs-size-l);
-    --wcs-editable-field-font-size: 1.0625rem;
+    --wcs-editable-field-host-padding: var(--wcs-editable-field-padding-vertical-l) var(--wcs-editable-field-padding-horizontal-l);
+    --wcs-editable-field-host-height: var(--wcs-editable-field-height-l);
+    --wcs-editable-field-font-size: var(--wcs-editable-field-font-size-l);
 }
 
 :host([size=m]) { // Default
-    --wcs-editable-field-host-padding: calc(var(--wcs-padding-m) - var(--wcs-border-size))  calc(var(--wcs-padding) - var(--wcs-border-size));
-    --wcs-editable-field-host-height: var(--wcs-size-m);
-    --wcs-editable-field-font-size: 1rem;
+    --wcs-editable-field-host-padding: var(--wcs-editable-field-padding-vertical-m) var(--wcs-editable-field-padding-horizontal-m);
+    --wcs-editable-field-host-height: var(--wcs-editable-field-height-m);
+    --wcs-editable-field-font-size: var(--wcs-editable-field-font-size-m);
 }

@@ -119,9 +119,9 @@ export const UsingCallbacks: StoryObj = {
         let errorHandler = () => {};
         
         // @ts-ignore
-        document.addEventListener("DOMContentLoaded", () => {
+        document?.addEventListener("DOMContentLoaded", () => {
             // @ts-ignore
-            document.querySelector('#editable-field-ex-2').addEventListener("wcsChange", (e) => {
+            document.querySelector('#editable-field-ex-2')?.addEventListener("wcsChange", (e) => {
                 successHandler = e.detail.successHandler; 
                 errorHandler = e.detail.errorHandler;
             });

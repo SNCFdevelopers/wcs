@@ -50,6 +50,38 @@ enum EditableComponentState {
  * 
  * > - Aria attributes are put on the native component on the first rendering with the `label` and `errorMsg` you provided 
  * > - Additional aria attributes put on `<wcs-editable-field>` won't inherit onto the native component : you must use the `setAriaAttribute` method.
+ *
+ *
+ * @cssprop --wcs-editable-field-label-color - Color of the label text
+ * @cssprop --wcs-editable-field-label-font-weight - Font weight of the label text
+ * @cssprop --wcs-editable-field-label-gap - Gap between the label and the field
+ * @cssprop --wcs-editable-field-label-font-size - Font size of the label text
+ * 
+ * @cssprop --wcs-editable-field-background-color - Background color of the editable field
+ * @cssprop --wcs-editable-field-value-font-weight - Font weight of the field value text
+ * @cssprop --wcs-editable-field-value-color-default - Default color of the field value text
+ * @cssprop --wcs-editable-field-value-color-hover - Color of the field value text on hover
+ * @cssprop --wcs-editable-field-value-color-readonly - Color of the field value text when readonly
+ * 
+ * @cssprop --wcs-editable-field-height-m - Height of the editable field in medium size
+ * @cssprop --wcs-editable-field-height-l - Height of the editable field in large size
+ * @cssprop --wcs-editable-field-font-size-m - Font size of the field value text in medium size
+ * @cssprop --wcs-editable-field-font-size-l - Font size of the field value text in large size
+ * 
+ * @cssprop --wcs-editable-field-border-radius - Border radius of the editable field
+ * @cssprop --wcs-editable-field-border-width - Border width of the editable field
+ * @cssprop --wcs-editable-field-border-width-focus - Border width of the editable field when focused
+ * @cssprop --wcs-editable-field-border-width-hover - Border width of the editable field on hover
+ * @cssprop --wcs-editable-field-border-color-hover - Border color of the editable field on hover
+ * @cssprop --wcs-editable-field-border-color-default - Default border color of the editable field
+ * @cssprop --wcs-editable-field-border-style - Border style of the editable field
+ * 
+ * @cssprop --wcs-editable-field-padding-horizontal-m - Horizontal padding of the editable field in medium size
+ * @cssprop --wcs-editable-field-padding-vertical-m - Vertical padding of the editable field in medium size
+ * @cssprop --wcs-editable-field-padding-horizontal-l - Horizontal padding of the editable field in large size
+ * @cssprop --wcs-editable-field-padding-vertical-l - Vertical padding of the editable field in large size
+ * 
+ * @cssprop --wcs-editable-field-icon-color-readonly - Color of the icon when the field is readonly
  */
 @Component({
     tag: 'wcs-editable-field',
