@@ -1,26 +1,55 @@
 @import '../../style/elevation.scss';
 
+:host {
+    --wcs-header-background-color: var(--wcs-gray);
+
+    --wcs-header-gap: 16px;
+    --wcs-header-height: 64px;
+    --wcs-header-logo-height: 32px;
+    --wcs-header-padding-horizontal: 16px;
+
+    --wcs-header-box-shadow: unset;
+    --wcs-header-title-color: var(--wcs-white);
+    --wcs-header-title-font-weight: 500;
+    --wcs-header-title-font-size: 1.5rem;
+}
+
+:host(.token-migration) {
+    --wcs-header-background-color: var(--wcs-semantic-color-background-surface-primary);
+
+    --wcs-header-gap: var(--wcs-semantic-spacing-large);
+    --wcs-header-height: calc(8 * var(--wcs-semantic-size-base));
+    --wcs-header-logo-height: calc(4 * var(--wcs-semantic-size-base));
+    --wcs-header-padding-horizontal: var(--wcs-semantic-spacing-large);
+
+    --wcs-header-box-shadow: unset;
+    --wcs-header-title-color: var(--wcs-semantic-color-text-primary);
+    --wcs-header-title-font-weight: var(--wcs-semantic-font-weight-medium);
+    --wcs-header-title-font-size: var(--wcs-semantic-font-size-heading-6);
+
+}
+
 header {
-    @include wcs-elevation(4);
+    box-shadow: var(--wcs-header-box-shadow,  wcs-elevation-value(4));
     display: flex;
     align-items: center;
-    background: var(--wcs-gray);
-    padding: 8px 8px 8px 16px;
-    height: calc(64px - 16px);
+    box-sizing: border-box;
     z-index: 1;
+    background: var(--wcs-header-background-color);
+    padding: 0 var(--wcs-header-padding-horizontal);
+    height: var(--wcs-header-height);
 }
 
 ::slotted(img) {
-    width: 70px;
-    height: 36.8px;
-    margin-right: 16px;
+    height: var(--wcs-header-logo-height);
+    margin-right: var(--wcs-header-gap);
 }
 
 ::slotted(h1) {
-    color: var(--wcs-white);
+    color: var(--wcs-header-title-color);
     margin: 0;
-    font-weight: 500;
-    font-size: 1.5rem;
+    font-weight: var(--wcs-header-title-font-weight);
+    font-size: var(--wcs-header-title-font-size);
 }
 
 ::slotted([slot=actions]) {

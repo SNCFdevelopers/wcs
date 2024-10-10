@@ -78,3 +78,47 @@ During Design Tokens migration, we have **reviewed and updated certain CSS varia
 #### wcs-badge
 
 - Rename `--wcs-badge-ligther-percentage` to `--wcs-badge-lighter-percentage` (typo)
+
+#### wcs-header
+
+With design tokens migration, the `wcs-header` **is no longer dark**. As you can put `wcs-button` inside the `wcs-header`, you have to verify the button is still visible. 
+
+Indeed, on storybook, we applied the `.wcs-light` class to the button to make it visible. As the `wcs-header` is no longer dark, you have to remove this class from the button to keep it visible if you have used it.
+
+Before
+
+```html
+        <wcs-header>
+            <img
+                slot="logo"
+                alt="SNCF"
+                src="data:image/svg+xml;base64,PD94...."
+            />
+            <h1 slot="title">Votre superbe application</h1>
+            <div slot="actions">
+                <wcs-button class="wcs-light" mode="clear"> <!--The class wcs-light was here-->
+                    <span>Connexion</span>
+                    <wcs-mat-icon icon="person_outline"></wcs-mat-icon>
+                </wcs-button>
+            </div>
+        </wcs-header>
+```
+
+After
+
+```html
+        <wcs-header>
+            <img
+                slot="logo"
+                alt="SNCF"
+                src="data:image/svg+xml;base64,PD94...."
+            />
+            <h1 slot="title">Votre superbe application</h1>
+            <div slot="actions">
+                <wcs-button mode="clear"> <!--The class is no longer applied-->
+                    <span>Connexion</span>
+                    <wcs-mat-icon icon="person_outline"></wcs-mat-icon>
+                </wcs-button>
+            </div>
+        </wcs-header>
+```

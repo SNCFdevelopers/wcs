@@ -901,6 +901,15 @@ export namespace Components {
     }
     /**
      * The header component is an element that appears across the top of all pages on a website or application; it contains the logo, the site name and main actions.
+     * @cssprop --wcs-header-background-color - Background color of the header
+     * @cssprop --wcs-header-gap - Gap between elements in the header
+     * @cssprop --wcs-header-height - Height of the header
+     * @cssprop --wcs-header-logo-height - Height of the logo
+     * @cssprop --wcs-header-padding-horizontal - Horizontal padding of the header
+     * @cssprop --wcs-header-box-shadow - Box-shadow of the header
+     * @cssprop --wcs-header-title-color - Color of the title
+     * @cssprop --wcs-header-title-font-weight - Font weight of the title
+     * @cssprop --wcs-header-title-font-size - Font size of the title
      */
     interface WcsHeader {
         "setAriaAttribute": (attr: AriaAttributeName, value: string | null | undefined) => Promise<void>;
@@ -2878,6 +2887,15 @@ declare global {
     };
     /**
      * The header component is an element that appears across the top of all pages on a website or application; it contains the logo, the site name and main actions.
+     * @cssprop --wcs-header-background-color - Background color of the header
+     * @cssprop --wcs-header-gap - Gap between elements in the header
+     * @cssprop --wcs-header-height - Height of the header
+     * @cssprop --wcs-header-logo-height - Height of the logo
+     * @cssprop --wcs-header-padding-horizontal - Horizontal padding of the header
+     * @cssprop --wcs-header-box-shadow - Box-shadow of the header
+     * @cssprop --wcs-header-title-color - Color of the title
+     * @cssprop --wcs-header-title-font-weight - Font weight of the title
+     * @cssprop --wcs-header-title-font-size - Font size of the title
      */
     interface HTMLWcsHeaderElement extends Components.WcsHeader, HTMLStencilElement {
     }
@@ -4600,6 +4618,15 @@ declare namespace LocalJSX {
     }
     /**
      * The header component is an element that appears across the top of all pages on a website or application; it contains the logo, the site name and main actions.
+     * @cssprop --wcs-header-background-color - Background color of the header
+     * @cssprop --wcs-header-gap - Gap between elements in the header
+     * @cssprop --wcs-header-height - Height of the header
+     * @cssprop --wcs-header-logo-height - Height of the logo
+     * @cssprop --wcs-header-padding-horizontal - Horizontal padding of the header
+     * @cssprop --wcs-header-box-shadow - Box-shadow of the header
+     * @cssprop --wcs-header-title-color - Color of the title
+     * @cssprop --wcs-header-title-font-weight - Font weight of the title
+     * @cssprop --wcs-header-title-font-size - Font size of the title
      */
     interface WcsHeader {
     }
@@ -6279,6 +6306,15 @@ declare module "@stencil/core" {
             "wcs-grid-pagination": LocalJSX.WcsGridPagination & JSXBase.HTMLAttributes<HTMLWcsGridPaginationElement>;
             /**
              * The header component is an element that appears across the top of all pages on a website or application; it contains the logo, the site name and main actions.
+             * @cssprop --wcs-header-background-color - Background color of the header
+             * @cssprop --wcs-header-gap - Gap between elements in the header
+             * @cssprop --wcs-header-height - Height of the header
+             * @cssprop --wcs-header-logo-height - Height of the logo
+             * @cssprop --wcs-header-padding-horizontal - Horizontal padding of the header
+             * @cssprop --wcs-header-box-shadow - Box-shadow of the header
+             * @cssprop --wcs-header-title-color - Color of the title
+             * @cssprop --wcs-header-title-font-weight - Font weight of the title
+             * @cssprop --wcs-header-title-font-size - Font size of the title
              */
             "wcs-header": LocalJSX.WcsHeader & JSXBase.HTMLAttributes<HTMLWcsHeaderElement>;
             /**

@@ -10,6 +10,19 @@ const HEADER_INHERITED_ATTRS = [];
  * @slot logo SNCF Logo
  * @slot title Title of your application
  * @slot actions Actions such as buttons, dropdown or any useful information to always display on your application
+ * 
+ * @cssprop --wcs-header-background-color - Background color of the header
+ * 
+ * @cssprop --wcs-header-gap - Gap between elements in the header
+ * @cssprop --wcs-header-height - Height of the header
+ * @cssprop --wcs-header-logo-height - Height of the logo
+ * @cssprop --wcs-header-padding-horizontal - Horizontal padding of the header
+ * 
+ * @cssprop --wcs-header-box-shadow - Box-shadow of the header
+ * @cssprop --wcs-header-title-color - Color of the title
+ * @cssprop --wcs-header-title-font-weight - Font weight of the title
+ * @cssprop --wcs-header-title-font-size - Font size of the title
+ * 
  */
 @Component({
     tag: 'wcs-header',

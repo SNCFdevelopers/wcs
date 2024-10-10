@@ -53,6 +53,9 @@ for soon-to-be removed features.
   - remove `--wcs-form-field-border-radius-left` and `--wcs-form-field-border-radius-right`. These variables were not used.
 - **badge**
   - rename `--wcs-badge-ligther-percentage` to `--wcs-badge-lighter-percentage` (typo)
+- **header**
+  - With design token migration, new `wcs-header` is no longer dark. Make sure your action button doesn't have class `wcs-light`
+that can cause contrast issues.
 
 ### Fixed
 
