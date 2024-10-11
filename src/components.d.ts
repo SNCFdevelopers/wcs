@@ -1406,6 +1406,11 @@ export namespace Components {
      * The spinner component is visual indicator that showing a process is happening in the background but the interface is
      * not yet ready for interaction.  
      * If your page structure is simple or the loading time is long (> 300ms), use [wcs-skeleton](.?path=/docs/components-skeleton--documentation) instead.
+     * @cssprop --wcs-spinner-dashed-background-circle - The color of the dashed circle in the background
+     * @cssprop --wcs-spinner-rotating-circle-color - The color of the rotating circle
+     * @cssprop --wcs-spinner-rotate-animation-duration - The duration of the rotation animation
+     * @cssprop --wcs-spinner-dashed-animation-duration - The duration of the dash animation
+     * @cssprop --wcs-spinner-growing-animation-duration - The duration of the growing animation
      */
     interface WcsSpinner {
         /**
@@ -2839,6 +2844,11 @@ declare global {
      * The spinner component is visual indicator that showing a process is happening in the background but the interface is
      * not yet ready for interaction.  
      * If your page structure is simple or the loading time is long (> 300ms), use [wcs-skeleton](.?path=/docs/components-skeleton--documentation) instead.
+     * @cssprop --wcs-spinner-dashed-background-circle - The color of the dashed circle in the background
+     * @cssprop --wcs-spinner-rotating-circle-color - The color of the rotating circle
+     * @cssprop --wcs-spinner-rotate-animation-duration - The duration of the rotation animation
+     * @cssprop --wcs-spinner-dashed-animation-duration - The duration of the dash animation
+     * @cssprop --wcs-spinner-growing-animation-duration - The duration of the growing animation
      */
     interface HTMLWcsSpinnerElement extends Components.WcsSpinner, HTMLStencilElement {
     }
@@ -4469,6 +4479,11 @@ declare namespace LocalJSX {
      * The spinner component is visual indicator that showing a process is happening in the background but the interface is
      * not yet ready for interaction.  
      * If your page structure is simple or the loading time is long (> 300ms), use [wcs-skeleton](.?path=/docs/components-skeleton--documentation) instead.
+     * @cssprop --wcs-spinner-dashed-background-circle - The color of the dashed circle in the background
+     * @cssprop --wcs-spinner-rotating-circle-color - The color of the rotating circle
+     * @cssprop --wcs-spinner-rotate-animation-duration - The duration of the rotation animation
+     * @cssprop --wcs-spinner-dashed-animation-duration - The duration of the dash animation
+     * @cssprop --wcs-spinner-growing-animation-duration - The duration of the growing animation
      */
     interface WcsSpinner {
         /**
@@ -5383,6 +5398,11 @@ declare module "@stencil/core" {
              * The spinner component is visual indicator that showing a process is happening in the background but the interface is
              * not yet ready for interaction.  
              * If your page structure is simple or the loading time is long (> 300ms), use [wcs-skeleton](.?path=/docs/components-skeleton--documentation) instead.
+             * @cssprop --wcs-spinner-dashed-background-circle - The color of the dashed circle in the background
+             * @cssprop --wcs-spinner-rotating-circle-color - The color of the rotating circle
+             * @cssprop --wcs-spinner-rotate-animation-duration - The duration of the rotation animation
+             * @cssprop --wcs-spinner-dashed-animation-duration - The duration of the dash animation
+             * @cssprop --wcs-spinner-growing-animation-duration - The duration of the growing animation
              */
             "wcs-spinner": LocalJSX.WcsSpinner & JSXBase.HTMLAttributes<HTMLWcsSpinnerElement>;
             /**

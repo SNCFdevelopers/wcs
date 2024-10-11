@@ -47,11 +47,19 @@
 
     --wcs-spinner-dashed-background-circle: #E4E3E2FF;
     --wcs-spinner-rotating-circle-color: var(--wcs-base);
+
+    --wcs-spinner-rotate-animation-duration: 2s;
+    --wcs-spinner-dashed-animation-duration: 1.5s;
+    --wcs-spinner-growing-animation-duration: 1s;
 }
 
 :host(.token-migration) {
-    --wcs-spinner-dashed-background-circle: var(--wcs-semantic-color-foreground-action-primary-default);
-    --wcs-spinner-rotating-circle-color: var(--wcs-semantic-color-primary);
+    --wcs-spinner-dashed-background-circle: var(--wcs-semantic-color-background-surface-tertiary);
+    --wcs-spinner-rotating-circle-color: var(--wcs-semantic-color-background-action-primary-default);
+
+    --wcs-spinner-rotate-animation-duration: var(--wcs-semantic-motion-duration-animation-base);
+    --wcs-spinner-dashed-animation-duration: var(--wcs-semantic-motion-duration-animation-base);
+    --wcs-spinner-growing-animation-duration: var(--wcs-semantic-motion-duration-animation-fast);
 }
 
 :host([mode="border"]) {
@@ -65,20 +73,20 @@
         }
 
         .infinite-rotation-container {
-            animation: wcs-spinner-rotate 2s linear infinite;
+            animation: wcs-spinner-rotate var(--wcs-spinner-rotate-animation-duration) linear infinite;
         }
 
         & .dash-rotating-circle {
             stroke: var(--wcs-spinner-rotating-circle-color);
             stroke-width: 8px;
             stroke-linecap: round;
-            animation: wcs-spinner-dash 1.5s ease-in-out infinite;
+            animation: wcs-spinner-dash var(--wcs-spinner-dashed-animation-duration) ease-in-out infinite;
         }
     }
 }
 
 :host([mode=growing]) {
-    background-color: var(--wcs-base);
+    background-color: var(--wcs-spinner-rotating-circle-color);
     opacity: 0;
-    animation: wcs-spinner-grow 1s ease-out infinite;
+    animation: wcs-spinner-grow var(--wcs-spinner-growing-animation-duration) ease-out infinite;
 }

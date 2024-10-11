@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-11-06T13:20:30",
+  "timestamp": "2024-11-07T15:15:04",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -9368,7 +9368,28 @@
       "tag": "wcs-spinner",
       "readme": "# Spinner\r\n\r",
       "docs": "The spinner component is visual indicator that showing a process is happening in the background but the interface is\r\nnot yet ready for interaction.  \r\nIf your page structure is simple or the loading time is long (> 300ms), use [wcs-skeleton](.?path=/docs/components-skeleton--documentation) instead.",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "cssprop",
+          "text": "--wcs-spinner-dashed-background-circle - The color of the dashed circle in the background"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-spinner-rotating-circle-color - The color of the rotating circle"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-spinner-rotate-animation-duration - The duration of the rotation animation"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-spinner-dashed-animation-duration - The duration of the dash animation"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-spinner-growing-animation-duration - The duration of the growing animation"
+        }
+      ],
       "usage": {},
       "props": [
         {

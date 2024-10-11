@@ -205,6 +205,8 @@
     }
 
     wcs-spinner {
+        --wcs-spinner-dashed-background-circle: var(--wcs-button-color);
+        --wcs-spinner-rotating-circle-color: var(--wcs-button-color);
         height: calc(var(--wcs-button-height) / 2);
         width: calc(var(--wcs-button-min-width) / 2);
         position: absolute;
