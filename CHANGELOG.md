@@ -51,6 +51,8 @@ for soon-to-be removed features.
   - remove `--wcs-input-icon-color`. This variable was not used.
 - **form-field**
   - remove `--wcs-form-field-border-radius-left` and `--wcs-form-field-border-radius-right`. These variables were not used.
+- **badge**
+  - rename `--wcs-badge-ligther-percentage` to `--wcs-badge-lighter-percentage` (typo)
 
 ### Fixed
 

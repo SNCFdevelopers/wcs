@@ -1,40 +1,84 @@
 :host {
-    --wcs-badge-ligther-percentage: 20;
+    // region to be removed before migration to design tokens
+    --wcs-badge-lighter-percentage: 20;
+    --wcs-badge-lighter-opacity: calc((100 - var(--wcs-badge-lighter-percentage)) / 100);
+
+    --wcs-badge-font-weight: 500;
+
+    --wcs-badge-height-l: 32px;
+    --wcs-badge-font-size-l: 1rem;
+    --wcs-badge-height-m: 24px;
+    --wcs-badge-font-size-m: 0.875rem;
+    --wcs-badge-height-s: 20px;
+    --wcs-badge-font-size-s: 0.75rem;
+
+    --wcs-badge-border-radius-default: 6px;
+    --wcs-badge-border-radius-circular: 0.75rem;
+    --wcs-badge-background-color: var(--wcs-base);
+    --wcs-badge-color: var(--wcs-contrast);
+
+    --wcs-badge-padding-vertical: 0.313rem;
+    --wcs-badge-padding-horizontal: 1.5rem;
+    // endregion
+
     display: inline-block;
-    padding: 0.313rem 1.5rem;
+    padding: var(--wcs-badge-padding-vertical) var(--wcs-badge-padding-horizontal);
     height: var(--wcs-badge-height);
     font-size: var(--wcs-badge-font-size);
     box-sizing: border-box;
-    font-weight: 500;
+    font-weight: var(--wcs-badge-font-weight);
     line-height: 1;
     text-align: center;
     align-content: center;
     white-space: nowrap;
     vertical-align: baseline;
-    border-radius: 6px;
-    color: var(--wcs-contrast);
-    background-color: var(--wcs-base);
+    border-radius: var(--wcs-badge-border-radius-default);
+    color: var(--wcs-badge-color);
+    background-color: var(--wcs-badge-background-color);
+}
+
+:host(.token-migration) {
+    --wcs-badge-lighter-percentage: 20;
+    --wcs-badge-lighter-opacity: calc((100 - var(--wcs-badge-lighter-percentage)) / 100);
+
+    --wcs-badge-font-weight: var(--wcs-semantic-font-weight-medium);
+
+    // TODO use design tokens semantic layer
+    --wcs-badge-height-l: 32px;
+    --wcs-badge-font-size-l: 1rem;
+    --wcs-badge-height-m: 24px;
+    --wcs-badge-font-size-m: 0.875rem;
+    --wcs-badge-height-s: 20px;
+    --wcs-badge-font-size-s: 0.75rem;
+
+    --wcs-badge-border-radius-default: var(--wcs-semantic-border-radius-base);
+    --wcs-badge-border-radius-circular: var(--wcs-semantic-border-radius-circular);
+    --wcs-badge-background-color: var(--wcs-semantic-color-background-action-primary-default);
+    --wcs-badge-color: var(--wcs-semantic-color-foreground-action-primary-default);
+
+    --wcs-badge-padding-vertical: 0.313rem;
+    --wcs-badge-padding-horizontal: var(--wcs-semantic-padding-large);
 }
 
 :host([color=lighter]) {
-    opacity: calc((100 - var(--wcs-badge-ligther-percentage)) / 100);
+    opacity: var(--wcs-badge-lighter-opacity);
 }
 
 :host([shape=rounded]){
-    border-radius: 0.75rem;
+    border-radius: var(--wcs-badge-border-radius-circular);
 }
 
 :host([size=l]) {
-    --wcs-badge-height: 32px;
-    --wcs-badge-font-size: 1rem;
+    --wcs-badge-height: var(--wcs-badge-height-l);
+    --wcs-badge-font-size: var(--wcs-badge-font-size-l);
 }
 
 :host([size=m]) { // Default
-    --wcs-badge-height: 24px;
-    --wcs-badge-font-size: 0.875rem;
+    --wcs-badge-height: var(--wcs-badge-height-m);
+    --wcs-badge-font-size: var(--wcs-badge-font-size-m);
 }
 
 :host([size=s]) {
-    --wcs-badge-height: 20px;
-    --wcs-badge-font-size: 0.75rem;
+    --wcs-badge-height: var(--wcs-badge-height-s);
+    --wcs-badge-font-size: var(--wcs-badge-font-size-s);
 }
