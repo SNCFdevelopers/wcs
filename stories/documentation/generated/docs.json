@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-11-26T15:51:35",
+  "timestamp": "2024-12-09T16:12:09",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -440,7 +440,48 @@
       "tag": "wcs-action-bar",
       "readme": "# Action bar\r\n\r\n\r",
       "docs": "The action-bar component is a group of elements appearing across the top of all pages on a business application.",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "cssprop",
+          "text": "--wcs-action-bar-background-color - Background color of the action bar"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-action-bar-gap - Gap between the title and the tabs"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-action-bar-gap-actions - Gap between the title and the actions"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-action-bar-min-height - Minimum height of the action bar"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-action-bar-padding-horizontal - Horizontal padding of the action bar"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-action-bar-padding-vertical - Vertical padding of the action bar"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-action-bar-title-font-weight - Font weight of the title"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-action-bar-title-color - Color of the title"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-gutter-border-width - Border width of the gutter"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-gutter-background-color - Background color of the gutter"
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -2768,8 +2809,17 @@
       "encapsulation": "shadow",
       "tag": "wcs-divider",
       "readme": "# wcs-divider\r\n\r\n\r\n\r",
-      "docs": "",
-      "docsTags": [],
+      "docs": "The divider is a separator between two elements, consisting of a horizontal line.",
+      "docsTags": [
+        {
+          "name": "cssprop",
+          "text": "--wcs-divider-color - Color of the divider"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-divider-height - Height (border-width) of the divider"
+        }
+      ],
       "usage": {},
       "props": [],
       "methods": [],
@@ -5431,6 +5481,42 @@
         {
           "name": "slot",
           "text": "actions Actions such as buttons, dropdown or any useful information to always display on your application"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-header-background-color - Background color of the header"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-header-gap - Gap between elements in the header"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-header-height - Height of the header"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-header-logo-height - Height of the logo"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-header-padding-horizontal - Horizontal padding of the header"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-header-box-shadow - Box-shadow of the header"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-header-title-color - Color of the title"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-header-title-font-weight - Font weight of the title"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-header-title-font-size - Font size of the title"
         }
       ],
       "usage": {},
@@ -5573,7 +5659,20 @@
       "tag": "wcs-horizontal-stepper",
       "readme": "# Horizontal Stepper\r\n\r\n\r",
       "docs": "The horizontal-stepper is a representation of a user’s progress through a series of discrete steps.",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "cssprop",
+          "text": "--wcs-horizontal-step-text-color-default - Text color of the step by default"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-horizontal-step-text-color-active - Text color of the step when active"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-horizontal-step-text-color-disabled - Text color of step when disabled"
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -7784,7 +7883,7 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-modal-backdrop - Backdrop of the modal"
+          "text": "--wcs-modal-backdrop-color - Backdrop color of the modal"
         },
         {
           "name": "cssprop",
@@ -7813,6 +7912,18 @@
         {
           "name": "cssprop",
           "text": "--wcs-modal-title-margin-bottom - Margin bottom of the modal title"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-modal-title-font-size - Font size of the modal title"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-modal-title-font-weight - Font weight of the modal title"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-modal-title-line-height - Line height of the modal title"
         },
         {
           "name": "cssprop",
@@ -11225,23 +11336,91 @@
       "encapsulation": "shadow",
       "tag": "wcs-tabs",
       "readme": "# Tabs\r\n\r",
-      "docs": "Tabs component to switch between tab content.\r\nUse in conjuction with `wcs-tab`.",
+      "docs": "Tabs component to switch between tab content. Use in conjunction with `wcs-tab`.",
       "docsTags": [
         {
-          "name": "example",
-          "text": "```html\r\n<wcs-tabs>\r\n   <wcs-tab header=\"One\">The content !</wcs-tab>\r\n   <wcs-tab header=\"Two\">More content !</wcs-tab>\r\n</wcs-tabs>\r\n```"
+          "name": "cssprop",
+          "text": "--wcs-tabs-indicator-height - Height of the tabs indicator"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-tabs-width - Width of each tab"
+          "text": "--wcs-tabs-indicator-background-color - Background color of the tabs indicator"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-tabs-padding-horizontal - Width of each tab"
+          "text": "--wcs-tabs-indicator-border-radius - Border radius of the tabs indicator"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-tabs-padding-vertical - Vertical padding"
+          "text": "--wcs-tabs-color-default - Text color of the tabs"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-color-hover - Text color of the tabs when hovered"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-color-press - Text color of the tabs when pressed"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-color-focus - Text color of the tabs when focused"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-color-selected - Text color of the tabs when selected"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-background-color-focus - Background color of the tabs when focused"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-background-color-hover - Background color of the tabs when hovered"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-background-color-press - Background color of the tabs when pressed"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-border-radius - Border radius of the tabs"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-border-color-focus - Outline color on a focused tab"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-font-weight-default - Font weight of the tabs"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-font-weight-selected - Font weight of the tabs when selected"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-padding-top - Padding top of the tabs"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-padding-right - Padding right of the tabs"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-padding-bottom - Padding bottom of the tabs"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-padding-left - Padding left of the tabs"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-headers-border-bottom - Border bottom (gutter) below the tabs"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-transition-duration - Transition duration of the tabs"
         }
       ],
       "usage": {},
@@ -12357,8 +12536,21 @@
       "encapsulation": "shadow",
       "tag": "wcs-tooltip",
       "readme": "# Tooltip\r\n\r",
-      "docs": "Tooltips are used to provide additional information for features available on the website. These can improve the user\r\nexperience or simply show additional information. Tooltips appear when the user rolls over or clicks on them\r\n(for longer content).\r\n\r\nNote that this component is based on the Tippy.js library : https://atomiks.github.io/tippyjs/\r\n\r\n## Accessibility guidelines 💡\r\n\r\nThe problem is that impaired users may not be able to see what is the information provided by the tooltip. To solve\r\nthis problem, the tooltip should be served with some aria attributes to make it accessible.\r\n\r\nAria-features `wcs-tooltip` respect:\r\n- dismiss when the user presses the `Escape` key\r\n- has a `role=tooltip`\r\n\r\nBut you have to provide the \"link\" between the element you want to describe and the tooltip. To do this, you have to\r\nprovide the \"visual description\" you add on the `wcs-tooltip` to the `aria-label` attribute or the `aria-description` as soon as the attribute will be available \r\nof the element you want to describe .\r\n\r\nExample:\r\n\r\n```html\r\n<wcs-tooltip>Trashed items</wcs-tooltip>\r\n<wcs-button aria-label=\"Trashed items\">Trash</wcs-button>\r\n```",
-      "docsTags": [],
+      "docs": "Tooltips are used to provide additional information for features available on the website. These can improve the user\r\nexperience or simply show additional information. Tooltips appear when the user rolls over or clicks on them\r\n(for longer content).\r\n\r\nNote that this component is based on the Tippy.js library : https://atomiks.github.io/tippyjs/\r\n\r\n## Accessibility guidelines 💡\r\n\r\nThe problem is that impaired users may not be able to see what is the information provided by the tooltip. To solve\r\nthis problem, the tooltip should be served with some aria attributes to make it accessible.\r\n\r\nAria-features `wcs-tooltip` respect:\r\n- dismiss when the user presses the `Escape` key\r\n- has a `role=tooltip`\r\n\r\nBut you have to provide the \"link\" between the element you want to describe and the tooltip. To do this, you have to\r\nprovide the \"visual description\" you add on the `wcs-tooltip` to the `aria-label` attribute or the `aria-description` as soon as the attribute will be available \r\nof the element you want to describe .\r\n\r\nExample:\r\n\r\n```html\r\n<wcs-tooltip for=\"my-button\">Trashed items</wcs-tooltip>\r\n<wcs-button id=\"my-button\" aria-label=\"Trashed items\">Trash</wcs-button>\r\n```",
+      "docsTags": [
+        {
+          "name": "cssprop",
+          "text": "--wcs-tooltip-background-color - Background color of the tooltip"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tooltip-text-color - Text color of the tooltip"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tooltip-padding - Padding of the tooltip"
+        }
+      ],
       "usage": {},
       "props": [
         {

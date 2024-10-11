@@ -2,6 +2,17 @@ import { Component, ComponentInterface, Element, h, Host, Prop, State } from '@s
 
 /**
  * The action-bar component is a group of elements appearing across the top of all pages on a business application.
+ * 
+ * @cssprop --wcs-action-bar-background-color - Background color of the action bar
+ * @cssprop --wcs-action-bar-gap - Gap between the title and the tabs
+ * @cssprop --wcs-action-bar-gap-actions - Gap between the title and the actions
+ * @cssprop --wcs-action-bar-min-height - Minimum height of the action bar
+ * @cssprop --wcs-action-bar-padding-horizontal - Horizontal padding of the action bar
+ * @cssprop --wcs-action-bar-padding-vertical - Vertical padding of the action bar
+ * @cssprop --wcs-action-bar-title-font-weight - Font weight of the title
+ * @cssprop --wcs-action-bar-title-color - Color of the title
+ * @cssprop --wcs-tabs-gutter-border-width - Border width of the gutter
+ * @cssprop --wcs-tabs-gutter-background-color - Background color of the gutter
  */
 @Component({
     tag: 'wcs-action-bar',

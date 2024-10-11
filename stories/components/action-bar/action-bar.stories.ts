@@ -17,7 +17,7 @@ const Template: StoryFn<Partial<{ gutter: boolean, title: string }>> = (args) =>
             ${args.title}
             <div slot="actions">
                 <wcs-button mode="stroked" shape="small">Action</wcs-button>
-                <wcs-dropdown class="wcs-primary" shape="small" style="margin-left: 8px;">
+                <wcs-dropdown class="wcs-primary" mode="stroked" shape="small" style="margin-left: 8px;">
                     <div slot="placeholder">Dropdown</div>
                     <wcs-dropdown-item>Un</wcs-dropdown-item>
                     <wcs-dropdown-item>Deux</wcs-dropdown-item>
@@ -41,15 +41,14 @@ const TabInsideTemplate: StoryFn<Partial<{ gutter: boolean, title: string }>> = 
             ${args.title}
             <div slot="actions">
                 <wcs-button mode="stroked" shape="small">Action</wcs-button>
-                <wcs-dropdown class="wcs-primary" shape="small" style="margin-left: 8px;">
+                <wcs-dropdown class="wcs-primary" mode="stroked" shape="small" style="margin-left: 8px;">
                     <div slot="placeholder">Dropdown</div>
                     <wcs-dropdown-item>Un</wcs-dropdown-item>
                     <wcs-dropdown-item>Deux</wcs-dropdown-item>
                     <wcs-dropdown-item>Trois</wcs-dropdown-item>
                 </wcs-dropdown>
             </div>
-            <wcs-tabs slot="tabs" headers-only id="tabs-custom-content" selected-key="custom-id1"
-                      gutter>
+            <wcs-tabs slot="tabs" headers-only id="tabs-custom-content" selected-key="custom-id1">
                 <wcs-tab header="A header !" item-key="custom-id1"></wcs-tab>
                 <wcs-tab header="Another !" item-key="custom-id2"></wcs-tab>
             </wcs-tabs>
@@ -67,6 +66,6 @@ TabInside.parameters = {
     },
 };
 TabInside.args = {
-    gutter: false,
+    gutter: true,
     title: 'Titre'
 };
