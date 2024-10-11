@@ -358,6 +358,11 @@
                         "hover": {
                             "$description": "The layer on top of a secondary background when hovered",
                             "$type": "color",
+                            "$value": "{primitive.color.vert.500}"
+                        },
+                        "press": {
+                            "$description": "The layer on top of a secondary background when pressed",
+                            "$type": "color",
                             "$value": "{primitive.color.vert.600}"
                         }
                     },

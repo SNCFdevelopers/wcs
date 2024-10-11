@@ -56,6 +56,11 @@ for soon-to-be removed features.
 - **header**
   - With design token migration, new `wcs-header` is no longer dark. Make sure your action button doesn't have class `wcs-light`
 that can cause contrast issues.
+- **tabs**
+  - remove the following css variables, see doc for replacement :
+    - `--wcs-tabs-width`
+    - `--wcs-tabs-padding-horizontal`
+    - `--wcs-tabs-padding-vertical`
 
 ### Fixed
 

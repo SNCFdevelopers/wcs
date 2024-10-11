@@ -5,8 +5,7 @@
 
 ## Overview
 
-Tabs component to switch between tab content.
-Use in conjuction with `wcs-tab`.
+Tabs component to switch between tab content. Use in conjunction with `wcs-tab`.
 
 ## Properties
 

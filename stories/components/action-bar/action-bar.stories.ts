@@ -25,7 +25,7 @@ const Template: StoryFn<Partial<{ gutter: boolean, title: string }>> = (args) =>
                 </wcs-dropdown>
             </div>
         </wcs-action-bar>
-        <div style="height: 50px; background-color: var(--wcs-white)"><br/>Content</div>
+        <div style="height: 50px; background-color: var(--wcs-white); padding: 0 16px;"><br/>Content</div>
     </div>
 `;
 
@@ -54,7 +54,7 @@ const TabInsideTemplate: StoryFn<Partial<{ gutter: boolean, title: string }>> = 
                 <wcs-tab header="Another !" item-key="custom-id2"></wcs-tab>
             </wcs-tabs>
         </wcs-action-bar>
-        <div style="height: 50px; background-color: var(--wcs-white)"><br/>Content</div>
+        <div style="height: 50px; background-color: var(--wcs-white); padding: 0 16px;"><br/>Content</div>
     </div>
 `;
 

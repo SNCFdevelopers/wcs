@@ -1,7 +1,71 @@
 @import '../../style/focus-outline.scss';
 
 :host {
+    // region to be removed before migration to design tokens
+    --wcs-tabs-indicator-height: 0.3125rem;
+    --wcs-tabs-indicator-background-color: var(--wcs-primary);
+    --wcs-tabs-indicator-border-radius: 3px;
+
+    --wcs-tabs-color-default: var(--wcs-text-disabled);
+    --wcs-tabs-color-hover: var(--wcs-primary);
+    --wcs-tabs-color-press: var(--wcs-primary);
+    --wcs-tabs-color-selected: var(--wcs-primary);
+
+    --wcs-tabs-background-color-focus: transparent;
+    --wcs-tabs-background-color-hover: transparent;
+    --wcs-tabs-background-color-press: transparent;
+
+    --wcs-tabs-border-radius: 0px;
+    --wcs-tabs-border-color-focus: var(--wcs-primary);
+
+    --wcs-tabs-font-weight-default: 400;
+    --wcs-tabs-font-weight-selected: 500;
+
+    --wcs-tabs-padding-top: 8px;
+    --wcs-tabs-padding-right: 12px;
     --wcs-tabs-padding-bottom: 16px;
+    --wcs-tabs-padding-left: 12px;
+
+    --wcs-tabs-gutter-border-width: 1px;
+    --wcs-tabs-gutter-background-color: #ebebeb;
+    --wcs-tabs-headers-border-bottom: var(--wcs-tabs-gutter-border-width) solid var(--wcs-tabs-gutter-background-color);
+
+    --wcs-tabs-transition-duration: 0.15s;
+    // endregion
+
+    display: block;
+}
+
+:host(.token-migration) {
+    --wcs-tabs-indicator-height: var(--wcs-semantic-spacing-small);
+    --wcs-tabs-indicator-background-color: var(--wcs-semantic-color-background-action-primary-default);
+    --wcs-tabs-indicator-border-radius: var(--wcs-semantic-border-radius-circular);
+
+    --wcs-tabs-color-default: var(--wcs-semantic-color-foreground-action-secondary-default);
+    --wcs-tabs-color-hover: var(--wcs-semantic-color-foreground-action-secondary-hover);
+    --wcs-tabs-color-press: var(--wcs-semantic-color-foreground-action-secondary-press);
+    --wcs-tabs-color-selected: var(--wcs-semantic-color-primary);
+
+    --wcs-tabs-background-color-focus: transparent;
+    --wcs-tabs-background-color-hover: var(--wcs-semantic-color-background-action-secondary-hover);
+    --wcs-tabs-background-color-press: var(--wcs-semantic-color-background-action-secondary-press);
+
+    --wcs-tabs-border-radius: var(--wcs-semantic-border-radius-small);
+    --wcs-tabs-border-color-focus: var(--wcs-semantic-color-primary);
+
+    --wcs-tabs-font-weight-default: var(--wcs-semantic-font-weight-regular);
+    --wcs-tabs-font-weight-selected: var(--wcs-semantic-font-weight-regular);
+
+    --wcs-tabs-padding-top: var(--wcs-semantic-spacing-size-m-vertical);
+    --wcs-tabs-padding-right: var(--wcs-semantic-spacing-size-m-horizontal);
+    --wcs-tabs-padding-bottom: calc(var(--wcs-semantic-spacing-size-m-vertical) + var(--wcs-tabs-indicator-height));
+    --wcs-tabs-padding-left: var(--wcs-semantic-spacing-size-m-horizontal);
+
+    --wcs-tabs-gutter-border-width: var(--wcs-semantic-border-width-default);
+    --wcs-tabs-gutter-background-color: var(--wcs-semantic-color-border-surface);
+    --wcs-tabs-headers-border-bottom: var(--wcs-tabs-gutter-border-width) solid var(--wcs-tabs-gutter-background-color);
+
+    --wcs-tabs-transition-duration: var(--wcs-semantic-motion-duration-feedback-base);
 }
 
 :host([align=start]) .wcs-tabs-headers {
@@ -17,9 +81,9 @@
 }
 
 .wcs-tabs-headers {
-    padding-top: 4px;
     overflow-x: auto;
     display: flex;
+    flex-direction: row;
     position: relative;
 }
 
@@ -30,50 +94,61 @@
 }
 
 .wcs-tab-header {
-    padding: 8px 24px 16px 0;
+    position: relative;
+
+    padding: var(--wcs-tabs-padding-top) var(--wcs-tabs-padding-right) var(--wcs-tabs-padding-bottom) var(--wcs-tabs-padding-left);
+    border-radius: var(--wcs-tabs-border-radius) var(--wcs-tabs-border-radius) 0 0;
     display: flex;
     flex-shrink: 0;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     outline: none;
+    transition: all var(--wcs-tabs-transition-duration) ease-out;
 
     span {
         text-align: center;
-        color: var(--wcs-text-disabled);
+        color: var(--wcs-tabs-color-default);
         font-size: 1rem;
-        font-weight: 400;
+        font-weight: var(--wcs-tabs-font-weight-default);
     }
 
-
-    &:focus,
     &:hover {
+        background-color: var(--wcs-tabs-background-color-hover);
+
         span {
-            color: var(--wcs-primary);
+            color: var(--wcs-tabs-color-hover);
         }
     }
 
     &:focus-visible > span {
-        @include focus-outline;
+        @include focus-outline(var(--wcs-tabs-border-color-focus));
+    }
+
+    &:active {
+        background-color: var(--wcs-tabs-background-color-press);
+
+        span {
+            color: var(--wcs-tabs-color-press);
+        }
     }
 }
 
 
 .active {
     span {
-        font-weight: 500;
-        color: var(--wcs-primary);
-        position: relative;
+        font-weight: var(--wcs-tabs-font-weight-selected);
+        color: var(--wcs-tabs-color-selected);
     }
 
-    span::after {
+    &::after {
         position: absolute;
-        bottom: calc(var(--wcs-tabs-padding-bottom) * -1);
+        bottom: 0;
         left: 0;
         width: 100%;
-        height: 0.3125rem;
         content: "";
-        background-color: var(--wcs-primary);
-        border-radius: 3px;
+        height: var(--wcs-tabs-indicator-height);
+        background-color: var(--wcs-tabs-indicator-background-color);
+        border-radius: var(--wcs-tabs-indicator-border-radius);
     }
 }

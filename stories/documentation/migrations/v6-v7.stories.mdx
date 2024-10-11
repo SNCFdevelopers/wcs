@@ -13,7 +13,9 @@ WCS v7 contains breaking changes only in the following packages:
 
 ### CSS Variables
 
-During Design Tokens migration, we have **reviewed and updated certain CSS variables names on several components**. If you have used **any of the following CSS variables below**, you need to **update them** in your project or use the new ones.
+> During Design Tokens migration, we have **reviewed and updated certain CSS variables names on several components**.  
+> - If you have used **any of the following CSS variables below**, you need to **update them** in your project or use the new ones.  
+> - If these variable doesn't appear in your codebase, you don't need to update anything.  
 
 #### wcs-button
 
@@ -88,37 +90,43 @@ Indeed, on storybook, we applied the `.wcs-light` class to the button to make it
 Before
 
 ```html
-        <wcs-header>
-            <img
-                slot="logo"
-                alt="SNCF"
-                src="data:image/svg+xml;base64,PD94...."
-            />
-            <h1 slot="title">Votre superbe application</h1>
-            <div slot="actions">
-                <wcs-button class="wcs-light" mode="clear"> <!--The class wcs-light was here-->
-                    <span>Connexion</span>
-                    <wcs-mat-icon icon="person_outline"></wcs-mat-icon>
-                </wcs-button>
-            </div>
-        </wcs-header>
+<wcs-header>
+    <img
+        slot="logo"
+        alt="SNCF"
+        src="data:image/svg+xml;base64,PD94...."
+    />
+    <h1 slot="title">Votre superbe application</h1>
+    <div slot="actions">
+        <wcs-button mode="clear" class="wcs-light"> <!--The class wcs-light was here-->
+            <span>Connexion</span>
+            <wcs-mat-icon icon="person_outline"></wcs-mat-icon>
+        </wcs-button>
+    </div>
+</wcs-header>
 ```
 
 After
 
 ```html
-        <wcs-header>
-            <img
-                slot="logo"
-                alt="SNCF"
-                src="data:image/svg+xml;base64,PD94...."
-            />
-            <h1 slot="title">Votre superbe application</h1>
-            <div slot="actions">
-                <wcs-button mode="clear"> <!--The class is no longer applied-->
-                    <span>Connexion</span>
-                    <wcs-mat-icon icon="person_outline"></wcs-mat-icon>
-                </wcs-button>
-            </div>
-        </wcs-header>
+<wcs-header>
+    <img
+        slot="logo"
+        alt="SNCF"
+        src="data:image/svg+xml;base64,PD94...."
+    />
+    <h1 slot="title">Votre superbe application</h1>
+    <div slot="actions">
+        <wcs-button mode="clear"> <!--The class is no longer applied-->
+            <span>Connexion</span>
+            <wcs-mat-icon icon="person_outline"></wcs-mat-icon>
+        </wcs-button>
+    </div>
+</wcs-header>
 ```
+
+### wcs-tabs
+
+- `--wcs-tabs-width` has been **deleted**. This variable was not used because `width` is always set to `auto` for the tabs.
+- `--wcs-tabs-padding-horizontal` has been **deleted**. Use `--wcs-tabs-padding-left`/`--wcs-tabs-padding-right` instead.
+- `--wcs-tabs-padding-vertical` has been **deleted**. Use `--wcs-tabs-padding-top`/`--wcs-tabs-padding-bottom` instead.

@@ -19,20 +19,29 @@ import { inheritAriaAttributes, inheritAttributes, setOrRemoveAttribute } from "
 const TABS_INHERITED_ATTRS = [];
 
 /**
- * Tabs component to switch between tab content.
- * Use in conjuction with `wcs-tab`.
- *
- * @example
- * ```html
- * <wcs-tabs>
- *    <wcs-tab header="One">The content !</wcs-tab>
- *    <wcs-tab header="Two">More content !</wcs-tab>
- * </wcs-tabs>
- * ```
+ * Tabs component to switch between tab content. Use in conjunction with `wcs-tab`.
  * 
- * @cssprop --wcs-tabs-width - Width of each tab
- * @cssprop --wcs-tabs-padding-horizontal - Width of each tab
- * @cssprop --wcs-tabs-padding-vertical - Vertical padding
+ * @cssprop --wcs-tabs-indicator-height - Height of the tabs indicator 
+ * @cssprop --wcs-tabs-indicator-background-color - Background color of the tabs indicator
+ * @cssprop --wcs-tabs-indicator-border-radius - Border radius of the tabs indicator
+ * @cssprop --wcs-tabs-color-default - Text color of the tabs
+ * @cssprop --wcs-tabs-color-hover - Text color of the tabs when hovered
+ * @cssprop --wcs-tabs-color-press - Text color of the tabs when pressed
+ * @cssprop --wcs-tabs-color-focus - Text color of the tabs when focused
+ * @cssprop --wcs-tabs-color-selected - Text color of the tabs when selected
+ * @cssprop --wcs-tabs-background-color-focus - Background color of the tabs when focused
+ * @cssprop --wcs-tabs-background-color-hover - Background color of the tabs when hovered
+ * @cssprop --wcs-tabs-background-color-press - Background color of the tabs when pressed
+ * @cssprop --wcs-tabs-border-radius - Border radius of the tabs
+ * @cssprop --wcs-tabs-border-color-focus - Outline color on a focused tab
+ * @cssprop --wcs-tabs-font-weight-default - Font weight of the tabs
+ * @cssprop --wcs-tabs-font-weight-selected - Font weight of the tabs when selected
+ * @cssprop --wcs-tabs-padding-top - Padding top of the tabs
+ * @cssprop --wcs-tabs-padding-right - Padding right of the tabs
+ * @cssprop --wcs-tabs-padding-bottom - Padding bottom of the tabs
+ * @cssprop --wcs-tabs-padding-left - Padding left of the tabs
+ * @cssprop --wcs-tabs-headers-border-bottom - Border bottom (gutter) below the tabs
+ * @cssprop --wcs-tabs-transition-duration - Transition duration of the tabs
  */
 @Component({
     tag: 'wcs-tabs',
