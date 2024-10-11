@@ -2,9 +2,52 @@
 @import '../../style/focus-outline.scss';
 
 wcs-nav-item {
+    // region to be removed before migration to design tokens
+    --wcs-nav-item-font-weight: 500;
+
+    --wcs-nav-item-height-desktop: 5rem;
+    --wcs-nav-item-height-mobile: 3.25rem;
+
+    --wcs-nav-item-font-size-desktop: 0.75rem;
+    --wcs-nav-item-font-size-mobile: 0.625rem;
+
+    --wcs-nav-item-border-horizontal-desktop: solid 1px rgba(255, 255, 255, .2);
+
+    --wcs-nav-item-background-color-default: var(--wcs-primary);
+    --wcs-nav-item-background-color-hover: #006395;
+    --wcs-nav-item-background-color-press: #006395;
+    --wcs-nav-item-background-color-active: #006395;
+
+
+    --wcs-nav-item-color-default: var(--wcs-contrast);
+    --wcs-nav-item-color-active: var(--wcs-contrast);
+    --wcs-nav-item-color-hover: var(--wcs-contrast);
+    --wcs-nav-item-color-press: var(--wcs-contrast);
+
+    //--wcs-nav-item-border-color-focus: var(--wcs-light);
+
+    --wcs-nav-item-border-width-focus: 0.1rem;
+
+    --wcs-nav-item-indicator-background-color: #A9D9FF;
+    --wcs-nav-item-indicator-width-desktop: calc(var(--wcs-base-size) / 2);
+    --wcs-nav-item-indicator-width-mobile: calc(var(--wcs-base-size) * 3);
+    --wcs-nav-item-indicator-height-desktop: calc(var(--wcs-base-size) * 3);
+    --wcs-nav-item-indicator-height-mobile: calc(var(--wcs-base-size) / 2);
+    --wcs-nav-item-indicator-border-radius-desktop: 8px 0 0 8px;
+    --wcs-nav-item-indicator-border-radius-mobile: 8px 8px 0 0;
+
+    --wcs-nav-item-transition-duration: 0.15s;
+    // endregion
+
     display: block;
     cursor: pointer;
-    font-weight: 500;
+    font-weight: var(--wcs-nav-item-font-weight);
+
+    transition-property: color, background-color, border-color, box-shadow, backdrop-filter;
+    transition-duration: var(--wcs-nav-item-transition-duration);
+    transition-timing-function: ease-in-out;
+    background-color: var(--wcs-nav-item-background-color-default);
+
 
     a {
         display: flex;
@@ -17,24 +60,19 @@ wcs-nav-item {
         background-color: transparent;
         border: none;
         text-decoration: none;
-        transition: color 0.15s ease-in-out,
-        background-color 0.15s ease-in-out,
-        border-color 0.15s ease-in-out,
-        box-shadow 0.15s ease-in-out;
-        height: 5rem;
-        font-size: 0.75rem;
-        color: var(--wcs-contrast);
+        height: var(--wcs-nav-item-height-desktop);
+        font-size: var(--wcs-nav-item-font-size-desktop);
+        color: var(--wcs-nav-item-color-default);
 
         &:not(wcs-nav-item.active, wcs-nav-item:has(> .active)) {
-            border-bottom: 1px solid rgba(255, 255, 255, .2);
+            border-bottom: var(--wcs-nav-item-border-horizontal-desktop);
         }
 
         @include for-tablet-landscape-down {
             display: flex;
             flex: 1;
-            height: 3.25rem;
-            font-size: 0.625rem;
-            color: var(--wcs-text-medium);
+            height: var(--wcs-nav-item-height-mobile);
+            font-size: var(--wcs-nav-item-font-size-mobile);
         }
     }
 
@@ -44,24 +82,24 @@ wcs-nav-item {
 
     @include for-tablet-landscape-down {
         &:has(a:focus-visible) {
-            @include focus-outline(var(--wcs-primary), 0.1rem, 1px);
+            @include focus-outline(var(--wcs-nav-item-border-color-focus), var(--wcs-nav-item-border-width-focus), -2px);
         }
 
         @supports not selector(&:has(a:focus-visible)){
             &:focus-within {
-                @include focus-outline(var(--wcs-primary), 0.1rem, 1px);
+                @include focus-outline(var(--wcs-nav-item-border-color-focus), var(--wcs-nav-item-border-width-focus), -2px);
             }
         }
     }
 
     @include for-desktop-up {
         &:has(a:focus-visible) {
-            @include focus-outline(var(--wcs-white), 0.1rem, -2px);
+            @include focus-outline(var(--wcs-nav-item-border-color-focus), var(--wcs-nav-item-border-width-focus), -2px);
         }
 
         @supports not selector(&:has(a:focus-visible)){
             &:focus-within {
-                @include focus-outline(var(--wcs-white), 0.1rem, -2px);
+                @include focus-outline(var(--wcs-nav-item-border-color-focus), var(--wcs-nav-item-border-width-focus), -2px);
             }
         }
     }
@@ -76,28 +114,77 @@ wcs-nav-item {
     }
 }
 
+wcs-nav-item.token-migration {
+    --wcs-nav-item-font-weight: var(--wcs-semantic-font-weight-medium);
+
+    --wcs-nav-item-height-desktop: calc(10 * var(--wcs-semantic-size-base));
+    --wcs-nav-item-height-mobile: calc(6 * var(--wcs-semantic-size-base));
+
+    --wcs-nav-item-font-size-desktop: 0.75rem;
+    --wcs-nav-item-font-size-mobile: 0.625rem;
+
+    --wcs-nav-item-border-horizontal-desktop: none;
+
+    --wcs-nav-item-background-color-default: var(--wcs-semantic-color-background-action-primary-default);
+    --wcs-nav-item-background-color-hover: var(--wcs-semantic-color-background-action-primary-hover);
+    --wcs-nav-item-background-color-press: var(--wcs-semantic-color-background-action-primary-press);
+    --wcs-nav-item-background-color-active: var(--wcs-semantic-color-background-action-primary-active);
+
+    --wcs-nav-item-color-default: var(--wcs-semantic-color-foreground-action-primary-default);
+    --wcs-nav-item-color-active: var(--wcs-semantic-color-foreground-action-primary-default);
+    --wcs-nav-item-color-hover: var(--wcs-semantic-color-foreground-action-primary-default);
+    --wcs-nav-item-color-press: var(--wcs-semantic-color-foreground-action-primary-default);
+
+    --wcs-nav-item-border-color-focus: var(--wcs-semantic-color-foreground-action-primary-default);
+
+    --wcs-nav-item-border-width-focus: var(--wcs-semantic-border-width-large);
+
+    --wcs-nav-item-indicator-background-color: var(--wcs-semantic-color-background-surface-accent-light);
+    --wcs-nav-item-indicator-width-desktop: calc(0.5 * var(--wcs-semantic-size-base));
+    --wcs-nav-item-indicator-width-mobile: calc(3 * var(--wcs-semantic-size-base));
+    --wcs-nav-item-indicator-height-desktop: calc(3 * var(--wcs-semantic-size-base));
+    --wcs-nav-item-indicator-height-mobile: calc(0.5 * var(--wcs-semantic-size-base));
+    --wcs-nav-item-indicator-border-radius-desktop: var(--wcs-semantic-border-radius-base) 0 0 var(--wcs-semantic-border-radius-base);
+    --wcs-nav-item-indicator-border-radius-mobile: var(--wcs-semantic-border-radius-base) var(--wcs-semantic-border-radius-base) 0 0;
+
+    --wcs-nav-item-transition-duration: var(--wcs-semantic-motion-duration-feedback-base);
+}
+
 wcs-nav-item[slot=bottom] {
     a {
         @include for-desktop-up {
-            border-top: 1px solid rgba(255, 255, 255, .2);
+            border-top: var(--wcs-nav-item-border-horizontal-width) solid var(--wcs-nav-item-border-horizontal-color);
             border-bottom: none !important;
         }
     }
 }
 
-wcs-nav-item.active,
-wcs-nav-item:has(> .active),
 wcs-nav-item:hover {
-    background-blend-mode: multiply;
-    background-color: rgba(0,0,0,0.15);
-/*
-    background-color: rgb(var(--wcs-primary));
-    backdrop-filter: brightness(85%);*/
-    @include for-tablet-landscape-down {
-        a {
-            color: var(--wcs-primary);
-        }
-        background-color: unset;
+    a {
+        color: var(--wcs-nav-item-color-hover);
+    }
+
+    background-color: var(--wcs-nav-item-background-color-hover);
+}
+
+/* This selector is for the press state, not to be confused with the active state (.active) */
+wcs-nav-item:active {
+    a {
+        color: var(--wcs-nav-item-color-press);
+    }
+
+    background-color: var(--wcs-nav-item-background-color-press);
+}
+
+
+wcs-nav-item.active,
+wcs-nav-item:has(> .active) {
+    //background-blend-mode: multiply;
+    background-color: var(--wcs-nav-item-background-color-active);
+
+
+    a {
+        color: var(--wcs-nav-item-color-active);
     }
 }
 
@@ -106,22 +193,20 @@ wcs-nav-item.active, wcs-nav-item:has(> .active) {
     a::after {
         position: absolute;
         right: 0;
-        width: calc(var(--wcs-base-size) / 2);
-        height: calc(var(--wcs-base-size) * 3);
+        width: var(--wcs-nav-item-indicator-width-desktop);
+        height: var(--wcs-nav-item-indicator-height-desktop);
         content: "";
-        /* TODO: replace later with design token */
-        background-color: #A9D9FF;
-        border-radius: 8px 0 0 8px;
+        background-color: var(--wcs-nav-item-indicator-background-color);
+        border-radius: var(--wcs-nav-item-indicator-border-radius-desktop);
     }
 
     @include for-tablet-landscape-down {
         a::after {
             right: auto;
             bottom: 0;
-            width: calc(var(--wcs-base-size) * 3);
-            height: calc(var(--wcs-base-size) / 2);
-            background-color: var(--wcs-primary);
-            border-radius: 8px 8px 0 0;
+            width: var(--wcs-nav-item-indicator-width-mobile);
+            height: var(--wcs-nav-item-indicator-height-mobile);
+            border-radius: var(--wcs-nav-item-indicator-border-radius-mobile);
         }
     }
 }

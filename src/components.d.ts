@@ -1351,6 +1351,10 @@ export namespace Components {
     }
     /**
      * The nav component is a container for navigation links to other pages of the website.
+     * @cssprop --wcs-nav-background-color - Background color of the nav
+     * @cssprop --wcs-nav-width - Width of the nav
+     * @cssprop --wcs-nav-border-top-mobile - Border top of the nav on mobile
+     * @cssprop --wcs-nav-height-mobile - Height of the nav on mobile
      */
     interface WcsNav {
         "setAriaAttribute": (attr: AriaAttributeName, value: string | null | undefined) => Promise<void>;
@@ -1358,6 +1362,30 @@ export namespace Components {
     /**
      * The nav-item component is a subcomponent of `wcs-nav` and should always be used inside it.  
      * They contain links to navigate to other pages of the website.
+     * @cssprop --wcs-nav-item-font-weight - Font weight of the nav item
+     * @cssprop --wcs-nav-item-height-desktop - Height of the nav item on desktop
+     * @cssprop --wcs-nav-item-height-mobile - Height of the nav item on mobile
+     * @cssprop --wcs-nav-item-font-size-desktop - Font size of the nav item on desktop
+     * @cssprop --wcs-nav-item-font-size-mobile - Font size of the nav item on mobile
+     * @cssprop --wcs-nav-item-border-horizontal-desktop - Border of the nav item on desktop
+     * @cssprop --wcs-nav-item-background-color-default - Default background color of the nav item
+     * @cssprop --wcs-nav-item-background-color-hover - Background color of the nav item when hovered
+     * @cssprop --wcs-nav-item-background-color-press - Background color of the nav item when pressed
+     * @cssprop --wcs-nav-item-background-color-active - Background color of the nav item when active
+     * @cssprop --wcs-nav-item-color-default - Color of the nav item when default
+     * @cssprop --wcs-nav-item-color-active - Color of the nav item when active
+     * @cssprop --wcs-nav-item-color-hover - Color of the nav item when hovered
+     * @cssprop --wcs-nav-item-color-press - Color of the nav item when pressed
+     * @cssprop --wcs-nav-item-border-color-focus - Border color of the nav item when focused
+     * @cssprop --wcs-nav-item-border-width-focus - Border width of the nav item when focused
+     * @cssprop --wcs-nav-item-indicator-background-color - Background color of the nav item indicator
+     * @cssprop --wcs-nav-item-indicator-width-desktop - Width of the nav item indicator on desktop
+     * @cssprop --wcs-nav-item-indicator-width-mobile - Width of the nav item indicator on mobile
+     * @cssprop --wcs-nav-item-indicator-height-desktop - Height of the nav item indicator on desktop
+     * @cssprop --wcs-nav-item-indicator-height-mobile - Height of the nav item indicator on mobile
+     * @cssprop --wcs-nav-item-indicator-border-radius-desktop - Border radius of the nav item indicator on desktop
+     * @cssprop --wcs-nav-item-indicator-border-radius-mobile - Border radius of the nav item indicator on mobile
+     * @cssprop --wcs-nav-item-transition-duration - Transition duration of the nav item
      */
     interface WcsNavItem {
     }
@@ -3268,6 +3296,10 @@ declare global {
     };
     /**
      * The nav component is a container for navigation links to other pages of the website.
+     * @cssprop --wcs-nav-background-color - Background color of the nav
+     * @cssprop --wcs-nav-width - Width of the nav
+     * @cssprop --wcs-nav-border-top-mobile - Border top of the nav on mobile
+     * @cssprop --wcs-nav-height-mobile - Height of the nav on mobile
      */
     interface HTMLWcsNavElement extends Components.WcsNav, HTMLStencilElement {
     }
@@ -3278,6 +3310,30 @@ declare global {
     /**
      * The nav-item component is a subcomponent of `wcs-nav` and should always be used inside it.  
      * They contain links to navigate to other pages of the website.
+     * @cssprop --wcs-nav-item-font-weight - Font weight of the nav item
+     * @cssprop --wcs-nav-item-height-desktop - Height of the nav item on desktop
+     * @cssprop --wcs-nav-item-height-mobile - Height of the nav item on mobile
+     * @cssprop --wcs-nav-item-font-size-desktop - Font size of the nav item on desktop
+     * @cssprop --wcs-nav-item-font-size-mobile - Font size of the nav item on mobile
+     * @cssprop --wcs-nav-item-border-horizontal-desktop - Border of the nav item on desktop
+     * @cssprop --wcs-nav-item-background-color-default - Default background color of the nav item
+     * @cssprop --wcs-nav-item-background-color-hover - Background color of the nav item when hovered
+     * @cssprop --wcs-nav-item-background-color-press - Background color of the nav item when pressed
+     * @cssprop --wcs-nav-item-background-color-active - Background color of the nav item when active
+     * @cssprop --wcs-nav-item-color-default - Color of the nav item when default
+     * @cssprop --wcs-nav-item-color-active - Color of the nav item when active
+     * @cssprop --wcs-nav-item-color-hover - Color of the nav item when hovered
+     * @cssprop --wcs-nav-item-color-press - Color of the nav item when pressed
+     * @cssprop --wcs-nav-item-border-color-focus - Border color of the nav item when focused
+     * @cssprop --wcs-nav-item-border-width-focus - Border width of the nav item when focused
+     * @cssprop --wcs-nav-item-indicator-background-color - Background color of the nav item indicator
+     * @cssprop --wcs-nav-item-indicator-width-desktop - Width of the nav item indicator on desktop
+     * @cssprop --wcs-nav-item-indicator-width-mobile - Width of the nav item indicator on mobile
+     * @cssprop --wcs-nav-item-indicator-height-desktop - Height of the nav item indicator on desktop
+     * @cssprop --wcs-nav-item-indicator-height-mobile - Height of the nav item indicator on mobile
+     * @cssprop --wcs-nav-item-indicator-border-radius-desktop - Border radius of the nav item indicator on desktop
+     * @cssprop --wcs-nav-item-indicator-border-radius-mobile - Border radius of the nav item indicator on mobile
+     * @cssprop --wcs-nav-item-transition-duration - Transition duration of the nav item
      */
     interface HTMLWcsNavItemElement extends Components.WcsNavItem, HTMLStencilElement {
     }
@@ -5197,12 +5253,40 @@ declare namespace LocalJSX {
     }
     /**
      * The nav component is a container for navigation links to other pages of the website.
+     * @cssprop --wcs-nav-background-color - Background color of the nav
+     * @cssprop --wcs-nav-width - Width of the nav
+     * @cssprop --wcs-nav-border-top-mobile - Border top of the nav on mobile
+     * @cssprop --wcs-nav-height-mobile - Height of the nav on mobile
      */
     interface WcsNav {
     }
     /**
      * The nav-item component is a subcomponent of `wcs-nav` and should always be used inside it.  
      * They contain links to navigate to other pages of the website.
+     * @cssprop --wcs-nav-item-font-weight - Font weight of the nav item
+     * @cssprop --wcs-nav-item-height-desktop - Height of the nav item on desktop
+     * @cssprop --wcs-nav-item-height-mobile - Height of the nav item on mobile
+     * @cssprop --wcs-nav-item-font-size-desktop - Font size of the nav item on desktop
+     * @cssprop --wcs-nav-item-font-size-mobile - Font size of the nav item on mobile
+     * @cssprop --wcs-nav-item-border-horizontal-desktop - Border of the nav item on desktop
+     * @cssprop --wcs-nav-item-background-color-default - Default background color of the nav item
+     * @cssprop --wcs-nav-item-background-color-hover - Background color of the nav item when hovered
+     * @cssprop --wcs-nav-item-background-color-press - Background color of the nav item when pressed
+     * @cssprop --wcs-nav-item-background-color-active - Background color of the nav item when active
+     * @cssprop --wcs-nav-item-color-default - Color of the nav item when default
+     * @cssprop --wcs-nav-item-color-active - Color of the nav item when active
+     * @cssprop --wcs-nav-item-color-hover - Color of the nav item when hovered
+     * @cssprop --wcs-nav-item-color-press - Color of the nav item when pressed
+     * @cssprop --wcs-nav-item-border-color-focus - Border color of the nav item when focused
+     * @cssprop --wcs-nav-item-border-width-focus - Border width of the nav item when focused
+     * @cssprop --wcs-nav-item-indicator-background-color - Background color of the nav item indicator
+     * @cssprop --wcs-nav-item-indicator-width-desktop - Width of the nav item indicator on desktop
+     * @cssprop --wcs-nav-item-indicator-width-mobile - Width of the nav item indicator on mobile
+     * @cssprop --wcs-nav-item-indicator-height-desktop - Height of the nav item indicator on desktop
+     * @cssprop --wcs-nav-item-indicator-height-mobile - Height of the nav item indicator on mobile
+     * @cssprop --wcs-nav-item-indicator-border-radius-desktop - Border radius of the nav item indicator on desktop
+     * @cssprop --wcs-nav-item-indicator-border-radius-mobile - Border radius of the nav item indicator on mobile
+     * @cssprop --wcs-nav-item-transition-duration - Transition duration of the nav item
      */
     interface WcsNavItem {
     }
@@ -6717,11 +6801,39 @@ declare module "@stencil/core" {
             "wcs-native-select": LocalJSX.WcsNativeSelect & JSXBase.HTMLAttributes<HTMLWcsNativeSelectElement>;
             /**
              * The nav component is a container for navigation links to other pages of the website.
+             * @cssprop --wcs-nav-background-color - Background color of the nav
+             * @cssprop --wcs-nav-width - Width of the nav
+             * @cssprop --wcs-nav-border-top-mobile - Border top of the nav on mobile
+             * @cssprop --wcs-nav-height-mobile - Height of the nav on mobile
              */
             "wcs-nav": LocalJSX.WcsNav & JSXBase.HTMLAttributes<HTMLWcsNavElement>;
             /**
              * The nav-item component is a subcomponent of `wcs-nav` and should always be used inside it.  
              * They contain links to navigate to other pages of the website.
+             * @cssprop --wcs-nav-item-font-weight - Font weight of the nav item
+             * @cssprop --wcs-nav-item-height-desktop - Height of the nav item on desktop
+             * @cssprop --wcs-nav-item-height-mobile - Height of the nav item on mobile
+             * @cssprop --wcs-nav-item-font-size-desktop - Font size of the nav item on desktop
+             * @cssprop --wcs-nav-item-font-size-mobile - Font size of the nav item on mobile
+             * @cssprop --wcs-nav-item-border-horizontal-desktop - Border of the nav item on desktop
+             * @cssprop --wcs-nav-item-background-color-default - Default background color of the nav item
+             * @cssprop --wcs-nav-item-background-color-hover - Background color of the nav item when hovered
+             * @cssprop --wcs-nav-item-background-color-press - Background color of the nav item when pressed
+             * @cssprop --wcs-nav-item-background-color-active - Background color of the nav item when active
+             * @cssprop --wcs-nav-item-color-default - Color of the nav item when default
+             * @cssprop --wcs-nav-item-color-active - Color of the nav item when active
+             * @cssprop --wcs-nav-item-color-hover - Color of the nav item when hovered
+             * @cssprop --wcs-nav-item-color-press - Color of the nav item when pressed
+             * @cssprop --wcs-nav-item-border-color-focus - Border color of the nav item when focused
+             * @cssprop --wcs-nav-item-border-width-focus - Border width of the nav item when focused
+             * @cssprop --wcs-nav-item-indicator-background-color - Background color of the nav item indicator
+             * @cssprop --wcs-nav-item-indicator-width-desktop - Width of the nav item indicator on desktop
+             * @cssprop --wcs-nav-item-indicator-width-mobile - Width of the nav item indicator on mobile
+             * @cssprop --wcs-nav-item-indicator-height-desktop - Height of the nav item indicator on desktop
+             * @cssprop --wcs-nav-item-indicator-height-mobile - Height of the nav item indicator on mobile
+             * @cssprop --wcs-nav-item-indicator-border-radius-desktop - Border radius of the nav item indicator on desktop
+             * @cssprop --wcs-nav-item-indicator-border-radius-mobile - Border radius of the nav item indicator on mobile
+             * @cssprop --wcs-nav-item-transition-duration - Transition duration of the nav item
              */
             "wcs-nav-item": LocalJSX.WcsNavItem & JSXBase.HTMLAttributes<HTMLWcsNavItemElement>;
             /**

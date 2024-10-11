@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-12-09T16:12:09",
+  "timestamp": "2024-12-11T10:27:46",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -8513,6 +8513,22 @@
         {
           "name": "slot",
           "text": "bottom Bottom part of the nav to put to nav-items at the end"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-nav-background-color - Background color of the nav"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-nav-width - Width of the nav"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-nav-border-top-mobile - Border top of the nav on mobile"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-nav-height-mobile - Height of the nav on mobile"
         }
       ],
       "usage": {},
@@ -8588,7 +8604,104 @@
       "tag": "wcs-nav-item",
       "readme": "# Nav Item\r\n\r\n\r",
       "docs": "The nav-item component is a subcomponent of `wcs-nav` and should always be used inside it.  \r\nThey contain links to navigate to other pages of the website.",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "cssprop",
+          "text": "--wcs-nav-item-font-weight - Font weight of the nav item"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-nav-item-height-desktop - Height of the nav item on desktop"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-nav-item-height-mobile - Height of the nav item on mobile"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-nav-item-font-size-desktop - Font size of the nav item on desktop"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-nav-item-font-size-mobile - Font size of the nav item on mobile"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-nav-item-border-horizontal-desktop - Border of the nav item on desktop"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-nav-item-background-color-default - Default background color of the nav item"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-nav-item-background-color-hover - Background color of the nav item when hovered"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-nav-item-background-color-press - Background color of the nav item when pressed"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-nav-item-background-color-active - Background color of the nav item when active"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-nav-item-color-default - Color of the nav item when default"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-nav-item-color-active - Color of the nav item when active"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-nav-item-color-hover - Color of the nav item when hovered"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-nav-item-color-press - Color of the nav item when pressed"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-nav-item-border-color-focus - Border color of the nav item when focused"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-nav-item-border-width-focus - Border width of the nav item when focused"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-nav-item-indicator-background-color - Background color of the nav item indicator"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-nav-item-indicator-width-desktop - Width of the nav item indicator on desktop"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-nav-item-indicator-width-mobile - Width of the nav item indicator on mobile"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-nav-item-indicator-height-desktop - Height of the nav item indicator on desktop"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-nav-item-indicator-height-mobile - Height of the nav item indicator on mobile"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-nav-item-indicator-border-radius-desktop - Border radius of the nav item indicator on desktop"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-nav-item-indicator-border-radius-mobile - Border radius of the nav item indicator on mobile"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-nav-item-transition-duration - Transition duration of the nav item"
+        }
+      ],
       "usage": {},
       "props": [],
       "methods": [],

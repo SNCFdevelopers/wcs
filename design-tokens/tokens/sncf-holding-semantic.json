@@ -189,6 +189,16 @@
                             "$description": "Can be used by primary elements which must have a hover state (button, dropdown...)",
                             "$type": "color",
                             "$value": "{primitive.color.parme.600}"
+                        },
+                        "press": {
+                            "$description": "Can be used by primary elements which must have a press state (nav-item)",
+                            "$type": "color",
+                            "$value": "{primitive.color.parme.700}"
+                        },
+                        "active": {
+                            "$description": "Can be used by primary elements which must have an active state (nav-item)",
+                            "$type": "color",
+                            "$value": "{primitive.color.parme.700}"
                         }
                     },
                     "secondary": {
@@ -300,10 +310,9 @@
                 },
                 "surface": {
                     "brand": {
-                        "default": {
-                            "$type": "color",
-                            "$value": "{primitive.color.parme.500}"
-                        }
+                        "$description": "Brand background color for surface",
+                        "$type": "color",
+                        "$value": "{primitive.color.parme.500}"
                     },
                     "primary": {
                         "$description": "Background of a surface like a card, modal, overlay of a select...",
@@ -327,12 +336,17 @@
                     },
                     "accent": {
                         "light": {
+                            "$description": "Light accent background color, used by nav-item indicator",
+                            "$type": "color",
+                            "$value": "{primitive.color.parme.300}"
+                        },
+                        "lighter": {
                             "$description": "Lighter accent background color, use by segmented-button background (radio options)",
                             "$type": "color",
                             "$value": "{primitive.color.parme.200}"
                         },
-                        "lighter": {
-                            "$description": "Lighter accent background color, use by segmented-button background (radio options)",
+                        "lightest": {
+                            "$description": "Lightest accent background color, use by segmented-button background (radio options)",
                             "$type": "color",
                             "$value": "{primitive.color.parme.100}"
                         }
