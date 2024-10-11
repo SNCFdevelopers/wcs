@@ -5,6 +5,11 @@
 <!-- Auto Generated Below -->
 
 
+## Overview
+
+*Part of communication design system*
+You can put a wcs-galactic-menu inside a wcs-galactic component to add an extra menu
+
 ## Properties
 
 | Property | Attribute | Description                              | Type     | Default     |
@@ -30,6 +35,13 @@
 Type: `Promise<void>`
 
 
+
+
+## Slots
+
+| Slot          | Description         |
+| ------------- | ------------------- |
+| `"<no-name>"` | Main container slot |
 
 
 ## Dependencies

@@ -1,27 +1,68 @@
 
 :host {
+    // region to be removed before migration to design tokens
+    --wcs-galactic-background-color: var(--wcs-gray);
+    --wcs-galactic-height: 32px;
+    --wcs-galactic-text-color: var(--wcs-white);
+    --wcs-galactic-font-size: 14px;
+    --wcs-galactic-font-weight: inherit;
+    --wcs-galactic-max-width: var(--wcs-com-content-max-width);
+    --wcs-galactic-padding-horizontal: 16px;
+    --wcs-galactic-logo-height: 32px;
+    --wcs-galactic-logo-margin-right: 20px;
+    // endregion
+
     display: block;
-    background-color: var(--wcs-gray);
+    background-color: var(--wcs-galactic-background-color);
 }
 
 .container {
-    height: 32px;
+    height: var(--wcs-galactic-height);
     align-items: center;
     justify-content: space-between;
-    color: var(--wcs-white);
-    font-size: 14px;
+    color: var(--wcs-galactic-text-color);
+    font-size: var(--wcs-galactic-font-size);
+    font-weight: var(--wcs-galactic-font-weight);
     display: flex;
-    max-width: var(--wcs-com-content-max-width);
+    max-width: var(--wcs-galactic-max-width);
+    padding: 0 var(--wcs-galactic-padding-horizontal);
     margin: 0 auto;
 
     #sncf-logo {
-        height: 32px;
-        margin-right: 20px;
+        height: var(--wcs-galactic-logo-height);
+        margin-right: var(--wcs-galactic-logo-margin-right);
     }
 
-    .container-left {
+    .logo-container {
         display: flex;
         align-items: center;
     }
+
+
+    /* To enforce contrast color on dropdown / buttons added in the galactic slot */
+    ::slotted(wcs-dropdown), ::slotted(wcs-button) {
+        --wcs-dropdown-clear-arrow-color: var(--wcs-galactic-text-color);
+        --wcs-base: var(--wcs-light);
+        --wcs-contrast: var(--wcs-gray-darker);
+    }
 }
 
+.actions-container {
+    display: flex;
+    align-items: center;
+}
+
+:host(.token-migration) {
+    --wcs-galactic-background-color: var(--wcs-semantic-color-background-surface-inverse);
+    --wcs-galactic-text-color: var(--wcs-semantic-color-text-inverse);
+    --wcs-galactic-height: var(--wcs-semantic-size-s);
+    --wcs-galactic-font-size: var(--wcs-semantic-font-size-caption-1);
+    --wcs-galactic-font-weight: var(--wcs-semantic-font-weight-medium);
+    --wcs-galactic-max-width: var(--wcs-com-content-max-width);
+    --wcs-galactic-padding-horizontal: calc(2 * var(--wcs-semantic-spacing-base));
+    --wcs-galactic-logo-height: var(--wcs-semantic-size-s);
+    --wcs-galactic-logo-margin-right: calc(2 * var(--wcs-semantic-spacing-base));
+
+    /* To enforce contrast color on dropdown / buttons added in the galactic slot */
+    --wcs-semantic-color-foreground-action-tertiary-default: var(--wcs-galactic-text-color);
+}

@@ -8,3 +8,17 @@
     --wcs-footer-link-text-color: var(--wcs-semantic-color-text-primary);
     --wcs-footer-link-text-color-hover: var(--wcs-semantic-color-text-primary);
 }
+
+.token-migration.sncf-reseau wcs-galactic {
+    --wcs-galactic-background-color: var(--wcs-primitive-color-bleu-givre-100);
+    --wcs-galactic-text-color: var(--wcs-semantic-color-text-primary);
+
+    /* To enforce contrast color on dropdown / buttons added in the galactic slot */
+    --wcs-semantic-color-foreground-action-tertiary-default: var(--wcs-semantic-color-text-primary);
+}
+
+.token-migration.sncf-reseau wcs-galactic-menu {
+    --wcs-galactic-menu-background-color: var(--wcs-primitive-color-bleu-givre-300);
+}
+
+

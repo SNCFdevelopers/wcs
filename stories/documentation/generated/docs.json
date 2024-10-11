@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-11-21T10:26:59",
+  "timestamp": "2024-11-25T17:00:39",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -4082,8 +4082,49 @@
       "encapsulation": "shadow",
       "tag": "wcs-galactic",
       "readme": "# Galactic Bar\r\n\r",
-      "docs": "",
-      "docsTags": [],
+      "docs": "*Part of communication design system*\r\nThis component replaces the vertical navbar for sites and applications that use the communication design system",
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "<no-name> Main container slot"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-galactic-background-color - Background color of the bar"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-galactic-height - Height of the bar"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-galactic-text-color - Text color of the bar"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-galactic-font-size - Font size of the text in the bar"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-galactic-font-weight - Font weight of the text in the bar"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-galactic-max-width - Maximum width of the bar"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-galactic-padding-horizontal - Horizontal padding of the bar"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-galactic-logo-height - Height of the SNCF logo"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-galactic-logo-margin-right - Margin right of the SNCF logo"
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -4112,7 +4153,12 @@
       "events": [],
       "listeners": [],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "<no-name> Main container slot",
+          "docs": ""
+        }
+      ],
       "parts": [],
       "dependents": [],
       "dependencies": [],
@@ -4123,8 +4169,45 @@
       "encapsulation": "shadow",
       "tag": "wcs-galactic-menu",
       "readme": "# wcs-galactic-menu\r\n\r\n\r\n\r",
-      "docs": "",
-      "docsTags": [],
+      "docs": "*Part of communication design system*\r\nYou can put a wcs-galactic-menu inside a wcs-galactic component to add an extra menu",
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "<no-name> - Main container slot"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-galactic-menu-background-color - Background color of the menu"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-galactic-menu-padding-horizontal - Horizontal padding of the menu"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-galactic-menu-gap - Gap between items in the menu"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-galactic-menu-height - Height of the menu"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-galactic-menu-icon-focus-outline-color - Color of the focus outline on the icon"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-galactic-menu-overlay-background-color - Background color of the overlay"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-galactic-menu-overlay-padding - Padding of the overlay"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-galactic-menu-overlay-color - Color of the overlay"
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -4215,7 +4298,12 @@
         }
       ],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "<no-name>",
+          "docs": "Main container slot"
+        }
+      ],
       "parts": [],
       "dependents": [],
       "dependencies": [

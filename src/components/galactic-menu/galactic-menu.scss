@@ -1,10 +1,32 @@
 @import '../../style/focus-outline.scss';
 
+:host {
+    // region to be removed before migration to design tokens
+    --wcs-galactic-menu-background-color: var(--wcs-gray-light);
+    --wcs-galactic-menu-padding-horizontal: var(--wcs-padding);
+    --wcs-galactic-menu-gap: var(--wcs-padding);
+    --wcs-galactic-menu-height: 32px;
+
+    --wcs-galactic-menu-icon-focus-outline-color: var(--wcs-white);
+    --wcs-galactic-menu-overlay-background-color: var(--wcs-gray);
+    --wcs-galactic-menu-overlay-padding: var(--wcs-padding);
+    --wcs-galactic-menu-overlay-color: var(--wcs-white);
+    // endregion
+
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    height: var(--wcs-galactic-menu-height);
+    gap: var(--wcs-galactic-menu-gap);
+    padding: 0 var(--wcs-galactic-menu-padding-horizontal);
+    background-color: var(--wcs-galactic-menu-background-color);
+
+}
 #menu {
-    background-color: var(--wcs-gray);
-    color: white;
     display: none;
-    padding: var(--wcs-padding);
+    background-color: var(--wcs-galactic-menu-overlay-background-color);
+    color: var(--wcs-galactic-menu-overlay-color);
+    padding: var(--wcs-galactic-menu-overlay-padding);
 }
 #menu[data-show] {
     display: block;
@@ -25,20 +47,13 @@
 #menu[data-popper-placement^='right'] > #arrow {
     left: -4px;
 }
-:host {
-    display: flex;
-    align-items: center;
-    height: 32px;
-    padding-left: var(--wcs-padding);
-    background-color: var(--wcs-gray-light);
-}
+
 #toggle-menu-icon{
     cursor: pointer;
-    padding: 0 var(--wcs-padding);
     user-select: none;
-    
+
     &:focus-visible {
-        @include focus-outline(var(--wcs-white), $outline-offset: 0);
+        @include focus-outline(var(--wcs-galactic-menu-icon-focus-outline-color), $outline-offset: 0);
     }
 }
 #arrow,
@@ -57,4 +72,16 @@
     visibility: visible;
     content: '';
     transform: rotate(45deg);
+}
+
+:host(.token-migration) {
+    --wcs-galactic-menu-background-color: var(--wcs-semantic-color-primary);
+    --wcs-galactic-menu-padding-horizontal: var(--wcs-semantic-spacing-large);
+    --wcs-galactic-menu-gap: var(--wcs-semantic-spacing-large);
+    --wcs-galactic-menu-height: var(--wcs-semantic-size-s);
+
+    --wcs-galactic-menu-icon-focus-outline-color: var(--wcs-galactic-text-color, white); /* Inherit from galactic */
+    --wcs-galactic-menu-overlay-color: var(--wcs-semantic-color-text-inverse);
+    --wcs-galactic-menu-overlay-background-color: var(--wcs-semantic-color-background-surface-inverse);
+    --wcs-galactic-menu-overlay-padding: var(--wcs-semantic-spacing-large);
 }

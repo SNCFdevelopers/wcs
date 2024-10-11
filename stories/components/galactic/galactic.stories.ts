@@ -33,10 +33,26 @@ const Template: StoryFn<Partial<{ text: string, displayGalacticMenu: boolean }>>
                     lien</a></div>
                 <wcs-button shape="small">Un bouton</wcs-button>
             </wcs-galactic-menu>
-    ` : ''}
+    ` : customContent}
     </wcs-galactic>
 `;
-
+const customContent = html`
+        <wcs-dropdown mode="clear" size="s">
+            <span slot="placeholder">Accessibilité</span>
+            <wcs-dropdown-header>Typographies</wcs-dropdown-header>
+            <wcs-dropdown-item @wcsDropdownItemClick="${e => e.stopPropagation()}">
+                <wcs-switch>Police dyslexie</wcs-switch>
+            </wcs-dropdown-item>
+            <wcs-dropdown-item @wcsDropdownItemClick="${e => e.stopPropagation()}">
+                <wcs-switch>Interlignage augmenté</wcs-switch>
+            </wcs-dropdown-item>
+            <wcs-dropdown-header>Constrastes</wcs-dropdown-header>
+           <wcs-dropdown-item @wcsDropdownItemClick="${e => e.stopPropagation()}">
+                <wcs-switch checked>Contrastes renforcés</wcs-switch>
+           </wcs-dropdown-item>
+        </wcs-dropdown>
+        <wcs-button mode="clear" size="s">Langue : FR</wcs-button>
+`;
 
 export const Default = Template.bind({});
 Default.args = {

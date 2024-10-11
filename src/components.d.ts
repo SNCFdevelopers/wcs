@@ -711,12 +711,37 @@ export namespace Components {
          */
         "isError": boolean;
     }
+    /**
+     * *Part of communication design system*
+     * This component replaces the vertical navbar for sites and applications that use the communication design system
+     * @cssprop --wcs-galactic-background-color - Background color of the bar
+     * @cssprop --wcs-galactic-height - Height of the bar
+     * @cssprop --wcs-galactic-text-color - Text color of the bar
+     * @cssprop --wcs-galactic-font-size - Font size of the text in the bar
+     * @cssprop --wcs-galactic-font-weight - Font weight of the text in the bar
+     * @cssprop --wcs-galactic-max-width - Maximum width of the bar
+     * @cssprop --wcs-galactic-padding-horizontal - Horizontal padding of the bar
+     * @cssprop --wcs-galactic-logo-height - Height of the SNCF logo
+     * @cssprop --wcs-galactic-logo-margin-right - Margin right of the SNCF logo
+     */
     interface WcsGalactic {
         /**
           * Text to display in the bar
          */
         "text": string;
     }
+    /**
+     * *Part of communication design system*
+     * You can put a wcs-galactic-menu inside a wcs-galactic component to add an extra menu
+     * @cssprop --wcs-galactic-menu-background-color - Background color of the menu
+     * @cssprop --wcs-galactic-menu-padding-horizontal - Horizontal padding of the menu
+     * @cssprop --wcs-galactic-menu-gap - Gap between items in the menu
+     * @cssprop --wcs-galactic-menu-height - Height of the menu
+     * @cssprop --wcs-galactic-menu-icon-focus-outline-color - Color of the focus outline on the icon
+     * @cssprop --wcs-galactic-menu-overlay-background-color - Background color of the overlay
+     * @cssprop --wcs-galactic-menu-overlay-padding - Padding of the overlay
+     * @cssprop --wcs-galactic-menu-overlay-color - Color of the overlay
+     */
     interface WcsGalacticMenu {
         "setAriaAttribute": (attr: AriaAttributeName, value: string | null | undefined) => Promise<void>;
         /**
@@ -2713,12 +2738,37 @@ declare global {
         prototype: HTMLWcsFormFieldElement;
         new (): HTMLWcsFormFieldElement;
     };
+    /**
+     * *Part of communication design system*
+     * This component replaces the vertical navbar for sites and applications that use the communication design system
+     * @cssprop --wcs-galactic-background-color - Background color of the bar
+     * @cssprop --wcs-galactic-height - Height of the bar
+     * @cssprop --wcs-galactic-text-color - Text color of the bar
+     * @cssprop --wcs-galactic-font-size - Font size of the text in the bar
+     * @cssprop --wcs-galactic-font-weight - Font weight of the text in the bar
+     * @cssprop --wcs-galactic-max-width - Maximum width of the bar
+     * @cssprop --wcs-galactic-padding-horizontal - Horizontal padding of the bar
+     * @cssprop --wcs-galactic-logo-height - Height of the SNCF logo
+     * @cssprop --wcs-galactic-logo-margin-right - Margin right of the SNCF logo
+     */
     interface HTMLWcsGalacticElement extends Components.WcsGalactic, HTMLStencilElement {
     }
     var HTMLWcsGalacticElement: {
         prototype: HTMLWcsGalacticElement;
         new (): HTMLWcsGalacticElement;
     };
+    /**
+     * *Part of communication design system*
+     * You can put a wcs-galactic-menu inside a wcs-galactic component to add an extra menu
+     * @cssprop --wcs-galactic-menu-background-color - Background color of the menu
+     * @cssprop --wcs-galactic-menu-padding-horizontal - Horizontal padding of the menu
+     * @cssprop --wcs-galactic-menu-gap - Gap between items in the menu
+     * @cssprop --wcs-galactic-menu-height - Height of the menu
+     * @cssprop --wcs-galactic-menu-icon-focus-outline-color - Color of the focus outline on the icon
+     * @cssprop --wcs-galactic-menu-overlay-background-color - Background color of the overlay
+     * @cssprop --wcs-galactic-menu-overlay-padding - Padding of the overlay
+     * @cssprop --wcs-galactic-menu-overlay-color - Color of the overlay
+     */
     interface HTMLWcsGalacticMenuElement extends Components.WcsGalacticMenu, HTMLStencilElement {
     }
     var HTMLWcsGalacticMenuElement: {
@@ -4326,12 +4376,37 @@ declare namespace LocalJSX {
          */
         "isError"?: boolean;
     }
+    /**
+     * *Part of communication design system*
+     * This component replaces the vertical navbar for sites and applications that use the communication design system
+     * @cssprop --wcs-galactic-background-color - Background color of the bar
+     * @cssprop --wcs-galactic-height - Height of the bar
+     * @cssprop --wcs-galactic-text-color - Text color of the bar
+     * @cssprop --wcs-galactic-font-size - Font size of the text in the bar
+     * @cssprop --wcs-galactic-font-weight - Font weight of the text in the bar
+     * @cssprop --wcs-galactic-max-width - Maximum width of the bar
+     * @cssprop --wcs-galactic-padding-horizontal - Horizontal padding of the bar
+     * @cssprop --wcs-galactic-logo-height - Height of the SNCF logo
+     * @cssprop --wcs-galactic-logo-margin-right - Margin right of the SNCF logo
+     */
     interface WcsGalactic {
         /**
           * Text to display in the bar
          */
         "text"?: string;
     }
+    /**
+     * *Part of communication design system*
+     * You can put a wcs-galactic-menu inside a wcs-galactic component to add an extra menu
+     * @cssprop --wcs-galactic-menu-background-color - Background color of the menu
+     * @cssprop --wcs-galactic-menu-padding-horizontal - Horizontal padding of the menu
+     * @cssprop --wcs-galactic-menu-gap - Gap between items in the menu
+     * @cssprop --wcs-galactic-menu-height - Height of the menu
+     * @cssprop --wcs-galactic-menu-icon-focus-outline-color - Color of the focus outline on the icon
+     * @cssprop --wcs-galactic-menu-overlay-background-color - Background color of the overlay
+     * @cssprop --wcs-galactic-menu-overlay-padding - Padding of the overlay
+     * @cssprop --wcs-galactic-menu-overlay-color - Color of the overlay
+     */
     interface WcsGalacticMenu {
         /**
           * Text to be displayed in the galactic bar
@@ -6121,7 +6196,32 @@ declare module "@stencil/core" {
              * @cssprop --wcs-form-field-prefix-color-disabled - Determines the text color for prefix elements when disabled.
              */
             "wcs-form-field": LocalJSX.WcsFormField & JSXBase.HTMLAttributes<HTMLWcsFormFieldElement>;
+            /**
+             * *Part of communication design system*
+             * This component replaces the vertical navbar for sites and applications that use the communication design system
+             * @cssprop --wcs-galactic-background-color - Background color of the bar
+             * @cssprop --wcs-galactic-height - Height of the bar
+             * @cssprop --wcs-galactic-text-color - Text color of the bar
+             * @cssprop --wcs-galactic-font-size - Font size of the text in the bar
+             * @cssprop --wcs-galactic-font-weight - Font weight of the text in the bar
+             * @cssprop --wcs-galactic-max-width - Maximum width of the bar
+             * @cssprop --wcs-galactic-padding-horizontal - Horizontal padding of the bar
+             * @cssprop --wcs-galactic-logo-height - Height of the SNCF logo
+             * @cssprop --wcs-galactic-logo-margin-right - Margin right of the SNCF logo
+             */
             "wcs-galactic": LocalJSX.WcsGalactic & JSXBase.HTMLAttributes<HTMLWcsGalacticElement>;
+            /**
+             * *Part of communication design system*
+             * You can put a wcs-galactic-menu inside a wcs-galactic component to add an extra menu
+             * @cssprop --wcs-galactic-menu-background-color - Background color of the menu
+             * @cssprop --wcs-galactic-menu-padding-horizontal - Horizontal padding of the menu
+             * @cssprop --wcs-galactic-menu-gap - Gap between items in the menu
+             * @cssprop --wcs-galactic-menu-height - Height of the menu
+             * @cssprop --wcs-galactic-menu-icon-focus-outline-color - Color of the focus outline on the icon
+             * @cssprop --wcs-galactic-menu-overlay-background-color - Background color of the overlay
+             * @cssprop --wcs-galactic-menu-overlay-padding - Padding of the overlay
+             * @cssprop --wcs-galactic-menu-overlay-color - Color of the overlay
+             */
             "wcs-galactic-menu": LocalJSX.WcsGalacticMenu & JSXBase.HTMLAttributes<HTMLWcsGalacticMenuElement>;
             /**
              * The grid component is a complex component used as an HTML table to display collections of data.

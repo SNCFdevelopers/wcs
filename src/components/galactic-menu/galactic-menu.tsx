@@ -13,6 +13,21 @@ import { AriaAttributeName } from "../../utils/mutable-aria-attribute";
 
 const GALACTIC_MENU_INHERITED_ATTRS = ['tabindex', 'title'];
 
+/**
+ * *Part of communication design system*
+ * You can put a wcs-galactic-menu inside a wcs-galactic component to add an extra menu
+ * 
+ * @slot <no-name> - Main container slot
+ * 
+ * @cssprop --wcs-galactic-menu-background-color - Background color of the menu
+ * @cssprop --wcs-galactic-menu-padding-horizontal - Horizontal padding of the menu
+ * @cssprop --wcs-galactic-menu-gap - Gap between items in the menu
+ * @cssprop --wcs-galactic-menu-height - Height of the menu
+ * @cssprop --wcs-galactic-menu-icon-focus-outline-color - Color of the focus outline on the icon
+ * @cssprop --wcs-galactic-menu-overlay-background-color - Background color of the overlay
+ * @cssprop --wcs-galactic-menu-overlay-padding - Padding of the overlay
+ * @cssprop --wcs-galactic-menu-overlay-color - Color of the overlay
+ */
 @Component({
     tag: 'wcs-galactic-menu',
     styleUrl: 'galactic-menu.scss',

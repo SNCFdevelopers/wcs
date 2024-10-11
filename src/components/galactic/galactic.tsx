@@ -1,5 +1,21 @@
 import { Component, ComponentInterface, Host, h, Prop, State } from '@stencil/core';
 
+/**
+ * *Part of communication design system*
+ * This component replaces the vertical navbar for sites and applications that use the communication design system
+ * 
+ * @slot <no-name> Main container slot
+ * 
+ * @cssprop --wcs-galactic-background-color - Background color of the bar
+ * @cssprop --wcs-galactic-height - Height of the bar
+ * @cssprop --wcs-galactic-text-color - Text color of the bar
+ * @cssprop --wcs-galactic-font-size - Font size of the text in the bar
+ * @cssprop --wcs-galactic-font-weight - Font weight of the text in the bar
+ * @cssprop --wcs-galactic-max-width - Maximum width of the bar
+ * @cssprop --wcs-galactic-padding-horizontal - Horizontal padding of the bar
+ * @cssprop --wcs-galactic-logo-height - Height of the SNCF logo
+ * @cssprop --wcs-galactic-logo-margin-right - Margin right of the SNCF logo
+ */
 @Component({
     tag: 'wcs-galactic',
     styleUrl: 'galactic.scss',
@@ -14,14 +30,14 @@ export class Galactic implements ComponentInterface {
     render(): any {
         return (<Host>
                 <div class="container">
-                    <div class="container-left">
+                    <div class="logo-container">
                         <img
                             src={SNCF_BASE64_SVG_LOGO}
                             id="sncf-logo"
                             alt="Logo SNCF"/>
                         <span>{this.text}</span>
                     </div>
-                    <div class="menu">
+                    <div class="actions-container">
                         <slot/>
                     </div>
                 </div>
