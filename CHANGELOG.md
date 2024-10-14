@@ -11,7 +11,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-- **doc**: add version switch for WCS archives in Storybook toolbar
+for new features.
 
 ### Changed
 
@@ -27,15 +27,25 @@ for now removed features.
 
 ### Fixed
 
+for any bug fixes.
+
+### Security
+
+in case of vulnerabilities.
+
+## [6.0.0-rc.2] - 2024-10-14
+
+### Added
+
+- **doc**: add version switch for WCS archives in Storybook toolbar
+
+### Fixed
+
 - **select**:
   - fix autocomplete server-mode problem that was clearing the filter unintentionally
   - improve autocomplete server-mode documentation
 - **com-nav**: close mobile menu when click on a link (`wcs-com-nav-item`)
 - **native-select**: no label/description/error + required propagation from form-field
-
-### Security
-
-in case of vulnerabilities.
 
 ## [6.0.0-rc.1] - 2024-09-18
 
