@@ -152,6 +152,9 @@ export namespace Components {
      * > const wcsButton = document.querySelector('wcs-button');
      * > await wcsButton.setAriaAttribute('aria-label', 'new label');
      * > ```
+     * @cssprop --wcs-breadcrumb-icon-color - Icon color
+     * @cssprop --wcs-breadcrumb-icon-font-size - Icon font size
+     * @cssprop --wcs-breadcrumb-gap - Gap between breadcrumb items
      */
     interface WcsBreadcrumb {
         /**
@@ -172,6 +175,16 @@ export namespace Components {
         "maxItems"?: number;
         "setAriaAttribute": (attr: AriaAttributeName, value: string | null | undefined) => Promise<void>;
     }
+    /**
+     * @cssprop --wcs-breadcrumb-item-max-height - Maximum height of the breadcrumb item
+     * @cssprop --wcs-breadcrumb-item-icon-color - Color of the breadcrumb item icon
+     * @cssprop --wcs-breadcrumb-item-icon-font-size - Font size of the breadcrumb item icon
+     * @cssprop --wcs-breadcrumb-item-gap - Gap between text and chevron icon
+     * @cssprop --wcs-breadcrumb-item-link-color - Color of the breadcrumb item link
+     * @cssprop --wcs-breadcrumb-item-link-font-weight - Font weight of the breadcrumb item link
+     * @cssprop --wcs-breadcrumb-item-border-width-focus - Border width of the breadcrumb item when focused
+     * @cssprop --wcs-breadcrumb-item-border-color-focus - Border color of the breadcrumb item when focused
+     */
     interface WcsBreadcrumbItem {
         /**
           * Automatically set by the parent breadcrumb. True if it is the last breadcrumb item. (You shouldn't set this prop by yourself)
@@ -1982,6 +1995,9 @@ declare global {
      * > const wcsButton = document.querySelector('wcs-button');
      * > await wcsButton.setAriaAttribute('aria-label', 'new label');
      * > ```
+     * @cssprop --wcs-breadcrumb-icon-color - Icon color
+     * @cssprop --wcs-breadcrumb-icon-font-size - Icon font size
+     * @cssprop --wcs-breadcrumb-gap - Gap between breadcrumb items
      */
     interface HTMLWcsBreadcrumbElement extends Components.WcsBreadcrumb, HTMLStencilElement {
     }
@@ -1989,6 +2005,16 @@ declare global {
         prototype: HTMLWcsBreadcrumbElement;
         new (): HTMLWcsBreadcrumbElement;
     };
+    /**
+     * @cssprop --wcs-breadcrumb-item-max-height - Maximum height of the breadcrumb item
+     * @cssprop --wcs-breadcrumb-item-icon-color - Color of the breadcrumb item icon
+     * @cssprop --wcs-breadcrumb-item-icon-font-size - Font size of the breadcrumb item icon
+     * @cssprop --wcs-breadcrumb-item-gap - Gap between text and chevron icon
+     * @cssprop --wcs-breadcrumb-item-link-color - Color of the breadcrumb item link
+     * @cssprop --wcs-breadcrumb-item-link-font-weight - Font weight of the breadcrumb item link
+     * @cssprop --wcs-breadcrumb-item-border-width-focus - Border width of the breadcrumb item when focused
+     * @cssprop --wcs-breadcrumb-item-border-color-focus - Border color of the breadcrumb item when focused
+     */
     interface HTMLWcsBreadcrumbItemElement extends Components.WcsBreadcrumbItem, HTMLStencilElement {
     }
     var HTMLWcsBreadcrumbItemElement: {
@@ -3368,6 +3394,9 @@ declare namespace LocalJSX {
      * > const wcsButton = document.querySelector('wcs-button');
      * > await wcsButton.setAriaAttribute('aria-label', 'new label');
      * > ```
+     * @cssprop --wcs-breadcrumb-icon-color - Icon color
+     * @cssprop --wcs-breadcrumb-icon-font-size - Icon font size
+     * @cssprop --wcs-breadcrumb-gap - Gap between breadcrumb items
      */
     interface WcsBreadcrumb {
         /**
@@ -3387,6 +3416,16 @@ declare namespace LocalJSX {
          */
         "maxItems"?: number;
     }
+    /**
+     * @cssprop --wcs-breadcrumb-item-max-height - Maximum height of the breadcrumb item
+     * @cssprop --wcs-breadcrumb-item-icon-color - Color of the breadcrumb item icon
+     * @cssprop --wcs-breadcrumb-item-icon-font-size - Font size of the breadcrumb item icon
+     * @cssprop --wcs-breadcrumb-item-gap - Gap between text and chevron icon
+     * @cssprop --wcs-breadcrumb-item-link-color - Color of the breadcrumb item link
+     * @cssprop --wcs-breadcrumb-item-link-font-weight - Font weight of the breadcrumb item link
+     * @cssprop --wcs-breadcrumb-item-border-width-focus - Border width of the breadcrumb item when focused
+     * @cssprop --wcs-breadcrumb-item-border-color-focus - Border color of the breadcrumb item when focused
+     */
     interface WcsBreadcrumbItem {
         /**
           * Automatically set by the parent breadcrumb. True if it is the last breadcrumb item. (You shouldn't set this prop by yourself)
@@ -5196,8 +5235,21 @@ declare module "@stencil/core" {
              * > const wcsButton = document.querySelector('wcs-button');
              * > await wcsButton.setAriaAttribute('aria-label', 'new label');
              * > ```
+             * @cssprop --wcs-breadcrumb-icon-color - Icon color
+             * @cssprop --wcs-breadcrumb-icon-font-size - Icon font size
+             * @cssprop --wcs-breadcrumb-gap - Gap between breadcrumb items
              */
             "wcs-breadcrumb": LocalJSX.WcsBreadcrumb & JSXBase.HTMLAttributes<HTMLWcsBreadcrumbElement>;
+            /**
+             * @cssprop --wcs-breadcrumb-item-max-height - Maximum height of the breadcrumb item
+             * @cssprop --wcs-breadcrumb-item-icon-color - Color of the breadcrumb item icon
+             * @cssprop --wcs-breadcrumb-item-icon-font-size - Font size of the breadcrumb item icon
+             * @cssprop --wcs-breadcrumb-item-gap - Gap between text and chevron icon
+             * @cssprop --wcs-breadcrumb-item-link-color - Color of the breadcrumb item link
+             * @cssprop --wcs-breadcrumb-item-link-font-weight - Font weight of the breadcrumb item link
+             * @cssprop --wcs-breadcrumb-item-border-width-focus - Border width of the breadcrumb item when focused
+             * @cssprop --wcs-breadcrumb-item-border-color-focus - Border color of the breadcrumb item when focused
+             */
             "wcs-breadcrumb-item": LocalJSX.WcsBreadcrumbItem & JSXBase.HTMLAttributes<HTMLWcsBreadcrumbItemElement>;
             /**
              * The button component is used to trigger an action. It can also be a link when specifying href.

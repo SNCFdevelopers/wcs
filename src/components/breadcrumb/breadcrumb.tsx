@@ -39,6 +39,10 @@ const BREADCRUMB_INHERITED_ATTRS = [];
  * > const wcsButton = document.querySelector('wcs-button');
  * > await wcsButton.setAriaAttribute('aria-label', 'new label');
  * > ```
+ * 
+ * @cssprop --wcs-breadcrumb-icon-color - Icon color
+ * @cssprop --wcs-breadcrumb-icon-font-size - Icon font size
+ * @cssprop --wcs-breadcrumb-gap - Gap between breadcrumb items
  */
 @Component({
     tag: 'wcs-breadcrumb',

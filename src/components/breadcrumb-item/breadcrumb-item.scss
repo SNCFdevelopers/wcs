@@ -1,9 +1,40 @@
 @import '../../style/focus-outline.scss';
 
 :host {
+    // region to be removed before migration to design tokens
+    --wcs-breadcrumb-item-max-height: 24px;
+
+    --wcs-breadcrumb-item-icon-color: var(--wcs-primary);
+    --wcs-breadcrumb-item-icon-font-size: 0.5rem;
+    --wcs-breadcrumb-item-gap: 8px;
+
+    --wcs-breadcrumb-item-link-color: var(--wcs-primary);
+    --wcs-breadcrumb-item-link-font-weight: 500;
+
+    --wcs-breadcrumb-item-border-width-focus: 2px;
+    --wcs-breadcrumb-item-border-color-focus: var(--wcs-primary);
+    // endregion
+}
+
+:host(.token-migration) {
+    --wcs-breadcrumb-item-max-height: var(--wcs-semantic-size-s);
+
+    --wcs-breadcrumb-item-icon-color: var(--wcs-semantic-color-primary);
+    --wcs-breadcrumb-item-icon-font-size: 0.5rem;
+    --wcs-breadcrumb-item-gap: var(--wcs-semantic-spacing-base);
+
+    --wcs-breadcrumb-item-link-color: var(--wcs-semantic-color-primary);
+    --wcs-breadcrumb-item-link-font-weight: var(--wcs-semantic-font-weight-medium);
+
+    --wcs-breadcrumb-item-border-width-focus: var(--wcs-semantic-border-width-large);
+
+    --wcs-breadcrumb-item-border-color-focus: var(--wcs-semantic-color-primary);
+}
+
+:host {
     display: flex;
     align-items: baseline;
-    max-height: 24px;
+    max-height: var(--wcs-breadcrumb-item-max-height);
     font-size: 1rem;
     color: var(--wcs-gray);
     line-height: 1.375;
@@ -12,22 +43,22 @@
         display: block;
         height: 100%;
         padding: 1px 2px;
-        font-weight: 500;
-        color: var(--wcs-primary);
+        font-weight: var(--wcs-breadcrumb-item-link-font-weight);
+        color: var(--wcs-breadcrumb-item-link-color);
         text-decoration: none;
-        border-radius: 2px;
+        border-radius: var(--wcs-breadcrumb-item-border-width-focus);
     }
     ::slotted(a:focus-visible ) {
-        @include focus-outline($border-radius: 2px, $outline-offset: 0);
+        @include focus-outline($outline-color: var(--wcs-breadcrumb-item-border-color-focus), $outline-offset: 0, $border-width: var(--wcs-breadcrumb-item-border-width-focus));
     }
     ::slotted(a:hover) {
         text-decoration: underline;
     }
 
     .item-icon {
-        margin-left: 6px;
+        margin-left: calc(var(--wcs-breadcrumb-item-gap) - 2px);
         font-family: "icons";
-        font-size: 0.5rem;
-        color: var(--wcs-primary);
+        font-size: var(--wcs-breadcrumb-item-icon-font-size);
+        color: var(--wcs-breadcrumb-item-icon-color);
     }
 }

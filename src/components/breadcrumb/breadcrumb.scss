@@ -1,3 +1,17 @@
+:host {
+    // region to be removed before migration to design tokens
+    --wcs-breadcrumb-icon-color: var(--wcs-primary);
+    --wcs-breadcrumb-icon-font-size: 0.5rem;
+    --wcs-breadcrumb-gap: var(--wcs-base-margin);
+    // endregion
+}
+
+:host(.token-migration) {
+    --wcs-breadcrumb-icon-color: var(--wcs-semantic-color-primary);
+    --wcs-breadcrumb-icon-font-size: 0.5rem;
+    --wcs-breadcrumb-gap: var(--wcs-semantic-spacing-base);
+}
+
 nav.wcs-breadcrumb-container {
     slot[name="hidden-items"] {
         display: none;
@@ -27,7 +41,7 @@ nav.wcs-breadcrumb-container {
         .item-not-slotted {
             display: flex;
             align-items: center;
-            margin-right: var(--wcs-base-margin);
+            margin-right: var(--wcs-breadcrumb-gap);
 
             wcs-button[size="s"] {
                 --wcs-button-min-width: 24px;
@@ -37,10 +51,10 @@ nav.wcs-breadcrumb-container {
             }
 
             .item-icon {
-                margin-left: 7px;
+                margin-left: calc(var(--wcs-breadcrumb-gap) - 1px);
                 font-family: "icons";
-                font-size: 0.5rem;
-                color: var(--wcs-primary);
+                font-size: var(--wcs-breadcrumb-icon-font-size);
+                color: var(--wcs-breadcrumb-icon-color);
                 transform: translateY(1px);
             }
         }
