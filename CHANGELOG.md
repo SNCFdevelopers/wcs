@@ -33,21 +33,7 @@ for any bug fixes.
 
 in case of vulnerabilities.
 
-## [6.0.0-rc.2] - 2024-10-14
-
-### Added
-
-- **doc**: add version switch for WCS archives in Storybook toolbar
-
-### Fixed
-
-- **select**:
-  - fix autocomplete server-mode problem that was clearing the filter unintentionally
-  - improve autocomplete server-mode documentation
-- **com-nav**: close mobile menu when click on a link (`wcs-com-nav-item`)
-- **native-select**: no label/description/error + required propagation from form-field
-
-## [6.0.0-rc.1] - 2024-09-18
+## [6.0.0] - 2024-10-15
 
 ⚠ This version contains breaking changes in following packages :
 - wcs-core
@@ -70,6 +56,7 @@ To migrate, please refer to the storybook documentation (v5 to v6).
   - emit wcsFocus and wcsBlur events
 - **nav-item**: add a visual indicator for the current active item
 - **breadcrumb**: add new breadcrumb and breadcrumb-item components
+- **doc**: add version switch for WCS archives in Storybook toolbar
 
 ### Changed
 
@@ -102,6 +89,11 @@ To migrate, please refer to the storybook documentation (v5 to v6).
 - **dropdown**: improve accessibility
 - **stepper**: (accessibility) use aria-current="true" instead of tab pattern (does not work with Voice Over)
 - **modal**: focusable elements were not updated during the opening lifecycle
+- **select**:
+    - fix autocomplete server-mode problem that was clearing the filter unintentionally
+    - improve autocomplete server-mode documentation
+- **com-nav**: close mobile menu when click on a link (`wcs-com-nav-item`)
+- **native-select**: no label/description/error + required propagation from form-field
 
 ## [5.1.0] - 2024-06-26
 
