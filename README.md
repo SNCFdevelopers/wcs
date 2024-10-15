@@ -22,14 +22,14 @@ If you read this documentation on GitHub, only the development branch is updated
 
 If you are looking for the documentation of a specific version, you can find using the following links (we only keep the latest version of each major version) :
 
-| Version    | Documentation                           |
-|:-----------|:----------------------------------------|
-| v1         | Not archived                            |
-| v2         | Not archived                            |
-| v3         | Not archived                            |
-| v4         | Not archived                            |
-| v5 (5.1.0) | https://wcs-archive-852f99.gitlab.io/v5 |
-| Latest     | https://wcs.dev.sncf                    |
+| Version     | Documentation                           |
+|:------------|:----------------------------------------|
+| v1          | Not archived                            |
+| v2          | Not archived                            |
+| v3          | Not archived                            |
+| v4 (4.2.0)  | https://wcs-archive-852f99.gitlab.io/v4 |
+| v5 (5.1.0)  | https://wcs-archive-852f99.gitlab.io/v5 |
+| Latest      | https://wcs.dev.sncf                    |
 
 ## Packages
 
@@ -64,7 +64,7 @@ Major versions releases :
 - **v3** 👉 Feb 2023
 - **v4** 👉 Sep 2023
 - **v5** 👉 May 2024
-- **v6** 👉 Sep 2024
+- **v6** 👉 Oct 2024
 
     
 ### Example usage

@@ -279,19 +279,13 @@ export const Autocomplete: StoryObj = {
  *  }
  * ```
  * 
- * > 💡 **It is advised to fetch some default option from your server** (e.g : first or relevant 10 results, favorite results...).
- * > If you don't want any default value in your autocomplete select with server mode, you can add a disabled, invisible option.
+ * > 💡 **It is advised to fetch some default option from your server** (e.g : first or relevant 10 results, favorite results...).  
+ * > If you don't want any default value in your autocomplete select with server mode, you can add a empty div in the options slot.  
  * > This will ensure the "No result" slot will be shown after your first input :
  * >
  * > ```html
- * > <wcs-select-option disabled hidden></wcs-select-option>
- * > OR
- * > <wcs-select-option disabled>Enter your search above</wcs-select-option>
- * > OR
- * > <div slot="options">Enter your search above</div>
+ * > <div slot="options"></div>
  * > ```
- * >
- * > **Make sure this option is removed after the first search to ensure the slot change is triggered.**  
  */
 export const AutocompleteWithServerMode: StoryObj = {
     render: (args) => html`
