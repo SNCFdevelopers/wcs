@@ -3,8 +3,9 @@
     ( $outline-color: var(--wcs-primary)
     , $border-radius: 0.1rem
     , $outline-offset: 4px
+    , $border-width: 2px
     ) {
-    outline: 2px dashed $outline-color;
+    outline: $border-width dashed $outline-color;
     outline-offset: $outline-offset;
     border-radius: $border-radius;
 }

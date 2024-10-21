@@ -12,6 +12,9 @@
     --wcs-button-stroked-color-default: var(--wcs-base);
     --wcs-button-clear-color-default: var(--wcs-base);
 
+    --wcs-button-focus-outline-color: var(--wcs-primary);
+    --wcs-button-focus-outline-border-width: 2px;
+
     --wcs-button-background-color: var(--wcs-button-plain-background-color-default);
     --wcs-button-plain-background-color-default: var(--wcs-base, var(--wcs-primary, #0074AF));
     --wcs-button-plain-background-color-disabled: var(--wcs-light, var(--wcs-light, transparent));
@@ -54,6 +57,9 @@
     --wcs-button-stroked-color-default: var(--wcs-semantic-color-foreground-action-secondary-default);
     --wcs-button-clear-color-default: var(--wcs-semantic-color-foreground-action-tertiary-default);
 
+    --wcs-button-focus-outline-color: var(--wcs-semantic-color-primary);
+    --wcs-button-focus-outline-border-width: var(--wcs-semantic-border-width-focus);
+
     --wcs-button-plain-background-color-default: var(--wcs-semantic-color-background-action-primary-default, var(--wcs-primary, #0074AF));
     --wcs-button-plain-background-color-disabled: var(--wcs-semantic-color-background-action-primary-disabled, var(--wcs-light, transparent));
     --wcs-button-stroked-background-color-default: var(--wcs-semantic-color-background-action-secondary-default, transparent);
@@ -93,7 +99,7 @@
 }
 
 .wcs-inner-button:focus-visible {
-    @include focus-outline($border-radius: var(--wcs-button-border-radius));
+    @include focus-outline($outline-color: var(--wcs-button-focus-outline-color), $border-radius: var(--wcs-button-border-radius), $border-width: var(--wcs-button-focus-outline-border-width));
 }
 
 :host([mode=clear]) {

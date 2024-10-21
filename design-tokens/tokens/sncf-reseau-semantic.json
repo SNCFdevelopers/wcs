@@ -36,7 +36,7 @@
             "radius": {
                 "base": {
                     "$type": "dimension",
-                    "$value": "{primitive.size.base}"
+                    "$value": "{primitive.size.40}"
                 },
                 "round": {
                     "$type": "dimension",
@@ -57,7 +57,7 @@
         "color": {
             "primary": {
                 "$type": "color",
-                "$value": "{primitive.color.parme.500}"
+                "$value": "{primitive.color.bleu-acier.500}"
             },
             "disabled": {
                 "$description": "Base disabled color",
@@ -106,7 +106,7 @@
                         "hover": {
                             "$description": "Can be used by primary elements which must have a hover state (button, dropdown...)",
                             "$type": "color",
-                            "$value": "{primitive.color.parme.600}"
+                            "$value": "{primitive.color.bleu-acier.600}"
                         }
                     },
                     "secondary": {
@@ -123,7 +123,7 @@
                         "hover": {
                             "$description": "Can be used by secondary elements which must have a hover state (button, dropdown...)",
                             "$type": "color",
-                            "$value": "{primitive.color.parme.100}"
+                            "$value": "{primitive.color.bleu-acier.100}"
                         }
                     },
                     "tertiary": {
@@ -140,7 +140,7 @@
                         "hover": {
                             "$description": "Can be used by tertiary elements which must have a hover state (button, dropdown...)",
                             "$type": "color",
-                            "$value": "{primitive.color.parme.100}"
+                            "$value": "{primitive.color.bleu-acier.100}"
                         }
                     }
                 }
@@ -231,6 +231,18 @@
                 "bold": {
                     "$type": "number",
                     "$value": "{primitive.font.weight.500}"
+                },
+                "regular": {
+                    "$type": "number",
+                    "$value": "{primitive.font.weight.400}"
+                },
+                "light": {
+                    "$type": "number",
+                    "$value": "{primitive.font.weight.300}"
+                },
+                "placeholder": {
+                    "$type": "number",
+                    "$value": "{primitive.font.weight.100}"
                 }
             }
         },
