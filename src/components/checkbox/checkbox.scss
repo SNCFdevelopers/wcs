@@ -27,6 +27,7 @@
     user-select: none;
     font-weight: 500;
     display: flex;
+    gap: 6px;
 }
 
 .wcs-container:not([aria-disabled]) {
@@ -137,7 +138,10 @@
 
 .text {
     color: var(--wcs-checkbox-text-color);
-    margin-left: 6px;
     font-weight: 500;
     line-height: 1.375;
+}
+
+.hidden {
+    display: none;
 }

@@ -64,6 +64,10 @@ export class Checkbox implements ComponentInterface, MutableAriaAttribute {
         };
     }
 
+    componentDidLoad() {
+        this.onSlotChange();
+    }
+
     @Method()
     async setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) {
         setOrRemoveAttribute(this.nativeInput, attr, value);
@@ -85,6 +89,21 @@ export class Checkbox implements ComponentInterface, MutableAriaAttribute {
         this.wcsBlur.emit(event);
     }
 
+    onSlotChange() { 
+        const slot = this.el.shadowRoot.querySelector('slot');
+        if (slot) {
+            // TODO: remove when pseudo-class that indicate a slot has content is supported in all major browsers 
+            //  (https://github.com/w3c/csswg-drafts/issues/6867)
+            // https://developer.mozilla.org/en-US/docs/Web/CSS/:empty
+            const assignedNodes = slot.assignedNodes();
+            if (assignedNodes.length > 0) {
+                this.el.shadowRoot.querySelector('.text').classList.remove('hidden');
+            } else {
+                this.el.shadowRoot.querySelector('.text').classList.add('hidden');
+            }
+        }
+    }
+    
     render() {
         return (
             <Host>
@@ -104,7 +123,7 @@ export class Checkbox implements ComponentInterface, MutableAriaAttribute {
                     ></input>
                     <span class="wcs-checkmark"></span>
                     <span class="text">
-                        <slot />
+                        <slot onSlotchange={(_) => this.onSlotChange()} />
                     </span>
                 </label>
             </Host>
