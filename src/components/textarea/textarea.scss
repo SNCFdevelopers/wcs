@@ -90,19 +90,19 @@
 }
 
 :host(.token-migration) {
-    --wcs-textarea-text-color-disabled: var(--wcs-semantic-color-foreground-form-field-disabled);
-    --wcs-textarea-value-color: var(--wcs-semantic-color-foreground-form-field-value);
+    --wcs-textarea-text-color-disabled: var(--wcs-semantic-color-foreground-control-disabled);
+    --wcs-textarea-value-color: var(--wcs-semantic-color-foreground-control-value);
     --wcs-textarea-value-font-weight: var(--wcs-semantic-font-weight-medium);
 
-    --wcs-textarea-placeholder-color: var(--wcs-semantic-color-foreground-form-field-placeholder);
+    --wcs-textarea-placeholder-color: var(--wcs-semantic-color-foreground-control-placeholder);
     --wcs-textarea-placeholder-font-weight: var(--wcs-semantic-font-weight-regular);
-    --wcs-textarea-placeholder-font-style: var(--wcs-semantic-font-style-form-field-placeholder);
+    --wcs-textarea-placeholder-font-style: var(--wcs-semantic-font-style-control-placeholder);
 
     --wcs-textarea-icon-color-default: var(--wcs-semantic-color-primary);
-    --wcs-textarea-icon-color-disabled: var(--wcs-semantic-color-foreground-form-field-disabled);
+    --wcs-textarea-icon-color-disabled: var(--wcs-semantic-color-foreground-control-disabled);
     --wcs-textarea-icon-color-focus: var(--wcs-semantic-color-primary);
 
-    --wcs-textarea-border-color-default: var(--wcs-semantic-color-border-form-field-default);
+    --wcs-textarea-border-color-default: var(--wcs-semantic-color-border-control-default);
     --wcs-textarea-border-color-error: var(--wcs-semantic-color-error);
     --wcs-textarea-border-color-focus: var(--wcs-semantic-color-border-focus-control);
 
@@ -126,7 +126,7 @@
     --wcs-textarea-min-height: var(--wcs-semantic-size-m);
     --wcs-internal-textarea-max-height: var(--wcs-textarea-max-height, unset);
 
-    --wcs-textarea-background-color: var(--wcs-semantic-color-background-form-field-default);
+    --wcs-textarea-background-color: var(--wcs-semantic-color-background-control-default);
 }
 
 :host([disabled]) {

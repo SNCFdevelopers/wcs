@@ -115,9 +115,9 @@
 :host(.token-migration) {
     --wcs-input-icon-color-default: var(--wcs-semantic-color-primary);
     --wcs-input-icon-color-focus: var(--wcs-semantic-color-primary);
-    --wcs-input-icon-color-disabled: var(--wcs-semantic-color-foreground-form-field-disabled);
+    --wcs-input-icon-color-disabled: var(--wcs-semantic-color-foreground-control-disabled);
 
-    --wcs-input-background-color: var(--wcs-semantic-color-background-form-field-default);
+    --wcs-input-background-color: var(--wcs-semantic-color-background-control-default);
 
     --wcs-internal-input-border-radius-left: var(--wcs-input-border-radius-left, var(--wcs-semantic-border-radius-base)); // Overridden from prefix suffix group in form-field
     --wcs-internal-input-border-radius-right: var(--wcs-input-border-radius-right, var(--wcs-semantic-border-radius-base)); // Overridden from prefix suffix group in form-field
@@ -139,18 +139,18 @@
     --wcs-input-border-style-default: solid;
     --wcs-input-border-style-focus: var(--wcs-semantic-border-style-focus-control);
 
-    --wcs-input-border-color-default: var(--wcs-semantic-color-border-form-field-default);
+    --wcs-input-border-color-default: var(--wcs-semantic-color-border-control-default);
     --wcs-input-border-color-focus: var(--wcs-semantic-color-border-focus-control);
     --wcs-input-border-color-error: var(--wcs-semantic-color-error);
 
-    --wcs-input-value-color: var(--wcs-semantic-color-foreground-form-field-value);
+    --wcs-input-value-color: var(--wcs-semantic-color-foreground-control-value);
     --wcs-input-value-font-weight: var(--wcs-semantic-font-weight-medium);
 
-    --wcs-input-placeholder-color: var(--wcs-semantic-color-foreground-form-field-placeholder);
+    --wcs-input-placeholder-color: var(--wcs-semantic-color-foreground-control-placeholder);
     --wcs-input-placeholder-font-weight: var(--wcs-semantic-font-weight-regular);
-    --wcs-input-placeholder-font-style: var(--wcs-semantic-font-style-form-field-placeholder);
+    --wcs-input-placeholder-font-style: var(--wcs-semantic-font-style-control-placeholder);
 
-    --wcs-input-text-color-disabled: var(--wcs-semantic-color-foreground-form-field-disabled);
+    --wcs-input-text-color-disabled: var(--wcs-semantic-color-foreground-control-disabled);
 
     --wcs-input-min-height: var(--wcs-semantic-size-s);
     --wcs-input-padding-horizontal-s: var(--wcs-semantic-padding-size-s-horizontal);

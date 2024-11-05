@@ -131,7 +131,7 @@
                         "$value": "{semantic.color.primary}"
                     }
                 },
-                "form-field": {
+                "control": {
                     "default": {
                         "$type": "color",
                         "$value": "{primitive.color.transparent}"
@@ -142,7 +142,7 @@
                     },
                     "disabled": {
                         "$type": "color",
-                        "$value": "{semantic.color.background.form-field.disabled}"
+                        "$value": "{semantic.color.background.control.disabled}"
                     }
                 },
                 "surface": {
@@ -215,14 +215,14 @@
                         }
                     }
                 },
-                "form-field": {
+                "control": {
                     "default": {
-                        "$description": "Default background of form-field like input, select, textarea...",
+                        "$description": "Default background of control like input, select, textarea...",
                         "$type": "color",
                         "$value": "{primitive.color.neutral.100}"
                     },
                     "disabled": {
-                        "$description": "Disabled background of form-field like input, select, textarea...",
+                        "$description": "Disabled background of control like input, select, textarea...",
                         "$type": "color",
                         "$value": "{primitive.color.neutral.100}"
                     }
@@ -234,7 +234,7 @@
                         "$value": "{primitive.color.neutral.0}"
                     },
                     "tertiary": {
-                        "$description": "Tertiary background (used for background of prefix and suffix of input/form-field, also in other components)",
+                        "$description": "Tertiary background (used for background of prefix and suffix of control, also in other components)",
                         "$type": "color",
                         "$value": "{primitive.color.neutral.400}"
                     }
@@ -265,19 +265,19 @@
                         }
                     }
                 },
-                "form-field": {
+                "control": {
                     "value": {
-                        "$description": "The value on top of a form-field background",
+                        "$description": "The value on top of a control background",
                         "$type": "color",
                         "$value": "{semantic.color.primary}"
                     },
                     "placeholder": {
-                        "$description": "The placeholder on top of a form-field background",
+                        "$description": "The placeholder on top of a control background",
                         "$type": "color",
                         "$value": "{semantic.color.text.tertiary}"
                     },
                     "disabled": {
-                        "$description": "The layer on top of a form-field disabled background",
+                        "$description": "The layer on top of a control disabled background",
                         "$type": "color",
                         "$value": "{semantic.color.disabled}"
                     }
@@ -318,8 +318,8 @@
                         "$value": "{semantic.color.primary}"
                     }
                 },
-                "form-field": {
-                    "$description": "Ripple applied to an form-field control (select)",
+                "control": {
+                    "$description": "Ripple applied to an control (select)",
                     "$type": "color",
                     "$value": "{semantic.color.primary}"
                 }
@@ -363,7 +363,7 @@
                 }
             },
             "style": {
-                "form-field": {
+                "control": {
                     "placeholder": {
                         "$type": "string",
                         "$value": "normal"
