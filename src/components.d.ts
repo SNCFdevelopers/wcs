@@ -1303,6 +1303,7 @@ export namespace Components {
      * @cssprop --wcs-select-option-background-color-default - Default background color of the option
      * @cssprop --wcs-select-option-background-color-hover - Background color of the option when hovered
      * @cssprop --wcs-select-option-background-color-selected - Background color of the option when selected
+     * @cssprop --wcs-select-option-background-color-selected-disabled - Background color of the option when selected and disabled
      * @cssprop --wcs-select-option-background-color-focus - Background color of the option when focused
      * @cssprop --wcs-select-option-border-color-focus - Border color for autocomplete mode
      * @cssprop --wcs-select-option-border-width-focus - Border width for autocomplete mode
@@ -1316,6 +1317,7 @@ export namespace Components {
      * @cssprop --wcs-select-option-text-color-focus - Color of the option text when focused
      * @cssprop --wcs-select-option-text-color-hover - Color of the option text when hovered
      * @cssprop --wcs-select-option-text-color-selected - Color of the option text when selected
+     * @cssprop --wcs-select-option-text-color-disabled - Color of the option text when disabled
      * @cssprop --wcs-select-option-ripple-color - Color of the ripple effect
      * @cssprop --wcs-select-option-checkbox-color - Color of the checkbox
      * @cssprop --wcs-select-option-gap - Gap between the checkbox and the text
@@ -2772,6 +2774,7 @@ declare global {
      * @cssprop --wcs-select-option-background-color-default - Default background color of the option
      * @cssprop --wcs-select-option-background-color-hover - Background color of the option when hovered
      * @cssprop --wcs-select-option-background-color-selected - Background color of the option when selected
+     * @cssprop --wcs-select-option-background-color-selected-disabled - Background color of the option when selected and disabled
      * @cssprop --wcs-select-option-background-color-focus - Background color of the option when focused
      * @cssprop --wcs-select-option-border-color-focus - Border color for autocomplete mode
      * @cssprop --wcs-select-option-border-width-focus - Border width for autocomplete mode
@@ -2785,6 +2788,7 @@ declare global {
      * @cssprop --wcs-select-option-text-color-focus - Color of the option text when focused
      * @cssprop --wcs-select-option-text-color-hover - Color of the option text when hovered
      * @cssprop --wcs-select-option-text-color-selected - Color of the option text when selected
+     * @cssprop --wcs-select-option-text-color-disabled - Color of the option text when disabled
      * @cssprop --wcs-select-option-ripple-color - Color of the ripple effect
      * @cssprop --wcs-select-option-checkbox-color - Color of the checkbox
      * @cssprop --wcs-select-option-gap - Gap between the checkbox and the text
@@ -4361,6 +4365,7 @@ declare namespace LocalJSX {
      * @cssprop --wcs-select-option-background-color-default - Default background color of the option
      * @cssprop --wcs-select-option-background-color-hover - Background color of the option when hovered
      * @cssprop --wcs-select-option-background-color-selected - Background color of the option when selected
+     * @cssprop --wcs-select-option-background-color-selected-disabled - Background color of the option when selected and disabled
      * @cssprop --wcs-select-option-background-color-focus - Background color of the option when focused
      * @cssprop --wcs-select-option-border-color-focus - Border color for autocomplete mode
      * @cssprop --wcs-select-option-border-width-focus - Border width for autocomplete mode
@@ -4374,6 +4379,7 @@ declare namespace LocalJSX {
      * @cssprop --wcs-select-option-text-color-focus - Color of the option text when focused
      * @cssprop --wcs-select-option-text-color-hover - Color of the option text when hovered
      * @cssprop --wcs-select-option-text-color-selected - Color of the option text when selected
+     * @cssprop --wcs-select-option-text-color-disabled - Color of the option text when disabled
      * @cssprop --wcs-select-option-ripple-color - Color of the ripple effect
      * @cssprop --wcs-select-option-checkbox-color - Color of the checkbox
      * @cssprop --wcs-select-option-gap - Gap between the checkbox and the text
@@ -5340,6 +5346,7 @@ declare module "@stencil/core" {
              * @cssprop --wcs-select-option-background-color-default - Default background color of the option
              * @cssprop --wcs-select-option-background-color-hover - Background color of the option when hovered
              * @cssprop --wcs-select-option-background-color-selected - Background color of the option when selected
+             * @cssprop --wcs-select-option-background-color-selected-disabled - Background color of the option when selected and disabled
              * @cssprop --wcs-select-option-background-color-focus - Background color of the option when focused
              * @cssprop --wcs-select-option-border-color-focus - Border color for autocomplete mode
              * @cssprop --wcs-select-option-border-width-focus - Border width for autocomplete mode
@@ -5353,6 +5360,7 @@ declare module "@stencil/core" {
              * @cssprop --wcs-select-option-text-color-focus - Color of the option text when focused
              * @cssprop --wcs-select-option-text-color-hover - Color of the option text when hovered
              * @cssprop --wcs-select-option-text-color-selected - Color of the option text when selected
+             * @cssprop --wcs-select-option-text-color-disabled - Color of the option text when disabled
              * @cssprop --wcs-select-option-ripple-color - Color of the ripple effect
              * @cssprop --wcs-select-option-checkbox-color - Color of the checkbox
              * @cssprop --wcs-select-option-gap - Gap between the checkbox and the text

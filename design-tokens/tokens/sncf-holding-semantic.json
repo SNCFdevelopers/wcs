@@ -187,9 +187,16 @@
                             "$value": "{primitive.color.parme.100}"
                         },
                         "selected": {
-                            "$description": "Background of a selected secondary action elements (select option)",
-                            "$type": "color",
-                            "$value": "{primitive.color.parme.300}"
+                            "default": {
+                                "$description": "Background of a selected secondary action elements (select option)",
+                                "$type": "color",
+                                "$value": "{primitive.color.parme.300}"
+                            },
+                            "disabled": {
+                                "$description": "Background of a disabled selected secondary action elements (select option)",
+                                "$type": "color",
+                                "$value": "{primitive.color.neutral.0}"
+                            }
                         },
                         "focus": {
                             "$description": "Background of a focused secondary action elements (button, select option)",

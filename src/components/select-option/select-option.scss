@@ -14,10 +14,12 @@ wcs-select-option {
     --wcs-select-option-text-color-focus: var(--wcs-black);
     --wcs-select-option-text-color-hover: var(--wcs-primary);
     --wcs-select-option-text-color-selected: var(--wcs-primary);
+    --wcs-select-option-text-color-disabled: var(--wcs-text-disabled);
 
     --wcs-select-option-background-color-default: transparent;
     --wcs-select-option-background-color-hover: #9999991A;
     --wcs-select-option-background-color-selected: var(--wcs-light);
+    --wcs-select-option-background-color-selected-disabled: var(--wcs-light);
     --wcs-select-option-background-color-focus: #99999933;
 
     --wcs-select-option-border-style-focus: solid;
@@ -72,10 +74,12 @@ wcs-select-option.token-migration {
     --wcs-select-option-text-color-focus: var(--wcs-semantic-color-text-primary);
     --wcs-select-option-text-color-hover: var(--wcs-semantic-color-text-primary);
     --wcs-select-option-text-color-selected: var(--wcs-semantic-color-text-primary);
+    --wcs-select-option-text-color-disabled: var(--wcs-semantic-color-disabled);
 
     --wcs-select-option-background-color-default: transparent;
     --wcs-select-option-background-color-hover: var(--wcs-semantic-color-background-action-secondary-hover);
-    --wcs-select-option-background-color-selected: var(--wcs-semantic-color-background-action-secondary-selected);
+    --wcs-select-option-background-color-selected: var(--wcs-semantic-color-background-action-secondary-selected-default);
+    --wcs-select-option-background-color-selected-disabled: var(--wcs-semantic-color-background-action-secondary-selected-disabled);
     --wcs-select-option-background-color-focus: var(--wcs-semantic-color-background-action-secondary-focus);
 
     --wcs-select-option-border-style-focus: var(--wcs-semantic-border-style-focus-base); // because it's not a form control, but a focusable element
@@ -108,6 +112,11 @@ wcs-select-option[hidden] {
 wcs-select-option[selected] {
     color: var(--wcs-select-option-text-color-selected);
     background-color: var(--wcs-select-option-background-color-selected);
+}
+
+wcs-select-option[selected][disabled] {
+    color: var(--wcs-select-option-text-color-disabled);
+    background-color: var(--wcs-select-option-background-color-selected-disabled);
 }
 
 wcs-select-option[multiple] {
