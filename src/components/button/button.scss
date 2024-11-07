@@ -138,7 +138,7 @@
 
 :host([size=l]) {
     --wcs-button-padding: var(--wcs-button-padding-vertical-size-l) var(--wcs-button-padding-horizontal-size-l);
-    --wcs-button-min-height: var(--wcs-button-height-l);
+    --wcs-button-height: var(--wcs-button-height-l);
     --wcs-button-min-width: var(--wcs-button-height-l);
     --wcs-button-font-size: var(--wcs-button-font-size-l);
 
@@ -151,7 +151,7 @@
 
 :host([size=m]) { // Default
     --wcs-button-padding: var(--wcs-button-padding-vertical-size-m) var(--wcs-button-padding-horizontal-size-m);
-    --wcs-button-min-height: var(--wcs-button-height-m);
+    --wcs-button-height: var(--wcs-button-height-m);
     --wcs-button-min-width: var(--wcs-button-height-m);
     --wcs-button-font-size: var(--wcs-button-font-size-m);
 
@@ -164,7 +164,7 @@
 
 :host([size=s]) {
     --wcs-button-padding: var(--wcs-button-padding-vertical-size-s) var(--wcs-button-padding-horizontal-size-s);
-    --wcs-button-min-height: var(--wcs-button-height-s);
+    --wcs-button-height: var(--wcs-button-height-s);
     --wcs-button-min-width: var(--wcs-button-height-s);
     --wcs-button-font-size: var(--wcs-button-font-size-s);
 
@@ -186,7 +186,7 @@
 :host([shape=normal]) {
     .wcs-inner-button {
         min-width: var(--wcs-button-min-width, unset);
-        min-height: var(--wcs-button-min-height, unset);
+        min-height: var(--wcs-button-height, unset);
     }
 }
 
@@ -205,7 +205,7 @@
     }
 
     wcs-spinner {
-        height: calc(var(--wcs-button-min-height) / 2);
+        height: calc(var(--wcs-button-height) / 2);
         width: calc(var(--wcs-button-min-width) / 2);
         position: absolute;
         top: 0;
@@ -278,7 +278,7 @@
     user-select: none;
     font-size: var(--wcs-button-font-size);
     line-height: 1.5;
-    min-height: var(--wcs-button-min-height);
+    height: var(--wcs-button-height);
     min-width: var(--wcs-button-min-width);
 
     transition: color 175ms ease-in-out, background-color 175ms ease-in-out, wcs-elevation-transition();

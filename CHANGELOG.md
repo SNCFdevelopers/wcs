@@ -25,6 +25,10 @@ for soon-to-be removed features.
 
 #### CSS
 
+- **button**: remove `--wcs-button-height`. Use instead:
+  - use instead `--wcs-button-height-s`
+  - use instead `--wcs-button-height-m`
+  - use instead `--wcs-button-height-l`
 - **input**: remove `--wcs-input-icon-color` css variable. Use `--wcs-input-icon-color-default`, `--wcs-input-icon-color-focus`, `--wcs-input-icon-color-disabled` instead.
 - **textarea**: remove `--wcs-textarea-icon-color` css variable. Use `--wcs-textarea-icon-color-default`, `--wcs-textarea-icon-color-focus`, `--wcs-textarea-icon-color-disabled` instead.
 - **select**
