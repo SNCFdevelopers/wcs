@@ -1,0 +1,63 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Documentation/Theming" />
+
+# Theming
+
+Since v7, we introduce theme thanks to the implementation of design tokens in WCS!
+
+You can now choose between all themes below.
+
+## Available Themes
+
+WCS currently exports the following themes:
+
+- SNCF Holding Legacy
+- SNCF Holding
+- SNCF Voyageurs
+- SNCF Réseau
+
+## How to Use a Theme
+
+To start using a theme, you need to **import the corresponding CSS files that contain the design tokens**. These files provide the design tokens for each theme: **SNCF Holding**, **SNCF Réseau**, and **SNCF Voyageurs**.
+
+1. **Import the CSS stylesheet of the theme you want**: add this at the top of your global style file (e.g., `index.css`).
+
+   **SNCF Holding Legacy**
+
+   ```css
+   @import "~wcs-core/dist/wcs/sncf-holding-legacy.css";
+   ```
+
+   **SNCF Holding**
+
+   ```css
+   @import "~wcs-core/dist/wcs/sncf-holding.css";
+   ```
+
+   **SNCF Réseau**
+
+   ```css
+   @import "~wcs-core/dist/wcs/sncf-reseau.css";
+   ```
+
+   **SNCF Voyageurs**
+
+   ```css
+   @import "~wcs-core/dist/wcs/sncf-voyageurs.css";
+   ```
+
+2. **Apply the Theme**: add classes to your `<body>` or `<html>` element.
+
+   ```html
+   <body class="sncf-voyageurs">
+       <!-- Your content -->
+   </body>
+   ```
+
+   **Available Theme Classes:**
+
+   - `sncf-holding`
+   - `sncf-holding-legacy`
+   - `sncf-reseau`
+   - `sncf-voyageurs`
