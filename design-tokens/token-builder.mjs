@@ -13,6 +13,10 @@ export async function buildVariables(buildConfig, tokensConfig) {
     if (!tokensConfig.jsonFiles || tokensConfig.jsonFiles.length === 0) {
         throw new Error(`No json files provided for mode '${tokensConfig.theme}' to build variables`);
     }
+    if(!tokensConfig.selector) {
+        throw new Error(`No selector provided for mode '${tokensConfig.theme}' to build variables`);
+    }
+
     const jsonFilesSource = tokensConfig.jsonFiles.map(jsonFile => `${buildConfig.inputDirectory}/${jsonFile}`);
     let styleDictionnary = new StyleDictionary(styleDictionnaryConfig);
     styleDictionnary = await styleDictionnary.extend({
@@ -26,7 +30,7 @@ export async function buildVariables(buildConfig, tokensConfig) {
                     destination: `${tokensConfig.theme}.css`,
                     format: "css/variables",
                     options: {
-                        selector: `.token-migration.${tokensConfig.theme}`, // TODO: remove it when finish migration
+                        selector: tokensConfig.selector,
                         outputReferences: true
                     },
                 }]

@@ -2,10 +2,12 @@ import { readFile } from 'fs/promises';
 import { buildVariables } from "./token-builder.mjs";
 import { Manifest } from "./manifest.mjs";
 import path from 'path';
+import fs from 'fs';
 
 const MANIFEST_PATH = 'design-tokens/tokens/wcs-design-tokens-manifest.json';
 const INPUT_JSON_DIR = 'design-tokens/tokens';
 const OUTPUT_CSS_DIR = 'design-tokens/dist';
+const OVERRIDE_CSS_DIR = 'design-tokens/overrides';
 
 if (!MANIFEST_PATH) {
     throw new Error('MANIFEST_PATH is required');
@@ -26,6 +28,19 @@ for (const entry of jsonFilesByMode) {
         outputDirectory: OUTPUT_CSS_DIR
     }, {
         theme: entry[0],
-        jsonFiles: entry[1]
+        jsonFiles: entry[1],
+        selector: `.token-migration.${entry[0]}` // TODO: remove it when finish migration
     });
+
+    const cssGeneratedFile = `${OUTPUT_CSS_DIR}/${entry[0]}.css`;
+    const overrideFile = `${OVERRIDE_CSS_DIR}/${entry[0]}.css`;
+
+    try {
+        if (fs.existsSync(overrideFile)) {
+            const initialContent = fs.readFileSync(overrideFile, 'utf8');
+            fs.appendFileSync(cssGeneratedFile, `\n/* Components Overrides */\n${initialContent}`);
+        }
+    } catch (err) {
+        console.error(`Error appending overrides for theme ${entry[0]}:`, err);
+    }
 }
