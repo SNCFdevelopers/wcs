@@ -107,6 +107,7 @@
     cursor: pointer;
     line-height: var(--wcs-select-native-line-height);
     font-size: inherit;
+    opacity: 1; // user agent set 0.7 opacity on select by default when disabled (https://github.com/tailwindlabs/tailwindcss/discussions/11792#discussioncomment-6696015)
 
     max-width: 100%;
     flex-grow: 1;

@@ -55,6 +55,7 @@ for soon-to-be removed features.
 ### Fixed
 
 - **switch**: fix display bug when resizing the window
+- **native-select**: fix opacity of the native select when disabled
 
 ### Security
 
