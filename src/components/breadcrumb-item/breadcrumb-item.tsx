@@ -3,6 +3,10 @@ import { Component, ComponentInterface, h, Host, Prop } from '@stencil/core';
 import { ICONS_FONT_CHEVRON_UNICODE } from '../breadcrumb/breadcrumb-constants';
 
 /**
+ * The breadcrumb item represents a link inside a breadcrumb.
+ * 
+ * @slot <no-name> Main container slot
+ * 
  * @cssprop --wcs-breadcrumb-item-max-height - Maximum height of the breadcrumb item
  * 
  * @cssprop --wcs-breadcrumb-item-icon-color - Color of the breadcrumb item icon
@@ -26,6 +30,7 @@ export class BreadcrumbItem implements ComponentInterface {
      * True if it is the last breadcrumb item.
      * (You shouldn't set this prop by yourself) 
      * @internal
+     * @ignore
      */
     @Prop() last = false;
 

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-11-08T16:34:47",
+  "timestamp": "2024-11-08T16:51:06",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -705,8 +705,12 @@
       "encapsulation": "shadow",
       "tag": "wcs-breadcrumb-item",
       "readme": "# wcs-breadcrumb-item\r\n\r\n\r\n\r",
-      "docs": "",
+      "docs": "The breadcrumb item represents a link inside a breadcrumb.",
       "docsTags": [
+        {
+          "name": "slot",
+          "text": "<no-name> Main container slot"
+        },
         {
           "name": "cssprop",
           "text": "--wcs-breadcrumb-item-max-height - Maximum height of the breadcrumb item"
@@ -746,7 +750,12 @@
       "events": [],
       "listeners": [],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "<no-name> Main container slot",
+          "docs": ""
+        }
+      ],
       "parts": [],
       "dependents": [],
       "dependencies": [],

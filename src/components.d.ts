@@ -176,6 +176,7 @@ export namespace Components {
         "setAriaAttribute": (attr: AriaAttributeName, value: string | null | undefined) => Promise<void>;
     }
     /**
+     * The breadcrumb item represents a link inside a breadcrumb.
      * @cssprop --wcs-breadcrumb-item-max-height - Maximum height of the breadcrumb item
      * @cssprop --wcs-breadcrumb-item-icon-color - Color of the breadcrumb item icon
      * @cssprop --wcs-breadcrumb-item-icon-font-size - Font size of the breadcrumb item icon
@@ -188,6 +189,7 @@ export namespace Components {
     interface WcsBreadcrumbItem {
         /**
           * Automatically set by the parent breadcrumb. True if it is the last breadcrumb item. (You shouldn't set this prop by yourself)
+          * @ignore
          */
         "last": boolean;
     }
@@ -2006,6 +2008,7 @@ declare global {
         new (): HTMLWcsBreadcrumbElement;
     };
     /**
+     * The breadcrumb item represents a link inside a breadcrumb.
      * @cssprop --wcs-breadcrumb-item-max-height - Maximum height of the breadcrumb item
      * @cssprop --wcs-breadcrumb-item-icon-color - Color of the breadcrumb item icon
      * @cssprop --wcs-breadcrumb-item-icon-font-size - Font size of the breadcrumb item icon
@@ -3417,6 +3420,7 @@ declare namespace LocalJSX {
         "maxItems"?: number;
     }
     /**
+     * The breadcrumb item represents a link inside a breadcrumb.
      * @cssprop --wcs-breadcrumb-item-max-height - Maximum height of the breadcrumb item
      * @cssprop --wcs-breadcrumb-item-icon-color - Color of the breadcrumb item icon
      * @cssprop --wcs-breadcrumb-item-icon-font-size - Font size of the breadcrumb item icon
@@ -3429,6 +3433,7 @@ declare namespace LocalJSX {
     interface WcsBreadcrumbItem {
         /**
           * Automatically set by the parent breadcrumb. True if it is the last breadcrumb item. (You shouldn't set this prop by yourself)
+          * @ignore
          */
         "last"?: boolean;
     }
@@ -5241,6 +5246,7 @@ declare module "@stencil/core" {
              */
             "wcs-breadcrumb": LocalJSX.WcsBreadcrumb & JSXBase.HTMLAttributes<HTMLWcsBreadcrumbElement>;
             /**
+             * The breadcrumb item represents a link inside a breadcrumb.
              * @cssprop --wcs-breadcrumb-item-max-height - Maximum height of the breadcrumb item
              * @cssprop --wcs-breadcrumb-item-icon-color - Color of the breadcrumb item icon
              * @cssprop --wcs-breadcrumb-item-icon-font-size - Font size of the breadcrumb item icon
