@@ -597,7 +597,8 @@ export class Grid implements ComponentInterface, ComponentDidLoad, MutableAriaAt
     }
 
     private getRowsForCurrentPage(): WcsGridRow[] {
-        if (this.paginationEl) {
+        // When in server mode, the state exists outside the internal grid model, so we must rely on the DOM state
+        if (!this.serverMode && this.paginationEl) {
             return this.rows.filter(row => row.page === this.paginationEl.currentPage);
         }
         return this.rows;

@@ -77,6 +77,7 @@ that can cause contrast issues.
 - **grid**:
   - fix this.columns undefined in server mode with a sorted columns
   - row-id-path now works with nested objects
+  - fix server-mode and selection mode "multiple" not working when clicking on the checkbox in the header
 - **select**:
   - the autocomplete input is now fully disabled when the select is disabled
   - autocomplete filter is now cleared when the select value is set to a falsy value
