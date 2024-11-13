@@ -290,12 +290,18 @@ export namespace Components {
     /**
      * The card component is a container that display content such as text, images, buttons, and lists.  
      * A card can be a single component, but is often made up of a header, title, subtitle, and content.
+     * @cssprop --wcs-card-border-color - Border color of the card
+     * @cssprop --wcs-card-border-radius - Border radius of the card
+     * @cssprop --wcs-card-flat-border-width - Border width of the card when flat
+     * @cssprop --wcs-card-background-color - Background color of the card
+     * @cssprop --wcs-card-text-color - Text color of the card
      */
     interface WcsCard {
         "mode": CardMode;
     }
     /**
      * The card-body is a subcomponent of `wcs-card`. It represents content of the card with an extra padding around.
+     * @cssprop --wcs-card-body-padding - Padding of the card body
      */
     interface WcsCardBody {
     }
@@ -2180,6 +2186,11 @@ declare global {
     /**
      * The card component is a container that display content such as text, images, buttons, and lists.  
      * A card can be a single component, but is often made up of a header, title, subtitle, and content.
+     * @cssprop --wcs-card-border-color - Border color of the card
+     * @cssprop --wcs-card-border-radius - Border radius of the card
+     * @cssprop --wcs-card-flat-border-width - Border width of the card when flat
+     * @cssprop --wcs-card-background-color - Background color of the card
+     * @cssprop --wcs-card-text-color - Text color of the card
      */
     interface HTMLWcsCardElement extends Components.WcsCard, HTMLStencilElement {
     }
@@ -2189,6 +2200,7 @@ declare global {
     };
     /**
      * The card-body is a subcomponent of `wcs-card`. It represents content of the card with an extra padding around.
+     * @cssprop --wcs-card-body-padding - Padding of the card body
      */
     interface HTMLWcsCardBodyElement extends Components.WcsCardBody, HTMLStencilElement {
     }
@@ -3717,12 +3729,18 @@ declare namespace LocalJSX {
     /**
      * The card component is a container that display content such as text, images, buttons, and lists.  
      * A card can be a single component, but is often made up of a header, title, subtitle, and content.
+     * @cssprop --wcs-card-border-color - Border color of the card
+     * @cssprop --wcs-card-border-radius - Border radius of the card
+     * @cssprop --wcs-card-flat-border-width - Border width of the card when flat
+     * @cssprop --wcs-card-background-color - Background color of the card
+     * @cssprop --wcs-card-text-color - Text color of the card
      */
     interface WcsCard {
         "mode"?: CardMode;
     }
     /**
      * The card-body is a subcomponent of `wcs-card`. It represents content of the card with an extra padding around.
+     * @cssprop --wcs-card-body-padding - Padding of the card body
      */
     interface WcsCardBody {
     }
@@ -5592,10 +5610,16 @@ declare module "@stencil/core" {
             /**
              * The card component is a container that display content such as text, images, buttons, and lists.  
              * A card can be a single component, but is often made up of a header, title, subtitle, and content.
+             * @cssprop --wcs-card-border-color - Border color of the card
+             * @cssprop --wcs-card-border-radius - Border radius of the card
+             * @cssprop --wcs-card-flat-border-width - Border width of the card when flat
+             * @cssprop --wcs-card-background-color - Background color of the card
+             * @cssprop --wcs-card-text-color - Text color of the card
              */
             "wcs-card": LocalJSX.WcsCard & JSXBase.HTMLAttributes<HTMLWcsCardElement>;
             /**
              * The card-body is a subcomponent of `wcs-card`. It represents content of the card with an extra padding around.
+             * @cssprop --wcs-card-body-padding - Padding of the card body
              */
             "wcs-card-body": LocalJSX.WcsCardBody & JSXBase.HTMLAttributes<HTMLWcsCardBodyElement>;
             /**

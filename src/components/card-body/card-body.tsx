@@ -2,6 +2,8 @@ import { Component, ComponentInterface, h } from '@stencil/core';
 
 /**
  * The card-body is a subcomponent of `wcs-card`. It represents content of the card with an extra padding around.
+ * 
+ * @cssprop --wcs-card-body-padding - Padding of the card body
  */
 @Component({
     tag: 'wcs-card-body',

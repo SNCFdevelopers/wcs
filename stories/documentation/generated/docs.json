@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-11-15T09:31:28",
+  "timestamp": "2024-11-15T14:50:00",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -1260,7 +1260,28 @@
       "tag": "wcs-card",
       "readme": "# Card\r\n\r",
       "docs": "The card component is a container that display content such as text, images, buttons, and lists.  \r\nA card can be a single component, but is often made up of a header, title, subtitle, and content.",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "cssprop",
+          "text": "--wcs-card-border-color - Border color of the card"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-card-border-radius - Border radius of the card"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-card-flat-border-width - Border width of the card when flat"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-card-background-color - Background color of the card"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-card-text-color - Text color of the card"
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -1313,7 +1334,12 @@
       "tag": "wcs-card-body",
       "readme": "# Card body\r\n\r\n\r\n\r",
       "docs": "The card-body is a subcomponent of `wcs-card`. It represents content of the card with an extra padding around.",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "cssprop",
+          "text": "--wcs-card-body-padding - Padding of the card body"
+        }
+      ],
       "usage": {},
       "props": [],
       "methods": [],

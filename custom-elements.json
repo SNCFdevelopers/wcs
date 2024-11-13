@@ -1449,6 +1449,106 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/badge/badge-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/badge/badge.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The badge component is a small label, generally appearing inside or in proximity to another larger interface component,\r\nrepresenting a status, property, or some other metadata.",
+          "name": "Badge",
+          "cssProperties": [
+            {
+              "description": "Define the opacity rate to apply to the badge",
+              "name": "--wcs-badge-ligther-percentage"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "shape",
+              "type": {
+                "text": "BadgeShape"
+              },
+              "default": "'normal'",
+              "description": "Define the shape of the badge"
+            },
+            {
+              "kind": "field",
+              "name": "color",
+              "type": {
+                "text": "BadgeColor"
+              },
+              "default": "'initial'",
+              "description": "Allows you to change the color of the badge to make it less bright (based on the color chosen by the CSS class)."
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "BadgeSize"
+              },
+              "default": "'m'",
+              "description": "Specify the size of the badge."
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "shape",
+              "fieldName": "shape",
+              "type": {
+                "text": "BadgeShape"
+              }
+            },
+            {
+              "name": "color",
+              "fieldName": "color",
+              "type": {
+                "text": "BadgeColor"
+              }
+            },
+            {
+              "name": "size",
+              "fieldName": "size",
+              "type": {
+                "text": "BadgeSize"
+              }
+            }
+          ],
+          "tagName": "wcs-badge",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Badge",
+          "declaration": {
+            "name": "Badge",
+            "module": "components/badge/badge.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-badge",
+          "declaration": {
+            "name": "Badge",
+            "module": "components/badge/badge.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/breadcrumb/breadcrumb-constants.ts",
       "declarations": [
         {
@@ -1791,90 +1891,6 @@
           "declaration": {
             "name": "Breadcrumb",
             "module": "components/breadcrumb/breadcrumb.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/breadcrumb-item/breadcrumb-item.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The breadcrumb item represents a link inside a breadcrumb.",
-          "name": "BreadcrumbItem",
-          "cssProperties": [
-            {
-              "description": "Maximum height of the breadcrumb item",
-              "name": "--wcs-breadcrumb-item-max-height"
-            },
-            {
-              "description": "Color of the breadcrumb item icon",
-              "name": "--wcs-breadcrumb-item-icon-color"
-            },
-            {
-              "description": "Font size of the breadcrumb item icon",
-              "name": "--wcs-breadcrumb-item-icon-font-size"
-            },
-            {
-              "description": "Gap between text and chevron icon",
-              "name": "--wcs-breadcrumb-item-gap"
-            },
-            {
-              "description": "Color of the breadcrumb item link",
-              "name": "--wcs-breadcrumb-item-link-color"
-            },
-            {
-              "description": "Font weight of the breadcrumb item link",
-              "name": "--wcs-breadcrumb-item-link-font-weight"
-            },
-            {
-              "description": "Border width of the breadcrumb item when focused",
-              "name": "--wcs-breadcrumb-item-border-width-focus"
-            },
-            {
-              "description": "Border color of the breadcrumb item when focused",
-              "name": "--wcs-breadcrumb-item-border-color-focus"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Main container slot",
-              "name": "<no-name>"
-            }
-          ],
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "last",
-              "fieldName": "last"
-            }
-          ],
-          "tagName": "wcs-breadcrumb-item",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "BreadcrumbItem",
-          "declaration": {
-            "name": "BreadcrumbItem",
-            "module": "components/breadcrumb-item/breadcrumb-item.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-breadcrumb-item",
-          "declaration": {
-            "name": "BreadcrumbItem",
-            "module": "components/breadcrumb-item/breadcrumb-item.tsx"
           }
         }
       ]
@@ -2326,6 +2342,90 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/breadcrumb-item/breadcrumb-item.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The breadcrumb item represents a link inside a breadcrumb.",
+          "name": "BreadcrumbItem",
+          "cssProperties": [
+            {
+              "description": "Maximum height of the breadcrumb item",
+              "name": "--wcs-breadcrumb-item-max-height"
+            },
+            {
+              "description": "Color of the breadcrumb item icon",
+              "name": "--wcs-breadcrumb-item-icon-color"
+            },
+            {
+              "description": "Font size of the breadcrumb item icon",
+              "name": "--wcs-breadcrumb-item-icon-font-size"
+            },
+            {
+              "description": "Gap between text and chevron icon",
+              "name": "--wcs-breadcrumb-item-gap"
+            },
+            {
+              "description": "Color of the breadcrumb item link",
+              "name": "--wcs-breadcrumb-item-link-color"
+            },
+            {
+              "description": "Font weight of the breadcrumb item link",
+              "name": "--wcs-breadcrumb-item-link-font-weight"
+            },
+            {
+              "description": "Border width of the breadcrumb item when focused",
+              "name": "--wcs-breadcrumb-item-border-width-focus"
+            },
+            {
+              "description": "Border color of the breadcrumb item when focused",
+              "name": "--wcs-breadcrumb-item-border-color-focus"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Main container slot",
+              "name": "<no-name>"
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "last",
+              "fieldName": "last"
+            }
+          ],
+          "tagName": "wcs-breadcrumb-item",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "BreadcrumbItem",
+          "declaration": {
+            "name": "BreadcrumbItem",
+            "module": "components/breadcrumb-item/breadcrumb-item.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-breadcrumb-item",
+          "declaration": {
+            "name": "BreadcrumbItem",
+            "module": "components/breadcrumb-item/breadcrumb-item.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/card/card-interface.ts",
       "declarations": [],
       "exports": []
@@ -2338,6 +2438,28 @@
           "kind": "class",
           "description": "The card component is a container that display content such as text, images, buttons, and lists.  \r\nA card can be a single component, but is often made up of a header, title, subtitle, and content.",
           "name": "Card",
+          "cssProperties": [
+            {
+              "description": "Border color of the card",
+              "name": "--wcs-card-border-color"
+            },
+            {
+              "description": "Border radius of the card",
+              "name": "--wcs-card-border-radius"
+            },
+            {
+              "description": "Border width of the card when flat",
+              "name": "--wcs-card-flat-border-width"
+            },
+            {
+              "description": "Background color of the card",
+              "name": "--wcs-card-background-color"
+            },
+            {
+              "description": "Text color of the card",
+              "name": "--wcs-card-text-color"
+            }
+          ],
           "members": [
             {
               "kind": "field",
@@ -2387,81 +2509,25 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/badge/badge-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/badge/badge.tsx",
+      "path": "components/card-body/card-body.tsx",
       "declarations": [
         {
           "kind": "class",
-          "description": "The badge component is a small label, generally appearing inside or in proximity to another larger interface component,\r\nrepresenting a status, property, or some other metadata.",
-          "name": "Badge",
+          "description": "The card-body is a subcomponent of `wcs-card`. It represents content of the card with an extra padding around.",
+          "name": "CardBody",
           "cssProperties": [
             {
-              "description": "Define the opacity rate to apply to the badge",
-              "name": "--wcs-badge-ligther-percentage"
+              "description": "Padding of the card body",
+              "name": "--wcs-card-body-padding"
             }
           ],
           "members": [
-            {
-              "kind": "field",
-              "name": "shape",
-              "type": {
-                "text": "BadgeShape"
-              },
-              "default": "'normal'",
-              "description": "Define the shape of the badge"
-            },
-            {
-              "kind": "field",
-              "name": "color",
-              "type": {
-                "text": "BadgeColor"
-              },
-              "default": "'initial'",
-              "description": "Allows you to change the color of the badge to make it less bright (based on the color chosen by the CSS class)."
-            },
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "BadgeSize"
-              },
-              "default": "'m'",
-              "description": "Specify the size of the badge."
-            },
             {
               "kind": "method",
               "name": "render"
             }
           ],
-          "attributes": [
-            {
-              "name": "shape",
-              "fieldName": "shape",
-              "type": {
-                "text": "BadgeShape"
-              }
-            },
-            {
-              "name": "color",
-              "fieldName": "color",
-              "type": {
-                "text": "BadgeColor"
-              }
-            },
-            {
-              "name": "size",
-              "fieldName": "size",
-              "type": {
-                "text": "BadgeSize"
-              }
-            }
-          ],
-          "tagName": "wcs-badge",
+          "tagName": "wcs-card-body",
           "events": [],
           "customElement": true
         }
@@ -2469,18 +2535,18 @@
       "exports": [
         {
           "kind": "js",
-          "name": "Badge",
+          "name": "CardBody",
           "declaration": {
-            "name": "Badge",
-            "module": "components/badge/badge.tsx"
+            "name": "CardBody",
+            "module": "components/card-body/card-body.tsx"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "wcs-badge",
+          "name": "wcs-card-body",
           "declaration": {
-            "name": "Badge",
-            "module": "components/badge/badge.tsx"
+            "name": "CardBody",
+            "module": "components/card-body/card-body.tsx"
           }
         }
       ]
@@ -2802,44 +2868,6 @@
           "declaration": {
             "name": "Checkbox",
             "module": "components/checkbox/checkbox.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/card-body/card-body.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The card-body is a subcomponent of `wcs-card`. It represents content of the card with an extra padding around.",
-          "name": "CardBody",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-card-body",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "CardBody",
-          "declaration": {
-            "name": "CardBody",
-            "module": "components/card-body/card-body.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-card-body",
-          "declaration": {
-            "name": "CardBody",
-            "module": "components/card-body/card-body.tsx"
           }
         }
       ]
