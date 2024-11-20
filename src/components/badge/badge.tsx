@@ -19,7 +19,6 @@ import { BadgeColor, BadgeShape, BadgeSize } from './badge-interface';
  * @cssprop --wcs-badge-background-color - Background color of the badge
  * @cssprop --wcs-badge-color - Text color of the badge
  * 
- * @cssprop --wcs-badge-padding-vertical - Vertical padding of the badge
  * @cssprop --wcs-badge-padding-horizontal - Horizontal padding of the badge
  */
 @Component({

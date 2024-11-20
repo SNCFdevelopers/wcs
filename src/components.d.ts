@@ -131,7 +131,6 @@ export namespace Components {
      * @cssprop --wcs-badge-border-radius-round - Round border radius of the badge
      * @cssprop --wcs-badge-background-color - Background color of the badge
      * @cssprop --wcs-badge-color - Text color of the badge
-     * @cssprop --wcs-badge-padding-vertical - Vertical padding of the badge
      * @cssprop --wcs-badge-padding-horizontal - Horizontal padding of the badge
      */
     interface WcsBadge {
@@ -2129,7 +2128,6 @@ declare global {
      * @cssprop --wcs-badge-border-radius-round - Round border radius of the badge
      * @cssprop --wcs-badge-background-color - Background color of the badge
      * @cssprop --wcs-badge-color - Text color of the badge
-     * @cssprop --wcs-badge-padding-vertical - Vertical padding of the badge
      * @cssprop --wcs-badge-padding-horizontal - Horizontal padding of the badge
      */
     interface HTMLWcsBadgeElement extends Components.WcsBadge, HTMLStencilElement {
@@ -3666,7 +3664,6 @@ declare namespace LocalJSX {
      * @cssprop --wcs-badge-border-radius-round - Round border radius of the badge
      * @cssprop --wcs-badge-background-color - Background color of the badge
      * @cssprop --wcs-badge-color - Text color of the badge
-     * @cssprop --wcs-badge-padding-vertical - Vertical padding of the badge
      * @cssprop --wcs-badge-padding-horizontal - Horizontal padding of the badge
      */
     interface WcsBadge {
@@ -5667,7 +5664,6 @@ declare module "@stencil/core" {
              * @cssprop --wcs-badge-border-radius-round - Round border radius of the badge
              * @cssprop --wcs-badge-background-color - Background color of the badge
              * @cssprop --wcs-badge-color - Text color of the badge
-             * @cssprop --wcs-badge-padding-vertical - Vertical padding of the badge
              * @cssprop --wcs-badge-padding-horizontal - Horizontal padding of the badge
              */
             "wcs-badge": LocalJSX.WcsBadge & JSXBase.HTMLAttributes<HTMLWcsBadgeElement>;

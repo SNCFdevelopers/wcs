@@ -17,12 +17,11 @@
     --wcs-badge-background-color: var(--wcs-base);
     --wcs-badge-color: var(--wcs-contrast);
 
-    --wcs-badge-padding-vertical: 0.313rem;
     --wcs-badge-padding-horizontal: 1.5rem;
     // endregion
 
     display: inline-block;
-    padding: var(--wcs-badge-padding-vertical) var(--wcs-badge-padding-horizontal);
+    padding: 0 var(--wcs-badge-padding-horizontal);
     height: var(--wcs-badge-height);
     font-size: var(--wcs-badge-font-size);
     box-sizing: border-box;
@@ -56,8 +55,7 @@
     --wcs-badge-background-color: var(--wcs-semantic-color-background-action-primary-default);
     --wcs-badge-color: var(--wcs-semantic-color-foreground-action-primary-default);
 
-    --wcs-badge-padding-vertical: 0.313rem;
-    --wcs-badge-padding-horizontal: var(--wcs-semantic-padding-large);
+    --wcs-badge-padding-horizontal: var(--wcs-semantic-spacing-base);
 }
 
 :host([color=lighter]) {

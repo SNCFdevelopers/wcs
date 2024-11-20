@@ -148,8 +148,8 @@
     --wcs-select-control-border-width-active: var(--wcs-semantic-border-width-large);
     --wcs-select-control-border-width-focus: var(--wcs-semantic-border-width-large);
 
-    --wcs-select-control-padding-horizontal-m: var(--wcs-semantic-padding-size-m-horizontal);
-    --wcs-select-control-padding-horizontal-l: var(--wcs-semantic-padding-size-l-horizontal);
+    --wcs-select-control-padding-horizontal-m: var(--wcs-semantic-spacing-size-m-horizontal);
+    --wcs-select-control-padding-horizontal-l: var(--wcs-semantic-spacing-size-l-horizontal);
 
     --wcs-select-control-height: var(--wcs-select-control-height-m);
     --wcs-select-control-height-m: var(--wcs-semantic-size-m);
@@ -171,17 +171,17 @@
     --wcs-select-control-chip-color-disabled: var(--wcs-semantic-color-disabled);
     --wcs-select-control-chip-background-color-default: var(--wcs-semantic-color-background-action-primary-default);
     --wcs-select-control-chip-background-color-disabled: var(--wcs-semantic-color-background-action-primary-disabled);
-    --wcs-select-control-chip-padding-vertical: var(--wcs-semantic-padding-size-s-vertical);
-    --wcs-select-control-chip-padding-horizontal: var(--wcs-semantic-padding-size-s-horizontal);
+    --wcs-select-control-chip-padding-vertical: var(--wcs-semantic-spacing-size-s-vertical);
+    --wcs-select-control-chip-padding-horizontal: var(--wcs-semantic-spacing-size-s-horizontal);
     --wcs-select-control-chip-line-height: 1.375;
     --wcs-select-control-chip-border-radius: var(--wcs-semantic-border-radius-base);
 
     // Autocomplete
-    --wcs-select-control-autocomplete-padding-vertical-m: var(--wcs-semantic-padding-size-s-vertical);
-    --wcs-select-control-autocomplete-padding-vertical-l: var(--wcs-semantic-padding-size-s-vertical);
+    --wcs-select-control-autocomplete-padding-vertical-m: var(--wcs-semantic-spacing-size-s-vertical);
+    --wcs-select-control-autocomplete-padding-vertical-l: var(--wcs-semantic-spacing-size-s-vertical);
 
     // No Result Container
-    --wcs-select-internal-noresult-padding-horizontal: var(--wcs-semantic-padding-size-m-horizontal);
+    --wcs-select-internal-noresult-padding-horizontal: var(--wcs-semantic-spacing-size-m-horizontal);
 }
 
 @mixin select-control-outline-active {

@@ -137,12 +137,12 @@
     --wcs-counter-height-l: var(--wcs-semantic-size-l);
     --wcs-counter-font-size-m: var(--wcs-semantic-font-size-m);
     --wcs-counter-font-size-l: var(--wcs-semantic-font-size-l);
-    --wcs-counter-padding-m: var(--wcs-semantic-padding-small);
-    --wcs-counter-padding-l: var(--wcs-semantic-padding-large);
+    --wcs-counter-padding-m: var(--wcs-semantic-spacing-small);
+    --wcs-counter-padding-l: var(--wcs-semantic-spacing-base);
 
     --wcs-counter-background-color: var(--wcs-semantic-color-background-surface-secondary);
 
-    --wcs-counter-gap: calc(2 * var(--wcs-semantic-spacing-base));
+    --wcs-counter-gap: var(--wcs-semantic-spacing-large);
 
     --wcs-counter-outline-color-focus: var(--wcs-semantic-color-border-focus-base);
 }

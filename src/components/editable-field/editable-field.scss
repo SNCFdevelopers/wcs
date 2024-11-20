@@ -123,10 +123,10 @@
     --wcs-editable-field-border-color-hover: var(--wcs-semantic-color-primary);
     --wcs-editable-field-border-style: var(--wcs-semantic-border-style-focus-control);
 
-    --wcs-editable-field-padding-horizontal-m: calc(var(--wcs-semantic-padding-size-m-horizontal) - var(--wcs-editable-field-border-width));
-    --wcs-editable-field-padding-vertical-m: calc(var(--wcs-semantic-padding-size-m-vertical) - var(--wcs-editable-field-border-width));
-    --wcs-editable-field-padding-horizontal-l: calc(var(--wcs-semantic-padding-size-l-horizontal) - var(--wcs-editable-field-border-width));
-    --wcs-editable-field-padding-vertical-l: calc(var(--wcs-semantic-padding-size-l-vertical) - var(--wcs-editable-field-border-width));
+    --wcs-editable-field-padding-horizontal-m: calc(var(--wcs-semantic-spacing-size-m-horizontal) - var(--wcs-editable-field-border-width));
+    --wcs-editable-field-padding-vertical-m: calc(var(--wcs-semantic-spacing-size-m-vertical) - var(--wcs-editable-field-border-width));
+    --wcs-editable-field-padding-horizontal-l: calc(var(--wcs-semantic-spacing-size-l-horizontal) - var(--wcs-editable-field-border-width));
+    --wcs-editable-field-padding-vertical-l: calc(var(--wcs-semantic-spacing-size-l-vertical) - var(--wcs-editable-field-border-width));
 
     --wcs-editable-field-icon-color-readonly: var(--wcs-semantic-color-foreground-control-placeholder);
 }

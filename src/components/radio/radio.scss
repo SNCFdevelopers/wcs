@@ -92,9 +92,12 @@
     --wcs-radio-checkmark-background-color-selected: var(--wcs-semantic-color-background-control-indicator-selected);
     --wcs-radio-checkmark-background-color-disabled: var(--wcs-semantic-color-background-control-indicator-disabled);
 
-    --wcs-radio-checkmark-outline-distance-with-checkmark-circle: calc(var(--wcs-semantic-spacing-base) / 2);
+    --wcs-radio-checkmark-outline-distance-with-checkmark-circle: var(--wcs-semantic-spacing-small);
     --wcs-radio-checkmark-outline-width: var(--wcs-semantic-border-width-large);
     --wcs-radio-checkmark-outline-color: var(--wcs-semantic-color-foreground-control-indicator-selected);
+
+
+
     // endregion
 
     // region mode Option
@@ -116,10 +119,10 @@
 
     --wcs-radio-option-border-radius: var(--wcs-semantic-border-radius-base);
 
-    --wcs-radio-option-padding-top: var(--wcs-semantic-padding-size-m-vertical);
-    --wcs-radio-option-padding-right: var(--wcs-semantic-padding-size-m-horizontal);
-    --wcs-radio-option-padding-bottom: var(--wcs-semantic-padding-size-m-vertical);
-    --wcs-radio-option-padding-left: var(--wcs-semantic-padding-size-m-horizontal);
+    --wcs-radio-option-padding-top: var(--wcs-semantic-spacing-size-m-vertical);
+    --wcs-radio-option-padding-right: var(--wcs-semantic-spacing-size-m-horizontal);
+    --wcs-radio-option-padding-bottom: var(--wcs-semantic-spacing-size-m-vertical);
+    --wcs-radio-option-padding-left: var(--wcs-semantic-spacing-size-m-horizontal);
     // endregion
 }
 

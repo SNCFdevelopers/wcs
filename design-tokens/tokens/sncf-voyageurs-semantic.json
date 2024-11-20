@@ -1,15 +1,5 @@
 {
     "semantic": {
-        "spacing": {
-            "small": {
-                "$type": "dimension",
-                "$value": "{primitive.size.40}"
-            },
-            "base": {
-                "$type": "dimension",
-                "$value": "{semantic.size.base}"
-            }
-        },
         "size": {
             "base": {
                 "$type": "dimension",
@@ -600,14 +590,18 @@
                 }
             }
         },
-        "padding": {
+        "spacing": {
             "small": {
                 "$type": "dimension",
                 "$value": "{primitive.size.40}"
             },
+            "base": {
+                "$type": "dimension",
+                "$value": "{semantic.size.base}"
+            },
             "large": {
                 "$type": "dimension",
-                "$value": "{primitive.size.80}"
+                "$value": "{primitive.size.160}"
             },
             "size": {
                 "s": {
