@@ -9,6 +9,13 @@
 
 The list-item-properties is a subcomponent of `wcs-list-item`. It represents a wrapper for a list of several `wcs-property`.
 
+## Slots
+
+| Slot         | Description                                   |
+| ------------ | --------------------------------------------- |
+| `"property"` | Slot containing the `<wcs-property>` elements |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

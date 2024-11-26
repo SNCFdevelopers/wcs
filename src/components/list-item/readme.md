@@ -17,6 +17,16 @@ actions (favourite, download, delete, etc.). Use standard lists with a unique ac
 | `activated` | `activated` | True if the item is active. Adds a background color that highlights it. | `boolean` | `false` |
 
 
+## Slots
+
+| Slot            | Description                                                                           |
+| --------------- | ------------------------------------------------------------------------------------- |
+| `"actions"`     | Slot containing the actions of the list item, prefer using some `<wcs-button>` inside |
+| `"description"` | Slot containing the description of the list item                                      |
+| `"properties"`  | Slot containing the `<wcs-list-item-properties>` element                              |
+| `"title"`       | Slot containing the title of the list item                                            |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

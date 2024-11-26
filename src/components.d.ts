@@ -1153,6 +1153,20 @@ export namespace Components {
      * Lists are used for grouping a collection of related items.
      * Standard lists can be used either with or without icons. Depending on the context, the list can have one or more
      * actions (favourite, download, delete, etc.). Use standard lists with a unique action when each line has an action.
+     * @cssprop --wcs-list-item-padding - Padding of the list item
+     * @cssprop --wcs-list-item-border-width - Border width of the list item
+     * @cssprop --wcs-list-item-border-color - Border color of the list item
+     * @cssprop --wcs-list-item-background-color - Background color of the list item
+     * @cssprop --wcs-list-item-background-color-hover - Background color of the list item when hovered
+     * @cssprop --wcs-list-item-background-color-active - Background color of the list item when active
+     * @cssprop --wcs-list-item-transition-duration - Transition duration of the list item
+     * @cssprop --wcs-list-item-title-color - Color of the title of the list item
+     * @cssprop --wcs-list-item-title-font-weight - Font weight of the title of the list item
+     * @cssprop --wcs-list-item-title-line-height - Line height of the title of the list item
+     * @cssprop --wcs-list-item-title-margin-bottom - Margin bottom of the title of the list item
+     * @cssprop --wcs-list-item-icon-color - Color of the icon of the list item
+     * @cssprop --wcs-list-item-icon-margin-right - Margin right of the icon of the list item
+     * @cssprop --wcs-list-item-actions-margin-left - Margin left of the actions of the list item
      */
     interface WcsListItem {
         /**
@@ -1162,12 +1176,18 @@ export namespace Components {
     }
     /**
      * The list-item-properties is a subcomponent of `wcs-list-item`. It represents a wrapper for a list of several `wcs-property`.
+     * @cssprop --wcs-list-item-properties-margin-bottom - Margin bottom of the properties
+     * @cssprop --wcs-list-item-properties-gap - Gap between all list item properties
+     * @cssprop --wcs-list-item-properties-separator-width - Separator width between all list item properties
+     * @cssprop --wcs-list-item-properties-separator-color - Separator color between all list item properties
      */
     interface WcsListItemProperties {
     }
     /**
      * The list-item-property is a subcomponent of `wcs-list-item`.
      * Wrapped in a `wcs-list-item-properties`, it represents a property to describe an item.
+     * @cssprop --wcs-list-item-property-font-weight - Font weight of the property
+     * @cssprop --wcs-list-item-property-color - Color of the property
      */
     interface WcsListItemProperty {
     }
@@ -3065,6 +3085,20 @@ declare global {
      * Lists are used for grouping a collection of related items.
      * Standard lists can be used either with or without icons. Depending on the context, the list can have one or more
      * actions (favourite, download, delete, etc.). Use standard lists with a unique action when each line has an action.
+     * @cssprop --wcs-list-item-padding - Padding of the list item
+     * @cssprop --wcs-list-item-border-width - Border width of the list item
+     * @cssprop --wcs-list-item-border-color - Border color of the list item
+     * @cssprop --wcs-list-item-background-color - Background color of the list item
+     * @cssprop --wcs-list-item-background-color-hover - Background color of the list item when hovered
+     * @cssprop --wcs-list-item-background-color-active - Background color of the list item when active
+     * @cssprop --wcs-list-item-transition-duration - Transition duration of the list item
+     * @cssprop --wcs-list-item-title-color - Color of the title of the list item
+     * @cssprop --wcs-list-item-title-font-weight - Font weight of the title of the list item
+     * @cssprop --wcs-list-item-title-line-height - Line height of the title of the list item
+     * @cssprop --wcs-list-item-title-margin-bottom - Margin bottom of the title of the list item
+     * @cssprop --wcs-list-item-icon-color - Color of the icon of the list item
+     * @cssprop --wcs-list-item-icon-margin-right - Margin right of the icon of the list item
+     * @cssprop --wcs-list-item-actions-margin-left - Margin left of the actions of the list item
      */
     interface HTMLWcsListItemElement extends Components.WcsListItem, HTMLStencilElement {
     }
@@ -3074,6 +3108,10 @@ declare global {
     };
     /**
      * The list-item-properties is a subcomponent of `wcs-list-item`. It represents a wrapper for a list of several `wcs-property`.
+     * @cssprop --wcs-list-item-properties-margin-bottom - Margin bottom of the properties
+     * @cssprop --wcs-list-item-properties-gap - Gap between all list item properties
+     * @cssprop --wcs-list-item-properties-separator-width - Separator width between all list item properties
+     * @cssprop --wcs-list-item-properties-separator-color - Separator color between all list item properties
      */
     interface HTMLWcsListItemPropertiesElement extends Components.WcsListItemProperties, HTMLStencilElement {
     }
@@ -3084,6 +3122,8 @@ declare global {
     /**
      * The list-item-property is a subcomponent of `wcs-list-item`.
      * Wrapped in a `wcs-list-item-properties`, it represents a property to describe an item.
+     * @cssprop --wcs-list-item-property-font-weight - Font weight of the property
+     * @cssprop --wcs-list-item-property-color - Color of the property
      */
     interface HTMLWcsListItemPropertyElement extends Components.WcsListItemProperty, HTMLStencilElement {
     }
@@ -4942,6 +4982,20 @@ declare namespace LocalJSX {
      * Lists are used for grouping a collection of related items.
      * Standard lists can be used either with or without icons. Depending on the context, the list can have one or more
      * actions (favourite, download, delete, etc.). Use standard lists with a unique action when each line has an action.
+     * @cssprop --wcs-list-item-padding - Padding of the list item
+     * @cssprop --wcs-list-item-border-width - Border width of the list item
+     * @cssprop --wcs-list-item-border-color - Border color of the list item
+     * @cssprop --wcs-list-item-background-color - Background color of the list item
+     * @cssprop --wcs-list-item-background-color-hover - Background color of the list item when hovered
+     * @cssprop --wcs-list-item-background-color-active - Background color of the list item when active
+     * @cssprop --wcs-list-item-transition-duration - Transition duration of the list item
+     * @cssprop --wcs-list-item-title-color - Color of the title of the list item
+     * @cssprop --wcs-list-item-title-font-weight - Font weight of the title of the list item
+     * @cssprop --wcs-list-item-title-line-height - Line height of the title of the list item
+     * @cssprop --wcs-list-item-title-margin-bottom - Margin bottom of the title of the list item
+     * @cssprop --wcs-list-item-icon-color - Color of the icon of the list item
+     * @cssprop --wcs-list-item-icon-margin-right - Margin right of the icon of the list item
+     * @cssprop --wcs-list-item-actions-margin-left - Margin left of the actions of the list item
      */
     interface WcsListItem {
         /**
@@ -4951,12 +5005,18 @@ declare namespace LocalJSX {
     }
     /**
      * The list-item-properties is a subcomponent of `wcs-list-item`. It represents a wrapper for a list of several `wcs-property`.
+     * @cssprop --wcs-list-item-properties-margin-bottom - Margin bottom of the properties
+     * @cssprop --wcs-list-item-properties-gap - Gap between all list item properties
+     * @cssprop --wcs-list-item-properties-separator-width - Separator width between all list item properties
+     * @cssprop --wcs-list-item-properties-separator-color - Separator color between all list item properties
      */
     interface WcsListItemProperties {
     }
     /**
      * The list-item-property is a subcomponent of `wcs-list-item`.
      * Wrapped in a `wcs-list-item-properties`, it represents a property to describe an item.
+     * @cssprop --wcs-list-item-property-font-weight - Font weight of the property
+     * @cssprop --wcs-list-item-property-color - Color of the property
      */
     interface WcsListItemProperty {
     }
@@ -6495,15 +6555,35 @@ declare module "@stencil/core" {
              * Lists are used for grouping a collection of related items.
              * Standard lists can be used either with or without icons. Depending on the context, the list can have one or more
              * actions (favourite, download, delete, etc.). Use standard lists with a unique action when each line has an action.
+             * @cssprop --wcs-list-item-padding - Padding of the list item
+             * @cssprop --wcs-list-item-border-width - Border width of the list item
+             * @cssprop --wcs-list-item-border-color - Border color of the list item
+             * @cssprop --wcs-list-item-background-color - Background color of the list item
+             * @cssprop --wcs-list-item-background-color-hover - Background color of the list item when hovered
+             * @cssprop --wcs-list-item-background-color-active - Background color of the list item when active
+             * @cssprop --wcs-list-item-transition-duration - Transition duration of the list item
+             * @cssprop --wcs-list-item-title-color - Color of the title of the list item
+             * @cssprop --wcs-list-item-title-font-weight - Font weight of the title of the list item
+             * @cssprop --wcs-list-item-title-line-height - Line height of the title of the list item
+             * @cssprop --wcs-list-item-title-margin-bottom - Margin bottom of the title of the list item
+             * @cssprop --wcs-list-item-icon-color - Color of the icon of the list item
+             * @cssprop --wcs-list-item-icon-margin-right - Margin right of the icon of the list item
+             * @cssprop --wcs-list-item-actions-margin-left - Margin left of the actions of the list item
              */
             "wcs-list-item": LocalJSX.WcsListItem & JSXBase.HTMLAttributes<HTMLWcsListItemElement>;
             /**
              * The list-item-properties is a subcomponent of `wcs-list-item`. It represents a wrapper for a list of several `wcs-property`.
+             * @cssprop --wcs-list-item-properties-margin-bottom - Margin bottom of the properties
+             * @cssprop --wcs-list-item-properties-gap - Gap between all list item properties
+             * @cssprop --wcs-list-item-properties-separator-width - Separator width between all list item properties
+             * @cssprop --wcs-list-item-properties-separator-color - Separator color between all list item properties
              */
             "wcs-list-item-properties": LocalJSX.WcsListItemProperties & JSXBase.HTMLAttributes<HTMLWcsListItemPropertiesElement>;
             /**
              * The list-item-property is a subcomponent of `wcs-list-item`.
              * Wrapped in a `wcs-list-item-properties`, it represents a property to describe an item.
+             * @cssprop --wcs-list-item-property-font-weight - Font weight of the property
+             * @cssprop --wcs-list-item-property-color - Color of the property
              */
             "wcs-list-item-property": LocalJSX.WcsListItemProperty & JSXBase.HTMLAttributes<HTMLWcsListItemPropertyElement>;
             /**

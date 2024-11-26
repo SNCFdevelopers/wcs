@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-12-06T08:49:00",
+  "timestamp": "2024-11-26T15:51:35",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -2768,17 +2768,8 @@
       "encapsulation": "shadow",
       "tag": "wcs-divider",
       "readme": "# wcs-divider\r\n\r\n\r\n\r",
-      "docs": "The divider is a separator between two elements, consisting of a horizontal line.",
-      "docsTags": [
-        {
-          "name": "cssprop",
-          "text": "--wcs-divider-color - Color of the divider"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-divider-height - Height (border-width) of the divider"
-        }
-      ],
+      "docs": "",
+      "docsTags": [],
       "usage": {},
       "props": [],
       "methods": [],
@@ -5440,42 +5431,6 @@
         {
           "name": "slot",
           "text": "actions Actions such as buttons, dropdown or any useful information to always display on your application"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-header-background-color - Background color of the header"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-header-gap - Gap between elements in the header"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-header-height - Height of the header"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-header-logo-height - Height of the logo"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-header-padding-horizontal - Horizontal padding of the header"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-header-box-shadow - Box-shadow of the header"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-header-title-color - Color of the title"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-header-title-font-weight - Font weight of the title"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-header-title-font-size - Font size of the title"
         }
       ],
       "usage": {},
@@ -5618,20 +5573,7 @@
       "tag": "wcs-horizontal-stepper",
       "readme": "# Horizontal Stepper\r\n\r\n\r",
       "docs": "The horizontal-stepper is a representation of a user’s progress through a series of discrete steps.",
-      "docsTags": [
-        {
-          "name": "cssprop",
-          "text": "--wcs-horizontal-step-text-color-default - Text color of the step by default"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-horizontal-step-text-color-active - Text color of the step when active"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-horizontal-step-text-color-disabled - Text color of step when disabled"
-        }
-      ],
+      "docsTags": [],
       "usage": {},
       "props": [
         {
@@ -7406,7 +7348,80 @@
       "tag": "wcs-list-item",
       "readme": "# List Item\r\n\r",
       "docs": "Lists are used for grouping a collection of related items.\r\n\r\nStandard lists can be used either with or without icons. Depending on the context, the list can have one or more\r\nactions (favourite, download, delete, etc.). Use standard lists with a unique action when each line has an action.",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "title - Slot containing the title of the list item"
+        },
+        {
+          "name": "slot",
+          "text": "properties - Slot containing the `<wcs-list-item-properties>` element"
+        },
+        {
+          "name": "slot",
+          "text": "actions - Slot containing the actions of the list item, prefer using some `<wcs-button>` inside"
+        },
+        {
+          "name": "slot",
+          "text": "description - Slot containing the description of the list item"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-list-item-padding - Padding of the list item"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-list-item-border-width - Border width of the list item"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-list-item-border-color - Border color of the list item"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-list-item-background-color - Background color of the list item"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-list-item-background-color-hover - Background color of the list item when hovered"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-list-item-background-color-active - Background color of the list item when active"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-list-item-transition-duration - Transition duration of the list item"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-list-item-title-color - Color of the title of the list item"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-list-item-title-font-weight - Font weight of the title of the list item"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-list-item-title-line-height - Line height of the title of the list item"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-list-item-title-margin-bottom - Margin bottom of the title of the list item"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-list-item-icon-color - Color of the icon of the list item"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-list-item-icon-margin-right - Margin right of the icon of the list item"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-list-item-actions-margin-left - Margin left of the actions of the list item"
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -7436,7 +7451,24 @@
       "events": [],
       "listeners": [],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "actions",
+          "docs": "Slot containing the actions of the list item, prefer using some `<wcs-button>` inside"
+        },
+        {
+          "name": "description",
+          "docs": "Slot containing the description of the list item"
+        },
+        {
+          "name": "properties",
+          "docs": "Slot containing the `<wcs-list-item-properties>` element"
+        },
+        {
+          "name": "title",
+          "docs": "Slot containing the title of the list item"
+        }
+      ],
       "parts": [],
       "dependents": [],
       "dependencies": [],
@@ -7448,14 +7480,40 @@
       "tag": "wcs-list-item-properties",
       "readme": "# wcs-list-item-properties\r\n\r\n\r\n\r",
       "docs": "The list-item-properties is a subcomponent of `wcs-list-item`. It represents a wrapper for a list of several `wcs-property`.",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "property - Slot containing the `<wcs-property>` elements"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-list-item-properties-margin-bottom - Margin bottom of the properties"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-list-item-properties-gap - Gap between all list item properties"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-list-item-properties-separator-width - Separator width between all list item properties"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-list-item-properties-separator-color - Separator color between all list item properties"
+        }
+      ],
       "usage": {},
       "props": [],
       "methods": [],
       "events": [],
       "listeners": [],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "property",
+          "docs": "Slot containing the `<wcs-property>` elements"
+        }
+      ],
       "parts": [],
       "dependents": [],
       "dependencies": [],
@@ -7467,14 +7525,32 @@
       "tag": "wcs-list-item-property",
       "readme": "# wcs-list-item-property\r\n\r\n\r\n\r",
       "docs": "The list-item-property is a subcomponent of `wcs-list-item`.\r\nWrapped in a `wcs-list-item-properties`, it represents a property to describe an item.",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "<no-name> - Main container slot"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-list-item-property-font-weight - Font weight of the property"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-list-item-property-color - Color of the property"
+        }
+      ],
       "usage": {},
       "props": [],
       "methods": [],
       "events": [],
       "listeners": [],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "<no-name>",
+          "docs": "Main container slot"
+        }
+      ],
       "parts": [],
       "dependents": [],
       "dependencies": [],
@@ -7708,7 +7784,7 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-modal-backdrop-color - Backdrop color of the modal"
+          "text": "--wcs-modal-backdrop - Backdrop of the modal"
         },
         {
           "name": "cssprop",
@@ -7737,18 +7813,6 @@
         {
           "name": "cssprop",
           "text": "--wcs-modal-title-margin-bottom - Margin bottom of the modal title"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-modal-title-font-size - Font size of the modal title"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-modal-title-font-weight - Font weight of the modal title"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-modal-title-line-height - Line height of the modal title"
         },
         {
           "name": "cssprop",
@@ -12293,21 +12357,8 @@
       "encapsulation": "shadow",
       "tag": "wcs-tooltip",
       "readme": "# Tooltip\r\n\r",
-      "docs": "Tooltips are used to provide additional information for features available on the website. These can improve the user\r\nexperience or simply show additional information. Tooltips appear when the user rolls over or clicks on them\r\n(for longer content).\r\n\r\nNote that this component is based on the Tippy.js library : https://atomiks.github.io/tippyjs/\r\n\r\n## Accessibility guidelines 💡\r\n\r\nThe problem is that impaired users may not be able to see what is the information provided by the tooltip. To solve\r\nthis problem, the tooltip should be served with some aria attributes to make it accessible.\r\n\r\nAria-features `wcs-tooltip` respect:\r\n- dismiss when the user presses the `Escape` key\r\n- has a `role=tooltip`\r\n\r\nBut you have to provide the \"link\" between the element you want to describe and the tooltip. To do this, you have to\r\nprovide the \"visual description\" you add on the `wcs-tooltip` to the `aria-label` attribute or the `aria-description` as soon as the attribute will be available \r\nof the element you want to describe .\r\n\r\nExample:\r\n\r\n```html\r\n<wcs-tooltip for=\"my-button\">Trashed items</wcs-tooltip>\r\n<wcs-button id=\"my-button\" aria-label=\"Trashed items\">Trash</wcs-button>\r\n```",
-      "docsTags": [
-        {
-          "name": "cssprop",
-          "text": "--wcs-tooltip-background-color - Background color of the tooltip"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-tooltip-text-color - Text color of the tooltip"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-tooltip-padding - Padding of the tooltip"
-        }
-      ],
+      "docs": "Tooltips are used to provide additional information for features available on the website. These can improve the user\r\nexperience or simply show additional information. Tooltips appear when the user rolls over or clicks on them\r\n(for longer content).\r\n\r\nNote that this component is based on the Tippy.js library : https://atomiks.github.io/tippyjs/\r\n\r\n## Accessibility guidelines 💡\r\n\r\nThe problem is that impaired users may not be able to see what is the information provided by the tooltip. To solve\r\nthis problem, the tooltip should be served with some aria attributes to make it accessible.\r\n\r\nAria-features `wcs-tooltip` respect:\r\n- dismiss when the user presses the `Escape` key\r\n- has a `role=tooltip`\r\n\r\nBut you have to provide the \"link\" between the element you want to describe and the tooltip. To do this, you have to\r\nprovide the \"visual description\" you add on the `wcs-tooltip` to the `aria-label` attribute or the `aria-description` as soon as the attribute will be available \r\nof the element you want to describe .\r\n\r\nExample:\r\n\r\n```html\r\n<wcs-tooltip>Trashed items</wcs-tooltip>\r\n<wcs-button aria-label=\"Trashed items\">Trash</wcs-button>\r\n```",
+      "docsTags": [],
       "usage": {},
       "props": [
         {
