@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-11-26T17:24:18",
+  "timestamp": "2024-11-27T09:15:09",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -5618,7 +5618,20 @@
       "tag": "wcs-horizontal-stepper",
       "readme": "# Horizontal Stepper\r\n\r\n\r",
       "docs": "The horizontal-stepper is a representation of a user’s progress through a series of discrete steps.",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "cssprop",
+          "text": "--wcs-horizontal-step-text-color-default - Text color of the step by default"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-horizontal-step-text-color-active - Text color of the step when active"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-horizontal-step-text-color-disabled - Text color of step when disabled"
+        }
+      ],
       "usage": {},
       "props": [
         {

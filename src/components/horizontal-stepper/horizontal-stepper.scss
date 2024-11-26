@@ -1,6 +1,12 @@
 @import '../../style/focus-outline.scss';
 
 :host {
+    // region to be removed before migration to design tokens
+    --wcs-horizontal-step-text-color-default: var(--wcs-text-medium);
+    --wcs-horizontal-step-text-color-active: var(--wcs-primary);
+    --wcs-horizontal-step-text-color-disabled: var(--wcs-text-light);
+    // endregion
+
     display: block;
 
     .steps {
@@ -47,36 +53,34 @@
         width: 100%;
         text-align: center;
         flex: 1;
-        color: var(--wcs-text-medium);
+        color: var(--wcs-horizontal-step-text-color-default);
         font-weight: 500;
 
     }
 
     .label-container > *[data-disable] {
-        color: var(--wcs-text-light);
+        color: var(--wcs-horizontal-step-text-color-disabled);
     }
 
     .label-container > *[data-current] {
-        color: var(--wcs-primary);
+        color: var(--wcs-horizontal-step-text-color-active);
     }
 
     .label-container > div[data-first] {
-        margin-left: 20px;
+        margin-right: calc(var(--wcs-semantic-size-m, 40px) / 2);
         text-align: left;
         flex: 0.5;
     }
 
-    .label-container > div[data-first] > span {
-        margin-left: -20px;
-    }
-
     .label-container > div[data-last] {
-        margin-right: 20px;
+        margin-left: calc(var(--wcs-semantic-size-m, 40px) / 2);
         text-align: right;
         flex: 0.5;
     }
+}
 
-    .label-container > div[data-last] > span {
-        margin-right: -20px;
-    }
+:host(.token-migration) {
+    --wcs-horizontal-step-text-color-default: var(--wcs-semantic-color-text-secondary);
+    --wcs-horizontal-step-text-color-active: var(--wcs-semantic-color-primary);
+    --wcs-horizontal-step-text-color-disabled: var(--wcs-semantic-color-disabled);
 }

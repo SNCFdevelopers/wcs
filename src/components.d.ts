@@ -933,6 +933,9 @@ export namespace Components {
     }
     /**
      * The horizontal-stepper is a representation of a user’s progress through a series of discrete steps.
+     * @cssprop --wcs-horizontal-step-text-color-default - Text color of the step by default
+     * @cssprop --wcs-horizontal-step-text-color-active - Text color of the step when active
+     * @cssprop --wcs-horizontal-step-text-color-disabled - Text color of step when disabled
      */
     interface WcsHorizontalStepper {
         /**
@@ -2925,6 +2928,9 @@ declare global {
     }
     /**
      * The horizontal-stepper is a representation of a user’s progress through a series of discrete steps.
+     * @cssprop --wcs-horizontal-step-text-color-default - Text color of the step by default
+     * @cssprop --wcs-horizontal-step-text-color-active - Text color of the step when active
+     * @cssprop --wcs-horizontal-step-text-color-disabled - Text color of step when disabled
      */
     interface HTMLWcsHorizontalStepperElement extends Components.WcsHorizontalStepper, HTMLStencilElement {
         addEventListener<K extends keyof HTMLWcsHorizontalStepperElementEventMap>(type: K, listener: (this: HTMLWcsHorizontalStepperElement, ev: WcsHorizontalStepperCustomEvent<HTMLWcsHorizontalStepperElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -4649,6 +4655,9 @@ declare namespace LocalJSX {
     }
     /**
      * The horizontal-stepper is a representation of a user’s progress through a series of discrete steps.
+     * @cssprop --wcs-horizontal-step-text-color-default - Text color of the step by default
+     * @cssprop --wcs-horizontal-step-text-color-active - Text color of the step when active
+     * @cssprop --wcs-horizontal-step-text-color-disabled - Text color of step when disabled
      */
     interface WcsHorizontalStepper {
         /**
@@ -6331,6 +6340,9 @@ declare module "@stencil/core" {
             "wcs-hint": LocalJSX.WcsHint & JSXBase.HTMLAttributes<HTMLWcsHintElement>;
             /**
              * The horizontal-stepper is a representation of a user’s progress through a series of discrete steps.
+             * @cssprop --wcs-horizontal-step-text-color-default - Text color of the step by default
+             * @cssprop --wcs-horizontal-step-text-color-active - Text color of the step when active
+             * @cssprop --wcs-horizontal-step-text-color-disabled - Text color of step when disabled
              */
             "wcs-horizontal-stepper": LocalJSX.WcsHorizontalStepper & JSXBase.HTMLAttributes<HTMLWcsHorizontalStepperElement>;
             /**

@@ -16,6 +16,10 @@ import { HorizontalStep } from './horizontal-step';
 
 /**
  * The horizontal-stepper is a representation of a user’s progress through a series of discrete steps.
+ *
+ * @cssprop --wcs-horizontal-step-text-color-default - Text color of the step by default
+ * @cssprop --wcs-horizontal-step-text-color-active - Text color of the step when active
+ * @cssprop --wcs-horizontal-step-text-color-disabled - Text color of step when disabled
  */
 @Component({
     tag: 'wcs-horizontal-stepper',
@@ -64,7 +68,7 @@ export class HorizontalStepper implements ComponentInterface {
         //Check if the function is called before the component has finished its initialization in which case we do nothing
         if (this.internalCurrentStepIndex !== undefined) {
             const stepInterval = Math.abs(oldValue - newValue);
-            this.el.style.setProperty('--wcs-progress-bar-animation-duration', 375 / stepInterval + 'ms');
+            this.el.style.setProperty('--wcs-progress-bar-animation-duration', 350 / stepInterval + 'ms');
             if (newValue !== oldValue) {
                 for (let i = 0; i < stepInterval; i++) {
                     setTimeout(() => {
