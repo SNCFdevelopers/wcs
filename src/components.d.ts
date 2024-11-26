@@ -473,6 +473,11 @@ export namespace Components {
          */
         "value": number;
     }
+    /**
+     * The divider is a separator between two elements, consisting of a horizontal line.
+     * @cssprop --wcs-divider-color - Color of the divider
+     * @cssprop --wcs-divider-height - Height (border-width) of the divider
+     */
     interface WcsDivider {
     }
     /**
@@ -2491,6 +2496,11 @@ declare global {
         prototype: HTMLWcsCounterElement;
         new (): HTMLWcsCounterElement;
     };
+    /**
+     * The divider is a separator between two elements, consisting of a horizontal line.
+     * @cssprop --wcs-divider-color - Color of the divider
+     * @cssprop --wcs-divider-height - Height (border-width) of the divider
+     */
     interface HTMLWcsDividerElement extends Components.WcsDivider, HTMLStencilElement {
     }
     var HTMLWcsDividerElement: {
@@ -4131,6 +4141,11 @@ declare namespace LocalJSX {
          */
         "value": number;
     }
+    /**
+     * The divider is a separator between two elements, consisting of a horizontal line.
+     * @cssprop --wcs-divider-color - Color of the divider
+     * @cssprop --wcs-divider-height - Height (border-width) of the divider
+     */
     interface WcsDivider {
     }
     /**
@@ -6031,6 +6046,11 @@ declare module "@stencil/core" {
              * @cssprop --wcs-counter-gap - Gap between the buttons and the label
              */
             "wcs-counter": LocalJSX.WcsCounter & JSXBase.HTMLAttributes<HTMLWcsCounterElement>;
+            /**
+             * The divider is a separator between two elements, consisting of a horizontal line.
+             * @cssprop --wcs-divider-color - Color of the divider
+             * @cssprop --wcs-divider-height - Height (border-width) of the divider
+             */
             "wcs-divider": LocalJSX.WcsDivider & JSXBase.HTMLAttributes<HTMLWcsDividerElement>;
             /**
              * The dropdown component use a wcs-button under the hood, so you can use the same css classes as the button to style the
