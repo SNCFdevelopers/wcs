@@ -656,31 +656,35 @@
                 "feedback": {
                     "fast": {
                         "$description": "Motion duration for faster feedbacks like transitions for moving arrows, transitioning backgrounds",
-                        "$type": "string",
+                        "$type": "duration",
                         "$value": "{primitive.duration.50}"
                     },
                     "base": {
-                        "$type": "string",
+                        "$type": "duration",
                         "$value": "{primitive.duration.150}"
                     },
                     "slow": {
-                        "$type": "string",
+                        "$type": "duration",
                         "$value": "{primitive.duration.200}"
+                    },
+                    "slower": {
+                        "$type": "duration",
+                        "$value": "{primitive.duration.350}"
                     }
                 },
                 "animation": {
                     "fast": {
                         "$description": "Base motion duration for fast animations like spinner growing mode",
-                        "$type": "string",
+                        "$type": "duration",
                         "$value": "{primitive.duration.1000}"
                     },
                     "base": {
                         "$description": "Base motion duration for long animations like spinner, skeleton",
-                        "$type": "string",
+                        "$type": "duration",
                         "$value": "{primitive.duration.1500}"
                     },
                     "slow": {
-                        "$type": "string",
+                        "$type": "duration",
                         "$value": "{primitive.duration.2000}"
                     }
                 }

@@ -13,13 +13,14 @@
     --wcs-progress-radial-label-font-weight: 500;
 
     --wcs-progress-radial-label-percentage-font-size: 0.875rem;
+    --wcs-internal-progress-radial-animation-duration: 0.375s;
     // endregion
 }
 
 :host(.token-migration) {
     --wcs-progress-radial-rail-width: 2px;
     --wcs-progress-radial-rail-spacing: 2px;
-    --wcs-progress-bar-rail-color: var(--wcs-semantic-color-background-surface-tertiary);
+    --wcs-progress-radial-rail-color: var(--wcs-semantic-color-background-surface-tertiary);
 
     --wcs-progress-radial-value-background-color: var(--wcs-semantic-color-background-surface-brand-default);
 
@@ -28,6 +29,7 @@
     --wcs-progress-radial-label-font-weight: var(--wcs-semantic-font-weight-medium);
 
     --wcs-progress-radial-label-percentage-font-size: calc(var(--wcs-progress-radial-label-font-size) * 0.6);
+    --wcs-internal-progress-radial-animation-duration: var(--wcs-progress-radial-animation-duration, var(--wcs-semantic-motion-duration-feedback-slower));
 }
 
 .progress-circle {
@@ -50,7 +52,7 @@
     top: 0;
     z-index: 1;
     transform: rotate(-90deg);
-    transition: stroke-dashoffset 0.375s ease-out;
+    transition: stroke-dashoffset var(--wcs-internal-progress-radial-animation-duration) ease-out;
 }
 
 .progress-circle-label {

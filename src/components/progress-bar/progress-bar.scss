@@ -27,7 +27,7 @@
 :host(.token-migration) {
     --wcs-internal-progress-bar-border-radius: var(--wcs-progress-bar-border-radius, var(--wcs-semantic-border-radius-circular));
     --wcs-internal-progress-bar-border-radius-small: var(--wcs-progress-bar-border-radius-small, var(--wcs-semantic-border-radius-small));
-    --wcs-internal-progress-bar-animation-duration: var(--wcs-progress-bar-animation-duration, var(--wcs-semantic-motion-duration-animation-fast)); // maybe review because before it was 0.375s
+    --wcs-internal-progress-bar-animation-duration: var(--wcs-progress-bar-animation-duration, var(--wcs-semantic-motion-duration-feedback-slower));
 
     --wcs-progress-bar-height-m: calc(var(--wcs-semantic-size-m) / 4);
     --wcs-progress-bar-height-s: calc(var(--wcs-semantic-size-s) / 6);
