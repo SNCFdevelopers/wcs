@@ -32,7 +32,7 @@ export const GridPaginationArrow: FunctionalComponent<GridPaginationArrowProps> 
               }
               .arrow {
                   transition: fill 175ms ease-in-out;
-                  fill: var(--wcs-text-light);
+                  fill: var(--wcs-grid-pagination-arrow-color-inactive, var(--wcs-button-color));
               }
               .second-arrow {
                   transform: translateY(-8px);
@@ -44,7 +44,7 @@ export const GridPaginationArrow: FunctionalComponent<GridPaginationArrowProps> 
                   transform: rotate(-90deg);
               }
               .active {
-                  fill: var(--wcs-primary);
+                  fill: var(--wcs-grid-pagination-arrow-color-active, var(--wcs-button-color));
               }
           `}</style>
       <g fill="none" class={order + ' arrow-group'}>

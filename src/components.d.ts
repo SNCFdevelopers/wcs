@@ -906,6 +906,12 @@ export namespace Components {
     }
     /**
      * The grid pagination is a subcomponent of `wcs-grid`, slotted in `grid-pagination` under the `<table>` element.
+     * @cssprop --wcs-grid-pagination-color - Text color of the grid pagination
+     * @cssprop --wcs-grid-pagination-border-color - Border color of the grid pagination
+     * @cssprop --wcs-grid-pagination-counter-gap - Gap between the current page and the total page count
+     * @cssprop --wcs-grid-pagination-margin-top - Margin between the grid and the pagination
+     * @cssprop --wcs-grid-pagination-arrow-color-inactive - Color of the inactive arrow
+     * @cssprop --wcs-grid-pagination-arrow-color-active - Color of the active arrow
      */
     interface WcsGridPagination {
         /**
@@ -3013,6 +3019,12 @@ declare global {
     }
     /**
      * The grid pagination is a subcomponent of `wcs-grid`, slotted in `grid-pagination` under the `<table>` element.
+     * @cssprop --wcs-grid-pagination-color - Text color of the grid pagination
+     * @cssprop --wcs-grid-pagination-border-color - Border color of the grid pagination
+     * @cssprop --wcs-grid-pagination-counter-gap - Gap between the current page and the total page count
+     * @cssprop --wcs-grid-pagination-margin-top - Margin between the grid and the pagination
+     * @cssprop --wcs-grid-pagination-arrow-color-inactive - Color of the inactive arrow
+     * @cssprop --wcs-grid-pagination-arrow-color-active - Color of the active arrow
      */
     interface HTMLWcsGridPaginationElement extends Components.WcsGridPagination, HTMLStencilElement {
         addEventListener<K extends keyof HTMLWcsGridPaginationElementEventMap>(type: K, listener: (this: HTMLWcsGridPaginationElement, ev: WcsGridPaginationCustomEvent<HTMLWcsGridPaginationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -4844,6 +4856,12 @@ declare namespace LocalJSX {
     }
     /**
      * The grid pagination is a subcomponent of `wcs-grid`, slotted in `grid-pagination` under the `<table>` element.
+     * @cssprop --wcs-grid-pagination-color - Text color of the grid pagination
+     * @cssprop --wcs-grid-pagination-border-color - Border color of the grid pagination
+     * @cssprop --wcs-grid-pagination-counter-gap - Gap between the current page and the total page count
+     * @cssprop --wcs-grid-pagination-margin-top - Margin between the grid and the pagination
+     * @cssprop --wcs-grid-pagination-arrow-color-inactive - Color of the inactive arrow
+     * @cssprop --wcs-grid-pagination-arrow-color-active - Color of the active arrow
      */
     interface WcsGridPagination {
         /**
@@ -6669,6 +6687,12 @@ declare module "@stencil/core" {
             "wcs-grid-custom-cell": LocalJSX.WcsGridCustomCell & JSXBase.HTMLAttributes<HTMLWcsGridCustomCellElement>;
             /**
              * The grid pagination is a subcomponent of `wcs-grid`, slotted in `grid-pagination` under the `<table>` element.
+             * @cssprop --wcs-grid-pagination-color - Text color of the grid pagination
+             * @cssprop --wcs-grid-pagination-border-color - Border color of the grid pagination
+             * @cssprop --wcs-grid-pagination-counter-gap - Gap between the current page and the total page count
+             * @cssprop --wcs-grid-pagination-margin-top - Margin between the grid and the pagination
+             * @cssprop --wcs-grid-pagination-arrow-color-inactive - Color of the inactive arrow
+             * @cssprop --wcs-grid-pagination-arrow-color-active - Color of the active arrow
              */
             "wcs-grid-pagination": LocalJSX.WcsGridPagination & JSXBase.HTMLAttributes<HTMLWcsGridPaginationElement>;
             /**

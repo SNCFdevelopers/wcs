@@ -4,14 +4,37 @@
     display: block;
     border-style: solid none none;
     border-width: 1px;
-    border-color: var(--wcs-text-light);
+    border-color: var(--wcs-grid-pagination-border-color);
+    margin-top: var(--wcs-grid-pagination-margin-top);
+
+    // region to be removed before migration to design tokens
+    --wcs-grid-pagination-color: var(--wcs-text-medium);
+    --wcs-grid-pagination-border-color: var(--wcs-text-light);
+
+    --wcs-grid-pagination-counter-gap: var(--wcs-padding-s);
+    --wcs-grid-pagination-margin-top: 0;
+
+    --wcs-grid-pagination-arrow-color-inactive: var(--wcs-text-light);
+    --wcs-grid-pagination-arrow-color-active: var(--wcs-primary);
+    // endregion
+}
+
+:host(.token-migration) {
+    --wcs-grid-pagination-color: var(--wcs-semantic-color-text-primary);
+    --wcs-grid-pagination-border-color: transparent;
+
+    --wcs-grid-pagination-counter-gap: var(--wcs-semantic-spacing-small);
+    --wcs-grid-pagination-margin-top: var(--wcs-semantic-spacing-large);
+
+    --wcs-grid-pagination-arrow-color-inactive: unset;
+    --wcs-grid-pagination-arrow-color-active: unset;
 }
 
 .container {
     display: grid;
     grid-template-columns: auto auto auto;
     justify-content: space-between;
-    color: var(--wcs-text-medium);
+    color: var(--wcs-grid-pagination-color);
     align-items: center;
 }
 
@@ -35,7 +58,7 @@
 }
 
 .pagination-counter {
-    padding: 0 var(--wcs-padding-s);
+    padding: 0 var(--wcs-grid-pagination-counter-gap);
 }
 
 .items-count span:focus {

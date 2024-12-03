@@ -18,6 +18,13 @@ const GRID_PAGINATION_INHERITED_ATTRS = ['tabindex', 'title'];
 
 /**
  * The grid pagination is a subcomponent of `wcs-grid`, slotted in `grid-pagination` under the `<table>` element.
+ * 
+ * @cssprop --wcs-grid-pagination-color - Text color of the grid pagination
+ * @cssprop --wcs-grid-pagination-border-color - Border color of the grid pagination
+ * @cssprop --wcs-grid-pagination-counter-gap - Gap between the current page and the total page count
+ * @cssprop --wcs-grid-pagination-margin-top - Margin between the grid and the pagination
+ * @cssprop --wcs-grid-pagination-arrow-color-inactive - Color of the inactive arrow
+ * @cssprop --wcs-grid-pagination-arrow-color-active - Color of the active arrow
  */
 @Component({
     tag: 'wcs-grid-pagination',

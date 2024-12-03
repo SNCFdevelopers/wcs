@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-12-12T09:31:00",
+  "timestamp": "2024-12-11T17:06:45",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -4469,22 +4469,6 @@
           "text": "--wcs-grid-header-border-bottom - Bottom border of all headers"
         },
         {
-          "name": "cssprop",
-          "text": "--wcs-grid-header-sort-arrow-color-default - Color of the sort arrow in the header"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-grid-header-sort-arrow-color-active - Color of the sort arrow in the header when active"
-        },
-        {
-          "name": "csspart",
-          "text": "all-rows-checkbox - CSS part for the checkbox in the selection column that selects all rows"
-        },
-        {
-          "name": "csspart",
-          "text": "row-checkbox - CSS part for the checkbox of each row in the selection column"
-        },
-        {
           "name": "slot",
           "text": "grid-column - The slot containing the column of the grid in the `<thead>`"
         },
@@ -4872,16 +4856,7 @@
           "docs": "The slot containing the pagination of the grid below the `<table>`"
         }
       ],
-      "parts": [
-        {
-          "name": "all-rows-checkbox",
-          "docs": ""
-        },
-        {
-          "name": "row-checkbox",
-          "docs": ""
-        }
-      ],
+      "parts": [],
       "dependents": [],
       "dependencies": [
         "wcs-checkbox",
@@ -4937,14 +4912,6 @@
         {
           "name": "cssprop",
           "text": "--wcs-grid-column-border-left - Border separator between column names"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-grid-header-sort-arrow-color-default - Color of the sort arrow in the header"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-grid-header-sort-arrow-color-active - Color of the sort arrow in the header when active"
         },
         {
           "name": "csspart",
