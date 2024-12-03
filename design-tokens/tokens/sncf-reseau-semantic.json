@@ -145,6 +145,21 @@
                             "$type": "color",
                             "$value": "{primitive.color.neutral.600}"
                         },
+                        "selected": {
+                            "$description": "Selected border color of a form-field indicator: radio, checkbox",
+                            "$type": "color",
+                            "$value": "{semantic.color.primary}"
+                        },
+                        "hover": {
+                            "$description": "Hovered border color of a form-field indicator: radio, checkbox",
+                            "$type": "color",
+                            "$value": "{semantic.color.primary}"
+                        },
+                        "indeterminate": {
+                            "$description": "Indeterminate border color of a form-field indicator: checkbox",
+                            "$type": "color",
+                            "$value": "{semantic.color.primary}"
+                        },
                         "disabled": {
                             "$description": "Disabled border color of a form-field indicator: radio, checkbox",
                             "$type": "color",
@@ -287,6 +302,16 @@
                             "$type": "color",
                             "$value": "{semantic.color.primary}"
                         },
+                        "hover": {
+                            "$description": "Hovered background color of a form-field indicator: radio, checkbox",
+                            "$type": "color",
+                            "$value": "{semantic.color.primary}"
+                        },
+                        "indeterminate": {
+                            "$description": "Indeterminate background color of a form-field indicator: checkbox",
+                            "$type": "color",
+                            "$value": "{semantic.color.primary}"
+                        },
                         "disabled": {
                             "$description": "Disabled background color of a form-field indicator: radio, checkbox",
                             "$type": "color",
@@ -336,17 +361,17 @@
                     },
                     "accent": {
                         "light": {
-                            "$description": "Light accent background color, used by nav-item indicator",
+                            "$description": "Light accent background color, used by nav-item indicator and grid rows",
                             "$type": "color",
                             "$value": "{primitive.color.bleu-givre.300}"
                         },
                         "lighter": {
-                            "$description": "Lighter accent background color, use by segmented-button background (radio options)",
+                            "$description": "Lighter accent background color, used by grid rows and segmented-button background (radio options)",
                             "$type": "color",
                             "$value": "{primitive.color.bleu-givre.200}"
                         },
                         "lightest": {
-                            "$description": "Lightest accent background color, use by segmented-button background (radio options)",
+                            "$description": "Lightest accent background color, used by segmented-button background (radio options)",
                             "$type": "color",
                             "$value": "{primitive.color.bleu-givre.100}"
                         }
@@ -493,7 +518,7 @@
             "backdrop": {
                 "$description": "The layer behind a surface (modal)",
                 "$type": "color",
-                "$value": "{primitive.color.backdrop}",
+                "$value": "{primitive.color.backdrop}"
             }
         },
         "font": {

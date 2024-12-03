@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-12-11T10:27:46",
+  "timestamp": "2024-12-12T09:31:00",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -4374,59 +4374,115 @@
       "docsTags": [
         {
           "name": "cssprop",
-          "text": "--wcs-grid-highlight-color - Color for selected rows"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-grid-column-border-left - Left border of all grid headers"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-grid-header-text-color - Text color of **all** headers"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-grid-header-sort-arrow-color - Color of the sort arrow in **all** headers"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-grid-header-background-color - Background color of **all** headers"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-grid-row-background-color - Background color of **all** rows"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-grid-row-even-background-color - Background color of **even** rows"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-grid-row-odd-background-color - Background color of **odd** rows"
-        },
-        {
-          "name": "cssprop",
           "text": "--wcs-grid-gap - Gap between grid cells (horizontal, vertical using `border-spacing` property)"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-grid-first-cell-border-radius - Border radius of the first cell of a row"
+          "text": "--wcs-grid-vertical-align - Vertical alignment of grid cells"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-grid-last-cell-border-radius - Border radius of the last cell of a row"
+          "text": "--wcs-grid-outline-color - Outline color for grid cells"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-grid-cell-separator-border - Border between grid cells"
+          "text": "--wcs-grid-cell-text-color - Text color of all grid cells"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-grid-cell-border-bottom - Border bottom of all grid cells"
+          "text": "--wcs-grid-cell-padding-horizontal - Horizontal padding of grid cells"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-grid-header-border-radius - (For `wcs-grid-column`) Border radius of the header cell"
+          "text": "--wcs-grid-cell-padding-vertical - Vertical padding of grid cells"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-cell-border-bottom - Bottom border of grid cells"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-cell-separator-border - Separator border between grid cells"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-first-cell-border-radius - Border radius of the first cell in a row"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-last-cell-border-radius - Border radius of the last cell in a row"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-highlight-color - Background color for selected rows"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-row-background-color - Background color of all rows"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-row-odd-background-color - Background color of odd rows"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-row-even-background-color - Background color of even rows"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-column-selection-width - Width of the selection column"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-header-border-left - Left border of all grid headers (within `<thead>`)"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-header-border-bottom - Bottom border of the `<thead>`"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-header-background-color - Background color of all headers"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-header-text-color - Text color of all headers"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-header-font-weight - Font weight of all headers"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-header-font-size - Font size of all headers"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-header-line-height - Line height of all headers"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-header-border-radius - Border radius of all headers"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-header-border-bottom - Bottom border of all headers"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-header-sort-arrow-color-default - Color of the sort arrow in the header"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-header-sort-arrow-color-active - Color of the sort arrow in the header when active"
+        },
+        {
+          "name": "csspart",
+          "text": "all-rows-checkbox - CSS part for the checkbox in the selection column that selects all rows"
+        },
+        {
+          "name": "csspart",
+          "text": "row-checkbox - CSS part for the checkbox of each row in the selection column"
         },
         {
           "name": "slot",
@@ -4816,7 +4872,16 @@
           "docs": "The slot containing the pagination of the grid below the `<table>`"
         }
       ],
-      "parts": [],
+      "parts": [
+        {
+          "name": "all-rows-checkbox",
+          "docs": ""
+        },
+        {
+          "name": "row-checkbox",
+          "docs": ""
+        }
+      ],
       "dependents": [],
       "dependencies": [
         "wcs-checkbox",
@@ -4843,7 +4908,23 @@
       "docsTags": [
         {
           "name": "cssprop",
-          "text": "--wcs-grid-column-border-left - Border separator between column names"
+          "text": "--wcs-grid-header-background-color - Background color of the header cell"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-header-text-color - Text color of the header cell"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-header-font-weight - Font weight of the header cellJ"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-header-font-size - Font size of the header cell"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-header-line-height - Line height of the header cell"
         },
         {
           "name": "cssprop",
@@ -4851,7 +4932,19 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-grid-header-background-color - Background color of the header cell"
+          "text": "--wcs-grid-header-border-bottom - Bottom border of the header cell"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-column-border-left - Border separator between column names"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-header-sort-arrow-color-default - Color of the sort arrow in the header"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-header-sort-arrow-color-active - Color of the sort arrow in the header when active"
         },
         {
           "name": "csspart",
@@ -5253,7 +5346,32 @@
       "tag": "wcs-grid-pagination",
       "readme": "# wcs-grid-pagination\r\n\r\n\r\n\r",
       "docs": "The grid pagination is a subcomponent of `wcs-grid`, slotted in `grid-pagination` under the `<table>` element.",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-pagination-color - Text color of the grid pagination"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-pagination-border-color - Border color of the grid pagination"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-pagination-counter-gap - Gap between the current page and the total page count"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-pagination-margin-top - Margin between the grid and the pagination"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-pagination-arrow-color-inactive - Color of the inactive arrow"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-pagination-arrow-color-active - Color of the active arrow"
+        }
+      ],
       "usage": {},
       "props": [
         {

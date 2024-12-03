@@ -45,28 +45,43 @@ const GRID_INHERITED_ATTRS = ['title'];
 /**
  * The grid component is a complex component used as an HTML table to display collections of data.
  *
- * @cssprop --wcs-grid-highlight-color - Color for selected rows
- * @cssprop --wcs-grid-column-border-left - Left border of all grid headers
- * 
- * @cssprop --wcs-grid-header-text-color - Text color of **all** headers
- * @cssprop --wcs-grid-header-sort-arrow-color - Color of the sort arrow in **all** headers
- * @cssprop --wcs-grid-header-background-color - Background color of **all** headers
- * 
- * @cssprop --wcs-grid-row-background-color - Background color of **all** rows
- * @cssprop --wcs-grid-row-even-background-color - Background color of **even** rows
- * @cssprop --wcs-grid-row-odd-background-color - Background color of **odd** rows
- *  
  * @cssprop --wcs-grid-gap - Gap between grid cells (horizontal, vertical using `border-spacing` property)
- *  
- * @cssprop --wcs-grid-first-cell-border-radius - Border radius of the first cell of a row
- * @cssprop --wcs-grid-last-cell-border-radius - Border radius of the last cell of a row
- * @cssprop --wcs-grid-cell-separator-border - Border between grid cells
- * @cssprop --wcs-grid-cell-border-bottom - Border bottom of all grid cells
+ * @cssprop --wcs-grid-vertical-align - Vertical alignment of grid cells
+ * @cssprop --wcs-grid-outline-color - Outline color for grid cells
+ *
+ * @cssprop --wcs-grid-cell-text-color - Text color of all grid cells
+ * @cssprop --wcs-grid-cell-padding-horizontal - Horizontal padding of grid cells
+ * @cssprop --wcs-grid-cell-padding-vertical - Vertical padding of grid cells
+ * @cssprop --wcs-grid-cell-border-bottom - Bottom border of grid cells
+ * @cssprop --wcs-grid-cell-separator-border - Separator border between grid cells
+ * @cssprop --wcs-grid-first-cell-border-radius - Border radius of the first cell in a row
+ * @cssprop --wcs-grid-last-cell-border-radius - Border radius of the last cell in a row
+ *
+ * @cssprop --wcs-grid-highlight-color - Background color for selected rows
+ * @cssprop --wcs-grid-row-background-color - Background color of all rows
+ * @cssprop --wcs-grid-row-odd-background-color - Background color of odd rows
+ * @cssprop --wcs-grid-row-even-background-color - Background color of even rows
+ *
+ * @cssprop --wcs-grid-column-selection-width - Width of the selection column
+ * @cssprop --wcs-grid-header-border-left - Left border of all grid headers (within `<thead>`)
+ * @cssprop --wcs-grid-header-border-bottom - Bottom border of the `<thead>`
+ * @cssprop --wcs-grid-header-background-color - Background color of all headers
+ * @cssprop --wcs-grid-header-text-color - Text color of all headers
+ * @cssprop --wcs-grid-header-font-weight - Font weight of all headers
+ * @cssprop --wcs-grid-header-font-size - Font size of all headers
+ * @cssprop --wcs-grid-header-line-height - Line height of all headers
+ * @cssprop --wcs-grid-header-border-radius - Border radius of all headers
+ * @cssprop --wcs-grid-header-border-bottom - Bottom border of all headers
  * 
- * @cssprop --wcs-grid-header-border-radius - (For `wcs-grid-column`) Border radius of the header cell
+ * @cssprop --wcs-grid-header-sort-arrow-color-default - Color of the sort arrow in the header
+ * @cssprop --wcs-grid-header-sort-arrow-color-active - Color of the sort arrow in the header when active
+ * 
+ * @csspart all-rows-checkbox - CSS part for the checkbox in the selection column that selects all rows
+ * @csspart row-checkbox - CSS part for the checkbox of each row in the selection column
  * 
  * @slot grid-column - The slot containing the column of the grid in the `<thead>`
  * @slot grid-pagination - The slot containing the pagination of the grid below the `<table>`
+ *
  */
 @Component({
     tag: 'wcs-grid',
@@ -598,6 +613,7 @@ export class Grid implements ComponentInterface, ComponentDidLoad, MutableAriaAt
                 return <td aria-colindex={this.atLeastOneColumnHidden() ? 1 : null}
                            tabIndex={this.cursorPosition?.col === 0 && rowIndex + 1 === this.cursorPosition?.row ? 0 : -1}>
                     <wcs-checkbox tabIndex={-1}
+                                  part="row-checkbox"
                                   checked={row.selected} onWcsChange={this.onRowSelection.bind(this, row)}/>
                 </td>;
         }
@@ -659,6 +675,7 @@ export class Grid implements ComponentInterface, ComponentDidLoad, MutableAriaAt
                                         this.selectionConfig === 'single' ? '' :
                                           <wcs-checkbox tabIndex={this.cursorPosition?.col === 0
                                                                     && this.cursorPosition?.row === 0  ? 0 : -1}
+                                                        part="all-rows-checkbox"
                                                         checked={this.allRowsAreSelected()}
                                                         onWcsChange={this.selectAllRows.bind(this)}/>
                                     }

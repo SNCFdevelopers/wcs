@@ -29,16 +29,24 @@ const GRID_COLUMN_INHERITED_ATTRS = ['tabindex', 'title'];
 
 /**
  * The grid column is a subcomponent of `wcs-grid` that represents a column of the table.
- * 
- * @cssprop --wcs-grid-column-border-left - Border separator between column names
- * @cssprop --wcs-grid-header-border-radius - Border radius of the header cell
+ *
  * @cssprop --wcs-grid-header-background-color - Background color of the header cell
+ * @cssprop --wcs-grid-header-text-color - Text color of the header cell
+ * @cssprop --wcs-grid-header-font-weight - Font weight of the header cellJ
+ * @cssprop --wcs-grid-header-font-size - Font size of the header cell
+ * @cssprop --wcs-grid-header-line-height - Line height of the header cell
+ * @cssprop --wcs-grid-header-border-radius - Border radius of the header cell
+ * @cssprop --wcs-grid-header-border-bottom - Bottom border of the header cell
+ * @cssprop --wcs-grid-column-border-left - Border separator between column names
+ * 
+ * @cssprop --wcs-grid-header-sort-arrow-color-default - Color of the sort arrow in the header
+ * @cssprop --wcs-grid-header-sort-arrow-color-active - Color of the sort arrow in the header when active
  * 
  * @csspart [path]-column - CSS part for each column for styling. e.g: first_name-column, email-column
  */
 @Component({
     tag: 'wcs-grid-column',
-    styleUrl: 'grid-column.scss',
+    styleUrls: ['grid-column.scss', 'grid-sort-arrow.scss'],
     shadow: true
 })
 export class GridColumn implements ComponentInterface, MutableAriaAttribute {

@@ -4,16 +4,16 @@
 
     width: fit-content;
     cursor: pointer;
-    padding: 0.125rem;
+    padding: var(--wcs-grid-radio-padding, 0.125rem);
 
     &:has(input:focus-visible) {
-        @include focus-outline($outline-offset: 4px);
+        @include focus-outline($outline-color: var(--wcs-grid-radio-outline-color, var(--wcs-primary)));
     }
 
     /* If the selector focus-visible is not supported by the browser, use focus-within instead */
     @supports not selector(:has(input:focus-visible)){
         &:focus-within {
-            @include focus-outline($outline-offset: 4px);
+            @include focus-outline($outline-color: var(--wcs-grid-radio-outline-color, var(--wcs-primary)));
         }
     }
 
@@ -31,23 +31,43 @@
         content: "";
         display: flex;
         border-radius: 50%;
-        border: 2px solid var(--wcs-text-disabled);
+        border: 2px solid var(--wcs-grid-radio-border-color-default, var(--wcs-text-disabled));
         position: relative;
         width: 1.125rem;
         height: 1.125rem;
         box-sizing: border-box;
-        background-color: var(--wcs-white);
-        transition: 0.175s ease-in-out;
+        background-color: var(--wcs-grid-radio-background-color-default, var(--wcs-white));
+        transition: var(--wcs-grid-radio-transition, 0.175s) ease-in-out;
+    }
+
+    &:hover {
+        &::before {
+            border-color: var(--wcs-grid-radio-border-color-hover, var(--wcs-primary));
+        }
     }
 
     &.checked {
         &::before {
-            border-color: var(--wcs-primary);
-            background-color: var(--wcs-primary);
-            outline: solid 2px var(--wcs-white);
+            border-color: var(--wcs-grid-radio-border-color-selected, var(--wcs-primary));
+            background-color: var(--wcs-grid-radio-background-color-selected, var(--wcs-primary));
+            outline: solid 2px  var(--wcs-grid-radio-inner-border-color, var(--wcs-white));
             outline-offset: -4px;
         }
     }
 
 
+}
+
+:host(.token-migration) {
+    --wcs-grid-radio-outline-color: var(--wcs-semantic-color-primary);
+    --wcs-grid-radio-padding: calc(var(--wcs-semantic-size-base) / 4);
+    --wcs-grid-radio-transition: var(--wcs-semantic-motion-duration-feedback-base);
+    --wcs-grid-radio-border-color-default: var(--wcs-semantic-color-border-control-indicator-default);
+    --wcs-grid-radio-border-color-selected: var(--wcs-semantic-color-border-control-indicator-selected);
+    --wcs-grid-radio-border-color-hover: var(--wcs-semantic-color-border-control-indicator-hover);
+    --wcs-grid-radio-border-color-disabled: var(--wcs-semantic-color-border-control-indicator-disabled);
+    --wcs-grid-radio-background-color-default: transparent;
+    --wcs-grid-radio-background-color-selected: var(--wcs-semantic-color-background-control-indicator-selected);
+    --wcs-grid-radio-background-color-disabled: var(--wcs-semantic-color-background-control-indicator-disabled);
+    --wcs-grid-radio-inner-border-color: white;
 }

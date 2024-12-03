@@ -1103,6 +1103,44 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/accordion-header/accordion-header.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The accordion-header is a subcomponent of `wcs-accordion`. It represents the heading text inside the accordion panel.",
+          "name": "AccordionHeader",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-accordion-header",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "AccordionHeader",
+          "declaration": {
+            "name": "AccordionHeader",
+            "module": "components/accordion-header/accordion-header.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-accordion-header",
+          "declaration": {
+            "name": "AccordionHeader",
+            "module": "components/accordion-header/accordion-header.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/accordion-content/accordion-content.tsx",
       "declarations": [
         {
@@ -1141,44 +1179,6 @@
           "declaration": {
             "name": "AccordionContent",
             "module": "components/accordion-content/accordion-content.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/accordion-header/accordion-header.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The accordion-header is a subcomponent of `wcs-accordion`. It represents the heading text inside the accordion panel.",
-          "name": "AccordionHeader",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-accordion-header",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "AccordionHeader",
-          "declaration": {
-            "name": "AccordionHeader",
-            "module": "components/accordion-header/accordion-header.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-accordion-header",
-          "declaration": {
-            "name": "AccordionHeader",
-            "module": "components/accordion-header/accordion-header.tsx"
           }
         }
       ]
@@ -1445,44 +1445,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/app/app.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "App",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-app",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "App",
-          "declaration": {
-            "name": "App",
-            "module": "components/app/app.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-app",
-          "declaration": {
-            "name": "App",
-            "module": "components/app/app.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/action-bar/action-bar.tsx",
       "declarations": [
         {
@@ -1591,6 +1553,44 @@
           "declaration": {
             "name": "ActionBar",
             "module": "components/action-bar/action-bar.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/app/app.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "App",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-app",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "App",
+          "declaration": {
+            "name": "App",
+            "module": "components/app/app.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-app",
+          "declaration": {
+            "name": "App",
+            "module": "components/app/app.tsx"
           }
         }
       ]
@@ -1739,6 +1739,354 @@
           "declaration": {
             "name": "Badge",
             "module": "components/badge/badge.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/breadcrumb/breadcrumb-constants.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "NAV_ARIA_LABEL_DEFAULT",
+          "type": {
+            "text": "string"
+          },
+          "default": "'Fil d\\'Ariane'"
+        },
+        {
+          "kind": "variable",
+          "name": "EXPAND_BTN_ARIA_LABEL_DEFAULT",
+          "type": {
+            "text": "string"
+          },
+          "default": "'Étendre le fil d\\'Ariane'"
+        },
+        {
+          "kind": "variable",
+          "name": "ICONS_FONT_CHEVRON_UNICODE",
+          "type": {
+            "text": "string"
+          },
+          "default": "'\\uF107'"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "NAV_ARIA_LABEL_DEFAULT",
+          "declaration": {
+            "name": "NAV_ARIA_LABEL_DEFAULT",
+            "module": "components/breadcrumb/breadcrumb-constants.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "EXPAND_BTN_ARIA_LABEL_DEFAULT",
+          "declaration": {
+            "name": "EXPAND_BTN_ARIA_LABEL_DEFAULT",
+            "module": "components/breadcrumb/breadcrumb-constants.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "ICONS_FONT_CHEVRON_UNICODE",
+          "declaration": {
+            "name": "ICONS_FONT_CHEVRON_UNICODE",
+            "module": "components/breadcrumb/breadcrumb-constants.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/breadcrumb/breadcrumb.e2e.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/breadcrumb/breadcrumb.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "A breadcrumb trail consists of a list of links to the parent pages of the current page in hierarchical order.  \r\nIt helps users find their place within a website or web application. Breadcrumbs are often placed horizontally before a page's main content.\r\n\r\n## Accessibility guidelines 💡\r\n> - If the last item is a link to the current page, you must set the `aria-current` attribute to `page` on `wcs-breadcrumb-item`.\r\n> - If the element representing the current page is not a link, `aria-current` is optional.\r\n> - You can set the attribute `aria-label` on `wcs-breadcrumb`, it will be passed to the native `nav` element located inside its shadow DOM. \r\n>   You can find the `aria-label` default value in the table below. If your application is in English, you can set it to `Breadcrumb`.\r\n> - You can do the same thing for the `aria-label` of the expand button when the breadcrumb is collapsed. You can find its default value\r\n>   in the table below too.  \r\n> - If you need to **dynamically change the `aria-label` attribute of `wcs-breadcrumb` after the first render**, you can use the \r\n>   `setAriaAttribute` JS method (example below). For the expand button however, you can update the prop `ariaLabelExpandButton`.  \r\n>   Note: we're working on updating the component automatically when attributes change. \r\n\r\n> ```javascript\r\n> const wcsButton = document.querySelector('wcs-button');\r\n> await wcsButton.setAriaAttribute('aria-label', 'new label');\r\n> ```",
+          "name": "Breadcrumb",
+          "cssProperties": [
+            {
+              "description": "Icon color",
+              "name": "--wcs-breadcrumb-icon-color"
+            },
+            {
+              "description": "Icon font size",
+              "name": "--wcs-breadcrumb-icon-font-size"
+            },
+            {
+              "description": "Gap between breadcrumb items",
+              "name": "--wcs-breadcrumb-gap"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "navEl",
+              "type": {
+                "text": "HTMLElement | undefined"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "expandBtnEl",
+              "type": {
+                "text": "HTMLWcsButtonElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "maxItems",
+              "type": {
+                "text": "number | undefined"
+              },
+              "description": "If the number of breadcrumb items exceeds this maximum,\r\nthe breadcrumb will collapse and show an expand button.  \r\nIf this prop is `undefined`, breadcrumb items will never collapse."
+            },
+            {
+              "kind": "field",
+              "name": "itemsBeforeCollapse",
+              "type": {
+                "text": "number"
+              },
+              "default": "1",
+              "description": "The number of breadcrumb items to show before the expand button.\r\nIf `itemsBeforeCollapse` + `itemsAfterCollapse` is greater than `maxItems`,\r\nthe breadcrumb will not be collapsed."
+            },
+            {
+              "kind": "field",
+              "name": "itemsAfterCollapse",
+              "type": {
+                "text": "number"
+              },
+              "default": "2",
+              "description": "The number of breadcrumb items to show after the expand button.\r\nIf `itemsBeforeCollapse` + `itemsAfterCollapse` is greater than `maxItems`,\r\nthe breadcrumb will not be collapsed."
+            },
+            {
+              "kind": "field",
+              "name": "ariaLabelExpandButton",
+              "type": {
+                "text": "string | undefined"
+              },
+              "default": "EXPAND_BTN_ARIA_LABEL_DEFAULT",
+              "description": "Set `aria-label` for the expand button when the breadcrumb is collapsed."
+            },
+            {
+              "kind": "field",
+              "name": "showHiddenItems",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false",
+              "description": "Show breadcrumb items that are inside the hidden-items slot."
+            },
+            {
+              "kind": "method",
+              "name": "handleCollapsePropsChange"
+            },
+            {
+              "kind": "method",
+              "name": "handleAriaLabelExpandBtnChange",
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "getBreadcrumbItems",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "HTMLWcsBreadcrumbItemElement[]"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "shouldCollapseItems",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "updateCollapsedViewMode",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "assignSlotNamesForCollapsedViewMode",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "description": "Setting slot names on breadcrumb items allows to leverage JSX in the render method."
+            },
+            {
+              "kind": "method",
+              "name": "assignSlotNamesForNonCollapsedViewMode",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handleSlotChange",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handleOnExpandBtnClick",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "setFocusToFirstHiddenItem",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "description": "Avoid losing focus after clicking the expand button.\r\nWe need to give focus back to the first breadcrumb item link that was hidden before."
+            },
+            {
+              "kind": "method",
+              "name": "renderExpandAllButton",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "JSX.Element"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "max-items",
+              "fieldName": "maxItems",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "items-before-collapse",
+              "fieldName": "itemsBeforeCollapse",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "items-after-collapse",
+              "fieldName": "itemsAfterCollapse",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "aria-label-expand-button",
+              "fieldName": "ariaLabelExpandButton",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "tagName": "wcs-breadcrumb",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Breadcrumb",
+          "declaration": {
+            "name": "Breadcrumb",
+            "module": "components/breadcrumb/breadcrumb.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-breadcrumb",
+          "declaration": {
+            "name": "Breadcrumb",
+            "module": "components/breadcrumb/breadcrumb.tsx"
           }
         }
       ]
@@ -1906,6 +2254,50 @@
           "declaration": {
             "name": "Card",
             "module": "components/card/card.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/card-body/card-body.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The card-body is a subcomponent of `wcs-card`. It represents content of the card with an extra padding around.",
+          "name": "CardBody",
+          "cssProperties": [
+            {
+              "description": "Padding of the card body",
+              "name": "--wcs-card-body-padding"
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-card-body",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CardBody",
+          "declaration": {
+            "name": "CardBody",
+            "module": "components/card-body/card-body.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-card-body",
+          "declaration": {
+            "name": "CardBody",
+            "module": "components/card-body/card-body.tsx"
           }
         }
       ]
@@ -2678,573 +3070,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/breadcrumb/breadcrumb-constants.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "NAV_ARIA_LABEL_DEFAULT",
-          "type": {
-            "text": "string"
-          },
-          "default": "'Fil d\\'Ariane'"
-        },
-        {
-          "kind": "variable",
-          "name": "EXPAND_BTN_ARIA_LABEL_DEFAULT",
-          "type": {
-            "text": "string"
-          },
-          "default": "'Étendre le fil d\\'Ariane'"
-        },
-        {
-          "kind": "variable",
-          "name": "ICONS_FONT_CHEVRON_UNICODE",
-          "type": {
-            "text": "string"
-          },
-          "default": "'\\uF107'"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "NAV_ARIA_LABEL_DEFAULT",
-          "declaration": {
-            "name": "NAV_ARIA_LABEL_DEFAULT",
-            "module": "components/breadcrumb/breadcrumb-constants.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "EXPAND_BTN_ARIA_LABEL_DEFAULT",
-          "declaration": {
-            "name": "EXPAND_BTN_ARIA_LABEL_DEFAULT",
-            "module": "components/breadcrumb/breadcrumb-constants.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "ICONS_FONT_CHEVRON_UNICODE",
-          "declaration": {
-            "name": "ICONS_FONT_CHEVRON_UNICODE",
-            "module": "components/breadcrumb/breadcrumb-constants.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/breadcrumb/breadcrumb.e2e.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/breadcrumb/breadcrumb.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "A breadcrumb trail consists of a list of links to the parent pages of the current page in hierarchical order.  \r\nIt helps users find their place within a website or web application. Breadcrumbs are often placed horizontally before a page's main content.\r\n\r\n## Accessibility guidelines 💡\r\n> - If the last item is a link to the current page, you must set the `aria-current` attribute to `page` on `wcs-breadcrumb-item`.\r\n> - If the element representing the current page is not a link, `aria-current` is optional.\r\n> - You can set the attribute `aria-label` on `wcs-breadcrumb`, it will be passed to the native `nav` element located inside its shadow DOM. \r\n>   You can find the `aria-label` default value in the table below. If your application is in English, you can set it to `Breadcrumb`.\r\n> - You can do the same thing for the `aria-label` of the expand button when the breadcrumb is collapsed. You can find its default value\r\n>   in the table below too.  \r\n> - If you need to **dynamically change the `aria-label` attribute of `wcs-breadcrumb` after the first render**, you can use the \r\n>   `setAriaAttribute` JS method (example below). For the expand button however, you can update the prop `ariaLabelExpandButton`.  \r\n>   Note: we're working on updating the component automatically when attributes change. \r\n\r\n> ```javascript\r\n> const wcsButton = document.querySelector('wcs-button');\r\n> await wcsButton.setAriaAttribute('aria-label', 'new label');\r\n> ```",
-          "name": "Breadcrumb",
-          "cssProperties": [
-            {
-              "description": "Icon color",
-              "name": "--wcs-breadcrumb-icon-color"
-            },
-            {
-              "description": "Icon font size",
-              "name": "--wcs-breadcrumb-icon-font-size"
-            },
-            {
-              "description": "Gap between breadcrumb items",
-              "name": "--wcs-breadcrumb-gap"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "navEl",
-              "type": {
-                "text": "HTMLElement | undefined"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "expandBtnEl",
-              "type": {
-                "text": "HTMLWcsButtonElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "maxItems",
-              "type": {
-                "text": "number | undefined"
-              },
-              "description": "If the number of breadcrumb items exceeds this maximum,\r\nthe breadcrumb will collapse and show an expand button.  \r\nIf this prop is `undefined`, breadcrumb items will never collapse."
-            },
-            {
-              "kind": "field",
-              "name": "itemsBeforeCollapse",
-              "type": {
-                "text": "number"
-              },
-              "default": "1",
-              "description": "The number of breadcrumb items to show before the expand button.\r\nIf `itemsBeforeCollapse` + `itemsAfterCollapse` is greater than `maxItems`,\r\nthe breadcrumb will not be collapsed."
-            },
-            {
-              "kind": "field",
-              "name": "itemsAfterCollapse",
-              "type": {
-                "text": "number"
-              },
-              "default": "2",
-              "description": "The number of breadcrumb items to show after the expand button.\r\nIf `itemsBeforeCollapse` + `itemsAfterCollapse` is greater than `maxItems`,\r\nthe breadcrumb will not be collapsed."
-            },
-            {
-              "kind": "field",
-              "name": "ariaLabelExpandButton",
-              "type": {
-                "text": "string | undefined"
-              },
-              "default": "EXPAND_BTN_ARIA_LABEL_DEFAULT",
-              "description": "Set `aria-label` for the expand button when the breadcrumb is collapsed."
-            },
-            {
-              "kind": "field",
-              "name": "showHiddenItems",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "default": "false",
-              "description": "Show breadcrumb items that are inside the hidden-items slot."
-            },
-            {
-              "kind": "method",
-              "name": "handleCollapsePropsChange"
-            },
-            {
-              "kind": "method",
-              "name": "handleAriaLabelExpandBtnChange",
-              "parameters": [
-                {
-                  "name": "newValue",
-                  "type": {
-                    "text": "string"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "getBreadcrumbItems",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "HTMLWcsBreadcrumbItemElement[]"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "shouldCollapseItems",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "boolean"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "updateCollapsedViewMode",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "assignSlotNamesForCollapsedViewMode",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              },
-              "description": "Setting slot names on breadcrumb items allows to leverage JSX in the render method."
-            },
-            {
-              "kind": "method",
-              "name": "assignSlotNamesForNonCollapsedViewMode",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "handleSlotChange",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "handleOnExpandBtnClick",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "setFocusToFirstHiddenItem",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              },
-              "description": "Avoid losing focus after clicking the expand button.\r\nWe need to give focus back to the first breadcrumb item link that was hidden before."
-            },
-            {
-              "kind": "method",
-              "name": "renderExpandAllButton",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "JSX.Element"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "max-items",
-              "fieldName": "maxItems",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "items-before-collapse",
-              "fieldName": "itemsBeforeCollapse",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "items-after-collapse",
-              "fieldName": "itemsAfterCollapse",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "aria-label-expand-button",
-              "fieldName": "ariaLabelExpandButton",
-              "type": {
-                "text": "string"
-              }
-            }
-          ],
-          "tagName": "wcs-breadcrumb",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Breadcrumb",
-          "declaration": {
-            "name": "Breadcrumb",
-            "module": "components/breadcrumb/breadcrumb.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-breadcrumb",
-          "declaration": {
-            "name": "Breadcrumb",
-            "module": "components/breadcrumb/breadcrumb.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/com-nav-category/com-nav-category.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The com-nav-category is a subcomponent of `wcs-com-nav`. It represents a category nested inside a `wcs-com-nav-submenu`.",
-          "name": "ComNavCategory",
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsComNavCategoryElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "nativeButton",
-              "type": {
-                "text": "HTMLButtonElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "label",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "categoryOpen",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "categoryItemsId",
-              "privacy": "private",
-              "default": "`wcs-com-nav-category-items`"
-            },
-            {
-              "kind": "field",
-              "name": "resizeObserver",
-              "type": {
-                "text": "ResizeObserver"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "currentActiveSizing",
-              "type": {
-                "text": "ComNavSize"
-              },
-              "privacy": "private",
-              "default": "'desktop'",
-              "description": "To re-trigger re-render in order to render a button in case of desktop or a heading in mobile case"
-            },
-            {
-              "kind": "method",
-              "name": "onWindowClickEvent",
-              "parameters": [
-                {
-                  "name": "_",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "onSubmenuOpened",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "CustomEvent<CategoryOpenedEventDetail>"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "handleCategoryItemsKeyDown",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "_event",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  },
-                  "description": "the keyboard event"
-                }
-              ],
-              "description": "Handle key down on category items"
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "close",
-              "description": "Close the category"
-            },
-            {
-              "kind": "method",
-              "name": "open",
-              "description": "Opens the category"
-            },
-            {
-              "kind": "method",
-              "name": "onClick",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "evt",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ],
-              "description": "When the user clicks on the menu, we do not propagate the native event and we launch a custom event to manage\r\nthe closing of the menu correctly"
-            },
-            {
-              "kind": "method",
-              "name": "handleItemClick",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "evt",
-                  "type": {
-                    "text": "UIEvent"
-                  }
-                }
-              ],
-              "description": "Close the category and fire item click if we detect a mouse click on a slotted `a` element."
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "label",
-              "fieldName": "label",
-              "type": {
-                "text": "string"
-              }
-            }
-          ],
-          "tagName": "wcs-com-nav-category",
-          "events": [
-            {
-              "name": "wcsCategoryOpened",
-              "type": {
-                "text": "EventEmitter<CategoryOpenedEventDetail>"
-              }
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ComNavCategory",
-          "declaration": {
-            "name": "ComNavCategory",
-            "module": "components/com-nav-category/com-nav-category.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-com-nav-category",
-          "declaration": {
-            "name": "ComNavCategory",
-            "module": "components/com-nav-category/com-nav-category.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/com-nav/com-nav-interface.ts",
       "declarations": [],
       "exports": []
@@ -3487,44 +3312,269 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/card-body/card-body.tsx",
+      "path": "components/com-nav-category/com-nav-category.tsx",
       "declarations": [
         {
           "kind": "class",
-          "description": "The card-body is a subcomponent of `wcs-card`. It represents content of the card with an extra padding around.",
-          "name": "CardBody",
-          "cssProperties": [
-            {
-              "description": "Padding of the card body",
-              "name": "--wcs-card-body-padding"
-            }
-          ],
+          "description": "The com-nav-category is a subcomponent of `wcs-com-nav`. It represents a category nested inside a `wcs-com-nav-submenu`.",
+          "name": "ComNavCategory",
           "members": [
             {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsComNavCategoryElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeButton",
+              "type": {
+                "text": "HTMLButtonElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "categoryOpen",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "categoryItemsId",
+              "privacy": "private",
+              "default": "`wcs-com-nav-category-items`"
+            },
+            {
+              "kind": "field",
+              "name": "resizeObserver",
+              "type": {
+                "text": "ResizeObserver"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "currentActiveSizing",
+              "type": {
+                "text": "ComNavSize"
+              },
+              "privacy": "private",
+              "default": "'desktop'",
+              "description": "To re-trigger re-render in order to render a button in case of desktop or a heading in mobile case"
+            },
+            {
               "kind": "method",
-              "name": "render"
+              "name": "onWindowClickEvent",
+              "parameters": [
+                {
+                  "name": "_",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "onSubmenuOpened",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "CustomEvent<CategoryOpenedEventDetail>"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleCategoryItemsKeyDown",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "_event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  },
+                  "description": "the keyboard event"
+                }
+              ],
+              "description": "Handle key down on category items"
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "close",
+              "description": "Close the category"
+            },
+            {
+              "kind": "method",
+              "name": "open",
+              "description": "Opens the category"
+            },
+            {
+              "kind": "method",
+              "name": "onClick",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "evt",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ],
+              "description": "When the user clicks on the menu, we do not propagate the native event and we launch a custom event to manage\r\nthe closing of the menu correctly"
+            },
+            {
+              "kind": "method",
+              "name": "handleItemClick",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "evt",
+                  "type": {
+                    "text": "UIEvent"
+                  }
+                }
+              ],
+              "description": "Close the category and fire item click if we detect a mouse click on a slotted `a` element."
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
             }
           ],
-          "tagName": "wcs-card-body",
-          "events": [],
+          "attributes": [
+            {
+              "name": "label",
+              "fieldName": "label",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "tagName": "wcs-com-nav-category",
+          "events": [
+            {
+              "name": "wcsCategoryOpened",
+              "type": {
+                "text": "EventEmitter<CategoryOpenedEventDetail>"
+              }
+            }
+          ],
           "customElement": true
         }
       ],
       "exports": [
         {
           "kind": "js",
-          "name": "CardBody",
+          "name": "ComNavCategory",
           "declaration": {
-            "name": "CardBody",
-            "module": "components/card-body/card-body.tsx"
+            "name": "ComNavCategory",
+            "module": "components/com-nav-category/com-nav-category.tsx"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "wcs-card-body",
+          "name": "wcs-com-nav-category",
           "declaration": {
-            "name": "CardBody",
-            "module": "components/card-body/card-body.tsx"
+            "name": "ComNavCategory",
+            "module": "components/com-nav-category/com-nav-category.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/com-nav-item/com-nav-item.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The com-nav-item is a subcomponent of `wcs-com-nav`. It represents a list-item wrapper around a link.",
+          "name": "ComNavItem",
+          "members": [
+            {
+              "kind": "method",
+              "name": "onClick"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-com-nav-item",
+          "events": [
+            {
+              "name": "wcsClickOnFinalAction",
+              "type": {
+                "text": "EventEmitter<void>"
+              },
+              "description": "Emitted when a user click on a final navigation action.\r\n\r\nUsed by the com-nav component to close the mobile menu overlay when a user click on a final action."
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ComNavItem",
+          "declaration": {
+            "name": "ComNavItem",
+            "module": "components/com-nav-item/com-nav-item.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-com-nav-item",
+          "declaration": {
+            "name": "ComNavItem",
+            "module": "components/com-nav-item/com-nav-item.tsx"
           }
         }
       ]
@@ -3800,6 +3850,467 @@
           "declaration": {
             "name": "ComNavSubmenu",
             "module": "components/com-nav-submenu/com-nav-submenu.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/counter/counter-interface.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "WcsCounterSizeValues",
+          "type": {
+            "text": "['m', 'l']"
+          },
+          "default": "['m', 'l']"
+        },
+        {
+          "kind": "function",
+          "name": "isWcsCounterSize",
+          "return": {
+            "type": {
+              "text": "size is WcsCounterSize"
+            }
+          },
+          "parameters": [
+            {
+              "name": "size",
+              "type": {
+                "text": "string"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "WcsCounterSizeValues",
+          "declaration": {
+            "name": "WcsCounterSizeValues",
+            "module": "components/counter/counter-interface.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "isWcsCounterSize",
+          "declaration": {
+            "name": "isWcsCounterSize",
+            "module": "components/counter/counter-interface.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/counter/counter.e2e.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/counter/counter.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Counter component, meant to be used for small range of values (e.g : 0 - 5).<br>\r\nFor larger or specific ranges, please use [wcs-input (type number)](.?path=/docs/components-input--documentation)",
+          "name": "Counter",
+          "cssProperties": [
+            {
+              "description": "Color of the focus outline",
+              "name": "--wcs-counter-outline-color-focus"
+            },
+            {
+              "description": "Default color of the value",
+              "name": "--wcs-counter-value-color-default"
+            },
+            {
+              "description": "Color of the text when the counter is disabled",
+              "name": "--wcs-counter-value-color-disabled"
+            },
+            {
+              "description": "Default font weight of the value",
+              "name": "--wcs-counter-font-weight-default"
+            },
+            {
+              "description": "Font weight of the value when the counter is disabled",
+              "name": "--wcs-counter-font-weight-disabled"
+            },
+            {
+              "description": "Background color of the counter",
+              "name": "--wcs-counter-background-color"
+            },
+            {
+              "description": "Border radius of the counter",
+              "name": "--wcs-counter-border-radius"
+            },
+            {
+              "description": "Height medium of the counter",
+              "name": "--wcs-counter-height-m"
+            },
+            {
+              "description": "Height large of the counter",
+              "name": "--wcs-counter-height-l"
+            },
+            {
+              "description": "Padding medium of the counter",
+              "name": "--wcs-counter-padding-m"
+            },
+            {
+              "description": "Padding large of the counter",
+              "name": "--wcs-counter-padding-l"
+            },
+            {
+              "description": "Font size medium of the counter",
+              "name": "--wcs-counter-font-size-m"
+            },
+            {
+              "description": "Font size large of the counter",
+              "name": "--wcs-counter-font-size-l"
+            },
+            {
+              "description": "Gap between the buttons and the label",
+              "name": "--wcs-counter-gap"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "spinButton",
+              "type": {
+                "text": "HTMLSpanElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "counterContainer",
+              "type": {
+                "text": "HTMLDivElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "WcsCounterSize"
+              },
+              "default": "'m'",
+              "description": "Specify the size (height) of the counter."
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "description": "The label of the counter.<br/>\r\ne.g. Number of passengers, train carriages, railroad tracks..."
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Specify whether the counter is disabled or not."
+            },
+            {
+              "kind": "field",
+              "name": "min",
+              "type": {
+                "text": "number | undefined"
+              },
+              "description": "The minimum value of the counter.\r\nIf the value of the min attribute isn't set, then the element has no minimum value."
+            },
+            {
+              "kind": "field",
+              "name": "max",
+              "type": {
+                "text": "number | undefined"
+              },
+              "description": "The maximum value of the counter.\r\nIf the value of the max attribute isn't set, then the element has no maximum value."
+            },
+            {
+              "kind": "field",
+              "name": "step",
+              "type": {
+                "text": "number"
+              },
+              "default": "1",
+              "description": "Defines by how much the counter will be incremented or decremented."
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "number"
+              },
+              "description": "The current value of the counter."
+            },
+            {
+              "kind": "field",
+              "name": "displayedValue",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "description": "Only for animation and display purpose"
+            },
+            {
+              "kind": "field",
+              "name": "animateRunning",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "valueChange",
+              "parameters": [
+                {
+                  "name": "newVal",
+                  "type": {
+                    "text": "any"
+                  }
+                },
+                {
+                  "name": "oldVal",
+                  "type": {
+                    "text": "any"
+                  }
+                }
+              ],
+              "description": "Current value change => handle event and interval"
+            },
+            {
+              "kind": "method",
+              "name": "handleValueChange",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "updateDisplayValueIfNoAnimationRunning",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "ensureValueIsNotOutOfMinMax",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "setMinimumIfValueIsUndefinedOrNull",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "onKeyDown",
+              "parameters": [
+                {
+                  "name": "_event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "notifyChange",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleDecrement",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleIncrement",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "animate",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "size",
+              "fieldName": "size",
+              "type": {
+                "text": "WcsCounterSize"
+              }
+            },
+            {
+              "name": "label",
+              "fieldName": "label",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "disabled",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "min",
+              "fieldName": "min",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "max",
+              "fieldName": "max",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "step",
+              "fieldName": "step",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "value",
+              "fieldName": "value",
+              "type": {
+                "text": "number"
+              }
+            }
+          ],
+          "tagName": "wcs-counter",
+          "events": [
+            {
+              "name": "wcsChange",
+              "type": {
+                "text": "EventEmitter<CounterChangeEventDetail>"
+              },
+              "description": "Emitted when the value of the counter has changed."
+            },
+            {
+              "name": "wcsBlur",
+              "type": {
+                "text": "EventEmitter<FocusEvent>"
+              },
+              "description": "Emitted when the counter loses focus."
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Counter",
+          "declaration": {
+            "name": "Counter",
+            "module": "components/counter/counter.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-counter",
+          "declaration": {
+            "name": "Counter",
+            "module": "components/counter/counter.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/divider/divider.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The divider is a separator between two elements, consisting of a horizontal line.",
+          "name": "Divider",
+          "cssProperties": [
+            {
+              "description": "Color of the divider",
+              "name": "--wcs-divider-color"
+            },
+            {
+              "description": "Height (border-width) of the divider",
+              "name": "--wcs-divider-height"
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-divider",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Divider",
+          "declaration": {
+            "name": "Divider",
+            "module": "components/divider/divider.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-divider",
+          "declaration": {
+            "name": "Divider",
+            "module": "components/divider/divider.tsx"
           }
         }
       ]
@@ -4313,517 +4824,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/com-nav-item/com-nav-item.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The com-nav-item is a subcomponent of `wcs-com-nav`. It represents a list-item wrapper around a link.",
-          "name": "ComNavItem",
-          "members": [
-            {
-              "kind": "method",
-              "name": "onClick"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-com-nav-item",
-          "events": [
-            {
-              "name": "wcsClickOnFinalAction",
-              "type": {
-                "text": "EventEmitter<void>"
-              },
-              "description": "Emitted when a user click on a final navigation action.\r\n\r\nUsed by the com-nav component to close the mobile menu overlay when a user click on a final action."
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ComNavItem",
-          "declaration": {
-            "name": "ComNavItem",
-            "module": "components/com-nav-item/com-nav-item.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-com-nav-item",
-          "declaration": {
-            "name": "ComNavItem",
-            "module": "components/com-nav-item/com-nav-item.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/counter/counter-interface.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "WcsCounterSizeValues",
-          "type": {
-            "text": "['m', 'l']"
-          },
-          "default": "['m', 'l']"
-        },
-        {
-          "kind": "function",
-          "name": "isWcsCounterSize",
-          "return": {
-            "type": {
-              "text": "size is WcsCounterSize"
-            }
-          },
-          "parameters": [
-            {
-              "name": "size",
-              "type": {
-                "text": "string"
-              }
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "WcsCounterSizeValues",
-          "declaration": {
-            "name": "WcsCounterSizeValues",
-            "module": "components/counter/counter-interface.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "isWcsCounterSize",
-          "declaration": {
-            "name": "isWcsCounterSize",
-            "module": "components/counter/counter-interface.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/counter/counter.e2e.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/counter/counter.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Counter component, meant to be used for small range of values (e.g : 0 - 5).<br>\r\nFor larger or specific ranges, please use [wcs-input (type number)](.?path=/docs/components-input--documentation)",
-          "name": "Counter",
-          "cssProperties": [
-            {
-              "description": "Color of the focus outline",
-              "name": "--wcs-counter-outline-color-focus"
-            },
-            {
-              "description": "Default color of the value",
-              "name": "--wcs-counter-value-color-default"
-            },
-            {
-              "description": "Color of the text when the counter is disabled",
-              "name": "--wcs-counter-value-color-disabled"
-            },
-            {
-              "description": "Default font weight of the value",
-              "name": "--wcs-counter-font-weight-default"
-            },
-            {
-              "description": "Font weight of the value when the counter is disabled",
-              "name": "--wcs-counter-font-weight-disabled"
-            },
-            {
-              "description": "Background color of the counter",
-              "name": "--wcs-counter-background-color"
-            },
-            {
-              "description": "Border radius of the counter",
-              "name": "--wcs-counter-border-radius"
-            },
-            {
-              "description": "Height medium of the counter",
-              "name": "--wcs-counter-height-m"
-            },
-            {
-              "description": "Height large of the counter",
-              "name": "--wcs-counter-height-l"
-            },
-            {
-              "description": "Padding medium of the counter",
-              "name": "--wcs-counter-padding-m"
-            },
-            {
-              "description": "Padding large of the counter",
-              "name": "--wcs-counter-padding-l"
-            },
-            {
-              "description": "Font size medium of the counter",
-              "name": "--wcs-counter-font-size-m"
-            },
-            {
-              "description": "Font size large of the counter",
-              "name": "--wcs-counter-font-size-l"
-            },
-            {
-              "description": "Gap between the buttons and the label",
-              "name": "--wcs-counter-gap"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "spinButton",
-              "type": {
-                "text": "HTMLSpanElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "counterContainer",
-              "type": {
-                "text": "HTMLDivElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "WcsCounterSize"
-              },
-              "default": "'m'",
-              "description": "Specify the size (height) of the counter."
-            },
-            {
-              "kind": "field",
-              "name": "label",
-              "type": {
-                "text": "string"
-              },
-              "description": "The label of the counter.<br/>\r\ne.g. Number of passengers, train carriages, railroad tracks..."
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Specify whether the counter is disabled or not."
-            },
-            {
-              "kind": "field",
-              "name": "min",
-              "type": {
-                "text": "number | undefined"
-              },
-              "description": "The minimum value of the counter.\r\nIf the value of the min attribute isn't set, then the element has no minimum value."
-            },
-            {
-              "kind": "field",
-              "name": "max",
-              "type": {
-                "text": "number | undefined"
-              },
-              "description": "The maximum value of the counter.\r\nIf the value of the max attribute isn't set, then the element has no maximum value."
-            },
-            {
-              "kind": "field",
-              "name": "step",
-              "type": {
-                "text": "number"
-              },
-              "default": "1",
-              "description": "Defines by how much the counter will be incremented or decremented."
-            },
-            {
-              "kind": "field",
-              "name": "value",
-              "type": {
-                "text": "number"
-              },
-              "description": "The current value of the counter."
-            },
-            {
-              "kind": "field",
-              "name": "displayedValue",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "description": "Only for animation and display purpose"
-            },
-            {
-              "kind": "field",
-              "name": "animateRunning",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "default": "false"
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "valueChange",
-              "parameters": [
-                {
-                  "name": "newVal",
-                  "type": {
-                    "text": "any"
-                  }
-                },
-                {
-                  "name": "oldVal",
-                  "type": {
-                    "text": "any"
-                  }
-                }
-              ],
-              "description": "Current value change => handle event and interval"
-            },
-            {
-              "kind": "method",
-              "name": "handleValueChange",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "updateDisplayValueIfNoAnimationRunning",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "ensureValueIsNotOutOfMinMax",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "setMinimumIfValueIsUndefinedOrNull",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "onKeyDown",
-              "parameters": [
-                {
-                  "name": "_event",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "notifyChange",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "handleDecrement",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "handleIncrement",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "animate",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "size",
-              "fieldName": "size",
-              "type": {
-                "text": "WcsCounterSize"
-              }
-            },
-            {
-              "name": "label",
-              "fieldName": "label",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "disabled",
-              "fieldName": "disabled"
-            },
-            {
-              "name": "min",
-              "fieldName": "min",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "max",
-              "fieldName": "max",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "step",
-              "fieldName": "step",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "value",
-              "fieldName": "value",
-              "type": {
-                "text": "number"
-              }
-            }
-          ],
-          "tagName": "wcs-counter",
-          "events": [
-            {
-              "name": "wcsChange",
-              "type": {
-                "text": "EventEmitter<CounterChangeEventDetail>"
-              },
-              "description": "Emitted when the value of the counter has changed."
-            },
-            {
-              "name": "wcsBlur",
-              "type": {
-                "text": "EventEmitter<FocusEvent>"
-              },
-              "description": "Emitted when the counter loses focus."
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Counter",
-          "declaration": {
-            "name": "Counter",
-            "module": "components/counter/counter.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-counter",
-          "declaration": {
-            "name": "Counter",
-            "module": "components/counter/counter.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/divider/divider.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The divider is a separator between two elements, consisting of a horizontal line.",
-          "name": "Divider",
-          "cssProperties": [
-            {
-              "description": "Color of the divider",
-              "name": "--wcs-divider-color"
-            },
-            {
-              "description": "Height (border-width) of the divider",
-              "name": "--wcs-divider-height"
-            }
-          ],
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-divider",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Divider",
-          "declaration": {
-            "name": "Divider",
-            "module": "components/divider/divider.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-divider",
-          "declaration": {
-            "name": "Divider",
-            "module": "components/divider/divider.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/dropdown-divider/dropdown-divider.tsx",
       "declarations": [
         {
@@ -4900,6 +4900,146 @@
           "declaration": {
             "name": "DropdownHeader",
             "module": "components/dropdown-header/dropdown-header.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/dropdown-item/dropdown-item.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "You must add `wcs-dropdown-item` to `wcs-dropdown`",
+          "name": "DropdownItem",
+          "cssProperties": [
+            {
+              "description": "Height of the dropdown item",
+              "name": "--wcs-dropdown-item-height"
+            },
+            {
+              "description": "Padding horizontal",
+              "name": "--wcs-dropdown-item-padding-horizontal"
+            },
+            {
+              "description": "Padding vertical",
+              "name": "--wcs-dropdown-item-padding-vertical"
+            },
+            {
+              "description": "Font weight of the dropdown item",
+              "name": "--wcs-dropdown-item-text-font-weight"
+            },
+            {
+              "description": "Default text color of the dropdown item",
+              "name": "--wcs-dropdown-item-text-color-default"
+            },
+            {
+              "description": "Text color of the dropdown item when focused",
+              "name": "--wcs-dropdown-item-text-color-focus"
+            },
+            {
+              "description": "Text color of the dropdown item when hovered",
+              "name": "--wcs-dropdown-item-text-color-hover"
+            },
+            {
+              "description": "Default background color of the dropdown item",
+              "name": "--wcs-dropdown-item-background-color-default"
+            },
+            {
+              "description": "Background color of the dropdown item when focused",
+              "name": "--wcs-dropdown-item-background-color-focus"
+            },
+            {
+              "description": "Background color of the dropdown item when hovered",
+              "name": "--wcs-dropdown-item-background-color-hover"
+            },
+            {
+              "description": "Border width of the dropdown item when focused",
+              "name": "--wcs-dropdown-item-border-width-focus"
+            },
+            {
+              "description": "Border color of the dropdown item when focused",
+              "name": "--wcs-dropdown-item-border-color-focus"
+            },
+            {
+              "description": "Border radius of the dropdown item when focused",
+              "name": "--wcs-dropdown-item-border-radius-focus"
+            }
+          ],
+          "slots": [
+            {
+              "description": "the slot that contains the item's name",
+              "name": "<no-name>"
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "onMouseDown",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "_",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "onKeyDown",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "evt",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-dropdown-item",
+          "events": [
+            {
+              "name": "wcsDropdownItemClick",
+              "type": {
+                "text": "EventEmitter<void>"
+              },
+              "description": "Event emitted when the dropdown item is clicked"
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "DropdownItem",
+          "declaration": {
+            "name": "DropdownItem",
+            "module": "components/dropdown-item/dropdown-item.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-dropdown-item",
+          "declaration": {
+            "name": "DropdownItem",
+            "module": "components/dropdown-item/dropdown-item.tsx"
           }
         }
       ]
@@ -5408,146 +5548,6 @@
           "declaration": {
             "name": "EditableField",
             "module": "components/editable-field/editable-field.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/dropdown-item/dropdown-item.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "You must add `wcs-dropdown-item` to `wcs-dropdown`",
-          "name": "DropdownItem",
-          "cssProperties": [
-            {
-              "description": "Height of the dropdown item",
-              "name": "--wcs-dropdown-item-height"
-            },
-            {
-              "description": "Padding horizontal",
-              "name": "--wcs-dropdown-item-padding-horizontal"
-            },
-            {
-              "description": "Padding vertical",
-              "name": "--wcs-dropdown-item-padding-vertical"
-            },
-            {
-              "description": "Font weight of the dropdown item",
-              "name": "--wcs-dropdown-item-text-font-weight"
-            },
-            {
-              "description": "Default text color of the dropdown item",
-              "name": "--wcs-dropdown-item-text-color-default"
-            },
-            {
-              "description": "Text color of the dropdown item when focused",
-              "name": "--wcs-dropdown-item-text-color-focus"
-            },
-            {
-              "description": "Text color of the dropdown item when hovered",
-              "name": "--wcs-dropdown-item-text-color-hover"
-            },
-            {
-              "description": "Default background color of the dropdown item",
-              "name": "--wcs-dropdown-item-background-color-default"
-            },
-            {
-              "description": "Background color of the dropdown item when focused",
-              "name": "--wcs-dropdown-item-background-color-focus"
-            },
-            {
-              "description": "Background color of the dropdown item when hovered",
-              "name": "--wcs-dropdown-item-background-color-hover"
-            },
-            {
-              "description": "Border width of the dropdown item when focused",
-              "name": "--wcs-dropdown-item-border-width-focus"
-            },
-            {
-              "description": "Border color of the dropdown item when focused",
-              "name": "--wcs-dropdown-item-border-color-focus"
-            },
-            {
-              "description": "Border radius of the dropdown item when focused",
-              "name": "--wcs-dropdown-item-border-radius-focus"
-            }
-          ],
-          "slots": [
-            {
-              "description": "the slot that contains the item's name",
-              "name": "<no-name>"
-            }
-          ],
-          "members": [
-            {
-              "kind": "method",
-              "name": "onMouseDown",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "_",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "onKeyDown",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "evt",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-dropdown-item",
-          "events": [
-            {
-              "name": "wcsDropdownItemClick",
-              "type": {
-                "text": "EventEmitter<void>"
-              },
-              "description": "Event emitted when the dropdown item is clicked"
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "DropdownItem",
-          "declaration": {
-            "name": "DropdownItem",
-            "module": "components/dropdown-item/dropdown-item.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-dropdown-item",
-          "declaration": {
-            "name": "DropdownItem",
-            "module": "components/dropdown-item/dropdown-item.tsx"
           }
         }
       ]
@@ -6219,6 +6219,218 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/galactic-menu/galactic-menu.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "*Part of communication design system*\r\nYou can put a wcs-galactic-menu inside a wcs-galactic component to add an extra menu",
+          "name": "Galactic",
+          "cssProperties": [
+            {
+              "description": "Background color of the menu",
+              "name": "--wcs-galactic-menu-background-color"
+            },
+            {
+              "description": "Horizontal padding of the menu",
+              "name": "--wcs-galactic-menu-padding-horizontal"
+            },
+            {
+              "description": "Gap between items in the menu",
+              "name": "--wcs-galactic-menu-gap"
+            },
+            {
+              "description": "Height of the menu",
+              "name": "--wcs-galactic-menu-height"
+            },
+            {
+              "description": "Color of the focus outline on the icon",
+              "name": "--wcs-galactic-menu-icon-focus-outline-color"
+            },
+            {
+              "description": "Background color of the overlay",
+              "name": "--wcs-galactic-menu-overlay-background-color"
+            },
+            {
+              "description": "Padding of the overlay",
+              "name": "--wcs-galactic-menu-overlay-padding"
+            },
+            {
+              "description": "Color of the overlay",
+              "name": "--wcs-galactic-menu-overlay-color"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Main container slot",
+              "name": "<no-name>"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsGalacticMenuElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "menuButton",
+              "type": {
+                "text": "HTMLWcsMatIconElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "showPopoverMenu",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "popper",
+              "type": {
+                "text": "Instance"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "text",
+              "type": {
+                "text": "string"
+              },
+              "description": "Text to be displayed in the galactic bar"
+            },
+            {
+              "kind": "field",
+              "name": "menu",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "tooltip",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "onWindowClickEvent",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "onKeyDown",
+              "parameters": [
+                {
+                  "name": "_event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "toggleMenu",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleMenuButtonKeyDown",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "_event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "text",
+              "fieldName": "text",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "tagName": "wcs-galactic-menu",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Galactic",
+          "declaration": {
+            "name": "Galactic",
+            "module": "components/galactic-menu/galactic-menu.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-galactic-menu",
+          "declaration": {
+            "name": "Galactic",
+            "module": "components/galactic-menu/galactic-menu.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/grid/grid-interface.ts",
       "declarations": [
         {
@@ -6326,60 +6538,118 @@
           "name": "Grid",
           "cssProperties": [
             {
-              "description": "Color for selected rows",
-              "name": "--wcs-grid-highlight-color"
-            },
-            {
-              "description": "Left border of all grid headers",
-              "name": "--wcs-grid-column-border-left"
-            },
-            {
-              "description": "Text color of **all** headers",
-              "name": "--wcs-grid-header-text-color"
-            },
-            {
-              "description": "Color of the sort arrow in **all** headers",
-              "name": "--wcs-grid-header-sort-arrow-color"
-            },
-            {
-              "description": "Background color of **all** headers",
-              "name": "--wcs-grid-header-background-color"
-            },
-            {
-              "description": "Background color of **all** rows",
-              "name": "--wcs-grid-row-background-color"
-            },
-            {
-              "description": "Background color of **even** rows",
-              "name": "--wcs-grid-row-even-background-color"
-            },
-            {
-              "description": "Background color of **odd** rows",
-              "name": "--wcs-grid-row-odd-background-color"
-            },
-            {
               "description": "Gap between grid cells (horizontal, vertical using `border-spacing` property)",
               "name": "--wcs-grid-gap"
             },
             {
-              "description": "Border radius of the first cell of a row",
-              "name": "--wcs-grid-first-cell-border-radius"
+              "description": "Vertical alignment of grid cells",
+              "name": "--wcs-grid-vertical-align"
             },
             {
-              "description": "Border radius of the last cell of a row",
-              "name": "--wcs-grid-last-cell-border-radius"
+              "description": "Outline color for grid cells",
+              "name": "--wcs-grid-outline-color"
             },
             {
-              "description": "Border between grid cells",
-              "name": "--wcs-grid-cell-separator-border"
+              "description": "Text color of all grid cells",
+              "name": "--wcs-grid-cell-text-color"
             },
             {
-              "description": "Border bottom of all grid cells",
+              "description": "Horizontal padding of grid cells",
+              "name": "--wcs-grid-cell-padding-horizontal"
+            },
+            {
+              "description": "Vertical padding of grid cells",
+              "name": "--wcs-grid-cell-padding-vertical"
+            },
+            {
+              "description": "Bottom border of grid cells",
               "name": "--wcs-grid-cell-border-bottom"
             },
             {
-              "description": "(For `wcs-grid-column`) Border radius of the header cell",
+              "description": "Separator border between grid cells",
+              "name": "--wcs-grid-cell-separator-border"
+            },
+            {
+              "description": "Border radius of the first cell in a row",
+              "name": "--wcs-grid-first-cell-border-radius"
+            },
+            {
+              "description": "Border radius of the last cell in a row",
+              "name": "--wcs-grid-last-cell-border-radius"
+            },
+            {
+              "description": "Background color for selected rows",
+              "name": "--wcs-grid-highlight-color"
+            },
+            {
+              "description": "Background color of all rows",
+              "name": "--wcs-grid-row-background-color"
+            },
+            {
+              "description": "Background color of odd rows",
+              "name": "--wcs-grid-row-odd-background-color"
+            },
+            {
+              "description": "Background color of even rows",
+              "name": "--wcs-grid-row-even-background-color"
+            },
+            {
+              "description": "Width of the selection column",
+              "name": "--wcs-grid-column-selection-width"
+            },
+            {
+              "description": "Left border of all grid headers (within `<thead>`)",
+              "name": "--wcs-grid-header-border-left"
+            },
+            {
+              "description": "Bottom border of the `<thead>`",
+              "name": "--wcs-grid-header-border-bottom"
+            },
+            {
+              "description": "Background color of all headers",
+              "name": "--wcs-grid-header-background-color"
+            },
+            {
+              "description": "Text color of all headers",
+              "name": "--wcs-grid-header-text-color"
+            },
+            {
+              "description": "Font weight of all headers",
+              "name": "--wcs-grid-header-font-weight"
+            },
+            {
+              "description": "Font size of all headers",
+              "name": "--wcs-grid-header-font-size"
+            },
+            {
+              "description": "Line height of all headers",
+              "name": "--wcs-grid-header-line-height"
+            },
+            {
+              "description": "Border radius of all headers",
               "name": "--wcs-grid-header-border-radius"
+            },
+            {
+              "description": "Bottom border of all headers",
+              "name": "--wcs-grid-header-border-bottom"
+            },
+            {
+              "description": "Color of the sort arrow in the header",
+              "name": "--wcs-grid-header-sort-arrow-color-default"
+            },
+            {
+              "description": "Color of the sort arrow in the header when active",
+              "name": "--wcs-grid-header-sort-arrow-color-active"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "CSS part for the checkbox in the selection column that selects all rows",
+              "name": "all-rows-checkbox"
+            },
+            {
+              "description": "CSS part for the checkbox of each row in the selection column",
+              "name": "row-checkbox"
             }
           ],
           "slots": [
@@ -7170,218 +7440,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/galactic-menu/galactic-menu.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "*Part of communication design system*\r\nYou can put a wcs-galactic-menu inside a wcs-galactic component to add an extra menu",
-          "name": "Galactic",
-          "cssProperties": [
-            {
-              "description": "Background color of the menu",
-              "name": "--wcs-galactic-menu-background-color"
-            },
-            {
-              "description": "Horizontal padding of the menu",
-              "name": "--wcs-galactic-menu-padding-horizontal"
-            },
-            {
-              "description": "Gap between items in the menu",
-              "name": "--wcs-galactic-menu-gap"
-            },
-            {
-              "description": "Height of the menu",
-              "name": "--wcs-galactic-menu-height"
-            },
-            {
-              "description": "Color of the focus outline on the icon",
-              "name": "--wcs-galactic-menu-icon-focus-outline-color"
-            },
-            {
-              "description": "Background color of the overlay",
-              "name": "--wcs-galactic-menu-overlay-background-color"
-            },
-            {
-              "description": "Padding of the overlay",
-              "name": "--wcs-galactic-menu-overlay-padding"
-            },
-            {
-              "description": "Color of the overlay",
-              "name": "--wcs-galactic-menu-overlay-color"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Main container slot",
-              "name": "<no-name>"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsGalacticMenuElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "menuButton",
-              "type": {
-                "text": "HTMLWcsMatIconElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "showPopoverMenu",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "popper",
-              "type": {
-                "text": "Instance"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "text",
-              "type": {
-                "text": "string"
-              },
-              "description": "Text to be displayed in the galactic bar"
-            },
-            {
-              "kind": "field",
-              "name": "menu",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "tooltip",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "onWindowClickEvent",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "onKeyDown",
-              "parameters": [
-                {
-                  "name": "_event",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "toggleMenu",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleMenuButtonKeyDown",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "_event",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "text",
-              "fieldName": "text",
-              "type": {
-                "text": "string"
-              }
-            }
-          ],
-          "tagName": "wcs-galactic-menu",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Galactic",
-          "declaration": {
-            "name": "Galactic",
-            "module": "components/galactic-menu/galactic-menu.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-galactic-menu",
-          "declaration": {
-            "name": "Galactic",
-            "module": "components/galactic-menu/galactic-menu.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/grid-column/grid-column.tsx",
       "declarations": [
         {
@@ -7390,16 +7448,44 @@
           "name": "GridColumn",
           "cssProperties": [
             {
-              "description": "Border separator between column names",
-              "name": "--wcs-grid-column-border-left"
+              "description": "Background color of the header cell",
+              "name": "--wcs-grid-header-background-color"
+            },
+            {
+              "description": "Text color of the header cell",
+              "name": "--wcs-grid-header-text-color"
+            },
+            {
+              "description": "Font weight of the header cellJ",
+              "name": "--wcs-grid-header-font-weight"
+            },
+            {
+              "description": "Font size of the header cell",
+              "name": "--wcs-grid-header-font-size"
+            },
+            {
+              "description": "Line height of the header cell",
+              "name": "--wcs-grid-header-line-height"
             },
             {
               "description": "Border radius of the header cell",
               "name": "--wcs-grid-header-border-radius"
             },
             {
-              "description": "Background color of the header cell",
-              "name": "--wcs-grid-header-background-color"
+              "description": "Bottom border of the header cell",
+              "name": "--wcs-grid-header-border-bottom"
+            },
+            {
+              "description": "Border separator between column names",
+              "name": "--wcs-grid-column-border-left"
+            },
+            {
+              "description": "Color of the sort arrow in the header",
+              "name": "--wcs-grid-header-sort-arrow-color-default"
+            },
+            {
+              "description": "Color of the sort arrow in the header when active",
+              "name": "--wcs-grid-header-sort-arrow-color-active"
             }
           ],
           "cssParts": [
@@ -7839,304 +7925,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/grid-pagination/grid-pagination-arrow.tsx",
-      "declarations": [
-        {
-          "kind": "function",
-          "name": "GridPaginationArrow",
-          "parameters": [
-            {
-              "name": "{active, order, double = false}"
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "GridPaginationArrow",
-          "declaration": {
-            "name": "GridPaginationArrow",
-            "module": "components/grid-pagination/grid-pagination-arrow.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/grid-pagination/grid-pagination.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The grid pagination is a subcomponent of `wcs-grid`, slotted in `grid-pagination` under the `<table>` element.",
-          "name": "GridPagination",
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "nativeNav",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "INDEX_FIRST_PAGE",
-              "type": {
-                "text": "number"
-              },
-              "static": true,
-              "readonly": true,
-              "default": "0"
-            },
-            {
-              "kind": "field",
-              "name": "availablePageSizes",
-              "type": {
-                "text": "number[]"
-              },
-              "default": "[10, 20, 50]",
-              "description": "Set the available page sizes in the pagination dropdown on the left."
-            },
-            {
-              "kind": "field",
-              "name": "currentPage",
-              "type": {
-                "text": "number"
-              },
-              "description": "The current page of the pagination. First page starts at index 0."
-            },
-            {
-              "kind": "field",
-              "name": "pageSize",
-              "type": {
-                "text": "number"
-              },
-              "default": "this.availablePageSizes[0]",
-              "description": "Maximum number of elements shown per page.  \r\nDefault is the first value of `availablePageSizes`."
-            },
-            {
-              "kind": "field",
-              "name": "itemsCount",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "Total elements in the grid.  \r\n- **Grid in `Server mode`** : You have to set `itemsCount` = your total data length.  \r\n- **Grid not in Server mode** : Do not set it manually : itemsCount is set and updated every pagination refresh."
-            },
-            {
-              "kind": "field",
-              "name": "pageCount",
-              "type": {
-                "text": "number"
-              },
-              "default": "1",
-              "description": "Max number of pages.  \r\n- **Grid in `Server mode`** : You have to set `pageCount` = `itemsCount` divided by `pageSize`.  \r\n- **Grid not in Server mode** : Do not set it manually : pageCount is set and updated every pagination refresh."
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "lastPage",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "nextPage",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "canGoToNextPage",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "boolean"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "previousPage",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "canGoToPreviousPage",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "boolean"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "firstPage",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "onChangePagesize",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "CustomEvent<SelectChangeEventDetail>"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "emitPaginationChange",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "available-page-sizes",
-              "fieldName": "availablePageSizes",
-              "type": {
-                "text": "number[]"
-              }
-            },
-            {
-              "name": "current-page",
-              "fieldName": "currentPage",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "page-size",
-              "fieldName": "pageSize",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "items-count",
-              "fieldName": "itemsCount",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "page-count",
-              "fieldName": "pageCount",
-              "type": {
-                "text": "number"
-              }
-            }
-          ],
-          "tagName": "wcs-grid-pagination",
-          "events": [
-            {
-              "name": "wcsGridPaginationChange",
-              "type": {
-                "text": "EventEmitter<WcsGridPaginationChangeEventDetails>"
-              },
-              "description": "Event emitted when the pagination changes."
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "GridPagination",
-          "declaration": {
-            "name": "GridPagination",
-            "module": "components/grid-pagination/grid-pagination.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-grid-pagination",
-          "declaration": {
-            "name": "GridPagination",
-            "module": "components/grid-pagination/grid-pagination.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/header/header.tsx",
       "declarations": [
         {
@@ -8348,111 +8136,284 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/icon/icon.tsx",
+      "path": "components/horizontal-stepper/horizontal-step.tsx",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "HorizontalStep",
+          "parameters": [
+            {
+              "name": "{\r\n        step,\r\n        checkOnComplete,\r\n        complete,\r\n        passed,\r\n        active,\r\n        first,\r\n        disable,\r\n        onClick\r\n    }"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "HorizontalStep",
+          "declaration": {
+            "name": "HorizontalStep",
+            "module": "components/horizontal-stepper/horizontal-step.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/horizontal-stepper/horizontal-stepper-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/horizontal-stepper/horizontal-stepper.tsx",
       "declarations": [
         {
           "kind": "class",
-          "description": "The icon component is a graphic symbol designed to visually indicate the purpose of an interface element.",
-          "name": "Icon",
+          "description": "The horizontal-stepper is a representation of a user’s progress through a series of discrete steps.",
+          "name": "HorizontalStepper",
+          "cssProperties": [
+            {
+              "description": "Text color of the step by default",
+              "name": "--wcs-horizontal-step-text-color-default"
+            },
+            {
+              "description": "Text color of the step when active",
+              "name": "--wcs-horizontal-step-text-color-active"
+            },
+            {
+              "description": "Text color of step when disabled",
+              "name": "--wcs-horizontal-step-text-color-disabled"
+            }
+          ],
           "members": [
             {
               "kind": "field",
               "name": "el",
               "type": {
-                "text": "HTMLElement"
+                "text": "HTMLWcsHorizontalStepperElement"
               },
               "privacy": "private"
             },
             {
               "kind": "field",
-              "name": "nativeIcon",
+              "name": "currentStep",
               "type": {
-                "text": "HTMLElement"
+                "text": "number"
               },
-              "privacy": "private"
+              "default": "0",
+              "description": "index of the active step. The index corresponds to the index of the step in the 'steps' list"
             },
             {
               "kind": "field",
-              "name": "inheritedAttributes",
+              "name": "steps",
               "type": {
-                "text": "{ [k: string]: any }"
+                "text": "HorizontalStepConfig[]"
+              },
+              "description": "steps to display"
+            },
+            {
+              "kind": "field",
+              "name": "mode",
+              "type": {
+                "text": "HorizontalStepperMode"
+              },
+              "default": "'nonLinear'",
+              "description": "Specifies if the stepper is in linear mode (the user can only click on the next step)\r\nor non-linear (the user can click on any step)"
+            },
+            {
+              "kind": "field",
+              "name": "checkOnComplete",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Specifies whether a check should be displayed when a step is passed."
+            },
+            {
+              "kind": "field",
+              "name": "internalCurrentStepIndex",
+              "type": {
+                "text": "number"
               },
               "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "icon",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px'"
-              }
+              "description": "Used to know which current step index is selected (component internal calculations mainly for the animation)"
             },
             {
               "kind": "method",
-              "name": "setAriaAttribute",
+              "name": "onCurrentStepChange",
               "parameters": [
                 {
-                  "name": "attr",
+                  "name": "newValue",
                   "type": {
-                    "text": "AriaAttributeName"
+                    "text": "number"
                   }
                 },
                 {
-                  "name": "value",
+                  "name": "oldValue",
                   "type": {
-                    "text": "string | null | undefined"
+                    "text": "number"
                   }
                 }
               ]
             },
             {
               "kind": "method",
-              "name": "render"
+              "name": "previous"
+            },
+            {
+              "kind": "method",
+              "name": "next"
+            },
+            {
+              "kind": "method",
+              "name": "navigateToIndex",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "index",
+                  "type": {
+                    "text": "number"
+                  }
+                },
+                {
+                  "name": "direction",
+                  "type": {
+                    "text": "'backward' | 'forward'"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "isComplete",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "step",
+                  "type": {
+                    "text": "HorizontalStepConfig"
+                  }
+                },
+                {
+                  "name": "index",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "renderLabels",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "isDisable",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "step"
+                },
+                {
+                  "name": "index"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "isNextPossibleStep",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "index"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "previousStepIsCompleteAndNotActive",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "index"
+                }
+              ]
             }
           ],
           "attributes": [
             {
-              "name": "icon",
-              "fieldName": "icon",
+              "name": "current-step",
+              "fieldName": "currentStep",
               "type": {
-                "text": "string"
+                "text": "number"
               }
             },
             {
-              "name": "size",
-              "fieldName": "size",
+              "name": "steps",
+              "fieldName": "steps",
               "type": {
-                "text": "'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px'"
+                "text": "HorizontalStepConfig[]"
+              }
+            },
+            {
+              "name": "mode",
+              "fieldName": "mode",
+              "type": {
+                "text": "HorizontalStepperMode"
+              }
+            },
+            {
+              "name": "check-on-complete",
+              "fieldName": "checkOnComplete",
+              "type": {
+                "text": "boolean"
               }
             }
           ],
-          "tagName": "wcs-icon",
-          "events": [],
+          "tagName": "wcs-horizontal-stepper",
+          "events": [
+            {
+              "name": "wcsHorizontalStepClick",
+              "type": {
+                "text": "EventEmitter<HorizontalStepClickEvent>"
+              },
+              "description": "Emits when the user selects a new step."
+            }
+          ],
           "customElement": true
         }
       ],
       "exports": [
         {
           "kind": "js",
-          "name": "Icon",
+          "name": "HorizontalStepper",
           "declaration": {
-            "name": "Icon",
-            "module": "components/icon/icon.tsx"
+            "name": "HorizontalStepper",
+            "module": "components/horizontal-stepper/horizontal-stepper.tsx"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "wcs-icon",
+          "name": "wcs-horizontal-stepper",
           "declaration": {
-            "name": "Icon",
-            "module": "components/icon/icon.tsx"
+            "name": "HorizontalStepper",
+            "module": "components/horizontal-stepper/horizontal-stepper.tsx"
           }
         }
       ]
@@ -9260,290 +9221,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/horizontal-stepper/horizontal-step.tsx",
-      "declarations": [
-        {
-          "kind": "function",
-          "name": "HorizontalStep",
-          "parameters": [
-            {
-              "name": "{\r\n        step,\r\n        checkOnComplete,\r\n        complete,\r\n        passed,\r\n        active,\r\n        first,\r\n        disable,\r\n        onClick\r\n    }"
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "HorizontalStep",
-          "declaration": {
-            "name": "HorizontalStep",
-            "module": "components/horizontal-stepper/horizontal-step.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/horizontal-stepper/horizontal-stepper-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/horizontal-stepper/horizontal-stepper.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The horizontal-stepper is a representation of a user’s progress through a series of discrete steps.",
-          "name": "HorizontalStepper",
-          "cssProperties": [
-            {
-              "description": "Text color of the step by default",
-              "name": "--wcs-horizontal-step-text-color-default"
-            },
-            {
-              "description": "Text color of the step when active",
-              "name": "--wcs-horizontal-step-text-color-active"
-            },
-            {
-              "description": "Text color of step when disabled",
-              "name": "--wcs-horizontal-step-text-color-disabled"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsHorizontalStepperElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "currentStep",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "index of the active step. The index corresponds to the index of the step in the 'steps' list"
-            },
-            {
-              "kind": "field",
-              "name": "steps",
-              "type": {
-                "text": "HorizontalStepConfig[]"
-              },
-              "description": "steps to display"
-            },
-            {
-              "kind": "field",
-              "name": "mode",
-              "type": {
-                "text": "HorizontalStepperMode"
-              },
-              "default": "'nonLinear'",
-              "description": "Specifies if the stepper is in linear mode (the user can only click on the next step)\r\nor non-linear (the user can click on any step)"
-            },
-            {
-              "kind": "field",
-              "name": "checkOnComplete",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Specifies whether a check should be displayed when a step is passed."
-            },
-            {
-              "kind": "field",
-              "name": "internalCurrentStepIndex",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "description": "Used to know which current step index is selected (component internal calculations mainly for the animation)"
-            },
-            {
-              "kind": "method",
-              "name": "onCurrentStepChange",
-              "parameters": [
-                {
-                  "name": "newValue",
-                  "type": {
-                    "text": "number"
-                  }
-                },
-                {
-                  "name": "oldValue",
-                  "type": {
-                    "text": "number"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "previous"
-            },
-            {
-              "kind": "method",
-              "name": "next"
-            },
-            {
-              "kind": "method",
-              "name": "navigateToIndex",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "index",
-                  "type": {
-                    "text": "number"
-                  }
-                },
-                {
-                  "name": "direction",
-                  "type": {
-                    "text": "'backward' | 'forward'"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "isComplete",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "step",
-                  "type": {
-                    "text": "HorizontalStepConfig"
-                  }
-                },
-                {
-                  "name": "index",
-                  "type": {
-                    "text": "number"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "renderLabels",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "isDisable",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "step"
-                },
-                {
-                  "name": "index"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "isNextPossibleStep",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "index"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "previousStepIsCompleteAndNotActive",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "index"
-                }
-              ]
-            }
-          ],
-          "attributes": [
-            {
-              "name": "current-step",
-              "fieldName": "currentStep",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "steps",
-              "fieldName": "steps",
-              "type": {
-                "text": "HorizontalStepConfig[]"
-              }
-            },
-            {
-              "name": "mode",
-              "fieldName": "mode",
-              "type": {
-                "text": "HorizontalStepperMode"
-              }
-            },
-            {
-              "name": "check-on-complete",
-              "fieldName": "checkOnComplete",
-              "type": {
-                "text": "boolean"
-              }
-            }
-          ],
-          "tagName": "wcs-horizontal-stepper",
-          "events": [
-            {
-              "name": "wcsHorizontalStepClick",
-              "type": {
-                "text": "EventEmitter<HorizontalStepClickEvent>"
-              },
-              "description": "Emits when the user selects a new step."
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "HorizontalStepper",
-          "declaration": {
-            "name": "HorizontalStepper",
-            "module": "components/horizontal-stepper/horizontal-stepper.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-horizontal-stepper",
-          "declaration": {
-            "name": "HorizontalStepper",
-            "module": "components/horizontal-stepper/horizontal-stepper.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/label/label.tsx",
       "declarations": [
         {
@@ -9652,6 +9329,441 @@
           "declaration": {
             "name": "Label",
             "module": "components/label/label.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/icon/icon.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The icon component is a graphic symbol designed to visually indicate the purpose of an interface element.",
+          "name": "Icon",
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeIcon",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px'"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "icon",
+              "fieldName": "icon",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "size",
+              "fieldName": "size",
+              "type": {
+                "text": "'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px'"
+              }
+            }
+          ],
+          "tagName": "wcs-icon",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Icon",
+          "declaration": {
+            "name": "Icon",
+            "module": "components/icon/icon.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-icon",
+          "declaration": {
+            "name": "Icon",
+            "module": "components/icon/icon.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/grid-pagination/grid-pagination-arrow.tsx",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "GridPaginationArrow",
+          "parameters": [
+            {
+              "name": "{active, order, double = false}"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "GridPaginationArrow",
+          "declaration": {
+            "name": "GridPaginationArrow",
+            "module": "components/grid-pagination/grid-pagination-arrow.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/grid-pagination/grid-pagination.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The grid pagination is a subcomponent of `wcs-grid`, slotted in `grid-pagination` under the `<table>` element.",
+          "name": "GridPagination",
+          "cssProperties": [
+            {
+              "description": "Text color of the grid pagination",
+              "name": "--wcs-grid-pagination-color"
+            },
+            {
+              "description": "Border color of the grid pagination",
+              "name": "--wcs-grid-pagination-border-color"
+            },
+            {
+              "description": "Gap between the current page and the total page count",
+              "name": "--wcs-grid-pagination-counter-gap"
+            },
+            {
+              "description": "Margin between the grid and the pagination",
+              "name": "--wcs-grid-pagination-margin-top"
+            },
+            {
+              "description": "Color of the inactive arrow",
+              "name": "--wcs-grid-pagination-arrow-color-inactive"
+            },
+            {
+              "description": "Color of the active arrow",
+              "name": "--wcs-grid-pagination-arrow-color-active"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeNav",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "INDEX_FIRST_PAGE",
+              "type": {
+                "text": "number"
+              },
+              "static": true,
+              "readonly": true,
+              "default": "0"
+            },
+            {
+              "kind": "field",
+              "name": "availablePageSizes",
+              "type": {
+                "text": "number[]"
+              },
+              "default": "[10, 20, 50]",
+              "description": "Set the available page sizes in the pagination dropdown on the left."
+            },
+            {
+              "kind": "field",
+              "name": "currentPage",
+              "type": {
+                "text": "number"
+              },
+              "description": "The current page of the pagination. First page starts at index 0."
+            },
+            {
+              "kind": "field",
+              "name": "pageSize",
+              "type": {
+                "text": "number"
+              },
+              "default": "this.availablePageSizes[0]",
+              "description": "Maximum number of elements shown per page.  \r\nDefault is the first value of `availablePageSizes`."
+            },
+            {
+              "kind": "field",
+              "name": "itemsCount",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "Total elements in the grid.  \r\n- **Grid in `Server mode`** : You have to set `itemsCount` = your total data length.  \r\n- **Grid not in Server mode** : Do not set it manually : itemsCount is set and updated every pagination refresh."
+            },
+            {
+              "kind": "field",
+              "name": "pageCount",
+              "type": {
+                "text": "number"
+              },
+              "default": "1",
+              "description": "Max number of pages.  \r\n- **Grid in `Server mode`** : You have to set `pageCount` = `itemsCount` divided by `pageSize`.  \r\n- **Grid not in Server mode** : Do not set it manually : pageCount is set and updated every pagination refresh."
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "lastPage",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "nextPage",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "canGoToNextPage",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "previousPage",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "canGoToPreviousPage",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "firstPage",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "onChangePagesize",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "CustomEvent<SelectChangeEventDetail>"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "emitPaginationChange",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "available-page-sizes",
+              "fieldName": "availablePageSizes",
+              "type": {
+                "text": "number[]"
+              }
+            },
+            {
+              "name": "current-page",
+              "fieldName": "currentPage",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "page-size",
+              "fieldName": "pageSize",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "items-count",
+              "fieldName": "itemsCount",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "page-count",
+              "fieldName": "pageCount",
+              "type": {
+                "text": "number"
+              }
+            }
+          ],
+          "tagName": "wcs-grid-pagination",
+          "events": [
+            {
+              "name": "wcsGridPaginationChange",
+              "type": {
+                "text": "EventEmitter<WcsGridPaginationChangeEventDetails>"
+              },
+              "description": "Event emitted when the pagination changes."
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "GridPagination",
+          "declaration": {
+            "name": "GridPagination",
+            "module": "components/grid-pagination/grid-pagination.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-grid-pagination",
+          "declaration": {
+            "name": "GridPagination",
+            "module": "components/grid-pagination/grid-pagination.tsx"
           }
         }
       ]
@@ -13901,6 +14013,90 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/spinner/spinner-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/spinner/spinner.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The spinner component is visual indicator that showing a process is happening in the background but the interface is\r\nnot yet ready for interaction.  \r\nIf your page structure is simple or the loading time is long (> 300ms), use [wcs-skeleton](.?path=/docs/components-skeleton--documentation) instead.",
+          "name": "Spinner",
+          "cssProperties": [
+            {
+              "description": "The color of the dashed circle in the background",
+              "name": "--wcs-spinner-dashed-background-circle"
+            },
+            {
+              "description": "The color of the rotating circle",
+              "name": "--wcs-spinner-rotating-circle-color"
+            },
+            {
+              "description": "The duration of the rotation animation",
+              "name": "--wcs-spinner-rotate-animation-duration"
+            },
+            {
+              "description": "The duration of the dash animation",
+              "name": "--wcs-spinner-dashed-animation-duration"
+            },
+            {
+              "description": "The duration of the growing animation",
+              "name": "--wcs-spinner-growing-animation-duration"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "mode",
+              "type": {
+                "text": "WcsSpinnerMode"
+              },
+              "default": "'border'",
+              "description": "Indicates the spinner display mode.\r\nAccepted values: `border` or `growing`"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "mode",
+              "fieldName": "mode",
+              "type": {
+                "text": "WcsSpinnerMode"
+              }
+            }
+          ],
+          "tagName": "wcs-spinner",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Spinner",
+          "declaration": {
+            "name": "Spinner",
+            "module": "components/spinner/spinner.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-spinner",
+          "declaration": {
+            "name": "Spinner",
+            "module": "components/spinner/spinner.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/switch/switch-interface.ts",
       "declarations": [],
       "exports": []
@@ -14257,90 +14453,6 @@
           "declaration": {
             "name": "Tab",
             "module": "components/tab/tab.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/spinner/spinner-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/spinner/spinner.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The spinner component is visual indicator that showing a process is happening in the background but the interface is\r\nnot yet ready for interaction.  \r\nIf your page structure is simple or the loading time is long (> 300ms), use [wcs-skeleton](.?path=/docs/components-skeleton--documentation) instead.",
-          "name": "Spinner",
-          "cssProperties": [
-            {
-              "description": "The color of the dashed circle in the background",
-              "name": "--wcs-spinner-dashed-background-circle"
-            },
-            {
-              "description": "The color of the rotating circle",
-              "name": "--wcs-spinner-rotating-circle-color"
-            },
-            {
-              "description": "The duration of the rotation animation",
-              "name": "--wcs-spinner-rotate-animation-duration"
-            },
-            {
-              "description": "The duration of the dash animation",
-              "name": "--wcs-spinner-dashed-animation-duration"
-            },
-            {
-              "description": "The duration of the growing animation",
-              "name": "--wcs-spinner-growing-animation-duration"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "mode",
-              "type": {
-                "text": "WcsSpinnerMode"
-              },
-              "default": "'border'",
-              "description": "Indicates the spinner display mode.\r\nAccepted values: `border` or `growing`"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "mode",
-              "fieldName": "mode",
-              "type": {
-                "text": "WcsSpinnerMode"
-              }
-            }
-          ],
-          "tagName": "wcs-spinner",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Spinner",
-          "declaration": {
-            "name": "Spinner",
-            "module": "components/spinner/spinner.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-spinner",
-          "declaration": {
-            "name": "Spinner",
-            "module": "components/spinner/spinner.tsx"
           }
         }
       ]
@@ -14758,286 +14870,6 @@
           "declaration": {
             "name": "Tabs",
             "module": "components/tabs/tabs.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/tooltip/tooltip-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/tooltip/tooltip.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Tooltips are used to provide additional information for features available on the website. These can improve the user\r\nexperience or simply show additional information. Tooltips appear when the user rolls over or clicks on them\r\n(for longer content).\r\n\r\nNote that this component is based on the Tippy.js library : https://atomiks.github.io/tippyjs/\r\n\r\n## Accessibility guidelines 💡\r\n\r\nThe problem is that impaired users may not be able to see what is the information provided by the tooltip. To solve\r\nthis problem, the tooltip should be served with some aria attributes to make it accessible.\r\n\r\nAria-features `wcs-tooltip` respect:\r\n- dismiss when the user presses the `Escape` key\r\n- has a `role=tooltip`\r\n\r\nBut you have to provide the \"link\" between the element you want to describe and the tooltip. To do this, you have to\r\nprovide the \"visual description\" you add on the `wcs-tooltip` to the `aria-label` attribute or the `aria-description` as soon as the attribute will be available \r\nof the element you want to describe .\r\n\r\nExample:\r\n\r\n```html\r\n<wcs-tooltip for=\"my-button\">Trashed items</wcs-tooltip>\r\n<wcs-button id=\"my-button\" aria-label=\"Trashed items\">Trash</wcs-button>\r\n```",
-          "name": "Tooltip",
-          "cssProperties": [
-            {
-              "description": "Background color of the tooltip",
-              "name": "--wcs-tooltip-background-color"
-            },
-            {
-              "description": "Text color of the tooltip",
-              "name": "--wcs-tooltip-text-color"
-            },
-            {
-              "description": "Padding of the tooltip",
-              "name": "--wcs-tooltip-padding"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "for",
-              "type": {
-                "text": "string"
-              },
-              "description": "The **id** of the element the tooltip's going to describe.\r\n\r\nThis property cannot be modified after initialization."
-            },
-            {
-              "kind": "field",
-              "name": "position",
-              "type": {
-                "text": "WcsTooltipPosition"
-              },
-              "default": "'bottom'",
-              "description": "Where the tooltip is going to show relative to the element it's describing."
-            },
-            {
-              "kind": "field",
-              "name": "interactive",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Determines if the tooltip has interactive content inside of it, so that it can be hovered over and clicked inside\r\nwithout hiding."
-            },
-            {
-              "kind": "field",
-              "name": "maxWidth",
-              "type": {
-                "text": "string | number"
-              },
-              "default": "350",
-              "description": "Specifies the maximum width of the tooltip. Useful to prevent it from being too horizontally wide to read.\r\n\r\nIf the viewport's width is smaller than maxWidth, core CSS ensures the tippy remains smaller than the screen.\r\n\r\nTo test it on WCS documentation page, add 'px' to the control value (string type in this case)."
-            },
-            {
-              "kind": "field",
-              "name": "delay",
-              "type": {
-                "text": "number | [number, number]"
-              },
-              "default": "0",
-              "description": "Delay in ms once a trigger event is fired before the tooltip shows or hides.\r\n\r\nYou can provide an array with two values to define a different duration for show and hide.\r\n\r\n`[showDelay, hideDelay]`\r\n\r\nUse null to use default value."
-            },
-            {
-              "kind": "field",
-              "name": "duration",
-              "type": {
-                "text": "number | [number, number]"
-              },
-              "default": "[300, 250]",
-              "description": "Duration in ms of the transition animation."
-            },
-            {
-              "kind": "field",
-              "name": "trigger",
-              "type": {
-                "text": "string"
-              },
-              "default": "'mouseenter focus'",
-              "description": "Determines the events that cause the tooltip to show. Multiple event names are separated by spaces.\r\n\r\nSee: https://atomiks.github.io/tippyjs/v6/all-props/#trigger"
-            },
-            {
-              "kind": "field",
-              "name": "theme",
-              "type": {
-                "text": "string"
-              },
-              "default": "'wcs'",
-              "description": "Allows you to change the theme used by tippy.\r\n\r\nThe WCS theme is used by default and uses the WCS CSS variables.\r\n\r\nYou can create a theme by following this documentation and choosing a custom name :\r\nhttps://atomiks.github.io/tippyjs/v6/themes/"
-            },
-            {
-              "kind": "field",
-              "name": "content",
-              "type": {
-                "text": "string"
-              },
-              "description": "You can use this property instead of the slot API to affect content in the tooltip.\r\n\r\nThis makes it easier to manage the update if the tooltip contains elements that are not mutated when their\r\ncontent changes. Indeed, if the slot is used, the tooltip is updated only if the structure of the slotted DOM\r\nchanges (the DOM must be mutated).\r\n\r\nThe two APIs are not mutually exclusive, if both are filled in (the prop + the slot) the rendering will first\r\ndisplay the content of this property and then the slotted elements."
-            },
-            {
-              "kind": "field",
-              "name": "appendTo",
-              "type": {
-                "text": "WcsTooltipAppendTo"
-              },
-              "description": "The element to append the tooltip to. Default behaviour is `() => document.body`. If interactive: true,\r\nthe default behavior is appendTo: \"parent\"\r\n\r\nSee: https://atomiks.github.io/tippyjs/v6/all-props/#appendto"
-            },
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsTooltipElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "tippyInstance",
-              "type": {
-                "text": "Instance<Props>"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleKeyDown",
-              "parameters": [
-                {
-                  "name": "ev",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "getTooltipContentFromPropAndSlot",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "updateProps",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "updateTippyContent",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "hide",
-              "description": "Programmatically hide the tooltip"
-            },
-            {
-              "kind": "method",
-              "name": "show",
-              "description": "Programmatically show the tooltip"
-            },
-            {
-              "kind": "method",
-              "name": "disable",
-              "description": "Temporarily prevent the tooltip from showing or hiding"
-            },
-            {
-              "kind": "method",
-              "name": "enable",
-              "description": "Re-enable a disabled tooltip"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "for",
-              "fieldName": "for",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "position",
-              "fieldName": "position",
-              "type": {
-                "text": "WcsTooltipPosition"
-              }
-            },
-            {
-              "name": "interactive",
-              "fieldName": "interactive",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "max-width",
-              "fieldName": "maxWidth",
-              "type": {
-                "text": "string | number"
-              }
-            },
-            {
-              "name": "delay",
-              "fieldName": "delay",
-              "type": {
-                "text": "number | [number, number]"
-              }
-            },
-            {
-              "name": "duration",
-              "fieldName": "duration",
-              "type": {
-                "text": "number | [number, number]"
-              }
-            },
-            {
-              "name": "trigger",
-              "fieldName": "trigger",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "theme",
-              "fieldName": "theme",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "content",
-              "fieldName": "content",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "append-to",
-              "fieldName": "appendTo",
-              "type": {
-                "text": "WcsTooltipAppendTo"
-              }
-            }
-          ],
-          "tagName": "wcs-tooltip",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Tooltip",
-          "declaration": {
-            "name": "Tooltip",
-            "module": "components/tooltip/tooltip.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-tooltip",
-          "declaration": {
-            "name": "Tooltip",
-            "module": "components/tooltip/tooltip.tsx"
           }
         }
       ]
@@ -15644,6 +15476,286 @@
           "declaration": {
             "name": "Textarea",
             "module": "components/textarea/textarea.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/tooltip/tooltip-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/tooltip/tooltip.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Tooltips are used to provide additional information for features available on the website. These can improve the user\r\nexperience or simply show additional information. Tooltips appear when the user rolls over or clicks on them\r\n(for longer content).\r\n\r\nNote that this component is based on the Tippy.js library : https://atomiks.github.io/tippyjs/\r\n\r\n## Accessibility guidelines 💡\r\n\r\nThe problem is that impaired users may not be able to see what is the information provided by the tooltip. To solve\r\nthis problem, the tooltip should be served with some aria attributes to make it accessible.\r\n\r\nAria-features `wcs-tooltip` respect:\r\n- dismiss when the user presses the `Escape` key\r\n- has a `role=tooltip`\r\n\r\nBut you have to provide the \"link\" between the element you want to describe and the tooltip. To do this, you have to\r\nprovide the \"visual description\" you add on the `wcs-tooltip` to the `aria-label` attribute or the `aria-description` as soon as the attribute will be available \r\nof the element you want to describe .\r\n\r\nExample:\r\n\r\n```html\r\n<wcs-tooltip for=\"my-button\">Trashed items</wcs-tooltip>\r\n<wcs-button id=\"my-button\" aria-label=\"Trashed items\">Trash</wcs-button>\r\n```",
+          "name": "Tooltip",
+          "cssProperties": [
+            {
+              "description": "Background color of the tooltip",
+              "name": "--wcs-tooltip-background-color"
+            },
+            {
+              "description": "Text color of the tooltip",
+              "name": "--wcs-tooltip-text-color"
+            },
+            {
+              "description": "Padding of the tooltip",
+              "name": "--wcs-tooltip-padding"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "for",
+              "type": {
+                "text": "string"
+              },
+              "description": "The **id** of the element the tooltip's going to describe.\r\n\r\nThis property cannot be modified after initialization."
+            },
+            {
+              "kind": "field",
+              "name": "position",
+              "type": {
+                "text": "WcsTooltipPosition"
+              },
+              "default": "'bottom'",
+              "description": "Where the tooltip is going to show relative to the element it's describing."
+            },
+            {
+              "kind": "field",
+              "name": "interactive",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Determines if the tooltip has interactive content inside of it, so that it can be hovered over and clicked inside\r\nwithout hiding."
+            },
+            {
+              "kind": "field",
+              "name": "maxWidth",
+              "type": {
+                "text": "string | number"
+              },
+              "default": "350",
+              "description": "Specifies the maximum width of the tooltip. Useful to prevent it from being too horizontally wide to read.\r\n\r\nIf the viewport's width is smaller than maxWidth, core CSS ensures the tippy remains smaller than the screen.\r\n\r\nTo test it on WCS documentation page, add 'px' to the control value (string type in this case)."
+            },
+            {
+              "kind": "field",
+              "name": "delay",
+              "type": {
+                "text": "number | [number, number]"
+              },
+              "default": "0",
+              "description": "Delay in ms once a trigger event is fired before the tooltip shows or hides.\r\n\r\nYou can provide an array with two values to define a different duration for show and hide.\r\n\r\n`[showDelay, hideDelay]`\r\n\r\nUse null to use default value."
+            },
+            {
+              "kind": "field",
+              "name": "duration",
+              "type": {
+                "text": "number | [number, number]"
+              },
+              "default": "[300, 250]",
+              "description": "Duration in ms of the transition animation."
+            },
+            {
+              "kind": "field",
+              "name": "trigger",
+              "type": {
+                "text": "string"
+              },
+              "default": "'mouseenter focus'",
+              "description": "Determines the events that cause the tooltip to show. Multiple event names are separated by spaces.\r\n\r\nSee: https://atomiks.github.io/tippyjs/v6/all-props/#trigger"
+            },
+            {
+              "kind": "field",
+              "name": "theme",
+              "type": {
+                "text": "string"
+              },
+              "default": "'wcs'",
+              "description": "Allows you to change the theme used by tippy.\r\n\r\nThe WCS theme is used by default and uses the WCS CSS variables.\r\n\r\nYou can create a theme by following this documentation and choosing a custom name :\r\nhttps://atomiks.github.io/tippyjs/v6/themes/"
+            },
+            {
+              "kind": "field",
+              "name": "content",
+              "type": {
+                "text": "string"
+              },
+              "description": "You can use this property instead of the slot API to affect content in the tooltip.\r\n\r\nThis makes it easier to manage the update if the tooltip contains elements that are not mutated when their\r\ncontent changes. Indeed, if the slot is used, the tooltip is updated only if the structure of the slotted DOM\r\nchanges (the DOM must be mutated).\r\n\r\nThe two APIs are not mutually exclusive, if both are filled in (the prop + the slot) the rendering will first\r\ndisplay the content of this property and then the slotted elements."
+            },
+            {
+              "kind": "field",
+              "name": "appendTo",
+              "type": {
+                "text": "WcsTooltipAppendTo"
+              },
+              "description": "The element to append the tooltip to. Default behaviour is `() => document.body`. If interactive: true,\r\nthe default behavior is appendTo: \"parent\"\r\n\r\nSee: https://atomiks.github.io/tippyjs/v6/all-props/#appendto"
+            },
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsTooltipElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "tippyInstance",
+              "type": {
+                "text": "Instance<Props>"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyDown",
+              "parameters": [
+                {
+                  "name": "ev",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "getTooltipContentFromPropAndSlot",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "updateProps",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "updateTippyContent",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "hide",
+              "description": "Programmatically hide the tooltip"
+            },
+            {
+              "kind": "method",
+              "name": "show",
+              "description": "Programmatically show the tooltip"
+            },
+            {
+              "kind": "method",
+              "name": "disable",
+              "description": "Temporarily prevent the tooltip from showing or hiding"
+            },
+            {
+              "kind": "method",
+              "name": "enable",
+              "description": "Re-enable a disabled tooltip"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "for",
+              "fieldName": "for",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "position",
+              "fieldName": "position",
+              "type": {
+                "text": "WcsTooltipPosition"
+              }
+            },
+            {
+              "name": "interactive",
+              "fieldName": "interactive",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "max-width",
+              "fieldName": "maxWidth",
+              "type": {
+                "text": "string | number"
+              }
+            },
+            {
+              "name": "delay",
+              "fieldName": "delay",
+              "type": {
+                "text": "number | [number, number]"
+              }
+            },
+            {
+              "name": "duration",
+              "fieldName": "duration",
+              "type": {
+                "text": "number | [number, number]"
+              }
+            },
+            {
+              "name": "trigger",
+              "fieldName": "trigger",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "theme",
+              "fieldName": "theme",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "content",
+              "fieldName": "content",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "append-to",
+              "fieldName": "appendTo",
+              "type": {
+                "text": "WcsTooltipAppendTo"
+              }
+            }
+          ],
+          "tagName": "wcs-tooltip",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Tooltip",
+          "declaration": {
+            "name": "Tooltip",
+            "module": "components/tooltip/tooltip.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-tooltip",
+          "declaration": {
+            "name": "Tooltip",
+            "module": "components/tooltip/tooltip.tsx"
           }
         }
       ]

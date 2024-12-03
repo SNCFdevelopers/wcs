@@ -59,6 +59,14 @@ Type: `Promise<void>`
 | `"grid-pagination"` | The slot containing the pagination of the grid below the `<table>` |
 
 
+## Shadow Parts
+
+| Part                  | Description |
+| --------------------- | ----------- |
+| `"all-rows-checkbox"` |             |
+| `"row-checkbox"`      |             |
+
+
 ## Dependencies
 
 ### Depends on

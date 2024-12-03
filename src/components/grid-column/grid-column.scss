@@ -1,15 +1,24 @@
 @import '../../style/focus-outline.scss';
 
 :host {
-    --wcs-grid-column-border-left: solid 1px var(--wcs-text-light);
+    // region to be removed before migration to design tokens
+    --wcs-grid-header-background-color: var(--wcs-light);
+    --wcs-grid-header-text-color: var(--wcs-gray-dark);
+    --wcs-grid-header-font-weight: bold;
+    --wcs-grid-header-font-size: inherit;
+    --wcs-grid-header-line-height: inherit;
+    --wcs-grid-header-border-radius: 0;
+    --wcs-grid-header-border-bottom: none;
+    // endregion
 
     display: contents;
 
     th {
-        color: var(--wcs-grid-header-text-color, var(--wcs-gray-dark));
-        background-color: var(--wcs-grid-header-background-color, var(--wcs-light));
-        border-left: var(--wcs-grid-column-border-left);
-        border-radius: var(--wcs-grid-header-border-radius, 0);
+        color: var(--wcs-grid-header-text-color);
+        background-color: var(--wcs-grid-header-background-color);
+        border-bottom: var(--wcs-grid-header-border-bottom);
+        border-left: var(--wcs-grid-header-border-left); // Defined in grid.scss but can be overridden here for one specific column customization
+        border-radius: var(--wcs-grid-header-border-radius); // May be overridden in grid.scss for first / last column border-radius customization
         padding: calc(var(--wcs-padding) / 2) var(--wcs-padding);
         text-align: left;
 
@@ -22,9 +31,9 @@
             outline: none;
             margin: 0;
             padding: 0;
-            font-size: inherit;
-            line-height: inherit;
-            color: inherit;
+            font-size: var(--wcs-grid-header-font-size);
+            line-height: var(--wcs-grid-header-line-height);
+            color: var(--wcs-grid-header-text-color);
             cursor: inherit;
             display: inline-flex;
             border-collapse: separate;
@@ -32,19 +41,19 @@
             align-items: center;
 
             span {
-                font-weight: bold;
+                font-weight: var(--wcs-grid-header-font-weight);
             }
         }
 
         // XXX: This code works in Firefox as well, but there is a browser-side rendering bug that prevents it from displaying correctly.
         // We decided to wait for Firefox to fix the bug instead adding a dirty fix here
         &:focus-visible, &:has(:focus-visible) {
-            @include focus-outline($outline-offset: 0);
+            @include focus-outline($outline-color: var(--wcs-grid-outline-color, var(--wcs-primary)), $outline-offset: 0);
         }
 
         @supports not selector(&:has(:focus-visible)) {
             &:focus-within {
-                @include focus-outline($outline-offset: 0);
+                @include focus-outline($outline-color: var(--wcs-grid-outline-color, var(--wcs-primary)), $outline-offset: 0);
             }
         }
     }
@@ -79,4 +88,14 @@
 
 :host([hidden]) {
     display: none !important;
+}
+
+:host(.token-migration) {
+    --wcs-grid-header-background-color: var(--wcs-semantic-color-background-surface-primary);
+    --wcs-grid-header-text-color: var(--wcs-semantic-color-text-primary);
+    --wcs-grid-header-font-weight: 800;
+    --wcs-grid-header-font-size: var(--wcs-semantic-font-size-strong-1);
+    --wcs-grid-header-line-height: var(--wcs-primitive-font-line-height-140);
+    --wcs-grid-header-border-radius: 0;
+    --wcs-grid-header-border-bottom: solid var(--wcs-semantic-border-width-default) var(--wcs-semantic-color-border-surface);
 }

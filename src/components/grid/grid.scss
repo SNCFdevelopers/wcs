@@ -1,51 +1,100 @@
 @import '../../style/focus-outline.scss';
 
 :host {
-    display: block;
+    // region to be removed before migration to design tokens
     --wcs-grid-highlight-color: var(--wcs-light);
+    --wcs-grid-header-border-left: solid 1px var(--wcs-text-light);
+    --wcs-grid-header-border-bottom: none;
+    --wcs-grid-gap: 0;
+    --wcs-grid-vertical-align: middle;
+    --wcs-grid-outline-color: var(--wcs-primary);
 
+    --wcs-grid-cell-text-color: var(--wcs-gray-light);
+    --wcs-grid-cell-padding-horizontal: var(--wcs-padding);
+    --wcs-grid-cell-padding-vertical: calc(var(--wcs-padding) / 2);
+    --wcs-grid-cell-border-bottom: solid 1px var(--wcs-text-light);
+    --wcs-grid-cell-separator-border: none;
+    --wcs-grid-first-cell-border-radius: 0;
+    --wcs-grid-last-cell-border-radius: 0;
+
+    --wcs-grid-column-selection-width: 40px;
+    --wcs-grid-row-background-color: unset;
+    --wcs-grid-row-odd-background-color: var(--wcs-grid-row-background-color);
+    --wcs-grid-row-even-background-color: var(--wcs-grid-row-background-color);
+    // endregion
+
+    display: block;
+
+
+
+    // These selectors cannot be moved in grid-column.scss, because the column itself doesn't know its child order
+    // in the DOM, column are rendered one by one
+    // 👇
     th {
-        background-color: var(--wcs-light);
+        // For the header of the selection column (not part of grid-column)
+        background-color: var(--wcs-grid-header-background-color, var(--wcs-light));
+        border-radius: var(--wcs-component-grid-header-border-radius-first, 0);
     }
 
     th:not(:first-child) {
         border-left: solid 1px var(--wcs-text-light);
     }
 
-    // Remove the border for the first column
     ::slotted([slot=grid-column]:first-child) {
-        --wcs-grid-column-border-left: none;
+        // Remove the border for the first column
+        --wcs-grid-header-border-left: none;
     }
+
+    // If the grid displays a selection column, we set the border radius and color on the
+    // first data column (which has been disabled in :host)
+    :host([selection]) {
+        ::slotted([slot=grid-column]:first-child) {
+            --wcs-component-grid-header-border-radius-first: 0;
+            --wcs-grid-header-border-left: var(--wcs-grid-header-border-left);
+        }
+    }
+
+    // 👆
 
     table {
         width: 100%;
-        border-spacing: var(--wcs-grid-gap, 0);
+        border-collapse: collapse;
+        border-spacing: var(--wcs-grid-gap);
+
+        thead {
+            border-bottom: var(--wcs-grid-header-border-bottom);
+        }
+
+        tbody {
+            vertical-align: var(--wcs-grid-vertical-align);
+        }
     }
 
+
     td {
-        color: var(--wcs-gray-light);
+        color: var(--wcs-grid-cell-text-color);
         margin: 0;
-        padding: calc(var(--wcs-padding) / 2) var(--wcs-padding);
+        padding:  var(--wcs-grid-cell-padding-vertical) var(--wcs-grid-cell-padding-horizontal);
 
         &:focus-visible {
-            @include focus-outline($outline-offset: 0);
+            @include focus-outline($outline-color: var(--wcs-grid-outline-color), $outline-offset: 0);
         }
 
         &:first-child {
-            border-radius: var(--wcs-grid-first-cell-border-radius, 0);
+            border-radius: var(--wcs-grid-first-cell-border-radius);
         }
 
         &:last-child {
-            border-radius: var(--wcs-grid-last-cell-border-radius, 0);
+            border-radius: var(--wcs-grid-last-cell-border-radius);
         }
 
         &:not(:first-child) {
-            border-left: var(--wcs-grid-cell-separator-border, none);
+            border-left: var(--wcs-grid-cell-separator-border);
         }
     }
 
     tr {
-        background-color: var(--wcs-grid-row-background-color, unset);
+        background-color: var(--wcs-grid-row-background-color);
 
         &:nth-child(odd) {
             background-color: var(--wcs-grid-row-odd-background-color, var(--wcs-grid-row-background-color));
@@ -57,12 +106,12 @@
     }
 
     tr:not(:last-child) td {
-        border-bottom: var(--wcs-grid-cell-border-bottom, solid 1px var(--wcs-text-light));
+        border-bottom: var(--wcs-grid-cell-border-bottom);
     }
 
     .wcs-grid-selection-column {
-        padding: calc(var(--wcs-padding) / 2) var(--wcs-padding);
-        width: 40px;
+        padding: var(--wcs-grid-cell-padding-vertical) var(--wcs-grid-cell-padding-horizontal);
+        width: var(--wcs-grid-column-selection-width);
     }
 
     tr.selected {
@@ -74,10 +123,25 @@
     }
 }
 
-// If the grid displays a selection column, we set the border on the
-// first data column (which has been disabled in :host)
-:host([selection]) {
-    ::slotted([slot=grid-column]:first-child) {
-        --wcs-grid-column-border-left: solid 1px var(--wcs-text-light) !important;
-    }
+:host(.token-migration) {
+    --wcs-grid-highlight-color: var(--wcs-semantic-color-background-surface-accent-light);
+    --wcs-grid-header-background-color: var(--wcs-semantic-color-background-surface-primary);
+    --wcs-grid-header-border-left: none;
+    --wcs-grid-header-border-bottom: solid var(--wcs-semantic-border-width-default) var(--wcs-semantic-color-border-surface);
+    --wcs-grid-gap: 0;
+    --wcs-grid-vertical-align: middle;
+    --wcs-grid-outline-color: var(--wcs-semantic-color-primary);
+
+    --wcs-grid-cell-text-color: var(--wcs-semantic-color-text-secondary);
+    --wcs-grid-cell-padding-horizontal: var(--wcs-semantic-spacing-size-m-horizontal);
+    --wcs-grid-cell-padding-vertical: var(--wcs-semantic-spacing-size-m-vertical);
+    --wcs-grid-cell-border-bottom: none;
+    --wcs-grid-cell-separator-border: none;
+    --wcs-grid-first-cell-border-radius: 0;
+    --wcs-grid-last-cell-border-radius: 0;
+
+    --wcs-grid-column-selection-width: calc(5 * var(--wcs-semantic-spacing-base));
+    --wcs-grid-row-background-color: var(--wcs-semantic-color-background-surface-primary);
+    --wcs-grid-row-odd-background-color: var(--wcs-grid-row-background-color);
+    --wcs-grid-row-even-background-color: var(--wcs-semantic-color-background-surface-accent-lighter);
 }
