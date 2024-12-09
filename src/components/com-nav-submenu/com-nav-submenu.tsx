@@ -22,6 +22,26 @@ const WCS_COM_NAV_CATEGORY = 'WCS-COM-NAV-CATEGORY';
 
 /**
  * The com-nav-submenu is a subcomponent of `wcs-com-nav`. It represents an expandable menu containing more items or categories.
+ * 
+ * @cssprop --wcs-com-nav-submenu-button-color - Color of the menu label
+ * @cssprop --wcs-com-nav-submenu-button-font-weight - Font-weight of the menu label
+ * @cssprop --wcs-com-nav-submenu-button-focus-outline-color - Focus outline color of the menu label
+ * @cssprop --wcs-com-nav-submenu-button-gap - Gap inside menu label between text and arrow indicator
+ * @cssprop --wcs-com-nav-submenu-desktop-menu-background-color - Background color of the menu (desktop)
+ * @cssprop --wcs-com-nav-submenu-desktop-menu-text-color - Text color inside menu (desktop)
+ * @cssprop --wcs-com-nav-submenu-desktop-menu-link-font-weight - Link font-weight color inside menu (desktop)
+ * @cssprop --wcs-com-nav-submenu-desktop-menu-heading-font-weight - Heading font-weight of the menu (desktop)
+ * @cssprop --wcs-com-nav-submenu-desktop-menu-description-font-weight - Description font-weight of the menu (desktop)
+ * @cssprop --wcs-com-nav-submenu-desktop-menu-description-gap - Gap between heading and description in the description section of the menu (desktop)
+ * @cssprop --wcs-com-nav-submenu-desktop-menu-padding - Padding of the menu (desktop)
+ * @cssprop --wcs-com-nav-submenu-desktop-menu-items-padding-left - Padding left around link items group in menu (desktop)
+ * @cssprop --wcs-com-nav-submenu-desktop-menu-items-padding-right - Padding right around link items group in menu (desktop)
+ * @cssprop --wcs-com-nav-submenu-mobile-text-color - Text color for each text (mobile)
+ * @cssprop --wcs-com-nav-submenu-mobile-link-font-weight - Link font-weight for each link (mobile)
+ * @cssprop --wcs-com-nav-submenu-mobile-spacing-top - Spacing around top of the submenu (mobile)
+ * @cssprop --wcs-com-nav-submenu-mobile-spacing-bottom - Spacing around bottom of the submenu (mobile)
+ * @cssprop --wcs-com-nav-submenu-mobile-spacing-left - Spacing around left of the submenu (mobile)
+ * @cssprop --wcs-com-nav-submenu-mobile-gap - Gap between each item in submenu (mobile)
  */
 @Component({
     tag: 'wcs-com-nav-submenu',
@@ -156,7 +176,7 @@ export class ComNavSubmenu implements ComponentInterface, MutableAriaAttribute {
 
     render(): any {
         return (
-            <Host onClick={evt => this.onClick(evt)} role="listitem">
+            <Host onClick={evt => this.onClick(evt)} role="listitem" data-open={this.menuOpen}>
                 {this.currentActiveSizing === 'mobile' ?
                     <h2 role="presentation" class="menu-button">
                         <span class="label">{this.label}</span><span class="arrow-container">

@@ -3,9 +3,18 @@
 
 /* Default style and mobile behaviour */
 :host {
+    // region to be removed before migration to design tokens
+    --wcs-com-nav-item-gap: var(--wcs-base-margin);
+    --wcs-com-nav-item-arrow-icon-font-size: 0.6rem;
+    --wcs-com-nav-item-arrow-icon-font-family: icons;
+    --wcs-com-nav-item-arrow-icon-line-height: 1;
+
+    --wcs-com-nav-item-focus-outline-color: var(--wcs-primary);
+    // endregion
+
     display: inline-flex;
     align-items: center;
-    gap: var(--wcs-base-margin);
+    gap: var(--wcs-com-nav-item-gap);
     height: fit-content;
 
     font: inherit;
@@ -15,7 +24,7 @@
         user-select: none;
         cursor: pointer;
         text-decoration: none;
-        font-size: 16px;
+        font-size: 1rem;
         color: inherit;
         font-weight: inherit;
 
@@ -26,9 +35,9 @@
     /* Common behaviour between Large Screen and Small Screens */
     .arrow-icon {
         display: inline-block;
-        font-family: icons;
-        font-size: 0.6rem;
-        line-height: 1;
+        font-family: var(--wcs-com-nav-item-arrow-icon-font-family);
+        font-size: var(--wcs-com-nav-item-arrow-icon-font-size);
+        line-height: var(--wcs-com-nav-item-arrow-icon-line-height);
         box-sizing: border-box;
     }
 
@@ -41,8 +50,8 @@
         outline: none;
     }
 
-    &:host(:focus-within) {
-        @include com-nav-item-mobile-focus-outline;
+    :host(:focus-within) {
+        @include com-nav-item-mobile-focus-outline(var(--wcs-com-nav-item-focus-outline-color));
     }
 }
 
@@ -62,4 +71,13 @@
 
         // Focus outline style is handling by com-nav, com-nav-submenu and com-nav-category in desktop mode
     }
+}
+
+:host(.token-migration) {
+    --wcs-com-nav-item-gap: var(--wcs-semantic-spacing-base);
+    --wcs-com-nav-item-arrow-icon-font-size: 0.6rem;
+    --wcs-com-nav-item-arrow-icon-font-family: icons;
+    --wcs-com-nav-item-arrow-icon-line-height: 1;
+
+    --wcs-com-nav-item-focus-outline-color: var(--wcs-semantic-color-border-focus-base);
 }

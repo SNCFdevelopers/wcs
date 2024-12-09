@@ -28,6 +28,31 @@ const WCS_COM_NAV_SUBMENU_TAG_NAME = 'WCS-COM-NAV-SUBMENU';
  * @slot <no-name> - Default slot containing all the menu declarations
  * @slot app-name - (Optional) Extra slot for the application name
  * @slot actions - Slot for actions placed on the right part of the container
+ * 
+ * @cssprop --wcs-com-nav-menu-bar-height - Height of the menu bar
+ * @cssprop --wcs-com-nav-border-color - Border color of the bottom border of the com-nav
+ * @cssprop --wcs-com-nav-border-width - Border width of the border below com-nav
+ * @cssprop --wcs-com-nav-background-color - Background color of the com-nav;
+ * @cssprop --wcs-com-nav-app-name-color - App name color
+ * @cssprop --wcs-com-nav-app-name-font-weight - App name font-weight
+ * @cssprop --wcs-com-nav-app-name-font-size - Font size of the App name text
+ * @cssprop --wcs-com-nav-app-name-line-height - Line height of the App name text
+ * @cssprop --wcs-com-nav-item-color - Color of the wcs-nav-item inside menu-bar
+ * @cssprop --wcs-com-nav-item-font-weight - Font weight of the wcs-nav-item inside menu-bar
+ * @cssprop --wcs-com-nav-focus-outline-color - Focus outline color of the wcs-nav-item inside menu-bar
+ * @cssprop --wcs-com-nav-horizontal-padding - Padding horizontal of wcs-com-nav
+ * @cssprop --wcs-com-nav-mobile-overlay-gap - Gap between each items section in mobile overlay
+ * @cssprop --wcs-com-nav-mobile-overlay-padding-top - Padding top inside mobile overlay
+ * @cssprop --wcs-com-nav-mobile-overlay-padding-bottom - Padding bottom inside mobile overlay
+ * @cssprop --wcs-com-nav-mobile-overlay-padding-left - Padding left inside mobile overlay
+ * @cssprop --wcs-com-nav-mobile-overlay-padding-right - Padding right inside mobile overlay
+ * @cssprop --wcs-com-nav-mobile-menu-icon-border-color - Bar border color on the left of icon mobile menu
+ * @cssprop --wcs-com-nav-mobile-menu-icon-gap- Gap between icon mobile menu and separator on the left
+ * @cssprop --wcs-com-nav-mobile-menu-icon-margin-left - Margin left of icon mobile menu
+ * @cssprop --wcs-com-nav-menu-bar-gap - Gap between each item inside menu-bar
+ * @cssprop --wcs-com-nav-menu-bar-margin-left - Margin left between menu bar and the app-name section
+ * @cssprop --wcs-com-nav-menu-bar-item-color - Item color of the item inside menu bar
+ * @cssprop --wcs-com-nav-menu-bar-item-font-weight - Font weight of the item inside menu bar
  */
 @Component({
     tag: 'wcs-com-nav',

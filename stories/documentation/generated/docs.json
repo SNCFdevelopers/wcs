@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-12-11T17:06:45",
+  "timestamp": "2024-12-12T15:13:25",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -1923,6 +1923,102 @@
         {
           "name": "slot",
           "text": "actions - Slot for actions placed on the right part of the container"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-menu-bar-height - Height of the menu bar"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-border-color - Border color of the bottom border of the com-nav"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-border-width - Border width of the border below com-nav"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-background-color - Background color of the com-nav;"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-app-name-color - App name color"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-app-name-font-weight - App name font-weight"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-app-name-font-size - Font size of the App name text"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-app-name-line-height - Line height of the App name text"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-item-color - Color of the wcs-nav-item inside menu-bar"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-item-font-weight - Font weight of the wcs-nav-item inside menu-bar"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-focus-outline-color - Focus outline color of the wcs-nav-item inside menu-bar"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-horizontal-padding - Padding horizontal of wcs-com-nav"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-mobile-overlay-gap - Gap between each items section in mobile overlay"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-mobile-overlay-padding-top - Padding top inside mobile overlay"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-mobile-overlay-padding-bottom - Padding bottom inside mobile overlay"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-mobile-overlay-padding-left - Padding left inside mobile overlay"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-mobile-overlay-padding-right - Padding right inside mobile overlay"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-mobile-menu-icon-border-color - Bar border color on the left of icon mobile menu"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-mobile-menu-icon-gap- Gap between icon mobile menu and separator on the left"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-mobile-menu-icon-margin-left - Margin left of icon mobile menu"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-menu-bar-gap - Gap between each item inside menu-bar"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-menu-bar-margin-left - Margin left between menu bar and the app-name section"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-menu-bar-item-color - Item color of the item inside menu bar"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-menu-bar-item-font-weight - Font weight of the item inside menu bar"
         }
       ],
       "usage": {},
@@ -2040,7 +2136,100 @@
       "tag": "wcs-com-nav-category",
       "readme": "# wcs-com-nav-category\r\n\r\n\r\n\r",
       "docs": "The com-nav-category is a subcomponent of `wcs-com-nav`. It represents a category nested inside a `wcs-com-nav-submenu`.",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-category-label-font-size - Label font-size"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-category-label-mobile-font-weight - Label font-weight on mobile"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-category-label-mobile-color - Label color on mobile"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-category-label-desktop-font-weight - Label font-weight on desktop"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-category-label-desktop-color - Label color on mobile"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-category-item-mobile-color - Color of category item (mobile)"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-category-item-mobile-font-weight - Font weight of category item (mobile)"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-category-item-mobile-spacing-top - Spacing top around items group (mobile)"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-category-item-mobile-spacing-left - Spacing left around items group (mobile)"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-category-item-mobile-gap - Gap between each category item (mobile)"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-category-label-desktop-gap - Gap inside category label, between text and arrow"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-category-label-desktop-focus-outline-color - Focus outline of the label (desktop)"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-category-desktop-menu-background-color - Background color of the category menu (desktop)"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-category-desktop-menu--border-left-width - Border left width of the category menu"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-category-desktop-menu--border-left-color - Border left color of the category menu"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-category-desktop-menu-background-indicator-color - Indicator color on top of menu"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-category-desktop-menu-padding-top - Padding top of menu"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-category-desktop-menu-padding-bottom - Padding bottom of menu"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-category-desktop-menu-padding-left - Padding left of menu"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-category-desktop-menu-padding-right - Padding right of menu"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-category-desktop-menu-gap - Gap between each item (desktop)"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-category-item-desktop-color - Color of category item (desktop)"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-category-item-desktop-font-weight - Font weight of category item (desktop)"
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -2209,7 +2398,24 @@
       "tag": "wcs-com-nav-item",
       "readme": "# com-nav-item\r\n\r\n\r\n\r",
       "docs": "The com-nav-item is a subcomponent of `wcs-com-nav`. It represents a list-item wrapper around a link.",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-item-gap - Gap between text and arrow"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-item-font-weight - Font-weight of item"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-item-arrow-icon-font-size - Arrow size"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-item-focus-outline-color - Focus outline color"
+        }
+      ],
       "usage": {},
       "props": [],
       "methods": [],
@@ -2249,7 +2455,84 @@
       "tag": "wcs-com-nav-submenu",
       "readme": "# wcs-com-nav-submenu\r\n\r\n\r\n\r",
       "docs": "The com-nav-submenu is a subcomponent of `wcs-com-nav`. It represents an expandable menu containing more items or categories.",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-submenu-button-color - Color of the menu label"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-submenu-button-font-weight - Font-weight of the menu label"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-submenu-button-focus-outline-color - Focus outline color of the menu label"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-submenu-button-gap - Gap inside menu label between text and arrow indicator"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-submenu-desktop-menu-background-color - Background color of the menu (desktop)"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-submenu-desktop-menu-text-color - Text color inside menu (desktop)"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-submenu-desktop-menu-link-font-weight - Link font-weight color inside menu (desktop)"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-submenu-desktop-menu-heading-font-weight - Heading font-weight of the menu (desktop)"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-submenu-desktop-menu-description-font-weight - Description font-weight of the menu (desktop)"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-submenu-desktop-menu-description-gap - Gap between heading and description in the description section of the menu (desktop)"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-submenu-desktop-menu-padding - Padding of the menu (desktop)"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-submenu-desktop-menu-items-padding-left - Padding left around link items group in menu (desktop)"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-submenu-desktop-menu-items-padding-right - Padding right around link items group in menu (desktop)"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-submenu-mobile-text-color - Text color for each text (mobile)"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-submenu-mobile-link-font-weight - Link font-weight for each link (mobile)"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-submenu-mobile-spacing-top - Spacing around top of the submenu (mobile)"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-submenu-mobile-spacing-bottom - Spacing around bottom of the submenu (mobile)"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-submenu-mobile-spacing-left - Spacing around left of the submenu (mobile)"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-submenu-mobile-gap - Gap between each item in submenu (mobile)"
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -4469,6 +4752,22 @@
           "text": "--wcs-grid-header-border-bottom - Bottom border of all headers"
         },
         {
+          "name": "cssprop",
+          "text": "--wcs-grid-header-sort-arrow-color-default - Color of the sort arrow in the header"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-header-sort-arrow-color-active - Color of the sort arrow in the header when active"
+        },
+        {
+          "name": "csspart",
+          "text": "all-rows-checkbox - CSS part for the checkbox in the selection column that selects all rows"
+        },
+        {
+          "name": "csspart",
+          "text": "row-checkbox - CSS part for the checkbox of each row in the selection column"
+        },
+        {
           "name": "slot",
           "text": "grid-column - The slot containing the column of the grid in the `<thead>`"
         },
@@ -4856,7 +5155,16 @@
           "docs": "The slot containing the pagination of the grid below the `<table>`"
         }
       ],
-      "parts": [],
+      "parts": [
+        {
+          "name": "all-rows-checkbox",
+          "docs": ""
+        },
+        {
+          "name": "row-checkbox",
+          "docs": ""
+        }
+      ],
       "dependents": [],
       "dependencies": [
         "wcs-checkbox",
@@ -4912,6 +5220,14 @@
         {
           "name": "cssprop",
           "text": "--wcs-grid-column-border-left - Border separator between column names"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-header-sort-arrow-color-default - Color of the sort arrow in the header"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-header-sort-arrow-color-active - Color of the sort arrow in the header when active"
         },
         {
           "name": "csspart",

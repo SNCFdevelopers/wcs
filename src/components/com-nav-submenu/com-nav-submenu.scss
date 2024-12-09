@@ -3,10 +3,36 @@
 @import '../../style/breakpoints.scss';
 
 :host {
-    display: block;
-    padding-bottom: var(--wcs-padding);
+    // region to be removed before migration to design tokens
+    --wcs-com-nav-submenu-button-color: var(--wcs-gray);
+    --wcs-com-nav-submenu-button-font-weight: 500;
+    --wcs-com-nav-submenu-button-focus-outline-color: var(--wcs-primary);
+    --wcs-com-nav-submenu-button-gap: var(--wcs-base-margin);
 
-    button {
+    --wcs-com-nav-submenu-desktop-menu-background-color: var(--wcs-primary);
+    --wcs-com-nav-submenu-desktop-menu-text-color: var(--wcs-white);
+    --wcs-com-nav-submenu-desktop-menu-link-font-weight: 400;
+    --wcs-com-nav-submenu-desktop-menu-heading-font-weight: 400;
+    --wcs-com-nav-submenu-desktop-menu-description-font-weight: 500;
+    --wcs-com-nav-submenu-desktop-menu-description-gap: 24px;
+    --wcs-com-nav-submenu-desktop-menu-padding: 50px;
+
+    --wcs-com-nav-submenu-desktop-menu-items-padding-left: 50px;
+    --wcs-com-nav-submenu-desktop-menu-items-padding-right: 80px;
+
+    --wcs-com-nav-submenu-mobile-text-color: var(--wcs-gray);
+    --wcs-com-nav-submenu-mobile-link-font-weight: 400;
+    --wcs-com-nav-submenu-mobile-spacing-top: calc(1.5 * var(--wcs-base-margin));
+    --wcs-com-nav-submenu-mobile-spacing-bottom: var(--wcs-padding);
+    --wcs-com-nav-submenu-mobile-spacing-left: calc(3 * var(--wcs-base-margin));
+    --wcs-com-nav-submenu-mobile-gap: calc(3 * var(--wcs-base-margin));
+    // endregion
+
+    display: block;
+    padding-bottom: var(--wcs-com-nav-submenu-mobile-spacing-bottom);
+
+    button { // reset button agent styles
+        display: block;
         background: none;
         border: none;
         padding: 0;
@@ -14,14 +40,6 @@
         font: inherit;
         color: inherit;
         cursor: pointer;
-    }
-
-    .menu-button {
-        margin: 0;
-        font-size: 16px;
-
-        display: block;
-        font-weight: 500;
     }
 
     .arrow-icon {
@@ -36,8 +54,8 @@
         text-transform: uppercase;
         font-size: 16px;
         cursor: unset;
-        font-weight: 500;
-        color: var(--wcs-gray);
+        font-weight: var(--wcs-com-nav-submenu-button-font-weight);
+        color: var(--wcs-com-nav-submenu-button-color);
         text-decoration: none;
     }
 
@@ -55,23 +73,51 @@
     .menu-items {
         display: flex;
         flex-direction: column;
-        gap: 24px;
+        gap: var(--wcs-com-nav-submenu-mobile-gap);
 
         ::slotted(wcs-com-nav-item) {
-            color: var(--wcs-gray);
-            font-weight: 500;
+            color: var(--wcs-com-nav-submenu-mobile-text-color);
+            font-weight: var(--wcs-com-nav-submenu-mobile-link-font-weight);
         }
     }
 }
 
 @include for-phone-only {
     :host {
+        .menu-button {
+            margin: 0;
+        }
+
         .menu-items {
-            margin-top: calc(1.5 * var(--wcs-base-margin));
-            margin-left: calc(3 * var(--wcs-base-margin));
-            gap: calc(3 * var(--wcs-base-margin));
+            margin-top: var(--wcs-com-nav-submenu-mobile-spacing-top);
+            margin-left: var(--wcs-com-nav-submenu-mobile-spacing-left);
         }
     }
+}
+
+:host(.token-migration) {
+    --wcs-com-nav-submenu-button-color: var(--wcs-semantic-color-text-primary);
+    --wcs-com-nav-submenu-button-font-weight: var(--wcs-semantic-font-weight-medium);
+    --wcs-com-nav-submenu-button-focus-outline-color: var(--wcs-semantic-color-border-focus-base);
+    --wcs-com-nav-submenu-button-gap: var(--wcs-semantic-spacing-base);
+
+    --wcs-com-nav-submenu-desktop-menu-background-color: var(--wcs-semantic-color-background-surface-primary);
+    --wcs-com-nav-submenu-desktop-menu-text-color: var(--wcs-semantic-color-text-primary);
+    --wcs-com-nav-submenu-desktop-menu-link-font-weight: var(--wcs-semantic-font-weight-regular);
+    --wcs-com-nav-submenu-desktop-menu-heading-font-weight: var(--wcs-semantic-font-weight-regular);
+    --wcs-com-nav-submenu-desktop-menu-description-font-weight: var(--wcs-semantic-font-weight-medium);
+    --wcs-com-nav-submenu-desktop-menu-description-gap: calc(var(--wcs-semantic-spacing-base) * 3);
+    --wcs-com-nav-submenu-desktop-menu-padding: 50px;
+
+    --wcs-com-nav-submenu-desktop-menu-items-padding-left: 50px;
+    --wcs-com-nav-submenu-desktop-menu-items-padding-right: 80px;
+
+    --wcs-com-nav-submenu-mobile-text-color: var(--wcs-semantic-color-text-primary);
+    --wcs-com-nav-submenu-mobile-link-font-weight: var(--wcs-semantic-font-weight-regular);
+    --wcs-com-nav-submenu-mobile-spacing-top: var(--wcs-semantic-spacing-large);
+    --wcs-com-nav-submenu-mobile-spacing-bottom: var(--wcs-semantic-spacing-large);
+    --wcs-com-nav-submenu-mobile-spacing-left: calc(var(--wcs-semantic-spacing-base) * 3);
+    --wcs-com-nav-submenu-mobile-gap: calc(var(--wcs-semantic-spacing-base) * 3);
 }
 
 @include for-tablet-portrait-up {
@@ -90,11 +136,11 @@
         }
 
         .menu-button:focus-visible {
-            @include focus-outline(var(--wcs-primary), 2px, 0.1rem);
+            @include focus-outline(var(--wcs-com-nav-submenu-button-focus-outline-color), 2px, 0.1rem);
         }
 
         @supports not selector(.menu-button:focus-visible) {
-            @include focus-outline(var(--wcs-primary), 2px, 0.1rem);
+            @include focus-outline(var(--wcs-com-nav-submenu-button-focus-outline-color), 2px, 0.1rem);
         }
 
         .label {
@@ -112,7 +158,7 @@
 
         .arrow-container {
             display: unset;
-            margin-left: var(--wcs-base-margin);
+            margin-left: var(--wcs-com-nav-submenu-button-gap);
         }
 
         .arrow-icon:not([data-open]) {
@@ -126,14 +172,16 @@
         .drawer {
             display: none;
             position: absolute;
-            top: 75px;
+            top: calc(var(--wcs-com-nav-menu-bar-height) + var(--wcs-com-nav-border-width));
             z-index: 8888;
             left: 0;
             width: 100%;
             box-sizing: border-box;
-            padding: 50px;
-            background-color: var(--wcs-primary);
-            color: var(--wcs-white);
+            padding: var(--wcs-com-nav-submenu-desktop-menu-padding);
+            background-color: var(--wcs-com-nav-submenu-desktop-menu-background-color);
+            color: var(--wcs-com-nav-submenu-desktop-menu-text-color);
+
+            box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.08); // TODO: wait solution for backdrop (introduce design token later)
         }
 
         .drawer-content {
@@ -152,18 +200,18 @@
         }
 
         .menu-items {
-            padding: 0 80px 0 50px;
+            padding: 0 var(--wcs-com-nav-submenu-desktop-menu-items-padding-right) 0 var(--wcs-com-nav-submenu-desktop-menu-items-padding-left);
             display: flex;
             flex-direction: column;
             align-items: flex-end;
 
             ::slotted(wcs-com-nav-item) {
-                color: var(--wcs-white);
-                font-weight: 400;
+                color: var(--wcs-com-nav-submenu-desktop-menu-text-color);
+                font-weight: var(--wcs-com-nav-submenu-desktop-menu-link-font-weight);
             }
 
             ::slotted(wcs-com-nav-item:focus-within) {
-                @include com-nav-submenu-item-desktop-focus-outline;
+                @include com-nav-submenu-item-desktop-focus-outline(var(--wcs-com-nav-submenu-desktop-menu-text-color));
             }
         }
 
@@ -173,16 +221,16 @@
             margin: 0 auto;
 
             h3 {
-                margin: 0 0 24px 0;
+                margin: 0 0 var(--wcs-com-nav-submenu-desktop-menu-description-gap) 0;
                 font-size: 1.5rem;
                 line-height: 1.25;
-                font-weight: 400;
+                font-weight: var(--wcs-com-nav-submenu-desktop-menu-heading-font-weight);
             }
 
             p {
                 margin-top: 0;
                 margin-bottom: 1rem;
-                font-weight: 500;
+                font-weight: var(--wcs-com-nav-submenu-desktop-menu-description-font-weight);
                 font-size: 1rem;
                 line-height: 1.375;
             }

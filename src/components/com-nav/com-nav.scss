@@ -3,14 +3,50 @@
 @import '../../style/breakpoints.scss';
 
 :host {
+    // region to be removed before migration to design tokens
     --wcs-com-nav-menu-bar-height: 75px;
+    --wcs-com-nav-border-color: var(--wcs-text-light);
+    --wcs-com-nav-border-width: 1px;
+    --wcs-com-nav-background-color: var(--wcs-white);
+
+    --wcs-com-nav-app-name-color: var(--wcs-gray);
+    --wcs-com-nav-app-name-font-weight: 400;
+    --wcs-com-nav-app-name-font-size: 1.5rem;
+    --wcs-com-nav-app-name-line-height: 1.25;
+
+    --wcs-com-nav-item-color: var(--wcs-gray);
+    --wcs-com-nav-item-font-weight: 500;
+
+    --wcs-com-nav-focus-outline-color: var(--wcs-primary);
+
+    // Spacings pour la navbar et l'overlay mobile
+    --wcs-com-nav-horizontal-padding: var(--wcs-padding);
+    --wcs-com-nav-mobile-overlay-gap: var(--wcs-padding);
+    --wcs-com-nav-mobile-overlay-padding-top: calc(2 * var(--wcs-base-margin));
+    --wcs-com-nav-mobile-overlay-padding-bottom: calc(2 * var(--wcs-base-margin));
+    --wcs-com-nav-mobile-overlay-padding-left: var(--wcs-padding);
+    --wcs-com-nav-mobile-overlay-padding-right: var(--wcs-padding);
+
+    // Icon hamburger
+    --wcs-com-nav-mobile-menu-icon-border-color: var(--wcs-text-light);
+    --wcs-com-nav-mobile-menu-icon-gap: calc(2 * var(--wcs-base-margin));
+    --wcs-com-nav-mobile-menu-icon-margin-left: var(--wcs-base-margin);
+
+    // Menu bar (desktop)
+    --wcs-com-nav-menu-bar-gap: 40px;
+    --wcs-com-nav-menu-bar-margin-left: 50px;
+    --wcs-com-nav-menu-bar-item-color: var(--wcs-gray);
+    --wcs-com-nav-menu-bar-item-font-weight: 500;
+
+    // endregion
+
     display: block;
     position: relative;
     height: var(--wcs-com-nav-menu-bar-height);
-    border-bottom: solid 1px var(--wcs-text-light);
+    border-bottom: var(--wcs-com-nav-border-width) solid var(--wcs-com-nav-border-color);
 
     .container {
-        padding: 0 var(--wcs-padding);
+        padding: 0 var(--wcs-com-nav-horizontal-padding);
         height: 100%;
         display: flex;
         align-items: center;
@@ -36,10 +72,10 @@
     }
 
     .app-name {
-        font-weight: 400;
-        font-size: 1.5rem;
-        line-height: 1.25;
-        color: var(--wcs-gray);
+        font-weight: var(--wcs-com-nav-app-name-font-weight);
+        font-size: var(--wcs-com-nav-app-name-font-size);
+        line-height: var(--wcs-com-nav-app-name-line-height);
+        color: var(--wcs-com-nav-app-name-color);
     }
 
     .menu-bar {
@@ -48,9 +84,9 @@
 
     #mobile-menu-icon {
         height: 24px;
-        padding-left: calc(2 * var(--wcs-base-margin));
-        margin-left: var(--wcs-base-margin);
-        border-left: solid 1px var(--wcs-text-light);
+        padding-left: var(--wcs-com-nav-mobile-menu-icon-gap);
+        margin-left: var(--wcs-com-nav-mobile-menu-icon-margin-left);
+        border-left: solid 1px var(--wcs-com-nav-mobile-menu-icon-border-color);
     }
 
     #mobile-menu-icon:focus {
@@ -58,12 +94,12 @@
     }
 
     #mobile-menu-icon:focus-visible::after {
-        @include focus-outline();
+        @include focus-outline($outline-color: var(--wcs-com-nav-focus-outline-color));
     }
 
     @supports not selector(#mobile-menu-icon:focus-visible::after) {
         #mobile-menu-icon:focus::after {
-            @include focus-outline();
+            @include focus-outline($outline-color: var(--wcs-com-nav-focus-outline-color));
         }
     }
 
@@ -89,32 +125,61 @@
     #mobile-menu-icon[aria-expanded="true"]:after {
         content: "\f129";
     }
-    
+
     .mobile-overlay {
         display: none;
     }
 
     .mobile-overlay[data-mobile-open] {
-        padding-top: calc(2 * var(--wcs-base-margin));
-        padding-bottom: calc(2 * var(--wcs-base-margin));
-        padding-left: var(--wcs-padding);
-        padding-right: var(--wcs-padding);
+        padding-top: var(--wcs-com-nav-mobile-overlay-padding-top);
+        padding-bottom: var(--wcs-com-nav-mobile-overlay-padding-bottom);
+        padding-left: var(--wcs-com-nav-mobile-overlay-padding-left);
+        padding-right: var(--wcs-com-nav-mobile-overlay-padding-right);
         position: absolute;
         top: var(--wcs-com-nav-menu-bar-height);
         left: 0;
         right: 0;
         display: flex;
         flex-direction: column;
-        gap: var(--wcs-padding);
+        gap: var(--wcs-com-nav-mobile-overlay-gap);
         z-index: 9999;
-        background-color: var(--wcs-white);
+        background-color: var(--wcs-com-nav-background-color);
 
-        
         ::slotted(wcs-com-nav-item) {
-            color: var(--wcs-gray);
-            font-weight: 500;
+            color: var(--wcs-com-nav-item-color);
+            font-weight: var(--wcs-com-nav-item-font-weight);
         }
     }
+}
+
+:host(.token-migration) {
+    --wcs-com-nav-menu-bar-height: calc(var(--wcs-semantic-spacing-base) * 10);
+    --wcs-com-nav-border-color: var(--wcs-semantic-color-border-surface);
+    --wcs-com-nav-border-width: var(--wcs-semantic-border-width-default);
+    --wcs-com-nav-background-color: var(--wcs-semantic-color-background-surface-primary);
+
+    --wcs-com-nav-app-name-color: var(--wcs-semantic-color-text-primary);
+    --wcs-com-nav-app-name-font-weight: var(--wcs-semantic-font-weight-regular);
+    --wcs-com-nav-app-name-font-size: 1.5rem;
+    --wcs-com-nav-app-name-line-height: 1.5;
+
+    --wcs-com-nav-focus-outline-color: var(--wcs-semantic-color-border-focus-base);
+
+    --wcs-com-nav-horizontal-padding: var(--wcs-semantic-spacing-large);
+    --wcs-com-nav-mobile-overlay-gap: var(--wcs-semantic-spacing-large);
+    --wcs-com-nav-mobile-overlay-padding-top: calc(var(--wcs-semantic-spacing-base) * 2);
+    --wcs-com-nav-mobile-overlay-padding-bottom: calc(var(--wcs-semantic-spacing-base) * 2);
+    --wcs-com-nav-mobile-overlay-padding-left: var(--wcs-semantic-spacing-large);
+    --wcs-com-nav-mobile-overlay-padding-right: var(--wcs-semantic-spacing-large);
+
+    --wcs-com-nav-mobile-menu-icon-border-color: var(--wcs-semantic-color-border-surface);
+    --wcs-com-nav-mobile-menu-icon-gap: calc(var(--wcs-semantic-spacing-base) * 2);
+    --wcs-com-nav-mobile-menu-icon-margin-left: var(--wcs-semantic-spacing-base);
+
+    --wcs-com-nav-menu-bar-gap: calc(var(--wcs-semantic-spacing-base) * 5); // 40px
+    --wcs-com-nav-menu-bar-margin-left: calc(var(--wcs-semantic-spacing-base) * 6.25); // 50 px
+    --wcs-com-nav-menu-bar-item-color: var(--wcs-semantic-color-text-primary);
+    --wcs-com-nav-menu-bar-item-font-weight: var(--wcs-semantic-font-weight-medium);
 }
 
 @include for-tablet-portrait-up {
@@ -132,21 +197,21 @@
             display: flex;
             align-items: center;
             height: 100%;
-            margin-left: 50px;
+            margin-left: var(--wcs-com-nav-menu-bar-margin-left);
 
             ::slotted(*:not(:first-child)) {
-                margin-left: 40px;
+                margin-left: var(--wcs-com-nav-menu-bar-gap);
             }
 
             ::slotted(wcs-com-nav-item) {
                 height: 100%;
-                color: var(--wcs-gray);
-                font-weight: 500;
+                color: var(--wcs-com-nav-menu-bar-item-color);
+                font-weight: var(--wcs-com-nav-menu-bar-item-font-weight);
             }
 
             // Focus style for nav item in menu bar
             ::slotted(wcs-com-nav-item:focus-within) {
-                @include com-nav-item-desktop-focus-outline;
+                @include com-nav-item-desktop-focus-outline(var(--wcs-com-nav-focus-outline-color));
             }
         }
 

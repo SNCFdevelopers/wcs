@@ -2,6 +2,11 @@ import { Component, Host, h, Event, EventEmitter, Listen } from '@stencil/core';
 
 /**
  * The com-nav-item is a subcomponent of `wcs-com-nav`. It represents a list-item wrapper around a link.
+ * 
+ * @cssprop --wcs-com-nav-item-gap - Gap between text and arrow
+ * @cssprop --wcs-com-nav-item-font-weight - Font-weight of item
+ * @cssprop --wcs-com-nav-item-arrow-icon-font-size - Arrow size
+ * @cssprop --wcs-com-nav-item-focus-outline-color - Focus outline color
  */
 @Component({
     tag: 'wcs-com-nav-item',

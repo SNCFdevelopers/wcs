@@ -2,7 +2,37 @@
 @import '../com-nav/com-nav-focus.scss';
 @import '../../style/breakpoints.scss';
 
-:host{
+:host {
+    // region to be removed before migration to design tokens
+    --wcs-com-nav-category-label-font-size: 16px;
+    --wcs-com-nav-category-label-mobile-font-weight: 500;
+    --wcs-com-nav-category-label-mobile-color: var(--wcs-gray);
+
+    --wcs-com-nav-category-label-desktop-font-weight: 400;
+    --wcs-com-nav-category-label-desktop-color: var(--wcs-white);
+
+    --wcs-com-nav-category-item-mobile-color: var(--wcs-gray);
+    --wcs-com-nav-category-item-mobile-font-weight: 400;
+    --wcs-com-nav-category-item-mobile-spacing-top: calc(1.5 * var(--wcs-base-margin));
+    --wcs-com-nav-category-item-mobile-spacing-left: calc(3 * var(--wcs-base-margin));
+    --wcs-com-nav-category-item-mobile-gap: calc(1.5 * var(--wcs-base-margin));
+
+    --wcs-com-nav-category-label-desktop-gap: var(--wcs-base-margin);
+    --wcs-com-nav-category-label-desktop-focus-outline-color: var(--wcs-white);
+
+    --wcs-com-nav-category-desktop-menu-background-color: rgba(0, 0, 0, 0.15);
+    --wcs-com-nav-category-desktop-menu-border-left-width: 0px;
+    --wcs-com-nav-category-desktop-menu-border-left-color: transparent;
+    --wcs-com-nav-category-desktop-menu-background-indicator-color: var(--wcs-primary);
+    --wcs-com-nav-category-desktop-menu-padding-top: 50px;
+    --wcs-com-nav-category-desktop-menu-padding-bottom: 50px;
+    --wcs-com-nav-category-desktop-menu-padding-left: 50px;
+    --wcs-com-nav-category-desktop-menu-padding-right: 0;
+    --wcs-com-nav-category-desktop-menu-gap: 24px;
+    --wcs-com-nav-category-item-desktop-color: var(--wcs-white);
+    --wcs-com-nav-category-item-desktop-font-weight: 400;
+    // endregion
+
     display: block;
     height: fit-content;
 
@@ -18,11 +48,10 @@
 
     .label-container {
         margin: 0;
-        font-size: 16px;
-        font-weight: 500;
-
+        font-size: var(--wcs-com-nav-category-label-font-size);
+        font-weight: var(--wcs-com-nav-category-label-mobile-font-weight);
         display: block;
-        color: var(--wcs-gray);
+        color: var(--wcs-com-nav-category-label-mobile-color);
 
         .arrow-container {
             display: none;
@@ -36,15 +65,44 @@
     .item-container {
         display: flex;
         flex-direction: column;
-        gap: calc(1.5 * var(--wcs-base-margin));
-        margin-left: calc(3 * var(--wcs-base-margin));
-        margin-top: calc(1.5 * var(--wcs-base-margin));
-        
+        gap: var(--wcs-com-nav-category-item-mobile-gap);
+        margin-left: var(--wcs-com-nav-category-item-mobile-spacing-left);
+        margin-top: var(--wcs-com-nav-category-item-mobile-spacing-top);
+
         ::slotted(wcs-com-nav-item) {
-            color: var(--wcs-gray);
-            font-weight: 400;
+            color: var(--wcs-com-nav-category-item-mobile-color);
+            font-weight: var(--wcs-com-nav-category-item-mobile-font-weight);
         }
     }
+}
+
+:host(.token-migration) {
+    --wcs-com-nav-category-label-mobile-font-weight: var(--wcs-semantic-font-weight-medium);
+    --wcs-com-nav-category-label-mobile-color: var(--wcs-semantic-color-text-primary);
+
+    --wcs-com-nav-category-label-desktop-font-weight: var(--wcs-semantic-font-weight-regular);
+    --wcs-com-nav-category-label-desktop-color: var(--wcs-semantic-color-text-primary);
+    --wcs-com-nav-category-label-desktop-gap: var(--wcs-semantic-spacing-base);
+    --wcs-com-nav-category-label-desktop-focus-outline-color: var(--wcs-semantic-color-border-focus-base);
+
+    --wcs-com-nav-category-item-mobile-color: var(--wcs-semantic-color-text-primary);
+    --wcs-com-nav-category-item-mobile-font-weight: var(--wcs-semantic-font-weight-regular);
+    --wcs-com-nav-category-item-mobile-spacing-top: var(--wcs-semantic-spacing-large);
+    --wcs-com-nav-category-item-mobile-spacing-left: calc(var(--wcs-semantic-spacing-base) * 3);
+    --wcs-com-nav-category-item-mobile-gap: calc(var(--wcs-semantic-spacing-base) * 1.5);
+
+    --wcs-com-nav-category-desktop-menu-background-color: transparent;
+    --wcs-com-nav-category-desktop-menu-border-left-width: var(--wcs-semantic-border-width-default);
+    --wcs-com-nav-category-desktop-menu-border-left-color: var(--wcs-semantic-color-border-surface);
+    --wcs-com-nav-category-desktop-menu-background-indicator-color: transparent;
+    --wcs-com-nav-category-desktop-menu-gap: calc(var(--wcs-semantic-spacing-base) * 3);
+    --wcs-com-nav-category-item-desktop-color: var(--wcs-semantic-color-text-primary);
+    --wcs-com-nav-category-item-desktop-font-weight: var(--wcs-semantic-font-weight-regular);
+
+    --wcs-com-nav-category-desktop-menu-padding-top: 50px;
+    --wcs-com-nav-category-desktop-menu-padding-bottom: 50px;
+    --wcs-com-nav-category-desktop-menu-padding-left: 50px;
+    --wcs-com-nav-category-desktop-menu-padding-right: 0;
 }
 
 @include for-tablet-portrait-up {
@@ -62,16 +120,13 @@
         .label-container {
             display: flex;
             align-items: center;
-            gap: var(--wcs-base-margin);
+            gap: var(--wcs-com-nav-category-label-desktop-gap);
 
-            font-weight: 400;
-
+            font-weight: var(--wcs-com-nav-category-label-desktop-font-weight);
             cursor: pointer;
             user-select: none;
-            display: flex;
-            align-items: center;
             padding-left: unset;
-            color: var(--wcs-white);
+            color: var(--wcs-com-nav-category-label-desktop-color);
 
             .arrow-icon {
                 display: inline-block;
@@ -80,19 +135,19 @@
                 line-height: 1;
                 box-sizing: border-box;
             }
-        
+
             .arrow-container {
                 display: unset;
             }
         }
 
-        .label-container:focus-visible   {
-            @include focus-outline(var(--wcs-white), 5px, 0.1rem);
+        .label-container:focus-visible {
+            @include focus-outline(var(--wcs-com-nav-category-label-desktop-focus-outline-color), 5px, 0.1rem);
         }
 
         @supports not selector(.label-container:focus-visible) {
             .label-container:focus-within {
-                @include focus-outline(var(--wcs-white), 5px, 0.1rem);
+                @include focus-outline(var(--wcs-com-nav-category-label-desktop-focus-outline-color), 5px, 0.1rem);
             }
         }
 
@@ -104,18 +159,19 @@
             width: 1.125rem;
             height: 1.125rem;
             content: "";
-            background-color: var(--wcs-primary);
+            background-color: var(--wcs-com-nav-category-desktop-menu-background-indicator-color);
             transform: rotate(45deg);
         }
 
         .item-container[data-open] {
             position: absolute;
+            border-left: solid var(--wcs-com-nav-category-desktop-menu-border-left-width) var(--wcs-com-nav-category-desktop-menu-border-left-color);
             left: calc(calc(100% / 2) + calc(var(--wcs-com-content-max-width) / 8));
             top: 0;
             right: 0;
-            padding: 50px 0 50px 50px;
+            padding: var(--wcs-com-nav-category-desktop-menu-padding-top) var(--wcs-com-nav-category-desktop-menu-padding-right) var(--wcs-com-nav-category-desktop-menu-padding-bottom) var(--wcs-com-nav-category-desktop-menu-padding-left);
             background-blend-mode: multiply;
-            background-color: rgba(0, 0, 0, 0.15);
+            background-color: var(--wcs-com-nav-category-desktop-menu-background-color);
             box-sizing: border-box;
             height: calc(100%);
 
@@ -124,16 +180,16 @@
 
             display: flex;
             flex-direction: column;
-            gap: 24px;
+            gap: var(--wcs-com-nav-category-desktop-menu-gap);
             align-items: start;
 
             ::slotted(wcs-com-nav-item) {
-                color: var(--wcs-white);
-                font-weight: 400;
+                color: var(--wcs-com-nav-category-item-desktop-color);
+                font-weight: var(--wcs-com-nav-category-item-desktop-font-weight);
             }
 
             ::slotted(wcs-com-nav-item:focus-within) {
-                @include com-nav-submenu-item-desktop-focus-outline;
+                @include com-nav-submenu-item-desktop-focus-outline(var(--wcs-com-nav-category-item-desktop-color));
             }
         }
     }

@@ -17,7 +17,8 @@ const meta: Meta = {
             description: {
                 component: comNavDocumentation
             }
-        }
+        },
+        layout: 'fullscreen'
     },
 };
 export default meta;

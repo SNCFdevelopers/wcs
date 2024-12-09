@@ -20,6 +20,30 @@ const COM_NAV_CATEGORY_INHERITED_ATTRS = ['title'];
 
 /**
  * The com-nav-category is a subcomponent of `wcs-com-nav`. It represents a category nested inside a `wcs-com-nav-submenu`.
+ * 
+ * @cssprop --wcs-com-nav-category-label-font-size - Label font-size
+ * @cssprop --wcs-com-nav-category-label-mobile-font-weight - Label font-weight on mobile
+ * @cssprop --wcs-com-nav-category-label-mobile-color - Label color on mobile 
+ * @cssprop --wcs-com-nav-category-label-desktop-font-weight - Label font-weight on desktop
+ * @cssprop --wcs-com-nav-category-label-desktop-color - Label color on mobile
+ * @cssprop --wcs-com-nav-category-item-mobile-color - Color of category item (mobile)
+ * @cssprop --wcs-com-nav-category-item-mobile-font-weight - Font weight of category item (mobile)
+ * @cssprop --wcs-com-nav-category-item-mobile-spacing-top - Spacing top around items group (mobile)
+ * @cssprop --wcs-com-nav-category-item-mobile-spacing-left - Spacing left around items group (mobile)
+ * @cssprop --wcs-com-nav-category-item-mobile-gap - Gap between each category item (mobile)
+ * @cssprop --wcs-com-nav-category-label-desktop-gap - Gap inside category label, between text and arrow
+ * @cssprop --wcs-com-nav-category-label-desktop-focus-outline-color - Focus outline of the label (desktop)
+ * @cssprop --wcs-com-nav-category-desktop-menu-background-color - Background color of the category menu (desktop)
+ * @cssprop --wcs-com-nav-category-desktop-menu--border-left-width - Border left width of the category menu
+ * @cssprop --wcs-com-nav-category-desktop-menu--border-left-color - Border left color of the category menu
+ * @cssprop --wcs-com-nav-category-desktop-menu-background-indicator-color - Indicator color on top of menu
+ * @cssprop --wcs-com-nav-category-desktop-menu-padding-top - Padding top of menu
+ * @cssprop --wcs-com-nav-category-desktop-menu-padding-bottom - Padding bottom of menu
+ * @cssprop --wcs-com-nav-category-desktop-menu-padding-left - Padding left of menu
+ * @cssprop --wcs-com-nav-category-desktop-menu-padding-right - Padding right of menu
+ * @cssprop --wcs-com-nav-category-desktop-menu-gap - Gap between each item (desktop)
+ * @cssprop --wcs-com-nav-category-item-desktop-color - Color of category item (desktop)
+ * @cssprop --wcs-com-nav-category-item-desktop-font-weight - Font weight of category item (desktop)
  */
 @Component({
     tag: 'wcs-com-nav-category',

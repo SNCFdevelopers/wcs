@@ -389,6 +389,30 @@ export namespace Components {
     /**
      * *Part of communication design system*
      * The com-nav component is a container for navigation links to external or internal pages of the website.
+     * @cssprop --wcs-com-nav-menu-bar-height - Height of the menu bar
+     * @cssprop --wcs-com-nav-border-color - Border color of the bottom border of the com-nav
+     * @cssprop --wcs-com-nav-border-width - Border width of the border below com-nav
+     * @cssprop --wcs-com-nav-background-color - Background color of the com-nav;
+     * @cssprop --wcs-com-nav-app-name-color - App name color
+     * @cssprop --wcs-com-nav-app-name-font-weight - App name font-weight
+     * @cssprop --wcs-com-nav-app-name-font-size - Font size of the App name text
+     * @cssprop --wcs-com-nav-app-name-line-height - Line height of the App name text
+     * @cssprop --wcs-com-nav-item-color - Color of the wcs-nav-item inside menu-bar
+     * @cssprop --wcs-com-nav-item-font-weight - Font weight of the wcs-nav-item inside menu-bar
+     * @cssprop --wcs-com-nav-focus-outline-color - Focus outline color of the wcs-nav-item inside menu-bar
+     * @cssprop --wcs-com-nav-horizontal-padding - Padding horizontal of wcs-com-nav
+     * @cssprop --wcs-com-nav-mobile-overlay-gap - Gap between each items section in mobile overlay
+     * @cssprop --wcs-com-nav-mobile-overlay-padding-top - Padding top inside mobile overlay
+     * @cssprop --wcs-com-nav-mobile-overlay-padding-bottom - Padding bottom inside mobile overlay
+     * @cssprop --wcs-com-nav-mobile-overlay-padding-left - Padding left inside mobile overlay
+     * @cssprop --wcs-com-nav-mobile-overlay-padding-right - Padding right inside mobile overlay
+     * @cssprop --wcs-com-nav-mobile-menu-icon-border-color - Bar border color on the left of icon mobile menu
+     * @cssprop --wcs-com-nav-mobile-menu-icon-gap- Gap between icon mobile menu and separator on the left
+     * @cssprop --wcs-com-nav-mobile-menu-icon-margin-left - Margin left of icon mobile menu
+     * @cssprop --wcs-com-nav-menu-bar-gap - Gap between each item inside menu-bar
+     * @cssprop --wcs-com-nav-menu-bar-margin-left - Margin left between menu bar and the app-name section
+     * @cssprop --wcs-com-nav-menu-bar-item-color - Item color of the item inside menu bar
+     * @cssprop --wcs-com-nav-menu-bar-item-font-weight - Font weight of the item inside menu bar
      */
     interface WcsComNav {
         /**
@@ -399,6 +423,29 @@ export namespace Components {
     }
     /**
      * The com-nav-category is a subcomponent of `wcs-com-nav`. It represents a category nested inside a `wcs-com-nav-submenu`.
+     * @cssprop --wcs-com-nav-category-label-font-size - Label font-size
+     * @cssprop --wcs-com-nav-category-label-mobile-font-weight - Label font-weight on mobile
+     * @cssprop --wcs-com-nav-category-label-mobile-color - Label color on mobile
+     * @cssprop --wcs-com-nav-category-label-desktop-font-weight - Label font-weight on desktop
+     * @cssprop --wcs-com-nav-category-label-desktop-color - Label color on mobile
+     * @cssprop --wcs-com-nav-category-item-mobile-color - Color of category item (mobile)
+     * @cssprop --wcs-com-nav-category-item-mobile-font-weight - Font weight of category item (mobile)
+     * @cssprop --wcs-com-nav-category-item-mobile-spacing-top - Spacing top around items group (mobile)
+     * @cssprop --wcs-com-nav-category-item-mobile-spacing-left - Spacing left around items group (mobile)
+     * @cssprop --wcs-com-nav-category-item-mobile-gap - Gap between each category item (mobile)
+     * @cssprop --wcs-com-nav-category-label-desktop-gap - Gap inside category label, between text and arrow
+     * @cssprop --wcs-com-nav-category-label-desktop-focus-outline-color - Focus outline of the label (desktop)
+     * @cssprop --wcs-com-nav-category-desktop-menu-background-color - Background color of the category menu (desktop)
+     * @cssprop --wcs-com-nav-category-desktop-menu--border-left-width - Border left width of the category menu
+     * @cssprop --wcs-com-nav-category-desktop-menu--border-left-color - Border left color of the category menu
+     * @cssprop --wcs-com-nav-category-desktop-menu-background-indicator-color - Indicator color on top of menu
+     * @cssprop --wcs-com-nav-category-desktop-menu-padding-top - Padding top of menu
+     * @cssprop --wcs-com-nav-category-desktop-menu-padding-bottom - Padding bottom of menu
+     * @cssprop --wcs-com-nav-category-desktop-menu-padding-left - Padding left of menu
+     * @cssprop --wcs-com-nav-category-desktop-menu-padding-right - Padding right of menu
+     * @cssprop --wcs-com-nav-category-desktop-menu-gap - Gap between each item (desktop)
+     * @cssprop --wcs-com-nav-category-item-desktop-color - Color of category item (desktop)
+     * @cssprop --wcs-com-nav-category-item-desktop-font-weight - Font weight of category item (desktop)
      */
     interface WcsComNavCategory {
         /**
@@ -414,11 +461,34 @@ export namespace Components {
     }
     /**
      * The com-nav-item is a subcomponent of `wcs-com-nav`. It represents a list-item wrapper around a link.
+     * @cssprop --wcs-com-nav-item-gap - Gap between text and arrow
+     * @cssprop --wcs-com-nav-item-font-weight - Font-weight of item
+     * @cssprop --wcs-com-nav-item-arrow-icon-font-size - Arrow size
+     * @cssprop --wcs-com-nav-item-focus-outline-color - Focus outline color
      */
     interface WcsComNavItem {
     }
     /**
      * The com-nav-submenu is a subcomponent of `wcs-com-nav`. It represents an expandable menu containing more items or categories.
+     * @cssprop --wcs-com-nav-submenu-button-color - Color of the menu label
+     * @cssprop --wcs-com-nav-submenu-button-font-weight - Font-weight of the menu label
+     * @cssprop --wcs-com-nav-submenu-button-focus-outline-color - Focus outline color of the menu label
+     * @cssprop --wcs-com-nav-submenu-button-gap - Gap inside menu label between text and arrow indicator
+     * @cssprop --wcs-com-nav-submenu-desktop-menu-background-color - Background color of the menu (desktop)
+     * @cssprop --wcs-com-nav-submenu-desktop-menu-text-color - Text color inside menu (desktop)
+     * @cssprop --wcs-com-nav-submenu-desktop-menu-link-font-weight - Link font-weight color inside menu (desktop)
+     * @cssprop --wcs-com-nav-submenu-desktop-menu-heading-font-weight - Heading font-weight of the menu (desktop)
+     * @cssprop --wcs-com-nav-submenu-desktop-menu-description-font-weight - Description font-weight of the menu (desktop)
+     * @cssprop --wcs-com-nav-submenu-desktop-menu-description-gap - Gap between heading and description in the description section of the menu (desktop)
+     * @cssprop --wcs-com-nav-submenu-desktop-menu-padding - Padding of the menu (desktop)
+     * @cssprop --wcs-com-nav-submenu-desktop-menu-items-padding-left - Padding left around link items group in menu (desktop)
+     * @cssprop --wcs-com-nav-submenu-desktop-menu-items-padding-right - Padding right around link items group in menu (desktop)
+     * @cssprop --wcs-com-nav-submenu-mobile-text-color - Text color for each text (mobile)
+     * @cssprop --wcs-com-nav-submenu-mobile-link-font-weight - Link font-weight for each link (mobile)
+     * @cssprop --wcs-com-nav-submenu-mobile-spacing-top - Spacing around top of the submenu (mobile)
+     * @cssprop --wcs-com-nav-submenu-mobile-spacing-bottom - Spacing around bottom of the submenu (mobile)
+     * @cssprop --wcs-com-nav-submenu-mobile-spacing-left - Spacing around left of the submenu (mobile)
+     * @cssprop --wcs-com-nav-submenu-mobile-gap - Gap between each item in submenu (mobile)
      */
     interface WcsComNavSubmenu {
         /**
@@ -2530,6 +2600,30 @@ declare global {
     /**
      * *Part of communication design system*
      * The com-nav component is a container for navigation links to external or internal pages of the website.
+     * @cssprop --wcs-com-nav-menu-bar-height - Height of the menu bar
+     * @cssprop --wcs-com-nav-border-color - Border color of the bottom border of the com-nav
+     * @cssprop --wcs-com-nav-border-width - Border width of the border below com-nav
+     * @cssprop --wcs-com-nav-background-color - Background color of the com-nav;
+     * @cssprop --wcs-com-nav-app-name-color - App name color
+     * @cssprop --wcs-com-nav-app-name-font-weight - App name font-weight
+     * @cssprop --wcs-com-nav-app-name-font-size - Font size of the App name text
+     * @cssprop --wcs-com-nav-app-name-line-height - Line height of the App name text
+     * @cssprop --wcs-com-nav-item-color - Color of the wcs-nav-item inside menu-bar
+     * @cssprop --wcs-com-nav-item-font-weight - Font weight of the wcs-nav-item inside menu-bar
+     * @cssprop --wcs-com-nav-focus-outline-color - Focus outline color of the wcs-nav-item inside menu-bar
+     * @cssprop --wcs-com-nav-horizontal-padding - Padding horizontal of wcs-com-nav
+     * @cssprop --wcs-com-nav-mobile-overlay-gap - Gap between each items section in mobile overlay
+     * @cssprop --wcs-com-nav-mobile-overlay-padding-top - Padding top inside mobile overlay
+     * @cssprop --wcs-com-nav-mobile-overlay-padding-bottom - Padding bottom inside mobile overlay
+     * @cssprop --wcs-com-nav-mobile-overlay-padding-left - Padding left inside mobile overlay
+     * @cssprop --wcs-com-nav-mobile-overlay-padding-right - Padding right inside mobile overlay
+     * @cssprop --wcs-com-nav-mobile-menu-icon-border-color - Bar border color on the left of icon mobile menu
+     * @cssprop --wcs-com-nav-mobile-menu-icon-gap- Gap between icon mobile menu and separator on the left
+     * @cssprop --wcs-com-nav-mobile-menu-icon-margin-left - Margin left of icon mobile menu
+     * @cssprop --wcs-com-nav-menu-bar-gap - Gap between each item inside menu-bar
+     * @cssprop --wcs-com-nav-menu-bar-margin-left - Margin left between menu bar and the app-name section
+     * @cssprop --wcs-com-nav-menu-bar-item-color - Item color of the item inside menu bar
+     * @cssprop --wcs-com-nav-menu-bar-item-font-weight - Font weight of the item inside menu bar
      */
     interface HTMLWcsComNavElement extends Components.WcsComNav, HTMLStencilElement {
     }
@@ -2542,6 +2636,29 @@ declare global {
     }
     /**
      * The com-nav-category is a subcomponent of `wcs-com-nav`. It represents a category nested inside a `wcs-com-nav-submenu`.
+     * @cssprop --wcs-com-nav-category-label-font-size - Label font-size
+     * @cssprop --wcs-com-nav-category-label-mobile-font-weight - Label font-weight on mobile
+     * @cssprop --wcs-com-nav-category-label-mobile-color - Label color on mobile
+     * @cssprop --wcs-com-nav-category-label-desktop-font-weight - Label font-weight on desktop
+     * @cssprop --wcs-com-nav-category-label-desktop-color - Label color on mobile
+     * @cssprop --wcs-com-nav-category-item-mobile-color - Color of category item (mobile)
+     * @cssprop --wcs-com-nav-category-item-mobile-font-weight - Font weight of category item (mobile)
+     * @cssprop --wcs-com-nav-category-item-mobile-spacing-top - Spacing top around items group (mobile)
+     * @cssprop --wcs-com-nav-category-item-mobile-spacing-left - Spacing left around items group (mobile)
+     * @cssprop --wcs-com-nav-category-item-mobile-gap - Gap between each category item (mobile)
+     * @cssprop --wcs-com-nav-category-label-desktop-gap - Gap inside category label, between text and arrow
+     * @cssprop --wcs-com-nav-category-label-desktop-focus-outline-color - Focus outline of the label (desktop)
+     * @cssprop --wcs-com-nav-category-desktop-menu-background-color - Background color of the category menu (desktop)
+     * @cssprop --wcs-com-nav-category-desktop-menu--border-left-width - Border left width of the category menu
+     * @cssprop --wcs-com-nav-category-desktop-menu--border-left-color - Border left color of the category menu
+     * @cssprop --wcs-com-nav-category-desktop-menu-background-indicator-color - Indicator color on top of menu
+     * @cssprop --wcs-com-nav-category-desktop-menu-padding-top - Padding top of menu
+     * @cssprop --wcs-com-nav-category-desktop-menu-padding-bottom - Padding bottom of menu
+     * @cssprop --wcs-com-nav-category-desktop-menu-padding-left - Padding left of menu
+     * @cssprop --wcs-com-nav-category-desktop-menu-padding-right - Padding right of menu
+     * @cssprop --wcs-com-nav-category-desktop-menu-gap - Gap between each item (desktop)
+     * @cssprop --wcs-com-nav-category-item-desktop-color - Color of category item (desktop)
+     * @cssprop --wcs-com-nav-category-item-desktop-font-weight - Font weight of category item (desktop)
      */
     interface HTMLWcsComNavCategoryElement extends Components.WcsComNavCategory, HTMLStencilElement {
         addEventListener<K extends keyof HTMLWcsComNavCategoryElementEventMap>(type: K, listener: (this: HTMLWcsComNavCategoryElement, ev: WcsComNavCategoryCustomEvent<HTMLWcsComNavCategoryElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2562,6 +2679,10 @@ declare global {
     }
     /**
      * The com-nav-item is a subcomponent of `wcs-com-nav`. It represents a list-item wrapper around a link.
+     * @cssprop --wcs-com-nav-item-gap - Gap between text and arrow
+     * @cssprop --wcs-com-nav-item-font-weight - Font-weight of item
+     * @cssprop --wcs-com-nav-item-arrow-icon-font-size - Arrow size
+     * @cssprop --wcs-com-nav-item-focus-outline-color - Focus outline color
      */
     interface HTMLWcsComNavItemElement extends Components.WcsComNavItem, HTMLStencilElement {
         addEventListener<K extends keyof HTMLWcsComNavItemElementEventMap>(type: K, listener: (this: HTMLWcsComNavItemElement, ev: WcsComNavItemCustomEvent<HTMLWcsComNavItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2582,6 +2703,25 @@ declare global {
     }
     /**
      * The com-nav-submenu is a subcomponent of `wcs-com-nav`. It represents an expandable menu containing more items or categories.
+     * @cssprop --wcs-com-nav-submenu-button-color - Color of the menu label
+     * @cssprop --wcs-com-nav-submenu-button-font-weight - Font-weight of the menu label
+     * @cssprop --wcs-com-nav-submenu-button-focus-outline-color - Focus outline color of the menu label
+     * @cssprop --wcs-com-nav-submenu-button-gap - Gap inside menu label between text and arrow indicator
+     * @cssprop --wcs-com-nav-submenu-desktop-menu-background-color - Background color of the menu (desktop)
+     * @cssprop --wcs-com-nav-submenu-desktop-menu-text-color - Text color inside menu (desktop)
+     * @cssprop --wcs-com-nav-submenu-desktop-menu-link-font-weight - Link font-weight color inside menu (desktop)
+     * @cssprop --wcs-com-nav-submenu-desktop-menu-heading-font-weight - Heading font-weight of the menu (desktop)
+     * @cssprop --wcs-com-nav-submenu-desktop-menu-description-font-weight - Description font-weight of the menu (desktop)
+     * @cssprop --wcs-com-nav-submenu-desktop-menu-description-gap - Gap between heading and description in the description section of the menu (desktop)
+     * @cssprop --wcs-com-nav-submenu-desktop-menu-padding - Padding of the menu (desktop)
+     * @cssprop --wcs-com-nav-submenu-desktop-menu-items-padding-left - Padding left around link items group in menu (desktop)
+     * @cssprop --wcs-com-nav-submenu-desktop-menu-items-padding-right - Padding right around link items group in menu (desktop)
+     * @cssprop --wcs-com-nav-submenu-mobile-text-color - Text color for each text (mobile)
+     * @cssprop --wcs-com-nav-submenu-mobile-link-font-weight - Link font-weight for each link (mobile)
+     * @cssprop --wcs-com-nav-submenu-mobile-spacing-top - Spacing around top of the submenu (mobile)
+     * @cssprop --wcs-com-nav-submenu-mobile-spacing-bottom - Spacing around bottom of the submenu (mobile)
+     * @cssprop --wcs-com-nav-submenu-mobile-spacing-left - Spacing around left of the submenu (mobile)
+     * @cssprop --wcs-com-nav-submenu-mobile-gap - Gap between each item in submenu (mobile)
      */
     interface HTMLWcsComNavSubmenuElement extends Components.WcsComNavSubmenu, HTMLStencilElement {
         addEventListener<K extends keyof HTMLWcsComNavSubmenuElementEventMap>(type: K, listener: (this: HTMLWcsComNavSubmenuElement, ev: WcsComNavSubmenuCustomEvent<HTMLWcsComNavSubmenuElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -4317,6 +4457,30 @@ declare namespace LocalJSX {
     /**
      * *Part of communication design system*
      * The com-nav component is a container for navigation links to external or internal pages of the website.
+     * @cssprop --wcs-com-nav-menu-bar-height - Height of the menu bar
+     * @cssprop --wcs-com-nav-border-color - Border color of the bottom border of the com-nav
+     * @cssprop --wcs-com-nav-border-width - Border width of the border below com-nav
+     * @cssprop --wcs-com-nav-background-color - Background color of the com-nav;
+     * @cssprop --wcs-com-nav-app-name-color - App name color
+     * @cssprop --wcs-com-nav-app-name-font-weight - App name font-weight
+     * @cssprop --wcs-com-nav-app-name-font-size - Font size of the App name text
+     * @cssprop --wcs-com-nav-app-name-line-height - Line height of the App name text
+     * @cssprop --wcs-com-nav-item-color - Color of the wcs-nav-item inside menu-bar
+     * @cssprop --wcs-com-nav-item-font-weight - Font weight of the wcs-nav-item inside menu-bar
+     * @cssprop --wcs-com-nav-focus-outline-color - Focus outline color of the wcs-nav-item inside menu-bar
+     * @cssprop --wcs-com-nav-horizontal-padding - Padding horizontal of wcs-com-nav
+     * @cssprop --wcs-com-nav-mobile-overlay-gap - Gap between each items section in mobile overlay
+     * @cssprop --wcs-com-nav-mobile-overlay-padding-top - Padding top inside mobile overlay
+     * @cssprop --wcs-com-nav-mobile-overlay-padding-bottom - Padding bottom inside mobile overlay
+     * @cssprop --wcs-com-nav-mobile-overlay-padding-left - Padding left inside mobile overlay
+     * @cssprop --wcs-com-nav-mobile-overlay-padding-right - Padding right inside mobile overlay
+     * @cssprop --wcs-com-nav-mobile-menu-icon-border-color - Bar border color on the left of icon mobile menu
+     * @cssprop --wcs-com-nav-mobile-menu-icon-gap- Gap between icon mobile menu and separator on the left
+     * @cssprop --wcs-com-nav-mobile-menu-icon-margin-left - Margin left of icon mobile menu
+     * @cssprop --wcs-com-nav-menu-bar-gap - Gap between each item inside menu-bar
+     * @cssprop --wcs-com-nav-menu-bar-margin-left - Margin left between menu bar and the app-name section
+     * @cssprop --wcs-com-nav-menu-bar-item-color - Item color of the item inside menu bar
+     * @cssprop --wcs-com-nav-menu-bar-item-font-weight - Font weight of the item inside menu bar
      */
     interface WcsComNav {
         /**
@@ -4326,6 +4490,29 @@ declare namespace LocalJSX {
     }
     /**
      * The com-nav-category is a subcomponent of `wcs-com-nav`. It represents a category nested inside a `wcs-com-nav-submenu`.
+     * @cssprop --wcs-com-nav-category-label-font-size - Label font-size
+     * @cssprop --wcs-com-nav-category-label-mobile-font-weight - Label font-weight on mobile
+     * @cssprop --wcs-com-nav-category-label-mobile-color - Label color on mobile
+     * @cssprop --wcs-com-nav-category-label-desktop-font-weight - Label font-weight on desktop
+     * @cssprop --wcs-com-nav-category-label-desktop-color - Label color on mobile
+     * @cssprop --wcs-com-nav-category-item-mobile-color - Color of category item (mobile)
+     * @cssprop --wcs-com-nav-category-item-mobile-font-weight - Font weight of category item (mobile)
+     * @cssprop --wcs-com-nav-category-item-mobile-spacing-top - Spacing top around items group (mobile)
+     * @cssprop --wcs-com-nav-category-item-mobile-spacing-left - Spacing left around items group (mobile)
+     * @cssprop --wcs-com-nav-category-item-mobile-gap - Gap between each category item (mobile)
+     * @cssprop --wcs-com-nav-category-label-desktop-gap - Gap inside category label, between text and arrow
+     * @cssprop --wcs-com-nav-category-label-desktop-focus-outline-color - Focus outline of the label (desktop)
+     * @cssprop --wcs-com-nav-category-desktop-menu-background-color - Background color of the category menu (desktop)
+     * @cssprop --wcs-com-nav-category-desktop-menu--border-left-width - Border left width of the category menu
+     * @cssprop --wcs-com-nav-category-desktop-menu--border-left-color - Border left color of the category menu
+     * @cssprop --wcs-com-nav-category-desktop-menu-background-indicator-color - Indicator color on top of menu
+     * @cssprop --wcs-com-nav-category-desktop-menu-padding-top - Padding top of menu
+     * @cssprop --wcs-com-nav-category-desktop-menu-padding-bottom - Padding bottom of menu
+     * @cssprop --wcs-com-nav-category-desktop-menu-padding-left - Padding left of menu
+     * @cssprop --wcs-com-nav-category-desktop-menu-padding-right - Padding right of menu
+     * @cssprop --wcs-com-nav-category-desktop-menu-gap - Gap between each item (desktop)
+     * @cssprop --wcs-com-nav-category-item-desktop-color - Color of category item (desktop)
+     * @cssprop --wcs-com-nav-category-item-desktop-font-weight - Font weight of category item (desktop)
      */
     interface WcsComNavCategory {
         "label"?: string;
@@ -4333,6 +4520,10 @@ declare namespace LocalJSX {
     }
     /**
      * The com-nav-item is a subcomponent of `wcs-com-nav`. It represents a list-item wrapper around a link.
+     * @cssprop --wcs-com-nav-item-gap - Gap between text and arrow
+     * @cssprop --wcs-com-nav-item-font-weight - Font-weight of item
+     * @cssprop --wcs-com-nav-item-arrow-icon-font-size - Arrow size
+     * @cssprop --wcs-com-nav-item-focus-outline-color - Focus outline color
      */
     interface WcsComNavItem {
         /**
@@ -4342,6 +4533,25 @@ declare namespace LocalJSX {
     }
     /**
      * The com-nav-submenu is a subcomponent of `wcs-com-nav`. It represents an expandable menu containing more items or categories.
+     * @cssprop --wcs-com-nav-submenu-button-color - Color of the menu label
+     * @cssprop --wcs-com-nav-submenu-button-font-weight - Font-weight of the menu label
+     * @cssprop --wcs-com-nav-submenu-button-focus-outline-color - Focus outline color of the menu label
+     * @cssprop --wcs-com-nav-submenu-button-gap - Gap inside menu label between text and arrow indicator
+     * @cssprop --wcs-com-nav-submenu-desktop-menu-background-color - Background color of the menu (desktop)
+     * @cssprop --wcs-com-nav-submenu-desktop-menu-text-color - Text color inside menu (desktop)
+     * @cssprop --wcs-com-nav-submenu-desktop-menu-link-font-weight - Link font-weight color inside menu (desktop)
+     * @cssprop --wcs-com-nav-submenu-desktop-menu-heading-font-weight - Heading font-weight of the menu (desktop)
+     * @cssprop --wcs-com-nav-submenu-desktop-menu-description-font-weight - Description font-weight of the menu (desktop)
+     * @cssprop --wcs-com-nav-submenu-desktop-menu-description-gap - Gap between heading and description in the description section of the menu (desktop)
+     * @cssprop --wcs-com-nav-submenu-desktop-menu-padding - Padding of the menu (desktop)
+     * @cssprop --wcs-com-nav-submenu-desktop-menu-items-padding-left - Padding left around link items group in menu (desktop)
+     * @cssprop --wcs-com-nav-submenu-desktop-menu-items-padding-right - Padding right around link items group in menu (desktop)
+     * @cssprop --wcs-com-nav-submenu-mobile-text-color - Text color for each text (mobile)
+     * @cssprop --wcs-com-nav-submenu-mobile-link-font-weight - Link font-weight for each link (mobile)
+     * @cssprop --wcs-com-nav-submenu-mobile-spacing-top - Spacing around top of the submenu (mobile)
+     * @cssprop --wcs-com-nav-submenu-mobile-spacing-bottom - Spacing around bottom of the submenu (mobile)
+     * @cssprop --wcs-com-nav-submenu-mobile-spacing-left - Spacing around left of the submenu (mobile)
+     * @cssprop --wcs-com-nav-submenu-mobile-gap - Gap between each item in submenu (mobile)
      */
     interface WcsComNavSubmenu {
         "label"?: string;
@@ -6404,18 +6614,88 @@ declare module "@stencil/core" {
             /**
              * *Part of communication design system*
              * The com-nav component is a container for navigation links to external or internal pages of the website.
+             * @cssprop --wcs-com-nav-menu-bar-height - Height of the menu bar
+             * @cssprop --wcs-com-nav-border-color - Border color of the bottom border of the com-nav
+             * @cssprop --wcs-com-nav-border-width - Border width of the border below com-nav
+             * @cssprop --wcs-com-nav-background-color - Background color of the com-nav;
+             * @cssprop --wcs-com-nav-app-name-color - App name color
+             * @cssprop --wcs-com-nav-app-name-font-weight - App name font-weight
+             * @cssprop --wcs-com-nav-app-name-font-size - Font size of the App name text
+             * @cssprop --wcs-com-nav-app-name-line-height - Line height of the App name text
+             * @cssprop --wcs-com-nav-item-color - Color of the wcs-nav-item inside menu-bar
+             * @cssprop --wcs-com-nav-item-font-weight - Font weight of the wcs-nav-item inside menu-bar
+             * @cssprop --wcs-com-nav-focus-outline-color - Focus outline color of the wcs-nav-item inside menu-bar
+             * @cssprop --wcs-com-nav-horizontal-padding - Padding horizontal of wcs-com-nav
+             * @cssprop --wcs-com-nav-mobile-overlay-gap - Gap between each items section in mobile overlay
+             * @cssprop --wcs-com-nav-mobile-overlay-padding-top - Padding top inside mobile overlay
+             * @cssprop --wcs-com-nav-mobile-overlay-padding-bottom - Padding bottom inside mobile overlay
+             * @cssprop --wcs-com-nav-mobile-overlay-padding-left - Padding left inside mobile overlay
+             * @cssprop --wcs-com-nav-mobile-overlay-padding-right - Padding right inside mobile overlay
+             * @cssprop --wcs-com-nav-mobile-menu-icon-border-color - Bar border color on the left of icon mobile menu
+             * @cssprop --wcs-com-nav-mobile-menu-icon-gap- Gap between icon mobile menu and separator on the left
+             * @cssprop --wcs-com-nav-mobile-menu-icon-margin-left - Margin left of icon mobile menu
+             * @cssprop --wcs-com-nav-menu-bar-gap - Gap between each item inside menu-bar
+             * @cssprop --wcs-com-nav-menu-bar-margin-left - Margin left between menu bar and the app-name section
+             * @cssprop --wcs-com-nav-menu-bar-item-color - Item color of the item inside menu bar
+             * @cssprop --wcs-com-nav-menu-bar-item-font-weight - Font weight of the item inside menu bar
              */
             "wcs-com-nav": LocalJSX.WcsComNav & JSXBase.HTMLAttributes<HTMLWcsComNavElement>;
             /**
              * The com-nav-category is a subcomponent of `wcs-com-nav`. It represents a category nested inside a `wcs-com-nav-submenu`.
+             * @cssprop --wcs-com-nav-category-label-font-size - Label font-size
+             * @cssprop --wcs-com-nav-category-label-mobile-font-weight - Label font-weight on mobile
+             * @cssprop --wcs-com-nav-category-label-mobile-color - Label color on mobile
+             * @cssprop --wcs-com-nav-category-label-desktop-font-weight - Label font-weight on desktop
+             * @cssprop --wcs-com-nav-category-label-desktop-color - Label color on mobile
+             * @cssprop --wcs-com-nav-category-item-mobile-color - Color of category item (mobile)
+             * @cssprop --wcs-com-nav-category-item-mobile-font-weight - Font weight of category item (mobile)
+             * @cssprop --wcs-com-nav-category-item-mobile-spacing-top - Spacing top around items group (mobile)
+             * @cssprop --wcs-com-nav-category-item-mobile-spacing-left - Spacing left around items group (mobile)
+             * @cssprop --wcs-com-nav-category-item-mobile-gap - Gap between each category item (mobile)
+             * @cssprop --wcs-com-nav-category-label-desktop-gap - Gap inside category label, between text and arrow
+             * @cssprop --wcs-com-nav-category-label-desktop-focus-outline-color - Focus outline of the label (desktop)
+             * @cssprop --wcs-com-nav-category-desktop-menu-background-color - Background color of the category menu (desktop)
+             * @cssprop --wcs-com-nav-category-desktop-menu--border-left-width - Border left width of the category menu
+             * @cssprop --wcs-com-nav-category-desktop-menu--border-left-color - Border left color of the category menu
+             * @cssprop --wcs-com-nav-category-desktop-menu-background-indicator-color - Indicator color on top of menu
+             * @cssprop --wcs-com-nav-category-desktop-menu-padding-top - Padding top of menu
+             * @cssprop --wcs-com-nav-category-desktop-menu-padding-bottom - Padding bottom of menu
+             * @cssprop --wcs-com-nav-category-desktop-menu-padding-left - Padding left of menu
+             * @cssprop --wcs-com-nav-category-desktop-menu-padding-right - Padding right of menu
+             * @cssprop --wcs-com-nav-category-desktop-menu-gap - Gap between each item (desktop)
+             * @cssprop --wcs-com-nav-category-item-desktop-color - Color of category item (desktop)
+             * @cssprop --wcs-com-nav-category-item-desktop-font-weight - Font weight of category item (desktop)
              */
             "wcs-com-nav-category": LocalJSX.WcsComNavCategory & JSXBase.HTMLAttributes<HTMLWcsComNavCategoryElement>;
             /**
              * The com-nav-item is a subcomponent of `wcs-com-nav`. It represents a list-item wrapper around a link.
+             * @cssprop --wcs-com-nav-item-gap - Gap between text and arrow
+             * @cssprop --wcs-com-nav-item-font-weight - Font-weight of item
+             * @cssprop --wcs-com-nav-item-arrow-icon-font-size - Arrow size
+             * @cssprop --wcs-com-nav-item-focus-outline-color - Focus outline color
              */
             "wcs-com-nav-item": LocalJSX.WcsComNavItem & JSXBase.HTMLAttributes<HTMLWcsComNavItemElement>;
             /**
              * The com-nav-submenu is a subcomponent of `wcs-com-nav`. It represents an expandable menu containing more items or categories.
+             * @cssprop --wcs-com-nav-submenu-button-color - Color of the menu label
+             * @cssprop --wcs-com-nav-submenu-button-font-weight - Font-weight of the menu label
+             * @cssprop --wcs-com-nav-submenu-button-focus-outline-color - Focus outline color of the menu label
+             * @cssprop --wcs-com-nav-submenu-button-gap - Gap inside menu label between text and arrow indicator
+             * @cssprop --wcs-com-nav-submenu-desktop-menu-background-color - Background color of the menu (desktop)
+             * @cssprop --wcs-com-nav-submenu-desktop-menu-text-color - Text color inside menu (desktop)
+             * @cssprop --wcs-com-nav-submenu-desktop-menu-link-font-weight - Link font-weight color inside menu (desktop)
+             * @cssprop --wcs-com-nav-submenu-desktop-menu-heading-font-weight - Heading font-weight of the menu (desktop)
+             * @cssprop --wcs-com-nav-submenu-desktop-menu-description-font-weight - Description font-weight of the menu (desktop)
+             * @cssprop --wcs-com-nav-submenu-desktop-menu-description-gap - Gap between heading and description in the description section of the menu (desktop)
+             * @cssprop --wcs-com-nav-submenu-desktop-menu-padding - Padding of the menu (desktop)
+             * @cssprop --wcs-com-nav-submenu-desktop-menu-items-padding-left - Padding left around link items group in menu (desktop)
+             * @cssprop --wcs-com-nav-submenu-desktop-menu-items-padding-right - Padding right around link items group in menu (desktop)
+             * @cssprop --wcs-com-nav-submenu-mobile-text-color - Text color for each text (mobile)
+             * @cssprop --wcs-com-nav-submenu-mobile-link-font-weight - Link font-weight for each link (mobile)
+             * @cssprop --wcs-com-nav-submenu-mobile-spacing-top - Spacing around top of the submenu (mobile)
+             * @cssprop --wcs-com-nav-submenu-mobile-spacing-bottom - Spacing around bottom of the submenu (mobile)
+             * @cssprop --wcs-com-nav-submenu-mobile-spacing-left - Spacing around left of the submenu (mobile)
+             * @cssprop --wcs-com-nav-submenu-mobile-gap - Gap between each item in submenu (mobile)
              */
             "wcs-com-nav-submenu": LocalJSX.WcsComNavSubmenu & JSXBase.HTMLAttributes<HTMLWcsComNavSubmenuElement>;
             /**
