@@ -21,7 +21,7 @@ export type WcsFormlySelectProps = WcsFormlyFieldWrapperProps & {
         [id]="id"
         [attr.required]="(props.required && props.hideRequiredMarker !== true) ? true : null"
         [attr.placeholder]="props.placeholder"
-        [size]="props.size"
+        [size]="props.size ?? 'm'"
         [formControl]="formControl"
         [filterFn]="props.filterFn"
         [attr.autocomplete]="props.autocomplete ? true : null"

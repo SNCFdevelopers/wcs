@@ -19,7 +19,7 @@ export type WcsFormlyCounterProps = WcsFormlyFieldWrapperProps & {
       <wcs-counter
         [id]="id"
         [formControl]="formControl"
-        [size]="props.size"
+        [size]="props.size ?? 'm'"
         [value]="props.value"
         [min]="props.min"
         [max]="props.max"

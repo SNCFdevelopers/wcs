@@ -66,6 +66,7 @@ that can cause contrast issues.
 
 - **switch**: fix display bug when resizing the window
 - **native-select**: fix opacity of the native select when disabled
+- **formly field**: **select**, **input**, **counter**: set default size 'm' in formly => no more warn in client console
 
 ### Security
 
