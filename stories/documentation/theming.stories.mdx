@@ -12,52 +12,45 @@ You can now choose between all themes below.
 
 WCS currently exports the following themes:
 
-- SNCF Holding Legacy
-- SNCF Holding
-- SNCF Voyageurs
-- SNCF Réseau
+<table style={{ textAlign: 'center' }}>
+    <thead>
+        <tr>
+            <th style={{background: '#6558b1', color: 'white'}}>SNCF Holding</th>
+            <th style={{background: '#065654', color: 'white'}}>SNCF Voyageurs</th>
+            <th style={{background: '#264fc4', color: 'white'}}>SNCF Réseau</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                ![SNCF Holding](sncf-groupe.svg)
+            </td>
+            <td>
+                ![SNCF Voyageurs](sncf-voyageurs.svg)
+            </td>
+            <td>
+                ![SNCF Réseau](sncf-reseau.svg)
+            </td>
+        </tr>
+    </tbody>
+</table>
+
 
 ## How to Use a Theme
 
-To start using a theme, you need to **import the corresponding CSS files that contain the design tokens**. These files provide the design tokens for each theme: **SNCF Holding**, **SNCF Réseau**, and **SNCF Voyageurs**.
+To start using a theme :
 
-1. **Import the CSS stylesheet of the theme you want**: add this at the top of your global style file (e.g., `index.css`).
+- If you are using React <img style={{transform: 'translateY(8px)'}} width="30" alt="React Logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png"></img> consult **[React • Add a theme section](../?path=/docs/documentation-getting-started-react--documentation#5-add-a-theme)**
+- If you are using Angular (with modules) <img style={{transform: 'translateY(8px)'}}  width="30" alt="Angular Logo" src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Angular_full_color_logo.svg"></img> consult **[Angular • Add a theme section](../?path=/docs/documentation-getting-started-angular--documentation#6-add-a-theme)**
+- If you are using Angular (standalone) <img style={{transform: 'translateY(8px)'}}  width="30" alt="Angular Logo" src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Angular_full_color_logo.svg"></img> consult **[Angular Standalone • Add a theme section](../?path=/docs/documentation-getting-started-angular--documentation#6-add-a-theme-1)**
 
-   **SNCF Holding Legacy**
+## How it works
+### Introduction
 
-   ```css
-   @import "~wcs-core/dist/wcs/sncf-holding-legacy.css";
-   ```
+TODO
 
-   **SNCF Holding**
+### Format
 
-   ```css
-   @import "~wcs-core/dist/wcs/sncf-holding.css";
-   ```
+We're based the declaration of design tokens on [Design Tokens Format Module](https://tr.designtokens.org/format). It's document which describes the technical specification for a file format (JSON) to exchange design tokens between different tools.
 
-   **SNCF Réseau**
-
-   ```css
-   @import "~wcs-core/dist/wcs/sncf-reseau.css";
-   ```
-
-   **SNCF Voyageurs**
-
-   ```css
-   @import "~wcs-core/dist/wcs/sncf-voyageurs.css";
-   ```
-
-2. **Apply the Theme**: add classes to your `<body>` or `<html>` element.
-
-   ```html
-   <body class="sncf-voyageurs">
-       <!-- Your content -->
-   </body>
-   ```
-
-   **Available Theme Classes:**
-
-   - `sncf-holding`
-   - `sncf-holding-legacy`
-   - `sncf-reseau`
-   - `sncf-voyageurs`
+**[Follow this link to learn more](../?path=/docs/internal-docs-design-tokens--documentation#agnostic-structure)**
