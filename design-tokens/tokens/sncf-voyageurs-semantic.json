@@ -2,31 +2,38 @@
     "semantic": {
         "size": {
             "base": {
+                "$description": "Base size for calculation",
                 "$type": "dimension",
                 "$value": "{primitive.size.80}"
             },
             "xl": {
+                "$description": "Size XL for multi-size components",
                 "$type": "dimension",
                 "$value": "{primitive.size.560}"
             },
             "l": {
+                "$description": "Size L for multi-size components",
                 "$type": "dimension",
                 "$value": "{primitive.size.480}"
             },
             "m": {
+                "$description": "Size M for multi-size components (default)",
                 "$type": "dimension",
                 "$value": "{primitive.size.400}"
             },
             "s": {
+                "$description": "Size S for multi-size components",
                 "$type": "dimension",
                 "$value": "{primitive.size.320}"
             },
             "xs": {
+                "$description": "Size XS for multi-size components",
                 "$type": "dimension",
                 "$value": "{primitive.size.240}"
             },
             "overlay": {
                 "max-height": {
+                    "$description": "Max-height for overlays like dropdown or select",
                     "$type": "dimension",
                     "$value": "360px"
                 }
@@ -35,20 +42,24 @@
         "border": {
             "radius": {
                 "small": {
+                    "$description": "Smaller border-radius",
                     "$type": "dimension",
                     "$value": "{primitive.size.40}"
                 },
                 "base": {
+                    "$description": "Base border-radius",
                     "$type": "dimension",
                     "$value": "12px"
                 },
                 "circular": {
+                    "$description": "Circular, full rounded border-radius",
                     "$type": "dimension",
                     "$value": "{primitive.size.max}"
                 }
             },
             "width": {
                 "default": {
+                    "$description": "Default border-width",
                     "$type": "dimension",
                     "$value": "{primitive.size.10}"
                 },
@@ -708,19 +719,22 @@
             "duration": {
                 "feedback": {
                     "fast": {
-                        "$description": "Motion duration for faster feedbacks like transitions for moving arrows, transitioning backgrounds",
+                        "$description": "Motion duration for faster feedbacks",
                         "$type": "duration",
                         "$value": "{primitive.duration.50}"
                     },
                     "base": {
+                        "$description": "Motion duration for feedbacks like transitions for moving arrows, transitioning backgrounds",
                         "$type": "duration",
                         "$value": "{primitive.duration.150}"
                     },
                     "slow": {
+                        "$description": "Motion duration for slow feedbacks",
                         "$type": "duration",
                         "$value": "{primitive.duration.200}"
                     },
                     "slower": {
+                        "$description": "Motion duration for slower feedbacks",
                         "$type": "duration",
                         "$value": "{primitive.duration.350}"
                     }

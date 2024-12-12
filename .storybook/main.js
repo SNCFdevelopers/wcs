@@ -8,6 +8,7 @@ const config = {
     staticDirs: [
         './../dist/wcs',
         './../design-tokens/dist',
+        './../design-tokens/tokens',
         './../src/assets/fonts',
         './../stories/assets/images',
     ],

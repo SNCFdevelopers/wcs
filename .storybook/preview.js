@@ -72,7 +72,7 @@ export const globalTypes = {
     designTokenMode: {
         name: 'Design Tokens',
         description: 'Preview mode to use design tokens',
-        defaultValue: null,
+        defaultValue: 'sncf-holding',
         toolbar: {
             title: 'Activate design tokens',
             icon: 'eye',

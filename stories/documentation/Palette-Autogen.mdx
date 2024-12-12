@@ -1,0 +1,509 @@
+import {ColorPalette, ColorItem} from '@storybook/blocks';
+import {capitalize} from "lodash-es";
+import { useState } from 'react';
+import tokensSncfHolding from '../../design-tokens/dist/sncf-holding.json';
+import tokensSncfVoyageurs from '../../design-tokens/dist/sncf-voyageurs.json';
+import tokensSncfReseau from '../../design-tokens/dist/sncf-reseau.json';
+
+<Meta title="Internal Docs/Palette Autogen" />
+
+export function Color({ mode, tokens }) {
+
+    return (
+        <div>
+            <p>These color tokens are prefixed by <code>primitive.color</code></p>
+            <ColorPalette>
+                {
+                    tokens && Object.entries(tokens.primitive.color).map(([id, data]) => {
+                        let colors;
+
+                        if (data.$value) {
+                            colors = { "": data.$value };
+                        } else {
+                            colors = Object.fromEntries(
+                                Object.entries(data).map(([shade, obj]) => [shade, obj.$value])
+                            );
+                        }
+
+                        return (
+                            <ColorItem
+                                key={id}
+                                title={capitalize(id)}
+                                subtitle={'primitive.color.' + id}
+                                colors={colors}
+                            />
+                        );
+                    })
+                }
+            </ColorPalette>
+        </div>
+    );
+}
+
+export function SemanticSize({ tokens }) {
+    if (!tokens || !tokens.semantic || !tokens.semantic.size) {
+        return null;
+    }
+
+    return (
+        <div>
+            <p>These size tokens are prefixed by <code>semantic.size</code></p>
+            {TokensPreview(getAllTokensValueByNameFor(tokens.semantic.size))}
+        </div>
+    );
+}
+
+export function SemanticBorder({ tokens }) {
+    if (!tokens || !tokens.semantic || !tokens.semantic.border) {
+        return null;
+    }
+
+    if (!tokens || !tokens.semantic || !tokens.semantic.border) {
+        return null;
+    }
+
+    return (
+        <div>
+            <p>These border tokens are prefixed by <code>semantic.border</code></p>
+            {TokensPreview(getAllTokensValueByNameFor(tokens.semantic.border))}
+        </div>
+    );
+}
+
+export function SemanticColor({ tokens }) {
+    if (!tokens || !tokens.semantic || !tokens.semantic.color) {
+        return null;
+    }
+
+    if (!tokens || !tokens.semantic || !tokens.semantic.color) {
+        return null;
+    }
+
+    return (
+        <div>
+            <p>These color tokens are prefixed by <code>semantic.color</code></p>
+            {TokensPreview(getAllTokensValueByNameFor(tokens.semantic.color))}
+        </div>
+    );
+}
+
+export function SemanticSpacing({ tokens }) {
+    if (!tokens || !tokens.semantic || !tokens.semantic.spacing) {
+        return null;
+    }
+
+    if (!tokens || !tokens.semantic || !tokens.semantic.spacing) {
+        return null;
+    }
+
+    return (
+        <div>
+            <p>These spacing tokens are prefixed by <code>semantic.spacing</code></p>
+            {TokensPreview(getAllTokensValueByNameFor(tokens.semantic.spacing, 'spacing'))}
+        </div>
+    );
+}
+
+export function SemanticMotion({ tokens }) {
+    if (!tokens || !tokens.semantic || !tokens.semantic.motion) {
+        return null;
+    }
+
+    if (!tokens || !tokens.semantic || !tokens.semantic.motion) {
+        return null;
+    }
+
+    return (
+        <div>
+            <p>These motion tokens are prefixed by <code>semantic.motion</code></p>
+            {TokensPreview(getAllTokensValueByNameFor(tokens.semantic.motion, 'motion'))}
+        </div>
+    );
+}
+
+export function getAllTokensValueByNameFor(tokens, customType = undefined) {
+    const flattenJsonGroup = []
+
+    if (typeof tokens !== 'object' || tokens === null) {
+        return flattenJsonGroup;
+    }
+
+    Object.entries(tokens).forEach(([key, value]) => {
+        if(value.$value) {
+            flattenJsonGroup.push({
+                name: value.name,
+                value: value.$value,
+                originalValue: value?.original?.$value.replace(/[{}]/g, ''),
+                type: customType ?? value.$type,
+                description: value.$description
+            });
+        } else {
+            flattenJsonGroup.push(...getAllTokensValueByNameFor(value, customType));
+        }
+    });
+
+    return flattenJsonGroup;
+}
+
+export function TokensPreview(tokens, withDescription = true) {
+    return <table style={{borderCollapse: "collapse", borderSpacing: 0, width: '100%', textAlign: 'left'}}>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Value</th>
+                { withDescription && <th>Description</th> }
+            </tr>
+        </thead>
+        <tbody>
+            {
+                tokens.map(token => (
+                    <tr>
+                        <td>{token.name}</td>
+                        <td>
+                            {TokenValue(token.value, token.originalValue, token.type)}
+                        </td>
+                        { withDescription && <td>{token.description}</td>}
+                    </tr>
+                ))
+            }
+        </tbody>
+    </table>
+}
+
+export function TokenValue(value, originalValue, type) {
+    if(type === 'color') {
+        return (
+            <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: '0.5rem'
+            }}>
+                <div style={{width: '100%', height: '24px', backgroundColor: value, border: 'solid 1px black'}}></div>
+                <code>{ originalValue }</code>
+            </div>
+        );
+    } else if(type === 'spacing') {
+        return (
+            <div style={{display: "flex", flexDirection: 'row', gap: value}}>
+                <div style={{width: '24px', height: '24px', backgroundColor: "var(--wcs-semantic-color-background-action-primary, #6558b1)", border: 'solid 1px black'}}></div>
+                <div style={{width: '24px', height: '24px', backgroundColor: "var(--wcs-semantic-color-background-action-primary, rgba(0, 0, 0, 0))", border: 'solid 1px black'}}></div>
+            </div>
+        );
+    } else if(type === 'motion') {
+        return (
+            MoveCircleInfinite(value)
+        )
+    }
+    else {
+        return value
+    }
+}
+
+export function MoveCircleInfinite(duration) {
+    const circleStyle = {
+        width: '24px',
+        height: '24px',
+        backgroundColor: 'var(--wcs-semantic-color-background-action-primary, #6558b1)',
+        border: 'solid 1px black',
+        position: 'relative',
+        animation: `moveCircleVertical ${duration} infinite`,
+    };
+
+    return (
+        <>
+            <style>
+                {`
+          @keyframes moveCircleVertical {
+            0% {
+                transform: rotate(0deg);
+                transform-origin: center;
+            }
+            100% {
+                transform: rotate(360deg);
+                transform-origin: center;
+            }
+          }
+        `}
+            </style>
+            <div style={circleStyle}></div>
+        </>
+    );
+}
+
+export function Size({ tokens }) {
+    const sizeTokens = tokens && Object.entries(tokens.primitive.size).map(([id, data]) => ({
+        name: id,
+        value: data.$value,
+        description: data.$description,
+    }));
+
+    return (
+        <div>
+            <p>These size tokens are prefixed by <code>primitive.size</code></p>
+            {TokensPreview(sizeTokens, false)}
+        </div>
+    );
+}
+
+
+export function Font({ tokens }) {
+    const fontWeightTokens = tokens && Object.entries(tokens.primitive.font['weight']).map(([id, data]) => ({
+        name: `weight.${id}`,
+        value: data.$value,
+        description: data.$description || <p style={{fontWeight: data.$value, fontFamily: 'Avenir'}}>The lazy fox jumps over the brown dog</p>,
+    }));
+    const fontLineHeightTokens = tokens && Object.entries(tokens.primitive.font['line-height']).map(([id, data]) => ({
+        name: `line-height.${id}`,
+        value: data.$value,
+        description: data.$description || <span style={{lineHeight: data.$value, fontFamily: 'Avenir', height: '140%', display: 'block', background: 'black', color: 'white'}}>The lazy fox jumps over the brown dog</span>,
+    }));
+
+
+
+    return (
+        <div  style={{fontFamily: 'Avenir'}}>
+            <p>These font tokens are prefixed by <code>primitive.font</code></p>
+            {TokensPreview(fontWeightTokens)}
+            {TokensPreview(fontLineHeightTokens)}
+        </div>
+    );
+}
+
+export function Duration({ tokens }) {
+    const durationTokens = tokens && Object.entries(tokens.primitive.duration).map(([id, data]) => ({
+        name: id,
+        value: data.$value,
+        description: data.$description,
+    }));
+
+    return (
+        <div>
+            <p>These duration tokens are prefixed by <code>primitive.duration</code></p>
+            {TokensPreview(durationTokens, false)}
+        </div>
+    );
+}
+
+export function CustomTypeset() {
+}
+
+
+export function Typography({ tokens }) {
+    const typographyTokens = tokens && Object.entries(tokens.semantic.font).map(([id, data]) => ({
+        name: id,
+        value: data.$value,
+        description: data.$description,
+    }));
+
+    const typographies = [
+        {
+            name: 'Heading 1',
+            size: '42px',
+            lineHeight: 1.2,
+            weight: {
+                value: 900,
+                name: 'Black'
+            },
+        },
+        {
+            name: 'Heading 2',
+            size: '36px',
+            lineHeight: 1.2,
+            weight: {
+                value: 800,
+                name: 'Heavy'
+            },
+        },
+        {
+            name: 'Heading 3',
+            size: '30px',
+            lineHeight: 1.2,
+            weight: {
+                value: 800,
+                name: 'Heavy'
+            },
+        },
+        {
+            name: 'Heading 4',
+            size: '24px',
+            lineHeight: 1.2,
+            weight: {
+                value: 800,
+                name: 'Heavy'
+            }
+        },
+        {
+            name: 'Heading 5',
+            size: '20px',
+            lineHeight: 1.2,
+            weight: {
+                value: 800,
+                name: 'Heavy'
+            }
+        },
+        {
+            name: 'Heading 6',
+            size: '18px',
+            lineHeight: 1.2,
+            weight: {
+                value: 800,
+                name: 'Heavy'
+            }
+        },
+        {
+            name: 'Body 1',
+            size: 20,
+            letterSpacing: 1,
+            weight: {
+                value: 400,
+                name: 'Medium'
+            },
+        },
+        {
+            name: 'Body 2',
+            size: 18,
+            letterSpacing: 1,
+            weight: {
+                value: 400,
+                name: 'Medium'
+            },
+        },
+        {
+            name: 'Body 3',
+            size: 16,
+            letterSpacing: 1,
+            weight: {
+                value: 400,
+                name: 'Medium'
+            },
+        },
+        {
+            name: 'Strong 1',
+            size: 16,
+            letterSpacing: 1,
+            weight: {
+                value: 700,
+                name: 'Heavy'
+            },
+        },
+        {
+            name: 'Strong 2',
+            size: 18,
+            letterSpacing: 1,
+            weight: {
+                value: 700,
+                name: 'Heavy'
+            }
+        },
+        {
+            name: 'Caption 1',
+            size: 14,
+            letterSpacing: 1,
+            weight: {
+                value: 400,
+                name: 'Regular'
+            }
+        },
+        {
+            name: 'Caption 2',
+            size: 12,
+            letterSpacing: 1,
+            weight: {
+                value: 400,
+                name: 'Regular'
+            }
+        },
+    ];
+
+
+    return (
+        <div>
+            <p>These typography tokens are a group of rules to define a certain level of displayed text, whereas font corresponds to primitives values.</p>
+
+            <div style={{
+                margin: '25px 0 40px', padding: '30px 20px', border: '1px solid hsla(203, 50%, 30%, 0.15)',
+                borderRadius: '4px', display: 'flex', flexDirection: 'column', gap: '2rem'
+            }}>
+                {Array.from(typographies).map((typo) =>
+                    <div>
+                        <div className="sample" style={{
+                            overflow: 'hidden',
+                            whiteSpace: 'nowrap',
+                            textOverflow: 'ellipsis',
+                            fontFamily: 'Avenir',
+                            fontSize: typo.size,
+                            fontWeight: typo.weight.value,
+                            lineHeight: typo.lineHeight,
+                        }}>{typo.name} Lorem ipsum dolor sit amet
+                        </div>
+                        <div className="label" style={{
+                            marginRight: 30,
+                            fontSize: '12px',
+                            color: 'rgba(46,52,56,0.6)'
+                        }}>
+                            {typo.size} / {typo.weight.name} {typo.weight.value} / Line-height {typo.lineHeight}
+                        </div>
+                    </div>
+                )}
+            </div>
+        </div>
+    );
+}
+
+export default function DesignTokens() {
+    const [mode, setMode] = useState('sncf-holding');
+
+    let tokens;
+    switch (mode) {
+        case 'sncf-holding':
+            tokens = tokensSncfHolding;
+            break;
+        case 'sncf-reseau':
+            tokens = tokensSncfReseau;
+            break;
+        case 'sncf-voyageurs':
+            tokens = tokensSncfVoyageurs;
+            break;
+        default:
+            tokens = tokensSncfHolding;
+    }
+
+    const handleChange = (event) => {
+        setMode(event.target.value);
+    };
+
+    return (
+        <div>
+            <div className="radio-group" style={{ marginBottom: '20px' }}>
+                <label style={{ marginRight: '15px' }}>
+                    <input
+                        type="radio"
+                        value="sncf-holding"
+                        checked={mode === 'sncf-holding'}
+                        onChange={handleChange}
+                    />
+                    SNCF Holding
+                </label>
+                <label style={{ marginRight: '15px' }}>
+                    <input
+                        type="radio"
+                        value="sncf-reseau"
+                        checked={mode === 'sncf-reseau'}
+                        onChange={handleChange}
+                    />
+                    SNCF Réseau
+                </label>
+                <label>
+                    <input
+                        type="radio"
+                        value="sncf-voyageurs"
+                        checked={mode === 'sncf-voyageurs'}
+                        onChange={handleChange}
+                    />
+                    SNCF Voyageurs
+                </label>
+            </div>
+        </div>
+    );
+}

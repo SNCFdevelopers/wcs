@@ -34,8 +34,19 @@ export async function buildVariables(buildConfig, tokensConfig) {
                         outputReferences: true
                     },
                 }]
+            },
+            jsonResolved: {
+                buildPath: `${buildConfig.outputDirectory}/`,
+                prefix: 'wcs',
+                transformGroup: 'web',
+                files: [{
+                    destination: `${tokensConfig.theme}.json`,
+                    format: "json",
+                    options: {
+                    },
+                }]
             }
         }
     });
-    await styleDictionnary.buildPlatform('css');
+    await styleDictionnary.buildAllPlatforms();
 }
