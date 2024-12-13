@@ -1,12 +1,4 @@
 :host {
-    // region to be removed before migration to design tokens
-    --wcs-breadcrumb-icon-color: var(--wcs-primary);
-    --wcs-breadcrumb-icon-font-size: 0.5rem;
-    --wcs-breadcrumb-gap: var(--wcs-base-margin);
-    // endregion
-}
-
-:host(.token-migration) {
     --wcs-breadcrumb-icon-color: var(--wcs-semantic-color-primary);
     --wcs-breadcrumb-icon-font-size: 0.5rem;
     --wcs-breadcrumb-gap: var(--wcs-semantic-spacing-base);

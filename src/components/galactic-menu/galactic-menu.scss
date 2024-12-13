@@ -1,17 +1,15 @@
 @import '../../style/focus-outline.scss';
 
 :host {
-    // region to be removed before migration to design tokens
-    --wcs-galactic-menu-background-color: var(--wcs-gray-light);
-    --wcs-galactic-menu-padding-horizontal: var(--wcs-padding);
-    --wcs-galactic-menu-gap: var(--wcs-padding);
-    --wcs-galactic-menu-height: 32px;
+    --wcs-galactic-menu-background-color: var(--wcs-semantic-color-primary);
+    --wcs-galactic-menu-padding-horizontal: var(--wcs-semantic-spacing-large);
+    --wcs-galactic-menu-gap: var(--wcs-semantic-spacing-large);
+    --wcs-galactic-menu-height: var(--wcs-semantic-size-s);
 
-    --wcs-galactic-menu-icon-focus-outline-color: var(--wcs-white);
-    --wcs-galactic-menu-overlay-background-color: var(--wcs-gray);
-    --wcs-galactic-menu-overlay-padding: var(--wcs-padding);
-    --wcs-galactic-menu-overlay-color: var(--wcs-white);
-    // endregion
+    --wcs-galactic-menu-icon-focus-outline-color: var(--wcs-galactic-text-color, white); /* Inherit from galactic */
+    --wcs-galactic-menu-overlay-color: var(--wcs-semantic-color-text-inverse);
+    --wcs-galactic-menu-overlay-background-color: var(--wcs-semantic-color-background-surface-inverse);
+    --wcs-galactic-menu-overlay-padding: var(--wcs-semantic-spacing-large);
 
     display: flex;
     align-items: center;
@@ -72,16 +70,4 @@
     visibility: visible;
     content: '';
     transform: rotate(45deg);
-}
-
-:host(.token-migration) {
-    --wcs-galactic-menu-background-color: var(--wcs-semantic-color-primary);
-    --wcs-galactic-menu-padding-horizontal: var(--wcs-semantic-spacing-large);
-    --wcs-galactic-menu-gap: var(--wcs-semantic-spacing-large);
-    --wcs-galactic-menu-height: var(--wcs-semantic-size-s);
-
-    --wcs-galactic-menu-icon-focus-outline-color: var(--wcs-galactic-text-color, white); /* Inherit from galactic */
-    --wcs-galactic-menu-overlay-color: var(--wcs-semantic-color-text-inverse);
-    --wcs-galactic-menu-overlay-background-color: var(--wcs-semantic-color-background-surface-inverse);
-    --wcs-galactic-menu-overlay-padding: var(--wcs-semantic-spacing-large);
 }

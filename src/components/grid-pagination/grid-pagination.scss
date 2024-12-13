@@ -7,19 +7,7 @@
     border-color: var(--wcs-grid-pagination-border-color);
     margin-top: var(--wcs-grid-pagination-margin-top);
 
-    // region to be removed before migration to design tokens
-    --wcs-grid-pagination-color: var(--wcs-text-medium);
-    --wcs-grid-pagination-border-color: var(--wcs-text-light);
 
-    --wcs-grid-pagination-counter-gap: var(--wcs-padding-s);
-    --wcs-grid-pagination-margin-top: 0;
-
-    --wcs-grid-pagination-arrow-color-inactive: var(--wcs-text-light);
-    --wcs-grid-pagination-arrow-color-active: var(--wcs-primary);
-    // endregion
-}
-
-:host(.token-migration) {
     --wcs-grid-pagination-color: var(--wcs-semantic-color-text-primary);
     --wcs-grid-pagination-border-color: transparent;
 

@@ -3,35 +3,32 @@
 @import '../../style/breakpoints.scss';
 
 :host {
-    // region to be removed before migration to design tokens
-    --wcs-com-nav-category-label-font-size: 16px;
-    --wcs-com-nav-category-label-mobile-font-weight: 500;
-    --wcs-com-nav-category-label-mobile-color: var(--wcs-gray);
+    --wcs-com-nav-category-label-mobile-font-weight: var(--wcs-semantic-font-weight-medium);
+    --wcs-com-nav-category-label-mobile-color: var(--wcs-semantic-color-text-primary);
 
-    --wcs-com-nav-category-label-desktop-font-weight: 400;
-    --wcs-com-nav-category-label-desktop-color: var(--wcs-white);
+    --wcs-com-nav-category-label-desktop-font-weight: var(--wcs-semantic-font-weight-regular);
+    --wcs-com-nav-category-label-desktop-color: var(--wcs-semantic-color-text-primary);
+    --wcs-com-nav-category-label-desktop-gap: var(--wcs-semantic-spacing-base);
+    --wcs-com-nav-category-label-desktop-focus-outline-color: var(--wcs-semantic-color-border-focus-base);
 
-    --wcs-com-nav-category-item-mobile-color: var(--wcs-gray);
-    --wcs-com-nav-category-item-mobile-font-weight: 400;
-    --wcs-com-nav-category-item-mobile-spacing-top: calc(1.5 * var(--wcs-base-margin));
-    --wcs-com-nav-category-item-mobile-spacing-left: calc(3 * var(--wcs-base-margin));
-    --wcs-com-nav-category-item-mobile-gap: calc(1.5 * var(--wcs-base-margin));
+    --wcs-com-nav-category-item-mobile-color: var(--wcs-semantic-color-text-primary);
+    --wcs-com-nav-category-item-mobile-font-weight: var(--wcs-semantic-font-weight-regular);
+    --wcs-com-nav-category-item-mobile-spacing-top: var(--wcs-semantic-spacing-large);
+    --wcs-com-nav-category-item-mobile-spacing-left: calc(var(--wcs-semantic-spacing-base) * 3);
+    --wcs-com-nav-category-item-mobile-gap: calc(var(--wcs-semantic-spacing-base) * 1.5);
 
-    --wcs-com-nav-category-label-desktop-gap: var(--wcs-base-margin);
-    --wcs-com-nav-category-label-desktop-focus-outline-color: var(--wcs-white);
+    --wcs-com-nav-category-desktop-menu-background-color: transparent;
+    --wcs-com-nav-category-desktop-menu-border-left-width: var(--wcs-semantic-border-width-default);
+    --wcs-com-nav-category-desktop-menu-border-left-color: var(--wcs-semantic-color-border-surface);
+    --wcs-com-nav-category-desktop-menu-background-indicator-color: transparent;
+    --wcs-com-nav-category-desktop-menu-gap: calc(var(--wcs-semantic-spacing-base) * 3);
+    --wcs-com-nav-category-item-desktop-color: var(--wcs-semantic-color-text-primary);
+    --wcs-com-nav-category-item-desktop-font-weight: var(--wcs-semantic-font-weight-regular);
 
-    --wcs-com-nav-category-desktop-menu-background-color: rgba(0, 0, 0, 0.15);
-    --wcs-com-nav-category-desktop-menu-border-left-width: 0px;
-    --wcs-com-nav-category-desktop-menu-border-left-color: transparent;
-    --wcs-com-nav-category-desktop-menu-background-indicator-color: var(--wcs-primary);
     --wcs-com-nav-category-desktop-menu-padding-top: 50px;
     --wcs-com-nav-category-desktop-menu-padding-bottom: 50px;
     --wcs-com-nav-category-desktop-menu-padding-left: 50px;
     --wcs-com-nav-category-desktop-menu-padding-right: 0;
-    --wcs-com-nav-category-desktop-menu-gap: 24px;
-    --wcs-com-nav-category-item-desktop-color: var(--wcs-white);
-    --wcs-com-nav-category-item-desktop-font-weight: 400;
-    // endregion
 
     display: block;
     height: fit-content;
@@ -74,35 +71,6 @@
             font-weight: var(--wcs-com-nav-category-item-mobile-font-weight);
         }
     }
-}
-
-:host(.token-migration) {
-    --wcs-com-nav-category-label-mobile-font-weight: var(--wcs-semantic-font-weight-medium);
-    --wcs-com-nav-category-label-mobile-color: var(--wcs-semantic-color-text-primary);
-
-    --wcs-com-nav-category-label-desktop-font-weight: var(--wcs-semantic-font-weight-regular);
-    --wcs-com-nav-category-label-desktop-color: var(--wcs-semantic-color-text-primary);
-    --wcs-com-nav-category-label-desktop-gap: var(--wcs-semantic-spacing-base);
-    --wcs-com-nav-category-label-desktop-focus-outline-color: var(--wcs-semantic-color-border-focus-base);
-
-    --wcs-com-nav-category-item-mobile-color: var(--wcs-semantic-color-text-primary);
-    --wcs-com-nav-category-item-mobile-font-weight: var(--wcs-semantic-font-weight-regular);
-    --wcs-com-nav-category-item-mobile-spacing-top: var(--wcs-semantic-spacing-large);
-    --wcs-com-nav-category-item-mobile-spacing-left: calc(var(--wcs-semantic-spacing-base) * 3);
-    --wcs-com-nav-category-item-mobile-gap: calc(var(--wcs-semantic-spacing-base) * 1.5);
-
-    --wcs-com-nav-category-desktop-menu-background-color: transparent;
-    --wcs-com-nav-category-desktop-menu-border-left-width: var(--wcs-semantic-border-width-default);
-    --wcs-com-nav-category-desktop-menu-border-left-color: var(--wcs-semantic-color-border-surface);
-    --wcs-com-nav-category-desktop-menu-background-indicator-color: transparent;
-    --wcs-com-nav-category-desktop-menu-gap: calc(var(--wcs-semantic-spacing-base) * 3);
-    --wcs-com-nav-category-item-desktop-color: var(--wcs-semantic-color-text-primary);
-    --wcs-com-nav-category-item-desktop-font-weight: var(--wcs-semantic-font-weight-regular);
-
-    --wcs-com-nav-category-desktop-menu-padding-top: 50px;
-    --wcs-com-nav-category-desktop-menu-padding-bottom: 50px;
-    --wcs-com-nav-category-desktop-menu-padding-left: 50px;
-    --wcs-com-nav-category-desktop-menu-padding-right: 0;
 }
 
 @include for-tablet-portrait-up {

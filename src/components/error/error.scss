@@ -1,11 +1,6 @@
 :host {
-    --wcs-error-font-size-default: 1rem;
-    --wcs-error-color: var(--wcs-red);
-    color: var(--wcs-error-color);
-    font-size: var(--wcs-error-font-size-default);
-}
-
-:host(.token-migration) {
     --wcs-error-color: var(--wcs-semantic-color-error);
     --wcs-error-font-size-default: 0.75rem;
+    color: var(--wcs-error-color);
+    font-size: var(--wcs-error-font-size-default);
 }

@@ -1,19 +1,12 @@
 :host {
-    --wcs-label-font-weight: 500;
-    --wcs-label-color: var(--wcs-black);
-    --wcs-label-required-marker-color: var(--wcs-red);
 
-    --wcs-label-gap: calc(var(--wcs-base-margin) / 2);
-
-    font-weight: var(--wcs-label-font-weight);
-}
-
-:host(.token-migration) {
     --wcs-label-font-weight: var(--wcs-semantic-font-weight-regular);
     --wcs-label-color: var(--wcs-semantic-color-text-primary);
     --wcs-label-required-marker-color: var(--wcs-semantic-color-required);
 
     --wcs-label-gap: var(--wcs-semantic-spacing-small);
+
+    font-weight: var(--wcs-label-font-weight);
 }
 
 :host([required]) > label::after {

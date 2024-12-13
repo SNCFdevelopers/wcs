@@ -2,44 +2,43 @@
 @import '../../style/placeholder.scss';
 
 :host {
-    // region to be removed before migration to design tokens
-    --wcs-textarea-value-color: var(--wcs-primary);
-    --wcs-textarea-text-color-disabled: var(--wcs-text-disabled);
-    --wcs-textarea-value-font-weight: var(--wcs-font-weight-form-value);
+    --wcs-textarea-text-color-disabled: var(--wcs-semantic-color-foreground-control-disabled);
+    --wcs-textarea-value-color: var(--wcs-semantic-color-foreground-control-value);
+    --wcs-textarea-value-font-weight: var(--wcs-semantic-font-weight-medium);
 
-    --wcs-textarea-placeholder-color: var(--wcs-text-medium);
-    --wcs-textarea-placeholder-font-weight: 400;
-    --wcs-textarea-placeholder-font-style: italic;
+    --wcs-textarea-placeholder-color: var(--wcs-semantic-color-foreground-control-placeholder);
+    --wcs-textarea-placeholder-font-weight: var(--wcs-semantic-font-weight-regular);
+    --wcs-textarea-placeholder-font-style: var(--wcs-semantic-font-style-control-placeholder);
 
-    --wcs-textarea-icon-color-default: var(--wcs-text-medium);
-    --wcs-textarea-icon-color-disabled: var(--wcs-text-disabled);
-    --wcs-textarea-icon-color-focus: var(--wcs-primary);
+    --wcs-textarea-icon-color-default: var(--wcs-semantic-color-primary);
+    --wcs-textarea-icon-color-disabled: var(--wcs-semantic-color-foreground-control-disabled);
+    --wcs-textarea-icon-color-focus: var(--wcs-semantic-color-primary);
 
-    --wcs-textarea-gap: var(--wcs-base-margin);
-
-    --wcs-textarea-border-color-default: transparent;
-    --wcs-textarea-border-color-focus: var(--wcs-primary);
-    --wcs-textarea-border-color-error: var(--wcs-red);
+    --wcs-textarea-border-color-default: var(--wcs-semantic-color-border-control-default);
+    --wcs-textarea-border-color-error: var(--wcs-semantic-color-error);
+    --wcs-textarea-border-color-focus: var(--wcs-semantic-color-border-focus-control);
 
     --wcs-textarea-border-style-default: solid;
     --wcs-textarea-border-style-error: solid;
-    --wcs-textarea-border-style-focus: dashed;
+    --wcs-textarea-border-style-focus: var(--wcs-semantic-border-style-focus-control);
 
-    --wcs-textarea-border-width: 2px;
-    --wcs-textarea-border-width-focus: 2px;
-    --wcs-internal-textarea-border-radius-left: var(--wcs-textarea-border-radius-left, var(--wcs-border-radius));
-    --wcs-internal-textarea-border-radius-right: var(--wcs-textarea-border-radius-right, var(--wcs-border-radius));
+    --wcs-internal-textarea-border-radius-left: var(--wcs-textarea-border-radius-left, var(--wcs-semantic-border-radius-base));
+    --wcs-internal-textarea-border-radius-right: var(--wcs-textarea-border-radius-right, var(--wcs-semantic-border-radius-base));
 
-    --wcs-textarea-padding-top: calc(var(--wcs-padding) / 2);
-    --wcs-textarea-padding-bottom: calc(var(--wcs-padding) / 2);
-    --wcs-internal-textarea-padding-left: var(--wcs-textarea-padding-left, var(--wcs-padding));
-    --wcs-internal-textarea-padding-right: var(--wcs-textarea-padding-right, var(--wcs-padding));
+    --wcs-textarea-border-width: var(--wcs-semantic-border-width-default);
+    --wcs-textarea-border-width-focus: var(--wcs-semantic-border-width-large);
 
-    --wcs-textarea-min-height: var(--wcs-size-m);
+    --wcs-textarea-gap: var(--wcs-semantic-spacing-base);
+
+    --wcs-textarea-padding-top: var(--wcs-semantic-spacing-size-m-vertical);
+    --wcs-textarea-padding-bottom: var(--wcs-semantic-spacing-size-m-vertical);
+    --wcs-internal-textarea-padding-left: var(--wcs-textarea-padding-left, var(--wcs-semantic-spacing-size-m-horizontal));
+    --wcs-internal-textarea-padding-right: var(--wcs-textarea-padding-right, var(--wcs-semantic-spacing-size-m-horizontal));
+
+    --wcs-textarea-min-height: var(--wcs-semantic-size-m);
     --wcs-internal-textarea-max-height: var(--wcs-textarea-max-height, unset);
 
-    --wcs-textarea-background-color: var(--wcs-light);
-    // endregion
+    --wcs-textarea-background-color: var(--wcs-semantic-color-background-control-default);
 
     display: flex;
     flex-direction: row;
@@ -87,46 +86,6 @@
         margin-left: var(--wcs-internal-textarea-padding-left);
         color: var(--wcs-textarea-icon-color-default);
     }
-}
-
-:host(.token-migration) {
-    --wcs-textarea-text-color-disabled: var(--wcs-semantic-color-foreground-control-disabled);
-    --wcs-textarea-value-color: var(--wcs-semantic-color-foreground-control-value);
-    --wcs-textarea-value-font-weight: var(--wcs-semantic-font-weight-medium);
-
-    --wcs-textarea-placeholder-color: var(--wcs-semantic-color-foreground-control-placeholder);
-    --wcs-textarea-placeholder-font-weight: var(--wcs-semantic-font-weight-regular);
-    --wcs-textarea-placeholder-font-style: var(--wcs-semantic-font-style-control-placeholder);
-
-    --wcs-textarea-icon-color-default: var(--wcs-semantic-color-primary);
-    --wcs-textarea-icon-color-disabled: var(--wcs-semantic-color-foreground-control-disabled);
-    --wcs-textarea-icon-color-focus: var(--wcs-semantic-color-primary);
-
-    --wcs-textarea-border-color-default: var(--wcs-semantic-color-border-control-default);
-    --wcs-textarea-border-color-error: var(--wcs-semantic-color-error);
-    --wcs-textarea-border-color-focus: var(--wcs-semantic-color-border-focus-control);
-
-    --wcs-textarea-border-style-default: solid;
-    --wcs-textarea-border-style-error: solid;
-    --wcs-textarea-border-style-focus: var(--wcs-semantic-border-style-focus-control);
-
-    --wcs-internal-textarea-border-radius-left: var(--wcs-textarea-border-radius-left, var(--wcs-semantic-border-radius-base));
-    --wcs-internal-textarea-border-radius-right: var(--wcs-textarea-border-radius-right, var(--wcs-semantic-border-radius-base));
-
-    --wcs-textarea-border-width: var(--wcs-semantic-border-width-default);
-    --wcs-textarea-border-width-focus: var(--wcs-semantic-border-width-large);
-
-    --wcs-textarea-gap: var(--wcs-semantic-spacing-base);
-
-    --wcs-textarea-padding-top: var(--wcs-semantic-spacing-size-m-vertical);
-    --wcs-textarea-padding-bottom: var(--wcs-semantic-spacing-size-m-vertical);
-    --wcs-internal-textarea-padding-left: var(--wcs-textarea-padding-left, var(--wcs-semantic-spacing-size-m-horizontal));
-    --wcs-internal-textarea-padding-right: var(--wcs-textarea-padding-right, var(--wcs-semantic-spacing-size-m-horizontal));
-
-    --wcs-textarea-min-height: var(--wcs-semantic-size-m);
-    --wcs-internal-textarea-max-height: var(--wcs-textarea-max-height, unset);
-
-    --wcs-textarea-background-color: var(--wcs-semantic-color-background-control-default);
 }
 
 :host([disabled]) {

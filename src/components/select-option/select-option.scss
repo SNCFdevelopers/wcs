@@ -2,67 +2,6 @@
 @import '../../style/focus-outline.scss';
 
 wcs-select-option {
-    // region to be removed before migration to design tokens
-    --wcs-select-option-height: var(--wcs-size-m);
-    --wcs-select-option-padding-horizontal: var(--wcs-padding);
-    --wcs-select-option-padding-vertical: 0;
-
-    --wcs-select-option-text-font-size: 1rem;
-    --wcs-select-option-text-font-weight: 500;
-
-    --wcs-select-option-text-color-default: var(--wcs-black);
-    --wcs-select-option-text-color-focus: var(--wcs-black);
-    --wcs-select-option-text-color-hover: var(--wcs-primary);
-    --wcs-select-option-text-color-selected: var(--wcs-primary);
-    --wcs-select-option-text-color-disabled: var(--wcs-text-disabled);
-
-    --wcs-select-option-background-color-default: transparent;
-    --wcs-select-option-background-color-hover: #9999991A;
-    --wcs-select-option-background-color-selected: var(--wcs-light);
-    --wcs-select-option-background-color-selected-disabled: transparent;
-    --wcs-select-option-background-color-focus: #99999933;
-
-    --wcs-select-option-border-style-focus: solid;
-
-    --wcs-select-option-ripple-color: #999;
-
-    --wcs-select-option-checkbox-color: var(--wcs-primary);
-
-    --wcs-select-option-border-color-focus: var(--wcs-primary);
-    --wcs-select-option-border-width-focus: 1px;
-
-    --wcs-select-option-gap: 16px;
-    // endregion
-
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: var(--wcs-select-option-gap);
-
-    padding: var(--wcs-select-option-padding-vertical) var(--wcs-select-option-padding-horizontal);
-    height: var(--wcs-select-option-height);
-
-    cursor: pointer;
-    user-select: none;
-    font-weight: var(--wcs-select-option-text-font-weight);
-    font-size: var(--wcs-select-option-text-font-size);
-
-    color: var(--wcs-select-option-text-color-default);
-    background-color: var(--wcs-select-option-background-color-default);
-
-    &:focus {
-        outline: none;
-        color: var(--wcs-select-option-text-color-focus);
-        background-color: var(--wcs-select-option-background-color-focus);
-    }
-
-    &:hover {
-        color: var(--wcs-select-option-text-color-hover);
-        background-color: var(--wcs-select-option-background-color-hover);
-    }
-}
-
-wcs-select-option.token-migration {
     --wcs-select-option-height: var(--wcs-semantic-size-m);
     --wcs-select-option-padding-horizontal: var(--wcs-semantic-spacing-size-m-horizontal);
     --wcs-select-option-padding-vertical: 0;
@@ -96,6 +35,33 @@ wcs-select-option.token-migration {
     &:focus-visible {
         outline: var(--wcs-select-option-border-style-focus) var(--wcs-select-option-border-width-focus) var(--wcs-select-option-border-color-focus);
         outline-offset: calc(-1 * var(--wcs-select-option-border-width-focus));
+    }
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--wcs-select-option-gap);
+
+    padding: var(--wcs-select-option-padding-vertical) var(--wcs-select-option-padding-horizontal);
+    height: var(--wcs-select-option-height);
+
+    cursor: pointer;
+    user-select: none;
+    font-weight: var(--wcs-select-option-text-font-weight);
+    font-size: var(--wcs-select-option-text-font-size);
+
+    color: var(--wcs-select-option-text-color-default);
+    background-color: var(--wcs-select-option-background-color-default);
+
+    &:focus {
+        outline: none;
+        color: var(--wcs-select-option-text-color-focus);
+        background-color: var(--wcs-select-option-background-color-focus);
+    }
+
+    &:hover {
+        color: var(--wcs-select-option-text-color-hover);
+        background-color: var(--wcs-select-option-background-color-hover);
     }
 }
 

@@ -1,16 +1,17 @@
 
 :host {
-    // region to be removed before migration to design tokens
-    --wcs-galactic-background-color: var(--wcs-gray);
-    --wcs-galactic-height: 32px;
-    --wcs-galactic-text-color: var(--wcs-white);
-    --wcs-galactic-font-size: 14px;
-    --wcs-galactic-font-weight: inherit;
+    --wcs-galactic-background-color: var(--wcs-semantic-color-background-surface-inverse);
+    --wcs-galactic-text-color: var(--wcs-semantic-color-text-inverse);
+    --wcs-galactic-height: var(--wcs-semantic-size-s);
+    --wcs-galactic-font-size: var(--wcs-semantic-font-size-caption-1);
+    --wcs-galactic-font-weight: var(--wcs-semantic-font-weight-medium);
     --wcs-galactic-max-width: var(--wcs-com-content-max-width);
-    --wcs-galactic-padding-horizontal: 16px;
-    --wcs-galactic-logo-height: 32px;
-    --wcs-galactic-logo-margin-right: 20px;
-    // endregion
+    --wcs-galactic-padding-horizontal: calc(2 * var(--wcs-semantic-spacing-base));
+    --wcs-galactic-logo-height: var(--wcs-semantic-size-s);
+    --wcs-galactic-logo-margin-right: calc(2 * var(--wcs-semantic-spacing-base));
+
+    /* To enforce contrast color on dropdown / buttons added in the galactic slot */
+    --wcs-semantic-color-foreground-action-tertiary-default: var(--wcs-galactic-text-color);
 
     display: block;
     background-color: var(--wcs-galactic-background-color);
@@ -42,19 +43,4 @@
 .actions-container {
     display: flex;
     align-items: center;
-}
-
-:host(.token-migration) {
-    --wcs-galactic-background-color: var(--wcs-semantic-color-background-surface-inverse);
-    --wcs-galactic-text-color: var(--wcs-semantic-color-text-inverse);
-    --wcs-galactic-height: var(--wcs-semantic-size-s);
-    --wcs-galactic-font-size: var(--wcs-semantic-font-size-caption-1);
-    --wcs-galactic-font-weight: var(--wcs-semantic-font-weight-medium);
-    --wcs-galactic-max-width: var(--wcs-com-content-max-width);
-    --wcs-galactic-padding-horizontal: calc(2 * var(--wcs-semantic-spacing-base));
-    --wcs-galactic-logo-height: var(--wcs-semantic-size-s);
-    --wcs-galactic-logo-margin-right: calc(2 * var(--wcs-semantic-spacing-base));
-
-    /* To enforce contrast color on dropdown / buttons added in the galactic slot */
-    --wcs-semantic-color-foreground-action-tertiary-default: var(--wcs-galactic-text-color);
 }

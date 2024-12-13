@@ -1,11 +1,9 @@
 :host {
-    // region to be removed before migration to design tokens
+    --wcs-skeleton-width: 100%;
     --wcs-skeleton-height: 100%;
     --wcs-skeleton-min-height: 1rem;
-    --wcs-skeleton-width: 100%;
     --wcs-skeleton-background-color: linear-gradient(90deg, rgba(0, 0, 0, 0.06) 25%, rgba(0, 0, 0, 0.15) 37%, rgba(0, 0, 0, 0.06) 63%);
-    --wcs-skeleton-animation-duration: 1.5s;
-    // endregion
+    --wcs-skeleton-animation-duration: var(wcs-semantic-motion-duration-animation-base);
 
     display: block;
     position: relative;
@@ -51,12 +49,4 @@
     100% {
         opacity: 1;
     }
-}
-
-:host(.token-migration) {
-    --wcs-skeleton-width: 100%;
-    --wcs-skeleton-height: 100%;
-    --wcs-skeleton-min-height: 1rem;
-    --wcs-skeleton-background-color: linear-gradient(90deg, rgba(0, 0, 0, 0.06) 25%, rgba(0, 0, 0, 0.15) 37%, rgba(0, 0, 0, 0.06) 63%);
-    --wcs-skeleton-animation-duration: var(wcs-semantic-motion-duration-animation-base);
 }

@@ -2,52 +2,50 @@
 @import '../../style/placeholder.scss';
 
 :host {
-    // region to be removed before migration to design tokens
-    --wcs-input-icon-color-default: var(--wcs-text-medium);
-    --wcs-input-icon-color-focus: var(--wcs-primary);
-    --wcs-input-icon-color-disabled: var(--wcs-text-disabled);
+    --wcs-input-icon-color-default: var(--wcs-semantic-color-primary);
+    --wcs-input-icon-color-focus: var(--wcs-semantic-color-primary);
+    --wcs-input-icon-color-disabled: var(--wcs-semantic-color-foreground-control-disabled);
 
-    --wcs-input-background-color: var(--wcs-light);
+    --wcs-input-background-color: var(--wcs-semantic-color-background-control-default);
 
-    --wcs-input-prefix-suffix-background-color: var(--wcs-text-disabled);
-    --wcs-input-prefix-suffix-color: var(--wcs-white);
-    --wcs-input-prefix-suffix-font-weight: var(--wcs-font-weight-form-value);
+    --wcs-internal-input-border-radius-left: var(--wcs-input-border-radius-left, var(--wcs-semantic-border-radius-base)); // Overridden from prefix suffix group in form-field
+    --wcs-internal-input-border-radius-right: var(--wcs-input-border-radius-right, var(--wcs-semantic-border-radius-base)); // Overridden from prefix suffix group in form-field
+
+    --wcs-input-border-width: var(--wcs-semantic-border-width-default);
+    --wcs-input-border-width-focus: var(--wcs-semantic-border-width-large);
+
+    --wcs-input-height-l: var(--wcs-semantic-size-l);
+    --wcs-input-height-m: var(--wcs-semantic-size-m);
+    --wcs-input-height-s: var(--wcs-semantic-size-s);
+    --wcs-input-font-size-l: var(--wcs-semantic-font-size-l);
+    --wcs-input-font-size-m: var(--wcs-semantic-font-size-m);
+    --wcs-input-font-size-s: var(--wcs-semantic-font-size-s);
+
+    --wcs-input-prefix-suffix-background-color: var(--wcs-semantic-color-background-surface-tertiary);
+    --wcs-input-prefix-suffix-color: var(--wcs-semantic-color-text-secondary);
+    --wcs-input-prefix-suffix-font-weight: var(--wcs-semantic-font-weight-medium);
 
     --wcs-input-border-style-default: solid;
-    --wcs-input-border-style-focus: dashed;
+    --wcs-input-border-style-focus: var(--wcs-semantic-border-style-focus-control);
 
-    --wcs-input-border-color-default: transparent;
-    --wcs-input-border-color-focus: var(--wcs-primary);
-    --wcs-input-border-color-error: var(--wcs-red);
+    --wcs-input-border-color-default: var(--wcs-semantic-color-border-control-default);
+    --wcs-input-border-color-focus: var(--wcs-semantic-color-border-focus-control);
+    --wcs-input-border-color-error: var(--wcs-semantic-color-error);
 
-    --wcs-internal-input-border-radius-left: var(--wcs-input-border-radius-left, var(--wcs-border-radius)); // Overridden from prefix suffix group in form-field
-    --wcs-internal-input-border-radius-right: var(--wcs-input-border-radius-right, var(--wcs-border-radius)); // Overridden from prefix suffix group in form-field
-    --wcs-input-border-width: 2px;
-    --wcs-input-border-width-focus: 2px;
+    --wcs-input-value-color: var(--wcs-semantic-color-foreground-control-value);
+    --wcs-input-value-font-weight: var(--wcs-semantic-font-weight-medium);
 
-    --wcs-input-value-color: var(--wcs-primary);
-    --wcs-input-value-font-weight: var(--wcs-font-weight-form-value);
+    --wcs-input-placeholder-color: var(--wcs-semantic-color-foreground-control-placeholder);
+    --wcs-input-placeholder-font-weight: var(--wcs-semantic-font-weight-regular);
+    --wcs-input-placeholder-font-style: var(--wcs-semantic-font-style-control-placeholder);
 
-    --wcs-input-placeholder-color: var(--wcs-text-medium);
-    --wcs-input-placeholder-font-weight: 400;
-    --wcs-input-placeholder-font-style: italic;
+    --wcs-input-text-color-disabled: var(--wcs-semantic-color-foreground-control-disabled);
 
-    --wcs-input-text-color-disabled: var(--wcs-text-disabled);
-
-    --wcs-input-min-height: var(--wcs-size-s);
-    --wcs-input-height-l: var(--wcs-size-l);
-    --wcs-input-height-m: var(--wcs-size-m);
-    --wcs-input-height-s: var(--wcs-size-s);
-    --wcs-input-font-size-l: 1.0625rem;
-    --wcs-input-font-size-m: 1rem;
-    --wcs-input-font-size-s: 0.9375rem;
-
-    --wcs-input-padding-horizontal-s: 14px;
-    --wcs-input-padding-horizontal-m: var(--wcs-padding);
-    --wcs-input-padding-horizontal-l: var(--wcs-padding);
-    --wcs-input-gap: var(--wcs-base-size);
-
-    // endregion
+    --wcs-input-min-height: var(--wcs-semantic-size-s);
+    --wcs-input-padding-horizontal-s: var(--wcs-semantic-spacing-size-s-horizontal);
+    --wcs-input-padding-horizontal-m: var(--wcs-semantic-spacing-size-m-horizontal);
+    --wcs-input-padding-horizontal-l: var(--wcs-semantic-spacing-size-l-horizontal);
+    --wcs-input-gap: var(--wcs-semantic-spacing-base);
 
     display: flex;
     width: 100%;
@@ -110,53 +108,6 @@
     wcs-mat-icon {
         color: var(--wcs-input-icon-color-default);
     }
-}
-
-:host(.token-migration) {
-    --wcs-input-icon-color-default: var(--wcs-semantic-color-primary);
-    --wcs-input-icon-color-focus: var(--wcs-semantic-color-primary);
-    --wcs-input-icon-color-disabled: var(--wcs-semantic-color-foreground-control-disabled);
-
-    --wcs-input-background-color: var(--wcs-semantic-color-background-control-default);
-
-    --wcs-internal-input-border-radius-left: var(--wcs-input-border-radius-left, var(--wcs-semantic-border-radius-base)); // Overridden from prefix suffix group in form-field
-    --wcs-internal-input-border-radius-right: var(--wcs-input-border-radius-right, var(--wcs-semantic-border-radius-base)); // Overridden from prefix suffix group in form-field
-
-    --wcs-input-border-width: var(--wcs-semantic-border-width-default);
-    --wcs-input-border-width-focus: var(--wcs-semantic-border-width-large);
-
-    --wcs-input-height-l: var(--wcs-semantic-size-l);
-    --wcs-input-height-m: var(--wcs-semantic-size-m);
-    --wcs-input-height-s: var(--wcs-semantic-size-s);
-    --wcs-input-font-size-l: var(--wcs-semantic-font-size-l);
-    --wcs-input-font-size-m: var(--wcs-semantic-font-size-m);
-    --wcs-input-font-size-s: var(--wcs-semantic-font-size-s);
-
-    --wcs-input-prefix-suffix-background-color: var(--wcs-semantic-color-background-surface-tertiary);
-    --wcs-input-prefix-suffix-color: var(--wcs-semantic-color-text-secondary);
-    --wcs-input-prefix-suffix-font-weight: var(--wcs-semantic-font-weight-medium);
-
-    --wcs-input-border-style-default: solid;
-    --wcs-input-border-style-focus: var(--wcs-semantic-border-style-focus-control);
-
-    --wcs-input-border-color-default: var(--wcs-semantic-color-border-control-default);
-    --wcs-input-border-color-focus: var(--wcs-semantic-color-border-focus-control);
-    --wcs-input-border-color-error: var(--wcs-semantic-color-error);
-
-    --wcs-input-value-color: var(--wcs-semantic-color-foreground-control-value);
-    --wcs-input-value-font-weight: var(--wcs-semantic-font-weight-medium);
-
-    --wcs-input-placeholder-color: var(--wcs-semantic-color-foreground-control-placeholder);
-    --wcs-input-placeholder-font-weight: var(--wcs-semantic-font-weight-regular);
-    --wcs-input-placeholder-font-style: var(--wcs-semantic-font-style-control-placeholder);
-
-    --wcs-input-text-color-disabled: var(--wcs-semantic-color-foreground-control-disabled);
-
-    --wcs-input-min-height: var(--wcs-semantic-size-s);
-    --wcs-input-padding-horizontal-s: var(--wcs-semantic-spacing-size-s-horizontal);
-    --wcs-input-padding-horizontal-m: var(--wcs-semantic-spacing-size-m-horizontal);
-    --wcs-input-padding-horizontal-l: var(--wcs-semantic-spacing-size-l-horizontal);
-    --wcs-input-gap: var(--wcs-semantic-spacing-base);
 }
 
 :host([size=l]) {

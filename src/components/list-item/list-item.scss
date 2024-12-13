@@ -1,23 +1,21 @@
 :host {
-    // region to be removed before migration to design tokens
-    --wcs-list-item-padding: var(--wcs-padding);
-    --wcs-list-item-border-width: 1px;
-    --wcs-list-item-border-color: var(--wcs-text-light);
-    --wcs-list-item-background-color: var(--wcs-white);
-    --wcs-list-item-background-color-hover: var(--wcs-light);
-    --wcs-list-item-background-color-active: var(--wcs-light);
-    --wcs-list-item-transition-duration: 0.175s;
+    --wcs-list-item-padding: var(--wcs-semantic-spacing-large);
+    --wcs-list-item-border-width: var(--wcs-semantic-border-width-default);
+    --wcs-list-item-border-color: var(--wcs-semantic-color-border-surface);
+    --wcs-list-item-background-color: var(--wcs-semantic-color-background-surface-primary);
+    --wcs-list-item-background-color-hover: var(--wcs-semantic-color-background-surface-secondary);
+    --wcs-list-item-background-color-active: var(--wcs-semantic-color-background-surface-secondary);
+    --wcs-list-item-transition-duration: var(--wcs-semantic-motion-duration-feedback-base);
 
-    --wcs-list-item-title-color: var(--wcs-gray);
-    --wcs-list-item-title-font-weight: 700;
-    --wcs-list-item-title-line-height: 1.2;
-    --wcs-list-item-title-margin-bottom: 0.5rem;
+    --wcs-list-item-title-color: var(--wcs-semantic-color-text-primary);
+    --wcs-list-item-title-font-weight: var(--wcs-semantic-font-weight-heavy);
+    --wcs-list-item-title-line-height: var(--wcs-semantic-font-line-height-medium);
+    --wcs-list-item-title-margin-bottom: var(--wcs-semantic-spacing-base);
 
-    --wcs-list-item-icon-color: var(--wcs-gray-light);
-    --wcs-list-item-icon-margin-right: 16px;
+    --wcs-list-item-icon-color: var(--wcs-semantic-color-text-secondary);
+    --wcs-list-item-icon-margin-right: var(--wcs-semantic-spacing-large);
 
-    --wcs-list-item-actions-margin-left: 8px;
-    // endregion
+    --wcs-list-item-actions-margin-left: var(--wcs-semantic-spacing-base);
 
 
     display: flex;
@@ -62,24 +60,4 @@
 .header {
     display: flex;
     justify-content: space-between;
-}
-
-:host(.token-migration) {
-    --wcs-list-item-padding: var(--wcs-semantic-spacing-large);
-    --wcs-list-item-border-width: var(--wcs-semantic-border-width-default);
-    --wcs-list-item-border-color: var(--wcs-semantic-color-border-surface);
-    --wcs-list-item-background-color: var(--wcs-semantic-color-background-surface-primary);
-    --wcs-list-item-background-color-hover: var(--wcs-semantic-color-background-surface-secondary);
-    --wcs-list-item-background-color-active: var(--wcs-semantic-color-background-surface-secondary);
-    --wcs-list-item-transition-duration: var(--wcs-semantic-motion-duration-feedback-base);
-
-    --wcs-list-item-title-color: var(--wcs-semantic-color-text-primary);
-    --wcs-list-item-title-font-weight: var(--wcs-semantic-font-weight-heavy);
-    --wcs-list-item-title-line-height: var(--wcs-semantic-font-line-height-medium);
-    --wcs-list-item-title-margin-bottom: var(--wcs-semantic-spacing-base);
-
-    --wcs-list-item-icon-color: var(--wcs-semantic-color-text-secondary);
-    --wcs-list-item-icon-margin-right: var(--wcs-semantic-spacing-large);
-
-    --wcs-list-item-actions-margin-left: var(--wcs-semantic-spacing-base);
 }

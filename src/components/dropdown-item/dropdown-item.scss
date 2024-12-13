@@ -1,35 +1,4 @@
 wcs-dropdown-item {
-    // region to be removed before migration to design tokens
-    --wcs-dropdown-item-height: 42px;
-    --wcs-dropdown-item-padding-horizontal: var(--wcs-padding);
-    --wcs-dropdown-item-padding-vertical: 0;
-
-    --wcs-dropdown-item-text-font-weight: 500;
-
-    --wcs-dropdown-item-text-color-default: var(--wcs-black);
-    --wcs-dropdown-item-text-color-focus: var(--wcs-black);
-    --wcs-dropdown-item-text-color-hover: var(--wcs-primary);
-
-    --wcs-dropdown-item-background-color-default: transparent;
-    --wcs-dropdown-item-background-color-hover: var(--wcs-light);
-    --wcs-dropdown-item-background-color-focus: var(--wcs-light);
-
-    --wcs-dropdown-item-border-width-focus: 1px;
-    --wcs-dropdown-item-border-color-focus: var(--wcs-primary);
-    --wcs-dropdown-item-border-radius-focus: var(--wcs-border-radius);
-    // endregion
-
-    padding: 0 var(--wcs-dropdown-item-padding-horizontal);
-    font-weight: var(--wcs-dropdown-item-text-font-weight);
-    cursor: pointer;
-    color: var(--wcs-dropdown-item-text-color-default);
-    height: var(--wcs-dropdown-item-height);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-wcs-dropdown-item.token-migration {
     --wcs-dropdown-item-height: var(--wcs-semantic-size-m);
     --wcs-dropdown-item-padding-horizontal: var(--wcs-semantic-spacing-size-m-horizontal);
     --wcs-dropdown-item-padding-vertical: 0;
@@ -47,6 +16,15 @@ wcs-dropdown-item.token-migration {
     --wcs-dropdown-item-border-width-focus: var(--wcs-semantic-border-width-large);
     --wcs-dropdown-item-border-color-focus: var(--wcs-semantic-color-border-focus-base);
     --wcs-dropdown-item-border-radius-focus: var(--wcs-semantic-border-radius-base);
+
+    padding: 0 var(--wcs-dropdown-item-padding-horizontal);
+    font-weight: var(--wcs-dropdown-item-text-font-weight);
+    cursor: pointer;
+    color: var(--wcs-dropdown-item-text-color-default);
+    height: var(--wcs-dropdown-item-height);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 wcs-dropdown-item:hover {

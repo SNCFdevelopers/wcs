@@ -1,14 +1,12 @@
 @import "../skeleton/skeleton.scss";
 
 :host {
-    // region to be removed before migration to design tokens
-    --wcs-skeleton-text-height: 16px;
-    --wcs-skeleton-text-height-h1: 42px;
-    --wcs-skeleton-text-height-h2: 36px;
-    --wcs-skeleton-text-height-h3: 30px;
-    --wcs-skeleton-text-height-body: 16px;
-    --wcs-skeleton-text-height-caption: 12px;
-    // endregion
+    --wcs-skeleton-text-height: var(--wcs-semantic-font-size-base);
+    --wcs-skeleton-text-height-h1: var(--wcs-semantic-font-size-heading-1);
+    --wcs-skeleton-text-height-h2: var(--wcs-semantic-font-size-heading-2);
+    --wcs-skeleton-text-height-h3: var(--wcs-semantic-font-size-heading-3);
+    --wcs-skeleton-text-height-body: var(--wcs-semantic-font-size-body-3);
+    --wcs-skeleton-text-height-caption: var(--wcs-semantic-font-size-caption-1);
 }
 
 :host([height=h1]) {
@@ -29,13 +27,4 @@
 
 :host([height=caption]) {
     height: var(--wcs-skeleton-text-height-caption);
-}
-
-:host(.token-migration) {
-    --wcs-skeleton-text-height: var(--wcs-semantic-font-size-base, 16px);
-    --wcs-skeleton-text-height-h1: var(--wcs-semantic-font-size-heading-1, 42px);
-    --wcs-skeleton-text-height-h2: var(--wcs-semantic-font-size-heading-2, 36px);
-    --wcs-skeleton-text-height-h3: var(--wcs-semantic-font-size-heading-3, 30px);
-    --wcs-skeleton-text-height-body: var(--wcs-semantic-font-size-body-3, 16px);
-    --wcs-skeleton-text-height-caption: var(--wcs-semantic-font-size-caption-1, 12px);
 }

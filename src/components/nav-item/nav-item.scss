@@ -2,42 +2,39 @@
 @import '../../style/focus-outline.scss';
 
 wcs-nav-item {
-    // region to be removed before migration to design tokens
-    --wcs-nav-item-font-weight: 500;
+    --wcs-nav-item-font-weight: var(--wcs-semantic-font-weight-medium);
 
-    --wcs-nav-item-height-desktop: 5rem;
-    --wcs-nav-item-height-mobile: 3.25rem;
+    --wcs-nav-item-height-desktop: calc(10 * var(--wcs-semantic-size-base));
+    --wcs-nav-item-height-mobile: calc(6 * var(--wcs-semantic-size-base));
 
     --wcs-nav-item-font-size-desktop: 0.75rem;
     --wcs-nav-item-font-size-mobile: 0.625rem;
 
-    --wcs-nav-item-border-horizontal-desktop: solid 1px rgba(255, 255, 255, .2);
+    --wcs-nav-item-border-horizontal-desktop: none;
 
-    --wcs-nav-item-background-color-default: var(--wcs-primary);
-    --wcs-nav-item-background-color-hover: #006395;
-    --wcs-nav-item-background-color-press: #006395;
-    --wcs-nav-item-background-color-active: #006395;
+    --wcs-nav-item-background-color-default: var(--wcs-semantic-color-background-action-primary-default);
+    --wcs-nav-item-background-color-hover: var(--wcs-semantic-color-background-action-primary-hover);
+    --wcs-nav-item-background-color-press: var(--wcs-semantic-color-background-action-primary-press);
+    --wcs-nav-item-background-color-active: var(--wcs-semantic-color-background-action-primary-active);
 
+    --wcs-nav-item-color-default: var(--wcs-semantic-color-foreground-action-primary-default);
+    --wcs-nav-item-color-active: var(--wcs-semantic-color-foreground-action-primary-default);
+    --wcs-nav-item-color-hover: var(--wcs-semantic-color-foreground-action-primary-default);
+    --wcs-nav-item-color-press: var(--wcs-semantic-color-foreground-action-primary-default);
 
-    --wcs-nav-item-color-default: var(--wcs-contrast);
-    --wcs-nav-item-color-active: var(--wcs-contrast);
-    --wcs-nav-item-color-hover: var(--wcs-contrast);
-    --wcs-nav-item-color-press: var(--wcs-contrast);
+    --wcs-nav-item-border-color-focus: var(--wcs-semantic-color-foreground-action-primary-default);
 
-    //--wcs-nav-item-border-color-focus: var(--wcs-light);
+    --wcs-nav-item-border-width-focus: var(--wcs-semantic-border-width-large);
 
-    --wcs-nav-item-border-width-focus: 0.1rem;
+    --wcs-nav-item-indicator-background-color: var(--wcs-semantic-color-background-surface-accent-light);
+    --wcs-nav-item-indicator-width-desktop: calc(0.5 * var(--wcs-semantic-size-base));
+    --wcs-nav-item-indicator-width-mobile: calc(3 * var(--wcs-semantic-size-base));
+    --wcs-nav-item-indicator-height-desktop: calc(3 * var(--wcs-semantic-size-base));
+    --wcs-nav-item-indicator-height-mobile: calc(0.5 * var(--wcs-semantic-size-base));
+    --wcs-nav-item-indicator-border-radius-desktop: var(--wcs-semantic-border-radius-base) 0 0 var(--wcs-semantic-border-radius-base);
+    --wcs-nav-item-indicator-border-radius-mobile: var(--wcs-semantic-border-radius-base) var(--wcs-semantic-border-radius-base) 0 0;
 
-    --wcs-nav-item-indicator-background-color: #A9D9FF;
-    --wcs-nav-item-indicator-width-desktop: calc(var(--wcs-base-size) / 2);
-    --wcs-nav-item-indicator-width-mobile: calc(var(--wcs-base-size) * 3);
-    --wcs-nav-item-indicator-height-desktop: calc(var(--wcs-base-size) * 3);
-    --wcs-nav-item-indicator-height-mobile: calc(var(--wcs-base-size) / 2);
-    --wcs-nav-item-indicator-border-radius-desktop: 8px 0 0 8px;
-    --wcs-nav-item-indicator-border-radius-mobile: 8px 8px 0 0;
-
-    --wcs-nav-item-transition-duration: 0.15s;
-    // endregion
+    --wcs-nav-item-transition-duration: var(--wcs-semantic-motion-duration-feedback-base);
 
     display: block;
     cursor: pointer;
@@ -112,42 +109,6 @@ wcs-nav-item {
             display: inline-block;
         }
     }
-}
-
-wcs-nav-item.token-migration {
-    --wcs-nav-item-font-weight: var(--wcs-semantic-font-weight-medium);
-
-    --wcs-nav-item-height-desktop: calc(10 * var(--wcs-semantic-size-base));
-    --wcs-nav-item-height-mobile: calc(6 * var(--wcs-semantic-size-base));
-
-    --wcs-nav-item-font-size-desktop: 0.75rem;
-    --wcs-nav-item-font-size-mobile: 0.625rem;
-
-    --wcs-nav-item-border-horizontal-desktop: none;
-
-    --wcs-nav-item-background-color-default: var(--wcs-semantic-color-background-action-primary-default);
-    --wcs-nav-item-background-color-hover: var(--wcs-semantic-color-background-action-primary-hover);
-    --wcs-nav-item-background-color-press: var(--wcs-semantic-color-background-action-primary-press);
-    --wcs-nav-item-background-color-active: var(--wcs-semantic-color-background-action-primary-active);
-
-    --wcs-nav-item-color-default: var(--wcs-semantic-color-foreground-action-primary-default);
-    --wcs-nav-item-color-active: var(--wcs-semantic-color-foreground-action-primary-default);
-    --wcs-nav-item-color-hover: var(--wcs-semantic-color-foreground-action-primary-default);
-    --wcs-nav-item-color-press: var(--wcs-semantic-color-foreground-action-primary-default);
-
-    --wcs-nav-item-border-color-focus: var(--wcs-semantic-color-foreground-action-primary-default);
-
-    --wcs-nav-item-border-width-focus: var(--wcs-semantic-border-width-large);
-
-    --wcs-nav-item-indicator-background-color: var(--wcs-semantic-color-background-surface-accent-light);
-    --wcs-nav-item-indicator-width-desktop: calc(0.5 * var(--wcs-semantic-size-base));
-    --wcs-nav-item-indicator-width-mobile: calc(3 * var(--wcs-semantic-size-base));
-    --wcs-nav-item-indicator-height-desktop: calc(3 * var(--wcs-semantic-size-base));
-    --wcs-nav-item-indicator-height-mobile: calc(0.5 * var(--wcs-semantic-size-base));
-    --wcs-nav-item-indicator-border-radius-desktop: var(--wcs-semantic-border-radius-base) 0 0 var(--wcs-semantic-border-radius-base);
-    --wcs-nav-item-indicator-border-radius-mobile: var(--wcs-semantic-border-radius-base) var(--wcs-semantic-border-radius-base) 0 0;
-
-    --wcs-nav-item-transition-duration: var(--wcs-semantic-motion-duration-feedback-base);
 }
 
 wcs-nav-item[slot=bottom] {

@@ -1,23 +1,22 @@
 wcs-modal {
-    // region to be removed before migration to design tokens
-    --wcs-modal-backdrop-color: rgba(0, 0, 0, 0.4);
+    --wcs-modal-backdrop-color: var(--wcs-semantic-color-backdrop);
     --wcs-modal-max-height: 80%;
-    --wcs-modal-background-color: #fff;
-    --wcs-modal-border-radius: 0.4375rem;
-    --wcs-modal-padding: 1.5rem;
-    --wcs-modal-border-width: 1px;
-    --wcs-modal-border-color: var(--wcs-text-light);
-    --wcs-modal-title-margin-bottom: 8px;
-    --wcs-modal-title-font-size: 24px;
-    --wcs-modal-title-font-weight: 400;
-    --wcs-modal-title-line-height: 1.2;
-    --wcs-modal-actions-margin-top: 20px;
+    --wcs-modal-background-color: var(--wcs-semantic-color-background-surface-primary);
+    --wcs-modal-border-radius: var(--wcs-semantic-border-radius-base);
+    --wcs-modal-padding: calc(3 * var(--wcs-semantic-spacing-base));
+    --wcs-modal-border-width: var(--wcs-semantic-border-width-default);
+    --wcs-modal-border-color: var(--wcs-semantic-color-border-surface);
+    --wcs-modal-title-margin-bottom: var(--wcs-semantic-spacing-large);
+    --wcs-modal-title-font-size: var(--wcs-semantic-font-size-heading-3);
+    --wcs-modal-title-font-weight: var(--wcs-semantic-font-weight-heavy);
+    --wcs-modal-title-line-height: var(--wcs-primitive-font-line-height-medium);
+    --wcs-modal-actions-margin-top: var(--wcs-semantic-spacing-large);
 
+    // Specific component level tokens
     --wcs-modal-width-s: 288px;
     --wcs-modal-width-m: 480px;
     --wcs-modal-width-l: 864px;
     --wcs-modal-width-xl: 1200px;
-    // endregion
 
     z-index: 999;
     position: fixed;
@@ -104,25 +103,4 @@ Modal window
     margin-top: var(--wcs-modal-actions-margin-top);
     display: flex;
     justify-content: flex-end;
-}
-
-.token-migration {
-    --wcs-modal-backdrop-color: var(--wcs-semantic-color-backdrop);
-    --wcs-modal-max-height: 80%;
-    --wcs-modal-background-color: var(--wcs-semantic-color-background-surface-primary);
-    --wcs-modal-border-radius: var(--wcs-semantic-border-radius-base);
-    --wcs-modal-padding: calc(3 * var(--wcs-semantic-spacing-base));
-    --wcs-modal-border-width: var(--wcs-semantic-border-width-default);
-    --wcs-modal-border-color: var(--wcs-semantic-color-border-surface);
-    --wcs-modal-title-margin-bottom: var(--wcs-semantic-spacing-large);
-    --wcs-modal-title-font-size: var(--wcs-semantic-font-size-heading-3);
-    --wcs-modal-title-font-weight: var(--wcs-semantic-font-weight-heavy);
-    --wcs-modal-title-line-height: var(--wcs-primitive-font-line-height-medium);
-    --wcs-modal-actions-margin-top: var(--wcs-semantic-spacing-large);
-
-    // Specific component level tokens
-    --wcs-modal-width-s: 288px;
-    --wcs-modal-width-m: 480px;
-    --wcs-modal-width-l: 864px;
-    --wcs-modal-width-xl: 1200px;
 }

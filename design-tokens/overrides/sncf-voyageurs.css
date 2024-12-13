@@ -1,16 +1,116 @@
-.token-migration.sncf-voyageurs wcs-switch {
+.sncf-voyageurs wcs-switch {
     --wcs-switch-dot-color-final: var(--wcs-primitive-color-vert-300);
 }
 
-.token-migration.sncf-voyageurs wcs-footer {
-    --wcs-footer-background-color: var(--wcs-primitive-color-vert-500);
+.sncf-voyageurs wcs-footer {
+    --wcs-footer-background-color: var(--wcs-primitive-color-vert-700);
 }
 
-.token-migration.sncf-voyageurs wcs-galactic {
-    --wcs-galactic-background-color: var(--wcs-primitive-color-vert-600);
+.sncf-voyageurs wcs-galactic {
+    --wcs-galactic-background-color: var(--wcs-primitive-color-vert-800);
 }
 
-.token-migration.sncf-voyageurs wcs-grid {
-    --wcs-grid-highlight-color: #d3ffcf;
-    --wcs-grid-row-even-background-color: #e7fce5;
+.sncf-voyageurs .wcs-secondary {
+    --wcs-semantic-color-background-action-primary-default: var(--wcs-primitive-color-neutral-700);
+    --wcs-semantic-color-background-surface-brand: var(--wcs-primitive-color-neutral-700);
+
+    --wcs-semantic-color-foreground-action-primary-default: var(--wcs-primitive-color-neutral-0);
+    --wcs-semantic-color-foreground-action-secondary-default: var(--wcs-primitive-color-neutral-700);
+    --wcs-semantic-color-foreground-action-tertiary-default: var(--wcs-primitive-color-neutral-700);
+
+    --wcs-semantic-color-border-action-secondary-default: var(--wcs-primitive-color-neutral-700);
+
+    --wcs-semantic-color-ripple-action-primary: var(--wcs-primitive-color-neutral-0);
+    --wcs-semantic-color-ripple-action-secondary: var(--wcs-primitive-color-neutral-700);
+    --wcs-semantic-color-ripple-action-tertiary: var(--wcs-primitive-color-neutral-700);
+}
+
+.sncf-voyageurs .wcs-success {
+    --wcs-semantic-color-background-action-primary-default: var(--wcs-primitive-color-vert-500);
+    --wcs-semantic-color-background-surface-brand: var(--wcs-primitive-color-vert-500);
+
+    --wcs-semantic-color-foreground-action-primary-default: var(--wcs-primitive-color-neutral-800);
+    --wcs-semantic-color-foreground-action-secondary-default: var(--wcs-primitive-color-vert-500);
+    --wcs-semantic-color-foreground-action-tertiary-default: var(--wcs-primitive-color-vert-500);
+
+    --wcs-semantic-color-border-action-secondary-default: var(--wcs-primitive-color-vert-500);
+
+    --wcs-semantic-color-ripple-action-primary: var(--wcs-primitive-color-neutral-800);
+    --wcs-semantic-color-ripple-action-secondary: var(--wcs-primitive-color-vert-500);
+    --wcs-semantic-color-ripple-action-tertiary: var(--wcs-primitive-color-vert-500);
+}
+
+.sncf-voyageurs .wcs-warning {
+    --wcs-semantic-color-background-action-primary-default: var(--wcs-primitive-color-jaune-300);
+    --wcs-semantic-color-background-surface-brand: var(--wcs-primitive-color-jaune-300);
+
+    --wcs-semantic-color-foreground-action-primary-default: var(--wcs-primitive-color-neutral-800);
+    --wcs-semantic-color-foreground-action-secondary-default: var(--wcs-primitive-color-jaune-300);
+    --wcs-semantic-color-foreground-action-tertiary-default: var(--wcs-primitive-color-jaune-300);
+
+    --wcs-semantic-color-border-action-secondary-default: var(--wcs-primitive-color-jaune-300);
+
+    --wcs-semantic-color-ripple-action-primary: var(--wcs-primitive-color-neutral-800);
+    --wcs-semantic-color-ripple-action-secondary: var(--wcs-primitive-color-jaune-300);
+    --wcs-semantic-color-ripple-action-tertiary: var(--wcs-primitive-color-jaune-300);
+}
+
+.sncf-voyageurs .wcs-info {
+    --wcs-semantic-color-background-action-primary-default: var(--wcs-primitive-color-bleu-300);
+    --wcs-semantic-color-background-surface-brand: var(--wcs-primitive-color-bleu-300);
+
+    --wcs-semantic-color-foreground-action-primary-default: var(--wcs-primitive-color-neutral-0);
+    --wcs-semantic-color-foreground-action-secondary-default: var(--wcs-primitive-color-bleu-300);
+    --wcs-semantic-color-foreground-action-tertiary-default: var(--wcs-primitive-color-bleu-300);
+
+    --wcs-semantic-color-border-action-secondary-default: var(--wcs-primitive-color-bleu-300);
+
+    --wcs-semantic-color-ripple-action-primary: var(--wcs-primitive-color-neutral-0);
+    --wcs-semantic-color-ripple-action-secondary: var(--wcs-primitive-color-bleu-300);
+    --wcs-semantic-color-ripple-action-tertiary: var(--wcs-primitive-color-bleu-300);
+}
+
+.sncf-voyageurs .wcs-danger {
+    --wcs-semantic-color-background-action-primary-default: var(--wcs-primitive-color-critical-500);
+    --wcs-semantic-color-background-surface-brand: var(--wcs-primitive-color-critical-500);
+
+    --wcs-semantic-color-foreground-action-primary-default: var(--wcs-primitive-color-neutral-0);
+    --wcs-semantic-color-foreground-action-secondary-default: var(--wcs-primitive-color-critical-500);
+    --wcs-semantic-color-foreground-action-tertiary-default: var(--wcs-primitive-color-critical-500);
+
+    --wcs-semantic-color-border-action-secondary-default: var(--wcs-primitive-color-critical-500);
+
+    --wcs-semantic-color-ripple-action-primary: var(--wcs-primitive-color-neutral-0);
+    --wcs-semantic-color-ripple-action-secondary: var(--wcs-primitive-color-critical-500);
+    --wcs-semantic-color-ripple-action-tertiary: var(--wcs-primitive-color-critical-500);
+}
+
+.sncf-voyageurs .wcs-dark {
+    --wcs-semantic-color-background-action-primary-default: var(--wcs-primitive-color-neutral-700);
+    --wcs-semantic-color-background-surface-brand: var(--wcs-primitive-color-neutral-700);
+
+    --wcs-semantic-color-foreground-action-primary-default: var(--wcs-primitive-color-neutral-0);
+    --wcs-semantic-color-foreground-action-secondary-default: var(--wcs-primitive-color-neutral-700);
+    --wcs-semantic-color-foreground-action-tertiary-default: var(--wcs-primitive-color-neutral-700);
+
+    --wcs-semantic-color-border-action-secondary-default: var(--wcs-primitive-color-neutral-700);
+
+    --wcs-semantic-color-ripple-action-primary: var(--wcs-primitive-color-neutral-0);
+    --wcs-semantic-color-ripple-action-secondary: var(--wcs-primitive-color-neutral-700);
+    --wcs-semantic-color-ripple-action-tertiary: var(--wcs-primitive-color-neutral-700);
+}
+
+.sncf-voyageurs .wcs-light {
+    --wcs-semantic-color-background-action-primary-default: var(--wcs-primitive-color-neutral-200);
+    --wcs-semantic-color-background-surface-brand: var(--wcs-primitive-color-neutral-200);
+
+    --wcs-semantic-color-foreground-action-primary-default: var(--wcs-primitive-color-neutral-800);
+    --wcs-semantic-color-foreground-action-secondary-default: var(--wcs-primitive-color-neutral-200);
+    --wcs-semantic-color-foreground-action-tertiary-default: var(--wcs-primitive-color-neutral-200);
+
+    --wcs-semantic-color-border-action-secondary-default: var(--wcs-primitive-color-neutral-200);
+
+    --wcs-semantic-color-ripple-action-primary: var(--wcs-primitive-color-neutral-800);
+    --wcs-semantic-color-ripple-action-secondary: var(--wcs-primitive-color-neutral-200);
+    --wcs-semantic-color-ripple-action-tertiary: var(--wcs-primitive-color-neutral-200);
 }

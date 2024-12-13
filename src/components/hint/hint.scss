@@ -1,17 +1,10 @@
 :host {
-    --wcs-hint-font-size-default: 1rem;
-    --wcs-hint-font-size-small: 0.75rem;
-    --wcs-hint-font-weight: 400;
-    --wcs-hint-color: var(--wcs-text-medium);
-
-    font-size: var(--wcs-hint-font-size-default);
-}
-
-:host(.token-migration) {
     --wcs-hint-font-size-default: 0.75rem;
     --wcs-hint-font-size-small: 0.75rem;
     --wcs-hint-font-weight: var(--wcs-semantic-font-weight-regular);
     --wcs-hint-color: var(--wcs-semantic-color-text-primary);
+
+    font-size: var(--wcs-hint-font-size-default);
 }
 
 :host([small]) {

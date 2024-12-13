@@ -1,13 +1,11 @@
 @import '../../style/elevation.scss';
 
 :host {
-    // region to be removed before migration to design tokens
-    --wcs-card-border-radius: var(--wcs-border-radius);
-    --wcs-card-background-color: var(--wcs-white);
-    --wcs-card-border-color: var(--wcs-text-light);
-    --wcs-card-flat-border-width: 1px;
-    --wcs-card-text-color: inherit;
-    // endregion
+    --wcs-card-border-radius: var(--wcs-semantic-border-radius-base);
+    --wcs-card-background-color: var(--wcs-semantic-background-surface-default);
+    --wcs-card-border-color: var(--wcs-semantic-color-border-surface);
+    --wcs-card-flat-border-width: var(--wcs-semantic-border-width-default);
+    --wcs-card-text-color: var(--wcs-semantic-text-color-primary);
 
     position: relative;
     display: flex;
@@ -18,14 +16,6 @@
     border-radius: var(--wcs-card-border-radius);
     background-color: var(--wcs-card-background-color);
     color: var(--wcs-card-text-color);
-}
-
-:host(.token-migration) {
-    --wcs-card-border-radius: var(--wcs-semantic-border-radius-base);
-    --wcs-card-background-color: var(--wcs-semantic-background-surface-default);
-    --wcs-card-border-color: var(--wcs-semantic-color-border-surface);
-    --wcs-card-flat-border-width: var(--wcs-semantic-border-width-default);
-    --wcs-card-text-color: var(--wcs-semantic-text-color-primary);
 }
 
 :host([mode="raised"]) {

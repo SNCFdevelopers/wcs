@@ -5,54 +5,7 @@
 
 :host {
     display: inline-block;
-    // region to be removed before migration to design tokens
     // FIXME : remove those fallback values when design tokens are set
-    --wcs-button-color: var(--wcs-button-plain-color-default, var(--wcs-white, white));
-    --wcs-button-plain-color-default: var(--wcs-contrast);
-    --wcs-button-color-disabled: var(--wcs-text-disabled);
-    --wcs-button-stroked-color-default: var(--wcs-base);
-    --wcs-button-clear-color-default: var(--wcs-base);
-
-    --wcs-button-focus-outline-color: var(--wcs-primary);
-    --wcs-button-focus-outline-border-width: 2px;
-
-    --wcs-button-background-color: var(--wcs-button-plain-background-color-default);
-    --wcs-button-plain-background-color-default: var(--wcs-base, var(--wcs-primary, #0074AF));
-    --wcs-button-plain-background-color-disabled: var(--wcs-light, var(--wcs-light, transparent));
-
-    --wcs-button-ripple-color: var(--wcs-button-plain-ripple-color-default, var(--wcs-white, white));
-    --wcs-button-plain-ripple-color-default: var(--wcs-contrast, var(--wcs-white, white));
-    --wcs-button-stroked-ripple-color-default: var(--wcs-base, var(--wcs-primary, #0088ce));
-    --wcs-button-clear-ripple-color-default: var(--wcs-base, var(--wcs-primary, #0088ce));
-    --wcs-button-border-radius: var(--wcs-button-border-radius-default);
-    --wcs-button-border-radius-default: var(--wcs-border-radius);
-    --wcs-button-border-radius-rounded: 2rem;
-
-    --wcs-button-stroked-border-color: var(--wcs-button-stroked-border-color-default);
-    --wcs-button-stroked-border-width: 1px;
-    --wcs-button-stroked-border-color-default: var(--wcs-base);
-    --wcs-button-stroked-border-color-disabled: var(--wcs-light);
-
-    --wcs-button-height-s: var(--wcs-size-s);
-    --wcs-button-font-size-s: 0.9375rem;
-    --wcs-button-padding-horizontal-size-s: var(--wcs-padding);
-    --wcs-button-padding-vertical-size-s: var(--wcs-padding-s);
-
-    --wcs-button-height-m: var(--wcs-size-m);
-    --wcs-button-font-size-m: 1rem;
-    --wcs-button-padding-horizontal-size-m: var(--wcs-padding);
-    --wcs-button-padding-vertical-size-m: var(--wcs-padding-m);
-
-    --wcs-button-height-l: var(--wcs-size-l);
-    --wcs-button-font-size-l: 1.0625rem;
-    --wcs-button-padding-horizontal-size-l: var(--wcs-padding);
-    --wcs-button-padding-vertical-size-l: var(--wcs-padding-l);
-
-    --wcs-button-font-weight: 500;
-    // endregion
-}
-
-:host(.token-migration) {
     --wcs-button-color: var(--wcs-button-plain-color-default, var(--wcs-white, white));
     --wcs-button-plain-color-default: var(--wcs-semantic-color-foreground-action-primary-default, var(--wcs-white, white));
     --wcs-button-color-disabled: var(--wcs-semantic-color-disabled);
@@ -62,6 +15,7 @@
     --wcs-button-focus-outline-color: var(--wcs-semantic-color-border-focus-base);
     --wcs-button-focus-outline-border-width: var(--wcs-semantic-border-width-large);
 
+    --wcs-button-background-color: var(--wcs-button-plain-background-color-default);
     --wcs-button-plain-background-color-default: var(--wcs-semantic-color-background-action-primary-default, var(--wcs-primary, #0074AF));
     --wcs-button-plain-background-color-disabled: var(--wcs-semantic-color-background-action-primary-disabled, var(--wcs-light, transparent));
     --wcs-button-stroked-background-color-default: var(--wcs-semantic-color-background-action-secondary-default, transparent);
@@ -99,6 +53,7 @@
 
     --wcs-button-font-weight: var(--wcs-semantic-font-weight-medium);
 }
+
 
 .wcs-inner-button:focus-visible {
     @include focus-outline($outline-color: var(--wcs-button-focus-outline-color), $border-radius: var(--wcs-button-border-radius), $border-width: var(--wcs-button-focus-outline-border-width));

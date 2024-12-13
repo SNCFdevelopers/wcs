@@ -1,12 +1,6 @@
 :host {
-    // region to be removed before migration to design tokens
-    --wcs-card-body-padding: var(--wcs-padding);
-    // endregion
+    --wcs-card-body-padding: var(--wcs-semantic-spacing-large);
 
     flex: 1 1 auto;
     padding: var(--wcs-card-body-padding);
-}
-
-:host(.token-migration) {
-    --wcs-card-body-padding: var(--wcs-semantic-spacing-large);
 }

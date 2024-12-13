@@ -1,24 +1,6 @@
 :host {
     display: flex;
 
-    // region to be removed before migration to design tokens
-
-    // region Radio
-    --wcs-radio-group-gap: 4px;
-    // endregion
-
-    // region Option
-    --wcs-radio-group-option-height: 40px;
-    --wcs-radio-group-option-gap: var(--wcs-base-margin);
-    --wcs-radio-group-option-padding: 4px;
-    --wcs-radio-group-option-border-radius: 0.6875rem;
-    --wcs-radio-group-option-background-color: #4d4f53;
-    // endregion
-
-    // endregion
-}
-
-:host(.token-migration) {
     // region Radio
     --wcs-radio-group-gap: var(--wcs-semantic-spacing-base);
     // endregion

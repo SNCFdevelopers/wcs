@@ -1,7 +1,112 @@
-.token-migration.sncf-holding wcs-footer {
+.sncf-holding wcs-footer {
     --wcs-footer-background-color: var(--wcs-primitive-color-parme-700);
 }
 
-.token-migration.sncf-holding wcs-galactic {
+.sncf-holding wcs-galactic {
     --wcs-galactic-background-color: var(--wcs-primitive-color-violet-700);
+}
+
+.sncf-holding .wcs-secondary {
+    --wcs-semantic-color-background-action-primary-default: var(--wcs-primitive-color-neutral-700);
+    --wcs-semantic-color-background-surface-brand: var(--wcs-primitive-color-neutral-700);
+
+    --wcs-semantic-color-foreground-action-primary-default: var(--wcs-primitive-color-neutral-0);
+    --wcs-semantic-color-foreground-action-secondary-default: var(--wcs-primitive-color-neutral-700);
+    --wcs-semantic-color-foreground-action-tertiary-default: var(--wcs-primitive-color-neutral-700);
+
+    --wcs-semantic-color-border-action-secondary-default: var(--wcs-primitive-color-neutral-700);
+
+    --wcs-semantic-color-ripple-action-primary: var(--wcs-primitive-color-neutral-0);
+    --wcs-semantic-color-ripple-action-secondary: var(--wcs-primitive-color-neutral-700);
+    --wcs-semantic-color-ripple-action-tertiary: var(--wcs-primitive-color-neutral-700);
+}
+
+.sncf-holding .wcs-success {
+    --wcs-semantic-color-background-action-primary-default: var(--wcs-primitive-color-vert-500);
+    --wcs-semantic-color-background-surface-brand: var(--wcs-primitive-color-vert-500);
+
+    --wcs-semantic-color-foreground-action-primary-default: var(--wcs-primitive-color-neutral-800);
+    --wcs-semantic-color-foreground-action-secondary-default: var(--wcs-primitive-color-vert-500);
+    --wcs-semantic-color-foreground-action-tertiary-default: var(--wcs-primitive-color-vert-500);
+
+    --wcs-semantic-color-border-action-secondary-default: var(--wcs-primitive-color-vert-500);
+
+    --wcs-semantic-color-ripple-action-primary: var(--wcs-primitive-color-neutral-800);
+    --wcs-semantic-color-ripple-action-secondary: var(--wcs-primitive-color-vert-500);
+    --wcs-semantic-color-ripple-action-tertiary: var(--wcs-primitive-color-vert-500);
+}
+
+.sncf-holding .wcs-warning {
+    --wcs-semantic-color-background-action-primary-default: var(--wcs-primitive-color-ambre-500);
+    --wcs-semantic-color-background-surface-brand: var(--wcs-primitive-color-ambre-500);
+
+    --wcs-semantic-color-foreground-action-primary-default: var(--wcs-primitive-color-neutral-800);
+    --wcs-semantic-color-foreground-action-secondary-default: var(--wcs-primitive-color-ambre-500);
+    --wcs-semantic-color-foreground-action-tertiary-default: var(--wcs-primitive-color-ambre-500);
+
+    --wcs-semantic-color-border-action-secondary-default: var(--wcs-primitive-color-ambre-500);
+
+    --wcs-semantic-color-ripple-action-primary: var(--wcs-primitive-color-neutral-800);
+    --wcs-semantic-color-ripple-action-secondary: var(--wcs-primitive-color-ambre-500);
+    --wcs-semantic-color-ripple-action-tertiary: var(--wcs-primitive-color-ambre-500);
+}
+
+.sncf-holding .wcs-info {
+    --wcs-semantic-color-background-action-primary-default: var(--wcs-primitive-color-bleu-primaire-400);
+    --wcs-semantic-color-background-surface-brand: var(--wcs-primitive-color-bleu-primaire-400);
+
+    --wcs-semantic-color-foreground-action-primary-default: var(--wcs-primitive-color-neutral-0);
+    --wcs-semantic-color-foreground-action-secondary-default: var(--wcs-primitive-color-bleu-primaire-400);
+    --wcs-semantic-color-foreground-action-tertiary-default: var(--wcs-primitive-color-bleu-primaire-400);
+
+    --wcs-semantic-color-border-action-secondary-default: var(--wcs-primitive-color-bleu-primaire-400);
+
+    --wcs-semantic-color-ripple-action-primary: var(--wcs-primitive-color-neutral-0);
+    --wcs-semantic-color-ripple-action-secondary: var(--wcs-primitive-color-bleu-primaire-400);
+    --wcs-semantic-color-ripple-action-tertiary: var(--wcs-primitive-color-bleu-primaire-400);
+}
+
+.sncf-holding .wcs-danger {
+    --wcs-semantic-color-background-action-primary-default: var(--wcs-primitive-color-rouge-400);
+    --wcs-semantic-color-background-surface-brand: var(--wcs-primitive-color-rouge-400);
+
+    --wcs-semantic-color-foreground-action-primary-default: var(--wcs-primitive-color-neutral-0);
+    --wcs-semantic-color-foreground-action-secondary-default: var(--wcs-primitive-color-rouge-400);
+    --wcs-semantic-color-foreground-action-tertiary-default: var(--wcs-primitive-color-rouge-400);
+
+    --wcs-semantic-color-border-action-secondary-default: var(--wcs-primitive-color-rouge-400);
+
+    --wcs-semantic-color-ripple-action-primary: var(--wcs-primitive-color-neutral-0);
+    --wcs-semantic-color-ripple-action-secondary: var(--wcs-primitive-color-rouge-400);
+    --wcs-semantic-color-ripple-action-tertiary: var(--wcs-primitive-color-rouge-400);
+}
+
+.sncf-holding .wcs-dark {
+    --wcs-semantic-color-background-action-primary-default: var(--wcs-primitive-color-neutral-700);
+    --wcs-semantic-color-background-surface-brand: var(--wcs-primitive-color-neutral-700);
+
+    --wcs-semantic-color-foreground-action-primary-default: var(--wcs-primitive-color-neutral-0);
+    --wcs-semantic-color-foreground-action-secondary-default: var(--wcs-primitive-color-neutral-700);
+    --wcs-semantic-color-foreground-action-tertiary-default: var(--wcs-primitive-color-neutral-700);
+
+    --wcs-semantic-color-border-action-secondary-default: var(--wcs-primitive-color-neutral-700);
+
+    --wcs-semantic-color-ripple-action-primary: var(--wcs-primitive-color-neutral-0);
+    --wcs-semantic-color-ripple-action-secondary: var(--wcs-primitive-color-neutral-700);
+    --wcs-semantic-color-ripple-action-tertiary: var(--wcs-primitive-color-neutral-700);
+}
+
+.sncf-holding .wcs-light {
+    --wcs-semantic-color-background-action-primary-default: var(--wcs-primitive-color-neutral-200);
+    --wcs-semantic-color-background-surface-brand: var(--wcs-primitive-color-neutral-200);
+
+    --wcs-semantic-color-foreground-action-primary-default: var(--wcs-primitive-color-neutral-800);
+    --wcs-semantic-color-foreground-action-secondary-default: var(--wcs-primitive-color-neutral-200);
+    --wcs-semantic-color-foreground-action-tertiary-default: var(--wcs-primitive-color-neutral-200);
+
+    --wcs-semantic-color-border-action-secondary-default: var(--wcs-primitive-color-neutral-200);
+
+    --wcs-semantic-color-ripple-action-primary: var(--wcs-primitive-color-neutral-800);
+    --wcs-semantic-color-ripple-action-secondary: var(--wcs-primitive-color-neutral-200);
+    --wcs-semantic-color-ripple-action-tertiary: var(--wcs-primitive-color-neutral-200);
 }

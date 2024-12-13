@@ -728,6 +728,16 @@ export namespace Components {
     }
     /**
      * This field component can be used to display the details of an entity. It is built around the label and the content of the field.
+     * @cssprop --wcs-field-label-color - The color of the label
+     * @cssprop --wcs-field-label-font-weight - The font weight of the label
+     * @cssprop --wcs-field-label-font-size - The font size of the label
+     * @cssprop --wcs-field-label-line-height - The line height of the label
+     * @cssprop --wcs-field-content-color - The color of the content
+     * @cssprop --wcs-field-content-font-weight - The font weight of the content
+     * @cssprop --wcs-field-content-font-size - The font size of the content
+     * @cssprop --wcs-field-margin-top - The margin top of the field
+     * @cssprop --wcs-field-margin-bottom - The margin bottom of the field
+     * @cssprop --wcs-field-gap - The gap between the label and the content
      */
     interface WcsField {
     }
@@ -2941,6 +2951,16 @@ declare global {
     };
     /**
      * This field component can be used to display the details of an entity. It is built around the label and the content of the field.
+     * @cssprop --wcs-field-label-color - The color of the label
+     * @cssprop --wcs-field-label-font-weight - The font weight of the label
+     * @cssprop --wcs-field-label-font-size - The font size of the label
+     * @cssprop --wcs-field-label-line-height - The line height of the label
+     * @cssprop --wcs-field-content-color - The color of the content
+     * @cssprop --wcs-field-content-font-weight - The font weight of the content
+     * @cssprop --wcs-field-content-font-size - The font size of the content
+     * @cssprop --wcs-field-margin-top - The margin top of the field
+     * @cssprop --wcs-field-margin-bottom - The margin bottom of the field
+     * @cssprop --wcs-field-gap - The gap between the label and the content
      */
     interface HTMLWcsFieldElement extends Components.WcsField, HTMLStencilElement {
     }
@@ -4797,6 +4817,16 @@ declare namespace LocalJSX {
     }
     /**
      * This field component can be used to display the details of an entity. It is built around the label and the content of the field.
+     * @cssprop --wcs-field-label-color - The color of the label
+     * @cssprop --wcs-field-label-font-weight - The font weight of the label
+     * @cssprop --wcs-field-label-font-size - The font size of the label
+     * @cssprop --wcs-field-label-line-height - The line height of the label
+     * @cssprop --wcs-field-content-color - The color of the content
+     * @cssprop --wcs-field-content-font-weight - The font weight of the content
+     * @cssprop --wcs-field-content-font-size - The font size of the content
+     * @cssprop --wcs-field-margin-top - The margin top of the field
+     * @cssprop --wcs-field-margin-bottom - The margin bottom of the field
+     * @cssprop --wcs-field-gap - The gap between the label and the content
      */
     interface WcsField {
     }
@@ -6828,6 +6858,16 @@ declare module "@stencil/core" {
             "wcs-error": LocalJSX.WcsError & JSXBase.HTMLAttributes<HTMLWcsErrorElement>;
             /**
              * This field component can be used to display the details of an entity. It is built around the label and the content of the field.
+             * @cssprop --wcs-field-label-color - The color of the label
+             * @cssprop --wcs-field-label-font-weight - The font weight of the label
+             * @cssprop --wcs-field-label-font-size - The font size of the label
+             * @cssprop --wcs-field-label-line-height - The line height of the label
+             * @cssprop --wcs-field-content-color - The color of the content
+             * @cssprop --wcs-field-content-font-weight - The font weight of the content
+             * @cssprop --wcs-field-content-font-size - The font size of the content
+             * @cssprop --wcs-field-margin-top - The margin top of the field
+             * @cssprop --wcs-field-margin-bottom - The margin bottom of the field
+             * @cssprop --wcs-field-gap - The gap between the label and the content
              */
             "wcs-field": LocalJSX.WcsField & JSXBase.HTMLAttributes<HTMLWcsFieldElement>;
             /**

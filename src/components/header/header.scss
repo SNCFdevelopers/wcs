@@ -1,20 +1,6 @@
 @import '../../style/elevation.scss';
 
 :host {
-    --wcs-header-background-color: var(--wcs-gray);
-
-    --wcs-header-gap: 16px;
-    --wcs-header-height: 64px;
-    --wcs-header-logo-height: 32px;
-    --wcs-header-padding-horizontal: 16px;
-
-    --wcs-header-box-shadow: unset;
-    --wcs-header-title-color: var(--wcs-white);
-    --wcs-header-title-font-weight: 500;
-    --wcs-header-title-font-size: 1.5rem;
-}
-
-:host(.token-migration) {
     --wcs-header-background-color: var(--wcs-semantic-color-background-surface-primary);
 
     --wcs-header-gap: var(--wcs-semantic-spacing-large);
@@ -26,7 +12,6 @@
     --wcs-header-title-color: var(--wcs-semantic-color-text-primary);
     --wcs-header-title-font-weight: var(--wcs-semantic-font-weight-medium);
     --wcs-header-title-font-size: var(--wcs-semantic-font-size-heading-6);
-
 }
 
 header {

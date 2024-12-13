@@ -1,42 +1,6 @@
 @import '../../style/focus-outline.scss';
 
 :host {
-    // region to be removed before migration to design tokens
-    --wcs-tabs-indicator-height: 0.3125rem;
-    --wcs-tabs-indicator-background-color: var(--wcs-primary);
-    --wcs-tabs-indicator-border-radius: 3px;
-
-    --wcs-tabs-color-default: var(--wcs-text-disabled);
-    --wcs-tabs-color-hover: var(--wcs-primary);
-    --wcs-tabs-color-press: var(--wcs-primary);
-    --wcs-tabs-color-selected: var(--wcs-primary);
-
-    --wcs-tabs-background-color-focus: transparent;
-    --wcs-tabs-background-color-hover: transparent;
-    --wcs-tabs-background-color-press: transparent;
-
-    --wcs-tabs-border-radius: 0px;
-    --wcs-tabs-border-color-focus: var(--wcs-primary);
-
-    --wcs-tabs-font-weight-default: 400;
-    --wcs-tabs-font-weight-selected: 500;
-
-    --wcs-tabs-padding-top: 8px;
-    --wcs-tabs-padding-right: 12px;
-    --wcs-tabs-padding-bottom: 16px;
-    --wcs-tabs-padding-left: 12px;
-
-    --wcs-tabs-gutter-border-width: 1px;
-    --wcs-tabs-gutter-background-color: #ebebeb;
-    --wcs-tabs-headers-border-bottom: var(--wcs-tabs-gutter-border-width) solid var(--wcs-tabs-gutter-background-color);
-
-    --wcs-tabs-transition-duration: 0.15s;
-    // endregion
-
-    display: block;
-}
-
-:host(.token-migration) {
     --wcs-tabs-indicator-height: var(--wcs-semantic-spacing-small);
     --wcs-tabs-indicator-background-color: var(--wcs-semantic-color-background-action-primary-default);
     --wcs-tabs-indicator-border-radius: var(--wcs-semantic-border-radius-circular);
@@ -66,6 +30,8 @@
     --wcs-tabs-headers-border-bottom: var(--wcs-tabs-gutter-border-width) solid var(--wcs-tabs-gutter-background-color);
 
     --wcs-tabs-transition-duration: var(--wcs-semantic-motion-duration-feedback-base);
+
+    display: block;
 }
 
 :host([align=start]) .wcs-tabs-headers {

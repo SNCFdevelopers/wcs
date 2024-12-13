@@ -1,14 +1,7 @@
 :host {
-    // region to be removed before migration to design tokens
-    --wcs-divider-color: var(--wcs-text-light);
-    --wcs-divider-height: 1px;
-    // endregion
+    --wcs-divider-color: var(--wcs-semantic-color-border-surface);
+    --wcs-divider-height: var(--wcs-semantic-border-width-default);
 
     display: block;
     border-bottom: solid var(--wcs-divider-height) var(--wcs-divider-color);
-}
-
-:host(.token-migration) {
-    --wcs-divider-color: var(--wcs-semantic-color-border-surface);
-    --wcs-divider-height: var(--wcs-semantic-border-width-default);
 }

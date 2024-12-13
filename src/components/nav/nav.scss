@@ -1,16 +1,6 @@
 @import '../../style/breakpoints';
 
 :host {
-    // region to be removed before migration to design tokens
-    --wcs-nav-background-color: var(--wcs-primary);
-    --wcs-nav-width: 6.25rem;
-
-    --wcs-nav-border-top-mobile: solid 1px #d8d8d8;
-    --wcs-nav-height-mobile: 3.25rem;
-    // endregion
-}
-
-:host(.token-migration) {
     --wcs-nav-background-color: var(--wcs-semantic-color-background-surface-brand);
     --wcs-nav-width: calc(12 * var(--wcs-semantic-size-base));
 

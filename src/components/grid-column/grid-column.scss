@@ -1,15 +1,13 @@
 @import '../../style/focus-outline.scss';
 
 :host {
-    // region to be removed before migration to design tokens
-    --wcs-grid-header-background-color: var(--wcs-light);
-    --wcs-grid-header-text-color: var(--wcs-gray-dark);
-    --wcs-grid-header-font-weight: bold;
-    --wcs-grid-header-font-size: inherit;
-    --wcs-grid-header-line-height: inherit;
+    --wcs-grid-header-background-color: var(--wcs-semantic-color-background-surface-primary);
+    --wcs-grid-header-text-color: var(--wcs-semantic-color-text-primary);
+    --wcs-grid-header-font-weight: 800;
+    --wcs-grid-header-font-size: var(--wcs-semantic-font-size-strong-1);
+    --wcs-grid-header-line-height: var(--wcs-primitive-font-line-height-140);
     --wcs-grid-header-border-radius: 0;
-    --wcs-grid-header-border-bottom: none;
-    // endregion
+    --wcs-grid-header-border-bottom: solid var(--wcs-semantic-border-width-default) var(--wcs-semantic-color-border-surface);
 
     display: contents;
 
@@ -88,14 +86,4 @@
 
 :host([hidden]) {
     display: none !important;
-}
-
-:host(.token-migration) {
-    --wcs-grid-header-background-color: var(--wcs-semantic-color-background-surface-primary);
-    --wcs-grid-header-text-color: var(--wcs-semantic-color-text-primary);
-    --wcs-grid-header-font-weight: 800;
-    --wcs-grid-header-font-size: var(--wcs-semantic-font-size-strong-1);
-    --wcs-grid-header-line-height: var(--wcs-primitive-font-line-height-140);
-    --wcs-grid-header-border-radius: 0;
-    --wcs-grid-header-border-bottom: solid var(--wcs-semantic-border-width-default) var(--wcs-semantic-color-border-surface);
 }

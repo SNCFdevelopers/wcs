@@ -1,22 +1,6 @@
 @import '../../style/focus-outline.scss';
 
 :host {
-    // region to be removed before migration to design tokens
-    --wcs-breadcrumb-item-max-height: 24px;
-
-    --wcs-breadcrumb-item-icon-color: var(--wcs-primary);
-    --wcs-breadcrumb-item-icon-font-size: 0.5rem;
-    --wcs-breadcrumb-item-gap: 8px;
-
-    --wcs-breadcrumb-item-link-color: var(--wcs-primary);
-    --wcs-breadcrumb-item-link-font-weight: 500;
-
-    --wcs-breadcrumb-item-border-width-focus: 2px;
-    --wcs-breadcrumb-item-border-color-focus: var(--wcs-primary);
-    // endregion
-}
-
-:host(.token-migration) {
     --wcs-breadcrumb-item-max-height: var(--wcs-semantic-size-s);
 
     --wcs-breadcrumb-item-icon-color: var(--wcs-semantic-color-primary);

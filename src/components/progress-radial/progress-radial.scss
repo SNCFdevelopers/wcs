@@ -1,23 +1,6 @@
 :host {
     display: inline-flex;
 
-    // region to be removed before migration to design tokens
-    --wcs-progress-radial-rail-width: 2px;
-    --wcs-progress-radial-rail-spacing: 2px;
-    --wcs-progress-radial-rail-color: #e1ded9;
-
-    --wcs-progress-radial-value-background-color: var(--wcs-primary);
-
-    --wcs-progress-radial-label-color: inherit;
-    --wcs-progress-radial-label-font-size: 1.5rem;
-    --wcs-progress-radial-label-font-weight: 500;
-
-    --wcs-progress-radial-label-percentage-font-size: 0.875rem;
-    --wcs-internal-progress-radial-animation-duration: 0.375s;
-    // endregion
-}
-
-:host(.token-migration) {
     --wcs-progress-radial-rail-width: 2px;
     --wcs-progress-radial-rail-spacing: 2px;
     --wcs-progress-radial-rail-color: var(--wcs-semantic-color-background-surface-tertiary);

@@ -7,35 +7,34 @@
     flex-direction: column;
     cursor: pointer;
 
-    // region to be removed before migration to design tokens
-    --wcs-accordion-panel-color-default: var(--wcs-primary);
-    --wcs-accordion-panel-color-highlight: var(--wcs-light);
-    --wcs-accordion-panel-color-hover: var(--wcs-primary);
-    --wcs-accordion-panel-color-press: var(--wcs-primary);
-    --wcs-accordion-panel-action-color-default: var(--wcs-primary);
-    --wcs-accordion-panel-action-color-highlight: var(--wcs-light);
-    --wcs-accordion-panel-background-color-default: var(--wcs-light);
-    --wcs-accordion-panel-background-color-highlight: var(--wcs-primary);
-    --wcs-accordion-panel-background-color-hover: var(--wcs-light);
-    --wcs-accordion-panel-background-color-press: var(--wcs-light);
+    --wcs-accordion-panel-color-default: var(--wcs-semantic-color-text-primary);
+    --wcs-accordion-panel-color-highlight: var(--wcs-semantic-color-text-primary);
+    --wcs-accordion-panel-color-hover: var(--wcs-semantic-color-text-primary);
+    --wcs-accordion-panel-color-press: var(--wcs-semantic-color-text-primary);
+    --wcs-accordion-panel-action-color-default: var(--wcs-semantic-color-text-primary);
+    --wcs-accordion-panel-action-color-highlight: var(--wcs-semantic-color-text-primary);
+    --wcs-accordion-panel-background-color-default: var(--wcs-semantic-color-background-action-secondary-default);
+    --wcs-accordion-panel-background-color-highlight: var(--wcs-semantic-color-background-action-secondary-press);
+    --wcs-accordion-panel-background-color-hover: var(--wcs-semantic-color-background-action-secondary-hover);
+    --wcs-accordion-panel-background-color-press: var(--wcs-semantic-color-background-action-secondary-press);
 
-    --wcs-accordion-panel-header-font-size: 16px;
-    --wcs-accordion-panel-header-font-weight: 500;
-    --wcs-accordion-panel-border-radius: 7px;
-    --wcs-accordion-panel-border-radius-open: var(--wcs-accordion-panel-border-radius);
-    --wcs-accordion-panel-padding-vertical: 14px;
-    --wcs-accordion-panel-padding-horizontal: 24px;
+    --wcs-accordion-panel-header-font-weight: var(--wcs-semantic-font-weight-medium);
+    --wcs-accordion-panel-header-font-size: var(--wcs-semantic-font-size-heading-6);
+    --wcs-accordion-panel-header-gap: calc(3 * var(--wcs-semantic-spacing-base));
+    --wcs-accordion-panel-border-radius: var(--wcs-semantic-border-radius-base);
+    --wcs-accordion-panel-border-radius-open: var(--wcs-accordion-panel-border-radius) var(--wcs-accordion-panel-border-radius) 0 0;
+    --wcs-accordion-panel-padding-vertical: var(--wcs-semantic-spacing-large);
+    --wcs-accordion-panel-padding-horizontal: calc(var(--wcs-semantic-spacing-base) * 3);
 
-    --wcs-accordion-panel-header-border-width: 1px;
+    --wcs-accordion-panel-header-border-width: var(--wcs-semantic-border-width-surface);
+    --wcs-accordion-panel-border-width: var(--wcs-semantic-border-width-default);
+    --wcs-accordion-panel-border-width-focus: var(--wcs-semantic-border-width-large);
+    --wcs-accordion-panel-border-color: var(--wcs-semantic-color-border-surface);
 
-    --wcs-accordion-panel-border-width: 0px;
-    --wcs-accordion-panel-border-width-focus: 2px;
-    --wcs-accordion-panel-border-color: transparent;
-    --wcs-accordion-panel-border-color-focus: var(--wcs-primary);
+    --wcs-accordion-panel-border-color-focus: var(--wcs-semantic-color-border-focus-base);
+    --wcs-accordion-panel-border-style-focus: dashed;
 
-    --wcs-accordion-panel-border-style-focus: solid;
-    --wcs-accordion-transition-duration: 150ms;
-    // endregion
+    --wcs-accordion-transition-duration: var(--wcs-semantic-motion-duration-feedback-base);
 
     border: var(--wcs-accordion-panel-border-width) solid var(--wcs-accordion-panel-border-color);
     border-radius: var(--wcs-accordion-panel-border-radius);
@@ -44,6 +43,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        gap: var(--wcs-accordion-panel-header-gap);
         padding: var(--wcs-accordion-panel-padding-vertical) var(--wcs-accordion-panel-padding-horizontal);
         border-radius: var(--wcs-accordion-panel-border-radius);
         font-weight: var(--wcs-accordion-panel-header-font-weight);
@@ -100,36 +100,6 @@
         display: none;
     }
 
-}
-
-:host(.token-migration) {
-    --wcs-accordion-panel-color-default: var(--wcs-semantic-color-text-primary);
-    --wcs-accordion-panel-color-highlight: var(--wcs-semantic-color-text-primary);
-    --wcs-accordion-panel-color-hover: var(--wcs-semantic-color-text-primary);
-    --wcs-accordion-panel-color-press: var(--wcs-semantic-color-text-primary);
-    --wcs-accordion-panel-action-color-default: var(--wcs-semantic-color-text-primary);
-    --wcs-accordion-panel-action-color-highlight: var(--wcs-semantic-color-text-primary);
-    --wcs-accordion-panel-background-color-default: var(--wcs-semantic-color-background-action-secondary-default);
-    --wcs-accordion-panel-background-color-highlight: var(--wcs-semantic-color-background-action-secondary-press);
-    --wcs-accordion-panel-background-color-hover: var(--wcs-semantic-color-background-action-secondary-hover);
-    --wcs-accordion-panel-background-color-press: var(--wcs-semantic-color-background-action-secondary-press);
-
-    --wcs-accordion-panel-header-font-weight: var(--wcs-semantic-font-weight-medium);
-    --wcs-accordion-panel-header-font-size: var(--wcs-semantic-font-size-heading-6);
-    --wcs-accordion-panel-border-radius: var(--wcs-semantic-border-radius-base);
-    --wcs-accordion-panel-border-radius-open: var(--wcs-accordion-panel-border-radius) var(--wcs-accordion-panel-border-radius) 0 0;
-    --wcs-accordion-panel-padding-vertical: var(--wcs-semantic-spacing-large);
-    --wcs-accordion-panel-padding-horizontal: calc(var(--wcs-semantic-spacing-base) * 3);
-
-    --wcs-accordion-panel-header-border-width: var(--wcs-semantic-border-width-surface);
-    --wcs-accordion-panel-border-width: var(--wcs-semantic-border-width-default);
-    --wcs-accordion-panel-border-width-focus: var(--wcs-semantic-border-width-large);
-    --wcs-accordion-panel-border-color: var(--wcs-semantic-color-border-surface);
-
-    --wcs-accordion-panel-border-color-focus: var(--wcs-semantic-color-border-focus-base);
-    --wcs-accordion-panel-border-style-focus: dashed;
-
-    --wcs-accordion-transition-duration: var(--wcs-semantic-motion-duration-feedback-base);
 }
 
 :host([open]) {

@@ -1,13 +1,7 @@
 :host {
-    // region to be removed before migration to design tokens
-    --wcs-accordion-gap: 16px;
-    // endregion
+    --wcs-accordion-gap: calc(2 * var(--wcs-semantic-spacing-base));
 
     display: flex;
     flex-direction: column;
     gap: var(--wcs-accordion-gap);
-}
-
-:host(.token-migration) {
-    --wcs-accordion-gap: calc(2 * var(--wcs-semantic-spacing-base));
 }

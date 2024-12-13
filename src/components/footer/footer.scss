@@ -1,18 +1,16 @@
 :host {
-    // region to be removed before migration to design tokens
-    --wcs-footer-background-color: var(--wcs-gray);
-    --wcs-footer-text-color: var(--wcs-white);
-    --wcs-footer-link-text-color: var(--wcs-text-disabled);
-    --wcs-footer-link-text-color-hover: var(--wcs-white);
-    --wcs-footer-link-font-size: 14px;
-    --wcs-footer-link-font-weight: 500;
-    --wcs-footer-link-gap: 35px;
+    --wcs-footer-background-color: var(--wcs-semantic-color-background-surface-inverse);
+    --wcs-footer-text-color: var(--wcs-semantic-color-text-inverse);
+    --wcs-footer-link-text-color: var(--wcs-semantic-color-text-inverse);
+    --wcs-footer-link-text-color-hover:  var(--wcs-semantic-color-text-inverse);
+    --wcs-footer-link-font-size: var(--wcs-semantic-font-size-strong-2);
+    --wcs-footer-link-font-weight: var(--wcs-semantic-font-weight-medium);
+    --wcs-footer-link-gap: var(4 * --wcs-semantic-spacing-base);
 
-    --wcs-footer-gap: calc(2 * var(--wcs-base-margin));
-    --wcs-footer-end-gap: var(--wcs-base-margin);
-    --wcs-footer-max-width: var(--wcs-com-content-max-width);
-    --wcs-footer-padding: 20px;
-    // endregion
+    --wcs-footer-gap: calc(2 * var(--wcs-semantic-spacing-base));
+    --wcs-footer-end-gap: calc(2 * var(--wcs-semantic-spacing-base));
+    --wcs-footer-max-width: var(--wcs-semantic-breakpoint-desktop, var(--wcs-com-content-max-width));
+    --wcs-footer-padding: calc(3 * var(--wcs-semantic-spacing-base));
 
     display: block;
     width: 100%;
@@ -61,19 +59,4 @@
         padding: var(--wcs-footer-padding);
     }
 
-}
-
-:host(.token-migration) {
-    --wcs-footer-background-color: var(--wcs-semantic-color-background-surface-inverse);
-    --wcs-footer-text-color: var(--wcs-semantic-color-text-inverse);
-    --wcs-footer-link-text-color: var(--wcs-semantic-color-text-inverse);
-    --wcs-footer-link-text-color-hover:  var(--wcs-semantic-color-text-inverse);
-    --wcs-footer-link-font-size: var(--wcs-semantic-font-size-strong-2);
-    --wcs-footer-link-font-weight: var(--wcs-semantic-font-weight-medium);
-    --wcs-footer-link-gap: var(4 * --wcs-semantic-spacing-base);
-
-    --wcs-footer-gap: calc(2 * var(--wcs-semantic-spacing-base));
-    --wcs-footer-end-gap: calc(2 * var(--wcs-semantic-spacing-base));
-    --wcs-footer-max-width: var(--wcs-semantic-breakpoint-desktop, var(--wcs-com-content-max-width));
-    --wcs-footer-padding: calc(3 * var(--wcs-semantic-spacing-base));
 }

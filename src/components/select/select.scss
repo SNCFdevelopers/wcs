@@ -2,115 +2,6 @@
 @import '../../style/placeholder.scss';
 
 :host {
-    // region to be removed before migration to design tokens
-    // Global
-    --wcs-select-ligther-percentage: 40; // TODO: view to migrate to design tokens later (used on 'close' icon of a chip)
-
-    --wcs-select-text-color-disabled: var(--wcs-text-disabled);
-    --wcs-select-value-color: var(--wcs-primary);
-    --wcs-select-value-font-weight: 500;
-
-    --wcs-select-placeholder-color: var(--wcs-text-medium);
-    --wcs-select-placeholder-font-weight: 400;
-    --wcs-select-placeholder-font-style: italic;
-
-    // Control
-    --wcs-select-control-border-radius: var(--wcs-border-radius);
-    --wcs-select-control-line-height: 1.5;
-
-    --wcs-select-control-background-color: var(--wcs-light);
-    --wcs-select-control-ripple-color: #999;
-
-    --wcs-select-control-arrow-color: var(--wcs-primary);
-    --wcs-select-control-arrow-color-disabled: var(--wcs-text-disabled);
-
-    --wcs-select-control-chips-gap: 4px;
-
-    --wcs-select-control-border-color-default: transparent;
-    --wcs-select-control-border-color-active: var(--wcs-text-light);
-    --wcs-select-control-border-color-focus: var(--wcs-primary);
-    --wcs-select-control-border-color-error: var(--wcs-red);
-
-    --wcs-select-control-border-style-default: solid;
-    --wcs-select-control-border-style-focus: dashed;
-    --wcs-select-control-border-style-error: solid;
-
-    --wcs-internal-control-border-width: var(--wcs-select-control-border-width);
-    --wcs-select-control-border-width: 2px;
-    --wcs-select-control-border-width-active: 1px;
-    --wcs-select-control-border-width-focus: 2px;
-
-    --wcs-select-control-padding-horizontal-m: var(--wcs-padding);
-    --wcs-select-control-padding-horizontal-l: var(--wcs-padding);
-
-    --wcs-select-control-height: 40px;
-    --wcs-select-control-height-m: var(--wcs-size-m);
-    --wcs-select-control-height-l: var(--wcs-size-l);
-    --wcs-internal-select-chip-size: var(--wcs-size-s);
-    --wcs-select-chip-size-m: calc(var(--wcs-size-s) - 2px);
-    --wcs-select-chip-size-l: var(--wcs-size-s);
-    --wcs-select-control-font-size: var(--wcs-select-control-font-size-m, 1rem);
-    --wcs-select-control-font-size-m: 1rem;
-    --wcs-select-control-font-size-l: 1.0625rem;
-
-    // Overlay
-    --wcs-select-overlay-max-height: 360px;
-    --wcs-select-overlay-background-color: var(--wcs-white);
-    --wcs-select-overlay-border-width: 1px;
-    --wcs-select-overlay-border-color: var(--wcs-text-light);
-    --wcs-select-overlay-border-radius: var(--wcs-border-radius);
-
-    // Chips
-    --wcs-select-control-chip-color-default: var(--wcs-contrast);
-    --wcs-select-control-chip-color-disabled: var(--wcs-text-disabled);
-    --wcs-select-control-chip-background-color-default: var(--wcs-base);
-    --wcs-select-control-chip-background-color-disabled: #E3E3E3;
-    --wcs-select-control-chip-padding-vertical: calc(calc(var(--wcs-padding) - 8px) / 2);
-    --wcs-select-control-chip-padding-horizontal: var(--wcs-padding);
-    --wcs-select-control-chip-line-height: 1.375;
-    --wcs-select-control-chip-border-radius: 0.75rem;
-
-    // Autocomplete
-    // (select height - chips height) / 2 - border width / 2
-    --wcs-select-control-autocomplete-padding-vertical-m: calc(((var(--wcs-size-m) - var(--wcs-internal-select-chip-size)) / 2) - var(--wcs-internal-control-border-width));
-    --wcs-select-control-autocomplete-padding-vertical-l: calc(((var(--wcs-size-l) - var(--wcs-internal-select-chip-size)) / 2) - var(--wcs-internal-control-border-width));
-
-    // No Result Container
-    --wcs-select-internal-noresult-padding-horizontal: var(--wcs-margin);
-
-    // endregion
-
-    display: block;
-    min-height: var(--wcs-select-control-height);
-    position: relative;
-    outline: none;
-    user-select: none;
-    box-sizing: border-box;
-
-    // So the arrow on the right doesn't shrink when text overflows.
-    svg {
-        flex-shrink: 0;
-    }
-
-    .wcs-select-control {
-        min-height: var(--wcs-select-control-height);
-    }
-
-    .arrow {
-        fill: var(--wcs-select-control-arrow-color);
-    }
-
-    .chip {
-        fill: var(--wcs-select-control-chip-color-default);
-        opacity: calc((100 - var(--wcs-select-ligther-percentage)) / 100); // TODO, see later to migrate to design tokens
-
-        &:hover {
-            opacity: 100;
-        }
-    }
-}
-
-:host(.token-migration) {
     // Global
     --wcs-select-ligther-percentage: 40; // TODO: view to migrate to design tokens later (used on 'close' icon of a chip)
     --wcs-select-control-border-radius: var(--wcs-semantic-border-radius-base);
@@ -182,6 +73,35 @@
 
     // No Result Container
     --wcs-select-internal-noresult-padding-horizontal: var(--wcs-semantic-spacing-size-m-horizontal);
+
+    display: block;
+    min-height: var(--wcs-select-control-height);
+    position: relative;
+    outline: none;
+    user-select: none;
+    box-sizing: border-box;
+
+    // So the arrow on the right doesn't shrink when text overflows.
+    svg {
+        flex-shrink: 0;
+    }
+
+    .wcs-select-control {
+        min-height: var(--wcs-select-control-height);
+    }
+
+    .arrow {
+        fill: var(--wcs-select-control-arrow-color);
+    }
+
+    .chip {
+        fill: var(--wcs-select-control-chip-color-default);
+        opacity: calc((100 - var(--wcs-select-ligther-percentage)) / 100); // TODO, see later to migrate to design tokens
+
+        &:hover {
+            opacity: 100;
+        }
+    }
 }
 
 @mixin select-control-outline-active {

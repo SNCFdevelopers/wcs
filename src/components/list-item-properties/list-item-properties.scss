@@ -1,10 +1,8 @@
 :host {
-    // region to be removed before migration to design tokens
-    --wcs-list-item-properties-margin-bottom: 2px;
-    --wcs-list-item-properties-gap: 32px;
-    --wcs-list-item-properties-separator-width: 2px;
-    --wcs-list-item-properties-separator-color: var(--wcs-text-disabled);
-    // endregion
+    --wcs-list-item-properties-margin-bottom: var(--wcs-semantic-spacing-small);
+    --wcs-list-item-properties-gap: calc(4 * var(--wcs-semantic-spacing-base));
+    --wcs-list-item-properties-separator-width: var(--wcs-semantic-border-width-large);
+    --wcs-list-item-properties-separator-color: var(--wcs-semantic-color-border-surface);
 
     display: flex;
     margin-bottom: var(--wcs-list-item-properties-margin-bottom);
@@ -25,9 +23,3 @@
     }
 }
 
-:host(.token-migration) {
-    --wcs-list-item-properties-margin-bottom: var(--wcs-semantic-spacing-small);
-    --wcs-list-item-properties-gap: calc(4 * var(--wcs-semantic-spacing-base));
-    --wcs-list-item-properties-separator-width: var(--wcs-semantic-border-width-large);
-    --wcs-list-item-properties-separator-color: var(--wcs-semantic-color-border-surface);
-}

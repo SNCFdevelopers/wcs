@@ -1,4 +1,7 @@
 .arrow-group {
+    --wcs-grid-header-sort-arrow-color-default: var(--wcs-semantic-color-foreground-action-primary-disabled);
+    --wcs-grid-header-sort-arrow-color-active: var(--wcs-semantic-color-primary);
+
     transform-origin: 50% 51%;
     transition: transform 175ms ease-in-out;
 }
@@ -19,9 +22,4 @@
 .active {
     fill: var(--wcs-grid-header-sort-arrow-color-active, var(--wcs-primary));
 
-}
-
-:host(.token-migration) {
-    --wcs-grid-header-sort-arrow-color-default: var(--wcs-semantic-color-foreground-action-primary-disabled);
-    --wcs-grid-header-sort-arrow-color-active: var(--wcs-semantic-color-primary);
 }

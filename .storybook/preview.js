@@ -90,11 +90,6 @@ export const globalTypes = {
 const withDesignTokens = (StoryFn, context) => {
     const { design } = context.globals;
 
-
-    console.log(document?.body)
-    console.log(parent.document.body)
-
-
     globalTypes.design.toolbar.items.forEach(item => {
        if (design === item.value) {
            document?.body.classList.add(item.value);

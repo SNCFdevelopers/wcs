@@ -1,14 +1,7 @@
 :host {
-    // region to be removed before migration to design tokens
-    --wcs-list-item-property-font-weight: 500;
-    --wcs-list-item-property-color: var(--wcs-gray-light);
-    // endregion
+    --wcs-list-item-property-font-weight: var(--wcs-semantic-font-weight-medium);
+    --wcs-list-item-property-color: var(--wcs-semantic-color-text-secondary);
 
     font-weight: var(--wcs-list-item-property-font-weight);
     color: var(--wcs-list-item-property-color);
-}
-
-:host(.token-migration) {
-    --wcs-list-item-property-font-weight: var(--wcs-semantic-font-weight-medium);
-    --wcs-list-item-property-color: var(--wcs-semantic-color-text-secondary);
 }

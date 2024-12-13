@@ -45,15 +45,6 @@
     vertical-align: text-bottom;
     border-radius: 50%;
 
-    --wcs-spinner-dashed-background-circle: #E4E3E2FF;
-    --wcs-spinner-rotating-circle-color: var(--wcs-base);
-
-    --wcs-spinner-rotate-animation-duration: 2s;
-    --wcs-spinner-dashed-animation-duration: 1.5s;
-    --wcs-spinner-growing-animation-duration: 1s;
-}
-
-:host(.token-migration) {
     --wcs-spinner-dashed-background-circle: var(--wcs-semantic-color-background-surface-tertiary);
     --wcs-spinner-rotating-circle-color: var(--wcs-semantic-color-background-action-primary-default);
 

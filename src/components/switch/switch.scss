@@ -1,56 +1,6 @@
 @import '../../style/focus-outline.scss';
 
 :host {
-    // region to be removed before migration to design tokens
-    --wcs-switch-background-color-initial: var(--wcs-text-light);
-    --wcs-switch-background-color-final: var(--wcs-primary);
-
-    --wcs-switch-background-color-disabled-selected: var(--wcs-white);
-    --wcs-switch-background-color-disabled: var(--wcs-text-disabled);
-    --wcs-switch-dot-color-disabled: var(--wcs-light);
-    --wcs-switch-dot-color-disabled-selected: var(--wcs-text-disabled);
-
-    --wcs-switch-dot-color-initial: var(--wcs-switch-background-color-final);
-    --wcs-switch-dot-color-final: var(--wcs-switch-background-color-initial);
-    --wcs-switch-dot-translate-x: 1.5rem;
-    --wcs-switch-transition-duration: .15s;
-
-    --wcs-switch-padding-horizontal: 0.3125rem;
-    --wcs-switch-padding-vertical: 0.3125rem;
-    --wcs-switch-dot-size: 0.875rem;
-
-    --wcs-switch-text-color-default: var(--wcs-text-medium);
-    --wcs-switch-text-color-selected: var(--wcs-primary);
-    --wcs-switch-text-color-hover: var(--wcs-text-medium);
-    --wcs-switch-text-color-disabled: var(--wcs-text-disabled);
-
-    --wcs-switch-text-font-weight-default: 500;
-    --wcs-switch-text-font-weight-selected: 500;
-
-    --wcs-switch-outline-color-focus: var(--wcs-primary);
-
-    --wcs-switch-height: 1.5rem;
-    --wcs-switch-width: 3rem;
-
-    --wcs-switch-border-radius: 0.75rem;
-
-    --wcs-switch-gap: calc(var(--wcs-base-margin) - 2px);
-    // endregion
-
-    display: flex;
-}
-
-:host([disabled]) {
-    .text {
-        color: var(--wcs-switch-text-color-disabled);
-    }
-
-    .wcs-container {
-        cursor: not-allowed;
-    }
-}
-
-:host(.token-migration) {
     --wcs-switch-background-color-initial: var(--wcs-semantic-color-background-surface-secondary);
     --wcs-switch-background-color-final: var(--wcs-semantic-color-primary);
     --wcs-switch-background-color-disabled: var(--wcs-primitive-color-neutral-300);
@@ -85,6 +35,18 @@
     --wcs-switch-border-radius: var(--wcs-semantic-border-radius-circular);
 
     --wcs-switch-gap: var(--wcs-semantic-spacing-base);
+
+    display: flex;
+}
+
+:host([disabled]) {
+    .text {
+        color: var(--wcs-switch-text-color-disabled);
+    }
+
+    .wcs-container {
+        cursor: not-allowed;
+    }
 }
 
 /* Customize the label (the wcs-container) */

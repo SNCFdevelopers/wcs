@@ -3,14 +3,12 @@
 
 /* Default style and mobile behaviour */
 :host {
-    // region to be removed before migration to design tokens
-    --wcs-com-nav-item-gap: var(--wcs-base-margin);
+    --wcs-com-nav-item-gap: var(--wcs-semantic-spacing-base);
     --wcs-com-nav-item-arrow-icon-font-size: 0.6rem;
     --wcs-com-nav-item-arrow-icon-font-family: icons;
     --wcs-com-nav-item-arrow-icon-line-height: 1;
 
-    --wcs-com-nav-item-focus-outline-color: var(--wcs-primary);
-    // endregion
+    --wcs-com-nav-item-focus-outline-color: var(--wcs-semantic-color-border-focus-base);
 
     display: inline-flex;
     align-items: center;
@@ -71,13 +69,4 @@
 
         // Focus outline style is handling by com-nav, com-nav-submenu and com-nav-category in desktop mode
     }
-}
-
-:host(.token-migration) {
-    --wcs-com-nav-item-gap: var(--wcs-semantic-spacing-base);
-    --wcs-com-nav-item-arrow-icon-font-size: 0.6rem;
-    --wcs-com-nav-item-arrow-icon-font-family: icons;
-    --wcs-com-nav-item-arrow-icon-line-height: 1;
-
-    --wcs-com-nav-item-focus-outline-color: var(--wcs-semantic-color-border-focus-base);
 }

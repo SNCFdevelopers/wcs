@@ -33,28 +33,23 @@
 }
 
 :host {
-    // region to be removed before migration to design tokens
-    --wcs-counter-border-radius: calc(var(--wcs-border-radius) * 10); // 80 px
+    --wcs-counter-border-radius: var(--wcs-semantic-border-radius-circular);
 
-    --wcs-counter-font-weight-default: bold;
-    --wcs-counter-font-weight-disabled: bold;
-    --wcs-counter-value-color-default: var(--wcs-black);
-    --wcs-counter-value-color-disabled: var(--wcs-text-disabled);
+    --wcs-counter-font-weight-default: var(--wcs-semantic-font-weight-medium);
+    --wcs-counter-font-weight-disabled: var(--wcs-semantic-font-weight-medium);
+    --wcs-counter-value-color-default: var(--wcs-semantic-color-text-primary);
+    --wcs-counter-value-color-disabled: var(--wcs-semantic-color-text-tertiary);
 
-    --wcs-counter-height-m: var(--wcs-size-m);
-    --wcs-counter-height-l: var(--wcs-size-l);
-    --wcs-counter-padding-m: 4px;
-    --wcs-counter-padding-l: 8px;
-    --wcs-counter-font-size-m: 1rem;
-    --wcs-counter-font-size-l: 1.0625rem;
+    --wcs-counter-height-m: var(--wcs-semantic-size-m);
+    --wcs-counter-height-l: var(--wcs-semantic-size-l);
+    --wcs-counter-font-size-m: var(--wcs-semantic-font-size-m);
+    --wcs-counter-font-size-l: var(--wcs-semantic-font-size-l);
+    --wcs-counter-padding-m: var(--wcs-semantic-spacing-small);
+    --wcs-counter-padding-l: var(--wcs-semantic-spacing-base);
 
-    --wcs-counter-background-color: var(--wcs-light);
-
-    --wcs-counter-gap: calc(2 * var(--wcs-base-margin));
-
-    --wcs-counter-outline-color-focus: var(--wcs-primary);
-
-    // endregion
+    --wcs-counter-background-color: var(--wcs-semantic-color-background-surface-secondary);
+    --wcs-counter-gap: var(--wcs-semantic-spacing-large);
+    --wcs-counter-outline-color-focus: var(--wcs-semantic-color-border-focus-base);
 
     display: flex;
 
@@ -123,28 +118,6 @@
     [hidden] {
         opacity: 0;
     }
-}
-
-:host(.token-migration) {
-    --wcs-counter-border-radius: var(--wcs-semantic-border-radius-circular);
-
-    --wcs-counter-font-weight-default: var(--wcs-semantic-font-weight-medium);
-    --wcs-counter-font-weight-disabled: var(--wcs-semantic-font-weight-medium);
-    --wcs-counter-value-color-default: var(--wcs-semantic-color-text-primary);
-    --wcs-counter-value-color-disabled: var(--wcs-semantic-color-text-tertiary);
-
-    --wcs-counter-height-m: var(--wcs-semantic-size-m);
-    --wcs-counter-height-l: var(--wcs-semantic-size-l);
-    --wcs-counter-font-size-m: var(--wcs-semantic-font-size-m);
-    --wcs-counter-font-size-l: var(--wcs-semantic-font-size-l);
-    --wcs-counter-padding-m: var(--wcs-semantic-spacing-small);
-    --wcs-counter-padding-l: var(--wcs-semantic-spacing-base);
-
-    --wcs-counter-background-color: var(--wcs-semantic-color-background-surface-secondary);
-
-    --wcs-counter-gap: var(--wcs-semantic-spacing-large);
-
-    --wcs-counter-outline-color-focus: var(--wcs-semantic-color-border-focus-base);
 }
 
 :host([size='m']) { // Default
