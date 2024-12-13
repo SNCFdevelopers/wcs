@@ -87,7 +87,7 @@
         "color": {
             "primary": {
                 "$type": "color",
-                "$value": "{primitive.color.vert.500}"
+                "$value": "{primitive.color.vert.700}"
             },
             "disabled": {
                 "$description": "Base disabled color",
@@ -129,7 +129,7 @@
                     "base": {
                         "$description": "Border color on focus for base elements like button, dropdown, counter, switch...",
                         "$type": "color",
-                        "$value": "{primitive.color.vert.600}"
+                        "$value": "{primitive.color.vert.900}"
                     },
                     "control": {
                         "$description": "Border color on focus for control elements like input, select, textarea...",
@@ -214,17 +214,17 @@
                         "hover": {
                             "$description": "Can be used by elements which must have a hover state (button, dropdown...)",
                             "$type": "color",
-                            "$value": "{primitive.color.vert.600}"
+                            "$value": "{primitive.color.vert.800}"
                         },
                         "press": {
                             "$description": "Can be used by primary elements which must have a press state (nav-item)",
                             "$type": "color",
-                            "$value": "{primitive.color.vert.600}"
+                            "$value": "{primitive.color.vert.900}"
                         },
                         "active": {
                             "$description": "Can be used by primary elements which must have an active state (nav-item)",
                             "$type": "color",
-                            "$value": "{primitive.color.vert.600}"
+                            "$value": "{primitive.color.vert.900}"
                         }
                     },
                     "secondary": {
@@ -348,7 +348,7 @@
                     "brand": {
                         "$description": "Brand background color for surface",
                         "$type": "color",
-                        "$value": "{primitive.color.vert.500}"
+                        "$value": "{primitive.color.vert.700}"
                     },
                     "primary": {
                         "$description": "Background of a surface like a card, modal, overlay of a select...",
@@ -408,12 +408,12 @@
                         "hover": {
                             "$description": "The layer on top of a secondary background when hovered",
                             "$type": "color",
-                            "$value": "{primitive.color.vert.500}"
+                            "$value": "{primitive.color.vert.900}"
                         },
                         "press": {
                             "$description": "The layer on top of a secondary background when pressed",
                             "$type": "color",
-                            "$value": "{primitive.color.vert.600}"
+                            "$value": "{primitive.color.vert.900}"
                         }
                     },
                     "tertiary": {
