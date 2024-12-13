@@ -26,6 +26,11 @@ const config = {
         // Custom addons located in .storybook/addons
         "./addons/versioning/register.js"
     ],
+    previewBody: (body) => `
+    <body class="sncf-holding">
+        ${body}
+    </body>
+  `,
     async webpackFinal(config) {
         config.plugins.push(new WatchExternalFilesPlugin({
             files: [

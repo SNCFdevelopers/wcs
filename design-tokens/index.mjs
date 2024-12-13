@@ -29,7 +29,7 @@ for (const entry of jsonFilesByMode) {
     }, {
         theme: entry[0],
         jsonFiles: entry[1],
-        selector: `.token-migration.${entry[0]}` // TODO: remove it when finish migration
+        selector: `.${entry[0]}`
     });
 
     const cssGeneratedFile = `${OUTPUT_CSS_DIR}/${entry[0]}.css`;

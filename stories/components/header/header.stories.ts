@@ -14,7 +14,7 @@ export default meta;
 export const Default: StoryObj = {
     render: (_, context) => {
         // We need to add `wcs-light` class to the button because of contrast (see v6 → v7 migration guide about header)
-        const buttonClasses = { 'wcs-light': context.globals.designTokenMode === null};
+        const buttonClasses = { 'wcs-light': context.globals.design === null};
         return html`
         <wcs-header>
             <img

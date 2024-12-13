@@ -69,18 +69,18 @@ export const parameters = {
 }
 
 export const globalTypes = {
-    designTokenMode: {
-        name: 'Design Tokens',
-        description: 'Preview mode to use design tokens',
+    design: {
+        name: 'Theme',
+        description: 'Switch theme',
         defaultValue: 'sncf-holding',
         toolbar: {
-            title: 'Activate design tokens',
-            icon: 'eye',
+            title: 'Theme',
+            icon: 'paintbrush',
+            dynamicTitle: true,
             items: [
-                {value: null, title: 'Off'},
-                {value: 'sncf-holding', title: 'Sncf Holding new theme'},
-                {value: 'sncf-voyageurs', title: 'Sncf Voyageurs'},
-                {value: 'sncf-reseau', title: 'Sncf Reseau'}
+                {value: 'sncf-holding', title: 'SNCF Holding'},
+                {value: 'sncf-voyageurs', title: 'SNCF Voyageurs'},
+                {value: 'sncf-reseau', title: 'SNCF Réseau'}
             ],
         },
 
@@ -88,27 +88,22 @@ export const globalTypes = {
 }
 
 const withDesignTokens = (StoryFn, context) => {
-    const {designTokenMode} = context.globals;
+    const { design } = context.globals;
 
-    const appliedMode = Array.from(document.body.classList.values()).filter(value => value.startsWith("sncf"));
-    appliedMode.forEach(mode => document.body.classList.remove(mode));
 
-    const wcsElements = Array.from(document.querySelectorAll('*')).filter(el => el.tagName.toLowerCase().startsWith('wcs-'));
+    console.log(document?.body)
+    console.log(parent.document.body)
 
-    if (!designTokenMode) {
-        document.body.classList.remove('token-migration');
 
-        wcsElements.forEach(el => {
-            applyFunctionToWcsElement(el, (el) => el.classList.remove('token-migration'));
-        });
-    } else {
-        document.body.classList.add('token-migration');
-
-        document.body.classList.add(designTokenMode);
-        wcsElements.forEach(el => {
-            applyFunctionToWcsElement(el, (el) => el.classList.add('token-migration'));
-        });
-    }
+    globalTypes.design.toolbar.items.forEach(item => {
+       if (design === item.value) {
+           document?.body.classList.add(item.value);
+           parent?.document?.body?.classList.add(item.value);
+       } else {
+           document?.body.classList.remove(item.value);
+           parent?.document?.body?.classList.remove(item.value);
+       }
+    });
 
     return StoryFn();
 }

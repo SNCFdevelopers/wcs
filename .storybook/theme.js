@@ -14,6 +14,8 @@ const theme = create({
     // SNCF / WCS branding for the upper left image
     brandTitle: 'WCS • Web Components SNCF',
     brandImage: logo,
+    colorSecondary: '#6558b1',
+    colorPrimary: '#6558b1',
 });
 
 export default theme;
