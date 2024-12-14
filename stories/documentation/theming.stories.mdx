@@ -47,10 +47,118 @@ To start using a theme :
 ## How it works
 ### Introduction
 
-TODO
+To introduce the concept of theming, we need to understand the concept of design tokens. Design tokens are the core building blocks of any design system, acting as the single source of truth for defining and maintaining visual styles and design attributes. They represent design decisions such as colors, typography, spacing, and motion in a platform-agnostic, scalable format, often stored as key-value pairs in a structured file format like JSON or YAML.
 
-### Format
+By abstracting these design elements into tokens, teams can ensure consistency and flexibility across multiple platforms, products, and codebases. Design tokens provide a bridge between design and development, enabling seamless collaboration and reducing the risk of inconsistencies.
 
-We're based the declaration of design tokens on [Design Tokens Format Module](https://tr.designtokens.org/format). It's document which describes the technical specification for a file format (JSON) to exchange design tokens between different tools.
+### Design Tokens in WCS
 
-**[Follow this link to learn more](../?path=/docs/internal-docs-design-tokens--documentation#agnostic-structure)**
+We choose to use three layers of design tokens in WCS:
+- **Primitive**: The most basic level of design tokens, representing the raw building blocks of a design system. These tokens define the core elements of a design system, such as colors, typography, spacing, and motion. This layer wan be specific to a brand or a product. The structure of this layer is not unified among all brands.
+- **Semantic**: The intermediate level of design tokens, representing the abstracted elements of a design system. These tokens define the high-level design elements of a design system, such as primary and secondary colors for action surfaces, typography scales, and spacing scales. This layer is unified among all brands as components are built on top of it.
+- **Component**: The highest level of design tokens, specific to a component. They can be used to define the design of a component in a specific context. This layer is also unified among all brands.
+
+Each layer is mapped to its preceding layer. The component layer maps CSS properties to variables in the semantic layer. The semantic layer then maps these variables to those in the primitive layer.
+
+The component layer is provided with the WCS components, is pre-built, and remains the same across all themes (although overrides are possible if necessary). The semantic and primitive layers, on the other hand, are delivered for each theme in separate CSS files. These are available in the `wcs-core/design-tokens/dist` package.
+
+If you wants to learn more about the internal structure of design tokens in WCS and their implementation in the codebase, you can consult the **[Design Tokens documentation](../?path=/docs/internal-docs-design-tokens--documentation)**.
+
+We base our design token declarations on the [Design Tokens Format Module](https://tr.designtokens.org/format). This document outlines the technical specifications for a JSON-based file format used to exchange design tokens between different tools.
+
+The implementation of design tokens is technically achieved using CSS variables.
+
+### CSS Variables
+
+CSS variables, also known as Custom Properties, are entities defined by CSS authors that contain specific values. They can be reused throughout a stylesheet, enabling consistency and flexibility. A CSS variable is defined with a `--` prefix and is accessed using the `var()` function.
+
+Exemple:
+```css
+:root {
+    --primary-color: #3498db;
+    --font-size-large: 1.5rem;
+}
+
+button {
+    background-color: var(--primary-color);
+    font-size: var(--font-size-large);
+}
+```
+
+Here are some benefits of using CSS variables to define design tokens:
+- All variables can be declared in a single file (e.g., in the `:root` selector), making updates seamless.
+- CSS variables allow for real-time updates without requiring a recompilation or reloading of stylesheets. For example, themes can be dynamically switched using JavaScript.
+- Variables can adapt across large-scale applications, maintaining consistency while allowing overrides for specific components or contexts.
+- CSS variables use descriptive names, improving the maintainability of stylesheets.
+- You can use CSS variables in combination with preprocessors like Sass or Less to create more complex styles.
+- You can use the WCS tokens variables in your own CSS.
+
+CSS variables follow the rules of CSS inheritance, allowing for redefinition at any level of the DOM tree. This capability provides flexibility in defining context-specific styles.
+
+```css
+:root {
+    --button-color: #007bff;
+}
+
+.dark-theme {
+    --button-color: #0056b3;
+}
+
+button {
+    background-color: var(--button-color);
+}
+```
+In this example:
+- By default, the `--button-color` variable uses the value defined in the `:root` scope.
+- When a button is placed inside an element with the `.dark-theme` class, the `--button-color` variable is overridden with a darker shade.
+
+Learn more about CSS variables in the [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties).
+
+### How are CSS variables used in WCS?
+
+As mentioned earlier, we provide a CSS file for each theme. This file contains the primitive and semantic layer of the theme as well as the specific overrides for the theme.
+
+All the definitions of these variables apply when the class named after the theme is applied to the root of your document.
+
+For example, for the `sncf-holding` theme:
+
+```html
+...
+<!-- given that you already include the sncf-holding CSS file from the wcs-core package -->
+<body class=".sncf-holding"> <!-- now, all the wcs-holding tokens are apply in your app -->
+    ...
+</body>
+...
+```
+
+## How to extend a theme?
+
+We recommend to consult the D2D Design System team before extending a theme. They will help you to understand the structure of the design tokens and the impact of your changes on the design system. They can assist you in making the right decisions and ensure that your changes are consistent with the design system and are necessary in the first place.
+
+### Customizing a Theme: Key Considerations
+
+There are various ways to customize a theme. While color adjustments are the most common, any token in any layer can be modified.
+
+The key question to ask is:
+- Do I want to keep the current mapping between the semantic layer and the primitive layer?
+- Do I only want to adjust the mapping, or do I need to modify the base values?
+- Should the changes apply across the entire design system or just to a specific component?
+
+Answering these questions will help you identify which layer needs modification.
+
+#### Simplified Guidelines:
+
+1. **If the current mapping works but you want to change base values across the entire design system**, modify the **primitive layer**.
+
+2. **If the base values are fine but you want to remap them to different concepts** (e.g., replacing *Primary* with *Secondary*), adjust the **semantic layer**. This layer defines how semantic tokens are mapped to the primitive layer.
+
+3. **If you want to change the behavior of a specific component**, modify the **component layer**.
+
+
+## How to create a new theme from scratch?
+
+Event if our library is versatile, we don't recommend to build a new theme from scratch. The maintenance of a theme is a long term work, and we recommend to use the existing themes. Maintaining a theme on the project side is not a good practice.
+
+If you really need to create a new theme, we recommend to consult the D2D Design System team.
+
+If you really wants to make one by yourself, you can reuse the tooling we built in the `design-tokens` folder, based on [Style Dictionary](https://amzn.github.io/style-dictionary/#/). But be aware that we don't provide support on it for now.
