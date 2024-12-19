@@ -8,7 +8,7 @@
 
 .arrow {
     transition: fill 175ms ease-in-out;
-    fill: var(--wcs-grid-header-sort-arrow-color-default, var(--wcs-text-light));
+    fill: var(--wcs-grid-header-sort-arrow-color-default);
 }
 
 .asc {
@@ -20,6 +20,6 @@
 }
 
 .active {
-    fill: var(--wcs-grid-header-sort-arrow-color-active, var(--wcs-primary));
+    fill: var(--wcs-grid-header-sort-arrow-color-active);
 
 }

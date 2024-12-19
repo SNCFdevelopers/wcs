@@ -50,7 +50,7 @@ export const TextAreaWithCharactersLeft: StoryObj = {
             <wcs-textarea id="textarea-example" placeholder="Type your message" rows="6" cols="80"
                           maxlength="255" @wcsInput=${(e: any) => handleTextAreaWcsInput(e)}></wcs-textarea>
             <wcs-hint>
-                <div style="display: flex; justify-content: space-between; gap: var(--wcs-margin)">
+                <div style="display: flex; justify-content: space-between; gap: var(--wcs-semantic-spacing-large)">
                     <span>These data will not be sent to a big company that shall remain unnamed</span>
                     <span id="char-left" ${ref(spanRef)}>0/255</span>
                 </div>

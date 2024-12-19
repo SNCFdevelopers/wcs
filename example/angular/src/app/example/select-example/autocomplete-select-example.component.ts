@@ -73,7 +73,7 @@ import { WcsFormlySelectProps } from "wcs-formly";
         <h3>Formly</h3>
         <form [formGroup]="form">
             <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
-            <wcs-button style="margin-top: var(--wcs-margin)" (click)="resetFormlyForm()">Reset form</wcs-button>
+            <wcs-button style="margin-top: var(--wcs-semantic-spacing-large)" (click)="resetFormlyForm()">Reset form</wcs-button>
         </form>
       </wcs-card-body>
     </wcs-card>
@@ -81,7 +81,7 @@ import { WcsFormlySelectProps } from "wcs-formly";
   styles: [`
     .select-container {
       display: flex;
-      gap: var(--wcs-margin);
+      gap: var(--wcs-semantic-spacing-large);
 
       wcs-select {
         width: 100%

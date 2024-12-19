@@ -40,6 +40,7 @@ const DROPDOWN_INHERITED_ATTRS = ['tabindex'];
  * @cssprop --wcs-dropdown-padding-vertical-size-s - Vertical padding of the dropdown button when size is small
  * @cssprop --wcs-dropdown-padding-vertical-size-m - Vertical padding of the dropdown button when size is medium
  * @cssprop --wcs-dropdown-padding-vertical-size-l - Vertical padding of the dropdown button when size is large
+ * @cssprop --wcs-dropdown-padding-empty - Padding of and empty dropdown
  * 
  * @cssprop --wcs-dropdown-overlay-padding-vertical - Defines the vertical padding inside the dropdown overlay
  * @cssprop --wcs-dropdown-overlay-max-height - Specifies the maximum height of the dropdown overlay

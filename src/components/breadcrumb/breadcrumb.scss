@@ -23,7 +23,7 @@ nav.wcs-breadcrumb-container {
         list-style: none;
 
         ::slotted(wcs-breadcrumb-item) {
-            margin-right: var(--wcs-base-margin);
+            margin-right: var(--wcs-breadcrumb-gap);
         }
 
         ::slotted(wcs-breadcrumb-item:last-child) {

@@ -102,7 +102,7 @@ const SizeTemplate = (args: DropdownStoryArgs, size: string) => html`
 
 export const Sizes: StoryObj<DropdownStoryArgs> = {
     render: (args) => html`
-        <div style="display: flex; height: 500px; gap: var(--wcs-margin); align-items: center; justify-content: center;">
+        <div style="display: flex; height: 500px; gap: var(--wcs-semantic-spacing-large); align-items: center; justify-content: center;">
             ${SizeTemplate(args, 'l')}
             ${SizeTemplate(args, 'm')}
             ${SizeTemplate(args, 's')}

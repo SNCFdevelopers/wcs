@@ -5,9 +5,9 @@
 
 :host {
     display: inline-block;
-    // FIXME : remove those fallback values when design tokens are set
-    --wcs-button-color: var(--wcs-button-plain-color-default, var(--wcs-white, white));
-    --wcs-button-plain-color-default: var(--wcs-semantic-color-foreground-action-primary-default, var(--wcs-white, white));
+
+    --wcs-button-color: var(--wcs-button-plain-color-default);
+    --wcs-button-plain-color-default: var(--wcs-semantic-color-foreground-action-primary-default);
     --wcs-button-color-disabled: var(--wcs-semantic-color-disabled);
     --wcs-button-stroked-color-default: var(--wcs-semantic-color-foreground-action-secondary-default);
     --wcs-button-clear-color-default: var(--wcs-semantic-color-foreground-action-tertiary-default);
@@ -16,17 +16,17 @@
     --wcs-button-focus-outline-border-width: var(--wcs-semantic-border-width-large);
 
     --wcs-button-background-color: var(--wcs-button-plain-background-color-default);
-    --wcs-button-plain-background-color-default: var(--wcs-semantic-color-background-action-primary-default, var(--wcs-primary, #0074AF));
-    --wcs-button-plain-background-color-disabled: var(--wcs-semantic-color-background-action-primary-disabled, var(--wcs-light, transparent));
-    --wcs-button-stroked-background-color-default: var(--wcs-semantic-color-background-action-secondary-default, transparent);
-    --wcs-button-stroked-background-color-disabled: var(--wcs-semantic-color-background-action-secondary-disabled, transparent);
-    --wcs-button-clear-background-color-default: var(--wcs-semantic-color-background-action-tertiary-default, transparent);
-    --wcs-button-clear-background-color-disabled: var(--wcs-semantic-color-background-action-tertiary-disabled, transparent);
+    --wcs-button-plain-background-color-default: var(--wcs-semantic-color-background-action-primary-default);
+    --wcs-button-plain-background-color-disabled: var(--wcs-semantic-color-background-action-primary-disabled);
+    --wcs-button-stroked-background-color-default: var(--wcs-semantic-color-background-action-secondary-default);
+    --wcs-button-stroked-background-color-disabled: var(--wcs-semantic-color-background-action-secondary-disabled);
+    --wcs-button-clear-background-color-default: var(--wcs-semantic-color-background-action-tertiary-default);
+    --wcs-button-clear-background-color-disabled: var(--wcs-semantic-color-background-action-tertiary-disabled);
 
-    --wcs-button-ripple-color: var(--wcs-button-plain-ripple-color-default, var(--wcs-white, white));
-    --wcs-button-plain-ripple-color-default: var(--wcs-semantic-color-ripple-action-primary, var(--wcs-white, white));
-    --wcs-button-stroked-ripple-color-default: var(--wcs-semantic-color-ripple-action-secondary, var(--wcs-primary, #0088ce));
-    --wcs-button-clear-ripple-color-default: var(--wcs-semantic-color-ripple-action-tertiary, var(--wcs-primary, #0088ce));
+    --wcs-button-ripple-color: var(--wcs-button-plain-ripple-color-default);
+    --wcs-button-plain-ripple-color-default: var(--wcs-semantic-color-ripple-action-primary);
+    --wcs-button-stroked-ripple-color-default: var(--wcs-semantic-color-ripple-action-secondary);
+    --wcs-button-clear-ripple-color-default: var(--wcs-semantic-color-ripple-action-tertiary);
     --wcs-button-border-radius: var(--wcs-button-border-radius-default);
     --wcs-button-border-radius-default: var(--wcs-semantic-border-radius-base);
     --wcs-button-border-radius-rounded: var(--wcs-semantic-border-radius-circular);

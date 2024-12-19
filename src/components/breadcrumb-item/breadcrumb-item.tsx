@@ -8,6 +8,8 @@ import { ICONS_FONT_CHEVRON_UNICODE } from '../breadcrumb/breadcrumb-constants';
  * @slot <no-name> Main container slot
  * 
  * @cssprop --wcs-breadcrumb-item-max-height - Maximum height of the breadcrumb item
+ * @cssprop --wcs-breadcrumb-item-line-height - Line height of the breadcrumb item
+ * @cssprop --wcs-breadcrumb-item-font-size - Font size of the breadcrumb item
  * 
  * @cssprop --wcs-breadcrumb-item-icon-color - Color of the breadcrumb item icon
  * @cssprop --wcs-breadcrumb-item-icon-font-size - Font size of the breadcrumb item icon
@@ -18,6 +20,8 @@ import { ICONS_FONT_CHEVRON_UNICODE } from '../breadcrumb/breadcrumb-constants';
  * 
  * @cssprop --wcs-breadcrumb-item-border-width-focus - Border width of the breadcrumb item when focused
  * @cssprop --wcs-breadcrumb-item-border-color-focus - Border color of the breadcrumb item when focused
+ * 
+ * @cssprop --wcs-breadcrumb-item-active-color - Color of the breadcrumb item when the link is active
  */
 @Component({
     tag: 'wcs-breadcrumb-item',

@@ -51,8 +51,6 @@ const WCS_COM_NAV_SUBMENU_TAG_NAME = 'WCS-COM-NAV-SUBMENU';
  * @cssprop --wcs-com-nav-mobile-menu-icon-margin-left - Margin left of icon mobile menu
  * @cssprop --wcs-com-nav-menu-bar-gap - Gap between each item inside menu-bar
  * @cssprop --wcs-com-nav-menu-bar-margin-left - Margin left between menu bar and the app-name section
- * @cssprop --wcs-com-nav-menu-bar-item-color - Item color of the item inside menu bar
- * @cssprop --wcs-com-nav-menu-bar-item-font-weight - Font weight of the item inside menu bar
  */
 @Component({
     tag: 'wcs-com-nav',

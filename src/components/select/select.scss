@@ -173,7 +173,7 @@ label {
 }
 
 .wcs-select-value-container {
-    max-width: calc(100% - calc(24px + var(--wcs-base-margin))); // 24px (width of arrow svg) + 8px of padding = 32px
+    max-width: calc(100% - calc(24px + var(--wcs-semantic-spacing-base))); // 24px (width of arrow svg) + 8px of padding = 32px
     padding-right: 8px; // to avoid overflow on arrow
 
     display: flex;
@@ -210,7 +210,6 @@ label {
     width: calc(100% - calc(2 * var(--wcs-select-control-border-width)));
 
     background-color: var(--wcs-select-overlay-background-color);
-    color: var(--wcs-text-medium);
 }
 
 :host(.expanded) {

@@ -13,9 +13,8 @@
     --wcs-com-nav-app-name-font-size: 1.5rem;
     --wcs-com-nav-app-name-line-height: 1.5;
 
-    // TODO ajouter tokens sémantique
-    --wcs-com-nav-item-color: var(--wcs-gray);
-    --wcs-com-nav-item-font-weight: 500;
+    --wcs-com-nav-item-color: var(--wcs-semantic-color-foreground-action-neutral-default);
+    --wcs-com-nav-item-font-weight: var(--wcs-semantic-font-weight-medium);
 
     --wcs-com-nav-focus-outline-color: var(--wcs-semantic-color-border-focus-base);
 
@@ -36,9 +35,6 @@
     // Menu bar (desktop)
     --wcs-com-nav-menu-bar-gap: calc(var(--wcs-semantic-spacing-base) * 5); // 40px
     --wcs-com-nav-menu-bar-margin-left: calc(var(--wcs-semantic-spacing-base) * 6.25); // 50 px
-    --wcs-com-nav-menu-bar-item-color: var(--wcs-semantic-color-text-primary);
-    --wcs-com-nav-menu-bar-item-font-weight: var(--wcs-semantic-font-weight-medium);
-
 
     display: block;
     position: relative;
@@ -175,8 +171,8 @@
 
             ::slotted(wcs-com-nav-item) {
                 height: 100%;
-                color: var(--wcs-com-nav-menu-bar-item-color);
-                font-weight: var(--wcs-com-nav-menu-bar-item-font-weight);
+                color: var(--wcs-com-nav-item-color);
+                font-weight: var(--wcs-com-nav-item-font-weight);
             }
 
             // Focus style for nav item in menu bar

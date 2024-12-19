@@ -1,20 +1,10 @@
 .tippy-box[data-theme~='wcs'] {
-    // region to be removed before migration to design tokens
-    --wcs-tooltip-background-color: var(--wcs-black);
-    --wcs-tooltip-text-color: var(--wcs-white);
-    --wcs-tooltip-padding: 4px 8px;
-    // endregion
+    --wcs-tooltip-background-color:  var(--wcs-semantic-color-background-surface-inverse);
+    --wcs-tooltip-text-color: var(--wcs-semantic-color-text-inverse);
+    --wcs-tooltip-padding: var(--wcs-semantic-spacing-small) var(--wcs-semantic-spacing-base);
 
     background-color: var(--wcs-tooltip-background-color);
     color: var(--wcs-tooltip-text-color);
-}
-
-.token-migration {
-    .tippy-box[data-theme~='wcs'] {
-        --wcs-tooltip-background-color:  var(--wcs-semantic-color-background-surface-inverse);
-        --wcs-tooltip-text-color: var(--wcs-semantic-color-text-inverse);
-        --wcs-tooltip-padding: var(--wcs-semantic-spacing-small) var(--wcs-semantic-spacing-base);
-    }
 }
 
 .tippy-box[data-theme~='wcs'][data-placement^='top'] > .tippy-arrow::before {

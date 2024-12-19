@@ -34,12 +34,12 @@ const Template: StoryFn<Partial<ComNavArgs>> = (args) => html`
         <wcs-galactic text="NomSuperApp est un site SNCF">
             <wcs-galactic-menu text="TOUT SNCF">
                 <div style="margin-bottom: 8px">
-                    <a href="cgu" style="text-decoration: none; color: var(--wcs-white)">CGU</a></div>
+                    <a href="cgu" style="text-decoration: none; color: var(--wcs-semantic-color-text-inverse)">CGU</a></div>
                 <div style="margin-bottom: 8px">
-                    <a href="about" style="text-decoration: none; color: var(--wcs-white)">À Propos</a>
+                    <a href="about" style="text-decoration: none; color: var(--wcs-semantic-color-text-inverse)">À Propos</a>
                 </div>
                 <div style="margin-bottom: 8px">
-                    <a href="another" style="text-decoration: none; color: var(--wcs-white)">Un autre lien</a>
+                    <a href="another" style="text-decoration: none; color: var(--wcs-semantic-color-text-inverse)">Un autre lien</a>
                 </div>
                 <wcs-button shape="small">Un bouton</wcs-button>
             </wcs-galactic-menu>
@@ -129,12 +129,12 @@ export const OnlyTopLevelLinks: StoryObj<ComNavArgs> = {
         <wcs-galactic text="NomSuperApp est un site SNCF">
             <wcs-galactic-menu text="TOUT SNCF">
                 <div style="margin-bottom: 8px">
-                    <a href="cgu" style="text-decoration: none; color: var(--wcs-white)" @click=${e => e.preventDefault()}>CGU</a></div>
+                    <a href="cgu" style="text-decoration: none; color: var(--wcs-semantic-color-text-inverse)" @click=${e => e.preventDefault()}>CGU</a></div>
                 <div style="margin-bottom: 8px">
-                    <a href="about" style="text-decoration: none; color: var(--wcs-white)" @click=${e => e.preventDefault()}>À Propos</a>
+                    <a href="about" style="text-decoration: none; color: var(--wcs-semantic-color-text-inverse)" @click=${e => e.preventDefault()}>À Propos</a>
                 </div>
                 <div style="margin-bottom: 8px">
-                    <a href="another" style="text-decoration: none; color: var(--wcs-white)" @click=${e => e.preventDefault()}>Un autre lien</a>
+                    <a href="another" style="text-decoration: none; color: var(--wcs-semantic-color-text-inverse)" @click=${e => e.preventDefault()}>Un autre lien</a>
                 </div>
                 <wcs-button shape="small">Un bouton</wcs-button>
             </wcs-galactic-menu>

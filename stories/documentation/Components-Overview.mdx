@@ -5,7 +5,7 @@ export default function ComponentsOverview() {
     const style = (
         <style>{`
             a:focus {
-              outline: 2px dashed var(--wcs-primary);
+              outline: 2px dashed var(--wcs-semantic-color-border-focus-base);
             }
             .grid-container {
                 display: grid;
@@ -15,7 +15,7 @@ export default function ComponentsOverview() {
             .img-container {
                 display: flex;
                 height: calc(100% - 24px);
-                margin: var(--wcs-base-margin) 0;
+                margin: var(--wcs-semantic-spacing-base) 0;
                 & > img {
                     margin: auto;
                     max-height: 150px;
@@ -25,10 +25,10 @@ export default function ComponentsOverview() {
             .display-card {
                 height: 200px;
                 background-clip: border-box;
-                border-radius: var(--wcs-border-radius);
-                border: solid 1px var(--wcs-text-light);
+                border-radius: var(--wcs-semantic-border-radius-base);
+                border: solid 1px var(--wcs-semantic-color-border-surface);
                 flex: 1 0 25%;
-                padding: var(--wcs-padding);
+                padding: var(--wcs-semantic-spacing-large);
                 & > p {
                     margin: 0;
                     font-weight: 700;
@@ -40,7 +40,7 @@ export default function ComponentsOverview() {
             }
             .divider {
                 display: block;
-                border-bottom: solid 1px var(--wcs-text-light);
+                border-bottom: solid 1px var(--wcs-semantic-color-border-surface);
             }
             .spinner-container {
                 display: grid;

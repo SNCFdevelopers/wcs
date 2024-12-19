@@ -12,7 +12,7 @@ import { FormlyFieldConfig } from '@ngx-formly/core';
   `,
   styles: [`
   wcs-button[type=submit] {
-    margin-top: var(--wcs-base-margin);
+    margin-top: var(--wcs-semantic-spacing-base);
   }
   `]
 })

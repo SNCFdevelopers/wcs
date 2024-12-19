@@ -225,6 +225,8 @@ export namespace Components {
     /**
      * The breadcrumb item represents a link inside a breadcrumb.
      * @cssprop --wcs-breadcrumb-item-max-height - Maximum height of the breadcrumb item
+     * @cssprop --wcs-breadcrumb-item-line-height - Line height of the breadcrumb item
+     * @cssprop --wcs-breadcrumb-item-font-size - Font size of the breadcrumb item
      * @cssprop --wcs-breadcrumb-item-icon-color - Color of the breadcrumb item icon
      * @cssprop --wcs-breadcrumb-item-icon-font-size - Font size of the breadcrumb item icon
      * @cssprop --wcs-breadcrumb-item-gap - Gap between text and chevron icon
@@ -232,6 +234,7 @@ export namespace Components {
      * @cssprop --wcs-breadcrumb-item-link-font-weight - Font weight of the breadcrumb item link
      * @cssprop --wcs-breadcrumb-item-border-width-focus - Border width of the breadcrumb item when focused
      * @cssprop --wcs-breadcrumb-item-border-color-focus - Border color of the breadcrumb item when focused
+     * @cssprop --wcs-breadcrumb-item-active-color - Color of the breadcrumb item when the link is active
      */
     interface WcsBreadcrumbItem {
         /**
@@ -411,8 +414,6 @@ export namespace Components {
      * @cssprop --wcs-com-nav-mobile-menu-icon-margin-left - Margin left of icon mobile menu
      * @cssprop --wcs-com-nav-menu-bar-gap - Gap between each item inside menu-bar
      * @cssprop --wcs-com-nav-menu-bar-margin-left - Margin left between menu bar and the app-name section
-     * @cssprop --wcs-com-nav-menu-bar-item-color - Item color of the item inside menu bar
-     * @cssprop --wcs-com-nav-menu-bar-item-font-weight - Font weight of the item inside menu bar
      */
     interface WcsComNav {
         /**
@@ -574,6 +575,7 @@ export namespace Components {
      * @cssprop --wcs-dropdown-padding-vertical-size-s - Vertical padding of the dropdown button when size is small
      * @cssprop --wcs-dropdown-padding-vertical-size-m - Vertical padding of the dropdown button when size is medium
      * @cssprop --wcs-dropdown-padding-vertical-size-l - Vertical padding of the dropdown button when size is large
+     * @cssprop --wcs-dropdown-padding-empty - Padding of and empty dropdown
      * @cssprop --wcs-dropdown-overlay-padding-vertical - Defines the vertical padding inside the dropdown overlay
      * @cssprop --wcs-dropdown-overlay-max-height - Specifies the maximum height of the dropdown overlay
      * @cssprop --wcs-dropdown-overlay-background-color - Determines the background color of the dropdown overlay
@@ -610,11 +612,17 @@ export namespace Components {
     }
     /**
      * You can add a divider between groups of items
+     * @cssprop --wcs-dropdown-divider-spacing - base spacing for margins
+     * @cssprop --wcs-dropdown-divider-color - divider color
      */
     interface WcsDropdownDivider {
     }
     /**
      * You can add `wcs-dropdown-header` before a group of items to describe it
+     * @cssprop --wcs-dropdown-header-color - Dropdown header text color
+     * @cssprop --wcs-dropdown-header-spacing - Dropdown header base spacing (1x for top and bottom, 2x for left and right)
+     * @cssprop --wcs-dropdown-header-font-size - Dropdown header font size
+     * @cssprop --wcs-dropdown-header-font-weight - Dropdown header font weight
      */
     interface WcsDropdownHeader {
     }
@@ -1106,6 +1114,7 @@ export namespace Components {
      * @cssprop --wcs-input-border-style-focus - border style of the input when focused
      * @cssprop --wcs-input-prefix-suffix-background-color - background color of the suffix/prefix
      * @cssprop --wcs-input-prefix-suffix-color - color of the suffix/prefix
+     * @cssprop --wcs-input-prefix-suffix-color-disabled - color of the suffix/prefix when the input is disabled
      * @cssprop --wcs-input-prefix-suffix-font-weight - font weight of the suffix/prefix
      * @cssprop --wcs-input-border-color-default - default border color of the input when not focused
      * @cssprop --wcs-input-border-color-focus - border color of the input when focused
@@ -2474,6 +2483,8 @@ declare global {
     /**
      * The breadcrumb item represents a link inside a breadcrumb.
      * @cssprop --wcs-breadcrumb-item-max-height - Maximum height of the breadcrumb item
+     * @cssprop --wcs-breadcrumb-item-line-height - Line height of the breadcrumb item
+     * @cssprop --wcs-breadcrumb-item-font-size - Font size of the breadcrumb item
      * @cssprop --wcs-breadcrumb-item-icon-color - Color of the breadcrumb item icon
      * @cssprop --wcs-breadcrumb-item-icon-font-size - Font size of the breadcrumb item icon
      * @cssprop --wcs-breadcrumb-item-gap - Gap between text and chevron icon
@@ -2481,6 +2492,7 @@ declare global {
      * @cssprop --wcs-breadcrumb-item-link-font-weight - Font weight of the breadcrumb item link
      * @cssprop --wcs-breadcrumb-item-border-width-focus - Border width of the breadcrumb item when focused
      * @cssprop --wcs-breadcrumb-item-border-color-focus - Border color of the breadcrumb item when focused
+     * @cssprop --wcs-breadcrumb-item-active-color - Color of the breadcrumb item when the link is active
      */
     interface HTMLWcsBreadcrumbItemElement extends Components.WcsBreadcrumbItem, HTMLStencilElement {
     }
@@ -2632,8 +2644,6 @@ declare global {
      * @cssprop --wcs-com-nav-mobile-menu-icon-margin-left - Margin left of icon mobile menu
      * @cssprop --wcs-com-nav-menu-bar-gap - Gap between each item inside menu-bar
      * @cssprop --wcs-com-nav-menu-bar-margin-left - Margin left between menu bar and the app-name section
-     * @cssprop --wcs-com-nav-menu-bar-item-color - Item color of the item inside menu bar
-     * @cssprop --wcs-com-nav-menu-bar-item-font-weight - Font weight of the item inside menu bar
      */
     interface HTMLWcsComNavElement extends Components.WcsComNav, HTMLStencilElement {
     }
@@ -2808,6 +2818,7 @@ declare global {
      * @cssprop --wcs-dropdown-padding-vertical-size-s - Vertical padding of the dropdown button when size is small
      * @cssprop --wcs-dropdown-padding-vertical-size-m - Vertical padding of the dropdown button when size is medium
      * @cssprop --wcs-dropdown-padding-vertical-size-l - Vertical padding of the dropdown button when size is large
+     * @cssprop --wcs-dropdown-padding-empty - Padding of and empty dropdown
      * @cssprop --wcs-dropdown-overlay-padding-vertical - Defines the vertical padding inside the dropdown overlay
      * @cssprop --wcs-dropdown-overlay-max-height - Specifies the maximum height of the dropdown overlay
      * @cssprop --wcs-dropdown-overlay-background-color - Determines the background color of the dropdown overlay
@@ -2823,6 +2834,8 @@ declare global {
     };
     /**
      * You can add a divider between groups of items
+     * @cssprop --wcs-dropdown-divider-spacing - base spacing for margins
+     * @cssprop --wcs-dropdown-divider-color - divider color
      */
     interface HTMLWcsDropdownDividerElement extends Components.WcsDropdownDivider, HTMLStencilElement {
     }
@@ -2832,6 +2845,10 @@ declare global {
     };
     /**
      * You can add `wcs-dropdown-header` before a group of items to describe it
+     * @cssprop --wcs-dropdown-header-color - Dropdown header text color
+     * @cssprop --wcs-dropdown-header-spacing - Dropdown header base spacing (1x for top and bottom, 2x for left and right)
+     * @cssprop --wcs-dropdown-header-font-size - Dropdown header font size
+     * @cssprop --wcs-dropdown-header-font-weight - Dropdown header font weight
      */
     interface HTMLWcsDropdownHeaderElement extends Components.WcsDropdownHeader, HTMLStencilElement {
     }
@@ -3297,6 +3314,7 @@ declare global {
      * @cssprop --wcs-input-border-style-focus - border style of the input when focused
      * @cssprop --wcs-input-prefix-suffix-background-color - background color of the suffix/prefix
      * @cssprop --wcs-input-prefix-suffix-color - color of the suffix/prefix
+     * @cssprop --wcs-input-prefix-suffix-color-disabled - color of the suffix/prefix when the input is disabled
      * @cssprop --wcs-input-prefix-suffix-font-weight - font weight of the suffix/prefix
      * @cssprop --wcs-input-border-color-default - default border color of the input when not focused
      * @cssprop --wcs-input-border-color-focus - border color of the input when focused
@@ -4303,6 +4321,8 @@ declare namespace LocalJSX {
     /**
      * The breadcrumb item represents a link inside a breadcrumb.
      * @cssprop --wcs-breadcrumb-item-max-height - Maximum height of the breadcrumb item
+     * @cssprop --wcs-breadcrumb-item-line-height - Line height of the breadcrumb item
+     * @cssprop --wcs-breadcrumb-item-font-size - Font size of the breadcrumb item
      * @cssprop --wcs-breadcrumb-item-icon-color - Color of the breadcrumb item icon
      * @cssprop --wcs-breadcrumb-item-icon-font-size - Font size of the breadcrumb item icon
      * @cssprop --wcs-breadcrumb-item-gap - Gap between text and chevron icon
@@ -4310,6 +4330,7 @@ declare namespace LocalJSX {
      * @cssprop --wcs-breadcrumb-item-link-font-weight - Font weight of the breadcrumb item link
      * @cssprop --wcs-breadcrumb-item-border-width-focus - Border width of the breadcrumb item when focused
      * @cssprop --wcs-breadcrumb-item-border-color-focus - Border color of the breadcrumb item when focused
+     * @cssprop --wcs-breadcrumb-item-active-color - Color of the breadcrumb item when the link is active
      */
     interface WcsBreadcrumbItem {
         /**
@@ -4499,8 +4520,6 @@ declare namespace LocalJSX {
      * @cssprop --wcs-com-nav-mobile-menu-icon-margin-left - Margin left of icon mobile menu
      * @cssprop --wcs-com-nav-menu-bar-gap - Gap between each item inside menu-bar
      * @cssprop --wcs-com-nav-menu-bar-margin-left - Margin left between menu bar and the app-name section
-     * @cssprop --wcs-com-nav-menu-bar-item-color - Item color of the item inside menu bar
-     * @cssprop --wcs-com-nav-menu-bar-item-font-weight - Font weight of the item inside menu bar
      */
     interface WcsComNav {
         /**
@@ -4656,6 +4675,7 @@ declare namespace LocalJSX {
      * @cssprop --wcs-dropdown-padding-vertical-size-s - Vertical padding of the dropdown button when size is small
      * @cssprop --wcs-dropdown-padding-vertical-size-m - Vertical padding of the dropdown button when size is medium
      * @cssprop --wcs-dropdown-padding-vertical-size-l - Vertical padding of the dropdown button when size is large
+     * @cssprop --wcs-dropdown-padding-empty - Padding of and empty dropdown
      * @cssprop --wcs-dropdown-overlay-padding-vertical - Defines the vertical padding inside the dropdown overlay
      * @cssprop --wcs-dropdown-overlay-max-height - Specifies the maximum height of the dropdown overlay
      * @cssprop --wcs-dropdown-overlay-background-color - Determines the background color of the dropdown overlay
@@ -4691,11 +4711,17 @@ declare namespace LocalJSX {
     }
     /**
      * You can add a divider between groups of items
+     * @cssprop --wcs-dropdown-divider-spacing - base spacing for margins
+     * @cssprop --wcs-dropdown-divider-color - divider color
      */
     interface WcsDropdownDivider {
     }
     /**
      * You can add `wcs-dropdown-header` before a group of items to describe it
+     * @cssprop --wcs-dropdown-header-color - Dropdown header text color
+     * @cssprop --wcs-dropdown-header-spacing - Dropdown header base spacing (1x for top and bottom, 2x for left and right)
+     * @cssprop --wcs-dropdown-header-font-size - Dropdown header font size
+     * @cssprop --wcs-dropdown-header-font-weight - Dropdown header font weight
      */
     interface WcsDropdownHeader {
     }
@@ -5219,6 +5245,7 @@ declare namespace LocalJSX {
      * @cssprop --wcs-input-border-style-focus - border style of the input when focused
      * @cssprop --wcs-input-prefix-suffix-background-color - background color of the suffix/prefix
      * @cssprop --wcs-input-prefix-suffix-color - color of the suffix/prefix
+     * @cssprop --wcs-input-prefix-suffix-color-disabled - color of the suffix/prefix when the input is disabled
      * @cssprop --wcs-input-prefix-suffix-font-weight - font weight of the suffix/prefix
      * @cssprop --wcs-input-border-color-default - default border color of the input when not focused
      * @cssprop --wcs-input-border-color-focus - border color of the input when focused
@@ -6546,6 +6573,8 @@ declare module "@stencil/core" {
             /**
              * The breadcrumb item represents a link inside a breadcrumb.
              * @cssprop --wcs-breadcrumb-item-max-height - Maximum height of the breadcrumb item
+             * @cssprop --wcs-breadcrumb-item-line-height - Line height of the breadcrumb item
+             * @cssprop --wcs-breadcrumb-item-font-size - Font size of the breadcrumb item
              * @cssprop --wcs-breadcrumb-item-icon-color - Color of the breadcrumb item icon
              * @cssprop --wcs-breadcrumb-item-icon-font-size - Font size of the breadcrumb item icon
              * @cssprop --wcs-breadcrumb-item-gap - Gap between text and chevron icon
@@ -6553,6 +6582,7 @@ declare module "@stencil/core" {
              * @cssprop --wcs-breadcrumb-item-link-font-weight - Font weight of the breadcrumb item link
              * @cssprop --wcs-breadcrumb-item-border-width-focus - Border width of the breadcrumb item when focused
              * @cssprop --wcs-breadcrumb-item-border-color-focus - Border color of the breadcrumb item when focused
+             * @cssprop --wcs-breadcrumb-item-active-color - Color of the breadcrumb item when the link is active
              */
             "wcs-breadcrumb-item": LocalJSX.WcsBreadcrumbItem & JSXBase.HTMLAttributes<HTMLWcsBreadcrumbItemElement>;
             /**
@@ -6666,8 +6696,6 @@ declare module "@stencil/core" {
              * @cssprop --wcs-com-nav-mobile-menu-icon-margin-left - Margin left of icon mobile menu
              * @cssprop --wcs-com-nav-menu-bar-gap - Gap between each item inside menu-bar
              * @cssprop --wcs-com-nav-menu-bar-margin-left - Margin left between menu bar and the app-name section
-             * @cssprop --wcs-com-nav-menu-bar-item-color - Item color of the item inside menu bar
-             * @cssprop --wcs-com-nav-menu-bar-item-font-weight - Font weight of the item inside menu bar
              */
             "wcs-com-nav": LocalJSX.WcsComNav & JSXBase.HTMLAttributes<HTMLWcsComNavElement>;
             /**
@@ -6767,6 +6795,7 @@ declare module "@stencil/core" {
              * @cssprop --wcs-dropdown-padding-vertical-size-s - Vertical padding of the dropdown button when size is small
              * @cssprop --wcs-dropdown-padding-vertical-size-m - Vertical padding of the dropdown button when size is medium
              * @cssprop --wcs-dropdown-padding-vertical-size-l - Vertical padding of the dropdown button when size is large
+             * @cssprop --wcs-dropdown-padding-empty - Padding of and empty dropdown
              * @cssprop --wcs-dropdown-overlay-padding-vertical - Defines the vertical padding inside the dropdown overlay
              * @cssprop --wcs-dropdown-overlay-max-height - Specifies the maximum height of the dropdown overlay
              * @cssprop --wcs-dropdown-overlay-background-color - Determines the background color of the dropdown overlay
@@ -6777,10 +6806,16 @@ declare module "@stencil/core" {
             "wcs-dropdown": LocalJSX.WcsDropdown & JSXBase.HTMLAttributes<HTMLWcsDropdownElement>;
             /**
              * You can add a divider between groups of items
+             * @cssprop --wcs-dropdown-divider-spacing - base spacing for margins
+             * @cssprop --wcs-dropdown-divider-color - divider color
              */
             "wcs-dropdown-divider": LocalJSX.WcsDropdownDivider & JSXBase.HTMLAttributes<HTMLWcsDropdownDividerElement>;
             /**
              * You can add `wcs-dropdown-header` before a group of items to describe it
+             * @cssprop --wcs-dropdown-header-color - Dropdown header text color
+             * @cssprop --wcs-dropdown-header-spacing - Dropdown header base spacing (1x for top and bottom, 2x for left and right)
+             * @cssprop --wcs-dropdown-header-font-size - Dropdown header font size
+             * @cssprop --wcs-dropdown-header-font-weight - Dropdown header font weight
              */
             "wcs-dropdown-header": LocalJSX.WcsDropdownHeader & JSXBase.HTMLAttributes<HTMLWcsDropdownHeaderElement>;
             /**
@@ -7075,6 +7110,7 @@ declare module "@stencil/core" {
              * @cssprop --wcs-input-border-style-focus - border style of the input when focused
              * @cssprop --wcs-input-prefix-suffix-background-color - background color of the suffix/prefix
              * @cssprop --wcs-input-prefix-suffix-color - color of the suffix/prefix
+             * @cssprop --wcs-input-prefix-suffix-color-disabled - color of the suffix/prefix when the input is disabled
              * @cssprop --wcs-input-prefix-suffix-font-weight - font weight of the suffix/prefix
              * @cssprop --wcs-input-border-color-default - default border color of the input when not focused
              * @cssprop --wcs-input-border-color-focus - border color of the input when focused

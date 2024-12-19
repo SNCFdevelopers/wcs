@@ -15,7 +15,7 @@ import { FormGroup } from '@angular/forms';
   styles: [`
       wcs-button {
           width: 130px;
-          margin-top: calc(var(--wcs-base-margin) * 2)
+          margin-top: var(--wcs-semantic-spacing-large);
       }
   `]
 })
@@ -60,7 +60,7 @@ export class CounterFormlyPassengersExampleComponent implements AfterViewInit {
         required: true,
         styles: {
           input: {
-            marginTop: 'var(--wcs-base-margin)',
+            marginTop: 'var(--wcs-semantic-spacing-base)',
             width: '300px'
           }
         }

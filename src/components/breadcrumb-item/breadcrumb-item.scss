@@ -2,6 +2,8 @@
 
 :host {
     --wcs-breadcrumb-item-max-height: var(--wcs-semantic-size-s);
+    --wcs-breadcrumb-item-line-height: var(--wcs-semantic-font-line-height-large);
+    --wcs-breadcrumb-item-font-size: var(--wcs-semantic-font-size-body-3);
 
     --wcs-breadcrumb-item-icon-color: var(--wcs-semantic-color-primary);
     --wcs-breadcrumb-item-icon-font-size: 0.5rem;
@@ -13,15 +15,15 @@
     --wcs-breadcrumb-item-border-width-focus: var(--wcs-semantic-border-width-large);
 
     --wcs-breadcrumb-item-border-color-focus: var(--wcs-semantic-color-primary);
-}
 
-:host {
+    --wcs-breadcrumb-item-active-color: var(--wcs-semantic-color-text-primary);
+
     display: flex;
     align-items: baseline;
     max-height: var(--wcs-breadcrumb-item-max-height);
-    font-size: 1rem;
-    color: var(--wcs-gray);
-    line-height: 1.375;
+    font-size: var(--wcs-breadcrumb-item-font-size);
+    color: var(--wcs-breadcrumb-item-active-color);
+    line-height: var(--wcs-breadcrumb-item-line-height);
 
     ::slotted(a) {
         display: block;

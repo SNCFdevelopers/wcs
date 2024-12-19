@@ -19,7 +19,7 @@ interface StoryParams {
 export const Default = {
     render: (args: StoryParams) => {
         return html`
-            <label for="select-default" style="margin: var(--wcs-base-margin) 0; display: block">Libélé du select</label>
+            <label for="select-default" style="margin: var(--wcs-semantic-spacing-base) 0; display: block">Libélé du select</label>
             <wcs-native-select size=${args.size ?? nothing}>
                 <select name="select-default" id="select-default" ?disabled=${args.disabled}>
                     <option disabled selected hidden>Placeholder du select</option>
@@ -50,7 +50,7 @@ export const Disabled = {
 export const Sizes = {
     render: () => {
         return html`
-            <label for="select-size-m" style="margin: var(--wcs-base-margin) 0; display: block">Label size m</label>
+            <label for="select-size-m" style="margin: var(--wcs-semantic-spacing-base) 0; display: block">Label size m</label>
             <wcs-native-select size="m">
                 <select id="select-size-m" name="select-size-m">
                     <option disabled selected hidden>Placeholder du select</option>
@@ -60,7 +60,7 @@ export const Sizes = {
                 </select>
             </wcs-native-select>
 
-            <label for="select-size-l" style="margin: var(--wcs-base-margin) 0; display: block">Label size l</label>
+            <label for="select-size-l" style="margin: var(--wcs-semantic-spacing-base) 0; display: block">Label size l</label>
             <wcs-native-select size="l">
                 <select id="select-size-l" name="select-size-l">
                     <option disabled selected hidden>Placeholder du select</option>
@@ -75,7 +75,7 @@ export const Sizes = {
 
 export const WithoutPlaceholder = {
     render: () => html`
-        <label for="select-size-m" style="margin: var(--wcs-base-margin) 0; display: block">Label size m</label>
+        <label for="select-size-m" style="margin: var(--wcs-semantic-spacing-base) 0; display: block">Label size m</label>
         <wcs-native-select size="m">
             <select id="select-size-m" name="select-size-m">
                 <option value="1">One</option>
@@ -130,7 +130,7 @@ export const OverflowBehaviour = {
 export const UpdateStylesMethod = {
     render: (args: StoryParams) => html`
         <form ${ref(formRef)} style="display: inline-block">
-            <label for="select-default" style="margin: var(--wcs-base-margin) 0; display: block">Label</label>
+            <label for="select-default" style="margin: var(--wcs-semantic-spacing-base) 0; display: block">Label</label>
             <wcs-native-select size=${args.size ?? nothing} ${ref(nativeSelectRef)}>
                 <select name="select-default" id="select-default" ?disabled=${args.disabled}>
                     <option selected disabled hidden>Placeholder</option>

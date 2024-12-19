@@ -41,7 +41,77 @@ Please read the [Framework integration documentation](.?path=/docs/documentation
 
 > During Design Tokens migration, we have **reviewed and updated certain CSS variables names on several components**.  
 > - If you have used **any of the following CSS variables below**, you need to **update them** in your project or use the new ones.  
-> - If these variable doesn't appear in your codebase, you don't need to update anything.  
+> - If these variable doesn't appear in your codebase, you don't need to update anything.
+
+#### Globals
+
+Colors:
+- `--wcs-white` has been **deleted**. Use the correct design token according to your needs, for example:
+    - `--wcs-semantic-color-text-inverse` for white text color over a dark background (note that the token no longer contains the color value, only the usage context. Can be usefull for theming).
+    - `--wcs-semantic-color-background-surface-primary` for white background color.
+    - `--wcs-semantic-color-foreground-action-primary` for white foreground color on actions.
+- `--wcs-contrast` has been **deleted**. Use `--wcs-semantic-color-text-inverse` instead.
+- `--wcs-light` has been **deleted**. Use the correct design token according to your needs, for example:
+    - `--wcs-semantic-color-background-surface-secondary` for light background color.
+- `--wcs-gray-light` has been **deleted**. Use the correct design token according to your needs, for example:
+  - `--wcs-semantic-color-text-secondary` for light text color.
+- `--wcs-gray` has been **deleted**. Use the correct design token according to your needs, for example:
+  - `--wcs-semantic-color-text-primary` for text color.
+- `--wcs-gray-dark` has been **deleted**. Use the correct design token according to your needs.
+- `--wcs-gray-darker` has been **deleted**. Use the correct design token according to your needs.
+- `--wcs-black` has been **deleted**. Use the correct design token according to your needs.
+- `--wcs-text-light` has been **deleted**. Use the correct design token according to your needs, for example:
+  - `--wcs-semantic-color-border-surface` for surface border color.
+- `--wcs-text-disabled` has been **deleted**. Use the correct design token according to your needs, for example:
+  - `--wcs-semantic-color-background-surface-tertiary` for background of prefix and suffix of control.
+- `--wcs-text-medium` has been **deleted**. Use the correct design token according to your needs, for example:
+  - `--wcs-semantic-color-foreground-control-placeholder` for placeholder on top of a control background.
+- `--wcs-blue` has been **deleted**. Use the correct design token according to your needs, for example:
+    - `--wcs-semantic-color-primary` for primary actions or elements in the primary color.
+- `--wcs-purple` has been **deleted**. Use the correct design token according to your needs.
+- `--wcs-pink` has been **deleted**. Use the correct design token according to your needs.
+- `--wcs-red` has been **deleted**. Use the correct design token according to your needs, for example:
+    - `--wcs-semantic-color-danger` for representing danger or critical actions.
+- `--wcs-orange` has been **deleted**. Use the correct design token according to your needs.
+- `--wcs-yellow` has been **deleted**. Use the correct design token according to your needs, for example:
+        - `--wcs-semantic-color-warning` for representing warnings.
+- `--wcs-green` has been **deleted**. Use the correct design token according to your needs, for example:
+    - `--wcs-semantic-color-success` for representing success states.
+- `--wcs-teal` has been **deleted**. Use the correct design token according to your needs.
+- `--wcs-cyan` has been **deleted**. Use the correct design token according to your needs.
+- `--wcs-primary` has been **deleted**. Use `--wcs-semantic-color-primary` instead.
+- `--wcs-base` has been **deleted**. Use `--wcs-semantic-color-primary` instead.
+
+Font weight:
+- `--wcs-font-weight-form-value` has been **deleted**. Use the correct font weight token according to your needs, for example:
+    - `--wcs-semantic-font-weight-medium` for medium font weight.
+
+Size:
+- `--wcs-base-size` has been **deleted**. Use `wcs-semantic-size-base` instead.
+- `--wcs-size-xl` has been **deleted**. Use `--wcs-semantic-size-xl` instead.
+- `--wcs-size-l` has been **deleted**. Use `--wcs-semantic-size-l` instead.
+- `--wcs-size-m` has been **deleted**. Use `--wcs-semantic-size-m` instead.
+- `--wcs-size-s` has been **deleted**. Use `--wcs-semantic-size-s` instead.
+- `--wcs-size-xs` has been **deleted**. Use `--wcs-semantic-size-xs` instead.
+
+Border:
+- `--wcs-border-size` has been **deleted**. Use `--wcs-semantic-border-width-large` instead.
+- `--wcs-border-radius` has been **deleted**. Use `--wcs-semantic-border-radius-base` instead.
+
+Padding:
+- `--wcs-padding` has been **deleted**. Use `wcs-semantic-spacing-base` instead.
+- `--wcs-padding-l` has been **deleted**. Use a calc function on the base spacing.
+- `--wcs-padding-m` has been **deleted**. Use `wcs-semantic-spacing-base` instead.
+- `--wcs-padding-s` has been **deleted**. Use `--wcs-semantic-spacing-small` instead.
+- `--wcs-text-padding` has been **deleted**. Use the correct padding design token according to your needs.
+
+Margin:
+- `--wcs-base-margin` has been **deleted**. Use `wcs-semantic-spacing-base` instead.
+- `--wcs-margin` has been **deleted**. Use `--wcs-semantic-spacing-large` instead.
+- `--wcs-margin-l` has been **deleted**. Use a calc function on the base spacing.
+- `--wcs-margin-m` has been **deleted**. Use `wcs-semantic-spacing-base` instead.
+- `--wcs-margin-s` has been **deleted**. Use `--wcs-semantic-spacing-small` instead
+
 
 #### wcs-button
 

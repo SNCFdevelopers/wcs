@@ -5,6 +5,7 @@
 
     --wcs-dropdown-outline-color-focus: var(--wcs-semantic-color-border-focus-base);
 
+    // TODO : Revoir les valeurs sémantiques utilisée, il semble qu'elles ne reposent pas sur des valeurs primitives
     // Padding
     --wcs-dropdown-padding-horizontal-size-s: var(--wcs-semantic-spacing-size-s-horizontal);
     --wcs-dropdown-padding-horizontal-size-m: var(--wcs-semantic-spacing-size-m-horizontal);
@@ -12,6 +13,7 @@
     --wcs-dropdown-padding-vertical-size-s: var(--wcs-semantic-spacing-size-s-vertical);
     --wcs-dropdown-padding-vertical-size-m: var(--wcs-semantic-spacing-size-m-vertical);
     --wcs-dropdown-padding-vertical-size-l: var(--wcs-semantic-spacing-size-l-vertical);
+    --wcs-dropdown-padding-empty: var(--wcs-semantic-spacing-large);
 
     // Arrow color
     --wcs-dropdown-plain-arrow-color: var(--wcs-semantic-color-foreground-action-primary-default);
@@ -152,7 +154,7 @@ button:focus-visible + wcs-button {
     width: 8px;
     height: 8px;
     background: inherit;
-    border: solid 1px #d7d7d7;
+    border: var(--wcs-dropdown-overlay-border-width) solid var(--wcs-dropdown-overlay-border-color);
 }
 
 #arrow {
@@ -169,7 +171,7 @@ button:focus-visible + wcs-button {
 #is-empty {
     display: block;
     width: 20ch;
-    padding: 0 var(--wcs-padding);
+    padding: 0 var(--wcs-dropdown-padding-empty);
 }
 
 .popover[data-popper-placement^='top'] > #arrow {

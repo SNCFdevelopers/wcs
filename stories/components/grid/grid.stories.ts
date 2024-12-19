@@ -286,13 +286,13 @@ export const CellStyling: StoryObj = {
         <style>
             /* Auto generated part */
             #grid-cell-styling::part(first_name-column) {
-                background-color: var(--wcs-cyan);
-                color: var(--wcs-white);
+                background-color: var(--wcs-semantic-color-info);
+                color: var(--wcs-semantic-color-text-inverse);
             }
 
             /* Custom user part added in formatter function */
             #grid-cell-styling::part(custom-user-part) {
-                color: var(--wcs-cyan);
+                color: var(--wcs-semantic-color-info);
             }
         </style>
     `,
@@ -333,7 +333,7 @@ export const CellStyling: StoryObj = {
  * 
  * ```css
  * #grid-row-styling::part(current-selected-row) {
- *   background-color: var(--wcs-green);
+ *   background-color: var(--wcs-semantic-color-success);
  * }
  * ```
  * 
@@ -350,7 +350,7 @@ export const RowStyling: StoryObj = {
 
         <style>
             #grid-row-styling::part(current-selected-row) {
-                background-color: var(--wcs-green);
+                background-color: var(--wcs-semantic-color-success);
             }
         </style>
     `,

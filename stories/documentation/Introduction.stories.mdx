@@ -7,7 +7,7 @@ import ComponentsOverview from "./Components-Overview.mdx";
   .title {
     display: flex;
     align-items: center;
-    gap: var(--wcs-base-margin);
+    gap: var(--wcs-semantic-spacing-base);
   }
   h1 {
     margin: 0 !important;
@@ -27,7 +27,7 @@ import ComponentsOverview from "./Components-Overview.mdx";
   .action-buttons {
     display: flex;
     gap: 8px;
-    & > wcs-button > img { margin-right: calc(0.5 * var(--wcs-base-margin)); }
+    & > wcs-button > img { margin-right: var(--wcs-semantic-spacing-small); }
   }
   @keyframes moveTrain {
     0% { right: 95%; }

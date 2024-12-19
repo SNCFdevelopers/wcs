@@ -1,10 +1,14 @@
 :host {
+    --wcs-dropdown-header-color: var(--wcs-semantic-color-text-tertiary);
+    --wcs-dropdown-header-spacing: var(--wcs-semantic-spacing-base);
+    --wcs-dropdown-header-font-size: var(--wcs-semantic-font-size-caption-1);
+    --wcs-dropdown-header-font-weight: var(--wcs-semantic-font-weight-medium);
+
     display: block;
-    padding: calc(var(--wcs-padding) / 2) var(--wcs-padding);
-    font-size: 0.75rem;
+    padding: var(--wcs-dropdown-header-spacing) calc(var(--wcs-dropdown-header-spacing) * 2);
+    font-size: var(--wcs-dropdown-header-font-size);
+    font-weight: var(--wcs-dropdown-header-font-weight);
     text-transform: uppercase;
-    color: var(--wcs-text-medium);
+    color: var(--wcs-dropdown-header-color);
     white-space: nowrap;
 }
-
-

@@ -84,8 +84,8 @@ export const CustomChip: StoryObj = {
         ...Default.args,
         multiple: true,
         chips: true,
-        chipColor: 'var(--wcs-black)',
-        chipBackgroundColor: 'var(--wcs-green)'
+        chipColor: 'var(--wcs-semantic-color-text-primary)',
+        chipBackgroundColor: 'var(--wcs-semantic-color-success)'
     }
 }
 

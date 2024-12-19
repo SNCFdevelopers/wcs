@@ -25,11 +25,11 @@ const Template: StoryFn<Partial<{ text: string, displayGalacticMenu: boolean }>>
     <wcs-galactic text="${args.text}">
         ${args.displayGalacticMenu ? html`
             <wcs-galactic-menu text="TOUT SNCF">
-                <div style="margin-bottom: 8px"><a href="#" style="text-decoration: none; color: var(--wcs-white)">CGU</a>
+                <div style="margin-bottom: 8px"><a href="#" style="text-decoration: none; color: var(--wcs-semantic-color-text-inverse)">CGU</a>
                 </div>
-                <div style="margin-bottom: 8px"><a href="#" style="text-decoration: none; color: var(--wcs-white)">À
+                <div style="margin-bottom: 8px"><a href="#" style="text-decoration: none; color: var(--wcs-semantic-color-text-inverse)">À
                     Propos</a></div>
-                <div style="margin-bottom: 8px"><a href="#" style="text-decoration: none; color: var(--wcs-white)">Un autre
+                <div style="margin-bottom: 8px"><a href="#" style="text-decoration: none; color: var(--wcs-semantic-color-text-inverse)">Un autre
                     lien</a></div>
                 <wcs-button shape="small">Un bouton</wcs-button>
             </wcs-galactic-menu>

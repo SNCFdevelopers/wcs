@@ -31,12 +31,10 @@
     // 👇
     th {
         // For the header of the selection column (not part of grid-column)
-        background-color: var(--wcs-grid-header-background-color, var(--wcs-light));
+        background-color: var(--wcs-grid-header-background-color);
+        // FIXME : Pourquoi on utilise --wcs-component-grid-header-border-radius-first avec une valeur par défaut à 0 alors que cette variable peut uniquement être set à 0 ?
+        // + voir un nommage plus explicit, pourquoi on parle de --wcs-component-grid ?
         border-radius: var(--wcs-component-grid-header-border-radius-first, 0);
-    }
-
-    th:not(:first-child) {
-        border-left: solid 1px var(--wcs-text-light);
     }
 
     ::slotted([slot=grid-column]:first-child) {

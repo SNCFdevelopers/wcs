@@ -79,7 +79,7 @@ import { Component, HostBinding } from '@angular/core';
       overflow-y: hidden;
 
       .switch-mode {
-        color: var(--wcs-white);
+        color: var(--wcs-semantic-color-text-inverse);
       }
 
       main {
@@ -102,11 +102,11 @@ import { Component, HostBinding } from '@angular/core';
       flex-direction: column;
 
       .switch-mode {
-        color: var(--wcs-black);
+        color: var(--wcs-semantic-color-text-primary);
       }
 
       main {
-        padding: var(--wcs-padding);
+        padding: var(--wcs-semantic-spacing-large);
 
         width: var(--wcs-com-content-max-width);
         margin: 0 auto;
@@ -118,14 +118,14 @@ import { Component, HostBinding } from '@angular/core';
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: calc(var(--wcs-margin) / 2);
+      gap: calc(var(--wcs-semantic-spacing-large) / 2);
     }
 
     .switch-mode {
       display: flex;
       flex-direction: row;
       align-content: center;
-      gap: calc(var(--wcs-margin) / 2);
+      gap: calc(var(--wcs-semantic-spacing-large) / 2);
     }
   `]
 })

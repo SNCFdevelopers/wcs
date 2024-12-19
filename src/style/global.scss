@@ -1,4 +1,3 @@
-@import 'colors.scss';
 @import 'overlay.scss';
 @import 'tooltip.scss';
 @import 'breakpoints.scss';
@@ -6,17 +5,6 @@
 
 :root {
     // TODO: prefix all variables and make their name according to the real palette
-    --wcs-white: #ffffff;
-    --wcs-light: #f2f2f2;
-    --wcs-gray-light: #4d4f53;
-    --wcs-gray: #333;
-    --wcs-gray-dark: #343a40;
-    --wcs-gray-darker: #212529;
-    --wcs-black: black;
-
-    --wcs-text-light: #d7d7d7;
-    --wcs-text-disabled: #b9b9b9;
-    --wcs-text-medium: #747678;
 
     --wcs-blue: #0074AF;
     --wcs-purple: #6e1e78;
@@ -27,15 +15,9 @@
     --wcs-green: #82be00;
     --wcs-teal: #d2e100;
     --wcs-cyan: #009aa6;
-
     --wcs-primary: var(--wcs-blue);
-    // Default base and contrast color
     --wcs-base: var(--wcs-primary);
-    --wcs-contrast: var(--wcs-white);
 
-    // FONT
-    --wcs-font-sans-serif: Avenir, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    --wcs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --wcs-font-weight-form-value: 500;
 
     // Sizes
@@ -49,17 +31,29 @@
     --wcs-border-size: 2px;
     --wcs-border-radius: var(--wcs-base-size);
     --wcs-text-padding: var(--wcs-base-size);
+
     --wcs-padding: calc(2 * var(--wcs-base-size)); // TODO: view usage before changing when migrate to design tokens. We can set base padding design token as value
     --wcs-padding-l: calc(1.5 * var(--wcs-base-size)); // l = 12px
     --wcs-padding-m: var(--wcs-base-size); // m = 8px (default)
     --wcs-padding-s: calc(0.5 * var(--wcs-base-size)); // s = 4px
-
 
     --wcs-base-margin: var(--wcs-base-size);
     --wcs-margin: calc(2 * var(--wcs-base-margin)); // 16px
     --wcs-margin-l: calc(1.5 * var(--wcs-base-size)); // l = 12px
     --wcs-margin-m: var(--wcs-base-size); // m = 8px (default)
     --wcs-margin-s: calc(0.5 * var(--wcs-base-size)); // s = 4px
+
+
+
+
+
+
+
+    // FONT
+    // fixme: font-family should be defined in design tokens
+    --wcs-font-sans-serif: Avenir, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --wcs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
 
     // Breakpoints
     // SCSS variables are defined in breakpoints.scss
@@ -69,8 +63,8 @@
     --wcs-tablet-landscape-breakpoint-max-width: #{$wcs-tablet-landscape-breakpoint-max-width};
     --wcs-desktop-breakpoint-min-width: #{$wcs-desktop-breakpoint-min-width};
     --wcs-big-desktop-breakpoint-min-width: #{$wcs-big-desktop-breakpoint-min-width};
-    // Others
 
+    // Others
     --wcs-com-content-max-width: 1024px;
 }
 
@@ -88,7 +82,7 @@ select {
 }
 
 ::placeholder {
-    color: var(--wcs-text-medium);
+    color: var(--wcs-semantic-color-foreground-control-placeholder);
     opacity: 1;
     font-weight: normal;
     font-style: italic;

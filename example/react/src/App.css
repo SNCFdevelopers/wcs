@@ -16,16 +16,16 @@
 
 main {
   flex-grow: 1;
-  margin: var(--wcs-margin);
+  margin: var(--wcs-semantic-spacing-large);
 }
 
 .switch-mode-description {
-  margin: calc(var(--wcs-margin) / 2) 0;
+  margin: var(--wcs-semantic-spacing-base) 0;
 }
 
 .switch-mode {
   display: flex;
   flex-direction: row;
-  gap: calc(var(--wcs-margin) / 2);
-  margin-bottom: calc(var(--wcs-margin) * 3);
+  gap: var(--wcs-semantic-spacing-base);
+  margin-bottom: calc(var(--wcs-semantic-spacing-large) * 3);
 }

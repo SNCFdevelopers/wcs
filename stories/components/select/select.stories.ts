@@ -57,14 +57,14 @@ export const Default: StoryObj = {
                             ?server-mode=${args.serverMode}
                             .filterFn=${args.filterFn ?? nothing}}
                             name="${args.name ?? nothing}">
-                    <wcs-select-option value="1" chip-background-color="var(--wcs-pink)">One</wcs-select-option>
-                    <wcs-select-option value="2" chip-background-color="var(--wcs-yellow)" chip-color="var(--wcs-black)">Two</wcs-select-option>
-                    <wcs-select-option value="3" chip-background-color="var(--wcs-red)">Three</wcs-select-option>
-                    <wcs-select-option value="4" chip-background-color="var(--wcs-red)">Four</wcs-select-option>
-                    <wcs-select-option value="5" chip-background-color="var(--wcs-red)">Five</wcs-select-option>
-                    <wcs-select-option value="6" chip-background-color="var(--wcs-red)">Six</wcs-select-option>
-                    <wcs-select-option value="7" chip-background-color="var(--wcs-red)">Seven</wcs-select-option>
-                    <wcs-select-option value="8" chip-background-color="var(--wcs-red)">Eight</wcs-select-option>
+                    <wcs-select-option value="1" chip-background-color="var(--wcs-semantic-color-success)" chip-color="var(--wcs-semantic-color-text-primary)">One</wcs-select-option>
+                    <wcs-select-option value="2" chip-background-color="var(--wcs-semantic-color-info)">Two</wcs-select-option>
+                    <wcs-select-option value="3" chip-background-color="var(--wcs-semantic-color-error)">Three</wcs-select-option>
+                    <wcs-select-option value="4" chip-background-color="var(--wcs-semantic-color-error)">Four</wcs-select-option>
+                    <wcs-select-option value="5" chip-background-color="var(--wcs-semantic-color-error)">Five</wcs-select-option>
+                    <wcs-select-option value="6" chip-background-color="var(--wcs-semantic-color-error)">Six</wcs-select-option>
+                    <wcs-select-option value="7" chip-background-color="var(--wcs-semantic-color-error)">Seven</wcs-select-option>
+                    <wcs-select-option value="8" chip-background-color="var(--wcs-semantic-color-error)">Eight</wcs-select-option>
                 </wcs-select>
             </wcs-form-field>
         </div>
@@ -85,7 +85,7 @@ export const Default: StoryObj = {
  */
 export const Sizes: StoryObj = {
     render: () => html`
-        <div style="display: flex; gap: var(--wcs-base-margin); min-height: 200px">
+        <div style="display: flex; gap: var(--wcs-semantic-spacing-base); min-height: 200px">
             <wcs-select placeholder="Select L" id="theselect-l" size="l" style="width: 200px;">
                 <wcs-select-option value="1">One</wcs-select-option>
                 <wcs-select-option value="2">Two</wcs-select-option>
@@ -330,7 +330,7 @@ export const AutocompleteWithCustomSlot = {
         .my-custom-container {
             display: flex;
             align-items: center;
-            gap: var(--wcs-base-margin);
+            gap: var(--wcs-semantic-spacing-base);
         }
         wcs-select {
             width: 400px;

@@ -23,6 +23,7 @@
 
     --wcs-input-prefix-suffix-background-color: var(--wcs-semantic-color-background-surface-tertiary);
     --wcs-input-prefix-suffix-color: var(--wcs-semantic-color-text-secondary);
+    --wcs-input-prefix-suffix-color-disabled: var(--wcs-semantic-color-disabled);
     --wcs-input-prefix-suffix-font-weight: var(--wcs-semantic-font-weight-medium);
 
     --wcs-input-border-style-default: solid;
@@ -155,7 +156,7 @@
     }
 
     .prefix, .suffix {
-        color: var(--wcs-light);
+        color: var(--wcs-input-prefix-suffix-color-disabled);
         cursor: text; // reset cursor to text for prefix and suffix, to be able to select text
     }
 

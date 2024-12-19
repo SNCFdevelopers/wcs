@@ -41,7 +41,7 @@ import { FormlyFieldConfig } from '@ngx-formly/core';
         <h3>Formly</h3>
         <form [formGroup]="form">
           <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
-          <wcs-button style="margin-top: var(--wcs-margin)" (click)="resetFormlyForm()">Reset form</wcs-button>
+          <wcs-button style="margin-top: var(--wcs-semantic-spacing-large)" (click)="resetFormlyForm()">Reset form</wcs-button>
         </form>
       </wcs-card-body>
     </wcs-card>

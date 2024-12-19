@@ -12,7 +12,7 @@ const meta: Meta = {
 export default meta;
 
 const Template: StoryFn<Partial<{ gutter: boolean, title: string }>> = (args) => html`
-    <div style="background: var(--wcs-light); padding: var(--wcs-padding);">
+    <div style="background: var(--wcs-semantic-color-background-surface-secondary); padding: var(--wcs-semantic-spacing-large);">
         <wcs-action-bar ?gutter=${args.gutter}>
             ${args.title}
             <div slot="actions">
@@ -25,7 +25,7 @@ const Template: StoryFn<Partial<{ gutter: boolean, title: string }>> = (args) =>
                 </wcs-dropdown>
             </div>
         </wcs-action-bar>
-        <div style="height: 50px; background-color: var(--wcs-white); padding: 0 16px;"><br/>Content</div>
+        <div style="height: 50px; background-color: var(--wcs-semantic-color-background-surface-primary); padding: 0 16px;"><br/>Content</div>
     </div>
 `;
 
@@ -36,7 +36,7 @@ Default.args = {
 };
 
 const TabInsideTemplate: StoryFn<Partial<{ gutter: boolean, title: string }>> = (args) => html`
-    <div style="background: var(--wcs-light); padding: var(--wcs-padding);">
+    <div style="background: var(--wcs-semantic-color-background-surface-secondary); padding: var(--wcs-semantic-spacing-large);">
         <wcs-action-bar ?gutter=${args.gutter}>
             ${args.title}
             <div slot="actions">
@@ -53,7 +53,7 @@ const TabInsideTemplate: StoryFn<Partial<{ gutter: boolean, title: string }>> = 
                 <wcs-tab header="Another !" item-key="custom-id2"></wcs-tab>
             </wcs-tabs>
         </wcs-action-bar>
-        <div style="height: 50px; background-color: var(--wcs-white); padding: 0 16px;"><br/>Content</div>
+        <div style="height: 50px; background-color: var(--wcs-semantic-color-background-surface-primary); padding: 0 16px;"><br/>Content</div>
     </div>
 `;
 

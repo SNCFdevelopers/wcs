@@ -75,14 +75,14 @@ export const Example: StoryObj = {
                 .container {
                     display: flex;
                     flex-direction: column;
-                    gap: var(--wcs-base-margin);
+                    gap: var(--wcs-semantic-spacing-base);
                 }
                 
                 .heading {
                     display: flex;
                     align-items: center;
-                    gap: var(--wcs-margin);
-                    margin-bottom: var(--wcs-margin);
+                    gap: var(--wcs-semantic-spacing-large);
+                    margin-bottom: var(--wcs-semantic-spacing-large);
                 }
 
                 .title-skeleton {
@@ -116,7 +116,7 @@ export const Example: StoryObj = {
                 .heading {
                     display: flex;
                     align-items: center;
-                    gap: var(--wcs-margin);
+                    gap: var(--wcs-semantic-spacing-large);
                 }
             </style>
         `

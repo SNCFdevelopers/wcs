@@ -34,19 +34,19 @@ import { FormlyFieldConfig } from '@ngx-formly/core';
   styles: [`
     div.cards {
       display: flex;
-      margin: var(--wcs-base-margin) 0;
+      margin: var(--wcs-semantic-spacing-base) 0;
       flex-wrap: wrap;
-      gap: var(--wcs-base-margin);
+      gap: var(--wcs-semantic-spacing-base);
     }
     span.info {
-      color: var(--wcs-text-disabled)
+      color: var(--wcs-semantic-color-text-secondary)
     }
     wcs-card {
       max-width: 200px;
     }
     wcs-button {
       width: 130px;
-      margin-top: calc(var(--wcs-base-margin)*2)
+      margin-top: var(--wcs-semantic-spacing-large);
     }
 
     .two-way-binding-container {
@@ -59,7 +59,7 @@ import { FormlyFieldConfig } from '@ngx-formly/core';
     .counter-group {
       display: flex;
       flex-direction: row;
-      gap: var(--wcs-base-margin)
+      gap: var(--wcs-semantic-spacing-base)
     }
   `]
 })

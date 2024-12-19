@@ -131,7 +131,7 @@ export const Default: StoryObj<InputStoryArgs> = {
  */
 export const Sizes: StoryObj<InputStoryArgs> = {
     render: (args) => html`
-        <div style="display: flex; gap: var(--wcs-base-margin)">
+        <div style="display: flex; gap: var(--wcs-semantic-spacing-base)">
             ${renderWcsInput({ ...args, size: 'l', ariaLabel: 'Input size L', placeholder: 'Input L' })}
             ${renderWcsInput({ ...args, size: 'm', ariaLabel: 'Input size M', placeholder: 'Input M (default)' })}
             ${renderWcsInput({ ...args, size: 's', ariaLabel: 'Input size S', placeholder: 'Input S (for grids)' })}

@@ -46,21 +46,21 @@ body {
 
 // Examples for class passed in template option of formly radio
 .value1 {
-  --wcs-primary: var(--wcs-green);
+  --wcs-semantic-color-primary: var(--wcs-semantic-color-success);
 }
 
 .value2 {
-  --wcs-primary: var(--wcs-orange);
+  --wcs-semantic-color-primary: var(--wcs-semantic-color-warning);
 }
 
 .value3 {
-  --wcs-primary: var(--wcs-red);
+  --wcs-semantic-color-primary: var(--wcs-semantic-color-error);
 }
 
 .formly-group-flex-col-with-gap {
   display: flex;
   flex-direction: column;
-  row-gap: calc(var(--wcs-base-margin) * 2);
+  row-gap: var(--wcs-semantic-spacing-large);
 }
 
 .grid-auto-column {
@@ -70,5 +70,5 @@ body {
 }
 
 .column-gap-x-2 {
-  column-gap: calc(var(--wcs-base-margin) * 2);
+  column-gap: var(--wcs-semantic-spacing-large);
 }

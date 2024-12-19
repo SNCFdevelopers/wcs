@@ -42,8 +42,8 @@ import { FormControl } from "@angular/forms";
   `,
   styles: [`
     .reloadBtn, .removeBtn {
-      padding-bottom: var(--wcs-base-margin);
-      margin-right: var(--wcs-base-margin);
+      padding-bottom: var(--wcs-semantic-spacing-base);
+      margin-right: var(--wcs-semantic-spacing-base);
     }
   `]
 })

@@ -16,7 +16,7 @@ export default function Example(): ReactElement {
       <h2>WCS React Sandbox</h2>
       <p>This app is a sandbox to test the react components bindings.</p>
 
-      <WcsDivider style={{marginBottom: 'var(--wcs-margin)'}}/>
+      <WcsDivider style={{marginBottom: 'var(--wcs-semantic-spacing-large)'}}/>
 
       <div className="content">
         <WcsButton onClick={() => console.log('Clicked handler in react!')}>

@@ -5,8 +5,8 @@ body {
 }
 
 html {
-    background-color: var(--wcs-white);
-    color: var(--wcs-gray);
+    background-color: var(--wcs-semantic-color-background-surface-primary);
+    color: var(--wcs-semantic-color-text-primary);
 }
 
 html, body {
@@ -25,7 +25,7 @@ h2 {
     margin-bottom: 0.5rem;
     font-weight: 500;
     line-height: 1.2;
-    color: var(--wcs-gray);
+    color: var(--wcs-semantic-color-text-primary);
 }
 
 .hidden {
@@ -34,11 +34,11 @@ h2 {
 
 hr {
     border-bottom: 0;
-    border-top: solid 1px var(--wcs-light);
+    border-top: solid 1px var(--wcs-semantic-color-border-surface);
 }
 
 .link {
-    color: var(--wcs-primary);
+    color: var(--wcs-semantic-color-primary);
     text-decoration: none;
     font-weight: 500;
     padding: 0;

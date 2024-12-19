@@ -67,6 +67,7 @@ const INPUT_INHERITED_ATTRS = ['tabindex', 'title'];
  * 
  * @cssprop --wcs-input-prefix-suffix-background-color - background color of the suffix/prefix
  * @cssprop --wcs-input-prefix-suffix-color - color of the suffix/prefix
+ * @cssprop --wcs-input-prefix-suffix-color-disabled - color of the suffix/prefix when the input is disabled
  * @cssprop --wcs-input-prefix-suffix-font-weight - font weight of the suffix/prefix
  *
  * @cssprop --wcs-input-border-color-default - default border color of the input when not focused

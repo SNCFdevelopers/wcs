@@ -192,7 +192,7 @@ export class FormlyExampleComponent implements OnInit {
             placeholder: 'L\'input',
             tooltip: {
               content: 'Contenu du tooltip...',
-              color: 'var(--wcs-primary)',
+              color: 'var(--wcs-semantic-color-primary)',
               icon: 'help',
               size: 'm',
             }
@@ -212,7 +212,7 @@ export class FormlyExampleComponent implements OnInit {
             placeholder: 'L\'input',
             tooltip: {
               interactive: true,
-              color: 'var(--wcs-primary)',
+              color: 'var(--wcs-semantic-color-primary)',
               icon: 'help',
               size: 'm',
             }

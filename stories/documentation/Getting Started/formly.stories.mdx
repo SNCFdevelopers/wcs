@@ -106,7 +106,7 @@ import { WcsFormlyModule } from 'wcs-formly';
 ### 1️⃣ Basic login / password form
 
 <form>
-  <formly-form style={{display: 'flex', flexDirection: 'column', gap: 'var(--wcs-margin)', marginBottom: '2em'}}>
+  <formly-form style={{display: 'flex', flexDirection: 'column', gap: 'var(--wcs-semantic-spacing-large)', marginBottom: '2em'}}>
     <formly-field>
       <formly-wcs-field-input>
         <formly-wcs-field-wrapper>
@@ -221,7 +221,7 @@ Add this in the `FormlyFieldConfig` :
       placeholder: 'John Doe',
       tooltip: {
         interactive: true,
-        color: 'var(--wcs-primary)',
+        color: 'var(--wcs-semantic-color-primary)',
         icon: 'help',
         size: 'm',
       }
