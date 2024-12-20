@@ -1,19 +1,32 @@
 :host{
+    --wcs-field-label-color: var(--wcs-semantic-color-text-secondary);
+    --wcs-field-label-font-weight: var(--wcs-semantic-font-weight-medium);
+    --wcs-field-label-font-size: var(--wcs-semantic-font-size-body-3);
+    --wcs-field-label-line-height: var(--wcs-semantic-font-line-height-large);
+
+    --wcs-field-content-color: var(--wcs-semantic-color-text-secondary);
+    --wcs-field-content-font-weight: var(--wcs-semantic-font-weight-regular);
+    --wcs-field-content-font-size: var(--wcs-semantic-font-size-body-3);
+
+    --wcs-field-margin-top: var(--wcs-semantic-spacing-default);
+    --wcs-field-margin-bottom: var(--wcs-semantic-spacing-large);
+    --wcs-field-gap: var(--wcs-semantic-spacing-small);
+
     display: flex;
     flex-direction: column;
-    margin-top: var(--wcs-base-margin);
-    margin-bottom: calc(var(--wcs-base-margin) * 2);
+    margin-top: var(--wcs-field-margin-top);
+    margin-bottom: var(--wcs-field-margin-bottom);
+    gap: var(--wcs-field-gap);
 }
 ::slotted([slot=label]) {
-    font-size: 1rem;
-    line-height: 1.375;
-    font-weight: 500;
-    margin-bottom: calc(var(--wcs-base-margin) / 2);
-    color: var(--wcs-gray-light);
+    font-size: var(--wcs-field-label-font-size);
+    line-height: var(--wcs-field-label-line-height);
+    font-weight: var(--wcs-field-label-font-weight);
+    color: var(--wcs-field-label-color);
 }
 
 ::slotted([slot=content]) {
-    font-size: 1rem;
-    font-weight: 400;
-    color: var(--wcs-gray-light);
+    font-size: var(--wcs-field-content-font-size);
+    font-weight: var(--wcs-field-content-font-weight);
+    color: var(--wcs-field-content-color);
 }
