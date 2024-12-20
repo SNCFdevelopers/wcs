@@ -37,14 +37,6 @@
         display: flex;
         align-items: center;
     }
-
-
-    /* To enforce contrast color on dropdown / buttons added in the galactic slot */
-    ::slotted(wcs-dropdown), ::slotted(wcs-button) {
-        --wcs-dropdown-clear-arrow-color: var(--wcs-galactic-text-color);
-        --wcs-base: var(--wcs-light);
-        --wcs-contrast: var(--wcs-gray-darker);
-    }
 }
 
 .actions-container {
