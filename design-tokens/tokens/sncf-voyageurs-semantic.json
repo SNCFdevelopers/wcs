@@ -104,6 +104,21 @@
                 "$type": "color",
                 "$value": "{primitive.color.critical.500}"
             },
+            "success": {
+                "$description": "Main color to indicate a success state",
+                "$type": "color",
+                "$value": "{primitive.color.vert.500}"
+            },
+            "warning": {
+                "$description": "Main color to indicate a warning state",
+                "$type": "color",
+                "$value": "{primitive.color.jaune.300}"
+            },
+            "info": {
+                "$description": "Main color to indicate an info state",
+                "$type": "color",
+                "$value": "{primitive.color.bleu.300}"
+            },
             "border": {
                 "action": {
                     "secondary": {
@@ -529,7 +544,7 @@
             "backdrop": {
                 "$description": "The layer behind a surface (modal)",
                 "$type": "color",
-                "$value": "{primitive.color.backdrop}",
+                "$value": "{primitive.color.backdrop}"
             }
         },
         "font": {
