@@ -1,10 +1,11 @@
 import { newE2EPage } from '@stencil/core/testing';
+import { setWcsContent } from "../../utils/tests";
 
 describe('Textarea component', () => {
     it('Should fire wcsInput event once when user typing one char', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-textarea name="wcs-textarea-1" />
         `);
         const textarea = await page.find('wcs-textarea');
@@ -22,7 +23,7 @@ describe('Textarea component', () => {
     it('Should fire wcsInput event multiple times when user typing multiple chars', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-textarea name="wcs-textarea-1" />
         `);
         const textarea = await page.find('wcs-textarea');
@@ -44,7 +45,7 @@ describe('Textarea component', () => {
     it('Should fire wcsChange event when user commit change with blur (tab)', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-textarea name="wcs-textarea-1" />
             <button>Focus</button>
         `);
@@ -68,7 +69,7 @@ describe('Textarea component', () => {
     it('Should fire wcsChange event when user commit change with blur (click)', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-textarea name="wcs-textarea-1"></wcs-textarea>
             <button>Focus</button>
         `);
@@ -91,7 +92,7 @@ describe('Textarea component', () => {
     it('Should not fire wcsChange event when value is programmatically set', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-textarea name="wcs-textarea-1" />
         `);
         const textarea = await page.find('wcs-textarea');
@@ -106,7 +107,7 @@ describe('Textarea component', () => {
     it('Should not fire wcsInput event when value is programmatically set', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-textarea name="wcs-textarea-1" />
         `);
         const textarea = await page.find('wcs-textarea');
@@ -121,7 +122,7 @@ describe('Textarea component', () => {
     it('Should have a default value when value attribute is set', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-textarea name="wcs-textarea-1" value="Default value" />
         `);
         const textarea = await page.find('wcs-textarea');
@@ -133,7 +134,7 @@ describe('Textarea component', () => {
     it('Should have a default value when value property is set', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-textarea name="wcs-textarea-1" />
         `);
         const textarea = await page.find('wcs-textarea');

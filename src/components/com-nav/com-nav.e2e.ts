@@ -1,5 +1,6 @@
 import { E2EPage, newE2EPage } from "@stencil/core/testing";
 import {KeyInput} from "puppeteer";
+import { setWcsContent } from "../../utils/tests";
 
 describe('Com nav', () => {
     describe('Keyboard navigation', () => {
@@ -13,7 +14,7 @@ describe('Com nav', () => {
                     height: 480,
                 });
 
-                await page.setContent(`
+                await setWcsContent(page, `
                  <wcs-com-nav app-name="App Test">
                     <wcs-com-nav-submenu label="Sous menu" panel-title="Sous Menu"
                                          panel-description="Nullam id dolor id nibh ultricies vehicula ut id elit. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.">

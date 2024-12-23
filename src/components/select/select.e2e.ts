@@ -1,10 +1,11 @@
 import { newE2EPage } from '@stencil/core/testing';
+import { setWcsContent } from "../../utils/tests";
 
 describe('Select component', () => {
     it('Expands when clicked', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-select>
                 <wcs-select-option value="1">One</wcs-select-option>
             </wcs-select>
@@ -21,7 +22,7 @@ describe('Select component', () => {
     it('Expands using the open method', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-select>
                 <wcs-select-option value="1">One</wcs-select-option>
             </wcs-select>
@@ -39,7 +40,7 @@ describe('Select component', () => {
     it('Closes using the open method', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-select>
                 <wcs-select-option value="1">One</wcs-select-option>
             </wcs-select>
@@ -58,7 +59,7 @@ describe('Select component', () => {
     it('Closes when user click outside', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-select>
                 <wcs-select-option value="1">One</wcs-select-option>
             </wcs-select>
@@ -80,7 +81,7 @@ describe('Select component', () => {
         // Given
         const page = await newE2EPage();
         await page.setViewport({width: 1024, height: 1600});
-        await page.setContent(`
+        await setWcsContent(page, `
             <div style="display: flex">
                 <wcs-select id="select-1">
                     <wcs-select-option value="1">One</wcs-select-option>
@@ -112,7 +113,7 @@ describe('Select component', () => {
     it('Let us select a value and fire event correctly', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-select>
                 <wcs-select-option value="1">One</wcs-select-option>
             </wcs-select>
@@ -160,7 +161,7 @@ describe('Select component', () => {
         it('Let user change selected value programmatically', async () => {
             // Given
             const page = await newE2EPage();
-            await page.setContent(`
+            await setWcsContent(page, `
                 <wcs-select>
                     <wcs-select-option value="1">One</wcs-select-option>
                     <wcs-select-option value="2">Two</wcs-select-option>
@@ -179,7 +180,7 @@ describe('Select component', () => {
         it('Let user change selected values programmatically', async () => {
             // Given
             const page = await newE2EPage();
-            await page.setContent(`
+            await setWcsContent(page, `
                 <wcs-select multiple>
                     <wcs-select-option value="1">One</wcs-select-option>
                     <wcs-select-option value="2">Two</wcs-select-option>
@@ -202,7 +203,7 @@ describe('Select component', () => {
     it('Is focusable', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-select>
                 <wcs-select-option value="1">One</wcs-select-option>
             </wcs-select>
@@ -220,7 +221,7 @@ describe('Select component', () => {
     it('[Autocomplete] Input field is focusable', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-select autocomplete="true">
                 <wcs-select-option value="1">One</wcs-select-option>
             </wcs-select>
@@ -265,7 +266,7 @@ describe('Select component', () => {
         it('Must not expand when disabled', async () => {
             // Given
             const page = await newE2EPage();
-            await page.setContent(`
+            await setWcsContent(page, `
                 <wcs-select disabled>
                     <wcs-select-option value="1">One</wcs-select-option>
                 </wcs-select>
@@ -282,7 +283,7 @@ describe('Select component', () => {
         it('Is not focusable when disabled', async () => {
             // Given
             const page = await newE2EPage();
-            await page.setContent(`
+            await setWcsContent(page, `
                 <wcs-select disabled>
                     <wcs-select-option value="1">One</wcs-select-option>
                 </wcs-select>
@@ -302,7 +303,7 @@ describe('Select component', () => {
         it('Adds selected attribute to selected option', async () => {
             // Given
             const page = await newE2EPage();
-            await page.setContent(`
+            await setWcsContent(page, `
                 <wcs-select>
                     <wcs-select-option value="1">One</wcs-select-option>
                 </wcs-select>
@@ -322,7 +323,7 @@ describe('Select component', () => {
         it(`Removes selected attribute from previously selected options`, async () => {
             // Given
             const page = await newE2EPage();
-            await page.setContent(`
+            await setWcsContent(page, `
                 <wcs-select>
                     <wcs-select-option value="1">One</wcs-select-option>
                     <wcs-select-option value="2">Two</wcs-select-option>
@@ -346,7 +347,7 @@ describe('Select component', () => {
         it(`Must not let a user select a disabled option`, async () => {
             // Given
             const page = await newE2EPage();
-            await page.setContent(`
+            await setWcsContent(page, `
                 <wcs-select>
                     <wcs-select-option value="1" disabled>One</wcs-select-option>
                 </wcs-select>
@@ -368,7 +369,7 @@ describe('Select component', () => {
         it(`Musn't close when we select a value`, async () => {
             // Given
             const page = await newE2EPage();
-            await page.setContent(`
+            await setWcsContent(page, `
                 <wcs-select multiple>
                     <wcs-select-option value="1">One</wcs-select-option>
                 </wcs-select>
@@ -388,7 +389,7 @@ describe('Select component', () => {
         it(`Allows to select multiple values`, async () => {
             // Given
             const page = await newE2EPage();
-            await page.setContent(`
+            await setWcsContent(page, `
                 <wcs-select multiple>
                     <wcs-select-option value="1">One</wcs-select-option>
                     <wcs-select-option value="2">Two</wcs-select-option>
@@ -413,7 +414,7 @@ describe('Select component', () => {
         it('Allows to unselect a value', async () => {
             // Given
             const page = await newE2EPage();
-            await page.setContent(`
+            await setWcsContent(page, `
                 <wcs-select multiple>
                     <wcs-select-option value="1">One</wcs-select-option>
                     <wcs-select-option value="2">Two</wcs-select-option>
@@ -438,7 +439,7 @@ describe('Select component', () => {
         it(`Displays all values separated by a comma`, async () => {
             // Given
             const page = await newE2EPage();
-            await page.setContent(`
+            await setWcsContent(page, `
                 <wcs-select multiple>
                     <wcs-select-option value="1">One</wcs-select-option>
                     <wcs-select-option value="2">Two</wcs-select-option>
@@ -463,7 +464,7 @@ describe('Select component', () => {
         it(`Tells the option that they should display as multiple`, async () => {
             // Given
             const page = await newE2EPage();
-            await page.setContent(`
+            await setWcsContent(page, `
                 <wcs-select multiple>
                     <wcs-select-option value="1">One</wcs-select-option>
                 </wcs-select>
@@ -480,7 +481,7 @@ describe('Select component', () => {
         it(`Propagate event when values are select`, async () => {
             // Given
             const page = await newE2EPage();
-            await page.setContent(`
+            await setWcsContent(page, `
                 <wcs-select multiple>
                     <wcs-select-option value="1">One</wcs-select-option>
                     <wcs-select-option value="2">Two</wcs-select-option>
@@ -508,7 +509,7 @@ describe('Select component', () => {
         beforeEach(async () => {
             // Given
             page = await newE2EPage();
-            await page.setContent(`
+            await setWcsContent(page, `
               <wcs-select>
                 <wcs-select-option value="option1" disabled>Option 1</wcs-select-option>
                 <wcs-select-option value="option2">Option 2</wcs-select-option>
@@ -598,7 +599,7 @@ describe('Select component', () => {
         beforeEach(async () => {
             // Given
             page = await newE2EPage();
-            await page.setContent(`
+            await setWcsContent(page, `
               <wcs-select>
                 <wcs-select-option value="option1" disabled>Option 1</wcs-select-option>
                 <wcs-select-option value="option2">Option 2</wcs-select-option>
@@ -710,7 +711,7 @@ describe('Select component', () => {
         beforeEach(async () => {
             // Given
             page = await newE2EPage();
-            await page.setContent(`
+            await setWcsContent(page, `
               <wcs-select multiple="">
                 <wcs-select-option value="option1" disabled>Option 1</wcs-select-option>
                 <wcs-select-option value="option2">Option 2</wcs-select-option>
@@ -759,7 +760,7 @@ describe('Select component', () => {
         beforeEach(async () => {
             // Given
             page = await newE2EPage();
-            await page.setContent(`
+            await setWcsContent(page, `
               <wcs-select multiple="">
                 <wcs-select-option value="option1" disabled>Option 1</wcs-select-option>
                 <wcs-select-option value="option2">Option 2</wcs-select-option>
@@ -797,7 +798,7 @@ describe('Select component', () => {
         beforeEach(async () => {
             // Given
             page = await newE2EPage();
-            await page.setContent(`
+            await setWcsContent(page, `
               <wcs-select autocomplete="">
                 <wcs-select-option value="option1" disabled>Option 1</wcs-select-option>
                 <wcs-select-option value="option2">Option 2</wcs-select-option>
@@ -860,7 +861,7 @@ describe('Select component', () => {
         beforeEach(async () => {
             // Given
             page = await newE2EPage();
-            await page.setContent(`
+            await setWcsContent(page, `
               <wcs-select autocomplete="">
                 <wcs-select-option value="option1" disabled>Apple</wcs-select-option>
                 <wcs-select-option value="option2">Banana</wcs-select-option>

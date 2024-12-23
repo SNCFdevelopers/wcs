@@ -1,10 +1,11 @@
 import { newE2EPage } from "@stencil/core/testing";
+import { setWcsContent } from "../../utils/tests";
 
 describe('Radio Group', () => {
     it('should navigate to the first not disabled radio when pressing tab key', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
                 <wcs-input></wcs-input>
                 <wcs-radio-group>
                     <wcs-radio disabled id="radio-1" value="1"></wcs-radio>
@@ -26,7 +27,7 @@ describe('Radio Group', () => {
     it('should not make unselected radios focusable when a radio is clicked', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
                 <wcs-input></wcs-input>
                 <wcs-radio-group>
                     <wcs-radio disabled id="radio-1" value="1"></wcs-radio>
@@ -52,7 +53,7 @@ describe('Radio Group', () => {
     it('should checked the first radio when pressing space key', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
                 <wcs-input></wcs-input>
                 <wcs-radio-group>
                     <wcs-radio id="radio-1" value="1"></wcs-radio>
@@ -77,7 +78,7 @@ describe('Radio Group', () => {
     it('should navigate to the checked radio when pressing tab key', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
                 <wcs-input></wcs-input>
                 <wcs-radio-group value="3">
                     <wcs-radio disabled id="radio-1" value="1"></wcs-radio>
@@ -100,7 +101,7 @@ describe('Radio Group', () => {
         it('should checked the next radio not disabled when we are on the first radio and next radio is here', async () => {
             // Given
             const page = await newE2EPage();
-            await page.setContent(`
+            await setWcsContent(page, `
                     <wcs-radio-group>
                         <wcs-radio id="radio-1" value="1"></wcs-radio>
                         <wcs-radio disabled id="radio-2" value="2"></wcs-radio>
@@ -124,7 +125,7 @@ describe('Radio Group', () => {
         it('should checked the first not disabled radio when we are on the last radio', async () => {
             // Given
             const page = await newE2EPage();
-            await page.setContent(`
+            await setWcsContent(page, `
                     <wcs-radio-group>
                         <wcs-radio disabled id="radio-1" value="1"></wcs-radio>
                         <wcs-radio id="radio-2" value="2"></wcs-radio>
@@ -150,7 +151,7 @@ describe('Radio Group', () => {
         it('should fire wcsRadioClick when we click on an unchecked radio', async () => {
             // Given
             const page = await newE2EPage();
-            await page.setContent(`
+            await setWcsContent(page, `
             <wcs-radio-group>
                 <wcs-radio id="radio-1" value="1"></wcs-radio>
                 <wcs-radio id="radio-2" value="2"></wcs-radio>
@@ -173,7 +174,7 @@ describe('Radio Group', () => {
         it('should fire wcsChange when we click or move to an unchecked radio', async () => {
             // Given
             const page = await newE2EPage();
-            await page.setContent(`
+            await setWcsContent(page, `
             <wcs-radio-group>
                 <wcs-radio id="radio-1" value="1"></wcs-radio>
                 <wcs-radio id="radio-2" value="2"></wcs-radio>
@@ -203,7 +204,7 @@ describe('Radio Group', () => {
         it('should fire wcsBlur and wcsFocus from the radios', async () => {
             // Given
             const page = await newE2EPage();
-            await page.setContent(`
+            await setWcsContent(page, `
             <wcs-radio-group>
                 <wcs-radio id="radio-1" value="1"></wcs-radio>
                 <wcs-radio id="radio-2" value="2"></wcs-radio>
@@ -239,7 +240,7 @@ describe('Radio Group', () => {
         it('should checked the previous radio when we are on the last radio and previous radio is here', async () => {
             // Given
             const page = await newE2EPage();
-            await page.setContent(`
+            await setWcsContent(page, `
                     <wcs-radio-group>
                         <wcs-radio id="radio-1" value="1"></wcs-radio>
                         <wcs-radio id="radio-2" value="2"></wcs-radio>
@@ -263,7 +264,7 @@ describe('Radio Group', () => {
         it('should checked the last radio when we are on the first radio', async () => {
             // Given
             const page = await newE2EPage();
-            await page.setContent(`
+            await setWcsContent(page, `
                     <wcs-radio-group>
                         <wcs-radio id="radio-1" value="1"></wcs-radio>
                         <wcs-radio id="radio-2" value="2"></wcs-radio>

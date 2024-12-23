@@ -1,4 +1,5 @@
-import { newE2EPage } from '@stencil/core/testing';
+import { newE2EPage } from "@stencil/core/testing";
+import { setWcsContent } from "../../utils/tests";
 
 describe('button', () => {
     // XXX: this test display an error in console but actually works
@@ -6,7 +7,7 @@ describe('button', () => {
     it('should trigger submit when in a form', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <form>
                 <wcs-button class="wcs-primary" type="wcs-submit"></wcs-button>
             </form>

@@ -1,11 +1,12 @@
 import { newE2EPage } from '@stencil/core/testing';
+import { setWcsContent } from "../../utils/tests";
 
 
 describe('counter', () => {
     it('should increment the counter when click on plus button', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-counter></wcs-counter>
         `);
         const counter = await page.find('wcs-counter');
@@ -22,7 +23,7 @@ describe('counter', () => {
     it('should decrement the counter when click on minus button', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-counter></wcs-counter>
         `);
         const counter = await page.find('wcs-counter');
@@ -39,7 +40,7 @@ describe('counter', () => {
     it('should have 0 as default value', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-counter></wcs-counter>
         `);
         const currentDisplayedValue = await page.find('wcs-counter >>> .current-value');
@@ -50,7 +51,7 @@ describe('counter', () => {
     it('should respect the step attribute', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-counter step="5"></wcs-counter>
         `);
         const counter = await page.find('wcs-counter');
@@ -66,7 +67,7 @@ describe('counter', () => {
     it('should respect the min attribute', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-counter min="-1" value="0"></wcs-counter>
         `);
         const counter = await page.find('wcs-counter');
@@ -84,7 +85,7 @@ describe('counter', () => {
     it('should use the min attribute as default value when value is not set', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-counter min="5"></wcs-counter>
         `);
         const currentDisplayedValue = await page.find('wcs-counter >>> .current-value');
@@ -94,7 +95,7 @@ describe('counter', () => {
     it('should respect the max attribute', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-counter max="1"></wcs-counter>
         `);
         const counter = await page.find('wcs-counter');
@@ -111,7 +112,7 @@ describe('counter', () => {
     it('should respect the value attribute', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-counter value="5"></wcs-counter>
         `);
         const currentDisplayedValue = await page.find('wcs-counter >>> .current-value');
@@ -121,7 +122,7 @@ describe('counter', () => {
     it('should use the min value as default when min is greater than 0', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-counter min="5"></wcs-counter>
         `);
         const currentDisplayedValue = await page.find('wcs-counter >>> .current-value');
@@ -131,7 +132,7 @@ describe('counter', () => {
     it('should use the min value as default when min is greater than value', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-counter min="5" value="3"></wcs-counter>
         `);
         const currentDisplayedValue = await page.find('wcs-counter >>> .current-value');
@@ -140,7 +141,7 @@ describe('counter', () => {
     });
     it('should fire wcsBlur event when the counter loose focus', async () => {
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <button id="first">first</button>
             <wcs-counter></wcs-counter>
             <button id="last">last</button>
@@ -159,7 +160,7 @@ describe('counter', () => {
     });
     it('should fire wcsBlur event when the user click on decrement button and leave', async () => {
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-counter></wcs-counter>
             <button>last</button>
         `);
@@ -177,7 +178,7 @@ describe('counter', () => {
     });
     it('should fire wcsBlur event when the user click on increment button and leave', async () => {
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-counter></wcs-counter>
             <button>last</button>
         `);
@@ -196,7 +197,7 @@ describe('counter', () => {
     it('should not be interactive when disabled', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-counter disabled="true"></wcs-counter>
         `);
         const counter = await page.find('wcs-counter');

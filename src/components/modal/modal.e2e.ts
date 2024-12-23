@@ -1,10 +1,11 @@
 import { newE2EPage } from '@stencil/core/testing';
+import { setWcsContent } from "../../utils/tests";
 
 describe('modal', () => {
     it('should trap the focus inside', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-modal show-close-button>
                 <wcs-input id="first-input" type="text"></wcs-input>
                 <wcs-button id="last-button" disabled class="wcs-primary" type="button">Envoyer</wcs-button>

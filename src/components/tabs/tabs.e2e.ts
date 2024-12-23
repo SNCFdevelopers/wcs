@@ -1,11 +1,11 @@
 import { newE2EPage } from '@stencil/core/testing';
-import { findFocusedNode } from '../../utils/tests';
+import { findFocusedNode, setWcsContent } from '../../utils/tests';
 
 describe('Tabs component', () => {
     it('Display only first tab if none are preselected', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-tabs>
                 <wcs-tab header="1">One</wcs-tab>
                 <wcs-tab header="2">Two</wcs-tab>
@@ -19,7 +19,7 @@ describe('Tabs component', () => {
     it('Display only second tab if users click on its header', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-tabs>
                 <wcs-tab header="1">One</wcs-tab>
                 <wcs-tab header="2">Two</wcs-tab>
@@ -36,7 +36,7 @@ describe('Tabs component', () => {
     it('Accept and render new tabs after creation', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-tabs>
                 <wcs-tab header="1">One</wcs-tab>
                 <wcs-tab header="2">Two</wcs-tab>
@@ -61,7 +61,7 @@ describe('Tabs component', () => {
     describe('SelectedKey prop', () => {
         it('should accept a default selected key', async () => {
             const page = await newE2EPage();
-            await page.setContent(`
+            await setWcsContent(page, `
                 <wcs-tabs selected-key="custom-2">
                     <wcs-tab item-key="custom-1">One</wcs-tab>
                     <wcs-tab item-key="custom-2">Two</wcs-tab>
@@ -74,7 +74,7 @@ describe('Tabs component', () => {
         it('Allows to change selected tab via prop after creation', async () => {
             // Given
             const page = await newE2EPage();
-            await page.setContent(`
+            await setWcsContent(page, `
                 <wcs-tabs selected-key="a">
                     <wcs-tab item-key="a">One</wcs-tab>
                     <wcs-tab item-key="b">Two</wcs-tab>
@@ -94,7 +94,7 @@ describe('Tabs component', () => {
         it('Accept a default selected tab', async () => {
             // Given
             const page = await newE2EPage();
-            await page.setContent(`
+            await setWcsContent(page, `
                 <wcs-tabs selected-index="1">
                     <wcs-tab header="1">One</wcs-tab>
                     <wcs-tab header="2">Two</wcs-tab>
@@ -108,7 +108,7 @@ describe('Tabs component', () => {
         it('Allows to change selected tab via prop after creation', async () => {
             // Given
             const page = await newE2EPage();
-            await page.setContent(`
+            await setWcsContent(page, `
                 <wcs-tabs selected-index="1">
                     <wcs-tab header="1">One</wcs-tab>
                     <wcs-tab header="2">Two</wcs-tab>
@@ -128,7 +128,7 @@ describe('Tabs component', () => {
         it('Fires when user clicks on a header', async () => {
             // Given
             const page = await newE2EPage();
-            await page.setContent(`
+            await setWcsContent(page, `
                 <wcs-tabs>
                     <wcs-tab header="1">One</wcs-tab>
                     <wcs-tab header="2">Two</wcs-tab>
@@ -149,7 +149,7 @@ describe('Tabs component', () => {
         it('Change selected tab with enter', async () => {
             // Given
             const page = await newE2EPage();
-            await page.setContent(`
+            await setWcsContent(page, `
                 <wcs-tabs>
                     <wcs-tab header="1">One</wcs-tab>
                     <wcs-tab header="2">Two</wcs-tab>
@@ -169,7 +169,7 @@ describe('Tabs component', () => {
         it('Change selected tab with space', async () => {
             // Given
             const page = await newE2EPage();
-            await page.setContent(`
+            await setWcsContent(page, `
                 <wcs-tabs>
                     <wcs-tab header="1">One</wcs-tab>
                     <wcs-tab header="2">Two</wcs-tab>
@@ -188,7 +188,7 @@ describe('Tabs component', () => {
         it('Move focus with keyboard arrows', async () => {
             // Given
             const page = await newE2EPage();
-            await page.setContent(`
+            await setWcsContent(page, `
                 <wcs-tabs>
                     <wcs-tab header="1">One</wcs-tab>
                     <wcs-tab header="2">Two</wcs-tab>

@@ -1,4 +1,5 @@
 import { newE2EPage } from "@stencil/core/testing";
+import { setWcsContent } from "../../utils/tests";
 
 describe('Grid component', () => {
     describe('Events', () => {
@@ -7,7 +8,7 @@ describe('Grid component', () => {
                 // Given
                 const page = await newE2EPage();
                 const data = [{ id: 1, first_name: 'John' }, { id: 2, first_name: 'Doe' }, { id: 3, first_name: 'Jane' }, { id: 4, first_name: 'Smith' }]
-                await page.setContent(`
+                await setWcsContent(page, `
                     <wcs-grid id="simpleGrid" selection-config="single" sort="">
                         <wcs-grid-column path="first_name" name="First Name"></wcs-grid-column>
                     </wcs-grid>
@@ -42,7 +43,7 @@ describe('Grid component', () => {
                 // Given
                 const page = await newE2EPage();
                 const data = [{ id: 1, first_name: 'John' }, { id: 2, first_name: 'Doe' }, { id: 3, first_name: 'Jane' }, { id: 4, first_name: 'Smith' }]
-                await page.setContent(`
+                await setWcsContent(page, `
                     <wcs-grid id="simpleGrid" selection-config="multiple" sort="">
                         <wcs-grid-column path="first_name" name="First Name"></wcs-grid-column>
                     </wcs-grid>
@@ -73,7 +74,7 @@ describe('Grid component', () => {
                 // Given
                 const page = await newE2EPage();
                 const data = [{ id: 1, first_name: 'John' }, { id: 2, first_name: 'Doe' }, { id: 3, first_name: 'Jane' }, { id: 4, first_name: 'Smith' }]
-                await page.setContent(`
+                await setWcsContent(page, `
                     <wcs-grid id="simpleGrid" selection-config="multiple" sort="">
                         <wcs-grid-column path="first_name" name="First Name"></wcs-grid-column>
                     </wcs-grid>
@@ -106,7 +107,7 @@ describe('Grid component', () => {
                 // Given
                 const page = await newE2EPage();
                 const data = [{ id: 1, first_name: 'John' }, { id: 2, first_name: 'Doe' }, { id: 3, first_name: 'Jane' }, { id: 4, first_name: 'Smith' }]
-                await page.setContent(`
+                await setWcsContent(page, `
                     <wcs-grid id="simpleGrid" selection-config="multiple" sort="">
                         <wcs-grid-column path="first_name" name="First Name"></wcs-grid-column>
                     </wcs-grid>
@@ -140,7 +141,7 @@ describe('Grid component', () => {
                 // Given
                 const page = await newE2EPage();
                 const data = [{ id: 1, first_name: 'John' }, { id: 2, first_name: 'Doe' }, { id: 3, first_name: 'Jane' }, { id: 4, first_name: 'Smith' }]
-                await page.setContent(`
+                await setWcsContent(page, `
                     <wcs-grid id="simpleGrid" selection-config="multiple" sort="">
                         <wcs-grid-column path="first_name" name="First Name"></wcs-grid-column>
                     </wcs-grid>

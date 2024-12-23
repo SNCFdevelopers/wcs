@@ -1,4 +1,5 @@
 import { newE2EPage } from '@stencil/core/testing';
+import { setWcsContent } from "../../utils/tests";
 
 describe('Dropdown component', () => {
     let page;
@@ -11,7 +12,7 @@ describe('Dropdown component', () => {
     beforeEach(async () => {
         // Given
         page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-dropdown mode="plain" shape="normal" size="m">
                 <span slot="placeholder">Dropdown</span>
                 <wcs-dropdown-item id="first-item">Premier item</wcs-dropdown-item>

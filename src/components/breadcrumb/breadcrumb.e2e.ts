@@ -1,12 +1,13 @@
 import { newE2EPage } from '@stencil/core/testing';
 
 import { EXPAND_BTN_ARIA_LABEL_DEFAULT } from './breadcrumb-constants';
+import { setWcsContent } from "../../utils/tests";
 
 describe('breadcrumb collapse', () => {
     it('should hide breadcrumb item and respect default values for itemsBeforeCollapse and itemsAfterCollapse props', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-breadcrumb max-items="3">
                 <wcs-breadcrumb-item class="home-item">Home</wcs-breadcrumb-item>
                 <wcs-breadcrumb-item class="train-item">Train</wcs-breadcrumb-item>
@@ -34,7 +35,7 @@ describe('breadcrumb collapse', () => {
     it('should hide breadcrumb item and respect user values for itemsBeforeCollapse and itemsAfterCollapse props', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-breadcrumb max-items="3" items-before-collapse="2" items-after-collapse="1">
                 <wcs-breadcrumb-item class="home-item">Home</wcs-breadcrumb-item>
                 <wcs-breadcrumb-item class="train-item">Train</wcs-breadcrumb-item>
@@ -61,7 +62,7 @@ describe('breadcrumb collapse', () => {
     it('shouldn\'t hide breadcrumb item if max item attribute is not defined', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-breadcrumb>
                 <wcs-breadcrumb-item class="home-item">Home</wcs-breadcrumb-item>
                 <wcs-breadcrumb-item class="train-item">Train</wcs-breadcrumb-item>
@@ -88,7 +89,7 @@ describe('breadcrumb collapse', () => {
     it('sould hide appended breadcrumb item', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-breadcrumb max-items="3">
                 <wcs-breadcrumb-item class="home-item">Home</wcs-breadcrumb-item>
                 <wcs-breadcrumb-item class="train-item">Train</wcs-breadcrumb-item>
@@ -124,7 +125,7 @@ describe('breadcrumb collapse', () => {
     it('should display all breadcrumb items when the max-items prop is mutated in js', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-breadcrumb max-items="3">
                 <wcs-breadcrumb-item class="home-item">Home</wcs-breadcrumb-item>
                 <wcs-breadcrumb-item class="train-item">Train</wcs-breadcrumb-item>
@@ -161,7 +162,7 @@ describe('breadcrumb collapse', () => {
     it('should collapse all breadcrumb items when the max-items prop is mutated in js', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-breadcrumb>
                 <wcs-breadcrumb-item class="home-item">Home</wcs-breadcrumb-item>
                 <wcs-breadcrumb-item class="train-item">Train</wcs-breadcrumb-item>
@@ -199,7 +200,7 @@ describe('breadcrumb collapse', () => {
     it('should expand collapsed items when user click on expand button', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-breadcrumb max-items="3">
                 <wcs-breadcrumb-item class="home-item">Home</wcs-breadcrumb-item>
                 <wcs-breadcrumb-item class="train-item">Train</wcs-breadcrumb-item>
@@ -223,7 +224,7 @@ describe('breadcrumb collapse', () => {
     it('should update aria-label attribute after the first render', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-breadcrumb>
                 <wcs-breadcrumb-item>Home</wcs-breadcrumb-item>
                 <wcs-breadcrumb-item>Train</wcs-breadcrumb-item>
@@ -245,7 +246,7 @@ describe('breadcrumb collapse', () => {
     it('should update expand button aria-label attribute', async () => {
         // Given
         const page = await newE2EPage();
-        await page.setContent(`
+        await setWcsContent(page, `
             <wcs-breadcrumb max-items="3">
                 <wcs-breadcrumb-item class="home-item">Home</wcs-breadcrumb-item>
                 <wcs-breadcrumb-item class="train-item">Train</wcs-breadcrumb-item>
