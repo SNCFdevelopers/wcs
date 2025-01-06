@@ -29,6 +29,7 @@ test:
   stage: test
   script:
     - npm ci --cache .npm --prefer-offline
+    - npm run generate-design-tokens
     - npm run test:ci
 
 build:
