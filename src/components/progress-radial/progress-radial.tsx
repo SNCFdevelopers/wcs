@@ -84,7 +84,6 @@ export class ProgressRadial implements ComponentInterface, MutableAriaAttribute 
                     data-role="figure"
                     viewBox={`0 0 ${backgroundImageSize} ${backgroundImageSize}`}
                     style={this.getSvgStyle()}>
-                        <circle class="progress-circle-meter" cx={halfSize} cy={halfSize} r="54" stroke-width="12" />
                         <circle class="progress-circle-value" cx={halfSize} cy={halfSize} r="54" stroke-width="12" />
                 </svg>
                 {this.showLabel &&

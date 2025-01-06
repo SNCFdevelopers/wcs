@@ -286,7 +286,7 @@ export const CellStyling: StoryObj = {
         <style>
             /* Auto generated part */
             #grid-cell-styling::part(first_name-column) {
-                background-color: var(--wcs-semantic-color-info);
+                background-color: var(--wcs-semantic-color-text-critical);
                 color: var(--wcs-semantic-color-text-inverse);
             }
 
@@ -321,7 +321,7 @@ export const CellStyling: StoryObj = {
  * To achieve this, you can use the `rowCssPartsFn` property of the `wcs-grid` element. This function is evaluated
  * for each row and should return an array of parts names or an empty array (or null/undefined) if there are no parts.
  * 
- * **e.g.:** In the following example, the row containing the currently selected item will have a green background.
+ * **e.g.:** In the following example, the row containing the currently selected item will have a red background.
  * 
  * The `rowCssPartsFn` prop is set like so :
  * 
@@ -333,7 +333,8 @@ export const CellStyling: StoryObj = {
  * 
  * ```css
  * #grid-row-styling::part(current-selected-row) {
- *   background-color: var(--wcs-semantic-color-success);
+ *   background-color: var(--wcs-semantic-color-background-action-critical-default);
+ *   --wcs-grid-cell-text-color: var(--wcs-semantic-color-text-inverse);
  * }
  * ```
  * 
@@ -350,7 +351,8 @@ export const RowStyling: StoryObj = {
 
         <style>
             #grid-row-styling::part(current-selected-row) {
-                background-color: var(--wcs-semantic-color-success);
+                background-color: var(--wcs-semantic-color-background-action-critical-default);
+                --wcs-grid-cell-text-color: var(--wcs-semantic-color-text-inverse);
             }
         </style>
     `,

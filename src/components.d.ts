@@ -79,6 +79,7 @@ export namespace Components {
     /**
      * The accordion-content is a subcomponent of `wcs-accordion`. It represents the text / content below an expanded accordion.
      * @cssprop --wcs-accordion-content-padding - Padding of the content
+     * @cssprop --wcs-accordion-content-text-color - Text color of the content
      */
     interface WcsAccordionContent {
     }
@@ -347,21 +348,20 @@ export namespace Components {
      * @cssprop --wcs-checkbox-outline-radius-focus - Border radius of the focus outline
      * @cssprop --wcs-checkbox-outline-color-focus - Color of the focus outline
      * @cssprop --wcs-checkbox-text-color-default - Color of the text when the checkbox is not selected
-     * @cssprop --wcs-checkbox-text-font-weight-default - Default font weight of the text
+     * @cssprop --wcs-checkbox-text-font-weight - Font weight of the text
+     * @cssprop --wcs-checkbox-text-font-size - Font size of the text
      * @cssprop --wcs-checkbox-text-color-disabled - Color of the text when the checkbox is disabled
      * @cssprop --wcs-checkbox-text-color-hover - Color of the text when the checkbox is hovered
      * @cssprop --wcs-checkbox-text-color-selected - Color of the text when the checkbox is selected
-     * @cssprop --wcs-checkbox-text-font-weight-selected - Font weight of the text when the checkbox is selected
      * @cssprop --wcs-checkbox-border-color-default - Color of the border when the checkbox is not selected
      * @cssprop --wcs-checkbox-border-color-hover - Color of the border when the checkbox is hovered
      * @cssprop --wcs-checkbox-border-color-disabled - Color of the border when the checkbox is disabled
-     * @cssprop --wcs-checkbox-border-color-indeterminate - Color of the border when the checkbox is in indeterminate state
      * @cssprop --wcs-checkbox-border-color-selected - Color of the border when the checkbox is selected
      * @cssprop --wcs-checkbox-border-radius - Border radius of the checkbox
      * @cssprop --wcs-checkbox-border-width - Width of the border of the checkbox
-     * @cssprop --wcs-checkbox-background-color-indeterminate - Background color of the checkbox when in indeterminate state
      * @cssprop --wcs-checkbox-background-color-selected - Background color of the checkbox when selected
      * @cssprop --wcs-checkbox-background-color-disabled - Background color of the checkbox when disabled
+     * @cssprop --wcs-checkbox-background-color-hover - Background color of the checkbox when hovered
      * @cssprop --wcs-checkmark-color - Color of the checkmark
      * @cssprop --wcs-checkmark-height - Height of the checkmark (From the bottom left to the top right of the checkmark)
      * @cssprop --wcs-checkmark-width - Width of the checkmark (From the bottom right to the top left of the checkmark)
@@ -727,10 +727,12 @@ export namespace Components {
      * It is used to display a red message under the field indicating an incorrect user input.
      * ## Accessibility guidelines 💡
      * - Provide a relevant error message to inform the users what they should change to make the field valid
+     * - Always add the error icon, to ensure the visual indication of the error state other than the color
      * - `aria-description` will be automatically added to the field for screen readers
      * - `aria-invalid="true"` will be automatically added to the field for screen readers
      * @cssprop --wcs-error-color - Color of the text
-     * @cssprop --wcs-error-font-size-default - Font size
+     * @cssprop --wcs-error-font-size - Font size
+     * @cssprop --wcs-error-font-weight - Font weight
      */
     interface WcsError {
     }
@@ -1031,7 +1033,6 @@ export namespace Components {
      * @cssprop --wcs-header-height - Height of the header
      * @cssprop --wcs-header-logo-height - Height of the logo
      * @cssprop --wcs-header-padding-horizontal - Horizontal padding of the header
-     * @cssprop --wcs-header-box-shadow - Box-shadow of the header
      * @cssprop --wcs-header-title-color - Color of the title
      * @cssprop --wcs-header-title-font-weight - Font weight of the title
      * @cssprop --wcs-header-title-font-size - Font size of the title
@@ -1117,6 +1118,7 @@ export namespace Components {
      * @cssprop --wcs-input-prefix-suffix-color-disabled - color of the suffix/prefix when the input is disabled
      * @cssprop --wcs-input-prefix-suffix-font-weight - font weight of the suffix/prefix
      * @cssprop --wcs-input-border-color-default - default border color of the input when not focused
+     * @cssprop --wcs-input-border-color-disabled - border color of the input when disabled
      * @cssprop --wcs-input-border-color-focus - border color of the input when focused
      * @cssprop --wcs-input-border-color-error - border color of the input when in error state
      * @cssprop --wcs-input-value-color - color of the input value
@@ -1431,6 +1433,7 @@ export namespace Components {
      * @cssprop --wcs-select-native-border-style-default - Border style of the select when not focused
      * @cssprop --wcs-select-native-border-style-focus - Border style of the select when focused
      * @cssprop --wcs-select-native-border-color-default - Border color of the select when not focused
+     * @cssprop --wcs-select-native-border-color-disabled - Border color of the select when disabled
      * @cssprop --wcs-select-native-border-color-focus - Border color of the select when focused
      * @cssprop --wcs-select-native-border-color-error - Border color of the select when in error state
      * @cssprop --wcs-select-native-value-color - Color of the selected value
@@ -1691,6 +1694,7 @@ export namespace Components {
      * @cssprop --wcs-select-control-border-width-active - Border width of the select control when active
      * @cssprop --wcs-select-control-border-width-focus - Border width of the select control when focused
      * @cssprop --wcs-select-control-border-color-default - Border color of the select control when not focused
+     * @cssprop --wcs-select-control-border-color-disabled - Border color of the select control when disabled
      * @cssprop --wcs-select-control-border-color-error - Border color of the select control when error
      * @cssprop --wcs-select-control-border-color-active - Border color of the select control when active (select is opened)
      * @cssprop --wcs-select-control-border-color-focus - Border color of the select control when focused (not opened, but the control is focused)
@@ -1786,6 +1790,8 @@ export namespace Components {
      * @cssprop --wcs-select-option-background-color-default - Default background color of the option
      * @cssprop --wcs-select-option-background-color-hover - Background color of the option when hovered
      * @cssprop --wcs-select-option-background-color-selected - Background color of the option when selected
+     * @cssprop --wcs-select-option-background-color-selected-hover - Background color of the option when selected and hovered
+     * @cssprop --wcs-select-option-background-color-selected-press - Background color of the option when selected and pressed
      * @cssprop --wcs-select-option-background-color-selected-disabled - Background color of the option when selected and disabled
      * @cssprop --wcs-select-option-background-color-focus - Background color of the option when focused
      * @cssprop --wcs-select-option-border-color-focus - Border color for autocomplete mode
@@ -1804,6 +1810,7 @@ export namespace Components {
      * @cssprop --wcs-select-option-ripple-color - Color of the ripple effect
      * @cssprop --wcs-select-option-checkbox-color - Color of the checkbox
      * @cssprop --wcs-select-option-gap - Gap between the checkbox and the text
+     * @cssprop --wcs-select-option-transition-duration - Duration of the transition
      */
     interface WcsSelectOption {
         /**
@@ -2039,6 +2046,7 @@ export namespace Components {
      * @cssprop --wcs-textarea-border-width - Border width of the textarea when not focused
      * @cssprop --wcs-textarea-border-width-focus - Border width of the textarea when focused
      * @cssprop --wcs-textarea-border-color-default - Default border color of the textarea when not focused
+     * @cssprop --wcs-textarea-border-color-disabled - Border color of the textarea when disabled
      * @cssprop --wcs-textarea-border-color-error - Border color of the textarea when in error state
      * @cssprop --wcs-textarea-border-color-focus -  Border color of the textarea when focused
      * @cssprop --wcs-textarea-value-color - Color of the value when the textarea is not focused
@@ -2346,6 +2354,7 @@ declare global {
     /**
      * The accordion-content is a subcomponent of `wcs-accordion`. It represents the text / content below an expanded accordion.
      * @cssprop --wcs-accordion-content-padding - Padding of the content
+     * @cssprop --wcs-accordion-content-text-color - Text color of the content
      */
     interface HTMLWcsAccordionContentElement extends Components.WcsAccordionContent, HTMLStencilElement {
     }
@@ -2583,21 +2592,20 @@ declare global {
      * @cssprop --wcs-checkbox-outline-radius-focus - Border radius of the focus outline
      * @cssprop --wcs-checkbox-outline-color-focus - Color of the focus outline
      * @cssprop --wcs-checkbox-text-color-default - Color of the text when the checkbox is not selected
-     * @cssprop --wcs-checkbox-text-font-weight-default - Default font weight of the text
+     * @cssprop --wcs-checkbox-text-font-weight - Font weight of the text
+     * @cssprop --wcs-checkbox-text-font-size - Font size of the text
      * @cssprop --wcs-checkbox-text-color-disabled - Color of the text when the checkbox is disabled
      * @cssprop --wcs-checkbox-text-color-hover - Color of the text when the checkbox is hovered
      * @cssprop --wcs-checkbox-text-color-selected - Color of the text when the checkbox is selected
-     * @cssprop --wcs-checkbox-text-font-weight-selected - Font weight of the text when the checkbox is selected
      * @cssprop --wcs-checkbox-border-color-default - Color of the border when the checkbox is not selected
      * @cssprop --wcs-checkbox-border-color-hover - Color of the border when the checkbox is hovered
      * @cssprop --wcs-checkbox-border-color-disabled - Color of the border when the checkbox is disabled
-     * @cssprop --wcs-checkbox-border-color-indeterminate - Color of the border when the checkbox is in indeterminate state
      * @cssprop --wcs-checkbox-border-color-selected - Color of the border when the checkbox is selected
      * @cssprop --wcs-checkbox-border-radius - Border radius of the checkbox
      * @cssprop --wcs-checkbox-border-width - Width of the border of the checkbox
-     * @cssprop --wcs-checkbox-background-color-indeterminate - Background color of the checkbox when in indeterminate state
      * @cssprop --wcs-checkbox-background-color-selected - Background color of the checkbox when selected
      * @cssprop --wcs-checkbox-background-color-disabled - Background color of the checkbox when disabled
+     * @cssprop --wcs-checkbox-background-color-hover - Background color of the checkbox when hovered
      * @cssprop --wcs-checkmark-color - Color of the checkmark
      * @cssprop --wcs-checkmark-height - Height of the checkmark (From the bottom left to the top right of the checkmark)
      * @cssprop --wcs-checkmark-width - Width of the checkmark (From the bottom right to the top left of the checkmark)
@@ -2955,10 +2963,12 @@ declare global {
      * It is used to display a red message under the field indicating an incorrect user input.
      * ## Accessibility guidelines 💡
      * - Provide a relevant error message to inform the users what they should change to make the field valid
+     * - Always add the error icon, to ensure the visual indication of the error state other than the color
      * - `aria-description` will be automatically added to the field for screen readers
      * - `aria-invalid="true"` will be automatically added to the field for screen readers
      * @cssprop --wcs-error-color - Color of the text
-     * @cssprop --wcs-error-font-size-default - Font size
+     * @cssprop --wcs-error-font-size - Font size
+     * @cssprop --wcs-error-font-weight - Font weight
      */
     interface HTMLWcsErrorElement extends Components.WcsError, HTMLStencilElement {
     }
@@ -3224,7 +3234,6 @@ declare global {
      * @cssprop --wcs-header-height - Height of the header
      * @cssprop --wcs-header-logo-height - Height of the logo
      * @cssprop --wcs-header-padding-horizontal - Horizontal padding of the header
-     * @cssprop --wcs-header-box-shadow - Box-shadow of the header
      * @cssprop --wcs-header-title-color - Color of the title
      * @cssprop --wcs-header-title-font-weight - Font weight of the title
      * @cssprop --wcs-header-title-font-size - Font size of the title
@@ -3317,6 +3326,7 @@ declare global {
      * @cssprop --wcs-input-prefix-suffix-color-disabled - color of the suffix/prefix when the input is disabled
      * @cssprop --wcs-input-prefix-suffix-font-weight - font weight of the suffix/prefix
      * @cssprop --wcs-input-border-color-default - default border color of the input when not focused
+     * @cssprop --wcs-input-border-color-disabled - border color of the input when disabled
      * @cssprop --wcs-input-border-color-focus - border color of the input when focused
      * @cssprop --wcs-input-border-color-error - border color of the input when in error state
      * @cssprop --wcs-input-value-color - color of the input value
@@ -3501,6 +3511,7 @@ declare global {
      * @cssprop --wcs-select-native-border-style-default - Border style of the select when not focused
      * @cssprop --wcs-select-native-border-style-focus - Border style of the select when focused
      * @cssprop --wcs-select-native-border-color-default - Border color of the select when not focused
+     * @cssprop --wcs-select-native-border-color-disabled - Border color of the select when disabled
      * @cssprop --wcs-select-native-border-color-focus - Border color of the select when focused
      * @cssprop --wcs-select-native-border-color-error - Border color of the select when in error state
      * @cssprop --wcs-select-native-value-color - Color of the selected value
@@ -3744,6 +3755,7 @@ declare global {
      * @cssprop --wcs-select-control-border-width-active - Border width of the select control when active
      * @cssprop --wcs-select-control-border-width-focus - Border width of the select control when focused
      * @cssprop --wcs-select-control-border-color-default - Border color of the select control when not focused
+     * @cssprop --wcs-select-control-border-color-disabled - Border color of the select control when disabled
      * @cssprop --wcs-select-control-border-color-error - Border color of the select control when error
      * @cssprop --wcs-select-control-border-color-active - Border color of the select control when active (select is opened)
      * @cssprop --wcs-select-control-border-color-focus - Border color of the select control when focused (not opened, but the control is focused)
@@ -3801,6 +3813,8 @@ declare global {
      * @cssprop --wcs-select-option-background-color-default - Default background color of the option
      * @cssprop --wcs-select-option-background-color-hover - Background color of the option when hovered
      * @cssprop --wcs-select-option-background-color-selected - Background color of the option when selected
+     * @cssprop --wcs-select-option-background-color-selected-hover - Background color of the option when selected and hovered
+     * @cssprop --wcs-select-option-background-color-selected-press - Background color of the option when selected and pressed
      * @cssprop --wcs-select-option-background-color-selected-disabled - Background color of the option when selected and disabled
      * @cssprop --wcs-select-option-background-color-focus - Background color of the option when focused
      * @cssprop --wcs-select-option-border-color-focus - Border color for autocomplete mode
@@ -3819,6 +3833,7 @@ declare global {
      * @cssprop --wcs-select-option-ripple-color - Color of the ripple effect
      * @cssprop --wcs-select-option-checkbox-color - Color of the checkbox
      * @cssprop --wcs-select-option-gap - Gap between the checkbox and the text
+     * @cssprop --wcs-select-option-transition-duration - Duration of the transition
      */
     interface HTMLWcsSelectOptionElement extends Components.WcsSelectOption, HTMLStencilElement {
         addEventListener<K extends keyof HTMLWcsSelectOptionElementEventMap>(type: K, listener: (this: HTMLWcsSelectOptionElement, ev: WcsSelectOptionCustomEvent<HTMLWcsSelectOptionElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -4025,6 +4040,7 @@ declare global {
      * @cssprop --wcs-textarea-border-width - Border width of the textarea when not focused
      * @cssprop --wcs-textarea-border-width-focus - Border width of the textarea when focused
      * @cssprop --wcs-textarea-border-color-default - Default border color of the textarea when not focused
+     * @cssprop --wcs-textarea-border-color-disabled - Border color of the textarea when disabled
      * @cssprop --wcs-textarea-border-color-error - Border color of the textarea when in error state
      * @cssprop --wcs-textarea-border-color-focus -  Border color of the textarea when focused
      * @cssprop --wcs-textarea-value-color - Color of the value when the textarea is not focused
@@ -4177,6 +4193,7 @@ declare namespace LocalJSX {
     /**
      * The accordion-content is a subcomponent of `wcs-accordion`. It represents the text / content below an expanded accordion.
      * @cssprop --wcs-accordion-content-padding - Padding of the content
+     * @cssprop --wcs-accordion-content-text-color - Text color of the content
      */
     interface WcsAccordionContent {
     }
@@ -4442,21 +4459,20 @@ declare namespace LocalJSX {
      * @cssprop --wcs-checkbox-outline-radius-focus - Border radius of the focus outline
      * @cssprop --wcs-checkbox-outline-color-focus - Color of the focus outline
      * @cssprop --wcs-checkbox-text-color-default - Color of the text when the checkbox is not selected
-     * @cssprop --wcs-checkbox-text-font-weight-default - Default font weight of the text
+     * @cssprop --wcs-checkbox-text-font-weight - Font weight of the text
+     * @cssprop --wcs-checkbox-text-font-size - Font size of the text
      * @cssprop --wcs-checkbox-text-color-disabled - Color of the text when the checkbox is disabled
      * @cssprop --wcs-checkbox-text-color-hover - Color of the text when the checkbox is hovered
      * @cssprop --wcs-checkbox-text-color-selected - Color of the text when the checkbox is selected
-     * @cssprop --wcs-checkbox-text-font-weight-selected - Font weight of the text when the checkbox is selected
      * @cssprop --wcs-checkbox-border-color-default - Color of the border when the checkbox is not selected
      * @cssprop --wcs-checkbox-border-color-hover - Color of the border when the checkbox is hovered
      * @cssprop --wcs-checkbox-border-color-disabled - Color of the border when the checkbox is disabled
-     * @cssprop --wcs-checkbox-border-color-indeterminate - Color of the border when the checkbox is in indeterminate state
      * @cssprop --wcs-checkbox-border-color-selected - Color of the border when the checkbox is selected
      * @cssprop --wcs-checkbox-border-radius - Border radius of the checkbox
      * @cssprop --wcs-checkbox-border-width - Width of the border of the checkbox
-     * @cssprop --wcs-checkbox-background-color-indeterminate - Background color of the checkbox when in indeterminate state
      * @cssprop --wcs-checkbox-background-color-selected - Background color of the checkbox when selected
      * @cssprop --wcs-checkbox-background-color-disabled - Background color of the checkbox when disabled
+     * @cssprop --wcs-checkbox-background-color-hover - Background color of the checkbox when hovered
      * @cssprop --wcs-checkmark-color - Color of the checkmark
      * @cssprop --wcs-checkmark-height - Height of the checkmark (From the bottom left to the top right of the checkmark)
      * @cssprop --wcs-checkmark-width - Width of the checkmark (From the bottom right to the top left of the checkmark)
@@ -4834,10 +4850,12 @@ declare namespace LocalJSX {
      * It is used to display a red message under the field indicating an incorrect user input.
      * ## Accessibility guidelines 💡
      * - Provide a relevant error message to inform the users what they should change to make the field valid
+     * - Always add the error icon, to ensure the visual indication of the error state other than the color
      * - `aria-description` will be automatically added to the field for screen readers
      * - `aria-invalid="true"` will be automatically added to the field for screen readers
      * @cssprop --wcs-error-color - Color of the text
-     * @cssprop --wcs-error-font-size-default - Font size
+     * @cssprop --wcs-error-font-size - Font size
+     * @cssprop --wcs-error-font-weight - Font weight
      */
     interface WcsError {
     }
@@ -5162,7 +5180,6 @@ declare namespace LocalJSX {
      * @cssprop --wcs-header-height - Height of the header
      * @cssprop --wcs-header-logo-height - Height of the logo
      * @cssprop --wcs-header-padding-horizontal - Horizontal padding of the header
-     * @cssprop --wcs-header-box-shadow - Box-shadow of the header
      * @cssprop --wcs-header-title-color - Color of the title
      * @cssprop --wcs-header-title-font-weight - Font weight of the title
      * @cssprop --wcs-header-title-font-size - Font size of the title
@@ -5248,6 +5265,7 @@ declare namespace LocalJSX {
      * @cssprop --wcs-input-prefix-suffix-color-disabled - color of the suffix/prefix when the input is disabled
      * @cssprop --wcs-input-prefix-suffix-font-weight - font weight of the suffix/prefix
      * @cssprop --wcs-input-border-color-default - default border color of the input when not focused
+     * @cssprop --wcs-input-border-color-disabled - border color of the input when disabled
      * @cssprop --wcs-input-border-color-focus - border color of the input when focused
      * @cssprop --wcs-input-border-color-error - border color of the input when in error state
      * @cssprop --wcs-input-value-color - color of the input value
@@ -5570,6 +5588,7 @@ declare namespace LocalJSX {
      * @cssprop --wcs-select-native-border-style-default - Border style of the select when not focused
      * @cssprop --wcs-select-native-border-style-focus - Border style of the select when focused
      * @cssprop --wcs-select-native-border-color-default - Border color of the select when not focused
+     * @cssprop --wcs-select-native-border-color-disabled - Border color of the select when disabled
      * @cssprop --wcs-select-native-border-color-focus - Border color of the select when focused
      * @cssprop --wcs-select-native-border-color-error - Border color of the select when in error state
      * @cssprop --wcs-select-native-value-color - Color of the selected value
@@ -5835,6 +5854,7 @@ declare namespace LocalJSX {
      * @cssprop --wcs-select-control-border-width-active - Border width of the select control when active
      * @cssprop --wcs-select-control-border-width-focus - Border width of the select control when focused
      * @cssprop --wcs-select-control-border-color-default - Border color of the select control when not focused
+     * @cssprop --wcs-select-control-border-color-disabled - Border color of the select control when disabled
      * @cssprop --wcs-select-control-border-color-error - Border color of the select control when error
      * @cssprop --wcs-select-control-border-color-active - Border color of the select control when active (select is opened)
      * @cssprop --wcs-select-control-border-color-focus - Border color of the select control when focused (not opened, but the control is focused)
@@ -5937,6 +5957,8 @@ declare namespace LocalJSX {
      * @cssprop --wcs-select-option-background-color-default - Default background color of the option
      * @cssprop --wcs-select-option-background-color-hover - Background color of the option when hovered
      * @cssprop --wcs-select-option-background-color-selected - Background color of the option when selected
+     * @cssprop --wcs-select-option-background-color-selected-hover - Background color of the option when selected and hovered
+     * @cssprop --wcs-select-option-background-color-selected-press - Background color of the option when selected and pressed
      * @cssprop --wcs-select-option-background-color-selected-disabled - Background color of the option when selected and disabled
      * @cssprop --wcs-select-option-background-color-focus - Background color of the option when focused
      * @cssprop --wcs-select-option-border-color-focus - Border color for autocomplete mode
@@ -5955,6 +5977,7 @@ declare namespace LocalJSX {
      * @cssprop --wcs-select-option-ripple-color - Color of the ripple effect
      * @cssprop --wcs-select-option-checkbox-color - Color of the checkbox
      * @cssprop --wcs-select-option-gap - Gap between the checkbox and the text
+     * @cssprop --wcs-select-option-transition-duration - Duration of the transition
      */
     interface WcsSelectOption {
         /**
@@ -6211,6 +6234,7 @@ declare namespace LocalJSX {
      * @cssprop --wcs-textarea-border-width - Border width of the textarea when not focused
      * @cssprop --wcs-textarea-border-width-focus - Border width of the textarea when focused
      * @cssprop --wcs-textarea-border-color-default - Default border color of the textarea when not focused
+     * @cssprop --wcs-textarea-border-color-disabled - Border color of the textarea when disabled
      * @cssprop --wcs-textarea-border-color-error - Border color of the textarea when in error state
      * @cssprop --wcs-textarea-border-color-focus -  Border color of the textarea when focused
      * @cssprop --wcs-textarea-value-color - Color of the value when the textarea is not focused
@@ -6482,6 +6506,7 @@ declare module "@stencil/core" {
             /**
              * The accordion-content is a subcomponent of `wcs-accordion`. It represents the text / content below an expanded accordion.
              * @cssprop --wcs-accordion-content-padding - Padding of the content
+             * @cssprop --wcs-accordion-content-text-color - Text color of the content
              */
             "wcs-accordion-content": LocalJSX.WcsAccordionContent & JSXBase.HTMLAttributes<HTMLWcsAccordionContentElement>;
             /**
@@ -6648,21 +6673,20 @@ declare module "@stencil/core" {
              * @cssprop --wcs-checkbox-outline-radius-focus - Border radius of the focus outline
              * @cssprop --wcs-checkbox-outline-color-focus - Color of the focus outline
              * @cssprop --wcs-checkbox-text-color-default - Color of the text when the checkbox is not selected
-             * @cssprop --wcs-checkbox-text-font-weight-default - Default font weight of the text
+             * @cssprop --wcs-checkbox-text-font-weight - Font weight of the text
+             * @cssprop --wcs-checkbox-text-font-size - Font size of the text
              * @cssprop --wcs-checkbox-text-color-disabled - Color of the text when the checkbox is disabled
              * @cssprop --wcs-checkbox-text-color-hover - Color of the text when the checkbox is hovered
              * @cssprop --wcs-checkbox-text-color-selected - Color of the text when the checkbox is selected
-             * @cssprop --wcs-checkbox-text-font-weight-selected - Font weight of the text when the checkbox is selected
              * @cssprop --wcs-checkbox-border-color-default - Color of the border when the checkbox is not selected
              * @cssprop --wcs-checkbox-border-color-hover - Color of the border when the checkbox is hovered
              * @cssprop --wcs-checkbox-border-color-disabled - Color of the border when the checkbox is disabled
-             * @cssprop --wcs-checkbox-border-color-indeterminate - Color of the border when the checkbox is in indeterminate state
              * @cssprop --wcs-checkbox-border-color-selected - Color of the border when the checkbox is selected
              * @cssprop --wcs-checkbox-border-radius - Border radius of the checkbox
              * @cssprop --wcs-checkbox-border-width - Width of the border of the checkbox
-             * @cssprop --wcs-checkbox-background-color-indeterminate - Background color of the checkbox when in indeterminate state
              * @cssprop --wcs-checkbox-background-color-selected - Background color of the checkbox when selected
              * @cssprop --wcs-checkbox-background-color-disabled - Background color of the checkbox when disabled
+             * @cssprop --wcs-checkbox-background-color-hover - Background color of the checkbox when hovered
              * @cssprop --wcs-checkmark-color - Color of the checkmark
              * @cssprop --wcs-checkmark-height - Height of the checkmark (From the bottom left to the top right of the checkmark)
              * @cssprop --wcs-checkmark-width - Width of the checkmark (From the bottom right to the top left of the checkmark)
@@ -6885,10 +6909,12 @@ declare module "@stencil/core" {
              * It is used to display a red message under the field indicating an incorrect user input.
              * ## Accessibility guidelines 💡
              * - Provide a relevant error message to inform the users what they should change to make the field valid
+             * - Always add the error icon, to ensure the visual indication of the error state other than the color
              * - `aria-description` will be automatically added to the field for screen readers
              * - `aria-invalid="true"` will be automatically added to the field for screen readers
              * @cssprop --wcs-error-color - Color of the text
-             * @cssprop --wcs-error-font-size-default - Font size
+             * @cssprop --wcs-error-font-size - Font size
+             * @cssprop --wcs-error-font-weight - Font weight
              */
             "wcs-error": LocalJSX.WcsError & JSXBase.HTMLAttributes<HTMLWcsErrorElement>;
             /**
@@ -7057,7 +7083,6 @@ declare module "@stencil/core" {
              * @cssprop --wcs-header-height - Height of the header
              * @cssprop --wcs-header-logo-height - Height of the logo
              * @cssprop --wcs-header-padding-horizontal - Horizontal padding of the header
-             * @cssprop --wcs-header-box-shadow - Box-shadow of the header
              * @cssprop --wcs-header-title-color - Color of the title
              * @cssprop --wcs-header-title-font-weight - Font weight of the title
              * @cssprop --wcs-header-title-font-size - Font size of the title
@@ -7113,6 +7138,7 @@ declare module "@stencil/core" {
              * @cssprop --wcs-input-prefix-suffix-color-disabled - color of the suffix/prefix when the input is disabled
              * @cssprop --wcs-input-prefix-suffix-font-weight - font weight of the suffix/prefix
              * @cssprop --wcs-input-border-color-default - default border color of the input when not focused
+             * @cssprop --wcs-input-border-color-disabled - border color of the input when disabled
              * @cssprop --wcs-input-border-color-focus - border color of the input when focused
              * @cssprop --wcs-input-border-color-error - border color of the input when in error state
              * @cssprop --wcs-input-value-color - color of the input value
@@ -7243,6 +7269,7 @@ declare module "@stencil/core" {
              * @cssprop --wcs-select-native-border-style-default - Border style of the select when not focused
              * @cssprop --wcs-select-native-border-style-focus - Border style of the select when focused
              * @cssprop --wcs-select-native-border-color-default - Border color of the select when not focused
+             * @cssprop --wcs-select-native-border-color-disabled - Border color of the select when disabled
              * @cssprop --wcs-select-native-border-color-focus - Border color of the select when focused
              * @cssprop --wcs-select-native-border-color-error - Border color of the select when in error state
              * @cssprop --wcs-select-native-value-color - Color of the selected value
@@ -7421,6 +7448,7 @@ declare module "@stencil/core" {
              * @cssprop --wcs-select-control-border-width-active - Border width of the select control when active
              * @cssprop --wcs-select-control-border-width-focus - Border width of the select control when focused
              * @cssprop --wcs-select-control-border-color-default - Border color of the select control when not focused
+             * @cssprop --wcs-select-control-border-color-disabled - Border color of the select control when disabled
              * @cssprop --wcs-select-control-border-color-error - Border color of the select control when error
              * @cssprop --wcs-select-control-border-color-active - Border color of the select control when active (select is opened)
              * @cssprop --wcs-select-control-border-color-focus - Border color of the select control when focused (not opened, but the control is focused)
@@ -7462,6 +7490,8 @@ declare module "@stencil/core" {
              * @cssprop --wcs-select-option-background-color-default - Default background color of the option
              * @cssprop --wcs-select-option-background-color-hover - Background color of the option when hovered
              * @cssprop --wcs-select-option-background-color-selected - Background color of the option when selected
+             * @cssprop --wcs-select-option-background-color-selected-hover - Background color of the option when selected and hovered
+             * @cssprop --wcs-select-option-background-color-selected-press - Background color of the option when selected and pressed
              * @cssprop --wcs-select-option-background-color-selected-disabled - Background color of the option when selected and disabled
              * @cssprop --wcs-select-option-background-color-focus - Background color of the option when focused
              * @cssprop --wcs-select-option-border-color-focus - Border color for autocomplete mode
@@ -7480,6 +7510,7 @@ declare module "@stencil/core" {
              * @cssprop --wcs-select-option-ripple-color - Color of the ripple effect
              * @cssprop --wcs-select-option-checkbox-color - Color of the checkbox
              * @cssprop --wcs-select-option-gap - Gap between the checkbox and the text
+             * @cssprop --wcs-select-option-transition-duration - Duration of the transition
              */
             "wcs-select-option": LocalJSX.WcsSelectOption & JSXBase.HTMLAttributes<HTMLWcsSelectOptionElement>;
             /**
@@ -7597,6 +7628,7 @@ declare module "@stencil/core" {
              * @cssprop --wcs-textarea-border-width - Border width of the textarea when not focused
              * @cssprop --wcs-textarea-border-width-focus - Border width of the textarea when focused
              * @cssprop --wcs-textarea-border-color-default - Default border color of the textarea when not focused
+             * @cssprop --wcs-textarea-border-color-disabled - Border color of the textarea when disabled
              * @cssprop --wcs-textarea-border-color-error - Border color of the textarea when in error state
              * @cssprop --wcs-textarea-border-color-focus -  Border color of the textarea when focused
              * @cssprop --wcs-textarea-value-color - Color of the value when the textarea is not focused

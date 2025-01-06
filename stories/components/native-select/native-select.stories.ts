@@ -19,7 +19,7 @@ interface StoryParams {
 export const Default = {
     render: (args: StoryParams) => {
         return html`
-            <label for="select-default" style="margin: var(--wcs-semantic-spacing-base) 0; display: block">Libélé du select</label>
+            <label for="select-default" style="margin: var(--wcs-semantic-spacing-base) 0; display: block">Libellé du select</label>
             <wcs-native-select size=${args.size ?? nothing}>
                 <select name="select-default" id="select-default" ?disabled=${args.disabled}>
                     <option disabled selected hidden>Placeholder du select</option>

@@ -3,30 +3,30 @@
 :host {
     --wcs-tabs-indicator-height: var(--wcs-semantic-spacing-small);
     --wcs-tabs-indicator-background-color: var(--wcs-semantic-color-background-action-primary-default);
-    --wcs-tabs-indicator-border-radius: var(--wcs-semantic-border-radius-circular);
+    --wcs-tabs-indicator-border-radius: var(--wcs-semantic-border-radius-full);
 
     --wcs-tabs-color-default: var(--wcs-semantic-color-foreground-action-secondary-default);
     --wcs-tabs-color-hover: var(--wcs-semantic-color-foreground-action-secondary-hover);
     --wcs-tabs-color-press: var(--wcs-semantic-color-foreground-action-secondary-press);
-    --wcs-tabs-color-selected: var(--wcs-semantic-color-primary);
+    --wcs-tabs-color-selected: var(--wcs-semantic-color-foreground-action-secondary-default);
 
-    --wcs-tabs-background-color-focus: transparent;
+    --wcs-tabs-background-color-focus: var(--wcs-semantic-color-background-action-secondary-focus);
     --wcs-tabs-background-color-hover: var(--wcs-semantic-color-background-action-secondary-hover);
     --wcs-tabs-background-color-press: var(--wcs-semantic-color-background-action-secondary-press);
 
     --wcs-tabs-border-radius: var(--wcs-semantic-border-radius-small);
-    --wcs-tabs-border-color-focus: var(--wcs-semantic-color-primary);
+    --wcs-tabs-border-color-focus: var(--wcs-semantic-color-border-control-focus);
 
-    --wcs-tabs-font-weight-default: var(--wcs-semantic-font-weight-regular);
-    --wcs-tabs-font-weight-selected: var(--wcs-semantic-font-weight-regular);
+    --wcs-tabs-font-weight-default: var(--wcs-semantic-font-weight-roman);
+    --wcs-tabs-font-weight-selected: var(--wcs-semantic-font-weight-roman);
 
-    --wcs-tabs-padding-top: var(--wcs-semantic-spacing-size-m-vertical);
-    --wcs-tabs-padding-right: var(--wcs-semantic-spacing-size-m-horizontal);
-    --wcs-tabs-padding-bottom: calc(var(--wcs-semantic-spacing-size-m-vertical) + var(--wcs-tabs-indicator-height));
-    --wcs-tabs-padding-left: var(--wcs-semantic-spacing-size-m-horizontal);
+    --wcs-tabs-padding-top: var(--wcs-semantic-spacing-base);
+    --wcs-tabs-padding-right: var(--wcs-semantic-spacing-large);
+    --wcs-tabs-padding-bottom: calc(var(--wcs-semantic-spacing-base) + var(--wcs-tabs-indicator-height));
+    --wcs-tabs-padding-left: var(--wcs-semantic-spacing-large);
 
     --wcs-tabs-gutter-border-width: var(--wcs-semantic-border-width-default);
-    --wcs-tabs-gutter-background-color: var(--wcs-semantic-color-border-surface);
+    --wcs-tabs-gutter-background-color: var(--wcs-semantic-color-border-secondary);
     --wcs-tabs-headers-border-bottom: var(--wcs-tabs-gutter-border-width) solid var(--wcs-tabs-gutter-background-color);
 
     --wcs-tabs-transition-duration: var(--wcs-semantic-motion-duration-feedback-base);

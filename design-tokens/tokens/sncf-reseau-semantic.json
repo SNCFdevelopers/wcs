@@ -30,43 +30,46 @@
                 "$description": "Size XS for multi-size components",
                 "$type": "dimension",
                 "$value": "{primitive.size.240}"
-            },
-            "overlay": {
-                "max-height": {
-                    "$description": "Max-height for overlays like dropdown or select",
-                    "$type": "dimension",
-                    "$value": "360px"
-                }
             }
         },
         "border": {
             "radius": {
-                "small": {
-                    "$description": "Smaller border-radius",
+                "none": {
+                    "$description": "No border-radius",
                     "$type": "dimension",
-                    "$value": "{primitive.size.40}"
+                    "$value": "0"
                 },
                 "base": {
                     "$description": "Base border-radius",
                     "$type": "dimension",
                     "$value": "{primitive.size.40}"
                 },
-                "circular": {
+                "full": {
                     "$description": "Circular, full rounded border-radius",
                     "$type": "dimension",
                     "$value": "{primitive.size.max}"
                 }
             },
             "width": {
+                "none": {
+                    "$description": "No border",
+                    "$type": "dimension",
+                    "$value": "0"
+                },
                 "default": {
                     "$description": "Default border-width",
                     "$type": "dimension",
                     "$value": "{primitive.size.10}"
                 },
                 "large": {
-                    "$description": "Used for focus border especially",
+                    "$description": "Larger border-width, used for focus border especially",
                     "$type": "dimension",
                     "$value": "{primitive.size.20}"
+                },
+                "larger": {
+                    "$description": "Largest border-width",
+                    "$type": "dimension",
+                    "$value": "{primitive.size.40}"
                 }
             },
             "style": {
@@ -85,60 +88,75 @@
             }
         },
         "color": {
-            "primary": {
-                "$type": "color",
-                "$value": "{primitive.color.bleu-acier.500}"
-            },
-            "disabled": {
-                "$description": "Base disabled color",
-                "$type": "color",
-                "$value": "{primitive.color.neutral.500}"
-            },
-            "error": {
-                "$description": "Main color to indicate an error state",
-                "$type": "color",
-                "$value": "{primitive.color.critical.500}"
-            },
-            "required": {
-                "$description": "Main color to indicate a required state",
-                "$type": "color",
-                "$value": "{primitive.color.critical.500}"
-            },
-            "success": {
-                "$description": "Main color to indicate a success state",
-                "$type": "color",
-                "$value": "{primitive.color.vert-lichen.500}"
-            },
-            "warning": {
-                "$description": "Main color to indicate a warning state",
-                "$type": "color",
-                "$value": "{primitive.color.jaune-or.500}"
-            },
-            "info": {
-                "$description": "Main color to indicate an info state",
-                "$type": "color",
-                "$value": "{primitive.color.bleu-cobalt.500}"
-            },
             "border": {
+                "brand": {
+                    "$description": "Brand border color",
+                    "$type": "color",
+                    "$value": "{primitive.color.primary}"
+                },
+                "primary": {
+                    "$description": "Primary border color",
+                    "$type": "color",
+                    "$value": "{primitive.color.neutral.600}"
+                },
+                "secondary": {
+                    "$description": "Secondary border color",
+                    "$type": "color",
+                    "$value": "{primitive.color.neutral.300}"
+                },
+                "disabled": {
+                    "$description": "Disabled border color",
+                    "$type": "color",
+                    "$value": "{primitive.color.neutral.400}"
+                },
+                "selected": {
+                    "$description": "Selected border color",
+                    "$type": "color",
+                    "$value": "{primitive.color.primary}"
+                },
+                "critical": {
+                    "$description": "Critical border color",
+                    "$type": "color",
+                    "$value": "{primitive.color.critical.500}"
+                },
+                "warning": {
+                    "$description": "Warning border color",
+                    "$type": "color",
+                    "$value": "{primitive.color.jaune-or.500}"
+                },
+                "information": {
+                    "$description": "Information border color",
+                    "$type": "color",
+                    "$value": "{primitive.color.bleu-acier.800}"
+                },
+                "success": {
+                    "$description": "Success border color",
+                    "$type": "color",
+                    "$value": "{primitive.color.vert-trefle.500}"
+                },
                 "action": {
                     "secondary": {
                         "default": {
+                            "$description": "Default border color for secondary elements like button, dropdown...",
                             "$type": "color",
-                            "$value": "{semantic.color.primary}"
+                            "$value": "{primitive.color.primary}"
+                        },
+                        "hover": {
+                            "$description": "Hover border color for secondary elements like button, dropdown...",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu-acier.600}"
+                        },
+                        "press": {
+                            "$description": "Pressed border color for secondary elements like button, dropdown...",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu-acier.700}"
                         },
                         "disabled": {
+                            "$description": "Disabled border color for secondary elements like button, dropdown...",
                             "$type": "color",
                             "$value": "{primitive.color.neutral.100}"
                         }
                     }
-                },
-                "default": {
-                    "$type": "color",
-                    "$value": "{semantic.color.primary}"
-                },
-                "disabled": {
-                    "$type": "color",
-                    "$value": "{primitive.color.neutral.300}"
                 },
                 "focus": {
                     "base": {
@@ -146,24 +164,17 @@
                         "$type": "color",
                         "$value": "{primitive.color.bleu-acier.600}"
                     },
-                    "control": {
-                        "$description": "Border color on focus for control elements like input, select, textarea...",
+                    "alt": {
+                        "$description": "Alternative border color on focus for control elements like input, select, textarea...",
                         "$type": "color",
-                        "$value": "{semantic.color.primary}"
+                        "$value": "{primitive.color.primary}"
                     }
                 },
                 "control": {
-                    "default": {
+                    "focus": {
+                        "$description": "Focus border color for control elements like input, select, textarea...",
                         "$type": "color",
-                        "$value": "{semantic.color.primary}"
-                    },
-                    "active": {
-                        "$type": "color",
-                        "$value": "{semantic.color.primary}"
-                    },
-                    "disabled": {
-                        "$type": "color",
-                        "$value": "{semantic.color.disabled}"
+                        "$value": "{semantic.color.border.focus.alt}"
                     },
                     "indicator": {
                         "default": {
@@ -174,43 +185,19 @@
                         "selected": {
                             "$description": "Selected border color of a form-field indicator: radio, checkbox",
                             "$type": "color",
-                            "$value": "{semantic.color.primary}"
+                            "$value": "{primitive.color.primary}"
                         },
                         "hover": {
                             "$description": "Hovered border color of a form-field indicator: radio, checkbox",
                             "$type": "color",
-                            "$value": "{semantic.color.primary}"
-                        },
-                        "indeterminate": {
-                            "$description": "Indeterminate border color of a form-field indicator: checkbox",
-                            "$type": "color",
-                            "$value": "{semantic.color.primary}"
+                            "$value": "{primitive.color.bleu-acier.600}"
                         },
                         "disabled": {
                             "$description": "Disabled border color of a form-field indicator: radio, checkbox",
                             "$type": "color",
                             "$value": "{semantic.color.border.disabled}"
                         }
-                    },
-                    "prefix": {
-                        "default": {
-                            "$type": "color",
-                            "$value": "{semantic.color.primary}"
-                        },
-                        "focus": {
-                            "$type": "color",
-                            "$value": "{semantic.color.border.focus.base}"
-                        },
-                        "disabled": {
-                            "$type": "color",
-                            "$value": "{semantic.color.border.control.disabled}"
-                        }
                     }
-                },
-                "surface": {
-                    "$description": "Border color for surface like card, modal, overlay of a select...",
-                    "$type": "color",
-                    "$value": "{primitive.color.neutral.300}"
                 }
             },
             "background": {
@@ -219,7 +206,7 @@
                         "default": {
                             "$description": "Default primary background for elements like button, dropdown...",
                             "$type": "color",
-                            "$value": "{semantic.color.primary}"
+                            "$value": "{primitive.color.primary}"
                         },
                         "disabled": {
                             "$description": "Disabled primary background for element like a button, dropdown, switch...",
@@ -236,10 +223,22 @@
                             "$type": "color",
                             "$value": "{primitive.color.bleu-acier.700}"
                         },
-                        "active": {
-                            "$description": "Can be used by primary elements which must have an active state (nav-item)",
-                            "$type": "color",
-                            "$value": "{primitive.color.bleu-acier.700}"
+                        "selected": {
+                            "default": {
+                                "$description": "Can be used by primary elements which must have a selected state (nav-item)",
+                                "$type": "color",
+                                "$value": "{primitive.color.bleu-acier.700}"
+                            },
+                            "hover": {
+                                "$description": "Can be used by primary elements which must have a hover state while selected (nav-item)",
+                                "$type": "color",
+                                "$value": "{primitive.color.bleu-acier.700}"
+                            },
+                            "press": {
+                                "$description": "Can be used by primary elements which must have a hover state while pressed (nav-item)",
+                                "$type": "color",
+                                "$value": "{primitive.color.bleu-acier.700}"
+                            }
                         }
                     },
                     "secondary": {
@@ -256,27 +255,37 @@
                         "hover": {
                             "$description": "Can be used by secondary elements which must have a hover state (button, dropdown...)",
                             "$type": "color",
-                            "$value": "{primitive.color.bleu-acier.100}"
+                            "$value": "{semantic.color.background.surface.accent.lightest}"
                         },
                         "press": {
                             "$description": "Can be used by secondary elements which must have a press state (button, dropdown...)",
                             "$type": "color",
-                            "$value": "{primitive.color.bleu-acier.200}"
+                            "$value": "{semantic.color.background.surface.accent.lighter}"
                         },
                         "selected": {
                             "default": {
-                                "$description": "Background of a selected secondary action elements (select option)",
+                                "$description": "Background of an active secondary action (select option)",
                                 "$type": "color",
-                                "$value": "{primitive.color.bleu-acier.300}"
+                                "$value": "{semantic.color.background.surface.accent.lightest}"
+                            },
+                            "hover": {
+                                "$description": "Background of a hovered active secondary action (select option)",
+                                "$type": "color",
+                                "$value": "{semantic.color.background.surface.accent.lighter}"
+                            },
+                            "press": {
+                                "$description": "Background of a pressed (CSS active) secondary action (select option)",
+                                "$type": "color",
+                                "$value": "{semantic.color.background.surface.accent.light}"
                             },
                             "disabled": {
-                                "$description": "Background of a disabled selected secondary action elements (select option)",
+                                "$description": "Background of a disabled active secondary action (select option)",
                                 "$type": "color",
                                 "$value": "{primitive.color.neutral.0}"
                             }
                         },
                         "focus": {
-                            "$description": "Background of a focused secondary action elements (button, select option)",
+                            "$description": "Background of a focused secondary action (button, select option)",
                             "$type": "color",
                             "$value": "{primitive.color.transparent}"
                         }
@@ -287,15 +296,20 @@
                             "$type": "color",
                             "$value": "{primitive.color.transparent}"
                         },
+                        "hover": {
+                            "$description": "Can be used by tertiary elements which must have a hover state (button, dropdown...)",
+                            "$type": "color",
+                            "$value": "{semantic.color.background.surface.accent.lightest}"
+                        },
+                        "press": {
+                            "$description": "Can be used by tertiary elements which must have a press state (button, dropdown...)",
+                            "$type": "color",
+                            "$value": "{semantic.color.background.surface.accent.lighter}"
+                        },
                         "disabled": {
                             "$description": "Disabled tertiary background for element like a button, dropdown, switch...",
                             "$type": "color",
                             "$value": "{primitive.color.transparent}"
-                        },
-                        "hover": {
-                            "$description": "Can be used by tertiary elements which must have a hover state (button, dropdown...)",
-                            "$type": "color",
-                            "$value": "{primitive.color.bleu-acier.100}"
                         }
                     },
                     "neutral": {
@@ -306,6 +320,104 @@
                         },
                         "hover": {
                             "$description": "Hovered neutral background for element like dropdown menu item",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.100}"
+                        },
+                        "press": {
+                            "$description": "Pressed neutral background for element like dropdown menu item",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.300}"
+                        },
+                        "disabled": {
+                            "$description": "Disabled neutral background for element like dropdown menu item",
+                            "$type": "color",
+                            "$value": "{primitive.color.transparent}"
+                        }
+                    },
+                    "critical": {
+                        "default": {
+                            "$description": "Default critical background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.critical.500}"
+                        },
+                        "hover": {
+                            "$description": "Hovered critical background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.critical.600}"
+                        },
+                        "press": {
+                            "$description": "Pressed critical background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.critical.700}"
+                        },
+                        "disabled": {
+                            "$description": "Disabled success background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.100}"
+                        }
+                    },
+                    "information": {
+                        "default": {
+                            "$description": "Default information background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu-cobalt.600}"
+                        },
+                        "hover": {
+                            "$description": "Hovered information background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu-cobalt.700}"
+                        },
+                        "press": {
+                            "$description": "Pressed information background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu-cobalt.800}"
+                        },
+                        "disabled": {
+                            "$description": "Disabled success background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.100}"
+                        }
+                    },
+                    "success": {
+                        "default": {
+                            "$description": "Default success background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.vert-trefle.500}"
+                        },
+                        "hover": {
+                            "$description": "Hovered success background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.vert-trefle.600}"
+                        },
+                        "press": {
+                            "$description": "Pressed success background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.vert-trefle.700}"
+                        },
+                        "disabled": {
+                            "$description": "Disabled success background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.100}"
+                        }
+                    },
+                    "warning": {
+                        "default": {
+                            "$description": "Default warning background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.jaune-or.500}"
+                        },
+                        "hover": {
+                            "$description": "Hovered warning background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.jaune-or.600}"
+                        },
+                        "press": {
+                            "$description": "Pressed warning background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.jaune-or.700}"
+                        },
+                        "disabled": {
+                            "$description": "Disabled warning background color",
                             "$type": "color",
                             "$value": "{primitive.color.neutral.100}"
                         }
@@ -322,40 +434,26 @@
                         "$type": "color",
                         "$value": "{primitive.color.transparent}"
                     },
+                    "readonly": {
+                        "$description": "Readonly background of control like input, select, textarea...",
+                        "$type": "color",
+                        "$value": "{semantic.color.background.surface.secondary}"
+                    },
                     "indicator": {
                         "selected": {
                             "$description": "Selected background color of a form-field indicator: radio, checkbox",
                             "$type": "color",
-                            "$value": "{semantic.color.primary}"
+                            "$value": "{primitive.color.primary}"
                         },
                         "hover": {
                             "$description": "Hovered background color of a form-field indicator: radio, checkbox",
                             "$type": "color",
-                            "$value": "{semantic.color.primary}"
-                        },
-                        "indeterminate": {
-                            "$description": "Indeterminate background color of a form-field indicator: checkbox",
-                            "$type": "color",
-                            "$value": "{semantic.color.primary}"
+                            "$value": "{primitive.color.bleu-acier.600}"
                         },
                         "disabled": {
                             "$description": "Disabled background color of a form-field indicator: radio, checkbox",
                             "$type": "color",
-                            "$value": "{primitive.color.neutral.300}"
-                        }
-                    },
-                    "prefix": {
-                        "default": {
-                            "$type": "color",
-                            "$value": "{semantic.color.background.action.primary.default}"
-                        },
-                        "hover": {
-                            "$type": "color",
-                            "$value": "{semantic.color.background.action.primary.hover}"
-                        },
-                        "disabled": {
-                            "$type": "color",
-                            "$value": "{semantic.color.background.action.primary.disabled}"
+                            "$value": "{primitive.color.neutral.400}"
                         }
                     }
                 },
@@ -363,7 +461,12 @@
                     "brand": {
                         "$description": "Brand background color for surface",
                         "$type": "color",
-                        "$value": "{primitive.color.bleu-acier.500}"
+                        "$value": "{primitive.color.primary}"
+                    },
+                    "body": {
+                        "$description": "Body background color",
+                        "$type": "color",
+                        "$value": "{primitive.color.neutral.0}"
                     },
                     "primary": {
                         "$description": "Background of a surface like a card, modal, overlay of a select...",
@@ -378,12 +481,80 @@
                     "tertiary": {
                         "$description": "Tertiary background (used for background of prefix and suffix of control, also in other components)",
                         "$type": "color",
-                        "$value": "{primitive.color.neutral.400}"
+                        "$value": "{primitive.color.neutral.300}"
                     },
                     "inverse": {
                         "$description": "Inverse background for contrast (mostly black)",
                         "$type": "color",
                         "$value": "{primitive.color.neutral.800}"
+                    },
+                    "critical": {
+                        "light": {
+                            "$description": "Light critical background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.critical.300}"
+                        },
+                        "lighter": {
+                            "$description": "Lighter critical background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.critical.200}"
+                        },
+                        "lightest": {
+                            "$description": "Lightest critical background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.critical.100}"
+                        }
+                    },
+                    "information": {
+                        "light": {
+                            "$description": "Light information background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu-acier.200}"
+                        },
+                        "lighter": {
+                            "$description": "Lighter information background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu-acier.200}"
+                        },
+                        "lightest": {
+                            "$description": "Lightest information background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu-acier.100}"
+                        }
+                    },
+                    "success": {
+                        "light": {
+                            "$description": "Light success background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.vert-trefle.300}"
+                        },
+                        "lighter": {
+                            "$description": "Lighter success background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.vert-trefle.200}"
+                        },
+                        "lightest": {
+                            "$description": "Lightest success background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.vert-trefle.100}"
+                        }
+                    },
+                    "warning": {
+                        "light": {
+                            "$description": "Light warning background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.jaune-or.300}"
+                        },
+                        "lighter": {
+                            "$description": "Lighter warning background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.jaune-or.200}"
+                        },
+                        "lightest": {
+                            "$description": "Lightest warning background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.jaune-or.100}"
+                        }
                     },
                     "accent": {
                         "light": {
@@ -400,25 +571,95 @@
                             "$description": "Lightest accent background color, used by segmented-button background (radio options)",
                             "$type": "color",
                             "$value": "{primitive.color.bleu-givre.100}"
+                        },
+                        "dark": {
+                            "$description": "Dark accent background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu-cobalt.600}"
+                        },
+                        "darker": {
+                            "$description": "Darker accent background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu-cobalt.700}"
+                        },
+                        "darkest": {
+                            "$description": "Darkest accent background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu-acier.800}"
                         }
                     }
+                },
+                "backdrop": {
+                    "$description": "The layer behind a surface (modal)",
+                    "$type": "color",
+                    "$value": "{primitive.color.backdrop}"
                 }
             },
             "foreground": {
                 "$description": "The layer on top of a background",
+                "brand": {
+                    "$description": "Brand foreground color",
+                    "$type": "color",
+                    "$value": "{primitive.color.primary}"
+                },
+                "primary": {
+                    "$description": "Primary foreground color",
+                    "$type": "color",
+                    "$value": "{primitive.color.neutral.0}"
+                },
+                "disabled": {
+                    "$description": "Disabled foreground color",
+                    "$type": "color",
+                    "$value": "{primitive.color.neutral.400}"
+                },
+                "critical": {
+                    "$description": "Critical foreground color",
+                    "$type": "color",
+                    "$value": "{primitive.color.critical.500}"
+                },
+                "warning": {
+                    "$description": "Warning foreground color",
+                    "$type": "color",
+                    "$value": "{primitive.color.jaune-or.700}"
+                },
+                "information": {
+                    "$description": "Information foreground color",
+                    "$type": "color",
+                    "$value": "{primitive.color.bleu-acier.800}"
+                },
+                "success": {
+                    "$description": "Success foreground color",
+                    "$type": "color",
+                    "$value": "{primitive.color.vert-trefle.500}"
+                },
+                "on-accent": {
+                    "$description": "Foreground color on top of an accent background",
+                    "$type": "color",
+                    "$value": "{primitive.color.bleu-givre.800}"
+                },
                 "action": {
                     "primary": {
                         "default": {
                             "$description": "The layer on top of a primary background",
                             "$type": "color",
-                            "$value": "{primitive.color.neutral.0}"
+                            "$value": "{semantic.color.foreground.primary}"
+                        },
+                        "hover": {
+                            "$description": "The layer on top of a primary background when hovered",
+                            "$type": "color",
+                            "$value": "{semantic.color.foreground.primary}"
+                        },
+                        "press": {
+                            "$description": "The layer on top of a primary background when pressed",
+                            "$type": "color",
+                            "$value": "{semantic.color.foreground.primary}"
                         }
                     },
                     "secondary": {
                         "default": {
                             "$description": "The layer on top of a secondary background",
                             "$type": "color",
-                            "$value": "{semantic.color.primary}"
+                            "$value": "{primitive.color.primary}"
                         },
                         "hover": {
                             "$description": "The layer on top of a secondary background when hovered",
@@ -435,7 +676,17 @@
                         "default": {
                             "$description": "The layer on top of a tertiary background",
                             "$type": "color",
-                            "$value": "{semantic.color.primary}"
+                            "$value": "{primitive.color.primary}"
+                        },
+                        "hover": {
+                            "$description": "The layer on top of a tertiary background when hovered",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu-acier.600}"
+                        },
+                        "press": {
+                            "$description": "The layer on top of a tertiary background when pressed",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu-acier.700}"
                         }
                     },
                     "neutral": {
@@ -448,28 +699,91 @@
                             "$description": "Hovered neutral foreground for element like dropdown menu item",
                             "$type": "color",
                             "$value": "{semantic.color.text.primary}"
+                        },
+                        "press": {
+                            "$description": "Pressed neutral foreground for element like dropdown menu item",
+                            "$type": "color",
+                            "$value": "{semantic.color.text.primary}"
+                        }
+                    },
+                    "critical": {
+                        "default": {
+                            "$description": "Default critical foreground color",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.0}"
+                        },
+                        "hover": {
+                            "$description": "Hovered critical foreground color",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.0}"
+                        },
+                        "press": {
+                            "$description": "Pressed critical foreground color",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.0}"
+                        }
+                    },
+                    "information": {
+                        "default": {
+                            "$description": "Default information foreground color",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.0}"
+                        },
+                        "hover": {
+                            "$description": "Hovered information foreground color",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.0}"
+                        },
+                        "press": {
+                            "$description": "Pressed information foreground color",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.0}"
+                        }
+                    },
+                    "success": {
+                        "default": {
+                            "$description": "Default success foreground color",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.0}"
+                        },
+                        "hover": {
+                            "$description": "Hovered success foreground color",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.0}"
+                        },
+                        "press": {
+                            "$description": "Pressed success foreground color",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.0}"
+                        }
+                    },
+                    "warning": {
+                        "default": {
+                            "$description": "Default warning foreground color",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.0}"
+                        },
+                        "hover": {
+                            "$description": "Hovered warning foreground color",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.0}"
+                        },
+                        "press": {
+                            "$description": "Pressed warning foreground color",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.0}"
                         }
                     }
                 },
                 "control": {
-                    "value": {
-                        "$description": "The value on top of a control background",
-                        "$type": "color",
-                        "$value": "{semantic.color.primary}"
-                    },
-                    "placeholder": {
-                        "$description": "The placeholder on top of a control background",
-                        "$type": "color",
-                        "$value": "{semantic.color.text.tertiary}"
-                    },
-                    "disabled": {
-                        "$description": "The layer on top of a control disabled background",
-                        "$type": "color",
-                        "$value": "{semantic.color.disabled}"
-                    },
                     "indicator": {
                         "selected": {
                             "$description": "Selected foreground color of a form-field indicator: radio, checkbox",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.0}"
+                        },
+                        "hover": {
+                            "$description": "Hovered foreground color of a form-field indicator: radio, checkbox",
                             "$type": "color",
                             "$value": "{primitive.color.neutral.0}"
                         },
@@ -477,20 +791,6 @@
                             "$description": "Disabled foreground color of a form-field indicator: radio, checkbox",
                             "$type": "color",
                             "$value": "{primitive.color.neutral.0}"
-                        }
-                    },
-                    "prefix": {
-                        "placeholder": {
-                            "$type": "color",
-                            "$value": "{semantic.color.text.secondary}"
-                        },
-                        "value": {
-                            "$type": "color",
-                            "$value": "{semantic.color.text.primary}"
-                        },
-                        "disabled": {
-                            "$type": "color",
-                            "$value": "{semantic.color.disabled}"
                         }
                     }
                 }
@@ -515,6 +815,48 @@
                     "$description": "Inverse color for contrast (mostly white)",
                     "$type": "color",
                     "$value": "white"
+                },
+                "disabled": {
+                    "$description": "Disabled color for text",
+                    "$type": "color",
+                    "$value": "{primitive.color.neutral.400}"
+                },
+                "critical": {
+                    "$description": "Main color to indicate an error state",
+                    "$type": "color",
+                    "$value": "{primitive.color.critical.500}"
+                },
+                "link": {
+                    "default": {
+                        "$description": "Default text color for link",
+                        "$type": "color",
+                        "$value": "{primitive.color.primary}"
+                    },
+                    "neutral": {
+                        "$description": "Active text color for link",
+                        "$type": "color",
+                        "$value": "{semantic.color.text.primary}"
+                    },
+                    "hover": {
+                        "$description": "Hovered text color for link",
+                        "$type": "color",
+                        "$value": "{primitive.color.bleu-acier.600}"
+                    },
+                    "visited": {
+                        "$description": "Visited text color for link",
+                        "$type": "color",
+                        "$value": "{primitive.color.primary}"
+                    },
+                    "disabled": {
+                        "$description": "Disabled text color for link",
+                        "$type": "color",
+                        "$value": "{primitive.color.neutral.400}"
+                    },
+                    "inverse": {
+                        "$description": "Inverse text color for link",
+                        "$type": "color",
+                        "$value": "{primitive.color.neutral.0}"
+                    }
                 }
             },
             "ripple": {
@@ -527,41 +869,40 @@
                     "secondary": {
                         "$description": "Ripple applied to an secondary action background (on a button, dropdown...)",
                         "$type": "color",
-                        "$value": "{semantic.color.primary}"
+                        "$value": "{primitive.color.primary}"
                     },
                     "tertiary": {
                         "$description": "Ripple applied to an secondary action background (on a button, dropdown...)",
                         "$type": "color",
-                        "$value": "{semantic.color.primary}"
+                        "$value": "{primitive.color.primary}"
                     }
                 },
                 "control": {
                     "$description": "Ripple applied to an control (select)",
                     "$type": "color",
-                    "$value": "{semantic.color.primary}"
+                    "$value": "{primitive.color.primary}"
                 }
-            },
-            "backdrop": {
-                "$description": "The layer behind a surface (modal)",
-                "$type": "color",
-                "$value": "{primitive.color.backdrop}"
             }
         },
         "font": {
             "size": {
                 "base": {
+                    "$description": "Base font size, equivalent to 1rem",
                     "$type": "dimension",
                     "$value": "16px"
                 },
                 "s": {
+                    "$description": "Smaller font size",
                     "$type": "dimension",
                     "$value": "15px"
                 },
                 "m": {
+                    "$description": "Medium font size, equivalent to base font-size",
                     "$type": "dimension",
                     "$value": "16px"
                 },
                 "l": {
+                    "$description": "Larger font size",
                     "$type": "dimension",
                     "$value": "17px"
                 },
@@ -569,108 +910,131 @@
                     "1": {
                         "$description": "Level 1 title heading",
                         "$type": "font",
-                        "$value": "{primitive.size.420}"
+                        "$value": "{primitive.font.size.1050}"
                     },
                     "2": {
                         "$description": "Level 2 title heading",
                         "$type": "font",
-                        "$value": "{primitive.size.360}"
+                        "$value": "{primitive.font.size.900}"
                     },
                     "3": {
                         "$description": "Level 3 title heading",
                         "$type": "font",
-                        "$value": "{primitive.size.300}"
+                        "$value": "{primitive.font.size.750}"
                     },
                     "4": {
                         "$description": "Level 4 title heading",
                         "$type": "font",
-                        "$value": "{primitive.size.240}"
+                        "$value": "{primitive.font.size.600}"
                     },
                     "5": {
                         "$description": "Level 5 title heading",
                         "$type": "font",
-                        "$value": "{primitive.size.200}"
+                        "$value": "{primitive.font.size.500}"
                     },
                     "6": {
                         "$description": "Level 6 title heading",
                         "$type": "font",
-                        "$value": "{primitive.size.180}"
+                        "$value": "{primitive.font.size.450}"
                     }
                 },
                 "body": {
                     "1": {
                         "$description": "Body text for introduction or catchphrases",
                         "$type": "font",
-                        "$value": "{primitive.size.200}"
+                        "$value": "{primitive.font.size.500}"
                     },
                     "2": {
                         "$description": "Body text only for news, blog for a more comfortable reading",
                         "$type": "font",
-                        "$value": "{primitive.size.180}"
+                        "$value": "{primitive.font.size.450}"
                     },
                     "3": {
                         "$description": "Default body text for common paragraphs",
                         "$type": "font",
-                        "$value": "{primitive.size.160}"
+                        "$value": "{primitive.font.size.400}"
                     }
                 },
-                "strong": {
+                "label": {
                     "1": {
                         "$description": "Text used for buttons, links or other standard-sized actions",
                         "$type": "font",
-                        "$value": "{primitive.size.160}"
+                        "$value": "{primitive.font.size.400}"
                     },
                     "2": {
                         "$description": "Text used for buttons, links or other smaller-sized actions",
                         "$type": "font",
-                        "$value": "{primitive.size.140}"
+                        "$value": "{primitive.font.size.350}"
+                    },
+                    "3": {
+                        "$description": "Text used for buttons, links or other even-smaller-sized actions",
+                        "$type": "font",
+                        "$value": "{primitive.font.size.300}"
                     }
                 },
                 "caption": {
                     "1": {
                         "$description": "Use for minor mentions, captions or other information",
                         "$type": "font",
-                        "$value": "{primitive.size.140}"
+                        "$value": "{primitive.font.size.400}"
                     },
                     "2": {
                         "$description": "Use for even-minor mentions, captions or other information",
                         "$type": "font",
-                        "$value": "{primitive.size.120}"
+                        "$value": "{primitive.font.size.350}"
+                    },
+                    "3": {
+                        "$description": "Use for even-more-minor mentions, captions or other information",
+                        "$type": "font",
+                        "$value": "{primitive.font.size.300}"
                     }
                 }
             },
             "line-height": {
                 "base": {
+                    "$description": "Base line-height",
                     "$type": "number",
                     "$value": "{primitive.font.line-height.100}"
                 },
                 "medium": {
+                    "$description": "Higher line-height",
                     "$type": "number",
                     "$value": "{primitive.font.line-height.120}"
                 },
                 "large": {
+                    "$description": "Highest line-height",
                     "$type": "number",
                     "$value": "{primitive.font.line-height.140}"
                 }
             },
             "weight": {
+                "black": {
+                    "$description": "Avenir Black font weight",
+                    "$type": "number",
+                    "$value": "{primitive.font.weight.900}"
+                },
                 "heavy": {
+                    "$description": "Avenir Heavy font weight",
                     "$type": "number",
                     "$value": "{primitive.font.weight.800}"
                 },
                 "medium": {
+                    "$description": "Avenir Medium font weight",
                     "$type": "number",
                     "$value": "{primitive.font.weight.500}"
                 },
-                "regular": {
+                "roman": {
+                    "$description": "Avenir Roman font weight",
                     "$type": "number",
                     "$value": "{primitive.font.weight.400}"
                 },
-                "light": {
+                "book": {
+                    "$description": "Avenir Book font weight",
                     "$type": "number",
                     "$value": "{primitive.font.weight.300}"
                 },
-                "thin": {
+                "light": {
+                    "$description": "Avenir Light font weight",
                     "$type": "number",
                     "$value": "{primitive.font.weight.100}"
                 }
@@ -678,6 +1042,7 @@
             "style": {
                 "control": {
                     "placeholder": {
+                        "$description": "Placeholder font-size (previously in italic)",
                         "$type": "string",
                         "$value": "normal"
                     }
@@ -686,48 +1051,94 @@
         },
         "spacing": {
             "small": {
+                "$description": "Small spacing",
                 "$type": "dimension",
                 "$value": "{primitive.size.40}"
             },
             "base": {
+                "$description": "Base spacing, can be used for calculation",
                 "$type": "dimension",
                 "$value": "{semantic.size.base}"
             },
             "large": {
+                "$description": "Large spacing",
                 "$type": "dimension",
                 "$value": "{primitive.size.160}"
             },
-            "size": {
-                "s": {
-                    "horizontal": {
-                        "$type": "dimension",
-                        "$value": "12px"
-                    },
-                    "vertical": {
-                        "$type": "dimension",
-                        "$value": "4px"
-                    }
-                },
-                "m": {
-                    "horizontal": {
-                        "$type": "dimension",
-                        "$value": "16px"
-                    },
-                    "vertical": {
-                        "$type": "dimension",
-                        "$value": "8px"
-                    }
-                },
-                "l": {
-                    "horizontal": {
-                        "$type": "dimension",
-                        "$value": "16px"
-                    },
-                    "vertical": {
-                        "$type": "dimension",
-                        "$value": "12px"
-                    }
-                }
+            "base-025": {
+                "$description": "Base spacing x0.25",
+                "$type": "dimension",
+                "$value": "{primitive.spacing.2}"
+            },
+            "base-05": {
+                "$description": "Base spacing x0.5",
+                "$type": "dimension",
+                "$value": "{primitive.spacing.4}"
+            },
+            "base-150": {
+                "$description": "Base spacing x1.5",
+                "$type": "dimension",
+                "$value": "{primitive.spacing.12}"
+            },
+            "base-200": {
+                "$description": "Base spacing x2",
+                "$type": "dimension",
+                "$value": "{primitive.spacing.16}"
+            },
+            "base-250": {
+                "$description": "Base spacing x2.5",
+                "$type": "dimension",
+                "$value": "{primitive.spacing.20}"
+            },
+            "base-300": {
+                "$description": "Base spacing x3",
+                "$type": "dimension",
+                "$value": "{primitive.spacing.24}"
+            },
+            "base-400": {
+                "$description": "Base spacing x4",
+                "$type": "dimension",
+                "$value": "{primitive.spacing.32}"
+            },
+            "base-500": {
+                "$description": "Base spacing x5",
+                "$type": "dimension",
+                "$value": "{primitive.spacing.40}"
+            },
+            "base-600": {
+                "$description": "Base spacing x6",
+                "$type": "dimension",
+                "$value": "{primitive.spacing.48}"
+            },
+            "base-700": {
+                "$description": "Base spacing x7",
+                "$type": "dimension",
+                "$value": "{primitive.spacing.56}"
+            },
+            "base-800": {
+                "$description": "Base spacing x8",
+                "$type": "dimension",
+                "$value": "{primitive.spacing.64}"
+            },
+            "base-900": {
+                "$description": "Base spacing x9",
+                "$type": "dimension",
+                "$value": "{primitive.spacing.72}"
+            },
+            "base-1000": {
+                "$description": "Base spacing x10",
+                "$type": "dimension",
+                "$value": "{primitive.spacing.80}"
+            },
+            "base-1100": {
+                "$description": "Base spacing x11",
+                "$type": "dimension",
+                "$value": "{primitive.spacing.88}"
+            },
+            "base-1200": {
+                "$description": "Base spacing x12",
+                "$type": "dimension",
+                "$value": "{primitive.spacing.96}"
             }
         },
         "motion": {
@@ -766,6 +1177,7 @@
                         "$value": "{primitive.duration.1500}"
                     },
                     "slow": {
+                        "$description": "Motion duration for slow animations",
                         "$type": "duration",
                         "$value": "{primitive.duration.2000}"
                     }

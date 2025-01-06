@@ -18,7 +18,7 @@ import { CardMode } from './card-interface';
 })
 export class Card implements ComponentInterface {
     @Prop({reflect: true, mutable: true})
-    mode: CardMode = 'raised';
+    mode: CardMode = 'flat';
 
 
     render() {

@@ -1,4 +1,3 @@
-@import '../../style/elevation.scss';
 // TODO: get rid of this.
 @import '~@material/ripple/mdc-ripple';
 @import '../../style/focus-outline.scss';
@@ -8,7 +7,7 @@
 
     --wcs-button-color: var(--wcs-button-plain-color-default);
     --wcs-button-plain-color-default: var(--wcs-semantic-color-foreground-action-primary-default);
-    --wcs-button-color-disabled: var(--wcs-semantic-color-disabled);
+    --wcs-button-color-disabled: var(--wcs-semantic-color-text-disabled);
     --wcs-button-stroked-color-default: var(--wcs-semantic-color-foreground-action-secondary-default);
     --wcs-button-clear-color-default: var(--wcs-semantic-color-foreground-action-tertiary-default);
 
@@ -29,7 +28,7 @@
     --wcs-button-clear-ripple-color-default: var(--wcs-semantic-color-ripple-action-tertiary);
     --wcs-button-border-radius: var(--wcs-button-border-radius-default);
     --wcs-button-border-radius-default: var(--wcs-semantic-border-radius-base);
-    --wcs-button-border-radius-rounded: var(--wcs-semantic-border-radius-circular);
+    --wcs-button-border-radius-rounded: var(--wcs-semantic-border-radius-full);
 
     --wcs-button-stroked-border-color: var(--wcs-button-stroked-border-color-default);
     --wcs-button-stroked-border-width: var(--wcs-semantic-border-width-default);
@@ -38,18 +37,19 @@
 
     --wcs-button-height-s: var(--wcs-semantic-size-s);
     --wcs-button-font-size-s: var(--wcs-semantic-font-size-s);
-    --wcs-button-padding-horizontal-size-s: var(--wcs-semantic-spacing-size-s-horizontal);
-    --wcs-button-padding-vertical-size-s: var(--wcs-semantic-spacing-size-s-vertical);
+    --wcs-button-padding-horizontal-size-s: calc(1.5 * var(--wcs-semantic-spacing-base));
+    --wcs-button-padding-vertical-size-s: calc(0.5 * var(--wcs-semantic-spacing-base));
 
     --wcs-button-height-m: var(--wcs-semantic-size-m);
     --wcs-button-font-size-m: var(--wcs-semantic-font-size-m);
-    --wcs-button-padding-horizontal-size-m: var(--wcs-semantic-spacing-size-m-horizontal);
-    --wcs-button-padding-vertical-size-m: var(--wcs-semantic-spacing-size-m-vertical);
+    --wcs-button-padding-horizontal-size-m: var(--wcs-semantic-spacing-large);
+    --wcs-button-padding-vertical-size-m: var(--wcs-semantic-spacing-base);
 
     --wcs-button-height-l: var(--wcs-semantic-size-l);
     --wcs-button-font-size-l: var(--wcs-semantic-font-size-l);
-    --wcs-button-padding-horizontal-size-l: var(--wcs-semantic-spacing-size-l-horizontal);
-    --wcs-button-padding-vertical-size-l: var(--wcs-semantic-spacing-size-l-vertical);
+    --wcs-button-padding-horizontal-size-l: var(--wcs-semantic-spacing-large);
+    --wcs-button-padding-vertical-size-l: calc(1.5 * var(--wcs-semantic-spacing-base));
+
 
     --wcs-button-font-weight: var(--wcs-semantic-font-weight-medium);
 }
@@ -206,6 +206,7 @@
     @include mdc-states-focus-opacity(.2);
     @include mdc-states-press-opacity(.3);
     @include mdc-states-base-color(white);
+    --mdc-ripple-focus-opacity: 0;
 
     // This property is used to set the ripple color
     &::before,
@@ -238,15 +239,7 @@
     height: var(--wcs-button-height);
     min-width: var(--wcs-button-min-width);
 
-    transition: color 175ms ease-in-out, background-color 175ms ease-in-out, wcs-elevation-transition();
-
-    &:focus {
-        @include wcs-elevation(1);
-    }
-
-    &:hover {
-        @include wcs-elevation(2);
-    }
+    transition: color 175ms ease-in-out, background-color 175ms ease-in-out;
 }
 
 a {

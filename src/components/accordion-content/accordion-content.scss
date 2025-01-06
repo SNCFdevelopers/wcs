@@ -1,6 +1,8 @@
 :host {
     --wcs-accordion-content-padding: var(--wcs-semantic-spacing-base) calc(3 * var(--wcs-semantic-spacing-base)) var(--wcs-semantic-spacing-large) calc(3 * var(--wcs-semantic-spacing-base));
+    --wcs-accordion-content-text-color: var(--wcs-semantic-color-text-secondary);
 
     padding: var(--wcs-accordion-content-padding);
+    color: var(--wcs-accordion-content-text-color);
     display: block;
 }

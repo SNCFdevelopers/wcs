@@ -18,7 +18,6 @@ const HEADER_INHERITED_ATTRS = [];
  * @cssprop --wcs-header-logo-height - Height of the logo
  * @cssprop --wcs-header-padding-horizontal - Horizontal padding of the header
  * 
- * @cssprop --wcs-header-box-shadow - Box-shadow of the header
  * @cssprop --wcs-header-title-color - Color of the title
  * @cssprop --wcs-header-title-font-weight - Font weight of the title
  * @cssprop --wcs-header-title-font-size - Font size of the title

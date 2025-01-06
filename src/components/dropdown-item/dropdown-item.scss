@@ -1,9 +1,9 @@
 wcs-dropdown-item {
     --wcs-dropdown-item-height: var(--wcs-semantic-size-m);
-    --wcs-dropdown-item-padding-horizontal: var(--wcs-semantic-spacing-size-m-horizontal);
+    --wcs-dropdown-item-padding-horizontal: var(--wcs-semantic-spacing-large);
     --wcs-dropdown-item-padding-vertical: 0;
 
-    --wcs-dropdown-item-text-font-weight: var(--wcs-semantic-font-weight-regular);
+    --wcs-dropdown-item-text-font-weight: var(--wcs-semantic-font-weight-roman);
 
     --wcs-dropdown-item-text-color-default: var(--wcs-semantic-color-foreground-action-neutral-default);
     --wcs-dropdown-item-text-color-focus: var(--wcs-semantic-color-foreground-action-neutral-default);
@@ -33,7 +33,7 @@ wcs-dropdown-item:hover {
 }
 
 wcs-dropdown-item:focus-visible {
-    outline: solid var(--wcs-dropdown-item-border-width-focus) var(--wcs-dropdown-item-border-color-focus);
+    outline: dashed var(--wcs-dropdown-item-border-width-focus) var(--wcs-dropdown-item-border-color-focus);
     outline-offset: calc(-1 * var(--wcs-dropdown-item-border-width-focus));
     border-radius: var(--wcs-dropdown-item-border-radius-focus);
     color: var(--wcs-dropdown-item-text-color-focus);

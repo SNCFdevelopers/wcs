@@ -2,9 +2,9 @@
 
 :host {
     --wcs-switch-background-color-initial: var(--wcs-semantic-color-background-surface-secondary);
-    --wcs-switch-background-color-final: var(--wcs-semantic-color-primary);
-    --wcs-switch-background-color-disabled: var(--wcs-primitive-color-neutral-300);
-    --wcs-switch-background-color-disabled-selected: var(--wcs-primitive-color-neutral-300);
+    --wcs-switch-background-color-final: var(--wcs-semantic-color-background-surface-brand);
+    --wcs-switch-background-color-disabled: var(--wcs-semantic-color-background-surface-tertiary);
+    --wcs-switch-background-color-disabled-selected: var(--wcs-semantic-color-background-surface-tertiary);
 
     --wcs-switch-padding-horizontal: var(--wcs-semantic-spacing-small);
     --wcs-switch-padding-vertical: calc((var(--wcs-switch-height) - var(--wcs-switch-dot-size)) / 2); // to center the dot vertically, at the middle of the dot
@@ -12,7 +12,7 @@
     --wcs-switch-dot-color-initial: var(--wcs-primitive-color-neutral-600); // the dot color when the switch is not checked
     --wcs-switch-dot-color-final: var(--wcs-primitive-color-neutral-0); // the dot color when the switch is checked
     --wcs-switch-dot-color-disabled: var(--wcs-primitive-color-neutral-600);
-    --wcs-switch-dot-color-disabled-selected: var(--wcs-primitive-color-neutral-0);
+    --wcs-switch-dot-color-disabled-selected: var(--wcs-primitive-color-neutral-600);
 
     --wcs-switch-text-color-default: var(--wcs-semantic-color-text-secondary);
     --wcs-switch-text-color-selected: var(--wcs-semantic-color-text-primary);
@@ -24,7 +24,7 @@
 
     --wcs-switch-outline-color-focus: var(--wcs-semantic-color-border-focus-base);
 
-    --wcs-switch-dot-translate-x: calc(var(--wcs-switch-width) - var(--wcs-switch-dot-size) - 2 * var(--wcs-switch-padding-horizontal));
+    --wcs-switch-dot-translate-x: calc(var(--wcs-switch-width) - var(--wcs-switch-dot-size) - (2 * var(--wcs-switch-padding-horizontal)));
     --wcs-switch-transition-duration: var(--wcs-semantic-motion-duration-feedback-base);
 
     --wcs-switch-dot-size: 0.875rem; /* 14px */
@@ -32,7 +32,7 @@
     --wcs-switch-height: 1.5rem; /* 24px */
     --wcs-switch-width: 3rem; /* 48px */
 
-    --wcs-switch-border-radius: var(--wcs-semantic-border-radius-circular);
+    --wcs-switch-border-radius: var(--wcs-semantic-border-radius-full);
 
     --wcs-switch-gap: var(--wcs-semantic-spacing-base);
 
@@ -173,7 +173,7 @@
     }
 }
 
-/* When the switch is checked, change the dot to grey */
+/* When the switch is checked, change the dot to white */
 input:not([disabled]):checked + .wcs-checkmark::before,
 .wcs-container:hover input:not([disabled]) + .wcs-checkmark::before,
 .wcs-container:focus input:not([disabled]) + .wcs-checkmark::before {

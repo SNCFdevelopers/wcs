@@ -9,6 +9,8 @@ import {isEnterKey, generateUniqueId, isSpaceKey} from "../../utils/helpers";
  * @cssprop --wcs-select-option-background-color-default - Default background color of the option
  * @cssprop --wcs-select-option-background-color-hover - Background color of the option when hovered
  * @cssprop --wcs-select-option-background-color-selected - Background color of the option when selected
+ * @cssprop --wcs-select-option-background-color-selected-hover - Background color of the option when selected and hovered
+ * @cssprop --wcs-select-option-background-color-selected-press - Background color of the option when selected and pressed
  * @cssprop --wcs-select-option-background-color-selected-disabled - Background color of the option when selected and disabled
  * @cssprop --wcs-select-option-background-color-focus - Background color of the option when focused
  * 
@@ -32,6 +34,7 @@ import {isEnterKey, generateUniqueId, isSpaceKey} from "../../utils/helpers";
  * @cssprop --wcs-select-option-checkbox-color - Color of the checkbox
  * 
  * @cssprop --wcs-select-option-gap - Gap between the checkbox and the text
+ * @cssprop --wcs-select-option-transition-duration - Duration of the transition
  */
 @Component({
     tag: 'wcs-select-option',

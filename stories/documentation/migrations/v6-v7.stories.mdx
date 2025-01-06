@@ -1,4 +1,4 @@
-import {Meta} from '@storybook/addon-docs';
+import {Meta, Unstyled} from '@storybook/addon-docs';
 
 <Meta title="Documentation/Migrations/v6 to v7"/>
 
@@ -24,7 +24,9 @@ If your project uses CSS variable overrides, it is crucial to read this document
 
 ### Fonts
 
-**`Avenir Heavy`** has been added to the available fonts. It corresponds to the **font-weight `800`** of the Avenir font family.  
+Some changes have been made to the font weights. You must update your global stylesheet accordingly.
+
+1. **`Avenir Heavy`** has been added to the available fonts. It corresponds to the **font-weight `800`** of the Avenir font family.  
 You must add it to your font-face declaration if you want to use it.
 
 ```css
@@ -34,6 +36,54 @@ You must add it to your font-face declaration if you want to use it.
   font-weight: 800;
 }
 ```
+
+2. **`Avenir Roman`** has been added to the available fonts. It corresponds to the **font-weight `400`** of the Avenir font family.  
+You must add it to your font-face declaration if you want to use it.
+
+```css
+@font-face {
+  font-family: Avenir;
+  src: url("assets/fonts/avenir-roman.woff");
+  font-weight: 400;
+}
+```
+
+3. **`Avenir Light`** is now **font-weight `100`** instead of `300`. **`Avenir Book`** is now **font-weight `300`** instead of `400`.
+
+To sum up :
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Before</th>
+            <th>After</th>
+        </tr>
+    </thead>
+    <tbody style={{verticalAlign: 'baseline', fontFamily: 'Avenir'}}>
+        
+        <tr>
+            <td>
+                <Unstyled>
+                    <span style={{fontWeight: 900}}>Avenir Black 900</span><br/>
+                    <span style={{fontWeight: 500}}>Avenir Medium 500</span><br/>
+                    <span style={{fontWeight: 300}}>Avenir Book 400</span><br/>
+                    <span style={{fontWeight: 100}}>Avenir Light 300</span><br/>
+                </Unstyled>
+            </td>
+            <td>
+                <Unstyled>
+                    <span style={{fontWeight: 900}}>Avenir Black 900</span><br/>
+                    <span style={{fontWeight: 800}}>Avenir Heavy 800</span><br/>
+                    <span style={{fontWeight: 500}}>Avenir Medium 500</span><br/>
+                    <span style={{fontWeight: 400}}>Avenir Roman 400</span><br/>
+                    <span style={{fontWeight: 300}}>Avenir Book 300</span><br/>
+                    <span style={{fontWeight: 100}}>Avenir Light 100</span><br/>
+                </Unstyled>
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 Please read the [Framework integration documentation](.?path=/docs/documentation-integrations-framework-integrations--documentation) for further information.
 
@@ -65,18 +115,18 @@ Colors:
 - `--wcs-text-disabled` has been **deleted**. Use the correct design token according to your needs, for example:
   - `--wcs-semantic-color-background-surface-tertiary` for background of prefix and suffix of control.
 - `--wcs-text-medium` has been **deleted**. Use the correct design token according to your needs, for example:
-  - `--wcs-semantic-color-foreground-control-placeholder` for placeholder on top of a control background.
+  - `--wcs-semantic-color-text-teriary` for tertiary (light gray) texts.
 - `--wcs-blue` has been **deleted**. Use the correct design token according to your needs, for example:
     - `--wcs-semantic-color-primary` for primary actions or elements in the primary color.
 - `--wcs-purple` has been **deleted**. Use the correct design token according to your needs.
 - `--wcs-pink` has been **deleted**. Use the correct design token according to your needs.
 - `--wcs-red` has been **deleted**. Use the correct design token according to your needs, for example:
-    - `--wcs-semantic-color-danger` for representing danger or critical actions.
+    - `--wcs-semantic-color-text-critical` for representing a red text with error or critical actions.
 - `--wcs-orange` has been **deleted**. Use the correct design token according to your needs.
 - `--wcs-yellow` has been **deleted**. Use the correct design token according to your needs, for example:
-        - `--wcs-semantic-color-warning` for representing warnings.
+        - `--wcs-semantic-color-background-warning-default` for representing warnings.
 - `--wcs-green` has been **deleted**. Use the correct design token according to your needs, for example:
-    - `--wcs-semantic-color-success` for representing success states.
+    - `--wcs-semantic-color-background-success-default` for representing success states.
 - `--wcs-teal` has been **deleted**. Use the correct design token according to your needs.
 - `--wcs-cyan` has been **deleted**. Use the correct design token according to your needs.
 - `--wcs-primary` has been **deleted**. Use `--wcs-semantic-color-primary` instead.
@@ -119,6 +169,10 @@ Margin:
     - use instead `--wcs-button-height-s`
     - use instead `--wcs-button-height-m`
     - use instead `--wcs-button-height-l`
+
+#### wcs-card
+
+- Default card mode is now `flat` instead of `raised`. Update your cards if needed.
 
 #### wcs-input
 

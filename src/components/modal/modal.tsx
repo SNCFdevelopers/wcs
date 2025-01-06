@@ -250,8 +250,7 @@ export class Modal implements ComponentInterface, MutableAriaAttribute {
                         {this.showCloseButton && (
                             <wcs-button shape="round" 
                                         mode="clear" 
-                                        id="wcs-modal-close-button" 
-                                        class="wcs-dark" 
+                                        id="wcs-modal-close-button"
                                         aria-label={this.closeButtonAriaLabel}
                                         onClick={($event) => this.onCloseButtonClick($event)}>
                                 <wcs-mat-icon icon="close"></wcs-mat-icon>

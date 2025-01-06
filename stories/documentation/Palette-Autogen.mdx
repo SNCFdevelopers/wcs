@@ -18,10 +18,10 @@ export function Color({ mode, tokens }) {
                         let colors;
 
                         if (data.$value) {
-                            colors = { "": data.$value };
+                            colors = { "": data.$value.includes('rgba') ? data.original.$value : data.$value };
                         } else {
                             colors = Object.fromEntries(
-                                Object.entries(data).map(([shade, obj]) => [shade, obj.$value])
+                                Object.entries(data).map(([shade, obj]) => [shade, obj.$value.includes('rgba') ? obj.original.$value : obj.$value])
                             );
                         }
 
@@ -246,6 +246,21 @@ export function Size({ tokens }) {
     );
 }
 
+export function Spacing({ tokens }) {
+    const spacingTokens = tokens && Object.entries(tokens.primitive.spacing).map(([id, data]) => ({
+        name: id,
+        value: data.$value,
+        description: data.$description,
+    }));
+
+    return (
+        <div>
+            <p>These spacing tokens are prefixed by <code>primitive.spacing</code></p>
+            {TokensPreview(spacingTokens, false)}
+        </div>
+    );
+}
+
 
 export function Font({ tokens }) {
     const fontWeightTokens = tokens && Object.entries(tokens.primitive.font['weight']).map(([id, data]) => ({
@@ -353,65 +368,83 @@ export function Typography({ tokens }) {
         },
         {
             name: 'Body 1',
-            size: 20,
+            size: '20px',
             letterSpacing: 1,
             weight: {
                 value: 400,
-                name: 'Medium'
+                name: 'Roman'
             },
         },
         {
             name: 'Body 2',
-            size: 18,
+            size: '18px',
             letterSpacing: 1,
             weight: {
                 value: 400,
-                name: 'Medium'
+                name: 'Roman'
             },
         },
         {
             name: 'Body 3',
-            size: 16,
+            size: '16px',
             letterSpacing: 1,
             weight: {
                 value: 400,
+                name: 'Roman'
+            },
+        },
+        {
+            name: 'Label 1',
+            size: '16px',
+            letterSpacing: 1,
+            weight: {
+                value: 500,
                 name: 'Medium'
             },
         },
         {
-            name: 'Strong 1',
-            size: 16,
+            name: 'Label 2',
+            size: '14px',
             letterSpacing: 1,
             weight: {
-                value: 700,
-                name: 'Heavy'
-            },
+                value: 500,
+                name: 'Medium'
+            }
         },
         {
-            name: 'Strong 2',
-            size: 18,
+            name: 'Label 3',
+            size: '12px',
             letterSpacing: 1,
             weight: {
-                value: 700,
-                name: 'Heavy'
+                value: 500,
+                name: 'Medium'
             }
         },
         {
             name: 'Caption 1',
-            size: 14,
+            size: '16px',
             letterSpacing: 1,
             weight: {
-                value: 400,
-                name: 'Regular'
+                value: 300,
+                name: 'Book'
             }
         },
         {
             name: 'Caption 2',
-            size: 12,
+            size: '14px',
             letterSpacing: 1,
             weight: {
-                value: 400,
-                name: 'Regular'
+                value: 300,
+                name: 'Book'
+            }
+        },
+        {
+            name: 'Caption 3',
+            size: '12px',
+            letterSpacing: 1,
+            weight: {
+                value: 300,
+                name: 'Book'
             }
         },
     ];

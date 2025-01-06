@@ -13,8 +13,12 @@ export const Default: StoryObj = {
         <wcs-form-field is-error="true">
             <wcs-label>Full name</wcs-label>
             <wcs-input placeholder="John Doe"></wcs-input>
-            <wcs-error>Your name is not valid, please do what is necessary
-                <a href="https://www.service-public.fr/particuliers/vosdroits/F1656">here</a>.
+            <wcs-error style="display: inline-flex; gap: var(--wcs-semantic-spacing-base)">
+                <wcs-mat-icon icon="error" size="s"></wcs-mat-icon>
+                <span>
+                    Your name is not valid, please do what is necessary
+                    <a href="https://www.service-public.fr/particuliers/vosdroits/F1656">here</a>.
+                </span>
             </wcs-error>
         </wcs-form-field>
     `

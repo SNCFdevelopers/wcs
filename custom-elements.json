@@ -921,6 +921,24 @@
               }
             }
           ]
+        },
+        {
+          "kind": "function",
+          "name": "setWcsContent",
+          "parameters": [
+            {
+              "name": "page",
+              "type": {
+                "text": "E2EPage"
+              }
+            },
+            {
+              "name": "content",
+              "type": {
+                "text": "string"
+              }
+            }
+          ]
         }
       ],
       "exports": [
@@ -929,6 +947,14 @@
           "name": "findFocusedNode",
           "declaration": {
             "name": "findFocusedNode",
+            "module": "utils/tests.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "setWcsContent",
+          "declaration": {
+            "name": "setWcsContent",
             "module": "utils/tests.ts"
           }
         }
@@ -940,7 +966,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "The accordion component is a vertical stack of interactive headings used to toggle the display of further information.\r\n\r\n<div style=\"background: var(--wcs-semantic-color-primary)\">Coucou</div>",
+          "description": "The accordion component is a vertical stack of interactive headings used to toggle the display of further information.",
           "name": "Accordion",
           "cssProperties": [
             {
@@ -1103,44 +1129,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/accordion-header/accordion-header.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The accordion-header is a subcomponent of `wcs-accordion`. It represents the heading text inside the accordion panel.",
-          "name": "AccordionHeader",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-accordion-header",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "AccordionHeader",
-          "declaration": {
-            "name": "AccordionHeader",
-            "module": "components/accordion-header/accordion-header.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-accordion-header",
-          "declaration": {
-            "name": "AccordionHeader",
-            "module": "components/accordion-header/accordion-header.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/accordion-content/accordion-content.tsx",
       "declarations": [
         {
@@ -1151,6 +1139,10 @@
             {
               "description": "Padding of the content",
               "name": "--wcs-accordion-content-padding"
+            },
+            {
+              "description": "Text color of the content",
+              "name": "--wcs-accordion-content-text-color"
             }
           ],
           "members": [
@@ -1185,260 +1177,38 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/accordion-panel/accordion-panel.tsx",
+      "path": "components/accordion-header/accordion-header.tsx",
       "declarations": [
         {
           "kind": "class",
-          "description": "The accordion-panel is a subcomponent of `wcs-accordion`. It represents every panel of the accordion that can be expanded.",
-          "name": "AccordionPanel",
-          "cssProperties": [
-            {
-              "description": "Default color of the accordion panel",
-              "name": "--wcs-accordion-panel-color-default"
-            },
-            {
-              "description": "Highlight color of the accordion panel",
-              "name": "--wcs-accordion-panel-color-highlight"
-            },
-            {
-              "description": "Hover color of the accordion panel",
-              "name": "--wcs-accordion-panel-color-hover"
-            },
-            {
-              "description": "Press color of the accordion panel",
-              "name": "--wcs-accordion-panel-color-press"
-            },
-            {
-              "description": "Default action color of the accordion panel",
-              "name": "--wcs-accordion-panel-action-color-default"
-            },
-            {
-              "description": "Highlight action color of the accordion panel",
-              "name": "--wcs-accordion-panel-action-color-highlight"
-            },
-            {
-              "description": "Default background color of the accordion panel",
-              "name": "--wcs-accordion-panel-background-color-default"
-            },
-            {
-              "description": "Highlight background color of the accordion panel",
-              "name": "--wcs-accordion-panel-background-color-highlight"
-            },
-            {
-              "description": "Hover background color of the accordion panel",
-              "name": "--wcs-accordion-panel-background-color-hover"
-            },
-            {
-              "description": "Press background color of the accordion panel",
-              "name": "--wcs-accordion-panel-background-color-press"
-            },
-            {
-              "description": "Font size of the accordion panel header",
-              "name": "--wcs-accordion-panel-header-font-size"
-            },
-            {
-              "description": "Font weight of the accordion panel header",
-              "name": "--wcs-accordion-panel-header-font-weight"
-            },
-            {
-              "description": "Border radius of the accordion panel",
-              "name": "--wcs-accordion-panel-border-radius"
-            },
-            {
-              "description": "Border radius of the open accordion panel",
-              "name": "--wcs-accordion-panel-border-radius-open"
-            },
-            {
-              "description": "Vertical padding of the accordion panel",
-              "name": "--wcs-accordion-panel-padding-vertical"
-            },
-            {
-              "description": "Horizontal padding of the accordion panel",
-              "name": "--wcs-accordion-panel-padding-horizontal"
-            },
-            {
-              "description": "Border width of the accordion panel header",
-              "name": "--wcs-accordion-panel-header-border-width"
-            },
-            {
-              "description": "Border width of the accordion panel",
-              "name": "--wcs-accordion-panel-border-width"
-            },
-            {
-              "description": "Border width of the accordion panel when focused",
-              "name": "--wcs-accordion-panel-border-width-focus"
-            },
-            {
-              "description": "Border color of the accordion panel",
-              "name": "--wcs-accordion-panel-border-color"
-            },
-            {
-              "description": "Border color of the accordion panel when focused",
-              "name": "--wcs-accordion-panel-border-color-focus"
-            },
-            {
-              "description": "Border style of the accordion panel when focused",
-              "name": "--wcs-accordion-panel-border-style-focus"
-            },
-            {
-              "description": "Transition duration of the accordion panel",
-              "name": "--wcs-accordion-transition-duration"
-            }
-          ],
+          "description": "The accordion-header is a subcomponent of `wcs-accordion`. It represents the heading text inside the accordion panel.",
+          "name": "AccordionHeader",
           "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "nativeButton",
-              "type": {
-                "text": "HTMLButtonElement | undefined"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "open",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "hideActionText",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Specifies whether the component should display the open/close text.\r\nif false, it won't show the open/close text."
-            },
-            {
-              "kind": "field",
-              "name": "highlight",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Specifies whether the component should highlight when open with primary color.\r\nif true, the background color will be the primary color.\r\nif false, the background color will be wcs-light."
-            },
-            {
-              "kind": "field",
-              "name": "groupContentWithHeader",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Specifies wether the component should group the content with header in one card\r\nif true, there will be only one card with the header and the content\r\nNothing change when the panel is close"
-            },
-            {
-              "kind": "method",
-              "name": "openChange",
-              "parameters": [
-                {
-                  "name": "newValue",
-                  "type": {
-                    "text": "boolean"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "close"
-            },
             {
               "kind": "method",
               "name": "render"
             }
           ],
-          "attributes": [
-            {
-              "name": "open",
-              "fieldName": "open"
-            },
-            {
-              "name": "hide-action-text",
-              "fieldName": "hideActionText",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "highlight",
-              "fieldName": "highlight",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "group-content-with-header",
-              "fieldName": "groupContentWithHeader",
-              "type": {
-                "text": "boolean"
-              }
-            }
-          ],
-          "tagName": "wcs-accordion-panel",
-          "events": [
-            {
-              "name": "wcsOpenChange",
-              "type": {
-                "text": "EventEmitter<boolean>"
-              }
-            }
-          ],
+          "tagName": "wcs-accordion-header",
+          "events": [],
           "customElement": true
         }
       ],
       "exports": [
         {
           "kind": "js",
-          "name": "AccordionPanel",
+          "name": "AccordionHeader",
           "declaration": {
-            "name": "AccordionPanel",
-            "module": "components/accordion-panel/accordion-panel.tsx"
+            "name": "AccordionHeader",
+            "module": "components/accordion-header/accordion-header.tsx"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "wcs-accordion-panel",
+          "name": "wcs-accordion-header",
           "declaration": {
-            "name": "AccordionPanel",
-            "module": "components/accordion-panel/accordion-panel.tsx"
+            "name": "AccordionHeader",
+            "module": "components/accordion-header/accordion-header.tsx"
           }
         }
       ]
@@ -1739,6 +1509,266 @@
           "declaration": {
             "name": "Badge",
             "module": "components/badge/badge.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/accordion-panel/accordion-panel.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The accordion-panel is a subcomponent of `wcs-accordion`. It represents every panel of the accordion that can be expanded.",
+          "name": "AccordionPanel",
+          "cssProperties": [
+            {
+              "description": "Default color of the accordion panel",
+              "name": "--wcs-accordion-panel-color-default"
+            },
+            {
+              "description": "Highlight color of the accordion panel",
+              "name": "--wcs-accordion-panel-color-highlight"
+            },
+            {
+              "description": "Hover color of the accordion panel",
+              "name": "--wcs-accordion-panel-color-hover"
+            },
+            {
+              "description": "Press color of the accordion panel",
+              "name": "--wcs-accordion-panel-color-press"
+            },
+            {
+              "description": "Default action color of the accordion panel",
+              "name": "--wcs-accordion-panel-action-color-default"
+            },
+            {
+              "description": "Highlight action color of the accordion panel",
+              "name": "--wcs-accordion-panel-action-color-highlight"
+            },
+            {
+              "description": "Default background color of the accordion panel",
+              "name": "--wcs-accordion-panel-background-color-default"
+            },
+            {
+              "description": "Highlight background color of the accordion panel",
+              "name": "--wcs-accordion-panel-background-color-highlight"
+            },
+            {
+              "description": "Hover background color of the accordion panel",
+              "name": "--wcs-accordion-panel-background-color-hover"
+            },
+            {
+              "description": "Press background color of the accordion panel",
+              "name": "--wcs-accordion-panel-background-color-press"
+            },
+            {
+              "description": "Font size of the accordion panel header",
+              "name": "--wcs-accordion-panel-header-font-size"
+            },
+            {
+              "description": "Font weight of the accordion panel header",
+              "name": "--wcs-accordion-panel-header-font-weight"
+            },
+            {
+              "description": "Border radius of the accordion panel",
+              "name": "--wcs-accordion-panel-border-radius"
+            },
+            {
+              "description": "Border radius of the open accordion panel",
+              "name": "--wcs-accordion-panel-border-radius-open"
+            },
+            {
+              "description": "Vertical padding of the accordion panel",
+              "name": "--wcs-accordion-panel-padding-vertical"
+            },
+            {
+              "description": "Horizontal padding of the accordion panel",
+              "name": "--wcs-accordion-panel-padding-horizontal"
+            },
+            {
+              "description": "Border width of the accordion panel header",
+              "name": "--wcs-accordion-panel-header-border-width"
+            },
+            {
+              "description": "Border width of the accordion panel",
+              "name": "--wcs-accordion-panel-border-width"
+            },
+            {
+              "description": "Border width of the accordion panel when focused",
+              "name": "--wcs-accordion-panel-border-width-focus"
+            },
+            {
+              "description": "Border color of the accordion panel",
+              "name": "--wcs-accordion-panel-border-color"
+            },
+            {
+              "description": "Border color of the accordion panel when focused",
+              "name": "--wcs-accordion-panel-border-color-focus"
+            },
+            {
+              "description": "Border style of the accordion panel when focused",
+              "name": "--wcs-accordion-panel-border-style-focus"
+            },
+            {
+              "description": "Transition duration of the accordion panel",
+              "name": "--wcs-accordion-transition-duration"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeButton",
+              "type": {
+                "text": "HTMLButtonElement | undefined"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "open",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "hideActionText",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Specifies whether the component should display the open/close text.\r\nif false, it won't show the open/close text."
+            },
+            {
+              "kind": "field",
+              "name": "highlight",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Specifies whether the component should highlight when open with primary color.\r\nif true, the background color will be the primary color.\r\nif false, the background color will be wcs-light."
+            },
+            {
+              "kind": "field",
+              "name": "groupContentWithHeader",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Specifies wether the component should group the content with header in one card\r\nif true, there will be only one card with the header and the content\r\nNothing change when the panel is close"
+            },
+            {
+              "kind": "method",
+              "name": "openChange",
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "boolean"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "close"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "open",
+              "fieldName": "open"
+            },
+            {
+              "name": "hide-action-text",
+              "fieldName": "hideActionText",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "highlight",
+              "fieldName": "highlight",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "group-content-with-header",
+              "fieldName": "groupContentWithHeader",
+              "type": {
+                "text": "boolean"
+              }
+            }
+          ],
+          "tagName": "wcs-accordion-panel",
+          "events": [
+            {
+              "name": "wcsOpenChange",
+              "type": {
+                "text": "EventEmitter<boolean>"
+              }
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "AccordionPanel",
+          "declaration": {
+            "name": "AccordionPanel",
+            "module": "components/accordion-panel/accordion-panel.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-accordion-panel",
+          "declaration": {
+            "name": "AccordionPanel",
+            "module": "components/accordion-panel/accordion-panel.tsx"
           }
         }
       ]
@@ -2087,173 +2117,6 @@
           "declaration": {
             "name": "Breadcrumb",
             "module": "components/breadcrumb/breadcrumb.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/card/card-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/card/card.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The card component is a container that display content such as text, images, buttons, and lists.  \r\nA card can be a single component, but is often made up of a header, title, subtitle, and content.",
-          "name": "Card",
-          "cssProperties": [
-            {
-              "description": "Border color of the card",
-              "name": "--wcs-card-border-color"
-            },
-            {
-              "description": "Border radius of the card",
-              "name": "--wcs-card-border-radius"
-            },
-            {
-              "description": "Border width of the card when flat",
-              "name": "--wcs-card-flat-border-width"
-            },
-            {
-              "description": "Background color of the card",
-              "name": "--wcs-card-background-color"
-            },
-            {
-              "description": "Text color of the card",
-              "name": "--wcs-card-text-color"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "mode",
-              "type": {
-                "text": "CardMode"
-              },
-              "default": "'raised'"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "mode",
-              "fieldName": "mode",
-              "type": {
-                "text": "CardMode"
-              }
-            }
-          ],
-          "tagName": "wcs-card",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Card",
-          "declaration": {
-            "name": "Card",
-            "module": "components/card/card.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-card",
-          "declaration": {
-            "name": "Card",
-            "module": "components/card/card.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/breadcrumb-item/breadcrumb-item.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The breadcrumb item represents a link inside a breadcrumb.",
-          "name": "BreadcrumbItem",
-          "cssProperties": [
-            {
-              "description": "Maximum height of the breadcrumb item",
-              "name": "--wcs-breadcrumb-item-max-height"
-            },
-            {
-              "description": "Color of the breadcrumb item icon",
-              "name": "--wcs-breadcrumb-item-icon-color"
-            },
-            {
-              "description": "Font size of the breadcrumb item icon",
-              "name": "--wcs-breadcrumb-item-icon-font-size"
-            },
-            {
-              "description": "Gap between text and chevron icon",
-              "name": "--wcs-breadcrumb-item-gap"
-            },
-            {
-              "description": "Color of the breadcrumb item link",
-              "name": "--wcs-breadcrumb-item-link-color"
-            },
-            {
-              "description": "Font weight of the breadcrumb item link",
-              "name": "--wcs-breadcrumb-item-link-font-weight"
-            },
-            {
-              "description": "Border width of the breadcrumb item when focused",
-              "name": "--wcs-breadcrumb-item-border-width-focus"
-            },
-            {
-              "description": "Border color of the breadcrumb item when focused",
-              "name": "--wcs-breadcrumb-item-border-color-focus"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Main container slot",
-              "name": "<no-name>"
-            }
-          ],
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "last",
-              "fieldName": "last"
-            }
-          ],
-          "tagName": "wcs-breadcrumb-item",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "BreadcrumbItem",
-          "declaration": {
-            "name": "BreadcrumbItem",
-            "module": "components/breadcrumb-item/breadcrumb-item.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-breadcrumb-item",
-          "declaration": {
-            "name": "BreadcrumbItem",
-            "module": "components/breadcrumb-item/breadcrumb-item.tsx"
           }
         }
       ]
@@ -2705,6 +2568,185 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/breadcrumb-item/breadcrumb-item.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The breadcrumb item represents a link inside a breadcrumb.",
+          "name": "BreadcrumbItem",
+          "cssProperties": [
+            {
+              "description": "Maximum height of the breadcrumb item",
+              "name": "--wcs-breadcrumb-item-max-height"
+            },
+            {
+              "description": "Line height of the breadcrumb item",
+              "name": "--wcs-breadcrumb-item-line-height"
+            },
+            {
+              "description": "Font size of the breadcrumb item",
+              "name": "--wcs-breadcrumb-item-font-size"
+            },
+            {
+              "description": "Color of the breadcrumb item icon",
+              "name": "--wcs-breadcrumb-item-icon-color"
+            },
+            {
+              "description": "Font size of the breadcrumb item icon",
+              "name": "--wcs-breadcrumb-item-icon-font-size"
+            },
+            {
+              "description": "Gap between text and chevron icon",
+              "name": "--wcs-breadcrumb-item-gap"
+            },
+            {
+              "description": "Color of the breadcrumb item link",
+              "name": "--wcs-breadcrumb-item-link-color"
+            },
+            {
+              "description": "Font weight of the breadcrumb item link",
+              "name": "--wcs-breadcrumb-item-link-font-weight"
+            },
+            {
+              "description": "Border width of the breadcrumb item when focused",
+              "name": "--wcs-breadcrumb-item-border-width-focus"
+            },
+            {
+              "description": "Border color of the breadcrumb item when focused",
+              "name": "--wcs-breadcrumb-item-border-color-focus"
+            },
+            {
+              "description": "Color of the breadcrumb item when the link is active",
+              "name": "--wcs-breadcrumb-item-active-color"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Main container slot",
+              "name": "<no-name>"
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "last",
+              "fieldName": "last"
+            }
+          ],
+          "tagName": "wcs-breadcrumb-item",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "BreadcrumbItem",
+          "declaration": {
+            "name": "BreadcrumbItem",
+            "module": "components/breadcrumb-item/breadcrumb-item.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-breadcrumb-item",
+          "declaration": {
+            "name": "BreadcrumbItem",
+            "module": "components/breadcrumb-item/breadcrumb-item.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/card/card-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/card/card.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The card component is a container that display content such as text, images, buttons, and lists.  \r\nA card can be a single component, but is often made up of a header, title, subtitle, and content.",
+          "name": "Card",
+          "cssProperties": [
+            {
+              "description": "Border color of the card",
+              "name": "--wcs-card-border-color"
+            },
+            {
+              "description": "Border radius of the card",
+              "name": "--wcs-card-border-radius"
+            },
+            {
+              "description": "Border width of the card when flat",
+              "name": "--wcs-card-flat-border-width"
+            },
+            {
+              "description": "Background color of the card",
+              "name": "--wcs-card-background-color"
+            },
+            {
+              "description": "Text color of the card",
+              "name": "--wcs-card-text-color"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "mode",
+              "type": {
+                "text": "CardMode"
+              },
+              "default": "'flat'"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "mode",
+              "fieldName": "mode",
+              "type": {
+                "text": "CardMode"
+              }
+            }
+          ],
+          "tagName": "wcs-card",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Card",
+          "declaration": {
+            "name": "Card",
+            "module": "components/card/card.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-card",
+          "declaration": {
+            "name": "Card",
+            "module": "components/card/card.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/card-body/card-body.tsx",
       "declarations": [
         {
@@ -2775,8 +2817,12 @@
               "name": "--wcs-checkbox-text-color-default"
             },
             {
-              "description": "Default font weight of the text",
-              "name": "--wcs-checkbox-text-font-weight-default"
+              "description": "Font weight of the text",
+              "name": "--wcs-checkbox-text-font-weight"
+            },
+            {
+              "description": "Font size of the text",
+              "name": "--wcs-checkbox-text-font-size"
             },
             {
               "description": "Color of the text when the checkbox is disabled",
@@ -2791,10 +2837,6 @@
               "name": "--wcs-checkbox-text-color-selected"
             },
             {
-              "description": "Font weight of the text when the checkbox is selected",
-              "name": "--wcs-checkbox-text-font-weight-selected"
-            },
-            {
               "description": "Color of the border when the checkbox is not selected",
               "name": "--wcs-checkbox-border-color-default"
             },
@@ -2805,10 +2847,6 @@
             {
               "description": "Color of the border when the checkbox is disabled",
               "name": "--wcs-checkbox-border-color-disabled"
-            },
-            {
-              "description": "Color of the border when the checkbox is in indeterminate state",
-              "name": "--wcs-checkbox-border-color-indeterminate"
             },
             {
               "description": "Color of the border when the checkbox is selected",
@@ -2823,16 +2861,16 @@
               "name": "--wcs-checkbox-border-width"
             },
             {
-              "description": "Background color of the checkbox when in indeterminate state",
-              "name": "--wcs-checkbox-background-color-indeterminate"
-            },
-            {
               "description": "Background color of the checkbox when selected",
               "name": "--wcs-checkbox-background-color-selected"
             },
             {
               "description": "Background color of the checkbox when disabled",
               "name": "--wcs-checkbox-background-color-disabled"
+            },
+            {
+              "description": "Background color of the checkbox when hovered",
+              "name": "--wcs-checkbox-background-color-hover"
             },
             {
               "description": "Color of the checkmark",
@@ -3249,14 +3287,6 @@
             {
               "description": "Margin left between menu bar and the app-name section",
               "name": "--wcs-com-nav-menu-bar-margin-left"
-            },
-            {
-              "description": "Item color of the item inside menu bar",
-              "name": "--wcs-com-nav-menu-bar-item-color"
-            },
-            {
-              "description": "Font weight of the item inside menu bar",
-              "name": "--wcs-com-nav-menu-bar-item-font-weight"
             }
           ],
           "slots": [
@@ -4557,6 +4587,54 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/divider/divider.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The divider is a separator between two elements, consisting of a horizontal line.",
+          "name": "Divider",
+          "cssProperties": [
+            {
+              "description": "Color of the divider",
+              "name": "--wcs-divider-color"
+            },
+            {
+              "description": "Height (border-width) of the divider",
+              "name": "--wcs-divider-height"
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-divider",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Divider",
+          "declaration": {
+            "name": "Divider",
+            "module": "components/divider/divider.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-divider",
+          "declaration": {
+            "name": "Divider",
+            "module": "components/divider/divider.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/dropdown/dropdown-interface.ts",
       "declarations": [],
       "exports": []
@@ -4662,6 +4740,10 @@
             {
               "description": "Vertical padding of the dropdown button when size is large",
               "name": "--wcs-dropdown-padding-vertical-size-l"
+            },
+            {
+              "description": "Padding of and empty dropdown",
+              "name": "--wcs-dropdown-padding-empty"
             },
             {
               "description": "Defines the vertical padding inside the dropdown overlay",
@@ -5064,60 +5146,22 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/divider/divider.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The divider is a separator between two elements, consisting of a horizontal line.",
-          "name": "Divider",
-          "cssProperties": [
-            {
-              "description": "Color of the divider",
-              "name": "--wcs-divider-color"
-            },
-            {
-              "description": "Height (border-width) of the divider",
-              "name": "--wcs-divider-height"
-            }
-          ],
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-divider",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Divider",
-          "declaration": {
-            "name": "Divider",
-            "module": "components/divider/divider.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-divider",
-          "declaration": {
-            "name": "Divider",
-            "module": "components/divider/divider.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/dropdown-divider/dropdown-divider.tsx",
       "declarations": [
         {
           "kind": "class",
           "description": "You can add a divider between groups of items",
           "name": "DropdownDivider",
+          "cssProperties": [
+            {
+              "description": "base spacing for margins",
+              "name": "--wcs-dropdown-divider-spacing"
+            },
+            {
+              "description": "divider color",
+              "name": "--wcs-dropdown-divider-color"
+            }
+          ],
           "members": [
             {
               "kind": "method",
@@ -5156,6 +5200,24 @@
           "kind": "class",
           "description": "You can add `wcs-dropdown-header` before a group of items to describe it",
           "name": "DropdownHeader",
+          "cssProperties": [
+            {
+              "description": "Dropdown header text color",
+              "name": "--wcs-dropdown-header-color"
+            },
+            {
+              "description": "Dropdown header base spacing (1x for top and bottom, 2x for left and right)",
+              "name": "--wcs-dropdown-header-spacing"
+            },
+            {
+              "description": "Dropdown header font size",
+              "name": "--wcs-dropdown-header-font-size"
+            },
+            {
+              "description": "Dropdown header font weight",
+              "name": "--wcs-dropdown-header-font-weight"
+            }
+          ],
           "slots": [
             {
               "description": "the slot that contains the header's name",
@@ -5328,6 +5390,58 @@
           "declaration": {
             "name": "DropdownItem",
             "module": "components/dropdown-item/dropdown-item.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/error/error.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The `wcs-error` should always be wrapped in a `wcs-form-field`.\r\nIt is used to display a red message under the field indicating an incorrect user input.\r\n\r\n## Accessibility guidelines 💡\r\n- Provide a relevant error message to inform the users what they should change to make the field valid\r\n- Always add the error icon, to ensure the visual indication of the error state other than the color\r\n- `aria-description` will be automatically added to the field for screen readers\r\n- `aria-invalid=\"true\"` will be automatically added to the field for screen readers",
+          "name": "Label",
+          "cssProperties": [
+            {
+              "description": "Color of the text",
+              "name": "--wcs-error-color"
+            },
+            {
+              "description": "Font size",
+              "name": "--wcs-error-font-size"
+            },
+            {
+              "description": "Font weight",
+              "name": "--wcs-error-font-weight"
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-error",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Label",
+          "declaration": {
+            "name": "Label",
+            "module": "components/error/error.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-error",
+          "declaration": {
+            "name": "Label",
+            "module": "components/error/error.tsx"
           }
         }
       ]
@@ -5842,60 +5956,54 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/error/error.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The `wcs-error` should always be wrapped in a `wcs-form-field`.\r\nIt is used to display a red message under the field indicating an incorrect user input.\r\n\r\n## Accessibility guidelines 💡\r\n- Provide a relevant error message to inform the users what they should change to make the field valid\r\n- `aria-description` will be automatically added to the field for screen readers\r\n- `aria-invalid=\"true\"` will be automatically added to the field for screen readers",
-          "name": "Label",
-          "cssProperties": [
-            {
-              "description": "Color of the text",
-              "name": "--wcs-error-color"
-            },
-            {
-              "description": "Font size",
-              "name": "--wcs-error-font-size-default"
-            }
-          ],
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-error",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Label",
-          "declaration": {
-            "name": "Label",
-            "module": "components/error/error.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-error",
-          "declaration": {
-            "name": "Label",
-            "module": "components/error/error.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/field/field.tsx",
       "declarations": [
         {
           "kind": "class",
           "description": "This field component can be used to display the details of an entity. It is built around the label and the content of the field.",
           "name": "Field",
+          "cssProperties": [
+            {
+              "description": "The color of the label",
+              "name": "--wcs-field-label-color"
+            },
+            {
+              "description": "The font weight of the label",
+              "name": "--wcs-field-label-font-weight"
+            },
+            {
+              "description": "The font size of the label",
+              "name": "--wcs-field-label-font-size"
+            },
+            {
+              "description": "The line height of the label",
+              "name": "--wcs-field-label-line-height"
+            },
+            {
+              "description": "The color of the content",
+              "name": "--wcs-field-content-color"
+            },
+            {
+              "description": "The font weight of the content",
+              "name": "--wcs-field-content-font-weight"
+            },
+            {
+              "description": "The font size of the content",
+              "name": "--wcs-field-content-font-size"
+            },
+            {
+              "description": "The margin top of the field",
+              "name": "--wcs-field-margin-top"
+            },
+            {
+              "description": "The margin bottom of the field",
+              "name": "--wcs-field-margin-bottom"
+            },
+            {
+              "description": "The gap between the label and the content",
+              "name": "--wcs-field-gap"
+            }
+          ],
           "slots": [
             {
               "description": "Label of the field",
@@ -8241,10 +8349,6 @@
               "name": "--wcs-header-padding-horizontal"
             },
             {
-              "description": "Box-shadow of the header",
-              "name": "--wcs-header-box-shadow"
-            },
-            {
               "description": "Color of the title",
               "name": "--wcs-header-title-color"
             },
@@ -9143,120 +9247,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/label/label.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The `wcs-label` should always be wrapped in a `wcs-form-field`.\r\nIt is used to caption a form control component.\r\n\r\n## Accessibility guidelines 💡\r\n- Use concise name for the label. If you want to describe more your form control, add a `wcs-hint`\r\n- Use the required flag only as an indication to inform users that the form control is required",
-          "name": "Label",
-          "cssProperties": [
-            {
-              "description": "Color of the text",
-              "name": "--wcs-label-color"
-            },
-            {
-              "description": "Font weight of the text",
-              "name": "--wcs-label-font-weight"
-            },
-            {
-              "description": "Color of the required marker",
-              "name": "--wcs-label-required-marker-color"
-            },
-            {
-              "description": "Gap between text and required marker",
-              "name": "--wcs-label-gap"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "nativeLabel",
-              "type": {
-                "text": "HTMLLabelElement | undefined"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "required",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "If `true`, marks the label with a red star.\r\nAutomatically added if the wrapped component inside the `wcs-form-field` already has the `required` attribute."
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "required",
-              "fieldName": "required"
-            }
-          ],
-          "tagName": "wcs-label",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Label",
-          "declaration": {
-            "name": "Label",
-            "module": "components/label/label.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-label",
-          "declaration": {
-            "name": "Label",
-            "module": "components/label/label.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/input/input-interface.ts",
       "declarations": [
         {
@@ -9392,12 +9382,20 @@
               "name": "--wcs-input-prefix-suffix-color"
             },
             {
+              "description": "color of the suffix/prefix when the input is disabled",
+              "name": "--wcs-input-prefix-suffix-color-disabled"
+            },
+            {
               "description": "font weight of the suffix/prefix",
               "name": "--wcs-input-prefix-suffix-font-weight"
             },
             {
               "description": "default border color of the input when not focused",
               "name": "--wcs-input-border-color-default"
+            },
+            {
+              "description": "border color of the input when disabled",
+              "name": "--wcs-input-border-color-disabled"
             },
             {
               "description": "border color of the input when focused",
@@ -10058,6 +10056,120 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/label/label.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The `wcs-label` should always be wrapped in a `wcs-form-field`.\r\nIt is used to caption a form control component.\r\n\r\n## Accessibility guidelines 💡\r\n- Use concise name for the label. If you want to describe more your form control, add a `wcs-hint`\r\n- Use the required flag only as an indication to inform users that the form control is required",
+          "name": "Label",
+          "cssProperties": [
+            {
+              "description": "Color of the text",
+              "name": "--wcs-label-color"
+            },
+            {
+              "description": "Font weight of the text",
+              "name": "--wcs-label-font-weight"
+            },
+            {
+              "description": "Color of the required marker",
+              "name": "--wcs-label-required-marker-color"
+            },
+            {
+              "description": "Gap between text and required marker",
+              "name": "--wcs-label-gap"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeLabel",
+              "type": {
+                "text": "HTMLLabelElement | undefined"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "If `true`, marks the label with a red star.\r\nAutomatically added if the wrapped component inside the `wcs-form-field` already has the `required` attribute."
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "required",
+              "fieldName": "required"
+            }
+          ],
+          "tagName": "wcs-label",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Label",
+          "declaration": {
+            "name": "Label",
+            "module": "components/label/label.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-label",
+          "declaration": {
+            "name": "Label",
+            "module": "components/label/label.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/list-item/list-item.tsx",
       "declarations": [
         {
@@ -10190,60 +10302,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/list-item-property/list-item-property.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The list-item-property is a subcomponent of `wcs-list-item`.\r\nWrapped in a `wcs-list-item-properties`, it represents a property to describe an item.",
-          "name": "ListItemProperty",
-          "cssProperties": [
-            {
-              "description": "Font weight of the property",
-              "name": "--wcs-list-item-property-font-weight"
-            },
-            {
-              "description": "Color of the property",
-              "name": "--wcs-list-item-property-color"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Main container slot",
-              "name": "<no-name>"
-            }
-          ],
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-list-item-property",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ListItemProperty",
-          "declaration": {
-            "name": "ListItemProperty",
-            "module": "components/list-item-property/list-item-property.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-list-item-property",
-          "declaration": {
-            "name": "ListItemProperty",
-            "module": "components/list-item-property/list-item-property.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/list-item-properties/list-item-properties.tsx",
       "declarations": [
         {
@@ -10300,6 +10358,60 @@
           "declaration": {
             "name": "ListItemProperties",
             "module": "components/list-item-properties/list-item-properties.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/list-item-property/list-item-property.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The list-item-property is a subcomponent of `wcs-list-item`.\r\nWrapped in a `wcs-list-item-properties`, it represents a property to describe an item.",
+          "name": "ListItemProperty",
+          "cssProperties": [
+            {
+              "description": "Font weight of the property",
+              "name": "--wcs-list-item-property-font-weight"
+            },
+            {
+              "description": "Color of the property",
+              "name": "--wcs-list-item-property-color"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Main container slot",
+              "name": "<no-name>"
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-list-item-property",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ListItemProperty",
+          "declaration": {
+            "name": "ListItemProperty",
+            "module": "components/list-item-property/list-item-property.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-list-item-property",
+          "declaration": {
+            "name": "ListItemProperty",
+            "module": "components/list-item-property/list-item-property.tsx"
           }
         }
       ]
@@ -10889,6 +11001,10 @@
               "name": "--wcs-select-native-border-color-default"
             },
             {
+              "description": "Border color of the select when disabled",
+              "name": "--wcs-select-native-border-color-disabled"
+            },
+            {
               "description": "Border color of the select when focused",
               "name": "--wcs-select-native-border-color-focus"
             },
@@ -11153,111 +11269,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/nav/nav.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The nav component is a container for navigation links to other pages of the website.",
-          "name": "Nav",
-          "cssProperties": [
-            {
-              "description": "Background color of the nav",
-              "name": "--wcs-nav-background-color"
-            },
-            {
-              "description": "Width of the nav",
-              "name": "--wcs-nav-width"
-            },
-            {
-              "description": "Border top of the nav on mobile",
-              "name": "--wcs-nav-border-top-mobile"
-            },
-            {
-              "description": "Height of the nav on mobile",
-              "name": "--wcs-nav-height-mobile"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Bottom part of the nav to put to nav-items at the end",
-              "name": "bottom"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsProgressBarElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "nativeNav",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-nav",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Nav",
-          "declaration": {
-            "name": "Nav",
-            "module": "components/nav/nav.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-nav",
-          "declaration": {
-            "name": "Nav",
-            "module": "components/nav/nav.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/nav-item/nav-item.tsx",
       "declarations": [
         {
@@ -11408,6 +11419,111 @@
           "declaration": {
             "name": "NavItem",
             "module": "components/nav-item/nav-item.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/nav/nav.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The nav component is a container for navigation links to other pages of the website.",
+          "name": "Nav",
+          "cssProperties": [
+            {
+              "description": "Background color of the nav",
+              "name": "--wcs-nav-background-color"
+            },
+            {
+              "description": "Width of the nav",
+              "name": "--wcs-nav-width"
+            },
+            {
+              "description": "Border top of the nav on mobile",
+              "name": "--wcs-nav-border-top-mobile"
+            },
+            {
+              "description": "Height of the nav on mobile",
+              "name": "--wcs-nav-height-mobile"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Bottom part of the nav to put to nav-items at the end",
+              "name": "bottom"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsProgressBarElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeNav",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-nav",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Nav",
+          "declaration": {
+            "name": "Nav",
+            "module": "components/nav/nav.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-nav",
+          "declaration": {
+            "name": "Nav",
+            "module": "components/nav/nav.tsx"
           }
         }
       ]
@@ -11801,6 +11917,220 @@
           "declaration": {
             "name": "ProgressRadial",
             "module": "components/progress-radial/progress-radial.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/radio-group/radio-group-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/radio-group/radio-group.e2e.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/radio-group/radio-group.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "RadioGroup",
+          "cssProperties": [
+            {
+              "description": "Gap between each radio (checkmark + label) in horizontal mode",
+              "name": "--wcs-radio-group-gap"
+            },
+            {
+              "description": "Background color of the radio group option",
+              "name": "--wcs-radio-group-option-background-color"
+            },
+            {
+              "description": "Height of the radio group option",
+              "name": "--wcs-radio-group-option-height"
+            },
+            {
+              "description": "Padding of the radio group option",
+              "name": "--wcs-radio-group-option-padding"
+            },
+            {
+              "description": "Border radius of the radio group option",
+              "name": "--wcs-radio-group-option-border-radius"
+            },
+            {
+              "description": "Gap between each radio option",
+              "name": "--wcs-radio-group-option-gap"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsRadioGroupElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "any | any[] | undefined | null"
+              },
+              "description": "The value of the radio-group. Automatically reflects which radio button is selected."
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "description": "The name of the control to be set on all radio button children"
+            },
+            {
+              "kind": "field",
+              "name": "mode",
+              "type": {
+                "text": "RadioGroupMode"
+              },
+              "default": "'radio'",
+              "description": "The display mode of the control to be set on all radio button children"
+            },
+            {
+              "kind": "method",
+              "name": "onValueChangeHandler",
+              "parameters": [
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "any | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "onSlotChange"
+            },
+            {
+              "kind": "method",
+              "name": "updateAllRadioState"
+            },
+            {
+              "kind": "method",
+              "name": "updateAllRadioModeAndName"
+            },
+            {
+              "kind": "method",
+              "name": "updateRadioTabIndex",
+              "parameters": [
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "any | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "getSlottedRadios",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "HTMLWcsRadioElement[]"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "getSlottedRadiosNotDisabled",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "HTMLWcsRadioElement[]"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handleRadioClick",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "CustomEvent<RadioChosedEvent>"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyDown",
+              "parameters": [
+                {
+                  "name": "ev",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "value",
+              "fieldName": "value",
+              "type": {
+                "text": "any | any[] | undefined | null"
+              }
+            },
+            {
+              "name": "name",
+              "fieldName": "name"
+            },
+            {
+              "name": "mode",
+              "fieldName": "mode",
+              "type": {
+                "text": "RadioGroupMode"
+              }
+            }
+          ],
+          "tagName": "wcs-radio-group",
+          "events": [
+            {
+              "name": "wcsChange",
+              "type": {
+                "text": "EventEmitter<RadioGroupChangeEventDetail>"
+              },
+              "description": "Emitted when the value has changed."
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "RadioGroup",
+          "declaration": {
+            "name": "RadioGroup",
+            "module": "components/radio-group/radio-group.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-radio-group",
+          "declaration": {
+            "name": "RadioGroup",
+            "module": "components/radio-group/radio-group.tsx"
           }
         }
       ]
@@ -12202,220 +12532,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/radio-group/radio-group-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/radio-group/radio-group.e2e.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/radio-group/radio-group.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "RadioGroup",
-          "cssProperties": [
-            {
-              "description": "Gap between each radio (checkmark + label) in horizontal mode",
-              "name": "--wcs-radio-group-gap"
-            },
-            {
-              "description": "Background color of the radio group option",
-              "name": "--wcs-radio-group-option-background-color"
-            },
-            {
-              "description": "Height of the radio group option",
-              "name": "--wcs-radio-group-option-height"
-            },
-            {
-              "description": "Padding of the radio group option",
-              "name": "--wcs-radio-group-option-padding"
-            },
-            {
-              "description": "Border radius of the radio group option",
-              "name": "--wcs-radio-group-option-border-radius"
-            },
-            {
-              "description": "Gap between each radio option",
-              "name": "--wcs-radio-group-option-gap"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsRadioGroupElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "value",
-              "type": {
-                "text": "any | any[] | undefined | null"
-              },
-              "description": "The value of the radio-group. Automatically reflects which radio button is selected."
-            },
-            {
-              "kind": "field",
-              "name": "name",
-              "description": "The name of the control to be set on all radio button children"
-            },
-            {
-              "kind": "field",
-              "name": "mode",
-              "type": {
-                "text": "RadioGroupMode"
-              },
-              "default": "'radio'",
-              "description": "The display mode of the control to be set on all radio button children"
-            },
-            {
-              "kind": "method",
-              "name": "onValueChangeHandler",
-              "parameters": [
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "any | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "onSlotChange"
-            },
-            {
-              "kind": "method",
-              "name": "updateAllRadioState"
-            },
-            {
-              "kind": "method",
-              "name": "updateAllRadioModeAndName"
-            },
-            {
-              "kind": "method",
-              "name": "updateRadioTabIndex",
-              "parameters": [
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "any | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "getSlottedRadios",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "HTMLWcsRadioElement[]"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "getSlottedRadiosNotDisabled",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "HTMLWcsRadioElement[]"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "handleRadioClick",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "CustomEvent<RadioChosedEvent>"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "handleKeyDown",
-              "parameters": [
-                {
-                  "name": "ev",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "value",
-              "fieldName": "value",
-              "type": {
-                "text": "any | any[] | undefined | null"
-              }
-            },
-            {
-              "name": "name",
-              "fieldName": "name"
-            },
-            {
-              "name": "mode",
-              "fieldName": "mode",
-              "type": {
-                "text": "RadioGroupMode"
-              }
-            }
-          ],
-          "tagName": "wcs-radio-group",
-          "events": [
-            {
-              "name": "wcsChange",
-              "type": {
-                "text": "EventEmitter<RadioGroupChangeEventDetail>"
-              },
-              "description": "Emitted when the value has changed."
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "RadioGroup",
-          "declaration": {
-            "name": "RadioGroup",
-            "module": "components/radio-group/radio-group.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-radio-group",
-          "declaration": {
-            "name": "RadioGroup",
-            "module": "components/radio-group/radio-group.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/select/select-arrow.tsx",
       "declarations": [
         {
@@ -12641,6 +12757,10 @@
             {
               "description": "Border color of the select control when not focused",
               "name": "--wcs-select-control-border-color-default"
+            },
+            {
+              "description": "Border color of the select control when disabled",
+              "name": "--wcs-select-control-border-color-disabled"
             },
             {
               "description": "Border color of the select control when error",
@@ -13694,6 +13814,14 @@
               "name": "--wcs-select-option-background-color-selected"
             },
             {
+              "description": "Background color of the option when selected and hovered",
+              "name": "--wcs-select-option-background-color-selected-hover"
+            },
+            {
+              "description": "Background color of the option when selected and pressed",
+              "name": "--wcs-select-option-background-color-selected-press"
+            },
+            {
               "description": "Background color of the option when selected and disabled",
               "name": "--wcs-select-option-background-color-selected-disabled"
             },
@@ -13764,6 +13892,10 @@
             {
               "description": "Gap between the checkbox and the text",
               "name": "--wcs-select-option-gap"
+            },
+            {
+              "description": "Duration of the transition",
+              "name": "--wcs-select-option-transition-duration"
             }
           ],
           "members": [
@@ -14747,423 +14879,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/tabs/tabs-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/tabs/tabs.e2e.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/tabs/tabs.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Tabs component to switch between tab content. Use in conjunction with `wcs-tab`.",
-          "name": "Tabs",
-          "cssProperties": [
-            {
-              "description": "Height of the tabs indicator",
-              "name": "--wcs-tabs-indicator-height"
-            },
-            {
-              "description": "Background color of the tabs indicator",
-              "name": "--wcs-tabs-indicator-background-color"
-            },
-            {
-              "description": "Border radius of the tabs indicator",
-              "name": "--wcs-tabs-indicator-border-radius"
-            },
-            {
-              "description": "Text color of the tabs",
-              "name": "--wcs-tabs-color-default"
-            },
-            {
-              "description": "Text color of the tabs when hovered",
-              "name": "--wcs-tabs-color-hover"
-            },
-            {
-              "description": "Text color of the tabs when pressed",
-              "name": "--wcs-tabs-color-press"
-            },
-            {
-              "description": "Text color of the tabs when focused",
-              "name": "--wcs-tabs-color-focus"
-            },
-            {
-              "description": "Text color of the tabs when selected",
-              "name": "--wcs-tabs-color-selected"
-            },
-            {
-              "description": "Background color of the tabs when focused",
-              "name": "--wcs-tabs-background-color-focus"
-            },
-            {
-              "description": "Background color of the tabs when hovered",
-              "name": "--wcs-tabs-background-color-hover"
-            },
-            {
-              "description": "Background color of the tabs when pressed",
-              "name": "--wcs-tabs-background-color-press"
-            },
-            {
-              "description": "Border radius of the tabs",
-              "name": "--wcs-tabs-border-radius"
-            },
-            {
-              "description": "Outline color on a focused tab",
-              "name": "--wcs-tabs-border-color-focus"
-            },
-            {
-              "description": "Font weight of the tabs",
-              "name": "--wcs-tabs-font-weight-default"
-            },
-            {
-              "description": "Font weight of the tabs when selected",
-              "name": "--wcs-tabs-font-weight-selected"
-            },
-            {
-              "description": "Padding top of the tabs",
-              "name": "--wcs-tabs-padding-top"
-            },
-            {
-              "description": "Padding right of the tabs",
-              "name": "--wcs-tabs-padding-right"
-            },
-            {
-              "description": "Padding bottom of the tabs",
-              "name": "--wcs-tabs-padding-bottom"
-            },
-            {
-              "description": "Padding left of the tabs",
-              "name": "--wcs-tabs-padding-left"
-            },
-            {
-              "description": "Border bottom (gutter) below the tabs",
-              "name": "--wcs-tabs-headers-border-bottom"
-            },
-            {
-              "description": "Transition duration of the tabs",
-              "name": "--wcs-tabs-transition-duration"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsTabsElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "nativeTablist",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "align",
-              "type": {
-                "text": "WcsTabsAlignment"
-              },
-              "default": "'start'",
-              "description": "Tab headers alignment."
-            },
-            {
-              "kind": "field",
-              "name": "selectedIndex",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "Current selected tab index.\r\nStarts at 0."
-            },
-            {
-              "kind": "field",
-              "name": "selectedKey",
-              "type": {
-                "text": "any"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "headersOnly",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Whether to skip rendering the tabpanel with the content of the selected tab. Use this prop if you plan to\r\nseparately render the tab content."
-            },
-            {
-              "kind": "field",
-              "name": "gutter",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines if tabs header should have a border at the bottom"
-            },
-            {
-              "kind": "field",
-              "name": "description",
-              "type": {
-                "text": "string"
-              },
-              "description": "Description is used to provide aria-label for the tabs container which has `role=\"tablist\"`."
-            },
-            {
-              "kind": "field",
-              "name": "headers",
-              "type": {
-                "text": "string[]"
-              },
-              "privacy": "private",
-              "default": "[]"
-            },
-            {
-              "kind": "field",
-              "name": "currentActiveTabIndex",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "default": "0"
-            },
-            {
-              "kind": "field",
-              "name": "tabsId",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "default": "tabsId++"
-            },
-            {
-              "kind": "method",
-              "name": "selectedIndexChanged",
-              "parameters": [
-                {
-                  "name": "newValue",
-                  "type": {
-                    "text": "number"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "selectedTabkeyChanged",
-              "parameters": [
-                {
-                  "name": "newValue",
-                  "type": {
-                    "text": "any"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "emitActiveTabChange",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "updateCurrentActiveIndexByTabKey",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "newValue",
-                  "type": {
-                    "text": "any"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "onTabLoaded"
-            },
-            {
-              "kind": "method",
-              "name": "putTabsInCorrectDivIfTheyAreNot",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleKeyDown",
-              "parameters": [
-                {
-                  "name": "ev",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  }
-                },
-                {
-                  "name": "tabIndex",
-                  "type": {
-                    "text": "number"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "refreshHeaders",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "tabs",
-              "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "method",
-              "name": "selectTabAndEmitChangeEvent",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "index",
-                  "type": {
-                    "text": "number"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "updateTabVisibility",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "hideAllTabsContent",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            },
-            {
-              "kind": "method",
-              "name": "onTabsSlotChange",
-              "privacy": "private",
-              "description": "Observe when a new tab panel is added to the slot to let's handle accessibility properties for tabs panel:\r\n- id: to let header tab refers it proper panel\r\n- aria-label: take the same name as it's referenced header name"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "align",
-              "fieldName": "align",
-              "type": {
-                "text": "WcsTabsAlignment"
-              }
-            },
-            {
-              "name": "selected-index",
-              "fieldName": "selectedIndex",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "selected-key",
-              "fieldName": "selectedKey",
-              "type": {
-                "text": "any"
-              }
-            },
-            {
-              "name": "headers-only",
-              "fieldName": "headersOnly",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "gutter",
-              "fieldName": "gutter",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "description",
-              "fieldName": "description",
-              "type": {
-                "text": "string"
-              }
-            }
-          ],
-          "tagName": "wcs-tabs",
-          "events": [
-            {
-              "name": "tabChange",
-              "type": {
-                "text": "EventEmitter<WcsTabChangeEvent>"
-              },
-              "description": "\r\nEmitted when the selected tab change."
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Tabs",
-          "declaration": {
-            "name": "Tabs",
-            "module": "components/tabs/tabs.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-tabs",
-          "declaration": {
-            "name": "Tabs",
-            "module": "components/tabs/tabs.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/textarea/textarea-interface.ts",
       "declarations": [],
       "exports": []
@@ -15218,6 +14933,10 @@
             {
               "description": "Default border color of the textarea when not focused",
               "name": "--wcs-textarea-border-color-default"
+            },
+            {
+              "description": "Border color of the textarea when disabled",
+              "name": "--wcs-textarea-border-color-disabled"
             },
             {
               "description": "Border color of the textarea when in error state",
@@ -15764,6 +15483,423 @@
           "declaration": {
             "name": "Textarea",
             "module": "components/textarea/textarea.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/tabs/tabs-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/tabs/tabs.e2e.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/tabs/tabs.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Tabs component to switch between tab content. Use in conjunction with `wcs-tab`.",
+          "name": "Tabs",
+          "cssProperties": [
+            {
+              "description": "Height of the tabs indicator",
+              "name": "--wcs-tabs-indicator-height"
+            },
+            {
+              "description": "Background color of the tabs indicator",
+              "name": "--wcs-tabs-indicator-background-color"
+            },
+            {
+              "description": "Border radius of the tabs indicator",
+              "name": "--wcs-tabs-indicator-border-radius"
+            },
+            {
+              "description": "Text color of the tabs",
+              "name": "--wcs-tabs-color-default"
+            },
+            {
+              "description": "Text color of the tabs when hovered",
+              "name": "--wcs-tabs-color-hover"
+            },
+            {
+              "description": "Text color of the tabs when pressed",
+              "name": "--wcs-tabs-color-press"
+            },
+            {
+              "description": "Text color of the tabs when focused",
+              "name": "--wcs-tabs-color-focus"
+            },
+            {
+              "description": "Text color of the tabs when selected",
+              "name": "--wcs-tabs-color-selected"
+            },
+            {
+              "description": "Background color of the tabs when focused",
+              "name": "--wcs-tabs-background-color-focus"
+            },
+            {
+              "description": "Background color of the tabs when hovered",
+              "name": "--wcs-tabs-background-color-hover"
+            },
+            {
+              "description": "Background color of the tabs when pressed",
+              "name": "--wcs-tabs-background-color-press"
+            },
+            {
+              "description": "Border radius of the tabs",
+              "name": "--wcs-tabs-border-radius"
+            },
+            {
+              "description": "Outline color on a focused tab",
+              "name": "--wcs-tabs-border-color-focus"
+            },
+            {
+              "description": "Font weight of the tabs",
+              "name": "--wcs-tabs-font-weight-default"
+            },
+            {
+              "description": "Font weight of the tabs when selected",
+              "name": "--wcs-tabs-font-weight-selected"
+            },
+            {
+              "description": "Padding top of the tabs",
+              "name": "--wcs-tabs-padding-top"
+            },
+            {
+              "description": "Padding right of the tabs",
+              "name": "--wcs-tabs-padding-right"
+            },
+            {
+              "description": "Padding bottom of the tabs",
+              "name": "--wcs-tabs-padding-bottom"
+            },
+            {
+              "description": "Padding left of the tabs",
+              "name": "--wcs-tabs-padding-left"
+            },
+            {
+              "description": "Border bottom (gutter) below the tabs",
+              "name": "--wcs-tabs-headers-border-bottom"
+            },
+            {
+              "description": "Transition duration of the tabs",
+              "name": "--wcs-tabs-transition-duration"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsTabsElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeTablist",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "align",
+              "type": {
+                "text": "WcsTabsAlignment"
+              },
+              "default": "'start'",
+              "description": "Tab headers alignment."
+            },
+            {
+              "kind": "field",
+              "name": "selectedIndex",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "Current selected tab index.\r\nStarts at 0."
+            },
+            {
+              "kind": "field",
+              "name": "selectedKey",
+              "type": {
+                "text": "any"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "headersOnly",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Whether to skip rendering the tabpanel with the content of the selected tab. Use this prop if you plan to\r\nseparately render the tab content."
+            },
+            {
+              "kind": "field",
+              "name": "gutter",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines if tabs header should have a border at the bottom"
+            },
+            {
+              "kind": "field",
+              "name": "description",
+              "type": {
+                "text": "string"
+              },
+              "description": "Description is used to provide aria-label for the tabs container which has `role=\"tablist\"`."
+            },
+            {
+              "kind": "field",
+              "name": "headers",
+              "type": {
+                "text": "string[]"
+              },
+              "privacy": "private",
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "currentActiveTabIndex",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "0"
+            },
+            {
+              "kind": "field",
+              "name": "tabsId",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "tabsId++"
+            },
+            {
+              "kind": "method",
+              "name": "selectedIndexChanged",
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "selectedTabkeyChanged",
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "any"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "emitActiveTabChange",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "updateCurrentActiveIndexByTabKey",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "any"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "onTabLoaded"
+            },
+            {
+              "kind": "method",
+              "name": "putTabsInCorrectDivIfTheyAreNot",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyDown",
+              "parameters": [
+                {
+                  "name": "ev",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                },
+                {
+                  "name": "tabIndex",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "refreshHeaders",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "tabs",
+              "privacy": "private",
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "selectTabAndEmitChangeEvent",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "index",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "updateTabVisibility",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "hideAllTabsContent",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            },
+            {
+              "kind": "method",
+              "name": "onTabsSlotChange",
+              "privacy": "private",
+              "description": "Observe when a new tab panel is added to the slot to let's handle accessibility properties for tabs panel:\r\n- id: to let header tab refers it proper panel\r\n- aria-label: take the same name as it's referenced header name"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "align",
+              "fieldName": "align",
+              "type": {
+                "text": "WcsTabsAlignment"
+              }
+            },
+            {
+              "name": "selected-index",
+              "fieldName": "selectedIndex",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "selected-key",
+              "fieldName": "selectedKey",
+              "type": {
+                "text": "any"
+              }
+            },
+            {
+              "name": "headers-only",
+              "fieldName": "headersOnly",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "gutter",
+              "fieldName": "gutter",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "description",
+              "fieldName": "description",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "tagName": "wcs-tabs",
+          "events": [
+            {
+              "name": "tabChange",
+              "type": {
+                "text": "EventEmitter<WcsTabChangeEvent>"
+              },
+              "description": "\r\nEmitted when the selected tab change."
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Tabs",
+          "declaration": {
+            "name": "Tabs",
+            "module": "components/tabs/tabs.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-tabs",
+          "declaration": {
+            "name": "Tabs",
+            "module": "components/tabs/tabs.tsx"
           }
         }
       ]

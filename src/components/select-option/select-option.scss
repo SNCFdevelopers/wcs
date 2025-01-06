@@ -3,22 +3,23 @@
 
 wcs-select-option {
     --wcs-select-option-height: var(--wcs-semantic-size-m);
-    --wcs-select-option-padding-horizontal: var(--wcs-semantic-spacing-size-m-horizontal);
+    --wcs-select-option-padding-horizontal: var(--wcs-semantic-spacing-large);
     --wcs-select-option-padding-vertical: 0;
 
     --wcs-select-option-text-font-weight: var(--wcs-semantic-font-weight-medium);
     --wcs-select-option-text-font-size: 1rem;
 
-    // FIXME : il semble que le mapping dans le DS sur Figma est --wcs-semantic-color-text-secondary
     --wcs-select-option-text-color-default: var(--wcs-semantic-color-text-primary);
     --wcs-select-option-text-color-focus: var(--wcs-semantic-color-text-primary);
     --wcs-select-option-text-color-hover: var(--wcs-semantic-color-text-primary);
     --wcs-select-option-text-color-selected: var(--wcs-semantic-color-text-primary);
-    --wcs-select-option-text-color-disabled: var(--wcs-semantic-color-disabled);
+    --wcs-select-option-text-color-disabled: var(--wcs-semantic-color-text-disabled);
 
     --wcs-select-option-background-color-default: transparent;
     --wcs-select-option-background-color-hover: var(--wcs-semantic-color-background-action-secondary-hover);
     --wcs-select-option-background-color-selected: var(--wcs-semantic-color-background-action-secondary-selected-default);
+    --wcs-select-option-background-color-selected-hover: var(--wcs-semantic-color-background-action-secondary-selected-hover);
+    --wcs-select-option-background-color-selected-press: var(--wcs-semantic-color-background-action-secondary-selected-press);
     --wcs-select-option-background-color-selected-disabled: var(--wcs-semantic-color-background-action-secondary-selected-disabled);
     --wcs-select-option-background-color-focus: var(--wcs-semantic-color-background-action-secondary-focus);
 
@@ -26,12 +27,14 @@ wcs-select-option {
 
     --wcs-select-option-ripple-color: var(--wcs-semantic-color-ripple-action-secondary);
 
-    --wcs-select-option-checkbox-color: var(--wcs-semantic-color-primary);
+    --wcs-select-option-checkbox-color: var(--wcs-semantic-color-background-control-indicator-selected);
 
     --wcs-select-option-border-color-focus: var(--wcs-semantic-color-border-focus-base);
     --wcs-select-option-border-width-focus: var(--wcs-semantic-border-width-large);
 
     --wcs-select-option-gap: var(--wcs-semantic-spacing-base);
+
+    --wcs-select-option-transition-duration: var(--wcs-semantic-motion-duration-feedback-base);
 
     &:focus-visible {
         outline: var(--wcs-select-option-border-style-focus) var(--wcs-select-option-border-width-focus) var(--wcs-select-option-border-color-focus);
@@ -54,8 +57,11 @@ wcs-select-option {
     color: var(--wcs-select-option-text-color-default);
     background-color: var(--wcs-select-option-background-color-default);
 
+    transition-duration: var(--wcs-select-option-transition-duration);
+    transition-property: background-color, color;
+    transition-timing-function: ease;
+
     &:focus {
-        outline: none;
         color: var(--wcs-select-option-text-color-focus);
         background-color: var(--wcs-select-option-background-color-focus);
     }
@@ -79,6 +85,14 @@ wcs-select-option[hidden] {
 wcs-select-option[selected] {
     color: var(--wcs-select-option-text-color-selected);
     background-color: var(--wcs-select-option-background-color-selected);
+
+    &:hover {
+        background-color: var(--wcs-select-option-background-color-selected-hover);
+    }
+
+    &:active {
+        background-color: var(--wcs-select-option-background-color-selected-press);
+    }
 }
 
 wcs-select-option[selected][disabled] {

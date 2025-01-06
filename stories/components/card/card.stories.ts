@@ -1,4 +1,4 @@
-import { Meta, StoryFn, StoryObj } from '@storybook/web-components';
+import { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { CardMode } from '../../../src/components/card/card-interface';
 import { getComponentArgs } from '../../utils/args-generation';
@@ -28,14 +28,17 @@ const Template = (args: CardStoryArgs) => html`
 export const Default: StoryObj<CardStoryArgs> = {
     render: (args) => Template(args),
     args: {
-        mode: 'raised'
+        mode: 'flat'
     }
 }
 
-export const FlatMode: StoryObj<CardStoryArgs> = {
+/**
+ * ⚠️ Raised mode will be deprecated in the future. Please always prefer flat mode.
+ */
+export const RaisedMode: StoryObj<CardStoryArgs> = {
     render: (args) => Template(args),
     args: {
-        mode: 'flat'
+        mode: 'raised'
     }
 }
 
@@ -61,7 +64,7 @@ export const WithoutBody: StoryObj<CardStoryArgs> = {
         </wcs-card>
     `,
     args: {
-        mode: 'raised'
+        mode: 'flat'
     }
 }
 
@@ -76,7 +79,7 @@ export const OneBodyAndDivider: StoryObj<CardStoryArgs> = {
         </wcs-card>
     `,
     args: {
-        mode: 'raised'
+        mode: 'flat'
     }
 }
 
@@ -93,6 +96,6 @@ export const TwoBodyAndDivider: StoryObj<CardStoryArgs> = {
         </wcs-card>
     `,
     args: {
-        mode: 'raised'
+        mode: 'flat'
     }
 }

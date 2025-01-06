@@ -12,22 +12,21 @@ const CHECKBOX_INHERITED_ATTRS = ['tabindex', 'title'];
  * @cssprop --wcs-checkbox-outline-color-focus - Color of the focus outline
  * 
  * @cssprop --wcs-checkbox-text-color-default - Color of the text when the checkbox is not selected
- * @cssprop --wcs-checkbox-text-font-weight-default - Default font weight of the text
+ * @cssprop --wcs-checkbox-text-font-weight - Font weight of the text
+ * @cssprop --wcs-checkbox-text-font-size - Font size of the text
  * @cssprop --wcs-checkbox-text-color-disabled - Color of the text when the checkbox is disabled
  * @cssprop --wcs-checkbox-text-color-hover - Color of the text when the checkbox is hovered
  * @cssprop --wcs-checkbox-text-color-selected - Color of the text when the checkbox is selected
- * @cssprop --wcs-checkbox-text-font-weight-selected - Font weight of the text when the checkbox is selected
  *
  * @cssprop --wcs-checkbox-border-color-default - Color of the border when the checkbox is not selected
  * @cssprop --wcs-checkbox-border-color-hover - Color of the border when the checkbox is hovered
  * @cssprop --wcs-checkbox-border-color-disabled - Color of the border when the checkbox is disabled
- * @cssprop --wcs-checkbox-border-color-indeterminate - Color of the border when the checkbox is in indeterminate state
  * @cssprop --wcs-checkbox-border-color-selected - Color of the border when the checkbox is selected
  * @cssprop --wcs-checkbox-border-radius - Border radius of the checkbox
  * @cssprop --wcs-checkbox-border-width - Width of the border of the checkbox
- * @cssprop --wcs-checkbox-background-color-indeterminate - Background color of the checkbox when in indeterminate state
  * @cssprop --wcs-checkbox-background-color-selected - Background color of the checkbox when selected
  * @cssprop --wcs-checkbox-background-color-disabled - Background color of the checkbox when disabled
+ * @cssprop --wcs-checkbox-background-color-hover - Background color of the checkbox when hovered
  *
  * @cssprop --wcs-checkmark-color - Color of the checkmark
  * @cssprop --wcs-checkmark-height - Height of the checkmark (From the bottom left to the top right of the checkmark)

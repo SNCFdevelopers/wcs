@@ -1,5 +1,3 @@
-@import '../../style/elevation.scss';
-
 :host {
     --wcs-header-background-color: var(--wcs-semantic-color-background-surface-primary);
 
@@ -8,14 +6,14 @@
     --wcs-header-logo-height: calc(4 * var(--wcs-semantic-size-base));
     --wcs-header-padding-horizontal: var(--wcs-semantic-spacing-large);
 
-    --wcs-header-box-shadow: unset;
+    --wcs-header-border-bottom: solid var(--wcs-semantic-border-width-default) var(--wcs-semantic-color-border-secondary);
     --wcs-header-title-color: var(--wcs-semantic-color-text-primary);
     --wcs-header-title-font-weight: var(--wcs-semantic-font-weight-medium);
     --wcs-header-title-font-size: var(--wcs-semantic-font-size-heading-6);
 }
 
 header {
-    box-shadow: var(--wcs-header-box-shadow,  wcs-elevation-value(4));
+    border-bottom: var(--wcs-header-border-bottom);
     display: flex;
     align-items: center;
     box-sizing: border-box;

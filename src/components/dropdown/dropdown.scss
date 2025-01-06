@@ -5,14 +5,13 @@
 
     --wcs-dropdown-outline-color-focus: var(--wcs-semantic-color-border-focus-base);
 
-    // TODO : Revoir les valeurs sémantiques utilisée, il semble qu'elles ne reposent pas sur des valeurs primitives
     // Padding
-    --wcs-dropdown-padding-horizontal-size-s: var(--wcs-semantic-spacing-size-s-horizontal);
-    --wcs-dropdown-padding-horizontal-size-m: var(--wcs-semantic-spacing-size-m-horizontal);
-    --wcs-dropdown-padding-horizontal-size-l: var(--wcs-semantic-spacing-size-l-horizontal);
-    --wcs-dropdown-padding-vertical-size-s: var(--wcs-semantic-spacing-size-s-vertical);
-    --wcs-dropdown-padding-vertical-size-m: var(--wcs-semantic-spacing-size-m-vertical);
-    --wcs-dropdown-padding-vertical-size-l: var(--wcs-semantic-spacing-size-l-vertical);
+    --wcs-dropdown-padding-horizontal-size-s: calc(1.5 * var(--wcs-semantic-spacing-base));
+    --wcs-dropdown-padding-horizontal-size-m: var(--wcs-semantic-spacing-large);
+    --wcs-dropdown-padding-horizontal-size-l: var(--wcs-semantic-spacing-large);
+    --wcs-dropdown-padding-vertical-size-s: var(--wcs-semantic-spacing-small);
+    --wcs-dropdown-padding-vertical-size-m: var(--wcs-semantic-spacing-base);
+    --wcs-dropdown-padding-vertical-size-l: calc(1.5 * var(--wcs-semantic-spacing-base));
     --wcs-dropdown-padding-empty: var(--wcs-semantic-spacing-large);
 
     // Arrow color
@@ -20,20 +19,26 @@
     --wcs-dropdown-stroked-arrow-color: var(--wcs-semantic-color-foreground-action-secondary-default);
     --wcs-dropdown-clear-arrow-color: var(--wcs-semantic-color-foreground-action-tertiary-default);
 
-    --wcs-dropdown-arrow-color-disabled: var(--wcs-semantic-color-disabled);
+    --wcs-dropdown-arrow-color-disabled: var(--wcs-semantic-color-text-disabled);
 
     // Overlay
+    --wcs-dropdown-overlay-max-height: 360px;
     --wcs-dropdown-overlay-padding-vertical-size: var(--wcs-semantic-spacing-base);
-    --wcs-dropdown-overlay-max-height: var(--wcs-semantic-size-overlay-max-height);
     --wcs-dropdown-overlay-background-color: var(--wcs-semantic-color-background-surface-primary);
     --wcs-dropdown-overlay-border-width: var(--wcs-semantic-border-width-default);
     --wcs-dropdown-overlay-border-radius: var(--wcs-semantic-border-radius-base);
-    --wcs-dropdown-overlay-border-color: var(--wcs-semantic-color-border-surface);
+    --wcs-dropdown-overlay-border-color: var(--wcs-semantic-color-border-secondary);
+
+    wcs-button {
+        --wcs-button-padding: var(--wcs-dropdown-padding-vertical-size-m) calc(var(--wcs-dropdown-padding-horizontal-size-m) - 6px) var(--wcs-dropdown-padding-vertical-size-m) var(--wcs-dropdown-padding-horizontal-size-m) !important;
+        height: fit-content;
+    }
 }
 
-wcs-button {
-    --wcs-button-padding: var(--wcs-dropdown-padding-vertical-size-m) calc(var(--wcs-dropdown-padding-horizontal-size-m) - 6px) var(--wcs-dropdown-padding-vertical-size-m) var(--wcs-dropdown-padding-horizontal-size-m) !important;
-    height: fit-content;
+:host([no-arrow]) {
+    wcs-button {
+        --wcs-button-padding: var(--wcs-dropdown-padding-vertical-size-m) var(--wcs-dropdown-padding-horizontal-size-m) var(--wcs-dropdown-padding-vertical-size-m) var(--wcs-dropdown-padding-horizontal-size-m) !important;
+    }
 }
 
 /* Visually hide the native button */

@@ -6,48 +6,42 @@
     --wcs-form-field-prefix-icon-color: var(--wcs-semantic-color-text-inverse);
     --wcs-form-field-prefix-value-color: var(--wcs-semantic-color-text-inverse);
     --wcs-form-field-prefix-placeholder-color: var(--wcs-semantic-color-text-inverse);
-    --wcs-form-field-prefix-color-disabled: var(--wcs-semantic-color-disabled);
-
-    --wcs-form-field-prefix-background-color-default: var(--wcs-semantic-color-background-control-prefix-default);
-    --wcs-form-field-prefix-background-color-disabled: var(--wcs-semantic-color-background-control-prefix-disabled);
-    --wcs-form-field-prefix-background-color-hover: var(--wcs-semantic-color-background-control-prefix-hover);
-
-    --wcs-form-field-prefix-border-color-default: var(--wcs-semantic-color-border-control-prefix-default);
-    --wcs-form-field-prefix-border-color-focus: var(--wcs-semantic-color-border-control-prefix-focus);
-    --wcs-form-field-prefix-border-color-disabled: var(--wcs-semantic-color-border-control-prefix-disabled);
-
+    --wcs-form-field-prefix-color-disabled: var(--wcs-semantic-color-text-disabled);
 
     // Prefixed select
     ::slotted([slot=prefix]) {
+        --wcs-select-value-color: var(--wcs-semantic-color-text-inverse);
+        --wcs-select-placeholder-color: var(--wcs-semantic-color-text-inverse);
+        --wcs-select-control-background-color: var(--wcs-semantic-color-background-action-primary-default);
+        --wcs-select-control-arrow-color: var(--wcs-form-field-prefix-icon-color);
         --wcs-select-control-border-radius: var(--wcs-form-field-prefix-suffix-border-radius) 0 0 var(--wcs-form-field-prefix-suffix-border-radius);
+        --wcs-select-control-border-style-focus: dashed;
+        --wcs-select-control-border-color-focus: var(--wcs-semantic-color-border-focus-base);
+
+        --wcs-select-native-value-color: var(--wcs-semantic-color-text-inverse);
+        --wcs-select-native-placeholder-color: var(--wcs-semantic-color-text-inverse);
+        --wcs-select-native-arrow-color: var(--wcs-form-field-prefix-icon-color);
+        --wcs-select-native-background-color: var(--wcs-semantic-color-background-action-primary-default);
+        --wcs-select-native-border-color-focus: var(--wcs-semantic-color-border-focus-base);
+        --wcs-select-native-border-style-focus: dashed;
         --wcs-select-native-border-radius: var(--wcs-form-field-prefix-suffix-border-radius) 0 0 var(--wcs-form-field-prefix-suffix-border-radius);
         --wcs-select-native-option-color: var(--wcs-semantic-color-text-inverse);
-        --wcs-select-native-arrow-color: var(--wcs-form-field-prefix-icon-color);
-        --wcs-select-control-arrow-color: var(--wcs-form-field-prefix-icon-color);
-
-        --wcs-semantic-color-border-control-default: var(--wcs-form-field-prefix-border-color-default);
-        --wcs-semantic-color-border-control-disabled: var(--wcs-form-field-prefix-border-color-disabled);
-        --wcs-semantic-color-border-control-active: var(--wcs-form-field-prefix-border-color-focus);
-        --wcs-semantic-color-border-focus-control: var(--wcs-form-field-prefix-border-color-focus);
-
-        --wcs-semantic-color-background-control-default: var(--wcs-form-field-prefix-background-color-default);
-        --wcs-semantic-color-foreground-control-value: var(--wcs-form-field-prefix-value-color);
-        --wcs-semantic-color-foreground-control-placeholder: var(--wcs-form-field-prefix-placeholder-color);
-        --wcs-semantic-color-foreground-control-disabled: var(--wcs-form-field-prefix-color-disabled);
-
     }
 
     ::slotted([slot=prefix][disabled]),
     ::slotted([slot=prefix][data-disabled]) {
-        --wcs-semantic-color-background-control-default: var(--wcs-form-field-prefix-background-color-disabled);
+        --wcs-select-control-background-color: var(--wcs-semantic-color-background-action-primary-disabled);
+        --wcs-select-value-color: var(--wcs-semantic-color-text-disabled);
+        --wcs-select-placeholder-color: var(--wcs-semantic-color-text-disabled);
 
-        --wcs-select-control-background-color: var(--wcs-form-field-prefix-background-color-disabled);
-        --wcs-select-native-background-color: var(--wcs-form-field-prefix-background-color-disabled);
+        --wcs-select-native-background-color: var(--wcs-semantic-color-background-action-primary-disabled);
+        --wcs-select-native-placeholder-color: var(--wcs-semantic-color-text-disabled);
+        --wcs-select-native-value-color: var(--wcs-semantic-color-text-disabled);
     }
 
     ::slotted([slot=prefix]:hover:not([disabled]):not([data-disabled])) {
-        --wcs-select-control-background-color: var(--wcs-form-field-prefix-background-color-hover);
-        --wcs-select-native-background-color: var(--wcs-form-field-prefix-background-color-hover);
+        --wcs-select-control-background-color: var(--wcs-semantic-color-background-action-primary-hover);
+        --wcs-select-native-background-color: var(--wcs-semantic-color-background-action-primary-hover);
     }
     // endregion
 

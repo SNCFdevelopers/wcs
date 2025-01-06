@@ -7,9 +7,6 @@
 
     --wcs-progress-radial-value-background-color: var(--wcs-semantic-color-background-surface-brand);
 
-    // fixme: we dont document this variable as it does not seems to change anything...
-    --wcs-progress-radial-meter-color: var(--wcs-semantic-color-transparent);
-
     --wcs-progress-radial-label-color: var(--wcs-semantic-color-text-primary);
     --wcs-progress-radial-label-font-size: 1.5rem;
     --wcs-progress-radial-label-font-weight: var(--wcs-semantic-font-weight-medium);
@@ -61,11 +58,6 @@
         line-height: 0;
         vertical-align: baseline;
     }
-}
-
-// fixme: is this needed?
-.progress-circle-meter {
-  stroke: var(--wcs-progress-radial-meter-color);
 }
 
 .progress-circle-value {

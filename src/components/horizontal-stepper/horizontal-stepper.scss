@@ -2,8 +2,9 @@
 
 :host {
     --wcs-horizontal-step-text-color-default: var(--wcs-semantic-color-text-secondary);
-    --wcs-horizontal-step-text-color-active: var(--wcs-semantic-color-primary);
-    --wcs-horizontal-step-text-color-disabled: var(--wcs-semantic-color-disabled);
+    --wcs-horizontal-step-text-color-active: var(--wcs-primitive-color-primary); /* TODO map to semantic */
+    --wcs-horizontal-step-text-color-disabled: var(--wcs-semantic-color-text-disabled);
+
 
     display: block;
 

@@ -39,8 +39,8 @@ const Template: StoryFn<Partial<{ innerText: string, mode: WcsButtonMode, size: 
     <wcs-button mode=${args.mode} shape=${args.shape} size=${args.size ?? 'm'} ?ripple=${args.ripple}
                 ?disabled=${args.disabled}
                 ?loading="${args.loading}"
-                class="wcs-danger">
-        Danger
+                class="wcs-critical">
+        Critical
     </wcs-button>
     <wcs-button mode=${args.mode} shape=${args.shape} size=${args.size ?? 'm'} ?ripple=${args.ripple}
                 ?disabled=${args.disabled}
@@ -131,6 +131,7 @@ link.args = {href: 'https://sncf.com', target: '_blank'};
 const buttonToFocus: Ref<HTMLInputElement> = createRef();
 
 function setFocus(){
+    // @ts-ignore
     buttonToFocus.value?.focus();
 }
 

@@ -51,6 +51,7 @@ const TEXTAREA_INHERITED_ATTRS = ['tabindex', 'title'];
  * @cssprop --wcs-textarea-border-width-focus - Border width of the textarea when focused
  * 
  * @cssprop --wcs-textarea-border-color-default - Default border color of the textarea when not focused
+ * @cssprop --wcs-textarea-border-color-disabled - Border color of the textarea when disabled
  * @cssprop --wcs-textarea-border-color-error - Border color of the textarea when in error state
  * @cssprop --wcs-textarea-border-color-focus -  Border color of the textarea when focused
  * 

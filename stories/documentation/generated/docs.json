@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-12-12T17:45:16",
+  "timestamp": "2025-01-10T17:55:15",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -113,6 +113,10 @@
         {
           "name": "cssprop",
           "text": "--wcs-accordion-content-padding - Padding of the content"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-accordion-content-text-color - Text color of the content"
         }
       ],
       "usage": {},
@@ -909,6 +913,14 @@
         },
         {
           "name": "cssprop",
+          "text": "--wcs-breadcrumb-item-line-height - Line height of the breadcrumb item"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-breadcrumb-item-font-size - Font size of the breadcrumb item"
+        },
+        {
+          "name": "cssprop",
           "text": "--wcs-breadcrumb-item-icon-color - Color of the breadcrumb item icon"
         },
         {
@@ -934,6 +946,10 @@
         {
           "name": "cssprop",
           "text": "--wcs-breadcrumb-item-border-color-focus - Border color of the breadcrumb item when focused"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-breadcrumb-item-active-color - Color of the breadcrumb item when the link is active"
         }
       ],
       "usage": {},
@@ -1495,7 +1511,7 @@
           "reflectToAttr": true,
           "docs": "",
           "docsTags": [],
-          "default": "'raised'",
+          "default": "'flat'",
           "values": [
             {
               "value": "flat",
@@ -1565,7 +1581,11 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-checkbox-text-font-weight-default - Default font weight of the text"
+          "text": "--wcs-checkbox-text-font-weight - Font weight of the text"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-checkbox-text-font-size - Font size of the text"
         },
         {
           "name": "cssprop",
@@ -1581,10 +1601,6 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-checkbox-text-font-weight-selected - Font weight of the text when the checkbox is selected"
-        },
-        {
-          "name": "cssprop",
           "text": "--wcs-checkbox-border-color-default - Color of the border when the checkbox is not selected"
         },
         {
@@ -1594,10 +1610,6 @@
         {
           "name": "cssprop",
           "text": "--wcs-checkbox-border-color-disabled - Color of the border when the checkbox is disabled"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-checkbox-border-color-indeterminate - Color of the border when the checkbox is in indeterminate state"
         },
         {
           "name": "cssprop",
@@ -1613,15 +1625,15 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-checkbox-background-color-indeterminate - Background color of the checkbox when in indeterminate state"
-        },
-        {
-          "name": "cssprop",
           "text": "--wcs-checkbox-background-color-selected - Background color of the checkbox when selected"
         },
         {
           "name": "cssprop",
           "text": "--wcs-checkbox-background-color-disabled - Background color of the checkbox when disabled"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-checkbox-background-color-hover - Background color of the checkbox when hovered"
         },
         {
           "name": "cssprop",
@@ -2011,14 +2023,6 @@
         {
           "name": "cssprop",
           "text": "--wcs-com-nav-menu-bar-margin-left - Margin left between menu bar and the app-name section"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-com-nav-menu-bar-item-color - Item color of the item inside menu bar"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-com-nav-menu-bar-item-font-weight - Font weight of the item inside menu bar"
         }
       ],
       "usage": {},
@@ -3176,6 +3180,10 @@
         },
         {
           "name": "cssprop",
+          "text": "--wcs-dropdown-padding-empty - Padding of and empty dropdown"
+        },
+        {
+          "name": "cssprop",
           "text": "--wcs-dropdown-overlay-padding-vertical - Defines the vertical padding inside the dropdown overlay"
         },
         {
@@ -3548,7 +3556,16 @@
       "tag": "wcs-dropdown-divider",
       "readme": "# wcs-dropdown-divider\r\n\r\n\r\n\r",
       "docs": "You can add a divider between groups of items",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "cssprop",
+          "text": "--wcs-dropdown-divider-spacing - base spacing for margins"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-dropdown-divider-color - divider color"
+        }
+      ],
       "usage": {},
       "props": [],
       "methods": [],
@@ -3571,6 +3588,22 @@
         {
           "name": "slot",
           "text": "<no-name> the slot that contains the header's name"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-dropdown-header-color - Dropdown header text color"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-dropdown-header-spacing - Dropdown header base spacing (1x for top and bottom, 2x for left and right)"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-dropdown-header-font-size - Dropdown header font size"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-dropdown-header-font-weight - Dropdown header font weight"
         }
       ],
       "usage": {},
@@ -4071,7 +4104,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-error",
       "readme": "# wcs-error\r\n\r\n\r\n\r",
-      "docs": "The `wcs-error` should always be wrapped in a `wcs-form-field`.\r\nIt is used to display a red message under the field indicating an incorrect user input.\r\n\r\n## Accessibility guidelines 💡\r\n- Provide a relevant error message to inform the users what they should change to make the field valid\r\n- `aria-description` will be automatically added to the field for screen readers\r\n- `aria-invalid=\"true\"` will be automatically added to the field for screen readers",
+      "docs": "The `wcs-error` should always be wrapped in a `wcs-form-field`.\r\nIt is used to display a red message under the field indicating an incorrect user input.\r\n\r\n## Accessibility guidelines 💡\r\n- Provide a relevant error message to inform the users what they should change to make the field valid\r\n- Always add the error icon, to ensure the visual indication of the error state other than the color\r\n- `aria-description` will be automatically added to the field for screen readers\r\n- `aria-invalid=\"true\"` will be automatically added to the field for screen readers",
       "docsTags": [
         {
           "name": "cssprop",
@@ -4079,7 +4112,11 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-error-font-size-default - Font size"
+          "text": "--wcs-error-font-size - Font size"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-error-font-weight - Font weight"
         }
       ],
       "usage": {},
@@ -4114,6 +4151,46 @@
         {
           "name": "slot",
           "text": "content Content of the field"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-field-label-color - The color of the label"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-field-label-font-weight - The font weight of the label"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-field-label-font-size - The font size of the label"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-field-label-line-height - The line height of the label"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-field-content-color - The color of the content"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-field-content-font-weight - The font weight of the content"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-field-content-font-size - The font size of the content"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-field-margin-top - The margin top of the field"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-field-margin-bottom - The margin bottom of the field"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-field-gap - The gap between the label and the content"
         }
       ],
       "usage": {},
@@ -5905,10 +5982,6 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-header-box-shadow - Box-shadow of the header"
-        },
-        {
-          "name": "cssprop",
           "text": "--wcs-header-title-color - Color of the title"
         },
         {
@@ -6514,11 +6587,19 @@
         },
         {
           "name": "cssprop",
+          "text": "--wcs-input-prefix-suffix-color-disabled - color of the suffix/prefix when the input is disabled"
+        },
+        {
+          "name": "cssprop",
           "text": "--wcs-input-prefix-suffix-font-weight - font weight of the suffix/prefix"
         },
         {
           "name": "cssprop",
           "text": "--wcs-input-border-color-default - default border color of the input when not focused"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-input-border-color-disabled - border color of the input when disabled"
         },
         {
           "name": "cssprop",
@@ -8693,6 +8774,10 @@
         },
         {
           "name": "cssprop",
+          "text": "--wcs-select-native-border-color-disabled - Border color of the select when disabled"
+        },
+        {
+          "name": "cssprop",
           "text": "--wcs-select-native-border-color-focus - Border color of the select when focused"
         },
         {
@@ -10067,6 +10152,10 @@
         },
         {
           "name": "cssprop",
+          "text": "--wcs-select-control-border-color-disabled - Border color of the select control when disabled"
+        },
+        {
+          "name": "cssprop",
           "text": "--wcs-select-control-border-color-error - Border color of the select control when error"
         },
         {
@@ -10705,6 +10794,14 @@
         },
         {
           "name": "cssprop",
+          "text": "--wcs-select-option-background-color-selected-hover - Background color of the option when selected and hovered"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-select-option-background-color-selected-press - Background color of the option when selected and pressed"
+        },
+        {
+          "name": "cssprop",
           "text": "--wcs-select-option-background-color-selected-disabled - Background color of the option when selected and disabled"
         },
         {
@@ -10774,6 +10871,10 @@
         {
           "name": "cssprop",
           "text": "--wcs-select-option-gap - Gap between the checkbox and the text"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-select-option-transition-duration - Duration of the transition"
         }
       ],
       "usage": {},
@@ -12213,6 +12314,10 @@
         {
           "name": "cssprop",
           "text": "--wcs-textarea-border-color-default - Default border color of the textarea when not focused"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-textarea-border-color-disabled - Border color of the textarea when disabled"
         },
         {
           "name": "cssprop",

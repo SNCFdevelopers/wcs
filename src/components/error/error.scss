@@ -1,6 +1,9 @@
 :host {
-    --wcs-error-color: var(--wcs-semantic-color-error);
-    --wcs-error-font-size-default: 0.75rem;
+    --wcs-error-color: var(--wcs-semantic-color-text-critical);
+    --wcs-error-font-size: var(--wcs-semantic-font-size-caption-2);
+    --wcs-error-font-weight: var(--wcs-semantic-font-weight-book);
+
     color: var(--wcs-error-color);
-    font-size: var(--wcs-error-font-size-default);
+    font-size: var(--wcs-error-font-size);
+    font-weight: var(--wcs-error-font-weight);
 }

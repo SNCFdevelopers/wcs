@@ -2,9 +2,9 @@
 @import '../../style/placeholder.scss';
 
 :host {
-    --wcs-input-icon-color-default: var(--wcs-semantic-color-primary);
-    --wcs-input-icon-color-focus: var(--wcs-semantic-color-primary);
-    --wcs-input-icon-color-disabled: var(--wcs-semantic-color-foreground-control-disabled);
+    --wcs-input-icon-color-default: var(--wcs-semantic-color-foreground-brand);
+    --wcs-input-icon-color-focus: var(--wcs-semantic-color-foreground-brand);
+    --wcs-input-icon-color-disabled: var(--wcs-semantic-color-foreground-disabled);
 
     --wcs-input-background-color: var(--wcs-semantic-color-background-control-default);
 
@@ -21,31 +21,32 @@
     --wcs-input-font-size-m: var(--wcs-semantic-font-size-m);
     --wcs-input-font-size-s: var(--wcs-semantic-font-size-s);
 
-    --wcs-input-prefix-suffix-background-color: var(--wcs-semantic-color-background-surface-tertiary);
-    --wcs-input-prefix-suffix-color: var(--wcs-semantic-color-text-secondary);
-    --wcs-input-prefix-suffix-color-disabled: var(--wcs-semantic-color-disabled);
+    --wcs-input-prefix-suffix-background-color: var(--wcs-semantic-color-background-surface-accent-lighter);
+    --wcs-input-prefix-suffix-color: var(--wcs-semantic-color-foreground-on-accent);
+    --wcs-input-prefix-suffix-color-disabled: var(--wcs-semantic-color-text-disabled);
     --wcs-input-prefix-suffix-font-weight: var(--wcs-semantic-font-weight-medium);
 
     --wcs-input-border-style-default: solid;
     --wcs-input-border-style-focus: var(--wcs-semantic-border-style-focus-control);
 
-    --wcs-input-border-color-default: var(--wcs-semantic-color-border-control-default);
-    --wcs-input-border-color-focus: var(--wcs-semantic-color-border-focus-control);
-    --wcs-input-border-color-error: var(--wcs-semantic-color-error);
+    --wcs-input-border-color-default: var(--wcs-semantic-color-border-primary);
+    --wcs-input-border-color-disabled: var(--wcs-semantic-color-border-disabled);
+    --wcs-input-border-color-focus: var(--wcs-semantic-color-border-control-focus);
+    --wcs-input-border-color-error: var(--wcs-semantic-color-border-critical);
 
-    --wcs-input-value-color: var(--wcs-semantic-color-foreground-control-value);
+    --wcs-input-value-color: var(--wcs-semantic-color-text-primary);
     --wcs-input-value-font-weight: var(--wcs-semantic-font-weight-medium);
 
-    --wcs-input-placeholder-color: var(--wcs-semantic-color-foreground-control-placeholder);
-    --wcs-input-placeholder-font-weight: var(--wcs-semantic-font-weight-regular);
+    --wcs-input-placeholder-color: var(--wcs-semantic-color-text-tertiary);
+    --wcs-input-placeholder-font-weight: var(--wcs-semantic-font-weight-roman);
     --wcs-input-placeholder-font-style: var(--wcs-semantic-font-style-control-placeholder);
 
-    --wcs-input-text-color-disabled: var(--wcs-semantic-color-foreground-control-disabled);
+    --wcs-input-text-color-disabled: var(--wcs-semantic-color-text-disabled);
 
     --wcs-input-min-height: var(--wcs-semantic-size-s);
-    --wcs-input-padding-horizontal-s: var(--wcs-semantic-spacing-size-s-horizontal);
-    --wcs-input-padding-horizontal-m: var(--wcs-semantic-spacing-size-m-horizontal);
-    --wcs-input-padding-horizontal-l: var(--wcs-semantic-spacing-size-l-horizontal);
+    --wcs-input-padding-horizontal-s: calc(1.5 * var(--wcs-semantic-spacing-base));
+    --wcs-input-padding-horizontal-m: var(--wcs-semantic-spacing-large);
+    --wcs-input-padding-horizontal-l: var(--wcs-semantic-spacing-large);
     --wcs-input-gap: var(--wcs-semantic-spacing-base);
 
     display: flex;
@@ -149,10 +150,16 @@
 
 :host([disabled]) {
     cursor: not-allowed; // padding is handled by the container, so we need to set cursor not allowed on it
+    outline: var(--wcs-input-border-style-default) var(--wcs-input-border-width) var(--wcs-input-border-color-disabled);
+    --wcs-input-background-color: var(--wcs-semantic-color-background-control-disabled);
 
     input {
         cursor: not-allowed;
         color: var(--wcs-input-text-color-disabled);
+
+        &::placeholder {
+            color: var(--wcs-input-text-color-disabled);
+        }
     }
 
     .prefix, .suffix {
@@ -164,6 +171,11 @@
         color: var(--wcs-input-icon-color-disabled);
         cursor: not-allowed;
     }
+}
+
+:host([readonly]) {
+    --wcs-input-background-color: var(--wcs-semantic-color-background-control-readonly);
+    --wcs-input-border-width: 0;
 }
 
 :host(:focus-within) {

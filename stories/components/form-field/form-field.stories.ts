@@ -1,5 +1,5 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/web-components';
-import { html } from 'lit-html';
+import { html, TemplateResult } from 'lit-html';
 import { getComponentArgs } from '../../utils/args-generation';
 const meta: Meta = {
     title: 'Components/Form Field',
@@ -46,14 +46,20 @@ export const Default: StoryObj = {
     }
 }
 
+const ErrorTemplate = (text: string | TemplateResult) => html`
+    <wcs-error style="display: inline-flex; gap: var(--wcs-semantic-spacing-base)">
+        <wcs-mat-icon icon="error" size="s"></wcs-mat-icon>
+        <span>${text}</span>
+    </wcs-error>
+`;
+
 const InputTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) => html`
     <wcs-form-field ?is-error=${args.isError}>
         <wcs-label>Enter your name</wcs-label>
         <wcs-input placeholder="John Doe"></wcs-input>
+        ${ErrorTemplate(html`Your name is not valid, please do what is necessary
+        <a href="https://www.service-public.fr/particuliers/vosdroits/F1656">here</a>.`)}
         <wcs-hint>A name is something that describes a person</wcs-hint>
-        <wcs-error>Your name is not valid, please do what is necessary
-            <a href="https://www.service-public.fr/particuliers/vosdroits/F1656">here</a>.
-        </wcs-error>
     </wcs-form-field>
 `;
 export const Input: StoryObj = {
@@ -71,8 +77,8 @@ const SelectTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) => html`
             <wcs-select-option>Germany</wcs-select-option>
             <wcs-select-option>Japan</wcs-select-option>
         </wcs-select>
+        ${ErrorTemplate("Your country is not valid")}
         <wcs-hint>You can identify the person by the country music he lives in</wcs-hint>
-        <wcs-error>Your country is not valid</wcs-error>
     </wcs-form-field>
 
 
@@ -84,8 +90,8 @@ const SelectTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) => html`
                 <option value="Yes">Yes</option>
             </select>
         </wcs-native-select>
+        ${ErrorTemplate("Your brain is broken")}
         <wcs-hint>You cannot answer this answer twice</wcs-hint>
-        <wcs-error>Your brain is broken</wcs-error>
     </wcs-form-field>
 `;
 export const Select: StoryObj = {
@@ -105,7 +111,7 @@ const RadioTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) => html`
             <wcs-radio name="SA" label="Gares & Connexions" value="4"></wcs-radio>
             <wcs-radio name="SA" label="Rail Logistics Europe (FRET)" value="5"></wcs-radio>
         </wcs-radio-group>
-        <wcs-error>Give us a valid company</wcs-error>
+        ${ErrorTemplate("Give us a valid company")}
         <wcs-hint>An animal can have several subsidiaries</wcs-hint>
 `;
 export const Radio: StoryObj = {
@@ -119,8 +125,8 @@ const TextAreaTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) => htm
     <wcs-form-field ?is-error=${args.isError}>
         <wcs-label>What do you think about the fact that you are filling a fake form?</wcs-label>
         <wcs-textarea placeholder="Type your message" rows="6" cols="80"></wcs-textarea>
+        ${ErrorTemplate("You can't say that")}
         <wcs-hint>Does anyone will ever read you?</wcs-hint>
-        <wcs-error>You can't say that</wcs-error>
     </wcs-form-field>
 `;
 export const TextArea: StoryObj = {
@@ -136,8 +142,8 @@ const SwitchTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) => html`
         <wcs-switch id="error-switch-1" checked="true">
             I agree to provide personal and corporate data to Jeff
         </wcs-switch>
+        ${ErrorTemplate("Not really optional, so please check this")}
         <wcs-hint>This option does not change anything, Jeff will still read you</wcs-hint>
-        <wcs-error>Not really optional, so please check this</wcs-error>
     </wcs-form-field>
 `;
 export const Switch: StoryObj = {
@@ -152,8 +158,8 @@ const CounterTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) => {
         <wcs-form-field ?is-error=${args.isError}>
             <wcs-label>Number of questions you understood</wcs-label>
             <wcs-counter label="Number of passengers" min="0" max="120" step="12"></wcs-counter>
+            ${ErrorTemplate("0 is not a valid number, the number cannot exceed 8")}
             <wcs-hint>The number of understood questions cannot exceed the number of comprehensible questions</wcs-hint>
-            <wcs-error>0 is not a valid number, the number cannot exceed 8</wcs-error>
         </wcs-form-field>
     `;
 };
@@ -181,8 +187,8 @@ const CheckboxTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) => htm
     <wcs-form-field ?is-error=${args.isError}>
         <wcs-label>Confirmation</wcs-label>
         <wcs-checkbox>Did you read all questions?</wcs-checkbox>
+        ${ErrorTemplate("You are lying")}
         <wcs-hint>Make sure all questions are understood</wcs-hint>
-        <wcs-error>You are lying</wcs-error>
     </wcs-form-field>
 `;
 export const Checkbox: StoryObj = {
@@ -270,10 +276,9 @@ const TooltipOnLabelTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) 
             kastell pegen stivell dre chokolad Montroulez plijet.
         </wcs-tooltip>
         <wcs-input required placeholder="John Doe"></wcs-input>
+        ${ErrorTemplate(html`Your name is not valid, please do what is necessary
+        <a href="https://www.service-public.fr/particuliers/vosdroits/F1656">here</a>.`)}
         <wcs-hint>A name is something that describe a person, like you can call the person by his name, you get it?</wcs-hint>
-        <wcs-error>Your name is not valid, please do what is necessary
-            <a href="https://www.service-public.fr/particuliers/vosdroits/F1656">here</a>.
-        </wcs-error>
     </wcs-form-field>
 `;
 /**

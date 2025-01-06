@@ -57,14 +57,14 @@ export const Default: StoryObj = {
                             ?server-mode=${args.serverMode}
                             .filterFn=${args.filterFn ?? nothing}}
                             name="${args.name ?? nothing}">
-                    <wcs-select-option value="1" chip-background-color="var(--wcs-semantic-color-success)" chip-color="var(--wcs-semantic-color-text-primary)">One</wcs-select-option>
-                    <wcs-select-option value="2" chip-background-color="var(--wcs-semantic-color-info)">Two</wcs-select-option>
-                    <wcs-select-option value="3" chip-background-color="var(--wcs-semantic-color-error)">Three</wcs-select-option>
-                    <wcs-select-option value="4" chip-background-color="var(--wcs-semantic-color-error)">Four</wcs-select-option>
-                    <wcs-select-option value="5" chip-background-color="var(--wcs-semantic-color-error)">Five</wcs-select-option>
-                    <wcs-select-option value="6" chip-background-color="var(--wcs-semantic-color-error)">Six</wcs-select-option>
-                    <wcs-select-option value="7" chip-background-color="var(--wcs-semantic-color-error)">Seven</wcs-select-option>
-                    <wcs-select-option value="8" chip-background-color="var(--wcs-semantic-color-error)">Eight</wcs-select-option>
+                    <wcs-select-option value="1">One</wcs-select-option>
+                    <wcs-select-option value="2">Two</wcs-select-option>
+                    <wcs-select-option value="3">Three</wcs-select-option>
+                    <wcs-select-option value="4">Four</wcs-select-option>
+                    <wcs-select-option value="5">Five</wcs-select-option>
+                    <wcs-select-option value="6">Six</wcs-select-option>
+                    <wcs-select-option value="7">Seven</wcs-select-option>
+                    <wcs-select-option value="8">Eight</wcs-select-option>
                 </wcs-select>
             </wcs-form-field>
         </div>

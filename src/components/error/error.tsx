@@ -6,11 +6,13 @@ import { Component, ComponentInterface, h, Host } from '@stencil/core';
  * 
  * ## Accessibility guidelines 💡
  * - Provide a relevant error message to inform the users what they should change to make the field valid
+ * - Always add the error icon, to ensure the visual indication of the error state other than the color
  * - `aria-description` will be automatically added to the field for screen readers
  * - `aria-invalid="true"` will be automatically added to the field for screen readers
  * 
  * @cssprop --wcs-error-color - Color of the text
- * @cssprop --wcs-error-font-size-default - Font size
+ * @cssprop --wcs-error-font-size - Font size
+ * @cssprop --wcs-error-font-weight - Font weight
  */
 @Component({
     tag: 'wcs-error',

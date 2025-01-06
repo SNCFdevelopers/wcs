@@ -51,6 +51,7 @@ import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-ari
  * @cssprop --wcs-select-native-border-style-focus - Border style of the select when focused
  * 
  * @cssprop --wcs-select-native-border-color-default - Border color of the select when not focused
+ * @cssprop --wcs-select-native-border-color-disabled - Border color of the select when disabled
  * @cssprop --wcs-select-native-border-color-focus - Border color of the select when focused
  * @cssprop --wcs-select-native-border-color-error - Border color of the select when in error state
  * 

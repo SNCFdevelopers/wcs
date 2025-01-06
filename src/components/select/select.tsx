@@ -99,6 +99,7 @@ const SELECT_INHERITED_ATTRS = ['tabindex', 'title'];
  * @cssprop --wcs-select-control-border-width-focus - Border width of the select control when focused
  * 
  * @cssprop --wcs-select-control-border-color-default - Border color of the select control when not focused
+ * @cssprop --wcs-select-control-border-color-disabled - Border color of the select control when disabled
  * @cssprop --wcs-select-control-border-color-error - Border color of the select control when error
  * @cssprop --wcs-select-control-border-color-active - Border color of the select control when active (select is opened)
  * @cssprop --wcs-select-control-border-color-focus - Border color of the select control when focused (not opened, but the control is focused)

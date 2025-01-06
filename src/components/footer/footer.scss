@@ -3,12 +3,12 @@
     --wcs-footer-text-color: var(--wcs-semantic-color-text-inverse);
     --wcs-footer-link-text-color: var(--wcs-semantic-color-text-inverse);
     --wcs-footer-link-text-color-hover:  var(--wcs-semantic-color-text-inverse);
-    --wcs-footer-link-font-size: var(--wcs-semantic-font-size-strong-2);
+    --wcs-footer-link-font-size: var(--wcs-semantic-font-size-label-2);
     --wcs-footer-link-font-weight: var(--wcs-semantic-font-weight-medium);
-    --wcs-footer-link-gap: var(4 * --wcs-semantic-spacing-base);
+    --wcs-footer-link-gap: calc(4 * var(--wcs-semantic-spacing-base));
 
-    --wcs-footer-gap: calc(2 * var(--wcs-semantic-spacing-base));
-    --wcs-footer-end-gap: calc(2 * var(--wcs-semantic-spacing-base));
+    --wcs-footer-gap: var(--wcs-semantic-spacing-large);
+    --wcs-footer-end-gap: var(--wcs-semantic-spacing-large);
     --wcs-footer-max-width: var(--wcs-semantic-breakpoint-desktop, var(--wcs-com-content-max-width));
     --wcs-footer-padding: calc(3 * var(--wcs-semantic-spacing-base));
 

@@ -1,8 +1,7 @@
 :host {
-
-    --wcs-label-font-weight: var(--wcs-semantic-font-weight-regular);
+    --wcs-label-font-weight: var(--wcs-semantic-font-weight-roman);
     --wcs-label-color: var(--wcs-semantic-color-text-primary);
-    --wcs-label-required-marker-color: var(--wcs-semantic-color-required);
+    --wcs-label-required-marker-color: var(--wcs-semantic-color-text-critical);
 
     --wcs-label-gap: var(--wcs-semantic-spacing-small);
 
@@ -17,6 +16,8 @@
 
 label {
     display: inline-block;
+    color: var(--wcs-label-color);
+    font-weight: var(--wcs-label-font-weight);
 
     // Add margin before tooltip icon
     ::slotted(wcs-mat-icon) {

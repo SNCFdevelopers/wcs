@@ -1,4 +1,4 @@
-@mixin placeholder($color: var(--wcs-semantic-color-foreground-control-placeholder), $font-weight: 400, $font-style: var(--wcs-semantic-font-style-form-field-placeholder, italic)) {
+@mixin placeholder($color: var(--wcs-semantic-color-text-tertiary), $font-weight: 300, $font-style: var(--wcs-semantic-font-style-form-field-placeholder, italic)) {
     color: $color;
     opacity: 1;
     font-weight: $font-weight;

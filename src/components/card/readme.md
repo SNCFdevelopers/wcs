@@ -10,9 +10,9 @@ A card can be a single component, but is often made up of a header, title, subti
 
 ## Properties
 
-| Property | Attribute | Description | Type                 | Default    |
-| -------- | --------- | ----------- | -------------------- | ---------- |
-| `mode`   | `mode`    |             | `"flat" \| "raised"` | `'raised'` |
+| Property | Attribute | Description | Type                 | Default  |
+| -------- | --------- | ----------- | -------------------- | -------- |
+| `mode`   | `mode`    |             | `"flat" \| "raised"` | `'flat'` |
 
 
 ----------------------------------------------
