@@ -120,6 +120,27 @@ git push
 
 Notes : We use the following naming convention for the RC releases names : `X.Y.Z-rc.N` where `X.Y.Z` is the version number and `N` is the release candidate number.
 
+## Manual doc deployment
+Given the following structure:
+```
+wcs-archive/
+    public/
+        v6/
+            index.html
+            ...
+        v5/
+            index.html
+            ...
+        ...
+```
+
+Use the following commands to deploy the documentation:
+
+```sh
+npm install -g @azure/static-web-apps-cli
+cd public
+swa deploy --app-location ./ --output-location {version_to_deploy}/ --verbose=silly --deployment-token {token} --env {production|develop}
+```
 
 ## Resources
 
