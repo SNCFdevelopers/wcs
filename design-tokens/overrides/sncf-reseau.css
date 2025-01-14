@@ -22,7 +22,7 @@
 }
 
 .sncf-reseau wcs-tabs {
-    --wcs-tabs-indicator-height: 2px;
+    --wcs-tabs-indicator-height: calc(var(--wcs-semantic-size-base) / 4);
     --wcs-tabs-indicator-border-radius: 0;
 }
 

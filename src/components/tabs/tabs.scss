@@ -1,8 +1,8 @@
 @import '../../style/focus-outline.scss';
 
 :host {
-    --wcs-tabs-indicator-height: var(--wcs-semantic-spacing-small);
-    --wcs-tabs-indicator-background-color: var(--wcs-semantic-color-background-action-primary-default);
+    --wcs-tabs-indicator-height: calc(var(--wcs-semantic-size-base) / 2);
+    --wcs-tabs-indicator-background-color: var(--wcs-semantic-color-foreground-action-secondary-default);
     --wcs-tabs-indicator-border-radius: var(--wcs-semantic-border-radius-full);
 
     --wcs-tabs-color-default: var(--wcs-semantic-color-foreground-action-secondary-default);
@@ -14,8 +14,8 @@
     --wcs-tabs-background-color-hover: var(--wcs-semantic-color-background-action-secondary-hover);
     --wcs-tabs-background-color-press: var(--wcs-semantic-color-background-action-secondary-press);
 
-    --wcs-tabs-border-radius: var(--wcs-semantic-border-radius-small);
-    --wcs-tabs-border-color-focus: var(--wcs-semantic-color-border-control-focus);
+    --wcs-tabs-border-radius: var(--wcs-semantic-border-radius-base);
+    --wcs-tabs-border-color-focus: var(--wcs-semantic-color-border-focus-base);
 
     --wcs-tabs-font-weight-default: var(--wcs-semantic-font-weight-roman);
     --wcs-tabs-font-weight-selected: var(--wcs-semantic-font-weight-roman);
@@ -87,6 +87,7 @@
         }
     }
 
+    // TODO : mettre le focus outline sur la wcs-tab-header comme dans figma
     &:focus-visible > span {
         @include focus-outline(var(--wcs-tabs-border-color-focus));
     }
