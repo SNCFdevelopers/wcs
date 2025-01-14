@@ -11,8 +11,10 @@
     --wcs-accordion-panel-color-highlight: var(--wcs-semantic-color-text-primary);
     --wcs-accordion-panel-color-hover: var(--wcs-semantic-color-text-primary);
     --wcs-accordion-panel-color-press: var(--wcs-semantic-color-text-primary);
-    --wcs-accordion-panel-action-color-default: var(--wcs-semantic-color-text-primary);
-    --wcs-accordion-panel-action-color-highlight: var(--wcs-semantic-color-text-primary);
+    --wcs-accordion-panel-action-color-default: var(--wcs-semantic-color-foreground-action-secondary-default);
+    --wcs-accordion-panel-action-color-highlight: var(--wcs-semantic-color-foreground-action-secondary-press);
+    --wcs-accordion-panel-action-color-hover: var(--wcs-semantic-color-foreground-action-secondary-hover);
+    --wcs-accordion-panel-action-color-press: var(--wcs-semantic-color-foreground-action-secondary-press);
     --wcs-accordion-panel-background-color-default: var(--wcs-semantic-color-background-action-secondary-default);
     --wcs-accordion-panel-background-color-highlight: var(--wcs-semantic-color-background-action-secondary-press);
     --wcs-accordion-panel-background-color-hover: var(--wcs-semantic-color-background-action-secondary-hover);
@@ -71,10 +73,10 @@
             background-color: var(--wcs-accordion-panel-background-color-hover);
 
             .header-action {
-                color: var(--wcs-accordion-panel-color-hover);
+                color: var(--wcs-accordion-panel-action-color-hover);
 
                 .arrow {
-                    fill: var(--wcs-accordion-panel-color-hover);
+                    fill: var(--wcs-accordion-panel-action-color-hover);
                 }
             }
         }
@@ -113,6 +115,8 @@
         display: block;
     }
 
+
+    /* FIXME GroupContentWithHeader is deprecated. Remove this.
     &:host([group-content-with-header]) {
         .header {
             border-radius: var(--wcs-accordion-panel-border-radius-open);
@@ -125,6 +129,7 @@
             background-color: var(--wcs-accordion-panel-background-color-default);
         }
     }
+    */
 
     &:host([highlight]) {
         .header {
@@ -134,17 +139,19 @@
 
         .header-action {
             color: var(--wcs-accordion-panel-action-color-highlight);
+
+            .arrow {
+                fill: var(--wcs-accordion-panel-action-color-highlight);
+            }
         }
 
-        .arrow {
-            fill: var(--wcs-accordion-panel-color-highlight);
-        }
-
+        /* FIXME GroupContentWithHeader is deprecated. Remove this.
         &:host([group-content-with-header]) {
             .content {
                 background-color: var(--wcs-accordion-panel-background-color-highlight);
                 color: var(--wcs-accordion-panel-color-highlight);
             }
         }
+        */
     }
 }

@@ -18,7 +18,7 @@ export class Accordion {
      * Specifies whether accordion-panel components should display the open/close text.
      * if false, it won't show the open/close text in all accordion-panel.
      */
-    @Prop({reflect: true}) hideActionText: boolean = false;
+    @Prop({reflect: true}) hideActionText: boolean = true;
 
     /**
      * Specifies whether accordion-panel components should highlight when open with primary color.
@@ -28,9 +28,11 @@ export class Accordion {
     @Prop({reflect: true}) highlight: boolean = false;
 
     /**
-     * Specifies wether accordion-panel components should group the content with header in one card
-     * if true, there will be only one card with the header and the content
-     * Nothing change when the panel is close
+     * @deprecated **The content is now always grouped with the panel header**
+     * 
+     * ~~Specifies whether accordion-panel components should group the content with header in one card~~
+     * ~~if true, there will be only one card with the header and the content~~
+     * ~~Nothing change when the panel is close~~
      */
     @Prop({reflect: true}) groupContentWithHeader: boolean = false;
 

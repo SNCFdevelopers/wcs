@@ -15,11 +15,13 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
-for changes in existing functionality.
+- **accordion**: 'Ouvrez/Fermez' text is now hidden by default (`hideActionText` = `true`). If you want to show it, set
+  `hideActionText` to `false`
+- **card**: default mode is now `flat` instead of `raised`
 
 ### Deprecated
 
-for soon-to-be removed features.
+- **accordion** : `groupContentWithHeader` attribute is deprecated. With the new design, the content is always grouped with the header.
 
 ### Removed
 

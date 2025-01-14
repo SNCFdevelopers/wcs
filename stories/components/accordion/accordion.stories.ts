@@ -1,8 +1,6 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/web-components';
-// @ts-ignore
-import test from './accordion-panel.mdx';
+import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { html } from 'lit-html';
-// @ts-ignore
 import { withActions } from '@storybook/addon-actions/decorator';
 import { getComponentArgs } from '../../utils/args-generation';
 
@@ -26,8 +24,15 @@ const meta: Meta = {
 };
 export default meta;
 
-const Template: StoryFn<Partial<{ open: boolean, hideActionText: boolean, highlight: boolean, groupContentWithHeader: boolean }>> = (args) => html`
-    <wcs-accordion ?hide-action-text="${args.hideActionText}" ?highlight="${args.highlight}" ?group-content-with-header="${args.groupContentWithHeader}">
+type AccordionArgs = {
+    open: boolean,
+    hideActionText: boolean,
+    highlight: boolean,
+    groupContentWithHeader: boolean
+}
+
+const Template: StoryFn<Partial<AccordionArgs>> = (args: Partial<AccordionArgs>) => html`
+    <wcs-accordion hide-action-text="${ifDefined(args.hideActionText)}" ?highlight="${args.highlight}" ?group-content-with-header="${args.groupContentWithHeader}">
         <wcs-accordion-panel ?open=${args.open}>
             <wcs-accordion-header>Un premier panel</wcs-accordion-header>
             <wcs-accordion-content>Logoden biniou degemer mat an penn ar bed krib, brudet kontell e outañ doujañ darev
@@ -80,19 +85,36 @@ const Template: StoryFn<Partial<{ open: boolean, hideActionText: boolean, highli
     </wcs-accordion>
 `;
 
-export const Default: StoryObj = Template.bind({});
-Default.args = {open: false, hideActionText: false, highlight: false, groupContentWithHeader: false };
+export const Default: StoryObj<AccordionArgs> = {
+    render: (args: AccordionArgs) => Template(args, this),
+    args: {
+        open: false,
+        highlight: false,
+        groupContentWithHeader: false
+    }
+}
 
-const PanelTemplate: StoryFn<Partial<{ open: boolean, hideActionText: boolean, highlight: boolean, groupContentWithHeader: boolean }>> = (args) => html`
-    <wcs-accordion-panel ?open=${args.open} ?hide-action-text="${args.hideActionText}" ?highlight="${args.highlight}" ?group-content-with-header="${args.groupContentWithHeader}">
-        <wcs-accordion-header>Un premier panel</wcs-accordion-header>
-        <wcs-accordion-content>Logoden biniou degemer mat an penn ar bed krib, brudet kontell e outañ doujañ darev
-            skeud hennont vuhez, wrierez micherour blot liorzh c’hotoñs war loar. Eus rev feiz onest bremañ eme
-            c’hoarvezout levrioù Pederneg, peroked terriñ c’hoant C’hall c’hodell dir c’hoar ha benn, kement
-            kouezhañ disul klouar hent ar bev. Mestr Pont-Aven Krouer e kaoued maouez echu drezañ vazh tre genou
-            heñvel vrozh kenwerzh, Konk kalet ennañ drezi yaouankiz bouzar kaout fest plijet vugale reiñ.
-        </wcs-accordion-content>
-    </wcs-accordion-panel>
-`;
-export const PanelOnly = PanelTemplate.bind({});
-PanelOnly.args = {open: false, hideActionText: false, highlight: false, groupContentWithHeader: false }
+export const WithActionText: StoryObj<AccordionArgs> = {
+    render: (args: AccordionArgs) => Template(args, this),
+    args: {
+        ...Default.args,
+        hideActionText: false,
+    }
+}
+
+export const PanelOnly: StoryObj<AccordionArgs> = {
+    render: (args: AccordionArgs) => html`
+        <wcs-accordion-panel ?open=${args.open} ?hide-action-text="${ifDefined(args.hideActionText)}" ?highlight="${args.highlight}" ?group-content-with-header="${args.groupContentWithHeader}">
+            <wcs-accordion-header>Un premier panel</wcs-accordion-header>
+            <wcs-accordion-content>Logoden biniou degemer mat an penn ar bed krib, brudet kontell e outañ doujañ darev
+                skeud hennont vuhez, wrierez micherour blot liorzh c’hotoñs war loar. Eus rev feiz onest bremañ eme
+                c’hoarvezout levrioù Pederneg, peroked terriñ c’hoant C’hall c’hodell dir c’hoar ha benn, kement
+                kouezhañ disul klouar hent ar bev. Mestr Pont-Aven Krouer e kaoued maouez echu drezañ vazh tre genou
+                heñvel vrozh kenwerzh, Konk kalet ennañ drezi yaouankiz bouzar kaout fest plijet vugale reiñ.
+            </wcs-accordion-content>
+        </wcs-accordion-panel>
+    `,
+    args: {
+        ...Default.args
+    }
+}

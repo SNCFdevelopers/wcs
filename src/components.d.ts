@@ -64,7 +64,7 @@ export namespace Components {
      */
     interface WcsAccordion {
         /**
-          * Specifies wether accordion-panel components should group the content with header in one card if true, there will be only one card with the header and the content Nothing change when the panel is close
+          * @deprecated **The content is now always grouped with the panel header**  ~~Specifies whether accordion-panel components should group the content with header in one card~~ ~~if true, there will be only one card with the header and the content~~ ~~Nothing change when the panel is close~~
          */
         "groupContentWithHeader": boolean;
         /**
@@ -96,6 +96,8 @@ export namespace Components {
      * @cssprop --wcs-accordion-panel-color-press - Press color of the accordion panel
      * @cssprop --wcs-accordion-panel-action-color-default - Default action color of the accordion panel
      * @cssprop --wcs-accordion-panel-action-color-highlight - Highlight action color of the accordion panel
+     * @cssprop --wcs-accordion-panel-action-color-hover - Hovered action color of the accordion panel
+     * @cssprop --wcs-accordion-panel-action-color-press - Pressed action color of the accordion panel
      * @cssprop --wcs-accordion-panel-background-color-default - Default background color of the accordion panel
      * @cssprop --wcs-accordion-panel-background-color-highlight - Highlight background color of the accordion panel
      * @cssprop --wcs-accordion-panel-background-color-hover - Hover background color of the accordion panel
@@ -2383,6 +2385,8 @@ declare global {
      * @cssprop --wcs-accordion-panel-color-press - Press color of the accordion panel
      * @cssprop --wcs-accordion-panel-action-color-default - Default action color of the accordion panel
      * @cssprop --wcs-accordion-panel-action-color-highlight - Highlight action color of the accordion panel
+     * @cssprop --wcs-accordion-panel-action-color-hover - Hovered action color of the accordion panel
+     * @cssprop --wcs-accordion-panel-action-color-press - Pressed action color of the accordion panel
      * @cssprop --wcs-accordion-panel-background-color-default - Default background color of the accordion panel
      * @cssprop --wcs-accordion-panel-background-color-highlight - Highlight background color of the accordion panel
      * @cssprop --wcs-accordion-panel-background-color-hover - Hover background color of the accordion panel
@@ -4180,7 +4184,7 @@ declare namespace LocalJSX {
      */
     interface WcsAccordion {
         /**
-          * Specifies wether accordion-panel components should group the content with header in one card if true, there will be only one card with the header and the content Nothing change when the panel is close
+          * @deprecated **The content is now always grouped with the panel header**  ~~Specifies whether accordion-panel components should group the content with header in one card~~ ~~if true, there will be only one card with the header and the content~~ ~~Nothing change when the panel is close~~
          */
         "groupContentWithHeader"?: boolean;
         /**
@@ -4212,6 +4216,8 @@ declare namespace LocalJSX {
      * @cssprop --wcs-accordion-panel-color-press - Press color of the accordion panel
      * @cssprop --wcs-accordion-panel-action-color-default - Default action color of the accordion panel
      * @cssprop --wcs-accordion-panel-action-color-highlight - Highlight action color of the accordion panel
+     * @cssprop --wcs-accordion-panel-action-color-hover - Hovered action color of the accordion panel
+     * @cssprop --wcs-accordion-panel-action-color-press - Pressed action color of the accordion panel
      * @cssprop --wcs-accordion-panel-background-color-default - Default background color of the accordion panel
      * @cssprop --wcs-accordion-panel-background-color-highlight - Highlight background color of the accordion panel
      * @cssprop --wcs-accordion-panel-background-color-hover - Hover background color of the accordion panel
@@ -6524,6 +6530,8 @@ declare module "@stencil/core" {
              * @cssprop --wcs-accordion-panel-color-press - Press color of the accordion panel
              * @cssprop --wcs-accordion-panel-action-color-default - Default action color of the accordion panel
              * @cssprop --wcs-accordion-panel-action-color-highlight - Highlight action color of the accordion panel
+             * @cssprop --wcs-accordion-panel-action-color-hover - Hovered action color of the accordion panel
+             * @cssprop --wcs-accordion-panel-action-color-press - Pressed action color of the accordion panel
              * @cssprop --wcs-accordion-panel-background-color-default - Default background color of the accordion panel
              * @cssprop --wcs-accordion-panel-background-color-highlight - Highlight background color of the accordion panel
              * @cssprop --wcs-accordion-panel-background-color-hover - Hover background color of the accordion panel

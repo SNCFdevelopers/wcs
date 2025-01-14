@@ -26,6 +26,8 @@ const ACCORDION_INHERITED_ATTRS = ['tabindex', 'title'];
  * @cssprop --wcs-accordion-panel-color-press - Press color of the accordion panel
  * @cssprop --wcs-accordion-panel-action-color-default - Default action color of the accordion panel
  * @cssprop --wcs-accordion-panel-action-color-highlight - Highlight action color of the accordion panel
+ * @cssprop --wcs-accordion-panel-action-color-hover - Hovered action color of the accordion panel
+ * @cssprop --wcs-accordion-panel-action-color-press - Pressed action color of the accordion panel
  * @cssprop --wcs-accordion-panel-background-color-default - Default background color of the accordion panel
  * @cssprop --wcs-accordion-panel-background-color-highlight - Highlight background color of the accordion panel
  * @cssprop --wcs-accordion-panel-background-color-hover - Hover background color of the accordion panel
