@@ -10,6 +10,7 @@ import { version as currentVersion } from '../../../package.json';
  */
 const VERSIONS = [
     { title: 'latest', key: 'latest', href: 'https://wcs.dev.sncf'},
+    { title: 'v6.0.0', key: 'v6.0.0', href: 'https://wcs-archive-852f99.gitlab.io/v6/'},
     { title: 'v5.1.0', key: 'v5.1.0', href: 'https://wcs-archive-852f99.gitlab.io/v5/'},
     { title: 'v4.2.0', key: 'v4.2.0', href: 'https://wcs-archive-852f99.gitlab.io/v4/'}
 ];

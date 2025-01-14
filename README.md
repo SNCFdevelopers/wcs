@@ -22,14 +22,15 @@ If you read this documentation on GitHub, only the development branch is updated
 
 If you are looking for the documentation of a specific version, you can find using the following links (we only keep the latest version of each major version) :
 
-| Version     | Documentation                           |
-|:------------|:----------------------------------------|
-| v1          | Not archived                            |
-| v2          | Not archived                            |
-| v3          | Not archived                            |
-| v4 (4.2.0)  | https://wcs-archive-852f99.gitlab.io/v4 |
-| v5 (5.1.0)  | https://wcs-archive-852f99.gitlab.io/v5 |
-| Latest      | https://wcs.dev.sncf                    |
+| Version    | Documentation                           |
+|:-----------|:----------------------------------------|
+| v1         | Not archived                            |
+| v2         | Not archived                            |
+| v3         | Not archived                            |
+| v4 (4.2.0) | https://wcs-archive-852f99.gitlab.io/v4 |
+| v5 (5.1.0) | https://wcs-archive-852f99.gitlab.io/v5 |
+| v6 (6.0.0) | https://wcs-archive-852f99.gitlab.io/v6 |
+| Latest     | https://wcs.dev.sncf                    |
 
 ## Packages
 
@@ -55,9 +56,10 @@ We created 3 StackBlitz templates to help you test quickly without worrying abou
 This project is still under heavy development.  
 You can get a preview of what's planned for the following months in the [GitLab Milestones](https://gitlab.com/SNCF/wcs/-/milestones).
 
-Consult the [changelog](https://wcs.dev.sncf/?path=/docs/documentation-changelog--documentation) to know what's going on. 
+Consult the [changelog](https://wcs.dev.sncf/?path=/docs/documentation-changelog--documentation) to know what's going on.
 
 Major versions releases :
+
 - **v0** 👉 Jul 2019
 - **v1** 👉 Sep 2020
 - **v2** 👉 Jun 2021
@@ -66,17 +68,18 @@ Major versions releases :
 - **v5** 👉 May 2024
 - **v6** 👉 Oct 2024
 
-    
 ### Example usage
 
 There are example projects under `example` folder for angular and react.
 
 Step to start the example project :
+
 ```shell
 # wcs-core build
 npm install
 npm run build
 ```
+
 ```shell
 # angular build (use --watch option to watch files)
 cd angular
@@ -88,6 +91,7 @@ cd ../example/angular
 npm install
 ng serve
 ```
+
 ```shell
 # react build
 cd react
@@ -107,7 +111,6 @@ You can refer to the [official WCS documentation](https://wcs.dev.sncf/?path=/do
 to use the lib with Angular or React. For other, StencilJS offers many integrations with different JS frameworks.
 
 You can refer to [their official documentation](https://stenciljs.com/docs/overview) to add WCS to your project.
-
 
 ## Contributing
 
@@ -141,6 +144,7 @@ npm test
 ```
 
 To launch a specific suite of tests you can simply launch
+
 ```sh
 npm run test:e2e:file path_to_tests_file
 # Example: you must be at the root of the project

@@ -80,7 +80,7 @@ Finally, if you want to push modifications (for example the result of a rebase) 
 Don't forget to update the changelog and the StackBlitz templates version.
 
 > ⚠️ If you're going to release a **major version**, you should update the wcs archive documentation (https://gitlab.com/SNCF/wcs-archive).  
-> You must also update the version list in `.storybook/addons/versioning/register.js` to allow users to switch between versions on Storybook directly.
+> You must also update the version list in `.storybook/addons/versioning/register.js` to allow users to switch between versions on Storybook directly and update the version table in the `README.md` file.
 > ```gitexclude
 > # Go on the latest release branch
 > git checkout master
@@ -117,6 +117,8 @@ git merge master
 # Push the changes
 git push
 ```
+
+Notes : We use the following naming convention for the RC releases names : `X.Y.Z-rc.N` where `X.Y.Z` is the version number and `N` is the release candidate number.
 
 
 ## Resources
