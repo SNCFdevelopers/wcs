@@ -4,59 +4,14 @@
 @import "~tippy.js/dist/tippy.css"; // For tooltip component
 
 :root {
-    // TODO: prefix all variables and make their name according to the real palette
-
-    --wcs-blue: #0074AF;
-    --wcs-purple: #6e1e78;
-    --wcs-pink: #a1006b;
-    --wcs-red: #cd0037;
-    --wcs-orange: #e05206;
-    --wcs-yellow: #ffb612;
-    --wcs-green: #82be00;
-    --wcs-teal: #d2e100;
-    --wcs-cyan: #009aa6;
-    --wcs-primary: var(--wcs-blue);
-    --wcs-base: var(--wcs-primary);
-
-    --wcs-font-weight-form-value: 500;
-
-    // Sizes
-    --wcs-base-size: 8px;
-    --wcs-size-xl: calc(7 * var(--wcs-base-size)); // xl = 56px
-    --wcs-size-l: calc(6 * var(--wcs-base-size)); // l = 48px
-    --wcs-size-m: calc(5 * var(--wcs-base-size)); // m = 40 px (default)
-    --wcs-size-s: calc(4 * var(--wcs-base-size)); // s = 32 px
-    --wcs-size-xs: calc(3 * var(--wcs-base-size)); // xs = 24 px
-
-    --wcs-border-size: 2px;
-    --wcs-border-radius: var(--wcs-base-size);
-    --wcs-text-padding: var(--wcs-base-size);
-
-    --wcs-padding: calc(2 * var(--wcs-base-size)); // TODO: view usage before changing when migrate to design tokens. We can set base padding design token as value
-    --wcs-padding-l: calc(1.5 * var(--wcs-base-size)); // l = 12px
-    --wcs-padding-m: var(--wcs-base-size); // m = 8px (default)
-    --wcs-padding-s: calc(0.5 * var(--wcs-base-size)); // s = 4px
-
-    --wcs-base-margin: var(--wcs-base-size);
-    --wcs-margin: calc(2 * var(--wcs-base-margin)); // 16px
-    --wcs-margin-l: calc(1.5 * var(--wcs-base-size)); // l = 12px
-    --wcs-margin-m: var(--wcs-base-size); // m = 8px (default)
-    --wcs-margin-s: calc(0.5 * var(--wcs-base-size)); // s = 4px
-
-
-
-
-
-
-
     // FONT
     // fixme: font-family should be defined in design tokens
     --wcs-font-sans-serif: Avenir, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     --wcs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
-
     // Breakpoints
     // SCSS variables are defined in breakpoints.scss
+    // TODO : Migrate to design tokens -> Theses are not the same values in design tokens !
     --wcs-phone-breakpoint-max-width: #{$wcs-phone-breakpoint-max-width};
     --wcs-tablet-portrait-breakpoint-min-width: #{$wcs-tablet-portrait-breakpoint-min-width};
     --wcs-tablet-landscape-breakpoint-min-width: #{$wcs-tablet-landscape-breakpoint-min-width};
