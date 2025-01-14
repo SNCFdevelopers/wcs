@@ -15,9 +15,9 @@ const Template: StoryFn<Partial<{ gutter: boolean, title: string }>> = (args) =>
     <div style="background: var(--wcs-semantic-color-background-surface-secondary); padding: var(--wcs-semantic-spacing-large);">
         <wcs-action-bar ?gutter=${args.gutter}>
             ${args.title}
-            <div slot="actions">
+            <div slot="actions" style="display: flex; gap: var(--wcs-semantic-spacing-base)">
                 <wcs-button mode="stroked" shape="small">Action</wcs-button>
-                <wcs-dropdown class="wcs-primary" mode="stroked" shape="small" style="margin-left: 8px;">
+                <wcs-dropdown class="wcs-primary" mode="stroked" shape="small">
                     <div slot="placeholder">Dropdown</div>
                     <wcs-dropdown-item>Un</wcs-dropdown-item>
                     <wcs-dropdown-item>Deux</wcs-dropdown-item>
@@ -39,9 +39,9 @@ const TabInsideTemplate: StoryFn<Partial<{ gutter: boolean, title: string }>> = 
     <div style="background: var(--wcs-semantic-color-background-surface-secondary); padding: var(--wcs-semantic-spacing-large);">
         <wcs-action-bar ?gutter=${args.gutter}>
             ${args.title}
-            <div slot="actions">
+            <div slot="actions" style="display: flex; gap: var(--wcs-semantic-spacing-base)">
                 <wcs-button mode="stroked" shape="small">Action</wcs-button>
-                <wcs-dropdown class="wcs-primary" mode="stroked" shape="small" style="margin-left: 8px;">
+                <wcs-dropdown class="wcs-primary" mode="stroked" shape="small">
                     <div slot="placeholder">Dropdown</div>
                     <wcs-dropdown-item>Un</wcs-dropdown-item>
                     <wcs-dropdown-item>Deux</wcs-dropdown-item>

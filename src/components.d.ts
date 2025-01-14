@@ -141,6 +141,8 @@ export namespace Components {
      * @cssprop --wcs-action-bar-min-height - Minimum height of the action bar
      * @cssprop --wcs-action-bar-padding-horizontal - Horizontal padding of the action bar
      * @cssprop --wcs-action-bar-padding-vertical - Vertical padding of the action bar
+     * @cssprop --wcs-action-bar-tabs-margin-top - Margin top of the tabs when slotted
+     * @cssprop --wcs-action-bar-title-font-size - Font size of the title
      * @cssprop --wcs-action-bar-title-font-weight - Font weight of the title
      * @cssprop --wcs-action-bar-title-color - Color of the title
      * @cssprop --wcs-tabs-gutter-border-width - Border width of the gutter
@@ -2427,6 +2429,8 @@ declare global {
      * @cssprop --wcs-action-bar-min-height - Minimum height of the action bar
      * @cssprop --wcs-action-bar-padding-horizontal - Horizontal padding of the action bar
      * @cssprop --wcs-action-bar-padding-vertical - Vertical padding of the action bar
+     * @cssprop --wcs-action-bar-tabs-margin-top - Margin top of the tabs when slotted
+     * @cssprop --wcs-action-bar-title-font-size - Font size of the title
      * @cssprop --wcs-action-bar-title-font-weight - Font weight of the title
      * @cssprop --wcs-action-bar-title-color - Color of the title
      * @cssprop --wcs-tabs-gutter-border-width - Border width of the gutter
@@ -4260,6 +4264,8 @@ declare namespace LocalJSX {
      * @cssprop --wcs-action-bar-min-height - Minimum height of the action bar
      * @cssprop --wcs-action-bar-padding-horizontal - Horizontal padding of the action bar
      * @cssprop --wcs-action-bar-padding-vertical - Vertical padding of the action bar
+     * @cssprop --wcs-action-bar-tabs-margin-top - Margin top of the tabs when slotted
+     * @cssprop --wcs-action-bar-title-font-size - Font size of the title
      * @cssprop --wcs-action-bar-title-font-weight - Font weight of the title
      * @cssprop --wcs-action-bar-title-color - Color of the title
      * @cssprop --wcs-tabs-gutter-border-width - Border width of the gutter
@@ -6559,6 +6565,8 @@ declare module "@stencil/core" {
              * @cssprop --wcs-action-bar-min-height - Minimum height of the action bar
              * @cssprop --wcs-action-bar-padding-horizontal - Horizontal padding of the action bar
              * @cssprop --wcs-action-bar-padding-vertical - Vertical padding of the action bar
+             * @cssprop --wcs-action-bar-tabs-margin-top - Margin top of the tabs when slotted
+             * @cssprop --wcs-action-bar-title-font-size - Font size of the title
              * @cssprop --wcs-action-bar-title-font-weight - Font weight of the title
              * @cssprop --wcs-action-bar-title-color - Color of the title
              * @cssprop --wcs-tabs-gutter-border-width - Border width of the gutter

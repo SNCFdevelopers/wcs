@@ -1475,44 +1475,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/app/app.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "App",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-app",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "App",
-          "declaration": {
-            "name": "App",
-            "module": "components/app/app.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-app",
-          "declaration": {
-            "name": "App",
-            "module": "components/app/app.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/action-bar/action-bar.tsx",
       "declarations": [
         {
@@ -1543,6 +1505,14 @@
             {
               "description": "Vertical padding of the action bar",
               "name": "--wcs-action-bar-padding-vertical"
+            },
+            {
+              "description": "Margin top of the tabs when slotted",
+              "name": "--wcs-action-bar-tabs-margin-top"
+            },
+            {
+              "description": "Font size of the title",
+              "name": "--wcs-action-bar-title-font-size"
             },
             {
               "description": "Font weight of the title",
@@ -1621,6 +1591,44 @@
           "declaration": {
             "name": "ActionBar",
             "module": "components/action-bar/action-bar.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/app/app.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "App",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-app",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "App",
+          "declaration": {
+            "name": "App",
+            "module": "components/app/app.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-app",
+          "declaration": {
+            "name": "App",
+            "module": "components/app/app.tsx"
           }
         }
       ]
@@ -6827,1015 +6835,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/grid/grid-interface.ts",
-      "declarations": [
-        {
-          "kind": "function",
-          "name": "getSortOrderInteger",
-          "parameters": [
-            {
-              "name": "sortOrder",
-              "type": {
-                "text": "WcsSortOrder"
-              }
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "getSortOrderInteger",
-          "declaration": {
-            "name": "getSortOrderInteger",
-            "module": "components/grid/grid-interface.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/grid/grid-keyboard-event.ts",
-      "declarations": [
-        {
-          "kind": "function",
-          "name": "getActionForKeyboardEvent",
-          "return": {
-            "type": {
-              "text": "KeyboardEventAssociatedAction[]"
-            }
-          },
-          "parameters": [
-            {
-              "name": "event",
-              "type": {
-                "text": "KeyboardEvent"
-              }
-            },
-            {
-              "name": "type",
-              "type": {
-                "text": "'grid_no_selection' | 'grid_selection_single' | 'grid_selection_multiple'"
-              }
-            }
-          ],
-          "description": "We follow this https://www.w3.org/WAI/ARIA/apg/patterns/grid/"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "getActionForKeyboardEvent",
-          "declaration": {
-            "name": "getActionForKeyboardEvent",
-            "module": "components/grid/grid-keyboard-event.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/grid/grid-radio.tsx",
-      "declarations": [
-        {
-          "kind": "function",
-          "name": "GridRadio",
-          "parameters": [
-            {
-              "name": "{\r\n        checked,\r\n        row,\r\n        rowIndex,\r\n        totalRows,\r\n        onClick\r\n    }"
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "GridRadio",
-          "declaration": {
-            "name": "GridRadio",
-            "module": "components/grid/grid-radio.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/grid/grid.e2e.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/grid/grid.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The grid component is a complex component used as an HTML table to display collections of data.",
-          "name": "Grid",
-          "cssProperties": [
-            {
-              "description": "Gap between grid cells (horizontal, vertical using `border-spacing` property)",
-              "name": "--wcs-grid-gap"
-            },
-            {
-              "description": "Vertical alignment of grid cells",
-              "name": "--wcs-grid-vertical-align"
-            },
-            {
-              "description": "Outline color for grid cells",
-              "name": "--wcs-grid-outline-color"
-            },
-            {
-              "description": "Text color of all grid cells",
-              "name": "--wcs-grid-cell-text-color"
-            },
-            {
-              "description": "Horizontal padding of grid cells",
-              "name": "--wcs-grid-cell-padding-horizontal"
-            },
-            {
-              "description": "Vertical padding of grid cells",
-              "name": "--wcs-grid-cell-padding-vertical"
-            },
-            {
-              "description": "Bottom border of grid cells",
-              "name": "--wcs-grid-cell-border-bottom"
-            },
-            {
-              "description": "Separator border between grid cells",
-              "name": "--wcs-grid-cell-separator-border"
-            },
-            {
-              "description": "Border radius of the first cell in a row",
-              "name": "--wcs-grid-first-cell-border-radius"
-            },
-            {
-              "description": "Border radius of the last cell in a row",
-              "name": "--wcs-grid-last-cell-border-radius"
-            },
-            {
-              "description": "Background color for selected rows",
-              "name": "--wcs-grid-highlight-color"
-            },
-            {
-              "description": "Background color of all rows",
-              "name": "--wcs-grid-row-background-color"
-            },
-            {
-              "description": "Background color of odd rows",
-              "name": "--wcs-grid-row-odd-background-color"
-            },
-            {
-              "description": "Background color of even rows",
-              "name": "--wcs-grid-row-even-background-color"
-            },
-            {
-              "description": "Width of the selection column",
-              "name": "--wcs-grid-column-selection-width"
-            },
-            {
-              "description": "Left border of all grid headers (within `<thead>`)",
-              "name": "--wcs-grid-header-border-left"
-            },
-            {
-              "description": "Bottom border of the `<thead>`",
-              "name": "--wcs-grid-header-border-bottom"
-            },
-            {
-              "description": "Background color of all headers",
-              "name": "--wcs-grid-header-background-color"
-            },
-            {
-              "description": "Text color of all headers",
-              "name": "--wcs-grid-header-text-color"
-            },
-            {
-              "description": "Font weight of all headers",
-              "name": "--wcs-grid-header-font-weight"
-            },
-            {
-              "description": "Font size of all headers",
-              "name": "--wcs-grid-header-font-size"
-            },
-            {
-              "description": "Line height of all headers",
-              "name": "--wcs-grid-header-line-height"
-            },
-            {
-              "description": "Border radius of all headers",
-              "name": "--wcs-grid-header-border-radius"
-            },
-            {
-              "description": "Bottom border of all headers",
-              "name": "--wcs-grid-header-border-bottom"
-            },
-            {
-              "description": "Color of the sort arrow in the header",
-              "name": "--wcs-grid-header-sort-arrow-color-default"
-            },
-            {
-              "description": "Color of the sort arrow in the header when active",
-              "name": "--wcs-grid-header-sort-arrow-color-active"
-            }
-          ],
-          "cssParts": [
-            {
-              "description": "CSS part for the checkbox in the selection column that selects all rows",
-              "name": "all-rows-checkbox"
-            },
-            {
-              "description": "CSS part for the checkbox of each row in the selection column",
-              "name": "row-checkbox"
-            }
-          ],
-          "slots": [
-            {
-              "description": "The slot containing the column of the grid in the `<thead>`",
-              "name": "grid-column"
-            },
-            {
-              "description": "The slot containing the pagination of the grid below the `<table>`",
-              "name": "grid-pagination"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsGridElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "nativeTable",
-              "type": {
-                "text": "HTMLTableElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "serverMode",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Manage sort and pagination with a backend server when set to `true`"
-            },
-            {
-              "kind": "field",
-              "name": "data",
-              "type": {
-                "text": "any[]"
-              },
-              "description": "Contains the data to display in the table from a js object"
-            },
-            {
-              "kind": "field",
-              "name": "loading",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Flag to display a spinner during data loading"
-            },
-            {
-              "kind": "field",
-              "name": "selectionConfig",
-              "type": {
-                "text": "WcsGridSelectionConfig"
-              },
-              "default": "'none'",
-              "description": "Used to manage grid's row selection.  \r\n\"none\": no row can be selected.  \r\n\"multiple\": several rows can be selected.  \r\n\"single\": one row only can be selected."
-            },
-            {
-              "kind": "field",
-              "name": "selectedItems",
-              "type": {
-                "text": "any | any[]"
-              },
-              "default": "[]",
-              "description": "Set the selected items (rows)"
-            },
-            {
-              "kind": "field",
-              "name": "wcsGridPaginationId",
-              "type": {
-                "text": "string"
-              },
-              "description": "Automatically set by the component to reference the wcs-grid-pagination HTML element by its id."
-            },
-            {
-              "kind": "field",
-              "name": "rowIdPath",
-              "type": {
-                "text": "string"
-              },
-              "description": "Name of the object's key that will be used to display the cells whose `keyValue` attribute matches to the\r\nobject's value for this key."
-            },
-            {
-              "kind": "field",
-              "name": "rowCssPartsFn",
-              "type": {
-                "text": "RowCssPartsFn"
-              },
-              "description": "Function to add css parts to the grid rows, this allows you to customize the rows with css parts directly\r\nin you're application stylesheet."
-            },
-            {
-              "kind": "field",
-              "name": "columns",
-              "type": {
-                "text": "HTMLWcsGridColumnElement[]"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "paginationEl",
-              "type": {
-                "text": "HTMLWcsGridPaginationElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "rows",
-              "type": {
-                "text": "WcsGridRow[]"
-              },
-              "privacy": "private",
-              "default": "[]",
-              "description": "Rows to display, contains user data and meta data"
-            },
-            {
-              "kind": "field",
-              "name": "cursorPosition",
-              "type": {
-                "text": "{col: number, row: number}"
-              },
-              "privacy": "private",
-              "default": "{col: 0, row: 1}",
-              "description": "Used to track the focus position in the grid for keyboard navigation.  \r\nHeader row : index 0  \r\nFirst column :\r\n  - index 1 if selection mode multiple or single\r\n  - index 0 if no selection mode\r\nDefault position : col 0, row 1"
-            },
-            {
-              "kind": "method",
-              "name": "onCursorPositionChange",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "newValue",
-                  "type": {
-                    "text": "{col: number, row: number}"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "onDataChange",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "newValue",
-                  "type": {
-                    "text": "any[]"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "onSelectedItemsPropertyChange",
-              "parameters": [
-                {
-                  "name": "newValue",
-                  "type": {
-                    "text": "any | any[]"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "onFocus",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "FocusEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "onBlur",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "FocusEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "hasSelectionColumn",
-              "description": "If selectionConfig is different from `none`, that means that an extra column for radio or checkbox is rendered\r\nin the table."
-            },
-            {
-              "kind": "method",
-              "name": "getElementToFocusAtCursorPosition",
-              "return": {
-                "type": {
-                  "text": "HTMLTableCellElement | HTMLWcsCheckboxElement | HTMLInputElement"
-                }
-              },
-              "description": "Returns the element to focus at the current cursor position : it can be a cell (td, th) to focus or a nested\r\ncheckbox / radio element if the selection mode is single or multiple"
-            },
-            {
-              "kind": "method",
-              "name": "moveCursorPosition",
-              "parameters": [
-                {
-                  "name": "directionX",
-                  "type": {
-                    "text": "number | 'first' | 'last'"
-                  }
-                },
-                {
-                  "name": "directionY",
-                  "type": {
-                    "text": "number | 'first' | 'last'"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "handleCursorPositionOnEmptyTh",
-              "description": "When the grid has selectionConfig single, an empty th appears at col=0, row=0.\r\nIt should not be focusable so the cursor navigates to col=1, row=0 instead."
-            },
-            {
-              "kind": "method",
-              "name": "onHiddenColumnChange",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "onKeyDown",
-              "parameters": [
-                {
-                  "name": "_event",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "doActionFromKeyboardEventAssociatedAction",
-              "parameters": [
-                {
-                  "name": "actionFromKeyboardEvent",
-                  "type": {
-                    "text": "KeyboardEventAssociatedAction"
-                  }
-                },
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "onClick",
-              "parameters": [
-                {
-                  "name": "_event",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "updateSelectionWithValues",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "values",
-                  "type": {
-                    "text": "any | any[]"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "wcsGridRowToWcsGridRowData",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "WcsGridRowData"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "row",
-                  "type": {
-                    "text": "WcsGridRow"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "updateGridRows",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "data",
-                  "type": {
-                    "text": "any[]"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "refreshSort",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "refreshOthersColumnsSortOrderState",
-                  "type": {
-                    "text": "boolean"
-                  }
-                }
-              ],
-              "description": "Handle existing column's filters (defined before the grid is instantiated)"
-            },
-            {
-              "kind": "method",
-              "name": "disableSortOrderForColumns",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "columns",
-                  "type": {
-                    "text": "HTMLWcsGridColumnElement[] | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "getGridColumnsFromTemplate",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "HTMLWcsGridColumnElement[]"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "getGridPaginationsFromTemplate",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "HTMLWcsGridPaginationElement[]"
-                }
-              }
-            },
-            {
-              "kind": "field",
-              "name": "gridElementsWithCoordinates",
-              "type": {
-                "text": "GridElementWithCoordinates[]"
-              },
-              "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "method",
-              "name": "sortChangeEventHandler",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "CustomEvent<WcsGridColumnSortChangeEventDetails>"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "sortBy",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "column",
-                  "type": {
-                    "text": "HTMLWcsGridColumnElement"
-                  },
-                  "description": "Column from which to extract the sorting configuration"
-                }
-              ],
-              "description": "Sorts the grid rows according to the given column's configuration"
-            },
-            {
-              "kind": "method",
-              "name": "updatePageIndex",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              },
-              "description": "Update the page's number of all rows"
-            },
-            {
-              "kind": "method",
-              "name": "paginationChangeEventHandler",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "paginationChangeEventHandlerOutside",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "CustomEvent<WcsGridPaginationChangeEventDetails>"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "onPaginationChange",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "onRowSelection",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "row",
-                  "type": {
-                    "text": "WcsGridRow"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "field",
-              "name": "selectedRows",
-              "type": {
-                "text": "WcsGridRow[]"
-              },
-              "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "method",
-              "name": "selectAllRows",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "allRowsAreSelected",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "boolean"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "getRowsForCurrentPage",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "WcsGridRow[]"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "renderSelectionColumn",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "row",
-                  "type": {
-                    "text": "WcsGridRow"
-                  }
-                },
-                {
-                  "name": "rowIndex",
-                  "type": {
-                    "text": "number"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "getCellContent",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "HTMLElement | HTMLElement[] | string | void"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "row",
-                  "type": {
-                    "text": "WcsGridRow"
-                  }
-                },
-                {
-                  "name": "cell",
-                  "type": {
-                    "text": "WcsGridCell"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "totalColumnCount",
-              "privacy": "private",
-              "description": "Returns the total number of columns"
-            },
-            {
-              "kind": "method",
-              "name": "totalDisplayedColumnCount",
-              "privacy": "private",
-              "description": "Returns the total number of columns that are not hidden"
-            },
-            {
-              "kind": "method",
-              "name": "atLeastOneColumnHidden",
-              "privacy": "private",
-              "description": "Returns true if at least one column is hidden from the table"
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "renderRow",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "row",
-                  "type": {
-                    "text": "WcsGridRow"
-                  }
-                },
-                {
-                  "name": "rowIndex",
-                  "type": {
-                    "text": "number"
-                  }
-                }
-              ],
-              "description": "Returns the row with all mapped cells inside.  \r\nThe aria-rowindex here starts at 2 because the header row starts at index 1."
-            },
-            {
-              "kind": "method",
-              "name": "rowCssPartsWithoutEmptyList",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "string[] | null | undefined"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "row",
-                  "type": {
-                    "text": "WcsGridRow"
-                  }
-                }
-              ]
-            }
-          ],
-          "attributes": [
-            {
-              "name": "server-mode",
-              "fieldName": "serverMode",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "data",
-              "fieldName": "data",
-              "type": {
-                "text": "any[]"
-              }
-            },
-            {
-              "name": "loading",
-              "fieldName": "loading",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "selection-config",
-              "fieldName": "selectionConfig",
-              "type": {
-                "text": "WcsGridSelectionConfig"
-              }
-            },
-            {
-              "name": "selected-items",
-              "fieldName": "selectedItems",
-              "type": {
-                "text": "any | any[]"
-              }
-            },
-            {
-              "name": "wcs-grid-pagination-id",
-              "fieldName": "wcsGridPaginationId",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "row-id-path",
-              "fieldName": "rowIdPath",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "row-css-parts-fn",
-              "fieldName": "rowCssPartsFn",
-              "type": {
-                "text": "RowCssPartsFn"
-              }
-            }
-          ],
-          "tagName": "wcs-grid",
-          "events": [
-            {
-              "name": "wcsGridSelectionChange",
-              "type": {
-                "text": "EventEmitter<WcsGridSelectionEventDetails>"
-              },
-              "description": "Event emitted when a row is selected or unselected"
-            },
-            {
-              "name": "wcsGridAllSelectionChange",
-              "type": {
-                "text": "EventEmitter<WcsGridAllRowSelectedEventDetails>"
-              },
-              "description": "Event emitted when all rows are selected or unselected"
-            },
-            {
-              "name": "wcsFocus",
-              "type": {
-                "text": "EventEmitter<FocusEvent>"
-              },
-              "description": "Event emitted when the grid has focus."
-            },
-            {
-              "name": "wcsBlur",
-              "type": {
-                "text": "EventEmitter<FocusEvent>"
-              },
-              "description": "Event emitted when the grid loses focus."
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Grid",
-          "declaration": {
-            "name": "Grid",
-            "module": "components/grid/grid.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-grid",
-          "declaration": {
-            "name": "Grid",
-            "module": "components/grid/grid.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/grid-column/grid-column.tsx",
       "declarations": [
         {
@@ -8846,6 +7845,1015 @@
           "declaration": {
             "name": "Hint",
             "module": "components/hint/hint.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/grid/grid-interface.ts",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "getSortOrderInteger",
+          "parameters": [
+            {
+              "name": "sortOrder",
+              "type": {
+                "text": "WcsSortOrder"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "getSortOrderInteger",
+          "declaration": {
+            "name": "getSortOrderInteger",
+            "module": "components/grid/grid-interface.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/grid/grid-keyboard-event.ts",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "getActionForKeyboardEvent",
+          "return": {
+            "type": {
+              "text": "KeyboardEventAssociatedAction[]"
+            }
+          },
+          "parameters": [
+            {
+              "name": "event",
+              "type": {
+                "text": "KeyboardEvent"
+              }
+            },
+            {
+              "name": "type",
+              "type": {
+                "text": "'grid_no_selection' | 'grid_selection_single' | 'grid_selection_multiple'"
+              }
+            }
+          ],
+          "description": "We follow this https://www.w3.org/WAI/ARIA/apg/patterns/grid/"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "getActionForKeyboardEvent",
+          "declaration": {
+            "name": "getActionForKeyboardEvent",
+            "module": "components/grid/grid-keyboard-event.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/grid/grid-radio.tsx",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "GridRadio",
+          "parameters": [
+            {
+              "name": "{\r\n        checked,\r\n        row,\r\n        rowIndex,\r\n        totalRows,\r\n        onClick\r\n    }"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "GridRadio",
+          "declaration": {
+            "name": "GridRadio",
+            "module": "components/grid/grid-radio.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/grid/grid.e2e.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/grid/grid.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The grid component is a complex component used as an HTML table to display collections of data.",
+          "name": "Grid",
+          "cssProperties": [
+            {
+              "description": "Gap between grid cells (horizontal, vertical using `border-spacing` property)",
+              "name": "--wcs-grid-gap"
+            },
+            {
+              "description": "Vertical alignment of grid cells",
+              "name": "--wcs-grid-vertical-align"
+            },
+            {
+              "description": "Outline color for grid cells",
+              "name": "--wcs-grid-outline-color"
+            },
+            {
+              "description": "Text color of all grid cells",
+              "name": "--wcs-grid-cell-text-color"
+            },
+            {
+              "description": "Horizontal padding of grid cells",
+              "name": "--wcs-grid-cell-padding-horizontal"
+            },
+            {
+              "description": "Vertical padding of grid cells",
+              "name": "--wcs-grid-cell-padding-vertical"
+            },
+            {
+              "description": "Bottom border of grid cells",
+              "name": "--wcs-grid-cell-border-bottom"
+            },
+            {
+              "description": "Separator border between grid cells",
+              "name": "--wcs-grid-cell-separator-border"
+            },
+            {
+              "description": "Border radius of the first cell in a row",
+              "name": "--wcs-grid-first-cell-border-radius"
+            },
+            {
+              "description": "Border radius of the last cell in a row",
+              "name": "--wcs-grid-last-cell-border-radius"
+            },
+            {
+              "description": "Background color for selected rows",
+              "name": "--wcs-grid-highlight-color"
+            },
+            {
+              "description": "Background color of all rows",
+              "name": "--wcs-grid-row-background-color"
+            },
+            {
+              "description": "Background color of odd rows",
+              "name": "--wcs-grid-row-odd-background-color"
+            },
+            {
+              "description": "Background color of even rows",
+              "name": "--wcs-grid-row-even-background-color"
+            },
+            {
+              "description": "Width of the selection column",
+              "name": "--wcs-grid-column-selection-width"
+            },
+            {
+              "description": "Left border of all grid headers (within `<thead>`)",
+              "name": "--wcs-grid-header-border-left"
+            },
+            {
+              "description": "Bottom border of the `<thead>`",
+              "name": "--wcs-grid-header-border-bottom"
+            },
+            {
+              "description": "Background color of all headers",
+              "name": "--wcs-grid-header-background-color"
+            },
+            {
+              "description": "Text color of all headers",
+              "name": "--wcs-grid-header-text-color"
+            },
+            {
+              "description": "Font weight of all headers",
+              "name": "--wcs-grid-header-font-weight"
+            },
+            {
+              "description": "Font size of all headers",
+              "name": "--wcs-grid-header-font-size"
+            },
+            {
+              "description": "Line height of all headers",
+              "name": "--wcs-grid-header-line-height"
+            },
+            {
+              "description": "Border radius of all headers",
+              "name": "--wcs-grid-header-border-radius"
+            },
+            {
+              "description": "Bottom border of all headers",
+              "name": "--wcs-grid-header-border-bottom"
+            },
+            {
+              "description": "Color of the sort arrow in the header",
+              "name": "--wcs-grid-header-sort-arrow-color-default"
+            },
+            {
+              "description": "Color of the sort arrow in the header when active",
+              "name": "--wcs-grid-header-sort-arrow-color-active"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "CSS part for the checkbox in the selection column that selects all rows",
+              "name": "all-rows-checkbox"
+            },
+            {
+              "description": "CSS part for the checkbox of each row in the selection column",
+              "name": "row-checkbox"
+            }
+          ],
+          "slots": [
+            {
+              "description": "The slot containing the column of the grid in the `<thead>`",
+              "name": "grid-column"
+            },
+            {
+              "description": "The slot containing the pagination of the grid below the `<table>`",
+              "name": "grid-pagination"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsGridElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeTable",
+              "type": {
+                "text": "HTMLTableElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "serverMode",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Manage sort and pagination with a backend server when set to `true`"
+            },
+            {
+              "kind": "field",
+              "name": "data",
+              "type": {
+                "text": "any[]"
+              },
+              "description": "Contains the data to display in the table from a js object"
+            },
+            {
+              "kind": "field",
+              "name": "loading",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Flag to display a spinner during data loading"
+            },
+            {
+              "kind": "field",
+              "name": "selectionConfig",
+              "type": {
+                "text": "WcsGridSelectionConfig"
+              },
+              "default": "'none'",
+              "description": "Used to manage grid's row selection.  \r\n\"none\": no row can be selected.  \r\n\"multiple\": several rows can be selected.  \r\n\"single\": one row only can be selected."
+            },
+            {
+              "kind": "field",
+              "name": "selectedItems",
+              "type": {
+                "text": "any | any[]"
+              },
+              "default": "[]",
+              "description": "Set the selected items (rows)"
+            },
+            {
+              "kind": "field",
+              "name": "wcsGridPaginationId",
+              "type": {
+                "text": "string"
+              },
+              "description": "Automatically set by the component to reference the wcs-grid-pagination HTML element by its id."
+            },
+            {
+              "kind": "field",
+              "name": "rowIdPath",
+              "type": {
+                "text": "string"
+              },
+              "description": "Name of the object's key that will be used to display the cells whose `keyValue` attribute matches to the\r\nobject's value for this key."
+            },
+            {
+              "kind": "field",
+              "name": "rowCssPartsFn",
+              "type": {
+                "text": "RowCssPartsFn"
+              },
+              "description": "Function to add css parts to the grid rows, this allows you to customize the rows with css parts directly\r\nin you're application stylesheet."
+            },
+            {
+              "kind": "field",
+              "name": "columns",
+              "type": {
+                "text": "HTMLWcsGridColumnElement[]"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "paginationEl",
+              "type": {
+                "text": "HTMLWcsGridPaginationElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "rows",
+              "type": {
+                "text": "WcsGridRow[]"
+              },
+              "privacy": "private",
+              "default": "[]",
+              "description": "Rows to display, contains user data and meta data"
+            },
+            {
+              "kind": "field",
+              "name": "cursorPosition",
+              "type": {
+                "text": "{col: number, row: number}"
+              },
+              "privacy": "private",
+              "default": "{col: 0, row: 1}",
+              "description": "Used to track the focus position in the grid for keyboard navigation.  \r\nHeader row : index 0  \r\nFirst column :\r\n  - index 1 if selection mode multiple or single\r\n  - index 0 if no selection mode\r\nDefault position : col 0, row 1"
+            },
+            {
+              "kind": "method",
+              "name": "onCursorPositionChange",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "{col: number, row: number}"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "onDataChange",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "any[]"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "onSelectedItemsPropertyChange",
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "any | any[]"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "onFocus",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "FocusEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "onBlur",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "FocusEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "hasSelectionColumn",
+              "description": "If selectionConfig is different from `none`, that means that an extra column for radio or checkbox is rendered\r\nin the table."
+            },
+            {
+              "kind": "method",
+              "name": "getElementToFocusAtCursorPosition",
+              "return": {
+                "type": {
+                  "text": "HTMLTableCellElement | HTMLWcsCheckboxElement | HTMLInputElement"
+                }
+              },
+              "description": "Returns the element to focus at the current cursor position : it can be a cell (td, th) to focus or a nested\r\ncheckbox / radio element if the selection mode is single or multiple"
+            },
+            {
+              "kind": "method",
+              "name": "moveCursorPosition",
+              "parameters": [
+                {
+                  "name": "directionX",
+                  "type": {
+                    "text": "number | 'first' | 'last'"
+                  }
+                },
+                {
+                  "name": "directionY",
+                  "type": {
+                    "text": "number | 'first' | 'last'"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleCursorPositionOnEmptyTh",
+              "description": "When the grid has selectionConfig single, an empty th appears at col=0, row=0.\r\nIt should not be focusable so the cursor navigates to col=1, row=0 instead."
+            },
+            {
+              "kind": "method",
+              "name": "onHiddenColumnChange",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "onKeyDown",
+              "parameters": [
+                {
+                  "name": "_event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "doActionFromKeyboardEventAssociatedAction",
+              "parameters": [
+                {
+                  "name": "actionFromKeyboardEvent",
+                  "type": {
+                    "text": "KeyboardEventAssociatedAction"
+                  }
+                },
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "onClick",
+              "parameters": [
+                {
+                  "name": "_event",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "updateSelectionWithValues",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "values",
+                  "type": {
+                    "text": "any | any[]"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "wcsGridRowToWcsGridRowData",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "WcsGridRowData"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "row",
+                  "type": {
+                    "text": "WcsGridRow"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "updateGridRows",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "data",
+                  "type": {
+                    "text": "any[]"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "refreshSort",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "refreshOthersColumnsSortOrderState",
+                  "type": {
+                    "text": "boolean"
+                  }
+                }
+              ],
+              "description": "Handle existing column's filters (defined before the grid is instantiated)"
+            },
+            {
+              "kind": "method",
+              "name": "disableSortOrderForColumns",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "columns",
+                  "type": {
+                    "text": "HTMLWcsGridColumnElement[] | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "getGridColumnsFromTemplate",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "HTMLWcsGridColumnElement[]"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "getGridPaginationsFromTemplate",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "HTMLWcsGridPaginationElement[]"
+                }
+              }
+            },
+            {
+              "kind": "field",
+              "name": "gridElementsWithCoordinates",
+              "type": {
+                "text": "GridElementWithCoordinates[]"
+              },
+              "privacy": "private",
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "sortChangeEventHandler",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "CustomEvent<WcsGridColumnSortChangeEventDetails>"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "sortBy",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "column",
+                  "type": {
+                    "text": "HTMLWcsGridColumnElement"
+                  },
+                  "description": "Column from which to extract the sorting configuration"
+                }
+              ],
+              "description": "Sorts the grid rows according to the given column's configuration"
+            },
+            {
+              "kind": "method",
+              "name": "updatePageIndex",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "description": "Update the page's number of all rows"
+            },
+            {
+              "kind": "method",
+              "name": "paginationChangeEventHandler",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "paginationChangeEventHandlerOutside",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "CustomEvent<WcsGridPaginationChangeEventDetails>"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "onPaginationChange",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "onRowSelection",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "row",
+                  "type": {
+                    "text": "WcsGridRow"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "selectedRows",
+              "type": {
+                "text": "WcsGridRow[]"
+              },
+              "privacy": "private",
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "selectAllRows",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "allRowsAreSelected",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "getRowsForCurrentPage",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "WcsGridRow[]"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderSelectionColumn",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "row",
+                  "type": {
+                    "text": "WcsGridRow"
+                  }
+                },
+                {
+                  "name": "rowIndex",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "getCellContent",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "HTMLElement | HTMLElement[] | string | void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "row",
+                  "type": {
+                    "text": "WcsGridRow"
+                  }
+                },
+                {
+                  "name": "cell",
+                  "type": {
+                    "text": "WcsGridCell"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "totalColumnCount",
+              "privacy": "private",
+              "description": "Returns the total number of columns"
+            },
+            {
+              "kind": "method",
+              "name": "totalDisplayedColumnCount",
+              "privacy": "private",
+              "description": "Returns the total number of columns that are not hidden"
+            },
+            {
+              "kind": "method",
+              "name": "atLeastOneColumnHidden",
+              "privacy": "private",
+              "description": "Returns true if at least one column is hidden from the table"
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderRow",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "row",
+                  "type": {
+                    "text": "WcsGridRow"
+                  }
+                },
+                {
+                  "name": "rowIndex",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ],
+              "description": "Returns the row with all mapped cells inside.  \r\nThe aria-rowindex here starts at 2 because the header row starts at index 1."
+            },
+            {
+              "kind": "method",
+              "name": "rowCssPartsWithoutEmptyList",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "string[] | null | undefined"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "row",
+                  "type": {
+                    "text": "WcsGridRow"
+                  }
+                }
+              ]
+            }
+          ],
+          "attributes": [
+            {
+              "name": "server-mode",
+              "fieldName": "serverMode",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "data",
+              "fieldName": "data",
+              "type": {
+                "text": "any[]"
+              }
+            },
+            {
+              "name": "loading",
+              "fieldName": "loading",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "selection-config",
+              "fieldName": "selectionConfig",
+              "type": {
+                "text": "WcsGridSelectionConfig"
+              }
+            },
+            {
+              "name": "selected-items",
+              "fieldName": "selectedItems",
+              "type": {
+                "text": "any | any[]"
+              }
+            },
+            {
+              "name": "wcs-grid-pagination-id",
+              "fieldName": "wcsGridPaginationId",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "row-id-path",
+              "fieldName": "rowIdPath",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "row-css-parts-fn",
+              "fieldName": "rowCssPartsFn",
+              "type": {
+                "text": "RowCssPartsFn"
+              }
+            }
+          ],
+          "tagName": "wcs-grid",
+          "events": [
+            {
+              "name": "wcsGridSelectionChange",
+              "type": {
+                "text": "EventEmitter<WcsGridSelectionEventDetails>"
+              },
+              "description": "Event emitted when a row is selected or unselected"
+            },
+            {
+              "name": "wcsGridAllSelectionChange",
+              "type": {
+                "text": "EventEmitter<WcsGridAllRowSelectedEventDetails>"
+              },
+              "description": "Event emitted when all rows are selected or unselected"
+            },
+            {
+              "name": "wcsFocus",
+              "type": {
+                "text": "EventEmitter<FocusEvent>"
+              },
+              "description": "Event emitted when the grid has focus."
+            },
+            {
+              "name": "wcsBlur",
+              "type": {
+                "text": "EventEmitter<FocusEvent>"
+              },
+              "description": "Event emitted when the grid loses focus."
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Grid",
+          "declaration": {
+            "name": "Grid",
+            "module": "components/grid/grid.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-grid",
+          "declaration": {
+            "name": "Grid",
+            "module": "components/grid/grid.tsx"
           }
         }
       ]
@@ -10302,6 +10310,60 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/list-item-property/list-item-property.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The list-item-property is a subcomponent of `wcs-list-item`.\r\nWrapped in a `wcs-list-item-properties`, it represents a property to describe an item.",
+          "name": "ListItemProperty",
+          "cssProperties": [
+            {
+              "description": "Font weight of the property",
+              "name": "--wcs-list-item-property-font-weight"
+            },
+            {
+              "description": "Color of the property",
+              "name": "--wcs-list-item-property-color"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Main container slot",
+              "name": "<no-name>"
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-list-item-property",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ListItemProperty",
+          "declaration": {
+            "name": "ListItemProperty",
+            "module": "components/list-item-property/list-item-property.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-list-item-property",
+          "declaration": {
+            "name": "ListItemProperty",
+            "module": "components/list-item-property/list-item-property.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/list-item-properties/list-item-properties.tsx",
       "declarations": [
         {
@@ -10358,60 +10420,6 @@
           "declaration": {
             "name": "ListItemProperties",
             "module": "components/list-item-properties/list-item-properties.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/list-item-property/list-item-property.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The list-item-property is a subcomponent of `wcs-list-item`.\r\nWrapped in a `wcs-list-item-properties`, it represents a property to describe an item.",
-          "name": "ListItemProperty",
-          "cssProperties": [
-            {
-              "description": "Font weight of the property",
-              "name": "--wcs-list-item-property-font-weight"
-            },
-            {
-              "description": "Color of the property",
-              "name": "--wcs-list-item-property-color"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Main container slot",
-              "name": "<no-name>"
-            }
-          ],
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-list-item-property",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ListItemProperty",
-          "declaration": {
-            "name": "ListItemProperty",
-            "module": "components/list-item-property/list-item-property.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-list-item-property",
-          "declaration": {
-            "name": "ListItemProperty",
-            "module": "components/list-item-property/list-item-property.tsx"
           }
         }
       ]
@@ -13788,12 +13796,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/skeleton/skeleton-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/select-option/select-option-interface.ts",
       "declarations": [],
       "exports": []
@@ -14182,6 +14184,12 @@
           }
         }
       ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/skeleton/skeleton-interface.ts",
+      "declarations": [],
+      "exports": []
     },
     {
       "kind": "javascript-module",
@@ -14879,423 +14887,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/tabs/tabs-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/tabs/tabs.e2e.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/tabs/tabs.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Tabs component to switch between tab content. Use in conjunction with `wcs-tab`.",
-          "name": "Tabs",
-          "cssProperties": [
-            {
-              "description": "Height of the tabs indicator",
-              "name": "--wcs-tabs-indicator-height"
-            },
-            {
-              "description": "Background color of the tabs indicator",
-              "name": "--wcs-tabs-indicator-background-color"
-            },
-            {
-              "description": "Border radius of the tabs indicator",
-              "name": "--wcs-tabs-indicator-border-radius"
-            },
-            {
-              "description": "Text color of the tabs",
-              "name": "--wcs-tabs-color-default"
-            },
-            {
-              "description": "Text color of the tabs when hovered",
-              "name": "--wcs-tabs-color-hover"
-            },
-            {
-              "description": "Text color of the tabs when pressed",
-              "name": "--wcs-tabs-color-press"
-            },
-            {
-              "description": "Text color of the tabs when focused",
-              "name": "--wcs-tabs-color-focus"
-            },
-            {
-              "description": "Text color of the tabs when selected",
-              "name": "--wcs-tabs-color-selected"
-            },
-            {
-              "description": "Background color of the tabs when focused",
-              "name": "--wcs-tabs-background-color-focus"
-            },
-            {
-              "description": "Background color of the tabs when hovered",
-              "name": "--wcs-tabs-background-color-hover"
-            },
-            {
-              "description": "Background color of the tabs when pressed",
-              "name": "--wcs-tabs-background-color-press"
-            },
-            {
-              "description": "Border radius of the tabs",
-              "name": "--wcs-tabs-border-radius"
-            },
-            {
-              "description": "Outline color on a focused tab",
-              "name": "--wcs-tabs-border-color-focus"
-            },
-            {
-              "description": "Font weight of the tabs",
-              "name": "--wcs-tabs-font-weight-default"
-            },
-            {
-              "description": "Font weight of the tabs when selected",
-              "name": "--wcs-tabs-font-weight-selected"
-            },
-            {
-              "description": "Padding top of the tabs",
-              "name": "--wcs-tabs-padding-top"
-            },
-            {
-              "description": "Padding right of the tabs",
-              "name": "--wcs-tabs-padding-right"
-            },
-            {
-              "description": "Padding bottom of the tabs",
-              "name": "--wcs-tabs-padding-bottom"
-            },
-            {
-              "description": "Padding left of the tabs",
-              "name": "--wcs-tabs-padding-left"
-            },
-            {
-              "description": "Border bottom (gutter) below the tabs",
-              "name": "--wcs-tabs-headers-border-bottom"
-            },
-            {
-              "description": "Transition duration of the tabs",
-              "name": "--wcs-tabs-transition-duration"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsTabsElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "nativeTablist",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "align",
-              "type": {
-                "text": "WcsTabsAlignment"
-              },
-              "default": "'start'",
-              "description": "Tab headers alignment."
-            },
-            {
-              "kind": "field",
-              "name": "selectedIndex",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "Current selected tab index.\r\nStarts at 0."
-            },
-            {
-              "kind": "field",
-              "name": "selectedKey",
-              "type": {
-                "text": "any"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "headersOnly",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Whether to skip rendering the tabpanel with the content of the selected tab. Use this prop if you plan to\r\nseparately render the tab content."
-            },
-            {
-              "kind": "field",
-              "name": "gutter",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines if tabs header should have a border at the bottom"
-            },
-            {
-              "kind": "field",
-              "name": "description",
-              "type": {
-                "text": "string"
-              },
-              "description": "Description is used to provide aria-label for the tabs container which has `role=\"tablist\"`."
-            },
-            {
-              "kind": "field",
-              "name": "headers",
-              "type": {
-                "text": "string[]"
-              },
-              "privacy": "private",
-              "default": "[]"
-            },
-            {
-              "kind": "field",
-              "name": "currentActiveTabIndex",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "default": "0"
-            },
-            {
-              "kind": "field",
-              "name": "tabsId",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "default": "tabsId++"
-            },
-            {
-              "kind": "method",
-              "name": "selectedIndexChanged",
-              "parameters": [
-                {
-                  "name": "newValue",
-                  "type": {
-                    "text": "number"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "selectedTabkeyChanged",
-              "parameters": [
-                {
-                  "name": "newValue",
-                  "type": {
-                    "text": "any"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "emitActiveTabChange",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "updateCurrentActiveIndexByTabKey",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "newValue",
-                  "type": {
-                    "text": "any"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "onTabLoaded"
-            },
-            {
-              "kind": "method",
-              "name": "putTabsInCorrectDivIfTheyAreNot",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleKeyDown",
-              "parameters": [
-                {
-                  "name": "ev",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  }
-                },
-                {
-                  "name": "tabIndex",
-                  "type": {
-                    "text": "number"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "refreshHeaders",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "tabs",
-              "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "method",
-              "name": "selectTabAndEmitChangeEvent",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "index",
-                  "type": {
-                    "text": "number"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "updateTabVisibility",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "hideAllTabsContent",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            },
-            {
-              "kind": "method",
-              "name": "onTabsSlotChange",
-              "privacy": "private",
-              "description": "Observe when a new tab panel is added to the slot to let's handle accessibility properties for tabs panel:\r\n- id: to let header tab refers it proper panel\r\n- aria-label: take the same name as it's referenced header name"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "align",
-              "fieldName": "align",
-              "type": {
-                "text": "WcsTabsAlignment"
-              }
-            },
-            {
-              "name": "selected-index",
-              "fieldName": "selectedIndex",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "selected-key",
-              "fieldName": "selectedKey",
-              "type": {
-                "text": "any"
-              }
-            },
-            {
-              "name": "headers-only",
-              "fieldName": "headersOnly",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "gutter",
-              "fieldName": "gutter",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "description",
-              "fieldName": "description",
-              "type": {
-                "text": "string"
-              }
-            }
-          ],
-          "tagName": "wcs-tabs",
-          "events": [
-            {
-              "name": "tabChange",
-              "type": {
-                "text": "EventEmitter<WcsTabChangeEvent>"
-              },
-              "description": "\r\nEmitted when the selected tab change."
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Tabs",
-          "declaration": {
-            "name": "Tabs",
-            "module": "components/tabs/tabs.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-tabs",
-          "declaration": {
-            "name": "Tabs",
-            "module": "components/tabs/tabs.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/textarea/textarea-interface.ts",
       "declarations": [],
       "exports": []
@@ -15900,6 +15491,423 @@
           "declaration": {
             "name": "Textarea",
             "module": "components/textarea/textarea.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/tabs/tabs-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/tabs/tabs.e2e.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/tabs/tabs.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Tabs component to switch between tab content. Use in conjunction with `wcs-tab`.",
+          "name": "Tabs",
+          "cssProperties": [
+            {
+              "description": "Height of the tabs indicator",
+              "name": "--wcs-tabs-indicator-height"
+            },
+            {
+              "description": "Background color of the tabs indicator",
+              "name": "--wcs-tabs-indicator-background-color"
+            },
+            {
+              "description": "Border radius of the tabs indicator",
+              "name": "--wcs-tabs-indicator-border-radius"
+            },
+            {
+              "description": "Text color of the tabs",
+              "name": "--wcs-tabs-color-default"
+            },
+            {
+              "description": "Text color of the tabs when hovered",
+              "name": "--wcs-tabs-color-hover"
+            },
+            {
+              "description": "Text color of the tabs when pressed",
+              "name": "--wcs-tabs-color-press"
+            },
+            {
+              "description": "Text color of the tabs when focused",
+              "name": "--wcs-tabs-color-focus"
+            },
+            {
+              "description": "Text color of the tabs when selected",
+              "name": "--wcs-tabs-color-selected"
+            },
+            {
+              "description": "Background color of the tabs when focused",
+              "name": "--wcs-tabs-background-color-focus"
+            },
+            {
+              "description": "Background color of the tabs when hovered",
+              "name": "--wcs-tabs-background-color-hover"
+            },
+            {
+              "description": "Background color of the tabs when pressed",
+              "name": "--wcs-tabs-background-color-press"
+            },
+            {
+              "description": "Border radius of the tabs",
+              "name": "--wcs-tabs-border-radius"
+            },
+            {
+              "description": "Outline color on a focused tab",
+              "name": "--wcs-tabs-border-color-focus"
+            },
+            {
+              "description": "Font weight of the tabs",
+              "name": "--wcs-tabs-font-weight-default"
+            },
+            {
+              "description": "Font weight of the tabs when selected",
+              "name": "--wcs-tabs-font-weight-selected"
+            },
+            {
+              "description": "Padding top of the tabs",
+              "name": "--wcs-tabs-padding-top"
+            },
+            {
+              "description": "Padding right of the tabs",
+              "name": "--wcs-tabs-padding-right"
+            },
+            {
+              "description": "Padding bottom of the tabs",
+              "name": "--wcs-tabs-padding-bottom"
+            },
+            {
+              "description": "Padding left of the tabs",
+              "name": "--wcs-tabs-padding-left"
+            },
+            {
+              "description": "Border bottom (gutter) below the tabs",
+              "name": "--wcs-tabs-headers-border-bottom"
+            },
+            {
+              "description": "Transition duration of the tabs",
+              "name": "--wcs-tabs-transition-duration"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsTabsElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeTablist",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "align",
+              "type": {
+                "text": "WcsTabsAlignment"
+              },
+              "default": "'start'",
+              "description": "Tab headers alignment."
+            },
+            {
+              "kind": "field",
+              "name": "selectedIndex",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "Current selected tab index.\r\nStarts at 0."
+            },
+            {
+              "kind": "field",
+              "name": "selectedKey",
+              "type": {
+                "text": "any"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "headersOnly",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Whether to skip rendering the tabpanel with the content of the selected tab. Use this prop if you plan to\r\nseparately render the tab content."
+            },
+            {
+              "kind": "field",
+              "name": "gutter",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines if tabs header should have a border at the bottom"
+            },
+            {
+              "kind": "field",
+              "name": "description",
+              "type": {
+                "text": "string"
+              },
+              "description": "Description is used to provide aria-label for the tabs container which has `role=\"tablist\"`."
+            },
+            {
+              "kind": "field",
+              "name": "headers",
+              "type": {
+                "text": "string[]"
+              },
+              "privacy": "private",
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "currentActiveTabIndex",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "0"
+            },
+            {
+              "kind": "field",
+              "name": "tabsId",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "tabsId++"
+            },
+            {
+              "kind": "method",
+              "name": "selectedIndexChanged",
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "selectedTabkeyChanged",
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "any"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "emitActiveTabChange",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "updateCurrentActiveIndexByTabKey",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "any"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "onTabLoaded"
+            },
+            {
+              "kind": "method",
+              "name": "putTabsInCorrectDivIfTheyAreNot",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyDown",
+              "parameters": [
+                {
+                  "name": "ev",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                },
+                {
+                  "name": "tabIndex",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "refreshHeaders",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "tabs",
+              "privacy": "private",
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "selectTabAndEmitChangeEvent",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "index",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "updateTabVisibility",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "hideAllTabsContent",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            },
+            {
+              "kind": "method",
+              "name": "onTabsSlotChange",
+              "privacy": "private",
+              "description": "Observe when a new tab panel is added to the slot to let's handle accessibility properties for tabs panel:\r\n- id: to let header tab refers it proper panel\r\n- aria-label: take the same name as it's referenced header name"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "align",
+              "fieldName": "align",
+              "type": {
+                "text": "WcsTabsAlignment"
+              }
+            },
+            {
+              "name": "selected-index",
+              "fieldName": "selectedIndex",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "selected-key",
+              "fieldName": "selectedKey",
+              "type": {
+                "text": "any"
+              }
+            },
+            {
+              "name": "headers-only",
+              "fieldName": "headersOnly",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "gutter",
+              "fieldName": "gutter",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "description",
+              "fieldName": "description",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "tagName": "wcs-tabs",
+          "events": [
+            {
+              "name": "tabChange",
+              "type": {
+                "text": "EventEmitter<WcsTabChangeEvent>"
+              },
+              "description": "\r\nEmitted when the selected tab change."
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Tabs",
+          "declaration": {
+            "name": "Tabs",
+            "module": "components/tabs/tabs.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-tabs",
+          "declaration": {
+            "name": "Tabs",
+            "module": "components/tabs/tabs.tsx"
           }
         }
       ]

@@ -1,13 +1,16 @@
 :host {
     --wcs-action-bar-background-color: var(--wcs-semantic-color-background-surface-primary);
     --wcs-action-bar-gap: var(--wcs-semantic-spacing-small);
-    --wcs-action-bar-actions-gap: var(--wcs-semantic-spacing-base);
+    --wcs-action-bar-gap-actions: calc(4 * var(--wcs-semantic-spacing-base));
     --wcs-action-bar-min-height: calc(10 * var(--wcs-semantic-size-base));
     --wcs-action-bar-padding-horizontal: var(--wcs-semantic-spacing-large);
     --wcs-action-bar-padding-vertical: var(--wcs-semantic-spacing-base);
 
-    --wcs-action-bar-title-font-weight: var(--wcs-semantic-font-weight-roman);
-    --wcs-action-bar-title-color: inherit;
+    --wcs-action-bar-tabs-margin-top: calc(1.5 * var(--wcs-semantic-spacing-base));
+
+    --wcs-action-bar-title-font-size: var(--wcs-semantic-font-size-heading-4);
+    --wcs-action-bar-title-font-weight: var(--wcs-semantic-font-weight-heavy);
+    --wcs-action-bar-title-color: var(--wcs-semantic-color-text-primary);
 
     --wcs-tabs-gutter-border-width: var(--wcs-semantic-border-width-default);
     --wcs-tabs-gutter-background-color: var(--wcs-semantic-color-border-secondary);
@@ -23,7 +26,7 @@
     .title-actions {
         padding-top: var(--wcs-action-bar-padding-vertical);
         padding-bottom: var(--wcs-action-bar-padding-vertical);
-        gap: var(--wcs-action-bar-actions-gap);
+        gap: var(--wcs-action-bar-gap-actions);
         display: flex;
         flex-wrap: wrap;
         align-items: center;
@@ -36,6 +39,7 @@
     }
 
     h1 {
+        font-size: var(--wcs-action-bar-title-font-size);
         font-weight: var(--wcs-action-bar-title-font-weight);
         line-height: 1.25;
         margin: 0;
@@ -49,4 +53,8 @@
 
 ::slotted([slot=actions]) {
     display: flex;
+}
+
+::slotted([slot=tabs]) {
+    margin-top: var(--wcs-action-bar-tabs-margin-top);
 }
