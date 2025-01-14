@@ -97,6 +97,8 @@ deploy-azure:
   variables:
     DIST_PATH: '$CI_PROJECT_DIR/storybook-static'
   script:
+    # Skip deployment of RC documentation to production (wcs.dev.sncf)
+    - if [ "DEPLOY_ENV_NAME" == "production" ] && grep -q '"version":.*RC' $CI_PROJECT_DIR/package.json; then echo "Skipping deployment of RC documentation to production"; exit 1; fi
     - npm install -g @azure/static-web-apps-cli
     - swa deploy --app-location ./ --output-location $DIST_PATH --verbose=silly --deployment-token $DEPLOYMENT_TOKEN --env $DEPLOY_ENV_NAME
 
