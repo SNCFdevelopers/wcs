@@ -23,8 +23,8 @@
     --wcs-textarea-border-style-error: solid;
     --wcs-textarea-border-style-focus: var(--wcs-semantic-border-style-focus-control);
 
-    --wcs-internal-textarea-border-radius-left: var(--wcs-textarea-border-radius-left, var(--wcs-semantic-border-radius-base));
-    --wcs-internal-textarea-border-radius-right: var(--wcs-textarea-border-radius-right, var(--wcs-semantic-border-radius-base));
+    --wcs-internal-textarea-border-radius-left: var(--wcs-textarea-border-radius-left, var(--wcs-semantic-border-radius-base)); // Overridden from prefix suffix group in form-field
+    --wcs-internal-textarea-border-radius-right: var(--wcs-textarea-border-radius-right, var(--wcs-semantic-border-radius-base)); // Overridden from prefix suffix group in form-field
 
     --wcs-textarea-border-width: var(--wcs-semantic-border-width-default);
     --wcs-textarea-border-width-focus: var(--wcs-semantic-border-width-large);
