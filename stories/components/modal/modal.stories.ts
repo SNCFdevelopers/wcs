@@ -56,7 +56,7 @@ const Template: StoryFn<Partial<ModalStoryArgs>> = (args) => {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a cursus mi. Nullam et sem mi. Interdum et
                 malesuada fames ac ante ipsum primis in faucibus. Fusce sollicitudin pellentesque libero nec elementum.
             </p>
-            <div slot="actions">
+            <div slot="actions" style="display: flex; gap: var(--wcs-semantic-spacing-base);">
                 <wcs-button @click="${_ => {
                     modalRef.value.show = false;
                 }}" mode="stroked">Annuler
@@ -211,7 +211,7 @@ export const OverflowAndMaxHeight: StoryObj = {
                     maximus neque. Donec consequat eros metus, vitae pharetra metus sollicitudin id. Praesent ut gravida
                     erat. Donec nec ornare quam.
                 </p>
-                <div slot="actions">
+                <div slot="actions" style="display: flex; gap: var(--wcs-semantic-spacing-base);">
                     <wcs-button @click="${_ => { modalRef.value.show = false; }}" mode="stroked">Annuler</wcs-button>
                     <wcs-button @click="${_ => {modalRef.value.show = false; }}">OK</wcs-button>
                 </div>
