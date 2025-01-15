@@ -85,93 +85,325 @@ To sum up :
     </tbody>
 </table>
 
-Please read the [Framework integration documentation](.?path=/docs/documentation-integrations-framework-integrations--documentation) for further information.
+Please read the new [Angular](.?path=/docs/documentation-getting-started-angular--documentation) / [React](.?path=/docs/documentation-getting-started-react--documentation) documentation for further information.
 
 ### CSS Variables
 
 > During Design Tokens migration, we have **reviewed and updated certain CSS variables names on several components**.  
 > - If you have used **any of the following CSS variables below**, you need to **update them** in your project or use the new ones.  
 > - If these variable doesn't appear in your codebase, you don't need to update anything.
+> - You can find a full list of the new tokens in the [design tokens section](.?path=/docs/documentation-design-tokens-sncf-holding--documentation).
 
-#### Globals
+#### 1️⃣ Globals
 
-Colors:
-- `--wcs-white` has been **deleted**. Use the correct design token according to your needs, for example:
-    - `--wcs-semantic-color-text-inverse` for white text color over a dark background (note that the token no longer contains the color value, only the usage context. Can be usefull for theming).
-    - `--wcs-semantic-color-background-surface-primary` for white background color.
-    - `--wcs-semantic-color-foreground-action-primary` for white foreground color on actions.
-- `--wcs-contrast` has been **deleted**. Use `--wcs-semantic-color-text-inverse` instead.
-- `--wcs-light` has been **deleted**. Use the correct design token according to your needs, for example:
-    - `--wcs-semantic-color-background-surface-secondary` for light background color.
-- `--wcs-gray-light` has been **deleted**. Use the correct design token according to your needs, for example:
-  - `--wcs-semantic-color-text-secondary` for light text color.
-- `--wcs-gray` has been **deleted**. Use the correct design token according to your needs, for example:
-  - `--wcs-semantic-color-text-primary` for text color.
-- `--wcs-gray-dark` has been **deleted**. Use the correct design token according to your needs.
-- `--wcs-gray-darker` has been **deleted**. Use the correct design token according to your needs.
-- `--wcs-black` has been **deleted**. Use the correct design token according to your needs.
-- `--wcs-text-light` has been **deleted**. Use the correct design token according to your needs, for example:
-  - `--wcs-semantic-color-border-surface` for surface border color.
-- `--wcs-text-disabled` has been **deleted**. Use the correct design token according to your needs, for example:
-  - `--wcs-semantic-color-background-surface-tertiary` for background of prefix and suffix of control.
-- `--wcs-text-medium` has been **deleted**. Use the correct design token according to your needs, for example:
-  - `--wcs-semantic-color-text-teriary` for tertiary (light gray) texts.
-- `--wcs-blue` has been **deleted**. Use the correct design token according to your needs, for example:
-    - `--wcs-semantic-color-primary` for primary actions or elements in the primary color.
-- `--wcs-purple` has been **deleted**. Use the correct design token according to your needs.
-- `--wcs-pink` has been **deleted**. Use the correct design token according to your needs.
-- `--wcs-red` has been **deleted**. Use the correct design token according to your needs, for example:
-    - `--wcs-semantic-color-text-critical` for representing a red text with error or critical actions.
-- `--wcs-orange` has been **deleted**. Use the correct design token according to your needs.
-- `--wcs-yellow` has been **deleted**. Use the correct design token according to your needs, for example:
-        - `--wcs-semantic-color-background-warning-default` for representing warnings.
-- `--wcs-green` has been **deleted**. Use the correct design token according to your needs, for example:
-    - `--wcs-semantic-color-background-success-default` for representing success states.
-- `--wcs-teal` has been **deleted**. Use the correct design token according to your needs.
-- `--wcs-cyan` has been **deleted**. Use the correct design token according to your needs.
-- `--wcs-primary` has been **deleted**. Use `--wcs-semantic-color-primary` instead.
-- `--wcs-base` has been **deleted**. Use `--wcs-semantic-color-primary` instead.
+##### Colors
 
-Font weight:
-- `--wcs-font-weight-form-value` has been **deleted**. Use the correct font weight token according to your needs, for example:
-    - `--wcs-semantic-font-weight-medium` for medium font weight.
+<table>
+    <thead>
+    <tr>
+        <th>Deleted variable</th>
+        <th>Replace with</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            **`--wcs-blue`**
+            **`--wcs-primary`**
+            **`--wcs-base`**
+        </td>
+        <td>
+            **`--wcs-primitive-color-primary` is used as a base, but prefer using any of these :**
+            - `--wcs-semantic-color-background-action-primary-default` for an interactive background
+            - `--wcs-semantic-color-background-surface-brand` for a brand, non interactive background
+            - `--wcs-semantic-color-foreground-brand` for a brand, non interactive foreground (text, icon layer on top)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            `--wcs-gray-dark`<br/>
+            `--wcs-gray-darker`<br/>
+            `--wcs-black`<br/>
+            `--wcs-purple`<br/>
+            `--wcs-pink`<br/>
+            `--wcs-orange`<br/>
+            `--wcs-teal`<br/>
+            `--wcs-cyan`<br/>
+        </td>
+        <td>
+            No specific replacement. Use the correct design token according to your needs.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            `--wcs-white`
+        </td>
+        <td>
+            - `--wcs-semantic-color-text-inverse` for white text color over a dark background (note that the token no longer contains the color value, only the usage context. Can be useful for theming).  
+            - `--wcs-semantic-color-background-surface-primary` for white background color.  
+            - `--wcs-semantic-color-foreground-action-primary` for white foreground color on actions.  
+        </td>
+    </tr>
+    <tr>
+        <td>
+            `--wcs-contrast`
+        </td>
+        <td>
+            - `--wcs-semantic-color-text-inverse`
+        </td>
+    </tr>
+    <tr>
+        <td>
+            `--wcs-light`
+        </td>
+        <td>
+            - `--wcs-semantic-color-background-surface-secondary` for light background color.  
+        </td>
+    </tr>
+    <tr>
+        <td>
+            `--wcs-gray-light`
+        </td>
+        <td>
+            - `--wcs-semantic-color-text-secondary` for light text color.  
+        </td>
+    </tr>
+    <tr>
+        <td>
+            `--wcs-gray`
+        </td>
+        <td>
+            - `--wcs-semantic-color-text-primary` for text color.  
+        </td>
+    </tr>
+    <tr>
+        <td>
+            `--wcs-text-light`
+        </td>
+        <td>
+            - `--wcs-semantic-color-border-surface` for surface border color.  
+        </td>
+    </tr>
+    <tr>
+        <td>
+            `--wcs-text-disabled`
+        </td>
+        <td>
+            - `--wcs-semantic-color-text-disabled` for disabled text.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            `--wcs-text-medium`
+        </td>
+        <td>
+            - `--wcs-semantic-color-text-tertiary` for tertiary (light gray) texts.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            `--wcs-red`
+        </td>
+        <td>
+            - `--wcs-semantic-color-text-critical` for representing a red text with error or critical actions.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            `--wcs-yellow`
+        </td>
+        <td>
+            - `--wcs-semantic-color-background-warning-default` for representing warnings.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            `--wcs-green`
+        </td>
+        <td>
+            - `--wcs-semantic-color-background-success-default` for representing success states.
+        </td>
+    </tr>
+    </tbody>
+</table>
 
-Size:
-- `--wcs-base-size` has been **deleted**. Use `wcs-semantic-size-base` instead.
-- `--wcs-size-xl` has been **deleted**. Use `--wcs-semantic-size-xl` instead.
-- `--wcs-size-l` has been **deleted**. Use `--wcs-semantic-size-l` instead.
-- `--wcs-size-m` has been **deleted**. Use `--wcs-semantic-size-m` instead.
-- `--wcs-size-s` has been **deleted**. Use `--wcs-semantic-size-s` instead.
-- `--wcs-size-xs` has been **deleted**. Use `--wcs-semantic-size-xs` instead.
+##### Font-weight
 
-Border:
-- `--wcs-border-size` has been **deleted**. Use `--wcs-semantic-border-width-large` instead.
-- `--wcs-border-radius` has been **deleted**. Use `--wcs-semantic-border-radius-base` instead.
+<table>
+    <thead>
+    <tr>
+        <th>Deleted variable</th>
+        <th>Replace with</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>`--wcs-font-weight-form-label`</td>
+        <td>`--wcs-semantic-font-weight-medium`</td>
+    </tr>
+    </tbody>
+</table>
 
-Padding:
-- `--wcs-padding` has been **deleted**. Use `wcs-semantic-spacing-base` instead.
-- `--wcs-padding-l` has been **deleted**. Use a calc function on the base spacing.
-- `--wcs-padding-m` has been **deleted**. Use `wcs-semantic-spacing-base` instead.
-- `--wcs-padding-s` has been **deleted**. Use `--wcs-semantic-spacing-small` instead.
-- `--wcs-text-padding` has been **deleted**. Use the correct padding design token according to your needs.
+##### Size
 
-Margin:
-- `--wcs-base-margin` has been **deleted**. Use `wcs-semantic-spacing-base` instead.
-- `--wcs-margin` has been **deleted**. Use `--wcs-semantic-spacing-large` instead.
-- `--wcs-margin-l` has been **deleted**. Use a calc function on the base spacing.
-- `--wcs-margin-m` has been **deleted**. Use `wcs-semantic-spacing-base` instead.
-- `--wcs-margin-s` has been **deleted**. Use `--wcs-semantic-spacing-small` instead
+<table>
+    <thead>
+    <tr>
+        <th>Deleted variable</th>
+        <th>Replace with</th>
+    </tr>
+    </thead>
+    <tbody style={{verticalAlign: 'baseline', fontFamily: 'Avenir'}}>
+        <tr>
+            <td>`--wcs-base-size`</td>
+            <td>`--wcs-semantic-size-base`</td>
+        </tr>
+    <tr>
+        <td>`--wcs-size-xl`</td>
+        <td>`--wcs-semantic-size-xl`</td>
+    </tr>
+    <tr>
+        <td>`--wcs-size-l`</td>
+        <td>`--wcs-semantic-size-l`</td>
+    </tr>
+    <tr>
+        <td>`--wcs-size-m`</td>
+        <td>`--wcs-semantic-size-m`</td>
+    </tr>
+    <tr>
+        <td>`--wcs-size-s`</td>
+        <td>`--wcs-semantic-size-s`</td>
+    </tr>
+    <tr>
+        <td>`--wcs-size-xs`</td>
+        <td>`--wcs-semantic-size-xs`</td>
+    </tr>
+    </tbody>
+</table>
 
-### wcs-accordion
+> 👉 Please read the [Template guidelines](.?path=/docs/documentation-template--documentation) and update your `app-root` stylesheet according to the above changes.  
+> You may for instance update these CSS lines (search and replace in your code) :  
+> ```css
+> height: calc(100vh - 64px); /* BEFORE */
+> height: calc(100vh - 8 * var(--wcs-semantic-size-base)); /* AFTER */
+> ...
+> height: calc(100vh - 64px - 54px); /* BEFORE */
+> height: calc(100vh - 8 * var(--wcs-semantic-size-base) - 6 * var(--wcs-semantic-size-base)); /* AFTER */
+> ```
 
-- By default, action text is now hidden. If you want to show it set property `hideActionText` to `false`.
+##### Border
+
+<table>
+    <thead>
+    <tr>
+        <th>Deleted variable</th>
+        <th>Replace with</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>`--wcs-border-size`</td>
+        <td>`--wcs-semantic-border-width-large`</td>
+    </tr>
+    <tr>
+        <td>`--wcs-border-radius`</td>
+        <td>`--wcs-semantic-border-radius-base`</td>
+    </tr>
+    </tbody>
+</table>
+
+##### Padding
+
+> Paddings and margins variables are now merged into "spacing".
+
+<table>
+    <thead>
+    <tr>
+        <th>Deleted variable</th>
+        <th>Replace with</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>`--wcs-padding`</td>
+        <td>`--wcs-semantic-spacing-large` (16px)</td>
+    </tr>
+    <tr>
+        <td>`--wcs-padding-l`</td>
+        <td>Use a CSS calculation function : `calc(1.5 * var(--wcs-semantic-spacing-base)` (12px)</td>
+    </tr>
+    <tr>
+        <td>`--wcs-padding-m`</td>
+        <td>`--wcs-semantic-spacing-base` (8px)</td>
+    </tr>
+    <tr>
+        <td>`--wcs-padding-s`</td>
+        <td>`--wcs-semantic-spacing-small` (4px)</td>
+    </tr>
+    <tr>
+        <td>`--wcs-text-padding`</td>
+        <td>Use the correct padding design token according to your needs. We recommend using `--wcs-semantic-spacing-base`</td>
+    </tr>
+    </tbody>
+</table>
+
+##### Margin
+
+> Paddings and margins variables are now merged into "spacing".
+
+<table>
+    <thead>
+    <tr>
+        <th>Deleted variable</th>
+        <th>Replace with</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>`--wcs-base-margin`</td>
+        <td>`--wcs-semantic-spacing-base` (8px)</td>
+    </tr>
+    <tr>
+        <td>`--wcs-margin`</td>
+        <td>`--wcs-semantic-spacing-large` (16px)</td>
+    </tr>
+    <tr>
+        <td>`--wcs-margin-l`</td>
+        <td>Use a CSS calculation function : `calc(1.5 * var(--wcs-semantic-spacing-base)` (12px)</td>
+    </tr>
+    <tr>
+        <td>`--wcs-margin-m`</td>
+        <td>`--wcs-semantic-spacing-base` (8px)</td>
+    </tr>
+    <tr>
+        <td>`--wcs-margin-s`</td>
+        <td>`--wcs-semantic-spacing-small` (4px)</td>
+    </tr>
+    </tbody>
+</table>
+
+#### 2️⃣ Specific to components
 
 #### wcs-button
 
-- `--wcs-button-height` has been **deleted**. Use these one instead
-    - use instead `--wcs-button-height-s`
-    - use instead `--wcs-button-height-m`
-    - use instead `--wcs-button-height-l`
+<table>
+    <thead>
+        <tr>
+            <th>Deleted variable</th>
+            <th>Replace with</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>`--wcs-button-height`</td>
+            <td>
+                - `--wcs-button-height-s`
+                - `--wcs-button-height-m`
+                - `--wcs-button-height-l`
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 #### wcs-card
 
@@ -179,60 +411,212 @@ Margin:
 
 #### wcs-input
 
-- `--wcs-input-icon-color` has been **deleted**. Use these one instead
-    - `--wcs-input-icon-color-default`: default icon color
-    - `--wcs-input-icon-color-focus`: icon color on focus
-    - `--wcs-input-icon-color-disabled`: icon color when disabled
+<table>
+    <thead>
+        <tr>
+            <th>Deleted variable</th>
+            <th>Replace with</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>`--wcs-input-icon-color`</td>
+            <td>
+                <ul>
+                    <li>`--wcs-input-icon-color-default`: default icon color</li>
+                    <li>`--wcs-input-icon-color-focus`: icon color on focus</li>
+                    <li>`--wcs-input-icon-color-disabled`: icon color when disabled</li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 #### wcs-textarea
 
-- `--wcs-textarea-icon-color` has been **deleted**. Use these one instead
-    - `--wcs-textarea-icon-color-default`: default icon color
-    - `--wcs-textarea-icon-color-focus`: icon color on focus
-    - `--wcs-textarea-icon-color-disabled`: icon color when disabled
+<table>
+    <thead>
+        <tr>
+            <th>Deleted variable</th>
+            <th>Replace with</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>`--wcs-textarea-icon-color`</td>
+            <td>
+                <ul>
+                    <li>`--wcs-textarea-icon-color-default`: default icon color</li>
+                    <li>`--wcs-textarea-icon-color-focus`: icon color on focus</li>
+                    <li>`--wcs-textarea-icon-color-disabled`: icon color when disabled</li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 #### wcs-select
 
-- `--wcs-select-icon-color` has been **deleted**. Use these one instead
-    - `--wcs-select-icon-color-default`: default icon color
-    - `--wcs-select-icon-color-focus`: icon color on focus
-    - `--wcs-select-icon-color-disabled`: icon color when disabled
-- `--wcs-select-border-color` has been **deleted**. Use these one instead
-    - `--wcs-select-control-border-color-default`: default border color
-    - `--wcs-select-control-border-color-focus`: border color on focus
-    - `--wcs-select-control-border-color-disabled`: border color when disabled
-- `--wcs-select-outline-color` has been **deleted**. You have to use `--wcs-select-control-border-color-focus` instead.
-- `--wcs-select-option-height` has been **deleted** from `wcs-select`. You have to use `--wcs-select-option-height` from `wcs-select-option` instead.
-- `--wcs-select-border-width` has been **deleted** from `wcs-select`. Use these one instead
-    - `--wcs-select-overlay-border-width`: border width of the overlay which contains the options
-    - `--wcs-select-control-border-width`: default border width
-    - `--wcs-select-control-border-width-active`: border width when select is opened
-    - `--wcs-select-control-border-width-focus`: border width when select is focused
-- `--wcs-select-border-radius` has been **deleted**. Use these one instead
-    - `--wcs-select-control-border-radius`: default border radius
-    - `--wcs-select-overlay-border-radius`: border radius of the overlay which contains the options
+<table>
+    <thead>
+        <tr>
+            <th>Deleted variable</th>
+            <th>Replace with</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>`--wcs-select-icon-color`</td>
+            <td>
+                <ul>
+                    <li>`--wcs-select-icon-color-default`: default icon color</li>
+                    <li>`--wcs-select-icon-color-focus`: icon color on focus</li>
+                    <li>`--wcs-select-icon-color-disabled`: icon color when disabled</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>`--wcs-select-border-color`</td>
+            <td>
+                <ul>
+                    <li>`--wcs-select-control-border-color-default`: default border color</li>
+                    <li>`--wcs-select-control-border-color-focus`: border color on focus</li>
+                    <li>`--wcs-select-control-border-color-disabled`: border color when disabled</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>`--wcs-select-outline-color`</td>
+            <td>`--wcs-select-control-border-color-focus`</td>
+        </tr>
+        <tr>
+            <td>`--wcs-select-option-height`</td>
+            <td>`--wcs-select-option-height` from `wcs-select-option`</td>
+        </tr>
+        <tr>
+            <td>`--wcs-select-border-width`</td>
+            <td>
+                <ul>
+                    <li>`--wcs-select-overlay-border-width`: border width of the overlay which contains the options</li>
+                    <li>`--wcs-select-control-border-width`: default border width</li>
+                    <li>`--wcs-select-control-border-width-active`: border width when select is opened</li>
+                    <li>`--wcs-select-control-border-width-focus`: border width when select is focused</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>`--wcs-select-border-radius`</td>
+            <td>
+                <ul>
+                    <li>`--wcs-select-control-border-radius`: default border radius</li>
+                    <li>`--wcs-select-overlay-border-radius`: border radius of the overlay which contains the options</li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 #### wcs-native-select
 
-- `--wcs-select-native-outline-color` has been **deleted**. Use these one instead
-    - `--wcs-select-native-border-color-default`: default border color
-    - `--wcs-select-native-border-color-focus`: border color on focus
-    - `--wcs-select-native-border-color-disabled`: border color when disabled
+<table>
+    <thead>
+        <tr>
+            <th>Deleted variable</th>
+            <th>Replace with</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>`--wcs-select-native-outline-color`</td>
+            <td>
+                <ul>
+                    <li>`--wcs-select-native-border-color-default`: default border color</li>
+                    <li>`--wcs-select-native-border-color-focus`: border color on focus</li>
+                    <li>`--wcs-select-native-border-color-disabled`: border color when disabled</li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 #### wcs-switch
 
-- `--wcs-switch-bullet-color-initial` and `--wcs-switch-bullet-color-final` has been deleted. Use instead : 
-    - `--wcs-switch-dot-color-initial`: for dot color inside switch when switch is not selected
-    - `--wcs-switch-dot-color-final`: for dot color inside switch when switch is selected
-- `--wcs-switch-text-color` has been deleted. Use instead : 
-    - `--wcs-switch-text-color-default`: text color default
-    - `--wcs-switch-text-color-selected`: text color when switch is selected
-    - `--wcs-switch-text-color-hover`: text color when switch is hovered
-    - `--wcs-switch-text-color-disabled`: text color when switch is disabled
+<table>
+    <thead>
+        <tr>
+            <th>Deleted variable</th>
+            <th>Replace with</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>`--wcs-switch-bullet-color-initial`</td>
+            <td>`--wcs-switch-dot-color-initial`: for dot color inside switch when switch is not selected</td>
+        </tr>
+        <tr>
+            <td>`--wcs-switch-bullet-color-final`</td>
+            <td>`--wcs-switch-dot-color-final`: for dot color inside switch when switch is selected</td>
+        </tr>
+        <tr>
+            <td>`--wcs-switch-text-color`</td>
+            <td>
+                <ul>
+                    <li>`--wcs-switch-text-color-default`: text color default</li>
+                    <li>`--wcs-switch-text-color-selected`: text color when switch is selected</li>
+                    <li>`--wcs-switch-text-color-hover`: text color when switch is hovered</li>
+                    <li>`--wcs-switch-text-color-disabled`: text color when switch is disabled</li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 #### wcs-badge
 
-- Rename `--wcs-badge-ligther-percentage` to `--wcs-badge-lighter-percentage` (typo)
+<table>
+    <thead>
+        <tr>
+            <th>Deleted variable</th>
+            <th>Replace with</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                --wcs-badge-ligther-percentage
+            </td>
+            <td>
+                --wcs-badge-<mark>lighter</mark>-percentage (typo)
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+### wcs-tabs
+
+<table>
+    <thead>
+    <tr>
+        <th>Deleted variable</th>
+        <th>Replace with</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>`--wcs-tabs-width`</td>
+        <td>This variable was not used because `width` is always set to `auto` for the tabs.</td>
+    </tr>
+    <tr>
+        <td>`--wcs-tabs-padding-horizontal`</td>
+        <td>Use `--wcs-tabs-padding-left`/`--wcs-tabs-padding-right` instead.</td>
+    </tr>
+    <tr>
+        <td>`--wcs-tabs-padding-vertical`</td>
+        <td>Use `--wcs-tabs-padding-top`/`--wcs-tabs-padding-bottom` instead.</td>
+    </tr>
+    </tbody>
+</table>
+
 
 #### wcs-header
 
@@ -240,7 +624,30 @@ With design tokens migration, the `wcs-header` **is no longer dark**. As you can
 
 Indeed, on storybook, we applied the `.wcs-light` class to the button to make it visible. As the `wcs-header` is no longer dark, you have to remove this class from the button to keep it visible if you have used it.
 
-Before
+**Before**
+
+<Unstyled>
+    <wcs-header style={{
+        display: 'block',
+        boxShadow: 'rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px, rgba(0, 0, 0, 0.2) 0px 2px 4px -1px',
+        '--wcs-header-background-color': '#333',
+        '--wcs-header-border-bottom': 'none',
+    }}>
+        <img
+            style={{'--wcs-header-logo-height': '60px'}}
+            slot="logo"
+            alt="SNCF"
+            src="sncf-logo.png"
+        />
+        <h1 style={{color: 'white'}} slot="title">Votre superbe application</h1>
+        <div slot="actions">
+            <wcs-button mode="clear" class="wcs-light">
+                <span>Connexion</span>
+                <wcs-mat-icon icon="person_outline"></wcs-mat-icon>
+            </wcs-button>
+        </div>
+    </wcs-header>
+</Unstyled>
 
 ```html
 <wcs-header>
@@ -259,7 +666,25 @@ Before
 </wcs-header>
 ```
 
-After
+**After**
+
+<Unstyled>
+    <wcs-header>
+        <img
+            style={{'--wcs-header-logo-height': '60px'}}
+            slot="logo"
+            alt="SNCF"
+            src="sncf-logo.png"
+        />
+        <h1 slot="title">Votre superbe application</h1>
+        <div slot="actions">
+            <wcs-button mode="clear">
+                <span>Connexion</span>
+                <wcs-mat-icon icon="person_outline"></wcs-mat-icon>
+            </wcs-button>
+        </div>
+    </wcs-header>
+</Unstyled>
 
 ```html
 <wcs-header>
@@ -277,9 +702,3 @@ After
     </div>
 </wcs-header>
 ```
-
-### wcs-tabs
-
-- `--wcs-tabs-width` has been **deleted**. This variable was not used because `width` is always set to `auto` for the tabs.
-- `--wcs-tabs-padding-horizontal` has been **deleted**. Use `--wcs-tabs-padding-left`/`--wcs-tabs-padding-right` instead.
-- `--wcs-tabs-padding-vertical` has been **deleted**. Use `--wcs-tabs-padding-top`/`--wcs-tabs-padding-bottom` instead.

@@ -28,6 +28,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 #### CSS
 
+- **Global variables**: **remove a lot of CSS global variables due to token migration. See [migration guide](https://wcs.dev.sncf/?path=/docs/documentation-migrations-v6-to-v7--documentation#css-variables) for further details.**
 - **button**: remove `--wcs-button-height`. Use instead:
   - use instead `--wcs-button-height-s`
   - use instead `--wcs-button-height-m`
@@ -436,7 +437,7 @@ it.
 ### Fixed
 
 - **dropdown**: if the user presses an arrow (up or down) on the keyboard, the browser is prevented from scrolling
-- **docs**: made some corrections on the [Framework integration documentation](https://sncf.gitlab.io/wcs/develop/?path=/story/documentation-framework-integrations--page)
+- **docs**: made some corrections on the [Framework integration documentation](https://wcs.dev.sncf/?path=/docs/documentation-getting-started-angular--documentation)
 - **checkbox**: label does not overlap anymore on very narrow containers
 - **tooltip**: fix tooltip appearance when it is contained into a fullscreen element
 - **label**: changed selector and disposition to inline-block for several lines field label

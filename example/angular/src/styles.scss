@@ -51,15 +51,15 @@ body {
 
 // Examples for class passed in template option of formly radio
 .value1 {
-  --wcs-semantic-color-primary: var(--wcs-semantic-color-success);
+  --wcs-semantic-color-text-primary: var(--wcs-semantic-color-foreground-success);
 }
 
 .value2 {
-  --wcs-semantic-color-primary: var(--wcs-semantic-color-warning);
+  --wcs-semantic-color-text-primary: var(--wcs-semantic-color-foreground-warning);
 }
 
 .value3 {
-  --wcs-semantic-color-primary: var(--wcs-semantic-color-error);
+  --wcs-semantic-color-text-primary: var(--wcs-semantic-color-foreground-error);
 }
 
 .formly-group-flex-col-with-gap {

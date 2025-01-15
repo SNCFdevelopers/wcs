@@ -4,7 +4,8 @@ import { Meta } from '@storybook/addon-docs';
 
 # Theming
 
-Since v7, we introduce theme thanks to the implementation of design tokens in WCS!
+Version 7 of WCS introduced theming thanks to the implementation of design tokens!  
+By switching themes, you can change the color scheme, typography, spacing, and other visual attributes of your application.  
 
 You can now choose between all themes below.
 
@@ -53,8 +54,8 @@ By abstracting these design elements into tokens, teams can ensure consistency a
 
 ### Design Tokens in WCS
 
-We choose to use three layers of design tokens in WCS:
-- **Primitive**: The most basic level of design tokens, representing the raw building blocks of a design system. These tokens define the core elements of a design system, such as colors, typography, spacing, and motion. This layer wan be specific to a brand or a product. The structure of this layer is not unified among all brands.
+We picked three layers of design tokens in WCS:
+- **Primitive**: The most basic level of design tokens, representing the raw building blocks of a design system. These tokens define the core elements of a design system, such as colors, typography, spacing, and motion. This layer can be specific to a brand or a product. The structure of this layer is not unified among all brands.
 - **Semantic**: The intermediate level of design tokens, representing the abstracted elements of a design system. These tokens define the high-level design elements of a design system, such as primary and secondary colors for action surfaces, typography scales, and spacing scales. This layer is unified among all brands as components are built on top of it.
 - **Component**: The highest level of design tokens, specific to a component. They can be used to define the design of a component in a specific context. This layer is also unified among all brands.
 
@@ -62,7 +63,7 @@ Each layer is mapped to its preceding layer. The component layer maps CSS proper
 
 The component layer is provided with the WCS components, is pre-built, and remains the same across all themes (although overrides are possible if necessary). The semantic and primitive layers, on the other hand, are delivered for each theme in separate CSS files. These are available in the `wcs-core/design-tokens/dist` package.
 
-If you wants to learn more about the internal structure of design tokens in WCS and their implementation in the codebase, you can consult the **[Design Tokens documentation](../?path=/docs/internal-docs-design-tokens--documentation)**.
+If you want to learn more about the internal structure of design tokens in WCS and their implementation in the codebase, you can consult the **[Design Tokens documentation](../?path=/docs/internal-docs-design-tokens--documentation)**.
 
 We base our design token declarations on the [Design Tokens Format Module](https://tr.designtokens.org/format). This document outlines the technical specifications for a JSON-based file format used to exchange design tokens between different tools.
 
@@ -125,7 +126,7 @@ For example, for the `sncf-holding` theme:
 ```html
 ...
 <!-- given that you already include the sncf-holding CSS file from the wcs-core package -->
-<body class=".sncf-holding"> <!-- now, all the wcs-holding tokens are apply in your app -->
+<body class="sncf-holding"> <!-- now, all the sncf-holding tokens are applied in your app -->
     ...
 </body>
 ...
@@ -157,8 +158,8 @@ Answering these questions will help you identify which layer needs modification.
 
 ## How to create a new theme from scratch?
 
-Event if our library is versatile, we don't recommend to build a new theme from scratch. The maintenance of a theme is a long term work, and we recommend to use the existing themes. Maintaining a theme on the project side is not a good practice.
+Even if our library is versatile, we don't recommend to build a new theme from scratch. The maintenance of a theme is a long term work, and we recommend to use the existing themes. Maintaining a theme on the project side is not a good practice.
 
 If you really need to create a new theme, we recommend to consult the D2D Design System team.
 
-If you really wants to make one by yourself, you can reuse the tooling we built in the `design-tokens` folder, based on [Style Dictionary](https://amzn.github.io/style-dictionary/#/). But be aware that we don't provide support on it for now.
+If you really wants to make one by yourself, you can reuse the tooling we built in the `design-tokens` folder, based on [Style Dictionary](https://amzn.github.io/style-dictionary/#/). But keep in mind that we don't provide support on it for now.

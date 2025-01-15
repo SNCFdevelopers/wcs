@@ -19,7 +19,7 @@ body {
 }
 
 html {
-    background-color: var(--wcs-semantic-color-background-surface-primary);
+    background-color: var(--wcs-semantic-color-background-surface-body);
     color: var(--wcs-semantic-color-text-primary);
 }
 
@@ -34,21 +34,29 @@ html, body, h1, h2, h3, h4, h5 {
 }
 
 h2 {
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-    line-height: 1.2;
+    margin-bottom: var(--wcs-semantic-spacing-base);
+    font-weight: var(--wcs-semantic-font-weight-medium);
+    line-height: var(--wcs-semantic-font-line-height-medium);
 }
 
-.link {
-    color: var(--wcs-semantic-color-text-primary);
+a, .link {
+    color: var(--wcs-semantic-color-text-link-default);
+    font-weight: var(--wcs-semantic-font-weight-medium);
     text-decoration: none;
-    font-weight: 500;
     padding: 0;
     display: inline-flex;
     align-items: center;
 
     &:hover {
-        color: #0074af;
+        color: var(--wcs-semantic-color-text-link-hover);
+    }
+
+    &:visited {
+        color: var(--wcs-semantic-color-text-link-visited);
+    }
+
+    &[disabled] {
+        color: var(--wcs-semantic-color-text-disabled);
     }
 }
 ```
@@ -110,11 +118,11 @@ Here is a suggested implementation for the CSS grid within your main component. 
     }
     app-navbar {
       grid-area: nav;
-      height: calc(100vh - 64px);
+      height: calc(100vh - 8 * var(--wcs-semantic-size-base)); /* Remove the header height in the calc */
     }
     .content {
       grid-area: content;
-      height: calc(100vh - 64px);
+      height: calc(100vh - 8 * var(--wcs-semantic-size-base)); /* Remove the header height in the calc */
       overflow-x: auto;
     }
 
@@ -124,7 +132,7 @@ Here is a suggested implementation for the CSS grid within your main component. 
         grid-template-columns: 1fr;
       }
       .content {
-        height: calc(100vh - 64px - 54px);
+        height: calc(100vh - 8 * var(--wcs-semantic-size-base) - 6 * var(--wcs-semantic-size-base)); /* Remove the header and mobile-nav height in the calc */
         max-width: 100vw;
       }
       app-navbar {
@@ -152,13 +160,13 @@ This Angular template displays a header for your app with a logo, title, and act
         <ng-container *ngIf="(isLoggedIn | async); then headerConnected; else headerNotConnected"></ng-container>
 
         <ng-template #headerNotConnected>
-          <wcs-button class="wcs-light" mode="clear" (click)="login()"><span>Connexion</span>
+          <wcs-button mode="clear" (click)="login()"><span>Connexion</span>
             <wcs-mat-icon icon="person_outline" class="vertical-align-icon"></wcs-mat-icon>
           </wcs-button>
         </ng-template>
 
         <ng-template #headerConnected>
-          <wcs-dropdown class="wcs-light" mode="clear">
+          <wcs-dropdown mode="clear">
             <div slot="placeholder"><span>{{userName}}</span>
               <wcs-mat-icon icon="person_outline" class="vertical-align-icon"></wcs-mat-icon>
             </div>
@@ -174,7 +182,7 @@ This Angular template displays a header for your app with a logo, title, and act
         display: flex;
       }
       wcs-button {
-        margin-left: 1em;
+        margin-left: var(--wcs-semantic-spacing-large);
       }
   `]
 })
@@ -288,7 +296,7 @@ Here is a suggested implementation for the flex display of all the elements for 
     }
     .container {
       width: var(--wcs-com-content-max-width);
-      margin: 0px auto;
+      margin: 0 auto;
       flex-grow: 1;
     }
   `]

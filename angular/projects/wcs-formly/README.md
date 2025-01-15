@@ -22,7 +22,7 @@ Run `npm run build:wcs-formly` from the wcs-core/angular folder.
 
 ## Integration in your project
 
-Read the official [WCS documentation](https://wcs.dev.sncf/?path=/docs/documentation-integrations-formly--documentation#formly-)
+Read the official [WCS documentation](https://wcs.dev.sncf/?path=/docs/documentation-getting-started-formly--documentation)
 for Formly integration.
 
 ## Further help

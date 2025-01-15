@@ -107,7 +107,7 @@ If you have any question, don't hesitate to [fill an issue](https://gitlab.com/S
 
 ### Install in your project
 
-You can refer to the [official WCS documentation](https://wcs.dev.sncf/?path=/docs/documentation-integrations-framework-integrations--documentation)
+You can refer to the [official WCS documentation](https://wcs.dev.sncf/?path=/docs/documentation-getting-started-angular--documentation)
 to use the lib with Angular or React. For other, StencilJS offers many integrations with different JS frameworks.
 
 You can refer to [their official documentation](https://stenciljs.com/docs/overview) to add WCS to your project.

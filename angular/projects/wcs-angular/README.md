@@ -21,7 +21,7 @@ Run `npm run build:wcs-angular` from the wcs-core/angular folder.
 
 ## Integration in your project
 
-Read the official [WCS documentation](https://wcs.dev.sncf/?path=/docs/documentation-integrations-framework-integrations--documentation#angular-)
+Read the official [WCS documentation](https://wcs.dev.sncf/?path=/docs/documentation-getting-started-angular--documentation)
 for Angular integration.
 
 ## Further help

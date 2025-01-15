@@ -21,7 +21,7 @@ Run `npm run build` from the wcs-core/react folder.
 
 ## Integration in your project
 
-Read the official [WCS documentation](https://wcs.dev.sncf/?path=/docs/documentation-integrations-framework-integrations--documentation#react-)
+Read the official [WCS documentation](https://wcs.dev.sncf/?path=/docs/documentation-getting-started-react--documentation)
 for React integration.
 
 ## Further help

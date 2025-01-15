@@ -1285,7 +1285,7 @@ export namespace Components {
      * @cssprop --wcs-list-item-padding - Padding of the list item
      * @cssprop --wcs-list-item-border-width - Border width of the list item
      * @cssprop --wcs-list-item-border-color - Border color of the list item
-     * @cssprop --wcs-list-item-background-color - Background color of the list item
+     * @cssprop --wcs-list-item-background-color-default - Background color of the list item
      * @cssprop --wcs-list-item-background-color-hover - Background color of the list item when hovered
      * @cssprop --wcs-list-item-background-color-active - Background color of the list item when active
      * @cssprop --wcs-list-item-transition-duration - Transition duration of the list item
@@ -1424,35 +1424,35 @@ export namespace Components {
      * select is reset, you have to call the `updateStyles()` method manually.
      * - It is strongly recommended to use native-select when you don't have to support the multi-selection feature
      * - Use a native-select instead of a wcs-select if your application is mainly on mobile / tablet. The native behavior of the device will be used.
-     * @cssprop --wcs-select-native-arrow-color - Color of the select arrow
-     * @cssprop --wcs-select-native-arrow-color-disabled - Color of the select arrow when the select is disabled
-     * @cssprop --wcs-select-native-background-color - Background color of the select
      * @cssprop --wcs-select-native-line-height - Line height of the select
-     * @cssprop --wcs-select-native-border-radius - Border radius of the select
-     * @cssprop --wcs-select-native-border-width - Border width of the select when not focused
-     * @cssprop --wcs-select-native-border-width-focus - Border width of the select when focused
-     * @cssprop --wcs-select-native-border-style-default - Border style of the select when not focused
-     * @cssprop --wcs-select-native-border-style-focus - Border style of the select when focused
-     * @cssprop --wcs-select-native-border-color-default - Border color of the select when not focused
-     * @cssprop --wcs-select-native-border-color-disabled - Border color of the select when disabled
-     * @cssprop --wcs-select-native-border-color-focus - Border color of the select when focused
-     * @cssprop --wcs-select-native-border-color-error - Border color of the select when in error state
-     * @cssprop --wcs-select-native-value-color - Color of the selected value
-     * @cssprop --wcs-select-native-value-font-weight - Font weight of the selected value
-     * @cssprop --wcs-select-native-value-font-style - Font style of the selected value
-     * @cssprop --wcs-select-native-placeholder-color - Color of the placeholder
-     * @cssprop --wcs-select-native-placeholder-font-weight - Font weight of the placeholder
-     * @cssprop --wcs-select-native-placeholder-font-style - Font style of the placeholder
-     * @cssprop --wcs-select-native-text-color-disabled - Color of the text when the select is disabled
-     * @cssprop --wcs-select-native-option-color - Text color of the options
-     * @cssprop --wcs-select-native-option-font-style - Font style of the options
-     * @cssprop --wcs-select-native-option-selected-color - Text color of the selected option
-     * @cssprop --wcs-select-native-padding-horizontal-m - Padding horizontal of the select when size is 'm'
-     * @cssprop --wcs-select-native-padding-horizontal-m - Padding horizontal of the select when size is 'l'
      * @cssprop --wcs-select-native-size-m - Height of the select when size is 'm'
      * @cssprop --wcs-select-native-font-size-m - Font size of the select when size is 'm'
      * @cssprop --wcs-select-native-size-l - Height of the select when size is 'l'
      * @cssprop --wcs-select-native-font-size-l - Font size of the select when size is 'l'
+     * @cssprop --wcs-select-native-border-radius - Border radius of the select
+     * @cssprop --wcs-select-native-background-color - Background color of the select
+     * @cssprop --wcs-select-native-border-color-default - Border color of the select when not focused
+     * @cssprop --wcs-select-native-border-color-disabled - Border color of the select when disabled
+     * @cssprop --wcs-select-native-border-color-focus - Border color of the select when focused
+     * @cssprop --wcs-select-native-border-color-error - Border color of the select when in error state
+     * @cssprop --wcs-select-native-border-style-default - Border style of the select when not focused
+     * @cssprop --wcs-select-native-border-style-focus - Border style of the select when focused
+     * @cssprop --wcs-select-native-border-width - Border width of the select when not focused
+     * @cssprop --wcs-select-native-border-width-focus - Border width of the select when focused
+     * @cssprop --wcs-select-native-value-color - Color of the selected value
+     * @cssprop --wcs-select-native-value-font-weight - Font weight of the selected value
+     * @cssprop --wcs-select-native-value-font-style - Font style of the selected value
+     * @cssprop --wcs-select-native-padding-horizontal-m - Padding horizontal of the select when size is 'm'
+     * @cssprop --wcs-select-native-padding-horizontal-l - Padding horizontal of the select when size is 'l'
+     * @cssprop --wcs-select-native-arrow-color - Color of the select arrow
+     * @cssprop --wcs-select-native-arrow-color-disabled - Color of the select arrow when the select is disabled
+     * @cssprop --wcs-select-native-text-color-disabled - Color of the text when the select is disabled
+     * @cssprop --wcs-select-native-placeholder-color - Color of the placeholder
+     * @cssprop --wcs-select-native-placeholder-font-weight - Font weight of the placeholder
+     * @cssprop --wcs-select-native-placeholder-font-style - Font style of the placeholder
+     * @cssprop --wcs-select-native-option-color - Text color of the options
+     * @cssprop --wcs-select-native-option-font-style - Font style of the options
+     * @cssprop --wcs-select-native-option-selected-color - Text color of the selected option
      */
     interface WcsNativeSelect {
         /**
@@ -1472,8 +1472,7 @@ export namespace Components {
     /**
      * The nav component is a container for navigation links to other pages of the website.
      * @cssprop --wcs-nav-background-color - Background color of the nav
-     * @cssprop --wcs-nav-width - Width of the nav
-     * @cssprop --wcs-nav-border-top-mobile - Border top of the nav on mobile
+     * @cssprop --wcs-nav-width-desktop - Width of the nav on desktop
      * @cssprop --wcs-nav-height-mobile - Height of the nav on mobile
      */
     interface WcsNav {
@@ -1485,9 +1484,10 @@ export namespace Components {
      * @cssprop --wcs-nav-item-font-weight - Font weight of the nav item
      * @cssprop --wcs-nav-item-height-desktop - Height of the nav item on desktop
      * @cssprop --wcs-nav-item-height-mobile - Height of the nav item on mobile
+     * @cssprop --wcs-nav-item-gap-desktop - Gap between items in nav-item on desktop (e.g. icon and label)
+     * @cssprop --wcs-nav-item-gap-mobile - Gap between items in nav-item on mobile (e.g. icon and label)
      * @cssprop --wcs-nav-item-font-size-desktop - Font size of the nav item on desktop
      * @cssprop --wcs-nav-item-font-size-mobile - Font size of the nav item on mobile
-     * @cssprop --wcs-nav-item-border-horizontal-desktop - Border of the nav item on desktop
      * @cssprop --wcs-nav-item-background-color-default - Default background color of the nav item
      * @cssprop --wcs-nav-item-background-color-hover - Background color of the nav item when hovered
      * @cssprop --wcs-nav-item-background-color-press - Background color of the nav item when pressed
@@ -1540,6 +1540,7 @@ export namespace Components {
      * @cssprop --wcs-progress-bar-label-font-weight - Font weight of the label
      * @cssprop --wcs-progress-bar-label-percentage-font-size-s - Font size of the percentage for size small
      * @cssprop --wcs-progress-bar-label-percentage-font-size-m - Font size of the percentage for size medium
+     * @cssprop --wcs-progress-bar-label-top-space - Space on top of the progress bar when label is displayed
      */
     interface WcsProgressBar {
         "setAriaAttribute": (attr: AriaAttributeName, value: string | null | undefined) => Promise<void>;
@@ -1572,12 +1573,13 @@ export namespace Components {
      * >   - Optionally, use aria-label to provide an accessible name if a visible label is not present.
      * @cssprop --wcs-progress-radial-rail-width - The width of the line that represents the rail of the progress radial
      * @cssprop --wcs-progress-radial-rail-spacing - The space between each rail of the progress radial
-     * @cssprop --wcs-progress-bar-rail-color - The color of the rail of the progress radial
+     * @cssprop --wcs-progress-radial-rail-color - The color of the rail of the progress radial
      * @cssprop --wcs-progress-radial-value-background-color - The background color of the bar on top of the rail
      * @cssprop --wcs-progress-radial-label-color - The color of the label inside the progress radial
      * @cssprop --wcs-progress-radial-label-font-size - The font size of the label inside the progress radial
      * @cssprop --wcs-progress-radial-label-font-weight - The font weight of the label inside the progress radial
      * @cssprop --wcs-progress-radial-label-percentage-font-size - The font size of the percentage inside the progress radial
+     * @cssprop --wcs-progress-radial-animation-duration - The duration of the animation of the progress radial
      */
     interface WcsProgressRadial {
         "setAriaAttribute": (attr: AriaAttributeName, value: string | null | undefined) => Promise<void>;
@@ -1596,6 +1598,7 @@ export namespace Components {
     }
     /**
      * The radio component should always be wrapped in a `wcs-radio-group`.
+     * @cssprop --wcs-radio-transition-duration - Duration of the transition
      * @cssprop --wcs-radio-text-color-default - Color of the text when the radio is not selected
      * @cssprop --wcs-radio-text-font-weight-default - Default font weight of the text
      * @cssprop --wcs-radio-text-color-selected - Color of the text when the radio is selected
@@ -1611,24 +1614,35 @@ export namespace Components {
      * @cssprop --wcs-radio-checkmark-border-color-disabled - Color of the border of the checkmark circle when the radio is disabled
      * @cssprop --wcs-radio-checkmark-background-color-default - Background color of the checkmark circle when the radio's is not selected
      * @cssprop --wcs-radio-checkmark-background-color-selected - Background color of the checkmark circle when the radio's is selected
-     * @cssprop --wcs-radio-checkmark-background-color-disabled - Background color of the checkmark circle when the radio is disabled
+     * @cssprop --wcs-radio-checkmark-background-color-selected-disabled - Background color of the checkmark circle when the radio is selected and disabled
+     * @cssprop --wcs-radio-checkmark-background-color-selected-hover - Background color of the checkmark circle when the radio is selected and hovered
      * @cssprop --wcs-radio-checkmark-outline-distance-with-checkmark-circle - Distance between the checkmark circle and the outline (inside the background)
      * @cssprop --wcs-radio-checkmark-outline-width - Width of the outline of the checkmark circle (inside the background)
      * @cssprop --wcs-radio-checkmark-outline-color - Color of the outline of the checkmark circle (inside the background)
+     * @cssprop --wcs-radio-checkmark-border-radius - Border radius of the checkmark circle
      * @cssprop --wcs-radio-gap - Gap between the radio checkmark circle and the label
+     * @cssprop --wcs-radio-border-radius - Border radius of the radio (default mode)
      * @cssprop --wcs-radio-option-background-color-default - Background color of the radio option when not selected
-     * @cssprop --wcs-radio-option-background-color-selected - Background color of the radio option when selected
-     * @cssprop --wcs-radio-option-background-color-selected-disabled - Background color of the radio option when selected and disabled
      * @cssprop --wcs-radio-option-background-color-hover - Background color of the radio option not selected when hovered
+     * @cssprop --wcs-radio-option-background-color-press - Background color of the radio option when pressed
      * @cssprop --wcs-radio-option-background-color-disabled - Background color of the radio option when disabled
+     * @cssprop --wcs-radio-option-background-color-selected-default - Background color of the radio option when selected
+     * @cssprop --wcs-radio-option-background-color-selected-hover - Background color of the radio option when selected and hovered
+     * @cssprop --wcs-radio-option-background-color-selected-press - Background color of the radio option when selected and pressed
+     * @cssprop --wcs-radio-option-background-color-selected-disabled - Background color of the radio option when selected and disabled
      * @cssprop --wcs-radio-option-text-color-default - Color of the text when the radio option is not selected
-     * @cssprop --wcs-radio-option-text-font-weight-default - Default font weight of the text
-     * @cssprop --wcs-radio-option-text-color-selected - Color of the text when the radio option is selected
-     * @cssprop --wcs-radio-option-text-font-weight-selected - Font weight of the text when the radio option is selected
      * @cssprop --wcs-radio-option-text-color-hover - Color of the text when the radio option not selected is hovered
+     * @cssprop --wcs-radio-option-text-color-press - Color of the text when the radio option is pressed
+     * @cssprop --wcs-radio-option-text-color-selected-default - Color of the text when the radio option is selected
+     * @cssprop --wcs-radio-option-text-color-selected-hover - Color of the text when the radio option is selected and hovered
+     * @cssprop --wcs-radio-option-text-color-selected-press - Color of the text when the radio option is selected and pressed
      * @cssprop --wcs-radio-option-text-color-disabled - Color of the text when the radio option's is disabled
+     * @cssprop --wcs-radio-option-text-font-weight-default - Default font weight of the text
+     * @cssprop --wcs-radio-option-text-font-weight-selected - Font weight of the text when the radio option is selected
      * @cssprop --wcs-radio-option-border-radius - Border radius of the radio option
-     * @cssprop --wcs-radio-option-outline-color-focus - Color of the outline when the radio option is focused
+     * @cssprop --wcs-radio-option-border-width - Width of the border of the radio option
+     * @cssprop --wcs-radio-option-border-color-hover - Color of the border of the radio option when not selected and hovered
+     * @cssprop --wcs-radio-option-border-color-press - Color of the border of the radio option when not selected and pressed
      * @cssprop --wcs-radio-option-padding-top - Padding top of the radio option
      * @cssprop --wcs-radio-option-padding-right - Padding right of the radio option
      * @cssprop --wcs-radio-option-padding-bottom - Padding bottom of the radio option
@@ -1688,16 +1702,14 @@ export namespace Components {
      * @cssprop --wcs-select-control-arrow-color - Color of the select arrow
      * @cssprop --wcs-select-control-arrow-color-disabled - Color of the select arrow when disabled
      * @cssprop --wcs-select-control-background-color - Background color of the select control
-     * @cssprop --wcs-select-control-ripple-color - Ripple color of the select control
      * @cssprop --wcs-select-control-line-height - Line height of the select control
+     * @cssprop --wcs-select-options-padding - Padding of the select options container
      * @cssprop --wcs-select-control-border-radius - Border radius of the select control
-     * @cssprop --wcs-select-control-border-width - Border width of the select control when not focused
-     * @cssprop --wcs-select-control-border-width-active - Border width of the select control when active
+     * @cssprop --wcs-select-control-border-width-default - Border width of the select control when not focused
      * @cssprop --wcs-select-control-border-width-focus - Border width of the select control when focused
      * @cssprop --wcs-select-control-border-color-default - Border color of the select control when not focused
      * @cssprop --wcs-select-control-border-color-disabled - Border color of the select control when disabled
      * @cssprop --wcs-select-control-border-color-error - Border color of the select control when error
-     * @cssprop --wcs-select-control-border-color-active - Border color of the select control when active (select is opened)
      * @cssprop --wcs-select-control-border-color-focus - Border color of the select control when focused (not opened, but the control is focused)
      * @cssprop --wcs-select-value-color - Text color of the select value when not focused
      * @cssprop --wcs-select-value-font-weight - Font weight of the select value
@@ -1790,6 +1802,7 @@ export namespace Components {
      * The select option is a subcomponent of `wcs-select` that represents a single option in a select list.
      * @cssprop --wcs-select-option-background-color-default - Default background color of the option
      * @cssprop --wcs-select-option-background-color-hover - Background color of the option when hovered
+     * @cssprop --wcs-select-option-background-color-press - Background color of the option when pressed
      * @cssprop --wcs-select-option-background-color-selected - Background color of the option when selected
      * @cssprop --wcs-select-option-background-color-selected-hover - Background color of the option when selected and hovered
      * @cssprop --wcs-select-option-background-color-selected-press - Background color of the option when selected and pressed
@@ -1808,7 +1821,6 @@ export namespace Components {
      * @cssprop --wcs-select-option-text-color-hover - Color of the option text when hovered
      * @cssprop --wcs-select-option-text-color-selected - Color of the option text when selected
      * @cssprop --wcs-select-option-text-color-disabled - Color of the option text when disabled
-     * @cssprop --wcs-select-option-ripple-color - Color of the ripple effect
      * @cssprop --wcs-select-option-checkbox-color - Color of the checkbox
      * @cssprop --wcs-select-option-gap - Gap between the checkbox and the text
      * @cssprop --wcs-select-option-transition-duration - Duration of the transition
@@ -3380,7 +3392,7 @@ declare global {
      * @cssprop --wcs-list-item-padding - Padding of the list item
      * @cssprop --wcs-list-item-border-width - Border width of the list item
      * @cssprop --wcs-list-item-border-color - Border color of the list item
-     * @cssprop --wcs-list-item-background-color - Background color of the list item
+     * @cssprop --wcs-list-item-background-color-default - Background color of the list item
      * @cssprop --wcs-list-item-background-color-hover - Background color of the list item when hovered
      * @cssprop --wcs-list-item-background-color-active - Background color of the list item when active
      * @cssprop --wcs-list-item-transition-duration - Transition duration of the list item
@@ -3503,35 +3515,35 @@ declare global {
      * select is reset, you have to call the `updateStyles()` method manually.
      * - It is strongly recommended to use native-select when you don't have to support the multi-selection feature
      * - Use a native-select instead of a wcs-select if your application is mainly on mobile / tablet. The native behavior of the device will be used.
-     * @cssprop --wcs-select-native-arrow-color - Color of the select arrow
-     * @cssprop --wcs-select-native-arrow-color-disabled - Color of the select arrow when the select is disabled
-     * @cssprop --wcs-select-native-background-color - Background color of the select
      * @cssprop --wcs-select-native-line-height - Line height of the select
-     * @cssprop --wcs-select-native-border-radius - Border radius of the select
-     * @cssprop --wcs-select-native-border-width - Border width of the select when not focused
-     * @cssprop --wcs-select-native-border-width-focus - Border width of the select when focused
-     * @cssprop --wcs-select-native-border-style-default - Border style of the select when not focused
-     * @cssprop --wcs-select-native-border-style-focus - Border style of the select when focused
-     * @cssprop --wcs-select-native-border-color-default - Border color of the select when not focused
-     * @cssprop --wcs-select-native-border-color-disabled - Border color of the select when disabled
-     * @cssprop --wcs-select-native-border-color-focus - Border color of the select when focused
-     * @cssprop --wcs-select-native-border-color-error - Border color of the select when in error state
-     * @cssprop --wcs-select-native-value-color - Color of the selected value
-     * @cssprop --wcs-select-native-value-font-weight - Font weight of the selected value
-     * @cssprop --wcs-select-native-value-font-style - Font style of the selected value
-     * @cssprop --wcs-select-native-placeholder-color - Color of the placeholder
-     * @cssprop --wcs-select-native-placeholder-font-weight - Font weight of the placeholder
-     * @cssprop --wcs-select-native-placeholder-font-style - Font style of the placeholder
-     * @cssprop --wcs-select-native-text-color-disabled - Color of the text when the select is disabled
-     * @cssprop --wcs-select-native-option-color - Text color of the options
-     * @cssprop --wcs-select-native-option-font-style - Font style of the options
-     * @cssprop --wcs-select-native-option-selected-color - Text color of the selected option
-     * @cssprop --wcs-select-native-padding-horizontal-m - Padding horizontal of the select when size is 'm'
-     * @cssprop --wcs-select-native-padding-horizontal-m - Padding horizontal of the select when size is 'l'
      * @cssprop --wcs-select-native-size-m - Height of the select when size is 'm'
      * @cssprop --wcs-select-native-font-size-m - Font size of the select when size is 'm'
      * @cssprop --wcs-select-native-size-l - Height of the select when size is 'l'
      * @cssprop --wcs-select-native-font-size-l - Font size of the select when size is 'l'
+     * @cssprop --wcs-select-native-border-radius - Border radius of the select
+     * @cssprop --wcs-select-native-background-color - Background color of the select
+     * @cssprop --wcs-select-native-border-color-default - Border color of the select when not focused
+     * @cssprop --wcs-select-native-border-color-disabled - Border color of the select when disabled
+     * @cssprop --wcs-select-native-border-color-focus - Border color of the select when focused
+     * @cssprop --wcs-select-native-border-color-error - Border color of the select when in error state
+     * @cssprop --wcs-select-native-border-style-default - Border style of the select when not focused
+     * @cssprop --wcs-select-native-border-style-focus - Border style of the select when focused
+     * @cssprop --wcs-select-native-border-width - Border width of the select when not focused
+     * @cssprop --wcs-select-native-border-width-focus - Border width of the select when focused
+     * @cssprop --wcs-select-native-value-color - Color of the selected value
+     * @cssprop --wcs-select-native-value-font-weight - Font weight of the selected value
+     * @cssprop --wcs-select-native-value-font-style - Font style of the selected value
+     * @cssprop --wcs-select-native-padding-horizontal-m - Padding horizontal of the select when size is 'm'
+     * @cssprop --wcs-select-native-padding-horizontal-l - Padding horizontal of the select when size is 'l'
+     * @cssprop --wcs-select-native-arrow-color - Color of the select arrow
+     * @cssprop --wcs-select-native-arrow-color-disabled - Color of the select arrow when the select is disabled
+     * @cssprop --wcs-select-native-text-color-disabled - Color of the text when the select is disabled
+     * @cssprop --wcs-select-native-placeholder-color - Color of the placeholder
+     * @cssprop --wcs-select-native-placeholder-font-weight - Font weight of the placeholder
+     * @cssprop --wcs-select-native-placeholder-font-style - Font style of the placeholder
+     * @cssprop --wcs-select-native-option-color - Text color of the options
+     * @cssprop --wcs-select-native-option-font-style - Font style of the options
+     * @cssprop --wcs-select-native-option-selected-color - Text color of the selected option
      */
     interface HTMLWcsNativeSelectElement extends Components.WcsNativeSelect, HTMLStencilElement {
     }
@@ -3542,8 +3554,7 @@ declare global {
     /**
      * The nav component is a container for navigation links to other pages of the website.
      * @cssprop --wcs-nav-background-color - Background color of the nav
-     * @cssprop --wcs-nav-width - Width of the nav
-     * @cssprop --wcs-nav-border-top-mobile - Border top of the nav on mobile
+     * @cssprop --wcs-nav-width-desktop - Width of the nav on desktop
      * @cssprop --wcs-nav-height-mobile - Height of the nav on mobile
      */
     interface HTMLWcsNavElement extends Components.WcsNav, HTMLStencilElement {
@@ -3558,9 +3569,10 @@ declare global {
      * @cssprop --wcs-nav-item-font-weight - Font weight of the nav item
      * @cssprop --wcs-nav-item-height-desktop - Height of the nav item on desktop
      * @cssprop --wcs-nav-item-height-mobile - Height of the nav item on mobile
+     * @cssprop --wcs-nav-item-gap-desktop - Gap between items in nav-item on desktop (e.g. icon and label)
+     * @cssprop --wcs-nav-item-gap-mobile - Gap between items in nav-item on mobile (e.g. icon and label)
      * @cssprop --wcs-nav-item-font-size-desktop - Font size of the nav item on desktop
      * @cssprop --wcs-nav-item-font-size-mobile - Font size of the nav item on mobile
-     * @cssprop --wcs-nav-item-border-horizontal-desktop - Border of the nav item on desktop
      * @cssprop --wcs-nav-item-background-color-default - Default background color of the nav item
      * @cssprop --wcs-nav-item-background-color-hover - Background color of the nav item when hovered
      * @cssprop --wcs-nav-item-background-color-press - Background color of the nav item when pressed
@@ -3617,6 +3629,7 @@ declare global {
      * @cssprop --wcs-progress-bar-label-font-weight - Font weight of the label
      * @cssprop --wcs-progress-bar-label-percentage-font-size-s - Font size of the percentage for size small
      * @cssprop --wcs-progress-bar-label-percentage-font-size-m - Font size of the percentage for size medium
+     * @cssprop --wcs-progress-bar-label-top-space - Space on top of the progress bar when label is displayed
      */
     interface HTMLWcsProgressBarElement extends Components.WcsProgressBar, HTMLStencilElement {
     }
@@ -3640,12 +3653,13 @@ declare global {
      * >   - Optionally, use aria-label to provide an accessible name if a visible label is not present.
      * @cssprop --wcs-progress-radial-rail-width - The width of the line that represents the rail of the progress radial
      * @cssprop --wcs-progress-radial-rail-spacing - The space between each rail of the progress radial
-     * @cssprop --wcs-progress-bar-rail-color - The color of the rail of the progress radial
+     * @cssprop --wcs-progress-radial-rail-color - The color of the rail of the progress radial
      * @cssprop --wcs-progress-radial-value-background-color - The background color of the bar on top of the rail
      * @cssprop --wcs-progress-radial-label-color - The color of the label inside the progress radial
      * @cssprop --wcs-progress-radial-label-font-size - The font size of the label inside the progress radial
      * @cssprop --wcs-progress-radial-label-font-weight - The font weight of the label inside the progress radial
      * @cssprop --wcs-progress-radial-label-percentage-font-size - The font size of the percentage inside the progress radial
+     * @cssprop --wcs-progress-radial-animation-duration - The duration of the animation of the progress radial
      */
     interface HTMLWcsProgressRadialElement extends Components.WcsProgressRadial, HTMLStencilElement {
     }
@@ -3660,6 +3674,7 @@ declare global {
     }
     /**
      * The radio component should always be wrapped in a `wcs-radio-group`.
+     * @cssprop --wcs-radio-transition-duration - Duration of the transition
      * @cssprop --wcs-radio-text-color-default - Color of the text when the radio is not selected
      * @cssprop --wcs-radio-text-font-weight-default - Default font weight of the text
      * @cssprop --wcs-radio-text-color-selected - Color of the text when the radio is selected
@@ -3675,24 +3690,35 @@ declare global {
      * @cssprop --wcs-radio-checkmark-border-color-disabled - Color of the border of the checkmark circle when the radio is disabled
      * @cssprop --wcs-radio-checkmark-background-color-default - Background color of the checkmark circle when the radio's is not selected
      * @cssprop --wcs-radio-checkmark-background-color-selected - Background color of the checkmark circle when the radio's is selected
-     * @cssprop --wcs-radio-checkmark-background-color-disabled - Background color of the checkmark circle when the radio is disabled
+     * @cssprop --wcs-radio-checkmark-background-color-selected-disabled - Background color of the checkmark circle when the radio is selected and disabled
+     * @cssprop --wcs-radio-checkmark-background-color-selected-hover - Background color of the checkmark circle when the radio is selected and hovered
      * @cssprop --wcs-radio-checkmark-outline-distance-with-checkmark-circle - Distance between the checkmark circle and the outline (inside the background)
      * @cssprop --wcs-radio-checkmark-outline-width - Width of the outline of the checkmark circle (inside the background)
      * @cssprop --wcs-radio-checkmark-outline-color - Color of the outline of the checkmark circle (inside the background)
+     * @cssprop --wcs-radio-checkmark-border-radius - Border radius of the checkmark circle
      * @cssprop --wcs-radio-gap - Gap between the radio checkmark circle and the label
+     * @cssprop --wcs-radio-border-radius - Border radius of the radio (default mode)
      * @cssprop --wcs-radio-option-background-color-default - Background color of the radio option when not selected
-     * @cssprop --wcs-radio-option-background-color-selected - Background color of the radio option when selected
-     * @cssprop --wcs-radio-option-background-color-selected-disabled - Background color of the radio option when selected and disabled
      * @cssprop --wcs-radio-option-background-color-hover - Background color of the radio option not selected when hovered
+     * @cssprop --wcs-radio-option-background-color-press - Background color of the radio option when pressed
      * @cssprop --wcs-radio-option-background-color-disabled - Background color of the radio option when disabled
+     * @cssprop --wcs-radio-option-background-color-selected-default - Background color of the radio option when selected
+     * @cssprop --wcs-radio-option-background-color-selected-hover - Background color of the radio option when selected and hovered
+     * @cssprop --wcs-radio-option-background-color-selected-press - Background color of the radio option when selected and pressed
+     * @cssprop --wcs-radio-option-background-color-selected-disabled - Background color of the radio option when selected and disabled
      * @cssprop --wcs-radio-option-text-color-default - Color of the text when the radio option is not selected
-     * @cssprop --wcs-radio-option-text-font-weight-default - Default font weight of the text
-     * @cssprop --wcs-radio-option-text-color-selected - Color of the text when the radio option is selected
-     * @cssprop --wcs-radio-option-text-font-weight-selected - Font weight of the text when the radio option is selected
      * @cssprop --wcs-radio-option-text-color-hover - Color of the text when the radio option not selected is hovered
+     * @cssprop --wcs-radio-option-text-color-press - Color of the text when the radio option is pressed
+     * @cssprop --wcs-radio-option-text-color-selected-default - Color of the text when the radio option is selected
+     * @cssprop --wcs-radio-option-text-color-selected-hover - Color of the text when the radio option is selected and hovered
+     * @cssprop --wcs-radio-option-text-color-selected-press - Color of the text when the radio option is selected and pressed
      * @cssprop --wcs-radio-option-text-color-disabled - Color of the text when the radio option's is disabled
+     * @cssprop --wcs-radio-option-text-font-weight-default - Default font weight of the text
+     * @cssprop --wcs-radio-option-text-font-weight-selected - Font weight of the text when the radio option is selected
      * @cssprop --wcs-radio-option-border-radius - Border radius of the radio option
-     * @cssprop --wcs-radio-option-outline-color-focus - Color of the outline when the radio option is focused
+     * @cssprop --wcs-radio-option-border-width - Width of the border of the radio option
+     * @cssprop --wcs-radio-option-border-color-hover - Color of the border of the radio option when not selected and hovered
+     * @cssprop --wcs-radio-option-border-color-press - Color of the border of the radio option when not selected and pressed
      * @cssprop --wcs-radio-option-padding-top - Padding top of the radio option
      * @cssprop --wcs-radio-option-padding-right - Padding right of the radio option
      * @cssprop --wcs-radio-option-padding-bottom - Padding bottom of the radio option
@@ -3750,16 +3776,14 @@ declare global {
      * @cssprop --wcs-select-control-arrow-color - Color of the select arrow
      * @cssprop --wcs-select-control-arrow-color-disabled - Color of the select arrow when disabled
      * @cssprop --wcs-select-control-background-color - Background color of the select control
-     * @cssprop --wcs-select-control-ripple-color - Ripple color of the select control
      * @cssprop --wcs-select-control-line-height - Line height of the select control
+     * @cssprop --wcs-select-options-padding - Padding of the select options container
      * @cssprop --wcs-select-control-border-radius - Border radius of the select control
-     * @cssprop --wcs-select-control-border-width - Border width of the select control when not focused
-     * @cssprop --wcs-select-control-border-width-active - Border width of the select control when active
+     * @cssprop --wcs-select-control-border-width-default - Border width of the select control when not focused
      * @cssprop --wcs-select-control-border-width-focus - Border width of the select control when focused
      * @cssprop --wcs-select-control-border-color-default - Border color of the select control when not focused
      * @cssprop --wcs-select-control-border-color-disabled - Border color of the select control when disabled
      * @cssprop --wcs-select-control-border-color-error - Border color of the select control when error
-     * @cssprop --wcs-select-control-border-color-active - Border color of the select control when active (select is opened)
      * @cssprop --wcs-select-control-border-color-focus - Border color of the select control when focused (not opened, but the control is focused)
      * @cssprop --wcs-select-value-color - Text color of the select value when not focused
      * @cssprop --wcs-select-value-font-weight - Font weight of the select value
@@ -3814,6 +3838,7 @@ declare global {
      * The select option is a subcomponent of `wcs-select` that represents a single option in a select list.
      * @cssprop --wcs-select-option-background-color-default - Default background color of the option
      * @cssprop --wcs-select-option-background-color-hover - Background color of the option when hovered
+     * @cssprop --wcs-select-option-background-color-press - Background color of the option when pressed
      * @cssprop --wcs-select-option-background-color-selected - Background color of the option when selected
      * @cssprop --wcs-select-option-background-color-selected-hover - Background color of the option when selected and hovered
      * @cssprop --wcs-select-option-background-color-selected-press - Background color of the option when selected and pressed
@@ -3832,7 +3857,6 @@ declare global {
      * @cssprop --wcs-select-option-text-color-hover - Color of the option text when hovered
      * @cssprop --wcs-select-option-text-color-selected - Color of the option text when selected
      * @cssprop --wcs-select-option-text-color-disabled - Color of the option text when disabled
-     * @cssprop --wcs-select-option-ripple-color - Color of the ripple effect
      * @cssprop --wcs-select-option-checkbox-color - Color of the checkbox
      * @cssprop --wcs-select-option-gap - Gap between the checkbox and the text
      * @cssprop --wcs-select-option-transition-duration - Duration of the transition
@@ -5440,7 +5464,7 @@ declare namespace LocalJSX {
      * @cssprop --wcs-list-item-padding - Padding of the list item
      * @cssprop --wcs-list-item-border-width - Border width of the list item
      * @cssprop --wcs-list-item-border-color - Border color of the list item
-     * @cssprop --wcs-list-item-background-color - Background color of the list item
+     * @cssprop --wcs-list-item-background-color-default - Background color of the list item
      * @cssprop --wcs-list-item-background-color-hover - Background color of the list item when hovered
      * @cssprop --wcs-list-item-background-color-active - Background color of the list item when active
      * @cssprop --wcs-list-item-transition-duration - Transition duration of the list item
@@ -5581,35 +5605,35 @@ declare namespace LocalJSX {
      * select is reset, you have to call the `updateStyles()` method manually.
      * - It is strongly recommended to use native-select when you don't have to support the multi-selection feature
      * - Use a native-select instead of a wcs-select if your application is mainly on mobile / tablet. The native behavior of the device will be used.
-     * @cssprop --wcs-select-native-arrow-color - Color of the select arrow
-     * @cssprop --wcs-select-native-arrow-color-disabled - Color of the select arrow when the select is disabled
-     * @cssprop --wcs-select-native-background-color - Background color of the select
      * @cssprop --wcs-select-native-line-height - Line height of the select
-     * @cssprop --wcs-select-native-border-radius - Border radius of the select
-     * @cssprop --wcs-select-native-border-width - Border width of the select when not focused
-     * @cssprop --wcs-select-native-border-width-focus - Border width of the select when focused
-     * @cssprop --wcs-select-native-border-style-default - Border style of the select when not focused
-     * @cssprop --wcs-select-native-border-style-focus - Border style of the select when focused
-     * @cssprop --wcs-select-native-border-color-default - Border color of the select when not focused
-     * @cssprop --wcs-select-native-border-color-disabled - Border color of the select when disabled
-     * @cssprop --wcs-select-native-border-color-focus - Border color of the select when focused
-     * @cssprop --wcs-select-native-border-color-error - Border color of the select when in error state
-     * @cssprop --wcs-select-native-value-color - Color of the selected value
-     * @cssprop --wcs-select-native-value-font-weight - Font weight of the selected value
-     * @cssprop --wcs-select-native-value-font-style - Font style of the selected value
-     * @cssprop --wcs-select-native-placeholder-color - Color of the placeholder
-     * @cssprop --wcs-select-native-placeholder-font-weight - Font weight of the placeholder
-     * @cssprop --wcs-select-native-placeholder-font-style - Font style of the placeholder
-     * @cssprop --wcs-select-native-text-color-disabled - Color of the text when the select is disabled
-     * @cssprop --wcs-select-native-option-color - Text color of the options
-     * @cssprop --wcs-select-native-option-font-style - Font style of the options
-     * @cssprop --wcs-select-native-option-selected-color - Text color of the selected option
-     * @cssprop --wcs-select-native-padding-horizontal-m - Padding horizontal of the select when size is 'm'
-     * @cssprop --wcs-select-native-padding-horizontal-m - Padding horizontal of the select when size is 'l'
      * @cssprop --wcs-select-native-size-m - Height of the select when size is 'm'
      * @cssprop --wcs-select-native-font-size-m - Font size of the select when size is 'm'
      * @cssprop --wcs-select-native-size-l - Height of the select when size is 'l'
      * @cssprop --wcs-select-native-font-size-l - Font size of the select when size is 'l'
+     * @cssprop --wcs-select-native-border-radius - Border radius of the select
+     * @cssprop --wcs-select-native-background-color - Background color of the select
+     * @cssprop --wcs-select-native-border-color-default - Border color of the select when not focused
+     * @cssprop --wcs-select-native-border-color-disabled - Border color of the select when disabled
+     * @cssprop --wcs-select-native-border-color-focus - Border color of the select when focused
+     * @cssprop --wcs-select-native-border-color-error - Border color of the select when in error state
+     * @cssprop --wcs-select-native-border-style-default - Border style of the select when not focused
+     * @cssprop --wcs-select-native-border-style-focus - Border style of the select when focused
+     * @cssprop --wcs-select-native-border-width - Border width of the select when not focused
+     * @cssprop --wcs-select-native-border-width-focus - Border width of the select when focused
+     * @cssprop --wcs-select-native-value-color - Color of the selected value
+     * @cssprop --wcs-select-native-value-font-weight - Font weight of the selected value
+     * @cssprop --wcs-select-native-value-font-style - Font style of the selected value
+     * @cssprop --wcs-select-native-padding-horizontal-m - Padding horizontal of the select when size is 'm'
+     * @cssprop --wcs-select-native-padding-horizontal-l - Padding horizontal of the select when size is 'l'
+     * @cssprop --wcs-select-native-arrow-color - Color of the select arrow
+     * @cssprop --wcs-select-native-arrow-color-disabled - Color of the select arrow when the select is disabled
+     * @cssprop --wcs-select-native-text-color-disabled - Color of the text when the select is disabled
+     * @cssprop --wcs-select-native-placeholder-color - Color of the placeholder
+     * @cssprop --wcs-select-native-placeholder-font-weight - Font weight of the placeholder
+     * @cssprop --wcs-select-native-placeholder-font-style - Font style of the placeholder
+     * @cssprop --wcs-select-native-option-color - Text color of the options
+     * @cssprop --wcs-select-native-option-font-style - Font style of the options
+     * @cssprop --wcs-select-native-option-selected-color - Text color of the selected option
      */
     interface WcsNativeSelect {
         /**
@@ -5624,8 +5648,7 @@ declare namespace LocalJSX {
     /**
      * The nav component is a container for navigation links to other pages of the website.
      * @cssprop --wcs-nav-background-color - Background color of the nav
-     * @cssprop --wcs-nav-width - Width of the nav
-     * @cssprop --wcs-nav-border-top-mobile - Border top of the nav on mobile
+     * @cssprop --wcs-nav-width-desktop - Width of the nav on desktop
      * @cssprop --wcs-nav-height-mobile - Height of the nav on mobile
      */
     interface WcsNav {
@@ -5636,9 +5659,10 @@ declare namespace LocalJSX {
      * @cssprop --wcs-nav-item-font-weight - Font weight of the nav item
      * @cssprop --wcs-nav-item-height-desktop - Height of the nav item on desktop
      * @cssprop --wcs-nav-item-height-mobile - Height of the nav item on mobile
+     * @cssprop --wcs-nav-item-gap-desktop - Gap between items in nav-item on desktop (e.g. icon and label)
+     * @cssprop --wcs-nav-item-gap-mobile - Gap between items in nav-item on mobile (e.g. icon and label)
      * @cssprop --wcs-nav-item-font-size-desktop - Font size of the nav item on desktop
      * @cssprop --wcs-nav-item-font-size-mobile - Font size of the nav item on mobile
-     * @cssprop --wcs-nav-item-border-horizontal-desktop - Border of the nav item on desktop
      * @cssprop --wcs-nav-item-background-color-default - Default background color of the nav item
      * @cssprop --wcs-nav-item-background-color-hover - Background color of the nav item when hovered
      * @cssprop --wcs-nav-item-background-color-press - Background color of the nav item when pressed
@@ -5691,6 +5715,7 @@ declare namespace LocalJSX {
      * @cssprop --wcs-progress-bar-label-font-weight - Font weight of the label
      * @cssprop --wcs-progress-bar-label-percentage-font-size-s - Font size of the percentage for size small
      * @cssprop --wcs-progress-bar-label-percentage-font-size-m - Font size of the percentage for size medium
+     * @cssprop --wcs-progress-bar-label-top-space - Space on top of the progress bar when label is displayed
      */
     interface WcsProgressBar {
         /**
@@ -5722,12 +5747,13 @@ declare namespace LocalJSX {
      * >   - Optionally, use aria-label to provide an accessible name if a visible label is not present.
      * @cssprop --wcs-progress-radial-rail-width - The width of the line that represents the rail of the progress radial
      * @cssprop --wcs-progress-radial-rail-spacing - The space between each rail of the progress radial
-     * @cssprop --wcs-progress-bar-rail-color - The color of the rail of the progress radial
+     * @cssprop --wcs-progress-radial-rail-color - The color of the rail of the progress radial
      * @cssprop --wcs-progress-radial-value-background-color - The background color of the bar on top of the rail
      * @cssprop --wcs-progress-radial-label-color - The color of the label inside the progress radial
      * @cssprop --wcs-progress-radial-label-font-size - The font size of the label inside the progress radial
      * @cssprop --wcs-progress-radial-label-font-weight - The font weight of the label inside the progress radial
      * @cssprop --wcs-progress-radial-label-percentage-font-size - The font size of the percentage inside the progress radial
+     * @cssprop --wcs-progress-radial-animation-duration - The duration of the animation of the progress radial
      */
     interface WcsProgressRadial {
         /**
@@ -5745,6 +5771,7 @@ declare namespace LocalJSX {
     }
     /**
      * The radio component should always be wrapped in a `wcs-radio-group`.
+     * @cssprop --wcs-radio-transition-duration - Duration of the transition
      * @cssprop --wcs-radio-text-color-default - Color of the text when the radio is not selected
      * @cssprop --wcs-radio-text-font-weight-default - Default font weight of the text
      * @cssprop --wcs-radio-text-color-selected - Color of the text when the radio is selected
@@ -5760,24 +5787,35 @@ declare namespace LocalJSX {
      * @cssprop --wcs-radio-checkmark-border-color-disabled - Color of the border of the checkmark circle when the radio is disabled
      * @cssprop --wcs-radio-checkmark-background-color-default - Background color of the checkmark circle when the radio's is not selected
      * @cssprop --wcs-radio-checkmark-background-color-selected - Background color of the checkmark circle when the radio's is selected
-     * @cssprop --wcs-radio-checkmark-background-color-disabled - Background color of the checkmark circle when the radio is disabled
+     * @cssprop --wcs-radio-checkmark-background-color-selected-disabled - Background color of the checkmark circle when the radio is selected and disabled
+     * @cssprop --wcs-radio-checkmark-background-color-selected-hover - Background color of the checkmark circle when the radio is selected and hovered
      * @cssprop --wcs-radio-checkmark-outline-distance-with-checkmark-circle - Distance between the checkmark circle and the outline (inside the background)
      * @cssprop --wcs-radio-checkmark-outline-width - Width of the outline of the checkmark circle (inside the background)
      * @cssprop --wcs-radio-checkmark-outline-color - Color of the outline of the checkmark circle (inside the background)
+     * @cssprop --wcs-radio-checkmark-border-radius - Border radius of the checkmark circle
      * @cssprop --wcs-radio-gap - Gap between the radio checkmark circle and the label
+     * @cssprop --wcs-radio-border-radius - Border radius of the radio (default mode)
      * @cssprop --wcs-radio-option-background-color-default - Background color of the radio option when not selected
-     * @cssprop --wcs-radio-option-background-color-selected - Background color of the radio option when selected
-     * @cssprop --wcs-radio-option-background-color-selected-disabled - Background color of the radio option when selected and disabled
      * @cssprop --wcs-radio-option-background-color-hover - Background color of the radio option not selected when hovered
+     * @cssprop --wcs-radio-option-background-color-press - Background color of the radio option when pressed
      * @cssprop --wcs-radio-option-background-color-disabled - Background color of the radio option when disabled
+     * @cssprop --wcs-radio-option-background-color-selected-default - Background color of the radio option when selected
+     * @cssprop --wcs-radio-option-background-color-selected-hover - Background color of the radio option when selected and hovered
+     * @cssprop --wcs-radio-option-background-color-selected-press - Background color of the radio option when selected and pressed
+     * @cssprop --wcs-radio-option-background-color-selected-disabled - Background color of the radio option when selected and disabled
      * @cssprop --wcs-radio-option-text-color-default - Color of the text when the radio option is not selected
-     * @cssprop --wcs-radio-option-text-font-weight-default - Default font weight of the text
-     * @cssprop --wcs-radio-option-text-color-selected - Color of the text when the radio option is selected
-     * @cssprop --wcs-radio-option-text-font-weight-selected - Font weight of the text when the radio option is selected
      * @cssprop --wcs-radio-option-text-color-hover - Color of the text when the radio option not selected is hovered
+     * @cssprop --wcs-radio-option-text-color-press - Color of the text when the radio option is pressed
+     * @cssprop --wcs-radio-option-text-color-selected-default - Color of the text when the radio option is selected
+     * @cssprop --wcs-radio-option-text-color-selected-hover - Color of the text when the radio option is selected and hovered
+     * @cssprop --wcs-radio-option-text-color-selected-press - Color of the text when the radio option is selected and pressed
      * @cssprop --wcs-radio-option-text-color-disabled - Color of the text when the radio option's is disabled
+     * @cssprop --wcs-radio-option-text-font-weight-default - Default font weight of the text
+     * @cssprop --wcs-radio-option-text-font-weight-selected - Font weight of the text when the radio option is selected
      * @cssprop --wcs-radio-option-border-radius - Border radius of the radio option
-     * @cssprop --wcs-radio-option-outline-color-focus - Color of the outline when the radio option is focused
+     * @cssprop --wcs-radio-option-border-width - Width of the border of the radio option
+     * @cssprop --wcs-radio-option-border-color-hover - Color of the border of the radio option when not selected and hovered
+     * @cssprop --wcs-radio-option-border-color-press - Color of the border of the radio option when not selected and pressed
      * @cssprop --wcs-radio-option-padding-top - Padding top of the radio option
      * @cssprop --wcs-radio-option-padding-right - Padding right of the radio option
      * @cssprop --wcs-radio-option-padding-bottom - Padding bottom of the radio option
@@ -5850,16 +5888,14 @@ declare namespace LocalJSX {
      * @cssprop --wcs-select-control-arrow-color - Color of the select arrow
      * @cssprop --wcs-select-control-arrow-color-disabled - Color of the select arrow when disabled
      * @cssprop --wcs-select-control-background-color - Background color of the select control
-     * @cssprop --wcs-select-control-ripple-color - Ripple color of the select control
      * @cssprop --wcs-select-control-line-height - Line height of the select control
+     * @cssprop --wcs-select-options-padding - Padding of the select options container
      * @cssprop --wcs-select-control-border-radius - Border radius of the select control
-     * @cssprop --wcs-select-control-border-width - Border width of the select control when not focused
-     * @cssprop --wcs-select-control-border-width-active - Border width of the select control when active
+     * @cssprop --wcs-select-control-border-width-default - Border width of the select control when not focused
      * @cssprop --wcs-select-control-border-width-focus - Border width of the select control when focused
      * @cssprop --wcs-select-control-border-color-default - Border color of the select control when not focused
      * @cssprop --wcs-select-control-border-color-disabled - Border color of the select control when disabled
      * @cssprop --wcs-select-control-border-color-error - Border color of the select control when error
-     * @cssprop --wcs-select-control-border-color-active - Border color of the select control when active (select is opened)
      * @cssprop --wcs-select-control-border-color-focus - Border color of the select control when focused (not opened, but the control is focused)
      * @cssprop --wcs-select-value-color - Text color of the select value when not focused
      * @cssprop --wcs-select-value-font-weight - Font weight of the select value
@@ -5959,6 +5995,7 @@ declare namespace LocalJSX {
      * The select option is a subcomponent of `wcs-select` that represents a single option in a select list.
      * @cssprop --wcs-select-option-background-color-default - Default background color of the option
      * @cssprop --wcs-select-option-background-color-hover - Background color of the option when hovered
+     * @cssprop --wcs-select-option-background-color-press - Background color of the option when pressed
      * @cssprop --wcs-select-option-background-color-selected - Background color of the option when selected
      * @cssprop --wcs-select-option-background-color-selected-hover - Background color of the option when selected and hovered
      * @cssprop --wcs-select-option-background-color-selected-press - Background color of the option when selected and pressed
@@ -5977,7 +6014,6 @@ declare namespace LocalJSX {
      * @cssprop --wcs-select-option-text-color-hover - Color of the option text when hovered
      * @cssprop --wcs-select-option-text-color-selected - Color of the option text when selected
      * @cssprop --wcs-select-option-text-color-disabled - Color of the option text when disabled
-     * @cssprop --wcs-select-option-ripple-color - Color of the ripple effect
      * @cssprop --wcs-select-option-checkbox-color - Color of the checkbox
      * @cssprop --wcs-select-option-gap - Gap between the checkbox and the text
      * @cssprop --wcs-select-option-transition-duration - Duration of the transition
@@ -7176,7 +7212,7 @@ declare module "@stencil/core" {
              * @cssprop --wcs-list-item-padding - Padding of the list item
              * @cssprop --wcs-list-item-border-width - Border width of the list item
              * @cssprop --wcs-list-item-border-color - Border color of the list item
-             * @cssprop --wcs-list-item-background-color - Background color of the list item
+             * @cssprop --wcs-list-item-background-color-default - Background color of the list item
              * @cssprop --wcs-list-item-background-color-hover - Background color of the list item when hovered
              * @cssprop --wcs-list-item-background-color-active - Background color of the list item when active
              * @cssprop --wcs-list-item-transition-duration - Transition duration of the list item
@@ -7263,42 +7299,41 @@ declare module "@stencil/core" {
              * select is reset, you have to call the `updateStyles()` method manually.
              * - It is strongly recommended to use native-select when you don't have to support the multi-selection feature
              * - Use a native-select instead of a wcs-select if your application is mainly on mobile / tablet. The native behavior of the device will be used.
-             * @cssprop --wcs-select-native-arrow-color - Color of the select arrow
-             * @cssprop --wcs-select-native-arrow-color-disabled - Color of the select arrow when the select is disabled
-             * @cssprop --wcs-select-native-background-color - Background color of the select
              * @cssprop --wcs-select-native-line-height - Line height of the select
-             * @cssprop --wcs-select-native-border-radius - Border radius of the select
-             * @cssprop --wcs-select-native-border-width - Border width of the select when not focused
-             * @cssprop --wcs-select-native-border-width-focus - Border width of the select when focused
-             * @cssprop --wcs-select-native-border-style-default - Border style of the select when not focused
-             * @cssprop --wcs-select-native-border-style-focus - Border style of the select when focused
-             * @cssprop --wcs-select-native-border-color-default - Border color of the select when not focused
-             * @cssprop --wcs-select-native-border-color-disabled - Border color of the select when disabled
-             * @cssprop --wcs-select-native-border-color-focus - Border color of the select when focused
-             * @cssprop --wcs-select-native-border-color-error - Border color of the select when in error state
-             * @cssprop --wcs-select-native-value-color - Color of the selected value
-             * @cssprop --wcs-select-native-value-font-weight - Font weight of the selected value
-             * @cssprop --wcs-select-native-value-font-style - Font style of the selected value
-             * @cssprop --wcs-select-native-placeholder-color - Color of the placeholder
-             * @cssprop --wcs-select-native-placeholder-font-weight - Font weight of the placeholder
-             * @cssprop --wcs-select-native-placeholder-font-style - Font style of the placeholder
-             * @cssprop --wcs-select-native-text-color-disabled - Color of the text when the select is disabled
-             * @cssprop --wcs-select-native-option-color - Text color of the options
-             * @cssprop --wcs-select-native-option-font-style - Font style of the options
-             * @cssprop --wcs-select-native-option-selected-color - Text color of the selected option
-             * @cssprop --wcs-select-native-padding-horizontal-m - Padding horizontal of the select when size is 'm'
-             * @cssprop --wcs-select-native-padding-horizontal-m - Padding horizontal of the select when size is 'l'
              * @cssprop --wcs-select-native-size-m - Height of the select when size is 'm'
              * @cssprop --wcs-select-native-font-size-m - Font size of the select when size is 'm'
              * @cssprop --wcs-select-native-size-l - Height of the select when size is 'l'
              * @cssprop --wcs-select-native-font-size-l - Font size of the select when size is 'l'
+             * @cssprop --wcs-select-native-border-radius - Border radius of the select
+             * @cssprop --wcs-select-native-background-color - Background color of the select
+             * @cssprop --wcs-select-native-border-color-default - Border color of the select when not focused
+             * @cssprop --wcs-select-native-border-color-disabled - Border color of the select when disabled
+             * @cssprop --wcs-select-native-border-color-focus - Border color of the select when focused
+             * @cssprop --wcs-select-native-border-color-error - Border color of the select when in error state
+             * @cssprop --wcs-select-native-border-style-default - Border style of the select when not focused
+             * @cssprop --wcs-select-native-border-style-focus - Border style of the select when focused
+             * @cssprop --wcs-select-native-border-width - Border width of the select when not focused
+             * @cssprop --wcs-select-native-border-width-focus - Border width of the select when focused
+             * @cssprop --wcs-select-native-value-color - Color of the selected value
+             * @cssprop --wcs-select-native-value-font-weight - Font weight of the selected value
+             * @cssprop --wcs-select-native-value-font-style - Font style of the selected value
+             * @cssprop --wcs-select-native-padding-horizontal-m - Padding horizontal of the select when size is 'm'
+             * @cssprop --wcs-select-native-padding-horizontal-l - Padding horizontal of the select when size is 'l'
+             * @cssprop --wcs-select-native-arrow-color - Color of the select arrow
+             * @cssprop --wcs-select-native-arrow-color-disabled - Color of the select arrow when the select is disabled
+             * @cssprop --wcs-select-native-text-color-disabled - Color of the text when the select is disabled
+             * @cssprop --wcs-select-native-placeholder-color - Color of the placeholder
+             * @cssprop --wcs-select-native-placeholder-font-weight - Font weight of the placeholder
+             * @cssprop --wcs-select-native-placeholder-font-style - Font style of the placeholder
+             * @cssprop --wcs-select-native-option-color - Text color of the options
+             * @cssprop --wcs-select-native-option-font-style - Font style of the options
+             * @cssprop --wcs-select-native-option-selected-color - Text color of the selected option
              */
             "wcs-native-select": LocalJSX.WcsNativeSelect & JSXBase.HTMLAttributes<HTMLWcsNativeSelectElement>;
             /**
              * The nav component is a container for navigation links to other pages of the website.
              * @cssprop --wcs-nav-background-color - Background color of the nav
-             * @cssprop --wcs-nav-width - Width of the nav
-             * @cssprop --wcs-nav-border-top-mobile - Border top of the nav on mobile
+             * @cssprop --wcs-nav-width-desktop - Width of the nav on desktop
              * @cssprop --wcs-nav-height-mobile - Height of the nav on mobile
              */
             "wcs-nav": LocalJSX.WcsNav & JSXBase.HTMLAttributes<HTMLWcsNavElement>;
@@ -7308,9 +7343,10 @@ declare module "@stencil/core" {
              * @cssprop --wcs-nav-item-font-weight - Font weight of the nav item
              * @cssprop --wcs-nav-item-height-desktop - Height of the nav item on desktop
              * @cssprop --wcs-nav-item-height-mobile - Height of the nav item on mobile
+             * @cssprop --wcs-nav-item-gap-desktop - Gap between items in nav-item on desktop (e.g. icon and label)
+             * @cssprop --wcs-nav-item-gap-mobile - Gap between items in nav-item on mobile (e.g. icon and label)
              * @cssprop --wcs-nav-item-font-size-desktop - Font size of the nav item on desktop
              * @cssprop --wcs-nav-item-font-size-mobile - Font size of the nav item on mobile
-             * @cssprop --wcs-nav-item-border-horizontal-desktop - Border of the nav item on desktop
              * @cssprop --wcs-nav-item-background-color-default - Default background color of the nav item
              * @cssprop --wcs-nav-item-background-color-hover - Background color of the nav item when hovered
              * @cssprop --wcs-nav-item-background-color-press - Background color of the nav item when pressed
@@ -7362,6 +7398,7 @@ declare module "@stencil/core" {
              * @cssprop --wcs-progress-bar-label-font-weight - Font weight of the label
              * @cssprop --wcs-progress-bar-label-percentage-font-size-s - Font size of the percentage for size small
              * @cssprop --wcs-progress-bar-label-percentage-font-size-m - Font size of the percentage for size medium
+             * @cssprop --wcs-progress-bar-label-top-space - Space on top of the progress bar when label is displayed
              */
             "wcs-progress-bar": LocalJSX.WcsProgressBar & JSXBase.HTMLAttributes<HTMLWcsProgressBarElement>;
             /**
@@ -7380,16 +7417,18 @@ declare module "@stencil/core" {
              * >   - Optionally, use aria-label to provide an accessible name if a visible label is not present.
              * @cssprop --wcs-progress-radial-rail-width - The width of the line that represents the rail of the progress radial
              * @cssprop --wcs-progress-radial-rail-spacing - The space between each rail of the progress radial
-             * @cssprop --wcs-progress-bar-rail-color - The color of the rail of the progress radial
+             * @cssprop --wcs-progress-radial-rail-color - The color of the rail of the progress radial
              * @cssprop --wcs-progress-radial-value-background-color - The background color of the bar on top of the rail
              * @cssprop --wcs-progress-radial-label-color - The color of the label inside the progress radial
              * @cssprop --wcs-progress-radial-label-font-size - The font size of the label inside the progress radial
              * @cssprop --wcs-progress-radial-label-font-weight - The font weight of the label inside the progress radial
              * @cssprop --wcs-progress-radial-label-percentage-font-size - The font size of the percentage inside the progress radial
+             * @cssprop --wcs-progress-radial-animation-duration - The duration of the animation of the progress radial
              */
             "wcs-progress-radial": LocalJSX.WcsProgressRadial & JSXBase.HTMLAttributes<HTMLWcsProgressRadialElement>;
             /**
              * The radio component should always be wrapped in a `wcs-radio-group`.
+             * @cssprop --wcs-radio-transition-duration - Duration of the transition
              * @cssprop --wcs-radio-text-color-default - Color of the text when the radio is not selected
              * @cssprop --wcs-radio-text-font-weight-default - Default font weight of the text
              * @cssprop --wcs-radio-text-color-selected - Color of the text when the radio is selected
@@ -7405,24 +7444,35 @@ declare module "@stencil/core" {
              * @cssprop --wcs-radio-checkmark-border-color-disabled - Color of the border of the checkmark circle when the radio is disabled
              * @cssprop --wcs-radio-checkmark-background-color-default - Background color of the checkmark circle when the radio's is not selected
              * @cssprop --wcs-radio-checkmark-background-color-selected - Background color of the checkmark circle when the radio's is selected
-             * @cssprop --wcs-radio-checkmark-background-color-disabled - Background color of the checkmark circle when the radio is disabled
+             * @cssprop --wcs-radio-checkmark-background-color-selected-disabled - Background color of the checkmark circle when the radio is selected and disabled
+             * @cssprop --wcs-radio-checkmark-background-color-selected-hover - Background color of the checkmark circle when the radio is selected and hovered
              * @cssprop --wcs-radio-checkmark-outline-distance-with-checkmark-circle - Distance between the checkmark circle and the outline (inside the background)
              * @cssprop --wcs-radio-checkmark-outline-width - Width of the outline of the checkmark circle (inside the background)
              * @cssprop --wcs-radio-checkmark-outline-color - Color of the outline of the checkmark circle (inside the background)
+             * @cssprop --wcs-radio-checkmark-border-radius - Border radius of the checkmark circle
              * @cssprop --wcs-radio-gap - Gap between the radio checkmark circle and the label
+             * @cssprop --wcs-radio-border-radius - Border radius of the radio (default mode)
              * @cssprop --wcs-radio-option-background-color-default - Background color of the radio option when not selected
-             * @cssprop --wcs-radio-option-background-color-selected - Background color of the radio option when selected
-             * @cssprop --wcs-radio-option-background-color-selected-disabled - Background color of the radio option when selected and disabled
              * @cssprop --wcs-radio-option-background-color-hover - Background color of the radio option not selected when hovered
+             * @cssprop --wcs-radio-option-background-color-press - Background color of the radio option when pressed
              * @cssprop --wcs-radio-option-background-color-disabled - Background color of the radio option when disabled
+             * @cssprop --wcs-radio-option-background-color-selected-default - Background color of the radio option when selected
+             * @cssprop --wcs-radio-option-background-color-selected-hover - Background color of the radio option when selected and hovered
+             * @cssprop --wcs-radio-option-background-color-selected-press - Background color of the radio option when selected and pressed
+             * @cssprop --wcs-radio-option-background-color-selected-disabled - Background color of the radio option when selected and disabled
              * @cssprop --wcs-radio-option-text-color-default - Color of the text when the radio option is not selected
-             * @cssprop --wcs-radio-option-text-font-weight-default - Default font weight of the text
-             * @cssprop --wcs-radio-option-text-color-selected - Color of the text when the radio option is selected
-             * @cssprop --wcs-radio-option-text-font-weight-selected - Font weight of the text when the radio option is selected
              * @cssprop --wcs-radio-option-text-color-hover - Color of the text when the radio option not selected is hovered
+             * @cssprop --wcs-radio-option-text-color-press - Color of the text when the radio option is pressed
+             * @cssprop --wcs-radio-option-text-color-selected-default - Color of the text when the radio option is selected
+             * @cssprop --wcs-radio-option-text-color-selected-hover - Color of the text when the radio option is selected and hovered
+             * @cssprop --wcs-radio-option-text-color-selected-press - Color of the text when the radio option is selected and pressed
              * @cssprop --wcs-radio-option-text-color-disabled - Color of the text when the radio option's is disabled
+             * @cssprop --wcs-radio-option-text-font-weight-default - Default font weight of the text
+             * @cssprop --wcs-radio-option-text-font-weight-selected - Font weight of the text when the radio option is selected
              * @cssprop --wcs-radio-option-border-radius - Border radius of the radio option
-             * @cssprop --wcs-radio-option-outline-color-focus - Color of the outline when the radio option is focused
+             * @cssprop --wcs-radio-option-border-width - Width of the border of the radio option
+             * @cssprop --wcs-radio-option-border-color-hover - Color of the border of the radio option when not selected and hovered
+             * @cssprop --wcs-radio-option-border-color-press - Color of the border of the radio option when not selected and pressed
              * @cssprop --wcs-radio-option-padding-top - Padding top of the radio option
              * @cssprop --wcs-radio-option-padding-right - Padding right of the radio option
              * @cssprop --wcs-radio-option-padding-bottom - Padding bottom of the radio option
@@ -7445,16 +7495,14 @@ declare module "@stencil/core" {
              * @cssprop --wcs-select-control-arrow-color - Color of the select arrow
              * @cssprop --wcs-select-control-arrow-color-disabled - Color of the select arrow when disabled
              * @cssprop --wcs-select-control-background-color - Background color of the select control
-             * @cssprop --wcs-select-control-ripple-color - Ripple color of the select control
              * @cssprop --wcs-select-control-line-height - Line height of the select control
+             * @cssprop --wcs-select-options-padding - Padding of the select options container
              * @cssprop --wcs-select-control-border-radius - Border radius of the select control
-             * @cssprop --wcs-select-control-border-width - Border width of the select control when not focused
-             * @cssprop --wcs-select-control-border-width-active - Border width of the select control when active
+             * @cssprop --wcs-select-control-border-width-default - Border width of the select control when not focused
              * @cssprop --wcs-select-control-border-width-focus - Border width of the select control when focused
              * @cssprop --wcs-select-control-border-color-default - Border color of the select control when not focused
              * @cssprop --wcs-select-control-border-color-disabled - Border color of the select control when disabled
              * @cssprop --wcs-select-control-border-color-error - Border color of the select control when error
-             * @cssprop --wcs-select-control-border-color-active - Border color of the select control when active (select is opened)
              * @cssprop --wcs-select-control-border-color-focus - Border color of the select control when focused (not opened, but the control is focused)
              * @cssprop --wcs-select-value-color - Text color of the select value when not focused
              * @cssprop --wcs-select-value-font-weight - Font weight of the select value
@@ -7493,6 +7541,7 @@ declare module "@stencil/core" {
              * The select option is a subcomponent of `wcs-select` that represents a single option in a select list.
              * @cssprop --wcs-select-option-background-color-default - Default background color of the option
              * @cssprop --wcs-select-option-background-color-hover - Background color of the option when hovered
+             * @cssprop --wcs-select-option-background-color-press - Background color of the option when pressed
              * @cssprop --wcs-select-option-background-color-selected - Background color of the option when selected
              * @cssprop --wcs-select-option-background-color-selected-hover - Background color of the option when selected and hovered
              * @cssprop --wcs-select-option-background-color-selected-press - Background color of the option when selected and pressed
@@ -7511,7 +7560,6 @@ declare module "@stencil/core" {
              * @cssprop --wcs-select-option-text-color-hover - Color of the option text when hovered
              * @cssprop --wcs-select-option-text-color-selected - Color of the option text when selected
              * @cssprop --wcs-select-option-text-color-disabled - Color of the option text when disabled
-             * @cssprop --wcs-select-option-ripple-color - Color of the ripple effect
              * @cssprop --wcs-select-option-checkbox-color - Color of the checkbox
              * @cssprop --wcs-select-option-gap - Gap between the checkbox and the text
              * @cssprop --wcs-select-option-transition-duration - Duration of the transition
