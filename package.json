@@ -22,7 +22,7 @@
         "build": "npm run generate-design-tokens && stencil build && npm run generate-custom-element-manifest && npm run build-storybook",
         "generate-design-tokens": "node design-tokens/index.mjs ",
         "watch:stencil": "stencil build --dev --watch",
-        "start": "concurrently --names \"Stencil,Storybook\" -c \"bgBlue.bold,bgMagenta.bold\" \"stencil build --dev --watch\" \"npm run storybook\"",
+        "start": "npm run generate-design-tokens && concurrently --names \"Stencil,Storybook\" -c \"bgBlue.bold,bgMagenta.bold\" \"stencil build --dev --watch\" \"npm run storybook\"",
         "test": "stencil test --spec --e2e",
         "test:ci": "stencil test --spec --e2e --ci",
         "test:watch": "stencil test --spec --e2e --watchAll",
