@@ -16,6 +16,7 @@ import { ICONS_FONT_CHEVRON_UNICODE } from '../breadcrumb/breadcrumb-constants';
  * 
  * @cssprop --wcs-breadcrumb-item-gap - Gap between text and chevron icon
  * @cssprop --wcs-breadcrumb-item-link-color - Color of the breadcrumb item link
+ * @cssprop --wcs-breadcrumb-item-link-color-hover - Color of the breadcrumb item link when hovered
  * @cssprop --wcs-breadcrumb-item-link-font-weight - Font weight of the breadcrumb item link
  * 
  * @cssprop --wcs-breadcrumb-item-border-width-focus - Border width of the breadcrumb item when focused

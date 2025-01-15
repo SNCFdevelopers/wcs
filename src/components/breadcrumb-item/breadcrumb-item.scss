@@ -10,6 +10,7 @@
     --wcs-breadcrumb-item-gap: var(--wcs-semantic-spacing-base);
 
     --wcs-breadcrumb-item-link-color: var(--wcs-semantic-color-text-link-default);
+    --wcs-breadcrumb-item-link-color-hover: var(--wcs-semantic-color-text-link-hover);
     --wcs-breadcrumb-item-link-font-weight: var(--wcs-semantic-font-weight-medium);
 
     --wcs-breadcrumb-item-border-width-focus: var(--wcs-semantic-border-width-large);
@@ -39,6 +40,7 @@
     }
     ::slotted(a:hover) {
         text-decoration: underline;
+        color: var(--wcs-breadcrumb-item-link-color-hover);
     }
 
     .item-icon {

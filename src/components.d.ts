@@ -237,6 +237,7 @@ export namespace Components {
      * @cssprop --wcs-breadcrumb-item-icon-font-size - Font size of the breadcrumb item icon
      * @cssprop --wcs-breadcrumb-item-gap - Gap between text and chevron icon
      * @cssprop --wcs-breadcrumb-item-link-color - Color of the breadcrumb item link
+     * @cssprop --wcs-breadcrumb-item-link-color-hover - Color of the breadcrumb item link when hovered
      * @cssprop --wcs-breadcrumb-item-link-font-weight - Font weight of the breadcrumb item link
      * @cssprop --wcs-breadcrumb-item-border-width-focus - Border width of the breadcrumb item when focused
      * @cssprop --wcs-breadcrumb-item-border-color-focus - Border color of the breadcrumb item when focused
@@ -2508,6 +2509,7 @@ declare global {
      * @cssprop --wcs-breadcrumb-item-icon-font-size - Font size of the breadcrumb item icon
      * @cssprop --wcs-breadcrumb-item-gap - Gap between text and chevron icon
      * @cssprop --wcs-breadcrumb-item-link-color - Color of the breadcrumb item link
+     * @cssprop --wcs-breadcrumb-item-link-color-hover - Color of the breadcrumb item link when hovered
      * @cssprop --wcs-breadcrumb-item-link-font-weight - Font weight of the breadcrumb item link
      * @cssprop --wcs-breadcrumb-item-border-width-focus - Border width of the breadcrumb item when focused
      * @cssprop --wcs-breadcrumb-item-border-color-focus - Border color of the breadcrumb item when focused
@@ -4359,6 +4361,7 @@ declare namespace LocalJSX {
      * @cssprop --wcs-breadcrumb-item-icon-font-size - Font size of the breadcrumb item icon
      * @cssprop --wcs-breadcrumb-item-gap - Gap between text and chevron icon
      * @cssprop --wcs-breadcrumb-item-link-color - Color of the breadcrumb item link
+     * @cssprop --wcs-breadcrumb-item-link-color-hover - Color of the breadcrumb item link when hovered
      * @cssprop --wcs-breadcrumb-item-link-font-weight - Font weight of the breadcrumb item link
      * @cssprop --wcs-breadcrumb-item-border-width-focus - Border width of the breadcrumb item when focused
      * @cssprop --wcs-breadcrumb-item-border-color-focus - Border color of the breadcrumb item when focused
@@ -6624,6 +6627,7 @@ declare module "@stencil/core" {
              * @cssprop --wcs-breadcrumb-item-icon-font-size - Font size of the breadcrumb item icon
              * @cssprop --wcs-breadcrumb-item-gap - Gap between text and chevron icon
              * @cssprop --wcs-breadcrumb-item-link-color - Color of the breadcrumb item link
+             * @cssprop --wcs-breadcrumb-item-link-color-hover - Color of the breadcrumb item link when hovered
              * @cssprop --wcs-breadcrumb-item-link-font-weight - Font weight of the breadcrumb item link
              * @cssprop --wcs-breadcrumb-item-border-width-focus - Border width of the breadcrumb item when focused
              * @cssprop --wcs-breadcrumb-item-border-color-focus - Border color of the breadcrumb item when focused
