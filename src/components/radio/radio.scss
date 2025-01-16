@@ -3,6 +3,8 @@
 :host {
     width: fit-content;
 
+    --wcs-radio-transition-duration: var(--wcs-semantic-motion-duration-feedback-base);
+
     // region mode Radio
     --wcs-radio-text-color-default: var(--wcs-semantic-color-text-secondary);
     --wcs-radio-text-font-weight-default: var(--wcs-semantic-font-weight-medium);
@@ -10,10 +12,10 @@
     --wcs-radio-text-color-selected: var(--wcs-semantic-color-text-primary);
     --wcs-radio-text-font-weight-selected: var(--wcs-semantic-font-weight-medium);
 
-    --wcs-radio-text-color-disabled: var(--wcs-semantic-color-text-tertiary);
+    --wcs-radio-text-color-disabled: var(--wcs-semantic-color-text-disabled);
     --wcs-radio-text-color-hover: var(--wcs-semantic-color-text-primary);
 
-    --wcs-radio-checkmark-size: 1.125rem; // for now, we let raw value to let adjust the size based on base font size
+    --wcs-radio-checkmark-size: 1rem; // for now, we let raw value to let adjust the size based on base font size
 
     --wcs-radio-gap: var(--wcs-semantic-spacing-base);
 
@@ -27,35 +29,46 @@
 
     --wcs-radio-checkmark-background-color-default: transparent;
     --wcs-radio-checkmark-background-color-selected: var(--wcs-semantic-color-background-control-indicator-selected);
-    --wcs-radio-checkmark-background-color-disabled: var(--wcs-semantic-color-background-control-indicator-disabled);
-    --wcs-radio-checkmark-background-color-hover: var(--wcs-semantic-color-background-control-indicator-hover);
+    --wcs-radio-checkmark-background-color-selected-disabled: var(--wcs-semantic-color-background-control-indicator-disabled);
+    --wcs-radio-checkmark-background-color-selected-hover: var(--wcs-semantic-color-background-control-indicator-hover);
 
     --wcs-radio-checkmark-outline-distance-with-checkmark-circle: var(--wcs-semantic-spacing-small);
     --wcs-radio-checkmark-outline-width: var(--wcs-semantic-border-width-large);
     --wcs-radio-checkmark-outline-color: var(--wcs-semantic-color-foreground-control-indicator-selected);
+    --wcs-radio-checkmark-border-radius: var(--wcs-semantic-border-radius-full);
 
-
-
+    --wcs-radio-border-radius: var(--wcs-semantic-border-radius-base);
     // endregion
 
     // region mode Option
-    --wcs-radio-option-background-color-default: transparent;
-    --wcs-radio-option-background-color-selected: var(--wcs-semantic-color-background-action-primary-default);
+    --wcs-radio-option-background-color-default: var(--wcs-semantic-color-background-action-secondary-default);
+    --wcs-radio-option-background-color-hover: var(--wcs-semantic-color-background-action-secondary-default);
+    --wcs-radio-option-background-color-press: var(--wcs-semantic-color-background-action-secondary-default);
+    --wcs-radio-option-background-color-disabled: var(--wcs-semantic-color-background-action-secondary-default);
+
+    --wcs-radio-option-background-color-selected-default: var(--wcs-semantic-color-background-action-primary-default);
+    --wcs-radio-option-background-color-selected-hover: var(--wcs-semantic-color-background-action-primary-hover);
+    --wcs-radio-option-background-color-selected-press: var(--wcs-semantic-color-background-action-primary-press);
     --wcs-radio-option-background-color-selected-disabled: var(--wcs-semantic-color-background-action-primary-disabled);
-    --wcs-radio-option-background-color-hover: var(--wcs-semantic-color-background-action-secondary-hover);
-    --wcs-radio-option-background-color-disabled: var(--wcs-semantic-color-background-action-secondary-disabled);
 
-    --wcs-radio-option-text-color-default: var(--wcs-semantic-color-text-primary);
-    --wcs-radio-option-text-font-weight-default: var(--wcs-semantic-font-weight-roman);
-    --wcs-radio-option-text-color-selected: var(--wcs-semantic-color-foreground-action-primary-default);
-    --wcs-radio-option-text-font-weight-selected: var(--wcs-semantic-font-weight-roman);
-    --wcs-radio-option-text-color-hover: var(--wcs-semantic-color-text-primary);
+    --wcs-radio-option-text-color-default: var(--wcs-semantic-color-foreground-action-secondary-default);
+    --wcs-radio-option-text-color-hover: var(--wcs-semantic-color-foreground-action-secondary-default);
+    --wcs-radio-option-text-color-press: var(--wcs-semantic-color-foreground-action-secondary-press);
 
+    --wcs-radio-option-text-color-selected-default: var(--wcs-semantic-color-foreground-action-primary-default);
+    --wcs-radio-option-text-color-selected-hover: var(--wcs-semantic-color-foreground-action-primary-hover);
+    --wcs-radio-option-text-color-selected-press: var(--wcs-semantic-color-foreground-action-primary-press);
     --wcs-radio-option-text-color-disabled: var(--wcs-semantic-color-text-disabled);
 
-    --wcs-radio-option-outline-color-focus: var(--wcs-semantic-color-border-focus-base); // outline color for focus ring
+    --wcs-radio-option-text-font-weight-default: var(--wcs-semantic-font-weight-roman);
+    --wcs-radio-option-text-font-weight-selected: var(--wcs-semantic-font-weight-roman);
 
     --wcs-radio-option-border-radius: var(--wcs-semantic-border-radius-base);
+
+    --wcs-radio-option-border-width: var(--wcs-semantic-border-width-default);
+
+    --wcs-radio-option-border-color-hover: var(--wcs-semantic-color-border-action-secondary-hover);
+    --wcs-radio-option-border-color-press: var(--wcs-semantic-color-border-action-secondary-press);
 
     --wcs-radio-option-padding-top: var(--wcs-semantic-spacing-base);
     --wcs-radio-option-padding-right: var(--wcs-semantic-spacing-large);
@@ -83,7 +96,7 @@
         display: inline-block;
 
         &:before {
-            border-radius: 50%;
+            border-radius: var(--wcs-radio-checkmark-border-radius);
             border: var(--wcs-radio-checkmark-border-width) solid var(--wcs-radio-checkmark-border-color-default);
             position: relative;
             width: var(--wcs-radio-checkmark-size);
@@ -92,20 +105,11 @@
             content: "";
             background-color: var(--wcs-radio-checkmark-background-color-default);
         }
-
-        &:after {
-            transition: background-color 0.175s ease-in-out;
-            position: relative;
-            width: 1.125rem;
-            height: 1.125rem;
-            content: "";
-            background: no-repeat 50% / 50% 50%;
-        }
     }
 
     input:focus-visible + label {
         transition: none;
-        @include focus-outline($outline-color: var(--wcs-radio-outline-color-focus), $border-radius: 0.5rem, $outline-offset: 2px);
+        @include focus-outline($outline-color: var(--wcs-radio-outline-color-focus), $border-radius: var(--wcs-radio-border-radius));
     }
 }
 
@@ -148,7 +152,7 @@
 
         &:before {
             border-color: var(--wcs-radio-checkmark-border-color-disabled);
-            background-color: var(--wcs-radio-checkmark-background-color-disabled);
+            background-color: var(--wcs-radio-checkmark-background-color-selected-disabled);
         }
     }
 }
@@ -160,7 +164,7 @@
 
         &:before {
             border-color: var(--wcs-radio-checkmark-border-color-hover);
-            background-color: var(--wcs-radio-checkmark-background-color-hover);
+            background-color: var(--wcs-radio-checkmark-background-color-selected-hover);
         }
     }
 }
@@ -177,7 +181,7 @@
         border: none;
 
         &:before {
-            transition: background-color 0.175s ease-in-out;
+            transition: background-color var(--wcs-radio-transition-duration) ease-in-out;
             margin-right: var(--wcs-radio-gap);
             display: inline-block;
             top: 3px;
@@ -192,9 +196,10 @@
 
 :host([mode=horizontal]) {
     height: fit-content;
+
     label {
         &:before {
-            transition: background-color 0.175s ease-in-out;
+            transition: background-color var(--wcs-radio-transition-duration) ease-in-out;
             margin: auto auto var(--wcs-radio-gap);
             display: block;
         }
@@ -222,12 +227,12 @@
         color: var(--wcs-radio-option-text-color-default);
         white-space: nowrap;
         border-radius: var(--wcs-radio-option-border-radius);
-        transition: background-color 0.175s ease-in-out;
+        transition: background-color var(--wcs-radio-transition-duration) ease-in-out;
         background-color: var(--wcs-radio-option-background-color-default);
     }
 
     input:focus-visible + label {
-        @include focus-outline($outline-color: var(--wcs-radio-outline-color-focus), $border-radius: 0.4375rem, $outline-offset: 0.1rem);
+        @include focus-outline($outline-color: var(--wcs-radio-outline-color-focus), $border-radius: var(--wcs-radio-border-radius), $outline-offset: 0);
     }
 }
 
@@ -248,8 +253,22 @@
 :host([mode=option].checked) {
     label {
         font-weight: var(--wcs-radio-option-text-font-weight-selected) !important;
-        color: var(--wcs-radio-option-text-color-selected);
-        background-color: var(--wcs-radio-option-background-color-selected);
+        color: var(--wcs-radio-option-text-color-selected-default);
+        background-color: var(--wcs-radio-option-background-color-selected-default);
+    }
+}
+
+:host([mode=option]:hover.checked:not([disabled])) {
+    label {
+        color: var(--wcs-radio-option-text-color-selected-hover);
+        background-color: var(--wcs-radio-option-background-color-selected-hover);
+    }
+}
+
+:host([mode=option]:active.checked:not([disabled])) {
+    label {
+        color: var(--wcs-radio-option-text-color-selected-press);
+        background-color: var(--wcs-radio-option-background-color-selected-press);
     }
 }
 
@@ -257,5 +276,17 @@
     label {
         color: var(--wcs-radio-option-text-color-hover);
         background-color: var(--wcs-radio-option-background-color-hover);
+        outline: var(--wcs-radio-option-border-width) solid var(--wcs-radio-option-border-color-hover);
+    }
+}
+
+:host([mode=option]:active:not(.checked):not([disabled])) {
+    label {
+        color: var(--wcs-radio-option-text-color-press);
+        background-color: var(--wcs-radio-option-background-color-press);
+        outline: var(--wcs-radio-option-border-width) solid var(--wcs-radio-option-border-color-press);
+
+
+
     }
 }
