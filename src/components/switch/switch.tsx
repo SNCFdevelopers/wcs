@@ -12,13 +12,14 @@ const SWITCH_INHERITED_ATTRS = ['tabindex'];
  * 
  * @cssprop --wcs-switch-text-color-default - Color of the text when the switch is not selected
  * @cssprop --wcs-switch-text-color-selected - Color of the text when the switch is selected
- * @cssprop --wcs-switch-text-color-hover - Color of the text when the switch is hovered
  * @cssprop --wcs-switch-text-color-disabled - Color of the text when the switch is disabled
+
  * 
  * @cssprop --wcs-switch-background-color-initial - Background color of the switch when not selected
  * @cssprop --wcs-switch-background-color-final - Background color of the switch when selected
  * @cssprop --wcs-switch-background-color-disabled - Background color of the switch when disabled
  * @cssprop --wcs-switch-background-color-disabled-selected - Background color of the switch when disabled and selected
+ * @cssprop --wcs-switch-background-color-hover-selected - Background color of the switch when hovered and selected
  * 
  * @cssprop --wcs-switch-height - Height of the switch
  * @cssprop --wcs-switch-width - Width of the switch
@@ -61,7 +62,7 @@ export class Switch implements ComponentInterface, MutableAriaAttribute {
     @Prop({reflect: true}) labelAlignment: SwitchLabelAlignment = 'center';
 
     /**
-     * Specify wether the switch is disabled or not.
+     * Specify whether the switch is disabled or not.
      */
     @Prop() disabled: boolean = false;
 

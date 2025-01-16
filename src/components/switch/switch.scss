@@ -2,13 +2,15 @@
 
 :host {
     --wcs-switch-background-color-initial: var(--wcs-semantic-color-background-surface-secondary);
-    --wcs-switch-background-color-final: var(--wcs-semantic-color-background-surface-brand);
+    --wcs-switch-background-color-final: var(--wcs-semantic-color-background-control-indicator-selected);
     --wcs-switch-background-color-disabled: var(--wcs-semantic-color-background-surface-tertiary);
     --wcs-switch-background-color-disabled-selected: var(--wcs-semantic-color-background-surface-tertiary);
+    --wcs-switch-background-color-hover-selected: var(--wcs-semantic-color-background-control-indicator-hover);
 
     --wcs-switch-padding-horizontal: var(--wcs-semantic-spacing-small);
     --wcs-switch-padding-vertical: calc((var(--wcs-switch-height) - var(--wcs-switch-dot-size)) / 2); // to center the dot vertically, at the middle of the dot
 
+    // TODO : Les variables figma sont bindées sur les primitives
     --wcs-switch-dot-color-initial: var(--wcs-primitive-color-neutral-600); // the dot color when the switch is not checked
     --wcs-switch-dot-color-final: var(--wcs-primitive-color-neutral-0); // the dot color when the switch is checked
     --wcs-switch-dot-color-disabled: var(--wcs-primitive-color-neutral-600);
@@ -16,8 +18,7 @@
 
     --wcs-switch-text-color-default: var(--wcs-semantic-color-text-secondary);
     --wcs-switch-text-color-selected: var(--wcs-semantic-color-text-primary);
-    --wcs-switch-text-color-hover: var(--wcs-semantic-color-text-primary);
-    --wcs-switch-text-color-disabled: var(--wcs-semantic-color-text-tertiary);
+    --wcs-switch-text-color-disabled: var(--wcs-semantic-color-text-disabled);
 
     --wcs-switch-text-font-weight-default: var(--wcs-semantic-font-weight-medium);
     --wcs-switch-text-font-weight-selected: var(--wcs-semantic-font-weight-medium);
@@ -29,8 +30,8 @@
 
     --wcs-switch-dot-size: 0.875rem; /* 14px */
 
-    --wcs-switch-height: 1.5rem; /* 24px */
-    --wcs-switch-width: 3rem; /* 48px */
+    --wcs-switch-height: var(--wcs-semantic-size-xs);
+    --wcs-switch-width: var(--wcs-semantic-size-l);
 
     --wcs-switch-border-radius: var(--wcs-semantic-border-radius-full);
 
@@ -167,15 +168,8 @@
     cursor: pointer;
 }
 
-.wcs-container:hover:not([aria-disabled]) {
-    .text {
-        color: var(--wcs-switch-text-color-hover);
-    }
-}
-
 /* When the switch is checked, change the dot to white */
 input:not([disabled]):checked + .wcs-checkmark::before,
-.wcs-container:hover input:not([disabled]) + .wcs-checkmark::before,
 .wcs-container:focus input:not([disabled]) + .wcs-checkmark::before {
     background-color: var(--wcs-switch-dot-color-final);
 }
@@ -185,9 +179,12 @@ input:checked + .wcs-checkmark::before {
     transform: translateX(var(--wcs-switch-dot-translate-x));
 }
 
-/* When the switch is checked, change background to blue */
-input:not([disabled]):checked + .wcs-checkmark,
-.wcs-container:hover input:not([disabled]) + .wcs-checkmark,
-.wcs-container:focus input:not([disabled]) + .wcs-checkmark {
+/* When the switch is checked, change background */
+input:not([disabled]):checked + .wcs-checkmark {
     background-color: var(--wcs-switch-background-color-final);
+}
+
+/* When the switch is checked and hover, change background */
+.wcs-container:hover input:not([disabled]):checked + .wcs-checkmark {
+    background-color: var(--wcs-switch-background-color-hover-selected);
 }
