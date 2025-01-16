@@ -19,33 +19,46 @@ const CHECKBOX_INHERITED_ATTRS = ['tabindex', 'title'];
 /**
  * The checkbox component is an input for choosing one or more items from a set by checking / unchecking it.
  * 
- * @cssprop --wcs-checkbox-outline-radius-focus - Border radius of the focus outline
- * @cssprop --wcs-checkbox-outline-color-focus - Color of the focus outline
+ * @cssprop --wcs-checkbox-border-color-default - Default color of the border
+ * @cssprop --wcs-checkbox-border-color-hover - Color of the border when hovered
+ * @cssprop --wcs-checkbox-border-color-disabled - Color of the border when disabled
+ * @cssprop --wcs-checkbox-border-color-selected - Color of the border when selected
+ * @cssprop --wcs-checkbox-border-color-indeterminate - Color of the border when indeterminate
+ * 
+ * @cssprop --wcs-checkbox-border-radius - Border radius of the checkbox
+ * @cssprop --wcs-checkbox-border-width - Width of the border of the checkbox
+ * 
+ * @cssprop --wcs-checkbox-size - Size of the checkbox
  * 
  * @cssprop --wcs-checkbox-text-color-default - Color of the text when the checkbox is not selected
- * @cssprop --wcs-checkbox-text-font-weight - Font weight of the text
- * @cssprop --wcs-checkbox-text-font-size - Font size of the text
  * @cssprop --wcs-checkbox-text-color-disabled - Color of the text when the checkbox is disabled
  * @cssprop --wcs-checkbox-text-color-hover - Color of the text when the checkbox is hovered
  * @cssprop --wcs-checkbox-text-color-selected - Color of the text when the checkbox is selected
- *
- * @cssprop --wcs-checkbox-border-color-default - Color of the border when the checkbox is not selected
- * @cssprop --wcs-checkbox-border-color-hover - Color of the border when the checkbox is hovered
- * @cssprop --wcs-checkbox-border-color-disabled - Color of the border when the checkbox is disabled
- * @cssprop --wcs-checkbox-border-color-selected - Color of the border when the checkbox is selected
- * @cssprop --wcs-checkbox-border-radius - Border radius of the checkbox
- * @cssprop --wcs-checkbox-border-width - Width of the border of the checkbox
- * @cssprop --wcs-checkbox-background-color-selected - Background color of the checkbox when selected
- * @cssprop --wcs-checkbox-background-color-disabled - Background color of the checkbox when disabled
+ * 
+ * @cssprop --wcs-checkbox-text-font-size - Font size of the text
+ * @cssprop --wcs-checkbox-text-font-weight - Font weight of the text
+ * 
+ * @cssprop --wcs-checkbox-background-color-default - Default background color of the checkbox
  * @cssprop --wcs-checkbox-background-color-hover - Background color of the checkbox when hovered
- *
+ * @cssprop --wcs-checkbox-background-color-disabled - Background color of the checkbox when disabled
+ * @cssprop --wcs-checkbox-background-color-selected - Background color of the checkbox when selected
+ * @cssprop --wcs-checkbox-background-color-indeterminate - Background color of the checkbox when indeterminate
+ * 
+ * @cssprop --wcs-checkbox-outline-radius-focus - Border radius of the focus outline
+ * @cssprop --wcs-checkbox-outline-color-focus - Color of the focus outline
+ * 
+ * @cssprop --wcs-checkbox-gap - Gap between the checkbox and the label
  * @cssprop --wcs-checkmark-color - Color of the checkmark
  * @cssprop --wcs-checkmark-height - Height of the checkmark (From the bottom left to the top right of the checkmark)
  * @cssprop --wcs-checkmark-width - Width of the checkmark (From the bottom right to the top left of the checkmark)
  * @cssprop --wcs-checkmark-border-width - Width of the border of the checkmark
+ *
+ * @cssprop --wcs-indeterminate-bar-width - Width of the indeterminate bar
+ * @cssprop --wcs-indeterminate-bar-height - Height of the indeterminate bar
+ * @cssprop --wcs-indeterminate-bar-border-radius - Border-radius of the indeterminate bar
+ * @cssprop --wcs-indeterminate-bar-background-color - Color of the indeterminate bar
  * 
- * @cssprop --wcs-checkbox-size - Size of the checkbox
- * @cssprop --wcs-checkbox-gap - Gap between the checkbox and the label
+ * @cssprop --wcs-checkbox-transition-duration - Duration of the transition
  */
 @Component({
     tag: 'wcs-checkbox',
@@ -77,7 +90,7 @@ export class Checkbox implements ComponentInterface, MutableAriaAttribute {
     @Prop({ mutable: true, reflect: true }) labelAlignment: CheckboxLabelAlignment = 'center';
 
     /**
-     * Specify wether the checkbox is disabled or not.
+     * Specify whether the checkbox is disabled or not.
      */
     @Prop({ reflect: true }) disabled: boolean = false;
 
