@@ -54,18 +54,15 @@ const BUTTON_INHERITED_ATTRS = ['tabindex', 'title'];
  *
  * @cssprop --wcs-button-height-s - height for a size s button
  * @cssprop --wcs-button-font-size-s - font-size for a size s button
- * @cssprop --wcs-button-padding-horizontal-size-s - padding horizontal for a size s button
- * @cssprop --wcs-button-padding-vertical-size-s - padding vertical for a size s button
+ * @cssprop --wcs-button-padding-size-s - padding for a size s button
  *
  * @cssprop --wcs-button-height-m - height for a size m button
  * @cssprop --wcs-button-font-size-m - font-size for a size m button
- * @cssprop --wcs-button-padding-horizontal-size-m - padding horizontal for a size m button
- * @cssprop --wcs-button-padding-vertical-size-m - padding vertical for a size m button
+ * @cssprop --wcs-button-padding-size-m - padding for a size m button
  *
  * @cssprop --wcs-button-height-l - height for a size l button
  * @cssprop --wcs-button-font-size-l - font-size for a size l button
- * @cssprop --wcs-button-padding-horizontal-size-l - padding horizontal for a size l button
- * @cssprop --wcs-button-padding-vertical-size-l - padding vertical for a size l button
+ * @cssprop --wcs-button-padding-size-l - padding for a size l button
  *
  * @cssprop --wcs-button-font-weight - font weight of a plain,stroked,clear button
  */

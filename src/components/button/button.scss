@@ -36,20 +36,16 @@
     --wcs-button-stroked-border-color-disabled: var(--wcs-semantic-color-border-action-secondary-disabled);
 
     --wcs-button-height-s: var(--wcs-semantic-size-s);
-    --wcs-button-font-size-s: var(--wcs-semantic-font-size-s);
-    --wcs-button-padding-horizontal-size-s: calc(1.5 * var(--wcs-semantic-spacing-base));
-    --wcs-button-padding-vertical-size-s: calc(0.5 * var(--wcs-semantic-spacing-base));
+    --wcs-button-font-size-s: var(--wcs-semantic-font-size-label-2);
+    --wcs-button-padding-size-s: calc(1.5 * var(--wcs-semantic-spacing-base));
 
     --wcs-button-height-m: var(--wcs-semantic-size-m);
-    --wcs-button-font-size-m: var(--wcs-semantic-font-size-m);
-    --wcs-button-padding-horizontal-size-m: var(--wcs-semantic-spacing-large);
-    --wcs-button-padding-vertical-size-m: var(--wcs-semantic-spacing-base);
+    --wcs-button-font-size-m: var(--wcs-semantic-font-size-label-1);
+    --wcs-button-padding-size-m: calc(2 * var(--wcs-semantic-spacing-base));
 
     --wcs-button-height-l: var(--wcs-semantic-size-l);
-    --wcs-button-font-size-l: var(--wcs-semantic-font-size-l);
-    --wcs-button-padding-horizontal-size-l: var(--wcs-semantic-spacing-large);
-    --wcs-button-padding-vertical-size-l: calc(1.5 * var(--wcs-semantic-spacing-base));
-
+    --wcs-button-font-size-l: var(--wcs-semantic-font-size-label-1);
+    --wcs-button-padding-size-l: calc(3 * var(--wcs-semantic-spacing-base));
 
     --wcs-button-font-weight: var(--wcs-semantic-font-weight-medium);
 }
@@ -92,40 +88,40 @@
 }
 
 :host([size=l]) {
-    --wcs-button-padding: var(--wcs-button-padding-vertical-size-l) var(--wcs-button-padding-horizontal-size-l);
+    --wcs-button-padding: 0 var(--wcs-button-padding-size-l);
     --wcs-button-height: var(--wcs-button-height-l);
     --wcs-button-min-width: var(--wcs-button-height-l);
     --wcs-button-font-size: var(--wcs-button-font-size-l);
 
     &:host([shape=round]), &:host([shape=square]) {
         ::slotted(wcs-mat-icon) {
-            margin: calc(-1 * var(--wcs-button-padding-horizontal-size-l));
+            margin: calc(-1 * var(--wcs-button-padding-size-l));
         }
     }
 }
 
 :host([size=m]) { // Default
-    --wcs-button-padding: var(--wcs-button-padding-vertical-size-m) var(--wcs-button-padding-horizontal-size-m);
+    --wcs-button-padding: 0 var(--wcs-button-padding-size-m);
     --wcs-button-height: var(--wcs-button-height-m);
     --wcs-button-min-width: var(--wcs-button-height-m);
     --wcs-button-font-size: var(--wcs-button-font-size-m);
 
     &:host([shape=round]), &:host([shape=square]) {
         ::slotted(wcs-mat-icon) {
-            margin: calc(-1 * var(--wcs-button-padding-horizontal-size-m));
+            margin: calc(-1 * var(--wcs-button-padding-size-m));
         }
     }
 }
 
 :host([size=s]) {
-    --wcs-button-padding: var(--wcs-button-padding-vertical-size-s) var(--wcs-button-padding-horizontal-size-s);
+    --wcs-button-padding: 0 var(--wcs-button-padding-size-s);
     --wcs-button-height: var(--wcs-button-height-s);
     --wcs-button-min-width: var(--wcs-button-height-s);
     --wcs-button-font-size: var(--wcs-button-font-size-s);
 
     &:host([shape=round]), &:host([shape=square]) {
         ::slotted(wcs-mat-icon) {
-            margin: calc(-1 * var(--wcs-button-padding-horizontal-size-s));
+            margin: calc(-1 * var(--wcs-button-padding-size-s));
         }
     }
 }
