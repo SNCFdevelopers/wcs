@@ -23,12 +23,13 @@ const PROGRESS_RADIAL_ARIA_INHERITED_ATTRS = ['title'];
  * 
  * @cssprop --wcs-progress-radial-rail-width - The width of the line that represents the rail of the progress radial
  * @cssprop --wcs-progress-radial-rail-spacing - The space between each rail of the progress radial
- * @cssprop --wcs-progress-bar-rail-color - The color of the rail of the progress radial
+ * @cssprop --wcs-progress-radial-rail-color - The color of the rail of the progress radial
  * @cssprop --wcs-progress-radial-value-background-color - The background color of the bar on top of the rail 
  * @cssprop --wcs-progress-radial-label-color - The color of the label inside the progress radial
  * @cssprop --wcs-progress-radial-label-font-size - The font size of the label inside the progress radial
  * @cssprop --wcs-progress-radial-label-font-weight - The font weight of the label inside the progress radial
  * @cssprop --wcs-progress-radial-label-percentage-font-size - The font size of the percentage inside the progress radial
+ * @cssprop --wcs-progress-radial-animation-duration - The duration of the animation of the progress radial
  */
 @Component({
     tag: 'wcs-progress-radial',

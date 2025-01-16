@@ -1,25 +1,23 @@
 :host {
     display: inline-flex;
 
-    --wcs-progress-radial-rail-width: 2px;
-    --wcs-progress-radial-rail-spacing: 2px;
+    --wcs-progress-radial-rail-width: calc(var(--wcs-semantic-spacing-base) / 4);
+    --wcs-progress-radial-rail-spacing: calc(var(--wcs-semantic-spacing-base) / 4);
     --wcs-progress-radial-rail-color: var(--wcs-semantic-color-background-surface-tertiary);
 
     --wcs-progress-radial-value-background-color: var(--wcs-semantic-color-background-surface-brand);
 
     --wcs-progress-radial-label-color: var(--wcs-semantic-color-text-primary);
-    --wcs-progress-radial-label-font-size: 1.5rem;
+    --wcs-progress-radial-label-font-size: calc(1.5 * var(--wcs-semantic-font-size-m));
     --wcs-progress-radial-label-font-weight: var(--wcs-semantic-font-weight-medium);
 
-    --wcs-progress-radial-label-percentage-font-size: calc(var(--wcs-progress-radial-label-font-size) * 0.6);
-    --wcs-internal-progress-radial-animation-duration: var(--wcs-progress-radial-animation-duration, var(--wcs-semantic-motion-duration-feedback-slower));
+    --wcs-progress-radial-label-percentage-font-size:  calc(var(--wcs-semantic-font-size-m) * 0.7);
+    --wcs-progress-radial-animation-duration: var(--wcs-semantic-motion-duration-feedback-slower);
 }
 
 .progress-circle {
     position: relative;
     display: inline-block;
-    width: 7.5rem;
-    height: 7.5rem;
 }
 
 .circle-rail {
@@ -35,7 +33,7 @@
     top: 0;
     z-index: 1;
     transform: rotate(-90deg);
-    transition: stroke-dashoffset var(--wcs-internal-progress-radial-animation-duration) ease-out;
+    transition: stroke-dashoffset var(--wcs-progress-radial-animation-duration) ease-out;
 }
 
 .progress-circle-label {
@@ -53,7 +51,7 @@
 
     sup {
         font-size: var(--wcs-progress-radial-label-percentage-font-size);
-        top: -.5em;
+        top: -.85em;
         position: relative;
         line-height: 0;
         vertical-align: baseline;
