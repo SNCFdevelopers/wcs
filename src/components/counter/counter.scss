@@ -35,10 +35,9 @@
 :host {
     --wcs-counter-border-radius: var(--wcs-semantic-border-radius-full);
 
-    --wcs-counter-font-weight-default: var(--wcs-semantic-font-weight-medium);
-    --wcs-counter-font-weight-disabled: var(--wcs-semantic-font-weight-medium);
     --wcs-counter-value-color-default: var(--wcs-semantic-color-text-primary);
     --wcs-counter-value-color-disabled: var(--wcs-semantic-color-text-tertiary);
+    --wcs-counter-font-weight: var(--wcs-semantic-font-weight-heavy);
 
     --wcs-counter-height-m: var(--wcs-semantic-size-m);
     --wcs-counter-height-l: var(--wcs-semantic-size-l);
@@ -48,8 +47,12 @@
     --wcs-counter-padding-l: var(--wcs-semantic-spacing-base);
 
     --wcs-counter-background-color: var(--wcs-semantic-color-background-surface-secondary);
-    --wcs-counter-gap: var(--wcs-semantic-spacing-large);
+    --wcs-counter-gap: var(--wcs-counter-gap-size-m);
+    --wcs-counter-gap-size-m: calc(1.5 * var(--wcs-semantic-spacing-base));
+    --wcs-counter-gap-size-l: calc(2 * var(--wcs-semantic-spacing-base));
     --wcs-counter-outline-color-focus: var(--wcs-semantic-color-border-focus-base);
+
+    --wcs-counter-transition-duration: var(--wcs-semantic-motion-duration-feedback-base);
 
     display: flex;
 
@@ -59,7 +62,7 @@
         height: var(--wcs-counter-height);
         font-family: var(--wcs-font-sans-serif);
         font-size: var(--wcs-counter-font-size);
-        font-weight: var(--wcs-counter-font-weight-default);
+        font-weight: var(--wcs-counter-font-weight);
         color: var(--wcs-counter-value-color-default);
         display: flex;
         align-items: center;
@@ -69,6 +72,7 @@
         border-radius: var(--wcs-counter-border-radius);
         background-color: var(--wcs-counter-background-color);
         background-clip: padding-box;
+        gap: var(--wcs-counter-gap);
 
         &:has(.current-value:focus-visible) {
             @include focus-outline($outline-color: var(--wcs-counter-outline-color-focus), $border-radius: var(--wcs-counter-border-radius), $outline-offset: 0);
@@ -87,7 +91,6 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin: 0 var(--wcs-counter-gap);
         position: relative;
     }
 
@@ -108,11 +111,11 @@
     }
 
     .animate-up {
-        animation: spin-animation-up 0.175s ease-in-out;
+        animation: spin-animation-up var(--wcs-counter-transition-duration) ease-in-out;
     }
 
     .animate-down {
-        animation: spin-animation-down 0.175s ease-in-out;
+        animation: spin-animation-down var(--wcs-counter-transition-duration) ease-in-out;
     }
 
     [hidden] {
@@ -124,12 +127,14 @@
     --wcs-counter-padding: var(--wcs-counter-padding-m);
     --wcs-counter-height: var(--wcs-counter-height-m);
     --wcs-counter-font-size: var(--wcs-counter-font-size-m);
+    --wcs-counter-gap: var(--wcs-counter-gap-size-m);
 }
 
 :host([size='l']) {
     --wcs-counter-padding: var(--wcs-counter-padding-l);
     --wcs-counter-height: var(--wcs-counter-height-l);
     --wcs-counter-font-size: var(--wcs-counter-font-size-l);
+    --wcs-counter-gap: var(--wcs-counter-gap-size-l);
 }
 
 :host([disabled]) {
@@ -137,6 +142,5 @@
 
     .counter {
         color: var(--wcs-counter-value-color-disabled);
-        font-weight: var(--wcs-counter-font-weight-disabled);
     }
 }
