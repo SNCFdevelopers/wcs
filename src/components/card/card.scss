@@ -1,8 +1,8 @@
 :host {
-    --wcs-card-border-radius: var(--wcs-semantic-border-radius-base);
-    --wcs-card-background-color: var(--wcs-semantic-color-background-surface-primary);
     --wcs-card-border-color: var(--wcs-semantic-color-border-secondary);
-    --wcs-card-flat-border-width: var(--wcs-semantic-border-width-default);
+    --wcs-card-border-radius: var(--wcs-semantic-border-radius-base);
+    --wcs-card-border-width: var(--wcs-semantic-border-width-default);
+    --wcs-card-background-color: var(--wcs-semantic-color-background-surface-primary);
     --wcs-card-text-color: var(--wcs-semantic-color-text-primary);
 
     position: relative;
@@ -22,5 +22,5 @@
 }
 
 :host([mode="flat"]) {
-    border: solid var(--wcs-card-flat-border-width) var(--wcs-card-border-color);
+    border: solid var(--wcs-card-border-width) var(--wcs-card-border-color);
 }

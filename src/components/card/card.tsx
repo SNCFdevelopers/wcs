@@ -7,7 +7,7 @@ import { CardMode } from './card-interface';
  *
  * @cssprop --wcs-card-border-color - Border color of the card
  * @cssprop --wcs-card-border-radius - Border radius of the card
- * @cssprop --wcs-card-flat-border-width - Border width of the card when flat
+ * @cssprop --wcs-card-border-width - Border width of the card
  * @cssprop --wcs-card-background-color - Background color of the card
  * @cssprop --wcs-card-text-color - Text color of the card
  */

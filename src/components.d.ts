@@ -333,7 +333,7 @@ export namespace Components {
      * A card can be a single component, but is often made up of a header, title, subtitle, and content.
      * @cssprop --wcs-card-border-color - Border color of the card
      * @cssprop --wcs-card-border-radius - Border radius of the card
-     * @cssprop --wcs-card-flat-border-width - Border width of the card when flat
+     * @cssprop --wcs-card-border-width - Border width of the card
      * @cssprop --wcs-card-background-color - Background color of the card
      * @cssprop --wcs-card-text-color - Text color of the card
      */
@@ -2568,7 +2568,7 @@ declare global {
      * A card can be a single component, but is often made up of a header, title, subtitle, and content.
      * @cssprop --wcs-card-border-color - Border color of the card
      * @cssprop --wcs-card-border-radius - Border radius of the card
-     * @cssprop --wcs-card-flat-border-width - Border width of the card when flat
+     * @cssprop --wcs-card-border-width - Border width of the card
      * @cssprop --wcs-card-background-color - Background color of the card
      * @cssprop --wcs-card-text-color - Text color of the card
      */
@@ -4450,7 +4450,7 @@ declare namespace LocalJSX {
      * A card can be a single component, but is often made up of a header, title, subtitle, and content.
      * @cssprop --wcs-card-border-color - Border color of the card
      * @cssprop --wcs-card-border-radius - Border radius of the card
-     * @cssprop --wcs-card-flat-border-width - Border width of the card when flat
+     * @cssprop --wcs-card-border-width - Border width of the card
      * @cssprop --wcs-card-background-color - Background color of the card
      * @cssprop --wcs-card-text-color - Text color of the card
      */
@@ -6670,7 +6670,7 @@ declare module "@stencil/core" {
              * A card can be a single component, but is often made up of a header, title, subtitle, and content.
              * @cssprop --wcs-card-border-color - Border color of the card
              * @cssprop --wcs-card-border-radius - Border radius of the card
-             * @cssprop --wcs-card-flat-border-width - Border width of the card when flat
+             * @cssprop --wcs-card-border-width - Border width of the card
              * @cssprop --wcs-card-background-color - Background color of the card
              * @cssprop --wcs-card-text-color - Text color of the card
              */
