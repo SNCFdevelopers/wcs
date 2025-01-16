@@ -40,6 +40,7 @@ const PROGRESS_BAR_ARIA_INHERITED_ATTRS = ['title'];
  * @cssprop --wcs-progress-bar-label-font-weight - Font weight of the label
  * @cssprop --wcs-progress-bar-label-percentage-font-size-s - Font size of the percentage for size small
  * @cssprop --wcs-progress-bar-label-percentage-font-size-m - Font size of the percentage for size medium
+ * @cssprop --wcs-progress-bar-label-top-space - Space on top of the progress bar when label is displayed
  */
 @Component({
     tag: 'wcs-progress-bar',

@@ -1,7 +1,7 @@
 :host {
-    --wcs-internal-progress-bar-border-radius: var(--wcs-progress-bar-border-radius, var(--wcs-semantic-border-radius-full));
-    --wcs-internal-progress-bar-border-radius-small: var(--wcs-progress-bar-border-radius-small, var(--wcs-semantic-border-radius-small));
-    --wcs-internal-progress-bar-animation-duration: var(--wcs-progress-bar-animation-duration, var(--wcs-semantic-motion-duration-feedback-slower));
+    --wcs-progress-bar-border-radius: var(--wcs-semantic-border-radius-full);
+    --wcs-progress-bar-border-radius-small: var(--wcs-semantic-border-radius-small);
+    --wcs-progress-bar-animation-duration: var(--wcs-semantic-motion-duration-feedback-slower);
 
     --wcs-progress-bar-height-m: calc(var(--wcs-semantic-size-m) / 4);
     --wcs-progress-bar-height-s: calc(var(--wcs-semantic-size-s) / 6);
@@ -20,6 +20,7 @@
     --wcs-progress-bar-label-font-weight: var(--wcs-semantic-font-weight-medium);
     --wcs-progress-bar-label-percentage-font-size-s: calc(var(--wcs-semantic-font-size-s) * 0.7);
     --wcs-progress-bar-label-percentage-font-size-m: calc(var(--wcs-semantic-font-size-m) * 0.7);
+    --wcs-progress-bar-label-top-space: var(--wcs-semantic-spacing-large);
 }
 
 :host([size=s]) {
@@ -28,7 +29,7 @@
         background-color: var(--wcs-progress-bar-background-color);
         background-image: none;
         background-size: auto;
-        border-radius: var(--wcs-internal-progress-bar-border-radius-small);
+        border-radius: var(--wcs-progress-bar-border-radius-small);
 
         .progress-label {
             font-size: var(--wcs-progress-bar-label-font-size-s);
@@ -48,10 +49,10 @@
     background-color: var(--wcs-progress-bar-background-color);
     background-image: linear-gradient(90deg, var(--wcs-progress-bar-rail-color), 50%, transparent 50%);
     background-size: var(--wcs-progress-bar-rail-spacing) var(--wcs-progress-bar-height-m);
-    border-radius: var(--wcs-internal-progress-bar-border-radius);
+    border-radius: var(--wcs-progress-bar-border-radius);
 
     &.has-label {
-        margin-top: 2rem;
+        margin-top: var(--wcs-progress-bar-label-top-space);
     }
 
     // FIXME: Temporary fix so the label doesn't appear before the bar
@@ -68,8 +69,8 @@
     color: var(--wcs-progress-bar-label-color);
     text-align: center;
     background-color: var(--wcs-progress-bar-indicator-color);
-    border-radius: var(--wcs-internal-progress-bar-border-radius);
-    transition: width var(--wcs-internal-progress-bar-animation-duration) ease-out;
+    border-radius: var(--wcs-progress-bar-border-radius);
+    transition: width var(--wcs-progress-bar-animation-duration) ease-out;
 }
 
 .progress-label {
