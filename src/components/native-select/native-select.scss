@@ -1,5 +1,5 @@
 :host {
-    --wcs-select-native-line-height: 1.5;
+    --wcs-select-native-line-height: var(--wcs-semantic-font-line-height-large);
 
     --wcs-select-native-size-m: var(--wcs-semantic-size-m);
     --wcs-select-native-font-size-m: var(--wcs-semantic-font-size-m);
@@ -24,7 +24,7 @@
     --wcs-select-native-value-font-weight: var(--wcs-semantic-font-weight-medium);
     --wcs-select-native-value-font-style: normal; // ⚠️ UPDATE IN JS, IF REFACTOR THE NAME REFACTOR IN THE JS CODE
 
-    --wcs-select-native-padding-horizontal: var(--wcs-select-native-padding-horizontal-m);
+    --wcs-select-native-internal-padding-horizontal: var(--wcs-select-native-padding-horizontal-m);
     --wcs-select-native-padding-horizontal-m: var(--wcs-semantic-spacing-large);
     --wcs-select-native-padding-horizontal-l: var(--wcs-semantic-spacing-large);
 
@@ -66,8 +66,8 @@
 
     max-width: 100%;
     flex-grow: 1;
-    padding-right: calc(var(--wcs-select-native-padding-horizontal) + 24px); // To not let text overflow on arrow icon, we add 24px of padding
-    padding-left: var(--wcs-select-native-padding-horizontal);
+    padding-right: calc(var(--wcs-select-native-internal-padding-horizontal) + 24px); // To not let text overflow on arrow icon, we add 24px of padding
+    padding-left: var(--wcs-select-native-internal-padding-horizontal);
 }
 
 ::slotted(select:disabled) {
@@ -96,7 +96,7 @@
 
 :host([data-size=m])  {
     font-size: var(--wcs-select-native-font-size-m);
-    --wcs-select-native-padding-horizontal: var(--wcs-select-native-padding-horizontal-m);
+    --wcs-select-native-internal-padding-horizontal: var(--wcs-select-native-padding-horizontal-m);
 
     ::slotted(select) {
         height: var(--wcs-select-native-size-m);
@@ -105,7 +105,7 @@
 
 :host([data-size=l]) {
     font-size: var(--wcs-select-native-font-size-l);
-    --wcs-select-native-padding-horizontal: var(--wcs-select-native-padding-horizontal-l);
+    --wcs-select-native-internal-padding-horizontal: var(--wcs-select-native-padding-horizontal-l);
 
     ::slotted(select) {
         height: var(--wcs-select-native-size-l);
@@ -142,6 +142,6 @@ svg {
     position: absolute;
     top: 0;
     bottom: 0;
-    right: calc(var(--wcs-select-native-padding-horizontal) - 4px); // 4px is the blank space inside the arrow svg on the right
+    right: calc(var(--wcs-select-native-internal-padding-horizontal) - 4px); // 4px is the blank space inside the arrow svg on the right
     margin: auto 0;
 }
