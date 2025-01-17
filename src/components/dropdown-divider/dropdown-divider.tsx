@@ -3,8 +3,8 @@ import { Component, h, Host } from '@stencil/core';
 /**
  * You can add a divider between groups of items
  * 
- * @cssprop --wcs-dropdown-divider-spacing - base spacing for margins
- * @cssprop --wcs-dropdown-divider-color - divider color
+ * @cssprop --wcs-dropdown-divider-margin - Margin of the divider
+ * @cssprop --wcs-dropdown-divider-color - Color of the divider
  * 
  */
 @Component({

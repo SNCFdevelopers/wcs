@@ -574,14 +574,8 @@ export namespace Components {
      * @cssprop --wcs-dropdown-stroked-arrow-color - Color of the arrow indicator when the dropdown is stroked
      * @cssprop --wcs-dropdown-clear-arrow-color - Color of the arrow indicator when the dropdown is not filled
      * @cssprop --wcs-dropdown-arrow-color-disabled - Base color of the arrow indicator when the dropdown is disabled
-     * @cssprop --wcs-dropdown-padding-horizontal-size-s - Horizontal padding of the dropdown button when size is small
-     * @cssprop --wcs-dropdown-padding-horizontal-size-m - Horizontal padding of the dropdown button when size is medium
-     * @cssprop --wcs-dropdown-padding-horizontal-size-l - Horizontal padding of the dropdown button when size is large
-     * @cssprop --wcs-dropdown-padding-vertical-size-s - Vertical padding of the dropdown button when size is small
-     * @cssprop --wcs-dropdown-padding-vertical-size-m - Vertical padding of the dropdown button when size is medium
-     * @cssprop --wcs-dropdown-padding-vertical-size-l - Vertical padding of the dropdown button when size is large
      * @cssprop --wcs-dropdown-padding-empty - Padding of and empty dropdown
-     * @cssprop --wcs-dropdown-overlay-padding-vertical - Defines the vertical padding inside the dropdown overlay
+     * @cssprop --wcs-dropdown-overlay-padding - Defines the vertical padding inside the dropdown overlay
      * @cssprop --wcs-dropdown-overlay-max-height - Specifies the maximum height of the dropdown overlay
      * @cssprop --wcs-dropdown-overlay-background-color - Determines the background color of the dropdown overlay
      * @cssprop --wcs-dropdown-overlay-border-width - Sets the border width of the dropdown overlay
@@ -617,17 +611,18 @@ export namespace Components {
     }
     /**
      * You can add a divider between groups of items
-     * @cssprop --wcs-dropdown-divider-spacing - base spacing for margins
-     * @cssprop --wcs-dropdown-divider-color - divider color
+     * @cssprop --wcs-dropdown-divider-margin - Margin of the divider
+     * @cssprop --wcs-dropdown-divider-color - Color of the divider
      */
     interface WcsDropdownDivider {
     }
     /**
      * You can add `wcs-dropdown-header` before a group of items to describe it
-     * @cssprop --wcs-dropdown-header-color - Dropdown header text color
-     * @cssprop --wcs-dropdown-header-spacing - Dropdown header base spacing (1x for top and bottom, 2x for left and right)
-     * @cssprop --wcs-dropdown-header-font-size - Dropdown header font size
-     * @cssprop --wcs-dropdown-header-font-weight - Dropdown header font weight
+     * @cssprop --wcs-dropdown-header-color - Text color of the header
+     * @cssprop --wcs-dropdown-header-padding-vertical - Vertical padding of the header
+     * @cssprop --wcs-dropdown-header-padding-horizontal - Horizontal padding of the header
+     * @cssprop --wcs-dropdown-header-font-size - Font size of the header
+     * @cssprop --wcs-dropdown-header-font-weight - Font weight of the header
      */
     interface WcsDropdownHeader {
     }
@@ -638,14 +633,15 @@ export namespace Components {
      * @cssprop --wcs-dropdown-item-padding-vertical - Padding vertical
      * @cssprop --wcs-dropdown-item-text-font-weight - Font weight of the dropdown item
      * @cssprop --wcs-dropdown-item-text-color-default - Default text color of the dropdown item
-     * @cssprop --wcs-dropdown-item-text-color-focus - Text color of the dropdown item when focused
      * @cssprop --wcs-dropdown-item-text-color-hover - Text color of the dropdown item when hovered
+     * @cssprop --wcs-dropdown-item-text-color-press - Text color of the dropdown item when pressed
      * @cssprop --wcs-dropdown-item-background-color-default - Default background color of the dropdown item
-     * @cssprop --wcs-dropdown-item-background-color-focus - Background color of the dropdown item when focused
      * @cssprop --wcs-dropdown-item-background-color-hover - Background color of the dropdown item when hovered
+     * @cssprop --wcs-dropdown-item-background-color-press - Background color of the dropdown item when pressed
      * @cssprop --wcs-dropdown-item-border-width-focus - Border width of the dropdown item when focused
      * @cssprop --wcs-dropdown-item-border-color-focus - Border color of the dropdown item when focused
-     * @cssprop --wcs-dropdown-item-border-radius-focus - Border radius of the dropdown item when focused
+     * @cssprop --wcs-dropdown-item-border-radius - Border radius of the dropdown item
+     * @cssprop --wcs-dropdown-item-transition-duration - Transition duration of the dropdown item
      */
     interface WcsDropdownItem {
     }
@@ -1940,12 +1936,12 @@ export namespace Components {
      * @cssprop --wcs-switch-outline-color-focus - Color of the focus outline
      * @cssprop --wcs-switch-text-color-default - Color of the text when the switch is not selected
      * @cssprop --wcs-switch-text-color-selected - Color of the text when the switch is selected
-     * @cssprop --wcs-switch-text-color-hover - Color of the text when the switch is hovered
      * @cssprop --wcs-switch-text-color-disabled - Color of the text when the switch is disabled
      * @cssprop --wcs-switch-background-color-initial - Background color of the switch when not selected
      * @cssprop --wcs-switch-background-color-final - Background color of the switch when selected
      * @cssprop --wcs-switch-background-color-disabled - Background color of the switch when disabled
      * @cssprop --wcs-switch-background-color-disabled-selected - Background color of the switch when disabled and selected
+     * @cssprop --wcs-switch-background-color-hover-selected - Background color of the switch when hovered and selected
      * @cssprop --wcs-switch-height - Height of the switch
      * @cssprop --wcs-switch-width - Width of the switch
      * @cssprop --wcs-switch-border-radius - Border radius of the switch
@@ -1965,7 +1961,7 @@ export namespace Components {
          */
         "checked": boolean;
         /**
-          * Specify wether the switch is disabled or not.
+          * Specify whether the switch is disabled or not.
          */
         "disabled": boolean;
         /**
@@ -2830,14 +2826,8 @@ declare global {
      * @cssprop --wcs-dropdown-stroked-arrow-color - Color of the arrow indicator when the dropdown is stroked
      * @cssprop --wcs-dropdown-clear-arrow-color - Color of the arrow indicator when the dropdown is not filled
      * @cssprop --wcs-dropdown-arrow-color-disabled - Base color of the arrow indicator when the dropdown is disabled
-     * @cssprop --wcs-dropdown-padding-horizontal-size-s - Horizontal padding of the dropdown button when size is small
-     * @cssprop --wcs-dropdown-padding-horizontal-size-m - Horizontal padding of the dropdown button when size is medium
-     * @cssprop --wcs-dropdown-padding-horizontal-size-l - Horizontal padding of the dropdown button when size is large
-     * @cssprop --wcs-dropdown-padding-vertical-size-s - Vertical padding of the dropdown button when size is small
-     * @cssprop --wcs-dropdown-padding-vertical-size-m - Vertical padding of the dropdown button when size is medium
-     * @cssprop --wcs-dropdown-padding-vertical-size-l - Vertical padding of the dropdown button when size is large
      * @cssprop --wcs-dropdown-padding-empty - Padding of and empty dropdown
-     * @cssprop --wcs-dropdown-overlay-padding-vertical - Defines the vertical padding inside the dropdown overlay
+     * @cssprop --wcs-dropdown-overlay-padding - Defines the vertical padding inside the dropdown overlay
      * @cssprop --wcs-dropdown-overlay-max-height - Specifies the maximum height of the dropdown overlay
      * @cssprop --wcs-dropdown-overlay-background-color - Determines the background color of the dropdown overlay
      * @cssprop --wcs-dropdown-overlay-border-width - Sets the border width of the dropdown overlay
@@ -2852,8 +2842,8 @@ declare global {
     };
     /**
      * You can add a divider between groups of items
-     * @cssprop --wcs-dropdown-divider-spacing - base spacing for margins
-     * @cssprop --wcs-dropdown-divider-color - divider color
+     * @cssprop --wcs-dropdown-divider-margin - Margin of the divider
+     * @cssprop --wcs-dropdown-divider-color - Color of the divider
      */
     interface HTMLWcsDropdownDividerElement extends Components.WcsDropdownDivider, HTMLStencilElement {
     }
@@ -2863,10 +2853,11 @@ declare global {
     };
     /**
      * You can add `wcs-dropdown-header` before a group of items to describe it
-     * @cssprop --wcs-dropdown-header-color - Dropdown header text color
-     * @cssprop --wcs-dropdown-header-spacing - Dropdown header base spacing (1x for top and bottom, 2x for left and right)
-     * @cssprop --wcs-dropdown-header-font-size - Dropdown header font size
-     * @cssprop --wcs-dropdown-header-font-weight - Dropdown header font weight
+     * @cssprop --wcs-dropdown-header-color - Text color of the header
+     * @cssprop --wcs-dropdown-header-padding-vertical - Vertical padding of the header
+     * @cssprop --wcs-dropdown-header-padding-horizontal - Horizontal padding of the header
+     * @cssprop --wcs-dropdown-header-font-size - Font size of the header
+     * @cssprop --wcs-dropdown-header-font-weight - Font weight of the header
      */
     interface HTMLWcsDropdownHeaderElement extends Components.WcsDropdownHeader, HTMLStencilElement {
     }
@@ -2884,14 +2875,15 @@ declare global {
      * @cssprop --wcs-dropdown-item-padding-vertical - Padding vertical
      * @cssprop --wcs-dropdown-item-text-font-weight - Font weight of the dropdown item
      * @cssprop --wcs-dropdown-item-text-color-default - Default text color of the dropdown item
-     * @cssprop --wcs-dropdown-item-text-color-focus - Text color of the dropdown item when focused
      * @cssprop --wcs-dropdown-item-text-color-hover - Text color of the dropdown item when hovered
+     * @cssprop --wcs-dropdown-item-text-color-press - Text color of the dropdown item when pressed
      * @cssprop --wcs-dropdown-item-background-color-default - Default background color of the dropdown item
-     * @cssprop --wcs-dropdown-item-background-color-focus - Background color of the dropdown item when focused
      * @cssprop --wcs-dropdown-item-background-color-hover - Background color of the dropdown item when hovered
+     * @cssprop --wcs-dropdown-item-background-color-press - Background color of the dropdown item when pressed
      * @cssprop --wcs-dropdown-item-border-width-focus - Border width of the dropdown item when focused
      * @cssprop --wcs-dropdown-item-border-color-focus - Border color of the dropdown item when focused
-     * @cssprop --wcs-dropdown-item-border-radius-focus - Border radius of the dropdown item when focused
+     * @cssprop --wcs-dropdown-item-border-radius - Border radius of the dropdown item
+     * @cssprop --wcs-dropdown-item-transition-duration - Transition duration of the dropdown item
      */
     interface HTMLWcsDropdownItemElement extends Components.WcsDropdownItem, HTMLStencilElement {
         addEventListener<K extends keyof HTMLWcsDropdownItemElementEventMap>(type: K, listener: (this: HTMLWcsDropdownItemElement, ev: WcsDropdownItemCustomEvent<HTMLWcsDropdownItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3935,12 +3927,12 @@ declare global {
      * @cssprop --wcs-switch-outline-color-focus - Color of the focus outline
      * @cssprop --wcs-switch-text-color-default - Color of the text when the switch is not selected
      * @cssprop --wcs-switch-text-color-selected - Color of the text when the switch is selected
-     * @cssprop --wcs-switch-text-color-hover - Color of the text when the switch is hovered
      * @cssprop --wcs-switch-text-color-disabled - Color of the text when the switch is disabled
      * @cssprop --wcs-switch-background-color-initial - Background color of the switch when not selected
      * @cssprop --wcs-switch-background-color-final - Background color of the switch when selected
      * @cssprop --wcs-switch-background-color-disabled - Background color of the switch when disabled
      * @cssprop --wcs-switch-background-color-disabled-selected - Background color of the switch when disabled and selected
+     * @cssprop --wcs-switch-background-color-hover-selected - Background color of the switch when hovered and selected
      * @cssprop --wcs-switch-height - Height of the switch
      * @cssprop --wcs-switch-width - Width of the switch
      * @cssprop --wcs-switch-border-radius - Border radius of the switch
@@ -4700,14 +4692,8 @@ declare namespace LocalJSX {
      * @cssprop --wcs-dropdown-stroked-arrow-color - Color of the arrow indicator when the dropdown is stroked
      * @cssprop --wcs-dropdown-clear-arrow-color - Color of the arrow indicator when the dropdown is not filled
      * @cssprop --wcs-dropdown-arrow-color-disabled - Base color of the arrow indicator when the dropdown is disabled
-     * @cssprop --wcs-dropdown-padding-horizontal-size-s - Horizontal padding of the dropdown button when size is small
-     * @cssprop --wcs-dropdown-padding-horizontal-size-m - Horizontal padding of the dropdown button when size is medium
-     * @cssprop --wcs-dropdown-padding-horizontal-size-l - Horizontal padding of the dropdown button when size is large
-     * @cssprop --wcs-dropdown-padding-vertical-size-s - Vertical padding of the dropdown button when size is small
-     * @cssprop --wcs-dropdown-padding-vertical-size-m - Vertical padding of the dropdown button when size is medium
-     * @cssprop --wcs-dropdown-padding-vertical-size-l - Vertical padding of the dropdown button when size is large
      * @cssprop --wcs-dropdown-padding-empty - Padding of and empty dropdown
-     * @cssprop --wcs-dropdown-overlay-padding-vertical - Defines the vertical padding inside the dropdown overlay
+     * @cssprop --wcs-dropdown-overlay-padding - Defines the vertical padding inside the dropdown overlay
      * @cssprop --wcs-dropdown-overlay-max-height - Specifies the maximum height of the dropdown overlay
      * @cssprop --wcs-dropdown-overlay-background-color - Determines the background color of the dropdown overlay
      * @cssprop --wcs-dropdown-overlay-border-width - Sets the border width of the dropdown overlay
@@ -4742,17 +4728,18 @@ declare namespace LocalJSX {
     }
     /**
      * You can add a divider between groups of items
-     * @cssprop --wcs-dropdown-divider-spacing - base spacing for margins
-     * @cssprop --wcs-dropdown-divider-color - divider color
+     * @cssprop --wcs-dropdown-divider-margin - Margin of the divider
+     * @cssprop --wcs-dropdown-divider-color - Color of the divider
      */
     interface WcsDropdownDivider {
     }
     /**
      * You can add `wcs-dropdown-header` before a group of items to describe it
-     * @cssprop --wcs-dropdown-header-color - Dropdown header text color
-     * @cssprop --wcs-dropdown-header-spacing - Dropdown header base spacing (1x for top and bottom, 2x for left and right)
-     * @cssprop --wcs-dropdown-header-font-size - Dropdown header font size
-     * @cssprop --wcs-dropdown-header-font-weight - Dropdown header font weight
+     * @cssprop --wcs-dropdown-header-color - Text color of the header
+     * @cssprop --wcs-dropdown-header-padding-vertical - Vertical padding of the header
+     * @cssprop --wcs-dropdown-header-padding-horizontal - Horizontal padding of the header
+     * @cssprop --wcs-dropdown-header-font-size - Font size of the header
+     * @cssprop --wcs-dropdown-header-font-weight - Font weight of the header
      */
     interface WcsDropdownHeader {
     }
@@ -4763,14 +4750,15 @@ declare namespace LocalJSX {
      * @cssprop --wcs-dropdown-item-padding-vertical - Padding vertical
      * @cssprop --wcs-dropdown-item-text-font-weight - Font weight of the dropdown item
      * @cssprop --wcs-dropdown-item-text-color-default - Default text color of the dropdown item
-     * @cssprop --wcs-dropdown-item-text-color-focus - Text color of the dropdown item when focused
      * @cssprop --wcs-dropdown-item-text-color-hover - Text color of the dropdown item when hovered
+     * @cssprop --wcs-dropdown-item-text-color-press - Text color of the dropdown item when pressed
      * @cssprop --wcs-dropdown-item-background-color-default - Default background color of the dropdown item
-     * @cssprop --wcs-dropdown-item-background-color-focus - Background color of the dropdown item when focused
      * @cssprop --wcs-dropdown-item-background-color-hover - Background color of the dropdown item when hovered
+     * @cssprop --wcs-dropdown-item-background-color-press - Background color of the dropdown item when pressed
      * @cssprop --wcs-dropdown-item-border-width-focus - Border width of the dropdown item when focused
      * @cssprop --wcs-dropdown-item-border-color-focus - Border color of the dropdown item when focused
-     * @cssprop --wcs-dropdown-item-border-radius-focus - Border radius of the dropdown item when focused
+     * @cssprop --wcs-dropdown-item-border-radius - Border radius of the dropdown item
+     * @cssprop --wcs-dropdown-item-transition-duration - Transition duration of the dropdown item
      */
     interface WcsDropdownItem {
         /**
@@ -6118,12 +6106,12 @@ declare namespace LocalJSX {
      * @cssprop --wcs-switch-outline-color-focus - Color of the focus outline
      * @cssprop --wcs-switch-text-color-default - Color of the text when the switch is not selected
      * @cssprop --wcs-switch-text-color-selected - Color of the text when the switch is selected
-     * @cssprop --wcs-switch-text-color-hover - Color of the text when the switch is hovered
      * @cssprop --wcs-switch-text-color-disabled - Color of the text when the switch is disabled
      * @cssprop --wcs-switch-background-color-initial - Background color of the switch when not selected
      * @cssprop --wcs-switch-background-color-final - Background color of the switch when selected
      * @cssprop --wcs-switch-background-color-disabled - Background color of the switch when disabled
      * @cssprop --wcs-switch-background-color-disabled-selected - Background color of the switch when disabled and selected
+     * @cssprop --wcs-switch-background-color-hover-selected - Background color of the switch when hovered and selected
      * @cssprop --wcs-switch-height - Height of the switch
      * @cssprop --wcs-switch-width - Width of the switch
      * @cssprop --wcs-switch-border-radius - Border radius of the switch
@@ -6143,7 +6131,7 @@ declare namespace LocalJSX {
          */
         "checked"?: boolean;
         /**
-          * Specify wether the switch is disabled or not.
+          * Specify whether the switch is disabled or not.
          */
         "disabled"?: boolean;
         /**
@@ -6833,14 +6821,8 @@ declare module "@stencil/core" {
              * @cssprop --wcs-dropdown-stroked-arrow-color - Color of the arrow indicator when the dropdown is stroked
              * @cssprop --wcs-dropdown-clear-arrow-color - Color of the arrow indicator when the dropdown is not filled
              * @cssprop --wcs-dropdown-arrow-color-disabled - Base color of the arrow indicator when the dropdown is disabled
-             * @cssprop --wcs-dropdown-padding-horizontal-size-s - Horizontal padding of the dropdown button when size is small
-             * @cssprop --wcs-dropdown-padding-horizontal-size-m - Horizontal padding of the dropdown button when size is medium
-             * @cssprop --wcs-dropdown-padding-horizontal-size-l - Horizontal padding of the dropdown button when size is large
-             * @cssprop --wcs-dropdown-padding-vertical-size-s - Vertical padding of the dropdown button when size is small
-             * @cssprop --wcs-dropdown-padding-vertical-size-m - Vertical padding of the dropdown button when size is medium
-             * @cssprop --wcs-dropdown-padding-vertical-size-l - Vertical padding of the dropdown button when size is large
              * @cssprop --wcs-dropdown-padding-empty - Padding of and empty dropdown
-             * @cssprop --wcs-dropdown-overlay-padding-vertical - Defines the vertical padding inside the dropdown overlay
+             * @cssprop --wcs-dropdown-overlay-padding - Defines the vertical padding inside the dropdown overlay
              * @cssprop --wcs-dropdown-overlay-max-height - Specifies the maximum height of the dropdown overlay
              * @cssprop --wcs-dropdown-overlay-background-color - Determines the background color of the dropdown overlay
              * @cssprop --wcs-dropdown-overlay-border-width - Sets the border width of the dropdown overlay
@@ -6850,16 +6832,17 @@ declare module "@stencil/core" {
             "wcs-dropdown": LocalJSX.WcsDropdown & JSXBase.HTMLAttributes<HTMLWcsDropdownElement>;
             /**
              * You can add a divider between groups of items
-             * @cssprop --wcs-dropdown-divider-spacing - base spacing for margins
-             * @cssprop --wcs-dropdown-divider-color - divider color
+             * @cssprop --wcs-dropdown-divider-margin - Margin of the divider
+             * @cssprop --wcs-dropdown-divider-color - Color of the divider
              */
             "wcs-dropdown-divider": LocalJSX.WcsDropdownDivider & JSXBase.HTMLAttributes<HTMLWcsDropdownDividerElement>;
             /**
              * You can add `wcs-dropdown-header` before a group of items to describe it
-             * @cssprop --wcs-dropdown-header-color - Dropdown header text color
-             * @cssprop --wcs-dropdown-header-spacing - Dropdown header base spacing (1x for top and bottom, 2x for left and right)
-             * @cssprop --wcs-dropdown-header-font-size - Dropdown header font size
-             * @cssprop --wcs-dropdown-header-font-weight - Dropdown header font weight
+             * @cssprop --wcs-dropdown-header-color - Text color of the header
+             * @cssprop --wcs-dropdown-header-padding-vertical - Vertical padding of the header
+             * @cssprop --wcs-dropdown-header-padding-horizontal - Horizontal padding of the header
+             * @cssprop --wcs-dropdown-header-font-size - Font size of the header
+             * @cssprop --wcs-dropdown-header-font-weight - Font weight of the header
              */
             "wcs-dropdown-header": LocalJSX.WcsDropdownHeader & JSXBase.HTMLAttributes<HTMLWcsDropdownHeaderElement>;
             /**
@@ -6869,14 +6852,15 @@ declare module "@stencil/core" {
              * @cssprop --wcs-dropdown-item-padding-vertical - Padding vertical
              * @cssprop --wcs-dropdown-item-text-font-weight - Font weight of the dropdown item
              * @cssprop --wcs-dropdown-item-text-color-default - Default text color of the dropdown item
-             * @cssprop --wcs-dropdown-item-text-color-focus - Text color of the dropdown item when focused
              * @cssprop --wcs-dropdown-item-text-color-hover - Text color of the dropdown item when hovered
+             * @cssprop --wcs-dropdown-item-text-color-press - Text color of the dropdown item when pressed
              * @cssprop --wcs-dropdown-item-background-color-default - Default background color of the dropdown item
-             * @cssprop --wcs-dropdown-item-background-color-focus - Background color of the dropdown item when focused
              * @cssprop --wcs-dropdown-item-background-color-hover - Background color of the dropdown item when hovered
+             * @cssprop --wcs-dropdown-item-background-color-press - Background color of the dropdown item when pressed
              * @cssprop --wcs-dropdown-item-border-width-focus - Border width of the dropdown item when focused
              * @cssprop --wcs-dropdown-item-border-color-focus - Border color of the dropdown item when focused
-             * @cssprop --wcs-dropdown-item-border-radius-focus - Border radius of the dropdown item when focused
+             * @cssprop --wcs-dropdown-item-border-radius - Border radius of the dropdown item
+             * @cssprop --wcs-dropdown-item-transition-duration - Transition duration of the dropdown item
              */
             "wcs-dropdown-item": LocalJSX.WcsDropdownItem & JSXBase.HTMLAttributes<HTMLWcsDropdownItemElement>;
             /**
@@ -7584,12 +7568,12 @@ declare module "@stencil/core" {
              * @cssprop --wcs-switch-outline-color-focus - Color of the focus outline
              * @cssprop --wcs-switch-text-color-default - Color of the text when the switch is not selected
              * @cssprop --wcs-switch-text-color-selected - Color of the text when the switch is selected
-             * @cssprop --wcs-switch-text-color-hover - Color of the text when the switch is hovered
              * @cssprop --wcs-switch-text-color-disabled - Color of the text when the switch is disabled
              * @cssprop --wcs-switch-background-color-initial - Background color of the switch when not selected
              * @cssprop --wcs-switch-background-color-final - Background color of the switch when selected
              * @cssprop --wcs-switch-background-color-disabled - Background color of the switch when disabled
              * @cssprop --wcs-switch-background-color-disabled-selected - Background color of the switch when disabled and selected
+             * @cssprop --wcs-switch-background-color-hover-selected - Background color of the switch when hovered and selected
              * @cssprop --wcs-switch-height - Height of the switch
              * @cssprop --wcs-switch-width - Width of the switch
              * @cssprop --wcs-switch-border-radius - Border radius of the switch

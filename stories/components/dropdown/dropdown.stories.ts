@@ -48,7 +48,7 @@ export const Default: StoryObj<DropdownStoryArgs> = {
                 <wcs-dropdown-item>Second item test avec un long texte</wcs-dropdown-item>
                 <wcs-dropdown-item>Dernier item</wcs-dropdown-item>
                 <wcs-dropdown-divider></wcs-dropdown-divider>
-                <wcs-dropdown-item>Dernier item</wcs-dropdown-item>
+                <wcs-dropdown-item class="wcs-critical">Supprimer</wcs-dropdown-item>
             </wcs-dropdown>
         </div>
         <div style="height: 250px"></div>  <!-- tag to let the overlay display properly -->
@@ -95,7 +95,7 @@ const SizeTemplate = (args: DropdownStoryArgs, size: string) => html`
         <wcs-dropdown-item>Second item test avec un long texte</wcs-dropdown-item>
         <wcs-dropdown-item>Dernier item</wcs-dropdown-item>
         <wcs-dropdown-divider></wcs-dropdown-divider>
-        <wcs-dropdown-item>Dernier item</wcs-dropdown-item>
+        <wcs-dropdown-item class="wcs-critical">Supprimer</wcs-dropdown-item>
     </wcs-dropdown>
 `;
 
@@ -131,7 +131,7 @@ export const WithIcon: StoryObj<DropdownStoryArgs> = {
         disabled: false,
         placement: 'bottom-end',
         mode: 'plain',
-        shape: 'normal',
+        shape: 'square',
         noArrow: true,
     }
 }

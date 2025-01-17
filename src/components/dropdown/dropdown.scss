@@ -6,12 +6,6 @@
     --wcs-dropdown-outline-color-focus: var(--wcs-semantic-color-border-focus-base);
 
     // Padding
-    --wcs-dropdown-padding-horizontal-size-s: calc(1.5 * var(--wcs-semantic-spacing-base));
-    --wcs-dropdown-padding-horizontal-size-m: var(--wcs-semantic-spacing-large);
-    --wcs-dropdown-padding-horizontal-size-l: var(--wcs-semantic-spacing-large);
-    --wcs-dropdown-padding-vertical-size-s: var(--wcs-semantic-spacing-small);
-    --wcs-dropdown-padding-vertical-size-m: var(--wcs-semantic-spacing-base);
-    --wcs-dropdown-padding-vertical-size-l: calc(1.5 * var(--wcs-semantic-spacing-base));
     --wcs-dropdown-padding-empty: var(--wcs-semantic-spacing-large);
 
     // Arrow color
@@ -23,21 +17,18 @@
 
     // Overlay
     --wcs-dropdown-overlay-max-height: 360px;
-    --wcs-dropdown-overlay-padding-vertical-size: var(--wcs-semantic-spacing-base);
+    --wcs-dropdown-overlay-padding: var(--wcs-semantic-spacing-base);
     --wcs-dropdown-overlay-background-color: var(--wcs-semantic-color-background-surface-primary);
     --wcs-dropdown-overlay-border-width: var(--wcs-semantic-border-width-default);
     --wcs-dropdown-overlay-border-radius: var(--wcs-semantic-border-radius-base);
     --wcs-dropdown-overlay-border-color: var(--wcs-semantic-color-border-secondary);
 
     wcs-button {
-        --wcs-button-padding: var(--wcs-dropdown-padding-vertical-size-m) calc(var(--wcs-dropdown-padding-horizontal-size-m) - 6px) var(--wcs-dropdown-padding-vertical-size-m) var(--wcs-dropdown-padding-horizontal-size-m) !important;
         height: fit-content;
     }
-}
 
-:host([no-arrow]) {
-    wcs-button {
-        --wcs-button-padding: var(--wcs-dropdown-padding-vertical-size-m) var(--wcs-dropdown-padding-horizontal-size-m) var(--wcs-dropdown-padding-vertical-size-m) var(--wcs-dropdown-padding-horizontal-size-m) !important;
+    svg {
+        margin-right: -0.25rem;
     }
 }
 
@@ -64,44 +55,9 @@ button:focus-visible + wcs-button {
     }
 }
 
-:host([no-arrow][size="s"]) {
-    wcs-button {
-        --wcs-button-padding: var(--wcs-dropdown-padding-vertical-size-s) var(--wcs-dropdown-padding-horizontal-size-s) var(--wcs-dropdown-padding-vertical-size-s) var(--wcs-dropdown-padding-horizontal-size-s) !important;
-    }
-}
-
-:host([no-arrow][size="m"]) {
-    wcs-button {
-        --wcs-button-padding: var(--wcs-dropdown-padding-vertical-size-m) var(--wcs-dropdown-padding-horizontal-size-m) var(--wcs-dropdown-padding-vertical-size-m) var(--wcs-dropdown-padding-horizontal-size-m) !important;
-    }
-}
-
-:host([no-arrow][size="l"]) {
-    wcs-button {
-        --wcs-button-padding: var(--wcs-dropdown-padding-vertical-size-l) var(--wcs-dropdown-padding-horizontal-size-l) var(--wcs-dropdown-padding-vertical-size-l) var(--wcs-dropdown-padding-horizontal-size-l) !important;
-    }
-}
-
-:host([size="s"]) {
-    wcs-button {
-        --wcs-button-padding: var(--wcs-dropdown-padding-vertical-size-s) calc(var(--wcs-dropdown-padding-horizontal-size-s) - 6px) var(--wcs-dropdown-padding-vertical-size-s) var(--wcs-dropdown-padding-horizontal-size-s) !important;
-    }
-}
-
-:host([size="m"]) {
-    wcs-button {
-        --wcs-button-padding: var(--wcs-dropdown-padding-vertical-size-m) calc(var(--wcs-dropdown-padding-horizontal-size-m) - 6px) var(--wcs-dropdown-padding-vertical-size-m) var(--wcs-dropdown-padding-horizontal-size-m) !important;
-    }
-}
-
-:host([size="l"]) {
-    wcs-button {
-        --wcs-button-padding: var(--wcs-dropdown-padding-vertical-size-l) calc(var(--wcs-dropdown-padding-horizontal-size-l) - 6px) var(--wcs-dropdown-padding-vertical-size-l) var(--wcs-dropdown-padding-horizontal-size-l) !important;
-    }
-}
-
 .wcs-button-content-wrapper {
     display: flex;
+    align-items: center;
 }
 
 .popover {
@@ -121,7 +77,7 @@ button:focus-visible + wcs-button {
     min-width: calc(10 * var(--wcs-semantic-size-base));
     border-radius: inherit;
     overflow: hidden;
-    padding: var(--wcs-dropdown-overlay-padding-vertical-size) 0;
+    padding: var(--wcs-dropdown-overlay-padding);
     background-color: var(--wcs-dropdown-overlay-background-color);
 }
 

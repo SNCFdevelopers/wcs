@@ -18,6 +18,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **accordion**: 'Ouvrez/Fermez' text is now hidden by default (`hideActionText` = `true`). If you want to show it, set
   `hideActionText` to `false`
 - **card**: default mode is now `flat` instead of `raised`
+- **dropdown**: items click event is now `mouseup` instead of `mousedown`
 
 ### Deprecated
 

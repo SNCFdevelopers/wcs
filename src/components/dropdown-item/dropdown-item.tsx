@@ -10,14 +10,15 @@ import { isEnterKey, isSpaceKey } from "../../utils/helpers";
  * @cssprop --wcs-dropdown-item-padding-vertical - Padding vertical
  * @cssprop --wcs-dropdown-item-text-font-weight - Font weight of the dropdown item
  * @cssprop --wcs-dropdown-item-text-color-default - Default text color of the dropdown item 
- * @cssprop --wcs-dropdown-item-text-color-focus - Text color of the dropdown item when focused
  * @cssprop --wcs-dropdown-item-text-color-hover - Text color of the dropdown item when hovered
+ * @cssprop --wcs-dropdown-item-text-color-press - Text color of the dropdown item when pressed
  * @cssprop --wcs-dropdown-item-background-color-default - Default background color of the dropdown item
- * @cssprop --wcs-dropdown-item-background-color-focus - Background color of the dropdown item when focused
  * @cssprop --wcs-dropdown-item-background-color-hover - Background color of the dropdown item when hovered
+ * @cssprop --wcs-dropdown-item-background-color-press - Background color of the dropdown item when pressed
  * @cssprop --wcs-dropdown-item-border-width-focus - Border width of the dropdown item when focused
  * @cssprop --wcs-dropdown-item-border-color-focus - Border color of the dropdown item when focused
- * @cssprop --wcs-dropdown-item-border-radius-focus - Border radius of the dropdown item when focused
+ * @cssprop --wcs-dropdown-item-border-radius - Border radius of the dropdown item
+ * @cssprop --wcs-dropdown-item-transition-duration - Transition duration of the dropdown item
  */
 @Component({
     tag: 'wcs-dropdown-item',
@@ -32,8 +33,8 @@ export class DropdownItem implements ComponentInterface {
     })
     wcsDropdownItemClick: EventEmitter<void>;
     
-    @Listen('mousedown')
-    onMouseDown(_: MouseEvent): void {
+    @Listen('mouseup')
+    onMouseUp(_: MouseEvent): void {
         this.wcsDropdownItemClick.emit();
     }
 

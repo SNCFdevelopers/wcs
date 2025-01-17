@@ -1,11 +1,12 @@
 :host {
     --wcs-dropdown-header-color: var(--wcs-semantic-color-text-tertiary);
-    --wcs-dropdown-header-spacing: var(--wcs-semantic-spacing-base);
-    --wcs-dropdown-header-font-size: var(--wcs-semantic-font-size-caption-1);
+    --wcs-dropdown-header-padding-vertical: var(--wcs-semantic-spacing-base);
+    --wcs-dropdown-header-padding-horizontal: var(--wcs-semantic-spacing-base);
+    --wcs-dropdown-header-font-size: var(--wcs-semantic-font-size-label-2);
     --wcs-dropdown-header-font-weight: var(--wcs-semantic-font-weight-medium);
 
     display: block;
-    padding: var(--wcs-dropdown-header-spacing) calc(var(--wcs-dropdown-header-spacing) * 2);
+    padding: var(--wcs-dropdown-header-padding-vertical) var(--wcs-dropdown-header-padding-horizontal);
     font-size: var(--wcs-dropdown-header-font-size);
     font-weight: var(--wcs-dropdown-header-font-weight);
     text-transform: uppercase;
