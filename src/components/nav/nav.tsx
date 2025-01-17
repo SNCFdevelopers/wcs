@@ -10,9 +10,7 @@ const NAV_ARIA_INHERITED_ATTRS = ['title'];
  * @slot bottom Bottom part of the nav to put to nav-items at the end
  * 
  * @cssprop --wcs-nav-background-color - Background color of the nav
- * @cssprop --wcs-nav-width - Width of the nav
- * 
- * @cssprop --wcs-nav-border-top-mobile - Border top of the nav on mobile
+ * @cssprop --wcs-nav-width-desktop - Width of the nav on desktop
  * @cssprop --wcs-nav-height-mobile - Height of the nav on mobile
  */
 @Component({

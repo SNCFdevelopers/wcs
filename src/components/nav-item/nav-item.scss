@@ -6,11 +6,11 @@ wcs-nav-item {
 
     --wcs-nav-item-height-desktop: calc(10 * var(--wcs-semantic-size-base));
     --wcs-nav-item-height-mobile: calc(6 * var(--wcs-semantic-size-base));
+    --wcs-nav-item-gap-desktop: var(--wcs-semantic-spacing-base);
+    --wcs-nav-item-gap-mobile: 0;
 
-    --wcs-nav-item-font-size-desktop: 0.75rem;
-    --wcs-nav-item-font-size-mobile: 0.625rem;
-
-    --wcs-nav-item-border-horizontal-desktop: none;
+    --wcs-nav-item-font-size-desktop: var(--wcs-semantic-font-size-label-3);
+    --wcs-nav-item-font-size-mobile: calc(var(--wcs-semantic-font-size-body-1) / 2);
 
     --wcs-nav-item-background-color-default: var(--wcs-semantic-color-background-action-primary-default);
     --wcs-nav-item-background-color-hover: var(--wcs-semantic-color-background-action-primary-hover);
@@ -22,8 +22,7 @@ wcs-nav-item {
     --wcs-nav-item-color-hover: var(--wcs-semantic-color-foreground-action-primary-default);
     --wcs-nav-item-color-press: var(--wcs-semantic-color-foreground-action-primary-default);
 
-    --wcs-nav-item-border-color-focus: var(--wcs-semantic-color-foreground-action-primary-default);
-
+    --wcs-nav-item-border-color-focus: var(--wcs-semantic-color-foreground-action-primary-default); // TODO : censé être --wcs-semantic-color-border-focus-base-on-secondary -> pas encore implémenté le "on-secondary"
     --wcs-nav-item-border-width-focus: var(--wcs-semantic-border-width-large);
 
     --wcs-nav-item-indicator-background-color: var(--wcs-semantic-color-background-surface-accent-light);
@@ -45,30 +44,26 @@ wcs-nav-item {
     transition-timing-function: ease-in-out;
     background-color: var(--wcs-nav-item-background-color-default);
 
-
     a {
         display: flex;
         position: relative;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 100%;
         text-align: center;
         background-color: transparent;
         border: none;
         text-decoration: none;
         height: var(--wcs-nav-item-height-desktop);
+        gap: var(--wcs-nav-item-gap-desktop);
         font-size: var(--wcs-nav-item-font-size-desktop);
         color: var(--wcs-nav-item-color-default);
-
-        &:not(wcs-nav-item.active, wcs-nav-item:has(> .active)) {
-            border-bottom: var(--wcs-nav-item-border-horizontal-desktop);
-        }
 
         @include for-tablet-landscape-down {
             display: flex;
             flex: 1;
             height: var(--wcs-nav-item-height-mobile);
+            gap: var(--wcs-nav-item-gap-mobile);
             font-size: var(--wcs-nav-item-font-size-mobile);
         }
     }
@@ -142,7 +137,6 @@ wcs-nav-item.active,
 wcs-nav-item:has(> .active) {
     //background-blend-mode: multiply;
     background-color: var(--wcs-nav-item-background-color-active);
-
 
     a {
         color: var(--wcs-nav-item-color-active);

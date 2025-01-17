@@ -9,11 +9,12 @@ import { isEnterKey } from "../../utils/helpers";
  * 
  * @cssprop --wcs-nav-item-height-desktop - Height of the nav item on desktop
  * @cssprop --wcs-nav-item-height-mobile - Height of the nav item on mobile
+ * @cssprop --wcs-nav-item-gap-desktop - Gap between items in nav-item on desktop (e.g. icon and label)
+ * @cssprop --wcs-nav-item-gap-mobile - Gap between items in nav-item on mobile (e.g. icon and label)
+ * 
  * 
  * @cssprop --wcs-nav-item-font-size-desktop - Font size of the nav item on desktop
  * @cssprop --wcs-nav-item-font-size-mobile - Font size of the nav item on mobile
- * 
- * @cssprop --wcs-nav-item-border-horizontal-desktop - Border of the nav item on desktop
  * 
  * @cssprop --wcs-nav-item-background-color-default - Default background color of the nav item
  * @cssprop --wcs-nav-item-background-color-hover - Background color of the nav item when hovered

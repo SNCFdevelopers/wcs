@@ -2,25 +2,20 @@
 
 :host {
     --wcs-nav-background-color: var(--wcs-semantic-color-background-surface-brand);
-    --wcs-nav-width: calc(12 * var(--wcs-semantic-size-base));
-
-    --wcs-nav-border-top-mobile: none;
-    --wcs-nav-border-top-color-mobile: transparent;
+    --wcs-nav-width-desktop: calc(12 * var(--wcs-semantic-size-base));
     --wcs-nav-height-mobile: calc(6 * var(--wcs-semantic-size-base));
 }
 
 nav {
-    background-image: linear-gradient(0deg, var(--wcs-nav-background-color), var(--wcs-nav-background-color));
+    background-color: var(--wcs-nav-background-color);
     display: flex;
     z-index: 1055;
     flex-direction: column;
-    width: 6.25rem;
+    width: var(--wcs-nav-width-desktop);
     height: 100%;
 
     div[role="list"] {
         list-style-type: none;
-        margin: 0;
-        padding: 0;
         display: flex;
         flex-direction: column;
         flex-grow: 1;
@@ -32,8 +27,6 @@ nav {
 
     @include for-tablet-landscape-down {
         flex-direction: row;
-        border-top: var(--wcs-nav-border-top-mobile);
-        bottom: 0;
         width: 100%;
         height: var(--wcs-nav-height-mobile);
     }
