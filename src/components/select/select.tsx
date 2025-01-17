@@ -33,7 +33,6 @@ import {
     inheritAttributes, setOrRemoveAttribute, compareLists
 } from '../../utils/helpers';
 import { SelectChips } from './select-chips';
-import { MDCRipple } from '@material/ripple';
 import { createPopper, Instance } from '@popperjs/core';
 import { isEqual } from 'lodash-es';
 import { getActionForKeyboardEvent, KeyboardEventAssociatedAction } from './select-keyboard-event';
@@ -89,19 +88,18 @@ const SELECT_INHERITED_ATTRS = ['tabindex', 'title'];
  * @cssprop --wcs-select-control-arrow-color-disabled - Color of the select arrow when disabled
  * 
  * @cssprop --wcs-select-control-background-color - Background color of the select control
- * @cssprop --wcs-select-control-ripple-color - Ripple color of the select control
  * 
  * @cssprop --wcs-select-control-line-height - Line height of the select control
  * 
+ * @cssprop --wcs-select-options-padding - Padding of the select options container
+ * 
  * @cssprop --wcs-select-control-border-radius - Border radius of the select control
- * @cssprop --wcs-select-control-border-width - Border width of the select control when not focused
- * @cssprop --wcs-select-control-border-width-active - Border width of the select control when active
+ * @cssprop --wcs-select-control-border-width-default - Border width of the select control when not focused
  * @cssprop --wcs-select-control-border-width-focus - Border width of the select control when focused
  * 
  * @cssprop --wcs-select-control-border-color-default - Border color of the select control when not focused
  * @cssprop --wcs-select-control-border-color-disabled - Border color of the select control when disabled
  * @cssprop --wcs-select-control-border-color-error - Border color of the select control when error
- * @cssprop --wcs-select-control-border-color-active - Border color of the select control when active (select is opened)
  * @cssprop --wcs-select-control-border-color-focus - Border color of the select control when focused (not opened, but the control is focused)
  * 
  * @cssprop --wcs-select-value-color - Text color of the select value when not focused 
@@ -191,7 +189,7 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
     private lastHighlightedOptionElement: HTMLWcsSelectOptionElement | null;
     private autocompleteInput: HTMLInputElement;
 
-    /** Wether the select is expanded */
+    /** Whether the select is expanded */
     @State()
     private expanded = false;
 
@@ -398,7 +396,6 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
             this.values = [];
         }
 
-        this.addRippleEffect();
         this.stateService.start();
         if (this.optionsEl.querySelector('slot') === null) {
             this.replaceOptions_firefoxBefore63();
@@ -615,19 +612,13 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
         this.stateService?.stop();
     }
 
-    private addRippleEffect() {
-        // TODO: wrap MDCRipple dependency so we can eventually write our own or at least decouple a bit.
-        const ripple = new MDCRipple(this.controlEl);
-        ripple.unbounded = false;
-    }
-
     private get hasValue(): boolean {
         // TODO: change this behavior.
         return this.displayText !== undefined;
     }
 
-    @Listen('mousedown')
-    onMouseDown(event: MouseEvent) {
+    @Listen('mouseup')
+    onMouseUp(event: MouseEvent) {
         const clickOnScroll = isElement(event.target)
             && (event.offsetX > event.target.clientWidth
                 || event.offsetY > event.target.clientHeight // If the click il located bellow the component height the click happen in the overlay

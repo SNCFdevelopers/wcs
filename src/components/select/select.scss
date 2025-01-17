@@ -1,4 +1,3 @@
-@import '../../style/ripple.scss';
 @import '../../style/placeholder.scss';
 
 :host {
@@ -14,20 +13,21 @@
     --wcs-select-placeholder-font-weight: var(--wcs-semantic-font-weight-roman);
     --wcs-select-placeholder-font-style: var(--wcs-semantic-font-style-control-placeholder);
 
+    // Options
+    --wcs-select-options-padding: var(--wcs-semantic-spacing-base-150);
+
     // Control
-    --wcs-select-control-line-height: 1.5;
+    --wcs-select-control-line-height: var(--wcs-semantic-font-line-height-large);
 
     --wcs-select-control-background-color: var(--wcs-semantic-color-background-control-default);
-    --wcs-select-control-ripple-color: var(--wcs-semantic-color-ripple-form-field);
 
-    --wcs-select-control-arrow-color: var(--wcs-semantic-color-foreground-brand);
+    --wcs-select-control-arrow-color: var(--wcs-semantic-color-foreground-action-secondary-default);
     --wcs-select-control-arrow-color-disabled: var(--wcs-semantic-color-foreground-disabled);
 
     --wcs-select-control-chips-gap: var(--wcs-semantic-spacing-small);
 
     --wcs-select-control-border-color-default: var(--wcs-semantic-color-border-primary);
     --wcs-select-control-border-color-disabled: var(--wcs-semantic-color-border-disabled);
-    --wcs-select-control-border-color-active: var(--wcs-semantic-color-border-brand); // when the select is opened
     --wcs-select-control-border-color-focus: var(--wcs-semantic-color-border-control-focus);
     --wcs-select-control-border-color-error: var(--wcs-semantic-color-border-critical);
 
@@ -35,9 +35,7 @@
     --wcs-select-control-border-style-error: solid;
     --wcs-select-control-border-style-focus: var(--wcs-semantic-border-style-focus-control);
 
-    --wcs-internal-control-border-width: var(--wcs-select-control-border-width);
-    --wcs-select-control-border-width: var(--wcs-semantic-border-width-default);
-    --wcs-select-control-border-width-active: var(--wcs-semantic-border-width-large);
+    --wcs-select-control-border-width-default: var(--wcs-semantic-border-width-default);
     --wcs-select-control-border-width-focus: var(--wcs-semantic-border-width-large);
 
     --wcs-select-control-padding-horizontal-m: var(--wcs-semantic-spacing-large);
@@ -65,7 +63,7 @@
     --wcs-select-control-chip-background-color-disabled: var(--wcs-semantic-color-background-action-primary-disabled);
     --wcs-select-control-chip-padding-vertical: var(--wcs-semantic-spacing-small);
     --wcs-select-control-chip-padding-horizontal: calc(1.5 * var(--wcs-semantic-spacing-base));
-    --wcs-select-control-chip-line-height: 1.375;
+    --wcs-select-control-chip-line-height: var(--wcs-semantic-font-line-height-large);
     --wcs-select-control-chip-border-radius: var(--wcs-semantic-border-radius-base);
 
     // Autocomplete
@@ -89,6 +87,8 @@
 
     .wcs-select-control {
         min-height: var(--wcs-select-control-height);
+        outline: var(--wcs-select-control-border-width-default) var(--wcs-select-control-border-style-default) var(--wcs-select-control-border-color-default);
+        outline-offset: calc(var(--wcs-select-control-border-width-default) * -1);
     }
 
     .arrow {
@@ -105,42 +105,31 @@
     }
 }
 
-@mixin select-control-outline-active {
-    outline: var(--wcs-select-control-border-width-active) var(--wcs-select-control-border-style-default) var(--wcs-select-control-border-color-active);
-    outline-offset: calc(var(--wcs-select-control-border-width-active) * -1);
-}
-
 @mixin select-control-outline-focus {
-    outline: var(--wcs-select-control-border-style-focus) var(--wcs-select-control-border-width-focus) var(--wcs-select-control-border-color-focus);
+    outline: var(--wcs-select-control-border-width-focus) var(--wcs-select-control-border-style-focus) var(--wcs-select-control-border-color-focus);
     outline-offset: calc(var(--wcs-select-control-border-width-focus) * -1);
 }
 
 @mixin select-control-outline-error {
-    outline: var(--wcs-internal-control-border-width) var(--wcs-select-control-border-style-error) var(--wcs-select-control-border-color-error) !important;
+    outline-style: var(--wcs-select-control-border-style-error);
+    outline-color: var(--wcs-select-control-border-color-error);
 }
 
 @mixin select-control-outline-disabled {
-    outline: var(--wcs-select-control-border-width) var(--wcs-select-control-border-style-default) var(--wcs-select-control-border-color-disabled);
+    outline-style: var(--wcs-select-control-border-style-default);
+    outline-color: var(--wcs-select-control-border-color-disabled);
 }
 
 .wcs-select-control {
     box-sizing: border-box;
-
-    @include ripple;
-
-    // This property is used to set the ripple color (take inspiration from button.scss)
-    &::before,
-    &::after {
-        background-color: var(--wcs-select-control-ripple-color);
-    }
 
     display: flex;
     align-items: center;
 
     background-color: var(--wcs-select-control-background-color);
     border-radius: var(--wcs-select-control-border-radius);
-    outline: var(--wcs-select-control-border-color-default) solid var(--wcs-select-control-border-width); // because some theme might use default border
-    outline-offset: calc(var(--wcs-select-control-border-width) * -1);
+    outline: var(--wcs-select-control-border-color-default) solid var(--wcs-select-control-border-width-default); // because some theme might use default border
+    outline-offset: calc(var(--wcs-select-control-border-width-default) * -1);
 
     font-size: var(--wcs-select-control-font-size, 1rem);
     line-height: var(--wcs-select-control-line-height);
@@ -212,16 +201,17 @@ label {
 
     max-height: var(--wcs-select-overlay-max-height);
     overflow-y: auto;
-    width: calc(100% - calc(2 * var(--wcs-select-control-border-width)));
+    width: calc(100% - calc(calc(2 * var(--wcs-select-control-border-width-default)) + calc(2 * var(--wcs-select-options-padding))));
+    padding: var(--wcs-select-options-padding);
 
     background-color: var(--wcs-select-overlay-background-color);
 }
 
 :host(.expanded) {
-    --wcs-internal-control-border-width: var(--wcs-select-control-border-width-active);
+    outline-width: var(--wcs-select-control-border-width-focus);
 
     .wcs-select-control {
-        @include select-control-outline-active;
+        @include select-control-outline-focus;
     }
 
     .wcs-select-options {
@@ -236,7 +226,7 @@ label {
 }
 
 :host(:not(.expanded):focus-visible) {
-    --wcs-internal-control-border-width: var(--wcs-select-control-border-width-focus);
+    outline-width: var(--wcs-select-control-border-width-focus);
 
     .wcs-select-control {
         @include select-control-outline-focus;

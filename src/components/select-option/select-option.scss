@@ -1,13 +1,12 @@
-@import '../../style/ripple.scss';
 @import '../../style/focus-outline.scss';
 
 wcs-select-option {
     --wcs-select-option-height: var(--wcs-semantic-size-m);
-    --wcs-select-option-padding-horizontal: var(--wcs-semantic-spacing-large);
+    --wcs-select-option-padding-horizontal: var(--wcs-semantic-spacing-base);
     --wcs-select-option-padding-vertical: 0;
 
     --wcs-select-option-text-font-weight: var(--wcs-semantic-font-weight-medium);
-    --wcs-select-option-text-font-size: 1rem;
+    --wcs-select-option-text-font-size: var(--wcs-semantic-font-size-base);
 
     --wcs-select-option-text-color-default: var(--wcs-semantic-color-text-primary);
     --wcs-select-option-text-color-focus: var(--wcs-semantic-color-text-primary);
@@ -15,8 +14,9 @@ wcs-select-option {
     --wcs-select-option-text-color-selected: var(--wcs-semantic-color-text-primary);
     --wcs-select-option-text-color-disabled: var(--wcs-semantic-color-text-disabled);
 
-    --wcs-select-option-background-color-default: transparent;
+    --wcs-select-option-background-color-default: var(--wcs-semantic-color-background-action-secondary-default);
     --wcs-select-option-background-color-hover: var(--wcs-semantic-color-background-action-secondary-hover);
+    --wcs-select-option-background-color-press: var(--wcs-semantic-color-background-action-secondary-press);
     --wcs-select-option-background-color-selected: var(--wcs-semantic-color-background-action-secondary-selected-default);
     --wcs-select-option-background-color-selected-hover: var(--wcs-semantic-color-background-action-secondary-selected-hover);
     --wcs-select-option-background-color-selected-press: var(--wcs-semantic-color-background-action-secondary-selected-press);
@@ -24,13 +24,11 @@ wcs-select-option {
     --wcs-select-option-background-color-focus: var(--wcs-semantic-color-background-action-secondary-focus);
 
     --wcs-select-option-border-style-focus: var(--wcs-semantic-border-style-focus-base); // because it's not a form control, but a focusable element
-
-    --wcs-select-option-ripple-color: var(--wcs-semantic-color-ripple-action-secondary);
-
-    --wcs-select-option-checkbox-color: var(--wcs-semantic-color-background-control-indicator-selected);
-
     --wcs-select-option-border-color-focus: var(--wcs-semantic-color-border-focus-base);
     --wcs-select-option-border-width-focus: var(--wcs-semantic-border-width-large);
+    --wcs-select-option-border-radius: var(--wcs-semantic-border-radius-base);
+
+    --wcs-select-option-checkbox-color: var(--wcs-semantic-color-background-control-indicator-selected);
 
     --wcs-select-option-gap: var(--wcs-semantic-spacing-base);
 
@@ -61,6 +59,8 @@ wcs-select-option {
     transition-property: background-color, color;
     transition-timing-function: ease;
 
+    border-radius: var(--wcs-select-option-border-radius);
+
     &:focus {
         color: var(--wcs-select-option-text-color-focus);
         background-color: var(--wcs-select-option-background-color-focus);
@@ -69,6 +69,10 @@ wcs-select-option {
     &:hover {
         color: var(--wcs-select-option-text-color-hover);
         background-color: var(--wcs-select-option-background-color-hover);
+    }
+
+    &:active {
+        background-color: var(--wcs-select-option-background-color-press);
     }
 }
 

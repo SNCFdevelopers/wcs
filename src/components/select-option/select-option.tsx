@@ -1,6 +1,5 @@
 import { Component, Element, Event, Prop, EventEmitter, ComponentInterface, h, Host, Listen } from '@stencil/core';
 import { SelectOptionChosedEvent } from './select-option-interface';
-import { MDCRipple } from '@material/ripple';
 import {isEnterKey, generateUniqueId, isSpaceKey} from "../../utils/helpers";
 
 /**
@@ -8,6 +7,7 @@ import {isEnterKey, generateUniqueId, isSpaceKey} from "../../utils/helpers";
  * 
  * @cssprop --wcs-select-option-background-color-default - Default background color of the option
  * @cssprop --wcs-select-option-background-color-hover - Background color of the option when hovered
+ * @cssprop --wcs-select-option-background-color-press - Background color of the option when pressed
  * @cssprop --wcs-select-option-background-color-selected - Background color of the option when selected
  * @cssprop --wcs-select-option-background-color-selected-hover - Background color of the option when selected and hovered
  * @cssprop --wcs-select-option-background-color-selected-press - Background color of the option when selected and pressed
@@ -30,7 +30,6 @@ import {isEnterKey, generateUniqueId, isSpaceKey} from "../../utils/helpers";
  * @cssprop --wcs-select-option-text-color-selected - Color of the option text when selected
  * @cssprop --wcs-select-option-text-color-disabled - Color of the option text when disabled
  * 
- * @cssprop --wcs-select-option-ripple-color - Color of the ripple effect
  * @cssprop --wcs-select-option-checkbox-color - Color of the checkbox
  * 
  * @cssprop --wcs-select-option-gap - Gap between the checkbox and the text
@@ -74,9 +73,6 @@ export class SelectOption implements ComponentInterface {
      */
     @Prop({ reflect: true, mutable: true }) multiple = false;
 
-    // @ts-ignore
-    private mdcRipple: MDCRipple;
-
     @Event({
         eventName: 'wcsSelectOptionClick',
     })
@@ -88,10 +84,6 @@ export class SelectOption implements ComponentInterface {
             // If no value was given we use the text content instead.
             this.value = this.el.innerText || '';
         }
-    }
-
-    componentDidLoad() {
-        this.mdcRipple = new MDCRipple(this.el);
     }
 
     private chooseOption(event: UIEvent) {
@@ -107,8 +99,8 @@ export class SelectOption implements ComponentInterface {
         }
     }
 
-    @Listen('mousedown')
-    onMouseDown(event: MouseEvent) {
+    @Listen('mouseup')
+    onMouseUp(event: MouseEvent) {
         this.chooseOption(event);
     }
 
