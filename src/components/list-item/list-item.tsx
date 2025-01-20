@@ -14,7 +14,7 @@ import { Component, ComponentInterface, h, Host, Prop } from '@stencil/core';
  * @cssprop --wcs-list-item-padding - Padding of the list item
  * @cssprop --wcs-list-item-border-width - Border width of the list item
  * @cssprop --wcs-list-item-border-color - Border color of the list item
- * @cssprop --wcs-list-item-background-color - Background color of the list item
+ * @cssprop --wcs-list-item-background-color-default - Background color of the list item
  * @cssprop --wcs-list-item-background-color-hover - Background color of the list item when hovered
  * @cssprop --wcs-list-item-background-color-active - Background color of the list item when active
  * @cssprop --wcs-list-item-transition-duration - Transition duration of the list item
