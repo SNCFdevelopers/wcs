@@ -2,28 +2,30 @@
 
 :host {
     display: block;
-    border-style: solid none none;
-    border-width: 1px;
-    border-color: var(--wcs-grid-pagination-border-color);
     margin-top: var(--wcs-grid-pagination-margin-top);
 
-
     --wcs-grid-pagination-color: var(--wcs-semantic-color-text-primary);
-    --wcs-grid-pagination-border-color: transparent;
+    --wcs-grid-pagination-font-size: var(--wcs-semantic-font-size-label-2);
+    --wcs-grid-pagination-font-weight: var(--wcs-semantic-font-weight-medium);
 
+    --wcs-grid-pagination-gap: var(--wcs-semantic-spacing-base);
+    --wcs-grid-pagination-page-size-gap: var(--wcs-semantic-spacing-base);
     --wcs-grid-pagination-counter-gap: var(--wcs-semantic-spacing-small);
     --wcs-grid-pagination-margin-top: var(--wcs-semantic-spacing-large);
 
-    --wcs-grid-pagination-arrow-color-inactive: unset;
-    --wcs-grid-pagination-arrow-color-active: unset;
+    --wcs-grid-pagination-arrow-color-inactive: unset; /* Optional : Overrides the fill property of the grid-pagination-arrow */
+    --wcs-grid-pagination-arrow-color-active: unset; /* Optional : Overrides the fill property of the grid-pagination-arrow */
 }
 
 .container {
     display: grid;
+    gap: var(--wcs-grid-pagination-gap);
     grid-template-columns: auto auto auto;
     justify-content: space-between;
-    color: var(--wcs-grid-pagination-color);
     align-items: center;
+    color: var(--wcs-grid-pagination-color);
+    font-size: var(--wcs-grid-pagination-font-size);
+    font-weight: var(--wcs-grid-pagination-font-weight);
 }
 
 .available-page-sizes {
@@ -33,6 +35,10 @@
 .page-management, .page-size, .items-count {
     display: flex;
     align-items: center;
+}
+
+.page-size {
+    gap: var(--wcs-grid-pagination-page-size-gap);
 }
 
 .page-management {
@@ -47,8 +53,13 @@
 
 .pagination-counter {
     padding: 0 var(--wcs-grid-pagination-counter-gap);
+
+    span {
+        white-space: nowrap;
+    }
 }
 
-.items-count span:focus {
-    @include focus-outline();
+/* TODO : Remove this when the select component will be able to handle the size S */
+wcs-select.available-page-sizes {
+    --wcs-select-control-height: var(--wcs-semantic-size-s);
 }

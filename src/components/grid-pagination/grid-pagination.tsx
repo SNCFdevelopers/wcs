@@ -20,8 +20,11 @@ const GRID_PAGINATION_INHERITED_ATTRS = ['tabindex', 'title'];
  * The grid pagination is a subcomponent of `wcs-grid`, slotted in `grid-pagination` under the `<table>` element.
  * 
  * @cssprop --wcs-grid-pagination-color - Text color of the grid pagination
- * @cssprop --wcs-grid-pagination-border-color - Border color of the grid pagination
- * @cssprop --wcs-grid-pagination-counter-gap - Gap between the current page and the total page count
+ * @cssprop --wcs-grid-pagination-font-size - Font-size of the grid pagination
+ * @cssprop --wcs-grid-pagination-font-weight - Font-weight of the grid pagination
+ * @cssprop --wcs-grid-pagination-gap - Gap between the page size, number of elements and page management
+ * @cssprop --wcs-grid-pagination-page-size-gap - Gap between the select and the text within the page size container
+ * @cssprop --wcs-grid-pagination-counter-gap - Gap within the page management counter
  * @cssprop --wcs-grid-pagination-margin-top - Margin between the grid and the pagination
  * @cssprop --wcs-grid-pagination-arrow-color-inactive - Color of the inactive arrow
  * @cssprop --wcs-grid-pagination-arrow-color-active - Color of the active arrow
@@ -146,7 +149,7 @@ export class GridPagination implements ComponentInterface, MutableAriaAttribute 
                         }
                     </wcs-select>
                     <span id="elements-per-page-number" hidden>{this.pageSize}</span>
-                    <span id="elements-per-page-text">&nbsp;éléments par page</span>
+                    <span id="elements-per-page-text">éléments par page</span>
                 </div>
 
                 <div class="items-count">
