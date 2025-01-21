@@ -25,8 +25,8 @@ export const Default: StoryObj = {
             <h1 slot="title">Votre superbe application</h1>
             <div slot="actions">
                 <wcs-button mode="clear" class=${classMap(buttonClasses)}>
-                    <span>Connexion</span>
                     <wcs-mat-icon icon="person_outline"></wcs-mat-icon>
+                    <span>Connexion</span>
                 </wcs-button>
             </div>
         </wcs-header>
