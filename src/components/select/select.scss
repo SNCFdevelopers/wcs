@@ -201,7 +201,7 @@ label {
 
     max-height: var(--wcs-select-overlay-max-height);
     overflow-y: auto;
-    width: calc(100% - calc(calc(2 * var(--wcs-select-control-border-width-default)) + calc(2 * var(--wcs-select-options-padding))));
+    width: calc(100% - calc(calc(2 * var(--wcs-select-overlay-border-width)) + calc(2 * var(--wcs-select-options-padding))));
     padding: var(--wcs-select-options-padding);
 
     background-color: var(--wcs-select-overlay-background-color);

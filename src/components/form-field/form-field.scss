@@ -3,10 +3,9 @@
 
     --wcs-form-field-prefix-suffix-border-radius: var(--wcs-semantic-border-radius-base);
 
-    --wcs-form-field-prefix-icon-color: var(--wcs-semantic-color-text-inverse);
+    --wcs-form-field-prefix-icon-color: var(--wcs-semantic-color-foreground-primary);
     --wcs-form-field-prefix-value-color: var(--wcs-semantic-color-text-inverse);
     --wcs-form-field-prefix-placeholder-color: var(--wcs-semantic-color-text-inverse);
-    --wcs-form-field-prefix-color-disabled: var(--wcs-semantic-color-text-disabled);
 
     // Prefixed select
     ::slotted([slot=prefix]) {
@@ -15,6 +14,7 @@
         --wcs-select-control-background-color: var(--wcs-semantic-color-background-action-primary-default);
         --wcs-select-control-arrow-color: var(--wcs-form-field-prefix-icon-color);
         --wcs-select-control-border-radius: var(--wcs-form-field-prefix-suffix-border-radius) 0 0 var(--wcs-form-field-prefix-suffix-border-radius);
+        --wcs-select-control-border-width-default: 0;
         --wcs-select-control-border-style-focus: dashed;
         --wcs-select-control-border-color-focus: var(--wcs-semantic-color-border-focus-base);
 
@@ -22,6 +22,7 @@
         --wcs-select-native-placeholder-color: var(--wcs-semantic-color-text-inverse);
         --wcs-select-native-arrow-color: var(--wcs-form-field-prefix-icon-color);
         --wcs-select-native-background-color: var(--wcs-semantic-color-background-action-primary-default);
+        --wcs-select-native-border-width: 0;
         --wcs-select-native-border-color-focus: var(--wcs-semantic-color-border-focus-base);
         --wcs-select-native-border-style-focus: dashed;
         --wcs-select-native-border-radius: var(--wcs-form-field-prefix-suffix-border-radius) 0 0 var(--wcs-form-field-prefix-suffix-border-radius);
@@ -29,7 +30,12 @@
     }
 
     ::slotted([slot=prefix][disabled]),
+    ::slotted([slot=prefix]:disabled),
+    ::slotted([slot=prefix][aria-disabled=true]),
     ::slotted([slot=prefix][data-disabled]) {
+        --wcs-semantic-color-background-control-disabled: var(--wcs-semantic-color-background-action-primary-disabled);
+        --wcs-semantic-color-text-disabled: var(--wcs-semantic-color-foreground-disabled);
+
         --wcs-select-control-background-color: var(--wcs-semantic-color-background-action-primary-disabled);
         --wcs-select-value-color: var(--wcs-semantic-color-text-disabled);
         --wcs-select-placeholder-color: var(--wcs-semantic-color-text-disabled);
@@ -43,6 +49,11 @@
         --wcs-select-control-background-color: var(--wcs-semantic-color-background-action-primary-hover);
         --wcs-select-native-background-color: var(--wcs-semantic-color-background-action-primary-hover);
     }
+
+    ::slotted([slot=prefix]:active:not([disabled]):not([data-disabled])) {
+        --wcs-select-control-background-color: var(--wcs-semantic-color-background-action-primary-press);
+        --wcs-select-native-background-color: var(--wcs-semantic-color-background-action-primary-press);
+    }
     // endregion
 
     display: flex;
@@ -52,14 +63,6 @@
 
 .input-container {
     display: flex;
-}
-
-::slotted(wcs-radio-group) {
-    margin-left: var(--wcs-semantic-spacing-base);
-}
-
-::slotted(wcs-radio-group[mode=option]) {
-    margin-left: 0;
 }
 
 ::slotted(wcs-select:not([slot=prefix])) {
@@ -72,12 +75,16 @@
 
 // Make input square on left side if there is a prefix
 :host(.has-prefix) {
-    --wcs-input-border-radius-left: 0;
+    ::slotted(wcs-input) {
+        --wcs-input-border-radius-left: 0;
+    }
 }
 
 // Make input square on right side if there is a suffix
 :host(.has-suffix) {
-    --wcs-input-border-radius-right: 0;
+    ::slotted(wcs-input) {
+        --wcs-input-border-radius-right: 0;
+    }
 }
 
 ::slotted([slot=suffix]) {

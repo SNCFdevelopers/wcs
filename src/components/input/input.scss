@@ -8,8 +8,8 @@
 
     --wcs-input-background-color: var(--wcs-semantic-color-background-control-default);
 
-    --wcs-internal-input-border-radius-left: var(--wcs-input-border-radius-left, var(--wcs-semantic-border-radius-base)); // Overridden from prefix suffix group in form-field
-    --wcs-internal-input-border-radius-right: var(--wcs-input-border-radius-right, var(--wcs-semantic-border-radius-base)); // Overridden from prefix suffix group in form-field
+    --wcs-input-border-radius-left: var(--wcs-semantic-border-radius-base); // Overridden from prefix suffix group in form-field
+    --wcs-input-border-radius-right: var(--wcs-semantic-border-radius-base); // Overridden from prefix suffix group in form-field
 
     --wcs-input-border-width: var(--wcs-semantic-border-width-default);
     --wcs-input-border-width-focus: var(--wcs-semantic-border-width-large);
@@ -53,7 +53,7 @@
     width: 100%;
     height: var(--wcs-input-host-height);
     box-sizing: border-box;
-    border-radius: var(--wcs-internal-input-border-radius-left) var(--wcs-internal-input-border-radius-right) var(--wcs-internal-input-border-radius-right) var(--wcs-internal-input-border-radius-left);
+    border-radius: var(--wcs-input-border-radius-left) var(--wcs-input-border-radius-right) var(--wcs-input-border-radius-right) var(--wcs-input-border-radius-left);
     background-color: var(--wcs-input-background-color);
     outline: var(--wcs-input-border-style-default) var(--wcs-input-border-width) var(--wcs-input-border-color-default);
     outline-offset: calc(var(--wcs-input-border-width) * -1);
