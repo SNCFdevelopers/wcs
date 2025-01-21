@@ -1,9 +1,12 @@
-
+/**
+    Applies all the outline properties useful to show a dashed-focus ring around a component.
+    TODO: replace `$border-radius: 0.1rem` with semantic border-radius but keep in mind some components that must stay at 2px border-radius: checkbox, radio, links, ...
+ */
 @mixin focus-outline
-    ( $outline-color: var(--wcs-semantic-color-primary)
+    ( $outline-color: var(--wcs-semantic-color-border-focus-base)
     , $border-radius: 0.1rem
-    , $outline-offset: 4px
-    , $border-width: 2px
+    , $outline-offset: var(--wcs-semantic-spacing-small)
+    , $border-width: var(--wcs-semantic-border-width-large)
     ) {
     outline: $border-width dashed $outline-color;
     outline-offset: $outline-offset;
