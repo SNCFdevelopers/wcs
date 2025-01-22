@@ -1,25 +1,22 @@
 @import '../../style/focus-outline.scss';
 
 :host {
-    --wcs-grid-header-background-color: var(--wcs-semantic-color-background-surface-primary);
-    --wcs-grid-header-text-color: var(--wcs-semantic-color-text-primary);
-    --wcs-grid-header-font-weight: 800;
-    --wcs-grid-header-font-size: var(--wcs-semantic-font-size-label-1);
-    --wcs-grid-header-line-height: var(--wcs-primitive-font-line-height-140);
-    --wcs-grid-header-border-radius: 0;
-    --wcs-grid-header-border-bottom: solid var(--wcs-semantic-border-width-default) var(--wcs-semantic-color-border-secondary);
-    --wcs-grid-header-header-spacing-base: var(--wcs-semantic-spacing-base);
+
+    /* All css variables are in grid.scss.
+       Any variable can be overridden here for a single grid-column by using the correct selector in CSS */
 
     display: contents;
 
     th {
         color: var(--wcs-grid-header-text-color);
-        background-color: var(--wcs-grid-header-background-color);
+        background-color: var(--wcs-grid-header-background-color-default);
         border-bottom: var(--wcs-grid-header-border-bottom);
-        border-left: var(--wcs-grid-header-border-left); // Defined in grid.scss but can be overridden here for one specific column customization
-        border-radius: var(--wcs-grid-header-border-radius); // May be overridden in grid.scss for first / last column border-radius customization
-        padding: var(--wcs-grid-header-header-spacing-base) calc(var(--wcs-grid-header-header-spacing-base) * 2);
+        border-left: var(--wcs-grid-header-border-left);
+        border-radius: var(--wcs-grid-header-border-radius);
+        padding: var(--wcs-grid-header-padding-vertical) var(--wcs-grid-header-padding-horizontal);
         text-align: left;
+        align-content: center;
+        transition: background-color var(--wcs-grid-header-transition-duration) ease-in-out;
 
         .grid-column-th-content {
             // The following lines aim to avoid displaying the native button style of the agent
@@ -37,11 +34,20 @@
             display: inline-flex;
             border-collapse: separate;
             font-family: inherit;
+            text-align: left;
             align-items: center;
 
             span {
                 font-weight: var(--wcs-grid-header-font-weight);
             }
+        }
+
+        &[aria-sort]:hover {
+            background-color: var(--wcs-grid-header-background-color-hover);
+        }
+
+        &[aria-sort]:active {
+            background-color: var(--wcs-grid-header-background-color-press);
         }
 
         // XXX: This code works in Firefox as well, but there is a browser-side rendering bug that prevents it from displaying correctly.

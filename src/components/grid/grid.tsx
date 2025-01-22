@@ -62,19 +62,25 @@ const GRID_INHERITED_ATTRS = ['title'];
  * @cssprop --wcs-grid-row-odd-background-color - Background color of odd rows
  * @cssprop --wcs-grid-row-even-background-color - Background color of even rows
  *
- * @cssprop --wcs-grid-column-selection-width - Width of the selection column
- * @cssprop --wcs-grid-header-border-left - Left border of all grid headers (within `<thead>`)
- * @cssprop --wcs-grid-header-border-bottom - Bottom border of the `<thead>`
- * @cssprop --wcs-grid-header-background-color - Background color of all headers
- * @cssprop --wcs-grid-header-text-color - Text color of all headers
- * @cssprop --wcs-grid-header-font-weight - Font weight of all headers
- * @cssprop --wcs-grid-header-font-size - Font size of all headers
- * @cssprop --wcs-grid-header-line-height - Line height of all headers
- * @cssprop --wcs-grid-header-border-radius - Border radius of all headers
- * @cssprop --wcs-grid-header-border-bottom - Bottom border of all headers
- * 
+ * @cssprop --wcs-grid-header-background-color-default - Default background color of the header
+ * @cssprop --wcs-grid-header-background-color-hover - Background color of the header on hover
+ * @cssprop --wcs-grid-header-background-color-press - Background color of the header on press
+ * @cssprop --wcs-grid-header-text-color - Text color of the header
+ * @cssprop --wcs-grid-header-font-weight - Font weight of the header
+ * @cssprop --wcs-grid-header-font-size - Font size of the header
+ * @cssprop --wcs-grid-header-line-height - Line height of the header
+ * @cssprop --wcs-grid-header-padding-vertical - Vertical padding of the header
+ * @cssprop --wcs-grid-header-padding-horizontal - Horizontal padding of the header
+ * @cssprop --wcs-grid-header-border-left - Left border between header cells (default is none
+ * @cssprop --wcs-grid-header-border-radius - Border radius of the header
+ * @cssprop --wcs-grid-header-border-bottom - Bottom border of the header
+ * @cssprop --wcs-grid-header-transition-duration - Transition duration of the header
+ * @cssprop --wcs-grid-first-header-background-color - Background color of the first header cell
+ * @cssprop --wcs-grid-first-header-border-radius - Border radius of the first header cell
+ * @cssprop --wcs-grid-last-header-border-radius - Border radius of the last header cell
+ * @cssprop --wcs-grid-column-selection-width - Width of the selection column (when selectionConfig is defined)
  * @cssprop --wcs-grid-header-sort-arrow-color-default - Color of the sort arrow in the header
- * @cssprop --wcs-grid-header-sort-arrow-color-active - Color of the sort arrow in the header when active
+ * @cssprop --wcs-grid-header-sort-arrow-color-active - Color of the sort arrow in the header when active (sorted)
  * 
  * @csspart all-rows-checkbox - CSS part for the checkbox in the selection column that selects all rows
  * @csspart row-checkbox - CSS part for the checkbox of each row in the selection column

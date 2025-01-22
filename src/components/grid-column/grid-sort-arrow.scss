@@ -1,14 +1,11 @@
 .arrow-group {
-    --wcs-grid-header-sort-arrow-color-default: var(--wcs-semantic-color-foreground-disabled);
-    --wcs-grid-header-sort-arrow-color-active: var(--wcs-semantic-color-foreground-brand);
-
     transform-origin: 50% 51%;
     transition: transform 175ms ease-in-out;
 }
 
 .arrow {
     transition: fill 175ms ease-in-out;
-    fill: var(--wcs-grid-header-sort-arrow-color-default);
+    fill: var(--wcs-grid-header-sort-arrow-color-default, var(--wcs-semantic-color-foreground-disabled));
 }
 
 .asc {
@@ -20,6 +17,6 @@
 }
 
 .active {
-    fill: var(--wcs-grid-header-sort-arrow-color-active);
+    fill: var(--wcs-grid-header-sort-arrow-color-active, var(--wcs-semantic-color-foreground-brand));
 
 }

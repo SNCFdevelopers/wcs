@@ -1,10 +1,6 @@
 @import '../../style/focus-outline.scss';
 
 :host {
-    --wcs-grid-highlight-color: var(--wcs-semantic-color-background-surface-accent-light);
-    --wcs-grid-header-background-color: var(--wcs-semantic-color-background-surface-primary);
-    --wcs-grid-header-border-left: none;
-    --wcs-grid-header-border-bottom: solid var(--wcs-semantic-border-width-default) var(--wcs-semantic-color-border-secondary);
     --wcs-grid-gap: 0;
     --wcs-grid-vertical-align: middle;
     --wcs-grid-outline-color: var(--wcs-semantic-color-border-focus-base);
@@ -17,24 +13,41 @@
     --wcs-grid-first-cell-border-radius: 0;
     --wcs-grid-last-cell-border-radius: 0;
 
-    --wcs-grid-column-selection-width: calc(5 * var(--wcs-semantic-spacing-base));
+    --wcs-grid-highlight-color: var(--wcs-semantic-color-background-surface-accent-lighter);
     --wcs-grid-row-background-color: var(--wcs-semantic-color-background-surface-primary);
     --wcs-grid-row-odd-background-color: var(--wcs-grid-row-background-color);
-    --wcs-grid-row-even-background-color: var(--wcs-semantic-color-background-surface-accent-lighter);
+    --wcs-grid-row-even-background-color: var(--wcs-semantic-color-background-surface-accent-lightest);
+
+    /* Grid headers for grid-columns */
+    --wcs-grid-header-background-color-default: var(--wcs-semantic-color-background-action-secondary-default);
+    --wcs-grid-header-background-color-hover: var(--wcs-semantic-color-background-action-secondary-hover);
+    --wcs-grid-header-background-color-press: var(--wcs-semantic-color-background-action-secondary-press);
+    --wcs-grid-header-text-color: var(--wcs-semantic-color-text-primary);
+    --wcs-grid-header-font-weight: var(--wcs-semantic-font-weight-heavy);
+    --wcs-grid-header-font-size: var(--wcs-semantic-font-size-label-1);
+    --wcs-grid-header-line-height: var(--wcs-primitive-font-line-height-140);
+    --wcs-grid-header-padding-vertical: var(--wcs-semantic-spacing-base);
+    --wcs-grid-header-padding-horizontal: var(--wcs-semantic-spacing-large);
+    --wcs-grid-header-border-left: none;
+    --wcs-grid-header-border-radius: 0;
+    --wcs-grid-header-border-bottom: solid var(--wcs-semantic-border-width-default) var(--wcs-semantic-color-border-secondary);
+    --wcs-grid-header-transition-duration: var(--wcs-semantic-motion-duration-feedback-fast);
+    --wcs-grid-first-header-background-color: var(--wcs-semantic-color-background-action-secondary-default);
+    --wcs-grid-first-header-border-radius: 0;
+    --wcs-grid-last-header-border-radius: 0;
+    --wcs-grid-column-selection-width: calc(5 * var(--wcs-semantic-spacing-base));
+    --wcs-grid-header-sort-arrow-color-default: var(--wcs-semantic-color-foreground-disabled);
+    --wcs-grid-header-sort-arrow-color-active: var(--wcs-semantic-color-foreground-brand);
 
     display: block;
-
-
 
     // These selectors cannot be moved in grid-column.scss, because the column itself doesn't know its child order
     // in the DOM, column are rendered one by one
     // 👇
     th {
         // For the header of the selection column (not part of grid-column)
-        background-color: var(--wcs-grid-header-background-color);
-        // FIXME : Pourquoi on utilise --wcs-component-grid-header-border-radius-first avec une valeur par défaut à 0 alors que cette variable peut uniquement être set à 0 ?
-        // + voir un nommage plus explicit, pourquoi on parle de --wcs-component-grid ?
-        border-radius: var(--wcs-component-grid-header-border-radius-first, 0);
+        border-radius: var(--wcs-grid-first-header-border-radius);
+        background-color: var(--wcs-grid-first-header-background-color);
     }
 
     ::slotted([slot=grid-column]:first-child) {
