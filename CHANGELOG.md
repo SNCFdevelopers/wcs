@@ -68,7 +68,10 @@ that can cause contrast issues.
 
 ### Fixed
 
-- **switch**: fix display bug when resizing the window
+- **checkbox**: click events are now fired from the host checkbox instead of the native input inside
+- **switch**:
+  - fix display bug when resizing the window
+  - click events are now fired from the host checkbox instead of the native input inside
 - **native-select**: fix opacity of the native select when disabled
 - **formly field**: **select**, **input**, **counter**: set default size 'm' in formly => no more warn in client console
 

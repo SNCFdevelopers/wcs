@@ -1,4 +1,15 @@
-import { Component, Prop, Event, EventEmitter, ComponentInterface, h, Host, Method, Element } from '@stencil/core';
+import {
+    Component,
+    Prop,
+    Event,
+    EventEmitter,
+    ComponentInterface,
+    h,
+    Host,
+    Method,
+    Element,
+    Listen
+} from '@stencil/core';
 import { CheckboxChangeEventDetail, CheckboxLabelAlignment } from './checkbox-interface';
 import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
 import { inheritAriaAttributes, inheritAttributes, setOrRemoveAttribute } from "../../utils/helpers";
@@ -101,14 +112,39 @@ export class Checkbox implements ComponentInterface, MutableAriaAttribute {
         setOrRemoveAttribute(this.nativeInput, attr, value);
     }
 
-    handleChange(_event: Event) {
+    handleChange(e: Event) {
+        e.stopImmediatePropagation();
+        e.preventDefault();
+        this.toggleCheckboxState();
+    }
+    
+    @Listen('click')
+    async handleHostClick(e: Event){
+        e.preventDefault();
+        e.stopPropagation();
+        
+        this.toggleCheckboxState();
+    }
+
+    handleInputClick(ev: PointerEvent) {
+        // If the click event is coming from the mouse we ignore it.
+        // We only want to handle the keyboard interactions as it is the only purpose of this native input
+        if (ev.detail) {
+            ev.stopImmediatePropagation()
+            ev.preventDefault();
+        }
+    }
+
+    toggleCheckboxState() {
+        if (this.disabled) return;
+        
         this.indeterminate = false;
         this.checked = !this.checked;
         this.wcsChange.emit({
             checked: this.checked,
         });
     }
-
+    
     handleFocus(event: FocusEvent) {
         this.wcsFocus.emit(event);
     }
@@ -140,6 +176,7 @@ export class Checkbox implements ComponentInterface, MutableAriaAttribute {
                         onBlur={this.handleBlur.bind(this)}
                         onChange={this.handleChange.bind(this)}
                         onFocus={this.handleFocus.bind(this)}
+                        onClick={this.handleInputClick.bind(this)}
                         checked={this.checked}
                         class="wcs-checkbox"
                         type="checkbox"

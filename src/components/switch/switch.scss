@@ -36,7 +36,7 @@
 
     --wcs-switch-gap: var(--wcs-semantic-spacing-base);
 
-    display: flex;
+    display: inline-flex;
 }
 
 :host([disabled]) {
@@ -53,6 +53,7 @@
 .wcs-container {
     position: relative;
     display: flex;
+    user-select: none;
     margin-bottom: 0;
 
     gap: var(--wcs-switch-gap);

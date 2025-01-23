@@ -406,12 +406,10 @@ export namespace Components {
      * @cssprop --wcs-com-nav-item-color - Color of the wcs-nav-item inside menu-bar
      * @cssprop --wcs-com-nav-item-font-weight - Font weight of the wcs-nav-item inside menu-bar
      * @cssprop --wcs-com-nav-focus-outline-color - Focus outline color of the wcs-nav-item inside menu-bar
-     * @cssprop --wcs-com-nav-horizontal-padding - Padding horizontal of wcs-com-nav
+     * @cssprop --wcs-com-nav-horizontal-padding - Horizontal padding of wcs-com-nav
+     * @cssprop --wcs-com-nav-vertical-padding - Vertical padding of wcs-com-nav
      * @cssprop --wcs-com-nav-mobile-overlay-gap - Gap between each items section in mobile overlay
-     * @cssprop --wcs-com-nav-mobile-overlay-padding-top - Padding top inside mobile overlay
-     * @cssprop --wcs-com-nav-mobile-overlay-padding-bottom - Padding bottom inside mobile overlay
-     * @cssprop --wcs-com-nav-mobile-overlay-padding-left - Padding left inside mobile overlay
-     * @cssprop --wcs-com-nav-mobile-overlay-padding-right - Padding right inside mobile overlay
+     * @cssprop --wcs-com-nav-mobile-overlay-padding - Padding inside mobile overlay
      * @cssprop --wcs-com-nav-mobile-menu-icon-border-color - Bar border color on the left of icon mobile menu
      * @cssprop --wcs-com-nav-mobile-menu-icon-gap- Gap between icon mobile menu and separator on the left
      * @cssprop --wcs-com-nav-mobile-menu-icon-margin-left - Margin left of icon mobile menu
@@ -680,13 +678,13 @@ export namespace Components {
      * @cssprop --wcs-editable-field-border-width - Border width of the editable field
      * @cssprop --wcs-editable-field-border-width-focus - Border width of the editable field when focused
      * @cssprop --wcs-editable-field-border-width-hover - Border width of the editable field on hover
-     * @cssprop --wcs-editable-field-border-color-hover - Border color of the editable field on hover
      * @cssprop --wcs-editable-field-border-color-default - Default border color of the editable field
+     * @cssprop --wcs-editable-field-border-color-hover - Border color of the editable field on hover
      * @cssprop --wcs-editable-field-border-style - Border style of the editable field
-     * @cssprop --wcs-editable-field-padding-horizontal-m - Horizontal padding of the editable field in medium size
      * @cssprop --wcs-editable-field-padding-vertical-m - Vertical padding of the editable field in medium size
-     * @cssprop --wcs-editable-field-padding-horizontal-l - Horizontal padding of the editable field in large size
      * @cssprop --wcs-editable-field-padding-vertical-l - Vertical padding of the editable field in large size
+     * @cssprop --wcs-editable-field-padding-horizontal-m - Horizontal padding of the editable field in medium size
+     * @cssprop --wcs-editable-field-padding-horizontal-l - Horizontal padding of the editable field in large size
      * @cssprop --wcs-editable-field-icon-color-readonly - Color of the icon when the field is readonly
      */
     interface WcsEditableField {
@@ -754,11 +752,19 @@ export namespace Components {
     }
     /**
      * The field-content is a subcomponent of `wcs-field`. It represents the text content of the field.
+     * @cssprop --wcs-field-content-color - Color of the content
+     * @cssprop --wcs-field-content-font-weight - Font weight of the content
+     * @cssprop --wcs-field-content-font-size - Font size of the content
+     * @cssprop --wcs-field-content-line-height - Line height of the content
      */
     interface WcsFieldContent {
     }
     /**
      * The field-label is a subcomponent of `wcs-field`. It represents the label or title of the field.
+     * @cssprop --wcs-field-label-color - Color of the label
+     * @cssprop --wcs-field-label-font-weight - Font weight of the label
+     * @cssprop --wcs-field-label-font-size - Font size of the label
+     * @cssprop --wcs-field-label-line-height - Line height of the label
      */
     interface WcsFieldLabel {
     }
@@ -871,18 +877,25 @@ export namespace Components {
      * @cssprop --wcs-grid-row-background-color - Background color of all rows
      * @cssprop --wcs-grid-row-odd-background-color - Background color of odd rows
      * @cssprop --wcs-grid-row-even-background-color - Background color of even rows
-     * @cssprop --wcs-grid-column-selection-width - Width of the selection column
-     * @cssprop --wcs-grid-header-border-left - Left border of all grid headers (within `<thead>`)
-     * @cssprop --wcs-grid-header-border-bottom - Bottom border of the `<thead>`
-     * @cssprop --wcs-grid-header-background-color - Background color of all headers
-     * @cssprop --wcs-grid-header-text-color - Text color of all headers
-     * @cssprop --wcs-grid-header-font-weight - Font weight of all headers
-     * @cssprop --wcs-grid-header-font-size - Font size of all headers
-     * @cssprop --wcs-grid-header-line-height - Line height of all headers
-     * @cssprop --wcs-grid-header-border-radius - Border radius of all headers
-     * @cssprop --wcs-grid-header-border-bottom - Bottom border of all headers
+     * @cssprop --wcs-grid-header-background-color-default - Default background color of the header
+     * @cssprop --wcs-grid-header-background-color-hover - Background color of the header on hover
+     * @cssprop --wcs-grid-header-background-color-press - Background color of the header on press
+     * @cssprop --wcs-grid-header-text-color - Text color of the header
+     * @cssprop --wcs-grid-header-font-weight - Font weight of the header
+     * @cssprop --wcs-grid-header-font-size - Font size of the header
+     * @cssprop --wcs-grid-header-line-height - Line height of the header
+     * @cssprop --wcs-grid-header-padding-vertical - Vertical padding of the header
+     * @cssprop --wcs-grid-header-padding-horizontal - Horizontal padding of the header
+     * @cssprop --wcs-grid-header-border-left - Left border between header cells (default is none
+     * @cssprop --wcs-grid-header-border-radius - Border radius of the header
+     * @cssprop --wcs-grid-header-border-bottom - Bottom border of the header
+     * @cssprop --wcs-grid-header-transition-duration - Transition duration of the header
+     * @cssprop --wcs-grid-first-header-background-color - Background color of the first header cell
+     * @cssprop --wcs-grid-first-header-border-radius - Border radius of the first header cell
+     * @cssprop --wcs-grid-last-header-border-radius - Border radius of the last header cell
+     * @cssprop --wcs-grid-column-selection-width - Width of the selection column (when selectionConfig is defined)
      * @cssprop --wcs-grid-header-sort-arrow-color-default - Color of the sort arrow in the header
-     * @cssprop --wcs-grid-header-sort-arrow-color-active - Color of the sort arrow in the header when active
+     * @cssprop --wcs-grid-header-sort-arrow-color-active - Color of the sort arrow in the header when active (sorted)
      * @csspart all-rows-checkbox - CSS part for the checkbox in the selection column that selects all rows
      * @csspart row-checkbox - CSS part for the checkbox of each row in the selection column
      */
@@ -923,16 +936,6 @@ export namespace Components {
     }
     /**
      * The grid column is a subcomponent of `wcs-grid` that represents a column of the table.
-     * @cssprop --wcs-grid-header-background-color - Background color of the header cell
-     * @cssprop --wcs-grid-header-text-color - Text color of the header cell
-     * @cssprop --wcs-grid-header-font-weight - Font weight of the header cellJ
-     * @cssprop --wcs-grid-header-font-size - Font size of the header cell
-     * @cssprop --wcs-grid-header-line-height - Line height of the header cell
-     * @cssprop --wcs-grid-header-border-radius - Border radius of the header cell
-     * @cssprop --wcs-grid-header-border-bottom - Bottom border of the header cell
-     * @cssprop --wcs-grid-column-border-left - Border separator between column names
-     * @cssprop --wcs-grid-header-sort-arrow-color-default - Color of the sort arrow in the header
-     * @cssprop --wcs-grid-header-sort-arrow-color-active - Color of the sort arrow in the header when active
      * @csspart [path]-column - CSS part for each column for styling. e.g: first_name-column, email-column
      */
     interface WcsGridColumn {
@@ -998,8 +1001,11 @@ export namespace Components {
     /**
      * The grid pagination is a subcomponent of `wcs-grid`, slotted in `grid-pagination` under the `<table>` element.
      * @cssprop --wcs-grid-pagination-color - Text color of the grid pagination
-     * @cssprop --wcs-grid-pagination-border-color - Border color of the grid pagination
-     * @cssprop --wcs-grid-pagination-counter-gap - Gap between the current page and the total page count
+     * @cssprop --wcs-grid-pagination-font-size - Font-size of the grid pagination
+     * @cssprop --wcs-grid-pagination-font-weight - Font-weight of the grid pagination
+     * @cssprop --wcs-grid-pagination-gap - Gap between the page size, number of elements and page management
+     * @cssprop --wcs-grid-pagination-page-size-gap - Gap between the select and the text within the page size container
+     * @cssprop --wcs-grid-pagination-counter-gap - Gap within the page management counter
      * @cssprop --wcs-grid-pagination-margin-top - Margin between the grid and the pagination
      * @cssprop --wcs-grid-pagination-arrow-color-inactive - Color of the inactive arrow
      * @cssprop --wcs-grid-pagination-arrow-color-active - Color of the active arrow
@@ -2657,12 +2663,10 @@ declare global {
      * @cssprop --wcs-com-nav-item-color - Color of the wcs-nav-item inside menu-bar
      * @cssprop --wcs-com-nav-item-font-weight - Font weight of the wcs-nav-item inside menu-bar
      * @cssprop --wcs-com-nav-focus-outline-color - Focus outline color of the wcs-nav-item inside menu-bar
-     * @cssprop --wcs-com-nav-horizontal-padding - Padding horizontal of wcs-com-nav
+     * @cssprop --wcs-com-nav-horizontal-padding - Horizontal padding of wcs-com-nav
+     * @cssprop --wcs-com-nav-vertical-padding - Vertical padding of wcs-com-nav
      * @cssprop --wcs-com-nav-mobile-overlay-gap - Gap between each items section in mobile overlay
-     * @cssprop --wcs-com-nav-mobile-overlay-padding-top - Padding top inside mobile overlay
-     * @cssprop --wcs-com-nav-mobile-overlay-padding-bottom - Padding bottom inside mobile overlay
-     * @cssprop --wcs-com-nav-mobile-overlay-padding-left - Padding left inside mobile overlay
-     * @cssprop --wcs-com-nav-mobile-overlay-padding-right - Padding right inside mobile overlay
+     * @cssprop --wcs-com-nav-mobile-overlay-padding - Padding inside mobile overlay
      * @cssprop --wcs-com-nav-mobile-menu-icon-border-color - Bar border color on the left of icon mobile menu
      * @cssprop --wcs-com-nav-mobile-menu-icon-gap- Gap between icon mobile menu and separator on the left
      * @cssprop --wcs-com-nav-mobile-menu-icon-margin-left - Margin left of icon mobile menu
@@ -2949,13 +2953,13 @@ declare global {
      * @cssprop --wcs-editable-field-border-width - Border width of the editable field
      * @cssprop --wcs-editable-field-border-width-focus - Border width of the editable field when focused
      * @cssprop --wcs-editable-field-border-width-hover - Border width of the editable field on hover
-     * @cssprop --wcs-editable-field-border-color-hover - Border color of the editable field on hover
      * @cssprop --wcs-editable-field-border-color-default - Default border color of the editable field
+     * @cssprop --wcs-editable-field-border-color-hover - Border color of the editable field on hover
      * @cssprop --wcs-editable-field-border-style - Border style of the editable field
-     * @cssprop --wcs-editable-field-padding-horizontal-m - Horizontal padding of the editable field in medium size
      * @cssprop --wcs-editable-field-padding-vertical-m - Vertical padding of the editable field in medium size
-     * @cssprop --wcs-editable-field-padding-horizontal-l - Horizontal padding of the editable field in large size
      * @cssprop --wcs-editable-field-padding-vertical-l - Vertical padding of the editable field in large size
+     * @cssprop --wcs-editable-field-padding-horizontal-m - Horizontal padding of the editable field in medium size
+     * @cssprop --wcs-editable-field-padding-horizontal-l - Horizontal padding of the editable field in large size
      * @cssprop --wcs-editable-field-icon-color-readonly - Color of the icon when the field is readonly
      */
     interface HTMLWcsEditableFieldElement extends Components.WcsEditableField, HTMLStencilElement {
@@ -3011,6 +3015,10 @@ declare global {
     };
     /**
      * The field-content is a subcomponent of `wcs-field`. It represents the text content of the field.
+     * @cssprop --wcs-field-content-color - Color of the content
+     * @cssprop --wcs-field-content-font-weight - Font weight of the content
+     * @cssprop --wcs-field-content-font-size - Font size of the content
+     * @cssprop --wcs-field-content-line-height - Line height of the content
      */
     interface HTMLWcsFieldContentElement extends Components.WcsFieldContent, HTMLStencilElement {
     }
@@ -3020,6 +3028,10 @@ declare global {
     };
     /**
      * The field-label is a subcomponent of `wcs-field`. It represents the label or title of the field.
+     * @cssprop --wcs-field-label-color - Color of the label
+     * @cssprop --wcs-field-label-font-weight - Font weight of the label
+     * @cssprop --wcs-field-label-font-size - Font size of the label
+     * @cssprop --wcs-field-label-line-height - Line height of the label
      */
     interface HTMLWcsFieldLabelElement extends Components.WcsFieldLabel, HTMLStencilElement {
     }
@@ -3145,18 +3157,25 @@ declare global {
      * @cssprop --wcs-grid-row-background-color - Background color of all rows
      * @cssprop --wcs-grid-row-odd-background-color - Background color of odd rows
      * @cssprop --wcs-grid-row-even-background-color - Background color of even rows
-     * @cssprop --wcs-grid-column-selection-width - Width of the selection column
-     * @cssprop --wcs-grid-header-border-left - Left border of all grid headers (within `<thead>`)
-     * @cssprop --wcs-grid-header-border-bottom - Bottom border of the `<thead>`
-     * @cssprop --wcs-grid-header-background-color - Background color of all headers
-     * @cssprop --wcs-grid-header-text-color - Text color of all headers
-     * @cssprop --wcs-grid-header-font-weight - Font weight of all headers
-     * @cssprop --wcs-grid-header-font-size - Font size of all headers
-     * @cssprop --wcs-grid-header-line-height - Line height of all headers
-     * @cssprop --wcs-grid-header-border-radius - Border radius of all headers
-     * @cssprop --wcs-grid-header-border-bottom - Bottom border of all headers
+     * @cssprop --wcs-grid-header-background-color-default - Default background color of the header
+     * @cssprop --wcs-grid-header-background-color-hover - Background color of the header on hover
+     * @cssprop --wcs-grid-header-background-color-press - Background color of the header on press
+     * @cssprop --wcs-grid-header-text-color - Text color of the header
+     * @cssprop --wcs-grid-header-font-weight - Font weight of the header
+     * @cssprop --wcs-grid-header-font-size - Font size of the header
+     * @cssprop --wcs-grid-header-line-height - Line height of the header
+     * @cssprop --wcs-grid-header-padding-vertical - Vertical padding of the header
+     * @cssprop --wcs-grid-header-padding-horizontal - Horizontal padding of the header
+     * @cssprop --wcs-grid-header-border-left - Left border between header cells (default is none
+     * @cssprop --wcs-grid-header-border-radius - Border radius of the header
+     * @cssprop --wcs-grid-header-border-bottom - Bottom border of the header
+     * @cssprop --wcs-grid-header-transition-duration - Transition duration of the header
+     * @cssprop --wcs-grid-first-header-background-color - Background color of the first header cell
+     * @cssprop --wcs-grid-first-header-border-radius - Border radius of the first header cell
+     * @cssprop --wcs-grid-last-header-border-radius - Border radius of the last header cell
+     * @cssprop --wcs-grid-column-selection-width - Width of the selection column (when selectionConfig is defined)
      * @cssprop --wcs-grid-header-sort-arrow-color-default - Color of the sort arrow in the header
-     * @cssprop --wcs-grid-header-sort-arrow-color-active - Color of the sort arrow in the header when active
+     * @cssprop --wcs-grid-header-sort-arrow-color-active - Color of the sort arrow in the header when active (sorted)
      * @csspart all-rows-checkbox - CSS part for the checkbox in the selection column that selects all rows
      * @csspart row-checkbox - CSS part for the checkbox of each row in the selection column
      */
@@ -3180,16 +3199,6 @@ declare global {
     }
     /**
      * The grid column is a subcomponent of `wcs-grid` that represents a column of the table.
-     * @cssprop --wcs-grid-header-background-color - Background color of the header cell
-     * @cssprop --wcs-grid-header-text-color - Text color of the header cell
-     * @cssprop --wcs-grid-header-font-weight - Font weight of the header cellJ
-     * @cssprop --wcs-grid-header-font-size - Font size of the header cell
-     * @cssprop --wcs-grid-header-line-height - Line height of the header cell
-     * @cssprop --wcs-grid-header-border-radius - Border radius of the header cell
-     * @cssprop --wcs-grid-header-border-bottom - Bottom border of the header cell
-     * @cssprop --wcs-grid-column-border-left - Border separator between column names
-     * @cssprop --wcs-grid-header-sort-arrow-color-default - Color of the sort arrow in the header
-     * @cssprop --wcs-grid-header-sort-arrow-color-active - Color of the sort arrow in the header when active
      * @csspart [path]-column - CSS part for each column for styling. e.g: first_name-column, email-column
      */
     interface HTMLWcsGridColumnElement extends Components.WcsGridColumn, HTMLStencilElement {
@@ -3221,8 +3230,11 @@ declare global {
     /**
      * The grid pagination is a subcomponent of `wcs-grid`, slotted in `grid-pagination` under the `<table>` element.
      * @cssprop --wcs-grid-pagination-color - Text color of the grid pagination
-     * @cssprop --wcs-grid-pagination-border-color - Border color of the grid pagination
-     * @cssprop --wcs-grid-pagination-counter-gap - Gap between the current page and the total page count
+     * @cssprop --wcs-grid-pagination-font-size - Font-size of the grid pagination
+     * @cssprop --wcs-grid-pagination-font-weight - Font-weight of the grid pagination
+     * @cssprop --wcs-grid-pagination-gap - Gap between the page size, number of elements and page management
+     * @cssprop --wcs-grid-pagination-page-size-gap - Gap between the select and the text within the page size container
+     * @cssprop --wcs-grid-pagination-counter-gap - Gap within the page management counter
      * @cssprop --wcs-grid-pagination-margin-top - Margin between the grid and the pagination
      * @cssprop --wcs-grid-pagination-arrow-color-inactive - Color of the inactive arrow
      * @cssprop --wcs-grid-pagination-arrow-color-active - Color of the active arrow
@@ -4554,12 +4566,10 @@ declare namespace LocalJSX {
      * @cssprop --wcs-com-nav-item-color - Color of the wcs-nav-item inside menu-bar
      * @cssprop --wcs-com-nav-item-font-weight - Font weight of the wcs-nav-item inside menu-bar
      * @cssprop --wcs-com-nav-focus-outline-color - Focus outline color of the wcs-nav-item inside menu-bar
-     * @cssprop --wcs-com-nav-horizontal-padding - Padding horizontal of wcs-com-nav
+     * @cssprop --wcs-com-nav-horizontal-padding - Horizontal padding of wcs-com-nav
+     * @cssprop --wcs-com-nav-vertical-padding - Vertical padding of wcs-com-nav
      * @cssprop --wcs-com-nav-mobile-overlay-gap - Gap between each items section in mobile overlay
-     * @cssprop --wcs-com-nav-mobile-overlay-padding-top - Padding top inside mobile overlay
-     * @cssprop --wcs-com-nav-mobile-overlay-padding-bottom - Padding bottom inside mobile overlay
-     * @cssprop --wcs-com-nav-mobile-overlay-padding-left - Padding left inside mobile overlay
-     * @cssprop --wcs-com-nav-mobile-overlay-padding-right - Padding right inside mobile overlay
+     * @cssprop --wcs-com-nav-mobile-overlay-padding - Padding inside mobile overlay
      * @cssprop --wcs-com-nav-mobile-menu-icon-border-color - Bar border color on the left of icon mobile menu
      * @cssprop --wcs-com-nav-mobile-menu-icon-gap- Gap between icon mobile menu and separator on the left
      * @cssprop --wcs-com-nav-mobile-menu-icon-margin-left - Margin left of icon mobile menu
@@ -4825,13 +4835,13 @@ declare namespace LocalJSX {
      * @cssprop --wcs-editable-field-border-width - Border width of the editable field
      * @cssprop --wcs-editable-field-border-width-focus - Border width of the editable field when focused
      * @cssprop --wcs-editable-field-border-width-hover - Border width of the editable field on hover
-     * @cssprop --wcs-editable-field-border-color-hover - Border color of the editable field on hover
      * @cssprop --wcs-editable-field-border-color-default - Default border color of the editable field
+     * @cssprop --wcs-editable-field-border-color-hover - Border color of the editable field on hover
      * @cssprop --wcs-editable-field-border-style - Border style of the editable field
-     * @cssprop --wcs-editable-field-padding-horizontal-m - Horizontal padding of the editable field in medium size
      * @cssprop --wcs-editable-field-padding-vertical-m - Vertical padding of the editable field in medium size
-     * @cssprop --wcs-editable-field-padding-horizontal-l - Horizontal padding of the editable field in large size
      * @cssprop --wcs-editable-field-padding-vertical-l - Vertical padding of the editable field in large size
+     * @cssprop --wcs-editable-field-padding-horizontal-m - Horizontal padding of the editable field in medium size
+     * @cssprop --wcs-editable-field-padding-horizontal-l - Horizontal padding of the editable field in large size
      * @cssprop --wcs-editable-field-icon-color-readonly - Color of the icon when the field is readonly
      */
     interface WcsEditableField {
@@ -4903,11 +4913,19 @@ declare namespace LocalJSX {
     }
     /**
      * The field-content is a subcomponent of `wcs-field`. It represents the text content of the field.
+     * @cssprop --wcs-field-content-color - Color of the content
+     * @cssprop --wcs-field-content-font-weight - Font weight of the content
+     * @cssprop --wcs-field-content-font-size - Font size of the content
+     * @cssprop --wcs-field-content-line-height - Line height of the content
      */
     interface WcsFieldContent {
     }
     /**
      * The field-label is a subcomponent of `wcs-field`. It represents the label or title of the field.
+     * @cssprop --wcs-field-label-color - Color of the label
+     * @cssprop --wcs-field-label-font-weight - Font weight of the label
+     * @cssprop --wcs-field-label-font-size - Font size of the label
+     * @cssprop --wcs-field-label-line-height - Line height of the label
      */
     interface WcsFieldLabel {
     }
@@ -5019,18 +5037,25 @@ declare namespace LocalJSX {
      * @cssprop --wcs-grid-row-background-color - Background color of all rows
      * @cssprop --wcs-grid-row-odd-background-color - Background color of odd rows
      * @cssprop --wcs-grid-row-even-background-color - Background color of even rows
-     * @cssprop --wcs-grid-column-selection-width - Width of the selection column
-     * @cssprop --wcs-grid-header-border-left - Left border of all grid headers (within `<thead>`)
-     * @cssprop --wcs-grid-header-border-bottom - Bottom border of the `<thead>`
-     * @cssprop --wcs-grid-header-background-color - Background color of all headers
-     * @cssprop --wcs-grid-header-text-color - Text color of all headers
-     * @cssprop --wcs-grid-header-font-weight - Font weight of all headers
-     * @cssprop --wcs-grid-header-font-size - Font size of all headers
-     * @cssprop --wcs-grid-header-line-height - Line height of all headers
-     * @cssprop --wcs-grid-header-border-radius - Border radius of all headers
-     * @cssprop --wcs-grid-header-border-bottom - Bottom border of all headers
+     * @cssprop --wcs-grid-header-background-color-default - Default background color of the header
+     * @cssprop --wcs-grid-header-background-color-hover - Background color of the header on hover
+     * @cssprop --wcs-grid-header-background-color-press - Background color of the header on press
+     * @cssprop --wcs-grid-header-text-color - Text color of the header
+     * @cssprop --wcs-grid-header-font-weight - Font weight of the header
+     * @cssprop --wcs-grid-header-font-size - Font size of the header
+     * @cssprop --wcs-grid-header-line-height - Line height of the header
+     * @cssprop --wcs-grid-header-padding-vertical - Vertical padding of the header
+     * @cssprop --wcs-grid-header-padding-horizontal - Horizontal padding of the header
+     * @cssprop --wcs-grid-header-border-left - Left border between header cells (default is none
+     * @cssprop --wcs-grid-header-border-radius - Border radius of the header
+     * @cssprop --wcs-grid-header-border-bottom - Bottom border of the header
+     * @cssprop --wcs-grid-header-transition-duration - Transition duration of the header
+     * @cssprop --wcs-grid-first-header-background-color - Background color of the first header cell
+     * @cssprop --wcs-grid-first-header-border-radius - Border radius of the first header cell
+     * @cssprop --wcs-grid-last-header-border-radius - Border radius of the last header cell
+     * @cssprop --wcs-grid-column-selection-width - Width of the selection column (when selectionConfig is defined)
      * @cssprop --wcs-grid-header-sort-arrow-color-default - Color of the sort arrow in the header
-     * @cssprop --wcs-grid-header-sort-arrow-color-active - Color of the sort arrow in the header when active
+     * @cssprop --wcs-grid-header-sort-arrow-color-active - Color of the sort arrow in the header when active (sorted)
      * @csspart all-rows-checkbox - CSS part for the checkbox in the selection column that selects all rows
      * @csspart row-checkbox - CSS part for the checkbox of each row in the selection column
      */
@@ -5086,16 +5111,6 @@ declare namespace LocalJSX {
     }
     /**
      * The grid column is a subcomponent of `wcs-grid` that represents a column of the table.
-     * @cssprop --wcs-grid-header-background-color - Background color of the header cell
-     * @cssprop --wcs-grid-header-text-color - Text color of the header cell
-     * @cssprop --wcs-grid-header-font-weight - Font weight of the header cellJ
-     * @cssprop --wcs-grid-header-font-size - Font size of the header cell
-     * @cssprop --wcs-grid-header-line-height - Line height of the header cell
-     * @cssprop --wcs-grid-header-border-radius - Border radius of the header cell
-     * @cssprop --wcs-grid-header-border-bottom - Bottom border of the header cell
-     * @cssprop --wcs-grid-column-border-left - Border separator between column names
-     * @cssprop --wcs-grid-header-sort-arrow-color-default - Color of the sort arrow in the header
-     * @cssprop --wcs-grid-header-sort-arrow-color-active - Color of the sort arrow in the header when active
      * @csspart [path]-column - CSS part for each column for styling. e.g: first_name-column, email-column
      */
     interface WcsGridColumn {
@@ -5168,8 +5183,11 @@ declare namespace LocalJSX {
     /**
      * The grid pagination is a subcomponent of `wcs-grid`, slotted in `grid-pagination` under the `<table>` element.
      * @cssprop --wcs-grid-pagination-color - Text color of the grid pagination
-     * @cssprop --wcs-grid-pagination-border-color - Border color of the grid pagination
-     * @cssprop --wcs-grid-pagination-counter-gap - Gap between the current page and the total page count
+     * @cssprop --wcs-grid-pagination-font-size - Font-size of the grid pagination
+     * @cssprop --wcs-grid-pagination-font-weight - Font-weight of the grid pagination
+     * @cssprop --wcs-grid-pagination-gap - Gap between the page size, number of elements and page management
+     * @cssprop --wcs-grid-pagination-page-size-gap - Gap between the select and the text within the page size container
+     * @cssprop --wcs-grid-pagination-counter-gap - Gap within the page management counter
      * @cssprop --wcs-grid-pagination-margin-top - Margin between the grid and the pagination
      * @cssprop --wcs-grid-pagination-arrow-color-inactive - Color of the inactive arrow
      * @cssprop --wcs-grid-pagination-arrow-color-active - Color of the active arrow
@@ -6751,12 +6769,10 @@ declare module "@stencil/core" {
              * @cssprop --wcs-com-nav-item-color - Color of the wcs-nav-item inside menu-bar
              * @cssprop --wcs-com-nav-item-font-weight - Font weight of the wcs-nav-item inside menu-bar
              * @cssprop --wcs-com-nav-focus-outline-color - Focus outline color of the wcs-nav-item inside menu-bar
-             * @cssprop --wcs-com-nav-horizontal-padding - Padding horizontal of wcs-com-nav
+             * @cssprop --wcs-com-nav-horizontal-padding - Horizontal padding of wcs-com-nav
+             * @cssprop --wcs-com-nav-vertical-padding - Vertical padding of wcs-com-nav
              * @cssprop --wcs-com-nav-mobile-overlay-gap - Gap between each items section in mobile overlay
-             * @cssprop --wcs-com-nav-mobile-overlay-padding-top - Padding top inside mobile overlay
-             * @cssprop --wcs-com-nav-mobile-overlay-padding-bottom - Padding bottom inside mobile overlay
-             * @cssprop --wcs-com-nav-mobile-overlay-padding-left - Padding left inside mobile overlay
-             * @cssprop --wcs-com-nav-mobile-overlay-padding-right - Padding right inside mobile overlay
+             * @cssprop --wcs-com-nav-mobile-overlay-padding - Padding inside mobile overlay
              * @cssprop --wcs-com-nav-mobile-menu-icon-border-color - Bar border color on the left of icon mobile menu
              * @cssprop --wcs-com-nav-mobile-menu-icon-gap- Gap between icon mobile menu and separator on the left
              * @cssprop --wcs-com-nav-mobile-menu-icon-margin-left - Margin left of icon mobile menu
@@ -6934,13 +6950,13 @@ declare module "@stencil/core" {
              * @cssprop --wcs-editable-field-border-width - Border width of the editable field
              * @cssprop --wcs-editable-field-border-width-focus - Border width of the editable field when focused
              * @cssprop --wcs-editable-field-border-width-hover - Border width of the editable field on hover
-             * @cssprop --wcs-editable-field-border-color-hover - Border color of the editable field on hover
              * @cssprop --wcs-editable-field-border-color-default - Default border color of the editable field
+             * @cssprop --wcs-editable-field-border-color-hover - Border color of the editable field on hover
              * @cssprop --wcs-editable-field-border-style - Border style of the editable field
-             * @cssprop --wcs-editable-field-padding-horizontal-m - Horizontal padding of the editable field in medium size
              * @cssprop --wcs-editable-field-padding-vertical-m - Vertical padding of the editable field in medium size
-             * @cssprop --wcs-editable-field-padding-horizontal-l - Horizontal padding of the editable field in large size
              * @cssprop --wcs-editable-field-padding-vertical-l - Vertical padding of the editable field in large size
+             * @cssprop --wcs-editable-field-padding-horizontal-m - Horizontal padding of the editable field in medium size
+             * @cssprop --wcs-editable-field-padding-horizontal-l - Horizontal padding of the editable field in large size
              * @cssprop --wcs-editable-field-icon-color-readonly - Color of the icon when the field is readonly
              */
             "wcs-editable-field": LocalJSX.WcsEditableField & JSXBase.HTMLAttributes<HTMLWcsEditableFieldElement>;
@@ -6973,10 +6989,18 @@ declare module "@stencil/core" {
             "wcs-field": LocalJSX.WcsField & JSXBase.HTMLAttributes<HTMLWcsFieldElement>;
             /**
              * The field-content is a subcomponent of `wcs-field`. It represents the text content of the field.
+             * @cssprop --wcs-field-content-color - Color of the content
+             * @cssprop --wcs-field-content-font-weight - Font weight of the content
+             * @cssprop --wcs-field-content-font-size - Font size of the content
+             * @cssprop --wcs-field-content-line-height - Line height of the content
              */
             "wcs-field-content": LocalJSX.WcsFieldContent & JSXBase.HTMLAttributes<HTMLWcsFieldContentElement>;
             /**
              * The field-label is a subcomponent of `wcs-field`. It represents the label or title of the field.
+             * @cssprop --wcs-field-label-color - Color of the label
+             * @cssprop --wcs-field-label-font-weight - Font weight of the label
+             * @cssprop --wcs-field-label-font-size - Font size of the label
+             * @cssprop --wcs-field-label-line-height - Line height of the label
              */
             "wcs-field-label": LocalJSX.WcsFieldLabel & JSXBase.HTMLAttributes<HTMLWcsFieldLabelElement>;
             /**
@@ -7071,34 +7095,31 @@ declare module "@stencil/core" {
              * @cssprop --wcs-grid-row-background-color - Background color of all rows
              * @cssprop --wcs-grid-row-odd-background-color - Background color of odd rows
              * @cssprop --wcs-grid-row-even-background-color - Background color of even rows
-             * @cssprop --wcs-grid-column-selection-width - Width of the selection column
-             * @cssprop --wcs-grid-header-border-left - Left border of all grid headers (within `<thead>`)
-             * @cssprop --wcs-grid-header-border-bottom - Bottom border of the `<thead>`
-             * @cssprop --wcs-grid-header-background-color - Background color of all headers
-             * @cssprop --wcs-grid-header-text-color - Text color of all headers
-             * @cssprop --wcs-grid-header-font-weight - Font weight of all headers
-             * @cssprop --wcs-grid-header-font-size - Font size of all headers
-             * @cssprop --wcs-grid-header-line-height - Line height of all headers
-             * @cssprop --wcs-grid-header-border-radius - Border radius of all headers
-             * @cssprop --wcs-grid-header-border-bottom - Bottom border of all headers
+             * @cssprop --wcs-grid-header-background-color-default - Default background color of the header
+             * @cssprop --wcs-grid-header-background-color-hover - Background color of the header on hover
+             * @cssprop --wcs-grid-header-background-color-press - Background color of the header on press
+             * @cssprop --wcs-grid-header-text-color - Text color of the header
+             * @cssprop --wcs-grid-header-font-weight - Font weight of the header
+             * @cssprop --wcs-grid-header-font-size - Font size of the header
+             * @cssprop --wcs-grid-header-line-height - Line height of the header
+             * @cssprop --wcs-grid-header-padding-vertical - Vertical padding of the header
+             * @cssprop --wcs-grid-header-padding-horizontal - Horizontal padding of the header
+             * @cssprop --wcs-grid-header-border-left - Left border between header cells (default is none
+             * @cssprop --wcs-grid-header-border-radius - Border radius of the header
+             * @cssprop --wcs-grid-header-border-bottom - Bottom border of the header
+             * @cssprop --wcs-grid-header-transition-duration - Transition duration of the header
+             * @cssprop --wcs-grid-first-header-background-color - Background color of the first header cell
+             * @cssprop --wcs-grid-first-header-border-radius - Border radius of the first header cell
+             * @cssprop --wcs-grid-last-header-border-radius - Border radius of the last header cell
+             * @cssprop --wcs-grid-column-selection-width - Width of the selection column (when selectionConfig is defined)
              * @cssprop --wcs-grid-header-sort-arrow-color-default - Color of the sort arrow in the header
-             * @cssprop --wcs-grid-header-sort-arrow-color-active - Color of the sort arrow in the header when active
+             * @cssprop --wcs-grid-header-sort-arrow-color-active - Color of the sort arrow in the header when active (sorted)
              * @csspart all-rows-checkbox - CSS part for the checkbox in the selection column that selects all rows
              * @csspart row-checkbox - CSS part for the checkbox of each row in the selection column
              */
             "wcs-grid": LocalJSX.WcsGrid & JSXBase.HTMLAttributes<HTMLWcsGridElement>;
             /**
              * The grid column is a subcomponent of `wcs-grid` that represents a column of the table.
-             * @cssprop --wcs-grid-header-background-color - Background color of the header cell
-             * @cssprop --wcs-grid-header-text-color - Text color of the header cell
-             * @cssprop --wcs-grid-header-font-weight - Font weight of the header cellJ
-             * @cssprop --wcs-grid-header-font-size - Font size of the header cell
-             * @cssprop --wcs-grid-header-line-height - Line height of the header cell
-             * @cssprop --wcs-grid-header-border-radius - Border radius of the header cell
-             * @cssprop --wcs-grid-header-border-bottom - Bottom border of the header cell
-             * @cssprop --wcs-grid-column-border-left - Border separator between column names
-             * @cssprop --wcs-grid-header-sort-arrow-color-default - Color of the sort arrow in the header
-             * @cssprop --wcs-grid-header-sort-arrow-color-active - Color of the sort arrow in the header when active
              * @csspart [path]-column - CSS part for each column for styling. e.g: first_name-column, email-column
              */
             "wcs-grid-column": LocalJSX.WcsGridColumn & JSXBase.HTMLAttributes<HTMLWcsGridColumnElement>;
@@ -7109,8 +7130,11 @@ declare module "@stencil/core" {
             /**
              * The grid pagination is a subcomponent of `wcs-grid`, slotted in `grid-pagination` under the `<table>` element.
              * @cssprop --wcs-grid-pagination-color - Text color of the grid pagination
-             * @cssprop --wcs-grid-pagination-border-color - Border color of the grid pagination
-             * @cssprop --wcs-grid-pagination-counter-gap - Gap between the current page and the total page count
+             * @cssprop --wcs-grid-pagination-font-size - Font-size of the grid pagination
+             * @cssprop --wcs-grid-pagination-font-weight - Font-weight of the grid pagination
+             * @cssprop --wcs-grid-pagination-gap - Gap between the page size, number of elements and page management
+             * @cssprop --wcs-grid-pagination-page-size-gap - Gap between the select and the text within the page size container
+             * @cssprop --wcs-grid-pagination-counter-gap - Gap within the page management counter
              * @cssprop --wcs-grid-pagination-margin-top - Margin between the grid and the pagination
              * @cssprop --wcs-grid-pagination-arrow-color-inactive - Color of the inactive arrow
              * @cssprop --wcs-grid-pagination-arrow-color-active - Color of the active arrow

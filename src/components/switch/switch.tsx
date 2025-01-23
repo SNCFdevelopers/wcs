@@ -1,4 +1,15 @@
-import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Method, Prop } from '@stencil/core';
+import {
+    Component,
+    ComponentInterface,
+    Element,
+    Event,
+    EventEmitter,
+    h,
+    Host,
+    Listen,
+    Method,
+    Prop
+} from '@stencil/core';
 import { SwitchChangeEventDetail, SwitchLabelAlignment } from './switch-interface';
 import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
 import { inheritAriaAttributes, inheritAttributes, setOrRemoveAttribute } from "../../utils/helpers";
@@ -81,10 +92,36 @@ export class Switch implements ComponentInterface, MutableAriaAttribute {
      */
     @Event() wcsBlur!: EventEmitter<FocusEvent>;
 
-    toggleChange(_event: Event) {
+    
+    handleChange(ev: Event) {
+        ev.stopImmediatePropagation();
+        ev.preventDefault();
+        this.toggleSwitchState();
+    }
+
+    @Listen('click')
+    async handleHostClick(e: Event){
+        e.preventDefault();
+        e.stopPropagation();
+
+        this.toggleSwitchState();
+    }
+
+    handleInputClick(ev: PointerEvent) {
+        // If the click event is coming from the mouse we ignore it.
+        // We only want to handle the keyboard interactions as it is the only purpose of this native input
+        if (ev.detail) {
+            ev.stopImmediatePropagation()
+            ev.preventDefault();
+        }
+    }
+
+    toggleSwitchState() {
+        if (this.disabled) return;
+        
         this.checked = !this.checked;
         this.wcsChange.emit({
-            checked: this.checked
+            checked: this.checked,
         });
     }
 
@@ -113,7 +150,8 @@ export class Switch implements ComponentInterface, MutableAriaAttribute {
             <Host>
                 <label htmlFor={this.name} class="wcs-container" aria-disabled={this.disabled}>
                     <input onBlur={this.handleBlur.bind(this)}
-                           onChange={(evt) => this.toggleChange(evt)}
+                           onChange={this.handleChange.bind(this)}
+                           onClick={this.handleInputClick.bind(this)}
                            onFocus={this.handleFocus.bind(this)}
                            checked={this.checked}
                            id={this.name}
