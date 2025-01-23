@@ -74,9 +74,12 @@ that can cause contrast issues.
   - click events are now fired from the host checkbox instead of the native input inside
 - **native-select**: fix opacity of the native select when disabled
 - **formly field**: **select**, **input**, **counter**: set default size 'm' in formly => no more warn in client console
-- **select**: autocomplete filter is now cleared when the select value is set to a falsy value
-- **grid**: fix this.columns undefined in server mode with a sorted columns
-- **grid**: row-id-path now works with nested objects
+- **grid**:
+  - fix this.columns undefined in server mode with a sorted columns
+  - row-id-path now works with nested objects
+- **select**:
+  - the autocomplete input is now fully disabled when the select is disabled
+  - autocomplete filter is now cleared when the select value is set to a falsy value
 
 ### Security
 

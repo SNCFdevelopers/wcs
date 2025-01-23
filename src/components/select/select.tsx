@@ -1092,6 +1092,7 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
                                                          aria-multiselectable={this.multiple ? 'true' : 'false'}
                                                          aria-autocomplete="list"
                                                          autocomplete="off"
+                                                         disabled={this.disabled}
                                                          onBlur={(e) => this.onAutocompleteFieldBlur(e)}
                                                          placeholder={this.values?.length ? null : this.placeholder}
                                                          onInput={(e) => this.onAutocompleteInputEvent(e)}

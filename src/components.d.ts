@@ -921,7 +921,7 @@ export namespace Components {
          */
         "rowCssPartsFn": RowCssPartsFn;
         /**
-          * Name of the object's key that will be used to display the cells whose `keyValue` attribute matches to the object's value for this key.
+          * Name of the object's key that will be used to display the cells whose `keyValue` attribute matches to the object's value for this key. Useful for custom cells.
          */
         "rowIdPath": string;
         /**
@@ -5111,7 +5111,7 @@ declare namespace LocalJSX {
          */
         "rowCssPartsFn"?: RowCssPartsFn;
         /**
-          * Name of the object's key that will be used to display the cells whose `keyValue` attribute matches to the object's value for this key.
+          * Name of the object's key that will be used to display the cells whose `keyValue` attribute matches to the object's value for this key. Useful for custom cells.
          */
         "rowIdPath"?: string;
         /**
