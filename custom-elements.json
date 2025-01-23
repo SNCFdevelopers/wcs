@@ -998,7 +998,7 @@
               "type": {
                 "text": "boolean"
               },
-              "default": "false",
+              "default": "true",
               "description": "Specifies whether accordion-panel components should display the open/close text.\r\nif false, it won't show the open/close text in all accordion-panel."
             },
             {
@@ -1017,7 +1017,7 @@
                 "text": "boolean"
               },
               "default": "false",
-              "description": "Specifies wether accordion-panel components should group the content with header in one card\r\nif true, there will be only one card with the header and the content\r\nNothing change when the panel is close"
+              "deprecated": "**The content is now always grouped with the panel header**\r\n\r\n~~Specifies whether accordion-panel components should group the content with header in one card~~\r\n~~if true, there will be only one card with the header and the content~~\r\n~~Nothing change when the panel is close~~"
             },
             {
               "kind": "method",
@@ -1245,6 +1245,14 @@
             {
               "description": "Highlight action color of the accordion panel",
               "name": "--wcs-accordion-panel-action-color-highlight"
+            },
+            {
+              "description": "Hovered action color of the accordion panel",
+              "name": "--wcs-accordion-panel-action-color-hover"
+            },
+            {
+              "description": "Pressed action color of the accordion panel",
+              "name": "--wcs-accordion-panel-action-color-press"
             },
             {
               "description": "Default background color of the accordion panel",
@@ -1650,7 +1658,7 @@
           "cssProperties": [
             {
               "description": "Define the opacity rate to apply to the badge",
-              "name": "--wcs-badge-ligther-percentage"
+              "name": "--wcs-badge-lighter-percentage"
             },
             {
               "description": "Define the font weight of the badge",
@@ -1685,8 +1693,8 @@
               "name": "--wcs-badge-border-radius-default"
             },
             {
-              "description": "Round border radius of the badge",
-              "name": "--wcs-badge-border-radius-round"
+              "description": "Circular border radius of the badge",
+              "name": "--wcs-badge-border-radius-circular"
             },
             {
               "description": "Background color of the badge",
@@ -2167,6 +2175,10 @@
               "name": "--wcs-breadcrumb-item-link-color"
             },
             {
+              "description": "Color of the breadcrumb item link when hovered",
+              "name": "--wcs-breadcrumb-item-link-color-hover"
+            },
+            {
               "description": "Font weight of the breadcrumb item link",
               "name": "--wcs-breadcrumb-item-link-font-weight"
             },
@@ -2370,12 +2382,8 @@
               "name": "--wcs-button-font-size-s"
             },
             {
-              "description": "padding horizontal for a size s button",
-              "name": "--wcs-button-padding-horizontal-size-s"
-            },
-            {
-              "description": "padding vertical for a size s button",
-              "name": "--wcs-button-padding-vertical-size-s"
+              "description": "padding for a size s button",
+              "name": "--wcs-button-padding-size-s"
             },
             {
               "description": "height for a size m button",
@@ -2386,12 +2394,8 @@
               "name": "--wcs-button-font-size-m"
             },
             {
-              "description": "padding horizontal for a size m button",
-              "name": "--wcs-button-padding-horizontal-size-m"
-            },
-            {
-              "description": "padding vertical for a size m button",
-              "name": "--wcs-button-padding-vertical-size-m"
+              "description": "padding for a size m button",
+              "name": "--wcs-button-padding-size-m"
             },
             {
               "description": "height for a size l button",
@@ -2402,12 +2406,8 @@
               "name": "--wcs-button-font-size-l"
             },
             {
-              "description": "padding horizontal for a size l button",
-              "name": "--wcs-button-padding-horizontal-size-l"
-            },
-            {
-              "description": "padding vertical for a size l button",
-              "name": "--wcs-button-padding-vertical-size-l"
+              "description": "padding for a size l button",
+              "name": "--wcs-button-padding-size-l"
             },
             {
               "description": "font weight of a plain,stroked,clear button",
@@ -2694,8 +2694,8 @@
               "name": "--wcs-card-border-radius"
             },
             {
-              "description": "Border width of the card when flat",
-              "name": "--wcs-card-flat-border-width"
+              "description": "Border width of the card",
+              "name": "--wcs-card-border-width"
             },
             {
               "description": "Background color of the card",
@@ -2805,6 +2805,12 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/checkbox/checkbox.e2e.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/checkbox/checkbox.tsx",
       "declarations": [
         {
@@ -2813,24 +2819,40 @@
           "name": "Checkbox",
           "cssProperties": [
             {
-              "description": "Border radius of the focus outline",
-              "name": "--wcs-checkbox-outline-radius-focus"
+              "description": "Default color of the border",
+              "name": "--wcs-checkbox-border-color-default"
             },
             {
-              "description": "Color of the focus outline",
-              "name": "--wcs-checkbox-outline-color-focus"
+              "description": "Color of the border when hovered",
+              "name": "--wcs-checkbox-border-color-hover"
+            },
+            {
+              "description": "Color of the border when disabled",
+              "name": "--wcs-checkbox-border-color-disabled"
+            },
+            {
+              "description": "Color of the border when selected",
+              "name": "--wcs-checkbox-border-color-selected"
+            },
+            {
+              "description": "Color of the border when indeterminate",
+              "name": "--wcs-checkbox-border-color-indeterminate"
+            },
+            {
+              "description": "Border radius of the checkbox",
+              "name": "--wcs-checkbox-border-radius"
+            },
+            {
+              "description": "Width of the border of the checkbox",
+              "name": "--wcs-checkbox-border-width"
+            },
+            {
+              "description": "Size of the checkbox",
+              "name": "--wcs-checkbox-size"
             },
             {
               "description": "Color of the text when the checkbox is not selected",
               "name": "--wcs-checkbox-text-color-default"
-            },
-            {
-              "description": "Font weight of the text",
-              "name": "--wcs-checkbox-text-font-weight"
-            },
-            {
-              "description": "Font size of the text",
-              "name": "--wcs-checkbox-text-font-size"
             },
             {
               "description": "Color of the text when the checkbox is disabled",
@@ -2845,40 +2867,44 @@
               "name": "--wcs-checkbox-text-color-selected"
             },
             {
-              "description": "Color of the border when the checkbox is not selected",
-              "name": "--wcs-checkbox-border-color-default"
+              "description": "Font size of the text",
+              "name": "--wcs-checkbox-text-font-size"
             },
             {
-              "description": "Color of the border when the checkbox is hovered",
-              "name": "--wcs-checkbox-border-color-hover"
+              "description": "Font weight of the text",
+              "name": "--wcs-checkbox-text-font-weight"
             },
             {
-              "description": "Color of the border when the checkbox is disabled",
-              "name": "--wcs-checkbox-border-color-disabled"
+              "description": "Default background color of the checkbox",
+              "name": "--wcs-checkbox-background-color-default"
             },
             {
-              "description": "Color of the border when the checkbox is selected",
-              "name": "--wcs-checkbox-border-color-selected"
-            },
-            {
-              "description": "Border radius of the checkbox",
-              "name": "--wcs-checkbox-border-radius"
-            },
-            {
-              "description": "Width of the border of the checkbox",
-              "name": "--wcs-checkbox-border-width"
-            },
-            {
-              "description": "Background color of the checkbox when selected",
-              "name": "--wcs-checkbox-background-color-selected"
+              "description": "Background color of the checkbox when hovered",
+              "name": "--wcs-checkbox-background-color-hover"
             },
             {
               "description": "Background color of the checkbox when disabled",
               "name": "--wcs-checkbox-background-color-disabled"
             },
             {
-              "description": "Background color of the checkbox when hovered",
-              "name": "--wcs-checkbox-background-color-hover"
+              "description": "Background color of the checkbox when selected",
+              "name": "--wcs-checkbox-background-color-selected"
+            },
+            {
+              "description": "Background color of the checkbox when indeterminate",
+              "name": "--wcs-checkbox-background-color-indeterminate"
+            },
+            {
+              "description": "Border radius of the focus outline",
+              "name": "--wcs-checkbox-outline-radius-focus"
+            },
+            {
+              "description": "Color of the focus outline",
+              "name": "--wcs-checkbox-outline-color-focus"
+            },
+            {
+              "description": "Gap between the checkbox and the label",
+              "name": "--wcs-checkbox-gap"
             },
             {
               "description": "Color of the checkmark",
@@ -2897,12 +2923,24 @@
               "name": "--wcs-checkmark-border-width"
             },
             {
-              "description": "Size of the checkbox",
-              "name": "--wcs-checkbox-size"
+              "description": "Width of the indeterminate bar",
+              "name": "--wcs-indeterminate-bar-width"
             },
             {
-              "description": "Gap between the checkbox and the label",
-              "name": "--wcs-checkbox-gap"
+              "description": "Height of the indeterminate bar",
+              "name": "--wcs-indeterminate-bar-height"
+            },
+            {
+              "description": "Border-radius of the indeterminate bar",
+              "name": "--wcs-indeterminate-bar-border-radius"
+            },
+            {
+              "description": "Color of the indeterminate bar",
+              "name": "--wcs-indeterminate-bar-background-color"
+            },
+            {
+              "description": "Duration of the transition",
+              "name": "--wcs-checkbox-transition-duration"
             }
           ],
           "members": [
@@ -2975,7 +3013,7 @@
                 "text": "boolean"
               },
               "default": "false",
-              "description": "Specify wether the checkbox is disabled or not."
+              "description": "Specify whether the checkbox is disabled or not."
             },
             {
               "kind": "method",
@@ -3000,12 +3038,40 @@
               "name": "handleChange",
               "parameters": [
                 {
-                  "name": "_event",
+                  "name": "e",
                   "type": {
                     "text": "Event"
                   }
                 }
               ]
+            },
+            {
+              "kind": "method",
+              "name": "handleHostClick",
+              "parameters": [
+                {
+                  "name": "e",
+                  "type": {
+                    "text": "Event"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleInputClick",
+              "parameters": [
+                {
+                  "name": "ev",
+                  "type": {
+                    "text": "PointerEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "toggleCheckboxState"
             },
             {
               "kind": "method",
@@ -3253,28 +3319,20 @@
               "name": "--wcs-com-nav-focus-outline-color"
             },
             {
-              "description": "Padding horizontal of wcs-com-nav",
+              "description": "Horizontal padding of wcs-com-nav",
               "name": "--wcs-com-nav-horizontal-padding"
+            },
+            {
+              "description": "Vertical padding of wcs-com-nav",
+              "name": "--wcs-com-nav-vertical-padding"
             },
             {
               "description": "Gap between each items section in mobile overlay",
               "name": "--wcs-com-nav-mobile-overlay-gap"
             },
             {
-              "description": "Padding top inside mobile overlay",
-              "name": "--wcs-com-nav-mobile-overlay-padding-top"
-            },
-            {
-              "description": "Padding bottom inside mobile overlay",
-              "name": "--wcs-com-nav-mobile-overlay-padding-bottom"
-            },
-            {
-              "description": "Padding left inside mobile overlay",
-              "name": "--wcs-com-nav-mobile-overlay-padding-left"
-            },
-            {
-              "description": "Padding right inside mobile overlay",
-              "name": "--wcs-com-nav-mobile-overlay-padding-right"
+              "description": "Padding inside mobile overlay",
+              "name": "--wcs-com-nav-mobile-overlay-padding"
             },
             {
               "description": "Bar border color on the left of icon mobile menu",
@@ -4245,8 +4303,8 @@
           "name": "Counter",
           "cssProperties": [
             {
-              "description": "Color of the focus outline",
-              "name": "--wcs-counter-outline-color-focus"
+              "description": "Border radius of the counter",
+              "name": "--wcs-counter-border-radius"
             },
             {
               "description": "Default color of the value",
@@ -4257,20 +4315,8 @@
               "name": "--wcs-counter-value-color-disabled"
             },
             {
-              "description": "Default font weight of the value",
-              "name": "--wcs-counter-font-weight-default"
-            },
-            {
-              "description": "Font weight of the value when the counter is disabled",
-              "name": "--wcs-counter-font-weight-disabled"
-            },
-            {
-              "description": "Background color of the counter",
-              "name": "--wcs-counter-background-color"
-            },
-            {
-              "description": "Border radius of the counter",
-              "name": "--wcs-counter-border-radius"
+              "description": "Font weight of the value",
+              "name": "--wcs-counter-font-weight"
             },
             {
               "description": "Height medium of the counter",
@@ -4281,14 +4327,6 @@
               "name": "--wcs-counter-height-l"
             },
             {
-              "description": "Padding medium of the counter",
-              "name": "--wcs-counter-padding-m"
-            },
-            {
-              "description": "Padding large of the counter",
-              "name": "--wcs-counter-padding-l"
-            },
-            {
               "description": "Font size medium of the counter",
               "name": "--wcs-counter-font-size-m"
             },
@@ -4297,8 +4335,36 @@
               "name": "--wcs-counter-font-size-l"
             },
             {
+              "description": "Padding medium of the counter",
+              "name": "--wcs-counter-padding-m"
+            },
+            {
+              "description": "Padding large of the counter",
+              "name": "--wcs-counter-padding-l"
+            },
+            {
+              "description": "Background color of the counter",
+              "name": "--wcs-counter-background-color"
+            },
+            {
               "description": "Gap between the buttons and the label",
               "name": "--wcs-counter-gap"
+            },
+            {
+              "description": "Gap between the buttons and the label when the size is M",
+              "name": "--wcs-counter-gap-size-m"
+            },
+            {
+              "description": "Gap between the buttons and the label when the size is L",
+              "name": "--wcs-counter-gap-size-l"
+            },
+            {
+              "description": "Color of the focus outline",
+              "name": "--wcs-counter-outline-color-focus"
+            },
+            {
+              "description": "Duration of the animation",
+              "name": "--wcs-counter-transition-duration"
             }
           ],
           "members": [
@@ -4726,36 +4792,12 @@
               "name": "--wcs-dropdown-arrow-color-disabled"
             },
             {
-              "description": "Horizontal padding of the dropdown button when size is small",
-              "name": "--wcs-dropdown-padding-horizontal-size-s"
-            },
-            {
-              "description": "Horizontal padding of the dropdown button when size is medium",
-              "name": "--wcs-dropdown-padding-horizontal-size-m"
-            },
-            {
-              "description": "Horizontal padding of the dropdown button when size is large",
-              "name": "--wcs-dropdown-padding-horizontal-size-l"
-            },
-            {
-              "description": "Vertical padding of the dropdown button when size is small",
-              "name": "--wcs-dropdown-padding-vertical-size-s"
-            },
-            {
-              "description": "Vertical padding of the dropdown button when size is medium",
-              "name": "--wcs-dropdown-padding-vertical-size-m"
-            },
-            {
-              "description": "Vertical padding of the dropdown button when size is large",
-              "name": "--wcs-dropdown-padding-vertical-size-l"
-            },
-            {
               "description": "Padding of and empty dropdown",
               "name": "--wcs-dropdown-padding-empty"
             },
             {
               "description": "Defines the vertical padding inside the dropdown overlay",
-              "name": "--wcs-dropdown-overlay-padding-vertical"
+              "name": "--wcs-dropdown-overlay-padding"
             },
             {
               "description": "Specifies the maximum height of the dropdown overlay",
@@ -5162,11 +5204,11 @@
           "name": "DropdownDivider",
           "cssProperties": [
             {
-              "description": "base spacing for margins",
-              "name": "--wcs-dropdown-divider-spacing"
+              "description": "Margin of the divider",
+              "name": "--wcs-dropdown-divider-margin"
             },
             {
-              "description": "divider color",
+              "description": "Color of the divider",
               "name": "--wcs-dropdown-divider-color"
             }
           ],
@@ -5210,19 +5252,23 @@
           "name": "DropdownHeader",
           "cssProperties": [
             {
-              "description": "Dropdown header text color",
+              "description": "Text color of the header",
               "name": "--wcs-dropdown-header-color"
             },
             {
-              "description": "Dropdown header base spacing (1x for top and bottom, 2x for left and right)",
-              "name": "--wcs-dropdown-header-spacing"
+              "description": "Vertical padding of the header",
+              "name": "--wcs-dropdown-header-padding-vertical"
             },
             {
-              "description": "Dropdown header font size",
+              "description": "Horizontal padding of the header",
+              "name": "--wcs-dropdown-header-padding-horizontal"
+            },
+            {
+              "description": "Font size of the header",
               "name": "--wcs-dropdown-header-font-size"
             },
             {
-              "description": "Dropdown header font weight",
+              "description": "Font weight of the header",
               "name": "--wcs-dropdown-header-font-weight"
             }
           ],
@@ -5292,24 +5338,24 @@
               "name": "--wcs-dropdown-item-text-color-default"
             },
             {
-              "description": "Text color of the dropdown item when focused",
-              "name": "--wcs-dropdown-item-text-color-focus"
-            },
-            {
               "description": "Text color of the dropdown item when hovered",
               "name": "--wcs-dropdown-item-text-color-hover"
+            },
+            {
+              "description": "Text color of the dropdown item when pressed",
+              "name": "--wcs-dropdown-item-text-color-press"
             },
             {
               "description": "Default background color of the dropdown item",
               "name": "--wcs-dropdown-item-background-color-default"
             },
             {
-              "description": "Background color of the dropdown item when focused",
-              "name": "--wcs-dropdown-item-background-color-focus"
-            },
-            {
               "description": "Background color of the dropdown item when hovered",
               "name": "--wcs-dropdown-item-background-color-hover"
+            },
+            {
+              "description": "Background color of the dropdown item when pressed",
+              "name": "--wcs-dropdown-item-background-color-press"
             },
             {
               "description": "Border width of the dropdown item when focused",
@@ -5320,8 +5366,12 @@
               "name": "--wcs-dropdown-item-border-color-focus"
             },
             {
-              "description": "Border radius of the dropdown item when focused",
-              "name": "--wcs-dropdown-item-border-radius-focus"
+              "description": "Border radius of the dropdown item",
+              "name": "--wcs-dropdown-item-border-radius"
+            },
+            {
+              "description": "Transition duration of the dropdown item",
+              "name": "--wcs-dropdown-item-transition-duration"
             }
           ],
           "slots": [
@@ -5333,7 +5383,7 @@
           "members": [
             {
               "kind": "method",
-              "name": "onMouseDown",
+              "name": "onMouseUp",
               "return": {
                 "type": {
                   "text": "void"
@@ -5529,32 +5579,32 @@
               "name": "--wcs-editable-field-border-width-hover"
             },
             {
-              "description": "Border color of the editable field on hover",
-              "name": "--wcs-editable-field-border-color-hover"
-            },
-            {
               "description": "Default border color of the editable field",
               "name": "--wcs-editable-field-border-color-default"
+            },
+            {
+              "description": "Border color of the editable field on hover",
+              "name": "--wcs-editable-field-border-color-hover"
             },
             {
               "description": "Border style of the editable field",
               "name": "--wcs-editable-field-border-style"
             },
             {
-              "description": "Horizontal padding of the editable field in medium size",
-              "name": "--wcs-editable-field-padding-horizontal-m"
-            },
-            {
               "description": "Vertical padding of the editable field in medium size",
               "name": "--wcs-editable-field-padding-vertical-m"
             },
             {
-              "description": "Horizontal padding of the editable field in large size",
-              "name": "--wcs-editable-field-padding-horizontal-l"
-            },
-            {
               "description": "Vertical padding of the editable field in large size",
               "name": "--wcs-editable-field-padding-vertical-l"
+            },
+            {
+              "description": "Horizontal padding of the editable field in medium size",
+              "name": "--wcs-editable-field-padding-horizontal-m"
+            },
+            {
+              "description": "Horizontal padding of the editable field in large size",
+              "name": "--wcs-editable-field-padding-horizontal-l"
             },
             {
               "description": "Color of the icon when the field is readonly",
@@ -6060,6 +6110,24 @@
           "kind": "class",
           "description": "The field-content is a subcomponent of `wcs-field`. It represents the text content of the field.",
           "name": "FieldContent",
+          "cssProperties": [
+            {
+              "description": "Color of the content",
+              "name": "--wcs-field-content-color"
+            },
+            {
+              "description": "Font weight of the content",
+              "name": "--wcs-field-content-font-weight"
+            },
+            {
+              "description": "Font size of the content",
+              "name": "--wcs-field-content-font-size"
+            },
+            {
+              "description": "Line height of the content",
+              "name": "--wcs-field-content-line-height"
+            }
+          ],
           "members": [
             {
               "kind": "method",
@@ -6098,6 +6166,24 @@
           "kind": "class",
           "description": "The field-label is a subcomponent of `wcs-field`. It represents the label or title of the field.",
           "name": "FieldLabel",
+          "cssProperties": [
+            {
+              "description": "Color of the label",
+              "name": "--wcs-field-label-color"
+            },
+            {
+              "description": "Font weight of the label",
+              "name": "--wcs-field-label-font-weight"
+            },
+            {
+              "description": "Font size of the label",
+              "name": "--wcs-field-label-font-size"
+            },
+            {
+              "description": "Line height of the label",
+              "name": "--wcs-field-label-line-height"
+            }
+          ],
           "members": [
             {
               "kind": "method",
@@ -6835,1022 +6921,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/grid-column/grid-column.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The grid column is a subcomponent of `wcs-grid` that represents a column of the table.",
-          "name": "GridColumn",
-          "cssProperties": [
-            {
-              "description": "Background color of the header cell",
-              "name": "--wcs-grid-header-background-color"
-            },
-            {
-              "description": "Text color of the header cell",
-              "name": "--wcs-grid-header-text-color"
-            },
-            {
-              "description": "Font weight of the header cellJ",
-              "name": "--wcs-grid-header-font-weight"
-            },
-            {
-              "description": "Font size of the header cell",
-              "name": "--wcs-grid-header-font-size"
-            },
-            {
-              "description": "Line height of the header cell",
-              "name": "--wcs-grid-header-line-height"
-            },
-            {
-              "description": "Border radius of the header cell",
-              "name": "--wcs-grid-header-border-radius"
-            },
-            {
-              "description": "Bottom border of the header cell",
-              "name": "--wcs-grid-header-border-bottom"
-            },
-            {
-              "description": "Border separator between column names",
-              "name": "--wcs-grid-column-border-left"
-            },
-            {
-              "description": "Color of the sort arrow in the header",
-              "name": "--wcs-grid-header-sort-arrow-color-default"
-            },
-            {
-              "description": "Color of the sort arrow in the header when active",
-              "name": "--wcs-grid-header-sort-arrow-color-active"
-            }
-          ],
-          "cssParts": [
-            {
-              "description": "CSS part for each column for styling. e.g: first_name-column, email-column",
-              "name": "[path]-column"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsGridColumnElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "nativeTh",
-              "type": {
-                "text": "HTMLTableHeaderCellElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "buttonOrDiv",
-              "type": {
-                "text": "HTMLButtonElement | HTMLDivElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "path",
-              "type": {
-                "text": "string"
-              },
-              "description": "Represents the name of the field from the `data` object (e.g: first_name, last_name, email, ...)"
-            },
-            {
-              "kind": "field",
-              "name": "name",
-              "type": {
-                "text": "string"
-              },
-              "description": "The name of the column displayed on the table (e.g: First Name, Last Name, Email, ...)"
-            },
-            {
-              "kind": "field",
-              "name": "sort",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Make the column sortable."
-            },
-            {
-              "kind": "field",
-              "name": "sortFn",
-              "type": {
-                "text": "WcsSortFn"
-              },
-              "description": "Customizable sort function to change the comparison of values."
-            },
-            {
-              "kind": "field",
-              "name": "formatter",
-              "type": {
-                "text": "WcsCellFormatter"
-              },
-              "description": "Customizable formatter function to render the cell differently."
-            },
-            {
-              "kind": "field",
-              "name": "sortOrder",
-              "type": {
-                "text": "WcsSortOrder"
-              },
-              "default": "'none'",
-              "description": "Defines if the column sort is ascending or descending.  \r\n`none` = the column is not sorted."
-            },
-            {
-              "kind": "field",
-              "name": "width",
-              "type": {
-                "text": "string"
-              },
-              "description": "Set the column `<th>` element width."
-            },
-            {
-              "kind": "field",
-              "name": "customCells",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Set to true if using a `wcs-custom-cell` linked to it."
-            },
-            {
-              "kind": "field",
-              "name": "hidden",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Flag to hide the column."
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "parseMyObjectProp",
-              "parameters": [
-                {
-                  "name": "newValue",
-                  "type": {
-                    "text": "boolean"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "sortOrderChange",
-              "parameters": [
-                {
-                  "name": "_",
-                  "type": {
-                    "text": "WcsSortOrder"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "emitSortConfig"
-            },
-            {
-              "kind": "method",
-              "name": "getSortOrderForAriaSort",
-              "parameters": [
-                {
-                  "name": "sortOrder",
-                  "type": {
-                    "text": "WcsSortOrder"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "getTabIndex",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "getTagName",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "delegateFocusToButton",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "onSortClick",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleSortKeyDown",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "_event",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  }
-                }
-              ]
-            }
-          ],
-          "attributes": [
-            {
-              "name": "path",
-              "fieldName": "path",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "name",
-              "fieldName": "name",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "sort",
-              "fieldName": "sort",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "sort-fn",
-              "fieldName": "sortFn",
-              "type": {
-                "text": "WcsSortFn"
-              }
-            },
-            {
-              "name": "formatter",
-              "fieldName": "formatter",
-              "type": {
-                "text": "WcsCellFormatter"
-              }
-            },
-            {
-              "name": "sort-order",
-              "fieldName": "sortOrder",
-              "type": {
-                "text": "WcsSortOrder"
-              }
-            },
-            {
-              "name": "width",
-              "fieldName": "width",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "custom-cells",
-              "fieldName": "customCells",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "hidden",
-              "fieldName": "hidden",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "cursor-position",
-              "fieldName": "cursorPosition",
-              "type": {
-                "text": "{col: number, row: number}"
-              }
-            },
-            {
-              "name": "column-position",
-              "fieldName": "columnPosition",
-              "type": {
-                "text": "number"
-              }
-            }
-          ],
-          "tagName": "wcs-grid-column",
-          "events": [
-            {
-              "name": "wcsSortChange",
-              "type": {
-                "text": "EventEmitter<WcsGridColumnSortChangeEventDetails>"
-              },
-              "description": "Event emitted when the sort of the column is changed."
-            },
-            {
-              "name": "wcsHiddenChange",
-              "type": {
-                "text": "EventEmitter<boolean>"
-              },
-              "description": "Event emitted if the column is dynamically switching visibility."
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "GridColumn",
-          "declaration": {
-            "name": "GridColumn",
-            "module": "components/grid-column/grid-column.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-grid-column",
-          "declaration": {
-            "name": "GridColumn",
-            "module": "components/grid-column/grid-column.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/grid-column/grid-sort-arrow.tsx",
-      "declarations": [
-        {
-          "kind": "function",
-          "name": "GridSortArrow",
-          "parameters": [
-            {
-              "name": "{ state }"
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "GridSortArrow",
-          "declaration": {
-            "name": "GridSortArrow",
-            "module": "components/grid-column/grid-sort-arrow.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/grid-custom-cell/grid-custom-cell.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The grid custom cell is a subcomponent of `wcs-grid`.",
-          "name": "GridCustomCell",
-          "members": [
-            {
-              "kind": "field",
-              "name": "columnId",
-              "type": {
-                "text": "string"
-              },
-              "description": "ID of the column for which to render the cell"
-            },
-            {
-              "kind": "field",
-              "name": "rowId",
-              "type": {
-                "text": "any"
-              },
-              "description": "Key value of the object rendered for the cell's row"
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "column-id",
-              "fieldName": "columnId",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "row-id",
-              "fieldName": "rowId",
-              "type": {
-                "text": "any"
-              }
-            }
-          ],
-          "tagName": "wcs-grid-custom-cell",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "GridCustomCell",
-          "declaration": {
-            "name": "GridCustomCell",
-            "module": "components/grid-custom-cell/grid-custom-cell.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-grid-custom-cell",
-          "declaration": {
-            "name": "GridCustomCell",
-            "module": "components/grid-custom-cell/grid-custom-cell.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/grid-pagination/grid-pagination-arrow.tsx",
-      "declarations": [
-        {
-          "kind": "function",
-          "name": "GridPaginationArrow",
-          "parameters": [
-            {
-              "name": "{active, order, double = false}"
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "GridPaginationArrow",
-          "declaration": {
-            "name": "GridPaginationArrow",
-            "module": "components/grid-pagination/grid-pagination-arrow.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/grid-pagination/grid-pagination.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The grid pagination is a subcomponent of `wcs-grid`, slotted in `grid-pagination` under the `<table>` element.",
-          "name": "GridPagination",
-          "cssProperties": [
-            {
-              "description": "Text color of the grid pagination",
-              "name": "--wcs-grid-pagination-color"
-            },
-            {
-              "description": "Border color of the grid pagination",
-              "name": "--wcs-grid-pagination-border-color"
-            },
-            {
-              "description": "Gap between the current page and the total page count",
-              "name": "--wcs-grid-pagination-counter-gap"
-            },
-            {
-              "description": "Margin between the grid and the pagination",
-              "name": "--wcs-grid-pagination-margin-top"
-            },
-            {
-              "description": "Color of the inactive arrow",
-              "name": "--wcs-grid-pagination-arrow-color-inactive"
-            },
-            {
-              "description": "Color of the active arrow",
-              "name": "--wcs-grid-pagination-arrow-color-active"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "nativeNav",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "INDEX_FIRST_PAGE",
-              "type": {
-                "text": "number"
-              },
-              "static": true,
-              "readonly": true,
-              "default": "0"
-            },
-            {
-              "kind": "field",
-              "name": "availablePageSizes",
-              "type": {
-                "text": "number[]"
-              },
-              "default": "[10, 20, 50]",
-              "description": "Set the available page sizes in the pagination dropdown on the left."
-            },
-            {
-              "kind": "field",
-              "name": "currentPage",
-              "type": {
-                "text": "number"
-              },
-              "description": "The current page of the pagination. First page starts at index 0."
-            },
-            {
-              "kind": "field",
-              "name": "pageSize",
-              "type": {
-                "text": "number"
-              },
-              "default": "this.availablePageSizes[0]",
-              "description": "Maximum number of elements shown per page.  \r\nDefault is the first value of `availablePageSizes`."
-            },
-            {
-              "kind": "field",
-              "name": "itemsCount",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "Total elements in the grid.  \r\n- **Grid in `Server mode`** : You have to set `itemsCount` = your total data length.  \r\n- **Grid not in Server mode** : Do not set it manually : itemsCount is set and updated every pagination refresh."
-            },
-            {
-              "kind": "field",
-              "name": "pageCount",
-              "type": {
-                "text": "number"
-              },
-              "default": "1",
-              "description": "Max number of pages.  \r\n- **Grid in `Server mode`** : You have to set `pageCount` = `itemsCount` divided by `pageSize`.  \r\n- **Grid not in Server mode** : Do not set it manually : pageCount is set and updated every pagination refresh."
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "lastPage",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "nextPage",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "canGoToNextPage",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "boolean"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "previousPage",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "canGoToPreviousPage",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "boolean"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "firstPage",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "onChangePagesize",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "CustomEvent<SelectChangeEventDetail>"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "emitPaginationChange",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "available-page-sizes",
-              "fieldName": "availablePageSizes",
-              "type": {
-                "text": "number[]"
-              }
-            },
-            {
-              "name": "current-page",
-              "fieldName": "currentPage",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "page-size",
-              "fieldName": "pageSize",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "items-count",
-              "fieldName": "itemsCount",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "page-count",
-              "fieldName": "pageCount",
-              "type": {
-                "text": "number"
-              }
-            }
-          ],
-          "tagName": "wcs-grid-pagination",
-          "events": [
-            {
-              "name": "wcsGridPaginationChange",
-              "type": {
-                "text": "EventEmitter<WcsGridPaginationChangeEventDetails>"
-              },
-              "description": "Event emitted when the pagination changes."
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "GridPagination",
-          "declaration": {
-            "name": "GridPagination",
-            "module": "components/grid-pagination/grid-pagination.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-grid-pagination",
-          "declaration": {
-            "name": "GridPagination",
-            "module": "components/grid-pagination/grid-pagination.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/header/header.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The header component is an element that appears across the top of all pages on a website or application; it contains the logo, the site name and main actions.",
-          "name": "Header",
-          "cssProperties": [
-            {
-              "description": "Background color of the header",
-              "name": "--wcs-header-background-color"
-            },
-            {
-              "description": "Gap between elements in the header",
-              "name": "--wcs-header-gap"
-            },
-            {
-              "description": "Height of the header",
-              "name": "--wcs-header-height"
-            },
-            {
-              "description": "Height of the logo",
-              "name": "--wcs-header-logo-height"
-            },
-            {
-              "description": "Horizontal padding of the header",
-              "name": "--wcs-header-padding-horizontal"
-            },
-            {
-              "description": "Color of the title",
-              "name": "--wcs-header-title-color"
-            },
-            {
-              "description": "Font weight of the title",
-              "name": "--wcs-header-title-font-weight"
-            },
-            {
-              "description": "Font size of the title",
-              "name": "--wcs-header-title-font-size"
-            }
-          ],
-          "slots": [
-            {
-              "description": "SNCF Logo",
-              "name": "logo"
-            },
-            {
-              "description": "Title of your application",
-              "name": "title"
-            },
-            {
-              "description": "Actions such as buttons, dropdown or any useful information to always display on your application",
-              "name": "actions"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "nativeHeader",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "hostData"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-header",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Header",
-          "declaration": {
-            "name": "Header",
-            "module": "components/header/header.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-header",
-          "declaration": {
-            "name": "Header",
-            "module": "components/header/header.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/hint/hint.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The `wcs-hint` should always be wrapped in a `wcs-form-field`.\r\nIt is used to display an informative message under the field indicating an incorrect user input.\r\n\r\n## Accessibility guidelines 💡\r\n- Provide a relevant hint message to inform the users about the format, how the data should be filled in, or what is the purpose of the field\r\n- `aria-description` will be automatically added to the field for screen readers",
-          "name": "Hint",
-          "cssProperties": [
-            {
-              "description": "Color of the text",
-              "name": "--wcs-hint-color"
-            },
-            {
-              "description": "Font weight of the text",
-              "name": "--wcs-hint-font-weight"
-            },
-            {
-              "description": "Font size default of the text",
-              "name": "--wcs-hint-font-size-default"
-            },
-            {
-              "description": "Font size small of the text",
-              "name": "--wcs-hint-font-size-small"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "small",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Whether the component should display the small version of the hint"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "small",
-              "fieldName": "small",
-              "type": {
-                "text": "boolean"
-              }
-            }
-          ],
-          "tagName": "wcs-hint",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Hint",
-          "declaration": {
-            "name": "Hint",
-            "module": "components/hint/hint.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-hint",
-          "declaration": {
-            "name": "Hint",
-            "module": "components/hint/hint.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/grid/grid-interface.ts",
       "declarations": [
         {
@@ -8014,51 +7084,79 @@
               "name": "--wcs-grid-row-even-background-color"
             },
             {
-              "description": "Width of the selection column",
-              "name": "--wcs-grid-column-selection-width"
+              "description": "Default background color of the header",
+              "name": "--wcs-grid-header-background-color-default"
             },
             {
-              "description": "Left border of all grid headers (within `<thead>`)",
-              "name": "--wcs-grid-header-border-left"
+              "description": "Background color of the header on hover",
+              "name": "--wcs-grid-header-background-color-hover"
             },
             {
-              "description": "Bottom border of the `<thead>`",
-              "name": "--wcs-grid-header-border-bottom"
+              "description": "Background color of the header on press",
+              "name": "--wcs-grid-header-background-color-press"
             },
             {
-              "description": "Background color of all headers",
-              "name": "--wcs-grid-header-background-color"
-            },
-            {
-              "description": "Text color of all headers",
+              "description": "Text color of the header",
               "name": "--wcs-grid-header-text-color"
             },
             {
-              "description": "Font weight of all headers",
+              "description": "Font weight of the header",
               "name": "--wcs-grid-header-font-weight"
             },
             {
-              "description": "Font size of all headers",
+              "description": "Font size of the header",
               "name": "--wcs-grid-header-font-size"
             },
             {
-              "description": "Line height of all headers",
+              "description": "Line height of the header",
               "name": "--wcs-grid-header-line-height"
             },
             {
-              "description": "Border radius of all headers",
+              "description": "Vertical padding of the header",
+              "name": "--wcs-grid-header-padding-vertical"
+            },
+            {
+              "description": "Horizontal padding of the header",
+              "name": "--wcs-grid-header-padding-horizontal"
+            },
+            {
+              "description": "Left border between header cells (default is none",
+              "name": "--wcs-grid-header-border-left"
+            },
+            {
+              "description": "Border radius of the header",
               "name": "--wcs-grid-header-border-radius"
             },
             {
-              "description": "Bottom border of all headers",
+              "description": "Bottom border of the header",
               "name": "--wcs-grid-header-border-bottom"
+            },
+            {
+              "description": "Transition duration of the header",
+              "name": "--wcs-grid-header-transition-duration"
+            },
+            {
+              "description": "Background color of the first header cell",
+              "name": "--wcs-grid-first-header-background-color"
+            },
+            {
+              "description": "Border radius of the first header cell",
+              "name": "--wcs-grid-first-header-border-radius"
+            },
+            {
+              "description": "Border radius of the last header cell",
+              "name": "--wcs-grid-last-header-border-radius"
+            },
+            {
+              "description": "Width of the selection column (when selectionConfig is defined)",
+              "name": "--wcs-grid-column-selection-width"
             },
             {
               "description": "Color of the sort arrow in the header",
               "name": "--wcs-grid-header-sort-arrow-color-default"
             },
             {
-              "description": "Color of the sort arrow in the header when active",
+              "description": "Color of the sort arrow in the header when active (sorted)",
               "name": "--wcs-grid-header-sort-arrow-color-active"
             }
           ],
@@ -8854,6 +7952,992 @@
           "declaration": {
             "name": "Grid",
             "module": "components/grid/grid.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/grid-column/grid-column.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The grid column is a subcomponent of `wcs-grid` that represents a column of the table.",
+          "name": "GridColumn",
+          "cssParts": [
+            {
+              "description": "CSS part for each column for styling. e.g: first_name-column, email-column",
+              "name": "[path]-column"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsGridColumnElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeTh",
+              "type": {
+                "text": "HTMLTableHeaderCellElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "buttonOrDiv",
+              "type": {
+                "text": "HTMLButtonElement | HTMLDivElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "path",
+              "type": {
+                "text": "string"
+              },
+              "description": "Represents the name of the field from the `data` object (e.g: first_name, last_name, email, ...)"
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "description": "The name of the column displayed on the table (e.g: First Name, Last Name, Email, ...)"
+            },
+            {
+              "kind": "field",
+              "name": "sort",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Make the column sortable."
+            },
+            {
+              "kind": "field",
+              "name": "sortFn",
+              "type": {
+                "text": "WcsSortFn"
+              },
+              "description": "Customizable sort function to change the comparison of values."
+            },
+            {
+              "kind": "field",
+              "name": "formatter",
+              "type": {
+                "text": "WcsCellFormatter"
+              },
+              "description": "Customizable formatter function to render the cell differently."
+            },
+            {
+              "kind": "field",
+              "name": "sortOrder",
+              "type": {
+                "text": "WcsSortOrder"
+              },
+              "default": "'none'",
+              "description": "Defines if the column sort is ascending or descending.  \r\n`none` = the column is not sorted."
+            },
+            {
+              "kind": "field",
+              "name": "width",
+              "type": {
+                "text": "string"
+              },
+              "description": "Set the column `<th>` element width."
+            },
+            {
+              "kind": "field",
+              "name": "customCells",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Set to true if using a `wcs-custom-cell` linked to it."
+            },
+            {
+              "kind": "field",
+              "name": "hidden",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Flag to hide the column."
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "parseMyObjectProp",
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "boolean"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "sortOrderChange",
+              "parameters": [
+                {
+                  "name": "_",
+                  "type": {
+                    "text": "WcsSortOrder"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "emitSortConfig"
+            },
+            {
+              "kind": "method",
+              "name": "getSortOrderForAriaSort",
+              "parameters": [
+                {
+                  "name": "sortOrder",
+                  "type": {
+                    "text": "WcsSortOrder"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "getTabIndex",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "getTagName",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "delegateFocusToButton",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "onSortClick",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleSortKeyDown",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "_event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
+            }
+          ],
+          "attributes": [
+            {
+              "name": "path",
+              "fieldName": "path",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "name",
+              "fieldName": "name",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "sort",
+              "fieldName": "sort",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "sort-fn",
+              "fieldName": "sortFn",
+              "type": {
+                "text": "WcsSortFn"
+              }
+            },
+            {
+              "name": "formatter",
+              "fieldName": "formatter",
+              "type": {
+                "text": "WcsCellFormatter"
+              }
+            },
+            {
+              "name": "sort-order",
+              "fieldName": "sortOrder",
+              "type": {
+                "text": "WcsSortOrder"
+              }
+            },
+            {
+              "name": "width",
+              "fieldName": "width",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "custom-cells",
+              "fieldName": "customCells",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "hidden",
+              "fieldName": "hidden",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "cursor-position",
+              "fieldName": "cursorPosition",
+              "type": {
+                "text": "{col: number, row: number}"
+              }
+            },
+            {
+              "name": "column-position",
+              "fieldName": "columnPosition",
+              "type": {
+                "text": "number"
+              }
+            }
+          ],
+          "tagName": "wcs-grid-column",
+          "events": [
+            {
+              "name": "wcsSortChange",
+              "type": {
+                "text": "EventEmitter<WcsGridColumnSortChangeEventDetails>"
+              },
+              "description": "Event emitted when the sort of the column is changed."
+            },
+            {
+              "name": "wcsHiddenChange",
+              "type": {
+                "text": "EventEmitter<boolean>"
+              },
+              "description": "Event emitted if the column is dynamically switching visibility."
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "GridColumn",
+          "declaration": {
+            "name": "GridColumn",
+            "module": "components/grid-column/grid-column.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-grid-column",
+          "declaration": {
+            "name": "GridColumn",
+            "module": "components/grid-column/grid-column.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/grid-column/grid-sort-arrow.tsx",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "GridSortArrow",
+          "parameters": [
+            {
+              "name": "{ state }"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "GridSortArrow",
+          "declaration": {
+            "name": "GridSortArrow",
+            "module": "components/grid-column/grid-sort-arrow.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/grid-custom-cell/grid-custom-cell.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The grid custom cell is a subcomponent of `wcs-grid`.",
+          "name": "GridCustomCell",
+          "members": [
+            {
+              "kind": "field",
+              "name": "columnId",
+              "type": {
+                "text": "string"
+              },
+              "description": "ID of the column for which to render the cell"
+            },
+            {
+              "kind": "field",
+              "name": "rowId",
+              "type": {
+                "text": "any"
+              },
+              "description": "Key value of the object rendered for the cell's row"
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "column-id",
+              "fieldName": "columnId",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "row-id",
+              "fieldName": "rowId",
+              "type": {
+                "text": "any"
+              }
+            }
+          ],
+          "tagName": "wcs-grid-custom-cell",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "GridCustomCell",
+          "declaration": {
+            "name": "GridCustomCell",
+            "module": "components/grid-custom-cell/grid-custom-cell.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-grid-custom-cell",
+          "declaration": {
+            "name": "GridCustomCell",
+            "module": "components/grid-custom-cell/grid-custom-cell.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/grid-pagination/grid-pagination-arrow.tsx",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "GridPaginationArrow",
+          "parameters": [
+            {
+              "name": "{active, order, double = false}"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "GridPaginationArrow",
+          "declaration": {
+            "name": "GridPaginationArrow",
+            "module": "components/grid-pagination/grid-pagination-arrow.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/grid-pagination/grid-pagination.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The grid pagination is a subcomponent of `wcs-grid`, slotted in `grid-pagination` under the `<table>` element.",
+          "name": "GridPagination",
+          "cssProperties": [
+            {
+              "description": "Text color of the grid pagination",
+              "name": "--wcs-grid-pagination-color"
+            },
+            {
+              "description": "Font-size of the grid pagination",
+              "name": "--wcs-grid-pagination-font-size"
+            },
+            {
+              "description": "Font-weight of the grid pagination",
+              "name": "--wcs-grid-pagination-font-weight"
+            },
+            {
+              "description": "Gap between the page size, number of elements and page management",
+              "name": "--wcs-grid-pagination-gap"
+            },
+            {
+              "description": "Gap between the select and the text within the page size container",
+              "name": "--wcs-grid-pagination-page-size-gap"
+            },
+            {
+              "description": "Gap within the page management counter",
+              "name": "--wcs-grid-pagination-counter-gap"
+            },
+            {
+              "description": "Margin between the grid and the pagination",
+              "name": "--wcs-grid-pagination-margin-top"
+            },
+            {
+              "description": "Color of the inactive arrow",
+              "name": "--wcs-grid-pagination-arrow-color-inactive"
+            },
+            {
+              "description": "Color of the active arrow",
+              "name": "--wcs-grid-pagination-arrow-color-active"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeNav",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "INDEX_FIRST_PAGE",
+              "type": {
+                "text": "number"
+              },
+              "static": true,
+              "readonly": true,
+              "default": "0"
+            },
+            {
+              "kind": "field",
+              "name": "availablePageSizes",
+              "type": {
+                "text": "number[]"
+              },
+              "default": "[10, 20, 50]",
+              "description": "Set the available page sizes in the pagination dropdown on the left."
+            },
+            {
+              "kind": "field",
+              "name": "currentPage",
+              "type": {
+                "text": "number"
+              },
+              "description": "The current page of the pagination. First page starts at index 0."
+            },
+            {
+              "kind": "field",
+              "name": "pageSize",
+              "type": {
+                "text": "number"
+              },
+              "default": "this.availablePageSizes[0]",
+              "description": "Maximum number of elements shown per page.  \r\nDefault is the first value of `availablePageSizes`."
+            },
+            {
+              "kind": "field",
+              "name": "itemsCount",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "Total elements in the grid.  \r\n- **Grid in `Server mode`** : You have to set `itemsCount` = your total data length.  \r\n- **Grid not in Server mode** : Do not set it manually : itemsCount is set and updated every pagination refresh."
+            },
+            {
+              "kind": "field",
+              "name": "pageCount",
+              "type": {
+                "text": "number"
+              },
+              "default": "1",
+              "description": "Max number of pages.  \r\n- **Grid in `Server mode`** : You have to set `pageCount` = `itemsCount` divided by `pageSize`.  \r\n- **Grid not in Server mode** : Do not set it manually : pageCount is set and updated every pagination refresh."
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "lastPage",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "nextPage",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "canGoToNextPage",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "previousPage",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "canGoToPreviousPage",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "firstPage",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "onChangePagesize",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "CustomEvent<SelectChangeEventDetail>"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "emitPaginationChange",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "available-page-sizes",
+              "fieldName": "availablePageSizes",
+              "type": {
+                "text": "number[]"
+              }
+            },
+            {
+              "name": "current-page",
+              "fieldName": "currentPage",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "page-size",
+              "fieldName": "pageSize",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "items-count",
+              "fieldName": "itemsCount",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "page-count",
+              "fieldName": "pageCount",
+              "type": {
+                "text": "number"
+              }
+            }
+          ],
+          "tagName": "wcs-grid-pagination",
+          "events": [
+            {
+              "name": "wcsGridPaginationChange",
+              "type": {
+                "text": "EventEmitter<WcsGridPaginationChangeEventDetails>"
+              },
+              "description": "Event emitted when the pagination changes."
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "GridPagination",
+          "declaration": {
+            "name": "GridPagination",
+            "module": "components/grid-pagination/grid-pagination.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-grid-pagination",
+          "declaration": {
+            "name": "GridPagination",
+            "module": "components/grid-pagination/grid-pagination.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/header/header.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The header component is an element that appears across the top of all pages on a website or application; it contains the logo, the site name and main actions.",
+          "name": "Header",
+          "cssProperties": [
+            {
+              "description": "Background color of the header",
+              "name": "--wcs-header-background-color"
+            },
+            {
+              "description": "Gap between elements in the header",
+              "name": "--wcs-header-gap"
+            },
+            {
+              "description": "Height of the header",
+              "name": "--wcs-header-height"
+            },
+            {
+              "description": "Height of the logo",
+              "name": "--wcs-header-logo-height"
+            },
+            {
+              "description": "Horizontal padding of the header",
+              "name": "--wcs-header-padding-horizontal"
+            },
+            {
+              "description": "Color of the title",
+              "name": "--wcs-header-title-color"
+            },
+            {
+              "description": "Font weight of the title",
+              "name": "--wcs-header-title-font-weight"
+            },
+            {
+              "description": "Font size of the title",
+              "name": "--wcs-header-title-font-size"
+            }
+          ],
+          "slots": [
+            {
+              "description": "SNCF Logo",
+              "name": "logo"
+            },
+            {
+              "description": "Title of your application",
+              "name": "title"
+            },
+            {
+              "description": "Actions such as buttons, dropdown or any useful information to always display on your application",
+              "name": "actions"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeHeader",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "hostData"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-header",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Header",
+          "declaration": {
+            "name": "Header",
+            "module": "components/header/header.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-header",
+          "declaration": {
+            "name": "Header",
+            "module": "components/header/header.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/hint/hint.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The `wcs-hint` should always be wrapped in a `wcs-form-field`.\r\nIt is used to display an informative message under the field indicating an incorrect user input.\r\n\r\n## Accessibility guidelines 💡\r\n- Provide a relevant hint message to inform the users about the format, how the data should be filled in, or what is the purpose of the field\r\n- `aria-description` will be automatically added to the field for screen readers",
+          "name": "Hint",
+          "cssProperties": [
+            {
+              "description": "Color of the text",
+              "name": "--wcs-hint-color"
+            },
+            {
+              "description": "Font weight of the text",
+              "name": "--wcs-hint-font-weight"
+            },
+            {
+              "description": "Font size default of the text",
+              "name": "--wcs-hint-font-size-default"
+            },
+            {
+              "description": "Font size small of the text",
+              "name": "--wcs-hint-font-size-small"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "small",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Whether the component should display the small version of the hint"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "small",
+              "fieldName": "small",
+              "type": {
+                "text": "boolean"
+              }
+            }
+          ],
+          "tagName": "wcs-hint",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Hint",
+          "declaration": {
+            "name": "Hint",
+            "module": "components/hint/hint.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-hint",
+          "declaration": {
+            "name": "Hint",
+            "module": "components/hint/hint.tsx"
           }
         }
       ]
@@ -10199,7 +10283,7 @@
             },
             {
               "description": "Background color of the list item",
-              "name": "--wcs-list-item-background-color"
+              "name": "--wcs-list-item-background-color-default"
             },
             {
               "description": "Background color of the list item when hovered",
@@ -10310,60 +10394,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/list-item-property/list-item-property.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The list-item-property is a subcomponent of `wcs-list-item`.\r\nWrapped in a `wcs-list-item-properties`, it represents a property to describe an item.",
-          "name": "ListItemProperty",
-          "cssProperties": [
-            {
-              "description": "Font weight of the property",
-              "name": "--wcs-list-item-property-font-weight"
-            },
-            {
-              "description": "Color of the property",
-              "name": "--wcs-list-item-property-color"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Main container slot",
-              "name": "<no-name>"
-            }
-          ],
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-list-item-property",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ListItemProperty",
-          "declaration": {
-            "name": "ListItemProperty",
-            "module": "components/list-item-property/list-item-property.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-list-item-property",
-          "declaration": {
-            "name": "ListItemProperty",
-            "module": "components/list-item-property/list-item-property.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/list-item-properties/list-item-properties.tsx",
       "declarations": [
         {
@@ -10420,6 +10450,60 @@
           "declaration": {
             "name": "ListItemProperties",
             "module": "components/list-item-properties/list-item-properties.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/list-item-property/list-item-property.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The list-item-property is a subcomponent of `wcs-list-item`.\r\nWrapped in a `wcs-list-item-properties`, it represents a property to describe an item.",
+          "name": "ListItemProperty",
+          "cssProperties": [
+            {
+              "description": "Font weight of the property",
+              "name": "--wcs-list-item-property-font-weight"
+            },
+            {
+              "description": "Color of the property",
+              "name": "--wcs-list-item-property-color"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Main container slot",
+              "name": "<no-name>"
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-list-item-property",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ListItemProperty",
+          "declaration": {
+            "name": "ListItemProperty",
+            "module": "components/list-item-property/list-item-property.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-list-item-property",
+          "declaration": {
+            "name": "ListItemProperty",
+            "module": "components/list-item-property/list-item-property.tsx"
           }
         }
       ]
@@ -10969,40 +11053,32 @@
           "name": "NativeSelect",
           "cssProperties": [
             {
-              "description": "Color of the select arrow",
-              "name": "--wcs-select-native-arrow-color"
-            },
-            {
-              "description": "Color of the select arrow when the select is disabled",
-              "name": "--wcs-select-native-arrow-color-disabled"
-            },
-            {
-              "description": "Background color of the select",
-              "name": "--wcs-select-native-background-color"
-            },
-            {
               "description": "Line height of the select",
               "name": "--wcs-select-native-line-height"
+            },
+            {
+              "description": "Height of the select when size is 'm'",
+              "name": "--wcs-select-native-size-m"
+            },
+            {
+              "description": "Font size of the select when size is 'm'",
+              "name": "--wcs-select-native-font-size-m"
+            },
+            {
+              "description": "Height of the select when size is 'l'",
+              "name": "--wcs-select-native-size-l"
+            },
+            {
+              "description": "Font size of the select when size is 'l'",
+              "name": "--wcs-select-native-font-size-l"
             },
             {
               "description": "Border radius of the select",
               "name": "--wcs-select-native-border-radius"
             },
             {
-              "description": "Border width of the select when not focused",
-              "name": "--wcs-select-native-border-width"
-            },
-            {
-              "description": "Border width of the select when focused",
-              "name": "--wcs-select-native-border-width-focus"
-            },
-            {
-              "description": "Border style of the select when not focused",
-              "name": "--wcs-select-native-border-style-default"
-            },
-            {
-              "description": "Border style of the select when focused",
-              "name": "--wcs-select-native-border-style-focus"
+              "description": "Background color of the select",
+              "name": "--wcs-select-native-background-color"
             },
             {
               "description": "Border color of the select when not focused",
@@ -11021,6 +11097,22 @@
               "name": "--wcs-select-native-border-color-error"
             },
             {
+              "description": "Border style of the select when not focused",
+              "name": "--wcs-select-native-border-style-default"
+            },
+            {
+              "description": "Border style of the select when focused",
+              "name": "--wcs-select-native-border-style-focus"
+            },
+            {
+              "description": "Border width of the select when not focused",
+              "name": "--wcs-select-native-border-width"
+            },
+            {
+              "description": "Border width of the select when focused",
+              "name": "--wcs-select-native-border-width-focus"
+            },
+            {
               "description": "Color of the selected value",
               "name": "--wcs-select-native-value-color"
             },
@@ -11031,6 +11123,26 @@
             {
               "description": "Font style of the selected value",
               "name": "--wcs-select-native-value-font-style"
+            },
+            {
+              "description": "Padding horizontal of the select when size is 'm'",
+              "name": "--wcs-select-native-padding-horizontal-m"
+            },
+            {
+              "description": "Padding horizontal of the select when size is 'l'",
+              "name": "--wcs-select-native-padding-horizontal-l"
+            },
+            {
+              "description": "Color of the select arrow",
+              "name": "--wcs-select-native-arrow-color"
+            },
+            {
+              "description": "Color of the select arrow when the select is disabled",
+              "name": "--wcs-select-native-arrow-color-disabled"
+            },
+            {
+              "description": "Color of the text when the select is disabled",
+              "name": "--wcs-select-native-text-color-disabled"
             },
             {
               "description": "Color of the placeholder",
@@ -11045,10 +11157,6 @@
               "name": "--wcs-select-native-placeholder-font-style"
             },
             {
-              "description": "Color of the text when the select is disabled",
-              "name": "--wcs-select-native-text-color-disabled"
-            },
-            {
               "description": "Text color of the options",
               "name": "--wcs-select-native-option-color"
             },
@@ -11059,30 +11167,6 @@
             {
               "description": "Text color of the selected option",
               "name": "--wcs-select-native-option-selected-color"
-            },
-            {
-              "description": "Padding horizontal of the select when size is 'm'",
-              "name": "--wcs-select-native-padding-horizontal-m"
-            },
-            {
-              "description": "Padding horizontal of the select when size is 'l'",
-              "name": "--wcs-select-native-padding-horizontal-m"
-            },
-            {
-              "description": "Height of the select when size is 'm'",
-              "name": "--wcs-select-native-size-m"
-            },
-            {
-              "description": "Font size of the select when size is 'm'",
-              "name": "--wcs-select-native-font-size-m"
-            },
-            {
-              "description": "Height of the select when size is 'l'",
-              "name": "--wcs-select-native-size-l"
-            },
-            {
-              "description": "Font size of the select when size is 'l'",
-              "name": "--wcs-select-native-font-size-l"
             }
           ],
           "members": [
@@ -11289,12 +11373,8 @@
               "name": "--wcs-nav-background-color"
             },
             {
-              "description": "Width of the nav",
-              "name": "--wcs-nav-width"
-            },
-            {
-              "description": "Border top of the nav on mobile",
-              "name": "--wcs-nav-border-top-mobile"
+              "description": "Width of the nav on desktop",
+              "name": "--wcs-nav-width-desktop"
             },
             {
               "description": "Height of the nav on mobile",
@@ -11402,16 +11482,20 @@
               "name": "--wcs-nav-item-height-mobile"
             },
             {
+              "description": "Gap between items in nav-item on desktop (e.g. icon and label)",
+              "name": "--wcs-nav-item-gap-desktop"
+            },
+            {
+              "description": "Gap between items in nav-item on mobile (e.g. icon and label)",
+              "name": "--wcs-nav-item-gap-mobile"
+            },
+            {
               "description": "Font size of the nav item on desktop",
               "name": "--wcs-nav-item-font-size-desktop"
             },
             {
               "description": "Font size of the nav item on mobile",
               "name": "--wcs-nav-item-font-size-mobile"
-            },
-            {
-              "description": "Border of the nav item on desktop",
-              "name": "--wcs-nav-item-border-horizontal-desktop"
             },
             {
               "description": "Default background color of the nav item",
@@ -11612,6 +11696,10 @@
             {
               "description": "Font size of the percentage for size medium",
               "name": "--wcs-progress-bar-label-percentage-font-size-m"
+            },
+            {
+              "description": "Space on top of the progress bar when label is displayed",
+              "name": "--wcs-progress-bar-label-top-space"
             }
           ],
           "members": [
@@ -11765,7 +11853,7 @@
             },
             {
               "description": "The color of the rail of the progress radial",
-              "name": "--wcs-progress-bar-rail-color"
+              "name": "--wcs-progress-radial-rail-color"
             },
             {
               "description": "The background color of the bar on top of the rail",
@@ -11786,6 +11874,10 @@
             {
               "description": "The font size of the percentage inside the progress radial",
               "name": "--wcs-progress-radial-label-percentage-font-size"
+            },
+            {
+              "description": "The duration of the animation of the progress radial",
+              "name": "--wcs-progress-radial-animation-duration"
             }
           ],
           "members": [
@@ -11945,6 +12037,10 @@
           "name": "Radio",
           "cssProperties": [
             {
+              "description": "Duration of the transition",
+              "name": "--wcs-radio-transition-duration"
+            },
+            {
               "description": "Color of the text when the radio is not selected",
               "name": "--wcs-radio-text-color-default"
             },
@@ -12005,8 +12101,12 @@
               "name": "--wcs-radio-checkmark-background-color-selected"
             },
             {
-              "description": "Background color of the checkmark circle when the radio is disabled",
-              "name": "--wcs-radio-checkmark-background-color-disabled"
+              "description": "Background color of the checkmark circle when the radio is selected and disabled",
+              "name": "--wcs-radio-checkmark-background-color-selected-disabled"
+            },
+            {
+              "description": "Background color of the checkmark circle when the radio is selected and hovered",
+              "name": "--wcs-radio-checkmark-background-color-selected-hover"
             },
             {
               "description": "Distance between the checkmark circle and the outline (inside the background)",
@@ -12021,60 +12121,100 @@
               "name": "--wcs-radio-checkmark-outline-color"
             },
             {
+              "description": "Border radius of the checkmark circle",
+              "name": "--wcs-radio-checkmark-border-radius"
+            },
+            {
               "description": "Gap between the radio checkmark circle and the label",
               "name": "--wcs-radio-gap"
+            },
+            {
+              "description": "Border radius of the radio (default mode)",
+              "name": "--wcs-radio-border-radius"
             },
             {
               "description": "Background color of the radio option when not selected",
               "name": "--wcs-radio-option-background-color-default"
             },
             {
-              "description": "Background color of the radio option when selected",
-              "name": "--wcs-radio-option-background-color-selected"
-            },
-            {
-              "description": "Background color of the radio option when selected and disabled",
-              "name": "--wcs-radio-option-background-color-selected-disabled"
-            },
-            {
               "description": "Background color of the radio option not selected when hovered",
               "name": "--wcs-radio-option-background-color-hover"
+            },
+            {
+              "description": "Background color of the radio option when pressed",
+              "name": "--wcs-radio-option-background-color-press"
             },
             {
               "description": "Background color of the radio option when disabled",
               "name": "--wcs-radio-option-background-color-disabled"
             },
             {
+              "description": "Background color of the radio option when selected",
+              "name": "--wcs-radio-option-background-color-selected-default"
+            },
+            {
+              "description": "Background color of the radio option when selected and hovered",
+              "name": "--wcs-radio-option-background-color-selected-hover"
+            },
+            {
+              "description": "Background color of the radio option when selected and pressed",
+              "name": "--wcs-radio-option-background-color-selected-press"
+            },
+            {
+              "description": "Background color of the radio option when selected and disabled",
+              "name": "--wcs-radio-option-background-color-selected-disabled"
+            },
+            {
               "description": "Color of the text when the radio option is not selected",
               "name": "--wcs-radio-option-text-color-default"
-            },
-            {
-              "description": "Default font weight of the text",
-              "name": "--wcs-radio-option-text-font-weight-default"
-            },
-            {
-              "description": "Color of the text when the radio option is selected",
-              "name": "--wcs-radio-option-text-color-selected"
-            },
-            {
-              "description": "Font weight of the text when the radio option is selected",
-              "name": "--wcs-radio-option-text-font-weight-selected"
             },
             {
               "description": "Color of the text when the radio option not selected is hovered",
               "name": "--wcs-radio-option-text-color-hover"
             },
             {
+              "description": "Color of the text when the radio option is pressed",
+              "name": "--wcs-radio-option-text-color-press"
+            },
+            {
+              "description": "Color of the text when the radio option is selected",
+              "name": "--wcs-radio-option-text-color-selected-default"
+            },
+            {
+              "description": "Color of the text when the radio option is selected and hovered",
+              "name": "--wcs-radio-option-text-color-selected-hover"
+            },
+            {
+              "description": "Color of the text when the radio option is selected and pressed",
+              "name": "--wcs-radio-option-text-color-selected-press"
+            },
+            {
               "description": "Color of the text when the radio option's is disabled",
               "name": "--wcs-radio-option-text-color-disabled"
+            },
+            {
+              "description": "Default font weight of the text",
+              "name": "--wcs-radio-option-text-font-weight-default"
+            },
+            {
+              "description": "Font weight of the text when the radio option is selected",
+              "name": "--wcs-radio-option-text-font-weight-selected"
             },
             {
               "description": "Border radius of the radio option",
               "name": "--wcs-radio-option-border-radius"
             },
             {
-              "description": "Color of the outline when the radio option is focused",
-              "name": "--wcs-radio-option-outline-color-focus"
+              "description": "Width of the border of the radio option",
+              "name": "--wcs-radio-option-border-width"
+            },
+            {
+              "description": "Color of the border of the radio option when not selected and hovered",
+              "name": "--wcs-radio-option-border-color-hover"
+            },
+            {
+              "description": "Color of the border of the radio option when not selected and pressed",
+              "name": "--wcs-radio-option-border-color-press"
             },
             {
               "description": "Padding top of the radio option",
@@ -12739,12 +12879,12 @@
               "name": "--wcs-select-control-background-color"
             },
             {
-              "description": "Ripple color of the select control",
-              "name": "--wcs-select-control-ripple-color"
-            },
-            {
               "description": "Line height of the select control",
               "name": "--wcs-select-control-line-height"
+            },
+            {
+              "description": "Padding of the select options container",
+              "name": "--wcs-select-options-padding"
             },
             {
               "description": "Border radius of the select control",
@@ -12752,11 +12892,7 @@
             },
             {
               "description": "Border width of the select control when not focused",
-              "name": "--wcs-select-control-border-width"
-            },
-            {
-              "description": "Border width of the select control when active",
-              "name": "--wcs-select-control-border-width-active"
+              "name": "--wcs-select-control-border-width-default"
             },
             {
               "description": "Border width of the select control when focused",
@@ -12773,10 +12909,6 @@
             {
               "description": "Border color of the select control when error",
               "name": "--wcs-select-control-border-color-error"
-            },
-            {
-              "description": "Border color of the select control when active (select is opened)",
-              "name": "--wcs-select-control-border-color-active"
             },
             {
               "description": "Border color of the select control when focused (not opened, but the control is focused)",
@@ -13024,7 +13156,7 @@
               },
               "privacy": "private",
               "default": "false",
-              "description": "Wether the select is expanded"
+              "description": "Whether the select is expanded"
             },
             {
               "kind": "field",
@@ -13319,11 +13451,6 @@
               ]
             },
             {
-              "kind": "method",
-              "name": "addRippleEffect",
-              "privacy": "private"
-            },
-            {
               "kind": "field",
               "name": "hasValue",
               "type": {
@@ -13334,7 +13461,7 @@
             },
             {
               "kind": "method",
-              "name": "onMouseDown",
+              "name": "onMouseUp",
               "parameters": [
                 {
                   "name": "event",
@@ -13818,6 +13945,10 @@
               "name": "--wcs-select-option-background-color-hover"
             },
             {
+              "description": "Background color of the option when pressed",
+              "name": "--wcs-select-option-background-color-press"
+            },
+            {
               "description": "Background color of the option when selected",
               "name": "--wcs-select-option-background-color-selected"
             },
@@ -13888,10 +14019,6 @@
             {
               "description": "Color of the option text when disabled",
               "name": "--wcs-select-option-text-color-disabled"
-            },
-            {
-              "description": "Color of the ripple effect",
-              "name": "--wcs-select-option-ripple-color"
             },
             {
               "description": "Color of the checkbox",
@@ -13966,14 +14093,6 @@
               "description": "Chip's background color."
             },
             {
-              "kind": "field",
-              "name": "mdcRipple",
-              "type": {
-                "text": "MDCRipple"
-              },
-              "privacy": "private"
-            },
-            {
               "kind": "method",
               "name": "chooseOption",
               "privacy": "private",
@@ -13988,7 +14107,7 @@
             },
             {
               "kind": "method",
-              "name": "onMouseDown",
+              "name": "onMouseUp",
               "parameters": [
                 {
                   "name": "event",
@@ -14089,6 +14208,12 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/skeleton/skeleton-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/skeleton-circle/skeleton-circle.tsx",
       "declarations": [
         {
@@ -14184,12 +14309,6 @@
           }
         }
       ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/skeleton/skeleton-interface.ts",
-      "declarations": [],
-      "exports": []
     },
     {
       "kind": "javascript-module",
@@ -14531,6 +14650,12 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/switch/switch.e2e.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/switch/switch.tsx",
       "declarations": [
         {
@@ -14551,10 +14676,6 @@
               "name": "--wcs-switch-text-color-selected"
             },
             {
-              "description": "Color of the text when the switch is hovered",
-              "name": "--wcs-switch-text-color-hover"
-            },
-            {
               "description": "Color of the text when the switch is disabled",
               "name": "--wcs-switch-text-color-disabled"
             },
@@ -14573,6 +14694,10 @@
             {
               "description": "Background color of the switch when disabled and selected",
               "name": "--wcs-switch-background-color-disabled-selected"
+            },
+            {
+              "description": "Background color of the switch when hovered and selected",
+              "name": "--wcs-switch-background-color-hover-selected"
             },
             {
               "description": "Height of the switch",
@@ -14596,19 +14721,15 @@
             },
             {
               "description": "Color of the dot when not selected",
-              "name": "--wcs-switch-dot-color-initial"
+              "name": "--wcs-switch-dot-color-default"
             },
             {
               "description": "Color of the dot when selected",
-              "name": "--wcs-switch-dot-color-final"
+              "name": "--wcs-switch-dot-color-selected"
             },
             {
               "description": "Color of the dot when disabled",
               "name": "--wcs-switch-dot-color-disabled"
-            },
-            {
-              "description": "Color of the dot when disabled and selected",
-              "name": "--wcs-switch-dot-color-disabled-selected"
             },
             {
               "description": "Horizontal translation of the dot (from left to right = right to left)",
@@ -14684,19 +14805,47 @@
                 "text": "boolean"
               },
               "default": "false",
-              "description": "Specify wether the switch is disabled or not."
+              "description": "Specify whether the switch is disabled or not."
             },
             {
               "kind": "method",
-              "name": "toggleChange",
+              "name": "handleChange",
               "parameters": [
                 {
-                  "name": "_event",
+                  "name": "ev",
                   "type": {
                     "text": "Event"
                   }
                 }
               ]
+            },
+            {
+              "kind": "method",
+              "name": "handleHostClick",
+              "parameters": [
+                {
+                  "name": "e",
+                  "type": {
+                    "text": "Event"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleInputClick",
+              "parameters": [
+                {
+                  "name": "ev",
+                  "type": {
+                    "text": "PointerEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "toggleSwitchState"
             },
             {
               "kind": "method",
@@ -14881,6 +15030,423 @@
           "declaration": {
             "name": "Tab",
             "module": "components/tab/tab.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/tabs/tabs-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/tabs/tabs.e2e.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/tabs/tabs.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Tabs component to switch between tab content. Use in conjunction with `wcs-tab`.",
+          "name": "Tabs",
+          "cssProperties": [
+            {
+              "description": "Height of the tabs indicator",
+              "name": "--wcs-tabs-indicator-height"
+            },
+            {
+              "description": "Background color of the tabs indicator",
+              "name": "--wcs-tabs-indicator-background-color"
+            },
+            {
+              "description": "Border radius of the tabs indicator",
+              "name": "--wcs-tabs-indicator-border-radius"
+            },
+            {
+              "description": "Text color of the tabs",
+              "name": "--wcs-tabs-color-default"
+            },
+            {
+              "description": "Text color of the tabs when hovered",
+              "name": "--wcs-tabs-color-hover"
+            },
+            {
+              "description": "Text color of the tabs when pressed",
+              "name": "--wcs-tabs-color-press"
+            },
+            {
+              "description": "Text color of the tabs when focused",
+              "name": "--wcs-tabs-color-focus"
+            },
+            {
+              "description": "Text color of the tabs when selected",
+              "name": "--wcs-tabs-color-selected"
+            },
+            {
+              "description": "Background color of the tabs when focused",
+              "name": "--wcs-tabs-background-color-focus"
+            },
+            {
+              "description": "Background color of the tabs when hovered",
+              "name": "--wcs-tabs-background-color-hover"
+            },
+            {
+              "description": "Background color of the tabs when pressed",
+              "name": "--wcs-tabs-background-color-press"
+            },
+            {
+              "description": "Border radius of the tabs",
+              "name": "--wcs-tabs-border-radius"
+            },
+            {
+              "description": "Outline color on a focused tab",
+              "name": "--wcs-tabs-border-color-focus"
+            },
+            {
+              "description": "Font weight of the tabs",
+              "name": "--wcs-tabs-font-weight-default"
+            },
+            {
+              "description": "Font weight of the tabs when selected",
+              "name": "--wcs-tabs-font-weight-selected"
+            },
+            {
+              "description": "Padding top of the tabs",
+              "name": "--wcs-tabs-padding-top"
+            },
+            {
+              "description": "Padding right of the tabs",
+              "name": "--wcs-tabs-padding-right"
+            },
+            {
+              "description": "Padding bottom of the tabs",
+              "name": "--wcs-tabs-padding-bottom"
+            },
+            {
+              "description": "Padding left of the tabs",
+              "name": "--wcs-tabs-padding-left"
+            },
+            {
+              "description": "Border bottom (gutter) below the tabs",
+              "name": "--wcs-tabs-headers-border-bottom"
+            },
+            {
+              "description": "Transition duration of the tabs",
+              "name": "--wcs-tabs-transition-duration"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsTabsElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeTablist",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "align",
+              "type": {
+                "text": "WcsTabsAlignment"
+              },
+              "default": "'start'",
+              "description": "Tab headers alignment."
+            },
+            {
+              "kind": "field",
+              "name": "selectedIndex",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "Current selected tab index.\r\nStarts at 0."
+            },
+            {
+              "kind": "field",
+              "name": "selectedKey",
+              "type": {
+                "text": "any"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "headersOnly",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Whether to skip rendering the tabpanel with the content of the selected tab. Use this prop if you plan to\r\nseparately render the tab content."
+            },
+            {
+              "kind": "field",
+              "name": "gutter",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines if tabs header should have a border at the bottom"
+            },
+            {
+              "kind": "field",
+              "name": "description",
+              "type": {
+                "text": "string"
+              },
+              "description": "Description is used to provide aria-label for the tabs container which has `role=\"tablist\"`."
+            },
+            {
+              "kind": "field",
+              "name": "headers",
+              "type": {
+                "text": "string[]"
+              },
+              "privacy": "private",
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "currentActiveTabIndex",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "0"
+            },
+            {
+              "kind": "field",
+              "name": "tabsId",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "tabsId++"
+            },
+            {
+              "kind": "method",
+              "name": "selectedIndexChanged",
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "selectedTabkeyChanged",
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "any"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "emitActiveTabChange",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "updateCurrentActiveIndexByTabKey",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "any"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "onTabLoaded"
+            },
+            {
+              "kind": "method",
+              "name": "putTabsInCorrectDivIfTheyAreNot",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyDown",
+              "parameters": [
+                {
+                  "name": "ev",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                },
+                {
+                  "name": "tabIndex",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "refreshHeaders",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "tabs",
+              "privacy": "private",
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "selectTabAndEmitChangeEvent",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "index",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "updateTabVisibility",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "hideAllTabsContent",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            },
+            {
+              "kind": "method",
+              "name": "onTabsSlotChange",
+              "privacy": "private",
+              "description": "Observe when a new tab panel is added to the slot to let's handle accessibility properties for tabs panel:\r\n- id: to let header tab refers it proper panel\r\n- aria-label: take the same name as it's referenced header name"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "align",
+              "fieldName": "align",
+              "type": {
+                "text": "WcsTabsAlignment"
+              }
+            },
+            {
+              "name": "selected-index",
+              "fieldName": "selectedIndex",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "selected-key",
+              "fieldName": "selectedKey",
+              "type": {
+                "text": "any"
+              }
+            },
+            {
+              "name": "headers-only",
+              "fieldName": "headersOnly",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "gutter",
+              "fieldName": "gutter",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "description",
+              "fieldName": "description",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "tagName": "wcs-tabs",
+          "events": [
+            {
+              "name": "tabChange",
+              "type": {
+                "text": "EventEmitter<WcsTabChangeEvent>"
+              },
+              "description": "\r\nEmitted when the selected tab change."
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Tabs",
+          "declaration": {
+            "name": "Tabs",
+            "module": "components/tabs/tabs.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-tabs",
+          "declaration": {
+            "name": "Tabs",
+            "module": "components/tabs/tabs.tsx"
           }
         }
       ]
@@ -15491,423 +16057,6 @@
           "declaration": {
             "name": "Textarea",
             "module": "components/textarea/textarea.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/tabs/tabs-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/tabs/tabs.e2e.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/tabs/tabs.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Tabs component to switch between tab content. Use in conjunction with `wcs-tab`.",
-          "name": "Tabs",
-          "cssProperties": [
-            {
-              "description": "Height of the tabs indicator",
-              "name": "--wcs-tabs-indicator-height"
-            },
-            {
-              "description": "Background color of the tabs indicator",
-              "name": "--wcs-tabs-indicator-background-color"
-            },
-            {
-              "description": "Border radius of the tabs indicator",
-              "name": "--wcs-tabs-indicator-border-radius"
-            },
-            {
-              "description": "Text color of the tabs",
-              "name": "--wcs-tabs-color-default"
-            },
-            {
-              "description": "Text color of the tabs when hovered",
-              "name": "--wcs-tabs-color-hover"
-            },
-            {
-              "description": "Text color of the tabs when pressed",
-              "name": "--wcs-tabs-color-press"
-            },
-            {
-              "description": "Text color of the tabs when focused",
-              "name": "--wcs-tabs-color-focus"
-            },
-            {
-              "description": "Text color of the tabs when selected",
-              "name": "--wcs-tabs-color-selected"
-            },
-            {
-              "description": "Background color of the tabs when focused",
-              "name": "--wcs-tabs-background-color-focus"
-            },
-            {
-              "description": "Background color of the tabs when hovered",
-              "name": "--wcs-tabs-background-color-hover"
-            },
-            {
-              "description": "Background color of the tabs when pressed",
-              "name": "--wcs-tabs-background-color-press"
-            },
-            {
-              "description": "Border radius of the tabs",
-              "name": "--wcs-tabs-border-radius"
-            },
-            {
-              "description": "Outline color on a focused tab",
-              "name": "--wcs-tabs-border-color-focus"
-            },
-            {
-              "description": "Font weight of the tabs",
-              "name": "--wcs-tabs-font-weight-default"
-            },
-            {
-              "description": "Font weight of the tabs when selected",
-              "name": "--wcs-tabs-font-weight-selected"
-            },
-            {
-              "description": "Padding top of the tabs",
-              "name": "--wcs-tabs-padding-top"
-            },
-            {
-              "description": "Padding right of the tabs",
-              "name": "--wcs-tabs-padding-right"
-            },
-            {
-              "description": "Padding bottom of the tabs",
-              "name": "--wcs-tabs-padding-bottom"
-            },
-            {
-              "description": "Padding left of the tabs",
-              "name": "--wcs-tabs-padding-left"
-            },
-            {
-              "description": "Border bottom (gutter) below the tabs",
-              "name": "--wcs-tabs-headers-border-bottom"
-            },
-            {
-              "description": "Transition duration of the tabs",
-              "name": "--wcs-tabs-transition-duration"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsTabsElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "nativeTablist",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "align",
-              "type": {
-                "text": "WcsTabsAlignment"
-              },
-              "default": "'start'",
-              "description": "Tab headers alignment."
-            },
-            {
-              "kind": "field",
-              "name": "selectedIndex",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "Current selected tab index.\r\nStarts at 0."
-            },
-            {
-              "kind": "field",
-              "name": "selectedKey",
-              "type": {
-                "text": "any"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "headersOnly",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Whether to skip rendering the tabpanel with the content of the selected tab. Use this prop if you plan to\r\nseparately render the tab content."
-            },
-            {
-              "kind": "field",
-              "name": "gutter",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines if tabs header should have a border at the bottom"
-            },
-            {
-              "kind": "field",
-              "name": "description",
-              "type": {
-                "text": "string"
-              },
-              "description": "Description is used to provide aria-label for the tabs container which has `role=\"tablist\"`."
-            },
-            {
-              "kind": "field",
-              "name": "headers",
-              "type": {
-                "text": "string[]"
-              },
-              "privacy": "private",
-              "default": "[]"
-            },
-            {
-              "kind": "field",
-              "name": "currentActiveTabIndex",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "default": "0"
-            },
-            {
-              "kind": "field",
-              "name": "tabsId",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "default": "tabsId++"
-            },
-            {
-              "kind": "method",
-              "name": "selectedIndexChanged",
-              "parameters": [
-                {
-                  "name": "newValue",
-                  "type": {
-                    "text": "number"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "selectedTabkeyChanged",
-              "parameters": [
-                {
-                  "name": "newValue",
-                  "type": {
-                    "text": "any"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "emitActiveTabChange",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "updateCurrentActiveIndexByTabKey",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "newValue",
-                  "type": {
-                    "text": "any"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "onTabLoaded"
-            },
-            {
-              "kind": "method",
-              "name": "putTabsInCorrectDivIfTheyAreNot",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleKeyDown",
-              "parameters": [
-                {
-                  "name": "ev",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  }
-                },
-                {
-                  "name": "tabIndex",
-                  "type": {
-                    "text": "number"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "refreshHeaders",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "tabs",
-              "privacy": "private",
-              "readonly": true
-            },
-            {
-              "kind": "method",
-              "name": "selectTabAndEmitChangeEvent",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "index",
-                  "type": {
-                    "text": "number"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "updateTabVisibility",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "hideAllTabsContent",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            },
-            {
-              "kind": "method",
-              "name": "onTabsSlotChange",
-              "privacy": "private",
-              "description": "Observe when a new tab panel is added to the slot to let's handle accessibility properties for tabs panel:\r\n- id: to let header tab refers it proper panel\r\n- aria-label: take the same name as it's referenced header name"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "align",
-              "fieldName": "align",
-              "type": {
-                "text": "WcsTabsAlignment"
-              }
-            },
-            {
-              "name": "selected-index",
-              "fieldName": "selectedIndex",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "selected-key",
-              "fieldName": "selectedKey",
-              "type": {
-                "text": "any"
-              }
-            },
-            {
-              "name": "headers-only",
-              "fieldName": "headersOnly",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "gutter",
-              "fieldName": "gutter",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "description",
-              "fieldName": "description",
-              "type": {
-                "text": "string"
-              }
-            }
-          ],
-          "tagName": "wcs-tabs",
-          "events": [
-            {
-              "name": "tabChange",
-              "type": {
-                "text": "EventEmitter<WcsTabChangeEvent>"
-              },
-              "description": "\r\nEmitted when the selected tab change."
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Tabs",
-          "declaration": {
-            "name": "Tabs",
-            "module": "components/tabs/tabs.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-tabs",
-          "declaration": {
-            "name": "Tabs",
-            "module": "components/tabs/tabs.tsx"
           }
         }
       ]

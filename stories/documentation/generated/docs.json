@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-15T15:27:22",
+  "timestamp": "2025-01-27T14:13:01",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -31,9 +31,15 @@
           "mutable": false,
           "attr": "group-content-with-header",
           "reflectToAttr": true,
-          "docs": "Specifies wether accordion-panel components should group the content with header in one card\r\nif true, there will be only one card with the header and the content\r\nNothing change when the panel is close",
-          "docsTags": [],
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "**The content is now always grouped with the panel header**\r\n\r\n~~Specifies whether accordion-panel components should group the content with header in one card~~\r\n~~if true, there will be only one card with the header and the content~~\r\n~~Nothing change when the panel is close~~"
+            }
+          ],
           "default": "false",
+          "deprecation": "**The content is now always grouped with the panel header**\r\n\r\n~~Specifies whether accordion-panel components should group the content with header in one card~~\r\n~~if true, there will be only one card with the header and the content~~\r\n~~Nothing change when the panel is close~~",
           "values": [
             {
               "type": "boolean"
@@ -55,7 +61,7 @@
           "reflectToAttr": true,
           "docs": "Specifies whether accordion-panel components should display the open/close text.\r\nif false, it won't show the open/close text in all accordion-panel.",
           "docsTags": [],
-          "default": "false",
+          "default": "true",
           "values": [
             {
               "type": "boolean"
@@ -180,6 +186,14 @@
         {
           "name": "cssprop",
           "text": "--wcs-accordion-panel-action-color-highlight - Highlight action color of the accordion panel"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-accordion-panel-action-color-hover - Hovered action color of the accordion panel"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-accordion-panel-action-color-press - Pressed action color of the accordion panel"
         },
         {
           "name": "cssprop",
@@ -556,7 +570,7 @@
       "docsTags": [
         {
           "name": "cssprop",
-          "text": "--wcs-badge-ligther-percentage - Define the opacity rate to apply to the badge"
+          "text": "--wcs-badge-lighter-percentage - Define the opacity rate to apply to the badge"
         },
         {
           "name": "cssprop",
@@ -592,7 +606,7 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-badge-border-radius-round - Round border radius of the badge"
+          "text": "--wcs-badge-border-radius-circular - Circular border radius of the badge"
         },
         {
           "name": "cssprop",
@@ -601,6 +615,10 @@
         {
           "name": "cssprop",
           "text": "--wcs-badge-color - Text color of the badge"
+        },
+        {
+          "name": "cssporp",
+          "text": "--wcs-badge-gap - The gap inside the badge"
         },
         {
           "name": "cssprop",
@@ -945,6 +963,10 @@
         },
         {
           "name": "cssprop",
+          "text": "--wcs-breadcrumb-item-link-color-hover - Color of the breadcrumb item link when hovered"
+        },
+        {
+          "name": "cssprop",
           "text": "--wcs-breadcrumb-item-link-font-weight - Font weight of the breadcrumb item link"
         },
         {
@@ -1066,11 +1088,7 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-button-padding-horizontal-size-s - padding horizontal for a size s button"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-button-padding-vertical-size-s - padding vertical for a size s button"
+          "text": "--wcs-button-padding-size-s - padding for a size s button"
         },
         {
           "name": "cssprop",
@@ -1082,11 +1100,7 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-button-padding-horizontal-size-m - padding horizontal for a size m button"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-button-padding-vertical-size-m - padding vertical for a size m button"
+          "text": "--wcs-button-padding-size-m - padding for a size m button"
         },
         {
           "name": "cssprop",
@@ -1098,11 +1112,7 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-button-padding-horizontal-size-l - padding horizontal for a size l button"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-button-padding-vertical-size-l - padding vertical for a size l button"
+          "text": "--wcs-button-padding-size-l - padding for a size l button"
         },
         {
           "name": "cssprop",
@@ -1487,7 +1497,7 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-card-flat-border-width - Border width of the card when flat"
+          "text": "--wcs-card-border-width - Border width of the card"
         },
         {
           "name": "cssprop",
@@ -1577,23 +1587,39 @@
       "docsTags": [
         {
           "name": "cssprop",
-          "text": "--wcs-checkbox-outline-radius-focus - Border radius of the focus outline"
+          "text": "--wcs-checkbox-border-color-default - Default color of the border"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-checkbox-outline-color-focus - Color of the focus outline"
+          "text": "--wcs-checkbox-border-color-hover - Color of the border when hovered"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-checkbox-border-color-disabled - Color of the border when disabled"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-checkbox-border-color-selected - Color of the border when selected"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-checkbox-border-color-indeterminate - Color of the border when indeterminate"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-checkbox-border-radius - Border radius of the checkbox"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-checkbox-border-width - Width of the border of the checkbox"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-checkbox-size - Size of the checkbox"
         },
         {
           "name": "cssprop",
           "text": "--wcs-checkbox-text-color-default - Color of the text when the checkbox is not selected"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-checkbox-text-font-weight - Font weight of the text"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-checkbox-text-font-size - Font size of the text"
         },
         {
           "name": "cssprop",
@@ -1609,31 +1635,19 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-checkbox-border-color-default - Color of the border when the checkbox is not selected"
+          "text": "--wcs-checkbox-text-font-size - Font size of the text"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-checkbox-border-color-hover - Color of the border when the checkbox is hovered"
+          "text": "--wcs-checkbox-text-font-weight - Font weight of the text"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-checkbox-border-color-disabled - Color of the border when the checkbox is disabled"
+          "text": "--wcs-checkbox-background-color-default - Default background color of the checkbox"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-checkbox-border-color-selected - Color of the border when the checkbox is selected"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-checkbox-border-radius - Border radius of the checkbox"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-checkbox-border-width - Width of the border of the checkbox"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-checkbox-background-color-selected - Background color of the checkbox when selected"
+          "text": "--wcs-checkbox-background-color-hover - Background color of the checkbox when hovered"
         },
         {
           "name": "cssprop",
@@ -1641,7 +1655,23 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-checkbox-background-color-hover - Background color of the checkbox when hovered"
+          "text": "--wcs-checkbox-background-color-selected - Background color of the checkbox when selected"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-checkbox-background-color-indeterminate - Background color of the checkbox when indeterminate"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-checkbox-outline-radius-focus - Border radius of the focus outline"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-checkbox-outline-color-focus - Color of the focus outline"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-checkbox-gap - Gap between the checkbox and the label"
         },
         {
           "name": "cssprop",
@@ -1661,11 +1691,23 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-checkbox-size - Size of the checkbox"
+          "text": "--wcs-indeterminate-bar-width - Width of the indeterminate bar"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-checkbox-gap - Gap between the checkbox and the label"
+          "text": "--wcs-indeterminate-bar-height - Height of the indeterminate bar"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-indeterminate-bar-border-radius - Border-radius of the indeterminate bar"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-indeterminate-bar-background-color - Color of the indeterminate bar"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-checkbox-transition-duration - Duration of the transition"
         }
       ],
       "usage": {},
@@ -1703,7 +1745,7 @@
           "mutable": false,
           "attr": "disabled",
           "reflectToAttr": true,
-          "docs": "Specify wether the checkbox is disabled or not.",
+          "docs": "Specify whether the checkbox is disabled or not.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -1907,7 +1949,13 @@
           "docsTags": []
         }
       ],
-      "listeners": [],
+      "listeners": [
+        {
+          "event": "click",
+          "capture": false,
+          "passive": false
+        }
+      ],
       "styles": [],
       "slots": [],
       "parts": [],
@@ -1990,7 +2038,11 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-com-nav-horizontal-padding - Padding horizontal of wcs-com-nav"
+          "text": "--wcs-com-nav-horizontal-padding - Horizontal padding of wcs-com-nav"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-com-nav-vertical-padding - Vertical padding of wcs-com-nav"
         },
         {
           "name": "cssprop",
@@ -1998,19 +2050,7 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-com-nav-mobile-overlay-padding-top - Padding top inside mobile overlay"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-com-nav-mobile-overlay-padding-bottom - Padding bottom inside mobile overlay"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-com-nav-mobile-overlay-padding-left - Padding left inside mobile overlay"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-com-nav-mobile-overlay-padding-right - Padding right inside mobile overlay"
+          "text": "--wcs-com-nav-mobile-overlay-padding - Padding inside mobile overlay"
         },
         {
           "name": "cssprop",
@@ -2769,7 +2809,7 @@
       "docsTags": [
         {
           "name": "cssprop",
-          "text": "--wcs-counter-outline-color-focus - Color of the focus outline"
+          "text": "--wcs-counter-border-radius - Border radius of the counter"
         },
         {
           "name": "cssprop",
@@ -2781,19 +2821,7 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-counter-font-weight-default - Default font weight of the value"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-counter-font-weight-disabled - Font weight of the value when the counter is disabled"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-counter-background-color - Background color of the counter"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-counter-border-radius - Border radius of the counter"
+          "text": "--wcs-counter-font-weight - Font weight of the value"
         },
         {
           "name": "cssprop",
@@ -2805,14 +2833,6 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-counter-padding-m - Padding medium of the counter"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-counter-padding-l - Padding large of the counter"
-        },
-        {
-          "name": "cssprop",
           "text": "--wcs-counter-font-size-m - Font size medium of the counter"
         },
         {
@@ -2821,7 +2841,35 @@
         },
         {
           "name": "cssprop",
+          "text": "--wcs-counter-padding-m - Padding medium of the counter"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-counter-padding-l - Padding large of the counter"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-counter-background-color - Background color of the counter"
+        },
+        {
+          "name": "cssprop",
           "text": "--wcs-counter-gap - Gap between the buttons and the label"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-counter-gap-size-m - Gap between the buttons and the label when the size is M"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-counter-gap-size-l - Gap between the buttons and the label when the size is L"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-counter-outline-color-focus - Color of the focus outline"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-counter-transition-duration - Duration of the animation"
         }
       ],
       "usage": {},
@@ -3164,35 +3212,11 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-dropdown-padding-horizontal-size-s - Horizontal padding of the dropdown button when size is small"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-dropdown-padding-horizontal-size-m - Horizontal padding of the dropdown button when size is medium"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-dropdown-padding-horizontal-size-l - Horizontal padding of the dropdown button when size is large"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-dropdown-padding-vertical-size-s - Vertical padding of the dropdown button when size is small"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-dropdown-padding-vertical-size-m - Vertical padding of the dropdown button when size is medium"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-dropdown-padding-vertical-size-l - Vertical padding of the dropdown button when size is large"
-        },
-        {
-          "name": "cssprop",
           "text": "--wcs-dropdown-padding-empty - Padding of and empty dropdown"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-dropdown-overlay-padding-vertical - Defines the vertical padding inside the dropdown overlay"
+          "text": "--wcs-dropdown-overlay-padding - Defines the vertical padding inside the dropdown overlay"
         },
         {
           "name": "cssprop",
@@ -3567,11 +3591,11 @@
       "docsTags": [
         {
           "name": "cssprop",
-          "text": "--wcs-dropdown-divider-spacing - base spacing for margins"
+          "text": "--wcs-dropdown-divider-margin - Margin of the divider"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-dropdown-divider-color - divider color"
+          "text": "--wcs-dropdown-divider-color - Color of the divider"
         }
       ],
       "usage": {},
@@ -3599,19 +3623,23 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-dropdown-header-color - Dropdown header text color"
+          "text": "--wcs-dropdown-header-color - Text color of the header"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-dropdown-header-spacing - Dropdown header base spacing (1x for top and bottom, 2x for left and right)"
+          "text": "--wcs-dropdown-header-padding-vertical - Vertical padding of the header"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-dropdown-header-font-size - Dropdown header font size"
+          "text": "--wcs-dropdown-header-padding-horizontal - Horizontal padding of the header"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-dropdown-header-font-weight - Dropdown header font weight"
+          "text": "--wcs-dropdown-header-font-size - Font size of the header"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-dropdown-header-font-weight - Font weight of the header"
         }
       ],
       "usage": {},
@@ -3664,11 +3692,11 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-dropdown-item-text-color-focus - Text color of the dropdown item when focused"
+          "text": "--wcs-dropdown-item-text-color-hover - Text color of the dropdown item when hovered"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-dropdown-item-text-color-hover - Text color of the dropdown item when hovered"
+          "text": "--wcs-dropdown-item-text-color-press - Text color of the dropdown item when pressed"
         },
         {
           "name": "cssprop",
@@ -3676,11 +3704,11 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-dropdown-item-background-color-focus - Background color of the dropdown item when focused"
+          "text": "--wcs-dropdown-item-background-color-hover - Background color of the dropdown item when hovered"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-dropdown-item-background-color-hover - Background color of the dropdown item when hovered"
+          "text": "--wcs-dropdown-item-background-color-press - Background color of the dropdown item when pressed"
         },
         {
           "name": "cssprop",
@@ -3692,7 +3720,11 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-dropdown-item-border-radius-focus - Border radius of the dropdown item when focused"
+          "text": "--wcs-dropdown-item-border-radius - Border radius of the dropdown item"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-dropdown-item-transition-duration - Transition duration of the dropdown item"
         }
       ],
       "usage": {},
@@ -3716,7 +3748,7 @@
       ],
       "listeners": [
         {
-          "event": "mousedown",
+          "event": "mouseup",
           "capture": false,
           "passive": true
         },
@@ -3815,11 +3847,11 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-editable-field-border-color-hover - Border color of the editable field on hover"
+          "text": "--wcs-editable-field-border-color-default - Default border color of the editable field"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-editable-field-border-color-default - Default border color of the editable field"
+          "text": "--wcs-editable-field-border-color-hover - Border color of the editable field on hover"
         },
         {
           "name": "cssprop",
@@ -3827,19 +3859,19 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-editable-field-padding-horizontal-m - Horizontal padding of the editable field in medium size"
-        },
-        {
-          "name": "cssprop",
           "text": "--wcs-editable-field-padding-vertical-m - Vertical padding of the editable field in medium size"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-editable-field-padding-horizontal-l - Horizontal padding of the editable field in large size"
+          "text": "--wcs-editable-field-padding-vertical-l - Vertical padding of the editable field in large size"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-editable-field-padding-vertical-l - Vertical padding of the editable field in large size"
+          "text": "--wcs-editable-field-padding-horizontal-m - Horizontal padding of the editable field in medium size"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-editable-field-padding-horizontal-l - Horizontal padding of the editable field in large size"
         },
         {
           "name": "cssprop",
@@ -4228,7 +4260,24 @@
       "tag": "wcs-field-content",
       "readme": "# wcs-field-content\r\n\r\n\r\n\r",
       "docs": "The field-content is a subcomponent of `wcs-field`. It represents the text content of the field.",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "cssprop",
+          "text": "--wcs-field-content-color - Color of the content"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-field-content-font-weight - Font weight of the content"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-field-content-font-size - Font size of the content"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-field-content-line-height - Line height of the content"
+        }
+      ],
       "usage": {},
       "props": [],
       "methods": [],
@@ -4247,7 +4296,24 @@
       "tag": "wcs-field-label",
       "readme": "# wcs-field-label\r\n\r\n\r\n\r",
       "docs": "The field-label is a subcomponent of `wcs-field`. It represents the label or title of the field.",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "cssprop",
+          "text": "--wcs-field-label-color - Color of the label"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-field-label-font-weight - Font weight of the label"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-field-label-font-size - Font size of the label"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-field-label-line-height - Line height of the label"
+        }
+      ],
       "usage": {},
       "props": [],
       "methods": [],
@@ -4798,43 +4864,71 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-grid-column-selection-width - Width of the selection column"
+          "text": "--wcs-grid-header-background-color-default - Default background color of the header"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-grid-header-border-left - Left border of all grid headers (within `<thead>`)"
+          "text": "--wcs-grid-header-background-color-hover - Background color of the header on hover"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-grid-header-border-bottom - Bottom border of the `<thead>`"
+          "text": "--wcs-grid-header-background-color-press - Background color of the header on press"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-grid-header-background-color - Background color of all headers"
+          "text": "--wcs-grid-header-text-color - Text color of the header"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-grid-header-text-color - Text color of all headers"
+          "text": "--wcs-grid-header-font-weight - Font weight of the header"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-grid-header-font-weight - Font weight of all headers"
+          "text": "--wcs-grid-header-font-size - Font size of the header"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-grid-header-font-size - Font size of all headers"
+          "text": "--wcs-grid-header-line-height - Line height of the header"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-grid-header-line-height - Line height of all headers"
+          "text": "--wcs-grid-header-padding-vertical - Vertical padding of the header"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-grid-header-border-radius - Border radius of all headers"
+          "text": "--wcs-grid-header-padding-horizontal - Horizontal padding of the header"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-grid-header-border-bottom - Bottom border of all headers"
+          "text": "--wcs-grid-header-border-left - Left border between header cells (default is none"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-header-border-radius - Border radius of the header"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-header-border-bottom - Bottom border of the header"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-header-transition-duration - Transition duration of the header"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-first-header-background-color - Background color of the first header cell"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-first-header-border-radius - Border radius of the first header cell"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-last-header-border-radius - Border radius of the last header cell"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-column-selection-width - Width of the selection column (when selectionConfig is defined)"
         },
         {
           "name": "cssprop",
@@ -4842,7 +4936,7 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-grid-header-sort-arrow-color-active - Color of the sort arrow in the header when active"
+          "text": "--wcs-grid-header-sort-arrow-color-active - Color of the sort arrow in the header when active (sorted)"
         },
         {
           "name": "csspart",
@@ -5275,46 +5369,6 @@
       "docs": "The grid column is a subcomponent of `wcs-grid` that represents a column of the table.",
       "docsTags": [
         {
-          "name": "cssprop",
-          "text": "--wcs-grid-header-background-color - Background color of the header cell"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-grid-header-text-color - Text color of the header cell"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-grid-header-font-weight - Font weight of the header cellJ"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-grid-header-font-size - Font size of the header cell"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-grid-header-line-height - Line height of the header cell"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-grid-header-border-radius - Border radius of the header cell"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-grid-header-border-bottom - Bottom border of the header cell"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-grid-column-border-left - Border separator between column names"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-grid-header-sort-arrow-color-default - Color of the sort arrow in the header"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-grid-header-sort-arrow-color-active - Color of the sort arrow in the header when active"
-        },
-        {
           "name": "csspart",
           "text": "[path]-column - CSS part for each column for styling. e.g: first_name-column, email-column"
         }
@@ -5721,11 +5775,23 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-grid-pagination-border-color - Border color of the grid pagination"
+          "text": "--wcs-grid-pagination-font-size - Font-size of the grid pagination"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-grid-pagination-counter-gap - Gap between the current page and the total page count"
+          "text": "--wcs-grid-pagination-font-weight - Font-weight of the grid pagination"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-pagination-gap - Gap between the page size, number of elements and page management"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-pagination-page-size-gap - Gap between the select and the text within the page size container"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-grid-pagination-counter-gap - Gap within the page management counter"
         },
         {
           "name": "cssprop",
@@ -7968,7 +8034,7 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-list-item-background-color - Background color of the list item"
+          "text": "--wcs-list-item-background-color-default - Background color of the list item"
         },
         {
           "name": "cssprop",
@@ -8742,19 +8808,23 @@
       "docsTags": [
         {
           "name": "cssprop",
-          "text": "--wcs-select-native-arrow-color - Color of the select arrow"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-select-native-arrow-color-disabled - Color of the select arrow when the select is disabled"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-select-native-background-color - Background color of the select"
-        },
-        {
-          "name": "cssprop",
           "text": "--wcs-select-native-line-height - Line height of the select"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-select-native-size-m - Height of the select when size is 'm'"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-select-native-font-size-m - Font size of the select when size is 'm'"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-select-native-size-l - Height of the select when size is 'l'"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-select-native-font-size-l - Font size of the select when size is 'l'"
         },
         {
           "name": "cssprop",
@@ -8762,19 +8832,7 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-select-native-border-width - Border width of the select when not focused"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-select-native-border-width-focus - Border width of the select when focused"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-select-native-border-style-default - Border style of the select when not focused"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-select-native-border-style-focus - Border style of the select when focused"
+          "text": "--wcs-select-native-background-color - Background color of the select"
         },
         {
           "name": "cssprop",
@@ -8794,6 +8852,22 @@
         },
         {
           "name": "cssprop",
+          "text": "--wcs-select-native-border-style-default - Border style of the select when not focused"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-select-native-border-style-focus - Border style of the select when focused"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-select-native-border-width - Border width of the select when not focused"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-select-native-border-width-focus - Border width of the select when focused"
+        },
+        {
+          "name": "cssprop",
           "text": "--wcs-select-native-value-color - Color of the selected value"
         },
         {
@@ -8803,6 +8877,26 @@
         {
           "name": "cssprop",
           "text": "--wcs-select-native-value-font-style - Font style of the selected value"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-select-native-padding-horizontal-m - Padding horizontal of the select when size is 'm'"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-select-native-padding-horizontal-l - Padding horizontal of the select when size is 'l'"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-select-native-arrow-color - Color of the select arrow"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-select-native-arrow-color-disabled - Color of the select arrow when the select is disabled"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-select-native-text-color-disabled - Color of the text when the select is disabled"
         },
         {
           "name": "cssprop",
@@ -8818,10 +8912,6 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-select-native-text-color-disabled - Color of the text when the select is disabled"
-        },
-        {
-          "name": "cssprop",
           "text": "--wcs-select-native-option-color - Text color of the options"
         },
         {
@@ -8831,30 +8921,6 @@
         {
           "name": "cssprop",
           "text": "--wcs-select-native-option-selected-color - Text color of the selected option"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-select-native-padding-horizontal-m - Padding horizontal of the select when size is 'm'"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-select-native-padding-horizontal-m - Padding horizontal of the select when size is 'l'"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-select-native-size-m - Height of the select when size is 'm'"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-select-native-font-size-m - Font size of the select when size is 'm'"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-select-native-size-l - Height of the select when size is 'l'"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-select-native-font-size-l - Font size of the select when size is 'l'"
         }
       ],
       "usage": {},
@@ -9014,11 +9080,7 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-nav-width - Width of the nav"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-nav-border-top-mobile - Border top of the nav on mobile"
+          "text": "--wcs-nav-width-desktop - Width of the nav on desktop"
         },
         {
           "name": "cssprop",
@@ -9113,15 +9175,19 @@
         },
         {
           "name": "cssprop",
+          "text": "--wcs-nav-item-gap-desktop - Gap between items in nav-item on desktop (e.g. icon and label)"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-nav-item-gap-mobile - Gap between items in nav-item on mobile (e.g. icon and label)"
+        },
+        {
+          "name": "cssprop",
           "text": "--wcs-nav-item-font-size-desktop - Font size of the nav item on desktop"
         },
         {
           "name": "cssprop",
           "text": "--wcs-nav-item-font-size-mobile - Font size of the nav item on mobile"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-nav-item-border-horizontal-desktop - Border of the nav item on desktop"
         },
         {
           "name": "cssprop",
@@ -9288,6 +9354,10 @@
         {
           "name": "cssprop",
           "text": "--wcs-progress-bar-label-percentage-font-size-m - Font size of the percentage for size medium"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-progress-bar-label-top-space - Space on top of the progress bar when label is displayed"
         }
       ],
       "usage": {},
@@ -9457,7 +9527,7 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-progress-bar-rail-color - The color of the rail of the progress radial"
+          "text": "--wcs-progress-radial-rail-color - The color of the rail of the progress radial"
         },
         {
           "name": "cssprop",
@@ -9478,6 +9548,10 @@
         {
           "name": "cssprop",
           "text": "--wcs-progress-radial-label-percentage-font-size - The font size of the percentage inside the progress radial"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-progress-radial-animation-duration - The duration of the animation of the progress radial"
         }
       ],
       "usage": {},
@@ -9618,6 +9692,10 @@
       "docsTags": [
         {
           "name": "cssprop",
+          "text": "--wcs-radio-transition-duration - Duration of the transition"
+        },
+        {
+          "name": "cssprop",
           "text": "--wcs-radio-text-color-default - Color of the text when the radio is not selected"
         },
         {
@@ -9678,7 +9756,11 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-radio-checkmark-background-color-disabled - Background color of the checkmark circle when the radio is disabled"
+          "text": "--wcs-radio-checkmark-background-color-selected-disabled - Background color of the checkmark circle when the radio is selected and disabled"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-checkmark-background-color-selected-hover - Background color of the checkmark circle when the radio is selected and hovered"
         },
         {
           "name": "cssprop",
@@ -9694,7 +9776,15 @@
         },
         {
           "name": "cssprop",
+          "text": "--wcs-radio-checkmark-border-radius - Border radius of the checkmark circle"
+        },
+        {
+          "name": "cssprop",
           "text": "--wcs-radio-gap - Gap between the radio checkmark circle and the label"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-border-radius - Border radius of the radio (default mode)"
         },
         {
           "name": "cssprop",
@@ -9702,15 +9792,11 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-radio-option-background-color-selected - Background color of the radio option when selected"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-radio-option-background-color-selected-disabled - Background color of the radio option when selected and disabled"
-        },
-        {
-          "name": "cssprop",
           "text": "--wcs-radio-option-background-color-hover - Background color of the radio option not selected when hovered"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-option-background-color-press - Background color of the radio option when pressed"
         },
         {
           "name": "cssprop",
@@ -9718,19 +9804,23 @@
         },
         {
           "name": "cssprop",
+          "text": "--wcs-radio-option-background-color-selected-default - Background color of the radio option when selected"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-option-background-color-selected-hover - Background color of the radio option when selected and hovered"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-option-background-color-selected-press - Background color of the radio option when selected and pressed"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-option-background-color-selected-disabled - Background color of the radio option when selected and disabled"
+        },
+        {
+          "name": "cssprop",
           "text": "--wcs-radio-option-text-color-default - Color of the text when the radio option is not selected"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-radio-option-text-font-weight-default - Default font weight of the text"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-radio-option-text-color-selected - Color of the text when the radio option is selected"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-radio-option-text-font-weight-selected - Font weight of the text when the radio option is selected"
         },
         {
           "name": "cssprop",
@@ -9738,7 +9828,31 @@
         },
         {
           "name": "cssprop",
+          "text": "--wcs-radio-option-text-color-press - Color of the text when the radio option is pressed"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-option-text-color-selected-default - Color of the text when the radio option is selected"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-option-text-color-selected-hover - Color of the text when the radio option is selected and hovered"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-option-text-color-selected-press - Color of the text when the radio option is selected and pressed"
+        },
+        {
+          "name": "cssprop",
           "text": "--wcs-radio-option-text-color-disabled - Color of the text when the radio option's is disabled"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-option-text-font-weight-default - Default font weight of the text"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-option-text-font-weight-selected - Font weight of the text when the radio option is selected"
         },
         {
           "name": "cssprop",
@@ -9746,7 +9860,15 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-radio-option-outline-color-focus - Color of the outline when the radio option is focused"
+          "text": "--wcs-radio-option-border-width - Width of the border of the radio option"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-option-border-color-hover - Color of the border of the radio option when not selected and hovered"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-radio-option-border-color-press - Color of the border of the radio option when not selected and pressed"
         },
         {
           "name": "cssprop",
@@ -10132,11 +10254,11 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-select-control-ripple-color - Ripple color of the select control"
+          "text": "--wcs-select-control-line-height - Line height of the select control"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-select-control-line-height - Line height of the select control"
+          "text": "--wcs-select-options-padding - Padding of the select options container"
         },
         {
           "name": "cssprop",
@@ -10144,11 +10266,7 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-select-control-border-width - Border width of the select control when not focused"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-select-control-border-width-active - Border width of the select control when active"
+          "text": "--wcs-select-control-border-width-default - Border width of the select control when not focused"
         },
         {
           "name": "cssprop",
@@ -10165,10 +10283,6 @@
         {
           "name": "cssprop",
           "text": "--wcs-select-control-border-color-error - Border color of the select control when error"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-select-control-border-color-active - Border color of the select control when active (select is opened)"
         },
         {
           "name": "cssprop",
@@ -10732,7 +10846,7 @@
       ],
       "listeners": [
         {
-          "event": "mousedown",
+          "event": "mouseup",
           "capture": false,
           "passive": true
         },
@@ -10795,6 +10909,10 @@
         {
           "name": "cssprop",
           "text": "--wcs-select-option-background-color-hover - Background color of the option when hovered"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-select-option-background-color-press - Background color of the option when pressed"
         },
         {
           "name": "cssprop",
@@ -10867,10 +10985,6 @@
         {
           "name": "cssprop",
           "text": "--wcs-select-option-text-color-disabled - Color of the option text when disabled"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-select-option-ripple-color - Color of the ripple effect"
         },
         {
           "name": "cssprop",
@@ -11020,7 +11134,7 @@
       ],
       "listeners": [
         {
-          "event": "mousedown",
+          "event": "mouseup",
           "capture": false,
           "passive": true
         },
@@ -11574,10 +11688,6 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-switch-text-color-hover - Color of the text when the switch is hovered"
-        },
-        {
-          "name": "cssprop",
           "text": "--wcs-switch-text-color-disabled - Color of the text when the switch is disabled"
         },
         {
@@ -11595,6 +11705,10 @@
         {
           "name": "cssprop",
           "text": "--wcs-switch-background-color-disabled-selected - Background color of the switch when disabled and selected"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-switch-background-color-hover-selected - Background color of the switch when hovered and selected"
         },
         {
           "name": "cssprop",
@@ -11618,19 +11732,15 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-switch-dot-color-initial - Color of the dot when not selected"
+          "text": "--wcs-switch-dot-color-default - Color of the dot when not selected"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-switch-dot-color-final - Color of the dot when selected"
+          "text": "--wcs-switch-dot-color-selected - Color of the dot when selected"
         },
         {
           "name": "cssprop",
           "text": "--wcs-switch-dot-color-disabled - Color of the dot when disabled"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-switch-dot-color-disabled-selected - Color of the dot when disabled and selected"
         },
         {
           "name": "cssprop",
@@ -11680,7 +11790,7 @@
           "mutable": false,
           "attr": "disabled",
           "reflectToAttr": false,
-          "docs": "Specify wether the switch is disabled or not.",
+          "docs": "Specify whether the switch is disabled or not.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -11862,7 +11972,13 @@
           "docsTags": []
         }
       ],
-      "listeners": [],
+      "listeners": [
+        {
+          "event": "click",
+          "capture": false,
+          "passive": false
+        }
+      ],
       "styles": [],
       "slots": [],
       "parts": [],
