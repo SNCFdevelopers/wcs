@@ -1,13 +1,13 @@
 :host {
     --wcs-editable-field-label-color: var(--wcs-semantic-color-text-primary);
-    --wcs-editable-field-label-font-weight: var(--wcs-semantic-font-weight-medium);
+    --wcs-editable-field-label-font-weight: var(--wcs-semantic-font-weight-book);
     --wcs-editable-field-label-gap: var(--wcs-semantic-spacing-base);
     --wcs-editable-field-label-font-size: var(--wcs-semantic-font-size-m);
 
     --wcs-editable-field-background-color: var(--wcs-semantic-color-background-control-default);
     --wcs-editable-field-value-font-weight: var(--wcs-semantic-font-weight-medium);
     --wcs-editable-field-value-color-default: var(--wcs-semantic-color-text-primary);
-    --wcs-editable-field-value-color-hover: var(--wcs-primitive-color-primary); /* TODO map to semantic */
+    --wcs-editable-field-value-color-hover: var(--wcs-semantic-color-foreground-brand);
     --wcs-editable-field-value-color-readonly: var(--wcs-semantic-color-text-tertiary);
     --wcs-editable-field-height-m: var(--wcs-semantic-size-m);
     --wcs-editable-field-height-l: var(--wcs-semantic-size-l);
@@ -18,14 +18,14 @@
     --wcs-editable-field-border-width: var(--wcs-semantic-border-width-default);
     --wcs-editable-field-border-width-focus: var(--wcs-semantic-border-width-large);
     --wcs-editable-field-border-width-hover: var(--wcs-semantic-border-width-default);
-    --wcs-editable-field-border-color-default: var(--wcs-semantic-color-border-brand);
-    --wcs-editable-field-border-color-hover: var(--wcs-semantic-color-border-brand);
+    --wcs-editable-field-border-color-default: var(--wcs-semantic-color-border-primary);
+    --wcs-editable-field-border-color-hover: var(--wcs-semantic-color-border-control-focus);
     --wcs-editable-field-border-style: var(--wcs-semantic-border-style-focus-control);
 
+    --wcs-editable-field-padding-vertical-m: 0;
+    --wcs-editable-field-padding-vertical-l: 0;
     --wcs-editable-field-padding-horizontal-m: calc(var(--wcs-semantic-spacing-large) - var(--wcs-editable-field-border-width));
-    --wcs-editable-field-padding-vertical-m: calc(var(--wcs-semantic-spacing-base) - var(--wcs-editable-field-border-width));
     --wcs-editable-field-padding-horizontal-l: calc(var(--wcs-semantic-spacing-large) - var(--wcs-editable-field-border-width));
-    --wcs-editable-field-padding-vertical-l: calc(1.5 * var(--wcs-semantic-spacing-base) - var(--wcs-editable-field-border-width));
 
     --wcs-editable-field-icon-color-readonly: var(--wcs-semantic-color-text-tertiary);
 
