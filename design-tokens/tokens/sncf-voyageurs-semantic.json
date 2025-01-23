@@ -440,6 +440,11 @@
                         "$value": "{semantic.color.background.surface.secondary}"
                     },
                     "indicator": {
+                        "default": {
+                            "$description": "Default background color of a form-field indicator: radio, checkbox",
+                            "$type": "color",
+                            "$value": "{semantic.color.background.surface.secondary}"
+                        },
                         "selected": {
                             "$description": "Selected background color of a form-field indicator: radio, checkbox",
                             "$type": "color",
@@ -453,7 +458,7 @@
                         "disabled": {
                             "$description": "Disabled background color of a form-field indicator: radio, checkbox",
                             "$type": "color",
-                            "$value": "{primitive.color.neutral.400}"
+                            "$value": "{primitive.color.neutral.300}"
                         }
                     }
                 },

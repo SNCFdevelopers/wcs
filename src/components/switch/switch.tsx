@@ -27,10 +27,10 @@ const SWITCH_INHERITED_ATTRS = ['tabindex'];
  * @cssprop --wcs-switch-padding-horizontal - Horizontal padding of the switch
  * @cssprop --wcs-switch-padding-vertical - Vertical padding of the switch
  * 
- * @cssprop --wcs-switch-dot-color-initial - Color of the dot when not selected
- * @cssprop --wcs-switch-dot-color-final - Color of the dot when selected
+ * @cssprop --wcs-switch-dot-color-default - Color of the dot when not selected
+ * @cssprop --wcs-switch-dot-color-selected - Color of the dot when selected
  * @cssprop --wcs-switch-dot-color-disabled - Color of the dot when disabled
- * @cssprop --wcs-switch-dot-color-disabled-selected - Color of the dot when disabled and selected
+ * 
  * @cssprop --wcs-switch-dot-translate-x - Horizontal translation of the dot (from left to right = right to left)
  * @cssprop --wcs-switch-dot-size - Size of the dot
  * 
