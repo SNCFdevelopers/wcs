@@ -40,12 +40,10 @@ const WCS_COM_NAV_SUBMENU_TAG_NAME = 'WCS-COM-NAV-SUBMENU';
  * @cssprop --wcs-com-nav-item-color - Color of the wcs-nav-item inside menu-bar
  * @cssprop --wcs-com-nav-item-font-weight - Font weight of the wcs-nav-item inside menu-bar
  * @cssprop --wcs-com-nav-focus-outline-color - Focus outline color of the wcs-nav-item inside menu-bar
- * @cssprop --wcs-com-nav-horizontal-padding - Padding horizontal of wcs-com-nav
+ * @cssprop --wcs-com-nav-horizontal-padding - Horizontal padding of wcs-com-nav
+ * @cssprop --wcs-com-nav-vertical-padding - Vertical padding of wcs-com-nav
  * @cssprop --wcs-com-nav-mobile-overlay-gap - Gap between each items section in mobile overlay
- * @cssprop --wcs-com-nav-mobile-overlay-padding-top - Padding top inside mobile overlay
- * @cssprop --wcs-com-nav-mobile-overlay-padding-bottom - Padding bottom inside mobile overlay
- * @cssprop --wcs-com-nav-mobile-overlay-padding-left - Padding left inside mobile overlay
- * @cssprop --wcs-com-nav-mobile-overlay-padding-right - Padding right inside mobile overlay
+ * @cssprop --wcs-com-nav-mobile-overlay-padding - Padding inside mobile overlay
  * @cssprop --wcs-com-nav-mobile-menu-icon-border-color - Bar border color on the left of icon mobile menu
  * @cssprop --wcs-com-nav-mobile-menu-icon-gap- Gap between icon mobile menu and separator on the left
  * @cssprop --wcs-com-nav-mobile-menu-icon-margin-left - Margin left of icon mobile menu

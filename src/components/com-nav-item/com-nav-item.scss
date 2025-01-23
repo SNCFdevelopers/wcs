@@ -4,16 +4,20 @@
 /* Default style and mobile behaviour */
 :host {
     --wcs-com-nav-item-gap: var(--wcs-semantic-spacing-base);
+    --wcs-com-nav-item-font-size: var(--wcs-semantic-font-size-label-1);
+    --wcs-com-nav-item-arrow-icon-color: var(--wcs-semantic-color-foreground-action-neutral-default);
     --wcs-com-nav-item-arrow-icon-font-size: 0.6rem;
     --wcs-com-nav-item-arrow-icon-font-family: icons;
     --wcs-com-nav-item-arrow-icon-line-height: 1;
 
     --wcs-com-nav-item-focus-outline-color: var(--wcs-semantic-color-border-focus-base);
 
+    position: relative;
     display: inline-flex;
     align-items: center;
     gap: var(--wcs-com-nav-item-gap);
     height: fit-content;
+    padding: 0 8px;
 
     font: inherit;
 
@@ -22,7 +26,7 @@
         user-select: none;
         cursor: pointer;
         text-decoration: none;
-        font-size: 1rem;
+        font-size: var(--wcs-com-nav-item-font-size);
         color: inherit;
         font-weight: inherit;
 
@@ -33,7 +37,8 @@
     /* Common behaviour between Large Screen and Small Screens */
     .arrow-icon {
         display: inline-block;
-        font-family: var(--wcs-com-nav-item-arrow-icon-font-family);
+        font-family: icons;
+        color: var(--wcs-com-nav-item-arrow-icon-color);
         font-size: var(--wcs-com-nav-item-arrow-icon-font-size);
         line-height: var(--wcs-com-nav-item-arrow-icon-line-height);
         box-sizing: border-box;

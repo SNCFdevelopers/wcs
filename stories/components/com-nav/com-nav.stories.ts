@@ -92,8 +92,13 @@ const Template: StoryFn<Partial<ComNavArgs>> = (args) => html`
         <wcs-com-nav-item>
             <a href="https://sncf.com" target="_blank">Ressource externe</a>
         </wcs-com-nav-item>
-        <div slot="actions">
-            <wcs-button mode="clear" class="wcs-dark">Connexion</wcs-button>
+        <div slot="actions" style="display: flex; align-items: center">
+            <wcs-button mode="clear" shape="round">
+                <wcs-mat-icon icon="search"></wcs-mat-icon>
+            </wcs-button>
+            <wcs-button mode="clear" shape="round">
+                <wcs-mat-icon icon="account_circle"></wcs-mat-icon>
+            </wcs-button>
         </div>
     </wcs-com-nav>
     <div
@@ -153,8 +158,13 @@ export const OnlyTopLevelLinks: StoryObj<ComNavArgs> = {
         <wcs-com-nav-item>
             <a href="https://sncf.com" target="_blank">Ressource externe</a>
         </wcs-com-nav-item>
-        <div slot="actions">
-            <wcs-button mode="clear" class="wcs-dark">Connexion</wcs-button>
+        <div slot="actions" style="display: flex; align-items: center">
+            <wcs-button mode="clear" shape="round">
+                <wcs-mat-icon icon="search"></wcs-mat-icon>
+            </wcs-button>
+            <wcs-button mode="clear" shape="round">
+                <wcs-mat-icon icon="account_circle"></wcs-mat-icon>
+            </wcs-button>
         </div>
     </wcs-com-nav>
     <div

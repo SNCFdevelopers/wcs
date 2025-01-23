@@ -3,15 +3,15 @@
 @import '../../style/breakpoints.scss';
 
 :host {
-    --wcs-com-nav-menu-bar-height: calc(var(--wcs-semantic-spacing-base) * 10);
+    --wcs-com-nav-menu-bar-height: calc(var(--wcs-semantic-size-base) * 8);
     --wcs-com-nav-border-color: var(--wcs-semantic-color-border-secondary);
     --wcs-com-nav-border-width: var(--wcs-semantic-border-width-default);
     --wcs-com-nav-background-color: var(--wcs-semantic-color-background-surface-primary);
 
     --wcs-com-nav-app-name-color: var(--wcs-semantic-color-text-primary);
-    --wcs-com-nav-app-name-font-weight: var(--wcs-semantic-font-weight-roman);
-    --wcs-com-nav-app-name-font-size: 1.5rem;
-    --wcs-com-nav-app-name-line-height: 1.5;
+    --wcs-com-nav-app-name-font-weight: var(--wcs-semantic-font-weight-heavy);
+    --wcs-com-nav-app-name-font-size: var(--wcs-semantic-font-size-heading-5);
+    --wcs-com-nav-app-name-line-height: var(--wcs-semantic-font-line-height-large);
 
     --wcs-com-nav-item-color: var(--wcs-semantic-color-foreground-action-neutral-default);
     --wcs-com-nav-item-font-weight: var(--wcs-semantic-font-weight-medium);
@@ -20,17 +20,16 @@
 
 
     // Spacings for navbar and mobile overlay
+    --wcs-com-nav-vertical-padding: 0;
     --wcs-com-nav-horizontal-padding: var(--wcs-semantic-spacing-large);
     --wcs-com-nav-mobile-overlay-gap: var(--wcs-semantic-spacing-large);
-    --wcs-com-nav-mobile-overlay-padding-top: calc(var(--wcs-semantic-spacing-base) * 2);
-    --wcs-com-nav-mobile-overlay-padding-bottom: calc(var(--wcs-semantic-spacing-base) * 2);
-    --wcs-com-nav-mobile-overlay-padding-left: var(--wcs-semantic-spacing-large);
-    --wcs-com-nav-mobile-overlay-padding-right: var(--wcs-semantic-spacing-large);
+    --wcs-com-nav-mobile-overlay-padding: var(--wcs-semantic-spacing-large);
 
     // Burger icon (mobile)
     --wcs-com-nav-mobile-menu-icon-border-color: var(--wcs-semantic-color-border-secondary);
     --wcs-com-nav-mobile-menu-icon-gap: calc(var(--wcs-semantic-spacing-base) * 2);
     --wcs-com-nav-mobile-menu-icon-margin-left: var(--wcs-semantic-spacing-base);
+    --wcs-com-nav-mobile-menu-icon-color: var(--wcs-semantic-color-foreground-action-secondary-default);
 
     // Menu bar (desktop)
     --wcs-com-nav-menu-bar-gap: calc(var(--wcs-semantic-spacing-base) * 5); // 40px
@@ -42,7 +41,7 @@
     border-bottom: var(--wcs-com-nav-border-width) solid var(--wcs-com-nav-border-color);
 
     .container {
-        padding: 0 var(--wcs-com-nav-horizontal-padding);
+        padding: var(--wcs-com-nav-vertical-padding) var(--wcs-com-nav-horizontal-padding);
         height: 100%;
         display: flex;
         align-items: center;
@@ -79,7 +78,10 @@
     }
 
     #mobile-menu-icon {
-        height: 24px;
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        color: var(--wcs-com-nav-mobile-menu-icon-color);
         padding-left: var(--wcs-com-nav-mobile-menu-icon-gap);
         margin-left: var(--wcs-com-nav-mobile-menu-icon-margin-left);
         border-left: solid 1px var(--wcs-com-nav-mobile-menu-icon-border-color);
@@ -111,7 +113,7 @@
 
     #mobile-menu-icon:after {
         font-family: icons;
-        font-size: 24px;
+        font-size: 18px;
         cursor: pointer;
         content: "\f198";
         line-height: 1;
@@ -127,10 +129,7 @@
     }
 
     .mobile-overlay[data-mobile-open] {
-        padding-top: var(--wcs-com-nav-mobile-overlay-padding-top);
-        padding-bottom: var(--wcs-com-nav-mobile-overlay-padding-bottom);
-        padding-left: var(--wcs-com-nav-mobile-overlay-padding-left);
-        padding-right: var(--wcs-com-nav-mobile-overlay-padding-right);
+        padding: var(--wcs-com-nav-mobile-overlay-padding);
         position: absolute;
         top: var(--wcs-com-nav-menu-bar-height);
         left: 0;
