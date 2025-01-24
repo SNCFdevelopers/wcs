@@ -128,7 +128,7 @@ export class Grid implements ComponentInterface, ComponentDidLoad, MutableAriaAt
     @Prop() wcsGridPaginationId: string;
     /**
      * Name of the object's key that will be used to display the cells whose `keyValue` attribute matches to the
-     * object's value for this key.
+     * object's value for this key. Useful for custom cells.
      */
     @Prop() rowIdPath: string;
     /**
@@ -735,7 +735,7 @@ export class Grid implements ComponentInterface, ComponentDidLoad, MutableAriaAt
                     return cell.column.customCells
                         ? (<td tabIndex={cursorIsOnCell ? 0 : -1}
                                aria-colindex={this.atLeastOneColumnHidden() ? nonHiddenColumnIndex : null}>
-                            <slot name={cell.column.id + '-' + row.data[this.rowIdPath]}/>
+                            <slot name={cell.column.id + '-' + get(row.data, this.rowIdPath)}/>
                         </td>)
                         : (<td tabIndex={cursorIsOnCell ? 0 : -1}
                                aria-colindex={this.atLeastOneColumnHidden() ? nonHiddenColumnIndex : null}
