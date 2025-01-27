@@ -1,22 +1,12 @@
 .arrow-group {
-    transform-origin: 50% 51%;
-    transition: transform 175ms ease-in-out;
+    transform-origin: 50% 50%;
+    transition: transform var(--wcs-semantic-motion-duration-feedback-base, 150ms) ease-in-out;
 }
 
 .arrow {
-    transition: fill 175ms ease-in-out;
-    fill: var(--wcs-grid-header-sort-arrow-color-default, var(--wcs-semantic-color-foreground-disabled));
-}
-
-.asc {
-    transform: scaleY(1) translateY(-6px);
+    fill: var(--wcs-grid-header-sort-arrow-color, transparent);
 }
 
 .desc {
-    transform: scaleY(-1) translateY(-6px);
-}
-
-.active {
-    fill: var(--wcs-grid-header-sort-arrow-color-active, var(--wcs-semantic-color-foreground-brand));
-
+    transform: rotate(180deg);
 }

@@ -80,7 +80,7 @@ const GRID_INHERITED_ATTRS = ['title'];
  * @cssprop --wcs-grid-last-header-border-radius - Border radius of the last header cell
  * @cssprop --wcs-grid-column-selection-width - Width of the selection column (when selectionConfig is defined)
  * @cssprop --wcs-grid-header-sort-arrow-color-default - Color of the sort arrow in the header
- * @cssprop --wcs-grid-header-sort-arrow-color-active - Color of the sort arrow in the header when active (sorted)
+ * @cssprop --wcs-grid-header-sort-arrow-color-hover - Color of the sort arrow in the header when hovered
  * 
  * @csspart all-rows-checkbox - CSS part for the checkbox in the selection column that selects all rows
  * @csspart row-checkbox - CSS part for the checkbox of each row in the selection column

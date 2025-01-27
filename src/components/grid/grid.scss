@@ -36,8 +36,8 @@
     --wcs-grid-first-header-border-radius: 0;
     --wcs-grid-last-header-border-radius: 0;
     --wcs-grid-column-selection-width: calc(5 * var(--wcs-semantic-spacing-base));
-    --wcs-grid-header-sort-arrow-color-default: var(--wcs-semantic-color-foreground-disabled);
-    --wcs-grid-header-sort-arrow-color-active: var(--wcs-semantic-color-foreground-brand);
+    --wcs-grid-header-sort-arrow-color-default: var(--wcs-semantic-color-foreground-action-neutral-default);
+    --wcs-grid-header-sort-arrow-color-hover: var(--wcs-semantic-color-foreground-action-neutral-hover);
 
     display: block;
 
@@ -122,6 +122,7 @@
     .wcs-grid-selection-column {
         padding: var(--wcs-grid-cell-padding-vertical) var(--wcs-grid-cell-padding-horizontal);
         width: var(--wcs-grid-column-selection-width);
+        text-align: start;
     }
 
     tr.selected {

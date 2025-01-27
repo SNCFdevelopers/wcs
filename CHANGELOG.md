@@ -19,6 +19,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   `hideActionText` to `false`
 - **card**: default mode is now `flat` instead of `raised`
 - **dropdown**: items click event is now `mouseup` instead of `mousedown`
+- **grid**: sort header icon changed from chevron to arrow
 
 ### Deprecated
 
@@ -60,6 +61,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **header**
   - With design token migration, new `wcs-header` is no longer dark. Make sure your action button doesn't have class `wcs-light`
 that can cause contrast issues.
+- **grid**
+    - remove `--wcs-grid-header-sort-arrow-color`. Instead, use `--wcs-grid-header-sort-arrow-color-default` and `--wcs-grid-header-sort-arrow-color-hover`
 - **tabs**
   - remove the following css variables, see doc for replacement :
     - `--wcs-tabs-width`

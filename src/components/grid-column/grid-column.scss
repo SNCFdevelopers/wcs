@@ -36,18 +36,32 @@
             font-family: inherit;
             text-align: left;
             align-items: center;
+            gap: var(--wcs-semantic-spacing-base);
 
             span {
                 font-weight: var(--wcs-grid-header-font-weight);
             }
         }
 
+        /* Hovered grid header */
         &[aria-sort]:hover {
             background-color: var(--wcs-grid-header-background-color-hover);
         }
 
+        /* Pressed grid header */
         &[aria-sort]:active {
             background-color: var(--wcs-grid-header-background-color-press);
+        }
+
+        /* Grid header with asc or desc sort-config */
+        &[aria-sort=ascending],
+        &[aria-sort=descending] {
+            --wcs-grid-header-sort-arrow-color: var(--wcs-grid-header-sort-arrow-color-default);
+        }
+
+        /* Hovered grid header, not sorted yet */
+        &[aria-sort=none]:hover {
+            --wcs-grid-header-sort-arrow-color: var(--wcs-grid-header-sort-arrow-color-hover);
         }
 
         // XXX: This code works in Firefox as well, but there is a browser-side rendering bug that prevents it from displaying correctly.
@@ -64,30 +78,6 @@
     }
     .pointer {
         cursor: pointer;
-    }
-}
-
-:host([sort-order="asc"]) {
-    img {
-        transform: scaleY(1);
-    }
-}
-
-:host([sort-order="desc"]) {
-    img {
-        transform: scaleY(-1);
-    }
-}
-
-:host([sort-order="none"]) {
-    img {
-        display: none;
-    }
-
-    th:hover {
-        img {
-            display: inline-block;
-        }
     }
 }
 
