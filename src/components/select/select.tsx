@@ -309,6 +309,10 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
             if (!Array.isArray(value)) {
                 value = [value];
             }
+
+            // We assume that the last modified option in multiple mode is the last one in the array
+            this.lastModifiedOptionElement = value.length > 0 ? Array.from(this.options).find(opt => this.compareWith(opt.value, value[value.length - 1])) ?? null : null;
+
             if (this.serverMode) {
                 // in server mode, we don't know all the possible select options, so we assume the value is correct,
                 // and we just sync the displayText and current available options
@@ -359,6 +363,7 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
                 const isSelected = this.compareWith(opt.value, value);
                 if (isSelected) {
                     this.displayText = opt.innerText;
+                    this.lastModifiedOptionElement = opt;
                     if (this.autocomplete) {
                         this.autocompleteValue = opt.innerText;
                     }
@@ -597,22 +602,10 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
             // this will trigger the watch on value and update the values model
             this.value = this.values.filter(v => !this.compareWith(v.value, event.value)).map(v => v.value);
         }
-        this.lastModifiedOptionElement = event.source;
-
     }
 
     private handleOptionSelectedOnSingle(event: SelectOptionChosedEvent) {
-        // TODO: refactor this method as the handleOptionSelectedOnMultiple one, we just want to update the value field, and ensure that the component UI and model is updated only once in the updateSelectedValue methos
-        // Reset other options to false if they were selected.
-        this.options
-            .forEach(option => {
-                if (option.selected) option.selected = false;
-            });
-
-        event.source.selected = true;
         this.value = event.value;
-        this.displayText = event.displayText;
-        this.lastModifiedOptionElement = event.source;
     }
 
     disconnectedCallback() {

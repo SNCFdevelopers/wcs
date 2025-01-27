@@ -622,6 +622,30 @@ describe('Select component', () => {
             expect(wcsSelect).toHaveClass("expanded");
 
         });
+
+        it('focuses last selected option when opening with keyboard after programmatic value change', async () => {
+            // Given
+            const page = await newE2EPage();
+            await setWcsContent(page, `
+              <wcs-select>
+                <wcs-select-option value="option1">Option 1</wcs-select-option>
+                <wcs-select-option value="option2">Option 2</wcs-select-option>
+                <wcs-select-option value="option3">Option 3</wcs-select-option>
+              </wcs-select>
+            `);
+            const select = await page.find('wcs-select');
+            
+            // When
+            await select.setProperty('value', 'option2');
+            await page.waitForChanges();
+            await select.focus();
+            await page.keyboard.press('Enter'); // Open select with keyboard
+            await page.waitForChanges();
+
+            // Then
+            const focusedOption = await page.find('wcs-select-option:focus');
+            expect(focusedOption.getAttribute('value')).toBe('option2');
+        });
     });
     describe('Keyboard navigation when select is opened and not multiple', () => {
         let page;
@@ -783,6 +807,30 @@ describe('Select component', () => {
             const focusedOption = await page.find('wcs-select-option:focus');
             expect(focusedOption).toEqual(firstOptionEnabled);
             expect(changeSpy).toHaveReceivedEventTimes(0)
+        });
+
+        it('focuses last selected option when opening with keyboard after programmatic value change', async () => {
+            // Given
+            const page = await newE2EPage();
+            await setWcsContent(page, `
+              <wcs-select multiple>
+                <wcs-select-option value="option1">Option 1</wcs-select-option>
+                <wcs-select-option value="option2">Option 2</wcs-select-option>
+                <wcs-select-option value="option3">Option 3</wcs-select-option>
+              </wcs-select>
+            `);
+            const select = await page.find('wcs-select');
+            
+            // When
+            await select.setProperty('value', ['option1', 'option2']);
+            await page.waitForChanges();
+            await select.focus();
+            await page.keyboard.press('Enter'); // Open select with keyboard
+            await page.waitForChanges();
+
+            // Then
+            const focusedOption = await page.find('wcs-select-option:focus');
+            expect(focusedOption.getAttribute('value')).toBe('option2'); // Should focus the last option in the array
         });
     });
     describe('Keyboard navigation when select opened and multiple', () => {

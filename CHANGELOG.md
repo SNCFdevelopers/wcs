@@ -80,6 +80,7 @@ that can cause contrast issues.
 - **select**:
   - the autocomplete input is now fully disabled when the select is disabled
   - autocomplete filter is now cleared when the select value is set to a falsy value
+  - focus last selected option on select opening after setting value in JS
 
 ### Security
 
