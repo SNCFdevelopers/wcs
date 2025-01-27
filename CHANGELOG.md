@@ -50,7 +50,9 @@ in case of vulnerabilities.
 - **tooltip**: add new theme `light`
 - **doc**
     - **galactic**: improve doc to give some accessibility advices
-
+- **modal**:
+    - add props to conditional when focus is set to modal opening ([see proposal](https://gitlab.com/SNCF/wcs/-/issues/329))
+    - add props to change on which element the focus will be on modal opening
 ### Changed
 
 - **accordion**: 'Ouvrez/Fermez' text is now hidden by default (`hideActionText` = `true`). If you want to show it, set

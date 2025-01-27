@@ -1269,6 +1269,128 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/action-bar/action-bar.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The action-bar component is a group of elements appearing across the top of all pages on a business application.",
+          "name": "ActionBar",
+          "cssProperties": [
+            {
+              "description": "Background color of the action bar",
+              "name": "--wcs-action-bar-background-color"
+            },
+            {
+              "description": "Gap between the title and the tabs",
+              "name": "--wcs-action-bar-gap"
+            },
+            {
+              "description": "Gap between the title and the actions",
+              "name": "--wcs-action-bar-gap-actions"
+            },
+            {
+              "description": "Minimum height of the action bar",
+              "name": "--wcs-action-bar-min-height"
+            },
+            {
+              "description": "Horizontal padding of the action bar",
+              "name": "--wcs-action-bar-padding-horizontal"
+            },
+            {
+              "description": "Vertical padding of the action bar",
+              "name": "--wcs-action-bar-padding-vertical"
+            },
+            {
+              "description": "Margin top of the tabs when slotted",
+              "name": "--wcs-action-bar-tabs-margin-top"
+            },
+            {
+              "description": "Font size of the title",
+              "name": "--wcs-action-bar-title-font-size"
+            },
+            {
+              "description": "Font weight of the title",
+              "name": "--wcs-action-bar-title-font-weight"
+            },
+            {
+              "description": "Color of the title",
+              "name": "--wcs-action-bar-title-color"
+            },
+            {
+              "description": "Border width of the gutter",
+              "name": "--wcs-tabs-gutter-border-width"
+            },
+            {
+              "description": "Background color of the gutter",
+              "name": "--wcs-tabs-gutter-background-color"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsActionBarElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "gutter",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Determines if the action bar should have a border at the bottom.\r\nYou should not use this property if a gutter is already present on tabs"
+            },
+            {
+              "kind": "field",
+              "name": "hasTabs",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "gutter",
+              "fieldName": "gutter",
+              "type": {
+                "text": "boolean"
+              }
+            }
+          ],
+          "tagName": "wcs-action-bar",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ActionBar",
+          "declaration": {
+            "name": "ActionBar",
+            "module": "components/action-bar/action-bar.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-action-bar",
+          "declaration": {
+            "name": "ActionBar",
+            "module": "components/action-bar/action-bar.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/accordion-panel/accordion-panel.tsx",
       "declarations": [
         {
@@ -1531,128 +1653,6 @@
           "declaration": {
             "name": "AccordionPanel",
             "module": "components/accordion-panel/accordion-panel.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/action-bar/action-bar.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The action-bar component is a group of elements appearing across the top of all pages on a business application.",
-          "name": "ActionBar",
-          "cssProperties": [
-            {
-              "description": "Background color of the action bar",
-              "name": "--wcs-action-bar-background-color"
-            },
-            {
-              "description": "Gap between the title and the tabs",
-              "name": "--wcs-action-bar-gap"
-            },
-            {
-              "description": "Gap between the title and the actions",
-              "name": "--wcs-action-bar-gap-actions"
-            },
-            {
-              "description": "Minimum height of the action bar",
-              "name": "--wcs-action-bar-min-height"
-            },
-            {
-              "description": "Horizontal padding of the action bar",
-              "name": "--wcs-action-bar-padding-horizontal"
-            },
-            {
-              "description": "Vertical padding of the action bar",
-              "name": "--wcs-action-bar-padding-vertical"
-            },
-            {
-              "description": "Margin top of the tabs when slotted",
-              "name": "--wcs-action-bar-tabs-margin-top"
-            },
-            {
-              "description": "Font size of the title",
-              "name": "--wcs-action-bar-title-font-size"
-            },
-            {
-              "description": "Font weight of the title",
-              "name": "--wcs-action-bar-title-font-weight"
-            },
-            {
-              "description": "Color of the title",
-              "name": "--wcs-action-bar-title-color"
-            },
-            {
-              "description": "Border width of the gutter",
-              "name": "--wcs-tabs-gutter-border-width"
-            },
-            {
-              "description": "Background color of the gutter",
-              "name": "--wcs-tabs-gutter-background-color"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsActionBarElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "gutter",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Determines if the action bar should have a border at the bottom.\r\nYou should not use this property if a gutter is already present on tabs"
-            },
-            {
-              "kind": "field",
-              "name": "hasTabs",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "default": "false"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "gutter",
-              "fieldName": "gutter",
-              "type": {
-                "text": "boolean"
-              }
-            }
-          ],
-          "tagName": "wcs-action-bar",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ActionBar",
-          "declaration": {
-            "name": "ActionBar",
-            "module": "components/action-bar/action-bar.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-action-bar",
-          "declaration": {
-            "name": "ActionBar",
-            "module": "components/action-bar/action-bar.tsx"
           }
         }
       ]
@@ -11081,7 +11081,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "The modal component (also named dialog or popup) is an interface element that appears on top of the page content.\r\nUse it to show a message, a confirmation dialog, or any other content like forms.\r\n\r\n## Accessibility guidelines 💡\r\n> - Modal element has `role=\"dialog\"` and `aria-modal=\"true\"`\r\n> - Keyboard navigation is trapped inside the modal\r\n> - It is mandatory to set the `modal-trigger-controls-id` to the id of the element that opens the dialog, in order\r\n> to focus it upon dialog dismissal.\r\n> - The modal can be closed at any time by pressing the Escape key.\r\n>\r\n> - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/",
+          "description": "The modal component (also named dialog or popup) is an interface element that appears on top of the page content.\r\nUse it to show a message, a confirmation dialog, or any other content like forms.\r\n\r\n## Accessibility guidelines 💡\r\n> - Modal element has `role=\"dialog\"` and `aria-modal=\"true\"`\r\n> - Keyboard navigation is trapped inside the modal\r\n> - It is mandatory to set the `modal-trigger-controls-id` to the id of the element that opens the dialog, in order\r\n> to focus it upon dialog dismissal.\r\n> - On modal opening, the default behaviour is to focus the first focusable element. If you want to change the initial \r\n> behaviour, you have to use `modal-element-id-to-focus-on-opening` attribute to set the id of the inner modal element you \r\n> want to focus. You will see a story as example below\r\n> - The modal can be closed at any time by pressing the Escape key.\r\n>\r\n> - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/",
           "name": "Modal",
           "cssProperties": [
             {
@@ -11262,6 +11262,24 @@
             },
             {
               "kind": "field",
+              "name": "initialFocusElementId",
+              "type": {
+                "text": "string | undefined"
+              },
+              "default": "undefined",
+              "description": "The ID of the element to automatically focus when the modal opens.\r\n\r\nIf this property is not set and `disableAutoFocus` is false, the modal will\r\nautomatically focus the first focusable element within its content.\r\nThis follows accessibility best practices by ensuring keyboard navigation\r\nstarts from a logical point when the modal opens."
+            },
+            {
+              "kind": "field",
+              "name": "disableAutoFocus",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Disables automatic focus behavior when the modal opens.\r\n\r\nWhen set to true, the modal will not automatically focus any element upon opening.\r\nUse this property with caution, as managing focus is important for accessibility.\r\nConsider providing an alternative focus management strategy if disabling the default behavior."
+            },
+            {
+              "kind": "field",
               "name": "modalId",
               "type": {
                 "text": "number"
@@ -11421,6 +11439,20 @@
               "fieldName": "modalTriggerControlsId",
               "type": {
                 "text": "string"
+              }
+            },
+            {
+              "name": "initial-focus-element-id",
+              "fieldName": "initialFocusElementId",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "disable-auto-focus",
+              "fieldName": "disableAutoFocus",
+              "type": {
+                "text": "boolean"
               }
             }
           ],

@@ -1370,6 +1370,9 @@ export namespace Components {
      * > - Keyboard navigation is trapped inside the modal
      * > - It is mandatory to set the `modal-trigger-controls-id` to the id of the element that opens the dialog, in order
      * > to focus it upon dialog dismissal.
+     * > - On modal opening, the default behaviour is to focus the first focusable element. If you want to change the initial 
+     * > behaviour, you have to use `modal-element-id-to-focus-on-opening` attribute to set the id of the inner modal element you 
+     * > want to focus. You will see a story as example below
      * > - The modal can be closed at any time by pressing the Escape key.
      * >
      * > - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
@@ -1398,9 +1401,18 @@ export namespace Components {
          */
         "closeButtonAriaLabel": string;
         /**
+          * Disables automatic focus behavior when the modal opens.  When set to true, the modal will not automatically focus any element upon opening. Use this property with caution, as managing focus is important for accessibility. Consider providing an alternative focus management strategy if disabling the default behavior.
+         */
+        "disableAutoFocus": boolean;
+        /**
           * Specifies whether the component should hide the actions slot or not
          */
         "hideActions": boolean;
+        /**
+          * The ID of the element to automatically focus when the modal opens.  If this property is not set and `disableAutoFocus` is false, the modal will automatically focus the first focusable element within its content. This follows accessibility best practices by ensuring keyboard navigation starts from a logical point when the modal opens.
+          * @example <wcs-modal initial-focus-element="cancel-button"></wcs-modal>
+         */
+        "initialFocusElementId"?: string;
         /**
           * Specifies which element id controls the modal
           * @private
@@ -3509,6 +3521,9 @@ declare global {
      * > - Keyboard navigation is trapped inside the modal
      * > - It is mandatory to set the `modal-trigger-controls-id` to the id of the element that opens the dialog, in order
      * > to focus it upon dialog dismissal.
+     * > - On modal opening, the default behaviour is to focus the first focusable element. If you want to change the initial 
+     * > behaviour, you have to use `modal-element-id-to-focus-on-opening` attribute to set the id of the inner modal element you 
+     * > want to focus. You will see a story as example below
      * > - The modal can be closed at any time by pressing the Escape key.
      * >
      * > - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
@@ -5606,6 +5621,9 @@ declare namespace LocalJSX {
      * > - Keyboard navigation is trapped inside the modal
      * > - It is mandatory to set the `modal-trigger-controls-id` to the id of the element that opens the dialog, in order
      * > to focus it upon dialog dismissal.
+     * > - On modal opening, the default behaviour is to focus the first focusable element. If you want to change the initial 
+     * > behaviour, you have to use `modal-element-id-to-focus-on-opening` attribute to set the id of the inner modal element you 
+     * > want to focus. You will see a story as example below
      * > - The modal can be closed at any time by pressing the Escape key.
      * >
      * > - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
@@ -5634,9 +5652,18 @@ declare namespace LocalJSX {
          */
         "closeButtonAriaLabel"?: string;
         /**
+          * Disables automatic focus behavior when the modal opens.  When set to true, the modal will not automatically focus any element upon opening. Use this property with caution, as managing focus is important for accessibility. Consider providing an alternative focus management strategy if disabling the default behavior.
+         */
+        "disableAutoFocus"?: boolean;
+        /**
           * Specifies whether the component should hide the actions slot or not
          */
         "hideActions"?: boolean;
+        /**
+          * The ID of the element to automatically focus when the modal opens.  If this property is not set and `disableAutoFocus` is false, the modal will automatically focus the first focusable element within its content. This follows accessibility best practices by ensuring keyboard navigation starts from a logical point when the modal opens.
+          * @example <wcs-modal initial-focus-element="cancel-button"></wcs-modal>
+         */
+        "initialFocusElementId"?: string;
         /**
           * Specifies which element id controls the modal
           * @private
@@ -7364,6 +7391,9 @@ declare module "@stencil/core" {
              * > - Keyboard navigation is trapped inside the modal
              * > - It is mandatory to set the `modal-trigger-controls-id` to the id of the element that opens the dialog, in order
              * > to focus it upon dialog dismissal.
+             * > - On modal opening, the default behaviour is to focus the first focusable element. If you want to change the initial 
+             * > behaviour, you have to use `modal-element-id-to-focus-on-opening` attribute to set the id of the inner modal element you 
+             * > want to focus. You will see a story as example below
              * > - The modal can be closed at any time by pressing the Escape key.
              * >
              * > - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/

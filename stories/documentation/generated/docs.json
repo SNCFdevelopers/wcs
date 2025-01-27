@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-02-26T16:38:53",
+  "timestamp": "2025-02-27T08:32:45",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -8487,7 +8487,7 @@
       "encapsulation": "none",
       "tag": "wcs-modal",
       "readme": "# Modal\r\n\r\n## Modal without backdrop\r\n\r\n```html\r\n<wcs-modal id=\"modal-2\" backdrop=\"false\" show-close-button=\"true\">\r\n    <div slot=\"header\">Modal title</div>\r\n    Voulez-vous quittez la page ? \r\n    <br/>\r\n    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a cursus mi. Nullam et sem mi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce sollicitudin pellentesque libero nec elementum.\r\n    <div slot=\"actions\">\r\n        <wcs-button class=\"wcs-dark\" mode=\"stroked\">C'est non</wcs-button>\r\n        <wcs-button>J'accepte</wcs-button>\r\n    </div>\r\n</wcs-modal>\r\n```\r\n\r\n<wcs-button onclick=\"getElementById('modal-2').setAttribute('show', true)\" id=\"btn-modal-2-show\">\r\n    Afficher la boîte de dialogue\r\n</wcs-button>\r\n\r",
-      "docs": "The modal component (also named dialog or popup) is an interface element that appears on top of the page content.\r\nUse it to show a message, a confirmation dialog, or any other content like forms.\r\n\r\n## Accessibility guidelines 💡\r\n> - Modal element has `role=\"dialog\"` and `aria-modal=\"true\"`\r\n> - Keyboard navigation is trapped inside the modal\r\n> - It is mandatory to set the `modal-trigger-controls-id` to the id of the element that opens the dialog, in order\r\n> to focus it upon dialog dismissal.\r\n> - The modal can be closed at any time by pressing the Escape key.\r\n>\r\n> - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/",
+      "docs": "The modal component (also named dialog or popup) is an interface element that appears on top of the page content.\r\nUse it to show a message, a confirmation dialog, or any other content like forms.\r\n\r\n## Accessibility guidelines 💡\r\n> - Modal element has `role=\"dialog\"` and `aria-modal=\"true\"`\r\n> - Keyboard navigation is trapped inside the modal\r\n> - It is mandatory to set the `modal-trigger-controls-id` to the id of the element that opens the dialog, in order\r\n> to focus it upon dialog dismissal.\r\n> - On modal opening, the default behaviour is to focus the first focusable element. If you want to change the initial \r\n> behaviour, you have to use `modal-element-id-to-focus-on-opening` attribute to set the id of the inner modal element you \r\n> want to focus. You will see a story as example below\r\n> - The modal can be closed at any time by pressing the Escape key.\r\n>\r\n> - More info : https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/",
       "docsTags": [
         {
           "name": "cssprop",
@@ -8599,6 +8599,28 @@
           "required": false
         },
         {
+          "name": "disableAutoFocus",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disable-auto-focus",
+          "reflectToAttr": false,
+          "docs": "Disables automatic focus behavior when the modal opens.\r\n\r\nWhen set to true, the modal will not automatically focus any element upon opening.\r\nUse this property with caution, as managing focus is important for accessibility.\r\nConsider providing an alternative focus management strategy if disabling the default behavior.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "hideActions",
           "type": "boolean",
           "complexType": {
@@ -8618,6 +8640,33 @@
             }
           ],
           "optional": false,
+          "required": false
+        },
+        {
+          "name": "initialFocusElementId",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "initial-focus-element-id",
+          "reflectToAttr": false,
+          "docs": "The ID of the element to automatically focus when the modal opens.\r\n\r\nIf this property is not set and `disableAutoFocus` is false, the modal will\r\nautomatically focus the first focusable element within its content.\r\nThis follows accessibility best practices by ensuring keyboard navigation\r\nstarts from a logical point when the modal opens.",
+          "docsTags": [
+            {
+              "name": "example",
+              "text": "<wcs-modal initial-focus-element=\"cancel-button\"></wcs-modal>"
+            }
+          ],
+          "default": "undefined",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
           "required": false
         },
         {

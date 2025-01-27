@@ -30,7 +30,10 @@ interface ModalStoryArgs {
     showCloseButton: boolean,
     closeButtonAriaLabel: string,
     size: ModalSize,
-    hideActions: boolean
+    hideActions: boolean,
+    initialFocusElementId: string | undefined,
+    cancelActionButtonId: string | undefined,
+    disableAutoFocus: boolean
 }
 
 const Template: StoryFn<Partial<ModalStoryArgs>> = (args) => {
@@ -48,6 +51,8 @@ const Template: StoryFn<Partial<ModalStoryArgs>> = (args) => {
                    ?without-backdrop=${args.withoutBackdrop}
                    ?show-close-button=${args.showCloseButton}
                    close-button-aria-label=${args.closeButtonAriaLabel}
+                   initial-focus-element-id=${args.initialFocusElementId}
+                   disable-auto-focus=${args.disableAutoFocus}
                    size=${ifDefined(args.size)}
                    ?hide-actions=${args.hideActions}>
             <div slot="header">Titre de la modale</div>
@@ -57,7 +62,7 @@ const Template: StoryFn<Partial<ModalStoryArgs>> = (args) => {
                 malesuada fames ac ante ipsum primis in faucibus. Fusce sollicitudin pellentesque libero nec elementum.
             </p>
             <div slot="actions" style="display: flex; gap: var(--wcs-semantic-spacing-base);">
-                <wcs-button @click="${_ => {
+                <wcs-button id=${args.cancelActionButtonId} @click="${_ => {
                     modalRef.value.show = false;
                 }}" mode="stroked">Annuler
                 </wcs-button>
@@ -76,7 +81,7 @@ export const Default: StoryObj<ModalStoryArgs> = {
         show: false,
         showCloseButton: true,
         closeButtonAriaLabel: 'Fermer',
-        modalTriggerControlsId: "modal-trigger-controls-0"
+        modalTriggerControlsId: "modal-trigger-controls-0",
     }
 };
 
@@ -97,6 +102,9 @@ export const WithoutBackdrop: StoryObj<ModalStoryArgs> = {
 /**
  * **Remove the default close button**  
  * The modal can be displayed without the default close button with `showCloseButton="false"`.
+ * 
+ * Keep in your mind that the modal expose `modal-element-id-to-focus-on-opening` property to change the default initial 
+ * focus, if you want to change the default behaviour.
  */
 export const WithoutCloseButton: StoryObj<ModalStoryArgs> = {
     render: (args, context) => Template(args, context),
@@ -122,6 +130,41 @@ export const WithoutActions: StoryObj<ModalStoryArgs> = {
         modalTriggerControlsId: "modal-trigger-controls-4"
     }
 };
+
+/**
+ * Although it is not recommended for accessibility reasons, you can disable the autofocus behaviour on modal opening
+ */
+export const WithoutFocus: StoryObj<ModalStoryArgs> = {
+    render: (args, context) => Template(args, context),
+    args: {
+        show: false,
+        showCloseButton: true,
+        modalTriggerControlsId: "modal-trigger-controls-8",
+        disableAutoFocus: true
+    }
+}
+
+/**
+ * In your application, focus are set based on the content of your dialog. With our dialog, you can set which element of 
+ * your dialog you want to receive initial focus (on opening). 
+ * 
+ * Use cases:
+ * 
+ * - You display a dialog with a simple message to read. You may set the focus on the "Ok" button, since most users will
+ * simply dismiss the dialog as soon as they have read the message
+ * - You can decide to put on the "Cancel" button in order to "force" user to understand that the action he will take
+ * is important for example
+ */
+export const ChangeFocus: StoryObj<ModalStoryArgs> = {
+    render: (args, context) => Template(args, context),
+    args: {
+        show: false,
+        showCloseButton: true,
+        modalTriggerControlsId: "modal-trigger-controls-5",
+        cancelActionButtonId: 'cancel-action-button-5',
+        initialFocusElementId: 'cancel-action-button-5',
+    }
+}
 
 /**
  * For this story, the size param is not configurable, it is set manually for each button to easily show all the

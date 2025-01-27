@@ -1156,7 +1156,7 @@ export declare interface WcsMatIcon extends Components.WcsMatIcon {}
 
 
 @ProxyCmp({
-  inputs: ['closeButtonAriaLabel', 'hideActions', 'modalTriggerControlsId', 'show', 'showCloseButton', 'size', 'withoutBackdrop'],
+  inputs: ['closeButtonAriaLabel', 'disableAutoFocus', 'hideActions', 'initialFocusElementId', 'modalTriggerControlsId', 'show', 'showCloseButton', 'size', 'withoutBackdrop'],
   methods: ['setAriaAttribute']
 })
 @Component({
@@ -1164,7 +1164,7 @@ export declare interface WcsMatIcon extends Components.WcsMatIcon {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['closeButtonAriaLabel', 'hideActions', 'modalTriggerControlsId', 'show', 'showCloseButton', 'size', 'withoutBackdrop'],
+  inputs: ['closeButtonAriaLabel', 'disableAutoFocus', 'hideActions', 'initialFocusElementId', 'modalTriggerControlsId', 'show', 'showCloseButton', 'size', 'withoutBackdrop'],
 })
 export class WcsModal {
   protected el: HTMLElement;
