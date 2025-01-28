@@ -436,6 +436,8 @@ export class Grid implements ComponentInterface, ComponentDidLoad, MutableAriaAt
      */
     private refreshSort(refreshOthersColumnsSortOrderState: boolean) {
         //fixme: why the column property can be null or undefined?
+        // Explanation: https://stenciljs.com/docs/component-lifecycle
+        // The @watch can be called before the componentDidLoad() which sets the columns
         if (this.columns) {
             const [first, ...other] = this.columns.filter(c => c.sortOrder !== 'none');
             if (first && !this.serverMode) {
@@ -491,7 +493,10 @@ export class Grid implements ComponentInterface, ComponentDidLoad, MutableAriaAt
 
     @Listen('wcsSortChange')
     sortChangeEventHandler(event: CustomEvent<WcsGridColumnSortChangeEventDetails>): void {
-        if (event.detail.order === 'none') return;
+        // fixme: why the column property can be null or undefined?
+        // Explanation: https://stenciljs.com/docs/component-lifecycle
+        // The @Listen can be called before the componentDidLoad() which sets the columns
+        if (event.detail.order === 'none' || !this.columns) return;
         // We keep only one active sort column
         this.disableSortOrderForColumns(this.columns.filter(c => c !== event.detail.column));
         if (this.serverMode) return;
