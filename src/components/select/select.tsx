@@ -375,6 +375,13 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
     private reset() {
         this.values = [];
         this.displayText = undefined;
+        if (this.autocomplete) {
+            // When reset the autocomplete value, this value is also reflected against the native input value (see JSX)
+            this.autocompleteValue = '';
+            // When need to reset the internal filter state of the component as the mutation of 
+            // autocompleteValue from the code doesn't call onAutocompleteInputEvent method.
+            this.handleAutocompleteValueChange('', true);
+        }
         this.options.forEach((opt: HTMLWcsSelectOptionElement) => {
             opt.selected = false;
         });
@@ -965,11 +972,11 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
 
     }
     
-    private handleAutocompleteValueChange(filter: string): void {
+    private handleAutocompleteValueChange(filter: string, isReset = false): void {
         this.clearHighlightOnLastHighlightedOption();
         const newValueIsDifferentFromLastModifiedOption = this.lastModifiedOptionElement == null || this.lastModifiedOptionElement?.textContent !== this.autocompleteValue;
-        if (!this.expanded && newValueIsDifferentFromLastModifiedOption) {
-            this.open();
+        if (!this.expanded && newValueIsDifferentFromLastModifiedOption && !isReset) {
+            this.open(); 
         }
 
         // Prevents client-side filtering logic from being applied when serverMode is enabled.
