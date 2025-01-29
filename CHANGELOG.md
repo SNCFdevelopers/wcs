@@ -7,7 +7,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 > 💡 All changes in **Deprecated** will be removed on next major version
 
-## [7.0.0-rc.1] - 2025-01-15
+## [7.0.0-rc.2] - 2025-01-29
 
 ### Added
 
