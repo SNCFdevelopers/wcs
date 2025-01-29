@@ -56,7 +56,9 @@ const Template: StoryFn<WcsNavArgs & WcsNavItemArgs> = (args: WcsNavArgs & WcsNa
     $event.target.closest('wcs-nav-item').classList.toggle('active', true);
     $event.target.closest('a')?.setAttribute('aria-current', 'page');
   }
-    
+
+  // @ts-ignore
+  const modalRef = createRef<HTMLWcsModalElement>();
   return html`
     <div style="height: 600px">
         <wcs-nav ${ref(navRef)} aria-label=${args.ariaLabel || nothing}>
@@ -78,14 +80,30 @@ const Template: StoryFn<WcsNavArgs & WcsNavItemArgs> = (args: WcsNavArgs & WcsNa
                     <span>Trains</span>
                 </a>
             </wcs-nav-item>
-            <wcs-nav-item slot="bottom" @click="${e => navItemClick(e)}">
-                <a href="/support">
+            <wcs-nav-item slot="bottom">
+                <button id="support-button" @click="${_ => modalRef.value.show = true}">
                     <wcs-mat-icon icon="support"></wcs-mat-icon>
                     <span>Support</span>
-                </a>
+                </button>
             </wcs-nav-item>
         </wcs-nav>
     </div>
+    
+    <wcs-modal ${ref(modalRef)} modal-trigger-controls-id="support-button" size="m" show-close-button>
+        <div slot="header">Support</div>
+        <p>Please contact</p>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor,
+            dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas
+            ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie,
+            enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa,
+            scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero
+            pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio
+            eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus
+            orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque
+            fermentum. Maecenas adipiscing ante non diam sodales hendrerit.
+        </p>
+    </wcs-modal>
   `;
 }
 

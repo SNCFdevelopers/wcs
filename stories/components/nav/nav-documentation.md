@@ -69,13 +69,22 @@ component functional and accessible :
  
 > 1. Always make sure the `href` is corresponding to a **real page** of your website to indicate the target of the link
 > 2. Don't forget to handle the `aria-current="page"` attribute on the currently active link
-> 3. If we want to use a `wcs-mat-icon` as a button **without text** in a `wcs-nav-item`, we need to add a role image and an aria-label to make the component accessible to screen readers : 
-> 
-> ```html
-> <wcs-nav-item>
->     <a href="/trains">
->         <wcs-mat-icon icon="train" role="img" aria-label="My trains"></wcs-mat-icon>
->     </a>
-> </wcs-nav-item>
-> ```
-
+> 3. If we want to use a `wcs-mat-icon` as a button **without text** in a `wcs-nav-item`, we need to add a role image and an aria-label to make the component accessible to screen readers :
+    > ```html
+    > <wcs-nav-item>
+    >     <a href="/trains">
+    >         <wcs-mat-icon icon="train" role="img" aria-label="My trains"></wcs-mat-icon>
+    >     </a>
+    > </wcs-nav-item>
+    > ```
+> 4. In some business project, it's common to **add a bottom `wcs-nav-item`** to **open a modal** displaying useful information. **To ensure accessibility**, you need to **use a native `button` within the `wcs-nav-item`**
+    > ```html
+    > <wcs-nav-item slot="bottom">
+    >     <button id="support-button" onclick="openModal()">
+    >         <wcs-mat-icon icon="support"></wcs-mat-icon>
+    >         <span>Support</span>
+    >     </button>
+    > </wcs-nav-item>
+    > ```
+    > ⚠️ **Do not put `aria-current="page"` attribute on the button. It's just an action button to open a modal. If you have to change the page, use `a` as slotted element** !
+    > When using the `wcs-modal` component, ensure you specify the `modal-trigger-controls-id` attribute by setting it to the id of the trigger button. In the example above, you have to add `modal-trigger-controls-id="support-button"` on the modal to properly associate it with the trigger button.

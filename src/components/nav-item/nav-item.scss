@@ -44,7 +44,7 @@ wcs-nav-item {
     transition-timing-function: ease-in-out;
     background-color: var(--wcs-nav-item-background-color-default);
 
-    a {
+    a, button {
         display: flex;
         position: relative;
         flex-direction: column;
@@ -68,16 +68,27 @@ wcs-nav-item {
         }
     }
 
-    a:focus {
+    button {
+        width: 100%;
+        cursor: inherit;
+    }
+
+    a:focus, button:focus {
         outline: none;
     }
 
     @include for-tablet-landscape-down {
-        &:has(a:focus-visible) {
+        &:has(a:focus-visible), &:has(button:focus-visible) {
             @include focus-outline(var(--wcs-nav-item-border-color-focus), var(--wcs-nav-item-border-width-focus), -2px);
         }
 
-        @supports not selector(&:has(a:focus-visible)){
+        @supports not selector(&:has(a:focus-visible)) {
+            &:focus-within {
+                @include focus-outline(var(--wcs-nav-item-border-color-focus), var(--wcs-nav-item-border-width-focus), -2px);
+            }
+        }
+
+        @supports not selector(&:has(button:focus-visible)) {
             &:focus-within {
                 @include focus-outline(var(--wcs-nav-item-border-color-focus), var(--wcs-nav-item-border-width-focus), -2px);
             }
@@ -85,11 +96,17 @@ wcs-nav-item {
     }
 
     @include for-desktop-up {
-        &:has(a:focus-visible) {
+        &:has(a:focus-visible), &:has(button:focus-visible) {
             @include focus-outline(var(--wcs-nav-item-border-color-focus), var(--wcs-nav-item-border-width-focus), -2px);
         }
 
-        @supports not selector(&:has(a:focus-visible)){
+        @supports not selector(&:has(a:focus-visible)) {
+            &:focus-within {
+                @include focus-outline(var(--wcs-nav-item-border-color-focus), var(--wcs-nav-item-border-width-focus), -2px);
+            }
+        }
+
+        @supports not selector(&:has(button:focus-visible)) {
             &:focus-within {
                 @include focus-outline(var(--wcs-nav-item-border-color-focus), var(--wcs-nav-item-border-width-focus), -2px);
             }

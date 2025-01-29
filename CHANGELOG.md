@@ -35,6 +35,7 @@ for now removed features.
 - **form-field**: move hint and error message in aria-label instead of put in aria-description
 - **input**: show/hide password button is now focusable and well accessible
 - **select**: `required` attribute was not reflected on focusable element
+- **nav**: handle letting put `button` inside `wcs-nav-item` for modal opening use cases from a `wcs-nav-item`
 
 ### Security
 
