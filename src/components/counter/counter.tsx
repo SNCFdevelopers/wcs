@@ -16,6 +16,7 @@ import {
     isHomeKey,
     isKeydown,
     isKeyup,
+    parseCssTimeValueToMilliseconds,
     setOrRemoveAttribute
 } from '../../utils/helpers';
 import { CounterChangeEventDetail, isWcsCounterSize, WcsCounterSize, WcsCounterSizeValues } from './counter-interface';
@@ -23,7 +24,6 @@ import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-ari
 
 const COUNTER_INHERITED_ATTRS = ['tabindex', 'title'];
 
-const ANIMATION_DURATION = 0.175 // seconds
 
 /**
  * Counter component, meant to be used for small range of values (e.g : 0 - 5).<br>
@@ -63,6 +63,12 @@ export class Counter implements ComponentInterface, MutableAriaAttribute {
     private spinButton!: HTMLSpanElement;
     private counterContainer!: HTMLDivElement;
     private inheritedAttributes: { [k: string]: any } = {};
+
+    /**
+     * Default animation duration, in milliseconds
+     * @private
+     */
+    private ANIMATION_DURATION = 150;
 
     /**
      * Specify the size (height) of the counter.
@@ -133,6 +139,9 @@ export class Counter implements ComponentInterface, MutableAriaAttribute {
         };
     }
     
+    componentDidRender() {
+        this.ANIMATION_DURATION = parseCssTimeValueToMilliseconds(window.getComputedStyle(this.el).getPropertyValue('--wcs-counter-transition-duration') ?? '150ms') ?? 150;
+    }
 
     @Method()
     async setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) {
@@ -254,7 +263,7 @@ export class Counter implements ComponentInterface, MutableAriaAttribute {
             this.displayedValue = this.value;
 
             this.animateRunning = false;
-        }, 1000 * ANIMATION_DURATION - 20);
+        }, this.ANIMATION_DURATION - 20);
     }
 
     render() {

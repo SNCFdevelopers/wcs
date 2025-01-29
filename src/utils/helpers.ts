@@ -267,3 +267,25 @@ export function isCtrlA(evt: KeyboardEvent) {
 export function getCssRootPropertyValue(name: string): string | null {
     return window.getComputedStyle(document.body).getPropertyValue(name) || null;
 }
+
+/**
+ * Converts a CSS time value string (e.g., '150ms', '1.5s') into milliseconds
+ * @param {string} timeValue - The CSS time value string
+ * @returns {number} Time in milliseconds
+ */
+export function parseCssTimeValueToMilliseconds(timeValue: string): number {
+    if (!timeValue) return 0;
+
+    const TIME_REGEX = /^([\d.]+)(?:(ms|s))?$/;
+
+    const trimmedValue = timeValue.trim();
+    if (!/^\d/.test(trimmedValue)) return 0;
+
+    const match = TIME_REGEX.exec(trimmedValue);
+    if (!match) return 0;
+
+    const value = Number(match[1]);
+    if (!Number.isFinite(value)) return 0;
+
+    return match[2] === 's' ? value * 1000 : value;
+}
