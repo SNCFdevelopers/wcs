@@ -24,6 +24,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **dropdown**: items click event is now `mouseup` instead of `mousedown`
 - **grid**: sort header icon changed from chevron to arrow
 - **tooltip**: rename default theme from `wcs` to `dark`
+- **badge**: lighter badge use an alternative color palette instead of opacity
 
 ### Deprecated
 
@@ -62,7 +63,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **form-field**
   - remove `--wcs-form-field-border-radius-left` and `--wcs-form-field-border-radius-right`. These variables were not used.
 - **badge**
-  - rename `--wcs-badge-ligther-percentage` to `--wcs-badge-lighter-percentage` (typo)
+  - remove `--wcs-badge-ligther-percentage`
 - **header**
   - With design token migration, new `wcs-header` is no longer dark. Make sure your action button doesn't have class `wcs-light`
 that can cause contrast issues.

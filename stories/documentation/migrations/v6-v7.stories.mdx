@@ -592,7 +592,18 @@ Please read the new [Angular](.?path=/docs/documentation-getting-started-angular
                 --wcs-badge-ligther-percentage
             </td>
             <td>
-                --wcs-badge-<mark>lighter</mark>-percentage (typo)
+                You do not need this token anymore : the "lighter" badge now use another color palette, not opacity.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                These classes for the badge have been removed :
+                - **`wcs-light`**
+                - **`wcs-dark`**
+            </td>
+            <td>
+                - Replace `class="wcs-light"` with `class="wcs-secondary"` and `color="lighter"`
+                - Replace `class="wcs-dark"` with `class="wcs-secondary"` and `color="initial"`
             </td>
         </tr>
     </tbody>

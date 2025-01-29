@@ -494,6 +494,11 @@
                         "$value": "{primitive.color.neutral.800}"
                     },
                     "critical": {
+                        "default": {
+                            "$description": "Default critical background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.critical.500}"
+                        },
                         "light": {
                             "$description": "Light critical background color",
                             "$type": "color",
@@ -511,6 +516,11 @@
                         }
                     },
                     "information": {
+                        "default": {
+                            "$description": "Default information background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu-acier.700}"
+                        },
                         "light": {
                             "$description": "Light information background color",
                             "$type": "color",
@@ -528,6 +538,11 @@
                         }
                     },
                     "success": {
+                        "default": {
+                            "$description": "Default success background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.vert-trefle.600}"
+                        },
                         "light": {
                             "$description": "Light success background color",
                             "$type": "color",
@@ -545,6 +560,11 @@
                         }
                     },
                     "warning": {
+                        "default": {
+                            "$description": "Default warning background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.jaune-or.500}"
+                        },
                         "light": {
                             "$description": "Light warning background color",
                             "$type": "color",
@@ -641,6 +661,11 @@
                     "$description": "Foreground color on top of an accent background",
                     "$type": "color",
                     "$value": "{primitive.color.bleu-givre.800}"
+                },
+                "inverse": {
+                    "$description": "Inverse foreground for contrast (mostly black)",
+                    "$type": "color",
+                    "$value": "{primitive.color.neutral.800}"
                 },
                 "action": {
                     "primary": {

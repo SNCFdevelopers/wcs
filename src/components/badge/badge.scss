@@ -1,7 +1,4 @@
 :host {
-    --wcs-badge-lighter-percentage: 20;
-    --wcs-internal-badge-lighter-opacity: calc((100 - var(--wcs-badge-lighter-percentage)) / 100);
-
     --wcs-badge-font-weight: var(--wcs-semantic-font-weight-medium);
 
     --wcs-badge-height-l: calc(4 * var(--wcs-semantic-size-base));
@@ -14,9 +11,13 @@
     --wcs-badge-border-radius-default: var(--wcs-semantic-border-radius-base);
     --wcs-badge-border-radius-circular: var(--wcs-semantic-border-radius-full);
     --wcs-badge-background-color: var(--wcs-semantic-color-background-surface-brand);
+    --wcs-badge-background-color-lighter: var(--wcs-semantic-color-background-surface-accent-lighter);
     --wcs-badge-color: var(--wcs-semantic-color-foreground-primary);
+    --wcs-badge-color-lighter: var(--wcs-semantic-color-foreground-inverse);
     --wcs-badge-gap: var(--wcs-semantic-spacing-base);
-    --wcs-badge-padding-horizontal: var(--wcs-semantic-spacing-base);
+    --wcs-badge-padding-horizontal-l: var(--wcs-semantic-spacing-base);
+    --wcs-badge-padding-horizontal-m: var(--wcs-semantic-spacing-base);
+    --wcs-badge-padding-horizontal-s: calc(0.75 * var(--wcs-semantic-spacing-base));
 
     display: inline-flex;
     gap: var(--wcs-badge-gap);
@@ -37,7 +38,8 @@
 }
 
 :host([color=lighter]) {
-    opacity: var(--wcs-internal-badge-lighter-opacity);
+    --wcs-badge-color: var(--wcs-badge-color-lighter) !important;
+    --wcs-badge-background-color: var(--wcs-badge-background-color-lighter) !important;
 }
 
 :host([shape=rounded]){
@@ -48,16 +50,57 @@
     --wcs-badge-height: var(--wcs-badge-height-l);
     --wcs-badge-gap: calc(var(--wcs-semantic-spacing-large) / 2);
     --wcs-badge-font-size: var(--wcs-badge-font-size-l);
+    --wcs-badge-padding-horizontal: var(--wcs-badge-padding-horizontal-l);
 }
 
 :host([size=m]) { // Default
     --wcs-badge-height: var(--wcs-badge-height-m);
     --wcs-badge-gap: calc(var(--wcs-semantic-spacing-base) / 2);
     --wcs-badge-font-size: var(--wcs-badge-font-size-m);
+    --wcs-badge-padding-horizontal: var(--wcs-badge-padding-horizontal-m);
 }
 
 :host([size=s]) {
     --wcs-badge-height: var(--wcs-badge-height-s);
     --wcs-badge-gap: calc(var(--wcs-semantic-spacing-small) / 2);
     --wcs-badge-font-size: var(--wcs-badge-font-size-s);
+    --wcs-badge-padding-horizontal: var(--wcs-badge-padding-horizontal-s);
+}
+
+
+/* Color variants */
+
+:host(.wcs-secondary) {
+    --wcs-badge-background-color: var(--wcs-semantic-color-background-surface-inverse);
+    --wcs-badge-background-color-lighter: var(--wcs-semantic-color-background-surface-secondary);
+    --wcs-badge-color: var(--wcs-semantic-color-foreground-primary);
+    --wcs-badge-color-lighter: var(--wcs-semantic-color-foreground-inverse);
+}
+
+:host(.wcs-success) {
+    --wcs-badge-background-color: var(--wcs-semantic-color-background-surface-success-default);
+    --wcs-badge-background-color-lighter: var(--wcs-semantic-color-background-surface-success-lighter);
+    --wcs-badge-color: var(--wcs-semantic-color-foreground-primary);
+    --wcs-badge-color-lighter: var(--wcs-semantic-color-foreground-inverse);
+}
+
+:host(.wcs-info) {
+    --wcs-badge-background-color: var(--wcs-semantic-color-background-surface-information-default);
+    --wcs-badge-background-color-lighter: var(--wcs-semantic-color-background-surface-information-lighter);
+    --wcs-badge-color: var(--wcs-semantic-color-foreground-primary);
+    --wcs-badge-color-lighter: var(--wcs-semantic-color-foreground-inverse);
+}
+
+:host(.wcs-warning) {
+    --wcs-badge-background-color: var(--wcs-semantic-color-background-surface-warning-default);
+    --wcs-badge-background-color-lighter: var(--wcs-semantic-color-background-surface-warning-lighter);
+    --wcs-badge-color: var(--wcs-semantic-color-foreground-inverse);
+    --wcs-badge-color-lighter: var(--wcs-semantic-color-foreground-inverse);
+}
+
+:host(.wcs-critical), :host(.wcs-danger) {
+    --wcs-badge-background-color: var(--wcs-semantic-color-background-surface-critical-default);
+    --wcs-badge-background-color-lighter: var(--wcs-semantic-color-background-surface-critical-lightest);
+    --wcs-badge-color: var(--wcs-semantic-color-foreground-primary);
+    --wcs-badge-color-lighter: var(--wcs-semantic-color-foreground-critical);
 }

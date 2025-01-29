@@ -20,11 +20,9 @@ const Template: StoryFn<Partial<BadgeArgs>> = (args) => html`
     <wcs-badge shape=${args.shape} color=${args.color} size=${args.size} class="wcs-primary">Primary</wcs-badge>
     <wcs-badge shape=${args.shape} color=${args.color} size=${args.size} class="wcs-secondary">Secondary</wcs-badge>
     <wcs-badge shape=${args.shape} color=${args.color} size=${args.size} class="wcs-success">Success</wcs-badge>
-    <wcs-badge shape=${args.shape} color=${args.color} size=${args.size} class="wcs-danger">Danger</wcs-badge>
+    <wcs-badge shape=${args.shape} color=${args.color} size=${args.size} class="wcs-critical">Critical</wcs-badge>
     <wcs-badge shape=${args.shape} color=${args.color} size=${args.size} class="wcs-warning">Warning</wcs-badge>
     <wcs-badge shape=${args.shape} color=${args.color} size=${args.size} class="wcs-info">Info</wcs-badge>
-    <wcs-badge shape=${args.shape} color=${args.color} size=${args.size} class="wcs-light">Light</wcs-badge>
-    <wcs-badge shape=${args.shape} color=${args.color} size=${args.size} class="wcs-dark">Dark</wcs-badge>
 `;
 
 export const Default: StoryObj = {
@@ -61,14 +59,6 @@ export const WithIcons: StoryObj = {
         <wcs-badge shape=${args.shape} color=${args.color} size=${args.size} class="wcs-info">
             <wcs-mat-icon icon="info" size="s"></wcs-mat-icon>
             <span>Info</span>
-        </wcs-badge>
-        <wcs-badge shape=${args.shape} color=${args.color} size=${args.size} class="wcs-light">
-            <wcs-mat-icon icon="light_mode" size="s"></wcs-mat-icon>
-            <span>Light</span>
-        </wcs-badge>
-        <wcs-badge shape=${args.shape} color=${args.color} size=${args.size} class="wcs-dark">
-            <wcs-mat-icon icon="dark_mode" size="s"></wcs-mat-icon>
-            <span>Dark</span>
         </wcs-badge>
     `,
     args: {

@@ -159,7 +159,6 @@ export namespace Components {
     /**
      * The badge component is a small label, generally appearing inside or in proximity to another larger interface component,
      * representing a status, property, or some other metadata.
-     * @cssprop --wcs-badge-lighter-percentage - Define the opacity rate to apply to the badge
      * @cssprop --wcs-badge-font-weight - Define the font weight of the badge
      * @cssprop --wcs-badge-height-l - Large height of the badge
      * @cssprop --wcs-badge-font-size-l - Large font size of the badge
@@ -170,9 +169,13 @@ export namespace Components {
      * @cssprop --wcs-badge-border-radius-default - Default border radius of the badge
      * @cssprop --wcs-badge-border-radius-circular - Circular border radius of the badge
      * @cssprop --wcs-badge-background-color - Background color of the badge
+     * @cssprop --wcs-badge-background-color-lighter - Background color of the lighter badge
      * @cssprop --wcs-badge-color - Text color of the badge
+     * @cssprop --wcs-badge-color-lighter - Text color of the lighter badge
      * @cssporp --wcs-badge-gap - The gap inside the badge
-     * @cssprop --wcs-badge-padding-horizontal - Horizontal padding of the badge
+     * @cssprop --wcs-badge-padding-horizontal-l - Horizontal padding of the size L badge
+     * @cssprop --wcs-badge-padding-horizontal-m - Horizontal padding of the size M badge
+     * @cssprop --wcs-badge-padding-horizontal-s - Horizontal padding of the size S badge
      */
     interface WcsBadge {
         /**
@@ -2477,7 +2480,6 @@ declare global {
     /**
      * The badge component is a small label, generally appearing inside or in proximity to another larger interface component,
      * representing a status, property, or some other metadata.
-     * @cssprop --wcs-badge-lighter-percentage - Define the opacity rate to apply to the badge
      * @cssprop --wcs-badge-font-weight - Define the font weight of the badge
      * @cssprop --wcs-badge-height-l - Large height of the badge
      * @cssprop --wcs-badge-font-size-l - Large font size of the badge
@@ -2488,9 +2490,13 @@ declare global {
      * @cssprop --wcs-badge-border-radius-default - Default border radius of the badge
      * @cssprop --wcs-badge-border-radius-circular - Circular border radius of the badge
      * @cssprop --wcs-badge-background-color - Background color of the badge
+     * @cssprop --wcs-badge-background-color-lighter - Background color of the lighter badge
      * @cssprop --wcs-badge-color - Text color of the badge
+     * @cssprop --wcs-badge-color-lighter - Text color of the lighter badge
      * @cssporp --wcs-badge-gap - The gap inside the badge
-     * @cssprop --wcs-badge-padding-horizontal - Horizontal padding of the badge
+     * @cssprop --wcs-badge-padding-horizontal-l - Horizontal padding of the size L badge
+     * @cssprop --wcs-badge-padding-horizontal-m - Horizontal padding of the size M badge
+     * @cssprop --wcs-badge-padding-horizontal-s - Horizontal padding of the size S badge
      */
     interface HTMLWcsBadgeElement extends Components.WcsBadge, HTMLStencilElement {
     }
@@ -4334,7 +4340,6 @@ declare namespace LocalJSX {
     /**
      * The badge component is a small label, generally appearing inside or in proximity to another larger interface component,
      * representing a status, property, or some other metadata.
-     * @cssprop --wcs-badge-lighter-percentage - Define the opacity rate to apply to the badge
      * @cssprop --wcs-badge-font-weight - Define the font weight of the badge
      * @cssprop --wcs-badge-height-l - Large height of the badge
      * @cssprop --wcs-badge-font-size-l - Large font size of the badge
@@ -4345,9 +4350,13 @@ declare namespace LocalJSX {
      * @cssprop --wcs-badge-border-radius-default - Default border radius of the badge
      * @cssprop --wcs-badge-border-radius-circular - Circular border radius of the badge
      * @cssprop --wcs-badge-background-color - Background color of the badge
+     * @cssprop --wcs-badge-background-color-lighter - Background color of the lighter badge
      * @cssprop --wcs-badge-color - Text color of the badge
+     * @cssprop --wcs-badge-color-lighter - Text color of the lighter badge
      * @cssporp --wcs-badge-gap - The gap inside the badge
-     * @cssprop --wcs-badge-padding-horizontal - Horizontal padding of the badge
+     * @cssprop --wcs-badge-padding-horizontal-l - Horizontal padding of the size L badge
+     * @cssprop --wcs-badge-padding-horizontal-m - Horizontal padding of the size M badge
+     * @cssprop --wcs-badge-padding-horizontal-s - Horizontal padding of the size S badge
      */
     interface WcsBadge {
         /**
@@ -6655,7 +6664,6 @@ declare module "@stencil/core" {
             /**
              * The badge component is a small label, generally appearing inside or in proximity to another larger interface component,
              * representing a status, property, or some other metadata.
-             * @cssprop --wcs-badge-lighter-percentage - Define the opacity rate to apply to the badge
              * @cssprop --wcs-badge-font-weight - Define the font weight of the badge
              * @cssprop --wcs-badge-height-l - Large height of the badge
              * @cssprop --wcs-badge-font-size-l - Large font size of the badge
@@ -6666,9 +6674,13 @@ declare module "@stencil/core" {
              * @cssprop --wcs-badge-border-radius-default - Default border radius of the badge
              * @cssprop --wcs-badge-border-radius-circular - Circular border radius of the badge
              * @cssprop --wcs-badge-background-color - Background color of the badge
+             * @cssprop --wcs-badge-background-color-lighter - Background color of the lighter badge
              * @cssprop --wcs-badge-color - Text color of the badge
+             * @cssprop --wcs-badge-color-lighter - Text color of the lighter badge
              * @cssporp --wcs-badge-gap - The gap inside the badge
-             * @cssprop --wcs-badge-padding-horizontal - Horizontal padding of the badge
+             * @cssprop --wcs-badge-padding-horizontal-l - Horizontal padding of the size L badge
+             * @cssprop --wcs-badge-padding-horizontal-m - Horizontal padding of the size M badge
+             * @cssprop --wcs-badge-padding-horizontal-s - Horizontal padding of the size S badge
              */
             "wcs-badge": LocalJSX.WcsBadge & JSXBase.HTMLAttributes<HTMLWcsBadgeElement>;
             /**

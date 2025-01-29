@@ -962,6 +962,44 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/accordion-header/accordion-header.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The accordion-header is a subcomponent of `wcs-accordion`. It represents the heading text inside the accordion panel.",
+          "name": "AccordionHeader",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-accordion-header",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "AccordionHeader",
+          "declaration": {
+            "name": "AccordionHeader",
+            "module": "components/accordion-header/accordion-header.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-accordion-header",
+          "declaration": {
+            "name": "AccordionHeader",
+            "module": "components/accordion-header/accordion-header.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/accordion-content/accordion-content.tsx",
       "declarations": [
         {
@@ -1483,6 +1521,204 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/app/app.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "App",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-app",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "App",
+          "declaration": {
+            "name": "App",
+            "module": "components/app/app.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-app",
+          "declaration": {
+            "name": "App",
+            "module": "components/app/app.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/badge/badge-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/badge/badge.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The badge component is a small label, generally appearing inside or in proximity to another larger interface component,\r\nrepresenting a status, property, or some other metadata.",
+          "name": "Badge",
+          "cssProperties": [
+            {
+              "description": "Define the font weight of the badge",
+              "name": "--wcs-badge-font-weight"
+            },
+            {
+              "description": "Large height of the badge",
+              "name": "--wcs-badge-height-l"
+            },
+            {
+              "description": "Large font size of the badge",
+              "name": "--wcs-badge-font-size-l"
+            },
+            {
+              "description": "Medium height of the badge",
+              "name": "--wcs-badge-height-m"
+            },
+            {
+              "description": "Font size of the badge",
+              "name": "--wcs-badge-font-size-m"
+            },
+            {
+              "description": "Small height of the badge",
+              "name": "--wcs-badge-height-s"
+            },
+            {
+              "description": "Small font size of the badge",
+              "name": "--wcs-badge-font-size-s"
+            },
+            {
+              "description": "Default border radius of the badge",
+              "name": "--wcs-badge-border-radius-default"
+            },
+            {
+              "description": "Circular border radius of the badge",
+              "name": "--wcs-badge-border-radius-circular"
+            },
+            {
+              "description": "Background color of the badge",
+              "name": "--wcs-badge-background-color"
+            },
+            {
+              "description": "Background color of the lighter badge",
+              "name": "--wcs-badge-background-color-lighter"
+            },
+            {
+              "description": "Text color of the badge",
+              "name": "--wcs-badge-color"
+            },
+            {
+              "description": "Text color of the lighter badge",
+              "name": "--wcs-badge-color-lighter"
+            },
+            {
+              "description": "Horizontal padding of the size L badge",
+              "name": "--wcs-badge-padding-horizontal-l"
+            },
+            {
+              "description": "Horizontal padding of the size M badge",
+              "name": "--wcs-badge-padding-horizontal-m"
+            },
+            {
+              "description": "Horizontal padding of the size S badge",
+              "name": "--wcs-badge-padding-horizontal-s"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "shape",
+              "type": {
+                "text": "BadgeShape"
+              },
+              "default": "'normal'",
+              "description": "Define the shape of the badge"
+            },
+            {
+              "kind": "field",
+              "name": "color",
+              "type": {
+                "text": "BadgeColor"
+              },
+              "default": "'initial'",
+              "description": "Allows you to change the color of the badge to make it less bright (based on the color chosen by the CSS class)."
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "BadgeSize"
+              },
+              "default": "'m'",
+              "description": "Specify the size of the badge."
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "shape",
+              "fieldName": "shape",
+              "type": {
+                "text": "BadgeShape"
+              }
+            },
+            {
+              "name": "color",
+              "fieldName": "color",
+              "type": {
+                "text": "BadgeColor"
+              }
+            },
+            {
+              "name": "size",
+              "fieldName": "size",
+              "type": {
+                "text": "BadgeSize"
+              }
+            }
+          ],
+          "tagName": "wcs-badge",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Badge",
+          "declaration": {
+            "name": "Badge",
+            "module": "components/badge/badge.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-badge",
+          "declaration": {
+            "name": "Badge",
+            "module": "components/badge/badge.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/action-bar/action-bar.tsx",
       "declarations": [
         {
@@ -1599,192 +1835,6 @@
           "declaration": {
             "name": "ActionBar",
             "module": "components/action-bar/action-bar.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/app/app.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "App",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-app",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "App",
-          "declaration": {
-            "name": "App",
-            "module": "components/app/app.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-app",
-          "declaration": {
-            "name": "App",
-            "module": "components/app/app.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/badge/badge-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/badge/badge.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The badge component is a small label, generally appearing inside or in proximity to another larger interface component,\r\nrepresenting a status, property, or some other metadata.",
-          "name": "Badge",
-          "cssProperties": [
-            {
-              "description": "Define the opacity rate to apply to the badge",
-              "name": "--wcs-badge-lighter-percentage"
-            },
-            {
-              "description": "Define the font weight of the badge",
-              "name": "--wcs-badge-font-weight"
-            },
-            {
-              "description": "Large height of the badge",
-              "name": "--wcs-badge-height-l"
-            },
-            {
-              "description": "Large font size of the badge",
-              "name": "--wcs-badge-font-size-l"
-            },
-            {
-              "description": "Medium height of the badge",
-              "name": "--wcs-badge-height-m"
-            },
-            {
-              "description": "Font size of the badge",
-              "name": "--wcs-badge-font-size-m"
-            },
-            {
-              "description": "Small height of the badge",
-              "name": "--wcs-badge-height-s"
-            },
-            {
-              "description": "Small font size of the badge",
-              "name": "--wcs-badge-font-size-s"
-            },
-            {
-              "description": "Default border radius of the badge",
-              "name": "--wcs-badge-border-radius-default"
-            },
-            {
-              "description": "Circular border radius of the badge",
-              "name": "--wcs-badge-border-radius-circular"
-            },
-            {
-              "description": "Background color of the badge",
-              "name": "--wcs-badge-background-color"
-            },
-            {
-              "description": "Text color of the badge",
-              "name": "--wcs-badge-color"
-            },
-            {
-              "description": "Horizontal padding of the badge",
-              "name": "--wcs-badge-padding-horizontal"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "shape",
-              "type": {
-                "text": "BadgeShape"
-              },
-              "default": "'normal'",
-              "description": "Define the shape of the badge"
-            },
-            {
-              "kind": "field",
-              "name": "color",
-              "type": {
-                "text": "BadgeColor"
-              },
-              "default": "'initial'",
-              "description": "Allows you to change the color of the badge to make it less bright (based on the color chosen by the CSS class)."
-            },
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "BadgeSize"
-              },
-              "default": "'m'",
-              "description": "Specify the size of the badge."
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "shape",
-              "fieldName": "shape",
-              "type": {
-                "text": "BadgeShape"
-              }
-            },
-            {
-              "name": "color",
-              "fieldName": "color",
-              "type": {
-                "text": "BadgeColor"
-              }
-            },
-            {
-              "name": "size",
-              "fieldName": "size",
-              "type": {
-                "text": "BadgeSize"
-              }
-            }
-          ],
-          "tagName": "wcs-badge",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Badge",
-          "declaration": {
-            "name": "Badge",
-            "module": "components/badge/badge.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-badge",
-          "declaration": {
-            "name": "Badge",
-            "module": "components/badge/badge.tsx"
           }
         }
       ]
@@ -2322,25 +2372,291 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/card-body/card-body.tsx",
+      "path": "components/com-nav/com-nav-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/com-nav/com-nav-size.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/com-nav/com-nav-utils.ts",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "registerCloseHandlerForFocusOutEventOn",
+          "return": {
+            "type": {
+              "text": "void"
+            }
+          },
+          "parameters": [
+            {
+              "name": "navigableItems",
+              "type": {
+                "text": "NodeListOf<Element>"
+              },
+              "description": "items on which focusout event listeners must be added"
+            },
+            {
+              "name": "nodeNameToClose",
+              "type": {
+                "text": "string"
+              },
+              "description": "nodeName of the element we want to close in the event path"
+            }
+          ],
+          "description": "This function add event handlers on the navigableItems list. The handlers call the function close() on the nodeName.\r\n\r\nT: type class of the nodeNameToClose param (must have a close function)"
+        },
+        {
+          "kind": "function",
+          "name": "comNavDidLoadWithResizeObserver",
+          "return": {
+            "type": {
+              "text": "ResizeObserver"
+            }
+          },
+          "parameters": [
+            {
+              "name": "comNavElement",
+              "type": {
+                "text": "ComNav | ComNavSubmenu | ComNavCategory"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "registerCloseHandlerForFocusOutEventOn",
+          "declaration": {
+            "name": "registerCloseHandlerForFocusOutEventOn",
+            "module": "components/com-nav/com-nav-utils.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "comNavDidLoadWithResizeObserver",
+          "declaration": {
+            "name": "comNavDidLoadWithResizeObserver",
+            "module": "components/com-nav/com-nav-utils.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/com-nav/com-nav.e2e.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/com-nav/com-nav.tsx",
       "declarations": [
         {
           "kind": "class",
-          "description": "The card-body is a subcomponent of `wcs-card`. It represents content of the card with an extra padding around.",
-          "name": "CardBody",
+          "description": "*Part of communication design system*\r\n\r\nThe com-nav component is a container for navigation links to external or internal pages of the website.",
+          "name": "ComNav",
           "cssProperties": [
             {
-              "description": "Padding of the card body",
-              "name": "--wcs-card-body-padding"
+              "description": "Height of the menu bar",
+              "name": "--wcs-com-nav-menu-bar-height"
+            },
+            {
+              "description": "Border color of the bottom border of the com-nav",
+              "name": "--wcs-com-nav-border-color"
+            },
+            {
+              "description": "Border width of the border below com-nav",
+              "name": "--wcs-com-nav-border-width"
+            },
+            {
+              "description": "Background color of the com-nav;",
+              "name": "--wcs-com-nav-background-color"
+            },
+            {
+              "description": "App name color",
+              "name": "--wcs-com-nav-app-name-color"
+            },
+            {
+              "description": "App name font-weight",
+              "name": "--wcs-com-nav-app-name-font-weight"
+            },
+            {
+              "description": "Font size of the App name text",
+              "name": "--wcs-com-nav-app-name-font-size"
+            },
+            {
+              "description": "Line height of the App name text",
+              "name": "--wcs-com-nav-app-name-line-height"
+            },
+            {
+              "description": "Color of the wcs-nav-item inside menu-bar",
+              "name": "--wcs-com-nav-item-color"
+            },
+            {
+              "description": "Font weight of the wcs-nav-item inside menu-bar",
+              "name": "--wcs-com-nav-item-font-weight"
+            },
+            {
+              "description": "Focus outline color of the wcs-nav-item inside menu-bar",
+              "name": "--wcs-com-nav-focus-outline-color"
+            },
+            {
+              "description": "Horizontal padding of wcs-com-nav",
+              "name": "--wcs-com-nav-horizontal-padding"
+            },
+            {
+              "description": "Vertical padding of wcs-com-nav",
+              "name": "--wcs-com-nav-vertical-padding"
+            },
+            {
+              "description": "Gap between each items section in mobile overlay",
+              "name": "--wcs-com-nav-mobile-overlay-gap"
+            },
+            {
+              "description": "Padding inside mobile overlay",
+              "name": "--wcs-com-nav-mobile-overlay-padding"
+            },
+            {
+              "description": "Bar border color on the left of icon mobile menu",
+              "name": "--wcs-com-nav-mobile-menu-icon-border-color"
+            },
+            {
+              "description": "Gap between icon mobile menu and separator on the left",
+              "name": "--wcs-com-nav-mobile-menu-icon-gap-"
+            },
+            {
+              "description": "Margin left of icon mobile menu",
+              "name": "--wcs-com-nav-mobile-menu-icon-margin-left"
+            },
+            {
+              "description": "Gap between each item inside menu-bar",
+              "name": "--wcs-com-nav-menu-bar-gap"
+            },
+            {
+              "description": "Margin left between menu bar and the app-name section",
+              "name": "--wcs-com-nav-menu-bar-margin-left"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Default slot containing all the menu declarations",
+              "name": "<no-name>"
+            },
+            {
+              "description": "(Optional) Extra slot for the application name",
+              "name": "app-name"
+            },
+            {
+              "description": "Slot for actions placed on the right part of the container",
+              "name": "actions"
             }
           ],
           "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsComNavElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "appName",
+              "type": {
+                "text": "string"
+              },
+              "description": "Name of the application to be displayed in the menu bar"
+            },
+            {
+              "kind": "field",
+              "name": "mobileMenuOpen",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "currentActiveSizing",
+              "type": {
+                "text": "ComNavSize"
+              },
+              "privacy": "public"
+            },
+            {
+              "kind": "field",
+              "name": "resizeObserver",
+              "type": {
+                "text": "ResizeObserver"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "mobileMenuIconClick",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "closeMobileMenu",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "onClickOnFinalAction"
+            },
             {
               "kind": "method",
               "name": "render"
             }
           ],
-          "tagName": "wcs-card-body",
+          "attributes": [
+            {
+              "name": "app-name",
+              "fieldName": "appName",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "tagName": "wcs-com-nav",
           "events": [],
           "customElement": true
         }
@@ -2348,18 +2664,18 @@
       "exports": [
         {
           "kind": "js",
-          "name": "CardBody",
+          "name": "ComNav",
           "declaration": {
-            "name": "CardBody",
-            "module": "components/card-body/card-body.tsx"
+            "name": "ComNav",
+            "module": "components/com-nav/com-nav.tsx"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "wcs-card-body",
+          "name": "wcs-com-nav",
           "declaration": {
-            "name": "CardBody",
-            "module": "components/card-body/card-body.tsx"
+            "name": "ComNav",
+            "module": "components/com-nav/com-nav.tsx"
           }
         }
       ]
@@ -3095,6 +3411,20 @@
             {
               "kind": "method",
               "name": "render"
+            },
+            {
+              "kind": "method",
+              "name": "exitMobileMenuOnKeyDown",
+              "parameters": [
+                {
+                  "name": "evt",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  },
+                  "description": "keydown event on window target."
+                }
+              ],
+              "description": "Close the mobile menu if the user press escape."
             }
           ],
           "attributes": [
@@ -3182,305 +3512,25 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/com-nav/com-nav-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/com-nav/com-nav-size.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/com-nav/com-nav-utils.ts",
-      "declarations": [
-        {
-          "kind": "function",
-          "name": "registerCloseHandlerForFocusOutEventOn",
-          "return": {
-            "type": {
-              "text": "void"
-            }
-          },
-          "parameters": [
-            {
-              "name": "navigableItems",
-              "type": {
-                "text": "NodeListOf<Element>"
-              },
-              "description": "items on which focusout event listeners must be added"
-            },
-            {
-              "name": "nodeNameToClose",
-              "type": {
-                "text": "string"
-              },
-              "description": "nodeName of the element we want to close in the event path"
-            }
-          ],
-          "description": "This function add event handlers on the navigableItems list. The handlers call the function close() on the nodeName.\r\n\r\nT: type class of the nodeNameToClose param (must have a close function)"
-        },
-        {
-          "kind": "function",
-          "name": "comNavDidLoadWithResizeObserver",
-          "return": {
-            "type": {
-              "text": "ResizeObserver"
-            }
-          },
-          "parameters": [
-            {
-              "name": "comNavElement",
-              "type": {
-                "text": "ComNav | ComNavSubmenu | ComNavCategory"
-              }
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "registerCloseHandlerForFocusOutEventOn",
-          "declaration": {
-            "name": "registerCloseHandlerForFocusOutEventOn",
-            "module": "components/com-nav/com-nav-utils.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "comNavDidLoadWithResizeObserver",
-          "declaration": {
-            "name": "comNavDidLoadWithResizeObserver",
-            "module": "components/com-nav/com-nav-utils.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/com-nav/com-nav.e2e.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/com-nav/com-nav.tsx",
+      "path": "components/card-body/card-body.tsx",
       "declarations": [
         {
           "kind": "class",
-          "description": "*Part of communication design system*\r\n\r\nThe com-nav component is a container for navigation links to external or internal pages of the website.",
-          "name": "ComNav",
+          "description": "The card-body is a subcomponent of `wcs-card`. It represents content of the card with an extra padding around.",
+          "name": "CardBody",
           "cssProperties": [
             {
-              "description": "Height of the menu bar",
-              "name": "--wcs-com-nav-menu-bar-height"
-            },
-            {
-              "description": "Border color of the bottom border of the com-nav",
-              "name": "--wcs-com-nav-border-color"
-            },
-            {
-              "description": "Border width of the border below com-nav",
-              "name": "--wcs-com-nav-border-width"
-            },
-            {
-              "description": "Background color of the com-nav;",
-              "name": "--wcs-com-nav-background-color"
-            },
-            {
-              "description": "App name color",
-              "name": "--wcs-com-nav-app-name-color"
-            },
-            {
-              "description": "App name font-weight",
-              "name": "--wcs-com-nav-app-name-font-weight"
-            },
-            {
-              "description": "Font size of the App name text",
-              "name": "--wcs-com-nav-app-name-font-size"
-            },
-            {
-              "description": "Line height of the App name text",
-              "name": "--wcs-com-nav-app-name-line-height"
-            },
-            {
-              "description": "Color of the wcs-nav-item inside menu-bar",
-              "name": "--wcs-com-nav-item-color"
-            },
-            {
-              "description": "Font weight of the wcs-nav-item inside menu-bar",
-              "name": "--wcs-com-nav-item-font-weight"
-            },
-            {
-              "description": "Focus outline color of the wcs-nav-item inside menu-bar",
-              "name": "--wcs-com-nav-focus-outline-color"
-            },
-            {
-              "description": "Horizontal padding of wcs-com-nav",
-              "name": "--wcs-com-nav-horizontal-padding"
-            },
-            {
-              "description": "Vertical padding of wcs-com-nav",
-              "name": "--wcs-com-nav-vertical-padding"
-            },
-            {
-              "description": "Gap between each items section in mobile overlay",
-              "name": "--wcs-com-nav-mobile-overlay-gap"
-            },
-            {
-              "description": "Padding inside mobile overlay",
-              "name": "--wcs-com-nav-mobile-overlay-padding"
-            },
-            {
-              "description": "Bar border color on the left of icon mobile menu",
-              "name": "--wcs-com-nav-mobile-menu-icon-border-color"
-            },
-            {
-              "description": "Gap between icon mobile menu and separator on the left",
-              "name": "--wcs-com-nav-mobile-menu-icon-gap-"
-            },
-            {
-              "description": "Margin left of icon mobile menu",
-              "name": "--wcs-com-nav-mobile-menu-icon-margin-left"
-            },
-            {
-              "description": "Gap between each item inside menu-bar",
-              "name": "--wcs-com-nav-menu-bar-gap"
-            },
-            {
-              "description": "Margin left between menu bar and the app-name section",
-              "name": "--wcs-com-nav-menu-bar-margin-left"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Default slot containing all the menu declarations",
-              "name": "<no-name>"
-            },
-            {
-              "description": "(Optional) Extra slot for the application name",
-              "name": "app-name"
-            },
-            {
-              "description": "Slot for actions placed on the right part of the container",
-              "name": "actions"
+              "description": "Padding of the card body",
+              "name": "--wcs-card-body-padding"
             }
           ],
           "members": [
             {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsComNavElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "appName",
-              "type": {
-                "text": "string"
-              },
-              "description": "Name of the application to be displayed in the menu bar"
-            },
-            {
-              "kind": "field",
-              "name": "mobileMenuOpen",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "currentActiveSizing",
-              "type": {
-                "text": "ComNavSize"
-              },
-              "privacy": "public"
-            },
-            {
-              "kind": "field",
-              "name": "resizeObserver",
-              "type": {
-                "text": "ResizeObserver"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "mobileMenuIconClick",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "closeMobileMenu",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "onClickOnFinalAction"
-            },
-            {
               "kind": "method",
               "name": "render"
-            },
-            {
-              "kind": "method",
-              "name": "exitMobileMenuOnKeyDown",
-              "parameters": [
-                {
-                  "name": "evt",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  },
-                  "description": "keydown event on window target."
-                }
-              ],
-              "description": "Close the mobile menu if the user press escape."
             }
           ],
-          "attributes": [
-            {
-              "name": "app-name",
-              "fieldName": "appName",
-              "type": {
-                "text": "string"
-              }
-            }
-          ],
-          "tagName": "wcs-com-nav",
+          "tagName": "wcs-card-body",
           "events": [],
           "customElement": true
         }
@@ -3488,18 +3538,18 @@
       "exports": [
         {
           "kind": "js",
-          "name": "ComNav",
+          "name": "CardBody",
           "declaration": {
-            "name": "ComNav",
-            "module": "components/com-nav/com-nav.tsx"
+            "name": "CardBody",
+            "module": "components/card-body/card-body.tsx"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "wcs-com-nav",
+          "name": "wcs-card-body",
           "declaration": {
-            "name": "ComNav",
-            "module": "components/com-nav/com-nav.tsx"
+            "name": "CardBody",
+            "module": "components/card-body/card-body.tsx"
           }
         }
       ]
@@ -7958,374 +8008,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/grid-column/grid-column.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The grid column is a subcomponent of `wcs-grid` that represents a column of the table.",
-          "name": "GridColumn",
-          "cssParts": [
-            {
-              "description": "CSS part for each column for styling. e.g: first_name-column, email-column",
-              "name": "[path]-column"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsGridColumnElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "nativeTh",
-              "type": {
-                "text": "HTMLTableHeaderCellElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "buttonOrDiv",
-              "type": {
-                "text": "HTMLButtonElement | HTMLDivElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "path",
-              "type": {
-                "text": "string"
-              },
-              "description": "Represents the name of the field from the `data` object (e.g: first_name, last_name, email, ...)"
-            },
-            {
-              "kind": "field",
-              "name": "name",
-              "type": {
-                "text": "string"
-              },
-              "description": "The name of the column displayed on the table (e.g: First Name, Last Name, Email, ...)"
-            },
-            {
-              "kind": "field",
-              "name": "sort",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Make the column sortable."
-            },
-            {
-              "kind": "field",
-              "name": "sortFn",
-              "type": {
-                "text": "WcsSortFn"
-              },
-              "description": "Customizable sort function to change the comparison of values."
-            },
-            {
-              "kind": "field",
-              "name": "formatter",
-              "type": {
-                "text": "WcsCellFormatter"
-              },
-              "description": "Customizable formatter function to render the cell differently."
-            },
-            {
-              "kind": "field",
-              "name": "sortOrder",
-              "type": {
-                "text": "WcsSortOrder"
-              },
-              "default": "'none'",
-              "description": "Defines if the column sort is ascending or descending.  \r\n`none` = the column is not sorted."
-            },
-            {
-              "kind": "field",
-              "name": "width",
-              "type": {
-                "text": "string"
-              },
-              "description": "Set the column `<th>` element width."
-            },
-            {
-              "kind": "field",
-              "name": "customCells",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Set to true if using a `wcs-custom-cell` linked to it."
-            },
-            {
-              "kind": "field",
-              "name": "hidden",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Flag to hide the column."
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "parseMyObjectProp",
-              "parameters": [
-                {
-                  "name": "newValue",
-                  "type": {
-                    "text": "boolean"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "sortOrderChange",
-              "parameters": [
-                {
-                  "name": "_",
-                  "type": {
-                    "text": "WcsSortOrder"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "emitSortConfig"
-            },
-            {
-              "kind": "method",
-              "name": "getSortOrderForAriaSort",
-              "parameters": [
-                {
-                  "name": "sortOrder",
-                  "type": {
-                    "text": "WcsSortOrder"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "getTabIndex",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "getTagName",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "delegateFocusToButton",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "onSortClick",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleSortKeyDown",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "_event",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  }
-                }
-              ]
-            }
-          ],
-          "attributes": [
-            {
-              "name": "path",
-              "fieldName": "path",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "name",
-              "fieldName": "name",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "sort",
-              "fieldName": "sort",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "sort-fn",
-              "fieldName": "sortFn",
-              "type": {
-                "text": "WcsSortFn"
-              }
-            },
-            {
-              "name": "formatter",
-              "fieldName": "formatter",
-              "type": {
-                "text": "WcsCellFormatter"
-              }
-            },
-            {
-              "name": "sort-order",
-              "fieldName": "sortOrder",
-              "type": {
-                "text": "WcsSortOrder"
-              }
-            },
-            {
-              "name": "width",
-              "fieldName": "width",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "custom-cells",
-              "fieldName": "customCells",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "hidden",
-              "fieldName": "hidden",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "cursor-position",
-              "fieldName": "cursorPosition",
-              "type": {
-                "text": "{col: number, row: number}"
-              }
-            },
-            {
-              "name": "column-position",
-              "fieldName": "columnPosition",
-              "type": {
-                "text": "number"
-              }
-            }
-          ],
-          "tagName": "wcs-grid-column",
-          "events": [
-            {
-              "name": "wcsSortChange",
-              "type": {
-                "text": "EventEmitter<WcsGridColumnSortChangeEventDetails>"
-              },
-              "description": "Event emitted when the sort of the column is changed."
-            },
-            {
-              "name": "wcsHiddenChange",
-              "type": {
-                "text": "EventEmitter<boolean>"
-              },
-              "description": "Event emitted if the column is dynamically switching visibility."
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "GridColumn",
-          "declaration": {
-            "name": "GridColumn",
-            "module": "components/grid-column/grid-column.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-grid-column",
-          "declaration": {
-            "name": "GridColumn",
-            "module": "components/grid-column/grid-column.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/grid-column/grid-sort-arrow.tsx",
-      "declarations": [
-        {
-          "kind": "function",
-          "name": "GridSortArrow",
-          "parameters": [
-            {
-              "name": "{ state }"
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "GridSortArrow",
-          "declaration": {
-            "name": "GridSortArrow",
-            "module": "components/grid-column/grid-sort-arrow.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/grid-custom-cell/grid-custom-cell.tsx",
       "declarations": [
         {
@@ -8805,6 +8487,374 @@
           "declaration": {
             "name": "Hint",
             "module": "components/hint/hint.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/grid-column/grid-column.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The grid column is a subcomponent of `wcs-grid` that represents a column of the table.",
+          "name": "GridColumn",
+          "cssParts": [
+            {
+              "description": "CSS part for each column for styling. e.g: first_name-column, email-column",
+              "name": "[path]-column"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsGridColumnElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeTh",
+              "type": {
+                "text": "HTMLTableHeaderCellElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "buttonOrDiv",
+              "type": {
+                "text": "HTMLButtonElement | HTMLDivElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "path",
+              "type": {
+                "text": "string"
+              },
+              "description": "Represents the name of the field from the `data` object (e.g: first_name, last_name, email, ...)"
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "description": "The name of the column displayed on the table (e.g: First Name, Last Name, Email, ...)"
+            },
+            {
+              "kind": "field",
+              "name": "sort",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Make the column sortable."
+            },
+            {
+              "kind": "field",
+              "name": "sortFn",
+              "type": {
+                "text": "WcsSortFn"
+              },
+              "description": "Customizable sort function to change the comparison of values."
+            },
+            {
+              "kind": "field",
+              "name": "formatter",
+              "type": {
+                "text": "WcsCellFormatter"
+              },
+              "description": "Customizable formatter function to render the cell differently."
+            },
+            {
+              "kind": "field",
+              "name": "sortOrder",
+              "type": {
+                "text": "WcsSortOrder"
+              },
+              "default": "'none'",
+              "description": "Defines if the column sort is ascending or descending.  \r\n`none` = the column is not sorted."
+            },
+            {
+              "kind": "field",
+              "name": "width",
+              "type": {
+                "text": "string"
+              },
+              "description": "Set the column `<th>` element width."
+            },
+            {
+              "kind": "field",
+              "name": "customCells",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Set to true if using a `wcs-custom-cell` linked to it."
+            },
+            {
+              "kind": "field",
+              "name": "hidden",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Flag to hide the column."
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "parseMyObjectProp",
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "boolean"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "sortOrderChange",
+              "parameters": [
+                {
+                  "name": "_",
+                  "type": {
+                    "text": "WcsSortOrder"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "emitSortConfig"
+            },
+            {
+              "kind": "method",
+              "name": "getSortOrderForAriaSort",
+              "parameters": [
+                {
+                  "name": "sortOrder",
+                  "type": {
+                    "text": "WcsSortOrder"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "getTabIndex",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "getTagName",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "delegateFocusToButton",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "onSortClick",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleSortKeyDown",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "_event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
+            }
+          ],
+          "attributes": [
+            {
+              "name": "path",
+              "fieldName": "path",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "name",
+              "fieldName": "name",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "sort",
+              "fieldName": "sort",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "sort-fn",
+              "fieldName": "sortFn",
+              "type": {
+                "text": "WcsSortFn"
+              }
+            },
+            {
+              "name": "formatter",
+              "fieldName": "formatter",
+              "type": {
+                "text": "WcsCellFormatter"
+              }
+            },
+            {
+              "name": "sort-order",
+              "fieldName": "sortOrder",
+              "type": {
+                "text": "WcsSortOrder"
+              }
+            },
+            {
+              "name": "width",
+              "fieldName": "width",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "custom-cells",
+              "fieldName": "customCells",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "hidden",
+              "fieldName": "hidden",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "cursor-position",
+              "fieldName": "cursorPosition",
+              "type": {
+                "text": "{col: number, row: number}"
+              }
+            },
+            {
+              "name": "column-position",
+              "fieldName": "columnPosition",
+              "type": {
+                "text": "number"
+              }
+            }
+          ],
+          "tagName": "wcs-grid-column",
+          "events": [
+            {
+              "name": "wcsSortChange",
+              "type": {
+                "text": "EventEmitter<WcsGridColumnSortChangeEventDetails>"
+              },
+              "description": "Event emitted when the sort of the column is changed."
+            },
+            {
+              "name": "wcsHiddenChange",
+              "type": {
+                "text": "EventEmitter<boolean>"
+              },
+              "description": "Event emitted if the column is dynamically switching visibility."
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "GridColumn",
+          "declaration": {
+            "name": "GridColumn",
+            "module": "components/grid-column/grid-column.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-grid-column",
+          "declaration": {
+            "name": "GridColumn",
+            "module": "components/grid-column/grid-column.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/grid-column/grid-sort-arrow.tsx",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "GridSortArrow",
+          "parameters": [
+            {
+              "name": "{ state }"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "GridSortArrow",
+          "declaration": {
+            "name": "GridSortArrow",
+            "module": "components/grid-column/grid-sort-arrow.tsx"
           }
         }
       ]
@@ -14450,6 +14500,12 @@
           }
         }
       ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/skeleton/skeleton-interface.ts",
+      "declarations": [],
+      "exports": []
     },
     {
       "kind": "javascript-module",
