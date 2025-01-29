@@ -296,12 +296,21 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
 
     @Watch('value')
     onValueChangeHandler(newValue: any) {
-            this.updateSelectedValue(newValue);
+        this.updateSelectedValue(newValue);
     }
 
-    private updateSelectedValue(value: any) {
+    /**
+     * Updates the selected value(s) of the component and manages the internal state accordingly
+     *
+     * @param value - The value(s) to be selected in the component
+     *                For single selection mode: any value that matches an option's value
+     *                For multiple selection mode: a single value or an array of values
+     * @param resetIfNoValue - When true and no value is provided, the select component will be reset
+     *                        Defaults to true
+     */
+    private updateSelectedValue(value: any, resetIfNoValue = true) {
         // If no value is passed, the select is reset.
-        if (!value) {
+        if (!value && resetIfNoValue) {
             this.reset();
         }
         if (this.multiple) {
@@ -329,6 +338,15 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
                         option.selected = true;
                     }
                 });
+                
+                // We update the selected options when the slot changes to keep the selected options in sync with the current value
+                compareResult.kept.forEach((keptOption: string) => {
+                    const option = Array.from(this.options).find(opt => this.compareWith(opt.value, keptOption));
+                    if (option) {
+                        option.selected = true;
+                    }
+                })
+                
                 compareResult.removed.forEach(removedOption => {
                     this.values = this.values.filter(v => !this.compareWith(v.value, removedOption));
                     const removedOptionElement = Array.from(this.options).find(opt => this.compareWith(opt.value, removedOption));
@@ -381,8 +399,6 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
         this.values = [];
         this.displayText = undefined;
         if (this.autocomplete) {
-            // When reset the autocomplete value, this value is also reflected against the native input value (see JSX)
-            this.autocompleteValue = '';
             // When need to reset the internal filter state of the component as the mutation of 
             // autocompleteValue from the code doesn't call onAutocompleteInputEvent method.
             this.handleAutocompleteValueChange('', true);
@@ -888,13 +904,14 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
     }
 
     onSlotchange() {
-        if (this.serverMode && this.values) {
-            this.options.forEach(o => o.selected = this.values.some(v => this.compareWith(o.value, v.value)));
-        }
-        
+        // We call updateSelectedValue to update the selected options when the slot changes to keep the selected options in sync with the current value.
+        // This also update the displayText value according to the options data.
+        // Finally, this update the internal models for multiple mode and handle the server mode correctly.
+        this.updateSelectedValue(this.value, false);
+
         // Server-mode only : "no result" slot should be visible dynamically if no option is present in the slot
         if (this.autocomplete && this.serverMode) {
-            this.showNoResultFoundLabel = this.options.length < 1 ;
+            this.showNoResultFoundLabel = this.options.length < 1;
         }
 
         if (this.multiple) {
@@ -1000,7 +1017,7 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
         }
         
         if (this.autocompleteValue !== filter) {
-            this.autocompleteValue = filter;
+            this.autocompleteValue = filter ?? '';
             this.wcsFilterChange.emit({
                 value: filter,
             });

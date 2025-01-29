@@ -1136,5 +1136,55 @@ describe('Select component', () => {
     });
     //endregion
 
+    it('Should handle asynchronous options loading with an initial value and update the label', async () => {
+        const page = await newE2EPage();
+        await setWcsContent(page, `
+            <wcs-select value="2">
+            </wcs-select>
+        `);
+        const select = await page.find('wcs-select');
+
+        expect(select.shadowRoot.querySelector('.wcs-select-value')).toBeNull(); // Verify initial value is displayed
+
+        // Add options
+        await page.$eval('wcs-select', (el: HTMLElement) => {
+            el.innerHTML = `
+            <wcs-select-option value="1">One</wcs-select-option>
+            <wcs-select-option value="2">Two</wcs-select-option>
+            <wcs-select-option value="3">Three</wcs-select-option>
+            <wcs-select-option value="4">Four</wcs-select-option>
+            `;
+        });
+        await page.waitForChanges();
+        
+        expect(select.shadowRoot.querySelector('.wcs-select-value')).toEqualText("Two"); // Verify initial value is displayed
+    });
+
+    it('[Multiple] Should handle asynchronous options loading with an initial value and update the label', async () => {
+        const page = await newE2EPage();
+        await setWcsContent(page, `
+            <wcs-select multiple>
+            </wcs-select>
+        `);
+        const select = await page.find('wcs-select');
+        select.setProperty('value', ['2', '3']);
+        await page.waitForChanges();
+
+        expect(select.shadowRoot.querySelector('.wcs-select-value')).toBeNull(); // Verify initial value is displayed
+
+        // Add options
+        await page.$eval('wcs-select', (el: HTMLElement) => {
+            el.innerHTML = `
+            <wcs-select-option value="1">One</wcs-select-option>
+            <wcs-select-option value="2">Two</wcs-select-option>
+            <wcs-select-option value="3">Three</wcs-select-option>
+            <wcs-select-option value="4">Four</wcs-select-option>
+            `;
+        });
+        await page.waitForChanges();
+        
+        expect(select.shadowRoot.querySelector('.wcs-select-value')).toEqualText("Two, Three"); // Verify initial value is displayed
+    });
+
 });
 

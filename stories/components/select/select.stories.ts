@@ -440,6 +440,75 @@ export const SpecialCases: StoryObj = {
     
 }
 
+/**
+ * 
+ * This story demonstrates how the component handles asynchronous options loading.
+ * 
+ * For example, you can load options from a server in server mode or not (need to manage the data model outside the select, for example if too many options). At the initialization of the select, you only know the current value of the select, and the options will be loaded later with their labels. To sum up:
+ * - The select is initialized with a value
+ * - The options are loaded asynchronously
+ * - The select automatically updates its label when the options are loaded
+ * 
+ * Even if this is supported by the component, we recommend not using this UX pattern because it can be confusing for the user. It is better to use a skeleton loader or a loading spinner to indicate that the options are being loaded and displaying the select only when the options are fully loaded.
+ * 
+ * Note that the handling of asynchronous options is available in both server and non-server modes.
+ * 
+ */
+export const AsynchronousOptions: StoryObj = {
+    render: () => {
+        const options = [
+            { value: 'lyo-aura', label: 'Lyon Part-Dieu' },
+            { value: 'gre-aura', label: 'Grenoble' },
+            { value: 'val-aura', label: 'Valence TGV' },
+            { value: 'pmp-idf', label: 'Paris Montparnasse' },
+            { value: 'pge-idf', label: 'Paris Gare de L\'Est' },
+            { value: 'tou-occi', label: 'Toulouse Matabiau' },
+            { value: 'mpl-occi', label: 'Montpellier Saint-Roch' },
+            { value: 'bdx-aqui', label: 'Bordeaux Saint-Jean' },
+            { value: 'poi-aqui', label: 'Poitiers' },
+            { value: 'nan-loir', label: 'Nantes' },
+            { value: 'ang-loir', label: 'Angers' },
+            { value: 'bre-bzh', label: 'Brest' },
+            { value: 'qui-bzh', label: 'Quimper' }
+        ];
+        
+        const loadOptions = () => {
+            const select = document.querySelector('#select-asynchronous-options');
+            setTimeout(() => {
+                options.forEach(option => {
+                    const selectOption = document.createElement('wcs-select-option');
+                    selectOption.setAttribute('value', option.value);
+                    selectOption.textContent = option.label;
+                    select?.appendChild(selectOption);
+                });
+            }, 1000);
+        };
+
+        return html`
+            <div style="min-height: 450px; display: flex; gap: 16px; flex-direction: column; width: 400px;">
+                <wcs-button
+                    mode="stroked"
+                    size="s"
+                    @click=${loadOptions}>
+                    Load options
+                </wcs-button>
+                <wcs-select
+                    placeholder="Select stations"
+                    id="select-asynchronous-options"
+                    value="lyo-aura"
+                    server-mode>
+                </wcs-select>
+            </div>
+        `;
+    },
+    args: {
+        ...Default.args,
+        isError: false
+    }
+};
+
+
+
 function handleChange(v: any) {
   const regions = v.target.value.map((value: any) => value.split("-")[1]);
   
