@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-30T16:14:55",
+  "timestamp": "2025-01-31T15:58:50",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -8803,124 +8803,124 @@
       "filePath": "src/components/native-select/native-select.tsx",
       "encapsulation": "shadow",
       "tag": "wcs-native-select",
-      "readme": "# wcs-select-native\r\n\r\n\r\n\r",
+      "readme": "# wcs-native-select\r\n\r\n\r\n\r",
       "docs": "The `wcs-native-select` component is designed to accept a native `<select>` element as a slotted child. This choice\r\nallows developers to bind the `<select>` element using the framework of their choice, without the need to re-expose all the\r\nproperties of the `<select>` and `<option>` elements in this component.\r\n\r\nThe component wraps the native `<select>` element and provides custom styles and behavior, while preserving the native\r\nfunctionality and accessibility.\r\n\r\n### ✅ Guidance\r\n\r\n- To have a placeholder, you must have an option as child which has `selected` attribute and `disabled`\r\nattribute. You can add the `hidden` attribute to don't show the placeholder option in the options overlay.\r\n\r\n### Example usage\r\n\r\n```html\r\n<wcs-native-select>\r\n  <select>\r\n    <option value=\"option1\">Option 1</option>\r\n    <option value=\"option2\">Option 2</option>\r\n    <option value=\"option3\">Option 3</option>\r\n  </select>\r\n</wcs-native-select>\r\n```\r\n\r\n### Note\r\n- We did not find a way to detect when the select is reset, if you want to apply the placeholder style when the\r\nselect is reset, you have to call the `updateStyles()` method manually.\r\n- It is strongly recommended to use native-select when you don't have to support the multi-selection feature\r\n- Use a native-select instead of a wcs-select if your application is mainly on mobile / tablet. The native behavior of the device will be used.",
       "docsTags": [
         {
           "name": "cssprop",
-          "text": "--wcs-select-native-line-height - Line height of the select"
+          "text": "--wcs-native-select-line-height - Line height of the select"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-select-native-size-m - Height of the select when size is 'm'"
+          "text": "--wcs-native-select-size-m - Height of the select when size is 'm'"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-select-native-font-size-m - Font size of the select when size is 'm'"
+          "text": "--wcs-native-select-font-size-m - Font size of the select when size is 'm'"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-select-native-size-l - Height of the select when size is 'l'"
+          "text": "--wcs-native-select-size-l - Height of the select when size is 'l'"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-select-native-font-size-l - Font size of the select when size is 'l'"
+          "text": "--wcs-native-select-font-size-l - Font size of the select when size is 'l'"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-select-native-border-radius - Border radius of the select"
+          "text": "--wcs-native-select-border-radius - Border radius of the select"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-select-native-background-color - Background color of the select"
+          "text": "--wcs-native-select-background-color - Background color of the select"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-select-native-border-color-default - Border color of the select when not focused"
+          "text": "--wcs-native-select-border-color-default - Border color of the select when not focused"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-select-native-border-color-disabled - Border color of the select when disabled"
+          "text": "--wcs-native-select-border-color-disabled - Border color of the select when disabled"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-select-native-border-color-focus - Border color of the select when focused"
+          "text": "--wcs-native-select-border-color-focus - Border color of the select when focused"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-select-native-border-color-error - Border color of the select when in error state"
+          "text": "--wcs-native-select-border-color-error - Border color of the select when in error state"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-select-native-border-style-default - Border style of the select when not focused"
+          "text": "--wcs-native-select-border-style-default - Border style of the select when not focused"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-select-native-border-style-focus - Border style of the select when focused"
+          "text": "--wcs-native-select-border-style-focus - Border style of the select when focused"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-select-native-border-width - Border width of the select when not focused"
+          "text": "--wcs-native-select-border-width - Border width of the select when not focused"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-select-native-border-width-focus - Border width of the select when focused"
+          "text": "--wcs-native-select-border-width-focus - Border width of the select when focused"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-select-native-value-color - Color of the selected value"
+          "text": "--wcs-native-select-value-color - Color of the selected value"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-select-native-value-font-weight - Font weight of the selected value"
+          "text": "--wcs-native-select-value-font-weight - Font weight of the selected value"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-select-native-value-font-style - Font style of the selected value"
+          "text": "--wcs-native-select-value-font-style - Font style of the selected value"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-select-native-padding-horizontal-m - Padding horizontal of the select when size is 'm'"
+          "text": "--wcs-native-select-padding-horizontal-m - Padding horizontal of the select when size is 'm'"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-select-native-padding-horizontal-l - Padding horizontal of the select when size is 'l'"
+          "text": "--wcs-native-select-padding-horizontal-l - Padding horizontal of the select when size is 'l'"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-select-native-arrow-color - Color of the select arrow"
+          "text": "--wcs-native-select-arrow-color - Color of the select arrow"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-select-native-arrow-color-disabled - Color of the select arrow when the select is disabled"
+          "text": "--wcs-native-select-arrow-color-disabled - Color of the select arrow when the select is disabled"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-select-native-text-color-disabled - Color of the text when the select is disabled"
+          "text": "--wcs-native-select-text-color-disabled - Color of the text when the select is disabled"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-select-native-placeholder-color - Color of the placeholder"
+          "text": "--wcs-native-select-placeholder-color - Color of the placeholder"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-select-native-placeholder-font-weight - Font weight of the placeholder"
+          "text": "--wcs-native-select-placeholder-font-weight - Font weight of the placeholder"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-select-native-placeholder-font-style - Font style of the placeholder"
+          "text": "--wcs-native-select-placeholder-font-style - Font style of the placeholder"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-select-native-option-color - Text color of the options"
+          "text": "--wcs-native-select-option-color - Text color of the options"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-select-native-option-font-style - Font style of the options"
+          "text": "--wcs-native-select-option-font-style - Font style of the options"
         },
         {
           "name": "cssprop",
-          "text": "--wcs-select-native-option-selected-color - Text color of the selected option"
+          "text": "--wcs-native-select-option-selected-color - Text color of the selected option"
         }
       ],
       "usage": {},

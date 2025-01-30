@@ -1,46 +1,46 @@
 :host {
-    --wcs-select-native-line-height: var(--wcs-semantic-font-line-height-large);
+    --wcs-native-select-line-height: var(--wcs-semantic-font-line-height-large);
 
-    --wcs-select-native-size-m: var(--wcs-semantic-size-m);
-    --wcs-select-native-font-size-m: var(--wcs-semantic-font-size-m);
-    --wcs-select-native-size-l: var(--wcs-semantic-size-l);
-    --wcs-select-native-font-size-l: var(--wcs-semantic-font-size-l);
+    --wcs-native-select-size-m: var(--wcs-semantic-size-m);
+    --wcs-native-select-font-size-m: var(--wcs-semantic-font-size-m);
+    --wcs-native-select-size-l: var(--wcs-semantic-size-l);
+    --wcs-native-select-font-size-l: var(--wcs-semantic-font-size-l);
 
-    --wcs-select-native-border-radius: var(--wcs-semantic-border-radius-base);
-    --wcs-select-native-background-color: var(--wcs-semantic-color-background-control-default);
+    --wcs-native-select-border-radius: var(--wcs-semantic-border-radius-base);
+    --wcs-native-select-background-color: var(--wcs-semantic-color-background-control-default);
 
-    --wcs-select-native-border-color-default: var(--wcs-semantic-color-border-primary);
-    --wcs-select-native-border-color-disabled: var(--wcs-semantic-color-border-disabled);
-    --wcs-select-native-border-color-focus: var(--wcs-semantic-color-border-control-focus);
-    --wcs-select-native-border-color-error: var(--wcs-semantic-color-border-critical);
+    --wcs-native-select-border-color-default: var(--wcs-semantic-color-border-primary);
+    --wcs-native-select-border-color-disabled: var(--wcs-semantic-color-border-disabled);
+    --wcs-native-select-border-color-focus: var(--wcs-semantic-color-border-control-focus);
+    --wcs-native-select-border-color-error: var(--wcs-semantic-color-border-critical);
 
-    --wcs-select-native-border-style-default: solid;
-    --wcs-select-native-border-style-focus: var(--wcs-semantic-border-style-focus-control);
+    --wcs-native-select-border-style-default: solid;
+    --wcs-native-select-border-style-focus: var(--wcs-semantic-border-style-focus-control);
 
-    --wcs-select-native-border-width: var(--wcs-semantic-border-width-default);
-    --wcs-select-native-border-width-focus: var(--wcs-semantic-border-width-large);
+    --wcs-native-select-border-width: var(--wcs-semantic-border-width-default);
+    --wcs-native-select-border-width-focus: var(--wcs-semantic-border-width-large);
 
-    --wcs-select-native-value-color: var(--wcs-semantic-color-text-primary);
-    --wcs-select-native-value-font-weight: var(--wcs-semantic-font-weight-medium);
-    --wcs-select-native-value-font-style: normal; // ⚠️ UPDATE IN JS, IF REFACTOR THE NAME REFACTOR IN THE JS CODE
+    --wcs-native-select-value-color: var(--wcs-semantic-color-text-primary);
+    --wcs-native-select-value-font-weight: var(--wcs-semantic-font-weight-medium);
+    --wcs-native-select-value-font-style: normal; // ⚠️ UPDATE IN JS, IF REFACTOR THE NAME REFACTOR IN THE JS CODE
 
-    --wcs-select-native-internal-padding-horizontal: var(--wcs-select-native-padding-horizontal-m);
-    --wcs-select-native-padding-horizontal-m: var(--wcs-semantic-spacing-large);
-    --wcs-select-native-padding-horizontal-l: var(--wcs-semantic-spacing-large);
+    --wcs-native-select-internal-padding-horizontal: var(--wcs-native-select-padding-horizontal-m);
+    --wcs-native-select-padding-horizontal-m: var(--wcs-semantic-spacing-large);
+    --wcs-native-select-padding-horizontal-l: var(--wcs-semantic-spacing-large);
 
-    --wcs-select-native-arrow-color: var(--wcs-semantic-color-foreground-brand);
-    --wcs-select-native-arrow-color-disabled: var(--wcs-semantic-color-foreground-disabled);
+    --wcs-native-select-arrow-color: var(--wcs-semantic-color-foreground-brand);
+    --wcs-native-select-arrow-color-disabled: var(--wcs-semantic-color-foreground-disabled);
 
-    --wcs-select-native-text-color-disabled: var(--wcs-semantic-color-text-disabled);
+    --wcs-native-select-text-color-disabled: var(--wcs-semantic-color-text-disabled);
 
-    --wcs-select-native-placeholder-color: var(--wcs-semantic-color-text-tertiary);
-    --wcs-select-native-placeholder-font-weight: var(--wcs-semantic-font-weight-roman);
-    --wcs-select-native-placeholder-font-style: var(--wcs-semantic-font-style-control-placeholder);
+    --wcs-native-select-placeholder-color: var(--wcs-semantic-color-text-tertiary);
+    --wcs-native-select-placeholder-font-weight: var(--wcs-semantic-font-weight-roman);
+    --wcs-native-select-placeholder-font-style: var(--wcs-semantic-font-style-control-placeholder);
 
-    --wcs-select-native-option-color: var(--wcs-semantic-color-text-primary);
-    --wcs-select-native-option-font-style: normal;
+    --wcs-native-select-option-color: var(--wcs-semantic-color-text-primary);
+    --wcs-native-select-option-font-style: normal;
 
-    --wcs-select-native-option-selected-color: var(--wcs-semantic-color-text-primary);
+    --wcs-native-select-option-selected-color: var(--wcs-semantic-color-text-primary);
 }
 
 ::slotted(select) {
@@ -49,72 +49,72 @@
     -webkit-appearance: none !important;
     appearance: none !important;
 
-    background-color: var(--wcs-select-native-background-color);
+    background-color: var(--wcs-native-select-background-color);
 
-    color: var(--wcs-select-native-value-color);
+    color: var(--wcs-native-select-value-color);
 
-    border-radius: var(--wcs-select-native-border-radius);
+    border-radius: var(--wcs-native-select-border-radius);
     border: none;
 
-    outline: var(--wcs-select-native-border-style-default) var(--wcs-select-native-border-width) var(--wcs-select-native-border-color-default);
-    outline-offset: calc(var(--wcs-select-native-border-width) * -1);
+    outline: var(--wcs-native-select-border-style-default) var(--wcs-native-select-border-width) var(--wcs-native-select-border-color-default);
+    outline-offset: calc(var(--wcs-native-select-border-width) * -1);
     user-select: none;
     cursor: pointer;
-    line-height: var(--wcs-select-native-line-height);
+    line-height: var(--wcs-native-select-line-height);
     font-size: inherit;
     opacity: 1; // user agent set 0.7 opacity on select by default when disabled (https://github.com/tailwindlabs/tailwindcss/discussions/11792#discussioncomment-6696015)
 
     max-width: 100%;
     flex-grow: 1;
-    padding-right: calc(var(--wcs-select-native-internal-padding-horizontal) + 24px); // To not let text overflow on arrow icon, we add 24px of padding
-    padding-left: var(--wcs-select-native-internal-padding-horizontal);
+    padding-right: calc(var(--wcs-native-select-internal-padding-horizontal) + 24px); // To not let text overflow on arrow icon, we add 24px of padding
+    padding-left: var(--wcs-native-select-internal-padding-horizontal);
 }
 
 ::slotted(select:disabled) {
     cursor: not-allowed;
-    color: var(--wcs-select-native-text-color-disabled);
-    outline: var(--wcs-select-native-border-style-default) var(--wcs-select-native-border-width) var(--wcs-select-native-border-color-disabled);
-    --wcs-select-native-background-color: var(--wcs-semantic-color-background-control-disabled);
-    --wcs-select-native-value-color: var(--wcs-select-native-text-color-disabled);
+    color: var(--wcs-native-select-text-color-disabled);
+    outline: var(--wcs-native-select-border-style-default) var(--wcs-native-select-border-width) var(--wcs-native-select-border-color-disabled);
+    --wcs-native-select-background-color: var(--wcs-semantic-color-background-control-disabled);
+    --wcs-native-select-value-color: var(--wcs-native-select-text-color-disabled);
 }
 
 ::slotted(select[aria-invalid=true]) {
-    outline-style: var(--wcs-select-native-border-style-default);
-    outline-color: var(--wcs-select-native-border-color-error) !important;
-    outline-offset: calc(var(--wcs-select-native-border-width) * -1);
+    outline-style: var(--wcs-native-select-border-style-default);
+    outline-color: var(--wcs-native-select-border-color-error) !important;
+    outline-offset: calc(var(--wcs-native-select-border-width) * -1);
 }
 
 :host([data-disabled]) {
     .select-wrapper {
         .arrow-container {
             .arrow {
-                fill: var(--wcs-select-native-arrow-color-disabled);
+                fill: var(--wcs-native-select-arrow-color-disabled);
             }
         }
     }
 }
 
 :host([data-size=m])  {
-    font-size: var(--wcs-select-native-font-size-m);
-    --wcs-select-native-internal-padding-horizontal: var(--wcs-select-native-padding-horizontal-m);
+    font-size: var(--wcs-native-select-font-size-m);
+    --wcs-native-select-internal-padding-horizontal: var(--wcs-native-select-padding-horizontal-m);
 
     ::slotted(select) {
-        height: var(--wcs-select-native-size-m);
+        height: var(--wcs-native-select-size-m);
     }
 }
 
 :host([data-size=l]) {
-    font-size: var(--wcs-select-native-font-size-l);
-    --wcs-select-native-internal-padding-horizontal: var(--wcs-select-native-padding-horizontal-l);
+    font-size: var(--wcs-native-select-font-size-l);
+    --wcs-native-select-internal-padding-horizontal: var(--wcs-native-select-padding-horizontal-l);
 
     ::slotted(select) {
-        height: var(--wcs-select-native-size-l);
+        height: var(--wcs-native-select-size-l);
     }
 }
 
 ::slotted(select:focus-visible) {
-    outline: var(--wcs-select-native-border-style-focus) var(--wcs-select-native-border-width-focus) var(--wcs-select-native-border-color-focus);
-    outline-offset: calc(var(--wcs-select-native-border-width-focus) * -1);
+    outline: var(--wcs-native-select-border-style-focus) var(--wcs-native-select-border-width-focus) var(--wcs-native-select-border-color-focus);
+    outline-offset: calc(var(--wcs-native-select-border-width-focus) * -1);
 }
 
 .select-wrapper {
@@ -130,7 +130,7 @@ svg {
 }
 
 .arrow {
-    fill: var(--wcs-select-native-arrow-color);
+    fill: var(--wcs-native-select-arrow-color);
 }
 
 .arrow-container {
@@ -142,6 +142,6 @@ svg {
     position: absolute;
     top: 0;
     bottom: 0;
-    right: calc(var(--wcs-select-native-internal-padding-horizontal) - 4px); // 4px is the blank space inside the arrow svg on the right
+    right: calc(var(--wcs-native-select-internal-padding-horizontal) - 4px); // 4px is the blank space inside the arrow svg on the right
     margin: auto 0;
 }

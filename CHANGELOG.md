@@ -48,7 +48,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
     - You have to use `--wcs-select-control-border-radius` instead to edit the border radius of the control
     - You have to use `--wcs-select-overlay-border-radius` instead to edit the border radius of the overlay
 - **native-select**
-    - remove `--wcs-select-native-outline-color` css property. Instead, use `--wcs-select-native-border-color-default`, `--wcs-select-native-border-color-focus`, `--wcs-select-native-border-color-error`
+    - all existing `--wcs-select-native-*` variables have been renamed to `--wcs-native-select-*` to match the component name
+    - remove `--wcs-select-native-outline-color` css property. Instead, use `--wcs-native-select-border-color-default`, `--wcs-native-select-border-color-focus`, `--wcs-native-select-border-color-error`
 - **switch**
   - remove `--wcs-switch-bullet-color-initial` and `--wcs-switch-bullet-color-final`. Instead, use `--wcs-switch-dot-color-initial` and `--wcs-switch-dot-color-final`
   - remove `--wcs-switch-text-color`. Instead, use `--wcs-switch-text-color-default`, `--wcs-switch-text-color-selected`, `--wcs-switch-text-color-hover`, `--wcs-switch-text-color-disabled`

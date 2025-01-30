@@ -962,6 +962,92 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/accordion-content/accordion-content.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The accordion-content is a subcomponent of `wcs-accordion`. It represents the text / content below an expanded accordion.",
+          "name": "AccordionContent",
+          "cssProperties": [
+            {
+              "description": "Padding of the content",
+              "name": "--wcs-accordion-content-padding"
+            },
+            {
+              "description": "Text color of the content",
+              "name": "--wcs-accordion-content-text-color"
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-accordion-content",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "AccordionContent",
+          "declaration": {
+            "name": "AccordionContent",
+            "module": "components/accordion-content/accordion-content.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-accordion-content",
+          "declaration": {
+            "name": "AccordionContent",
+            "module": "components/accordion-content/accordion-content.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/accordion-header/accordion-header.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The accordion-header is a subcomponent of `wcs-accordion`. It represents the heading text inside the accordion panel.",
+          "name": "AccordionHeader",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-accordion-header",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "AccordionHeader",
+          "declaration": {
+            "name": "AccordionHeader",
+            "module": "components/accordion-header/accordion-header.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-accordion-header",
+          "declaration": {
+            "name": "AccordionHeader",
+            "module": "components/accordion-header/accordion-header.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/accordion/accordion.tsx",
       "declarations": [
         {
@@ -1123,92 +1209,6 @@
           "declaration": {
             "name": "Accordion",
             "module": "components/accordion/accordion.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/accordion-content/accordion-content.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The accordion-content is a subcomponent of `wcs-accordion`. It represents the text / content below an expanded accordion.",
-          "name": "AccordionContent",
-          "cssProperties": [
-            {
-              "description": "Padding of the content",
-              "name": "--wcs-accordion-content-padding"
-            },
-            {
-              "description": "Text color of the content",
-              "name": "--wcs-accordion-content-text-color"
-            }
-          ],
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-accordion-content",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "AccordionContent",
-          "declaration": {
-            "name": "AccordionContent",
-            "module": "components/accordion-content/accordion-content.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-accordion-content",
-          "declaration": {
-            "name": "AccordionContent",
-            "module": "components/accordion-content/accordion-content.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/accordion-header/accordion-header.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The accordion-header is a subcomponent of `wcs-accordion`. It represents the heading text inside the accordion panel.",
-          "name": "AccordionHeader",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-accordion-header",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "AccordionHeader",
-          "declaration": {
-            "name": "AccordionHeader",
-            "module": "components/accordion-header/accordion-header.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-accordion-header",
-          "declaration": {
-            "name": "AccordionHeader",
-            "module": "components/accordion-header/accordion-header.tsx"
           }
         }
       ]
@@ -2139,6 +2139,89 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/card/card-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/card/card.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The card component is a container that display content such as text, images, buttons, and lists.  \r\nA card can be a single component, but is often made up of a header, title, subtitle, and content.",
+          "name": "Card",
+          "cssProperties": [
+            {
+              "description": "Border color of the card",
+              "name": "--wcs-card-border-color"
+            },
+            {
+              "description": "Border radius of the card",
+              "name": "--wcs-card-border-radius"
+            },
+            {
+              "description": "Border width of the card",
+              "name": "--wcs-card-border-width"
+            },
+            {
+              "description": "Background color of the card",
+              "name": "--wcs-card-background-color"
+            },
+            {
+              "description": "Text color of the card",
+              "name": "--wcs-card-text-color"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "mode",
+              "type": {
+                "text": "CardMode"
+              },
+              "default": "'flat'"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "mode",
+              "fieldName": "mode",
+              "type": {
+                "text": "CardMode"
+              }
+            }
+          ],
+          "tagName": "wcs-card",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Card",
+          "declaration": {
+            "name": "Card",
+            "module": "components/card/card.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-card",
+          "declaration": {
+            "name": "Card",
+            "module": "components/card/card.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/breadcrumb-item/breadcrumb-item.tsx",
       "declarations": [
         {
@@ -2233,6 +2316,433 @@
           "declaration": {
             "name": "BreadcrumbItem",
             "module": "components/breadcrumb-item/breadcrumb-item.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/card-body/card-body.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The card-body is a subcomponent of `wcs-card`. It represents content of the card with an extra padding around.",
+          "name": "CardBody",
+          "cssProperties": [
+            {
+              "description": "Padding of the card body",
+              "name": "--wcs-card-body-padding"
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-card-body",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CardBody",
+          "declaration": {
+            "name": "CardBody",
+            "module": "components/card-body/card-body.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-card-body",
+          "declaration": {
+            "name": "CardBody",
+            "module": "components/card-body/card-body.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/checkbox/checkbox-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/checkbox/checkbox.e2e.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/checkbox/checkbox.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The checkbox component is an input for choosing one or more items from a set by checking / unchecking it.",
+          "name": "Checkbox",
+          "cssProperties": [
+            {
+              "description": "Default color of the border",
+              "name": "--wcs-checkbox-border-color-default"
+            },
+            {
+              "description": "Color of the border when hovered",
+              "name": "--wcs-checkbox-border-color-hover"
+            },
+            {
+              "description": "Color of the border when disabled",
+              "name": "--wcs-checkbox-border-color-disabled"
+            },
+            {
+              "description": "Color of the border when selected",
+              "name": "--wcs-checkbox-border-color-selected"
+            },
+            {
+              "description": "Color of the border when indeterminate",
+              "name": "--wcs-checkbox-border-color-indeterminate"
+            },
+            {
+              "description": "Border radius of the checkbox",
+              "name": "--wcs-checkbox-border-radius"
+            },
+            {
+              "description": "Width of the border of the checkbox",
+              "name": "--wcs-checkbox-border-width"
+            },
+            {
+              "description": "Size of the checkbox",
+              "name": "--wcs-checkbox-size"
+            },
+            {
+              "description": "Color of the text when the checkbox is not selected",
+              "name": "--wcs-checkbox-text-color-default"
+            },
+            {
+              "description": "Color of the text when the checkbox is disabled",
+              "name": "--wcs-checkbox-text-color-disabled"
+            },
+            {
+              "description": "Color of the text when the checkbox is hovered",
+              "name": "--wcs-checkbox-text-color-hover"
+            },
+            {
+              "description": "Color of the text when the checkbox is selected",
+              "name": "--wcs-checkbox-text-color-selected"
+            },
+            {
+              "description": "Font size of the text",
+              "name": "--wcs-checkbox-text-font-size"
+            },
+            {
+              "description": "Font weight of the text",
+              "name": "--wcs-checkbox-text-font-weight"
+            },
+            {
+              "description": "Default background color of the checkbox",
+              "name": "--wcs-checkbox-background-color-default"
+            },
+            {
+              "description": "Background color of the checkbox when hovered",
+              "name": "--wcs-checkbox-background-color-hover"
+            },
+            {
+              "description": "Background color of the checkbox when disabled",
+              "name": "--wcs-checkbox-background-color-disabled"
+            },
+            {
+              "description": "Background color of the checkbox when selected",
+              "name": "--wcs-checkbox-background-color-selected"
+            },
+            {
+              "description": "Background color of the checkbox when indeterminate",
+              "name": "--wcs-checkbox-background-color-indeterminate"
+            },
+            {
+              "description": "Border radius of the focus outline",
+              "name": "--wcs-checkbox-outline-radius-focus"
+            },
+            {
+              "description": "Color of the focus outline",
+              "name": "--wcs-checkbox-outline-color-focus"
+            },
+            {
+              "description": "Gap between the checkbox and the label",
+              "name": "--wcs-checkbox-gap"
+            },
+            {
+              "description": "Color of the checkmark",
+              "name": "--wcs-checkmark-color"
+            },
+            {
+              "description": "Height of the checkmark (From the bottom left to the top right of the checkmark)",
+              "name": "--wcs-checkmark-height"
+            },
+            {
+              "description": "Width of the checkmark (From the bottom right to the top left of the checkmark)",
+              "name": "--wcs-checkmark-width"
+            },
+            {
+              "description": "Width of the border of the checkmark",
+              "name": "--wcs-checkmark-border-width"
+            },
+            {
+              "description": "Width of the indeterminate bar",
+              "name": "--wcs-indeterminate-bar-width"
+            },
+            {
+              "description": "Height of the indeterminate bar",
+              "name": "--wcs-indeterminate-bar-height"
+            },
+            {
+              "description": "Border-radius of the indeterminate bar",
+              "name": "--wcs-indeterminate-bar-border-radius"
+            },
+            {
+              "description": "Color of the indeterminate bar",
+              "name": "--wcs-indeterminate-bar-background-color"
+            },
+            {
+              "description": "Duration of the transition",
+              "name": "--wcs-checkbox-transition-duration"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeInput",
+              "type": {
+                "text": "HTMLInputElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "checkboxId",
+              "privacy": "private",
+              "default": "`wcs-checkbox-${checkboxIds++}`"
+            },
+            {
+              "kind": "field",
+              "name": "name"
+            },
+            {
+              "kind": "field",
+              "name": "indeterminate",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "If `true` the checkbox is in indeterminate state."
+            },
+            {
+              "kind": "field",
+              "name": "checked",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "If `true`, the checkbox is selected."
+            },
+            {
+              "kind": "field",
+              "name": "labelAlignment",
+              "type": {
+                "text": "CheckboxLabelAlignment"
+              },
+              "default": "'center'",
+              "description": "Specifie the alignment of the checkbox with the label content"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Specify whether the checkbox is disabled or not."
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleChange",
+              "parameters": [
+                {
+                  "name": "e",
+                  "type": {
+                    "text": "Event"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleHostClick",
+              "parameters": [
+                {
+                  "name": "e",
+                  "type": {
+                    "text": "Event"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleInputClick",
+              "parameters": [
+                {
+                  "name": "ev",
+                  "type": {
+                    "text": "PointerEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "toggleCheckboxState"
+            },
+            {
+              "kind": "method",
+              "name": "handleFocus",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "FocusEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleBlur",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "FocusEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "onSlotChange"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "name",
+              "fieldName": "name"
+            },
+            {
+              "name": "indeterminate",
+              "fieldName": "indeterminate"
+            },
+            {
+              "name": "checked",
+              "fieldName": "checked"
+            },
+            {
+              "name": "label-alignment",
+              "fieldName": "labelAlignment",
+              "type": {
+                "text": "CheckboxLabelAlignment"
+              }
+            },
+            {
+              "name": "disabled",
+              "fieldName": "disabled",
+              "type": {
+                "text": "boolean"
+              }
+            }
+          ],
+          "tagName": "wcs-checkbox",
+          "events": [
+            {
+              "name": "wcsChange",
+              "type": {
+                "text": "EventEmitter<CheckboxChangeEventDetail>"
+              },
+              "description": "Emitted when the checked property has changed."
+            },
+            {
+              "name": "wcsFocus",
+              "type": {
+                "text": "EventEmitter<FocusEvent>"
+              },
+              "description": "Emitted when the checkbox has focus."
+            },
+            {
+              "name": "wcsBlur",
+              "type": {
+                "text": "EventEmitter<FocusEvent>"
+              },
+              "description": "Emitted when the checkbox loses focus."
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Checkbox",
+          "declaration": {
+            "name": "Checkbox",
+            "module": "components/checkbox/checkbox.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-checkbox",
+          "declaration": {
+            "name": "Checkbox",
+            "module": "components/checkbox/checkbox.tsx"
           }
         }
       ]
@@ -2666,516 +3176,6 @@
           "declaration": {
             "name": "Button",
             "module": "components/button/button.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/card/card-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/card/card.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The card component is a container that display content such as text, images, buttons, and lists.  \r\nA card can be a single component, but is often made up of a header, title, subtitle, and content.",
-          "name": "Card",
-          "cssProperties": [
-            {
-              "description": "Border color of the card",
-              "name": "--wcs-card-border-color"
-            },
-            {
-              "description": "Border radius of the card",
-              "name": "--wcs-card-border-radius"
-            },
-            {
-              "description": "Border width of the card",
-              "name": "--wcs-card-border-width"
-            },
-            {
-              "description": "Background color of the card",
-              "name": "--wcs-card-background-color"
-            },
-            {
-              "description": "Text color of the card",
-              "name": "--wcs-card-text-color"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "mode",
-              "type": {
-                "text": "CardMode"
-              },
-              "default": "'flat'"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "mode",
-              "fieldName": "mode",
-              "type": {
-                "text": "CardMode"
-              }
-            }
-          ],
-          "tagName": "wcs-card",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Card",
-          "declaration": {
-            "name": "Card",
-            "module": "components/card/card.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-card",
-          "declaration": {
-            "name": "Card",
-            "module": "components/card/card.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/card-body/card-body.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The card-body is a subcomponent of `wcs-card`. It represents content of the card with an extra padding around.",
-          "name": "CardBody",
-          "cssProperties": [
-            {
-              "description": "Padding of the card body",
-              "name": "--wcs-card-body-padding"
-            }
-          ],
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-card-body",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "CardBody",
-          "declaration": {
-            "name": "CardBody",
-            "module": "components/card-body/card-body.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-card-body",
-          "declaration": {
-            "name": "CardBody",
-            "module": "components/card-body/card-body.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/checkbox/checkbox-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/checkbox/checkbox.e2e.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/checkbox/checkbox.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The checkbox component is an input for choosing one or more items from a set by checking / unchecking it.",
-          "name": "Checkbox",
-          "cssProperties": [
-            {
-              "description": "Default color of the border",
-              "name": "--wcs-checkbox-border-color-default"
-            },
-            {
-              "description": "Color of the border when hovered",
-              "name": "--wcs-checkbox-border-color-hover"
-            },
-            {
-              "description": "Color of the border when disabled",
-              "name": "--wcs-checkbox-border-color-disabled"
-            },
-            {
-              "description": "Color of the border when selected",
-              "name": "--wcs-checkbox-border-color-selected"
-            },
-            {
-              "description": "Color of the border when indeterminate",
-              "name": "--wcs-checkbox-border-color-indeterminate"
-            },
-            {
-              "description": "Border radius of the checkbox",
-              "name": "--wcs-checkbox-border-radius"
-            },
-            {
-              "description": "Width of the border of the checkbox",
-              "name": "--wcs-checkbox-border-width"
-            },
-            {
-              "description": "Size of the checkbox",
-              "name": "--wcs-checkbox-size"
-            },
-            {
-              "description": "Color of the text when the checkbox is not selected",
-              "name": "--wcs-checkbox-text-color-default"
-            },
-            {
-              "description": "Color of the text when the checkbox is disabled",
-              "name": "--wcs-checkbox-text-color-disabled"
-            },
-            {
-              "description": "Color of the text when the checkbox is hovered",
-              "name": "--wcs-checkbox-text-color-hover"
-            },
-            {
-              "description": "Color of the text when the checkbox is selected",
-              "name": "--wcs-checkbox-text-color-selected"
-            },
-            {
-              "description": "Font size of the text",
-              "name": "--wcs-checkbox-text-font-size"
-            },
-            {
-              "description": "Font weight of the text",
-              "name": "--wcs-checkbox-text-font-weight"
-            },
-            {
-              "description": "Default background color of the checkbox",
-              "name": "--wcs-checkbox-background-color-default"
-            },
-            {
-              "description": "Background color of the checkbox when hovered",
-              "name": "--wcs-checkbox-background-color-hover"
-            },
-            {
-              "description": "Background color of the checkbox when disabled",
-              "name": "--wcs-checkbox-background-color-disabled"
-            },
-            {
-              "description": "Background color of the checkbox when selected",
-              "name": "--wcs-checkbox-background-color-selected"
-            },
-            {
-              "description": "Background color of the checkbox when indeterminate",
-              "name": "--wcs-checkbox-background-color-indeterminate"
-            },
-            {
-              "description": "Border radius of the focus outline",
-              "name": "--wcs-checkbox-outline-radius-focus"
-            },
-            {
-              "description": "Color of the focus outline",
-              "name": "--wcs-checkbox-outline-color-focus"
-            },
-            {
-              "description": "Gap between the checkbox and the label",
-              "name": "--wcs-checkbox-gap"
-            },
-            {
-              "description": "Color of the checkmark",
-              "name": "--wcs-checkmark-color"
-            },
-            {
-              "description": "Height of the checkmark (From the bottom left to the top right of the checkmark)",
-              "name": "--wcs-checkmark-height"
-            },
-            {
-              "description": "Width of the checkmark (From the bottom right to the top left of the checkmark)",
-              "name": "--wcs-checkmark-width"
-            },
-            {
-              "description": "Width of the border of the checkmark",
-              "name": "--wcs-checkmark-border-width"
-            },
-            {
-              "description": "Width of the indeterminate bar",
-              "name": "--wcs-indeterminate-bar-width"
-            },
-            {
-              "description": "Height of the indeterminate bar",
-              "name": "--wcs-indeterminate-bar-height"
-            },
-            {
-              "description": "Border-radius of the indeterminate bar",
-              "name": "--wcs-indeterminate-bar-border-radius"
-            },
-            {
-              "description": "Color of the indeterminate bar",
-              "name": "--wcs-indeterminate-bar-background-color"
-            },
-            {
-              "description": "Duration of the transition",
-              "name": "--wcs-checkbox-transition-duration"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "nativeInput",
-              "type": {
-                "text": "HTMLInputElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "checkboxId",
-              "privacy": "private",
-              "default": "`wcs-checkbox-${checkboxIds++}`"
-            },
-            {
-              "kind": "field",
-              "name": "name"
-            },
-            {
-              "kind": "field",
-              "name": "indeterminate",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "If `true` the checkbox is in indeterminate state."
-            },
-            {
-              "kind": "field",
-              "name": "checked",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "If `true`, the checkbox is selected."
-            },
-            {
-              "kind": "field",
-              "name": "labelAlignment",
-              "type": {
-                "text": "CheckboxLabelAlignment"
-              },
-              "default": "'center'",
-              "description": "Specifie the alignment of the checkbox with the label content"
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Specify whether the checkbox is disabled or not."
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "handleChange",
-              "parameters": [
-                {
-                  "name": "e",
-                  "type": {
-                    "text": "Event"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "handleHostClick",
-              "parameters": [
-                {
-                  "name": "e",
-                  "type": {
-                    "text": "Event"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "handleInputClick",
-              "parameters": [
-                {
-                  "name": "ev",
-                  "type": {
-                    "text": "PointerEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "toggleCheckboxState"
-            },
-            {
-              "kind": "method",
-              "name": "handleFocus",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "FocusEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "handleBlur",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "FocusEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "onSlotChange"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "name",
-              "fieldName": "name"
-            },
-            {
-              "name": "indeterminate",
-              "fieldName": "indeterminate"
-            },
-            {
-              "name": "checked",
-              "fieldName": "checked"
-            },
-            {
-              "name": "label-alignment",
-              "fieldName": "labelAlignment",
-              "type": {
-                "text": "CheckboxLabelAlignment"
-              }
-            },
-            {
-              "name": "disabled",
-              "fieldName": "disabled",
-              "type": {
-                "text": "boolean"
-              }
-            }
-          ],
-          "tagName": "wcs-checkbox",
-          "events": [
-            {
-              "name": "wcsChange",
-              "type": {
-                "text": "EventEmitter<CheckboxChangeEventDetail>"
-              },
-              "description": "Emitted when the checked property has changed."
-            },
-            {
-              "name": "wcsFocus",
-              "type": {
-                "text": "EventEmitter<FocusEvent>"
-              },
-              "description": "Emitted when the checkbox has focus."
-            },
-            {
-              "name": "wcsBlur",
-              "type": {
-                "text": "EventEmitter<FocusEvent>"
-              },
-              "description": "Emitted when the checkbox loses focus."
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Checkbox",
-          "declaration": {
-            "name": "Checkbox",
-            "module": "components/checkbox/checkbox.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-checkbox",
-          "declaration": {
-            "name": "Checkbox",
-            "module": "components/checkbox/checkbox.tsx"
           }
         }
       ]
@@ -3881,359 +3881,6 @@
           "declaration": {
             "name": "ComNavItem",
             "module": "components/com-nav-item/com-nav-item.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/com-nav-submenu/com-nav-submenu.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The com-nav-submenu is a subcomponent of `wcs-com-nav`. It represents an expandable menu containing more items or categories.",
-          "name": "ComNavSubmenu",
-          "cssProperties": [
-            {
-              "description": "Color of the menu label",
-              "name": "--wcs-com-nav-submenu-button-color"
-            },
-            {
-              "description": "Font-weight of the menu label",
-              "name": "--wcs-com-nav-submenu-button-font-weight"
-            },
-            {
-              "description": "Focus outline color of the menu label",
-              "name": "--wcs-com-nav-submenu-button-focus-outline-color"
-            },
-            {
-              "description": "Gap inside menu label between text and arrow indicator",
-              "name": "--wcs-com-nav-submenu-button-gap"
-            },
-            {
-              "description": "Background color of the menu (desktop)",
-              "name": "--wcs-com-nav-submenu-desktop-menu-background-color"
-            },
-            {
-              "description": "Text color inside menu (desktop)",
-              "name": "--wcs-com-nav-submenu-desktop-menu-text-color"
-            },
-            {
-              "description": "Link font-weight color inside menu (desktop)",
-              "name": "--wcs-com-nav-submenu-desktop-menu-link-font-weight"
-            },
-            {
-              "description": "Heading font-weight of the menu (desktop)",
-              "name": "--wcs-com-nav-submenu-desktop-menu-heading-font-weight"
-            },
-            {
-              "description": "Description font-weight of the menu (desktop)",
-              "name": "--wcs-com-nav-submenu-desktop-menu-description-font-weight"
-            },
-            {
-              "description": "Gap between heading and description in the description section of the menu (desktop)",
-              "name": "--wcs-com-nav-submenu-desktop-menu-description-gap"
-            },
-            {
-              "description": "Padding of the menu (desktop)",
-              "name": "--wcs-com-nav-submenu-desktop-menu-padding"
-            },
-            {
-              "description": "Padding left around link items group in menu (desktop)",
-              "name": "--wcs-com-nav-submenu-desktop-menu-items-padding-left"
-            },
-            {
-              "description": "Padding right around link items group in menu (desktop)",
-              "name": "--wcs-com-nav-submenu-desktop-menu-items-padding-right"
-            },
-            {
-              "description": "Text color for each text (mobile)",
-              "name": "--wcs-com-nav-submenu-mobile-text-color"
-            },
-            {
-              "description": "Link font-weight for each link (mobile)",
-              "name": "--wcs-com-nav-submenu-mobile-link-font-weight"
-            },
-            {
-              "description": "Spacing around top of the submenu (mobile)",
-              "name": "--wcs-com-nav-submenu-mobile-spacing-top"
-            },
-            {
-              "description": "Spacing around bottom of the submenu (mobile)",
-              "name": "--wcs-com-nav-submenu-mobile-spacing-bottom"
-            },
-            {
-              "description": "Spacing around left of the submenu (mobile)",
-              "name": "--wcs-com-nav-submenu-mobile-spacing-left"
-            },
-            {
-              "description": "Gap between each item in submenu (mobile)",
-              "name": "--wcs-com-nav-submenu-mobile-gap"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsComNavSubmenuElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "nativeButton",
-              "type": {
-                "text": "HTMLButtonElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "label",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "panelTitle",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "panelDescription",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "menuOpen",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "menuItemsId",
-              "privacy": "private",
-              "default": "`wcs-com-nav-submenu-items`"
-            },
-            {
-              "kind": "field",
-              "name": "resizeObserver",
-              "type": {
-                "text": "ResizeObserver"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "currentActiveSizing",
-              "type": {
-                "text": "ComNavSize"
-              },
-              "privacy": "private",
-              "default": "'desktop'",
-              "description": "To re-trigger re-render in order to render a button in case of desktop or a heading in mobile case"
-            },
-            {
-              "kind": "method",
-              "name": "onWindowClickEvent",
-              "parameters": [
-                {
-                  "name": "_",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ],
-              "description": "If the user clicks outside the menu, we close it"
-            },
-            {
-              "kind": "method",
-              "name": "onSubmenuOpened",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "CustomEvent<MenuOpenedEventDetail>"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "onEscapeKeyDown",
-              "parameters": [
-                {
-                  "name": "_event",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  },
-                  "description": "keydown event"
-                }
-              ],
-              "description": "Close the menu when escape is pressed"
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "close",
-              "description": "Close the menu"
-            },
-            {
-              "kind": "method",
-              "name": "open",
-              "description": "Opens the menu"
-            },
-            {
-              "kind": "method",
-              "name": "onClick",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "evt",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ],
-              "description": "When the user clicks on the menu, we do not propagate the native event and we launch a custom event to manage\r\nthe closing of the menu correctly"
-            },
-            {
-              "kind": "method",
-              "name": "handleMenuItemsKeyDown",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "_event",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  },
-                  "description": "the keyboard event"
-                }
-              ],
-              "description": "Handle key down on menu items"
-            },
-            {
-              "kind": "method",
-              "name": "handleMenuItemsClick",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "evt",
-                  "type": {
-                    "text": "UIEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "wcsCategoryItemClickedHandler",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "_",
-                  "type": {
-                    "text": "CustomEvent<UIEvent>"
-                  }
-                }
-              ],
-              "description": "handle category item click to close the submenu"
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "label",
-              "fieldName": "label",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "panel-title",
-              "fieldName": "panelTitle",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "panel-description",
-              "fieldName": "panelDescription",
-              "type": {
-                "text": "string"
-              }
-            }
-          ],
-          "tagName": "wcs-com-nav-submenu",
-          "events": [
-            {
-              "name": "wcsSubmenuOpened",
-              "type": {
-                "text": "EventEmitter<MenuOpenedEventDetail>"
-              }
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ComNavSubmenu",
-          "declaration": {
-            "name": "ComNavSubmenu",
-            "module": "components/com-nav-submenu/com-nav-submenu.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-com-nav-submenu",
-          "declaration": {
-            "name": "ComNavSubmenu",
-            "module": "components/com-nav-submenu/com-nav-submenu.tsx"
           }
         }
       ]
@@ -5244,6 +4891,425 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/com-nav-submenu/com-nav-submenu.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The com-nav-submenu is a subcomponent of `wcs-com-nav`. It represents an expandable menu containing more items or categories.",
+          "name": "ComNavSubmenu",
+          "cssProperties": [
+            {
+              "description": "Color of the menu label",
+              "name": "--wcs-com-nav-submenu-button-color"
+            },
+            {
+              "description": "Font-weight of the menu label",
+              "name": "--wcs-com-nav-submenu-button-font-weight"
+            },
+            {
+              "description": "Focus outline color of the menu label",
+              "name": "--wcs-com-nav-submenu-button-focus-outline-color"
+            },
+            {
+              "description": "Gap inside menu label between text and arrow indicator",
+              "name": "--wcs-com-nav-submenu-button-gap"
+            },
+            {
+              "description": "Background color of the menu (desktop)",
+              "name": "--wcs-com-nav-submenu-desktop-menu-background-color"
+            },
+            {
+              "description": "Text color inside menu (desktop)",
+              "name": "--wcs-com-nav-submenu-desktop-menu-text-color"
+            },
+            {
+              "description": "Link font-weight color inside menu (desktop)",
+              "name": "--wcs-com-nav-submenu-desktop-menu-link-font-weight"
+            },
+            {
+              "description": "Heading font-weight of the menu (desktop)",
+              "name": "--wcs-com-nav-submenu-desktop-menu-heading-font-weight"
+            },
+            {
+              "description": "Description font-weight of the menu (desktop)",
+              "name": "--wcs-com-nav-submenu-desktop-menu-description-font-weight"
+            },
+            {
+              "description": "Gap between heading and description in the description section of the menu (desktop)",
+              "name": "--wcs-com-nav-submenu-desktop-menu-description-gap"
+            },
+            {
+              "description": "Padding of the menu (desktop)",
+              "name": "--wcs-com-nav-submenu-desktop-menu-padding"
+            },
+            {
+              "description": "Padding left around link items group in menu (desktop)",
+              "name": "--wcs-com-nav-submenu-desktop-menu-items-padding-left"
+            },
+            {
+              "description": "Padding right around link items group in menu (desktop)",
+              "name": "--wcs-com-nav-submenu-desktop-menu-items-padding-right"
+            },
+            {
+              "description": "Text color for each text (mobile)",
+              "name": "--wcs-com-nav-submenu-mobile-text-color"
+            },
+            {
+              "description": "Link font-weight for each link (mobile)",
+              "name": "--wcs-com-nav-submenu-mobile-link-font-weight"
+            },
+            {
+              "description": "Spacing around top of the submenu (mobile)",
+              "name": "--wcs-com-nav-submenu-mobile-spacing-top"
+            },
+            {
+              "description": "Spacing around bottom of the submenu (mobile)",
+              "name": "--wcs-com-nav-submenu-mobile-spacing-bottom"
+            },
+            {
+              "description": "Spacing around left of the submenu (mobile)",
+              "name": "--wcs-com-nav-submenu-mobile-spacing-left"
+            },
+            {
+              "description": "Gap between each item in submenu (mobile)",
+              "name": "--wcs-com-nav-submenu-mobile-gap"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsComNavSubmenuElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeButton",
+              "type": {
+                "text": "HTMLButtonElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "panelTitle",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "panelDescription",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "menuOpen",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "menuItemsId",
+              "privacy": "private",
+              "default": "`wcs-com-nav-submenu-items`"
+            },
+            {
+              "kind": "field",
+              "name": "resizeObserver",
+              "type": {
+                "text": "ResizeObserver"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "currentActiveSizing",
+              "type": {
+                "text": "ComNavSize"
+              },
+              "privacy": "private",
+              "default": "'desktop'",
+              "description": "To re-trigger re-render in order to render a button in case of desktop or a heading in mobile case"
+            },
+            {
+              "kind": "method",
+              "name": "onWindowClickEvent",
+              "parameters": [
+                {
+                  "name": "_",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ],
+              "description": "If the user clicks outside the menu, we close it"
+            },
+            {
+              "kind": "method",
+              "name": "onSubmenuOpened",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "CustomEvent<MenuOpenedEventDetail>"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "onEscapeKeyDown",
+              "parameters": [
+                {
+                  "name": "_event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  },
+                  "description": "keydown event"
+                }
+              ],
+              "description": "Close the menu when escape is pressed"
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "close",
+              "description": "Close the menu"
+            },
+            {
+              "kind": "method",
+              "name": "open",
+              "description": "Opens the menu"
+            },
+            {
+              "kind": "method",
+              "name": "onClick",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "evt",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ],
+              "description": "When the user clicks on the menu, we do not propagate the native event and we launch a custom event to manage\r\nthe closing of the menu correctly"
+            },
+            {
+              "kind": "method",
+              "name": "handleMenuItemsKeyDown",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "_event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  },
+                  "description": "the keyboard event"
+                }
+              ],
+              "description": "Handle key down on menu items"
+            },
+            {
+              "kind": "method",
+              "name": "handleMenuItemsClick",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "evt",
+                  "type": {
+                    "text": "UIEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "wcsCategoryItemClickedHandler",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "_",
+                  "type": {
+                    "text": "CustomEvent<UIEvent>"
+                  }
+                }
+              ],
+              "description": "handle category item click to close the submenu"
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "label",
+              "fieldName": "label",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "panel-title",
+              "fieldName": "panelTitle",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "panel-description",
+              "fieldName": "panelDescription",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "tagName": "wcs-com-nav-submenu",
+          "events": [
+            {
+              "name": "wcsSubmenuOpened",
+              "type": {
+                "text": "EventEmitter<MenuOpenedEventDetail>"
+              }
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ComNavSubmenu",
+          "declaration": {
+            "name": "ComNavSubmenu",
+            "module": "components/com-nav-submenu/com-nav-submenu.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-com-nav-submenu",
+          "declaration": {
+            "name": "ComNavSubmenu",
+            "module": "components/com-nav-submenu/com-nav-submenu.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/dropdown-header/dropdown-header.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "You can add `wcs-dropdown-header` before a group of items to describe it",
+          "name": "DropdownHeader",
+          "cssProperties": [
+            {
+              "description": "Text color of the header",
+              "name": "--wcs-dropdown-header-color"
+            },
+            {
+              "description": "Vertical padding of the header",
+              "name": "--wcs-dropdown-header-padding-vertical"
+            },
+            {
+              "description": "Horizontal padding of the header",
+              "name": "--wcs-dropdown-header-padding-horizontal"
+            },
+            {
+              "description": "Font size of the header",
+              "name": "--wcs-dropdown-header-font-size"
+            },
+            {
+              "description": "Font weight of the header",
+              "name": "--wcs-dropdown-header-font-weight"
+            }
+          ],
+          "slots": [
+            {
+              "description": "the slot that contains the header's name",
+              "name": "<no-name>"
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-dropdown-header",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "DropdownHeader",
+          "declaration": {
+            "name": "DropdownHeader",
+            "module": "components/dropdown-header/dropdown-header.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-dropdown-header",
+          "declaration": {
+            "name": "DropdownHeader",
+            "module": "components/dropdown-header/dropdown-header.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/dropdown-item/dropdown-item.tsx",
       "declarations": [
         {
@@ -5382,72 +5448,6 @@
           "declaration": {
             "name": "DropdownItem",
             "module": "components/dropdown-item/dropdown-item.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/dropdown-header/dropdown-header.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "You can add `wcs-dropdown-header` before a group of items to describe it",
-          "name": "DropdownHeader",
-          "cssProperties": [
-            {
-              "description": "Text color of the header",
-              "name": "--wcs-dropdown-header-color"
-            },
-            {
-              "description": "Vertical padding of the header",
-              "name": "--wcs-dropdown-header-padding-vertical"
-            },
-            {
-              "description": "Horizontal padding of the header",
-              "name": "--wcs-dropdown-header-padding-horizontal"
-            },
-            {
-              "description": "Font size of the header",
-              "name": "--wcs-dropdown-header-font-size"
-            },
-            {
-              "description": "Font weight of the header",
-              "name": "--wcs-dropdown-header-font-weight"
-            }
-          ],
-          "slots": [
-            {
-              "description": "the slot that contains the header's name",
-              "name": "<no-name>"
-            }
-          ],
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-dropdown-header",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "DropdownHeader",
-          "declaration": {
-            "name": "DropdownHeader",
-            "module": "components/dropdown-header/dropdown-header.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-dropdown-header",
-          "declaration": {
-            "name": "DropdownHeader",
-            "module": "components/dropdown-header/dropdown-header.tsx"
           }
         }
       ]
@@ -8737,6 +8737,80 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/hint/hint.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The `wcs-hint` should always be wrapped in a `wcs-form-field`.\r\nIt is used to display an informative message under the field indicating an incorrect user input.\r\n\r\n## Accessibility guidelines 💡\r\n- Provide a relevant hint message to inform the users about the format, how the data should be filled in, or what is the purpose of the field\r\n- `aria-description` will be automatically added to the field for screen readers",
+          "name": "Hint",
+          "cssProperties": [
+            {
+              "description": "Color of the text",
+              "name": "--wcs-hint-color"
+            },
+            {
+              "description": "Font weight of the text",
+              "name": "--wcs-hint-font-weight"
+            },
+            {
+              "description": "Font size default of the text",
+              "name": "--wcs-hint-font-size-default"
+            },
+            {
+              "description": "Font size small of the text",
+              "name": "--wcs-hint-font-size-small"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "small",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Whether the component should display the small version of the hint"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "small",
+              "fieldName": "small",
+              "type": {
+                "text": "boolean"
+              }
+            }
+          ],
+          "tagName": "wcs-hint",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Hint",
+          "declaration": {
+            "name": "Hint",
+            "module": "components/hint/hint.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-hint",
+          "declaration": {
+            "name": "Hint",
+            "module": "components/hint/hint.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/header/header.tsx",
       "declarations": [
         {
@@ -8864,364 +8938,6 @@
           "declaration": {
             "name": "Header",
             "module": "components/header/header.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/hint/hint.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The `wcs-hint` should always be wrapped in a `wcs-form-field`.\r\nIt is used to display an informative message under the field indicating an incorrect user input.\r\n\r\n## Accessibility guidelines 💡\r\n- Provide a relevant hint message to inform the users about the format, how the data should be filled in, or what is the purpose of the field\r\n- `aria-description` will be automatically added to the field for screen readers",
-          "name": "Hint",
-          "cssProperties": [
-            {
-              "description": "Color of the text",
-              "name": "--wcs-hint-color"
-            },
-            {
-              "description": "Font weight of the text",
-              "name": "--wcs-hint-font-weight"
-            },
-            {
-              "description": "Font size default of the text",
-              "name": "--wcs-hint-font-size-default"
-            },
-            {
-              "description": "Font size small of the text",
-              "name": "--wcs-hint-font-size-small"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "small",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Whether the component should display the small version of the hint"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "small",
-              "fieldName": "small",
-              "type": {
-                "text": "boolean"
-              }
-            }
-          ],
-          "tagName": "wcs-hint",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Hint",
-          "declaration": {
-            "name": "Hint",
-            "module": "components/hint/hint.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-hint",
-          "declaration": {
-            "name": "Hint",
-            "module": "components/hint/hint.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/horizontal-stepper/horizontal-step.tsx",
-      "declarations": [
-        {
-          "kind": "function",
-          "name": "HorizontalStep",
-          "parameters": [
-            {
-              "name": "{\r\n        step,\r\n        checkOnComplete,\r\n        complete,\r\n        passed,\r\n        active,\r\n        first,\r\n        disable,\r\n        onClick\r\n    }"
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "HorizontalStep",
-          "declaration": {
-            "name": "HorizontalStep",
-            "module": "components/horizontal-stepper/horizontal-step.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/horizontal-stepper/horizontal-stepper-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/horizontal-stepper/horizontal-stepper.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The horizontal-stepper is a representation of a user’s progress through a series of discrete steps.",
-          "name": "HorizontalStepper",
-          "cssProperties": [
-            {
-              "description": "Text color of the step by default",
-              "name": "--wcs-horizontal-step-text-color-default"
-            },
-            {
-              "description": "Text color of the step when active",
-              "name": "--wcs-horizontal-step-text-color-active"
-            },
-            {
-              "description": "Text color of step when disabled",
-              "name": "--wcs-horizontal-step-text-color-disabled"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsHorizontalStepperElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "currentStep",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "index of the active step. The index corresponds to the index of the step in the 'steps' list"
-            },
-            {
-              "kind": "field",
-              "name": "steps",
-              "type": {
-                "text": "HorizontalStepConfig[]"
-              },
-              "description": "steps to display"
-            },
-            {
-              "kind": "field",
-              "name": "mode",
-              "type": {
-                "text": "HorizontalStepperMode"
-              },
-              "default": "'nonLinear'",
-              "description": "Specifies if the stepper is in linear mode (the user can only click on the next step)\r\nor non-linear (the user can click on any step)"
-            },
-            {
-              "kind": "field",
-              "name": "checkOnComplete",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Specifies whether a check should be displayed when a step is passed."
-            },
-            {
-              "kind": "field",
-              "name": "internalCurrentStepIndex",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "description": "Used to know which current step index is selected (component internal calculations mainly for the animation)"
-            },
-            {
-              "kind": "method",
-              "name": "onCurrentStepChange",
-              "parameters": [
-                {
-                  "name": "newValue",
-                  "type": {
-                    "text": "number"
-                  }
-                },
-                {
-                  "name": "oldValue",
-                  "type": {
-                    "text": "number"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "previous"
-            },
-            {
-              "kind": "method",
-              "name": "next"
-            },
-            {
-              "kind": "method",
-              "name": "navigateToIndex",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "index",
-                  "type": {
-                    "text": "number"
-                  }
-                },
-                {
-                  "name": "direction",
-                  "type": {
-                    "text": "'backward' | 'forward'"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "isComplete",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "step",
-                  "type": {
-                    "text": "HorizontalStepConfig"
-                  }
-                },
-                {
-                  "name": "index",
-                  "type": {
-                    "text": "number"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "renderLabels",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "isDisable",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "step"
-                },
-                {
-                  "name": "index"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "isNextPossibleStep",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "index"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "previousStepIsCompleteAndNotActive",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "index"
-                }
-              ]
-            }
-          ],
-          "attributes": [
-            {
-              "name": "current-step",
-              "fieldName": "currentStep",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "steps",
-              "fieldName": "steps",
-              "type": {
-                "text": "HorizontalStepConfig[]"
-              }
-            },
-            {
-              "name": "mode",
-              "fieldName": "mode",
-              "type": {
-                "text": "HorizontalStepperMode"
-              }
-            },
-            {
-              "name": "check-on-complete",
-              "fieldName": "checkOnComplete",
-              "type": {
-                "text": "boolean"
-              }
-            }
-          ],
-          "tagName": "wcs-horizontal-stepper",
-          "events": [
-            {
-              "name": "wcsHorizontalStepClick",
-              "type": {
-                "text": "EventEmitter<HorizontalStepClickEvent>"
-              },
-              "description": "Emits when the user selects a new step."
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "HorizontalStepper",
-          "declaration": {
-            "name": "HorizontalStepper",
-            "module": "components/horizontal-stepper/horizontal-stepper.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-horizontal-stepper",
-          "declaration": {
-            "name": "HorizontalStepper",
-            "module": "components/horizontal-stepper/horizontal-stepper.tsx"
           }
         }
       ]
@@ -10262,132 +9978,284 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/list-item/list-item.tsx",
+      "path": "components/horizontal-stepper/horizontal-step.tsx",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "HorizontalStep",
+          "parameters": [
+            {
+              "name": "{\r\n        step,\r\n        checkOnComplete,\r\n        complete,\r\n        passed,\r\n        active,\r\n        first,\r\n        disable,\r\n        onClick\r\n    }"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "HorizontalStep",
+          "declaration": {
+            "name": "HorizontalStep",
+            "module": "components/horizontal-stepper/horizontal-step.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/horizontal-stepper/horizontal-stepper-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/horizontal-stepper/horizontal-stepper.tsx",
       "declarations": [
         {
           "kind": "class",
-          "description": "Lists are used for grouping a collection of related items.\r\n\r\nStandard lists can be used either with or without icons. Depending on the context, the list can have one or more\r\nactions (favourite, download, delete, etc.). Use standard lists with a unique action when each line has an action.",
-          "name": "ListItem",
+          "description": "The horizontal-stepper is a representation of a user’s progress through a series of discrete steps.",
+          "name": "HorizontalStepper",
           "cssProperties": [
             {
-              "description": "Padding of the list item",
-              "name": "--wcs-list-item-padding"
+              "description": "Text color of the step by default",
+              "name": "--wcs-horizontal-step-text-color-default"
             },
             {
-              "description": "Border width of the list item",
-              "name": "--wcs-list-item-border-width"
+              "description": "Text color of the step when active",
+              "name": "--wcs-horizontal-step-text-color-active"
             },
             {
-              "description": "Border color of the list item",
-              "name": "--wcs-list-item-border-color"
-            },
-            {
-              "description": "Background color of the list item",
-              "name": "--wcs-list-item-background-color-default"
-            },
-            {
-              "description": "Background color of the list item when hovered",
-              "name": "--wcs-list-item-background-color-hover"
-            },
-            {
-              "description": "Background color of the list item when active",
-              "name": "--wcs-list-item-background-color-active"
-            },
-            {
-              "description": "Transition duration of the list item",
-              "name": "--wcs-list-item-transition-duration"
-            },
-            {
-              "description": "Color of the title of the list item",
-              "name": "--wcs-list-item-title-color"
-            },
-            {
-              "description": "Font weight of the title of the list item",
-              "name": "--wcs-list-item-title-font-weight"
-            },
-            {
-              "description": "Line height of the title of the list item",
-              "name": "--wcs-list-item-title-line-height"
-            },
-            {
-              "description": "Margin bottom of the title of the list item",
-              "name": "--wcs-list-item-title-margin-bottom"
-            },
-            {
-              "description": "Color of the icon of the list item",
-              "name": "--wcs-list-item-icon-color"
-            },
-            {
-              "description": "Margin right of the icon of the list item",
-              "name": "--wcs-list-item-icon-margin-right"
-            },
-            {
-              "description": "Margin left of the actions of the list item",
-              "name": "--wcs-list-item-actions-margin-left"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Slot containing the title of the list item",
-              "name": "title"
-            },
-            {
-              "description": "Slot containing the `<wcs-list-item-properties>` element",
-              "name": "properties"
-            },
-            {
-              "description": "Slot containing the actions of the list item, prefer using some `<wcs-button>` inside",
-              "name": "actions"
-            },
-            {
-              "description": "Slot containing the description of the list item",
-              "name": "description"
+              "description": "Text color of step when disabled",
+              "name": "--wcs-horizontal-step-text-color-disabled"
             }
           ],
           "members": [
             {
               "kind": "field",
-              "name": "activated",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsHorizontalStepperElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "currentStep",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "index of the active step. The index corresponds to the index of the step in the 'steps' list"
+            },
+            {
+              "kind": "field",
+              "name": "steps",
+              "type": {
+                "text": "HorizontalStepConfig[]"
+              },
+              "description": "steps to display"
+            },
+            {
+              "kind": "field",
+              "name": "mode",
+              "type": {
+                "text": "HorizontalStepperMode"
+              },
+              "default": "'nonLinear'",
+              "description": "Specifies if the stepper is in linear mode (the user can only click on the next step)\r\nor non-linear (the user can click on any step)"
+            },
+            {
+              "kind": "field",
+              "name": "checkOnComplete",
               "type": {
                 "text": "boolean"
               },
-              "default": "false",
-              "description": "True if the item is active. Adds a background color that highlights it."
+              "description": "Specifies whether a check should be displayed when a step is passed."
+            },
+            {
+              "kind": "field",
+              "name": "internalCurrentStepIndex",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "description": "Used to know which current step index is selected (component internal calculations mainly for the animation)"
             },
             {
               "kind": "method",
-              "name": "render"
+              "name": "onCurrentStepChange",
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "number"
+                  }
+                },
+                {
+                  "name": "oldValue",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "previous"
+            },
+            {
+              "kind": "method",
+              "name": "next"
+            },
+            {
+              "kind": "method",
+              "name": "navigateToIndex",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "index",
+                  "type": {
+                    "text": "number"
+                  }
+                },
+                {
+                  "name": "direction",
+                  "type": {
+                    "text": "'backward' | 'forward'"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "isComplete",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "step",
+                  "type": {
+                    "text": "HorizontalStepConfig"
+                  }
+                },
+                {
+                  "name": "index",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "renderLabels",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "isDisable",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "step"
+                },
+                {
+                  "name": "index"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "isNextPossibleStep",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "index"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "previousStepIsCompleteAndNotActive",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "index"
+                }
+              ]
             }
           ],
           "attributes": [
             {
-              "name": "activated",
-              "fieldName": "activated",
+              "name": "current-step",
+              "fieldName": "currentStep",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "steps",
+              "fieldName": "steps",
+              "type": {
+                "text": "HorizontalStepConfig[]"
+              }
+            },
+            {
+              "name": "mode",
+              "fieldName": "mode",
+              "type": {
+                "text": "HorizontalStepperMode"
+              }
+            },
+            {
+              "name": "check-on-complete",
+              "fieldName": "checkOnComplete",
               "type": {
                 "text": "boolean"
               }
             }
           ],
-          "tagName": "wcs-list-item",
-          "events": [],
+          "tagName": "wcs-horizontal-stepper",
+          "events": [
+            {
+              "name": "wcsHorizontalStepClick",
+              "type": {
+                "text": "EventEmitter<HorizontalStepClickEvent>"
+              },
+              "description": "Emits when the user selects a new step."
+            }
+          ],
           "customElement": true
         }
       ],
       "exports": [
         {
           "kind": "js",
-          "name": "ListItem",
+          "name": "HorizontalStepper",
           "declaration": {
-            "name": "ListItem",
-            "module": "components/list-item/list-item.tsx"
+            "name": "HorizontalStepper",
+            "module": "components/horizontal-stepper/horizontal-stepper.tsx"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "wcs-list-item",
+          "name": "wcs-horizontal-stepper",
           "declaration": {
-            "name": "ListItem",
-            "module": "components/list-item/list-item.tsx"
+            "name": "HorizontalStepper",
+            "module": "components/horizontal-stepper/horizontal-stepper.tsx"
           }
         }
       ]
@@ -10450,60 +10318,6 @@
           "declaration": {
             "name": "ListItemProperties",
             "module": "components/list-item-properties/list-item-properties.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/list-item-property/list-item-property.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The list-item-property is a subcomponent of `wcs-list-item`.\r\nWrapped in a `wcs-list-item-properties`, it represents a property to describe an item.",
-          "name": "ListItemProperty",
-          "cssProperties": [
-            {
-              "description": "Font weight of the property",
-              "name": "--wcs-list-item-property-font-weight"
-            },
-            {
-              "description": "Color of the property",
-              "name": "--wcs-list-item-property-color"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Main container slot",
-              "name": "<no-name>"
-            }
-          ],
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-list-item-property",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ListItemProperty",
-          "declaration": {
-            "name": "ListItemProperty",
-            "module": "components/list-item-property/list-item-property.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-list-item-property",
-          "declaration": {
-            "name": "ListItemProperty",
-            "module": "components/list-item-property/list-item-property.tsx"
           }
         }
       ]
@@ -10640,6 +10454,192 @@
           "declaration": {
             "name": "MatIcon",
             "module": "components/mat-icon/mat-icon.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/list-item-property/list-item-property.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The list-item-property is a subcomponent of `wcs-list-item`.\r\nWrapped in a `wcs-list-item-properties`, it represents a property to describe an item.",
+          "name": "ListItemProperty",
+          "cssProperties": [
+            {
+              "description": "Font weight of the property",
+              "name": "--wcs-list-item-property-font-weight"
+            },
+            {
+              "description": "Color of the property",
+              "name": "--wcs-list-item-property-color"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Main container slot",
+              "name": "<no-name>"
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-list-item-property",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ListItemProperty",
+          "declaration": {
+            "name": "ListItemProperty",
+            "module": "components/list-item-property/list-item-property.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-list-item-property",
+          "declaration": {
+            "name": "ListItemProperty",
+            "module": "components/list-item-property/list-item-property.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/list-item/list-item.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Lists are used for grouping a collection of related items.\r\n\r\nStandard lists can be used either with or without icons. Depending on the context, the list can have one or more\r\nactions (favourite, download, delete, etc.). Use standard lists with a unique action when each line has an action.",
+          "name": "ListItem",
+          "cssProperties": [
+            {
+              "description": "Padding of the list item",
+              "name": "--wcs-list-item-padding"
+            },
+            {
+              "description": "Border width of the list item",
+              "name": "--wcs-list-item-border-width"
+            },
+            {
+              "description": "Border color of the list item",
+              "name": "--wcs-list-item-border-color"
+            },
+            {
+              "description": "Background color of the list item",
+              "name": "--wcs-list-item-background-color-default"
+            },
+            {
+              "description": "Background color of the list item when hovered",
+              "name": "--wcs-list-item-background-color-hover"
+            },
+            {
+              "description": "Background color of the list item when active",
+              "name": "--wcs-list-item-background-color-active"
+            },
+            {
+              "description": "Transition duration of the list item",
+              "name": "--wcs-list-item-transition-duration"
+            },
+            {
+              "description": "Color of the title of the list item",
+              "name": "--wcs-list-item-title-color"
+            },
+            {
+              "description": "Font weight of the title of the list item",
+              "name": "--wcs-list-item-title-font-weight"
+            },
+            {
+              "description": "Line height of the title of the list item",
+              "name": "--wcs-list-item-title-line-height"
+            },
+            {
+              "description": "Margin bottom of the title of the list item",
+              "name": "--wcs-list-item-title-margin-bottom"
+            },
+            {
+              "description": "Color of the icon of the list item",
+              "name": "--wcs-list-item-icon-color"
+            },
+            {
+              "description": "Margin right of the icon of the list item",
+              "name": "--wcs-list-item-icon-margin-right"
+            },
+            {
+              "description": "Margin left of the actions of the list item",
+              "name": "--wcs-list-item-actions-margin-left"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Slot containing the title of the list item",
+              "name": "title"
+            },
+            {
+              "description": "Slot containing the `<wcs-list-item-properties>` element",
+              "name": "properties"
+            },
+            {
+              "description": "Slot containing the actions of the list item, prefer using some `<wcs-button>` inside",
+              "name": "actions"
+            },
+            {
+              "description": "Slot containing the description of the list item",
+              "name": "description"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "activated",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "True if the item is active. Adds a background color that highlights it."
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "activated",
+              "fieldName": "activated",
+              "type": {
+                "text": "boolean"
+              }
+            }
+          ],
+          "tagName": "wcs-list-item",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ListItem",
+          "declaration": {
+            "name": "ListItem",
+            "module": "components/list-item/list-item.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-list-item",
+          "declaration": {
+            "name": "ListItem",
+            "module": "components/list-item/list-item.tsx"
           }
         }
       ]
@@ -11054,119 +11054,119 @@
           "cssProperties": [
             {
               "description": "Line height of the select",
-              "name": "--wcs-select-native-line-height"
+              "name": "--wcs-native-select-line-height"
             },
             {
               "description": "Height of the select when size is 'm'",
-              "name": "--wcs-select-native-size-m"
+              "name": "--wcs-native-select-size-m"
             },
             {
               "description": "Font size of the select when size is 'm'",
-              "name": "--wcs-select-native-font-size-m"
+              "name": "--wcs-native-select-font-size-m"
             },
             {
               "description": "Height of the select when size is 'l'",
-              "name": "--wcs-select-native-size-l"
+              "name": "--wcs-native-select-size-l"
             },
             {
               "description": "Font size of the select when size is 'l'",
-              "name": "--wcs-select-native-font-size-l"
+              "name": "--wcs-native-select-font-size-l"
             },
             {
               "description": "Border radius of the select",
-              "name": "--wcs-select-native-border-radius"
+              "name": "--wcs-native-select-border-radius"
             },
             {
               "description": "Background color of the select",
-              "name": "--wcs-select-native-background-color"
+              "name": "--wcs-native-select-background-color"
             },
             {
               "description": "Border color of the select when not focused",
-              "name": "--wcs-select-native-border-color-default"
+              "name": "--wcs-native-select-border-color-default"
             },
             {
               "description": "Border color of the select when disabled",
-              "name": "--wcs-select-native-border-color-disabled"
+              "name": "--wcs-native-select-border-color-disabled"
             },
             {
               "description": "Border color of the select when focused",
-              "name": "--wcs-select-native-border-color-focus"
+              "name": "--wcs-native-select-border-color-focus"
             },
             {
               "description": "Border color of the select when in error state",
-              "name": "--wcs-select-native-border-color-error"
+              "name": "--wcs-native-select-border-color-error"
             },
             {
               "description": "Border style of the select when not focused",
-              "name": "--wcs-select-native-border-style-default"
+              "name": "--wcs-native-select-border-style-default"
             },
             {
               "description": "Border style of the select when focused",
-              "name": "--wcs-select-native-border-style-focus"
+              "name": "--wcs-native-select-border-style-focus"
             },
             {
               "description": "Border width of the select when not focused",
-              "name": "--wcs-select-native-border-width"
+              "name": "--wcs-native-select-border-width"
             },
             {
               "description": "Border width of the select when focused",
-              "name": "--wcs-select-native-border-width-focus"
+              "name": "--wcs-native-select-border-width-focus"
             },
             {
               "description": "Color of the selected value",
-              "name": "--wcs-select-native-value-color"
+              "name": "--wcs-native-select-value-color"
             },
             {
               "description": "Font weight of the selected value",
-              "name": "--wcs-select-native-value-font-weight"
+              "name": "--wcs-native-select-value-font-weight"
             },
             {
               "description": "Font style of the selected value",
-              "name": "--wcs-select-native-value-font-style"
+              "name": "--wcs-native-select-value-font-style"
             },
             {
               "description": "Padding horizontal of the select when size is 'm'",
-              "name": "--wcs-select-native-padding-horizontal-m"
+              "name": "--wcs-native-select-padding-horizontal-m"
             },
             {
               "description": "Padding horizontal of the select when size is 'l'",
-              "name": "--wcs-select-native-padding-horizontal-l"
+              "name": "--wcs-native-select-padding-horizontal-l"
             },
             {
               "description": "Color of the select arrow",
-              "name": "--wcs-select-native-arrow-color"
+              "name": "--wcs-native-select-arrow-color"
             },
             {
               "description": "Color of the select arrow when the select is disabled",
-              "name": "--wcs-select-native-arrow-color-disabled"
+              "name": "--wcs-native-select-arrow-color-disabled"
             },
             {
               "description": "Color of the text when the select is disabled",
-              "name": "--wcs-select-native-text-color-disabled"
+              "name": "--wcs-native-select-text-color-disabled"
             },
             {
               "description": "Color of the placeholder",
-              "name": "--wcs-select-native-placeholder-color"
+              "name": "--wcs-native-select-placeholder-color"
             },
             {
               "description": "Font weight of the placeholder",
-              "name": "--wcs-select-native-placeholder-font-weight"
+              "name": "--wcs-native-select-placeholder-font-weight"
             },
             {
               "description": "Font style of the placeholder",
-              "name": "--wcs-select-native-placeholder-font-style"
+              "name": "--wcs-native-select-placeholder-font-style"
             },
             {
               "description": "Text color of the options",
-              "name": "--wcs-select-native-option-color"
+              "name": "--wcs-native-select-option-color"
             },
             {
               "description": "Font style of the options",
-              "name": "--wcs-select-native-option-font-style"
+              "name": "--wcs-native-select-option-font-style"
             },
             {
               "description": "Text color of the selected option",
-              "name": "--wcs-select-native-option-selected-color"
+              "name": "--wcs-native-select-option-selected-color"
             }
           ],
           "members": [
@@ -13934,6 +13934,12 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/skeleton/skeleton-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/select-option/select-option-interface.ts",
       "declarations": [],
       "exports": []
@@ -14219,9 +14225,101 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/skeleton/skeleton-interface.ts",
-      "declarations": [],
-      "exports": []
+      "path": "components/skeleton-circle/skeleton-circle.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Use a skeleton circle as a placeholder round images, illustrations or components",
+          "name": "SkeletonCircle",
+          "cssProperties": [
+            {
+              "description": "Border radius of the circle",
+              "name": "--wcs-skeleton-circle-border-radius"
+            },
+            {
+              "description": "_(Shared among all skeleton types)_<br/>Height of the skeleton",
+              "name": "--wcs-skeleton-height"
+            },
+            {
+              "description": "_(Shared among all skeleton types)_<br/> Minimum height of the skeleton",
+              "name": "--wcs-skeleton-min-height"
+            },
+            {
+              "description": "_(Shared among all skeleton types)_<br/> Width of the skeleton",
+              "name": "--wcs-skeleton-width"
+            },
+            {
+              "description": "_(Shared among all skeleton types)_<br/> Background color of the skeleton (default is a gradient)",
+              "name": "--wcs-skeleton-background-color"
+            },
+            {
+              "description": "_(Shared among all skeleton types)_<br/> Duration of the skeleton animation, if applicable",
+              "name": "--wcs-skeleton-animation-duration"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "animation",
+              "type": {
+                "text": "WcsSkeletonAnimation"
+              },
+              "default": "'glide'",
+              "description": "Specifies the animation of the skeleton"
+            },
+            {
+              "kind": "field",
+              "name": "radius",
+              "type": {
+                "text": "number"
+              },
+              "default": "50",
+              "description": "Specifies the radius of the circle in px"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "animation",
+              "fieldName": "animation",
+              "type": {
+                "text": "WcsSkeletonAnimation"
+              }
+            },
+            {
+              "name": "radius",
+              "fieldName": "radius",
+              "type": {
+                "text": "number"
+              }
+            }
+          ],
+          "tagName": "wcs-skeleton-circle",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SkeletonCircle",
+          "declaration": {
+            "name": "SkeletonCircle",
+            "module": "components/skeleton-circle/skeleton-circle.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-skeleton-circle",
+          "declaration": {
+            "name": "SkeletonCircle",
+            "module": "components/skeleton-circle/skeleton-circle.tsx"
+          }
+        }
+      ]
     },
     {
       "kind": "javascript-module",
@@ -14355,188 +14453,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/skeleton-circle/skeleton-circle.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Use a skeleton circle as a placeholder round images, illustrations or components",
-          "name": "SkeletonCircle",
-          "cssProperties": [
-            {
-              "description": "Border radius of the circle",
-              "name": "--wcs-skeleton-circle-border-radius"
-            },
-            {
-              "description": "_(Shared among all skeleton types)_<br/>Height of the skeleton",
-              "name": "--wcs-skeleton-height"
-            },
-            {
-              "description": "_(Shared among all skeleton types)_<br/> Minimum height of the skeleton",
-              "name": "--wcs-skeleton-min-height"
-            },
-            {
-              "description": "_(Shared among all skeleton types)_<br/> Width of the skeleton",
-              "name": "--wcs-skeleton-width"
-            },
-            {
-              "description": "_(Shared among all skeleton types)_<br/> Background color of the skeleton (default is a gradient)",
-              "name": "--wcs-skeleton-background-color"
-            },
-            {
-              "description": "_(Shared among all skeleton types)_<br/> Duration of the skeleton animation, if applicable",
-              "name": "--wcs-skeleton-animation-duration"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "animation",
-              "type": {
-                "text": "WcsSkeletonAnimation"
-              },
-              "default": "'glide'",
-              "description": "Specifies the animation of the skeleton"
-            },
-            {
-              "kind": "field",
-              "name": "radius",
-              "type": {
-                "text": "number"
-              },
-              "default": "50",
-              "description": "Specifies the radius of the circle in px"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "animation",
-              "fieldName": "animation",
-              "type": {
-                "text": "WcsSkeletonAnimation"
-              }
-            },
-            {
-              "name": "radius",
-              "fieldName": "radius",
-              "type": {
-                "text": "number"
-              }
-            }
-          ],
-          "tagName": "wcs-skeleton-circle",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "SkeletonCircle",
-          "declaration": {
-            "name": "SkeletonCircle",
-            "module": "components/skeleton-circle/skeleton-circle.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-skeleton-circle",
-          "declaration": {
-            "name": "SkeletonCircle",
-            "module": "components/skeleton-circle/skeleton-circle.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/spinner/spinner-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/spinner/spinner.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The spinner component is visual indicator that showing a process is happening in the background but the interface is\r\nnot yet ready for interaction.  \r\nIf your page structure is simple or the loading time is long (> 300ms), use [wcs-skeleton](.?path=/docs/components-skeleton--documentation) instead.",
-          "name": "Spinner",
-          "cssProperties": [
-            {
-              "description": "The color of the dashed circle in the background",
-              "name": "--wcs-spinner-dashed-background-circle"
-            },
-            {
-              "description": "The color of the rotating circle",
-              "name": "--wcs-spinner-rotating-circle-color"
-            },
-            {
-              "description": "The duration of the rotation animation",
-              "name": "--wcs-spinner-rotate-animation-duration"
-            },
-            {
-              "description": "The duration of the dash animation",
-              "name": "--wcs-spinner-dashed-animation-duration"
-            },
-            {
-              "description": "The duration of the growing animation",
-              "name": "--wcs-spinner-growing-animation-duration"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "mode",
-              "type": {
-                "text": "WcsSpinnerMode"
-              },
-              "default": "'border'",
-              "description": "Indicates the spinner display mode.\r\nAccepted values: `border` or `growing`"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "mode",
-              "fieldName": "mode",
-              "type": {
-                "text": "WcsSpinnerMode"
-              }
-            }
-          ],
-          "tagName": "wcs-spinner",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Spinner",
-          "declaration": {
-            "name": "Spinner",
-            "module": "components/spinner/spinner.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-spinner",
-          "declaration": {
-            "name": "Spinner",
-            "module": "components/spinner/spinner.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/skeleton-text/skeleton-text.tsx",
       "declarations": [
         {
@@ -14649,6 +14565,90 @@
           "declaration": {
             "name": "SkeletonText",
             "module": "components/skeleton-text/skeleton-text.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/spinner/spinner-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/spinner/spinner.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The spinner component is visual indicator that showing a process is happening in the background but the interface is\r\nnot yet ready for interaction.  \r\nIf your page structure is simple or the loading time is long (> 300ms), use [wcs-skeleton](.?path=/docs/components-skeleton--documentation) instead.",
+          "name": "Spinner",
+          "cssProperties": [
+            {
+              "description": "The color of the dashed circle in the background",
+              "name": "--wcs-spinner-dashed-background-circle"
+            },
+            {
+              "description": "The color of the rotating circle",
+              "name": "--wcs-spinner-rotating-circle-color"
+            },
+            {
+              "description": "The duration of the rotation animation",
+              "name": "--wcs-spinner-rotate-animation-duration"
+            },
+            {
+              "description": "The duration of the dash animation",
+              "name": "--wcs-spinner-dashed-animation-duration"
+            },
+            {
+              "description": "The duration of the growing animation",
+              "name": "--wcs-spinner-growing-animation-duration"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "mode",
+              "type": {
+                "text": "WcsSpinnerMode"
+              },
+              "default": "'border'",
+              "description": "Indicates the spinner display mode.\r\nAccepted values: `border` or `growing`"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "mode",
+              "fieldName": "mode",
+              "type": {
+                "text": "WcsSpinnerMode"
+              }
+            }
+          ],
+          "tagName": "wcs-spinner",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Spinner",
+          "declaration": {
+            "name": "Spinner",
+            "module": "components/spinner/spinner.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-spinner",
+          "declaration": {
+            "name": "Spinner",
+            "module": "components/spinner/spinner.tsx"
           }
         }
       ]
