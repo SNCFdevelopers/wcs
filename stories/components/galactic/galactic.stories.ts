@@ -24,7 +24,7 @@ export default meta;
 const Template: StoryFn<Partial<{ text: string, displayGalacticMenu: boolean }>> = (args) => html`
     <wcs-galactic text="${args.text}">
         ${args.displayGalacticMenu ? html`
-            <wcs-galactic-menu text="TOUT SNCF">
+            <wcs-galactic-menu text="TOUT SNCF" aria-label="Menu informations générales">
                 <div style="margin-bottom: 8px"><a href="#" style="text-decoration: none; color: var(--wcs-semantic-color-text-inverse)">CGU</a>
                 </div>
                 <div style="margin-bottom: 8px"><a href="#" style="text-decoration: none; color: var(--wcs-semantic-color-text-inverse)">À
@@ -55,9 +55,9 @@ const customContent = html`
 `;
 
 /**
- * ## You want to add a button with (Show/Hide menu) Pattern
+ * #### You want to add a button with (Show/Hide menu) Pattern
  *
- * Add an accessibility menu to configure parameters using `wcs-button` with `wcs-tooltip`.
+ * **Example of adding an accessibility menu** to configure parameters **using `wcs-button` with `wcs-tooltip`**.
  *
  * > **Important**: For correct tab navigation, you must add a `div` with id and set the `appendTo` property of the tooltip to target this div.
  *
@@ -99,6 +99,12 @@ Default.args = {
     text: 'Un site'
 };
 
+/**
+ * 💡Accessibility guidelines💡
+ * 
+ * - To ensure accessibility of the galactic menu, you have to add `aria-label` attribute on `wcs-galactic-menu` like
+ * `<wcs-galactic-menu aria-label="Menu informations générales"`
+ */
 export const WithGalacticMenu = Template.bind({});
 WithGalacticMenu.args = {
     text: 'Un site',

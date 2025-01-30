@@ -46,14 +46,6 @@
     left: -4px;
 }
 
-#toggle-menu-icon{
-    cursor: pointer;
-    user-select: none;
-
-    &:focus-visible {
-        @include focus-outline(var(--wcs-galactic-menu-icon-focus-outline-color), $outline-offset: 0);
-    }
-}
 #arrow,
 #arrow::before {
     position: absolute;
@@ -70,4 +62,17 @@
     visibility: visible;
     content: '';
     transform: rotate(45deg);
+}
+
+button {
+    background: transparent;
+    border: none;
+    color: inherit;
+
+    cursor: pointer;
+    user-select: none;
+
+    &:focus-visible {
+        @include focus-outline(var(--wcs-galactic-menu-icon-focus-outline-color), $outline-offset: 0);
+    }
 }

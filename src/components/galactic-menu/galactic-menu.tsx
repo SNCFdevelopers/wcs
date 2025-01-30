@@ -4,9 +4,8 @@ import {
     clickInsideElement,
     inheritAriaAttributes,
     inheritAttributes,
-    isEnterKey,
     isEscapeKey,
-    isSpaceKey, setOrRemoveAttribute
+    setOrRemoveAttribute
 } from '../../utils/helpers';
 import { AriaAttributeName } from "../../utils/mutable-aria-attribute";
 
@@ -35,7 +34,7 @@ const GALACTIC_MENU_INHERITED_ATTRS = ['tabindex', 'title'];
 })
 export class Galactic implements ComponentInterface {
     @Element() private el: HTMLWcsGalacticMenuElement;
-    private menuButton!: HTMLWcsMatIconElement;
+    private menuButton!: HTMLButtonElement;
     private inheritedAttributes: { [k: string]: any } = {};
     
     @State() private showPopoverMenu: boolean = false;
@@ -99,13 +98,6 @@ export class Galactic implements ComponentInterface {
     private toggleMenu() {
         this.showPopoverMenu = !this.showPopoverMenu;
     }
-    
-    private handleMenuButtonKeyDown(_event: KeyboardEvent) {
-        if (isSpaceKey(_event) || isEnterKey(_event)) {
-            _event.preventDefault();
-            this.toggleMenu();
-        }
-    }
 
     componentDidRender() {
         if (this.popper) {
@@ -117,18 +109,16 @@ export class Galactic implements ComponentInterface {
         return (
             <Host>
                 <span>{this.text}</span>
-                <wcs-mat-icon role="button"
-                              tabindex="0"
-                              id="toggle-menu-icon"
-                              icon="more_horiz"
-                              size="m"
-                              aria-haspopup="true"
-                              aria-controls="menu"
-                              aria-expanded={this.showPopoverMenu ? "true" : "false"}
-                              ref={el => {this.menuButton = el}}
-                              onClick={_ => this.toggleMenu()}
-                              onKeyDown={e => this.handleMenuButtonKeyDown(e)}
-                              {...this.inheritedAttributes}></wcs-mat-icon>
+                <button aria-haspopup="true"
+                        aria-controls="menu"
+                        ref={el => {
+                            this.menuButton = el
+                        }}
+                        aria-expanded={this.showPopoverMenu ? "true" : "false"}
+                        {...this.inheritedAttributes}
+                        onClick={_ => this.toggleMenu()}>
+                    <wcs-mat-icon id="toggle-menu-icon" icon="more_horiz" size="m"></wcs-mat-icon>
+                </button>
                 <span id="menu" role="menu" data-show={this.showPopoverMenu}>
                     <div id="arrow" data-popper-arrow />
                     <slot/>
