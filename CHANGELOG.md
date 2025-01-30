@@ -13,6 +13,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - **fonts**: add `Avenir Heavy` font (weight 800)
 - **tooltip**: add new theme `light`
+- **doc**
+    - **galactic**: improve doc to give some accessibility advices
 
 ### Changed
 
