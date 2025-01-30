@@ -138,7 +138,7 @@ export class Tooltip implements ComponentInterface {
      * https://atomiks.github.io/tippyjs/v6/themes/
      */
     @Prop()
-    theme: string = 'wcs';
+    theme: 'dark' | 'light' = 'dark';
 
     /**
      * You can use this property instead of the slot API to affect content in the tooltip.

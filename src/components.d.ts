@@ -2276,7 +2276,7 @@ export namespace Components {
         /**
           * Allows you to change the theme used by tippy.  The WCS theme is used by default and uses the WCS CSS variables.  You can create a theme by following this documentation and choosing a custom name : https://atomiks.github.io/tippyjs/v6/themes/
          */
-        "theme": string;
+        "theme": 'dark' | 'light';
         /**
           * Determines the events that cause the tooltip to show. Multiple event names are separated by spaces.  See: https://atomiks.github.io/tippyjs/v6/all-props/#trigger
          */
@@ -6513,7 +6513,7 @@ declare namespace LocalJSX {
         /**
           * Allows you to change the theme used by tippy.  The WCS theme is used by default and uses the WCS CSS variables.  You can create a theme by following this documentation and choosing a custom name : https://atomiks.github.io/tippyjs/v6/themes/
          */
-        "theme"?: string;
+        "theme"?: 'dark' | 'light';
         /**
           * Determines the events that cause the tooltip to show. Multiple event names are separated by spaces.  See: https://atomiks.github.io/tippyjs/v6/all-props/#trigger
          */

@@ -12,6 +12,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 
 - **fonts**: add `Avenir Heavy` font (weight 800)
+- **tooltip**: add new theme `light`
 
 ### Changed
 
@@ -20,6 +21,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **card**: default mode is now `flat` instead of `raised`
 - **dropdown**: items click event is now `mouseup` instead of `mousedown`
 - **grid**: sort header icon changed from chevron to arrow
+- **tooltip**: rename default theme from `wcs` to `dark`
 
 ### Deprecated
 

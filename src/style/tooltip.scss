@@ -1,4 +1,4 @@
-.tippy-box[data-theme~='wcs'] {
+.tippy-box[data-theme~='dark'] {
     --wcs-tooltip-background-color:  var(--wcs-semantic-color-background-surface-inverse);
     --wcs-tooltip-text-color: var(--wcs-semantic-color-text-inverse);
     --wcs-tooltip-padding: var(--wcs-semantic-spacing-small) var(--wcs-semantic-spacing-base);
@@ -7,20 +7,66 @@
     color: var(--wcs-tooltip-text-color);
 }
 
-.tippy-box[data-theme~='wcs'][data-placement^='top'] > .tippy-arrow::before {
+.tippy-box[data-theme~='dark'][data-placement^='top'] > .tippy-arrow::before {
     border-top-color: var(--wcs-tooltip-background-color);
 }
-.tippy-box[data-theme~='wcs'][data-placement^='bottom'] > .tippy-arrow::before {
+.tippy-box[data-theme~='dark'][data-placement^='bottom'] > .tippy-arrow::before {
     border-bottom-color: var(--wcs-tooltip-background-color);
 }
-.tippy-box[data-theme~='wcs'][data-placement^='left'] > .tippy-arrow::before {
+.tippy-box[data-theme~='dark'][data-placement^='left'] > .tippy-arrow::before {
     border-left-color: var(--wcs-tooltip-background-color);
 }
-.tippy-box[data-theme~='wcs'][data-placement^='right'] > .tippy-arrow::before {
+.tippy-box[data-theme~='dark'][data-placement^='right'] > .tippy-arrow::before {
     border-right-color: var(--wcs-tooltip-background-color);
 }
 
 .tippy-content {
     overflow-wrap: break-word;
     padding: var(--wcs-tooltip-padding);
+}
+
+.tippy-box[data-theme~='light'] {
+    --wcs-tooltip-background-color:  var(--wcs-semantic-color-background-surface-primary);
+    --wcs-tooltip-text-color: var(--wcs-semantic-color-text-primary);
+    --wcs-tooltip-padding: var(--wcs-semantic-spacing-small) var(--wcs-semantic-spacing-base);
+    --wcs-tooltip-border-color: var(--wcs-semantic-color-border-secondary);
+
+    background-color: var(--wcs-tooltip-background-color);
+    color: var(--wcs-tooltip-text-color);
+    border: solid var(--wcs-semantic-border-width-default) var(--wcs-tooltip-border-color);
+    border-width: var(--wcs-semantic-border-width-default);
+}
+
+// https://atomiks.github.io/tippyjs/v5/themes/#css-arrow
+.tippy-box[data-theme~='light'][data-placement^='top'] > .tippy-arrow::before {
+    border-top-color: var(--wcs-tooltip-border-color);
+}
+.tippy-box[data-theme~='light'][data-placement^='bottom'] > .tippy-arrow::before {
+    border-bottom-color: var(--wcs-tooltip-border-color);
+}
+.tippy-box[data-theme~='light'][data-placement^='left'] > .tippy-arrow::before {
+    border-left-color: var(--wcs-tooltip-border-color);
+}
+.tippy-box[data-theme~='light'][data-placement^='right'] > .tippy-arrow::before {
+    border-right-color: var(--wcs-tooltip-border-color);
+}
+
+.tippy-box[data-placement^='bottom'][data-theme~='light'] > .tippy-arrow::before,
+.tippy-box[data-placement^='bottom'][data-theme~='dark'] > .tippy-arrow::before {
+    top: -8px;
+}
+
+.tippy-box[data-placement^='top'][data-theme~='light'] > .tippy-arrow::before,
+.tippy-box[data-placement^='top'][data-theme~='dark'] > .tippy-arrow::before  {
+    bottom: -8px;
+}
+
+.tippy-box[data-placement^='left'][data-theme~='light']  > .tippy-arrow::before,
+.tippy-box[data-placement^='left'][data-theme~='dark']  > .tippy-arrow::before {
+    right: -8px;
+}
+
+.tippy-box[data-placement^='right'][data-theme~='light'] > .tippy-arrow::before,
+.tippy-box[data-placement^='right'][data-theme~='dark'] > .tippy-arrow::before {
+    left: -8px;
 }

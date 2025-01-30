@@ -20,7 +20,7 @@ type TooltipArgs = {
     tooltipInnerHtml: string,
     interactive: boolean,
     maxWidth: string | number,
-    theme: string,
+    theme: 'light' | 'dark',
     delay: number | [number, number],
     duration: number | [number, number],
     trigger: string,
