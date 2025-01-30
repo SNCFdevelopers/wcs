@@ -87,6 +87,7 @@ that can cause contrast issues.
   - autocomplete filter is now cleared when the select value is set to a falsy value
   - focus last selected option on select opening after setting value in JS
   - handle async option loading with an initial value (the label is now refreshed when the options are loaded)
+- **tooltip**: tooltip and `wcs-button` is now more accessible (aria-expanded well managed)
 
 ### Security
 

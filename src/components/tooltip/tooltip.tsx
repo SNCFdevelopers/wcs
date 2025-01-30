@@ -9,6 +9,17 @@ import { WcsTooltipAppendTo, WcsTooltipPosition } from './tooltip-interface';
 // modifications in the API : https://atomiks.github.io/tippyjs/v6/headless-tippy/
 import tippy, { Instance, Props } from 'tippy.js';
 import { isEscapeKey } from "../../utils/helpers";
+import { isMutableAriaAttribute } from "../../utils/mutable-aria-attribute";
+
+/**
+ * List of components that require special ARIA attribute delegation handling.
+ * These components have their own internal elements (like native button inside wcs-button)
+ * that need to receive ARIA attributes for proper accessibility.
+ * 
+ * Another solution we take into account is to @Watch the ARIA attributes on the component and set them on the internal element.
+ * But this solution was not centralized and can be forgotten.
+ */
+const DELEGATED_ARIA_COMPONENTS  = ['WCS-BUTTON'];
 
 /**
  * Tooltips are used to provide additional information for features available on the website. These can improve the user
@@ -19,13 +30,20 @@ import { isEscapeKey } from "../../utils/helpers";
  * 
  * ## Accessibility guidelines 💡
  * 
+ * The component places necessary aria attribute on your target element (like the `wcs-button`) :
+ * - `aria-expanded`: set to true when popover is open, false when it is closed
+ * 
  * The problem is that impaired users may not be able to see what is the information provided by the tooltip. To solve
  * this problem, the tooltip should be served with some aria attributes to make it accessible.
  *
  * Aria-features `wcs-tooltip` respect:
  * - dismiss when the user presses the `Escape` key
  * - has a `role=tooltip`
+ * - `aria-expanded` on the targeted element: set to true when popover is open, false when it is closed
  *
+ * Aria-features `wcs-tooltip` **does not respect with `wcs-button`**:
+ * - aria-controls => we cannot do it yet, we need to wait for Cross root ARIA - export ID (https://github.com/WICG/aom/blob/gh-pages/exportid-explainer.md)
+ * 
  * But you have to provide the "link" between the element you want to describe and the tooltip. To do this, you have to
  * provide the "visual description" you add on the `wcs-tooltip` to the `aria-label` attribute or the `aria-description` as soon as the attribute will be available 
  * of the element you want to describe .
@@ -148,9 +166,17 @@ export class Tooltip implements ComponentInterface {
     private el: HTMLWcsTooltipElement;
 
     private tippyInstance: Instance<Props>;
+    private forElement?: HTMLElement;
 
     componentWillLoad(): Promise<void> | void {
-        this.tippyInstance = tippy(document.getElementById(this.for), {
+        this.forElement = document.getElementById(this.for);
+        
+        if(!this.forElement) {
+            console.error('[wcs-tooltip]: The element with the id provided in the "for" property does not exist');
+            return
+        }
+        
+        this.tippyInstance = tippy(this.forElement, {
             appendTo: this.appendTo || (() => document.body),
             theme: this.theme,
             allowHTML: true,
@@ -160,9 +186,47 @@ export class Tooltip implements ComponentInterface {
             delay: this.delay,
             duration: this.duration,
             interactive: this.interactive,
-            trigger: this.trigger
+            trigger: this.trigger,
+            onShow: () => this.onShow(),
+            onHide: () => this.onHide()
         });
     }
+
+    // region Tippy.js events
+    
+    // ARIA attributes management 🔍
+    //
+    // While tippy.js automatically handles aria-expanded on the target element, we manage it ourselves for two main reasons:
+    // 1. Some of our components (like wcs-button) have an internal structure where the accessible/focusable element
+    //    is not the root element. We need to ensure the aria-expanded is set on the correct internal element.
+    // 2. We want to maintain consistent control over our ARIA attributes across all components and ensure
+    //    they work with our custom MutableAriaAttribute interface.
+    
+    private onShow() {
+        if (!this.forElement) {
+            return;
+        }
+
+        if (this.forElement.tagName && DELEGATED_ARIA_COMPONENTS.indexOf(this.forElement.tagName) !== -1) {
+            if(isMutableAriaAttribute(this.forElement)) {
+                this.forElement.setAriaAttribute('aria-expanded', 'true');
+            }
+        }
+    }
+    
+    private onHide() {
+        if (!this.forElement) {
+            return;
+        }
+        
+        if (this.forElement.tagName && DELEGATED_ARIA_COMPONENTS.indexOf(this.forElement.tagName) !== -1) {
+            if(isMutableAriaAttribute(this.forElement)) {
+                this.forElement.setAriaAttribute('aria-expanded', 'false');
+            }
+        }
+    }
+    
+    // endregion
     
     @Listen('keydown', { target: 'window' })
     async handleKeyDown(ev: KeyboardEvent) {

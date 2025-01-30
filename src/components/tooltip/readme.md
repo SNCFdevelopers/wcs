@@ -13,12 +13,19 @@ Note that this component is based on the Tippy.js library : https://atomiks.gith
 
 ## Accessibility guidelines 💡
 
+The component places necessary aria attribute on your target element (like the `wcs-button`) :
+- `aria-expanded`: set to true when popover is open, false when it is closed
+
 The problem is that impaired users may not be able to see what is the information provided by the tooltip. To solve
 this problem, the tooltip should be served with some aria attributes to make it accessible.
 
 Aria-features `wcs-tooltip` respect:
 - dismiss when the user presses the `Escape` key
 - has a `role=tooltip`
+- `aria-expanded` on the targeted element: set to true when popover is open, false when it is closed
+
+Aria-features `wcs-tooltip` **does not respect with `wcs-button`**:
+- aria-controls => we cannot do it yet, we need to wait for Cross root ARIA - export ID (https://github.com/WICG/aom/blob/gh-pages/exportid-explainer.md)
 
 But you have to provide the "link" between the element you want to describe and the tooltip. To do this, you have to
 provide the "visual description" you add on the `wcs-tooltip` to the `aria-label` attribute or the `aria-description` as soon as the attribute will be available 
