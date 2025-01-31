@@ -34,7 +34,7 @@ export class Galactic implements ComponentInterface {
                         <img
                             src={SNCF_BASE64_SVG_LOGO}
                             id="sncf-logo"
-                            alt="Logo SNCF"/>
+                            alt="SNCF"/>
                         <span>{this.text}</span>
                     </div>
                     <div class="actions-container">

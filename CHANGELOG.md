@@ -93,6 +93,7 @@ that can cause contrast issues.
   - handle async option loading with an initial value (the label is now refreshed when the options are loaded)
 - **tooltip**: tooltip and `wcs-button` is now more accessible (aria-expanded well managed)
 - **galactic-menu**: change semantic to make it accessible
+- **galactic**: edit label of logo SNCF to make it pertinent
 
 ### Security
 
