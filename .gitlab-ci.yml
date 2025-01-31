@@ -101,7 +101,7 @@ deploy-azure:
     # Skip deployment of RC documentation to production (wcs.dev.sncf)
     - if [ "$DEPLOY_ENV_NAME" = "production" ] && grep -q '"version":.*rc' "$CI_PROJECT_DIR/package.json"; then
         echo "Skipping deployment of RC documentation to production";
-        exit 1;
+        exit 0;
       fi
     - npm install -g @azure/static-web-apps-cli
     - swa deploy --app-location ./ --output-location $DIST_PATH --verbose=silly --deployment-token $DEPLOYMENT_TOKEN --env $DEPLOY_ENV_NAME
