@@ -50,6 +50,7 @@ for now removed features.
     - handle error message for screen readers
 - **grid**: sort-arrow not correctly resizing in grid-columns
 - **badge**: set inline-size to avoid badge stretching with flex layouts
+- **tooltip**: update documentation for the `content` property
 
 ### Security
 

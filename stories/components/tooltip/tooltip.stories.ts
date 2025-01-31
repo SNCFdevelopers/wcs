@@ -5,6 +5,7 @@ import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { createRef, ref, Ref } from 'lit-html/directives/ref.js';
 import { getComponentArgs } from '../../utils/args-generation';
+import { useArgs } from '@storybook/preview-api';
 
 const meta: Meta = {
     title: 'Components/Tooltip',
@@ -122,11 +123,54 @@ export const Left: StoryObj = {
     }
 }
 
-export const TextContentProp = {
-    render: (args: TooltipArgs) => Template(args),
+/**
+ * If you need to update your tooltip content dynamically, you can use the `content` property.
+ * Changing the `content` property will update the tooltip content, and append the `innerHTML` if it exists.
+ * 
+ * - The `content` property is mutable
+ * - The `innerHTML` is immutable
+ */
+export const DynamicContent = {
+    render: (args: TooltipArgs) => {
+        const [_, updateArgs] = useArgs();
+
+        const getRandomNumber = (): number => Math.floor(Math.random() * 100);
+        
+        const handleBtnClick = (): void => {
+            if (args.content) {
+                updateArgs({ ...args, content: 'Dynamic : ' + getRandomNumber() }); // For canvas mode
+                // @ts-ignore
+                document.querySelector('#tooltip-dynamic').content = 'Dynamic : ' + getRandomNumber(); // For docs mode
+            }
+        };
+        
+        return html`
+        <div style="display: flex; width: 100%; align-items: center; justify-content: center; margin-top: var(--wcs-semantic-spacing-base)">
+            <wcs-button shape="small" id="tooltiped-button-dynamic" @click=${handleBtnClick}>
+                <wcs-mat-icon icon="update"></wcs-mat-icon>
+                <span>Update tooltip</span>
+            </wcs-button>
+            <wcs-tooltip
+                id="tooltip-dynamic"
+                for="tooltiped-button-dynamic"
+                max-width=${ifDefined(args.maxWidth)}
+                ?interactive=${args.interactive}
+                theme=${ifDefined(args.theme)}
+                .delay=${ifDefined(args.delay)}
+                .duration=${ifDefined(args.duration)}
+                content=${ifDefined(args.content)}
+                trigger=${ifDefined(args.trigger)}
+                position=${ifDefined(args.position)}>
+                ${unsafeHTML(args.tooltipInnerHtml)}
+            </wcs-tooltip>
+        </div>
+    `
+    },
     args: {
         ...Default.args,
-        content: 'Sample text content'
+        trigger: 'mouseenter focus click',
+        content: 'Dynamic : 0',
+        tooltipInnerHtml: '/ Not dynamic and appended to the content'
     }
 }
 
