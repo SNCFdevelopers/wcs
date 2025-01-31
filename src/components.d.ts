@@ -1809,6 +1809,10 @@ export namespace Components {
          */
         "placeholder"?: string | null;
         /**
+          * If `true`, the user must fill in a value before submitting a form.
+         */
+        "required": boolean;
+        /**
           * **Only works with `autocomplete` mode.**   If `true`, the server mode disables the client-side filtering on your select and allows you to handle which options should be present in your DOM.
          */
         "serverMode": boolean;
@@ -6056,6 +6060,10 @@ declare namespace LocalJSX {
           * The text to display when the select is empty.
          */
         "placeholder"?: string | null;
+        /**
+          * If `true`, the user must fill in a value before submitting a form.
+         */
+        "required"?: boolean;
         /**
           * **Only works with `autocomplete` mode.**   If `true`, the server mode disables the client-side filtering on your select and allows you to handle which options should be present in your DOM.
          */

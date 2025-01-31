@@ -34,6 +34,7 @@ for now removed features.
 - **counter**: fix focus style for Firefox
 - **form-field**: move hint and error message in aria-label instead of put in aria-description
 - **input**: show/hide password button is now focusable and well accessible
+- **select**: `required` attribute was not reflected on focusable element
 
 ### Security
 

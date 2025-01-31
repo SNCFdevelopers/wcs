@@ -6090,96 +6090,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/field/field.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "This field component can be used to display the details of an entity. It is built around the label and the content of the field.",
-          "name": "Field",
-          "cssProperties": [
-            {
-              "description": "The color of the label",
-              "name": "--wcs-field-label-color"
-            },
-            {
-              "description": "The font weight of the label",
-              "name": "--wcs-field-label-font-weight"
-            },
-            {
-              "description": "The font size of the label",
-              "name": "--wcs-field-label-font-size"
-            },
-            {
-              "description": "The line height of the label",
-              "name": "--wcs-field-label-line-height"
-            },
-            {
-              "description": "The color of the content",
-              "name": "--wcs-field-content-color"
-            },
-            {
-              "description": "The font weight of the content",
-              "name": "--wcs-field-content-font-weight"
-            },
-            {
-              "description": "The font size of the content",
-              "name": "--wcs-field-content-font-size"
-            },
-            {
-              "description": "The margin top of the field",
-              "name": "--wcs-field-margin-top"
-            },
-            {
-              "description": "The margin bottom of the field",
-              "name": "--wcs-field-margin-bottom"
-            },
-            {
-              "description": "The gap between the label and the content",
-              "name": "--wcs-field-gap"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Label of the field",
-              "name": "label"
-            },
-            {
-              "description": "Content of the field",
-              "name": "content"
-            }
-          ],
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-field",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Field",
-          "declaration": {
-            "name": "Field",
-            "module": "components/field/field.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-field",
-          "declaration": {
-            "name": "Field",
-            "module": "components/field/field.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/field-content/field-content.tsx",
       "declarations": [
         {
@@ -6286,6 +6196,96 @@
           "declaration": {
             "name": "FieldLabel",
             "module": "components/field-label/field-label.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/field/field.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "This field component can be used to display the details of an entity. It is built around the label and the content of the field.",
+          "name": "Field",
+          "cssProperties": [
+            {
+              "description": "The color of the label",
+              "name": "--wcs-field-label-color"
+            },
+            {
+              "description": "The font weight of the label",
+              "name": "--wcs-field-label-font-weight"
+            },
+            {
+              "description": "The font size of the label",
+              "name": "--wcs-field-label-font-size"
+            },
+            {
+              "description": "The line height of the label",
+              "name": "--wcs-field-label-line-height"
+            },
+            {
+              "description": "The color of the content",
+              "name": "--wcs-field-content-color"
+            },
+            {
+              "description": "The font weight of the content",
+              "name": "--wcs-field-content-font-weight"
+            },
+            {
+              "description": "The font size of the content",
+              "name": "--wcs-field-content-font-size"
+            },
+            {
+              "description": "The margin top of the field",
+              "name": "--wcs-field-margin-top"
+            },
+            {
+              "description": "The margin bottom of the field",
+              "name": "--wcs-field-margin-bottom"
+            },
+            {
+              "description": "The gap between the label and the content",
+              "name": "--wcs-field-gap"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Label of the field",
+              "name": "label"
+            },
+            {
+              "description": "Content of the field",
+              "name": "content"
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-field",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Field",
+          "declaration": {
+            "name": "Field",
+            "module": "components/field/field.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-field",
+          "declaration": {
+            "name": "Field",
+            "module": "components/field/field.tsx"
           }
         }
       ]
@@ -9402,6 +9402,68 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/list-item-properties/list-item-properties.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The list-item-properties is a subcomponent of `wcs-list-item`. It represents a wrapper for a list of several `wcs-property`.",
+          "name": "ListItemProperties",
+          "cssProperties": [
+            {
+              "description": "Margin bottom of the properties",
+              "name": "--wcs-list-item-properties-margin-bottom"
+            },
+            {
+              "description": "Gap between all list item properties",
+              "name": "--wcs-list-item-properties-gap"
+            },
+            {
+              "description": "Separator width between all list item properties",
+              "name": "--wcs-list-item-properties-separator-width"
+            },
+            {
+              "description": "Separator color between all list item properties",
+              "name": "--wcs-list-item-properties-separator-color"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Slot containing the `<wcs-property>` elements",
+              "name": "property"
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-list-item-properties",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ListItemProperties",
+          "declaration": {
+            "name": "ListItemProperties",
+            "module": "components/list-item-properties/list-item-properties.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-list-item-properties",
+          "declaration": {
+            "name": "ListItemProperties",
+            "module": "components/list-item-properties/list-item-properties.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/input/input-interface.ts",
       "declarations": [
         {
@@ -10491,97 +10553,303 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/list-item-properties/list-item-properties.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The list-item-properties is a subcomponent of `wcs-list-item`. It represents a wrapper for a list of several `wcs-property`.",
-          "name": "ListItemProperties",
-          "cssProperties": [
-            {
-              "description": "Margin bottom of the properties",
-              "name": "--wcs-list-item-properties-margin-bottom"
-            },
-            {
-              "description": "Gap between all list item properties",
-              "name": "--wcs-list-item-properties-gap"
-            },
-            {
-              "description": "Separator width between all list item properties",
-              "name": "--wcs-list-item-properties-separator-width"
-            },
-            {
-              "description": "Separator color between all list item properties",
-              "name": "--wcs-list-item-properties-separator-color"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Slot containing the `<wcs-property>` elements",
-              "name": "property"
-            }
-          ],
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-list-item-properties",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ListItemProperties",
-          "declaration": {
-            "name": "ListItemProperties",
-            "module": "components/list-item-properties/list-item-properties.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-list-item-properties",
-          "declaration": {
-            "name": "ListItemProperties",
-            "module": "components/list-item-properties/list-item-properties.tsx"
-          }
-        }
-      ]
+      "path": "components/native-select/native-select-interface.ts",
+      "declarations": [],
+      "exports": []
     },
     {
       "kind": "javascript-module",
-      "path": "components/list-item-property/list-item-property.tsx",
+      "path": "components/native-select/native-select.tsx",
       "declarations": [
         {
           "kind": "class",
-          "description": "The list-item-property is a subcomponent of `wcs-list-item`.\r\nWrapped in a `wcs-list-item-properties`, it represents a property to describe an item.",
-          "name": "ListItemProperty",
+          "description": "The `wcs-native-select` component is designed to accept a native `<select>` element as a slotted child. This choice\r\nallows developers to bind the `<select>` element using the framework of their choice, without the need to re-expose all the\r\nproperties of the `<select>` and `<option>` elements in this component.\r\n\r\nThe component wraps the native `<select>` element and provides custom styles and behavior, while preserving the native\r\nfunctionality and accessibility.\r\n\r\n### ✅ Guidance\r\n\r\n- To have a placeholder, you must have an option as child which has `selected` attribute and `disabled`\r\nattribute. You can add the `hidden` attribute to don't show the placeholder option in the options overlay.\r\n\r\n### Example usage\r\n\r\n```html\r\n<wcs-native-select>\r\n  <select>\r\n    <option value=\"option1\">Option 1</option>\r\n    <option value=\"option2\">Option 2</option>\r\n    <option value=\"option3\">Option 3</option>\r\n  </select>\r\n</wcs-native-select>\r\n```\r\n\r\n### Note\r\n- We did not find a way to detect when the select is reset, if you want to apply the placeholder style when the\r\nselect is reset, you have to call the `updateStyles()` method manually.\r\n- It is strongly recommended to use native-select when you don't have to support the multi-selection feature\r\n- Use a native-select instead of a wcs-select if your application is mainly on mobile / tablet. The native behavior of the device will be used.",
+          "name": "NativeSelect",
           "cssProperties": [
             {
-              "description": "Font weight of the property",
-              "name": "--wcs-list-item-property-font-weight"
+              "description": "Line height of the select",
+              "name": "--wcs-native-select-line-height"
             },
             {
-              "description": "Color of the property",
-              "name": "--wcs-list-item-property-color"
-            }
-          ],
-          "slots": [
+              "description": "Height of the select when size is 'm'",
+              "name": "--wcs-native-select-size-m"
+            },
             {
-              "description": "Main container slot",
-              "name": "<no-name>"
+              "description": "Font size of the select when size is 'm'",
+              "name": "--wcs-native-select-font-size-m"
+            },
+            {
+              "description": "Height of the select when size is 'l'",
+              "name": "--wcs-native-select-size-l"
+            },
+            {
+              "description": "Font size of the select when size is 'l'",
+              "name": "--wcs-native-select-font-size-l"
+            },
+            {
+              "description": "Border radius of the select",
+              "name": "--wcs-native-select-border-radius"
+            },
+            {
+              "description": "Background color of the select",
+              "name": "--wcs-native-select-background-color"
+            },
+            {
+              "description": "Border color of the select when not focused",
+              "name": "--wcs-native-select-border-color-default"
+            },
+            {
+              "description": "Border color of the select when disabled",
+              "name": "--wcs-native-select-border-color-disabled"
+            },
+            {
+              "description": "Border color of the select when focused",
+              "name": "--wcs-native-select-border-color-focus"
+            },
+            {
+              "description": "Border color of the select when in error state",
+              "name": "--wcs-native-select-border-color-error"
+            },
+            {
+              "description": "Border style of the select when not focused",
+              "name": "--wcs-native-select-border-style-default"
+            },
+            {
+              "description": "Border style of the select when focused",
+              "name": "--wcs-native-select-border-style-focus"
+            },
+            {
+              "description": "Border width of the select when not focused",
+              "name": "--wcs-native-select-border-width"
+            },
+            {
+              "description": "Border width of the select when focused",
+              "name": "--wcs-native-select-border-width-focus"
+            },
+            {
+              "description": "Color of the selected value",
+              "name": "--wcs-native-select-value-color"
+            },
+            {
+              "description": "Font weight of the selected value",
+              "name": "--wcs-native-select-value-font-weight"
+            },
+            {
+              "description": "Font style of the selected value",
+              "name": "--wcs-native-select-value-font-style"
+            },
+            {
+              "description": "Padding horizontal of the select when size is 'm'",
+              "name": "--wcs-native-select-padding-horizontal-m"
+            },
+            {
+              "description": "Padding horizontal of the select when size is 'l'",
+              "name": "--wcs-native-select-padding-horizontal-l"
+            },
+            {
+              "description": "Color of the select arrow",
+              "name": "--wcs-native-select-arrow-color"
+            },
+            {
+              "description": "Color of the select arrow when the select is disabled",
+              "name": "--wcs-native-select-arrow-color-disabled"
+            },
+            {
+              "description": "Color of the text when the select is disabled",
+              "name": "--wcs-native-select-text-color-disabled"
+            },
+            {
+              "description": "Color of the placeholder",
+              "name": "--wcs-native-select-placeholder-color"
+            },
+            {
+              "description": "Font weight of the placeholder",
+              "name": "--wcs-native-select-placeholder-font-weight"
+            },
+            {
+              "description": "Font style of the placeholder",
+              "name": "--wcs-native-select-placeholder-font-style"
+            },
+            {
+              "description": "Text color of the options",
+              "name": "--wcs-native-select-option-color"
+            },
+            {
+              "description": "Font style of the options",
+              "name": "--wcs-native-select-option-font-style"
+            },
+            {
+              "description": "Text color of the selected option",
+              "name": "--wcs-native-select-option-selected-color"
             }
           ],
           "members": [
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "WcsNativeSelectSize"
+              },
+              "default": "'m'",
+              "description": "The `size` property controls the size of the slotted `select` element by adjusting its padding.\r\nThere are two possible size options:\r\n- 'm': medium size\r\n- 'l': large size\r\n\r\nThe default value is 'm'."
+            },
+            {
+              "kind": "field",
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "If `true`, the user must fill in a value before submitting a form.\r\nIt is propagated to the slotted select element"
+            },
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsNativeSelectElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "expanded",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "selectElement",
+              "type": {
+                "text": "HTMLSelectElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "observer",
+              "type": {
+                "text": "MutationObserver"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "SLOTTED_SELECT_TRACKED_ATTRIBUTES_LIST",
+              "type": {
+                "text": "array"
+              },
+              "privacy": "private",
+              "readonly": true,
+              "default": "['disabled']"
+            },
+            {
+              "kind": "method",
+              "name": "requiredChanged",
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "boolean"
+                  }
+                },
+                {
+                  "name": "oldValue",
+                  "type": {
+                    "text": "boolean"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "onSelectedOptionChange",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "_updateStyles",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "isPlaceholderOptionSelected",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "applySelectedOptionStylesOnNativeSlottedSelectElement",
+              "privacy": "private",
+              "description": "This method should always unset all styles modified by the `applyPlaceholderStylesOnNativeSlottedSelectElement()`"
+            },
+            {
+              "kind": "method",
+              "name": "applyPlaceholderStylesOnNativeSlottedSelectElement",
+              "privacy": "private",
+              "description": "This method apply styles when the placeholder is shown.\r\n\r\nWe use javascript because we cannot achieve that behaviour in pure css when the native select is not required"
+            },
+            {
+              "kind": "method",
+              "name": "updateHostAttributeWithSlottedSelect",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "updateStyles",
+              "description": "Use this method to force the component to update its styles. It can be useful when the select is reset (with a placeholder)."
+            },
             {
               "kind": "method",
               "name": "render"
             }
           ],
-          "tagName": "wcs-list-item-property",
+          "attributes": [
+            {
+              "name": "size",
+              "fieldName": "size",
+              "type": {
+                "text": "WcsNativeSelectSize"
+              }
+            },
+            {
+              "name": "required",
+              "fieldName": "required"
+            }
+          ],
+          "tagName": "wcs-native-select",
           "events": [],
           "customElement": true
         }
@@ -10589,18 +10857,18 @@
       "exports": [
         {
           "kind": "js",
-          "name": "ListItemProperty",
+          "name": "NativeSelect",
           "declaration": {
-            "name": "ListItemProperty",
-            "module": "components/list-item-property/list-item-property.tsx"
+            "name": "NativeSelect",
+            "module": "components/native-select/native-select.tsx"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "wcs-list-item-property",
+          "name": "wcs-native-select",
           "declaration": {
-            "name": "ListItemProperty",
-            "module": "components/list-item-property/list-item-property.tsx"
+            "name": "NativeSelect",
+            "module": "components/native-select/native-select.tsx"
           }
         }
       ]
@@ -10737,6 +11005,60 @@
           "declaration": {
             "name": "MatIcon",
             "module": "components/mat-icon/mat-icon.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/list-item-property/list-item-property.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The list-item-property is a subcomponent of `wcs-list-item`.\r\nWrapped in a `wcs-list-item-properties`, it represents a property to describe an item.",
+          "name": "ListItemProperty",
+          "cssProperties": [
+            {
+              "description": "Font weight of the property",
+              "name": "--wcs-list-item-property-font-weight"
+            },
+            {
+              "description": "Color of the property",
+              "name": "--wcs-list-item-property-color"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Main container slot",
+              "name": "<no-name>"
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-list-item-property",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ListItemProperty",
+          "declaration": {
+            "name": "ListItemProperty",
+            "module": "components/list-item-property/list-item-property.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-list-item-property",
+          "declaration": {
+            "name": "ListItemProperty",
+            "module": "components/list-item-property/list-item-property.tsx"
           }
         }
       ]
@@ -11136,429 +11458,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/native-select/native-select-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/native-select/native-select.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The `wcs-native-select` component is designed to accept a native `<select>` element as a slotted child. This choice\r\nallows developers to bind the `<select>` element using the framework of their choice, without the need to re-expose all the\r\nproperties of the `<select>` and `<option>` elements in this component.\r\n\r\nThe component wraps the native `<select>` element and provides custom styles and behavior, while preserving the native\r\nfunctionality and accessibility.\r\n\r\n### ✅ Guidance\r\n\r\n- To have a placeholder, you must have an option as child which has `selected` attribute and `disabled`\r\nattribute. You can add the `hidden` attribute to don't show the placeholder option in the options overlay.\r\n\r\n### Example usage\r\n\r\n```html\r\n<wcs-native-select>\r\n  <select>\r\n    <option value=\"option1\">Option 1</option>\r\n    <option value=\"option2\">Option 2</option>\r\n    <option value=\"option3\">Option 3</option>\r\n  </select>\r\n</wcs-native-select>\r\n```\r\n\r\n### Note\r\n- We did not find a way to detect when the select is reset, if you want to apply the placeholder style when the\r\nselect is reset, you have to call the `updateStyles()` method manually.\r\n- It is strongly recommended to use native-select when you don't have to support the multi-selection feature\r\n- Use a native-select instead of a wcs-select if your application is mainly on mobile / tablet. The native behavior of the device will be used.",
-          "name": "NativeSelect",
-          "cssProperties": [
-            {
-              "description": "Line height of the select",
-              "name": "--wcs-native-select-line-height"
-            },
-            {
-              "description": "Height of the select when size is 'm'",
-              "name": "--wcs-native-select-size-m"
-            },
-            {
-              "description": "Font size of the select when size is 'm'",
-              "name": "--wcs-native-select-font-size-m"
-            },
-            {
-              "description": "Height of the select when size is 'l'",
-              "name": "--wcs-native-select-size-l"
-            },
-            {
-              "description": "Font size of the select when size is 'l'",
-              "name": "--wcs-native-select-font-size-l"
-            },
-            {
-              "description": "Border radius of the select",
-              "name": "--wcs-native-select-border-radius"
-            },
-            {
-              "description": "Background color of the select",
-              "name": "--wcs-native-select-background-color"
-            },
-            {
-              "description": "Border color of the select when not focused",
-              "name": "--wcs-native-select-border-color-default"
-            },
-            {
-              "description": "Border color of the select when disabled",
-              "name": "--wcs-native-select-border-color-disabled"
-            },
-            {
-              "description": "Border color of the select when focused",
-              "name": "--wcs-native-select-border-color-focus"
-            },
-            {
-              "description": "Border color of the select when in error state",
-              "name": "--wcs-native-select-border-color-error"
-            },
-            {
-              "description": "Border style of the select when not focused",
-              "name": "--wcs-native-select-border-style-default"
-            },
-            {
-              "description": "Border style of the select when focused",
-              "name": "--wcs-native-select-border-style-focus"
-            },
-            {
-              "description": "Border width of the select when not focused",
-              "name": "--wcs-native-select-border-width"
-            },
-            {
-              "description": "Border width of the select when focused",
-              "name": "--wcs-native-select-border-width-focus"
-            },
-            {
-              "description": "Color of the selected value",
-              "name": "--wcs-native-select-value-color"
-            },
-            {
-              "description": "Font weight of the selected value",
-              "name": "--wcs-native-select-value-font-weight"
-            },
-            {
-              "description": "Font style of the selected value",
-              "name": "--wcs-native-select-value-font-style"
-            },
-            {
-              "description": "Padding horizontal of the select when size is 'm'",
-              "name": "--wcs-native-select-padding-horizontal-m"
-            },
-            {
-              "description": "Padding horizontal of the select when size is 'l'",
-              "name": "--wcs-native-select-padding-horizontal-l"
-            },
-            {
-              "description": "Color of the select arrow",
-              "name": "--wcs-native-select-arrow-color"
-            },
-            {
-              "description": "Color of the select arrow when the select is disabled",
-              "name": "--wcs-native-select-arrow-color-disabled"
-            },
-            {
-              "description": "Color of the text when the select is disabled",
-              "name": "--wcs-native-select-text-color-disabled"
-            },
-            {
-              "description": "Color of the placeholder",
-              "name": "--wcs-native-select-placeholder-color"
-            },
-            {
-              "description": "Font weight of the placeholder",
-              "name": "--wcs-native-select-placeholder-font-weight"
-            },
-            {
-              "description": "Font style of the placeholder",
-              "name": "--wcs-native-select-placeholder-font-style"
-            },
-            {
-              "description": "Text color of the options",
-              "name": "--wcs-native-select-option-color"
-            },
-            {
-              "description": "Font style of the options",
-              "name": "--wcs-native-select-option-font-style"
-            },
-            {
-              "description": "Text color of the selected option",
-              "name": "--wcs-native-select-option-selected-color"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "WcsNativeSelectSize"
-              },
-              "default": "'m'",
-              "description": "The `size` property controls the size of the slotted `select` element by adjusting its padding.\r\nThere are two possible size options:\r\n- 'm': medium size\r\n- 'l': large size\r\n\r\nThe default value is 'm'."
-            },
-            {
-              "kind": "field",
-              "name": "required",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "If `true`, the user must fill in a value before submitting a form.\r\nIt is propagated to the slotted select element"
-            },
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsNativeSelectElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "expanded",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "selectElement",
-              "type": {
-                "text": "HTMLSelectElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "observer",
-              "type": {
-                "text": "MutationObserver"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "SLOTTED_SELECT_TRACKED_ATTRIBUTES_LIST",
-              "type": {
-                "text": "array"
-              },
-              "privacy": "private",
-              "readonly": true,
-              "default": "['disabled']"
-            },
-            {
-              "kind": "method",
-              "name": "requiredChanged",
-              "parameters": [
-                {
-                  "name": "newValue",
-                  "type": {
-                    "text": "boolean"
-                  }
-                },
-                {
-                  "name": "oldValue",
-                  "type": {
-                    "text": "boolean"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "onSelectedOptionChange",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_updateStyles",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "isPlaceholderOptionSelected",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "applySelectedOptionStylesOnNativeSlottedSelectElement",
-              "privacy": "private",
-              "description": "This method should always unset all styles modified by the `applyPlaceholderStylesOnNativeSlottedSelectElement()`"
-            },
-            {
-              "kind": "method",
-              "name": "applyPlaceholderStylesOnNativeSlottedSelectElement",
-              "privacy": "private",
-              "description": "This method apply styles when the placeholder is shown.\r\n\r\nWe use javascript because we cannot achieve that behaviour in pure css when the native select is not required"
-            },
-            {
-              "kind": "method",
-              "name": "updateHostAttributeWithSlottedSelect",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "updateStyles",
-              "description": "Use this method to force the component to update its styles. It can be useful when the select is reset (with a placeholder)."
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "size",
-              "fieldName": "size",
-              "type": {
-                "text": "WcsNativeSelectSize"
-              }
-            },
-            {
-              "name": "required",
-              "fieldName": "required"
-            }
-          ],
-          "tagName": "wcs-native-select",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "NativeSelect",
-          "declaration": {
-            "name": "NativeSelect",
-            "module": "components/native-select/native-select.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-native-select",
-          "declaration": {
-            "name": "NativeSelect",
-            "module": "components/native-select/native-select.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/nav/nav.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The nav component is a container for navigation links to other pages of the website.",
-          "name": "Nav",
-          "cssProperties": [
-            {
-              "description": "Background color of the nav",
-              "name": "--wcs-nav-background-color"
-            },
-            {
-              "description": "Width of the nav on desktop",
-              "name": "--wcs-nav-width-desktop"
-            },
-            {
-              "description": "Height of the nav on mobile",
-              "name": "--wcs-nav-height-mobile"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Bottom part of the nav to put to nav-items at the end",
-              "name": "bottom"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsProgressBarElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "nativeNav",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-nav",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Nav",
-          "declaration": {
-            "name": "Nav",
-            "module": "components/nav/nav.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-nav",
-          "declaration": {
-            "name": "Nav",
-            "module": "components/nav/nav.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/nav-item/nav-item.tsx",
       "declarations": [
         {
@@ -11713,6 +11612,107 @@
           "declaration": {
             "name": "NavItem",
             "module": "components/nav-item/nav-item.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/nav/nav.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The nav component is a container for navigation links to other pages of the website.",
+          "name": "Nav",
+          "cssProperties": [
+            {
+              "description": "Background color of the nav",
+              "name": "--wcs-nav-background-color"
+            },
+            {
+              "description": "Width of the nav on desktop",
+              "name": "--wcs-nav-width-desktop"
+            },
+            {
+              "description": "Height of the nav on mobile",
+              "name": "--wcs-nav-height-mobile"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Bottom part of the nav to put to nav-items at the end",
+              "name": "bottom"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsProgressBarElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeNav",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-nav",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Nav",
+          "declaration": {
+            "name": "Nav",
+            "module": "components/nav/nav.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-nav",
+          "declaration": {
+            "name": "Nav",
+            "module": "components/nav/nav.tsx"
           }
         }
       ]
@@ -13594,6 +13594,15 @@
             },
             {
               "kind": "field",
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "If `true`, the user must fill in a value before submitting a form."
+            },
+            {
+              "kind": "field",
               "name": "multiple",
               "type": {
                 "text": "boolean"
@@ -14222,6 +14231,10 @@
             {
               "name": "disabled",
               "fieldName": "disabled"
+            },
+            {
+              "name": "required",
+              "fieldName": "required"
             },
             {
               "name": "multiple",

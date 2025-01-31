@@ -219,6 +219,12 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
     @Prop({mutable: true})
     disabled = false;
 
+    /**
+     * If `true`, the user must fill in a value before submitting a form.
+     */
+    @Prop()
+    required = false;
+
     /** If `true`, the user can select multiple values at once. */
     @Prop({reflect: true})
     multiple = false;
@@ -1073,10 +1079,11 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
                   aria-haspopup={!this.autocomplete ? "listbox" : null}
                   aria-owns={!this.autocomplete ? this.optionsId : null}
                   aria-controls={!this.autocomplete ? this.optionsId : null}
-                  aria-disabled={this.disabled ? 'true' : null}
-                  aria-expanded={this.expanded ? 'true' : 'false'}
-                  aria-multiselectable={this.multiple ? 'true' : 'false'}
-                  aria-label={ariaLabelValue}>
+                  aria-disabled={!this.autocomplete ? (this.disabled ? 'true' : null) : null}
+                  aria-required={!this.autocomplete ? (this.required ? 'true' : 'false') : null}
+                  aria-expanded={!this.autocomplete ? (this.expanded ? 'true' : 'false') : null}
+                  aria-multiselectable={!this.autocomplete ? (this.multiple ? 'true' : 'false') : null}
+                  aria-label={!this.autocomplete ? ariaLabelValue : null}>
                 <div class="wcs-select-control">
                     <div class="wcs-select-value-container">
                         {this.hasValue
@@ -1103,6 +1110,7 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
                                                          aria-autocomplete="list"
                                                          autocomplete="off"
                                                          disabled={this.disabled}
+                                                         required={this.required}
                                                          onBlur={(e) => this.onAutocompleteFieldBlur(e)}
                                                          placeholder={this.values?.length ? null : this.placeholder}
                                                          onInput={(e) => this.onAutocompleteInputEvent(e)}
