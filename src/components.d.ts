@@ -1138,6 +1138,7 @@ export namespace Components {
      * @cssprop --wcs-input-border-color-default - default border color of the input when not focused
      * @cssprop --wcs-input-border-color-disabled - border color of the input when disabled
      * @cssprop --wcs-input-border-color-focus - border color of the input when focused
+     * @cssprop --wcs-input-reveal-password-button-border-color-focus - border color of the show/hide password button when focused
      * @cssprop --wcs-input-border-color-error - border color of the input when in error state
      * @cssprop --wcs-input-value-color - color of the input value
      * @cssprop --wcs-input-value-font-weight - font weight of the input value
@@ -1191,6 +1192,7 @@ export namespace Components {
           * Returns the native `<input>` element used under the hood.
          */
         "getInputElement": () => Promise<HTMLInputElement>;
+        "hidePasswordButtonAriaLabel": string;
         /**
           * Name of the material icon to add to the input
          */
@@ -1248,6 +1250,7 @@ export namespace Components {
           * Sets blur on the native `input` in `wcs-input`. Use this method instead of the global `input.blur()`.
          */
         "setBlur": () => Promise<void>;
+        "showPasswordButtonAriaLabel": string;
         /**
           * Specify the size (height) of the input.
          */
@@ -3384,6 +3387,7 @@ declare global {
      * @cssprop --wcs-input-border-color-default - default border color of the input when not focused
      * @cssprop --wcs-input-border-color-disabled - border color of the input when disabled
      * @cssprop --wcs-input-border-color-focus - border color of the input when focused
+     * @cssprop --wcs-input-reveal-password-button-border-color-focus - border color of the show/hide password button when focused
      * @cssprop --wcs-input-border-color-error - border color of the input when in error state
      * @cssprop --wcs-input-value-color - color of the input value
      * @cssprop --wcs-input-value-font-weight - font weight of the input value
@@ -5361,6 +5365,7 @@ declare namespace LocalJSX {
      * @cssprop --wcs-input-border-color-default - default border color of the input when not focused
      * @cssprop --wcs-input-border-color-disabled - border color of the input when disabled
      * @cssprop --wcs-input-border-color-focus - border color of the input when focused
+     * @cssprop --wcs-input-reveal-password-button-border-color-focus - border color of the show/hide password button when focused
      * @cssprop --wcs-input-border-color-error - border color of the input when in error state
      * @cssprop --wcs-input-value-color - color of the input value
      * @cssprop --wcs-input-value-font-weight - font weight of the input value
@@ -5410,6 +5415,7 @@ declare namespace LocalJSX {
           * This is required for a WebKit bug which requires us to blur and focus an input to properly focus the input in an item with delegatesFocus. It will no longer be needed with iOS 14.
          */
         "fireFocusEvents"?: boolean;
+        "hidePasswordButtonAriaLabel"?: string;
         /**
           * Name of the material icon to add to the input
          */
@@ -5478,6 +5484,7 @@ declare namespace LocalJSX {
           * If `true`, the user must fill in a value before submitting a form.
          */
         "required"?: boolean;
+        "showPasswordButtonAriaLabel"?: string;
         /**
           * Specify the size (height) of the input.
          */
@@ -7272,6 +7279,7 @@ declare module "@stencil/core" {
              * @cssprop --wcs-input-border-color-default - default border color of the input when not focused
              * @cssprop --wcs-input-border-color-disabled - border color of the input when disabled
              * @cssprop --wcs-input-border-color-focus - border color of the input when focused
+             * @cssprop --wcs-input-reveal-password-button-border-color-focus - border color of the show/hide password button when focused
              * @cssprop --wcs-input-border-color-error - border color of the input when in error state
              * @cssprop --wcs-input-value-color - color of the input value
              * @cssprop --wcs-input-value-font-weight - font weight of the input value

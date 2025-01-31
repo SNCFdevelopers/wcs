@@ -33,6 +33,7 @@ for now removed features.
 - **galactic-menu**: accessibility issue with the contrast of overlay
 - **counter**: fix focus style for Firefox
 - **form-field**: move hint and error message in aria-label instead of put in aria-description
+- **input**: show/hide password button is now focusable and well accessible
 
 ### Security
 

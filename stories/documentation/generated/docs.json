@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-02-20T10:17:07",
+  "timestamp": "2025-02-26T15:33:27",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -6693,6 +6693,10 @@
         },
         {
           "name": "cssprop",
+          "text": "--wcs-input-reveal-password-button-border-color-focus - border color of the show/hide password button when focused"
+        },
+        {
+          "name": "cssprop",
           "text": "--wcs-input-border-color-error - border color of the input when in error state"
         },
         {
@@ -7174,6 +7178,28 @@
           "required": false
         },
         {
+          "name": "hidePasswordButtonAriaLabel",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "hide-password-button-aria-label",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "\"Cacher le mot de passe\"",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "icon",
           "type": "string",
           "complexType": {
@@ -7479,6 +7505,28 @@
           "values": [
             {
               "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "showPasswordButtonAriaLabel",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "show-password-button-aria-label",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "\"Afficher le mot de passe\"",
+          "values": [
+            {
+              "type": "string"
             }
           ],
           "optional": false,

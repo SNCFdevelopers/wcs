@@ -73,6 +73,7 @@ const INPUT_INHERITED_ATTRS = ['tabindex', 'title'];
  * @cssprop --wcs-input-border-color-default - default border color of the input when not focused
  * @cssprop --wcs-input-border-color-disabled - border color of the input when disabled
  * @cssprop --wcs-input-border-color-focus - border color of the input when focused
+ * @cssprop --wcs-input-reveal-password-button-border-color-focus - border color of the show/hide password button when focused
  * @cssprop --wcs-input-border-color-error - border color of the input when in error state
  *
  * @cssprop --wcs-input-value-color - color of the input value
@@ -219,6 +220,9 @@ export class Input implements ComponentInterface, MutableAriaAttribute {
      * The name of the control, which is submitted with the form data.
      */
     @Prop() name: string = this.inputId;
+
+    @Prop() hidePasswordButtonAriaLabel: string = "Cacher le mot de passe";
+    @Prop() showPasswordButtonAriaLabel: string = "Afficher le mot de passe";
 
     /**
      * A regular expression that the value is checked against. The pattern must match the entire value, not just some
@@ -432,7 +436,11 @@ export class Input implements ComponentInterface, MutableAriaAttribute {
                     onFocus={this.onFocus}
                     {...this.inheritedAttributes}
                 />
-                {this.type === "password" ? (<wcs-mat-icon class="toggle_password" icon={this.iconPassword} size="m"  onClick={() => this.passwordRevealIconClick()}></wcs-mat-icon>) : null}
+                {this.type === "password" ? (
+                    <button title={this.passwordReveal ? this.hidePasswordButtonAriaLabel : this.showPasswordButtonAriaLabel} class="toggle_password" onClick={() => this.passwordRevealIconClick()}>
+                        <wcs-mat-icon icon={this.iconPassword} size="m"></wcs-mat-icon>
+                    </button>
+                ) : null}
                 {this.suffixLabel ? (<span class="suffix" part="suffix">{this.suffixLabel}</span>) : null}
             </Host>
         );

@@ -32,6 +32,7 @@
     --wcs-input-border-color-default: var(--wcs-semantic-color-border-primary);
     --wcs-input-border-color-disabled: var(--wcs-semantic-color-border-disabled);
     --wcs-input-border-color-focus: var(--wcs-semantic-color-border-control-focus);
+    --wcs-input-reveal-password-button-border-color-focus: var(--wcs-semantic-color-border-focus-base);
     --wcs-input-border-color-error: var(--wcs-semantic-color-border-critical);
 
     --wcs-input-value-color: var(--wcs-semantic-color-text-primary);
@@ -84,8 +85,17 @@
         outline: 0;
     }
 
-    .toggle_password {
+    button.toggle_password {
+        background: transparent;
+        border: none;
+        color: inherit;
+
         cursor: pointer;
+
+
+        &:focus-visible {
+            @include focus-outline(var(--wcs-input-reveal-password-button-border-color-focus), $outline-offset: calc(-2 * var(--wcs-input-border-width-focus)));
+        }
     }
 
     .prefix, .suffix {
