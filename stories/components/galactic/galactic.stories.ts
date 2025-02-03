@@ -71,17 +71,17 @@ const customContent = html`
  *   </wcs-button>
  *
  *   <wcs-tooltip 
- *     theme="wcs-primary" 
+ *     theme="light" 
  *     trigger="click" 
  *     interactive 
  *     for="accessibility-menu-button"
  *     .appendTo=${() => document.querySelector("#tooltip-tippy")}
  *   >
- *     <h3>Accessibilité</h2>
+ *     <h3>Accessibilité</h3>
  *     <wcs-switch>Police dyslexie</wcs-switch>
  *     <wcs-switch>Interlignage augmenté</wcs-switch>
  *
- *     <h3>Contrast</h2>
+ *     <h3>Contrast</h3>
  *     <wcs-switch checked>Contrastes renforcés</wcs-switch>
  *   </wcs-tooltip>
  *
