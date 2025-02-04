@@ -7,7 +7,34 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 > 💡 All changes in **Deprecated** will be removed on next major version
 
-## [7.0.0-rc.2] - 2025-01-29
+## Unreleased
+
+### Added
+
+for new features.
+
+### Changed
+
+for changes in existing functionality.
+
+### Deprecated
+
+for soon-to-be removed features.
+
+### Removed
+
+for now removed features.
+
+### Fixed
+
+for any bug fixes.
+
+### Security
+
+in case of vulnerabilities.
+
+
+## [7.0.0] - 2025-02-04
 
 ### Added
 
@@ -95,10 +122,6 @@ that can cause contrast issues.
 - **tooltip**: tooltip and `wcs-button` is now more accessible (aria-expanded well managed)
 - **galactic-menu**: change semantic to make it accessible
 - **galactic**: edit label of logo SNCF to make it pertinent
-
-### Security
-
-in case of vulnerabilities.
 
 ## [6.0.0] - 2024-10-15
 

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-31T15:58:50",
+  "timestamp": "2025-02-04T09:16:58",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -570,10 +570,6 @@
       "docsTags": [
         {
           "name": "cssprop",
-          "text": "--wcs-badge-lighter-percentage - Define the opacity rate to apply to the badge"
-        },
-        {
-          "name": "cssprop",
           "text": "--wcs-badge-font-weight - Define the font weight of the badge"
         },
         {
@@ -614,7 +610,15 @@
         },
         {
           "name": "cssprop",
+          "text": "--wcs-badge-background-color-lighter - Background color of the lighter badge"
+        },
+        {
+          "name": "cssprop",
           "text": "--wcs-badge-color - Text color of the badge"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-badge-color-lighter - Text color of the lighter badge"
         },
         {
           "name": "cssporp",
@@ -622,7 +626,15 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-badge-padding-horizontal - Horizontal padding of the badge"
+          "text": "--wcs-badge-padding-horizontal-l - Horizontal padding of the size L badge"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-badge-padding-horizontal-m - Horizontal padding of the size M badge"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-badge-padding-horizontal-s - Horizontal padding of the size S badge"
         }
       ],
       "usage": {},
@@ -13279,7 +13291,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-tooltip",
       "readme": "# Tooltip\r\n\r",
-      "docs": "Tooltips are used to provide additional information for features available on the website. These can improve the user\r\nexperience or simply show additional information. Tooltips appear when the user rolls over or clicks on them\r\n(for longer content).\r\n\r\nNote that this component is based on the Tippy.js library : https://atomiks.github.io/tippyjs/\r\n\r\n## Accessibility guidelines 💡\r\n\r\nThe problem is that impaired users may not be able to see what is the information provided by the tooltip. To solve\r\nthis problem, the tooltip should be served with some aria attributes to make it accessible.\r\n\r\nAria-features `wcs-tooltip` respect:\r\n- dismiss when the user presses the `Escape` key\r\n- has a `role=tooltip`\r\n\r\nBut you have to provide the \"link\" between the element you want to describe and the tooltip. To do this, you have to\r\nprovide the \"visual description\" you add on the `wcs-tooltip` to the `aria-label` attribute or the `aria-description` as soon as the attribute will be available \r\nof the element you want to describe .\r\n\r\nExample:\r\n\r\n```html\r\n<wcs-tooltip for=\"my-button\">Trashed items</wcs-tooltip>\r\n<wcs-button id=\"my-button\" aria-label=\"Trashed items\">Trash</wcs-button>\r\n```",
+      "docs": "Tooltips are used to provide additional information for features available on the website. These can improve the user\r\nexperience or simply show additional information. Tooltips appear when the user rolls over or clicks on them\r\n(for longer content).\r\n\r\nNote that this component is based on the Tippy.js library : https://atomiks.github.io/tippyjs/\r\n\r\n## Accessibility guidelines 💡\r\n\r\nThe component places necessary aria attribute on your target element (like the `wcs-button`) :\r\n- `aria-expanded`: set to true when popover is open, false when it is closed\r\n\r\nThe problem is that impaired users may not be able to see what is the information provided by the tooltip. To solve\r\nthis problem, the tooltip should be served with some aria attributes to make it accessible.\r\n\r\nAria-features `wcs-tooltip` respect:\r\n- dismiss when the user presses the `Escape` key\r\n- has a `role=tooltip`\r\n- `aria-expanded` on the targeted element: set to true when popover is open, false when it is closed\r\n\r\nAria-features `wcs-tooltip` **does not respect with `wcs-button`**:\r\n- aria-controls => we cannot do it yet, we need to wait for Cross root ARIA - export ID (https://github.com/WICG/aom/blob/gh-pages/exportid-explainer.md)\r\n\r\nBut you have to provide the \"link\" between the element you want to describe and the tooltip. To do this, you have to\r\nprovide the \"visual description\" you add on the `wcs-tooltip` to the `aria-label` attribute or the `aria-description` as soon as the attribute will be available \r\nof the element you want to describe .\r\n\r\nExample:\r\n\r\n```html\r\n<wcs-tooltip for=\"my-button\">Trashed items</wcs-tooltip>\r\n<wcs-button id=\"my-button\" aria-label=\"Trashed items\">Trash</wcs-button>\r\n```",
       "docsTags": [
         {
           "name": "cssprop",
@@ -13517,10 +13529,10 @@
         },
         {
           "name": "theme",
-          "type": "string",
+          "type": "\"dark\" | \"light\"",
           "complexType": {
-            "original": "string",
-            "resolved": "string",
+            "original": "'dark' | 'light'",
+            "resolved": "\"dark\" | \"light\"",
             "references": {}
           },
           "mutable": false,
@@ -13528,9 +13540,14 @@
           "reflectToAttr": false,
           "docs": "Allows you to change the theme used by tippy.\r\n\r\nThe WCS theme is used by default and uses the WCS CSS variables.\r\n\r\nYou can create a theme by following this documentation and choosing a custom name :\r\nhttps://atomiks.github.io/tippyjs/v6/themes/",
           "docsTags": [],
-          "default": "'wcs'",
+          "default": "'dark'",
           "values": [
             {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "light",
               "type": "string"
             }
           ],
