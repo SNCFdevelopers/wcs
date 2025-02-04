@@ -52,10 +52,10 @@
     ::slotted(a:focus-visible) {
         outline: none;
     }
+}
 
-    :host(:focus-within) {
-        @include com-nav-item-mobile-focus-outline(var(--wcs-com-nav-item-focus-outline-color));
-    }
+:host(:focus-within) {
+    @include com-nav-item-mobile-focus-outline(var(--wcs-com-nav-item-focus-outline-color));
 }
 
 /* Large screen, specific behaviour */
