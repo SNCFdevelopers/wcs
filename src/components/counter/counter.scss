@@ -47,12 +47,17 @@
     --wcs-counter-padding-l: var(--wcs-semantic-spacing-base);
 
     --wcs-counter-background-color: var(--wcs-semantic-color-background-surface-secondary);
-    --wcs-counter-gap: var(--wcs-counter-gap-size-m);
     --wcs-counter-gap-size-m: calc(1.5 * var(--wcs-semantic-spacing-base));
     --wcs-counter-gap-size-l: calc(2 * var(--wcs-semantic-spacing-base));
     --wcs-counter-outline-color-focus: var(--wcs-semantic-color-border-focus-base);
 
     --wcs-counter-transition-duration: var(--wcs-semantic-motion-duration-feedback-base);
+
+    // Default
+    --wcs-counter-padding: var(--wcs-counter-padding-m);
+    --wcs-counter-height: var(--wcs-counter-height-m);
+    --wcs-counter-font-size: var(--wcs-counter-font-size-m);
+    --wcs-counter-gap: var(--wcs-counter-gap-size-m);
 
     display: flex;
 

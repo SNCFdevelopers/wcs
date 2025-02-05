@@ -14,10 +14,15 @@
     --wcs-badge-background-color-lighter: var(--wcs-semantic-color-background-surface-accent-lighter);
     --wcs-badge-color: var(--wcs-semantic-color-foreground-primary);
     --wcs-badge-color-lighter: var(--wcs-semantic-color-foreground-inverse);
-    --wcs-badge-gap: var(--wcs-semantic-spacing-base);
     --wcs-badge-padding-horizontal-l: var(--wcs-semantic-spacing-base);
     --wcs-badge-padding-horizontal-m: var(--wcs-semantic-spacing-base);
     --wcs-badge-padding-horizontal-s: calc(0.75 * var(--wcs-semantic-spacing-base));
+
+    // Default
+    --wcs-badge-height: var(--wcs-badge-height-m);
+    --wcs-badge-gap: calc(var(--wcs-semantic-spacing-base) / 2);
+    --wcs-badge-font-size: var(--wcs-badge-font-size-m);
+    --wcs-badge-padding-horizontal: var(--wcs-badge-padding-horizontal-m);
 
     display: inline-flex;
     gap: var(--wcs-badge-gap);

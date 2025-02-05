@@ -94,7 +94,7 @@
     }
 }
 
-:host([data-size=m])  {
+:host, :host([data-size=m])  { // Default
     font-size: var(--wcs-native-select-font-size-m);
     --wcs-native-select-internal-padding-horizontal: var(--wcs-native-select-padding-horizontal-m);
 

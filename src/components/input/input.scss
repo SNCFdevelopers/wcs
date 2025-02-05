@@ -50,6 +50,12 @@
     --wcs-input-padding-horizontal-l: var(--wcs-semantic-spacing-large);
     --wcs-input-gap: var(--wcs-semantic-spacing-base);
 
+    // Default
+    --wcs-input-host-height: var(--wcs-input-height-m);
+    --wcs-input-font-size: var(--wcs-input-font-size-m);
+    padding-left: calc(var(--wcs-input-padding-horizontal-m));
+    padding-right: calc(var(--wcs-input-padding-horizontal-m));
+
     display: flex;
     width: 100%;
     height: var(--wcs-input-host-height);

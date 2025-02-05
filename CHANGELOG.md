@@ -17,7 +17,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
-for changes in existing functionality.
+- add a `size` fallback for the following components : badge, button, counter, dropdown, editable-field, input, modal, native-select
 
 ### Deprecated
 

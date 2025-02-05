@@ -100,7 +100,7 @@
     }
 }
 
-:host([size=m]) { // Default
+:host, :host([size=m]) { // Default
     --wcs-button-padding: 0 var(--wcs-button-padding-size-m);
     --wcs-button-height: var(--wcs-button-height-m);
     --wcs-button-min-width: var(--wcs-button-height-m);

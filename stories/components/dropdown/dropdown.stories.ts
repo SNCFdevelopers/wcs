@@ -6,6 +6,7 @@ import { WcsDropdownPlacement } from '../../../src/components/dropdown/dropdown-
 // @ts-ignore
 import { withActions } from '@storybook/addon-actions/decorator';
 import { getComponentArgs } from '../../utils/args-generation';
+import { ifDefined } from 'lit-html/directives/if-defined.js';
 
 const meta: Meta = {
     title: 'Components/Dropdown',
@@ -40,8 +41,12 @@ export const Default: StoryObj<DropdownStoryArgs> = {
     render: (args) => html`
         <div style="height: 250px"></div>  <!-- tag to let the overlay display properly -->
         <div style="display: flex; width: 100%; align-items: center; justify-content: center">
-            <wcs-dropdown ?disabled=${args.disabled} mode=${args.mode} shape=${args.shape} placement=${args.placement}
-                          size=${args.size} ?no-arrow=${args.noArrow}>
+            <wcs-dropdown ?disabled=${args.disabled}
+                          mode=${ifDefined(args.mode)} 
+                          shape=${ifDefined(args.shape)} 
+                          placement=${ifDefined(args.placement)}
+                          size=${ifDefined(args.size)} 
+                          ?no-arrow=${args.noArrow}>
                 <span slot="placeholder">Dropdown</span>
                 <wcs-dropdown-item>Premier item</wcs-dropdown-item>
                 <wcs-dropdown-header>ACTION HEADER</wcs-dropdown-header>
@@ -57,7 +62,8 @@ export const Default: StoryObj<DropdownStoryArgs> = {
         disabled: false,
         placement: 'bottom-end',
         mode: 'plain',
-        shape: 'normal'
+        shape: 'normal',
+        size: 'm'
     }
 }
 
@@ -68,7 +74,8 @@ export const WithoutArrow: StoryObj<DropdownStoryArgs> = {
         placement: 'bottom-end',
         mode: 'plain',
         noArrow: true,
-        shape: 'normal'
+        shape: 'normal',
+        size: 'm'
     }
 }
 
@@ -78,15 +85,16 @@ export const Disabled: StoryObj<DropdownStoryArgs> = {
         disabled: true,
         placement: 'bottom-end',
         mode: 'plain',
-        shape: 'normal'
+        shape: 'normal',
+        size: 'm'
     }
 }
 
 const SizeTemplate = (args: DropdownStoryArgs, size: string) => html`
-    <wcs-dropdown size="${size}"
-                  mode=${args.mode}
-                  shape=${args.shape}
-                  placement=${args.placement}
+    <wcs-dropdown size=${ifDefined(size)}
+                  mode=${ifDefined(args.mode)}
+                  shape=${ifDefined(args.shape)}
+                  placement=${ifDefined(args.placement)}
                   ?disabled=${args.disabled}
                   ?no-arrow=${args.noArrow}>
         <span slot="placeholder">Dropdown ${size.toUpperCase()}</span>
@@ -117,8 +125,11 @@ export const WithIcon: StoryObj<DropdownStoryArgs> = {
     render: (args) => html`
         <div style="height: 250px"></div>  <!-- tag to let the overlay display properly -->
         <div style="display: flex; width: 100%; align-items: center; justify-content: center">
-            <wcs-dropdown ?disabled=${args.disabled} mode=${args.mode} shape=${args.shape} placement=${args.placement}
-                          ?no-arrow=${args.noArrow} aria-label="Dropdown example">
+            <wcs-dropdown ?disabled=${args.disabled} 
+                          mode=${ifDefined(args.mode)} 
+                          shape=${ifDefined(args.shape)} 
+                          placement=${ifDefined(args.placement)}
+                          ?no-arrow=${args.noArrow}>
                 <span slot="placeholder">
                     <wcs-mat-icon icon="more_horiz"></wcs-mat-icon>
                 </span>
@@ -133,5 +144,6 @@ export const WithIcon: StoryObj<DropdownStoryArgs> = {
         mode: 'plain',
         shape: 'square',
         noArrow: true,
+        size: 'm'
     }
 }

@@ -3,11 +3,9 @@ import { Component, ComponentInterface, Element, h, Listen, Method, Prop, Watch 
 import { MDCRipple } from '@material/ripple';
 
 import {
-    isWcsButtonSize,
     WcsButtonMode,
     WcsButtonShape,
     WcsButtonSize,
-    WcsButtonSizeValues,
     WcsButtonType
 } from './button-interface';
 import { hasShadowDom, inheritAriaAttributes, inheritAttributes, setOrRemoveAttribute } from '../../utils/helpers';
@@ -154,11 +152,6 @@ export class Button implements ComponentInterface, MutableAriaAttribute {
     }
 
     componentWillLoad(): Promise<void> | void {
-        if (!isWcsButtonSize(this.size)) {
-            console.warn(`Invalid size value for wcs-button : "${this.size}". Must be one of "${WcsButtonSizeValues.join(', ')}"`);
-            this.size = "m"; // Default fallback value
-        }
-
         this.inheritedAttributes = {
             ...inheritAriaAttributes(this.el),
             ...inheritAttributes(this.el, BUTTON_INHERITED_ATTRS),

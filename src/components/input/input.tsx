@@ -22,10 +22,8 @@ import {
 import {
     AutocompleteTypes,
     InputChangeEventDetail,
-    isWcsInputSize,
     TextFieldTypes,
     WcsInputSize,
-    WcsInputSizeValues,
     WcsInputAutocorrect,
     WcsInputEnterKeyHint,
     WcsInputInputMode,
@@ -301,11 +299,6 @@ export class Input implements ComponentInterface, MutableAriaAttribute {
             ...inheritAriaAttributes(this.el),
             ...inheritAttributes(this.el, INPUT_INHERITED_ATTRS)
         };
-
-        if (!isWcsInputSize(this.size)) {
-            console.warn(`Invalid size value for wcs-input : "${this.size}". Must be one of "${WcsInputSizeValues.join(', ')}"`);
-            this.size = "m"; // Default fallback value
-        }
     }
 
     connectedCallback() {

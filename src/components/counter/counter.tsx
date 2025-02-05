@@ -19,7 +19,7 @@ import {
     parseCssTimeValueToMilliseconds,
     setOrRemoveAttribute
 } from '../../utils/helpers';
-import { CounterChangeEventDetail, isWcsCounterSize, WcsCounterSize, WcsCounterSizeValues } from './counter-interface';
+import { CounterChangeEventDetail, WcsCounterSize } from './counter-interface';
 import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
 
 const COUNTER_INHERITED_ATTRS = ['tabindex', 'title'];
@@ -127,11 +127,6 @@ export class Counter implements ComponentInterface, MutableAriaAttribute {
 
     componentWillLoad() {
         this.handleValueChange();
-
-        if (!isWcsCounterSize(this.size)) {
-            console.warn(`Invalid size value for wcs-counter : "${this.size}". Must be one of "${WcsCounterSizeValues.join(', ')}"`);
-            this.size = "m"; // Default fallback value
-        }
 
         this.inheritedAttributes = {
             ...inheritAriaAttributes(this.el),

@@ -1,11 +1,9 @@
 import { Component, ComponentInterface, Element, h, Host, Listen, Method, Prop, State, Watch } from '@stencil/core';
 import { SelectArrow } from '../select/select-arrow';
 import {
-    isWcsButtonSize,
     WcsButtonMode,
     WcsButtonShape,
     WcsButtonSize,
-    WcsButtonSizeValues
 } from '../button/button-interface';
 import { createPopper, Instance } from '@popperjs/core';
 import { WcsDropdownPlacement } from './dropdown-interface';
@@ -119,11 +117,6 @@ export class Dropdown implements ComponentInterface, MutableAriaAttribute {
     }
 
     componentDidLoad() {
-        if (!isWcsButtonSize(this.size)) {
-            console.warn(`Invalid size value for wcs-dropdown : "${this.size}". Must be one of "${WcsButtonSizeValues.join(', ')}"`);
-            this.size = "m"; // Default fallback value
-        }
-
         this.popper = createPopper(this.wcsButton, this.popoverDiv, {
             placement: this.placement,
             modifiers: [
