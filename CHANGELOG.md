@@ -32,7 +32,9 @@ for now removed features.
 - **com-nav-item**: now the focus ring is visible on the com-nav-item when it is focused (regression introduce with design token)
 - **galactic-menu**: accessibility issue with the contrast of overlay
 - **counter**: fix focus style for Firefox
-- **form-field**: move hint and error message in aria-label instead of put in aria-description
+- **form-field**: 
+  - move hint and error message in aria-label instead of put in aria-description
+  - label concatenation with switch and checkbox components. Form-field label is now correctly concatenated with the switch/checkbox label instead of overwriting it 
 - **input**: show/hide password button is now focusable and well accessible
 - **select**: `required` attribute was not reflected on focusable element
 - **nav**: handle letting put `button` inside `wcs-nav-item` for modal opening use cases from a `wcs-nav-item`

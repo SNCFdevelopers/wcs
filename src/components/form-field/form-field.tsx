@@ -1,6 +1,7 @@
 import { Component, ComponentInterface, Element, h, Host, Prop, State, Watch } from '@stencil/core';
 import { isMutableAriaAttribute } from "../../utils/mutable-aria-attribute";
 import { normalizeWhitespace } from '../../utils/helpers';
+import { isControlComponentWithLabel } from "../../utils/control-component-interface";
 
 /**
  * Form field component wraps the native input element and add some more functionality on top of it.
@@ -147,9 +148,20 @@ export class FormField implements ComponentInterface {
         }
     }
     
-    private updateAriaAttributes(): void {
-        if(isMutableAriaAttribute(this.spiedElement)) {
-            const ariaLabelParts: string[] = [normalizeWhitespace(this.label)];
+    private async updateAriaAttributes(): Promise<void> {
+        if (isMutableAriaAttribute(this.spiedElement)) {
+            const ariaLabelParts: string[] = [];
+            if (isControlComponentWithLabel(this.spiedElement)) {
+                const innerLabel = await this.spiedElement.getLabel();
+                const combinedLabel = `${this.label || ''} ${innerLabel || ''}`.trim();
+                if(combinedLabel) {
+                    ariaLabelParts.push(normalizeWhitespace(combinedLabel));
+                }
+            } else {
+                if(this.label) {
+                    ariaLabelParts.push(normalizeWhitespace(this.label));
+                }
+            }
 
             if(this.description) {
                 ariaLabelParts.push(normalizeWhitespace(this.description));
@@ -163,20 +175,20 @@ export class FormField implements ComponentInterface {
                 this.spiedElement.setAriaAttribute('aria-invalid', 'false');
             }
 
-            this.spiedElement.setAriaAttribute('aria-label', ariaLabelParts.join(' '));
+            this.spiedElement.setAriaAttribute('aria-label', ariaLabelParts.length > 0 ? ariaLabelParts.join(' ') : null);
         }
     }
     
-    private get label() {
-        return this.el.querySelector('wcs-label')?.textContent;
+    private get label(): string | null {
+        return this.el.querySelector('wcs-label')?.textContent || null;
     }
     
-    private get description() {
-        return this.el.querySelector('wcs-hint')?.textContent;
+    private get description(): string | null {
+        return this.el.querySelector('wcs-hint')?.textContent || null;
     }
     
-    private get error() {
-        return this.el.querySelector('wcs-error')?.textContent;
+    private get error(): string | null {
+        return this.el.querySelector('wcs-error')?.textContent || null;
     }
 
     private updateLabelRequiredFlag(isRequired: boolean, label: Element) {

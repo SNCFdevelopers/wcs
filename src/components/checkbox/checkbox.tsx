@@ -13,6 +13,7 @@ import {
 import { CheckboxChangeEventDetail, CheckboxLabelAlignment } from './checkbox-interface';
 import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
 import { inheritAriaAttributes, inheritAttributes, setOrRemoveAttribute } from "../../utils/helpers";
+import { ControlComponentWithLabel, getSlottedContentText } from "../../utils/control-component-interface";
 
 const CHECKBOX_INHERITED_ATTRS = ['tabindex', 'title'];
 
@@ -67,7 +68,7 @@ const CHECKBOX_INHERITED_ATTRS = ['tabindex', 'title'];
         delegatesFocus: true,
     },
 })
-export class Checkbox implements ComponentInterface, MutableAriaAttribute {
+export class Checkbox implements ComponentInterface, MutableAriaAttribute, ControlComponentWithLabel {
     @Element() private el!: HTMLElement;
     private nativeInput!: HTMLInputElement;
     private inheritedAttributes: { [k: string]: any } = {};
@@ -123,6 +124,11 @@ export class Checkbox implements ComponentInterface, MutableAriaAttribute {
     @Method()
     async setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) {
         setOrRemoveAttribute(this.nativeInput, attr, value);
+    }
+
+    @Method()
+    async getLabel(): Promise<string> {
+        return getSlottedContentText(this.el);
     }
 
     handleChange(e: Event) {

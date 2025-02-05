@@ -29,6 +29,16 @@ The switch component is a control used to switch between on and off state.
 
 ## Methods
 
+### `getLabel() => Promise<string>`
+
+Get the label text
+
+#### Returns
+
+Type: `Promise<string>`
+
+
+
 ### `setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>`
 
 

@@ -13,6 +13,7 @@ import {
 import { SwitchChangeEventDetail, SwitchLabelAlignment } from './switch-interface';
 import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
 import { inheritAriaAttributes, inheritAttributes, setOrRemoveAttribute } from "../../utils/helpers";
+import { ControlComponentWithLabel, getSlottedContentText } from "../../utils/control-component-interface";
 
 const SWITCH_INHERITED_ATTRS = ['tabindex'];
 
@@ -54,7 +55,7 @@ const SWITCH_INHERITED_ATTRS = ['tabindex'];
         delegatesFocus: true,
     }
 })
-export class Switch implements ComponentInterface, MutableAriaAttribute {
+export class Switch implements ComponentInterface, MutableAriaAttribute, ControlComponentWithLabel {
     @Element() private el!: HTMLElement;
     private switchId = `wcs-switch-${switchIds++}`;
     private nativeInput!: HTMLInputElement;
@@ -145,6 +146,11 @@ export class Switch implements ComponentInterface, MutableAriaAttribute {
         setOrRemoveAttribute(this.nativeInput, attr, value);
     }
 
+    @Method()
+    async getLabel(): Promise<string> {
+        return getSlottedContentText(this.el);
+    }
+    
     render() {
         return (
             <Host>

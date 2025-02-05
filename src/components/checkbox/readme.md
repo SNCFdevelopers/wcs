@@ -30,6 +30,16 @@ The checkbox component is an input for choosing one or more items from a set by 
 
 ## Methods
 
+### `getLabel() => Promise<string>`
+
+Get the label text
+
+#### Returns
+
+Type: `Promise<string>`
+
+
+
 ### `setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>`
 
 

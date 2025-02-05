@@ -393,6 +393,10 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
+          * Get the label text
+         */
+        "getLabel": () => Promise<string>;
+        /**
           * If `true` the checkbox is in indeterminate state.
          */
         "indeterminate": boolean;
@@ -2015,6 +2019,10 @@ export namespace Components {
           * Specify whether the switch is disabled or not.
          */
         "disabled": boolean;
+        /**
+          * Get the label text
+         */
+        "getLabel": () => Promise<string>;
         /**
           * Specifie the alignment of the switch with the label content
          */

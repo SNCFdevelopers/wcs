@@ -275,7 +275,7 @@ export declare interface WcsCardBody extends Components.WcsCardBody {}
 
 @ProxyCmp({
   inputs: ['checked', 'disabled', 'indeterminate', 'labelAlignment', 'name'],
-  methods: ['setAriaAttribute']
+  methods: ['setAriaAttribute', 'getLabel']
 })
 @Component({
   selector: 'wcs-checkbox',
@@ -1527,7 +1527,7 @@ export declare interface WcsSpinner extends Components.WcsSpinner {}
 
 @ProxyCmp({
   inputs: ['checked', 'disabled', 'labelAlignment', 'name'],
-  methods: ['setAriaAttribute']
+  methods: ['setAriaAttribute', 'getLabel']
 })
 @Component({
   selector: 'wcs-switch',
