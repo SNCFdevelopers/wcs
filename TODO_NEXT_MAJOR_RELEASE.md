@@ -2,10 +2,9 @@
 
 Make sure these changes are made before releasing the next release of WCS.
 
-## v6
+## v8
 
-- [x] `editable-field-interface.tsx` : rename `errorhandler` to `errorHandler`
-- [x] `textarea.tsx` : delete previously deprecated `setFocus` method
-- [x] `input.tsx` : delete previously deprecated `setFocus` method
-- [x] `select-interface.ts` : rename `SelectFilerChangeEventDetail` to `SelectFilterChangeEventDetail`
-- [~] Update documentation to take account of the new biding library for angular standalone bindings
+- [ ] Add token `semantic.color.border.focus.base.on-primary`
+- [ ] Add token `semantic.color.border.focus.alt.on-primary`
+- [ ] Rename token `semantic.color.border.focus.base-on-secondary` to `semantic.color.border.focus.base.on-secondary` (make a group named `base`)
+- [ ] Rename token `semantic.color.border.focus.alt-on-secondary` to `semantic.color.border.focus.alt.on-secondary` (make a group named `alt`)

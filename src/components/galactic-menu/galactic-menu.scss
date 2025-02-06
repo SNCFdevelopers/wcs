@@ -25,6 +25,7 @@
     background-color: var(--wcs-galactic-menu-overlay-background-color);
     color: var(--wcs-galactic-menu-overlay-color);
     padding: var(--wcs-galactic-menu-overlay-padding);
+    --wcs-semantic-color-border-focus-base: var(--wcs-semantic-color-text-inverse, white); // resolve bad contrast issue with focus outline of wcs-button
 }
 #menu[data-show] {
     display: block;

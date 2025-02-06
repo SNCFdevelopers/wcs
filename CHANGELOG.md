@@ -30,6 +30,7 @@ for now removed features.
 ### Fixed
 
 - **com-nav-item**: now the focus ring is visible on the com-nav-item when it is focused (regression introduce with design token)
+- **galactic-menu**: accessibility issue with the contrast of overlay
 
 ### Security
 

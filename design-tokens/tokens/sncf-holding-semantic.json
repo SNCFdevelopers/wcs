@@ -164,10 +164,21 @@
                         "$type": "color",
                         "$value": "{primitive.color.parme.700}"
                     },
+                    "base-on-secondary": {
+                        "$description": "Border color on focus for base elements when placed on secondary or dark background",
+                        "$type": "color",
+                        "$value": "{primitive.color.neutral.0}"
+
+                    },
                     "alt": {
                         "$description": "Alternative border color on focus for control elements like input, select, textarea...",
                         "$type": "color",
                         "$value": "{primitive.color.primary}"
+                    },
+                    "alt-on-secondary": {
+                        "$description": "Alternative border color on focus for control elements when placed on secondary or dark background",
+                        "$type": "color",
+                        "$value": "{primitive.color.neutral.0}"
                     }
                 },
                 "control": {
