@@ -27,16 +27,11 @@ type TooltipArgs = {
     appendTo: WcsTooltipAppendTo,
 }
 
-const Template = (args: TooltipArgs) => {
-    const tooltip_unique_element_id_idx = tooltip_unique_element_id++; // use to generate a unique button id for each story (doc-only)
-    return html`
-        <div style="display: flex; width: 100%; align-items: center; justify-content: center">
-            <!-- div to add space for the tooltip to demonstrate the positioning property -->
-            <wcs-button shape="small" id=${`tooltiped-button-${tooltip_unique_element_id_idx}`} aria-label=${`Hover to show tooltip ${args.tooltipInnerHtml}`}>Hover to show tooltip
-            </wcs-button>
-            <wcs-tooltip
-                id=${`tooltip-${tooltip_unique_element_id_idx}`}
-                for=${`tooltiped-button-${tooltip_unique_element_id_idx}`}
+const TooltipElement = (args: TooltipArgs, id: number) => {
+    return html `
+    <wcs-tooltip
+                id=${`tooltip-${id}`}
+                for=${`tooltiped-button-${id}`}
                 max-width=${ifDefined(args.maxWidth)}
                 ?interactive=${args.interactive}
                 theme=${ifDefined(args.theme)}
@@ -47,6 +42,17 @@ const Template = (args: TooltipArgs) => {
                 position=${ifDefined(args.position)}>
                 ${unsafeHTML(args.tooltipInnerHtml)}
             </wcs-tooltip>
+    `
+}
+
+const Template = (args: TooltipArgs) => {
+    const tooltip_unique_element_id_idx = tooltip_unique_element_id++; // use to generate a unique button id for each story (doc-only)
+    return html`
+        <div style="display: flex; width: 100%; align-items: center; justify-content: center">
+            <!-- div to add space for the tooltip to demonstrate the positioning property -->
+            <wcs-button shape="small" id=${`tooltiped-button-${tooltip_unique_element_id_idx}`} aria-label=${`Hover to show tooltip ${args.tooltipInnerHtml}`}>Hover to show tooltip
+            </wcs-button>
+            ${TooltipElement(args, tooltip_unique_element_id_idx)}
         </div>`
 };
 
@@ -55,6 +61,29 @@ export const Default: StoryObj = {
     args: {
         tooltipInnerHtml: 'Tooltip content'
     },
+}
+
+/**
+ * The WCS theme 'dark' is used by default and uses the WCS CSS variables.  
+ * Only use the 'light' theme when the tooltip is opened over a dark, secondary background.
+ */
+export const Themes: StoryObj = {
+    render: (args: TooltipArgs) => {
+        const tooltip_unique_element_id_idx = tooltip_unique_element_id++; // use to generate a unique button id for each story (doc-only)
+        return html`
+        <div style="display: flex; width: 100%; align-items: center; justify-content: center; gap: var(--wcs-semantic-spacing-base)">
+            <!-- div to add space for the tooltip to demonstrate the positioning property -->
+            <wcs-button shape="small" id=${`tooltiped-button-${tooltip_unique_element_id_idx}`}>Tooltip dark (default)</wcs-button>
+            ${TooltipElement({...args, theme: 'dark'}, tooltip_unique_element_id_idx)}
+            
+            <wcs-button shape="small" id=${`tooltiped-button-${tooltip_unique_element_id_idx + 100}`}>Hover to show tooltip</wcs-button>
+            ${TooltipElement({...args, theme: 'light'}, tooltip_unique_element_id_idx + 100)}
+        </div>`
+    },
+    args: {
+        ...Default.args,
+        theme: 'dark'
+    }
 }
 
 export const Top: StoryObj = {
@@ -141,19 +170,7 @@ export const FullScreenAppendToParent = {
                 <wcs-button shape="small" ${ref(fullscreenDiv)}
                             id=${`tooltiped-button-${tooltip_unique_element_id_idx}`}>Hover to show tooltip
                 </wcs-button>
-                <wcs-tooltip
-                    append-to=${ifDefined(args.appendTo)}
-                    for=${`tooltiped-button-${tooltip_unique_element_id_idx}`}
-                    max-width=${ifDefined(args.maxWidth)}
-                    ?interactive=${args.interactive}
-                    theme=${ifDefined(args.theme)}
-                    .delay=${ifDefined(args.delay)}
-                    .duration=${ifDefined(args.duration)}
-                    content=${ifDefined(args.content)}
-                    trigger=${ifDefined(args.trigger)}
-                    position=${ifDefined(args.position)}>
-                    ${unsafeHTML(args.tooltipInnerHtml)}
-                </wcs-tooltip>
+                ${TooltipElement(args, tooltip_unique_element_id_idx)}
             </div>`
     },
     args: {

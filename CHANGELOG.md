@@ -39,7 +39,9 @@ for now removed features.
 - **input**: show/hide password button is now focusable and well accessible
 - **select**: `required` attribute was not reflected on focusable element
 - **nav**: handle letting put `button` inside `wcs-nav-item` for modal opening use cases from a `wcs-nav-item`
-- **tooltip**: set `aria-expanded` on `wcs-button` only when tooltip is on interactive mode
+- **tooltip**: 
+    - set `aria-expanded` on `wcs-button` only when tooltip is on interactive mode
+    - accessibility issue with the contrast of focus and text colors
 - **editable-field**: improve accessibility :
     - fix keyboard navigation
     - handle focus correctly and add focused style
@@ -63,6 +65,7 @@ in case of vulnerabilities.
 - **modal**:
     - add props to conditional when focus is set to modal opening ([see proposal](https://gitlab.com/SNCF/wcs/-/issues/329))
     - add props to change on which element the focus will be on modal opening
+
 ### Changed
 
 - **accordion**: 'Ouvrez/Fermez' text is now hidden by default (`hideActionText` = `true`). If you want to show it, set

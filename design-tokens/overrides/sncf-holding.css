@@ -16,6 +16,13 @@
     --wcs-semantic-color-border-focus-base: var(--wcs-semantic-color-border-focus-base-on-secondary);
 }
 
+/* wcs-tooltip */
+.sncf-holding .tippy-box[data-theme~='dark'] {
+    --wcs-semantic-color-text-primary: var(--wcs-semantic-color-text-inverse);
+    --wcs-semantic-color-border-focus-base: var(--wcs-semantic-color-border-focus-base-on-secondary);
+    --wcs-semantic-color-border-focus-alt: var(--wcs-semantic-color-border-focus-alt-on-secondary);
+}
+
 .sncf-holding .wcs-secondary {
     --wcs-semantic-color-background-action-primary-default: var(--wcs-primitive-color-neutral-700);
     --wcs-semantic-color-background-surface-brand: var(--wcs-primitive-color-neutral-700);

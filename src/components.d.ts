@@ -2309,7 +2309,7 @@ export namespace Components {
          */
         "show": () => Promise<void>;
         /**
-          * Allows you to change the theme used by tippy.  The WCS theme is used by default and uses the WCS CSS variables.  You can create a theme by following this documentation and choosing a custom name : https://atomiks.github.io/tippyjs/v6/themes/
+          * Allows you to change the theme used by tippy.  The WCS theme 'dark' is used by default and uses the WCS CSS variables.  You can create a theme by following this documentation and choosing a custom name : https://atomiks.github.io/tippyjs/v6/themes/
          */
         "theme": 'dark' | 'light';
         /**
@@ -6583,7 +6583,7 @@ declare namespace LocalJSX {
          */
         "position"?: WcsTooltipPosition;
         /**
-          * Allows you to change the theme used by tippy.  The WCS theme is used by default and uses the WCS CSS variables.  You can create a theme by following this documentation and choosing a custom name : https://atomiks.github.io/tippyjs/v6/themes/
+          * Allows you to change the theme used by tippy.  The WCS theme 'dark' is used by default and uses the WCS CSS variables.  You can create a theme by following this documentation and choosing a custom name : https://atomiks.github.io/tippyjs/v6/themes/
          */
         "theme"?: 'dark' | 'light';
         /**
