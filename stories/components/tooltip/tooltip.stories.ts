@@ -32,7 +32,7 @@ const Template = (args: TooltipArgs) => {
     return html`
         <div style="display: flex; width: 100%; align-items: center; justify-content: center">
             <!-- div to add space for the tooltip to demonstrate the positioning property -->
-            <wcs-button shape="small" id=${`tooltiped-button-${tooltip_unique_element_id_idx}`}>Hover to show tooltip
+            <wcs-button shape="small" id=${`tooltiped-button-${tooltip_unique_element_id_idx}`} aria-label=${`Hover to show tooltip ${args.tooltipInnerHtml}`}>Hover to show tooltip
             </wcs-button>
             <wcs-tooltip
                 id=${`tooltip-${tooltip_unique_element_id_idx}`}

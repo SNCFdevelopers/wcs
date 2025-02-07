@@ -36,6 +36,7 @@ for now removed features.
 - **input**: show/hide password button is now focusable and well accessible
 - **select**: `required` attribute was not reflected on focusable element
 - **nav**: handle letting put `button` inside `wcs-nav-item` for modal opening use cases from a `wcs-nav-item`
+- **tooltip**: set `aria-expanded` on `wcs-button` only when tooltip is on interactive mode
 
 ### Security
 
