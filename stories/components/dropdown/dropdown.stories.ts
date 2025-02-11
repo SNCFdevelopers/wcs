@@ -118,9 +118,9 @@ export const WithIcon: StoryObj<DropdownStoryArgs> = {
         <div style="height: 250px"></div>  <!-- tag to let the overlay display properly -->
         <div style="display: flex; width: 100%; align-items: center; justify-content: center">
             <wcs-dropdown ?disabled=${args.disabled} mode=${args.mode} shape=${args.shape} placement=${args.placement}
-                          ?no-arrow=${args.noArrow}>
+                          ?no-arrow=${args.noArrow} aria-label="Dropdown example">
                 <span slot="placeholder">
-                    <wcs-mat-icon icon="more_horiz" role="img" aria-label="Dropdown example"></wcs-mat-icon>
+                    <wcs-mat-icon icon="more_horiz"></wcs-mat-icon>
                 </span>
                 <wcs-dropdown-item>Premier item</wcs-dropdown-item>
             </wcs-dropdown>
