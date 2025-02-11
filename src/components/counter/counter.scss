@@ -74,6 +74,10 @@
         background-clip: padding-box;
         gap: var(--wcs-counter-gap);
 
+        &:focus-within {
+            outline: none;
+        }
+
         &:has(.current-value:focus-visible) {
             @include focus-outline($outline-color: var(--wcs-counter-outline-color-focus), $border-radius: var(--wcs-counter-border-radius), $outline-offset: 0);
         }
