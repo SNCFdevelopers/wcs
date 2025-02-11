@@ -26,3 +26,8 @@ the maximum width used by the footer content is defined by the css variable `--w
   │            │            end-left            │            end-right           │            │
   └────────────┴────────────────────────────────┴────────────────────────────────┴────────────┘
 ```
+
+## Accessibility guidelines 💡
+
+- `<wcs-footer>` already has a  `<footer role="contentinfo">` inside. Please make sure it is the only one present in your DOM.
+- This component must be a sibling of the `<main>` element

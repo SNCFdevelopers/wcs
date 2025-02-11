@@ -28,19 +28,21 @@ export class Footer implements ComponentInterface {
     render(): any {
         return (
             <Host>
-                <div class="container">
-                    <div>
-                        <slot />
-                    </div>
-                    <div class="end">
-                        <div class="end-left">
-                            <slot name="end-left"/>
+                <footer role="contentinfo">
+                    <div class="container">
+                        <div>
+                            <slot/>
                         </div>
-                        <div class="end-right">
-                            <slot name="end-right"/>
+                        <div class="end">
+                            <div class="end-left">
+                                <slot name="end-left"/>
+                            </div>
+                            <div class="end-right">
+                                <slot name="end-right"/>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </footer>
             </Host>
         )
     }
