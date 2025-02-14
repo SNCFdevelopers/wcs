@@ -43,6 +43,7 @@ for now removed features.
 - **tooltip**: 
     - set `aria-expanded` on `wcs-button` only when tooltip is on interactive mode
     - accessibility issue with the contrast of focus and text colors
+    - update documentation for the `content` property
 - **editable-field**: improve accessibility :
     - fix keyboard navigation
     - handle focus correctly and add focused style
@@ -50,7 +51,7 @@ for now removed features.
     - handle error message for screen readers
 - **grid**: sort-arrow not correctly resizing in grid-columns
 - **badge**: set inline-size to avoid badge stretching with flex layouts
-- **tooltip**: update documentation for the `content` property
+- **Angular Formly**: fix `required` prop condition for  `wcs-input`, `wcs-radio` and `wcs-textarea` formly components
 
 ### Security
 

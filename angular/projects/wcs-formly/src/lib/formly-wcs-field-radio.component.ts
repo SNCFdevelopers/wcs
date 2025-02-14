@@ -14,7 +14,7 @@ export type WcsFormlyRadioProps = WcsFormlyFieldWrapperProps & {
       <wcs-radio-group
         [id]="id"
         [attr.mode]="props?.attributes?.mode"
-        [attr.required]="props.required && props.hideRequiredMarker !== true"
+        [attr.required]="(props.required && props.hideRequiredMarker !== true) ? true : null"
         [formControl]="formControl"
         [formlyAttributes]="field"
         [ngStyle]="props.styles?.input">

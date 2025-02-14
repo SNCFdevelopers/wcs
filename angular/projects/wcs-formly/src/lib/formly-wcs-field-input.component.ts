@@ -41,7 +41,7 @@ export type WcsFormlyInputProps = WcsFormlyFieldWrapperProps & {
                  [maxlength]="props.maxLength"
                  [prefixLabel]="props.prefixLabel"
                  [suffixLabel]="props.suffixLabel"
-                 [attr.required]="props.required && props.hideRequiredMarker !== true"
+                 [attr.required]="(props.required && props.hideRequiredMarker !== true) ? true : null"
                  [ngStyle]="props.styles?.input"></wcs-input>
     </formly-wcs-field-wrapper>
   `,
