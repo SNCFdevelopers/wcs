@@ -51,7 +51,9 @@ for now removed features.
     - handle error message for screen readers
 - **grid**: sort-arrow not correctly resizing in grid-columns
 - **badge**: set inline-size to avoid badge stretching with flex layouts
-- **Angular Formly**: fix `required` prop condition for  `wcs-input`, `wcs-radio` and `wcs-textarea` formly components
+- **Angular Formly**:
+  - fix `required` prop condition for  `wcs-input`, `wcs-radio` and `wcs-textarea` formly components
+  - `chips` can now be used with `wcs-select` formly component
 
 ### Security
 
