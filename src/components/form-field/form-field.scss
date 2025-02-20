@@ -7,8 +7,17 @@
     --wcs-form-field-prefix-value-color: var(--wcs-semantic-color-text-inverse);
     --wcs-form-field-prefix-placeholder-color: var(--wcs-semantic-color-text-inverse);
 
-    // Prefixed select
+    display: flex;
+    flex-direction: column;
+    gap: var(--wcs-form-field-gap);
+
+    .input-container {
+        display: flex;
+    }
+
+    /* Components in the prefix slot */
     ::slotted([slot=prefix]) {
+        /* Select */
         --wcs-select-value-color: var(--wcs-semantic-color-text-inverse);
         --wcs-select-placeholder-color: var(--wcs-semantic-color-text-inverse);
         --wcs-select-control-background-color: var(--wcs-semantic-color-background-action-primary-default);
@@ -18,6 +27,7 @@
         --wcs-select-control-border-style-focus: dashed;
         --wcs-select-control-border-color-focus: var(--wcs-semantic-color-border-focus-base);
 
+        /* Native select */
         --wcs-native-select-value-color: var(--wcs-semantic-color-text-inverse);
         --wcs-native-select-placeholder-color: var(--wcs-semantic-color-text-inverse);
         --wcs-native-select-arrow-color: var(--wcs-form-field-prefix-icon-color);
@@ -27,38 +37,45 @@
         --wcs-native-select-border-style-focus: dashed;
         --wcs-native-select-border-radius: var(--wcs-form-field-prefix-suffix-border-radius) 0 0 var(--wcs-form-field-prefix-suffix-border-radius);
         --wcs-native-select-option-color: var(--wcs-semantic-color-text-inverse);
+
+        /* Button */
+        --wcs-button-border-radius: var(--wcs-form-field-prefix-suffix-border-radius) 0 0 var(--wcs-form-field-prefix-suffix-border-radius);
     }
 
-    ::slotted([slot=prefix][disabled]),
-    ::slotted([slot=prefix]:disabled),
-    ::slotted([slot=prefix][aria-disabled=true]),
-    ::slotted([slot=prefix][data-disabled]) {
-        --wcs-semantic-color-background-control-disabled: var(--wcs-semantic-color-background-action-primary-disabled);
-        --wcs-semantic-color-text-disabled: var(--wcs-semantic-color-foreground-disabled);
-
-        --wcs-select-control-background-color: var(--wcs-semantic-color-background-action-primary-disabled);
-        --wcs-select-value-color: var(--wcs-semantic-color-text-disabled);
-        --wcs-select-placeholder-color: var(--wcs-semantic-color-text-disabled);
-
-        --wcs-native-select-background-color: var(--wcs-semantic-color-background-action-primary-disabled);
-        --wcs-native-select-placeholder-color: var(--wcs-semantic-color-text-disabled);
-        --wcs-native-select-value-color: var(--wcs-semantic-color-text-disabled);
+    /* Components in the suffix slot */
+    ::slotted([slot=suffix]) {
+        --wcs-button-border-radius: 0 var(--wcs-form-field-prefix-suffix-border-radius) var(--wcs-form-field-prefix-suffix-border-radius) 0;
+        --wcs-select-control-border-radius: 0 var(--wcs-form-field-prefix-suffix-border-radius) var(--wcs-form-field-prefix-suffix-border-radius) 0;
+        --wcs-native-select-border-radius: 0 var(--wcs-form-field-prefix-suffix-border-radius) var(--wcs-form-field-prefix-suffix-border-radius) 0;
     }
+}
 
-    ::slotted([slot=prefix]:hover:not([disabled]):not([data-disabled])) {
-        --wcs-select-control-background-color: var(--wcs-semantic-color-background-action-primary-hover);
-        --wcs-native-select-background-color: var(--wcs-semantic-color-background-action-primary-hover);
-    }
+/* Disabled components in the prefix slot */
+::slotted([slot=prefix][disabled]),
+::slotted([slot=prefix]:disabled),
+::slotted([slot=prefix][aria-disabled=true]),
+::slotted([slot=prefix][data-disabled]) {
+    --wcs-semantic-color-background-control-disabled: var(--wcs-semantic-color-background-action-primary-disabled);
+    --wcs-semantic-color-text-disabled: var(--wcs-semantic-color-foreground-disabled);
 
-    ::slotted([slot=prefix]:active:not([disabled]):not([data-disabled])) {
-        --wcs-select-control-background-color: var(--wcs-semantic-color-background-action-primary-press);
-        --wcs-native-select-background-color: var(--wcs-semantic-color-background-action-primary-press);
-    }
-    // endregion
+    --wcs-select-control-background-color: var(--wcs-semantic-color-background-action-primary-disabled);
+    --wcs-select-value-color: var(--wcs-semantic-color-text-disabled);
+    --wcs-select-placeholder-color: var(--wcs-semantic-color-text-disabled);
 
-    display: flex;
-    flex-direction: column;
-    gap: var(--wcs-form-field-gap);
+    --wcs-native-select-background-color: var(--wcs-semantic-color-background-action-primary-disabled);
+    --wcs-native-select-placeholder-color: var(--wcs-semantic-color-text-disabled);
+    --wcs-native-select-value-color: var(--wcs-semantic-color-text-disabled);
+}
+
+/* Hover and press states */
+::slotted([slot=prefix]:hover:not([disabled]):not([data-disabled])) {
+    --wcs-select-control-background-color: var(--wcs-semantic-color-background-action-primary-hover);
+    --wcs-native-select-background-color: var(--wcs-semantic-color-background-action-primary-hover);
+}
+
+::slotted([slot=prefix]:active:not([disabled]):not([data-disabled])) {
+    --wcs-select-control-background-color: var(--wcs-semantic-color-background-action-primary-press);
+    --wcs-native-select-background-color: var(--wcs-semantic-color-background-action-primary-press);
 }
 
 .input-container {
@@ -73,27 +90,31 @@
     width: 100%;
 }
 
-// Make input square on left side if there is a prefix
+/* Components in the center that are prefixed */
 :host(.has-prefix) {
-    ::slotted(wcs-input) {
+    ::slotted(:not([slot=prefix])) {
         --wcs-input-border-radius-left: 0;
+        --wcs-select-control-border-radius: 0 var(--wcs-form-field-prefix-suffix-border-radius) var(--wcs-form-field-prefix-suffix-border-radius) 0;
+        --wcs-native-select-border-radius: 0 var(--wcs-form-field-prefix-suffix-border-radius) var(--wcs-form-field-prefix-suffix-border-radius) 0;
     }
 }
 
-// Make input square on right side if there is a suffix
+/* Components in the center that are suffixed */
 :host(.has-suffix) {
-    ::slotted(wcs-input) {
+    ::slotted(:not([slot=suffix])) {
         --wcs-input-border-radius-right: 0;
+        --wcs-select-control-border-radius: var(--wcs-form-field-prefix-suffix-border-radius) 0 0 var(--wcs-form-field-prefix-suffix-border-radius);
+        --wcs-native-select-border-radius: var(--wcs-form-field-prefix-suffix-border-radius) 0 0 var(--wcs-form-field-prefix-suffix-border-radius);
     }
+
 }
 
-::slotted([slot=suffix]) {
-    // Make button square on left side
-    --wcs-button-border-radius: 0 var(--wcs-form-field-prefix-suffix-border-radius) var(--wcs-form-field-prefix-suffix-border-radius) 0;
-
-    // Make select square on left side
-    --wcs-select-control-border-radius: 0 var(--wcs-form-field-prefix-suffix-border-radius) var(--wcs-form-field-prefix-suffix-border-radius) 0 ;
-
-    // Make native select square on left side
-    --wcs-native-select-border-radius: 0 var(--wcs-form-field-prefix-suffix-border-radius) var(--wcs-form-field-prefix-suffix-border-radius) 0;
+/* Components in the center that are prefixed AND suffixed */
+:host(.has-prefix.has-suffix) {
+    ::slotted(:not([slot=prefix]):not([slot=suffix])) {
+        --wcs-input-border-radius-left: 0;
+        --wcs-input-border-radius-right: 0;
+        --wcs-select-control-border-radius: 0;
+        --wcs-native-select-border-radius: 0;
+    }
 }

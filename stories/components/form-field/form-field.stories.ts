@@ -257,7 +257,42 @@ const PrefixSuffixGroupTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (arg
             </select>
         </wcs-native-select>
     </wcs-form-field>
+
+    <wcs-form-field ?is-error=${args.isError}>
+        <wcs-select placeholder="Select data...">
+            <wcs-select-option value="nbStations">Number of train stations</wcs-select-option>
+            <wcs-select-option value="nbLines">Number of train lines</wcs-select-option>
+        </wcs-select>
+        <wcs-button shape="square" slot="suffix">
+            <wcs-mat-icon icon="clear" role="img" aria-label="Clear input"></wcs-mat-icon>
+        </wcs-button>
+    </wcs-form-field>
+
+    <wcs-form-field ?is-error=${args.isError}>
+        <wcs-button shape="square" slot="prefix">
+            <wcs-mat-icon icon="clear" role="img" aria-label="Clear input"></wcs-mat-icon>
+        </wcs-button>
+        <wcs-select placeholder="Select data...">
+            <wcs-select-option value="nbStations">Number of train stations</wcs-select-option>
+            <wcs-select-option value="nbLines">Number of train lines</wcs-select-option>
+        </wcs-select>
+    </wcs-form-field>
 `;
+
+/**
+ * You can stick form components together using prefix and suffix slots.  
+ * Supported components are : `wcs-input`, `wcs-select`, `wcs-native-select`, `wcs-button`.
+ * 
+ * The most common pattern is the following one :
+ * 
+ * ```
+ * prefix                  suffix
+ *     👇                  👇
+ * [ select ] [ input ] [ button ]
+ * ```
+ * 
+ * You can find some variations below.
+ */
 export const PrefixSuffixGroup: StoryObj = {
     render: (args) => PrefixSuffixGroupTemplate(args, this),
     args: {

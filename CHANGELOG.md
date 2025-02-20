@@ -33,6 +33,7 @@ for now removed features.
 - **galactic-menu**: accessibility issue with the contrast of overlay
 - **counter**: fix focus style for Firefox
 - **form-field**: 
+  - fix prefix/suffix slot behaviors. See "Form Field > Prefix Suffix Group" documentation.
   - move hint and error message in aria-label instead of put in aria-description
   - label concatenation with switch and checkbox components. Form-field label is now correctly concatenated with the switch/checkbox label instead of overwriting it 
   - **radio-group**: we now set label on radio-group from form-field 

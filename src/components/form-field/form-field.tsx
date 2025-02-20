@@ -69,8 +69,8 @@ export class FormField implements ComponentInterface {
     private observer: MutationObserver;
 
     componentWillLoad() {
-        this.hasSuffix = this.el.querySelector('wcs-button') !== null;
-        this.hasPrefix = this.el.querySelector('wcs-select') !== null;
+        this.hasSuffix = this.el.querySelector('[slot=suffix]') !== null;
+        this.hasPrefix = this.el.querySelector('[slot=prefix]') !== null;
     }
 
     componentDidLoad() {
