@@ -12,6 +12,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 
 - **footer**: add `<footer role="contentinfo">` inside the component for accessibility
+- **design-tokens**: add root-scoped CSS file generation for themes
 
 ### Changed
 

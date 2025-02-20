@@ -45,6 +45,39 @@ To start using a theme :
 - If you are using Angular (with modules) <img style={{transform: 'translateY(8px)'}}  width="30" alt="Angular Logo" src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Angular_full_color_logo.svg"></img> consult **[Angular • Add a theme section](../?path=/docs/documentation-getting-started-angular--documentation#6-add-a-theme)**
 - If you are using Angular (standalone) <img style={{transform: 'translateY(8px)'}}  width="30" alt="Angular Logo" src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Angular_full_color_logo.svg"></img> consult **[Angular Standalone • Add a theme section](../?path=/docs/documentation-getting-started-angular--documentation#6-add-a-theme-1)**
 
+### Without a framework
+
+If you are not using a framework, you can include the CSS file of the theme you want directly in your HTML file. WCS provides two types of css files for each theme:
+- `{theme-name}.css`: this file contains all the variables with the theme name as a class name selector. That means that you need to add the class name to the root of your document to apply the theme. The advantages of this file are that you can easily switch between themes by changing the class name of the root element.
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    ...
+    <link rel="stylesheet" href="wcs-core/design-tokens/dist/sncf-holding.css">
+</head>
+<body class="sncf-holding">
+    <!-- Your content here -->
+</body>
+</html>
+```
+
+- `{theme-name}-root-scoped.css`: this file contains all the variables with the `:root` selector. That means that you don't need to add a class name to the root of your document to apply the theme. This is useful if you don't have the control of the root element of your document (e.g. with a site generator, ...).
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    ...
+    <link rel="stylesheet" href="wcs-core/design-tokens/dist/sncf-holding-root-scoped.css">
+</head>
+<body>
+    <!-- Your content here -->
+</body>
+</html>
+```
+
+
+
 ## How it works
 ### Introduction
 

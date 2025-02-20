@@ -1,4 +1,5 @@
 import StyleDictionary from "style-dictionary";
+import { ROOT_SCOPED_FILE_NAME_SUFFIX } from './index.mjs';
 
 const styleDictionnaryConfig = {
     log: {
@@ -33,7 +34,15 @@ export async function buildVariables(buildConfig, tokensConfig) {
                         selector: tokensConfig.selector,
                         outputReferences: true
                     },
-                }]
+                },
+                    {
+                        destination: `${tokensConfig.theme}${ROOT_SCOPED_FILE_NAME_SUFFIX}.css`,
+                        format: "css/variables",
+                        options: {
+                            selector: ':root',
+                            outputReferences: true
+                        },
+                    }]
             },
             jsonResolved: {
                 buildPath: `${buildConfig.outputDirectory}/`,

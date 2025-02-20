@@ -1129,44 +1129,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/accordion-header/accordion-header.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The accordion-header is a subcomponent of `wcs-accordion`. It represents the heading text inside the accordion panel.",
-          "name": "AccordionHeader",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-accordion-header",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "AccordionHeader",
-          "declaration": {
-            "name": "AccordionHeader",
-            "module": "components/accordion-header/accordion-header.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-accordion-header",
-          "declaration": {
-            "name": "AccordionHeader",
-            "module": "components/accordion-header/accordion-header.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/accordion-content/accordion-content.tsx",
       "declarations": [
         {
@@ -1209,6 +1171,44 @@
           "declaration": {
             "name": "AccordionContent",
             "module": "components/accordion-content/accordion-content.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/accordion-header/accordion-header.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The accordion-header is a subcomponent of `wcs-accordion`. It represents the heading text inside the accordion panel.",
+          "name": "AccordionHeader",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-accordion-header",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "AccordionHeader",
+          "declaration": {
+            "name": "AccordionHeader",
+            "module": "components/accordion-header/accordion-header.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-accordion-header",
+          "declaration": {
+            "name": "AccordionHeader",
+            "module": "components/accordion-header/accordion-header.tsx"
           }
         }
       ]
@@ -6331,118 +6331,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/galactic/galactic.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "*Part of communication design system*\r\nThis component replaces the vertical navbar for sites and applications that use the communication design system",
-          "name": "Galactic",
-          "cssProperties": [
-            {
-              "description": "Background color of the bar",
-              "name": "--wcs-galactic-background-color"
-            },
-            {
-              "description": "Height of the bar",
-              "name": "--wcs-galactic-height"
-            },
-            {
-              "description": "Text color of the bar",
-              "name": "--wcs-galactic-text-color"
-            },
-            {
-              "description": "Font size of the text in the bar",
-              "name": "--wcs-galactic-font-size"
-            },
-            {
-              "description": "Font weight of the text in the bar",
-              "name": "--wcs-galactic-font-weight"
-            },
-            {
-              "description": "Maximum width of the bar",
-              "name": "--wcs-galactic-max-width"
-            },
-            {
-              "description": "Horizontal padding of the bar",
-              "name": "--wcs-galactic-padding-horizontal"
-            },
-            {
-              "description": "Height of the SNCF logo",
-              "name": "--wcs-galactic-logo-height"
-            },
-            {
-              "description": "Margin right of the SNCF logo",
-              "name": "--wcs-galactic-logo-margin-right"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Main container slot",
-              "name": "<no-name>"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "text",
-              "type": {
-                "text": "string"
-              },
-              "description": "Text to display in the bar"
-            },
-            {
-              "kind": "field",
-              "name": "show",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "text",
-              "fieldName": "text",
-              "type": {
-                "text": "string"
-              }
-            }
-          ],
-          "tagName": "wcs-galactic",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Galactic",
-          "declaration": {
-            "name": "Galactic",
-            "module": "components/galactic/galactic.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-galactic",
-          "declaration": {
-            "name": "Galactic",
-            "module": "components/galactic/galactic.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/form-field/form-field.tsx",
       "declarations": [
         {
@@ -6715,6 +6603,118 @@
           "declaration": {
             "name": "FormField",
             "module": "components/form-field/form-field.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/galactic/galactic.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "*Part of communication design system*\r\nThis component replaces the vertical navbar for sites and applications that use the communication design system",
+          "name": "Galactic",
+          "cssProperties": [
+            {
+              "description": "Background color of the bar",
+              "name": "--wcs-galactic-background-color"
+            },
+            {
+              "description": "Height of the bar",
+              "name": "--wcs-galactic-height"
+            },
+            {
+              "description": "Text color of the bar",
+              "name": "--wcs-galactic-text-color"
+            },
+            {
+              "description": "Font size of the text in the bar",
+              "name": "--wcs-galactic-font-size"
+            },
+            {
+              "description": "Font weight of the text in the bar",
+              "name": "--wcs-galactic-font-weight"
+            },
+            {
+              "description": "Maximum width of the bar",
+              "name": "--wcs-galactic-max-width"
+            },
+            {
+              "description": "Horizontal padding of the bar",
+              "name": "--wcs-galactic-padding-horizontal"
+            },
+            {
+              "description": "Height of the SNCF logo",
+              "name": "--wcs-galactic-logo-height"
+            },
+            {
+              "description": "Margin right of the SNCF logo",
+              "name": "--wcs-galactic-logo-margin-right"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Main container slot",
+              "name": "<no-name>"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "text",
+              "type": {
+                "text": "string"
+              },
+              "description": "Text to display in the bar"
+            },
+            {
+              "kind": "field",
+              "name": "show",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "text",
+              "fieldName": "text",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "tagName": "wcs-galactic",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Galactic",
+          "declaration": {
+            "name": "Galactic",
+            "module": "components/galactic/galactic.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-galactic",
+          "declaration": {
+            "name": "Galactic",
+            "module": "components/galactic/galactic.tsx"
           }
         }
       ]
@@ -8400,342 +8400,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/grid-pagination/grid-pagination-arrow.tsx",
-      "declarations": [
-        {
-          "kind": "function",
-          "name": "GridPaginationArrow",
-          "parameters": [
-            {
-              "name": "{active, order, double = false}"
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "GridPaginationArrow",
-          "declaration": {
-            "name": "GridPaginationArrow",
-            "module": "components/grid-pagination/grid-pagination-arrow.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/grid-pagination/grid-pagination.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The grid pagination is a subcomponent of `wcs-grid`, slotted in `grid-pagination` under the `<table>` element.",
-          "name": "GridPagination",
-          "cssProperties": [
-            {
-              "description": "Text color of the grid pagination",
-              "name": "--wcs-grid-pagination-color"
-            },
-            {
-              "description": "Font-size of the grid pagination",
-              "name": "--wcs-grid-pagination-font-size"
-            },
-            {
-              "description": "Font-weight of the grid pagination",
-              "name": "--wcs-grid-pagination-font-weight"
-            },
-            {
-              "description": "Gap between the page size, number of elements and page management",
-              "name": "--wcs-grid-pagination-gap"
-            },
-            {
-              "description": "Gap between the select and the text within the page size container",
-              "name": "--wcs-grid-pagination-page-size-gap"
-            },
-            {
-              "description": "Gap within the page management counter",
-              "name": "--wcs-grid-pagination-counter-gap"
-            },
-            {
-              "description": "Margin between the grid and the pagination",
-              "name": "--wcs-grid-pagination-margin-top"
-            },
-            {
-              "description": "Color of the inactive arrow",
-              "name": "--wcs-grid-pagination-arrow-color-inactive"
-            },
-            {
-              "description": "Color of the active arrow",
-              "name": "--wcs-grid-pagination-arrow-color-active"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "nativeNav",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "INDEX_FIRST_PAGE",
-              "type": {
-                "text": "number"
-              },
-              "static": true,
-              "readonly": true,
-              "default": "0"
-            },
-            {
-              "kind": "field",
-              "name": "availablePageSizes",
-              "type": {
-                "text": "number[]"
-              },
-              "default": "[10, 20, 50]",
-              "description": "Set the available page sizes in the pagination dropdown on the left."
-            },
-            {
-              "kind": "field",
-              "name": "currentPage",
-              "type": {
-                "text": "number"
-              },
-              "description": "The current page of the pagination. First page starts at index 0."
-            },
-            {
-              "kind": "field",
-              "name": "pageSize",
-              "type": {
-                "text": "number"
-              },
-              "default": "this.availablePageSizes[0]",
-              "description": "Maximum number of elements shown per page.  \r\nDefault is the first value of `availablePageSizes`."
-            },
-            {
-              "kind": "field",
-              "name": "itemsCount",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "Total elements in the grid.  \r\n- **Grid in `Server mode`** : You have to set `itemsCount` = your total data length.  \r\n- **Grid not in Server mode** : Do not set it manually : itemsCount is set and updated every pagination refresh."
-            },
-            {
-              "kind": "field",
-              "name": "pageCount",
-              "type": {
-                "text": "number"
-              },
-              "default": "1",
-              "description": "Max number of pages.  \r\n- **Grid in `Server mode`** : You have to set `pageCount` = `itemsCount` divided by `pageSize`.  \r\n- **Grid not in Server mode** : Do not set it manually : pageCount is set and updated every pagination refresh."
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "lastPage",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "nextPage",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "canGoToNextPage",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "boolean"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "previousPage",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "canGoToPreviousPage",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "boolean"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "firstPage",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "onChangePagesize",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "CustomEvent<SelectChangeEventDetail>"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "emitPaginationChange",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "available-page-sizes",
-              "fieldName": "availablePageSizes",
-              "type": {
-                "text": "number[]"
-              }
-            },
-            {
-              "name": "current-page",
-              "fieldName": "currentPage",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "page-size",
-              "fieldName": "pageSize",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "items-count",
-              "fieldName": "itemsCount",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "page-count",
-              "fieldName": "pageCount",
-              "type": {
-                "text": "number"
-              }
-            }
-          ],
-          "tagName": "wcs-grid-pagination",
-          "events": [
-            {
-              "name": "wcsGridPaginationChange",
-              "type": {
-                "text": "EventEmitter<WcsGridPaginationChangeEventDetails>"
-              },
-              "description": "Event emitted when the pagination changes."
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "GridPagination",
-          "declaration": {
-            "name": "GridPagination",
-            "module": "components/grid-pagination/grid-pagination.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-grid-pagination",
-          "declaration": {
-            "name": "GridPagination",
-            "module": "components/grid-pagination/grid-pagination.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/header/header.tsx",
       "declarations": [
         {
@@ -10255,6 +9919,342 @@
           "declaration": {
             "name": "Label",
             "module": "components/label/label.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/grid-pagination/grid-pagination-arrow.tsx",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "GridPaginationArrow",
+          "parameters": [
+            {
+              "name": "{active, order, double = false}"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "GridPaginationArrow",
+          "declaration": {
+            "name": "GridPaginationArrow",
+            "module": "components/grid-pagination/grid-pagination-arrow.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/grid-pagination/grid-pagination.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The grid pagination is a subcomponent of `wcs-grid`, slotted in `grid-pagination` under the `<table>` element.",
+          "name": "GridPagination",
+          "cssProperties": [
+            {
+              "description": "Text color of the grid pagination",
+              "name": "--wcs-grid-pagination-color"
+            },
+            {
+              "description": "Font-size of the grid pagination",
+              "name": "--wcs-grid-pagination-font-size"
+            },
+            {
+              "description": "Font-weight of the grid pagination",
+              "name": "--wcs-grid-pagination-font-weight"
+            },
+            {
+              "description": "Gap between the page size, number of elements and page management",
+              "name": "--wcs-grid-pagination-gap"
+            },
+            {
+              "description": "Gap between the select and the text within the page size container",
+              "name": "--wcs-grid-pagination-page-size-gap"
+            },
+            {
+              "description": "Gap within the page management counter",
+              "name": "--wcs-grid-pagination-counter-gap"
+            },
+            {
+              "description": "Margin between the grid and the pagination",
+              "name": "--wcs-grid-pagination-margin-top"
+            },
+            {
+              "description": "Color of the inactive arrow",
+              "name": "--wcs-grid-pagination-arrow-color-inactive"
+            },
+            {
+              "description": "Color of the active arrow",
+              "name": "--wcs-grid-pagination-arrow-color-active"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeNav",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "INDEX_FIRST_PAGE",
+              "type": {
+                "text": "number"
+              },
+              "static": true,
+              "readonly": true,
+              "default": "0"
+            },
+            {
+              "kind": "field",
+              "name": "availablePageSizes",
+              "type": {
+                "text": "number[]"
+              },
+              "default": "[10, 20, 50]",
+              "description": "Set the available page sizes in the pagination dropdown on the left."
+            },
+            {
+              "kind": "field",
+              "name": "currentPage",
+              "type": {
+                "text": "number"
+              },
+              "description": "The current page of the pagination. First page starts at index 0."
+            },
+            {
+              "kind": "field",
+              "name": "pageSize",
+              "type": {
+                "text": "number"
+              },
+              "default": "this.availablePageSizes[0]",
+              "description": "Maximum number of elements shown per page.  \r\nDefault is the first value of `availablePageSizes`."
+            },
+            {
+              "kind": "field",
+              "name": "itemsCount",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "Total elements in the grid.  \r\n- **Grid in `Server mode`** : You have to set `itemsCount` = your total data length.  \r\n- **Grid not in Server mode** : Do not set it manually : itemsCount is set and updated every pagination refresh."
+            },
+            {
+              "kind": "field",
+              "name": "pageCount",
+              "type": {
+                "text": "number"
+              },
+              "default": "1",
+              "description": "Max number of pages.  \r\n- **Grid in `Server mode`** : You have to set `pageCount` = `itemsCount` divided by `pageSize`.  \r\n- **Grid not in Server mode** : Do not set it manually : pageCount is set and updated every pagination refresh."
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "lastPage",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "nextPage",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "canGoToNextPage",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "previousPage",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "canGoToPreviousPage",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "firstPage",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "onChangePagesize",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "CustomEvent<SelectChangeEventDetail>"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "emitPaginationChange",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "available-page-sizes",
+              "fieldName": "availablePageSizes",
+              "type": {
+                "text": "number[]"
+              }
+            },
+            {
+              "name": "current-page",
+              "fieldName": "currentPage",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "page-size",
+              "fieldName": "pageSize",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "items-count",
+              "fieldName": "itemsCount",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "page-count",
+              "fieldName": "pageCount",
+              "type": {
+                "text": "number"
+              }
+            }
+          ],
+          "tagName": "wcs-grid-pagination",
+          "events": [
+            {
+              "name": "wcsGridPaginationChange",
+              "type": {
+                "text": "EventEmitter<WcsGridPaginationChangeEventDetails>"
+              },
+              "description": "Event emitted when the pagination changes."
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "GridPagination",
+          "declaration": {
+            "name": "GridPagination",
+            "module": "components/grid-pagination/grid-pagination.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-grid-pagination",
+          "declaration": {
+            "name": "GridPagination",
+            "module": "components/grid-pagination/grid-pagination.tsx"
           }
         }
       ]
@@ -12679,6 +12679,291 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/select-option/select-option-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/select-option/select-option.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The select option is a subcomponent of `wcs-select` that represents a single option in a select list.",
+          "name": "SelectOption",
+          "cssProperties": [
+            {
+              "description": "Default background color of the option",
+              "name": "--wcs-select-option-background-color-default"
+            },
+            {
+              "description": "Background color of the option when hovered",
+              "name": "--wcs-select-option-background-color-hover"
+            },
+            {
+              "description": "Background color of the option when pressed",
+              "name": "--wcs-select-option-background-color-press"
+            },
+            {
+              "description": "Background color of the option when selected",
+              "name": "--wcs-select-option-background-color-selected"
+            },
+            {
+              "description": "Background color of the option when selected and hovered",
+              "name": "--wcs-select-option-background-color-selected-hover"
+            },
+            {
+              "description": "Background color of the option when selected and pressed",
+              "name": "--wcs-select-option-background-color-selected-press"
+            },
+            {
+              "description": "Background color of the option when selected and disabled",
+              "name": "--wcs-select-option-background-color-selected-disabled"
+            },
+            {
+              "description": "Background color of the option when focused",
+              "name": "--wcs-select-option-background-color-focus"
+            },
+            {
+              "description": "Border color for autocomplete mode",
+              "name": "--wcs-select-option-border-color-focus"
+            },
+            {
+              "description": "Border width for autocomplete mode",
+              "name": "--wcs-select-option-border-width-focus"
+            },
+            {
+              "description": "Border style of the option when focused",
+              "name": "--wcs-select-option-border-style-focus"
+            },
+            {
+              "description": "Height of the option",
+              "name": "--wcs-select-option-height"
+            },
+            {
+              "description": "Horizontal padding of the option",
+              "name": "--wcs-select-option-padding-horizontal"
+            },
+            {
+              "description": "Vertical padding of the option",
+              "name": "--wcs-select-option-padding-vertical"
+            },
+            {
+              "description": "Font size of the option text",
+              "name": "--wcs-select-option-text-font-size"
+            },
+            {
+              "description": "Font weight of the option text",
+              "name": "--wcs-select-option-text-font-weight"
+            },
+            {
+              "description": "Default color of the option text",
+              "name": "--wcs-select-option-text-color-default"
+            },
+            {
+              "description": "Color of the option text when focused",
+              "name": "--wcs-select-option-text-color-focus"
+            },
+            {
+              "description": "Color of the option text when hovered",
+              "name": "--wcs-select-option-text-color-hover"
+            },
+            {
+              "description": "Color of the option text when selected",
+              "name": "--wcs-select-option-text-color-selected"
+            },
+            {
+              "description": "Color of the option text when disabled",
+              "name": "--wcs-select-option-text-color-disabled"
+            },
+            {
+              "description": "Color of the checkbox",
+              "name": "--wcs-select-option-checkbox-color"
+            },
+            {
+              "description": "Gap between the checkbox and the text",
+              "name": "--wcs-select-option-gap"
+            },
+            {
+              "description": "Duration of the transition",
+              "name": "--wcs-select-option-transition-duration"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsSelectOptionElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "selectOptionId",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Whether this option can be selected."
+            },
+            {
+              "kind": "field",
+              "name": "selected",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Whether this option is selected."
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "any | undefined"
+              },
+              "description": "The option value, not what's displayed, use inner text instead."
+            },
+            {
+              "kind": "field",
+              "name": "chipColor",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "Chip's displayed text color."
+            },
+            {
+              "kind": "field",
+              "name": "chipBackgroundColor",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "Chip's background color."
+            },
+            {
+              "kind": "method",
+              "name": "chooseOption",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "UIEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "onMouseUp",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleKeydown",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  },
+                  "description": "keyboard event"
+                }
+              ],
+              "description": "Handles the keydown event to update the selection."
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "disabled",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "selected",
+              "fieldName": "selected"
+            },
+            {
+              "name": "highlighted",
+              "fieldName": "highlighted"
+            },
+            {
+              "name": "value",
+              "fieldName": "value",
+              "type": {
+                "text": "any"
+              }
+            },
+            {
+              "name": "chip-color",
+              "fieldName": "chipColor",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "chip-background-color",
+              "fieldName": "chipBackgroundColor",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "multiple",
+              "fieldName": "multiple"
+            }
+          ],
+          "tagName": "wcs-select-option",
+          "events": [
+            {
+              "name": "wcsSelectOptionClick",
+              "type": {
+                "text": "EventEmitter<SelectOptionChosedEvent>"
+              }
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SelectOption",
+          "declaration": {
+            "name": "SelectOption",
+            "module": "components/select-option/select-option.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-select-option",
+          "declaration": {
+            "name": "SelectOption",
+            "module": "components/select-option/select-option.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/select/select-arrow.tsx",
       "declarations": [
         {
@@ -13927,291 +14212,6 @@
           "declaration": {
             "name": "Select",
             "module": "components/select/select.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/select-option/select-option-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/select-option/select-option.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The select option is a subcomponent of `wcs-select` that represents a single option in a select list.",
-          "name": "SelectOption",
-          "cssProperties": [
-            {
-              "description": "Default background color of the option",
-              "name": "--wcs-select-option-background-color-default"
-            },
-            {
-              "description": "Background color of the option when hovered",
-              "name": "--wcs-select-option-background-color-hover"
-            },
-            {
-              "description": "Background color of the option when pressed",
-              "name": "--wcs-select-option-background-color-press"
-            },
-            {
-              "description": "Background color of the option when selected",
-              "name": "--wcs-select-option-background-color-selected"
-            },
-            {
-              "description": "Background color of the option when selected and hovered",
-              "name": "--wcs-select-option-background-color-selected-hover"
-            },
-            {
-              "description": "Background color of the option when selected and pressed",
-              "name": "--wcs-select-option-background-color-selected-press"
-            },
-            {
-              "description": "Background color of the option when selected and disabled",
-              "name": "--wcs-select-option-background-color-selected-disabled"
-            },
-            {
-              "description": "Background color of the option when focused",
-              "name": "--wcs-select-option-background-color-focus"
-            },
-            {
-              "description": "Border color for autocomplete mode",
-              "name": "--wcs-select-option-border-color-focus"
-            },
-            {
-              "description": "Border width for autocomplete mode",
-              "name": "--wcs-select-option-border-width-focus"
-            },
-            {
-              "description": "Border style of the option when focused",
-              "name": "--wcs-select-option-border-style-focus"
-            },
-            {
-              "description": "Height of the option",
-              "name": "--wcs-select-option-height"
-            },
-            {
-              "description": "Horizontal padding of the option",
-              "name": "--wcs-select-option-padding-horizontal"
-            },
-            {
-              "description": "Vertical padding of the option",
-              "name": "--wcs-select-option-padding-vertical"
-            },
-            {
-              "description": "Font size of the option text",
-              "name": "--wcs-select-option-text-font-size"
-            },
-            {
-              "description": "Font weight of the option text",
-              "name": "--wcs-select-option-text-font-weight"
-            },
-            {
-              "description": "Default color of the option text",
-              "name": "--wcs-select-option-text-color-default"
-            },
-            {
-              "description": "Color of the option text when focused",
-              "name": "--wcs-select-option-text-color-focus"
-            },
-            {
-              "description": "Color of the option text when hovered",
-              "name": "--wcs-select-option-text-color-hover"
-            },
-            {
-              "description": "Color of the option text when selected",
-              "name": "--wcs-select-option-text-color-selected"
-            },
-            {
-              "description": "Color of the option text when disabled",
-              "name": "--wcs-select-option-text-color-disabled"
-            },
-            {
-              "description": "Color of the checkbox",
-              "name": "--wcs-select-option-checkbox-color"
-            },
-            {
-              "description": "Gap between the checkbox and the text",
-              "name": "--wcs-select-option-gap"
-            },
-            {
-              "description": "Duration of the transition",
-              "name": "--wcs-select-option-transition-duration"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsSelectOptionElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "selectOptionId",
-              "type": {
-                "text": "string"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Whether this option can be selected."
-            },
-            {
-              "kind": "field",
-              "name": "selected",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Whether this option is selected."
-            },
-            {
-              "kind": "field",
-              "name": "value",
-              "type": {
-                "text": "any | undefined"
-              },
-              "description": "The option value, not what's displayed, use inner text instead."
-            },
-            {
-              "kind": "field",
-              "name": "chipColor",
-              "type": {
-                "text": "string | undefined"
-              },
-              "description": "Chip's displayed text color."
-            },
-            {
-              "kind": "field",
-              "name": "chipBackgroundColor",
-              "type": {
-                "text": "string | undefined"
-              },
-              "description": "Chip's background color."
-            },
-            {
-              "kind": "method",
-              "name": "chooseOption",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "UIEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "onMouseUp",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "handleKeydown",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  },
-                  "description": "keyboard event"
-                }
-              ],
-              "description": "Handles the keydown event to update the selection."
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "disabled",
-              "fieldName": "disabled"
-            },
-            {
-              "name": "selected",
-              "fieldName": "selected"
-            },
-            {
-              "name": "highlighted",
-              "fieldName": "highlighted"
-            },
-            {
-              "name": "value",
-              "fieldName": "value",
-              "type": {
-                "text": "any"
-              }
-            },
-            {
-              "name": "chip-color",
-              "fieldName": "chipColor",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "chip-background-color",
-              "fieldName": "chipBackgroundColor",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "multiple",
-              "fieldName": "multiple"
-            }
-          ],
-          "tagName": "wcs-select-option",
-          "events": [
-            {
-              "name": "wcsSelectOptionClick",
-              "type": {
-                "text": "EventEmitter<SelectOptionChosedEvent>"
-              }
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "SelectOption",
-          "declaration": {
-            "name": "SelectOption",
-            "module": "components/select-option/select-option.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-select-option",
-          "declaration": {
-            "name": "SelectOption",
-            "module": "components/select-option/select-option.tsx"
           }
         }
       ]
