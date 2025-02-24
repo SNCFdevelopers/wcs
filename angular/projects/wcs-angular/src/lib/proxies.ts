@@ -1336,7 +1336,8 @@ export declare interface WcsRadio extends Components.WcsRadio {
 
 
 @ProxyCmp({
-  inputs: ['mode', 'name', 'value']
+  inputs: ['mode', 'name', 'value'],
+  methods: ['setAriaAttribute']
 })
 @Component({
   selector: 'wcs-radio-group',

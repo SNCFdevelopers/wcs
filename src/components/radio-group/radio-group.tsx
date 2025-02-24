@@ -7,6 +7,7 @@ import {
     h,
     Host,
     Listen,
+    Method,
     Prop,
     Watch
 } from '@stencil/core';
@@ -18,8 +19,10 @@ import {
     isRightArrowKey,
     isSpaceKey,
     isTabKey,
-    isUpArrowKey
+    isUpArrowKey,
+    setOrRemoveAttribute
 } from "../../utils/helpers";
+import { AriaAttributeName, MutableAriaAttribute } from '../../utils/mutable-aria-attribute';
 
 /**
  * @cssprop --wcs-radio-group-gap - Gap between each radio (checkmark + label) in horizontal mode
@@ -39,7 +42,7 @@ import {
     styleUrl: 'radio-group.scss',
     shadow: true
 })
-export class RadioGroup implements ComponentInterface {
+export class RadioGroup implements ComponentInterface, MutableAriaAttribute {
     @Element() private el!: HTMLWcsRadioGroupElement;
     
     /**
@@ -64,6 +67,11 @@ export class RadioGroup implements ComponentInterface {
     onValueChangeHandler(value: any | undefined) {
         this.updateRadioTabIndex(value);
         this.updateAllRadioState();
+    }
+
+    @Method()
+    async setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) {
+        setOrRemoveAttribute(this.el, attr, value);
     }
 
     componentDidLoad() {

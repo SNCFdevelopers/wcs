@@ -1730,6 +1730,7 @@ export namespace Components {
           * The name of the control to be set on all radio button children
          */
         "name": any;
+        "setAriaAttribute": (attr: AriaAttributeName, value: string | null | undefined) => Promise<void>;
         /**
           * The value of the radio-group. Automatically reflects which radio button is selected.
          */

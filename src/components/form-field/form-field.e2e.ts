@@ -105,4 +105,31 @@ describe('Form field component', () => {
             });
         });
     });
+    describe('With radio-group', () => {
+        describe('Accessibility', () => {
+            it('Should set aria-label on radio-group element', async () => {
+                // Given
+                const page = await newE2EPage();
+                await setWcsContent(page, `
+                    <wcs-form-field>
+                        <wcs-label>Label form field</wcs-label>
+                        <wcs-radio-group>
+                            <wcs-radio name="SA" label="SNCF" value="1"></wcs-radio>
+                            <wcs-radio name="SA" label="SNCF Réseau" value="2"></wcs-radio>
+                            <wcs-radio name="SA" label="SNCF Voyageurs" value="3"></wcs-radio>
+                        </wcs-radio>
+                        </wcs-radio-group>
+                    </wcs-form-field>
+                `);
+
+                // When
+                const radioGroup = await page.find('wcs-radio-group');
+                await page.waitForChanges();
+
+                // Then
+                const ariaLabel = radioGroup.getAttribute('aria-label');
+                expect(ariaLabel).toBe('Label form field');
+            });
+        });
+    });
 });

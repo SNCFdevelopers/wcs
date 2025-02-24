@@ -35,6 +35,7 @@ for now removed features.
 - **form-field**: 
   - move hint and error message in aria-label instead of put in aria-description
   - label concatenation with switch and checkbox components. Form-field label is now correctly concatenated with the switch/checkbox label instead of overwriting it 
+  - **radio-group**: we now set label on radio-group from form-field 
 - **input**: show/hide password button is now focusable and well accessible
 - **select**: `required` attribute was not reflected on focusable element
 - **nav**: handle letting put `button` inside `wcs-nav-item` for modal opening use cases from a `wcs-nav-item`
