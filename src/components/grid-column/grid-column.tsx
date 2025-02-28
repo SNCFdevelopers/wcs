@@ -179,7 +179,7 @@ export class GridColumn implements ComponentInterface, MutableAriaAttribute {
                         tabIndex={this.sort ? this.getTabIndex() : -1}>
                     <span>{this.name}</span>
                     {
-                        this.sort ? <GridSortArrow state={this.sortOrder}/> : ''
+                        this.sort ? <div class="sort-arrow-container"><GridSortArrow state={this.sortOrder}/></div> : ''
                     }
                 </ButtonOrDiv>
             </th>
