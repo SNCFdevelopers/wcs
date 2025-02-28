@@ -44,7 +44,7 @@ export class HorizontalStepper implements ComponentInterface {
     /**
      * Specifies whether a check should be displayed when a step is passed.
      */
-    @Prop() checkOnComplete: boolean;
+    @Prop({ reflect: true }) checkOnComplete: boolean;
     /**
      * Emits when the user selects a new step.
      */

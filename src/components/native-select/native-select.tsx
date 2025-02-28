@@ -98,7 +98,7 @@ export class NativeSelect implements ComponentInterface, MutableAriaAttribute {
      * If `true`, the user must fill in a value before submitting a form.
      * It is propagated to the slotted select element
      */
-    @Prop() required = false;
+    @Prop({ reflect: true }) required: boolean = false;
     
     @Element() private el!: HTMLWcsNativeSelectElement;
 

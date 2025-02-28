@@ -102,7 +102,7 @@ export class Grid implements ComponentInterface, ComponentDidLoad, MutableAriaAt
     /**
      * Manage sort and pagination with a backend server when set to `true`
      */
-    @Prop() serverMode: boolean = false;
+    @Prop({ reflect: true }) serverMode: boolean = false;
     /**
      * Contains the data to display in the table from a js object
      */
@@ -110,7 +110,7 @@ export class Grid implements ComponentInterface, ComponentDidLoad, MutableAriaAt
     /**
      * Flag to display a spinner during data loading
      */
-    @Prop() loading: boolean;
+    @Prop({ reflect: true }) loading: boolean;
     /**
      * Used to manage grid's row selection.  
      * "none": no row can be selected.  

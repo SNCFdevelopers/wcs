@@ -20,6 +20,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Changed
 
 - add a `size` fallback for the following components : badge, button, counter, dropdown, editable-field, input, modal, native-select
+- attributes: some specific boolean attributes are now reflected with its component prop. e.g : `disabled` for `wcs-input`, `wcs-textarea`, `wcs-switch`, and more.
 
 ### Deprecated
 

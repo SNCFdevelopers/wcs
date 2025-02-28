@@ -191,7 +191,7 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
 
     /** Whether the select is expanded */
     @State()
-    private expanded = false;
+    private expanded: boolean = false;
 
     /**
      * Specify the size (height) of the select.
@@ -217,29 +217,29 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
 
     /** If `true`, the user cannot interact with the select. */
     @Prop({ reflect: true, mutable: true })
-    disabled = false;
+    disabled: boolean = false;
 
     /**
      * If `true`, the user must fill in a value before submitting a form.
      */
-    @Prop()
-    required = false;
+    @Prop({ reflect: true })
+    required: boolean = false;
 
     /** If `true`, the user can select multiple values at once. */
-    @Prop({reflect: true})
-    multiple = false;
+    @Prop({ reflect: true })
+    multiple: boolean = false;
 
     /** If `true`, the select acts as an autocomplete field to filter your results. */
-    @Prop({reflect: true})
-    autocomplete = false;
+    @Prop({ reflect: true })
+    autocomplete: boolean = false;
 
     /**
      * **Only works with `autocomplete` mode.**  
      * If `true`, the server mode disables the client-side filtering on your select and allows you to handle
      * which options should be present in your DOM.
      */
-    @Prop({reflect: true})
-    serverMode = false;
+    @Prop({ reflect: true })
+    serverMode: boolean = false;
 
     /**
      * **Only works with `autocomplete` mode.**  
@@ -249,8 +249,8 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
     @Prop({attribute: null}) filterFn: WcsSelectFilterFn;
 
     /** If `true`, selected items are shown in chips mode. */
-    @Prop({reflect: true})
-    chips = false;
+    @Prop({ reflect: true })
+    chips: boolean = false;
 
     /** The name of the control, which is submitted with the form data. */
     @Prop()
@@ -266,7 +266,7 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
      * Boolean to toggle the text "No result found" (only for autocomplete with filter)
      * @private
      */
-    @State() private showNoResultFoundLabel = false;
+    @State() private showNoResultFoundLabel: boolean = false;
 
     /**
      * Value of the autocomplete input field

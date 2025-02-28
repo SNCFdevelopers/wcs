@@ -130,7 +130,7 @@ export class Modal implements ComponentInterface, MutableAriaAttribute {
      * Use this property with caution, as managing focus is important for accessibility.
      * Consider providing an alternative focus management strategy if disabling the default behavior.
      */
-    @Prop() disableAutoFocus: boolean = false;
+    @Prop({ reflect: true }) disableAutoFocus: boolean = false;
 
     /**
      * Give an unique id

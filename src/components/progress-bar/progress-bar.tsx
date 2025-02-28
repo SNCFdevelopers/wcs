@@ -63,7 +63,7 @@ export class ProgressBar implements ComponentInterface, MutableAriaAttribute {
     /**
      * Whether it displays a label indicating the percentage of progress above the bar.
      */
-    @Prop() showLabel: boolean = false;
+    @Prop({ reflect: true }) showLabel: boolean = false;
 
     /**
      * The actual value of the progress.

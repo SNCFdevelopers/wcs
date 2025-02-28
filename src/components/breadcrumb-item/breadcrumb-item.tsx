@@ -37,7 +37,7 @@ export class BreadcrumbItem implements ComponentInterface {
      * @internal
      * @ignore
      */
-    @Prop() last = false;
+    @Prop() last: boolean = false;
 
     render() {
         return (

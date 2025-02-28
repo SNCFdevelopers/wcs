@@ -96,7 +96,7 @@ export class Button implements ComponentInterface, MutableAriaAttribute {
     /**
      * Specify whether the button is disabled or not.
      */
-    @Prop({ reflect: true }) disabled = false;
+    @Prop({ reflect: true }) disabled: boolean = false;
 
     /**
      * Specify whether the button should have a ripple effect or not.

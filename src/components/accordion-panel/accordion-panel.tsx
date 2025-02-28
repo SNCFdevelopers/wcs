@@ -56,7 +56,7 @@ export class AccordionPanel implements ComponentInterface, MutableAriaAttribute 
     private nativeButton?: HTMLButtonElement;
     private inheritedAttributes: { [k: string]: any } = {};
     
-    @Prop({reflect: true, mutable: true}) open = false;
+    @Prop({reflect: true, mutable: true}) open: boolean = false;
 
     /**
      * Specifies whether the component should display the open/close text.

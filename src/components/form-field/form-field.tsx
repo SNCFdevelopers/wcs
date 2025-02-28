@@ -60,10 +60,10 @@ export class FormField implements ComponentInterface {
     /**
      * Specifies whether the form field is in an error state. Displays the field border in red and the message contained in the wcs-error component
      */
-    @Prop({mutable: true, reflect: true}) isError = false;
+    @Prop({mutable: true, reflect: true}) isError: boolean = false;
 
-    @State() private hasPrefix = false;
-    @State() private hasSuffix = false;
+    @State() private hasPrefix: boolean = false;
+    @State() private hasSuffix: boolean = false;
     @State() private spiedElement: Element;
 
     private observer: MutationObserver;

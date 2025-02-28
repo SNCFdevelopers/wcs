@@ -78,12 +78,12 @@ export class Checkbox implements ComponentInterface, MutableAriaAttribute, Contr
     /**
      * If `true` the checkbox is in indeterminate state.
      */
-    @Prop({ reflect: true, mutable: true }) indeterminate = false;
+    @Prop({ reflect: true, mutable: true }) indeterminate: boolean = false;
 
     /**
      * If `true`, the checkbox is selected.
      */
-    @Prop({ reflect: true, mutable: true }) checked = false;
+    @Prop({ reflect: true, mutable: true }) checked: boolean = false;
 
     /**
      * Specifie the alignment of the checkbox with the label content

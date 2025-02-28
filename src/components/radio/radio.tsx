@@ -100,7 +100,7 @@ export class Radio implements ComponentInterface, MutableAriaAttribute {
      * If `true`, the radio is selected. 
      * @private
      */
-    @State() private checked = false;
+    @State() private checked: boolean = false;
 
     /**
      * The tabindex of the radio button
@@ -121,7 +121,7 @@ export class Radio implements ComponentInterface, MutableAriaAttribute {
     /**
      * If `true`, the user cannot interact with the radio.
      */
-    @Prop({ mutable: true, reflect: true }) disabled = false;
+    @Prop({ reflect: true, mutable: true }) disabled: boolean = false;
 
     /**
      * Emitted when the radio is clicked or Space/Enter is pressed above an unchecked radio

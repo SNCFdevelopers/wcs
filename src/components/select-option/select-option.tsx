@@ -44,17 +44,17 @@ export class SelectOption implements ComponentInterface {
     private selectOptionId: string = generateUniqueId(this.el.tagName);
 
     /** Whether this option can be selected. */
-    @Prop({ mutable: true, reflect: true }) disabled = false;
+    @Prop({ mutable: true, reflect: true }) disabled: boolean = false;
 
     /** Whether this option is selected. */
-    @Prop({ mutable: true, reflect: true }) selected = false;
+    @Prop({ mutable: true, reflect: true }) selected: boolean = false;
     
     /** This property mustn't be set by hand, it is used by the `wcs-select` component.
      * Applies a highlight design on the option for autocomplete mode.
      * @internal
      * @ignore
     */
-    @Prop({ mutable: true, reflect: true }) highlighted = false;
+    @Prop({ mutable: true, reflect: true }) highlighted: boolean = false;
 
     /** The option value, not what's displayed, use inner text instead. */
     @Prop() value?: any;
@@ -71,7 +71,7 @@ export class SelectOption implements ComponentInterface {
      * @internal
      * @ignore
      */
-    @Prop({ reflect: true, mutable: true }) multiple = false;
+    @Prop({ reflect: true, mutable: true }) multiple: boolean = false;
 
     @Event({
         eventName: 'wcsSelectOptionClick',

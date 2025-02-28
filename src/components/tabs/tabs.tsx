@@ -98,7 +98,7 @@ export class Tabs implements ComponentInterface, MutableAriaAttribute {
      * Whether to skip rendering the tabpanel with the content of the selected tab. Use this prop if you plan to
      * separately render the tab content.
      */
-    @Prop() headersOnly: boolean = false;
+    @Prop({ reflect: true }) headersOnly: boolean = false;
     /** Determines if tabs header should have a border at the bottom */
     @Prop({ reflect: true }) gutter: boolean;
 

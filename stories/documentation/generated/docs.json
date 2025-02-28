@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-03-25T14:05:43",
+  "timestamp": "2025-02-28T15:02:09",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -3344,7 +3344,7 @@
           },
           "mutable": false,
           "attr": "no-arrow",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "Hides the arrow in the button",
           "docsTags": [],
           "default": "false",
@@ -3889,10 +3889,6 @@
         },
         {
           "name": "cssprop",
-          "text": "--wcs-editable-field-border-color-focus - Border color of the editable field on focus"
-        },
-        {
-          "name": "cssprop",
           "text": "--wcs-editable-field-border-style - Border style of the editable field"
         },
         {
@@ -3977,7 +3973,7 @@
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
-          "docs": "Label of the field.  \r\nWill also be part of the edit button `aria-label`.",
+          "docs": "Label of the field",
           "docsTags": [],
           "values": [
             {
@@ -4166,7 +4162,6 @@
         "wcs-mat-icon",
         "wcs-spinner",
         "wcs-form-field",
-        "wcs-label",
         "wcs-error"
       ],
       "dependencyGraph": {
@@ -4174,7 +4169,6 @@
           "wcs-mat-icon",
           "wcs-spinner",
           "wcs-form-field",
-          "wcs-label",
           "wcs-error"
         ]
       }
@@ -5027,7 +5021,7 @@
           },
           "mutable": false,
           "attr": "loading",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "Flag to display a spinner during data loading",
           "docsTags": [],
           "values": [
@@ -5155,7 +5149,7 @@
           },
           "mutable": false,
           "attr": "server-mode",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "Manage sort and pagination with a backend server when set to `true`",
           "docsTags": [],
           "default": "false",
@@ -5425,7 +5419,7 @@
           },
           "mutable": false,
           "attr": "custom-cells",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "Set to true if using a `wcs-custom-cell` linked to it.",
           "docsTags": [],
           "default": "false",
@@ -5540,7 +5534,7 @@
           },
           "mutable": false,
           "attr": "sort",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "Make the column sortable.",
           "docsTags": [],
           "default": "false",
@@ -6273,7 +6267,7 @@
           },
           "mutable": false,
           "attr": "check-on-complete",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "Specifies whether a check should be displayed when a step is passed.",
           "docsTags": [],
           "values": [
@@ -7398,7 +7392,7 @@
           },
           "mutable": false,
           "attr": "multiple",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "If `true`, the user can enter more than one value. This attribute applies when the type attribute is set to\r\n`\"email\"` or `\"file\"`, otherwise it is ignored.",
           "docsTags": [],
           "values": [
@@ -7526,7 +7520,7 @@
           },
           "mutable": false,
           "attr": "required",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "If `true`, the user must fill in a value before submitting a form.",
           "docsTags": [],
           "default": "false",
@@ -8081,15 +8075,9 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "wcs-editable-field"
-      ],
+      "dependents": [],
       "dependencies": [],
-      "dependencyGraph": {
-        "wcs-editable-field": [
-          "wcs-label"
-        ]
-      }
+      "dependencyGraph": {}
     },
     {
       "filePath": "src/components/list-item/list-item.tsx",
@@ -8642,7 +8630,7 @@
           },
           "mutable": false,
           "attr": "disable-auto-focus",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "Disables automatic focus behavior when the modal opens.\r\n\r\nWhen set to true, the modal will not automatically focus any element upon opening.\r\nUse this property with caution, as managing focus is important for accessibility.\r\nConsider providing an alternative focus management strategy if disabling the default behavior.",
           "docsTags": [],
           "default": "false",
@@ -9078,7 +9066,7 @@
           },
           "mutable": false,
           "attr": "required",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "If `true`, the user must fill in a value before submitting a form.\r\nIt is propagated to the slotted select element",
           "docsTags": [],
           "default": "false",
@@ -9515,7 +9503,7 @@
           },
           "mutable": false,
           "attr": "show-label",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "Whether it displays a label indicating the percentage of progress above the bar.",
           "docsTags": [],
           "default": "false",
@@ -9709,7 +9697,7 @@
           },
           "mutable": false,
           "attr": "show-label",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "Whether the component should display the % label inside",
           "docsTags": [],
           "default": "false",
@@ -10795,7 +10783,7 @@
           },
           "mutable": false,
           "attr": "required",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "If `true`, the user must fill in a value before submitting a form.",
           "docsTags": [],
           "default": "false",
@@ -12490,7 +12478,7 @@
           },
           "mutable": false,
           "attr": "headers-only",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "Whether to skip rendering the tabpanel with the content of the selected tab. Use this prop if you plan to\r\nseparately render the tab content.",
           "docsTags": [],
           "default": "false",
@@ -12765,7 +12753,7 @@
           },
           "mutable": false,
           "attr": "auto-grow",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "If `true`, the element height will increase based on the value.",
           "docsTags": [],
           "default": "false",
@@ -13132,7 +13120,7 @@
           },
           "mutable": false,
           "attr": "required",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "If `true`, the user must fill in a value before submitting a form.",
           "docsTags": [],
           "default": "false",
@@ -13674,7 +13662,7 @@
           },
           "mutable": false,
           "attr": "interactive",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "Determines if the tooltip has interactive content inside of it, so that it can be hovered over and clicked inside\r\nwithout hiding.",
           "docsTags": [],
           "default": "false",
@@ -13763,7 +13751,7 @@
           "mutable": false,
           "attr": "theme",
           "reflectToAttr": false,
-          "docs": "Allows you to change the theme used by tippy.\r\n\r\nThe WCS theme 'dark' is used by default and uses the WCS CSS variables.\r\n\r\nYou can create a theme by following this documentation and choosing a custom name :\r\nhttps://atomiks.github.io/tippyjs/v6/themes/",
+          "docs": "Allows you to change the theme used by tippy.\r\n\r\nThe WCS theme is used by default and uses the WCS CSS variables.\r\n\r\nYou can create a theme by following this documentation and choosing a custom name :\r\nhttps://atomiks.github.io/tippyjs/v6/themes/",
           "docsTags": [],
           "default": "'dark'",
           "values": [

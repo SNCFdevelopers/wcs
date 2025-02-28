@@ -66,12 +66,12 @@ export class Switch implements ComponentInterface, MutableAriaAttribute, Control
     /**
      * If `true`, the switch is selected.
      */
-    @Prop({reflect: true}) checked = false;
+    @Prop({ reflect: true }) checked: boolean = false;
 
     /**
      * Specifie the alignment of the switch with the label content
      */
-    @Prop({reflect: true}) labelAlignment: SwitchLabelAlignment = 'center';
+    @Prop({ reflect: true }) labelAlignment: SwitchLabelAlignment = 'center';
 
     /**
      * Specify whether the switch is disabled or not.

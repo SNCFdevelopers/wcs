@@ -53,7 +53,7 @@ export class GridColumn implements ComponentInterface, MutableAriaAttribute {
     /**
      * Make the column sortable.
      */
-    @Prop() sort: boolean = false;
+    @Prop({ reflect: true }) sort: boolean = false;
     /**
      * Customizable sort function to change the comparison of values.
      */
@@ -74,7 +74,7 @@ export class GridColumn implements ComponentInterface, MutableAriaAttribute {
     /**
      * Set to true if using a `wcs-custom-cell` linked to it.
      */
-    @Prop() customCells: boolean = false;
+    @Prop({ reflect: true }) customCells: boolean = false;
     /**
      * Flag to hide the column.
      */

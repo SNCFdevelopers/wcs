@@ -84,7 +84,7 @@ export class Counter implements ComponentInterface, MutableAriaAttribute {
     /**
      * Specify whether the counter is disabled or not.
      */
-    @Prop({ reflect: true }) disabled = false;
+    @Prop({ reflect: true }) disabled: boolean = false;
 
     /**
      * The minimum value of the counter.
@@ -118,7 +118,7 @@ export class Counter implements ComponentInterface, MutableAriaAttribute {
      */
     @State() private displayedValue: number;
 
-    private animateRunning = false;
+    private animateRunning: boolean = false;
 
     /**
      * Emitted when the counter loses focus.

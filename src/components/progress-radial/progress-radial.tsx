@@ -48,7 +48,7 @@ export class ProgressRadial implements ComponentInterface, MutableAriaAttribute 
     /** The size of the progress radial (in px) */
     @Prop() size: number = 120;
     /** Whether the component should display the % label inside */
-    @Prop() showLabel: boolean = false;
+    @Prop({ reflect: true }) showLabel: boolean = false;
     /** The value of the progress radial. Prefer values between 0 and 100. */
     @Prop() value: number = 0;
     

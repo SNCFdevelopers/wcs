@@ -88,7 +88,7 @@ export class Tooltip implements ComponentInterface {
      * Determines if the tooltip has interactive content inside of it, so that it can be hovered over and clicked inside
      * without hiding.
      */
-    @Prop()
+    @Prop({ reflect: true })
     interactive: boolean = false;
 
     /**

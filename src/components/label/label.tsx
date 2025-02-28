@@ -33,7 +33,7 @@ export class Label implements ComponentInterface, MutableAriaAttribute {
      * If `true`, marks the label with a red star.
      * Automatically added if the wrapped component inside the `wcs-form-field` already has the `required` attribute. 
      */
-    @Prop({ reflect: true }) required = false;
+    @Prop({ reflect: true }) required: boolean = false;
 
     componentWillLoad() {
         this.inheritedAttributes = {

@@ -99,7 +99,7 @@ export class Textarea implements ComponentInterface, MutableAriaAttribute {
      *
      * @internal
      */
-    @Prop() fireFocusEvents = true;
+    @Prop() fireFocusEvents: boolean = true;
 
     /**
      * Indicates whether and how the text value should be automatically capitalized as it is entered/edited by the user.
@@ -109,7 +109,7 @@ export class Textarea implements ComponentInterface, MutableAriaAttribute {
     /**
      * This Boolean attribute lets you specify that a form control should have input focus when the page loads.
      */
-    @Prop() autofocus = false;
+    @Prop() autofocus: boolean = false;
 
     /**
      * Set the amount of time, in milliseconds, to wait to trigger the `wcsInput` event after each keystroke.
@@ -125,7 +125,7 @@ export class Textarea implements ComponentInterface, MutableAriaAttribute {
     /**
      * If `true`, the user cannot interact with the textarea.
      */
-    @Prop({ reflect: true }) disabled = false;
+    @Prop({ reflect: true }) disabled: boolean = false;
 
     /**
      * Name of the material icon to add to the input
@@ -165,17 +165,17 @@ export class Textarea implements ComponentInterface, MutableAriaAttribute {
     /**
      * If `true`, the user cannot modify the value.
      */
-    @Prop({ reflect: true }) readonly = false;
+    @Prop({ reflect: true }) readonly: boolean = false;
 
     /**
      * If `true`, the user must fill in a value before submitting a form.
      */
-    @Prop() required = false;
+    @Prop({ reflect: true }) required: boolean = false;
 
     /**
      * If `true`, the element will have its spelling and grammar checked.
      */
-    @Prop() spellcheck = false;
+    @Prop() spellcheck: boolean = false;
 
     /**
      * Specifies the state of the input. By default the input is in an initial state but you can set it to 'error' state if the data given by the user is not valid.
@@ -202,7 +202,7 @@ export class Textarea implements ComponentInterface, MutableAriaAttribute {
     /**
      * If `true`, the element height will increase based on the value.
      */
-    @Prop() autoGrow = false;
+    @Prop({ reflect: true }) autoGrow: boolean = false;
 
     /**
      * The value of the textarea.

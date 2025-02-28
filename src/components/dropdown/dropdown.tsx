@@ -74,7 +74,7 @@ export class Dropdown implements ComponentInterface, MutableAriaAttribute {
     private popoverDiv!: HTMLDivElement;
 
     /** Hides the arrow in the button */
-    @Prop() noArrow: boolean = false;
+    @Prop({ reflect: true }) noArrow: boolean = false;
 
     /** Dropdown's button mode */
     @Prop() mode: WcsButtonMode = 'stroked';
@@ -91,7 +91,7 @@ export class Dropdown implements ComponentInterface, MutableAriaAttribute {
     /** placement of the dropdown's popover */
     @Prop() placement: WcsDropdownPlacement = 'bottom-end';
 
-    @State() private expanded = false;
+    @State() private expanded: boolean = false;
 
 
     private popper: Instance;
