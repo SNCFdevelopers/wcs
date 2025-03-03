@@ -172,12 +172,17 @@ export class EditableField implements ComponentInterface {
         }
     }
 
+
     disconnectedCallback(): void {
         this.cleanUpSpiedElementEventListeners();
     }
 
     private keyboardSubmitHandler(event: KeyboardEvent): void {
-        const shouldValidateOnEnterKey = this.type === 'textarea' ? isEnterKey(event) && event.ctrlKey : isEnterKey(event);
+        const shouldValidateOnEnterKey = 
+            (this.type === 'textarea' || this.type === 'select')
+            ? (isEnterKey(event) && event.ctrlKey)
+            : isEnterKey(event);
+
         if (shouldValidateOnEnterKey) {
             this.sendCurrentValue();
         }
@@ -228,6 +233,7 @@ export class EditableField implements ComponentInterface {
         if (!element) throw new Error('You must provide a slotted select element to handle edition');
         this.spiedElement = element as HTMLElement;
         this.addWcsChangeEventHandler(this.spiedElement);
+        this.addKeyDownHandler(this.spiedElement);
     }
 
     /**

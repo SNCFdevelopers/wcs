@@ -170,7 +170,9 @@ export class FormField implements ComponentInterface {
             // Sur les autres DS, généralement seul l'erreur est affichée et pas avec la description
             if(this.isError) {
                 this.spiedElement.setAriaAttribute('aria-invalid', 'true');
-                ariaLabelParts.push(normalizeWhitespace(this.error));
+                if(this.error) {
+                    ariaLabelParts.push(normalizeWhitespace(this.error));
+                }
             } else {
                 this.spiedElement.setAriaAttribute('aria-invalid', 'false');
             }
