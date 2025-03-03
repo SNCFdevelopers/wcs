@@ -49,6 +49,7 @@ for now removed features.
     - handle label despite cross-root ARIA limitations
     - handle error message for screen readers
 - **grid**: sort-arrow not correctly resizing in grid-columns
+- **badge**: set inline-size to avoid badge stretching with flex layouts
 
 ### Security
 
