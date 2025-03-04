@@ -216,7 +216,7 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
     placeholder?: string | null;
 
     /** If `true`, the user cannot interact with the select. */
-    @Prop({mutable: true})
+    @Prop({ reflect: true, mutable: true })
     disabled = false;
 
     /**

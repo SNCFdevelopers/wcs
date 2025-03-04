@@ -78,7 +78,7 @@ export class GridColumn implements ComponentInterface, MutableAriaAttribute {
     /**
      * Flag to hide the column.
      */
-    @Prop() hidden: boolean = false;
+    @Prop({ reflect: true }) hidden: boolean = false;
     /**
      * Event emitted when the sort of the column is changed.
      */

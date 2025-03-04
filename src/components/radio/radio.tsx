@@ -121,7 +121,7 @@ export class Radio implements ComponentInterface, MutableAriaAttribute {
     /**
      * If `true`, the user cannot interact with the radio.
      */
-    @Prop({ mutable: true }) disabled = false;
+    @Prop({ mutable: true, reflect: true }) disabled = false;
 
     /**
      * Emitted when the radio is clicked or Space/Enter is pressed above an unchecked radio

@@ -72,7 +72,7 @@ export class Tabs implements ComponentInterface, MutableAriaAttribute {
      */
     @Prop() headersOnly: boolean = false;
     /** Determines if tabs header should have a border at the bottom */
-    @Prop() gutter: boolean;
+    @Prop({ reflect: true }) gutter: boolean;
 
     /**
      * Description is used to provide aria-label for the tabs container which has `role="tablist"`.

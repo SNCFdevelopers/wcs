@@ -27,7 +27,7 @@ export class ActionBar implements ComponentInterface {
      * Determines if the action bar should have a border at the bottom.
      * You should not use this property if a gutter is already present on tabs
      */
-    @Prop() gutter: boolean;
+    @Prop({ reflect: true }) gutter: boolean;
     @State() private hasTabs = false;
 
     componentWillLoad(): Promise<void> | void {

@@ -76,7 +76,7 @@ export class Switch implements ComponentInterface, MutableAriaAttribute, Control
     /**
      * Specify whether the switch is disabled or not.
      */
-    @Prop() disabled: boolean = false;
+    @Prop({ reflect: true }) disabled: boolean = false;
 
     /**
      * Emitted when the checked property has changed.

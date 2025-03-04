@@ -123,7 +123,7 @@ export class EditableField implements ComponentInterface {
     /**
      * Specify whether the field is editable or not
      */
-    @Prop() readonly: boolean = false;
+    @Prop({ reflect: true }) readonly: boolean = false;
     /**
      * Initial value of the field
      */

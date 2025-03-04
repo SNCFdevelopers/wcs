@@ -17,7 +17,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
-for changes in existing functionality.
+- attributes: some specific boolean attributes are now reflected with its component prop. e.g : `disabled` for `wcs-input`, `wcs-textarea`, `wcs-switch`, and more.
 
 ### Deprecated
 

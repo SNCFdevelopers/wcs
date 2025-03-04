@@ -124,7 +124,7 @@ export class Button implements ComponentInterface, MutableAriaAttribute {
     /**
      * Flag to display spinner until the end of action
      */
-    @Prop({mutable: true}) loading: boolean = false;
+    @Prop({ reflect: true, mutable: true }) loading: boolean = false;
 
     /**
      * Native event click is emit event if we decide to stop propagation of it

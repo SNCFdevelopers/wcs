@@ -88,7 +88,7 @@ export class Dropdown implements ComponentInterface, MutableAriaAttribute {
     @Prop() size: WcsButtonSize = 'm';
 
     /** Specifies whether the dropdown button is clickable or not */
-    @Prop() disabled: boolean = false;
+    @Prop({ reflect: true }) disabled: boolean = false;
 
     /** placement of the dropdown's popover */
     @Prop() placement: WcsDropdownPlacement = 'bottom-end';

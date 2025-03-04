@@ -40,7 +40,7 @@ export class ListItem implements ComponentInterface {
     /**
      * True if the item is active. Adds a background color that highlights it.
      */
-    @Prop({ mutable: true }) activated: boolean = false;
+    @Prop({ reflect: true, mutable: true }) activated: boolean = false;
 
     render() {
         return (

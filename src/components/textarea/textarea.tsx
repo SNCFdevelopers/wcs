@@ -125,7 +125,7 @@ export class Textarea implements ComponentInterface, MutableAriaAttribute {
     /**
      * If `true`, the user cannot interact with the textarea.
      */
-    @Prop() disabled = false;
+    @Prop({ reflect: true }) disabled = false;
 
     /**
      * Name of the material icon to add to the input
@@ -165,7 +165,7 @@ export class Textarea implements ComponentInterface, MutableAriaAttribute {
     /**
      * If `true`, the user cannot modify the value.
      */
-    @Prop() readonly = false;
+    @Prop({ reflect: true }) readonly = false;
 
     /**
      * If `true`, the user must fill in a value before submitting a form.
