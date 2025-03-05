@@ -11,13 +11,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-- **footer**: add `<footer role="contentinfo">` inside the component for accessibility
-- **design-tokens**: add root-scoped CSS file generation for themes
-- **list-item**: add accessibility documentation
+for new features.
 
 ### Changed
 
-- attributes: some specific boolean attributes are now reflected with its component prop. e.g : `disabled` for `wcs-input`, `wcs-textarea`, `wcs-switch`, and more.
+for changes in existing functionality.
 
 ### Deprecated
 
@@ -26,6 +24,26 @@ for soon-to-be removed features.
 ### Removed
 
 for now removed features.
+
+### Fixed
+
+for any bug fixes.
+
+### Security
+
+in case of vulnerabilities.
+
+## [7.1.0] - 2025-03-05
+
+### Added
+
+- **footer**: add `<footer role="contentinfo">` inside the component for accessibility
+- **design-tokens**: add root-scoped CSS file generation for themes
+- **list-item**: add accessibility documentation
+
+### Changed
+
+- attributes: some specific boolean attributes are now reflected with its component prop. e.g : `disabled` for `wcs-input`, `wcs-textarea`, `wcs-switch`, and more.
 
 ### Fixed
 
@@ -54,11 +72,6 @@ for now removed features.
 - **Angular Formly**:
   - fix `required` prop condition for  `wcs-input`, `wcs-radio` and `wcs-textarea` formly components
   - `chips` can now be used with `wcs-select` formly component
-
-### Security
-
-in case of vulnerabilities.
-
 
 ## [7.0.0] - 2025-02-04
 
