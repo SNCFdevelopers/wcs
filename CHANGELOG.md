@@ -29,14 +29,14 @@ for now removed features.
 
 ### Fixed
 
-- **com-nav-item**: now the focus ring is visible on the com-nav-item when it is focused (regression introduce with design token)
+- **com-nav-item**: for mobile, the focus ring is now visible on the com-nav-item when it is focused (regression introduced with design tokens)
 - **galactic-menu**: accessibility issue with the contrast of overlay
 - **counter**: fix focus style for Firefox
 - **form-field**: 
   - fix prefix/suffix slot behaviors. See "Form Field > Prefix Suffix Group" documentation.
-  - move hint and error message in aria-label instead of put in aria-description
+  - move hint and error message in `aria-label` instead of `aria-description`
   - label concatenation with switch and checkbox components. Form-field label is now correctly concatenated with the switch/checkbox label instead of overwriting it 
-  - **radio-group**: we now set label on radio-group from form-field 
+  - **radio-group**: set label on radio-group from form-field 
 - **input**: show/hide password button is now focusable and well accessible
 - **select**: `required` attribute was not reflected on focusable element
 - **nav**: handle letting put `button` inside `wcs-nav-item` for modal opening use cases from a `wcs-nav-item`
