@@ -54,19 +54,9 @@ We created 3 StackBlitz templates to help you test quickly without worrying abou
 ## Roadmap
 
 This project is still under heavy development.  
-You can get a preview of what's planned for the following months in the [GitLab Milestones](https://gitlab.com/SNCF/wcs/-/milestones).
+You can get a preview of what's planned for the following versions using our [board](https://gitlab.com/SNCF/wcs/-/boards).
 
 Consult the [changelog](https://wcs.dev.sncf/?path=/docs/documentation-changelog--documentation) to know what's going on.
-
-Major versions releases :
-
-- **v0** 👉 Jul 2019
-- **v1** 👉 Sep 2020
-- **v2** 👉 Jun 2021
-- **v3** 👉 Feb 2023
-- **v4** 👉 Sep 2023
-- **v5** 👉 May 2024
-- **v6** 👉 Oct 2024
 
 ### Example usage
 
