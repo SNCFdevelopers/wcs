@@ -27,7 +27,9 @@ for now removed features.
 
 ### Fixed
 
-- **select**: autocomplete filter is now updated when an option is selected
+- **select**:
+  - autocomplete filter is now updated when an option is selected
+  - display a red outline when the select `autocomplete` is in error state
 - **tabs**: tabs can be dynamically removed
 - **grid-pagination**: improve accessibility
 

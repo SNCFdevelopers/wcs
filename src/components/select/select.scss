@@ -219,7 +219,7 @@ label {
     }
 }
 
-:host([aria-invalid=true]) {
+:host([aria-invalid=true]), :host([autocomplete]):has(input[aria-invalid=true]) {
     .wcs-select-control {
         @include select-control-outline-error;
     }
