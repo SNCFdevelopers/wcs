@@ -34,6 +34,7 @@ for now removed features.
   - display a red outline when the select `autocomplete` is in error state
 - **tabs**: tabs can be dynamically removed
 - **grid-pagination**: improve accessibility
+- **horizontal-stepper**: progress-bar animation timing
 
 ### Security
 

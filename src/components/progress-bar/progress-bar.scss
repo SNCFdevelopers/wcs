@@ -1,7 +1,7 @@
 :host {
     --wcs-progress-bar-border-radius: var(--wcs-semantic-border-radius-full);
     --wcs-progress-bar-border-radius-small: var(--wcs-semantic-border-radius-small);
-    --wcs-progress-bar-animation-duration: var(--wcs-semantic-motion-duration-feedback-slower);
+    --wcs-internal-progress-bar-animation-duration: var(--wcs-progress-bar-animation-duration, var(--wcs-semantic-motion-duration-feedback-slower)); /* internal used by horizontal-stepper */
 
     --wcs-progress-bar-height-m: calc(var(--wcs-semantic-size-m) / 4);
     --wcs-progress-bar-height-s: calc(var(--wcs-semantic-size-s) / 6);
@@ -70,7 +70,7 @@
     text-align: center;
     background-color: var(--wcs-progress-bar-indicator-color);
     border-radius: var(--wcs-progress-bar-border-radius);
-    transition: width var(--wcs-progress-bar-animation-duration) ease-out;
+    transition: width var(--wcs-internal-progress-bar-animation-duration) ease-out;
 }
 
 .progress-label {
