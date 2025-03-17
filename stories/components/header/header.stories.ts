@@ -4,6 +4,7 @@ import { getComponentArgs } from '../../utils/args-generation';
 // @ts-ignore
 import svg from './sncf.svg';
 
+
 const meta: Meta = {
     title: 'Components/Header',
     component: 'wcs-header',
@@ -66,4 +67,32 @@ export const WithSearchBar: StoryObj = {
             </div>
         </wcs-header>
     `
+}
+
+/**
+ * It is common to add a link to the logo / title of the header to redirect to the home page.
+ */
+export const ClickableLogoOrTitle: StoryObj = {
+    render: (_) => {
+        return html`
+            <wcs-header>
+                <a href="#" slot="logo" @click=${(e: Event) => e.preventDefault()}>
+                    <img
+                        slot="logo"
+                        alt="SNCF"
+                        src=${svg}
+                    />
+                </a>
+                <a slot="title" href="#" @click=${(e: Event) => e.preventDefault()}>
+                    Votre superbe application
+                </a>
+                <div slot="actions">
+                    <wcs-button mode="clear">
+                        <wcs-mat-icon icon="person_outline"></wcs-mat-icon>
+                        <span>Connexion</span>
+                    </wcs-button>
+                </div>
+            </wcs-header>
+        `
+    }
 }

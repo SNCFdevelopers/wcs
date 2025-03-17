@@ -11,7 +11,9 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-- **header**: add `center` slot to put a search bar inside
+- **header**:
+  - add `center` slot to put a search bar inside
+  - new story to show how to add a clickable logo / title
 - **tabs**: introduce `mobile` mode for small screens accessibility
 - **nav**: add scrollbar for small-height screens to handle overflow
 

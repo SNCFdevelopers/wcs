@@ -28,11 +28,12 @@ header {
     height: var(--wcs-header-logo-height);
 }
 
-::slotted(h1) {
+::slotted(h1), ::slotted(a) {
     color: var(--wcs-header-title-color);
     margin: 0;
     font-weight: var(--wcs-header-title-font-weight);
     font-size: var(--wcs-header-title-font-size);
+    text-decoration: none;
 }
 
 ::slotted([slot="center"]) {
