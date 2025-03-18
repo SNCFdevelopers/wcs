@@ -29,6 +29,27 @@
     --wcs-tabs-gutter-background-color: var(--wcs-semantic-color-border-secondary);
     --wcs-tabs-headers-border-bottom: var(--wcs-tabs-gutter-border-width) solid var(--wcs-tabs-gutter-background-color);
 
+    --wcs-tabs-mobile-breakpoint: var(--wcs-phone-breakpoint-max-width, 575px);
+
+    --wcs-tabs-mobile-overlay-border-width: var(--wcs-semantic-border-width-default);
+    --wcs-tabs-mobile-overlay-border-color: var(--wcs-semantic-color-border-secondary);
+    --wcs-tabs-mobile-overlay-background-color: var(--wcs-semantic-color-background-surface-primary);
+    --wcs-tabs-mobile-overlay-padding: var(--wcs-semantic-spacing-base);
+    --wcs-tabs-mobile-overlay-border-radius: var(--wcs-semantic-border-radius-base);
+
+    --wcs-tabs-mobile-gap: var(--wcs-semantic-spacing-base);
+    --wcs-tabs-mobile-padding: 0 var(--wcs-semantic-spacing-base);
+    --wcs-tabs-mobile-height: var(--wcs-semantic-size-m);
+    --wcs-tabs-mobile-font-weight-default: var(--wcs-semantic-font-weight-medium);
+    --wcs-tabs-mobile-font-weight-active: var(--wcs-semantic-font-weight-black);
+    --wcs-tabs-mobile-font-size: var(--wcs-semantic-font-size-base);
+    --wcs-tabs-mobile-color: var(--wcs-semantic-color-text-primary);
+    --wcs-tabs-mobile-background-color-default: var(--wcs-semantic-color-background-action-secondary-default);
+    --wcs-tabs-mobile-background-color-focus: var(--wcs-semantic-color-background-action-secondary-focus);
+    --wcs-tabs-mobile-background-color-hover: var(--wcs-semantic-color-background-action-secondary-hover);
+    --wcs-tabs-mobile-background-color-press: var(--wcs-semantic-color-background-action-secondary-press);
+    --wcs-tabs-mobile-border-radius: var(--wcs-semantic-border-radius-base);
+
     --wcs-tabs-transition-duration: var(--wcs-semantic-motion-duration-feedback-base);
 
     display: block;
@@ -119,3 +140,106 @@
         border-radius: var(--wcs-tabs-indicator-border-radius);
     }
 }
+
+/* ============= */
+/* region MOBILE */
+/* ============= */
+
+button {
+    background-color: inherit;
+}
+
+#mobile-button {
+    border: 0;
+    font-family: var(--wcs-font-sans-serif), sans-serif;
+    text-align: center;
+    color: var(--wcs-tabs-color-default);
+    font-size: 1rem;
+    font-weight: var(--wcs-tabs-font-weight-default);
+    padding-right: calc(0.75 * var(--wcs-tabs-padding-right)); /* reduce padding right because of the arrow */
+
+    span {
+        display: flex;
+        align-items: center;
+    }
+
+    .arrow {
+        fill: var(--wcs-tabs-color-default);
+    }
+
+    &:hover {
+        .arrow {
+            fill: var(--wcs-tabs-color-hover);
+        }
+    }
+
+    &:active {
+        .arrow {
+            fill: var(--wcs-tabs-color-press);
+        }
+    }
+}
+
+.popover {
+    display: none;
+    z-index: 9999;
+    overflow: hidden;
+    border: var(--wcs-tabs-mobile-overlay-border-width) solid var(--wcs-tabs-mobile-overlay-border-color);
+    border-radius: var(--wcs-tabs-mobile-overlay-border-radius);
+    padding: var(--wcs-tabs-mobile-overlay-padding);
+    background-color: var(--wcs-tabs-mobile-overlay-background-color);
+
+    [role=tab] {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        cursor: pointer;
+        user-select: none;
+
+        gap: var(--wcs-tabs-mobile-gap);
+        padding: var(--wcs-tabs-mobile-padding);
+        height: var(--wcs-tabs-mobile-height);
+        font-weight: var(--wcs-tabs-mobile-font-weight-default);
+        font-size: var(--wcs-tabs-mobile-font-size);
+
+        color: var(--wcs-tabs-mobile-color);
+        background-color: var(--wcs-tabs-mobile-background-color);
+        border-radius: var(--wcs-tabs-mobile-border-radius);
+
+        transition-duration: var(--wcs-tabs-transition-duration);
+        transition-property: background-color, color;
+        transition-timing-function: ease;
+
+        overflow: hidden;
+        white-space: nowrap;
+
+        &:focus {
+            background-color: var(--wcs-tabs-mobile-background-color-focus);
+        }
+
+        &:focus-visible {
+            @include focus-outline($border-radius: var(--wcs-tabs-mobile-border-radius), $outline-offset: 0);
+        }
+
+        &:hover {
+            background-color: var(--wcs-tabs-mobile-background-color-hover);
+        }
+
+        &:active {
+            background-color: var(--wcs-tabs-mobile-background-color-press);
+        }
+
+    }
+
+    .mobile-active {
+        font-weight: var(--wcs-tabs-mobile-font-weight-active);
+    }
+}
+
+.show {
+    display: block;
+}
+
+/* ================ */
+/* endregion MOBILE */
+/* ================ */

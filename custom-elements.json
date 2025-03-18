@@ -3460,6 +3460,330 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/com-nav/com-nav-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/com-nav/com-nav-size.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/com-nav/com-nav-utils.ts",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "registerCloseHandlerForFocusOutEventOn",
+          "return": {
+            "type": {
+              "text": "void"
+            }
+          },
+          "parameters": [
+            {
+              "name": "navigableItems",
+              "type": {
+                "text": "NodeListOf<Element>"
+              },
+              "description": "items on which focusout event listeners must be added"
+            },
+            {
+              "name": "nodeNameToClose",
+              "type": {
+                "text": "string"
+              },
+              "description": "nodeName of the element we want to close in the event path"
+            }
+          ],
+          "description": "This function add event handlers on the navigableItems list. The handlers call the function close() on the nodeName.\r\n\r\nT: type class of the nodeNameToClose param (must have a close function)"
+        },
+        {
+          "kind": "function",
+          "name": "comNavDidLoadWithResizeObserver",
+          "return": {
+            "type": {
+              "text": "ResizeObserver"
+            }
+          },
+          "parameters": [
+            {
+              "name": "comNavElement",
+              "type": {
+                "text": "ComNav | ComNavSubmenu | ComNavCategory"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "registerCloseHandlerForFocusOutEventOn",
+          "declaration": {
+            "name": "registerCloseHandlerForFocusOutEventOn",
+            "module": "components/com-nav/com-nav-utils.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "comNavDidLoadWithResizeObserver",
+          "declaration": {
+            "name": "comNavDidLoadWithResizeObserver",
+            "module": "components/com-nav/com-nav-utils.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/com-nav/com-nav.e2e.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/com-nav/com-nav.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "*Part of communication design system*\r\n\r\nThe com-nav component is a container for navigation links to external or internal pages of the website.",
+          "name": "ComNav",
+          "cssProperties": [
+            {
+              "description": "Height of the menu bar",
+              "name": "--wcs-com-nav-menu-bar-height"
+            },
+            {
+              "description": "Border color of the bottom border of the com-nav",
+              "name": "--wcs-com-nav-border-color"
+            },
+            {
+              "description": "Border width of the border below com-nav",
+              "name": "--wcs-com-nav-border-width"
+            },
+            {
+              "description": "Background color of the com-nav;",
+              "name": "--wcs-com-nav-background-color"
+            },
+            {
+              "description": "App name color",
+              "name": "--wcs-com-nav-app-name-color"
+            },
+            {
+              "description": "App name font-weight",
+              "name": "--wcs-com-nav-app-name-font-weight"
+            },
+            {
+              "description": "Font size of the App name text",
+              "name": "--wcs-com-nav-app-name-font-size"
+            },
+            {
+              "description": "Line height of the App name text",
+              "name": "--wcs-com-nav-app-name-line-height"
+            },
+            {
+              "description": "Color of the wcs-nav-item inside menu-bar",
+              "name": "--wcs-com-nav-item-color"
+            },
+            {
+              "description": "Font weight of the wcs-nav-item inside menu-bar",
+              "name": "--wcs-com-nav-item-font-weight"
+            },
+            {
+              "description": "Focus outline color of the wcs-nav-item inside menu-bar",
+              "name": "--wcs-com-nav-focus-outline-color"
+            },
+            {
+              "description": "Horizontal padding of wcs-com-nav",
+              "name": "--wcs-com-nav-horizontal-padding"
+            },
+            {
+              "description": "Vertical padding of wcs-com-nav",
+              "name": "--wcs-com-nav-vertical-padding"
+            },
+            {
+              "description": "Gap between each items section in mobile overlay",
+              "name": "--wcs-com-nav-mobile-overlay-gap"
+            },
+            {
+              "description": "Padding inside mobile overlay",
+              "name": "--wcs-com-nav-mobile-overlay-padding"
+            },
+            {
+              "description": "Bar border color on the left of icon mobile menu",
+              "name": "--wcs-com-nav-mobile-menu-icon-border-color"
+            },
+            {
+              "description": "Gap between icon mobile menu and separator on the left",
+              "name": "--wcs-com-nav-mobile-menu-icon-gap-"
+            },
+            {
+              "description": "Margin left of icon mobile menu",
+              "name": "--wcs-com-nav-mobile-menu-icon-margin-left"
+            },
+            {
+              "description": "Gap between each item inside menu-bar",
+              "name": "--wcs-com-nav-menu-bar-gap"
+            },
+            {
+              "description": "Margin left between menu bar and the app-name section",
+              "name": "--wcs-com-nav-menu-bar-margin-left"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Default slot containing all the menu declarations",
+              "name": "<no-name>"
+            },
+            {
+              "description": "(Optional) Extra slot for the application name",
+              "name": "app-name"
+            },
+            {
+              "description": "Slot for actions placed on the right part of the container",
+              "name": "actions"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsComNavElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "appName",
+              "type": {
+                "text": "string"
+              },
+              "description": "Name of the application to be displayed in the menu bar"
+            },
+            {
+              "kind": "field",
+              "name": "mobileMenuOpen",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "currentActiveSizing",
+              "type": {
+                "text": "ComNavSize"
+              },
+              "privacy": "public"
+            },
+            {
+              "kind": "field",
+              "name": "resizeObserver",
+              "type": {
+                "text": "ResizeObserver"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "mobileMenuIconClick",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "closeMobileMenu",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "onClickOnFinalAction"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            },
+            {
+              "kind": "method",
+              "name": "exitMobileMenuOnKeyDown",
+              "parameters": [
+                {
+                  "name": "evt",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  },
+                  "description": "keydown event on window target."
+                }
+              ],
+              "description": "Close the mobile menu if the user press escape."
+            }
+          ],
+          "attributes": [
+            {
+              "name": "app-name",
+              "fieldName": "appName",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "tagName": "wcs-com-nav",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ComNav",
+          "declaration": {
+            "name": "ComNav",
+            "module": "components/com-nav/com-nav.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-com-nav",
+          "declaration": {
+            "name": "ComNav",
+            "module": "components/com-nav/com-nav.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/checkbox/checkbox-interface.ts",
       "declarations": [],
       "exports": []
@@ -3846,330 +4170,6 @@
           "declaration": {
             "name": "Checkbox",
             "module": "components/checkbox/checkbox.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/com-nav/com-nav-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/com-nav/com-nav-size.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/com-nav/com-nav-utils.ts",
-      "declarations": [
-        {
-          "kind": "function",
-          "name": "registerCloseHandlerForFocusOutEventOn",
-          "return": {
-            "type": {
-              "text": "void"
-            }
-          },
-          "parameters": [
-            {
-              "name": "navigableItems",
-              "type": {
-                "text": "NodeListOf<Element>"
-              },
-              "description": "items on which focusout event listeners must be added"
-            },
-            {
-              "name": "nodeNameToClose",
-              "type": {
-                "text": "string"
-              },
-              "description": "nodeName of the element we want to close in the event path"
-            }
-          ],
-          "description": "This function add event handlers on the navigableItems list. The handlers call the function close() on the nodeName.\r\n\r\nT: type class of the nodeNameToClose param (must have a close function)"
-        },
-        {
-          "kind": "function",
-          "name": "comNavDidLoadWithResizeObserver",
-          "return": {
-            "type": {
-              "text": "ResizeObserver"
-            }
-          },
-          "parameters": [
-            {
-              "name": "comNavElement",
-              "type": {
-                "text": "ComNav | ComNavSubmenu | ComNavCategory"
-              }
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "registerCloseHandlerForFocusOutEventOn",
-          "declaration": {
-            "name": "registerCloseHandlerForFocusOutEventOn",
-            "module": "components/com-nav/com-nav-utils.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "comNavDidLoadWithResizeObserver",
-          "declaration": {
-            "name": "comNavDidLoadWithResizeObserver",
-            "module": "components/com-nav/com-nav-utils.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/com-nav/com-nav.e2e.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/com-nav/com-nav.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "*Part of communication design system*\r\n\r\nThe com-nav component is a container for navigation links to external or internal pages of the website.",
-          "name": "ComNav",
-          "cssProperties": [
-            {
-              "description": "Height of the menu bar",
-              "name": "--wcs-com-nav-menu-bar-height"
-            },
-            {
-              "description": "Border color of the bottom border of the com-nav",
-              "name": "--wcs-com-nav-border-color"
-            },
-            {
-              "description": "Border width of the border below com-nav",
-              "name": "--wcs-com-nav-border-width"
-            },
-            {
-              "description": "Background color of the com-nav;",
-              "name": "--wcs-com-nav-background-color"
-            },
-            {
-              "description": "App name color",
-              "name": "--wcs-com-nav-app-name-color"
-            },
-            {
-              "description": "App name font-weight",
-              "name": "--wcs-com-nav-app-name-font-weight"
-            },
-            {
-              "description": "Font size of the App name text",
-              "name": "--wcs-com-nav-app-name-font-size"
-            },
-            {
-              "description": "Line height of the App name text",
-              "name": "--wcs-com-nav-app-name-line-height"
-            },
-            {
-              "description": "Color of the wcs-nav-item inside menu-bar",
-              "name": "--wcs-com-nav-item-color"
-            },
-            {
-              "description": "Font weight of the wcs-nav-item inside menu-bar",
-              "name": "--wcs-com-nav-item-font-weight"
-            },
-            {
-              "description": "Focus outline color of the wcs-nav-item inside menu-bar",
-              "name": "--wcs-com-nav-focus-outline-color"
-            },
-            {
-              "description": "Horizontal padding of wcs-com-nav",
-              "name": "--wcs-com-nav-horizontal-padding"
-            },
-            {
-              "description": "Vertical padding of wcs-com-nav",
-              "name": "--wcs-com-nav-vertical-padding"
-            },
-            {
-              "description": "Gap between each items section in mobile overlay",
-              "name": "--wcs-com-nav-mobile-overlay-gap"
-            },
-            {
-              "description": "Padding inside mobile overlay",
-              "name": "--wcs-com-nav-mobile-overlay-padding"
-            },
-            {
-              "description": "Bar border color on the left of icon mobile menu",
-              "name": "--wcs-com-nav-mobile-menu-icon-border-color"
-            },
-            {
-              "description": "Gap between icon mobile menu and separator on the left",
-              "name": "--wcs-com-nav-mobile-menu-icon-gap-"
-            },
-            {
-              "description": "Margin left of icon mobile menu",
-              "name": "--wcs-com-nav-mobile-menu-icon-margin-left"
-            },
-            {
-              "description": "Gap between each item inside menu-bar",
-              "name": "--wcs-com-nav-menu-bar-gap"
-            },
-            {
-              "description": "Margin left between menu bar and the app-name section",
-              "name": "--wcs-com-nav-menu-bar-margin-left"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Default slot containing all the menu declarations",
-              "name": "<no-name>"
-            },
-            {
-              "description": "(Optional) Extra slot for the application name",
-              "name": "app-name"
-            },
-            {
-              "description": "Slot for actions placed on the right part of the container",
-              "name": "actions"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsComNavElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "appName",
-              "type": {
-                "text": "string"
-              },
-              "description": "Name of the application to be displayed in the menu bar"
-            },
-            {
-              "kind": "field",
-              "name": "mobileMenuOpen",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "currentActiveSizing",
-              "type": {
-                "text": "ComNavSize"
-              },
-              "privacy": "public"
-            },
-            {
-              "kind": "field",
-              "name": "resizeObserver",
-              "type": {
-                "text": "ResizeObserver"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "mobileMenuIconClick",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "closeMobileMenu",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "onClickOnFinalAction"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            },
-            {
-              "kind": "method",
-              "name": "exitMobileMenuOnKeyDown",
-              "parameters": [
-                {
-                  "name": "evt",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  },
-                  "description": "keydown event on window target."
-                }
-              ],
-              "description": "Close the mobile menu if the user press escape."
-            }
-          ],
-          "attributes": [
-            {
-              "name": "app-name",
-              "fieldName": "appName",
-              "type": {
-                "text": "string"
-              }
-            }
-          ],
-          "tagName": "wcs-com-nav",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ComNav",
-          "declaration": {
-            "name": "ComNav",
-            "module": "components/com-nav/com-nav.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-com-nav",
-          "declaration": {
-            "name": "ComNav",
-            "module": "components/com-nav/com-nav.tsx"
           }
         }
       ]
@@ -4910,6 +4910,54 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/divider/divider.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The divider is a separator between two elements, consisting of a horizontal line.",
+          "name": "Divider",
+          "cssProperties": [
+            {
+              "description": "Color of the divider",
+              "name": "--wcs-divider-color"
+            },
+            {
+              "description": "Height (border-width) of the divider",
+              "name": "--wcs-divider-height"
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-divider",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Divider",
+          "declaration": {
+            "name": "Divider",
+            "module": "components/divider/divider.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-divider",
+          "declaration": {
+            "name": "Divider",
+            "module": "components/divider/divider.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/counter/counter-interface.ts",
       "declarations": [
         {
@@ -5335,54 +5383,6 @@
           "declaration": {
             "name": "Counter",
             "module": "components/counter/counter.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/divider/divider.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The divider is a separator between two elements, consisting of a horizontal line.",
-          "name": "Divider",
-          "cssProperties": [
-            {
-              "description": "Color of the divider",
-              "name": "--wcs-divider-color"
-            },
-            {
-              "description": "Height (border-width) of the divider",
-              "name": "--wcs-divider-height"
-            }
-          ],
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-divider",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Divider",
-          "declaration": {
-            "name": "Divider",
-            "module": "components/divider/divider.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-divider",
-          "declaration": {
-            "name": "Divider",
-            "module": "components/divider/divider.tsx"
           }
         }
       ]
@@ -5924,72 +5924,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/dropdown-header/dropdown-header.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "You can add `wcs-dropdown-header` before a group of items to describe it",
-          "name": "DropdownHeader",
-          "cssProperties": [
-            {
-              "description": "Text color of the header",
-              "name": "--wcs-dropdown-header-color"
-            },
-            {
-              "description": "Vertical padding of the header",
-              "name": "--wcs-dropdown-header-padding-vertical"
-            },
-            {
-              "description": "Horizontal padding of the header",
-              "name": "--wcs-dropdown-header-padding-horizontal"
-            },
-            {
-              "description": "Font size of the header",
-              "name": "--wcs-dropdown-header-font-size"
-            },
-            {
-              "description": "Font weight of the header",
-              "name": "--wcs-dropdown-header-font-weight"
-            }
-          ],
-          "slots": [
-            {
-              "description": "the slot that contains the header's name",
-              "name": "<no-name>"
-            }
-          ],
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-dropdown-header",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "DropdownHeader",
-          "declaration": {
-            "name": "DropdownHeader",
-            "module": "components/dropdown-header/dropdown-header.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-dropdown-header",
-          "declaration": {
-            "name": "DropdownHeader",
-            "module": "components/dropdown-header/dropdown-header.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/dropdown-item/dropdown-item.tsx",
       "declarations": [
         {
@@ -6128,6 +6062,72 @@
           "declaration": {
             "name": "DropdownItem",
             "module": "components/dropdown-item/dropdown-item.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/dropdown-header/dropdown-header.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "You can add `wcs-dropdown-header` before a group of items to describe it",
+          "name": "DropdownHeader",
+          "cssProperties": [
+            {
+              "description": "Text color of the header",
+              "name": "--wcs-dropdown-header-color"
+            },
+            {
+              "description": "Vertical padding of the header",
+              "name": "--wcs-dropdown-header-padding-vertical"
+            },
+            {
+              "description": "Horizontal padding of the header",
+              "name": "--wcs-dropdown-header-padding-horizontal"
+            },
+            {
+              "description": "Font size of the header",
+              "name": "--wcs-dropdown-header-font-size"
+            },
+            {
+              "description": "Font weight of the header",
+              "name": "--wcs-dropdown-header-font-weight"
+            }
+          ],
+          "slots": [
+            {
+              "description": "the slot that contains the header's name",
+              "name": "<no-name>"
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-dropdown-header",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "DropdownHeader",
+          "declaration": {
+            "name": "DropdownHeader",
+            "module": "components/dropdown-header/dropdown-header.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-dropdown-header",
+          "declaration": {
+            "name": "DropdownHeader",
+            "module": "components/dropdown-header/dropdown-header.tsx"
           }
         }
       ]
@@ -11218,6 +11218,60 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/list-item-property/list-item-property.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The list-item-property is a subcomponent of `wcs-list-item`.\r\nWrapped in a `wcs-list-item-properties`, it represents a property to describe an item.",
+          "name": "ListItemProperty",
+          "cssProperties": [
+            {
+              "description": "Font weight of the property",
+              "name": "--wcs-list-item-property-font-weight"
+            },
+            {
+              "description": "Color of the property",
+              "name": "--wcs-list-item-property-color"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Main container slot",
+              "name": "<no-name>"
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-list-item-property",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ListItemProperty",
+          "declaration": {
+            "name": "ListItemProperty",
+            "module": "components/list-item-property/list-item-property.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-list-item-property",
+          "declaration": {
+            "name": "ListItemProperty",
+            "module": "components/list-item-property/list-item-property.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/list-item-properties/list-item-properties.tsx",
       "declarations": [
         {
@@ -11274,60 +11328,6 @@
           "declaration": {
             "name": "ListItemProperties",
             "module": "components/list-item-properties/list-item-properties.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/list-item-property/list-item-property.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The list-item-property is a subcomponent of `wcs-list-item`.\r\nWrapped in a `wcs-list-item-properties`, it represents a property to describe an item.",
-          "name": "ListItemProperty",
-          "cssProperties": [
-            {
-              "description": "Font weight of the property",
-              "name": "--wcs-list-item-property-font-weight"
-            },
-            {
-              "description": "Color of the property",
-              "name": "--wcs-list-item-property-color"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Main container slot",
-              "name": "<no-name>"
-            }
-          ],
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-list-item-property",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ListItemProperty",
-          "declaration": {
-            "name": "ListItemProperty",
-            "module": "components/list-item-property/list-item-property.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-list-item-property",
-          "declaration": {
-            "name": "ListItemProperty",
-            "module": "components/list-item-property/list-item-property.tsx"
           }
         }
       ]
@@ -14824,6 +14824,12 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/skeleton/skeleton-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/select-option/select-option-interface.ts",
       "declarations": [],
       "exports": []
@@ -15106,12 +15112,6 @@
           }
         }
       ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/skeleton/skeleton-interface.ts",
-      "declarations": [],
-      "exports": []
     },
     {
       "kind": "javascript-module",
@@ -15962,7 +15962,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "Tabs component to switch between tab content. Use in conjunction with `wcs-tab`.",
+          "description": "Tabs component to switch between tab content. Use in conjunction with `wcs-tab`.\r\n\r\n## Accessibility guidelines 💡\r\n> - Mobile display should be used for narrower screens (automatically set by default).\r\n> - The component respects the W3C [tab pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/)",
           "name": "Tabs",
           "cssProperties": [
             {
@@ -16048,6 +16048,78 @@
             {
               "description": "Transition duration of the tabs",
               "name": "--wcs-tabs-transition-duration"
+            },
+            {
+              "description": "Breakpoint for mobile display (default: 575px)",
+              "name": "--wcs-tabs-mobile-breakpoint"
+            },
+            {
+              "description": "Border width of the mobile overlay",
+              "name": "--wcs-tabs-mobile-overlay-border-width"
+            },
+            {
+              "description": "Border color of the mobile overlay",
+              "name": "--wcs-tabs-mobile-overlay-border-color"
+            },
+            {
+              "description": "Background color of the mobile overlay",
+              "name": "--wcs-tabs-mobile-overlay-background-color"
+            },
+            {
+              "description": "Padding of the mobile overlay",
+              "name": "--wcs-tabs-mobile-overlay-padding"
+            },
+            {
+              "description": "Border radius of the mobile overlay",
+              "name": "--wcs-tabs-mobile-overlay-border-radius"
+            },
+            {
+              "description": "Gap between the mobile tabs in the overlay",
+              "name": "--wcs-tabs-mobile-gap"
+            },
+            {
+              "description": "Padding of the mobile tabs in the overlay",
+              "name": "--wcs-tabs-mobile-padding"
+            },
+            {
+              "description": "Height of the mobile tabs in the overlay",
+              "name": "--wcs-tabs-mobile-height"
+            },
+            {
+              "description": "Default weight of the mobile tabs in the overlay",
+              "name": "--wcs-tabs-mobile-font-weight-default"
+            },
+            {
+              "description": "Active font weight of the mobile tabs in the overlay",
+              "name": "--wcs-tabs-mobile-font-weight-active"
+            },
+            {
+              "description": "Font size of the mobile tabs in the overlay",
+              "name": "--wcs-tabs-mobile-font-size"
+            },
+            {
+              "description": "Text color of the mobile tabs in the overlay",
+              "name": "--wcs-tabs-mobile-color"
+            },
+            {
+              "description": "Default background color of the mobile tabs in the overlay",
+              "name": "--wcs-tabs-mobile-background-color-default"
+            },
+            {
+              "description": "Focused background color of the mobile tabs in the overlay",
+              "name": "--wcs-tabs-mobile-background-color-focus"
+            },
+            {
+              "description": "Hovered background color of the mobile tabs in the overlay",
+              "name": "--wcs-tabs-mobile-background-color-hover"
+            },
+            {
+              "description": "Pressed background color of the mobile tabs in the overlay",
+              "name": "--wcs-tabs-mobile-background-color-press"
+            },
+            {
+              "description": "Border radius of the mobile tabs in the overlay",
+              "name": "--wcs-tabs-mobile-border-radius"
             }
           ],
           "members": [
@@ -16128,6 +16200,60 @@
             },
             {
               "kind": "field",
+              "name": "popoverDiv",
+              "type": {
+                "text": "HTMLDivElement"
+              },
+              "privacy": "private",
+              "description": "Mobile display : This div is shown on the user interface when the tabs are expanded"
+            },
+            {
+              "kind": "field",
+              "name": "popper",
+              "type": {
+                "text": "Instance"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "mobileOverlayExpanded",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "mobile",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false",
+              "description": "If true, the tabs will be displayed as a dropdown list containing the tabs. Useful for narrower screens."
+            },
+            {
+              "kind": "field",
+              "name": "mobileButton",
+              "type": {
+                "text": "HTMLButtonElement"
+              },
+              "privacy": "private",
+              "description": "Mobile display: the selected tab semantically become a button that opens an overlay"
+            },
+            {
+              "kind": "field",
+              "name": "resizeObserver",
+              "type": {
+                "text": "ResizeObserver"
+              },
+              "privacy": "private",
+              "description": "Observe the screen resize to switch between mobile and desktop mode"
+            },
+            {
+              "kind": "field",
               "name": "headers",
               "type": {
                 "text": "string[]"
@@ -16179,6 +16305,18 @@
             },
             {
               "kind": "method",
+              "name": "onMobileChange",
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "boolean"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
               "name": "emitActiveTabChange",
               "privacy": "private"
             },
@@ -16201,12 +16339,58 @@
             },
             {
               "kind": "method",
+              "name": "onWindowClickEvent",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "tabsDidLoadWithResizeObserver",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "ResizeObserver"
+                }
+              },
+              "description": "Init resize observer for mobile"
+            },
+            {
+              "kind": "method",
+              "name": "initMobileOverlay",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
               "name": "putTabsInCorrectDivIfTheyAreNot",
               "privacy": "private"
             },
             {
               "kind": "method",
               "name": "handleKeyDown",
+              "parameters": [
+                {
+                  "name": "ev",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                },
+                {
+                  "name": "tabIndex",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleKeyDownMobile",
               "parameters": [
                 {
                   "name": "ev",
@@ -16273,6 +16457,30 @@
               "kind": "method",
               "name": "hideAllTabsContent",
               "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "onMobileButtonClick"
+            },
+            {
+              "kind": "method",
+              "name": "onMobileButtonKeyDown",
+              "parameters": [
+                {
+                  "name": "ev",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "mobileLayout"
+            },
+            {
+              "kind": "method",
+              "name": "desktopLayout"
             },
             {
               "kind": "method",

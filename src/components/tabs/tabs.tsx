@@ -14,12 +14,22 @@ import {
 
 import { WcsTabsAlignment, WcsTabChangeEvent } from './tabs-interface';
 import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
-import { inheritAriaAttributes, inheritAttributes, setOrRemoveAttribute } from "../../utils/helpers";
+import {
+    inheritAriaAttributes,
+    inheritAttributes,
+    setOrRemoveAttribute
+} from "../../utils/helpers";
+import { SelectArrow } from "../select/select-arrow";
+import { createPopper, Instance } from "@popperjs/core";
 
 const TABS_INHERITED_ATTRS = [];
 
 /**
  * Tabs component to switch between tab content. Use in conjunction with `wcs-tab`.
+ * 
+ * ## Accessibility guidelines 💡
+ * > - Mobile display should be used for narrower screens (automatically set by default).
+ * > - The component respects the W3C [tab pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/)
  * 
  * @cssprop --wcs-tabs-indicator-height - Height of the tabs indicator 
  * @cssprop --wcs-tabs-indicator-background-color - Background color of the tabs indicator
@@ -42,6 +52,24 @@ const TABS_INHERITED_ATTRS = [];
  * @cssprop --wcs-tabs-padding-left - Padding left of the tabs
  * @cssprop --wcs-tabs-headers-border-bottom - Border bottom (gutter) below the tabs
  * @cssprop --wcs-tabs-transition-duration - Transition duration of the tabs
+ * @cssprop --wcs-tabs-mobile-breakpoint - Breakpoint for mobile display (default: 575px)
+ * @cssprop --wcs-tabs-mobile-overlay-border-width - Border width of the mobile overlay
+ * @cssprop --wcs-tabs-mobile-overlay-border-color - Border color of the mobile overlay
+ * @cssprop --wcs-tabs-mobile-overlay-background-color - Background color of the mobile overlay
+ * @cssprop --wcs-tabs-mobile-overlay-padding - Padding of the mobile overlay
+ * @cssprop --wcs-tabs-mobile-overlay-border-radius - Border radius of the mobile overlay
+ * @cssprop --wcs-tabs-mobile-gap - Gap between the mobile tabs in the overlay
+ * @cssprop --wcs-tabs-mobile-padding - Padding of the mobile tabs in the overlay
+ * @cssprop --wcs-tabs-mobile-height - Height of the mobile tabs in the overlay
+ * @cssprop --wcs-tabs-mobile-font-weight-default - Default weight of the mobile tabs in the overlay
+ * @cssprop --wcs-tabs-mobile-font-weight-active - Active font weight of the mobile tabs in the overlay
+ * @cssprop --wcs-tabs-mobile-font-size - Font size of the mobile tabs in the overlay
+ * @cssprop --wcs-tabs-mobile-color - Text color of the mobile tabs in the overlay
+ * @cssprop --wcs-tabs-mobile-background-color-default - Default background color of the mobile tabs in the overlay
+ * @cssprop --wcs-tabs-mobile-background-color-focus - Focused background color of the mobile tabs in the overlay
+ * @cssprop --wcs-tabs-mobile-background-color-hover - Hovered background color of the mobile tabs in the overlay
+ * @cssprop --wcs-tabs-mobile-background-color-press - Pressed background color of the mobile tabs in the overlay
+ * @cssprop --wcs-tabs-mobile-border-radius - Border radius of the mobile tabs in the overlay
  */
 @Component({
     tag: 'wcs-tabs',
@@ -79,6 +107,36 @@ export class Tabs implements ComponentInterface, MutableAriaAttribute {
      */
     @Prop() description: string;
 
+    // region MOBILE
+    
+    /**
+     * Mobile display : This div is shown on the user interface when the tabs are expanded
+     * @private
+     */
+    private popoverDiv!: HTMLDivElement;
+
+    private popper: Instance;
+    
+    @State() private mobileOverlayExpanded: boolean = false;
+
+    /**
+     * If true, the tabs will be displayed as a dropdown list containing the tabs. Useful for narrower screens.
+     */
+    @State() private mobile: boolean = false;
+
+    /**
+     * Mobile display: the selected tab semantically become a button that opens an overlay
+     */
+    private mobileButton!: HTMLButtonElement;
+
+    /**
+     * Observe the screen resize to switch between mobile and desktop mode
+     */
+    private resizeObserver: ResizeObserver;
+
+
+    // endregion MOBILE
+
     /**
      *
      * Emitted when the selected tab change.
@@ -99,6 +157,15 @@ export class Tabs implements ComponentInterface, MutableAriaAttribute {
     @Watch('selectedKey')
     selectedTabkeyChanged(newValue: any) {
         this.updateCurrentActiveIndexByTabKey(newValue);
+    }
+    
+    @Watch('mobile')
+    onMobileChange(newValue: boolean) {
+        // Remove the popper instance when switching from mobile to desktop for performance
+        if (!newValue) {
+            this.popper.destroy();
+            this.popper = null;
+        }
     }
 
     private emitActiveTabChange() {
@@ -123,6 +190,48 @@ export class Tabs implements ComponentInterface, MutableAriaAttribute {
         this.refreshHeaders();
     }
 
+    @Listen('click', {target: 'window'})
+    onWindowClickEvent(event: MouseEvent) {
+        if (this.mobile) {
+            const clickedOnMobileButtonOrOverlay = event.composedPath().some(el => el === this.mobileButton || el === this.popoverDiv);
+            if (this.mobileOverlayExpanded && !clickedOnMobileButtonOrOverlay) {
+                this.mobileOverlayExpanded = false;
+            }
+        }
+    }
+
+    /**
+     * Init resize observer for mobile
+     */
+    private tabsDidLoadWithResizeObserver(): ResizeObserver {
+        const smallBreakpoint = getComputedStyle(this.el).getPropertyValue('--wcs-tabs-mobile-breakpoint') || '575px';
+        const smallBreakpointValue = parseInt(smallBreakpoint, 10);
+
+        return new ResizeObserver(entry => {
+            const cr = entry[0].contentRect;
+            const paddingRight = cr.right - cr.width;
+            const paddingLeft = cr.left;
+            // Switch to mobile mode if the screen is smaller than the breakpoint
+            this.mobile = cr.width <= smallBreakpointValue - (paddingLeft + paddingRight);
+        });
+    }
+
+
+    private initMobileOverlay() {
+        this.popper = createPopper(this.mobileButton, this.popoverDiv, {
+            placement: 'bottom-start',
+            strategy: 'fixed',
+            modifiers: [
+                {
+                    name: 'offset',
+                    options: {
+                        offset: [0, 8]
+                    }
+                }
+            ]
+        });
+    }
+
     componentDidLoad() {
         this.putTabsInCorrectDivIfTheyAreNot();
         this.refreshHeaders();
@@ -131,6 +240,20 @@ export class Tabs implements ComponentInterface, MutableAriaAttribute {
         }
         if (this.selectedKey) {
             this.updateCurrentActiveIndexByTabKey(this.selectedKey);
+        }
+        if (!this.resizeObserver) {
+            this.resizeObserver = this.tabsDidLoadWithResizeObserver();
+            this.resizeObserver.observe(document.body);
+        }
+    }
+
+    componentDidRender() {
+        if (this.mobile) {
+            if(!this.popper) {
+                this.initMobileOverlay();
+            } else {
+                this.popper.update();
+            }
         }
     }
 
@@ -154,8 +277,7 @@ export class Tabs implements ComponentInterface, MutableAriaAttribute {
         switch (ev.key) {
             case ' ':
             case 'Enter': {
-                this.currentActiveTabIndex = tabIndex;
-                this.emitActiveTabChange();
+                this.selectTabAndEmitChangeEvent(tabIndex);
                 ev.preventDefault();
                 break;
             }
@@ -192,6 +314,53 @@ export class Tabs implements ComponentInterface, MutableAriaAttribute {
         }
     }
 
+    handleKeyDownMobile(ev: KeyboardEvent, tabIndex: number) {
+        const target = ev.target as HTMLDivElement;
+        switch (ev.key) {
+            case ' ':
+            case 'Enter': {
+                this.selectTabAndEmitChangeEvent(tabIndex);
+                ev.preventDefault();
+                break;
+            }
+            case 'ArrowUp': {
+                if (target.previousElementSibling?.classList.contains('wcs-tab-header-mobile')) {
+                    (target.previousElementSibling as HTMLDivElement).focus();
+                    ev.preventDefault();
+                }
+                break;
+            }
+            case 'ArrowDown': {
+                if (target.nextElementSibling?.classList.contains('wcs-tab-header-mobile')) {
+                    (target.nextElementSibling as HTMLDivElement).focus();
+                    ev.preventDefault();
+                }
+                break;
+            }
+            case 'Home': {
+                const firstTab = this.el.shadowRoot.querySelector('.wcs-tab-header-mobile:first-child');
+                if (firstTab) {
+                    (firstTab as HTMLDivElement).focus();
+                    ev.preventDefault();
+                }
+                break;
+            }
+            case 'End': {
+                const lastTab = this.el.shadowRoot.querySelector('.wcs-tab-header-mobile:last-child');
+                if (lastTab) {
+                    (lastTab as HTMLDivElement).focus();
+                    ev.preventDefault();
+                }
+                break;
+            }
+            case 'Escape': {
+                this.mobileOverlayExpanded = false;
+                ev.preventDefault();
+                break;
+            }
+        }
+    }
+
     private refreshHeaders() {
         this.headers = [];
         this.tabs
@@ -214,7 +383,13 @@ export class Tabs implements ComponentInterface, MutableAriaAttribute {
 
     private selectTabAndEmitChangeEvent(index: number) {
         this.currentActiveTabIndex = index;
-        this.emitActiveTabChange()
+        this.emitActiveTabChange();
+        
+        if (this.mobile) {
+            this.mobileOverlayExpanded = false;
+            this.mobileButton?.focus();
+            
+        }
     }
 
     componentWillUpdate() {
@@ -232,9 +407,17 @@ export class Tabs implements ComponentInterface, MutableAriaAttribute {
         };
     }
 
+    disconnectedCallback(): void {
+        if (this.popper) {
+            this.popper.destroy();
+            this.popper = null;
+        }
+        this.resizeObserver?.disconnect();
+    }
+
     @Method()
     async setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) {
-        setOrRemoveAttribute(this.nativeTablist, attr, value);
+        setOrRemoveAttribute(this.mobile ? this.popoverDiv : this.nativeTablist, attr, value);
     }
 
     private updateTabVisibility() {
@@ -250,30 +433,93 @@ export class Tabs implements ComponentInterface, MutableAriaAttribute {
     private hideAllTabsContent() {
         this.tabs.forEach((el: HTMLWcsTabElement) => el.hidden = true);
     }
+    
+    onMobileButtonClick() {
+        this.mobileOverlayExpanded = !this.mobileOverlayExpanded;
+        const tabElementToFocus = this.popoverDiv.querySelectorAll('[role=tab]')[this.currentActiveTabIndex] as HTMLElement;
+        requestAnimationFrame(() => {
+            tabElementToFocus?.focus();
+        })
+    }
+    
+    onMobileButtonKeyDown(ev: KeyboardEvent) {
+        if (ev.key === 'ArrowDown' || ev.key === 'ArrowUp') {
+            this.onMobileButtonClick();
+        }
+    }
+
+    mobileLayout() {
+        return [
+            <button id="mobile-button"
+                    class="wcs-tab-header active"
+                    aria-controls="menu"
+                    role="button"
+                    aria-expanded={this.mobileOverlayExpanded ? 'true' : 'false'}
+                    ref={el => this.mobileButton = el}
+                    onClick={() => this.onMobileButtonClick()}
+                    onKeyDown={(evt) => this.onMobileButtonKeyDown(evt)}
+                    onBlur={($event) => $event.stopImmediatePropagation()}>
+                <span>
+                    {this.headers[this.currentActiveTabIndex]} <SelectArrow up={this.mobileOverlayExpanded}/>
+                </span>
+            </button>,
+            <div class={(this.mobileOverlayExpanded ? 'show ' : '') + 'popover'}
+                 role="tablist"
+                 id="menu"
+                 aria-label={this.description}
+                 aria-orientation="vertical"
+                 ref={el => this.popoverDiv = el}
+                 tabIndex={-1}
+                 {...this.inheritedAttributes}>
+                {this.headers.map((header, idx) =>
+                    <div class={'wcs-tab-header-mobile ' + (this.currentActiveTabIndex === idx ? 'mobile-active' : '')}
+                         onClick={() => this.selectTabAndEmitChangeEvent(idx)}
+                         onKeyDown={evt => this.handleKeyDownMobile(evt, idx)}
+                         tabIndex={this.currentActiveTabIndex === idx ? 0 : -1}
+                         role="tab"
+                         id={`tabs-id-${this.tabsId}-tab-id-${idx}`}
+                        // aria-controls refers to ID of the tab panel related to the header
+                         aria-controls={`tabs-id-${this.tabsId}-tab-panel-${idx}`}
+                         aria-label={header}
+                         aria-selected={this.currentActiveTabIndex === idx ? 'true' : 'false'}
+                    >
+                        <span>{header}</span>
+                    </div>
+                )}
+            </div>
+        ]
+    }
+    
+    desktopLayout() {
+        return (
+            this.headers.map((header, idx) =>
+                <div class={'wcs-tab-header ' + (this.currentActiveTabIndex === idx ? 'active' : '')}
+                     onClick={() => this.selectTabAndEmitChangeEvent(idx)}
+                     onKeyDown={evt => this.handleKeyDown(evt, idx)}
+                     tabIndex={this.currentActiveTabIndex === idx ? 0 : -1}
+                     role="tab"
+                     id={`tabs-id-${this.tabsId}-tab-id-${idx}`}
+                    // aria-controls refers to ID of the tab panel related to the header
+                     aria-controls={`tabs-id-${this.tabsId}-tab-panel-${idx}`}
+                     aria-label={header}
+                     aria-selected={this.currentActiveTabIndex === idx ? 'true' : 'false'}
+                >
+                    <span>{header}</span>
+                </div>
+            )
+        )
+    }
 
     render() {
         return (
             <Host>
                 <div class="wcs-tabs-headers"
-                     role="tablist"
+                     role={this.mobile ? null : 'tablist'}
                      ref={(el) => (this.nativeTablist = el)}
-                     aria-label={this.description}
-                     {...this.inheritedAttributes}>
-                    {this.headers.map((header, idx) =>
-                        <div class={'wcs-tab-header ' + (this.currentActiveTabIndex === idx ? 'active' : '')}
-                             onClick={() => this.selectTabAndEmitChangeEvent(idx)}
-                             onKeyDown={evt => this.handleKeyDown(evt, idx)}
-                             tabIndex={this.currentActiveTabIndex === idx ? 0 : -1}
-                             role="tab"
-                             id={`tabs-id-${this.tabsId}-tab-id-${idx}`}
-                             // aria-controls refers to ID of the tab panel related to the header
-                             aria-controls={`tabs-id-${this.tabsId}-tab-panel-${idx}`}
-                             aria-label={header}
-                             aria-selected={this.currentActiveTabIndex === idx ? 'true' : 'false'}
-                        >
-                            <span>{header}</span>
-                        </div>
-                    )}
+                     aria-orientation={this.mobile ? null : 'horizontal'}
+                     aria-label={this.mobile ? null : this.description}
+                     {...(!this.mobile && this.inheritedAttributes)}>
+                    {this.mobile ? this.mobileLayout() : this.desktopLayout()}
                 </div>
                 <div class="wcs-tabs">
                     <slot onSlotchange={() => this.onTabsSlotChange()} name="wcs-tab"/>

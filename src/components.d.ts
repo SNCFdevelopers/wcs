@@ -2137,6 +2137,9 @@ export namespace Components {
     }
     /**
      * Tabs component to switch between tab content. Use in conjunction with `wcs-tab`.
+     * ## Accessibility guidelines 💡
+     * > - Mobile display should be used for narrower screens (automatically set by default).
+     * > - The component respects the W3C [tab pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/)
      * @cssprop --wcs-tabs-indicator-height - Height of the tabs indicator
      * @cssprop --wcs-tabs-indicator-background-color - Background color of the tabs indicator
      * @cssprop --wcs-tabs-indicator-border-radius - Border radius of the tabs indicator
@@ -2158,6 +2161,24 @@ export namespace Components {
      * @cssprop --wcs-tabs-padding-left - Padding left of the tabs
      * @cssprop --wcs-tabs-headers-border-bottom - Border bottom (gutter) below the tabs
      * @cssprop --wcs-tabs-transition-duration - Transition duration of the tabs
+     * @cssprop --wcs-tabs-mobile-breakpoint - Breakpoint for mobile display (default: 575px)
+     * @cssprop --wcs-tabs-mobile-overlay-border-width - Border width of the mobile overlay
+     * @cssprop --wcs-tabs-mobile-overlay-border-color - Border color of the mobile overlay
+     * @cssprop --wcs-tabs-mobile-overlay-background-color - Background color of the mobile overlay
+     * @cssprop --wcs-tabs-mobile-overlay-padding - Padding of the mobile overlay
+     * @cssprop --wcs-tabs-mobile-overlay-border-radius - Border radius of the mobile overlay
+     * @cssprop --wcs-tabs-mobile-gap - Gap between the mobile tabs in the overlay
+     * @cssprop --wcs-tabs-mobile-padding - Padding of the mobile tabs in the overlay
+     * @cssprop --wcs-tabs-mobile-height - Height of the mobile tabs in the overlay
+     * @cssprop --wcs-tabs-mobile-font-weight-default - Default weight of the mobile tabs in the overlay
+     * @cssprop --wcs-tabs-mobile-font-weight-active - Active font weight of the mobile tabs in the overlay
+     * @cssprop --wcs-tabs-mobile-font-size - Font size of the mobile tabs in the overlay
+     * @cssprop --wcs-tabs-mobile-color - Text color of the mobile tabs in the overlay
+     * @cssprop --wcs-tabs-mobile-background-color-default - Default background color of the mobile tabs in the overlay
+     * @cssprop --wcs-tabs-mobile-background-color-focus - Focused background color of the mobile tabs in the overlay
+     * @cssprop --wcs-tabs-mobile-background-color-hover - Hovered background color of the mobile tabs in the overlay
+     * @cssprop --wcs-tabs-mobile-background-color-press - Pressed background color of the mobile tabs in the overlay
+     * @cssprop --wcs-tabs-mobile-border-radius - Border radius of the mobile tabs in the overlay
      */
     interface WcsTabs {
         /**
@@ -4253,6 +4274,9 @@ declare global {
     }
     /**
      * Tabs component to switch between tab content. Use in conjunction with `wcs-tab`.
+     * ## Accessibility guidelines 💡
+     * > - Mobile display should be used for narrower screens (automatically set by default).
+     * > - The component respects the W3C [tab pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/)
      * @cssprop --wcs-tabs-indicator-height - Height of the tabs indicator
      * @cssprop --wcs-tabs-indicator-background-color - Background color of the tabs indicator
      * @cssprop --wcs-tabs-indicator-border-radius - Border radius of the tabs indicator
@@ -4274,6 +4298,24 @@ declare global {
      * @cssprop --wcs-tabs-padding-left - Padding left of the tabs
      * @cssprop --wcs-tabs-headers-border-bottom - Border bottom (gutter) below the tabs
      * @cssprop --wcs-tabs-transition-duration - Transition duration of the tabs
+     * @cssprop --wcs-tabs-mobile-breakpoint - Breakpoint for mobile display (default: 575px)
+     * @cssprop --wcs-tabs-mobile-overlay-border-width - Border width of the mobile overlay
+     * @cssprop --wcs-tabs-mobile-overlay-border-color - Border color of the mobile overlay
+     * @cssprop --wcs-tabs-mobile-overlay-background-color - Background color of the mobile overlay
+     * @cssprop --wcs-tabs-mobile-overlay-padding - Padding of the mobile overlay
+     * @cssprop --wcs-tabs-mobile-overlay-border-radius - Border radius of the mobile overlay
+     * @cssprop --wcs-tabs-mobile-gap - Gap between the mobile tabs in the overlay
+     * @cssprop --wcs-tabs-mobile-padding - Padding of the mobile tabs in the overlay
+     * @cssprop --wcs-tabs-mobile-height - Height of the mobile tabs in the overlay
+     * @cssprop --wcs-tabs-mobile-font-weight-default - Default weight of the mobile tabs in the overlay
+     * @cssprop --wcs-tabs-mobile-font-weight-active - Active font weight of the mobile tabs in the overlay
+     * @cssprop --wcs-tabs-mobile-font-size - Font size of the mobile tabs in the overlay
+     * @cssprop --wcs-tabs-mobile-color - Text color of the mobile tabs in the overlay
+     * @cssprop --wcs-tabs-mobile-background-color-default - Default background color of the mobile tabs in the overlay
+     * @cssprop --wcs-tabs-mobile-background-color-focus - Focused background color of the mobile tabs in the overlay
+     * @cssprop --wcs-tabs-mobile-background-color-hover - Hovered background color of the mobile tabs in the overlay
+     * @cssprop --wcs-tabs-mobile-background-color-press - Pressed background color of the mobile tabs in the overlay
+     * @cssprop --wcs-tabs-mobile-border-radius - Border radius of the mobile tabs in the overlay
      */
     interface HTMLWcsTabsElement extends Components.WcsTabs, HTMLStencilElement {
         addEventListener<K extends keyof HTMLWcsTabsElementEventMap>(type: K, listener: (this: HTMLWcsTabsElement, ev: WcsTabsCustomEvent<HTMLWcsTabsElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -6578,6 +6620,9 @@ declare namespace LocalJSX {
     }
     /**
      * Tabs component to switch between tab content. Use in conjunction with `wcs-tab`.
+     * ## Accessibility guidelines 💡
+     * > - Mobile display should be used for narrower screens (automatically set by default).
+     * > - The component respects the W3C [tab pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/)
      * @cssprop --wcs-tabs-indicator-height - Height of the tabs indicator
      * @cssprop --wcs-tabs-indicator-background-color - Background color of the tabs indicator
      * @cssprop --wcs-tabs-indicator-border-radius - Border radius of the tabs indicator
@@ -6599,6 +6644,24 @@ declare namespace LocalJSX {
      * @cssprop --wcs-tabs-padding-left - Padding left of the tabs
      * @cssprop --wcs-tabs-headers-border-bottom - Border bottom (gutter) below the tabs
      * @cssprop --wcs-tabs-transition-duration - Transition duration of the tabs
+     * @cssprop --wcs-tabs-mobile-breakpoint - Breakpoint for mobile display (default: 575px)
+     * @cssprop --wcs-tabs-mobile-overlay-border-width - Border width of the mobile overlay
+     * @cssprop --wcs-tabs-mobile-overlay-border-color - Border color of the mobile overlay
+     * @cssprop --wcs-tabs-mobile-overlay-background-color - Background color of the mobile overlay
+     * @cssprop --wcs-tabs-mobile-overlay-padding - Padding of the mobile overlay
+     * @cssprop --wcs-tabs-mobile-overlay-border-radius - Border radius of the mobile overlay
+     * @cssprop --wcs-tabs-mobile-gap - Gap between the mobile tabs in the overlay
+     * @cssprop --wcs-tabs-mobile-padding - Padding of the mobile tabs in the overlay
+     * @cssprop --wcs-tabs-mobile-height - Height of the mobile tabs in the overlay
+     * @cssprop --wcs-tabs-mobile-font-weight-default - Default weight of the mobile tabs in the overlay
+     * @cssprop --wcs-tabs-mobile-font-weight-active - Active font weight of the mobile tabs in the overlay
+     * @cssprop --wcs-tabs-mobile-font-size - Font size of the mobile tabs in the overlay
+     * @cssprop --wcs-tabs-mobile-color - Text color of the mobile tabs in the overlay
+     * @cssprop --wcs-tabs-mobile-background-color-default - Default background color of the mobile tabs in the overlay
+     * @cssprop --wcs-tabs-mobile-background-color-focus - Focused background color of the mobile tabs in the overlay
+     * @cssprop --wcs-tabs-mobile-background-color-hover - Hovered background color of the mobile tabs in the overlay
+     * @cssprop --wcs-tabs-mobile-background-color-press - Pressed background color of the mobile tabs in the overlay
+     * @cssprop --wcs-tabs-mobile-border-radius - Border radius of the mobile tabs in the overlay
      */
     interface WcsTabs {
         /**
@@ -8093,6 +8156,9 @@ declare module "@stencil/core" {
             "wcs-tab": LocalJSX.WcsTab & JSXBase.HTMLAttributes<HTMLWcsTabElement>;
             /**
              * Tabs component to switch between tab content. Use in conjunction with `wcs-tab`.
+             * ## Accessibility guidelines 💡
+             * > - Mobile display should be used for narrower screens (automatically set by default).
+             * > - The component respects the W3C [tab pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/)
              * @cssprop --wcs-tabs-indicator-height - Height of the tabs indicator
              * @cssprop --wcs-tabs-indicator-background-color - Background color of the tabs indicator
              * @cssprop --wcs-tabs-indicator-border-radius - Border radius of the tabs indicator
@@ -8114,6 +8180,24 @@ declare module "@stencil/core" {
              * @cssprop --wcs-tabs-padding-left - Padding left of the tabs
              * @cssprop --wcs-tabs-headers-border-bottom - Border bottom (gutter) below the tabs
              * @cssprop --wcs-tabs-transition-duration - Transition duration of the tabs
+             * @cssprop --wcs-tabs-mobile-breakpoint - Breakpoint for mobile display (default: 575px)
+             * @cssprop --wcs-tabs-mobile-overlay-border-width - Border width of the mobile overlay
+             * @cssprop --wcs-tabs-mobile-overlay-border-color - Border color of the mobile overlay
+             * @cssprop --wcs-tabs-mobile-overlay-background-color - Background color of the mobile overlay
+             * @cssprop --wcs-tabs-mobile-overlay-padding - Padding of the mobile overlay
+             * @cssprop --wcs-tabs-mobile-overlay-border-radius - Border radius of the mobile overlay
+             * @cssprop --wcs-tabs-mobile-gap - Gap between the mobile tabs in the overlay
+             * @cssprop --wcs-tabs-mobile-padding - Padding of the mobile tabs in the overlay
+             * @cssprop --wcs-tabs-mobile-height - Height of the mobile tabs in the overlay
+             * @cssprop --wcs-tabs-mobile-font-weight-default - Default weight of the mobile tabs in the overlay
+             * @cssprop --wcs-tabs-mobile-font-weight-active - Active font weight of the mobile tabs in the overlay
+             * @cssprop --wcs-tabs-mobile-font-size - Font size of the mobile tabs in the overlay
+             * @cssprop --wcs-tabs-mobile-color - Text color of the mobile tabs in the overlay
+             * @cssprop --wcs-tabs-mobile-background-color-default - Default background color of the mobile tabs in the overlay
+             * @cssprop --wcs-tabs-mobile-background-color-focus - Focused background color of the mobile tabs in the overlay
+             * @cssprop --wcs-tabs-mobile-background-color-hover - Hovered background color of the mobile tabs in the overlay
+             * @cssprop --wcs-tabs-mobile-background-color-press - Pressed background color of the mobile tabs in the overlay
+             * @cssprop --wcs-tabs-mobile-border-radius - Border radius of the mobile tabs in the overlay
              */
             "wcs-tabs": LocalJSX.WcsTabs & JSXBase.HTMLAttributes<HTMLWcsTabsElement>;
             /**

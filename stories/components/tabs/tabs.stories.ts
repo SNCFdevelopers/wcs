@@ -34,11 +34,15 @@ interface TabsStoryArgs {
     headersOnly: boolean,
     gutter: boolean
     "aria-label": string,
+    "--wcs-tabs-mobile-breakpoint": string,
+    mobile: boolean,
 }
 
 const Template: StoryFn<Partial<TabsStoryArgs>> = (args) => html`
     <wcs-tabs aria-label=${args["aria-label"] ?? nothing}
+              style="${args["--wcs-tabs-mobile-breakpoint"] ? `--wcs-tabs-mobile-breakpoint: ${args["--wcs-tabs-mobile-breakpoint"]}` : nothing}"
               align=${args.align}
+              .mobile=${args.mobile}
               .selectedIndex=${args.selectedIndex}
               .selectedKey=${args.selectedKey}
               ?headersOnly=${args.headersOnly}
@@ -70,6 +74,22 @@ export const WithGutter: StoryObj<TabsStoryArgs> = {
         gutter: true
     }
 };
+
+/**
+ * When using the tabs on a narrower screen like tablets or mobiles, the component automatically switches to a mobile mode.
+ * 
+ * - If you want to force the mobile mode: set CSS variable `--wcs-tabs-mobile-breakpoint` to a high value, like `999999px`.
+ * - If you want to force the desktop mode: set CSS variable `--wcs-tabs-mobile-breakpoint` to `0`.
+ * 
+ */
+export const Mobile: StoryObj<TabsStoryArgs> = {
+    ...Default,
+    args: {
+        ...Default.args,
+        "--wcs-tabs-mobile-breakpoint": "999999px"
+    }
+}
+
 function tabChangeHandler(event: CustomEvent<WcsTabChangeEvent>) {
     let content = '';
     if (event.detail.selectedKey === 'firstTab') content = 'Contenu du premier onglet';

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-04-30T14:44:52",
+  "timestamp": "2025-04-30T10:00:53",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -541,449 +541,6 @@
       "dependents": [],
       "dependencies": [],
       "dependencyGraph": {}
-    },
-    {
-      "filePath": "src/components/alert/alert.tsx",
-      "encapsulation": "shadow",
-      "tag": "wcs-alert",
-      "readme": "# wcs-alert\r\n\r\n\r\n\r",
-      "docs": "Alerts are used to communicate a state or an action that has been performed.\r\nIt has to be used conjunction with the `wcs-alert-drawer` component, or you can use it independently by taking care of \r\nthe alert visibility",
-      "docsTags": [
-        {
-          "name": "cssprop",
-          "text": "--wcs-alert-background-color - Background color of the alert"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-alert-icon-background-color - Background color of the icon"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-alert-title-color - Color of the title"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-alert-subtitle-color - Color of the subtitle"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-alert-dismiss-button-color - Color of the dismiss button"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-alert-title-font-weight - Font weight of the title"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-alert-subtitle-font-weight - Font weight of the subtitle"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-alert-title-font-size - Font size of the title"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-alert-subtitle-font-size - Font size of the subtitle"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-alert-border-width - Border width of the alert"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-alert-border-color - Border color of the alert"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-alert-border-radius - Border radius of the alert"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-alert-padding - Padding of the alert"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-alert-gap - Gap between each element of the alert, icon content and close button"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-alert-min-width - Minimum width of the alert, default to 100% and it is set by alert-drawer component"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-alert-progress-bar-height - Height of the progress bar if `showProgressBar` is set to true"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-alert-progress-bar-background-color - Background color of the progress bar"
-        }
-      ],
-      "usage": {},
-      "props": [
-        {
-          "name": "intent",
-          "type": "\"error\" | \"information\" | \"success\" | \"warning\"",
-          "complexType": {
-            "original": "WcsAlertIntent",
-            "resolved": "\"error\" | \"information\" | \"success\" | \"warning\"",
-            "references": {
-              "WcsAlertIntent": {
-                "location": "import",
-                "path": "./alert-interface",
-                "id": "src/components/alert/alert-interface.ts::WcsAlertIntent"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "intent",
-          "reflectToAttr": true,
-          "docs": "",
-          "docsTags": [],
-          "default": "'success'",
-          "values": [
-            {
-              "value": "error",
-              "type": "string"
-            },
-            {
-              "value": "information",
-              "type": "string"
-            },
-            {
-              "value": "success",
-              "type": "string"
-            },
-            {
-              "value": "warning",
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "show",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": true,
-          "attr": "show",
-          "reflectToAttr": true,
-          "docs": "Controls the visibility state of the alert.\r\nThis property is exposed to allow control of the alert's display state and animation timing:\r\n- Used by wcs-alert-drawer to coordinate exit animations when the alert is dismissed\r\n- Can be used directly for custom implementations (though using wcs-alert-drawer is recommended)\r\n- When set to false, it triggers the exit animation if implemented\r\n\r\nNote: While direct usage is possible for custom implementations, it's recommended to use\r\nwcs-alert-drawer for consistent alert management and animations.",
-          "docsTags": [],
-          "default": "true",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "showProgressBar",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "show-progress-bar",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "timeout",
-          "type": "number",
-          "complexType": {
-            "original": "number",
-            "resolved": "number",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "timeout",
-          "reflectToAttr": false,
-          "docs": "Time duration of the alert visibility\r\n\r\n5000ms by default\r\nIf 0, the alert will not emit `wcsAlertDismiss` event automatically",
-          "docsTags": [],
-          "default": "5000",
-          "values": [
-            {
-              "type": "number"
-            }
-          ],
-          "optional": false,
-          "required": false
-        }
-      ],
-      "methods": [],
-      "events": [
-        {
-          "event": "wcsAlertDismiss",
-          "detail": "void",
-          "bubbles": true,
-          "complexType": {
-            "original": "void",
-            "resolved": "void",
-            "references": {}
-          },
-          "cancelable": true,
-          "composed": true,
-          "docs": "Event emitted when the alert is dismissed",
-          "docsTags": []
-        }
-      ],
-      "listeners": [
-        {
-          "event": "mouseover",
-          "capture": false,
-          "passive": true
-        },
-        {
-          "event": "mouseout",
-          "capture": false,
-          "passive": true
-        }
-      ],
-      "styles": [],
-      "slots": [],
-      "parts": [],
-      "dependents": [
-        "wcs-alert-drawer"
-      ],
-      "dependencies": [
-        "wcs-mat-icon",
-        "wcs-button"
-      ],
-      "dependencyGraph": {
-        "wcs-alert": [
-          "wcs-mat-icon",
-          "wcs-button"
-        ],
-        "wcs-button": [
-          "wcs-spinner"
-        ],
-        "wcs-alert-drawer": [
-          "wcs-alert"
-        ]
-      }
-    },
-    {
-      "filePath": "src/components/alert-drawer/alert-drawer.tsx",
-      "encapsulation": "shadow",
-      "tag": "wcs-alert-drawer",
-      "readme": "# alert-drawer\r\n\r\n\r\n\r",
-      "docs": "Serve as a container for displaying `wcs-alert` components. Directly use this component to display alerts in your applications.\r\n\r\n## Usage\r\n\r\nYou can place the `wcs-alert-drawer` component anywhere in your application. It will be used to display alerts.\r\nYou need to set `position` property to define where the alert drawer will be displayed on the screen.\r\n\r\nAbout alerts order:\r\n- alerts are ordered up-bottom if the position is `top` and bottom-up if the position is `bottom`\r\n\r\n## Accessibility guidelines 💡\r\n\r\n- The component has `aria-live=\"polite\"` and `aria-atomic=\"true\"` attributes to announce the new alerts to screen readers\r\n\r\n## Configuration (on the web component)\r\n\r\nPer default, the `wcs-alert-drawer` is configured with:\r\n- `position: 'top-right'`\r\n- `showProgressBar: false`\r\n- `timeout: 5000`\r\n\r\nWhen using the `WcsAlertDrawer::show(alert: WcsAlertConfig)` method, you can override the default configuration by \r\noverriding it through the argument.\r\nYou can also set them in the `wcs-alert-drawer` component directly as attributes\r\n\r\n```html\r\n<wcs-alert-drawer position=\"top-right\" show-progress-bar timeout=\"10000\">\r\n```\r\nWith this configuration, all alerts will be displayed with a progress bar and a timeout of 10 seconds.",
-      "docsTags": [
-        {
-          "name": "slot",
-          "text": "- the alert drawer content, where alerts you put as children will be displayed"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-alert-drawer-gap - Gap between alerts"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-alert-drawer-margin-horizontal - Margin horizontal of the alert drawer"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-alert-drawer-margin-vertical - Margin vertical of the alert drawer"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-alert-drawer-hide-alert-animation-duration - Duration of the hide alert animation"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-alert-drawer-min-width - Minimum width of the alert drawer => define the width of the alerts"
-        }
-      ],
-      "usage": {},
-      "props": [
-        {
-          "name": "position",
-          "type": "\"bottom\" | \"bottom-left\" | \"bottom-right\" | \"top\" | \"top-left\" | \"top-right\"",
-          "complexType": {
-            "original": "WcsAlertDrawerPosition",
-            "resolved": "\"bottom\" | \"bottom-left\" | \"bottom-right\" | \"top\" | \"top-left\" | \"top-right\"",
-            "references": {
-              "WcsAlertDrawerPosition": {
-                "location": "import",
-                "path": "./alert-drawer-interface",
-                "id": "src/components/alert-drawer/alert-drawer-interface.ts::WcsAlertDrawerPosition"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "position",
-          "reflectToAttr": true,
-          "docs": "Position of the alert drawer on the screen",
-          "docsTags": [],
-          "default": "'bottom-right'",
-          "values": [
-            {
-              "value": "bottom",
-              "type": "string"
-            },
-            {
-              "value": "bottom-left",
-              "type": "string"
-            },
-            {
-              "value": "bottom-right",
-              "type": "string"
-            },
-            {
-              "value": "top",
-              "type": "string"
-            },
-            {
-              "value": "top-left",
-              "type": "string"
-            },
-            {
-              "value": "top-right",
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "showProgressBar",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "show-progress-bar",
-          "reflectToAttr": false,
-          "docs": "Whether to show the progress bar or not",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "timeout",
-          "type": "number",
-          "complexType": {
-            "original": "number",
-            "resolved": "number",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "timeout",
-          "reflectToAttr": false,
-          "docs": "Timeout for the alert to be dismissed automatically",
-          "docsTags": [],
-          "default": "5000",
-          "values": [
-            {
-              "type": "number"
-            }
-          ],
-          "optional": false,
-          "required": false
-        }
-      ],
-      "methods": [
-        {
-          "name": "show",
-          "returns": {
-            "type": "Promise<void>",
-            "docs": ""
-          },
-          "complexType": {
-            "signature": "(alert: WcsAlertConfig) => Promise<void>",
-            "parameters": [
-              {
-                "name": "alert",
-                "type": "{ title: string; subtitle: string; intent: WcsAlertIntent; showProgressBar?: boolean; timeout?: number; }",
-                "docs": "The alert to show"
-              }
-            ],
-            "references": {
-              "Promise": {
-                "location": "global",
-                "id": "global::Promise"
-              },
-              "WcsAlertConfig": {
-                "location": "import",
-                "path": "../alert/alert-interface",
-                "id": "src/components/alert/alert-interface.ts::WcsAlertConfig"
-              }
-            },
-            "return": "Promise<void>"
-          },
-          "signature": "show(alert: WcsAlertConfig) => Promise<void>",
-          "parameters": [
-            {
-              "name": "alert",
-              "type": "{ title: string; subtitle: string; intent: WcsAlertIntent; showProgressBar?: boolean; timeout?: number; }",
-              "docs": "The alert to show"
-            }
-          ],
-          "docs": "Method exposed on `wcs-alert-drawer` to show an alert programmatically via the JS API",
-          "docsTags": [
-            {
-              "name": "example",
-              "text": "Plain javascript (example inside a script tag):\r\n```javascript\r\n document.querySelector('wcs-alert-drawer').show({\r\n     title: 'Alert title',\r\n     subtitle: 'Alert subtitle',\r\n     intent: 'info',\r\n     showProgressBar: true,\r\n     timeout: 5000\r\n });"
-            },
-            {
-              "name": "param",
-              "text": "alert The alert to show"
-            }
-          ]
-        }
-      ],
-      "events": [],
-      "listeners": [],
-      "styles": [],
-      "slots": [
-        {
-          "name": "",
-          "docs": "the alert drawer content, where alerts you put as children will be displayed"
-        }
-      ],
-      "parts": [],
-      "dependents": [],
-      "dependencies": [
-        "wcs-alert"
-      ],
-      "dependencyGraph": {
-        "wcs-alert-drawer": [
-          "wcs-alert"
-        ],
-        "wcs-alert": [
-          "wcs-mat-icon",
-          "wcs-button"
-        ],
-        "wcs-button": [
-          "wcs-spinner"
-        ]
-      }
     },
     {
       "filePath": "src/components/app/app.tsx",
@@ -1897,7 +1454,6 @@
       "slots": [],
       "parts": [],
       "dependents": [
-        "wcs-alert",
         "wcs-breadcrumb",
         "wcs-counter",
         "wcs-dropdown",
@@ -1912,9 +1468,6 @@
       "dependencyGraph": {
         "wcs-button": [
           "wcs-spinner"
-        ],
-        "wcs-alert": [
-          "wcs-button"
         ],
         "wcs-breadcrumb": [
           "wcs-button"
@@ -5638,28 +5191,6 @@
       ],
       "methods": [
         {
-          "name": "focusFirstCell",
-          "returns": {
-            "type": "Promise<void>",
-            "docs": ""
-          },
-          "complexType": {
-            "signature": "() => Promise<void>",
-            "parameters": [],
-            "references": {
-              "Promise": {
-                "location": "global",
-                "id": "global::Promise"
-              }
-            },
-            "return": "Promise<void>"
-          },
-          "signature": "focusFirstCell() => Promise<void>",
-          "parameters": [],
-          "docs": "Set focus on the first cell of the grid",
-          "docsTags": []
-        },
-        {
           "name": "setAriaAttribute",
           "returns": {
             "type": "Promise<void>",
@@ -8948,7 +8479,6 @@
       "slots": [],
       "parts": [],
       "dependents": [
-        "wcs-alert",
         "wcs-breadcrumb",
         "wcs-counter",
         "wcs-editable-field",
@@ -8960,9 +8490,6 @@
       ],
       "dependencies": [],
       "dependencyGraph": {
-        "wcs-alert": [
-          "wcs-mat-icon"
-        ],
         "wcs-breadcrumb": [
           "wcs-mat-icon"
         ],
@@ -12785,7 +12312,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-tabs",
       "readme": "# Tabs\r\n\r",
-      "docs": "Tabs component to switch between tab content. Use in conjunction with `wcs-tab`.",
+      "docs": "Tabs component to switch between tab content. Use in conjunction with `wcs-tab`.\r\n\r\n## Accessibility guidelines 💡\r\n> - Use the `mobile` prop to display the tabs as a dropdown list containing the tabs. Recommended for narrower screens.",
       "docsTags": [
         {
           "name": "cssprop",
@@ -12870,6 +12397,78 @@
         {
           "name": "cssprop",
           "text": "--wcs-tabs-transition-duration - Transition duration of the tabs"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-mobile-breakpoint - Breakpoint for mobile display (default: 575px)"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-mobile-overlay-border-width - Border width of the mobile overlay"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-mobile-overlay-border-color - Border color of the mobile overlay"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-mobile-overlay-background-color - Background color of the mobile overlay"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-mobile-overlay-padding - Padding of the mobile overlay"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-mobile-overlay-border-radius - Border radius of the mobile overlay"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-mobile-gap - Gap between the mobile tabs in the overlay"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-mobile-padding - Padding of the mobile tabs in the overlay"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-mobile-height - Height of the mobile tabs in the overlay"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-mobile-font-weight-default - Default weight of the mobile tabs in the overlay"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-mobile-font-weight-active - Active font weight of the mobile tabs in the overlay"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-mobile-font-size - Font size of the mobile tabs in the overlay"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-mobile-color - Text color of the mobile tabs in the overlay"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-mobile-background-color-default - Default background color of the mobile tabs in the overlay"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-mobile-background-color-focus - Focused background color of the mobile tabs in the overlay"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-mobile-background-color-hover - Hovered background color of the mobile tabs in the overlay"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-mobile-background-color-press - Pressed background color of the mobile tabs in the overlay"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-tabs-mobile-border-radius - Border radius of the mobile tabs in the overlay"
         }
       ],
       "usage": {},
@@ -13095,6 +12694,12 @@
       "listeners": [
         {
           "event": "tabLoaded",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "click",
+          "target": "window",
           "capture": false,
           "passive": false
         }
@@ -14387,21 +13992,6 @@
       "declaration": "export type AriaAttributeName = `aria-${string}` | 'role';",
       "docstring": "",
       "path": "src/utils/mutable-aria-attribute.ts"
-    },
-    "src/components/alert/alert-interface.ts::WcsAlertIntent": {
-      "declaration": "export type WcsAlertIntent = 'success' | 'information' | 'error' | 'warning';",
-      "docstring": "",
-      "path": "src/components/alert/alert-interface.ts"
-    },
-    "src/components/alert-drawer/alert-drawer-interface.ts::WcsAlertDrawerPosition": {
-      "declaration": "export type WcsAlertDrawerPosition = 'bottom' | 'top' | \"top-left\" | \"top-right\" | \"bottom-left\" | \"bottom-right\";",
-      "docstring": "",
-      "path": "src/components/alert-drawer/alert-drawer-interface.ts"
-    },
-    "src/components/alert/alert-interface.ts::WcsAlertConfig": {
-      "declaration": "{\r\n    title: string;\r\n    subtitle: string;\r\n    intent: WcsAlertIntent;\r\n    showProgressBar?: boolean;\r\n    timeout?: number;\r\n}",
-      "docstring": "",
-      "path": "src/components/alert/alert-interface.ts"
     },
     "src/components/badge/badge-interface.ts::BadgeShape": {
       "declaration": "export type BadgeShape = 'normal' | 'rounded';",

@@ -7,7 +7,7 @@ import { Component, HostBinding } from '@angular/core';
       <img slot="logo" src="./assets/sncf-logo.png" alt="Logo SNCF" >
       <h1 slot="title">Votre superbe application</h1>
       <div slot="actions">
-          <wcs-button class="wcs-light" mode="clear"><span>Connexion</span><wcs-mat-icon icon="person_outline"></wcs-mat-icon></wcs-button>
+          <wcs-button mode="clear"><span>Connexion</span><wcs-mat-icon icon="person_outline"></wcs-mat-icon></wcs-button>
           <div class="switch-mode">
             <wcs-mat-icon icon="business_center" family="filled"></wcs-mat-icon>
             <wcs-switch (wcsChange)="mode = $event.detail.checked ? 'communication' : 'business'" checked="false"></wcs-switch>
@@ -75,7 +75,7 @@ import { Component, HostBinding } from '@angular/core';
       display: grid;
       grid-template-areas: "header header" "nav content";
       grid-template-columns: auto 1fr;
-      height: 100vh;
+      /*height: 100vh;*/
       overflow-y: hidden;
 
       .switch-mode {
@@ -93,6 +93,20 @@ import { Component, HostBinding } from '@angular/core';
       }
       wcs-header {
         grid-area: header;
+      }
+    }
+
+    @media screen and (max-width: 1199px) {
+      :host([mode="business"]) {
+        grid-template-areas: "header" "content" "nav";
+        grid-template-columns: 1fr;
+      }
+      main {
+        height: calc(100vh - 8 * var(--wcs-semantic-size-base) - 6 * var(--wcs-semantic-size-base)); /* Remove the header and mobile-nav height in the calc */
+        max-width: 100vw;
+      }
+      app-navbar {
+        height: initial;
       }
     }
 
