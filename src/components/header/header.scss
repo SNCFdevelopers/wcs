@@ -35,6 +35,14 @@ header {
     font-size: var(--wcs-header-title-font-size);
 }
 
+::slotted([slot="center"]) {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 ::slotted([slot=actions]) {
     margin-left: auto;
 }

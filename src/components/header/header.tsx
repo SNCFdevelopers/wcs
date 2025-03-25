@@ -9,6 +9,7 @@ const HEADER_INHERITED_ATTRS = [];
  * 
  * @slot logo SNCF Logo
  * @slot title Title of your application
+ * @slot center Content to display in the center of the header, useful for a search bar
  * @slot actions Actions such as buttons, dropdown or any useful information to always display on your application
  * 
  * @cssprop --wcs-header-background-color - Background color of the header
@@ -56,6 +57,7 @@ export class Header implements ComponentInterface {
             <header role="banner" ref={(el) => (this.nativeHeader = el)} {...this.inheritedAttributes}>
                 <slot name="logo"/>
                 <slot name="title"/>
+                <slot name="center"/>
                 <slot name="actions"/>
             </header>
         );
