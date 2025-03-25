@@ -16,6 +16,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   - new story to show how to add a clickable logo / title
 - **tabs**: introduce `mobile` mode for small screens accessibility
 - **nav**: add scrollbar for small-height screens to handle overflow
+- **Angular Formly**: add missing props for all formly field components
 
 ### Changed
 
@@ -28,7 +29,7 @@ for soon-to-be removed features.
 
 ### Removed
 
-for now removed features.
+- **Angular Formly**: remove `value` from type `WcsFormlyCounterProps` => still works because Angular already does it for you
 
 ### Fixed
 

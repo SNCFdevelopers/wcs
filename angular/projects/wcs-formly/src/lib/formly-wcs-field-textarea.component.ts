@@ -1,13 +1,24 @@
 import { Component } from '@angular/core';
 import { FieldType, FieldTypeConfig } from '@ngx-formly/core';
 import { WcsFormlyFieldWrapperProps } from './formly-wcs-field-wrapper.component';
+import { WcsTextareaInputMode, WcsTextareaWrap } from 'wcs-core';
 
 export type WcsFormlyTextareaProps = WcsFormlyFieldWrapperProps & {
+  autoGrow?: boolean,
   autocapitalize?: 'off' | 'none' | 'on' | 'sentences' | 'words' | 'characters',
   autofocus?: boolean,
-  autoGrow?: boolean,
+  debounce?: number,
+  enterkeyhint?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send',
+  hidePasswordButtonAriaLabel?: string,
+  icon?: string,
+  inputmode?: WcsTextareaInputMode,
+  multiple?: boolean,
+  pattern?: string,
+  resize?: 'both' | 'none' | 'vertical' | 'horizontal',
+  showPasswordButtonAriaLabel?: string,
   spellcheck?: boolean,
-  wrap?: 'hard' | 'soft' | 'off',
+  state?: 'initial' | 'error',
+  wrap?: WcsTextareaWrap,
 };
 
 @Component({
@@ -16,23 +27,33 @@ export type WcsFormlyTextareaProps = WcsFormlyFieldWrapperProps & {
   template: `
     <formly-wcs-field-wrapper [field]="field" [id]="id" [showError]="showError" [props]="props">
       <wcs-textarea
-        [id]="id"
-        [formControl]="formControl"
-        [cols]="props.cols"
-        [rows]="props.rows"
-        [formlyAttributes]="field"
-        [placeholder]="props.placeholder"
-        [attr.required]="props.required ? true : null"
-        [attr.disabled]="props.disabled ? true : null"
+        [autoGrow]="props.autoGrow ? true : null"
         [autocapitalize]="props.autocapitalize"
         [autofocus]="props.autofocus"
-        [autoGrow]="props.autoGrow"
-        [minlength]="props.minLength"
+        [cols]="props.cols"
+        [debounce]="props.debounce"
+        [attr.disabled]="props.disabled ? true : null"
+        [enterkeyhint]="props.enterkeyhint"
+        [formControl]="formControl"
+        [formlyAttributes]="field"
+        [hidePasswordButtonAriaLabel]="props.hidePasswordButtonAriaLabel"
+        [icon]="props.icon"
+        [inputmode]="props.inputmode"
+        [id]="id"
+        [max]="props.max"
         [maxlength]="props.maxLength"
-        [readonly]="props.readonly"
+        [min]="props.min"
+        [minlength]="props.minLength"
+        [multiple]="props.multiple"
+        [attr.required]="props.required ? true : null"
+        [ngStyle]="props.styles?.input"
+        [placeholder]="props.placeholder"
+        [readonly]="props.readonly ? true : null"
+        [resize]="props.resize"
+        [rows]="props.rows"
         [spellcheck]="props.spellcheck"
-        [wrap]="props.wrap"
-        [ngStyle]="props.styles?.input">
+        [state]="props.state"
+        [wrap]="props.wrap">
       </wcs-textarea>
     </formly-wcs-field-wrapper>
   `,

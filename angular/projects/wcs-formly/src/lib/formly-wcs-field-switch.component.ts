@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 import { FieldType, FieldTypeConfig } from '@ngx-formly/core';
 import { WcsFormlyBooleanFieldWrapperProps } from './formly-wcs-boolean-field-wrapper.component';
+import { SwitchLabelAlignment } from 'wcs-core';
 
 export type WcsFormlySwitchProps = WcsFormlyBooleanFieldWrapperProps & {
+  checked: boolean,
+  hideLabel?: boolean,
   id: string,
-  hideLabel?: boolean
+  labelAlignment: SwitchLabelAlignment,
 };
 
 @Component({
@@ -13,9 +16,11 @@ export type WcsFormlySwitchProps = WcsFormlyBooleanFieldWrapperProps & {
   template: `
     <formly-wcs-boolean-field-wrapper [field]="field" [showError]="showError" [props]="props">
       <wcs-switch
-        [id]="id"
         [attr.disabled]="props.disabled ? true : null"
+        [checked]="props.checked ? true : null"
         [formControl]="formControl"
+        [id]="id"
+        [labelAlignment]="props.labelAlignment"
         [ngStyle]="props.styles?.input">
         <span *ngIf="props.label && props.hideLabel !== true" [attr.for]="id">
           {{ props.label }}

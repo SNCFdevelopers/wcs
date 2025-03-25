@@ -1,19 +1,33 @@
 import { Component } from '@angular/core';
 import { FieldType, FieldTypeConfig } from '@ngx-formly/core';
 import { WcsFormlyFieldWrapperProps } from './formly-wcs-field-wrapper.component';
-import { AutocompleteTypes, WcsInputSize } from 'wcs-core';
+import {
+  AutocompleteTypes,
+  WcsInputSize,
+  WcsInputEnterKeyHint,
+  WcsInputInputMode,
+  WcsInputState
+} from 'wcs-core';
 
 export type WcsFormlyInputProps = WcsFormlyFieldWrapperProps & {
-  inputMode?: 'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search',
+  accept?: string,
   autocapitalize?: string,
   autocomplete?: AutocompleteTypes,
   autocorrect?: 'on' | 'off',
   autofocus?: boolean
-  spellcheck?: boolean,
-  prefixLabel?: string,
-  suffixLabel?: string,
+  debounce?: number,
+  enterkeyhint?: WcsInputEnterKeyHint;
+  hidePasswordButtonAriaLabel?: string,
   hideRequiredMarker?: boolean,
+  icon?: string,
+  inputMode?: WcsInputInputMode,
+  name?: string,
+  prefixLabel?: string,
+  showPasswordButtonAriaLabel?: string,
   size?: WcsInputSize,
+  spellcheck?: boolean,
+  state?: WcsInputState,
+  suffixLabel?: string,
 };
 
 @Component({
@@ -21,28 +35,37 @@ export type WcsFormlyInputProps = WcsFormlyFieldWrapperProps & {
   selector: 'formly-wcs-field-input',
   template: `
     <formly-wcs-field-wrapper [field]="field" [id]="id" [showError]="showError" [props]="props">
-      <wcs-input [placeholder]="props.placeholder"
-                 [id]="id"
-                 [formControl]="formControl"
-                 [formlyAttributes]="field"
-                 [attr.disabled]="props.disabled ? true : null"
-                 [type]="type"
-                 [min]="props.min"
-                 [max]="props.max"
-                 [inputmode]="props.inputMode"
-                 [pattern]="props.pattern"
+      <wcs-input [accept]="props.accept"
                  [autocapitalize]="props.autocapitalize"
                  [autocomplete]="props.autocomplete"
                  [autocorrect]="props.autocorrect"
-                 [autofocus]="props.autofocus"
-                 [size]="props.size ?? 'm'"
-                 [minlength]="props.minLength"
-                 [spellcheck]="props.spellcheck"
+                 [autofocus]="props.autofocus ? true : null"
+                 [debounce]="props.debounce"
+                 [attr.disabled]="props.disabled ? true : null"
+                 [enterkeyhint]="props.enterkeyhint"
+                 [formControl]="formControl"
+                 [formlyAttributes]="field"
+                 [hidePasswordButtonAriaLabel]="props.hidePasswordButtonAriaLabel"
+                 [icon]="props.icon"
+                 [id]="id"
+                 [inputmode]="props.inputMode"
+                 [max]="props.max"
                  [maxlength]="props.maxLength"
+                 [min]="props.min"
+                 [minlength]="props.minLength"
+                 [ngStyle]="props.styles?.input"
+                 [pattern]="props.pattern"
                  [prefixLabel]="props.prefixLabel"
-                 [suffixLabel]="props.suffixLabel"
+                 [attr.readonly]="props.readonly ? true : null"
                  [attr.required]="(props.required && props.hideRequiredMarker !== true) ? true : null"
-                 [ngStyle]="props.styles?.input"></wcs-input>
+                 [showPasswordButtonAriaLabel]="props.showPasswordButtonAriaLabel"
+                 [size]="props.size ?? 'm'"
+                 [spellcheck]="props.spellcheck ? true : null"
+                 [state]="props.state"
+                 [step]="props.step"
+                 [suffixLabel]="props.suffixLabel"
+                 [type]="type"
+                 [placeholder]="props.placeholder"></wcs-input>
     </formly-wcs-field-wrapper>
   `,
   styles: []

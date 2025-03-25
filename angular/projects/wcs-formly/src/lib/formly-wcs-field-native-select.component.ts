@@ -4,29 +4,31 @@ import { WcsFormlyFieldWrapperProps } from './formly-wcs-field-wrapper.component
 import { WcsSelectSize } from 'wcs-core';
 
 export type WcsFormlySelectNativeProps = WcsFormlyFieldWrapperProps & {
-  size?: WcsSelectSize,
-  name?: string,
   id?: string
+  name?: string,
+  size?: WcsSelectSize,
 };
 
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'app-formly-wcs-field-native-select',
   template: `
-      <formly-wcs-field-wrapper [field]="field" [id]="id" [showError]="showError" [props]="props">
-          <wcs-native-select
-                  [ngStyle]="props.styles?.input">
-              <select [name]="props.name" [id]="id" [formControl]="formControl">
-                  <option *ngFor="let option of props.options | wcsFormlyOptions | async"
-                          [value]="option.value"
-                          [ngClass]="option.class"
-                          [attr.disabled]="option.disabled ? true : null"
-                          [attr.selected]="option.selected ? true : null"
-                          [attr.hidden]="option.hidden ? true : null"
-                  >{{option.label}}</option>
-              </select>
-          </wcs-native-select>
-      </formly-wcs-field-wrapper>
+    <formly-wcs-field-wrapper [field]="field" [id]="id" [showError]="showError" [props]="props">
+      <wcs-native-select
+        [ngStyle]="props.styles?.input"
+        [size]="props.size">
+        <select [name]="props.name" [id]="id" [formControl]="formControl">
+          <option *ngFor="let option of props.options | wcsFormlyOptions | async"
+                  [value]="option.value"
+                  [ngClass]="option.class"
+                  [attr.disabled]="option.disabled ? true : null"
+                  [attr.selected]="option.selected ? true : null"
+                  [attr.hidden]="option.hidden ? true : null"
+          >{{ option.label }}
+          </option>
+        </select>
+      </wcs-native-select>
+    </formly-wcs-field-wrapper>
   `,
   styles: []
 })

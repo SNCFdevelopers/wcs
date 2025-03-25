@@ -1,8 +1,13 @@
 import { Component } from '@angular/core';
 import { FieldType, FieldTypeConfig } from '@ngx-formly/core';
 import { WcsFormlyBooleanFieldWrapperProps } from './formly-wcs-boolean-field-wrapper.component';
+import { CheckboxLabelAlignment } from 'wcs-core';
 
-export type WcsFormlyCheckboxProps = WcsFormlyBooleanFieldWrapperProps;
+export type WcsFormlyCheckboxProps = WcsFormlyBooleanFieldWrapperProps & {
+  checked: boolean;
+  indeterminate: boolean;
+  labelAlignment: CheckboxLabelAlignment;
+};
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -10,9 +15,12 @@ export type WcsFormlyCheckboxProps = WcsFormlyBooleanFieldWrapperProps;
   template: `
     <formly-wcs-boolean-field-wrapper [field]="field" [showError]="showError" [props]="props">
       <wcs-checkbox
-        [id]="id"
         [attr.disabled]="props.disabled ? true : null"
+        [checked]="props.checked ? true : null"
         [formControl]="formControl"
+        [id]="id"
+        [indeterminate]="props.indeterminate ? true : null"
+        [labelAlignment]="props.labelAlignment"
         [ngStyle]="props.styles?.input">{{props.label}}</wcs-checkbox>
     </formly-wcs-boolean-field-wrapper>
   `,
