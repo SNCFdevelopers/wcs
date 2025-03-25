@@ -13,6 +13,8 @@ nav {
     flex-direction: column;
     width: var(--wcs-nav-width-desktop);
     height: 100%;
+    overflow: auto;
+    scrollbar-width: thin;
 
     div[role="list"] {
         list-style-type: none;

@@ -29,6 +29,12 @@ import { Component, HostBinding } from '@angular/core';
           <span>Info</span>
         </a>
       </wcs-nav-item>
+      <wcs-nav-item slot="bottom">
+        <button id="support-button" (click)="supportButtonClick()">
+          <wcs-mat-icon icon="support"></wcs-mat-icon>
+          <span>Support</span>
+        </button>
+      </wcs-nav-item>
     </wcs-nav>
 
     <wcs-com-nav *ngIf="mode === 'communication'" app-name="Application" aria-label="Menu principal">
@@ -78,10 +84,6 @@ import { Component, HostBinding } from '@angular/core';
       /*height: 100vh;*/
       overflow-y: hidden;
 
-      .switch-mode {
-        color: var(--wcs-semantic-color-text-inverse);
-      }
-
       main {
         grid-area: content;
         padding: 16px;
@@ -90,6 +92,7 @@ import { Component, HostBinding } from '@angular/core';
       }
       wcs-nav {
         grid-area: nav;
+        height: calc(100vh - 8 * var(--wcs-semantic-size-base));
       }
       wcs-header {
         grid-area: header;
@@ -146,4 +149,8 @@ import { Component, HostBinding } from '@angular/core';
 export class MainLayoutComponent {
   @HostBinding('attr.mode')
   mode: 'business' | 'communication' = 'business';
+
+  supportButtonClick() {
+    alert('This is an example action');
+  }
 }

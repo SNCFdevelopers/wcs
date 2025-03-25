@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-04-30T10:00:53",
+  "timestamp": "2025-03-25T14:05:43",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -12312,7 +12312,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-tabs",
       "readme": "# Tabs\r\n\r",
-      "docs": "Tabs component to switch between tab content. Use in conjunction with `wcs-tab`.\r\n\r\n## Accessibility guidelines 💡\r\n> - Use the `mobile` prop to display the tabs as a dropdown list containing the tabs. Recommended for narrower screens.",
+      "docs": "Tabs component to switch between tab content. Use in conjunction with `wcs-tab`.",
       "docsTags": [
         {
           "name": "cssprop",
@@ -12397,78 +12397,6 @@
         {
           "name": "cssprop",
           "text": "--wcs-tabs-transition-duration - Transition duration of the tabs"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-tabs-mobile-breakpoint - Breakpoint for mobile display (default: 575px)"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-tabs-mobile-overlay-border-width - Border width of the mobile overlay"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-tabs-mobile-overlay-border-color - Border color of the mobile overlay"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-tabs-mobile-overlay-background-color - Background color of the mobile overlay"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-tabs-mobile-overlay-padding - Padding of the mobile overlay"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-tabs-mobile-overlay-border-radius - Border radius of the mobile overlay"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-tabs-mobile-gap - Gap between the mobile tabs in the overlay"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-tabs-mobile-padding - Padding of the mobile tabs in the overlay"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-tabs-mobile-height - Height of the mobile tabs in the overlay"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-tabs-mobile-font-weight-default - Default weight of the mobile tabs in the overlay"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-tabs-mobile-font-weight-active - Active font weight of the mobile tabs in the overlay"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-tabs-mobile-font-size - Font size of the mobile tabs in the overlay"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-tabs-mobile-color - Text color of the mobile tabs in the overlay"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-tabs-mobile-background-color-default - Default background color of the mobile tabs in the overlay"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-tabs-mobile-background-color-focus - Focused background color of the mobile tabs in the overlay"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-tabs-mobile-background-color-hover - Hovered background color of the mobile tabs in the overlay"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-tabs-mobile-background-color-press - Pressed background color of the mobile tabs in the overlay"
-        },
-        {
-          "name": "cssprop",
-          "text": "--wcs-tabs-mobile-border-radius - Border radius of the mobile tabs in the overlay"
         }
       ],
       "usage": {},
@@ -12694,12 +12622,6 @@
       "listeners": [
         {
           "event": "tabLoaded",
-          "capture": false,
-          "passive": false
-        },
-        {
-          "event": "click",
-          "target": "window",
           "capture": false,
           "passive": false
         }

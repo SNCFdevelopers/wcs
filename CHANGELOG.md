@@ -13,6 +13,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - **header**: add `center` slot to put a search bar inside
 - **tabs**: introduce `mobile` mode for small screens accessibility
+- **nav**: add scrollbar for small-height screens to handle overflow
 
 ### Changed
 
