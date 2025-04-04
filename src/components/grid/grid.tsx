@@ -198,6 +198,15 @@ export class Grid implements ComponentInterface, ComponentDidLoad, MutableAriaAt
     }
 
     /**
+     * Set focus on the first cell of the grid
+     */
+    @Method()
+    async focusFirstCell() {
+        this.cursorPosition = { col: this.selectionConfig === 'none' ? 0 : 1, row: 1 };
+        this.getElementToFocusAtCursorPosition()?.focus();
+    }
+
+    /**
      * If selectionConfig is different from `none`, that means that an extra column for radio or checkbox is rendered
      * in the table.
      */

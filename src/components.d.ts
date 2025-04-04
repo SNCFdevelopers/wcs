@@ -1006,6 +1006,10 @@ export namespace Components {
          */
         "data": any[];
         /**
+          * Set focus on the first cell of the grid
+         */
+        "focusFirstCell": () => Promise<void>;
+        /**
           * Flag to display a spinner during data loading
          */
         "loading": boolean;

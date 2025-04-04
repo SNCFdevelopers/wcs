@@ -1277,6 +1277,44 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/accordion-header/accordion-header.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The accordion-header is a subcomponent of `wcs-accordion`. It represents the heading text inside the accordion panel.",
+          "name": "AccordionHeader",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-accordion-header",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "AccordionHeader",
+          "declaration": {
+            "name": "AccordionHeader",
+            "module": "components/accordion-header/accordion-header.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-accordion-header",
+          "declaration": {
+            "name": "AccordionHeader",
+            "module": "components/accordion-header/accordion-header.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/accordion-content/accordion-content.tsx",
       "declarations": [
         {
@@ -1319,44 +1357,6 @@
           "declaration": {
             "name": "AccordionContent",
             "module": "components/accordion-content/accordion-content.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/accordion-header/accordion-header.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The accordion-header is a subcomponent of `wcs-accordion`. It represents the heading text inside the accordion panel.",
-          "name": "AccordionHeader",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-accordion-header",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "AccordionHeader",
-          "declaration": {
-            "name": "AccordionHeader",
-            "module": "components/accordion-header/accordion-header.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-accordion-header",
-          "declaration": {
-            "name": "AccordionHeader",
-            "module": "components/accordion-header/accordion-header.tsx"
           }
         }
       ]
@@ -6781,6 +6781,62 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/field-content/field-content.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The field-content is a subcomponent of `wcs-field`. It represents the text content of the field.",
+          "name": "FieldContent",
+          "cssProperties": [
+            {
+              "description": "Color of the content",
+              "name": "--wcs-field-content-color"
+            },
+            {
+              "description": "Font weight of the content",
+              "name": "--wcs-field-content-font-weight"
+            },
+            {
+              "description": "Font size of the content",
+              "name": "--wcs-field-content-font-size"
+            },
+            {
+              "description": "Line height of the content",
+              "name": "--wcs-field-content-line-height"
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-field-content",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "FieldContent",
+          "declaration": {
+            "name": "FieldContent",
+            "module": "components/field-content/field-content.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-field-content",
+          "declaration": {
+            "name": "FieldContent",
+            "module": "components/field-content/field-content.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/field/field.tsx",
       "declarations": [
         {
@@ -6865,62 +6921,6 @@
           "declaration": {
             "name": "Field",
             "module": "components/field/field.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/field-content/field-content.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The field-content is a subcomponent of `wcs-field`. It represents the text content of the field.",
-          "name": "FieldContent",
-          "cssProperties": [
-            {
-              "description": "Color of the content",
-              "name": "--wcs-field-content-color"
-            },
-            {
-              "description": "Font weight of the content",
-              "name": "--wcs-field-content-font-weight"
-            },
-            {
-              "description": "Font size of the content",
-              "name": "--wcs-field-content-font-size"
-            },
-            {
-              "description": "Line height of the content",
-              "name": "--wcs-field-content-line-height"
-            }
-          ],
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-field-content",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "FieldContent",
-          "declaration": {
-            "name": "FieldContent",
-            "module": "components/field-content/field-content.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-field-content",
-          "declaration": {
-            "name": "FieldContent",
-            "module": "components/field-content/field-content.tsx"
           }
         }
       ]
@@ -8150,6 +8150,11 @@
             },
             {
               "kind": "method",
+              "name": "focusFirstCell",
+              "description": "Set focus on the first cell of the grid"
+            },
+            {
+              "kind": "method",
               "name": "hasSelectionColumn",
               "description": "If selectionConfig is different from `none`, that means that an extra column for radio or checkbox is rendered\r\nin the table."
             },
@@ -9339,6 +9344,16 @@
             },
             {
               "kind": "method",
+              "name": "getWcsGrid",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "HTMLWcsGridElement | undefined"
+                }
+              }
+            },
+            {
+              "kind": "method",
               "name": "lastPage",
               "privacy": "private",
               "return": {
@@ -9399,7 +9414,7 @@
             },
             {
               "kind": "method",
-              "name": "onChangePagesize",
+              "name": "onChangePageSize",
               "privacy": "private",
               "return": {
                 "type": {
@@ -9414,6 +9429,12 @@
                   }
                 }
               ]
+            },
+            {
+              "kind": "method",
+              "name": "focusFirstGridCell",
+              "privacy": "private",
+              "description": "Move focus to the first grid cell after a pagination change"
             },
             {
               "kind": "method",

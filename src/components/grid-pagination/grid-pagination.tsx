@@ -81,16 +81,22 @@ export class GridPagination implements ComponentInterface, MutableAriaAttribute 
     async setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) {
         setOrRemoveAttribute(this.nativeNav, attr, value);
     }
+    
+    private getWcsGrid(): HTMLWcsGridElement | undefined {
+        return this.el.parentElement.tagName === 'WCS-GRID' ? this.el.parentElement as HTMLWcsGridElement : undefined;
+    }
 
     private lastPage(): void {
         this.currentPage = this.pageCount - 1;
         this.emitPaginationChange();
+        this.focusFirstGridCell();
     }
 
     private nextPage(): void {
         if (this.canGoToNextPage()) {
             this.currentPage++;
             this.emitPaginationChange();
+            this.focusFirstGridCell();
         }
     }
 
@@ -102,6 +108,7 @@ export class GridPagination implements ComponentInterface, MutableAriaAttribute 
         if (this.canGoToPreviousPage()) {
             this.currentPage--;
             this.emitPaginationChange();
+            this.focusFirstGridCell();
         }
     }
 
@@ -112,14 +119,29 @@ export class GridPagination implements ComponentInterface, MutableAriaAttribute 
     private firstPage(): void {
         this.currentPage = 0;
         this.emitPaginationChange();
+        this.focusFirstGridCell();
     }
 
-    private onChangePagesize(event: CustomEvent<SelectChangeEventDetail>): void {
+    private onChangePageSize(event: CustomEvent<SelectChangeEventDetail>): void {
         this.pageSize = event.detail.value;
         if (this.currentPage + 1 > this.pageSize) {
             this.currentPage = 0;
         }
         this.emitPaginationChange();
+        this.focusFirstGridCell();
+    }
+
+    /**
+     * Move focus to the first grid cell after a pagination change
+     */
+    private focusFirstGridCell() {
+        const grid = this.getWcsGrid();
+        if (grid) {
+            requestAnimationFrame(() => {
+                this.el.blur();
+                grid.focusFirstCell();
+            })
+        }
     }
 
     private emitPaginationChange(): void {
@@ -141,7 +163,7 @@ export class GridPagination implements ComponentInterface, MutableAriaAttribute 
                                 class="available-page-sizes"
                                 aria-labelledby="elements-per-page-number elements-per-page-text"
                                 value={this.pageSize}
-                                onWcsChange={this.onChangePagesize.bind(this)}>
+                                onWcsChange={this.onChangePageSize.bind(this)}>
                         {
                             this.availablePageSizes.map((pageSize) =>
                                 <wcs-select-option value={pageSize}>{pageSize}</wcs-select-option>

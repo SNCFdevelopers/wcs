@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-04-29T12:53:33",
+  "timestamp": "2025-04-30T14:44:52",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -5637,6 +5637,28 @@
         }
       ],
       "methods": [
+        {
+          "name": "focusFirstCell",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "focusFirstCell() => Promise<void>",
+          "parameters": [],
+          "docs": "Set focus on the first cell of the grid",
+          "docsTags": []
+        },
         {
           "name": "setAriaAttribute",
           "returns": {

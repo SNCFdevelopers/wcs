@@ -825,7 +825,7 @@ export declare interface WcsGalacticMenu extends Components.WcsGalacticMenu {}
 
 @ProxyCmp({
   inputs: ['data', 'loading', 'rowCssPartsFn', 'rowIdPath', 'selectedItems', 'selectionConfig', 'serverMode', 'wcsGridPaginationId'],
-  methods: ['setAriaAttribute']
+  methods: ['focusFirstCell', 'setAriaAttribute']
 })
 @Component({
   selector: 'wcs-grid',

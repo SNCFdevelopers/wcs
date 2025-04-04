@@ -33,6 +33,16 @@ The grid component is a complex component used as an HTML table to display colle
 
 ## Methods
 
+### `focusFirstCell() => Promise<void>`
+
+Set focus on the first cell of the grid
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
 ### `setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) => Promise<void>`
 
 

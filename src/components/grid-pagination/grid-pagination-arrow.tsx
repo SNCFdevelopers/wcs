@@ -9,10 +9,10 @@ interface GridPaginationArrowProps {
 const getAccessibleName = (order: GridPaginationArrowProps['order'], double: GridPaginationArrowProps['double']): string => {
   switch (order) {
     case 'next':
-      return double ? 'Last page' : 'Next page';
+      return double ? 'Dernière page' : 'Page suivante';
     case 'previous':
     default:
-      return double ? 'First page' : 'Previous page';
+      return double ? 'Première page' : 'Page précédente';
   }
 }
 
