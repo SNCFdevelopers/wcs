@@ -1,0 +1,71 @@
+import {Meta} from '@storybook/blocks';
+import {
+    Color,
+    Size,
+    Spacing,
+    Font,
+    Duration,
+    SemanticSize,
+    Typography,
+    SemanticBorder,
+    SemanticColor,
+    SemanticSpacing,
+    SemanticMotion,
+} from "../Palette-Autogen.mdx";
+import tokens from '../../../design-tokens/dist/sncf-groupe.json';
+
+<Meta title="Documentation/Design Tokens/SNCF Groupe" />
+
+# Design Tokens
+This page is a documentation of the design tokens used in the design system.
+Every token found here is represented by a CSS variable prefixed with `--wcs`.
+
+E.g: `primitive.color.bleu.700` corresponds to the CSS variable `var(--wcs-primitive-color-bleu-700)`.
+
+> If you want to integrate these tokens into your project, please refer to the **[Theming documentation](?path=/docs/documentation-theming--documentation)**.
+
+## Primitives
+Primitives tokens are tokens mapped to raw CSS values. They are used to define the base of the design system.
+
+<wcs-tabs aria-label="Primitives" class={"token-migration sncf-groupe"}>
+    <wcs-tab header="Colors" item-key="colorsTab">
+        <Color mode={'sncf-groupe'} tokens={tokens}/>
+    </wcs-tab>
+    <wcs-tab header="Sizes" item-key="sizesTab">
+        <Size tokens={tokens}/>
+    </wcs-tab>
+    <wcs-tab header="Spacings" item-key="spacingsTab">
+        <Spacing tokens={tokens}/>
+    </wcs-tab>
+    <wcs-tab header="Font" item-key="typographyTab">
+        <Font tokens={tokens}/>
+    </wcs-tab>
+    <wcs-tab header="Duration" item-key="durationTab">
+        <Duration tokens={tokens}/>
+    </wcs-tab>
+</wcs-tabs>
+
+## Semantic
+Semantic tokens are tokens mapped to primitives values. They represent a choice of design for a specific context.
+
+<wcs-tabs aria-label="Semantic" class={"token-migration sncf-groupe"}>
+    <wcs-tab header="Colors" item-key="colorsTab">
+        <SemanticColor tokens={tokens}/>
+    </wcs-tab>
+    <wcs-tab header="Sizes" item-key="sizesTab">
+        <SemanticSize tokens={tokens}/>
+    </wcs-tab>
+    <wcs-tab header="Border" item-key="borderTab">
+        <SemanticBorder tokens={tokens}/>
+    </wcs-tab>
+    <wcs-tab header="Typography" item-key="typographyTab">
+        <Typography tokens={tokens}/>
+    </wcs-tab>
+    <wcs-tab header="Spacing" item-key="spacingTab">
+        <SemanticSpacing tokens={tokens}/>
+    </wcs-tab>
+    <wcs-tab header="Motion" item-key="motionTab">
+        <SemanticMotion tokens={tokens}/>
+    </wcs-tab>
+</wcs-tabs>
+

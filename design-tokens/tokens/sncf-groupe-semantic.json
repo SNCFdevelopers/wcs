@@ -1,0 +1,1229 @@
+{
+    "semantic": {
+        "size": {
+            "base": {
+                "$description": "Base size for calculation",
+                "$type": "dimension",
+                "$value": "{primitive.size.80}"
+            },
+            "xl": {
+                "$description": "Size XL for multi-size components",
+                "$type": "dimension",
+                "$value": "{primitive.size.560}"
+            },
+            "l": {
+                "$description": "Size L for multi-size components",
+                "$type": "dimension",
+                "$value": "{primitive.size.480}"
+            },
+            "m": {
+                "$description": "Size M for multi-size components (default)",
+                "$type": "dimension",
+                "$value": "{primitive.size.400}"
+            },
+            "s": {
+                "$description": "Size S for multi-size components",
+                "$type": "dimension",
+                "$value": "{primitive.size.320}"
+            },
+            "xs": {
+                "$description": "Size XS for multi-size components",
+                "$type": "dimension",
+                "$value": "{primitive.size.240}"
+            }
+        },
+        "border": {
+            "radius": {
+                "none": {
+                    "$description": "No border-radius",
+                    "$type": "dimension",
+                    "$value": "0"
+                },
+                "base": {
+                    "$description": "Base border-radius",
+                    "$type": "dimension",
+                    "$value": "{primitive.size.100}"
+                },
+                "full": {
+                    "$description": "Circular, full rounded border-radius",
+                    "$type": "dimension",
+                    "$value": "{primitive.size.max}"
+                }
+            },
+            "width": {
+                "none": {
+                    "$description": "No border",
+                    "$type": "dimension",
+                    "$value": "0"
+                },
+                "default": {
+                    "$description": "Default border-width",
+                    "$type": "dimension",
+                    "$value": "{primitive.size.10}"
+                },
+                "large": {
+                    "$description": "Larger border-width, used for focus border especially",
+                    "$type": "dimension",
+                    "$value": "{primitive.size.20}"
+                },
+                "larger": {
+                    "$description": "Largest border-width",
+                    "$type": "dimension",
+                    "$value": "{primitive.size.40}"
+                }
+            },
+            "style": {
+                "focus": {
+                    "base": {
+                        "$description": "Focus style for base elements like button, dropdown, counter, switch...",
+                        "$type": "string",
+                        "$value": "dashed"
+                    },
+                    "control": {
+                        "$description": "Focus style for control elements like input, select, textarea...",
+                        "$type": "string",
+                        "$value": "solid"
+                    }
+                }
+            }
+        },
+        "color": {
+            "border": {
+                "brand": {
+                    "$description": "Brand border color",
+                    "$type": "color",
+                    "$value": "{primitive.color.bleu.700}"
+                },
+                "primary": {
+                    "$description": "Primary border color",
+                    "$type": "color",
+                    "$value": "{primitive.color.neutral.600}"
+                },
+                "secondary": {
+                    "$description": "Secondary border color",
+                    "$type": "color",
+                    "$value": "{primitive.color.neutral.300}"
+                },
+                "disabled": {
+                    "$description": "Disabled border color",
+                    "$type": "color",
+                    "$value": "{primitive.color.neutral.400}"
+                },
+                "selected": {
+                    "$description": "Selected border color",
+                    "$type": "color",
+                    "$value": "{primitive.color.bleu.700}"
+                },
+                "critical": {
+                    "$description": "Critical border color",
+                    "$type": "color",
+                    "$value": "{primitive.color.critical.500}"
+                },
+                "warning": {
+                    "$description": "Warning border color",
+                    "$type": "color",
+                    "$value": "{primitive.color.ambre.500}"
+                },
+                "information": {
+                    "$description": "Information border color",
+                    "$type": "color",
+                    "$value": "{primitive.color.bleu.800}"
+                },
+                "success": {
+                    "$description": "Success border color",
+                    "$type": "color",
+                    "$value": "{primitive.color.vert.500}"
+                },
+                "action": {
+                    "secondary": {
+                        "default": {
+                            "$description": "Default border color for secondary elements like button, dropdown...",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu.700}"
+                        },
+                        "hover": {
+                            "$description": "Hover border color for secondary elements like button, dropdown...",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu.800}"
+                        },
+                        "press": {
+                            "$description": "Pressed border color for secondary elements like button, dropdown...",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu.900}"
+                        },
+                        "disabled": {
+                            "$description": "Disabled border color for secondary elements like button, dropdown...",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.300}"
+                        }
+                    }
+                },
+                "focus": {
+                    "base": {
+                        "$description": "Border color on focus for base elements like button, dropdown, counter, switch...",
+                        "$type": "color",
+                        "$value": "{primitive.color.bleu.800}"
+                    },
+                    "base-on-secondary": {
+                        "$description": "Border color on focus for base elements when placed on secondary or dark background",
+                        "$type": "color",
+                        "$value": "{primitive.color.neutral.0}"
+
+                    },
+                    "alt": {
+                        "$description": "Alternative border color on focus for control elements like input, select, textarea...",
+                        "$type": "color",
+                        "$value": "{primitive.color.bleu.700}"
+                    },
+                    "alt-on-secondary": {
+                        "$description": "Alternative border color on focus for control elements when placed on secondary or dark background",
+                        "$type": "color",
+                        "$value": "{primitive.color.neutral.0}"
+                    }
+                },
+                "control": {
+                    "focus": {
+                        "$description": "Focus border color for control elements like input, select, textarea...",
+                        "$type": "color",
+                        "$value": "{semantic.color.border.focus.alt}"
+                    },
+                    "indicator": {
+                        "default": {
+                            "$description": "Default border color of a form-field indicator: radio, checkbox",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.600}"
+                        },
+                        "selected": {
+                            "$description": "Selected border color of a form-field indicator: radio, checkbox",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu.700}"
+                        },
+                        "hover": {
+                            "$description": "Hovered border color of a form-field indicator: radio, checkbox",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu.600}"
+                        },
+                        "disabled": {
+                            "$description": "Disabled border color of a form-field indicator: radio, checkbox",
+                            "$type": "color",
+                            "$value": "{semantic.color.border.disabled}"
+                        }
+                    }
+                }
+            },
+            "background": {
+                "action": {
+                    "primary": {
+                        "default": {
+                            "$description": "Default primary background for elements like button, dropdown...",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu.700}"
+                        },
+                        "disabled": {
+                            "$description": "Disabled primary background for element like a button, dropdown, switch...",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.200}"
+                        },
+                        "hover": {
+                            "$description": "Can be used by primary elements which must have a hover state (button, dropdown...)",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu.800}"
+                        },
+                        "press": {
+                            "$description": "Can be used by primary elements which must have a press (CSS active) state (nav-item)",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu.900}"
+                        },
+                        "selected": {
+                            "default": {
+                                "$description": "Can be used by primary elements which must have a selected state (nav-item)",
+                                "$type": "color",
+                                "$value": "{primitive.color.bleu.900}"
+                            },
+                            "hover": {
+                                "$description": "Can be used by primary elements which must have a hover state while selected (nav-item)",
+                                "$type": "color",
+                                "$value": "{primitive.color.bleu.900}"
+                            },
+                            "press": {
+                                "$description": "Can be used by primary elements which must have a hover state while pressed (nav-item)",
+                                "$type": "color",
+                                "$value": "{primitive.color.bleu.900}"
+                            }
+                        }
+                    },
+                    "secondary": {
+                        "default": {
+                            "$description": "Default secondary background for elements like button, dropdown...",
+                            "$type": "color",
+                            "$value": "{primitive.color.transparent}"
+                        },
+                        "disabled": {
+                            "$description": "Disabled secondary background for element like a button, dropdown, switch...",
+                            "$type": "color",
+                            "$value": "{primitive.color.transparent}"
+                        },
+                        "hover": {
+                            "$description": "Can be used by secondary elements which must have a hover state (button, dropdown...)",
+                            "$type": "color",
+                            "$value": "{semantic.color.background.surface.accent.lightest}"
+                        },
+                        "press": {
+                            "$description": "Can be used by secondary elements which must have a press state (button, dropdown...)",
+                            "$type": "color",
+                            "$value": "{semantic.color.background.surface.accent.lighter}"
+                        },
+                        "selected": {
+                            "default": {
+                                "$description": "Background of an active secondary action (select option)",
+                                "$type": "color",
+                                "$value": "{semantic.color.background.surface.accent.lightest}"
+                            },
+                            "hover": {
+                                "$description": "Background of a hovered active secondary action (select option)",
+                                "$type": "color",
+                                "$value": "{semantic.color.background.surface.accent.lighter}"
+                            },
+                            "press": {
+                                "$description": "Background of a pressed (CSS active) secondary action (select option)",
+                                "$type": "color",
+                                "$value": "{semantic.color.background.surface.accent.light}"
+                            },
+                            "disabled": {
+                                "$description": "Background of a disabled active secondary action (select option)",
+                                "$type": "color",
+                                "$value": "{primitive.color.neutral.0}"
+                            }
+                        },
+                        "focus": {
+                            "$description": "Background of a focused secondary action (button, select option)",
+                            "$type": "color",
+                            "$value": "{primitive.color.transparent}"
+                        }
+                    },
+                    "tertiary": {
+                        "default": {
+                            "$description": "Default tertiary background for elements like button, dropdown...",
+                            "$type": "color",
+                            "$value": "{primitive.color.transparent}"
+                        },
+                        "hover": {
+                            "$description": "Can be used by tertiary elements which must have a hover state (button, dropdown...)",
+                            "$type": "color",
+                            "$value": "{semantic.color.background.surface.accent.lightest}"
+                        },
+                        "press": {
+                            "$description": "Can be used by tertiary elements which must have a press state (button, dropdown...)",
+                            "$type": "color",
+                            "$value": "{semantic.color.background.surface.accent.lighter}"
+                        },
+                        "disabled": {
+                            "$description": "Disabled tertiary background for element like a button, dropdown, switch...",
+                            "$type": "color",
+                            "$value": "{primitive.color.transparent}"
+                        }
+                    },
+                    "neutral": {
+                        "default": {
+                            "$description": "Default neutral background for elements like dropdown menu item",
+                            "$type": "color",
+                            "$value": "{primitive.color.transparent}"
+                        },
+                        "hover": {
+                            "$description": "Hovered neutral background for element like dropdown menu item",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.100}"
+                        },
+                        "press": {
+                            "$description": "Pressed neutral background for element like dropdown menu item",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.300}"
+                        },
+                        "disabled": {
+                            "$description": "Disabled neutral background for element like dropdown menu item",
+                            "$type": "color",
+                            "$value": "{primitive.color.transparent}"
+                        }
+                    },
+                    "critical": {
+                        "default": {
+                            "$description": "Default critical background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.critical.500}"
+                        },
+                        "hover": {
+                            "$description": "Hovered critical background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.critical.600}"
+                        },
+                        "press": {
+                            "$description": "Pressed critical background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.critical.700}"
+                        },
+                        "disabled": {
+                            "$description": "Disabled success background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.200}"
+                        }
+                    },
+                    "information": {
+                        "default": {
+                            "$description": "Default information background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu.600}"
+                        },
+                        "hover": {
+                            "$description": "Hovered information background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu.700}"
+                        },
+                        "press": {
+                            "$description": "Pressed information background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu.800}"
+                        },
+                        "disabled": {
+                            "$description": "Disabled success background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.200}"
+                        }
+                    },
+                    "success": {
+                        "default": {
+                            "$description": "Default success background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.vert.500}"
+                        },
+                        "hover": {
+                            "$description": "Hovered success background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.vert.600}"
+                        },
+                        "press": {
+                            "$description": "Pressed success background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.vert.800}"
+                        },
+                        "disabled": {
+                            "$description": "Disabled success background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.200}"
+                        }
+                    },
+                    "warning": {
+                        "default": {
+                            "$description": "Default warning background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.ambre.500}"
+                        },
+                        "hover": {
+                            "$description": "Hovered warning background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.ambre.600}"
+                        },
+                        "press": {
+                            "$description": "Pressed warning background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.ambre.700}"
+                        },
+                        "disabled": {
+                            "$description": "Disabled warning background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.200}"
+                        }
+                    }
+                },
+                "control": {
+                    "default": {
+                        "$description": "Default background of control like input, select, textarea...",
+                        "$type": "color",
+                        "$value": "{primitive.color.transparent}"
+                    },
+                    "disabled": {
+                        "$description": "Disabled background of control like input, select, textarea...",
+                        "$type": "color",
+                        "$value": "{primitive.color.transparent}"
+                    },
+                    "readonly": {
+                        "$description": "Readonly background of control like input, select, textarea...",
+                        "$type": "color",
+                        "$value": "{semantic.color.background.surface.secondary}"
+                    },
+                    "indicator": {
+                        "default": {
+                            "$description": "Default background color of a form-field indicator: radio, checkbox",
+                            "$type": "color",
+                            "$value": "{semantic.color.background.surface.secondary}"
+                        },
+                        "selected": {
+                            "$description": "Selected background color of a form-field indicator: radio, checkbox",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu.700}"
+                        },
+                        "hover": {
+                            "$description": "Hovered background color of a form-field indicator: radio, checkbox",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu.800}"
+                        },
+                        "disabled": {
+                            "$description": "Disabled background color of a form-field indicator: radio, checkbox",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.300}"
+                        }
+                    }
+                },
+                "surface": {
+                    "brand": {
+                        "$description": "Brand background color for surface",
+                        "$type": "color",
+                        "$value": "{primitive.color.bleu.700}"
+                    },
+                    "body": {
+                        "$description": "Body background color",
+                        "$type": "color",
+                        "$value": "{primitive.color.neutral.0}"
+                    },
+                    "primary": {
+                        "$description": "Background of a surface like a card, modal, overlay of a select...",
+                        "$type": "color",
+                        "$value": "{primitive.color.neutral.0}"
+                    },
+                    "secondary": {
+                        "$description": "Background of a secondary surface like a switch, counter...",
+                        "$type": "color",
+                        "$value": "{primitive.color.neutral.100}"
+                    },
+                    "tertiary": {
+                        "$description": "Tertiary background (used for background of prefix and suffix of control, also in other components)",
+                        "$type": "color",
+                        "$value": "{primitive.color.neutral.300}"
+                    },
+                    "inverse": {
+                        "$description": "Inverse background for contrast (mostly black)",
+                        "$type": "color",
+                        "$value": "{primitive.color.neutral.800}"
+                    },
+                    "critical": {
+                        "default": {
+                            "$description": "Default critical background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.critical.500}"
+                        },
+                        "light": {
+                            "$description": "Light critical background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.critical.300}"
+                        },
+                        "lighter": {
+                            "$description": "Lighter critical background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.critical.200}"
+                        },
+                        "lightest": {
+                            "$description": "Lightest critical background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.critical.100}"
+                        }
+                    },
+                    "information": {
+                        "default": {
+                            "$description": "Default information background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu.700}"
+                        },
+                        "light": {
+                            "$description": "Light information background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu.300}"
+                        },
+                        "lighter": {
+                            "$description": "Lighter information background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu.200}"
+                        },
+                        "lightest": {
+                            "$description": "Lightest information background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu.100}"
+                        }
+                    },
+                    "success": {
+                        "default": {
+                            "$description": "Default success background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.vert.600}"
+                        },
+                        "light": {
+                            "$description": "Light success background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.vert.300}"
+                        },
+                        "lighter": {
+                            "$description": "Lighter success background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.vert.200}"
+                        },
+                        "lightest": {
+                            "$description": "Lightest success background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.vert.100}"
+                        }
+                    },
+                    "warning": {
+                        "default": {
+                            "$description": "Default warning background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.ambre.500}"
+                        },
+                        "light": {
+                            "$description": "Light warning background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.ambre.300}"
+                        },
+                        "lighter": {
+                            "$description": "Lighter warning background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.ambre.200}"
+                        },
+                        "lightest": {
+                            "$description": "Lightest warning background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.ambre.100}"
+                        }
+                    },
+                    "accent": {
+                        "light": {
+                            "$description": "Light accent background color, used by nav-item indicator and grid rows",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu.300}"
+                        },
+                        "lighter": {
+                            "$description": "Lighter accent background color, used by grid rows and segmented-button background (radio options)",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu.200}"
+                        },
+                        "lightest": {
+                            "$description": "Lightest accent background color, used by segmented-button background (radio options)",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu.100}"
+                        },
+                        "dark": {
+                            "$description": "Dark accent background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu.600}"
+                        },
+                        "darker": {
+                            "$description": "Darker accent background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu.700}"
+                        },
+                        "darkest": {
+                            "$description": "Darkest accent background color",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu.800}"
+                        }
+                    }
+                },
+                "backdrop": {
+                    "$description": "The layer behind a surface (modal)",
+                    "$type": "color",
+                    "$value": "{primitive.color.backdrop}"
+                }
+            },
+            "foreground": {
+                "$description": "The layer on top of a background",
+                "brand": {
+                    "$description": "Brand foreground color",
+                    "$type": "color",
+                    "$value": "{primitive.color.bleu.700}"
+                },
+                "primary": {
+                    "$description": "Primary foreground color",
+                    "$type": "color",
+                    "$value": "{primitive.color.neutral.0}"
+                },
+                "disabled": {
+                    "$description": "Disabled foreground color",
+                    "$type": "color",
+                    "$value": "{primitive.color.neutral.400}"
+                },
+                "critical": {
+                    "$description": "Critical foreground color",
+                    "$type": "color",
+                    "$value": "{primitive.color.critical.500}"
+                },
+                "warning": {
+                    "$description": "Warning foreground color",
+                    "$type": "color",
+                    "$value": "{primitive.color.ambre.700}"
+                },
+                "information": {
+                    "$description": "Information foreground color",
+                    "$type": "color",
+                    "$value": "{primitive.color.bleu.800}"
+                },
+                "success": {
+                    "$description": "Success foreground color",
+                    "$type": "color",
+                    "$value": "{primitive.color.vert.500}"
+                },
+                "on-accent": {
+                    "$description": "Foreground color on top of an accent background",
+                    "$type": "color",
+                    "$value": "{primitive.color.bleu.700}"
+                },
+                "inverse": {
+                    "$description": "Inverse foreground for contrast (mostly black)",
+                    "$type": "color",
+                    "$value": "{primitive.color.neutral.800}"
+                },
+                "action": {
+                    "primary": {
+                        "default": {
+                            "$description": "The layer on top of a primary background",
+                            "$type": "color",
+                            "$value": "{semantic.color.foreground.primary}"
+                        },
+                        "hover": {
+                            "$description": "The layer on top of a primary background when hovered",
+                            "$type": "color",
+                            "$value": "{semantic.color.foreground.primary}"
+                        },
+                        "press": {
+                            "$description": "The layer on top of a primary background when pressed",
+                            "$type": "color",
+                            "$value": "{semantic.color.foreground.primary}"
+                        }
+                    },
+                    "secondary": {
+                        "default": {
+                            "$description": "The layer on top of a secondary background",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu.700}"
+                        },
+                        "hover": {
+                            "$description": "The layer on top of a secondary background when hovered",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu.800}"
+                        },
+                        "press": {
+                            "$description": "The layer on top of a secondary background when pressed",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu.900}"
+                        }
+                    },
+                    "tertiary": {
+                        "default": {
+                            "$description": "The layer on top of a tertiary background",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu.700}"
+                        },
+                        "hover": {
+                            "$description": "The layer on top of a tertiary background when hovered",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu.800}"
+                        },
+                        "press": {
+                            "$description": "The layer on top of a tertiary background when pressed",
+                            "$type": "color",
+                            "$value": "{primitive.color.bleu.900}"
+                        }
+                    },
+                    "neutral": {
+                        "default": {
+                            "$description": "Default neutral foreground for elements like dropdown menu item",
+                            "$type": "color",
+                            "$value": "{semantic.color.text.primary}"
+                        },
+                        "hover": {
+                            "$description": "Hovered neutral foreground for element like dropdown menu item",
+                            "$type": "color",
+                            "$value": "{semantic.color.text.primary}"
+                        },
+                        "press": {
+                            "$description": "Pressed neutral foreground for element like dropdown menu item",
+                            "$type": "color",
+                            "$value": "{semantic.color.text.primary}"
+                        }
+                    },
+                    "critical": {
+                        "default": {
+                            "$description": "Default critical foreground color",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.0}"
+                        },
+                        "hover": {
+                            "$description": "Hovered critical foreground color",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.0}"
+                        },
+                        "press": {
+                            "$description": "Pressed critical foreground color",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.0}"
+                        }
+                    },
+                    "information": {
+                        "default": {
+                            "$description": "Default information foreground color",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.0}"
+                        },
+                        "hover": {
+                            "$description": "Hovered information foreground color",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.0}"
+                        },
+                        "press": {
+                            "$description": "Pressed information foreground color",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.0}"
+                        }
+                    },
+                    "success": {
+                        "default": {
+                            "$description": "Default success foreground color",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.0}"
+                        },
+                        "hover": {
+                            "$description": "Hovered success foreground color",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.0}"
+                        },
+                        "press": {
+                            "$description": "Pressed success foreground color",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.0}"
+                        }
+                    },
+                    "warning": {
+                        "default": {
+                            "$description": "Default warning foreground color",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.0}"
+                        },
+                        "hover": {
+                            "$description": "Hovered warning foreground color",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.0}"
+                        },
+                        "press": {
+                            "$description": "Pressed warning foreground color",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.0}"
+                        }
+                    }
+                },
+                "control": {
+                    "indicator": {
+                        "selected": {
+                            "$description": "Selected foreground color of a form-field indicator: radio, checkbox",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.0}"
+                        },
+                        "hover": {
+                            "$description": "Hovered foreground color of a form-field indicator: radio, checkbox",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.0}"
+                        },
+                        "disabled": {
+                            "$description": "Disabled foreground color of a form-field indicator: radio, checkbox",
+                            "$type": "color",
+                            "$value": "{primitive.color.neutral.0}"
+                        }
+                    }
+                }
+            },
+            "text": {
+                "primary": {
+                    "$description": "Primary color for text like heading, label",
+                    "$type": "color",
+                    "$value": "{primitive.color.neutral.800}"
+                },
+                "secondary": {
+                    "$description": "Secondary color for text like paragraph",
+                    "$type": "color",
+                    "$value": "{primitive.color.neutral.700}"
+                },
+                "tertiary": {
+                    "$description": "Tertiary color for text like placeholder",
+                    "$type": "color",
+                    "$value": "{primitive.color.neutral.600}"
+                },
+                "inverse": {
+                    "$description": "Inverse color for contrast (mostly white)",
+                    "$type": "color",
+                    "$value": "white"
+                },
+                "disabled": {
+                    "$description": "Disabled color for text",
+                    "$type": "color",
+                    "$value": "{primitive.color.neutral.400}"
+                },
+                "critical": {
+                    "$description": "Main color to indicate an error state",
+                    "$type": "color",
+                    "$value": "{primitive.color.critical.500}"
+                },
+                "link": {
+                    "default": {
+                        "$description": "Default text color for link",
+                        "$type": "color",
+                        "$value": "{primitive.color.bleu.700}"
+                    },
+                    "neutral": {
+                        "$description": "Active text color for link",
+                        "$type": "color",
+                        "$value": "{semantic.color.text.primary}"
+                    },
+                    "hover": {
+                        "$description": "Hovered text color for link",
+                        "$type": "color",
+                        "$value": "{primitive.color.bleu.800}"
+                    },
+                    "visited": {
+                        "$description": "Visited text color for link",
+                        "$type": "color",
+                        "$value": "{primitive.color.bleu.700}"
+                    },
+                    "disabled": {
+                        "$description": "Disabled text color for link",
+                        "$type": "color",
+                        "$value": "{primitive.color.neutral.400}"
+                    },
+                    "inverse": {
+                        "$description": "Inverse text color for link",
+                        "$type": "color",
+                        "$value": "{primitive.color.neutral.0}"
+                    }
+                }
+            },
+            "ripple": {
+                "action": {
+                    "primary": {
+                        "$description": "Ripple applied to an primary action background (on a button, dropdown...)",
+                        "$type": "color",
+                        "$value": "{primitive.color.neutral.0}"
+                    },
+                    "secondary": {
+                        "$description": "Ripple applied to an secondary action background (on a button, dropdown...)",
+                        "$type": "color",
+                        "$value": "{primitive.color.bleu.700}"
+                    },
+                    "tertiary": {
+                        "$description": "Ripple applied to an secondary action background (on a button, dropdown...)",
+                        "$type": "color",
+                        "$value": "{primitive.color.bleu.700}"
+                    }
+                },
+                "control": {
+                    "$description": "Ripple applied to an control (select)",
+                    "$type": "color",
+                    "$value": "{primitive.color.bleu.700}"
+                }
+            }
+        },
+        "font": {
+            "size": {
+                "base": {
+                    "$description": "Base font size, equivalent to 1rem",
+                    "$type": "dimension",
+                    "$value": "16px"
+                },
+                "s": {
+                    "$description": "Smaller font size",
+                    "$type": "dimension",
+                    "$value": "15px"
+                },
+                "m": {
+                    "$description": "Medium font size, equivalent to base font-size",
+                    "$type": "dimension",
+                    "$value": "16px"
+                },
+                "l": {
+                    "$description": "Larger font size",
+                    "$type": "dimension",
+                    "$value": "17px"
+                },
+                "heading": {
+                    "1": {
+                        "$description": "Level 1 title heading",
+                        "$type": "font",
+                        "$value": "{primitive.font.size.1050}"
+                    },
+                    "2": {
+                        "$description": "Level 2 title heading",
+                        "$type": "font",
+                        "$value": "{primitive.font.size.900}"
+                    },
+                    "3": {
+                        "$description": "Level 3 title heading",
+                        "$type": "font",
+                        "$value": "{primitive.font.size.750}"
+                    },
+                    "4": {
+                        "$description": "Level 4 title heading",
+                        "$type": "font",
+                        "$value": "{primitive.font.size.600}"
+                    },
+                    "5": {
+                        "$description": "Level 5 title heading",
+                        "$type": "font",
+                        "$value": "{primitive.font.size.500}"
+                    },
+                    "6": {
+                        "$description": "Level 6 title heading",
+                        "$type": "font",
+                        "$value": "{primitive.font.size.450}"
+                    }
+                },
+                "body": {
+                    "1": {
+                        "$description": "Body text for introduction or catchphrases",
+                        "$type": "font",
+                        "$value": "{primitive.font.size.500}"
+                    },
+                    "2": {
+                        "$description": "Body text only for news, blog for a more comfortable reading",
+                        "$type": "font",
+                        "$value": "{primitive.font.size.450}"
+                    },
+                    "3": {
+                        "$description": "Default body text for common paragraphs",
+                        "$type": "font",
+                        "$value": "{primitive.font.size.400}"
+                    }
+                },
+                "label": {
+                    "1": {
+                        "$description": "Text used for buttons, links or other standard-sized actions",
+                        "$type": "font",
+                        "$value": "{primitive.font.size.400}"
+                    },
+                    "2": {
+                        "$description": "Text used for buttons, links or other smaller-sized actions",
+                        "$type": "font",
+                        "$value": "{primitive.font.size.350}"
+                    },
+                    "3": {
+                        "$description": "Text used for buttons, links or other even-smaller-sized actions",
+                        "$type": "font",
+                        "$value": "{primitive.font.size.300}"
+                    }
+                },
+                "caption": {
+                    "1": {
+                        "$description": "Use for minor mentions, captions or other information",
+                        "$type": "font",
+                        "$value": "{primitive.font.size.400}"
+                    },
+                    "2": {
+                        "$description": "Use for even-minor mentions, captions or other information",
+                        "$type": "font",
+                        "$value": "{primitive.font.size.350}"
+                    },
+                    "3": {
+                        "$description": "Use for even-more-minor mentions, captions or other information",
+                        "$type": "font",
+                        "$value": "{primitive.font.size.300}"
+                    }
+                }
+            },
+            "line-height": {
+                "base": {
+                    "$description": "Base line-height",
+                    "$type": "number",
+                    "$value": "{primitive.font.line-height.100}"
+                },
+                "medium": {
+                    "$description": "Higher line-height",
+                    "$type": "number",
+                    "$value": "{primitive.font.line-height.120}"
+                },
+                "large": {
+                    "$description": "Highest line-height",
+                    "$type": "number",
+                    "$value": "{primitive.font.line-height.140}"
+                }
+            },
+            "weight": {
+                "black": {
+                    "$description": "Avenir Black font weight",
+                    "$type": "number",
+                    "$value": "{primitive.font.weight.900}"
+                },
+                "heavy": {
+                    "$description": "Avenir Heavy font weight",
+                    "$type": "number",
+                    "$value": "{primitive.font.weight.800}"
+                },
+                "medium": {
+                    "$description": "Avenir Medium font weight",
+                    "$type": "number",
+                    "$value": "{primitive.font.weight.500}"
+                },
+                "roman": {
+                    "$description": "Avenir Roman font weight",
+                    "$type": "number",
+                    "$value": "{primitive.font.weight.400}"
+                },
+                "book": {
+                    "$description": "Avenir Book font weight",
+                    "$type": "number",
+                    "$value": "{primitive.font.weight.300}"
+                },
+                "light": {
+                    "$description": "Avenir Light font weight",
+                    "$type": "number",
+                    "$value": "{primitive.font.weight.100}"
+                }
+            },
+            "style": {
+                "control": {
+                    "placeholder": {
+                        "$description": "Placeholder font-size (previously in italic)",
+                        "$type": "string",
+                        "$value": "normal"
+                    }
+                }
+            }
+        },
+        "spacing": {
+            "small": {
+                "$description": "Small spacing",
+                "$type": "dimension",
+                "$value": "{primitive.size.40}"
+            },
+            "base": {
+                "$description": "Base spacing, can be used for calculation",
+                "$type": "dimension",
+                "$value": "{semantic.size.base}"
+            },
+            "large": {
+                "$description": "Large spacing",
+                "$type": "dimension",
+                "$value": "{primitive.size.160}"
+            },
+            "base-025": {
+                "$description": "Base spacing x0.25",
+                "$type": "dimension",
+                "$value": "{primitive.spacing.2}"
+            },
+            "base-05": {
+                "$description": "Base spacing x0.5",
+                "$type": "dimension",
+                "$value": "{primitive.spacing.4}"
+            },
+            "base-150": {
+                "$description": "Base spacing x1.5",
+                "$type": "dimension",
+                "$value": "{primitive.spacing.12}"
+            },
+            "base-200": {
+                "$description": "Base spacing x2",
+                "$type": "dimension",
+                "$value": "{primitive.spacing.16}"
+            },
+            "base-250": {
+                "$description": "Base spacing x2.5",
+                "$type": "dimension",
+                "$value": "{primitive.spacing.20}"
+            },
+            "base-300": {
+                "$description": "Base spacing x3",
+                "$type": "dimension",
+                "$value": "{primitive.spacing.24}"
+            },
+            "base-400": {
+                "$description": "Base spacing x4",
+                "$type": "dimension",
+                "$value": "{primitive.spacing.32}"
+            },
+            "base-500": {
+                "$description": "Base spacing x5",
+                "$type": "dimension",
+                "$value": "{primitive.spacing.40}"
+            },
+            "base-600": {
+                "$description": "Base spacing x6",
+                "$type": "dimension",
+                "$value": "{primitive.spacing.48}"
+            },
+            "base-700": {
+                "$description": "Base spacing x7",
+                "$type": "dimension",
+                "$value": "{primitive.spacing.56}"
+            },
+            "base-800": {
+                "$description": "Base spacing x8",
+                "$type": "dimension",
+                "$value": "{primitive.spacing.64}"
+            },
+            "base-900": {
+                "$description": "Base spacing x9",
+                "$type": "dimension",
+                "$value": "{primitive.spacing.72}"
+            },
+            "base-1000": {
+                "$description": "Base spacing x10",
+                "$type": "dimension",
+                "$value": "{primitive.spacing.80}"
+            },
+            "base-1100": {
+                "$description": "Base spacing x11",
+                "$type": "dimension",
+                "$value": "{primitive.spacing.88}"
+            },
+            "base-1200": {
+                "$description": "Base spacing x12",
+                "$type": "dimension",
+                "$value": "{primitive.spacing.96}"
+            }
+        },
+        "motion": {
+            "duration": {
+                "feedback": {
+                    "fast": {
+                        "$description": "Motion duration for faster feedbacks",
+                        "$type": "duration",
+                        "$value": "{primitive.duration.50}"
+                    },
+                    "base": {
+                        "$description": "Motion duration for feedbacks like transitions for moving arrows, transitioning backgrounds",
+                        "$type": "duration",
+                        "$value": "{primitive.duration.150}"
+                    },
+                    "slow": {
+                        "$description": "Motion duration for slow feedbacks",
+                        "$type": "duration",
+                        "$value": "{primitive.duration.200}"
+                    },
+                    "slower": {
+                        "$description": "Motion duration for slower feedbacks",
+                        "$type": "duration",
+                        "$value": "{primitive.duration.350}"
+                    }
+                },
+                "animation": {
+                    "fast": {
+                        "$description": "Motion duration for fast animations like spinner growing mode",
+                        "$type": "duration",
+                        "$value": "{primitive.duration.1000}"
+                    },
+                    "base": {
+                        "$description": "Motion duration for long animations like spinner, skeleton",
+                        "$type": "duration",
+                        "$value": "{primitive.duration.1500}"
+                    },
+                    "slow": {
+                        "$description": "Motion duration for slow animations",
+                        "$type": "duration",
+                        "$value": "{primitive.duration.2000}"
+                    }
+                }
+            }
+        }
+    }
+}

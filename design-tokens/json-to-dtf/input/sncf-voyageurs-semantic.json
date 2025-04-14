@@ -1,0 +1,1675 @@
+{
+  "semantic": {
+    "color": {
+      "background": {
+        "action": {
+          "primary": {
+            "hover": {
+              "value": "{primitive.color.sncf-voyageurs.vert.800}",
+              "type": "color"
+            },
+            "press": {
+              "value": "{primitive.color.sncf-voyageurs.vert.900}",
+              "type": "color"
+            },
+            "default": {
+              "value": "{semantic.color.primary}",
+              "type": "color"
+            },
+            "disabled": {
+              "value": "{primitive.color.neutral.200}",
+              "type": "color"
+            },
+            "selected": {
+              "default": {
+                "value": "{primitive.color.sncf-voyageurs.vert.900}",
+                "type": "color"
+              },
+              "hover": {
+                "value": "{primitive.color.sncf-voyageurs.vert.900}",
+                "type": "color"
+              },
+              "press": {
+                "value": "{primitive.color.sncf-voyageurs.vert.900}",
+                "type": "color"
+              }
+            }
+          },
+          "secondary": {
+            "disabled": {
+              "value": "{primitive.color.transparent}",
+              "type": "color"
+            },
+            "default": {
+              "value": "{primitive.color.transparent}",
+              "type": "color"
+            },
+            "hover": {
+              "value": "{semantic.color.background.surface.accent.lightest}",
+              "type": "color"
+            },
+            "press": {
+              "value": "{semantic.color.background.surface.accent.lighter}",
+              "type": "color"
+            },
+            "selected": {
+              "default": {
+                "value": "{semantic.color.background.surface.accent.lightest}",
+                "type": "color"
+              },
+              "hover": {
+                "value": "{semantic.color.background.surface.accent.lighter}",
+                "type": "color"
+              },
+              "press": {
+                "value": "{semantic.color.background.surface.accent.light}",
+                "type": "color"
+              },
+              "disabled": {
+                "value": "{primitive.color.transparent}",
+                "type": "color"
+              }
+            }
+          },
+          "critical": {
+            "hover": {
+              "value": "{primitive.color.critical.600}",
+              "type": "color"
+            },
+            "press": {
+              "value": "{primitive.color.critical.700}",
+              "type": "color"
+            },
+            "default": {
+              "value": "{primitive.color.critical.500}",
+              "type": "color"
+            },
+            "disabled": {
+              "value": "{primitive.color.neutral.200}",
+              "type": "color"
+            }
+          },
+          "tertiary": {
+            "default": {
+              "value": "{primitive.color.transparent}",
+              "type": "color"
+            },
+            "hover": {
+              "value": "{semantic.color.background.surface.accent.lightest}",
+              "type": "color"
+            },
+            "press": {
+              "value": "{semantic.color.background.surface.accent.lighter}",
+              "type": "color"
+            },
+            "disabled": {
+              "value": "{primitive.color.transparent}",
+              "type": "color"
+            }
+          },
+          "neutral": {
+            "default": {
+              "value": "{primitive.color.transparent}",
+              "type": "color"
+            },
+            "hover": {
+              "value": "{primitive.color.neutral.100}",
+              "type": "color"
+            },
+            "press": {
+              "value": "{primitive.color.neutral.300}",
+              "type": "color"
+            },
+            "disabled": {
+              "value": "{primitive.color.transparent}",
+              "type": "color"
+            },
+            "plein-default": {
+              "value": "{primitive.color.neutral.200}",
+              "type": "color"
+            },
+            "plein-hover": {
+              "value": "{primitive.color.neutral.300}",
+              "type": "color"
+            },
+            "plein-press": {
+              "value": "{primitive.color.neutral.400}",
+              "type": "color"
+            },
+            "plein-disabled": {
+              "value": "{primitive.color.transparent}",
+              "type": "color"
+            }
+          },
+          "on-secondary": {
+            "primary": {
+              "default": {
+                "value": "{primitive.color.neutral.0}",
+                "type": "color"
+              },
+              "hover": {
+                "value": "{primitive.color.alpha.light.090}",
+                "type": "color"
+              },
+              "press": {
+                "value": "{primitive.color.alpha.light.080}",
+                "type": "color"
+              },
+              "disabled": {
+                "value": "{primitive.color.alpha.light.010}",
+                "type": "color"
+              }
+            },
+            "secondary": {
+              "default": {
+                "value": "{primitive.color.transparent}",
+                "type": "color"
+              },
+              "hover": {
+                "value": "{primitive.color.alpha.light.010}",
+                "type": "color"
+              },
+              "press": {
+                "value": "{primitive.color.alpha.light.020}",
+                "type": "color"
+              },
+              "disabled": {
+                "value": "{primitive.color.transparent}",
+                "type": "color"
+              }
+            },
+            "tertiary": {
+              "default": {
+                "value": "{primitive.color.transparent}",
+                "type": "color"
+              },
+              "hover": {
+                "value": "{primitive.color.alpha.light.010}",
+                "type": "color"
+              },
+              "press": {
+                "value": "{primitive.color.alpha.light.020}",
+                "type": "color"
+              },
+              "disabled": {
+                "value": "{primitive.color.transparent}",
+                "type": "color"
+              }
+            },
+            "neutral": {
+              "default": {
+                "value": "{primitive.color.transparent}",
+                "type": "color"
+              },
+              "hover": {
+                "value": "{primitive.color.alpha.light.010}",
+                "type": "color"
+              },
+              "press": {
+                "value": "{primitive.color.alpha.light.020}",
+                "type": "color"
+              },
+              "disabled": {
+                "value": "{primitive.color.transparent}",
+                "type": "color"
+              }
+            },
+            "critical": {
+              "default": {
+                "value": "{primitive.color.transparent}",
+                "type": "color"
+              },
+              "hover": {
+                "value": "{primitive.color.critical.200}",
+                "type": "color"
+              },
+              "press": {
+                "value": "{primitive.color.critical.300}",
+                "type": "color"
+              },
+              "disabled": {
+                "value": "{primitive.color.transparent}",
+                "type": "color"
+              }
+            }
+          },
+          "warning": {
+            "default": {
+              "value": "{primitive.color.sncf-voyageurs.jaune.400}",
+              "type": "color"
+            },
+            "hover": {
+              "value": "{primitive.color.sncf-voyageurs.jaune.500}",
+              "type": "color"
+            },
+            "press": {
+              "value": "{primitive.color.sncf-voyageurs.jaune.500}",
+              "type": "color"
+            },
+            "disabled": {
+              "value": "{primitive.color.neutral.200}",
+              "type": "color"
+            }
+          },
+          "success": {
+            "default": {
+              "value": "{primitive.color.sncf-voyageurs.vert.700}",
+              "type": "color"
+            },
+            "hover": {
+              "value": "{primitive.color.sncf-voyageurs.vert.800}",
+              "type": "color"
+            },
+            "press": {
+              "value": "{primitive.color.sncf-voyageurs.vert.900}",
+              "type": "color"
+            },
+            "disabled": {
+              "value": "{primitive.color.neutral.200}",
+              "type": "color"
+            }
+          },
+          "information": {
+            "default": {
+              "value": "{primitive.color.sncf-voyageurs.bleu.500}",
+              "type": "color"
+            },
+            "hover": {
+              "value": "{primitive.color.sncf-voyageurs.bleu.600}",
+              "type": "color"
+            },
+            "press": {
+              "value": "{primitive.color.sncf-voyageurs.bleu.600}",
+              "type": "color"
+            },
+            "disabled": {
+              "value": "{primitive.color.neutral.200}",
+              "type": "color"
+            }
+          }
+        },
+        "surface": {
+          "body": {
+            "value": "{primitive.color.neutral.0}",
+            "type": "color",
+            "description": "À utiliser pour le background de niveau 0, celui qui correspond au background de la page"
+          },
+          "primary": {
+            "value": "{primitive.color.neutral.0}",
+            "type": "color",
+            "description": "À utiliser pour le background d'un élément qui vient au 1er niveau de l'interface (ex : header, card, accordéon...)"
+          },
+          "critical": {
+            "lightest": {
+              "value": "{primitive.color.critical.100}",
+              "type": "color"
+            },
+            "lighter": {
+              "value": "{primitive.color.critical.200}",
+              "type": "color"
+            },
+            "light": {
+              "value": "{primitive.color.critical.300}",
+              "type": "color"
+            },
+            "default": {
+              "value": "{primitive.color.critical.500}",
+              "type": "color"
+            }
+          },
+          "secondary": {
+            "value": "{primitive.color.neutral.100}",
+            "type": "color"
+          },
+          "inverse": {
+            "value": "{primitive.color.neutral.800}",
+            "type": "color"
+          },
+          "accent": {
+            "lighter": {
+              "value": "{primitive.color.sncf-voyageurs.vert.200}",
+              "type": "color"
+            },
+            "light": {
+              "value": "{primitive.color.sncf-voyageurs.vert.300}",
+              "type": "color"
+            },
+            "lightest": {
+              "value": "{primitive.color.sncf-voyageurs.vert.100}",
+              "type": "color"
+            },
+            "darkest": {
+              "value": "{primitive.color.sncf-voyageurs.vert.900}",
+              "type": "color"
+            },
+            "darker": {
+              "value": "{primitive.color.sncf-voyageurs.vert.700}",
+              "type": "color"
+            },
+            "dark": {
+              "value": "{primitive.color.sncf-voyageurs.vert.600}",
+              "type": "color"
+            }
+          },
+          "success": {
+            "lightest": {
+              "value": "{primitive.color.sncf-voyageurs.vert.100}",
+              "type": "color"
+            },
+            "lighter": {
+              "value": "{primitive.color.sncf-voyageurs.vert.200}",
+              "type": "color"
+            },
+            "light": {
+              "value": "{primitive.color.sncf-voyageurs.vert.300}",
+              "type": "color"
+            },
+            "default": {
+              "value": "{primitive.color.sncf-voyageurs.vert.700}",
+              "type": "color"
+            }
+          },
+          "brand": {
+            "value": "{semantic.color.primary}",
+            "type": "color"
+          },
+          "warning": {
+            "lightest": {
+              "value": "{primitive.color.sncf-voyageurs.jaune.100}",
+              "type": "color"
+            },
+            "lighter": {
+              "value": "{primitive.color.sncf-voyageurs.jaune.200}",
+              "type": "color"
+            },
+            "light": {
+              "value": "{primitive.color.sncf-voyageurs.jaune.300}",
+              "type": "color"
+            },
+            "default": {
+              "value": "{primitive.color.sncf-voyageurs.jaune.400}",
+              "type": "color"
+            }
+          },
+          "information": {
+            "lightest": {
+              "value": "{primitive.color.sncf-voyageurs.bleu.100}",
+              "type": "color"
+            },
+            "lighter": {
+              "value": "{primitive.color.sncf-voyageurs.bleu.200}",
+              "type": "color"
+            },
+            "light": {
+              "value": "{primitive.color.sncf-voyageurs.bleu.300}",
+              "type": "color"
+            },
+            "default": {
+              "value": "{primitive.color.sncf-voyageurs.bleu.500}",
+              "type": "color"
+            }
+          },
+          "tertiary": {
+            "value": "{primitive.color.neutral.300}",
+            "type": "color"
+          }
+        },
+        "control": {
+          "default": {
+            "value": "{primitive.color.transparent}",
+            "type": "color"
+          },
+          "disabled": {
+            "value": "{primitive.color.transparent}",
+            "type": "color"
+          },
+          "on-secondary": {
+            "default": {
+              "value": "{primitive.color.transparent}",
+              "type": "color"
+            },
+            "disabled": {
+              "value": "{primitive.color.transparent}",
+              "type": "color"
+            }
+          },
+          "indicator": {
+            "selected": {
+              "value": "{semantic.color.primary}",
+              "type": "color"
+            },
+            "disabled": {
+              "value": "{primitive.color.neutral.300}",
+              "type": "color"
+            },
+            "hover": {
+              "value": "{primitive.color.sncf-voyageurs.vert.800}",
+              "type": "color"
+            },
+            "default": {
+              "value": "{semantic.color.background.surface.secondary}",
+              "type": "color"
+            }
+          },
+          "readonly": {
+            "value": "{semantic.color.background.surface.secondary}",
+            "type": "color"
+          }
+        },
+        "backdrop": {
+          "value": "{primitive.color.sncf-voyageurs.backdrop}",
+          "type": "color"
+        }
+      },
+      "text": {
+        "inverse": {
+          "value": "{primitive.color.neutral.0}",
+          "type": "color"
+        },
+        "disabled": {
+          "value": "{primitive.color.neutral.400}",
+          "type": "color"
+        },
+        "primary": {
+          "value": "{primitive.color.neutral.800}",
+          "type": "color"
+        },
+        "secondary": {
+          "value": "{primitive.color.neutral.700}",
+          "type": "color"
+        },
+        "tertiary": {
+          "value": "{primitive.color.neutral.600}",
+          "type": "color"
+        },
+        "disabled-on-secondary": {
+          "value": "{primitive.color.alpha.light.040}",
+          "type": "color"
+        },
+        "critical": {
+          "value": "{primitive.color.critical.500}",
+          "type": "color"
+        },
+        "link": {
+          "default": {
+            "value": "{semantic.color.primary}",
+            "type": "color"
+          },
+          "hover": {
+            "value": "{primitive.color.sncf-voyageurs.vert.900}",
+            "type": "color"
+          },
+          "inverse": {
+            "value": "{primitive.color.neutral.0}",
+            "type": "color"
+          },
+          "visited": {
+            "value": "{semantic.color.primary}",
+            "type": "color"
+          },
+          "hover-inverse": {
+            "value": "{primitive.color.neutral.0}",
+            "type": "color"
+          },
+          "visited-inverse": {
+            "value": "{primitive.color.neutral.0}",
+            "type": "color"
+          },
+          "neutral": {
+            "value": "{semantic.color.text.secondary}",
+            "type": "color"
+          },
+          "disabled": {
+            "value": "{semantic.color.text.disabled}",
+            "type": "color"
+          }
+        },
+        "critical-on-secondary": {
+          "value": "{primitive.color.critical.400}",
+          "type": "color"
+        }
+      },
+      "foreground": {
+        "action": {
+          "primary": {
+            "default": {
+              "value": "{semantic.color.foreground.primary}",
+              "type": "color"
+            },
+            "hover": {
+              "value": "{semantic.color.foreground.primary}",
+              "type": "color"
+            },
+            "press": {
+              "value": "{semantic.color.foreground.primary}",
+              "type": "color"
+            }
+          },
+          "secondary": {
+            "default": {
+              "value": "{semantic.color.primary}",
+              "type": "color"
+            },
+            "hover": {
+              "value": "{primitive.color.sncf-voyageurs.vert.900}",
+              "type": "color"
+            },
+            "press": {
+              "value": "{primitive.color.sncf-voyageurs.vert.900}",
+              "type": "color"
+            }
+          },
+          "critical": {
+            "default": {
+              "value": "{primitive.color.neutral.0}",
+              "type": "color"
+            },
+            "hover": {
+              "value": "{primitive.color.neutral.0}",
+              "type": "color"
+            },
+            "press": {
+              "value": "{primitive.color.neutral.0}",
+              "type": "color"
+            }
+          },
+          "neutral": {
+            "default": {
+              "value": "{semantic.color.text.primary}",
+              "type": "color"
+            },
+            "hover": {
+              "value": "{semantic.color.text.primary}",
+              "type": "color"
+            },
+            "press": {
+              "value": "{semantic.color.text.primary}",
+              "type": "color"
+            }
+          },
+          "tertiary": {
+            "default": {
+              "value": "{semantic.color.primary}",
+              "type": "color"
+            },
+            "hover": {
+              "value": "{primitive.color.sncf-voyageurs.vert.900}",
+              "type": "color"
+            },
+            "press": {
+              "value": "{primitive.color.sncf-voyageurs.vert.900}",
+              "type": "color"
+            }
+          },
+          "on-secondary": {
+            "primary": {
+              "default": {
+                "value": "{semantic.color.primary}",
+                "type": "color"
+              },
+              "hover": {
+                "value": "{primitive.color.sncf-voyageurs.vert.900}",
+                "type": "color"
+              },
+              "press": {
+                "value": "{primitive.color.sncf-voyageurs.vert.900}",
+                "type": "color"
+              }
+            },
+            "secondary": {
+              "default": {
+                "value": "{primitive.color.neutral.0}",
+                "type": "color"
+              },
+              "hover": {
+                "value": "{primitive.color.neutral.0}",
+                "type": "color"
+              },
+              "press": {
+                "value": "{primitive.color.neutral.0}",
+                "type": "color"
+              }
+            },
+            "tertiary": {
+              "default": {
+                "value": "{primitive.color.neutral.0}",
+                "type": "color"
+              },
+              "hover": {
+                "value": "{primitive.color.neutral.0}",
+                "type": "color"
+              },
+              "press": {
+                "value": "{primitive.color.neutral.0}",
+                "type": "color"
+              }
+            },
+            "neutral": {
+              "default": {
+                "value": "{primitive.color.neutral.0}",
+                "type": "color"
+              },
+              "hover": {
+                "value": "{primitive.color.neutral.0}",
+                "type": "color"
+              },
+              "press": {
+                "value": "{primitive.color.neutral.0}",
+                "type": "color"
+              }
+            },
+            "critical": {
+              "default": {
+                "value": "{primitive.color.critical.500}",
+                "type": "color"
+              },
+              "hover": {
+                "value": "{primitive.color.critical.500}",
+                "type": "color"
+              },
+              "press": {
+                "value": "{primitive.color.critical.600}",
+                "type": "color"
+              }
+            }
+          },
+          "warning": {
+            "default": {
+              "value": "{semantic.color.foreground.inverse}",
+              "type": "color"
+            },
+            "hover": {
+              "value": "{semantic.color.foreground.primary}",
+              "type": "color"
+            },
+            "press": {
+              "value": "{semantic.color.foreground.primary}",
+              "type": "color"
+            }
+          },
+          "success": {
+            "default": {
+              "value": "{semantic.color.foreground.inverse}",
+              "type": "color"
+            },
+            "hover": {
+              "value": "{semantic.color.foreground.primary}",
+              "type": "color"
+            },
+            "press": {
+              "value": "{semantic.color.foreground.primary}",
+              "type": "color"
+            }
+          },
+          "information": {
+            "default": {
+              "value": "{semantic.color.foreground.primary}",
+              "type": "color"
+            },
+            "hover": {
+              "value": "{semantic.color.foreground.primary}",
+              "type": "color"
+            },
+            "press": {
+              "value": "{semantic.color.foreground.primary}",
+              "type": "color"
+            }
+          }
+        },
+        "disabled": {
+          "value": "{primitive.color.neutral.400}",
+          "type": "color"
+        },
+        "critical": {
+          "value": "{primitive.color.critical.500}",
+          "type": "color"
+        },
+        "success": {
+          "value": "{primitive.color.sncf-voyageurs.vert.600}",
+          "type": "color"
+        },
+        "warning": {
+          "value": "{primitive.color.sncf-voyageurs.jaune.500}",
+          "type": "color"
+        },
+        "information": {
+          "value": "{primitive.color.sncf-voyageurs.bleu.600}",
+          "type": "color"
+        },
+        "on-accent": {
+          "value": "{primitive.color.sncf-voyageurs.vert.900}",
+          "type": "color"
+        },
+        "primary": {
+          "value": "{primitive.color.neutral.0}",
+          "type": "color"
+        },
+        "inverse": {
+          "value": "{primitive.color.neutral.800}",
+          "type": "color"
+        },
+        "brand": {
+          "value": "{semantic.color.primary}",
+          "type": "color"
+        },
+        "control": {
+          "indicator": {
+            "selected": {
+              "value": "{primitive.color.neutral.0}",
+              "type": "color"
+            },
+            "disabled": {
+              "value": "{primitive.color.neutral.400}",
+              "type": "color"
+            },
+            "hover": {
+              "value": "{primitive.color.neutral.0}",
+              "type": "color"
+            }
+          }
+        }
+      },
+      "border": {
+        "secondary": {
+          "value": "#06565433",
+          "type": "color"
+        },
+        "action": {
+          "secondary": {
+            "default": {
+              "value": "{semantic.color.primary}",
+              "type": "color"
+            },
+            "hover": {
+              "value": "{primitive.color.sncf-voyageurs.vert.900}",
+              "type": "color"
+            },
+            "press": {
+              "value": "{primitive.color.sncf-voyageurs.vert.900}",
+              "type": "color"
+            },
+            "disabled": {
+              "value": "{primitive.color.neutral.300}",
+              "type": "color"
+            }
+          },
+          "on-secondary": {
+            "secondary": {
+              "default": {
+                "value": "{primitive.color.neutral.0}",
+                "type": "color"
+              },
+              "hover": {
+                "value": "{primitive.color.neutral.0}",
+                "type": "color"
+              },
+              "press": {
+                "value": "{primitive.color.neutral.0}",
+                "type": "color"
+              },
+              "disabled": {
+                "value": "{primitive.color.alpha.light.020}",
+                "type": "color"
+              }
+            }
+          }
+        },
+        "brand": {
+          "value": "{semantic.color.primary}",
+          "type": "color"
+        },
+        "critical": {
+          "value": "{primitive.color.critical.500}",
+          "type": "color"
+        },
+        "success": {
+          "value": "{primitive.color.sncf-voyageurs.vert.600}",
+          "type": "color"
+        },
+        "warning": {
+          "value": "{primitive.color.sncf-voyageurs.jaune.400}",
+          "type": "color"
+        },
+        "information": {
+          "value": "{primitive.color.sncf-voyageurs.bleu.600}",
+          "type": "color"
+        },
+        "selected": {
+          "value": "{semantic.color.primary}",
+          "type": "color"
+        },
+        "primary": {
+          "value": "#06565466",
+          "type": "color"
+        },
+        "disabled": {
+          "value": "{primitive.color.neutral.400}",
+          "type": "color"
+        },
+        "focus": {
+          "base": {
+            "on-primary": {
+              "value": "{primitive.color.sncf-voyageurs.vert.900}",
+              "type": "color"
+            },
+            "on-secondary": {
+              "value": "{primitive.color.neutral.0}",
+              "type": "color"
+            }
+          },
+          "alt": {
+            "on-primary": {
+              "value": "{semantic.color.primary}",
+              "type": "color"
+            },
+            "on-secondary": {
+              "value": "{primitive.color.neutral.0}",
+              "type": "color"
+            }
+          }
+        },
+        "inverse": {
+          "value": "{primitive.color.neutral.0}",
+          "type": "color"
+        },
+        "on-secondary": {
+          "critical": {
+            "value": "{primitive.color.critical.400}",
+            "type": "color"
+          }
+        },
+        "control": {
+          "indicator": {
+            "selected": {
+              "value": "{semantic.color.primary}",
+              "type": "color"
+            },
+            "disabled": {
+              "value": "{primitive.color.neutral.300}",
+              "type": "color"
+            },
+            "default": {
+              "value": "{primitive.color.neutral.600}",
+              "type": "color"
+            },
+            "hover": {
+              "value": "{primitive.color.sncf-voyageurs.vert.800}",
+              "type": "color"
+            }
+          },
+          "focus": {
+            "value": "{semantic.color.primary}",
+            "type": "color"
+          }
+        }
+      },
+      "ripple": {
+        "action": {
+          "primary": {
+            "value": "#ffffff",
+            "type": "color"
+          },
+          "secondary": {
+            "value": "#ffffff",
+            "type": "color"
+          },
+          "tertiary": {
+            "value": "#ffffff",
+            "type": "color"
+          },
+          "neutral": {
+            "value": "#ffffff",
+            "type": "color"
+          },
+          "critical": {
+            "value": "#ffffff",
+            "type": "color"
+          },
+          "success": {
+            "value": "#ffffff",
+            "type": "color"
+          },
+          "warning": {
+            "value": "#ffffff",
+            "type": "color"
+          },
+          "information": {
+            "value": "#ffffff",
+            "type": "color"
+          }
+        },
+        "control": {
+          "value": "#ffffff",
+          "type": "color"
+        }
+      },
+      "primary": {
+        "value": "{primitive.color.sncf-voyageurs.vert.700}",
+        "type": "color"
+      }
+    },
+    "font": {
+      "large-screens": {
+        "title": {
+          "01": {
+            "weight": {
+              "value": "{primitive.font.weight.900}",
+              "type": "text"
+            },
+            "line-height": {
+              "value": "{primitive.font.line-height-figma.50}",
+              "type": "dimension"
+            },
+            "font-size": {
+              "value": "{primitive.font.size.1050}",
+              "type": "dimension"
+            },
+            "letter-spacing": {
+              "value": "{primitive.font.letter-spacing.0}",
+              "type": "dimension"
+            }
+          },
+          "02": {
+            "weight": {
+              "value": "{primitive.font.weight.800}",
+              "type": "text"
+            },
+            "font-size": {
+              "value": "{primitive.font.size.900}",
+              "type": "dimension"
+            },
+            "line-height": {
+              "value": "{primitive.font.line-height-figma.43}",
+              "type": "dimension"
+            },
+            "letter-spacing": {
+              "value": "{primitive.font.letter-spacing.0}",
+              "type": "dimension"
+            }
+          },
+          "03": {
+            "weight": {
+              "value": "{primitive.font.weight.800}",
+              "type": "text"
+            },
+            "font-size": {
+              "value": "{primitive.font.size.750}",
+              "type": "dimension"
+            },
+            "line-height": {
+              "value": "{primitive.font.line-height-figma.36}",
+              "type": "dimension"
+            },
+            "letter-spacing": {
+              "value": "{primitive.font.letter-spacing.0}",
+              "type": "dimension"
+            }
+          },
+          "04": {
+            "weight": {
+              "value": "{primitive.font.weight.800}",
+              "type": "text"
+            },
+            "font-size": {
+              "value": "{primitive.font.size.600}",
+              "type": "dimension"
+            },
+            "line-height": {
+              "value": "{primitive.font.line-height-figma.29}",
+              "type": "dimension"
+            },
+            "letter-spacing": {
+              "value": "{primitive.font.letter-spacing.0}",
+              "type": "dimension"
+            }
+          },
+          "05": {
+            "weight": {
+              "value": "{primitive.font.weight.800}",
+              "type": "text"
+            },
+            "font-size": {
+              "value": "{primitive.font.size.500}",
+              "type": "dimension"
+            },
+            "line-height": {
+              "value": "{primitive.font.line-height-figma.24}",
+              "type": "dimension"
+            },
+            "letter-spacing": {
+              "value": "{primitive.font.letter-spacing.0}",
+              "type": "dimension"
+            }
+          },
+          "06": {
+            "weight": {
+              "value": "{primitive.font.weight.800}",
+              "type": "text"
+            },
+            "font-size": {
+              "value": "{primitive.font.size.450}",
+              "type": "dimension"
+            },
+            "line-height": {
+              "value": "{primitive.font.line-height-figma.22}",
+              "type": "dimension"
+            },
+            "letter-spacing": {
+              "value": "{primitive.font.letter-spacing.0}",
+              "type": "dimension"
+            }
+          }
+        },
+        "body": {
+          "01": {
+            "weight": {
+              "value": "{primitive.font.weight.400}",
+              "type": "text"
+            },
+            "font-size": {
+              "value": "{primitive.font.size.500}",
+              "type": "dimension"
+            },
+            "line-height": {
+              "value": "{primitive.font.line-height-figma.28}",
+              "type": "dimension"
+            },
+            "letter-spacing": {
+              "value": "{primitive.font.letter-spacing.0}",
+              "type": "dimension"
+            }
+          },
+          "02": {
+            "weight": {
+              "value": "{primitive.font.weight.400}",
+              "type": "text"
+            },
+            "font-size": {
+              "value": "{primitive.font.size.450}",
+              "type": "dimension"
+            },
+            "line-height": {
+              "value": "{primitive.font.line-height-figma.25}",
+              "type": "dimension"
+            },
+            "letter-spacing": {
+              "value": "{primitive.font.letter-spacing.0}",
+              "type": "dimension"
+            }
+          },
+          "03": {
+            "weight": {
+              "value": "{primitive.font.weight.400}",
+              "type": "text"
+            },
+            "font-size": {
+              "value": "{primitive.font.size.400}",
+              "type": "dimension"
+            },
+            "line-height": {
+              "value": "{primitive.font.line-height-figma.22}",
+              "type": "dimension"
+            },
+            "letter-spacing": {
+              "value": "{primitive.font.letter-spacing.0}",
+              "type": "dimension"
+            }
+          }
+        }
+      },
+      "label": {
+        "01": {
+          "weight": {
+            "value": "{primitive.font.weight.800}",
+            "type": "text"
+          },
+          "font-size": {
+            "value": "{primitive.font.size.400}",
+            "type": "dimension"
+          },
+          "line-height": {
+            "value": "{primitive.font.line-height-figma.22}",
+            "type": "dimension"
+          },
+          "letter-spacing": {
+            "value": "{primitive.font.letter-spacing.0}",
+            "type": "dimension"
+          }
+        },
+        "02": {
+          "weight": {
+            "value": "{primitive.font.weight.800}",
+            "type": "text"
+          },
+          "font-size": {
+            "value": "{primitive.font.size.350}",
+            "type": "dimension"
+          },
+          "line-height": {
+            "value": "{primitive.font.line-height-figma.20}",
+            "type": "dimension"
+          },
+          "letter-spacing": {
+            "value": "{primitive.font.letter-spacing.0}",
+            "type": "dimension"
+          }
+        },
+        "03": {
+          "weight": {
+            "value": "{primitive.font.weight.800}",
+            "type": "text"
+          },
+          "font-size": {
+            "value": "{primitive.font.size.300}",
+            "type": "dimension"
+          },
+          "line-height": {
+            "value": "{primitive.font.line-height-figma.17}",
+            "type": "dimension"
+          },
+          "letter-spacing": {
+            "value": "{primitive.font.letter-spacing.0}",
+            "type": "dimension"
+          }
+        }
+      },
+      "mention": {
+        "01": {
+          "weight": {
+            "value": "{primitive.font.weight.300}",
+            "type": "text"
+          },
+          "font-size": {
+            "value": "{primitive.font.size.400}",
+            "type": "dimension"
+          },
+          "line-height": {
+            "value": "{primitive.font.line-height-figma.22}",
+            "type": "dimension"
+          },
+          "letter-spacing": {
+            "value": "{primitive.font.letter-spacing.0}",
+            "type": "dimension"
+          }
+        },
+        "02": {
+          "weight": {
+            "value": "{primitive.font.weight.300}",
+            "type": "text"
+          },
+          "font-size": {
+            "value": "{primitive.font.size.350}",
+            "type": "dimension"
+          },
+          "line-height": {
+            "value": "{primitive.font.line-height-figma.20}",
+            "type": "dimension"
+          },
+          "letter-spacing": {
+            "value": "{primitive.font.letter-spacing.0}",
+            "type": "dimension"
+          }
+        },
+        "03": {
+          "weight": {
+            "value": "{primitive.font.weight.300}",
+            "type": "text"
+          },
+          "font-size": {
+            "value": "{primitive.font.size.300}",
+            "type": "dimension"
+          },
+          "line-height": {
+            "value": "{primitive.font.line-height-figma.17}",
+            "type": "dimension"
+          },
+          "letter-spacing": {
+            "value": "{primitive.font.letter-spacing.0}",
+            "type": "dimension"
+          }
+        }
+      },
+      "small-screens": {
+        "title": {
+          "01": {
+            "weight": {
+              "value": "{primitive.font.weight.900}",
+              "type": "text"
+            },
+            "font-size": {
+              "value": "{primitive.font.size.800}",
+              "type": "dimension"
+            },
+            "line-height": {
+              "value": "{primitive.font.line-height-figma.38}",
+              "type": "dimension"
+            },
+            "letter-spacing": {
+              "value": "{primitive.font.letter-spacing.0}",
+              "type": "dimension"
+            }
+          },
+          "02": {
+            "weight": {
+              "value": "{primitive.font.weight.800}",
+              "type": "text"
+            },
+            "font-size": {
+              "value": "{primitive.font.size.700}",
+              "type": "dimension"
+            },
+            "line-height": {
+              "value": "{primitive.font.line-height-figma.34}",
+              "type": "dimension"
+            },
+            "letter-spacing": {
+              "value": "{primitive.font.letter-spacing.0}",
+              "type": "dimension"
+            }
+          },
+          "03": {
+            "weight": {
+              "value": "{primitive.font.weight.800}",
+              "type": "text"
+            },
+            "font-size": {
+              "value": "{primitive.font.size.600}",
+              "type": "dimension"
+            },
+            "line-height": {
+              "value": "{primitive.font.line-height-figma.29}",
+              "type": "dimension"
+            },
+            "letter-spacing": {
+              "value": "{primitive.font.letter-spacing.0}",
+              "type": "dimension"
+            }
+          },
+          "04": {
+            "weight": {
+              "value": "{primitive.font.weight.800}",
+              "type": "text"
+            },
+            "font-size": {
+              "value": "{primitive.font.size.500}",
+              "type": "dimension"
+            },
+            "line-height": {
+              "value": "{primitive.font.line-height-figma.24}",
+              "type": "dimension"
+            },
+            "letter-spacing": {
+              "value": "{primitive.font.letter-spacing.0}",
+              "type": "dimension"
+            }
+          },
+          "05": {
+            "weight": {
+              "value": "{primitive.font.weight.800}",
+              "type": "text"
+            },
+            "font-size": {
+              "value": "{primitive.font.size.450}",
+              "type": "dimension"
+            },
+            "line-height": {
+              "value": "{primitive.font.line-height-figma.22}",
+              "type": "dimension"
+            },
+            "letter-spacing": {
+              "value": "{primitive.font.letter-spacing.0}",
+              "type": "dimension"
+            }
+          },
+          "06": {
+            "weight": {
+              "value": "{primitive.font.weight.800}",
+              "type": "text"
+            },
+            "font-size": {
+              "value": "{primitive.font.size.400}",
+              "type": "dimension"
+            },
+            "line-height": {
+              "value": "{primitive.font.line-height-figma.19}",
+              "type": "dimension"
+            },
+            "letter-spacing": {
+              "value": "{primitive.font.letter-spacing.0}",
+              "type": "dimension"
+            }
+          }
+        },
+        "body": {
+          "01": {
+            "weight": {
+              "value": "{primitive.font.weight.400}",
+              "type": "text"
+            },
+            "font-size": {
+              "value": "{primitive.font.size.450}",
+              "type": "dimension"
+            },
+            "line-height": {
+              "value": "{primitive.font.line-height-figma.25}",
+              "type": "dimension"
+            },
+            "letter-spacing": {
+              "value": "{primitive.font.letter-spacing.0}",
+              "type": "dimension"
+            }
+          },
+          "02": {
+            "weight": {
+              "value": "{primitive.font.weight.400}",
+              "type": "text"
+            },
+            "font-size": {
+              "value": "{primitive.font.size.400}",
+              "type": "dimension"
+            },
+            "line-height": {
+              "value": "{primitive.font.line-height-figma.22}",
+              "type": "dimension"
+            },
+            "letter-spacing": {
+              "value": "{primitive.font.letter-spacing.0}",
+              "type": "dimension"
+            }
+          },
+          "03": {
+            "weight": {
+              "value": "{primitive.font.weight.400}",
+              "type": "text"
+            },
+            "font-size": {
+              "value": "{primitive.font.size.350}",
+              "type": "dimension"
+            },
+            "line-height": {
+              "value": "{primitive.font.line-height-figma.20}",
+              "type": "dimension"
+            },
+            "letter-spacing": {
+              "value": "{primitive.font.letter-spacing.0}",
+              "type": "dimension"
+            }
+          }
+        }
+      },
+      "form": {
+        "placeholder": {
+          "01": {
+            "weight": {
+              "value": "{primitive.font.weight.400}",
+              "type": "text"
+            },
+            "font-size": {
+              "value": "{primitive.font.size.400}",
+              "type": "dimension"
+            },
+            "line-height": {
+              "value": "{primitive.font.line-height-figma.22}",
+              "type": "dimension"
+            },
+            "letter-spacing": {
+              "value": "{primitive.font.letter-spacing.0}",
+              "type": "dimension"
+            }
+          },
+          "02": {
+            "weight": {
+              "value": "{primitive.font.weight.400}",
+              "type": "text"
+            },
+            "font-size": {
+              "value": "{primitive.font.size.350}",
+              "type": "dimension"
+            },
+            "line-height": {
+              "value": "{primitive.font.line-height-figma.20}",
+              "type": "dimension"
+            },
+            "letter-spacing": {
+              "value": "{primitive.font.letter-spacing.0}",
+              "type": "dimension"
+            }
+          }
+        },
+        "text": {
+          "01": {
+            "weight": {
+              "value": "{primitive.font.weight.500}",
+              "type": "text"
+            },
+            "font-size": {
+              "value": "{primitive.font.size.400}",
+              "type": "dimension"
+            },
+            "line-height": {
+              "value": "{primitive.font.line-height-figma.22}",
+              "type": "dimension"
+            },
+            "letter-spacing": {
+              "value": "{primitive.font.letter-spacing.0}",
+              "type": "dimension"
+            }
+          },
+          "02": {
+            "weight": {
+              "value": "{primitive.font.weight.500}",
+              "type": "text"
+            },
+            "font-size": {
+              "value": "{primitive.font.size.350}",
+              "type": "dimension"
+            },
+            "line-height": {
+              "value": "{primitive.font.line-height-figma.20}",
+              "type": "dimension"
+            },
+            "letter-spacing": {
+              "value": "{primitive.font.letter-spacing.0}",
+              "type": "dimension"
+            }
+          }
+        }
+      }
+    },
+    "border": {
+      "style": {
+        "focus": {
+          "base": {
+            "value": "dash",
+            "type": "text"
+          },
+          "alt": {
+            "value": "solid",
+            "type": "text",
+            "description": "À utiliser pour le focus d'un champ de formulaire"
+          }
+        }
+      },
+      "radius": {
+        "base": {
+          "value": "{primitive.size.120}",
+          "type": "dimension"
+        },
+        "full": {
+          "value": "{primitive.size.max}",
+          "type": "dimension"
+        },
+        "none": {
+          "value": "0px",
+          "type": "dimension"
+        }
+      },
+      "width": {
+        "none": {
+          "value": "0px",
+          "type": "dimension"
+        },
+        "large": {
+          "value": "{primitive.size.20}",
+          "type": "dimension"
+        },
+        "default": {
+          "value": "{primitive.size.10}",
+          "type": "dimension"
+        },
+        "larger": {
+          "value": "{primitive.size.40}",
+          "type": "dimension"
+        }
+      }
+    },
+    "size": {
+      "s": {
+        "value": "{primitive.size.320}",
+        "type": "dimension"
+      },
+      "m": {
+        "value": "{primitive.size.400}",
+        "type": "dimension"
+      },
+      "l": {
+        "value": "{primitive.size.480}",
+        "type": "dimension"
+      },
+      "base": {
+        "value": "{primitive.size.80}",
+        "type": "dimension"
+      },
+      "xs": {
+        "value": "{primitive.size.240}",
+        "type": "dimension"
+      },
+      "xxs": {
+        "value": "{primitive.size.200}",
+        "type": "dimension"
+      },
+      "xxxs": {
+        "value": "{primitive.size.160}",
+        "type": "dimension"
+      },
+      "xl": {
+        "value": "{primitive.size.560}",
+        "type": "dimension"
+      },
+      "xxl": {
+        "value": "{primitive.size.640}",
+        "type": "dimension"
+      },
+      "xxxl": {
+        "value": "{primitive.size.720}",
+        "type": "dimension"
+      }
+    },
+    "spacing": {
+      "50": {
+        "value": "{primitive.spacing.4}",
+        "type": "dimension"
+      },
+      "150": {
+        "value": "{primitive.spacing.12}",
+        "type": "dimension"
+      },
+      "200": {
+        "value": "{primitive.spacing.16}",
+        "type": "dimension"
+      },
+      "250": {
+        "value": "{primitive.spacing.20}",
+        "type": "dimension"
+      },
+      "300": {
+        "value": "{primitive.spacing.24}",
+        "type": "dimension"
+      },
+      "400": {
+        "value": "{primitive.spacing.32}",
+        "type": "dimension"
+      },
+      "500": {
+        "value": "{primitive.spacing.40}",
+        "type": "dimension"
+      },
+      "600": {
+        "value": "{primitive.spacing.48}",
+        "type": "dimension"
+      },
+      "700": {
+        "value": "{primitive.spacing.56}",
+        "type": "dimension"
+      },
+      "800": {
+        "value": "{primitive.spacing.64}",
+        "type": "dimension"
+      },
+      "900": {
+        "value": "{primitive.spacing.72}",
+        "type": "dimension"
+      },
+      "1000": {
+        "value": "{primitive.spacing.80}",
+        "type": "dimension"
+      },
+      "1100": {
+        "value": "{primitive.spacing.88}",
+        "type": "dimension"
+      },
+      "1200": {
+        "value": "{primitive.spacing.96}",
+        "type": "dimension"
+      },
+      "base": {
+        "value": "{primitive.spacing.8}",
+        "type": "dimension"
+      },
+      "none": {
+        "value": "{primitive.spacing.0}",
+        "type": "dimension"
+      },
+      "025": {
+        "value": "{primitive.spacing.2}",
+        "type": "dimension"
+      }
+    },
+    "motion": {
+      "duration": {
+        "animation": {
+          "fast": {
+            "value": "{primitive.duration.1000}",
+            "type": "dimension"
+          },
+          "base": {
+            "value": "{primitive.duration.1500}",
+            "type": "dimension"
+          },
+          "slow": {
+            "value": "{primitive.duration.2000}",
+            "type": "dimension"
+          }
+        },
+        "feedback": {
+          "fast": {
+            "value": "{primitive.duration.50}",
+            "type": "dimension"
+          },
+          "base": {
+            "value": "{primitive.duration.150}",
+            "type": "dimension"
+          },
+          "slow": {
+            "value": "{primitive.duration.200}",
+            "type": "dimension"
+          },
+          "slower": {
+            "value": "{primitive.duration.350}",
+            "type": "dimension"
+          }
+        }
+      }
+    }
+  }
+}

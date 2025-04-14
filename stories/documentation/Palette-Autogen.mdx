@@ -4,6 +4,7 @@ import { useState } from 'react';
 import tokensSncfHolding from '../../design-tokens/dist/sncf-holding.json';
 import tokensSncfVoyageurs from '../../design-tokens/dist/sncf-voyageurs.json';
 import tokensSncfReseau from '../../design-tokens/dist/sncf-reseau.json';
+import tokensSncfGroupe from '../../design-tokens/dist/sncf-groupe.json';
 
 <Meta title="Internal Docs/Palette Autogen" />
 
@@ -498,6 +499,9 @@ export default function DesignTokens() {
         case 'sncf-voyageurs':
             tokens = tokensSncfVoyageurs;
             break;
+        case 'sncf-groupe':
+            tokens = tokensSncfGroupe;
+            break;
         default:
             tokens = tokensSncfHolding;
     }
@@ -535,6 +539,15 @@ export default function DesignTokens() {
                         onChange={handleChange}
                     />
                     SNCF Voyageurs
+                </label>
+                <label>
+                    <input
+                        type="radio"
+                        value="sncf-groupe"
+                        checked={mode === 'sncf-groupe'}
+                        onChange={handleChange}
+                    />
+                    SNCF Groupe
                 </label>
             </div>
         </div>

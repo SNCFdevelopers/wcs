@@ -80,7 +80,8 @@ export const globalTypes = {
             items: [
                 {value: 'sncf-holding', title: 'SNCF Holding'},
                 {value: 'sncf-voyageurs', title: 'SNCF Voyageurs'},
-                {value: 'sncf-reseau', title: 'SNCF Réseau'}
+                {value: 'sncf-reseau', title: 'SNCF Réseau'},
+                {value: 'sncf-groupe', title: 'SNCF Groupe'}
             ],
         },
 

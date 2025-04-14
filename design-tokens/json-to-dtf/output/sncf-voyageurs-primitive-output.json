@@ -1,0 +1,698 @@
+{
+    "primitive": {
+        "breakpoints": {
+            "desktop": {
+                "$type": "dimension",
+                "$value": "1024px"
+            },
+            "fullhd": {
+                "$type": "dimension",
+                "$value": "1920px"
+            },
+            "high-definition": {
+                "$type": "dimension",
+                "$value": "1280px"
+            },
+            "mobile": {
+                "$type": "dimension",
+                "$value": "320px"
+            },
+            "tablet": {
+                "$type": "dimension",
+                "$value": "769px"
+            },
+            "widescreen": {
+                "$type": "dimension",
+                "$value": "1440px"
+            }
+        },
+        "color": {
+            "alpha": {
+                "dark": {
+                    "005": {
+                        "$type": "color",
+                        "$value": "#0000000d"
+                    },
+                    "010": {
+                        "$type": "color",
+                        "$value": "#0000001a"
+                    },
+                    "020": {
+                        "$type": "color",
+                        "$value": "#00000033"
+                    },
+                    "030": {
+                        "$type": "color",
+                        "$value": "#0000004d"
+                    },
+                    "040": {
+                        "$type": "color",
+                        "$value": "#00000066"
+                    },
+                    "050": {
+                        "$type": "color",
+                        "$value": "#00000080"
+                    },
+                    "060": {
+                        "$type": "color",
+                        "$value": "#00000099"
+                    },
+                    "070": {
+                        "$type": "color",
+                        "$value": "#000000b3"
+                    },
+                    "080": {
+                        "$type": "color",
+                        "$value": "#000000cc"
+                    },
+                    "090": {
+                        "$type": "color",
+                        "$value": "#000000e6"
+                    }
+                },
+                "light": {
+                    "005": {
+                        "$type": "color",
+                        "$value": "#ffffff0d"
+                    },
+                    "010": {
+                        "$type": "color",
+                        "$value": "#ffffff1a"
+                    },
+                    "020": {
+                        "$type": "color",
+                        "$value": "#ffffff33"
+                    },
+                    "030": {
+                        "$type": "color",
+                        "$value": "#ffffff4d"
+                    },
+                    "040": {
+                        "$type": "color",
+                        "$value": "#ffffff66"
+                    },
+                    "050": {
+                        "$type": "color",
+                        "$value": "#ffffff80"
+                    },
+                    "060": {
+                        "$type": "color",
+                        "$value": "#ffffff99"
+                    },
+                    "070": {
+                        "$type": "color",
+                        "$value": "#ffffffb3"
+                    },
+                    "080": {
+                        "$type": "color",
+                        "$value": "#ffffffcc"
+                    },
+                    "090": {
+                        "$type": "color",
+                        "$value": "#ffffffe6"
+                    }
+                }
+            },
+            "backdrop": {
+                "$type": "color",
+                "$value": "#002b2866"
+            },
+            "bleu": {
+                "100": {
+                    "$type": "color",
+                    "$value": "#eff8ff"
+                },
+                "200": {
+                    "$type": "color",
+                    "$value": "#dff2ff"
+                },
+                "300": {
+                    "$type": "color",
+                    "$value": "#b0dfff"
+                },
+                "400": {
+                    "$type": "color",
+                    "$value": "#3390ff"
+                },
+                "500": {
+                    "$type": "color",
+                    "$value": "#00468c"
+                },
+                "600": {
+                    "$type": "color",
+                    "$value": "#002346"
+                }
+            },
+            "critical": {
+                "100": {
+                    "$type": "color",
+                    "$value": "#fcf3f3"
+                },
+                "200": {
+                    "$type": "color",
+                    "$value": "#f9e7e7"
+                },
+                "300": {
+                    "$type": "color",
+                    "$value": "#f4cfcf"
+                },
+                "400": {
+                    "$type": "color",
+                    "$value": "#e38686"
+                },
+                "500": {
+                    "$type": "color",
+                    "$value": "#c80e0e"
+                },
+                "600": {
+                    "$type": "color",
+                    "$value": "#960b0b"
+                },
+                "700": {
+                    "$type": "color",
+                    "$value": "#640707"
+                },
+                "800": {
+                    "$type": "color",
+                    "$value": "#320404"
+                }
+            },
+            "jaune": {
+                "100": {
+                    "$type": "color",
+                    "$value": "#fffdf5"
+                },
+                "200": {
+                    "$type": "color",
+                    "$value": "#fff9dd"
+                },
+                "300": {
+                    "$type": "color",
+                    "$value": "#ffefab"
+                },
+                "400": {
+                    "$type": "color",
+                    "$value": "#ffd245"
+                },
+                "500": {
+                    "$type": "color",
+                    "$value": "#664400"
+                }
+            },
+            "neutral": {
+                "0": {
+                    "$type": "color",
+                    "$value": "#ffffff"
+                },
+                "100": {
+                    "$type": "color",
+                    "$value": "#f4f5f6"
+                },
+                "200": {
+                    "$type": "color",
+                    "$value": "#f2f2f2"
+                },
+                "300": {
+                    "$type": "color",
+                    "$value": "#d7d7d7"
+                },
+                "400": {
+                    "$type": "color",
+                    "$value": "#b9b9b9"
+                },
+                "500": {
+                    "$type": "color",
+                    "$value": "#a0a0a0"
+                },
+                "600": {
+                    "$type": "color",
+                    "$value": "#747678"
+                },
+                "700": {
+                    "$type": "color",
+                    "$value": "#4d4f53"
+                },
+                "800": {
+                    "$type": "color",
+                    "$value": "#333333"
+                },
+                "900": {
+                    "$type": "color",
+                    "$value": "#121212"
+                },
+                "1000": {
+                    "$type": "color",
+                    "$value": "#000000"
+                }
+            },
+            "orange": {
+                "100": {
+                    "$type": "color",
+                    "$value": "#fff6f0"
+                },
+                "200": {
+                    "$type": "color",
+                    "$value": "#ffd2a9"
+                },
+                "300": {
+                    "$type": "color",
+                    "$value": "#ff6833"
+                },
+                "400": {
+                    "$type": "color",
+                    "$value": "#7c1a00"
+                }
+            },
+            "transparent": {
+                "$type": "color",
+                "$value": "#ffffff00"
+            },
+            "vert": {
+                "100": {
+                    "$type": "color",
+                    "$value": "#f7fdf6"
+                },
+                "200": {
+                    "$type": "color",
+                    "$value": "#e7fce5"
+                },
+                "300": {
+                    "$type": "color",
+                    "$value": "#d3ffcf"
+                },
+                "400": {
+                    "$type": "color",
+                    "$value": "#bbffbe"
+                },
+                "500": {
+                    "$type": "color",
+                    "$value": "#34e88e"
+                },
+                "600": {
+                    "$type": "color",
+                    "$value": "#00856b"
+                },
+                "700": {
+                    "$type": "color",
+                    "$value": "#065654"
+                },
+                "800": {
+                    "$type": "color",
+                    "$value": "#043e3d"
+                },
+                "900": {
+                    "$type": "color",
+                    "$value": "#002b28"
+                }
+            }
+        },
+        "duration": {
+            "0": {
+                "$type": "dimension",
+                "$value": "0px"
+            },
+            "50": {
+                "$type": "dimension",
+                "$value": "50px"
+            },
+            "100": {
+                "$type": "dimension",
+                "$value": "100px"
+            },
+            "150": {
+                "$type": "dimension",
+                "$value": "150px"
+            },
+            "200": {
+                "$type": "dimension",
+                "$value": "200px"
+            },
+            "300": {
+                "$type": "dimension",
+                "$value": "300px"
+            },
+            "350": {
+                "$type": "dimension",
+                "$value": "350px"
+            },
+            "400": {
+                "$type": "dimension",
+                "$value": "400px"
+            },
+            "1000": {
+                "$type": "dimension",
+                "$value": "1000px"
+            },
+            "1500": {
+                "$type": "dimension",
+                "$value": "1500px"
+            },
+            "2000": {
+                "$type": "dimension",
+                "$value": "2000px"
+            }
+        },
+        "font": {
+            "family": {
+                "$type": "content",
+                "$value": "Avenir"
+            },
+            "letter-spacing": {
+                "0": {
+                    "$type": "dimension",
+                    "$value": "0px"
+                }
+            },
+            "line-height": {
+                "100": {
+                    "$type": "dimension",
+                    "$value": "1px"
+                },
+                "110": {
+                    "$type": "dimension",
+                    "$value": "1.1px"
+                },
+                "120": {
+                    "$type": "dimension",
+                    "$value": "1.2px"
+                },
+                "130": {
+                    "$type": "dimension",
+                    "$value": "1.3px"
+                },
+                "140": {
+                    "$type": "dimension",
+                    "$value": "1.4px"
+                },
+                "150": {
+                    "$type": "dimension",
+                    "$value": "1.5px"
+                }
+            },
+            "size": {
+                "250": {
+                    "$type": "dimension",
+                    "$value": "10px"
+                },
+                "275": {
+                    "$type": "dimension",
+                    "$value": "11px"
+                },
+                "300": {
+                    "$type": "dimension",
+                    "$value": "12px"
+                },
+                "325": {
+                    "$type": "dimension",
+                    "$value": "13px"
+                },
+                "350": {
+                    "$type": "dimension",
+                    "$value": "14px"
+                },
+                "400": {
+                    "$type": "dimension",
+                    "$value": "16px"
+                },
+                "450": {
+                    "$type": "dimension",
+                    "$value": "18px"
+                },
+                "500": {
+                    "$type": "dimension",
+                    "$value": "20px"
+                },
+                "550": {
+                    "$type": "dimension",
+                    "$value": "22px"
+                },
+                "600": {
+                    "$type": "dimension",
+                    "$value": "24px"
+                },
+                "700": {
+                    "$type": "dimension",
+                    "$value": "28px"
+                },
+                "750": {
+                    "$type": "dimension",
+                    "$value": "30px"
+                },
+                "800": {
+                    "$type": "dimension",
+                    "$value": "32px"
+                },
+                "900": {
+                    "$type": "dimension",
+                    "$value": "36px"
+                },
+                "1000": {
+                    "$type": "dimension",
+                    "$value": "40px"
+                },
+                "1050": {
+                    "$type": "dimension",
+                    "$value": "42px"
+                },
+                "1100": {
+                    "$type": "dimension",
+                    "$value": "44px"
+                },
+                "1200": {
+                    "$type": "dimension",
+                    "$value": "48px"
+                },
+                "1300": {
+                    "$type": "dimension",
+                    "$value": "52px"
+                },
+                "1400": {
+                    "$type": "dimension",
+                    "$value": "56px"
+                },
+                "1500": {
+                    "$type": "dimension",
+                    "$value": "60px"
+                },
+                "1600": {
+                    "$type": "dimension",
+                    "$value": "64px"
+                },
+                "1700": {
+                    "$type": "dimension",
+                    "$value": "68px"
+                },
+                "1800": {
+                    "$type": "dimension",
+                    "$value": "72px"
+                }
+            },
+            "weight": {
+                "100": {
+                    "$type": "number",
+                    "$value": "100"
+                },
+                "300": {
+                    "$type": "number",
+                    "$value": "300"
+                },
+                "400": {
+                    "$type": "number",
+                    "$value": "400"
+                },
+                "500": {
+                    "$type": "number",
+                    "$value": "500"
+                },
+                "800": {
+                    "$type": "number",
+                    "$value": "800"
+                },
+                "900": {
+                    "$type": "number",
+                    "$value": "900"
+                }
+            }
+        },
+        "size": {
+            "10": {
+                "$type": "dimension",
+                "$value": "1px"
+            },
+            "20": {
+                "$type": "dimension",
+                "$value": "2px"
+            },
+            "40": {
+                "$type": "dimension",
+                "$value": "4px"
+            },
+            "60": {
+                "$type": "dimension",
+                "$value": "6px"
+            },
+            "80": {
+                "$type": "dimension",
+                "$value": "8px"
+            },
+            "100": {
+                "$type": "dimension",
+                "$value": "10px"
+            },
+            "120": {
+                "$type": "dimension",
+                "$value": "12px"
+            },
+            "140": {
+                "$type": "dimension",
+                "$value": "14px"
+            },
+            "160": {
+                "$type": "dimension",
+                "$value": "16px"
+            },
+            "180": {
+                "$type": "dimension",
+                "$value": "18px"
+            },
+            "200": {
+                "$type": "dimension",
+                "$value": "20px"
+            },
+            "240": {
+                "$type": "dimension",
+                "$value": "24px"
+            },
+            "320": {
+                "$type": "dimension",
+                "$value": "32px"
+            },
+            "400": {
+                "$type": "dimension",
+                "$value": "40px"
+            },
+            "480": {
+                "$type": "dimension",
+                "$value": "48px"
+            },
+            "560": {
+                "$type": "dimension",
+                "$value": "56px"
+            },
+            "640": {
+                "$type": "dimension",
+                "$value": "64px"
+            },
+            "720": {
+                "$type": "dimension",
+                "$value": "72px"
+            },
+            "800": {
+                "$type": "dimension",
+                "$value": "80px"
+            },
+            "max": {
+                "$type": "dimension",
+                "$value": "99999px"
+            }
+        },
+        "spacing": {
+            "0": {
+                "$type": "dimension",
+                "$value": "0px"
+            },
+            "2": {
+                "$type": "dimension",
+                "$value": "2px"
+            },
+            "4": {
+                "$type": "dimension",
+                "$value": "4px"
+            },
+            "6": {
+                "$type": "dimension",
+                "$value": "6px"
+            },
+            "8": {
+                "$type": "dimension",
+                "$value": "8px"
+            },
+            "12": {
+                "$type": "dimension",
+                "$value": "12px"
+            },
+            "16": {
+                "$type": "dimension",
+                "$value": "16px"
+            },
+            "20": {
+                "$type": "dimension",
+                "$value": "20px"
+            },
+            "24": {
+                "$type": "dimension",
+                "$value": "24px"
+            },
+            "32": {
+                "$type": "dimension",
+                "$value": "32px"
+            },
+            "40": {
+                "$type": "dimension",
+                "$value": "40px"
+            },
+            "48": {
+                "$type": "dimension",
+                "$value": "48px"
+            },
+            "56": {
+                "$type": "dimension",
+                "$value": "56px"
+            },
+            "64": {
+                "$type": "dimension",
+                "$value": "64px"
+            },
+            "72": {
+                "$type": "dimension",
+                "$value": "72px"
+            },
+            "80": {
+                "$type": "dimension",
+                "$value": "80px"
+            },
+            "88": {
+                "$type": "dimension",
+                "$value": "88px"
+            },
+            "96": {
+                "$type": "dimension",
+                "$value": "96px"
+            },
+            "104": {
+                "$type": "dimension",
+                "$value": "104px"
+            },
+            "112": {
+                "$type": "dimension",
+                "$value": "112px"
+            },
+            "120": {
+                "$type": "dimension",
+                "$value": "120px"
+            },
+            "128": {
+                "$type": "dimension",
+                "$value": "128px"
+            },
+            "136": {
+                "$type": "dimension",
+                "$value": "136px"
+            },
+            "144": {
+                "$type": "dimension",
+                "$value": "144px"
+            }
+        }
+    }
+}
