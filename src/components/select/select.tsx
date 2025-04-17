@@ -389,7 +389,7 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
                     this.displayText = opt.innerText;
                     this.lastModifiedOptionElement = opt;
                     if (this.autocomplete) {
-                        this.autocompleteValue = opt.innerText;
+                        this.setAutocompleteValue(opt.innerText);
                     }
                 }
                 opt.selected = isSelected;
@@ -407,7 +407,7 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
         if (this.autocomplete) {
             // When need to reset the internal filter state of the component as the mutation of 
             // autocompleteValue from the code doesn't call onAutocompleteInputEvent method.
-            this.handleAutocompleteValueChange('', true);
+            this.setAutocompleteValue('', true);
         }
         this.options.forEach((opt: HTMLWcsSelectOptionElement) => {
             opt.selected = false;
@@ -553,7 +553,7 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
                             // Indeed, we have to tell the component to take the current filter state manually at the 
                             // opening (because the input event of the autocomplete field is not fired at this point).
                             if (this.autocompleteValue && this.autocompleteValue !== '') {
-                                this.handleAutocompleteValueChange(this.autocompleteValue);
+                                this.setAutocompleteValue(this.autocompleteValue);
                             }
                         }
                         this.clearHighlightOnLastHighlightedOption();
@@ -982,13 +982,19 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
     private onAutocompleteInputEvent(e: InputEvent) {
         const filter = this.autocompleteInput.value ?? '';
 
-        this.handleAutocompleteValueChange(filter);
+        this.setAutocompleteValue(filter);
         // Avoid the inputEvent event to bubble and be emitted, we rather use wcsFilterChange in this case :
         e.stopPropagation();
 
     }
-    
-    private handleAutocompleteValueChange(filter: string, isReset = false): void {
+
+    /**
+     * Set the autocomplete value and open the select if needed.
+     * @param filter - The new filter value
+     * @param isReset - If true, the filter is reset and the select is closed
+     * @private
+     */
+    private setAutocompleteValue(filter: string, isReset = false): void {
         this.clearHighlightOnLastHighlightedOption();
         const newValueIsDifferentFromLastModifiedOption = this.lastModifiedOptionElement == null || this.lastModifiedOptionElement?.textContent !== this.autocompleteValue;
         if (!this.expanded && newValueIsDifferentFromLastModifiedOption && !isReset) {

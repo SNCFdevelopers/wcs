@@ -27,7 +27,7 @@ for now removed features.
 
 ### Fixed
 
-for any bug fixes.
+- **select**: autocomplete filter is now updated when an option is selected
 
 ### Security
 
