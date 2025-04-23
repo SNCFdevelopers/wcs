@@ -149,9 +149,17 @@ function addTab() {
     document.querySelector('#lazy-loaded-tabs-component').appendChild(opt);
 }
 
+function removeLastTab() {
+    const tabs = document.querySelector('#lazy-loaded-tabs-component');
+    if (tabs.children.length > 1) {
+        tabs.removeChild(tabs.lastChild);
+    }
+}
+
 const TemplateLazyLoadedTabs: StoryFn<Partial<{}>> = (_) => html`
     <!-- Method 'addTab' used to dynamically add a tab -->
     <wcs-button @click=${_ => addTab()}>Add tab</wcs-button>
+    <wcs-button @click=${_ => removeLastTab()}>Remove last tab</wcs-button>
 
     <wcs-tabs id="lazy-loaded-tabs-component" label="Tabs avec onglets dynamiques" gutter="true">
         <wcs-tab header="Onglet ${++tabId}">Contenu onglet ${tabId}</wcs-tab>
@@ -159,7 +167,7 @@ const TemplateLazyLoadedTabs: StoryFn<Partial<{}>> = (_) => html`
 `;
 
 /**
- * You can add `wcs-tab` dynamically to `wcs-tabs`:
+ * You can add or remove `wcs-tab` dynamically to `wcs-tabs`:
  * 
  * ```javascript
  * const wcsTabs = document.querySelector('wcs-tabs');
@@ -169,6 +177,10 @@ const TemplateLazyLoadedTabs: StoryFn<Partial<{}>> = (_) => html`
  * wcsTab.appendChild(document.createTextNode('Contenu onglet'));
  * 
  * wcsTabs.appendChild(tab);
+ * 
+ * // To remove the last tab :
+ * wcsTabs.removeChild(wcsTabs.lastChild);
+ * 
  * ```
  */
 export const LazyLoadedTabs: StoryObj<TabsStoryArgs> = {

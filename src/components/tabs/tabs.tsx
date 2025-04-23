@@ -291,6 +291,7 @@ export class Tabs implements ComponentInterface, MutableAriaAttribute {
      */
     private onTabsSlotChange() {
         let tabId = 0;
+        this.refreshHeaders();
         this.tabs.forEach(tab => {
             tab.setAttribute("aria-label", this.headers.at(tabId));
             // set an ID to set aria-controls on header tab 

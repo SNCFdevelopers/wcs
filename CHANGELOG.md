@@ -28,6 +28,7 @@ for now removed features.
 ### Fixed
 
 - **select**: autocomplete filter is now updated when an option is selected
+- **tabs**: tabs can be dynamically removed
 
 ### Security
 
