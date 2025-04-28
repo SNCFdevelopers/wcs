@@ -186,7 +186,7 @@ export const Button: StoryObj = {
 const CheckboxTemplate: StoryFn<Partial<FormFieldStoriesParams>> = (args) => html`
     <wcs-form-field ?is-error=${args.isError}>
         <wcs-label>Confirmation</wcs-label>
-        <wcs-checkbox>Did you read all questions?</wcs-checkbox>
+        <wcs-checkbox required>Did you read all questions?</wcs-checkbox>
         ${ErrorTemplate("You are lying")}
         <wcs-hint>Make sure all questions are understood</wcs-hint>
     </wcs-form-field>

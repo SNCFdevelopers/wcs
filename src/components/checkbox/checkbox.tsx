@@ -86,6 +86,11 @@ export class Checkbox implements ComponentInterface, MutableAriaAttribute, Contr
     @Prop({ reflect: true, mutable: true }) checked: boolean = false;
 
     /**
+     * If `true`, the user must fill in a value before submitting a form.
+     */
+    @Prop() required: boolean = false
+
+    /**
      * Specifie the alignment of the checkbox with the label content
      */
     @Prop({ mutable: true, reflect: true }) labelAlignment: CheckboxLabelAlignment = 'center';

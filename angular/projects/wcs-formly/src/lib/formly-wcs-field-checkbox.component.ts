@@ -16,6 +16,7 @@ export type WcsFormlyCheckboxProps = WcsFormlyBooleanFieldWrapperProps & {
     <formly-wcs-boolean-field-wrapper [field]="field" [showError]="showError" [props]="props">
       <wcs-checkbox
         [attr.disabled]="props.disabled ? true : null"
+        [attr.required]="props.required ? true : null"
         [checked]="props.checked ? true : null"
         [formControl]="formControl"
         [id]="id"

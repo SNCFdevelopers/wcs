@@ -534,6 +534,10 @@ export namespace Components {
          */
         "labelAlignment": CheckboxLabelAlignment;
         "name": string;
+        /**
+          * If `true`, the user must fill in a value before submitting a form.
+         */
+        "required": boolean;
         "setAriaAttribute": (attr: AriaAttributeName, value: string | null | undefined) => Promise<void>;
     }
     /**
@@ -5064,6 +5068,10 @@ declare namespace LocalJSX {
           * Emitted when the checkbox has focus.
          */
         "onWcsFocus"?: (event: WcsCheckboxCustomEvent<FocusEvent>) => void;
+        /**
+          * If `true`, the user must fill in a value before submitting a form.
+         */
+        "required"?: boolean;
     }
     /**
      * *Part of communication design system*

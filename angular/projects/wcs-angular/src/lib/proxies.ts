@@ -409,7 +409,7 @@ export declare interface WcsCardMedia extends Components.WcsCardMedia {}
 
 
 @ProxyCmp({
-  inputs: ['checked', 'disabled', 'indeterminate', 'labelAlignment', 'name'],
+  inputs: ['checked', 'disabled', 'indeterminate', 'labelAlignment', 'name', 'required'],
   methods: ['setAriaAttribute', 'getLabel']
 })
 @Component({
@@ -417,7 +417,7 @@ export declare interface WcsCardMedia extends Components.WcsCardMedia {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['checked', 'disabled', 'indeterminate', 'labelAlignment', 'name'],
+  inputs: ['checked', 'disabled', 'indeterminate', 'labelAlignment', 'name', 'required'],
 })
 export class WcsCheckbox {
   protected el: HTMLElement;

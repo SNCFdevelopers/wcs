@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-07-11T14:36:53",
+  "timestamp": "2025-09-02T15:16:13",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -2513,6 +2513,28 @@
           "values": [
             {
               "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "required",
+          "reflectToAttr": false,
+          "docs": "If `true`, the user must fill in a value before submitting a form.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
             }
           ],
           "optional": false,
