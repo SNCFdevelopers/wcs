@@ -42,6 +42,8 @@
     gap: var(--wcs-alert-gap);
     border: solid var(--wcs-alert-border-width) var(--wcs-alert-border-color);
 
+    overflow: hidden; // to avoid overflow of progress bar especially with voyageurs theme
+
     .content {
         display: flex;
         flex-direction: column;
