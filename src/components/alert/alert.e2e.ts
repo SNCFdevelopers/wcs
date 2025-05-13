@@ -1,6 +1,8 @@
 import { newE2EPage } from '@stencil/core/testing';
 import { setWcsContent } from '../../utils/tests';
 
+const WAITING_DELAY_BEFORE_ASSERTIONS = 1_000;
+
 describe('alert', () => {
     it('should display title and subtitle content', async () => {
         // Given
@@ -48,16 +50,16 @@ describe('alert', () => {
         const timeout = 500;
         const page = await newE2EPage();
         await setWcsContent(page, `
-        <wcs-alert timeout="${timeout}">
-            <span slot="title">Test Title</span>
-            <span slot="subtitle">Test Subtitle</span>
-        </wcs-alert>
-    `);
+            <wcs-alert timeout="${timeout}">
+                <span slot="title">Test Title</span>
+                <span slot="subtitle">Test Subtitle</span>
+            </wcs-alert>
+        `);
         const alert = await page.find('wcs-alert');
         const alertDismiss = await alert.spyOnEvent('wcsAlertDismiss');
 
         // Wait longer than the specified timeout to account for processing time
-        await new Promise(resolve => setTimeout(resolve, timeout + 200));
+        await new Promise(resolve => setTimeout(resolve, timeout + WAITING_DELAY_BEFORE_ASSERTIONS));
         await page.waitForChanges();
 
         // Then
@@ -78,7 +80,7 @@ describe('alert', () => {
         const alertDismiss = await alert.spyOnEvent('wcsAlertDismiss');
 
         // Wait for some time to ensure the alert doesn't auto-dismiss
-        await new Promise(resolve => setTimeout(resolve, 200));
+        await new Promise(resolve => setTimeout(resolve, WAITING_DELAY_BEFORE_ASSERTIONS));
         await page.waitForChanges();
 
         // Then
@@ -121,11 +123,11 @@ describe('alert', () => {
         const timeout = 500;
         const page = await newE2EPage();
         await setWcsContent(page, `
-        <wcs-alert timeout="${timeout}">
-            <span slot="title">Test Title</span>
-            <span slot="subtitle">Test Subtitle</span>
-        </wcs-alert>
-    `);
+            <wcs-alert timeout="${timeout}">
+                <span slot="title">Test Title</span>
+                <span slot="subtitle">Test Subtitle</span>
+            </wcs-alert>
+        `);
         const alert = await page.find('wcs-alert');
 
         // Simulate mouse hover
@@ -134,7 +136,7 @@ describe('alert', () => {
         const alertDismiss = await alert.spyOnEvent('wcsAlertDismiss');
 
         // Wait longer than the component timeout
-        await new Promise(resolve => setTimeout(resolve, timeout + 100));
+        await new Promise(resolve => setTimeout(resolve, timeout + WAITING_DELAY_BEFORE_ASSERTIONS));
         await page.waitForChanges();
 
         // Then - The alert should still be visible while mouse is hovering
@@ -146,7 +148,7 @@ describe('alert', () => {
         await page.waitForChanges();
 
         // Wait for the dismiss to happen after mouseout
-        await new Promise(resolve => setTimeout(resolve, 100));
+        await new Promise(resolve => setTimeout(resolve, WAITING_DELAY_BEFORE_ASSERTIONS));
         await page.waitForChanges();
 
         // Then - The alert should dismiss

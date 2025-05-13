@@ -1,6 +1,8 @@
 import { newE2EPage } from '@stencil/core/testing';
 import { setWcsContent } from '../../utils/tests';
 
+const WAITING_DELAY_BEFORE_ASSERTIONS = 1_000;
+
 describe('alert-drawer', () => {
     it('should show an alert when using show() method', async () => {
         // Given
@@ -48,7 +50,7 @@ describe('alert-drawer', () => {
         await page.waitForChanges();
 
         // Wait for the alert to be removed
-        await new Promise(resolve => setTimeout(resolve, 200)); // Wait a bit longer than the timeout
+        await new Promise(resolve => setTimeout(resolve, WAITING_DELAY_BEFORE_ASSERTIONS)); // Wait a bit longer than the timeout
 
         // Then
         const alert = await page.find('wcs-alert-drawer >>> wcs-alert');
