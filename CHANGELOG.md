@@ -38,6 +38,7 @@ for now removed features.
 - **tabs**: tabs can be dynamically removed
 - **grid-pagination**: improve accessibility
 - **horizontal-stepper**: progress-bar animation timing
+- **modal**: correctly set attribute `aria-modal="true"`
 
 ### Security
 

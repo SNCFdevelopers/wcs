@@ -275,7 +275,7 @@ export class Modal implements ComponentInterface, MutableAriaAttribute {
             <Host>
                 <div class="wcs-modal-container"
                      data-size={this.size}
-                     aria-modal={true}
+                     aria-modal="true"
                      role={"dialog"}
                      aria-labelledby={modalTitleId}
                      ref={(el) => (this.nativeDivDialog = el)}
