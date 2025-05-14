@@ -1,0 +1,316 @@
+import {Meta} from '@storybook/addon-docs';
+import {Mermaid} from "mdx-mermaid/Mermaid";
+
+<Meta title="Internal Docs/Good practices" />
+
+# Good practices
+
+For developing with Stencil, we have some good practices to follow. This will help you to maintain a clean and consistent codebase.
+
+## JSdoc format
+
+All documentation is written within js comments above a prop, event, method, component decorator on the Stencil component. Markdown and HTML tags are supported.
+You can use JSdoc to document stories as well, but all "component-side" documentatation should be in the Stencil .jsx file.
+
+Accessibility guidelines is written component-side too 👇
+
+**Format to respect ❗**
+
+```ts
+/**
+ * The [name] component is a [small description]
+ * [Extra information, how to use, etc]
+ *
+ * ## Accessibility guidelines 💡
+ * > - Guideline 1
+ * > - Guideline 2
+ * > - code examples, etc.
+ *
+ * @cssprop --wcs-[variable] - [Description of the CSS variable]
+ * @csspart [part] - [Description of the CSS part]
+ * @slot [name] - [Description of the slot]
+ */
+
+```
+
+Supported JSdoc for custom-elements : [https://custom-elements-manifest.open-wc.org/analyzer/getting-started/#supported-jsdoc](https://custom-elements-manifest.open-wc.org/analyzer/getting-started/#supported-jsdoc)
+
+> 💡Don't forget to run `generate-custom-element-manifest` script to update the Storybook documentation of the component.  
+> The `generate-docs-json` script is used to regenerate the documentation of the public API (when you add / remove a property for instance)
+
+
+## Stories meta
+
+Meta is an object defining how the story should act : [Storybook Documentation](https://storybook.js.org/docs/writing-stories)
+
+- `title` should always be used, and **subcomponents must be in a folder**
+- `component` is used to link the story to the custom-element tag
+- `argTypes` with the utils method `getComponentArgs('wcs-{tag}')` is used to generate controls with correct types in the Storybook table
+
+Example of story meta object :
+
+```ts
+const meta: Meta = {
+    title: 'Components/Grid/Subcomponents/Grid Column',
+    component: 'wcs-grid-column',
+    argTypes: getComponentArgs('wcs-grid-column'),
+};
+```
+
+## Stories format (CSF3)
+
+Documentation : [https://storybook.js.org/blog/storybook-csf3-is-here/](https://storybook.js.org/blog/storybook-csf3-is-here/)
+
+CSF (Component Story Format) is the universal file format for stories.
+
+We use `lit-html` for story binding but old `Template.bind({})` should be avoided in favor of new `render` method from `StoryObj`.
+It is better to type the arguments (e.g `ButtonArgs`). Always prefer a typescript `type` rather than an `interface`.
+
+Before (CSF2, Storybook < 7)
+
+```ts
+const Template: StoryFn<Partial<any>> = () => html`<wcs-button ...>...</wcs-button>`;
+export const Default: StoryObj = Template.bind({});
+```
+
+After (CSF3, Storybook > 7)
+
+```ts
+export const Default: StoryObj {
+    render: (args: ButtonArgs) => html`<wcs-button ...>...</wcs-button>`,
+    args: {
+      // arguments
+    }
+}
+```
+
+If you are re-using previously defined arguments in other stories, use a spread operator :
+
+```ts
+args: {
+ ...Default.args,
+ // other args
+}
+```
+
+## Stories binding and Lit
+
+We use `lit-html` to render stories in Storybook. Here's good practice we chose :
+- Add a dot "." before a **property** => a property is settable by JS only, so the attribute won't appear in the "Show code" section.
+- Add a question mark "?" before a **boolean attribute**
+- If it is a normal attribute, always use `ifDefined` (sugar for `value ?? nothing`) [from lit-html](https://github.com/lit/lit/blob/42260c2d3bb179756e109616338936de2a589801/packages/lit-html/src/directives/if-defined.ts#L15) or `value || nothing` if empty quote `''` should not be rendered in the code section of storybook => e.g with `aria-label=""` that should never be used as so.
+
+Example :
+
+```html
+<wcs-grid .data=${args.data} 👈 Property only (dot)
+          ?loading=${args.loading} 👈 Boolean prop / attribute (question mark)
+          selection-config=${ifDefined(args.selectionConfig)} 👈 Classic prop / attribute
+          aria-label=${args.ariaLabel || nothing} 👈 Special case to avoid rendering `aria-label=""` in the code section
+>...</wcs-grid>
+```
+
+Please read this documentation : [https://lit.dev/docs/templates/expressions/#removing-attribute](https://lit.dev/docs/templates/expressions/#removing-attribute)
+
+## IDE configuration
+
+Our favorite editor is **Webstorm**, as it doesn't need extra plugins to make Stencil autocompletion and integration work properly.  
+Prefer using the `.editorconfig` as base configuration for file formatting. Prettier sometimes overlap with this.  
+Make sure for instance line-end whitespaces in jsdoc are not trimmed because of your IDE settings.
+
+**If you are using VSCode**, this extension is recommended: [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
+
+
+This base configuration is recommended (specially to enable editorconfig) :
+
+`.vscode/settings.json`
+```json
+{
+  "prettier.singleQuote": true,
+  "javascript.preferences.quoteStyle": "single",
+  "typescript.preferences.quoteStyle": "single",
+  "prettier.trailingComma": "none",
+  "prettier.useEditorConfig": true,
+  "files.trimTrailingWhitespace": false
+}
+```
+
+If you are planning on running E2E / spec tests, you should add this :
+
+`.vscode/launch.json`
+```json
+{
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "E2E Test Current File",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/node_modules/@stencil/core/bin/stencil",
+            "args": ["test", "--e2e", "--", "--maxWorkers=0", "${fileBasename}"],
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Spec Test Current File",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/node_modules/@stencil/core/bin/stencil",
+            "args": ["test", "--spec", "--", "${fileBasename}"],
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen"
+        }
+    ]
+}
+```
+
+## Type vs Interface
+
+We use Typescript `type` everywhere by default.
+Interface is only used inside `EventEmitter<T>`, as Stencil's `EventEmitter` are extendable interfaces by default.
+
+## Private / Public keywords
+
+Stencil advices to prefix component methods and variables with Typescript `private` keyword: [https://stenciljs.com/docs/style-guide#typescript](https://stenciljs.com/docs/style-guide#typescript)
+
+- Prop : don't prefix. Already `public` by default.
+- State : prefix with `private`.
+- Variables : always prefix with `private`.
+- Methods :
+    - internal methods (not Stencil Methods!) : always prefix with `private`
+    - if annotated with Stencil `@Method()`, don't prefix (already `public` by default)
+    - lifecycle method like `componentDidLoad`, `componentWillLoad`, etc : don't prefix
+
+
+Example
+
+```ts
+@State() private myState: string = ''; // prefix with private
+private myVariable: string = ''; // prefix with private
+private myMethod() { }; // prefix with private
+
+@Prop() myProp: string = ''; // no prefix
+@Method() async myPublicMethod() { }; // no prefix
+componentDidLoad() { }; // no prefix
+```
+
+## Event binding with JSX
+
+When binding a method with an event, there are several syntaxes (the context of `this` is very important):
+
+```jsx
+private onChange(ev: Event) {
+    // ...
+}
+
+render() {
+    return (
+        <input class="native-input"
+               value={this.value}
+               ...
+               onChange={this.onChange.bind(this)} //👈 Event binding
+            />
+    );
+}
+```
+
+**Syntax 1 💖** _(prefer this for WCS)_
+
+```jsx
+onChange(ev: Event) {
+    // ...
+}
+
+onChange={this.onChange.bind(this)}
+```
+
+> 💡 Always bind `this` with this syntax. You can add several arguments if your method has more parameters : `this.onChange.bind(this, arg1, arg2)`
+
+**Syntax 2**
+```jsx
+onChange(ev: Event) {
+    // ...
+}
+
+onChange={(event) => this.onChange(event)}
+```
+
+**Syntax 3** _(used by Ionic)_
+
+```jsx
+onChange = (ev: Event) => {
+    // ...
+}
+
+onChange={this.onChange}
+```
+
+## Naming
+
+Please respect those naming rules :
+
+- Any public API (interface.ts file) type should be named `Wcs{Component}{Type}` 👉 e.g `WcsButtonSize`
+- Any global type public API should be named `Wcs{Type}` 👉 e.g `WcsSize` and should be placed in `shared-types.ts`
+- Stencil props, methods, events are always `camelCased` **UNLESS** it is mirrored from an existing native property 👉 e.g `autofocus`, `autocapitalize` on the `input` component.
+- Properties != attributes ⚠️ `myProperty` become `my-property` as an attribute => [more info on this article](https://jakearchibald.com/2024/attributes-vs-properties/)
+
+
+## Stencil decision tree
+
+Sometimes, choosing between Prop, State, querySelector, etc. can be tricky. Here is a decision tree to help you choose the right one :
+
+```ts
+private _myVariable: string = ''; // This is a JS Variable
+@Prop({ mutable: true, reflect: true }) myProp: string = ''; // This is a Stencil Prop
+@State() myState: string = ''; // This is a Stencil State
+@Element() host: HTMLElement; // This is a Stencil Ref
+
+get myVariable(): string { // This is a Getter which return the current value of a class attribute
+  return this.myVariable;
+}
+
+// This is a function that determines whether the button is disabled.
+// Instead of using a getter, we use a function to make it explicit that this method interacts with the DOM and can have a performance impact.
+checkIfDisabled(): boolean {
+  return this.host.querySelector('button[disabled]') !== null;
+}
+```
+
+<Mermaid chart={`graph TD;
+    A[Choose between Variable, Prop, State, Getter, Ref]
+    A --> B1[Should the DOM be the source of truth?]
+    B1 -- yes --> C1[Does the DOM mutate and/or contain slots?]
+        C1 -- yes --> C2[querySelector inside a method]
+        C1 -- no --> C3[Ref]
+    B1 -- no --> D1[Publicly exposed in the API?]
+        D1 -- yes --> E1[Mutates somewhere? this.myProp = ...]
+            E1 -- yes --> F1[Synchronized with the attribute?]
+                F1 -- yes --> G1["Prop { mutable: true, reflect: true }"]
+                F1 -- no --> G2["Prop { mutable: true }"]
+            E1 -- no --> F2[Synchronized with the attribute?]
+                F2 -- yes --> H1["Prop { reflect: true }"]
+                F2 -- no --> H2["Prop"]
+        D1 -- no --> E2[Triggers a rerender?]
+            E2 -- yes --> I1[State]
+            E2 -- no --> I2[JS Variable]
+
+
+    classDef green fill:#ccffcc,stroke:#008800;
+    class C2,C3,G1,G2,H1,H2,I1,I2 green
+`}/>
+
+> 💡 Please note that the `@Watch` decorator only triggers with :
+> - Props,
+> - State,
+> - Host attributes (`@Watch('aria-label')` for example).
+
+## Accessibility
+
+Good to know :
+
+- Because of screen readers on firefox, it's better to use role instead of native component WHEN SHADOW + SLOTS (example : nav and nav item are role="list" and role="listitem" instead of using `<ul>` and `<li>`)
+- Attributes inheritance (see [Accessibility documentation](?path=/docs/documentation-accessibility--documentation#storybook-docs))
+- Take care of browse vs focus mode while testing with NVDA screen reader (Insert + Space)
+- When fixing or creating components with accessibility in mind, please refer to the [W3C Accessibility documentation](https://www.w3.org/WAI/ARIA/apg/patterns/)
+- Prefer using `aria-label` in French by default within the codebase. e.g. "Page suivante, Page précédente" in grid-pagination. 

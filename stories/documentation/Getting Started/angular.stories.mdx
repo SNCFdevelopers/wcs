@@ -37,6 +37,8 @@ applyPolyfills().then(() => {
 
 ```typescript
 // app.module.ts
+import { WcsAngularModule } from 'wcs-angular';
+
 @NgModule({
   ...
   imports: [
@@ -279,6 +281,8 @@ Each time you want to use a WCS component in your Angular components, ensure you
 
 ```typescript
 // app.component.ts
+import { WcsAngularModule } from 'wcs-angular';
+
 @Component({
   selector: 'app-root',
   standalone: true,
