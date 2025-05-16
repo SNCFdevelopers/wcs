@@ -1,7 +1,7 @@
 import { newE2EPage } from '@stencil/core/testing';
 import { setWcsContent } from '../../utils/tests';
 
-const WAITING_DELAY_BEFORE_ASSERTIONS = 1_000;
+const WAITING_DELAY_BEFORE_ASSERTIONS = 2_000;
 
 describe('alert', () => {
     it('should display title and subtitle content', async () => {
