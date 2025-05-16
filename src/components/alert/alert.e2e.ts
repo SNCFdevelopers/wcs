@@ -120,7 +120,7 @@ describe('alert', () => {
 
     it('should not auto-dismiss when mouse is hovering', async () => {
         // Given
-        const timeout = 500;
+        const timeout = WAITING_DELAY_BEFORE_ASSERTIONS;
         const page = await newE2EPage();
         await setWcsContent(page, `
             <wcs-alert timeout="${timeout}">
@@ -130,10 +130,19 @@ describe('alert', () => {
         `);
         const alert = await page.find('wcs-alert');
 
+        const alertDismiss = await alert.spyOnEvent('wcsAlertDismiss');
+
+        expect(await alert.getProperty('show')).toBe(true);
+
         // Simulate mouse hover
         await alert.triggerEvent('mouseover');
         await page.waitForChanges();
-        const alertDismiss = await alert.spyOnEvent('wcsAlertDismiss');
+
+        // Verify the component has processed the mouse over by executing this in the browser context
+        await page.evaluate(() => {
+            // Small delay to ensure JS executes
+            return new Promise(resolve => setTimeout(resolve, 100));
+        });
 
         // Wait longer than the component timeout
         await new Promise(resolve => setTimeout(resolve, timeout + WAITING_DELAY_BEFORE_ASSERTIONS));
