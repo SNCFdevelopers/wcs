@@ -14,7 +14,7 @@ const ICON_FAMILY_CLASS_NAME: Record<MaterialIconFamily, string> = {
 const MAT_ICON_INHERITED_ATTRS = ['title'];
 
 /**
- * A component used to display a [Material Icon](https://fonts.google.com/icons). Can be useful when used in wcs-grid or in a wcs-button.
+ * A component used to display a [Material Icon](https://fonts.google.com/icons?icon.set=Material+Icons). Can be useful when used in wcs-grid or in a wcs-button.
  */
 @Component({
     tag: 'wcs-mat-icon',
