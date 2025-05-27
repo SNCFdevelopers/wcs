@@ -22,7 +22,7 @@ import { Component, ComponentInterface, h, Host } from '@stencil/core';
 export class Label implements ComponentInterface {
     render() {
         return (
-            <Host aria-live="polite" aria-atomic="true" slot="error">
+            <Host role="alert" slot="error">
                 <slot />
             </Host>
         );

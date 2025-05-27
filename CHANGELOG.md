@@ -50,6 +50,7 @@ for soon-to-be removed features.
 - **grid-pagination**: improve accessibility
 - **horizontal-stepper**: progress-bar animation timing
 - **modal**: correctly set attribute `aria-modal="true"`
+- **form-field**: announce error message to screen readers when the error message is displayed
 
 ### Security
 
