@@ -25,6 +25,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   - new structure to be more consistent with the design system. It is backward compatible with the previous
     structure 🎉
   - add `orientation` property to choose between `vertical` and `horizontal` orientation. It has to be used in the conjunction of the new structure
+- **alert**: add a new alert component to handle notifications
+- **alert-drawer**: provide a default implementation to group multiple alerts in a container. Includes an Angular API for seamless integration in Angular projects.
 
 ### Changed
 
