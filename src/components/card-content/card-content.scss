@@ -1,0 +1,13 @@
+:host {
+    --wcs-card-content-color: var(--wcs-semantic-color-text-tertiary);
+    --wcs-card-content-font-size: var(--wcs-semantic-font-size-body-3);
+
+    display: block;
+    overflow: hidden;
+}
+
+::slotted(*) {
+    color: var(--wcs-card-content-color);
+    font-size: var(--wcs-card-content-font-size);
+    margin: 0;
+}

@@ -17,6 +17,14 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **tabs**: introduce `mobile` mode for small screens accessibility
 - **nav**: add scrollbar for small-height screens to handle overflow
 - **Angular Formly**: add missing props for all formly field components
+- **card-header**: new component to put in **wcs-card-body**
+- **card-content**: new component to put in **wcs-card-body**
+- **card-footer**: new component to put in **wcs-card-body**
+- **card-media**: new component to put in **wcs-card-body**
+- **card**:
+  - new structure to be more consistent with the design system. It is backward compatible with the previous
+    structure 🎉
+  - add `orientation` property to choose between `vertical` and `horizontal` orientation. It has to be used in the conjunction of the new structure
 
 ### Changed
 

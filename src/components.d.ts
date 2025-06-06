@@ -10,7 +10,7 @@ import { WcsAlertConfig, WcsAlertIntent } from "./components/alert/alert-interfa
 import { WcsAlertDrawerPosition } from "./components/alert-drawer/alert-drawer-interface";
 import { BadgeColor, BadgeShape, BadgeSize } from "./components/badge/badge-interface";
 import { WcsButtonMode, WcsButtonShape, WcsButtonSize, WcsButtonType } from "./components/button/button-interface";
-import { CardMode } from "./components/card/card-interface";
+import { CardMode, CardOrientation } from "./components/card/card-interface";
 import { CheckboxChangeEventDetail, CheckboxLabelAlignment } from "./components/checkbox/checkbox-interface";
 import { CategoryOpenedEventDetail, MenuOpenedEventDetail } from "./components/com-nav/com-nav-interface";
 import { CounterChangeEventDetail, WcsCounterSize } from "./components/counter/counter-interface";
@@ -38,7 +38,7 @@ export { WcsAlertConfig, WcsAlertIntent } from "./components/alert/alert-interfa
 export { WcsAlertDrawerPosition } from "./components/alert-drawer/alert-drawer-interface";
 export { BadgeColor, BadgeShape, BadgeSize } from "./components/badge/badge-interface";
 export { WcsButtonMode, WcsButtonShape, WcsButtonSize, WcsButtonType } from "./components/button/button-interface";
-export { CardMode } from "./components/card/card-interface";
+export { CardMode, CardOrientation } from "./components/card/card-interface";
 export { CheckboxChangeEventDetail, CheckboxLabelAlignment } from "./components/checkbox/checkbox-interface";
 export { CategoryOpenedEventDetail, MenuOpenedEventDetail } from "./components/com-nav/com-nav-interface";
 export { CounterChangeEventDetail, WcsCounterSize } from "./components/counter/counter-interface";
@@ -419,20 +419,64 @@ export namespace Components {
     /**
      * The card component is a container that display content such as text, images, buttons, and lists.  
      * A card can be a single component, but is often made up of a header, title, subtitle, and content.
+     * While they're very flexible, it's important to use them consistently. You may use `wcs-card-media` outside `wcs-card-body`
+     * and `wcs-card-header` `wcs-card-content` `wcs-card-footer` within `wcs-card-body` to make sure the card is well-designed.
      * @cssprop --wcs-card-border-color - Border color of the card
      * @cssprop --wcs-card-border-radius - Border radius of the card
      * @cssprop --wcs-card-border-width - Border width of the card
      * @cssprop --wcs-card-background-color - Background color of the card
      * @cssprop --wcs-card-text-color - Text color of the card
+     * @cssprop --wcs-card-horizontal-min-height - Min height of the card when horizontal
      */
     interface WcsCard {
         "mode": CardMode;
+        /**
+          * The orientation of the card, can be horizontal or vertical
+         */
+        "orientation": CardOrientation;
     }
     /**
      * The card-body is a subcomponent of `wcs-card`. It represents content of the card with an extra padding around.
      * @cssprop --wcs-card-body-padding - Padding of the card body
+     * @cssprop --wcs-card-body-gap - Gap between each element in the card body
      */
     interface WcsCardBody {
+        "setOrientation": (orientation: CardOrientation) => Promise<void>;
+    }
+    /**
+     * A content for a card inside card-body. Commonly used to provide more details about the card content. 
+     * The information provided should be concise and easy to read.
+     * By default, the margin is removed from the top and bottom of the card description.
+     * @cssprop --wcs-card-content-color - The color of the card description.
+     * @cssprop --wcs-card-content-font-size - The font size of the card description.
+     */
+    interface WcsCardContent {
+    }
+    /**
+     * The card footer component is a container that display content at the bottom of the card.
+     * It uses a flex layout to organize actions the user can take with a card
+     * @cssprop --wcs-card-footer-gap - Gap of the card footer
+     */
+    interface WcsCardFooter {
+    }
+    /**
+     * The card header component is a container that display a title and an action, it can also display a label as a `<wcs-badge>` component.
+     * The default slotted element is displayed as a `<h3>` element
+     * @cssprop --wcs-card-header-title-color - Color of the title
+     * @cssprop --wcs-card-header-title-font-size - Font size of the title
+     * @cssprop --wcs-card-header-title-font-weight - Font weight of the title
+     * @cssprop --wcs-card-header-gap - Gap between the title and the badge
+     */
+    interface WcsCardHeader {
+    }
+    /**
+     * The card media component is a container that display an image/icon inside a card. 
+     * On horizontal orientation, the image/icon has an aspect ratio of 1/1
+     * On vertical orientation, the image/icon has an aspect ratio of 16/9.
+     * @cssprop --wcs-card-media-max-width-horizontal - Max width of the image when the card is horizontal
+     */
+    interface WcsCardMedia {
+        "setOrientation": (orientation: CardOrientation) => Promise<void>;
     }
     /**
      * The checkbox component is an input for choosing one or more items from a set by checking / unchecking it.
@@ -2818,11 +2862,14 @@ declare global {
     /**
      * The card component is a container that display content such as text, images, buttons, and lists.  
      * A card can be a single component, but is often made up of a header, title, subtitle, and content.
+     * While they're very flexible, it's important to use them consistently. You may use `wcs-card-media` outside `wcs-card-body`
+     * and `wcs-card-header` `wcs-card-content` `wcs-card-footer` within `wcs-card-body` to make sure the card is well-designed.
      * @cssprop --wcs-card-border-color - Border color of the card
      * @cssprop --wcs-card-border-radius - Border radius of the card
      * @cssprop --wcs-card-border-width - Border width of the card
      * @cssprop --wcs-card-background-color - Background color of the card
      * @cssprop --wcs-card-text-color - Text color of the card
+     * @cssprop --wcs-card-horizontal-min-height - Min height of the card when horizontal
      */
     interface HTMLWcsCardElement extends Components.WcsCard, HTMLStencilElement {
     }
@@ -2833,12 +2880,63 @@ declare global {
     /**
      * The card-body is a subcomponent of `wcs-card`. It represents content of the card with an extra padding around.
      * @cssprop --wcs-card-body-padding - Padding of the card body
+     * @cssprop --wcs-card-body-gap - Gap between each element in the card body
      */
     interface HTMLWcsCardBodyElement extends Components.WcsCardBody, HTMLStencilElement {
     }
     var HTMLWcsCardBodyElement: {
         prototype: HTMLWcsCardBodyElement;
         new (): HTMLWcsCardBodyElement;
+    };
+    /**
+     * A content for a card inside card-body. Commonly used to provide more details about the card content. 
+     * The information provided should be concise and easy to read.
+     * By default, the margin is removed from the top and bottom of the card description.
+     * @cssprop --wcs-card-content-color - The color of the card description.
+     * @cssprop --wcs-card-content-font-size - The font size of the card description.
+     */
+    interface HTMLWcsCardContentElement extends Components.WcsCardContent, HTMLStencilElement {
+    }
+    var HTMLWcsCardContentElement: {
+        prototype: HTMLWcsCardContentElement;
+        new (): HTMLWcsCardContentElement;
+    };
+    /**
+     * The card footer component is a container that display content at the bottom of the card.
+     * It uses a flex layout to organize actions the user can take with a card
+     * @cssprop --wcs-card-footer-gap - Gap of the card footer
+     */
+    interface HTMLWcsCardFooterElement extends Components.WcsCardFooter, HTMLStencilElement {
+    }
+    var HTMLWcsCardFooterElement: {
+        prototype: HTMLWcsCardFooterElement;
+        new (): HTMLWcsCardFooterElement;
+    };
+    /**
+     * The card header component is a container that display a title and an action, it can also display a label as a `<wcs-badge>` component.
+     * The default slotted element is displayed as a `<h3>` element
+     * @cssprop --wcs-card-header-title-color - Color of the title
+     * @cssprop --wcs-card-header-title-font-size - Font size of the title
+     * @cssprop --wcs-card-header-title-font-weight - Font weight of the title
+     * @cssprop --wcs-card-header-gap - Gap between the title and the badge
+     */
+    interface HTMLWcsCardHeaderElement extends Components.WcsCardHeader, HTMLStencilElement {
+    }
+    var HTMLWcsCardHeaderElement: {
+        prototype: HTMLWcsCardHeaderElement;
+        new (): HTMLWcsCardHeaderElement;
+    };
+    /**
+     * The card media component is a container that display an image/icon inside a card. 
+     * On horizontal orientation, the image/icon has an aspect ratio of 1/1
+     * On vertical orientation, the image/icon has an aspect ratio of 16/9.
+     * @cssprop --wcs-card-media-max-width-horizontal - Max width of the image when the card is horizontal
+     */
+    interface HTMLWcsCardMediaElement extends Components.WcsCardMedia, HTMLStencilElement {
+    }
+    var HTMLWcsCardMediaElement: {
+        prototype: HTMLWcsCardMediaElement;
+        new (): HTMLWcsCardMediaElement;
     };
     interface HTMLWcsCheckboxElementEventMap {
         "wcsChange": CheckboxChangeEventDetail;
@@ -4433,6 +4531,10 @@ declare global {
         "wcs-button": HTMLWcsButtonElement;
         "wcs-card": HTMLWcsCardElement;
         "wcs-card-body": HTMLWcsCardBodyElement;
+        "wcs-card-content": HTMLWcsCardContentElement;
+        "wcs-card-footer": HTMLWcsCardFooterElement;
+        "wcs-card-header": HTMLWcsCardHeaderElement;
+        "wcs-card-media": HTMLWcsCardMediaElement;
         "wcs-checkbox": HTMLWcsCheckboxElement;
         "wcs-com-nav": HTMLWcsComNavElement;
         "wcs-com-nav-category": HTMLWcsComNavCategoryElement;
@@ -4841,20 +4943,62 @@ declare namespace LocalJSX {
     /**
      * The card component is a container that display content such as text, images, buttons, and lists.  
      * A card can be a single component, but is often made up of a header, title, subtitle, and content.
+     * While they're very flexible, it's important to use them consistently. You may use `wcs-card-media` outside `wcs-card-body`
+     * and `wcs-card-header` `wcs-card-content` `wcs-card-footer` within `wcs-card-body` to make sure the card is well-designed.
      * @cssprop --wcs-card-border-color - Border color of the card
      * @cssprop --wcs-card-border-radius - Border radius of the card
      * @cssprop --wcs-card-border-width - Border width of the card
      * @cssprop --wcs-card-background-color - Background color of the card
      * @cssprop --wcs-card-text-color - Text color of the card
+     * @cssprop --wcs-card-horizontal-min-height - Min height of the card when horizontal
      */
     interface WcsCard {
         "mode"?: CardMode;
+        /**
+          * The orientation of the card, can be horizontal or vertical
+         */
+        "orientation"?: CardOrientation;
     }
     /**
      * The card-body is a subcomponent of `wcs-card`. It represents content of the card with an extra padding around.
      * @cssprop --wcs-card-body-padding - Padding of the card body
+     * @cssprop --wcs-card-body-gap - Gap between each element in the card body
      */
     interface WcsCardBody {
+    }
+    /**
+     * A content for a card inside card-body. Commonly used to provide more details about the card content. 
+     * The information provided should be concise and easy to read.
+     * By default, the margin is removed from the top and bottom of the card description.
+     * @cssprop --wcs-card-content-color - The color of the card description.
+     * @cssprop --wcs-card-content-font-size - The font size of the card description.
+     */
+    interface WcsCardContent {
+    }
+    /**
+     * The card footer component is a container that display content at the bottom of the card.
+     * It uses a flex layout to organize actions the user can take with a card
+     * @cssprop --wcs-card-footer-gap - Gap of the card footer
+     */
+    interface WcsCardFooter {
+    }
+    /**
+     * The card header component is a container that display a title and an action, it can also display a label as a `<wcs-badge>` component.
+     * The default slotted element is displayed as a `<h3>` element
+     * @cssprop --wcs-card-header-title-color - Color of the title
+     * @cssprop --wcs-card-header-title-font-size - Font size of the title
+     * @cssprop --wcs-card-header-title-font-weight - Font weight of the title
+     * @cssprop --wcs-card-header-gap - Gap between the title and the badge
+     */
+    interface WcsCardHeader {
+    }
+    /**
+     * The card media component is a container that display an image/icon inside a card. 
+     * On horizontal orientation, the image/icon has an aspect ratio of 1/1
+     * On vertical orientation, the image/icon has an aspect ratio of 16/9.
+     * @cssprop --wcs-card-media-max-width-horizontal - Max width of the image when the card is horizontal
+     */
+    interface WcsCardMedia {
     }
     /**
      * The checkbox component is an input for choosing one or more items from a set by checking / unchecking it.
@@ -6915,6 +7059,10 @@ declare namespace LocalJSX {
         "wcs-button": WcsButton;
         "wcs-card": WcsCard;
         "wcs-card-body": WcsCardBody;
+        "wcs-card-content": WcsCardContent;
+        "wcs-card-footer": WcsCardFooter;
+        "wcs-card-header": WcsCardHeader;
+        "wcs-card-media": WcsCardMedia;
         "wcs-checkbox": WcsCheckbox;
         "wcs-com-nav": WcsComNav;
         "wcs-com-nav-category": WcsComNavCategory;
@@ -7189,18 +7337,52 @@ declare module "@stencil/core" {
             /**
              * The card component is a container that display content such as text, images, buttons, and lists.  
              * A card can be a single component, but is often made up of a header, title, subtitle, and content.
+             * While they're very flexible, it's important to use them consistently. You may use `wcs-card-media` outside `wcs-card-body`
+             * and `wcs-card-header` `wcs-card-content` `wcs-card-footer` within `wcs-card-body` to make sure the card is well-designed.
              * @cssprop --wcs-card-border-color - Border color of the card
              * @cssprop --wcs-card-border-radius - Border radius of the card
              * @cssprop --wcs-card-border-width - Border width of the card
              * @cssprop --wcs-card-background-color - Background color of the card
              * @cssprop --wcs-card-text-color - Text color of the card
+             * @cssprop --wcs-card-horizontal-min-height - Min height of the card when horizontal
              */
             "wcs-card": LocalJSX.WcsCard & JSXBase.HTMLAttributes<HTMLWcsCardElement>;
             /**
              * The card-body is a subcomponent of `wcs-card`. It represents content of the card with an extra padding around.
              * @cssprop --wcs-card-body-padding - Padding of the card body
+             * @cssprop --wcs-card-body-gap - Gap between each element in the card body
              */
             "wcs-card-body": LocalJSX.WcsCardBody & JSXBase.HTMLAttributes<HTMLWcsCardBodyElement>;
+            /**
+             * A content for a card inside card-body. Commonly used to provide more details about the card content. 
+             * The information provided should be concise and easy to read.
+             * By default, the margin is removed from the top and bottom of the card description.
+             * @cssprop --wcs-card-content-color - The color of the card description.
+             * @cssprop --wcs-card-content-font-size - The font size of the card description.
+             */
+            "wcs-card-content": LocalJSX.WcsCardContent & JSXBase.HTMLAttributes<HTMLWcsCardContentElement>;
+            /**
+             * The card footer component is a container that display content at the bottom of the card.
+             * It uses a flex layout to organize actions the user can take with a card
+             * @cssprop --wcs-card-footer-gap - Gap of the card footer
+             */
+            "wcs-card-footer": LocalJSX.WcsCardFooter & JSXBase.HTMLAttributes<HTMLWcsCardFooterElement>;
+            /**
+             * The card header component is a container that display a title and an action, it can also display a label as a `<wcs-badge>` component.
+             * The default slotted element is displayed as a `<h3>` element
+             * @cssprop --wcs-card-header-title-color - Color of the title
+             * @cssprop --wcs-card-header-title-font-size - Font size of the title
+             * @cssprop --wcs-card-header-title-font-weight - Font weight of the title
+             * @cssprop --wcs-card-header-gap - Gap between the title and the badge
+             */
+            "wcs-card-header": LocalJSX.WcsCardHeader & JSXBase.HTMLAttributes<HTMLWcsCardHeaderElement>;
+            /**
+             * The card media component is a container that display an image/icon inside a card. 
+             * On horizontal orientation, the image/icon has an aspect ratio of 1/1
+             * On vertical orientation, the image/icon has an aspect ratio of 16/9.
+             * @cssprop --wcs-card-media-max-width-horizontal - Max width of the image when the card is horizontal
+             */
+            "wcs-card-media": LocalJSX.WcsCardMedia & JSXBase.HTMLAttributes<HTMLWcsCardMediaElement>;
             /**
              * The checkbox component is an input for choosing one or more items from a set by checking / unchecking it.
              * @cssprop --wcs-checkbox-border-color-default - Default color of the border

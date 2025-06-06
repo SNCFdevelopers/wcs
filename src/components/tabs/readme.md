@@ -8,7 +8,8 @@
 Tabs component to switch between tab content. Use in conjunction with `wcs-tab`.
 
 ## Accessibility guidelines 💡
-> - Use the `mobile` prop to display the tabs as a dropdown list containing the tabs. Recommended for narrower screens.
+> - Mobile display should be used for narrower screens (automatically set by default).
+> - The component respects the W3C [tab pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/)
 
 ## Properties
 

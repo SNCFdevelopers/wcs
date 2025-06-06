@@ -1,0 +1,28 @@
+:host {
+    display: block;
+
+    --wcs-card-media-max-width-horizontal: 160px;
+
+    ::slotted(*), ::slotted([slot="horizontal"]), ::slotted([slot="vertical"]) {
+        display: block;
+        object-fit: cover; // object position = 50% 50%
+
+        width: 100%;
+        height: 100%;
+    }
+}
+
+:host(.vertical) {
+    ::slotted(*), ::slotted([slot="vertical"]) {
+        border-radius: var(--wcs-card-border-radius) var(--wcs-card-border-radius) 0 0;
+        aspect-ratio: 16 / 9;
+    }
+}
+
+:host(.horizontal) {
+    ::slotted(*), ::slotted([slot="horizontal"]) {
+        width: var(--wcs-card-media-max-width-horizontal);
+        aspect-ratio: 1 / 1;
+        border-radius: var(--wcs-card-border-radius) 0 0 var(--wcs-card-border-radius);
+    }
+}

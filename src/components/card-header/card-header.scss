@@ -1,0 +1,31 @@
+:host {
+    --wcs-card-header-title-color: var(--wcs-semantic-color-text-primary);
+    --wcs-card-header-title-font-size: var(--wcs-semantic-font-size-heading-5);
+    --wcs-card-header-title-font-weight: var(--wcs-semantic-font-weight-heavy);
+    --wcs-card-header-gap: var(--wcs-semantic-spacing-base-150);
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--wcs-card-header-gap);
+
+    wcs-badge {
+        align-self: flex-start;
+    }
+
+    .header-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+}
+
+h3 {
+    font-size: var(--wcs-card-header-title-font-size);
+    font-weight: var(--wcs-card-header-title-font-weight);
+    color: var(--wcs-card-header-title-color);
+    margin-top: 0;
+    margin-bottom: 0;
+}

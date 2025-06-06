@@ -254,6 +254,9 @@ Please respect those naming rules :
 - Any global type public API should be named `Wcs{Type}` 👉 e.g `WcsSize` and should be placed in `shared-types.ts`
 - Stencil props, methods, events are always `camelCased` **UNLESS** it is mirrored from an existing native property 👉 e.g `autofocus`, `autocapitalize` on the `input` component.
 - Properties != attributes ⚠️ `myProperty` become `my-property` as an attribute => [more info on this article](https://jakearchibald.com/2024/attributes-vs-properties/)
+- Slots should be named in the singular if they can only contain a single slotted element, or in the plural if it makes sense to have more than one 👉 e.g :
+  - `<wcs-button><span slot="icon">...</span></wcs-button>` should be named `icon` (singular) because it can only contain a single element.
+  - `<wcs-grid><wcs-grid-column slot="columns">...</wcs-grid-column></wcs-grid>` should be named `columns` (plural) because it can contain multiple columns.
 
 
 ## Stencil decision tree

@@ -282,14 +282,14 @@ export declare interface WcsButton extends Components.WcsButton {}
 
 
 @ProxyCmp({
-  inputs: ['mode']
+  inputs: ['mode', 'orientation']
 })
 @Component({
   selector: 'wcs-card',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['mode'],
+  inputs: ['mode', 'orientation'],
 })
 export class WcsCard {
   protected el: HTMLElement;
@@ -322,6 +322,90 @@ export class WcsCardBody {
 
 
 export declare interface WcsCardBody extends Components.WcsCardBody {}
+
+
+@ProxyCmp({
+})
+@Component({
+  selector: 'wcs-card-content',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: [],
+})
+export class WcsCardContent {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface WcsCardContent extends Components.WcsCardContent {}
+
+
+@ProxyCmp({
+})
+@Component({
+  selector: 'wcs-card-footer',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: [],
+})
+export class WcsCardFooter {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface WcsCardFooter extends Components.WcsCardFooter {}
+
+
+@ProxyCmp({
+})
+@Component({
+  selector: 'wcs-card-header',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: [],
+})
+export class WcsCardHeader {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface WcsCardHeader extends Components.WcsCardHeader {}
+
+
+@ProxyCmp({
+})
+@Component({
+  selector: 'wcs-card-media',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: [],
+})
+export class WcsCardMedia {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface WcsCardMedia extends Components.WcsCardMedia {}
 
 
 @ProxyCmp({

@@ -32,6 +32,7 @@ Type: `Promise<void>`
 | Slot                                                                                                          | Description |
 | ------------------------------------------------------------------------------------------------------------- | ----------- |
 | `"actions Actions such as buttons, dropdown or any useful information to always display on your application"` |             |
+| `"center Content to display in the center of the header, useful for a search bar"`                            |             |
 | `"logo SNCF Logo"`                                                                                            |             |
 | `"title Title of your application"`                                                                           |             |
 

@@ -1,6 +1,17 @@
 :host {
-    --wcs-card-body-padding: var(--wcs-semantic-spacing-large);
+    --wcs-card-body-padding: var(--wcs-semantic-spacing-base-300);
+    --wcs-card-body-gap: var(--wcs-semantic-spacing-base);
 
     flex: 1 1 auto;
     padding: var(--wcs-card-body-padding);
+}
+
+:host(.horizontal), :host(.vertical) {
+    display: flex;
+    flex-direction: column;
+    gap: var(--wcs-card-body-gap);
+}
+
+::slotted(p) {
+    margin: 0;
 }

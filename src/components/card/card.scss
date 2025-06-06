@@ -5,6 +5,8 @@
     --wcs-card-background-color: var(--wcs-semantic-color-background-surface-primary);
     --wcs-card-text-color: var(--wcs-semantic-color-text-primary);
 
+    --wcs-card-horizontal-min-height: 160px;
+
     position: relative;
     display: flex;
     flex-direction: column;
@@ -23,4 +25,13 @@
 
 :host([mode="flat"]) {
     border: solid var(--wcs-card-border-width) var(--wcs-card-border-color);
+}
+
+:host([orientation="horizontal"]) {
+    flex-direction: row;
+    min-height: var(--wcs-card-horizontal-height);
+}
+
+:host([orientation="vertical"]) {
+    flex-direction: column;
 }
