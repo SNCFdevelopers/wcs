@@ -1077,6 +1077,8 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
 
     render() {
         const ariaLabelValue = `${this.labelElement ? this.labelElement.innerText : ''} ${this.hasValue ? this.displayText : ''}`.trimEnd();
+        const noResultContainerId = 'no-result-container';
+        
         return (
             <Host class={this.expanded ? 'expanded ' : ''}
                   overlayDirection={this.overlayDirection}
@@ -1108,6 +1110,7 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
                                                          role="combobox"
                                                          aria-haspopup="listbox"
                                                          aria-label={ariaLabelValue}
+                                                         aria-describedby={noResultContainerId}
                                                          aria-disabled={this.disabled ? 'true' : null}
                                                          aria-expanded={this.expanded ? 'true' : 'false'}
                                                          aria-controls={this.optionsId}
@@ -1129,11 +1132,12 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
                 <div class="wcs-select-options" id={this.optionsId} role="listbox">
                     <slot name="options" onSlotchange={this.onSlotchange.bind(this)}/>
                     {(this.autocomplete && this.showNoResultFoundLabel) &&
-                        <div class="noresult-container">
+                        <div role="alert" id={noResultContainerId} class="noresult-container">
                             <slot name="filter-no-result">
                                 <span>Aucun résultat</span>
                             </slot>
-                        </div>}
+                        </div>
+                    }
                 </div>
             </Host>
         );
