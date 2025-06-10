@@ -11,6 +11,32 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+for new features.
+
+### Changed
+
+for changes in existing functionality.
+
+### Deprecated
+
+for soon-to-be removed features.
+
+### Removed
+
+for now removed features.
+
+### Fixed
+
+for any bug fixes.
+
+### Security
+
+in case of vulnerabilities.
+
+## [7.2.0] - 2025-06-10
+
+### Added
+
 - **header**:
   - add `center` slot to put a search bar inside
   - new story to show how to add a clickable logo / title
@@ -35,10 +61,6 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **mat-icon**:
   - update Material Icon link in documentation
 
-### Deprecated
-
-for soon-to-be removed features.
-
 ### Removed
 
 - **Angular Formly**: remove `value` from type `WcsFormlyCounterProps` => still works because Angular already does it for you
@@ -54,11 +76,7 @@ for soon-to-be removed features.
 - **horizontal-stepper**: progress-bar animation timing
 - **modal**: correctly set attribute `aria-modal="true"`
 - **doc**: bad design tokens in the v6-v7 migration guide.
-- **form-field**: announce error message to screen readers when the error message is displayed
-
-### Security
-
-in case of vulnerabilities.
+- **form-field**: announce error messages to screen readers when the error message is displayed
 
 ## [7.1.0] - 2025-03-05
 

@@ -5,7 +5,7 @@
 
 ## Overview
 
-A component used to display a [Material Icon](https://fonts.google.com/icons). Can be useful when used in wcs-grid or in a wcs-button.
+A component used to display a [Material Icon](https://fonts.google.com/icons?icon.set=Material+Icons). Can be useful when used in wcs-grid or in a wcs-button.
 
 ## Properties
 

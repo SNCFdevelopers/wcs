@@ -1483,7 +1483,7 @@ export namespace Components {
     interface WcsListItemProperty {
     }
     /**
-     * A component used to display a [Material Icon](https://fonts.google.com/icons). Can be useful when used in wcs-grid or in a wcs-button.
+     * A component used to display a [Material Icon](https://fonts.google.com/icons?icon.set=Material+Icons). Can be useful when used in wcs-grid or in a wcs-button.
      */
     interface WcsMatIcon {
         /**
@@ -3796,7 +3796,7 @@ declare global {
         new (): HTMLWcsListItemPropertyElement;
     };
     /**
-     * A component used to display a [Material Icon](https://fonts.google.com/icons). Can be useful when used in wcs-grid or in a wcs-button.
+     * A component used to display a [Material Icon](https://fonts.google.com/icons?icon.set=Material+Icons). Can be useful when used in wcs-grid or in a wcs-button.
      */
     interface HTMLWcsMatIconElement extends Components.WcsMatIcon, HTMLStencilElement {
     }
@@ -6039,7 +6039,7 @@ declare namespace LocalJSX {
     interface WcsListItemProperty {
     }
     /**
-     * A component used to display a [Material Icon](https://fonts.google.com/icons). Can be useful when used in wcs-grid or in a wcs-button.
+     * A component used to display a [Material Icon](https://fonts.google.com/icons?icon.set=Material+Icons). Can be useful when used in wcs-grid or in a wcs-button.
      */
     interface WcsMatIcon {
         /**
@@ -7934,7 +7934,7 @@ declare module "@stencil/core" {
              */
             "wcs-list-item-property": LocalJSX.WcsListItemProperty & JSXBase.HTMLAttributes<HTMLWcsListItemPropertyElement>;
             /**
-             * A component used to display a [Material Icon](https://fonts.google.com/icons). Can be useful when used in wcs-grid or in a wcs-button.
+             * A component used to display a [Material Icon](https://fonts.google.com/icons?icon.set=Material+Icons). Can be useful when used in wcs-grid or in a wcs-button.
              */
             "wcs-mat-icon": LocalJSX.WcsMatIcon & JSXBase.HTMLAttributes<HTMLWcsMatIconElement>;
             /**

@@ -1277,6 +1277,44 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/accordion-header/accordion-header.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The accordion-header is a subcomponent of `wcs-accordion`. It represents the heading text inside the accordion panel.",
+          "name": "AccordionHeader",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-accordion-header",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "AccordionHeader",
+          "declaration": {
+            "name": "AccordionHeader",
+            "module": "components/accordion-header/accordion-header.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-accordion-header",
+          "declaration": {
+            "name": "AccordionHeader",
+            "module": "components/accordion-header/accordion-header.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/accordion-content/accordion-content.tsx",
       "declarations": [
         {
@@ -1319,44 +1357,6 @@
           "declaration": {
             "name": "AccordionContent",
             "module": "components/accordion-content/accordion-content.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/accordion-header/accordion-header.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The accordion-header is a subcomponent of `wcs-accordion`. It represents the heading text inside the accordion panel.",
-          "name": "AccordionHeader",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-accordion-header",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "AccordionHeader",
-          "declaration": {
-            "name": "AccordionHeader",
-            "module": "components/accordion-header/accordion-header.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-accordion-header",
-          "declaration": {
-            "name": "AccordionHeader",
-            "module": "components/accordion-header/accordion-header.tsx"
           }
         }
       ]
@@ -1628,219 +1628,6 @@
           "declaration": {
             "name": "AccordionPanel",
             "module": "components/accordion-panel/accordion-panel.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/alert-drawer/alert-drawer-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/alert-drawer/alert-drawer.e2e.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/alert-drawer/alert-drawer.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Serve as a container for displaying `wcs-alert` components. Directly use this component to display alerts in your applications.\r\n\r\n## Usage\r\n\r\nYou can place the `wcs-alert-drawer` component anywhere in your application. It will be used to display alerts.\r\nYou need to set `position` property to define where the alert drawer will be displayed on the screen.\r\n\r\nAbout alerts order:\r\n- alerts are ordered up-bottom if the position is `top` and bottom-up if the position is `bottom`\r\n\r\n## Accessibility guidelines 💡\r\n\r\n- The component has `aria-live=\"polite\"` and `aria-atomic=\"true\"` attributes to announce the new alerts to screen readers\r\n\r\n## Configuration (on the web component)\r\n\r\nPer default, the `wcs-alert-drawer` is configured with:\r\n- `position: 'top-right'`\r\n- `showProgressBar: false`\r\n- `timeout: 5000`\r\n\r\nWhen using the `WcsAlertDrawer::show(alert: WcsAlertConfig)` method, you can override the default configuration by \r\noverriding it through the argument.\r\nYou can also set them in the `wcs-alert-drawer` component directly as attributes\r\n\r\n```html\r\n<wcs-alert-drawer position=\"top-right\" show-progress-bar timeout=\"10000\">\r\n```\r\nWith this configuration, all alerts will be displayed with a progress bar and a timeout of 10 seconds.",
-          "name": "AlertDrawer",
-          "cssProperties": [
-            {
-              "description": "Gap between alerts",
-              "name": "--wcs-alert-drawer-gap"
-            },
-            {
-              "description": "Margin horizontal of the alert drawer",
-              "name": "--wcs-alert-drawer-margin-horizontal"
-            },
-            {
-              "description": "Margin vertical of the alert drawer",
-              "name": "--wcs-alert-drawer-margin-vertical"
-            },
-            {
-              "description": "Duration of the hide alert animation",
-              "name": "--wcs-alert-drawer-hide-alert-animation-duration"
-            },
-            {
-              "description": "Minimum width of the alert drawer => define the width of the alerts",
-              "name": "--wcs-alert-drawer-min-width"
-            }
-          ],
-          "slots": [
-            {
-              "description": "the alert drawer content, where alerts you put as children will be displayed",
-              "name": ""
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsAlertDrawerElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "position",
-              "type": {
-                "text": "WcsAlertDrawerPosition"
-              },
-              "default": "'bottom-right'",
-              "description": "Position of the alert drawer on the screen"
-            },
-            {
-              "kind": "field",
-              "name": "timeout",
-              "type": {
-                "text": "number"
-              },
-              "default": "5000",
-              "description": "Timeout for the alert to be dismissed automatically"
-            },
-            {
-              "kind": "field",
-              "name": "showProgressBar",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Whether to show the progress bar or not"
-            },
-            {
-              "kind": "field",
-              "name": "alertEventListeners",
-              "privacy": "private",
-              "default": "new WeakMap<HTMLElement, (evt: AnimationEvent) => void>()"
-            },
-            {
-              "kind": "field",
-              "name": "timeoutId",
-              "privacy": "private",
-              "default": "undefined"
-            },
-            {
-              "kind": "field",
-              "name": "userPrefersReducedMotion",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "alertsContainer",
-              "type": {
-                "text": "HTMLDivElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "close",
-              "privacy": "private",
-              "description": "Handles the dismissal of an alert",
-              "parameters": [
-                {
-                  "description": "The alert element",
-                  "name": "alert"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "show",
-              "return": {
-                "type": {
-                  "text": "Promise<void>"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "alert",
-                  "type": {
-                    "text": "WcsAlertConfig"
-                  },
-                  "description": "The alert to show"
-                }
-              ],
-              "description": "Method exposed on `wcs-alert-drawer` to show an alert programmatically via the JS API"
-            },
-            {
-              "kind": "method",
-              "name": "renderToast",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "HTMLWcsAlertElement"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "alert",
-                  "type": {
-                    "text": "WcsAlertConfig"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "position",
-              "fieldName": "position",
-              "type": {
-                "text": "WcsAlertDrawerPosition"
-              }
-            },
-            {
-              "name": "timeout",
-              "fieldName": "timeout",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "show-progress-bar",
-              "fieldName": "showProgressBar",
-              "type": {
-                "text": "boolean"
-              }
-            }
-          ],
-          "tagName": "wcs-alert-drawer",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "AlertDrawer",
-          "declaration": {
-            "name": "AlertDrawer",
-            "module": "components/alert-drawer/alert-drawer.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-alert-drawer",
-          "declaration": {
-            "name": "AlertDrawer",
-            "module": "components/alert-drawer/alert-drawer.tsx"
           }
         }
       ]
@@ -2251,6 +2038,219 @@
           "declaration": {
             "name": "Alert",
             "module": "components/alert/alert.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/alert-drawer/alert-drawer-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/alert-drawer/alert-drawer.e2e.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/alert-drawer/alert-drawer.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Serve as a container for displaying `wcs-alert` components. Directly use this component to display alerts in your applications.\r\n\r\n## Usage\r\n\r\nYou can place the `wcs-alert-drawer` component anywhere in your application. It will be used to display alerts.\r\nYou need to set `position` property to define where the alert drawer will be displayed on the screen.\r\n\r\nAbout alerts order:\r\n- alerts are ordered up-bottom if the position is `top` and bottom-up if the position is `bottom`\r\n\r\n## Accessibility guidelines 💡\r\n\r\n- The component has `aria-live=\"polite\"` and `aria-atomic=\"true\"` attributes to announce the new alerts to screen readers\r\n\r\n## Configuration (on the web component)\r\n\r\nPer default, the `wcs-alert-drawer` is configured with:\r\n- `position: 'top-right'`\r\n- `showProgressBar: false`\r\n- `timeout: 5000`\r\n\r\nWhen using the `WcsAlertDrawer::show(alert: WcsAlertConfig)` method, you can override the default configuration by \r\noverriding it through the argument.\r\nYou can also set them in the `wcs-alert-drawer` component directly as attributes\r\n\r\n```html\r\n<wcs-alert-drawer position=\"top-right\" show-progress-bar timeout=\"10000\">\r\n```\r\nWith this configuration, all alerts will be displayed with a progress bar and a timeout of 10 seconds.",
+          "name": "AlertDrawer",
+          "cssProperties": [
+            {
+              "description": "Gap between alerts",
+              "name": "--wcs-alert-drawer-gap"
+            },
+            {
+              "description": "Margin horizontal of the alert drawer",
+              "name": "--wcs-alert-drawer-margin-horizontal"
+            },
+            {
+              "description": "Margin vertical of the alert drawer",
+              "name": "--wcs-alert-drawer-margin-vertical"
+            },
+            {
+              "description": "Duration of the hide alert animation",
+              "name": "--wcs-alert-drawer-hide-alert-animation-duration"
+            },
+            {
+              "description": "Minimum width of the alert drawer => define the width of the alerts",
+              "name": "--wcs-alert-drawer-min-width"
+            }
+          ],
+          "slots": [
+            {
+              "description": "the alert drawer content, where alerts you put as children will be displayed",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsAlertDrawerElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "position",
+              "type": {
+                "text": "WcsAlertDrawerPosition"
+              },
+              "default": "'bottom-right'",
+              "description": "Position of the alert drawer on the screen"
+            },
+            {
+              "kind": "field",
+              "name": "timeout",
+              "type": {
+                "text": "number"
+              },
+              "default": "5000",
+              "description": "Timeout for the alert to be dismissed automatically"
+            },
+            {
+              "kind": "field",
+              "name": "showProgressBar",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Whether to show the progress bar or not"
+            },
+            {
+              "kind": "field",
+              "name": "alertEventListeners",
+              "privacy": "private",
+              "default": "new WeakMap<HTMLElement, (evt: AnimationEvent) => void>()"
+            },
+            {
+              "kind": "field",
+              "name": "timeoutId",
+              "privacy": "private",
+              "default": "undefined"
+            },
+            {
+              "kind": "field",
+              "name": "userPrefersReducedMotion",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "alertsContainer",
+              "type": {
+                "text": "HTMLDivElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "close",
+              "privacy": "private",
+              "description": "Handles the dismissal of an alert",
+              "parameters": [
+                {
+                  "description": "The alert element",
+                  "name": "alert"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "show",
+              "return": {
+                "type": {
+                  "text": "Promise<void>"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "alert",
+                  "type": {
+                    "text": "WcsAlertConfig"
+                  },
+                  "description": "The alert to show"
+                }
+              ],
+              "description": "Method exposed on `wcs-alert-drawer` to show an alert programmatically via the JS API"
+            },
+            {
+              "kind": "method",
+              "name": "renderToast",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "HTMLWcsAlertElement"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "alert",
+                  "type": {
+                    "text": "WcsAlertConfig"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "position",
+              "fieldName": "position",
+              "type": {
+                "text": "WcsAlertDrawerPosition"
+              }
+            },
+            {
+              "name": "timeout",
+              "fieldName": "timeout",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "show-progress-bar",
+              "fieldName": "showProgressBar",
+              "type": {
+                "text": "boolean"
+              }
+            }
+          ],
+          "tagName": "wcs-alert-drawer",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "AlertDrawer",
+          "declaration": {
+            "name": "AlertDrawer",
+            "module": "components/alert-drawer/alert-drawer.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-alert-drawer",
+          "declaration": {
+            "name": "AlertDrawer",
+            "module": "components/alert-drawer/alert-drawer.tsx"
           }
         }
       ]
@@ -4471,74 +4471,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/com-nav-item/com-nav-item.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The com-nav-item is a subcomponent of `wcs-com-nav`. It represents a list-item wrapper around a link.",
-          "name": "ComNavItem",
-          "cssProperties": [
-            {
-              "description": "Gap between text and arrow",
-              "name": "--wcs-com-nav-item-gap"
-            },
-            {
-              "description": "Font-weight of item",
-              "name": "--wcs-com-nav-item-font-weight"
-            },
-            {
-              "description": "Arrow size",
-              "name": "--wcs-com-nav-item-arrow-icon-font-size"
-            },
-            {
-              "description": "Focus outline color",
-              "name": "--wcs-com-nav-item-focus-outline-color"
-            }
-          ],
-          "members": [
-            {
-              "kind": "method",
-              "name": "onClick"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-com-nav-item",
-          "events": [
-            {
-              "name": "wcsClickOnFinalAction",
-              "type": {
-                "text": "EventEmitter<void>"
-              },
-              "description": "Emitted when a user click on a final navigation action.\r\n\r\nUsed by the com-nav component to close the mobile menu overlay when a user click on a final action."
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ComNavItem",
-          "declaration": {
-            "name": "ComNavItem",
-            "module": "components/com-nav-item/com-nav-item.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-com-nav-item",
-          "declaration": {
-            "name": "ComNavItem",
-            "module": "components/com-nav-item/com-nav-item.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/com-nav-category/com-nav-category.tsx",
       "declarations": [
         {
@@ -4846,6 +4778,74 @@
           "declaration": {
             "name": "ComNavCategory",
             "module": "components/com-nav-category/com-nav-category.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/com-nav-item/com-nav-item.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The com-nav-item is a subcomponent of `wcs-com-nav`. It represents a list-item wrapper around a link.",
+          "name": "ComNavItem",
+          "cssProperties": [
+            {
+              "description": "Gap between text and arrow",
+              "name": "--wcs-com-nav-item-gap"
+            },
+            {
+              "description": "Font-weight of item",
+              "name": "--wcs-com-nav-item-font-weight"
+            },
+            {
+              "description": "Arrow size",
+              "name": "--wcs-com-nav-item-arrow-icon-font-size"
+            },
+            {
+              "description": "Focus outline color",
+              "name": "--wcs-com-nav-item-focus-outline-color"
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "onClick"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-com-nav-item",
+          "events": [
+            {
+              "name": "wcsClickOnFinalAction",
+              "type": {
+                "text": "EventEmitter<void>"
+              },
+              "description": "Emitted when a user click on a final navigation action.\r\n\r\nUsed by the com-nav component to close the mobile menu overlay when a user click on a final action."
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ComNavItem",
+          "declaration": {
+            "name": "ComNavItem",
+            "module": "components/com-nav-item/com-nav-item.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-com-nav-item",
+          "declaration": {
+            "name": "ComNavItem",
+            "module": "components/com-nav-item/com-nav-item.tsx"
           }
         }
       ]
@@ -7948,374 +7948,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/grid-column/grid-column.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The grid column is a subcomponent of `wcs-grid` that represents a column of the table.",
-          "name": "GridColumn",
-          "cssParts": [
-            {
-              "description": "CSS part for each column for styling. e.g: first_name-column, email-column",
-              "name": "[path]-column"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsGridColumnElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "nativeTh",
-              "type": {
-                "text": "HTMLTableHeaderCellElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "buttonOrDiv",
-              "type": {
-                "text": "HTMLButtonElement | HTMLDivElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "path",
-              "type": {
-                "text": "string"
-              },
-              "description": "Represents the name of the field from the `data` object (e.g: first_name, last_name, email, ...)"
-            },
-            {
-              "kind": "field",
-              "name": "name",
-              "type": {
-                "text": "string"
-              },
-              "description": "The name of the column displayed on the table (e.g: First Name, Last Name, Email, ...)"
-            },
-            {
-              "kind": "field",
-              "name": "sort",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Make the column sortable."
-            },
-            {
-              "kind": "field",
-              "name": "sortFn",
-              "type": {
-                "text": "WcsSortFn"
-              },
-              "description": "Customizable sort function to change the comparison of values."
-            },
-            {
-              "kind": "field",
-              "name": "formatter",
-              "type": {
-                "text": "WcsCellFormatter"
-              },
-              "description": "Customizable formatter function to render the cell differently."
-            },
-            {
-              "kind": "field",
-              "name": "sortOrder",
-              "type": {
-                "text": "WcsSortOrder"
-              },
-              "default": "'none'",
-              "description": "Defines if the column sort is ascending or descending.  \r\n`none` = the column is not sorted."
-            },
-            {
-              "kind": "field",
-              "name": "width",
-              "type": {
-                "text": "string"
-              },
-              "description": "Set the column `<th>` element width."
-            },
-            {
-              "kind": "field",
-              "name": "customCells",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Set to true if using a `wcs-custom-cell` linked to it."
-            },
-            {
-              "kind": "field",
-              "name": "hidden",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Flag to hide the column."
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "parseMyObjectProp",
-              "parameters": [
-                {
-                  "name": "newValue",
-                  "type": {
-                    "text": "boolean"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "sortOrderChange",
-              "parameters": [
-                {
-                  "name": "_",
-                  "type": {
-                    "text": "WcsSortOrder"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "emitSortConfig"
-            },
-            {
-              "kind": "method",
-              "name": "getSortOrderForAriaSort",
-              "parameters": [
-                {
-                  "name": "sortOrder",
-                  "type": {
-                    "text": "WcsSortOrder"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "getTabIndex",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "getTagName",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "delegateFocusToButton",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "render",
-              "return": {
-                "type": {
-                  "text": "any"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "onSortClick",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "handleSortKeyDown",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "_event",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  }
-                }
-              ]
-            }
-          ],
-          "attributes": [
-            {
-              "name": "path",
-              "fieldName": "path",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "name",
-              "fieldName": "name",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "sort",
-              "fieldName": "sort",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "sort-fn",
-              "fieldName": "sortFn",
-              "type": {
-                "text": "WcsSortFn"
-              }
-            },
-            {
-              "name": "formatter",
-              "fieldName": "formatter",
-              "type": {
-                "text": "WcsCellFormatter"
-              }
-            },
-            {
-              "name": "sort-order",
-              "fieldName": "sortOrder",
-              "type": {
-                "text": "WcsSortOrder"
-              }
-            },
-            {
-              "name": "width",
-              "fieldName": "width",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "custom-cells",
-              "fieldName": "customCells",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "hidden",
-              "fieldName": "hidden",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "cursor-position",
-              "fieldName": "cursorPosition",
-              "type": {
-                "text": "{col: number, row: number}"
-              }
-            },
-            {
-              "name": "column-position",
-              "fieldName": "columnPosition",
-              "type": {
-                "text": "number"
-              }
-            }
-          ],
-          "tagName": "wcs-grid-column",
-          "events": [
-            {
-              "name": "wcsSortChange",
-              "type": {
-                "text": "EventEmitter<WcsGridColumnSortChangeEventDetails>"
-              },
-              "description": "Event emitted when the sort of the column is changed."
-            },
-            {
-              "name": "wcsHiddenChange",
-              "type": {
-                "text": "EventEmitter<boolean>"
-              },
-              "description": "Event emitted if the column is dynamically switching visibility."
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "GridColumn",
-          "declaration": {
-            "name": "GridColumn",
-            "module": "components/grid-column/grid-column.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-grid-column",
-          "declaration": {
-            "name": "GridColumn",
-            "module": "components/grid-column/grid-column.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/grid-column/grid-sort-arrow.tsx",
-      "declarations": [
-        {
-          "kind": "function",
-          "name": "GridSortArrow",
-          "parameters": [
-            {
-              "name": "{state}"
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "GridSortArrow",
-          "declaration": {
-            "name": "GridSortArrow",
-            "module": "components/grid-column/grid-sort-arrow.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/grid/grid-interface.ts",
       "declarations": [
         {
@@ -9358,6 +8990,374 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/grid-column/grid-column.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The grid column is a subcomponent of `wcs-grid` that represents a column of the table.",
+          "name": "GridColumn",
+          "cssParts": [
+            {
+              "description": "CSS part for each column for styling. e.g: first_name-column, email-column",
+              "name": "[path]-column"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsGridColumnElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeTh",
+              "type": {
+                "text": "HTMLTableHeaderCellElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "buttonOrDiv",
+              "type": {
+                "text": "HTMLButtonElement | HTMLDivElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "path",
+              "type": {
+                "text": "string"
+              },
+              "description": "Represents the name of the field from the `data` object (e.g: first_name, last_name, email, ...)"
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "description": "The name of the column displayed on the table (e.g: First Name, Last Name, Email, ...)"
+            },
+            {
+              "kind": "field",
+              "name": "sort",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Make the column sortable."
+            },
+            {
+              "kind": "field",
+              "name": "sortFn",
+              "type": {
+                "text": "WcsSortFn"
+              },
+              "description": "Customizable sort function to change the comparison of values."
+            },
+            {
+              "kind": "field",
+              "name": "formatter",
+              "type": {
+                "text": "WcsCellFormatter"
+              },
+              "description": "Customizable formatter function to render the cell differently."
+            },
+            {
+              "kind": "field",
+              "name": "sortOrder",
+              "type": {
+                "text": "WcsSortOrder"
+              },
+              "default": "'none'",
+              "description": "Defines if the column sort is ascending or descending.  \r\n`none` = the column is not sorted."
+            },
+            {
+              "kind": "field",
+              "name": "width",
+              "type": {
+                "text": "string"
+              },
+              "description": "Set the column `<th>` element width."
+            },
+            {
+              "kind": "field",
+              "name": "customCells",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Set to true if using a `wcs-custom-cell` linked to it."
+            },
+            {
+              "kind": "field",
+              "name": "hidden",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Flag to hide the column."
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "parseMyObjectProp",
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "boolean"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "sortOrderChange",
+              "parameters": [
+                {
+                  "name": "_",
+                  "type": {
+                    "text": "WcsSortOrder"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "emitSortConfig"
+            },
+            {
+              "kind": "method",
+              "name": "getSortOrderForAriaSort",
+              "parameters": [
+                {
+                  "name": "sortOrder",
+                  "type": {
+                    "text": "WcsSortOrder"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "getTabIndex",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "getTagName",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "delegateFocusToButton",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "render",
+              "return": {
+                "type": {
+                  "text": "any"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "onSortClick",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "handleSortKeyDown",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "_event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
+            }
+          ],
+          "attributes": [
+            {
+              "name": "path",
+              "fieldName": "path",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "name",
+              "fieldName": "name",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "sort",
+              "fieldName": "sort",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "sort-fn",
+              "fieldName": "sortFn",
+              "type": {
+                "text": "WcsSortFn"
+              }
+            },
+            {
+              "name": "formatter",
+              "fieldName": "formatter",
+              "type": {
+                "text": "WcsCellFormatter"
+              }
+            },
+            {
+              "name": "sort-order",
+              "fieldName": "sortOrder",
+              "type": {
+                "text": "WcsSortOrder"
+              }
+            },
+            {
+              "name": "width",
+              "fieldName": "width",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "custom-cells",
+              "fieldName": "customCells",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "hidden",
+              "fieldName": "hidden",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "cursor-position",
+              "fieldName": "cursorPosition",
+              "type": {
+                "text": "{col: number, row: number}"
+              }
+            },
+            {
+              "name": "column-position",
+              "fieldName": "columnPosition",
+              "type": {
+                "text": "number"
+              }
+            }
+          ],
+          "tagName": "wcs-grid-column",
+          "events": [
+            {
+              "name": "wcsSortChange",
+              "type": {
+                "text": "EventEmitter<WcsGridColumnSortChangeEventDetails>"
+              },
+              "description": "Event emitted when the sort of the column is changed."
+            },
+            {
+              "name": "wcsHiddenChange",
+              "type": {
+                "text": "EventEmitter<boolean>"
+              },
+              "description": "Event emitted if the column is dynamically switching visibility."
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "GridColumn",
+          "declaration": {
+            "name": "GridColumn",
+            "module": "components/grid-column/grid-column.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-grid-column",
+          "declaration": {
+            "name": "GridColumn",
+            "module": "components/grid-column/grid-column.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/grid-column/grid-sort-arrow.tsx",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "GridSortArrow",
+          "parameters": [
+            {
+              "name": "{state}"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "GridSortArrow",
+          "declaration": {
+            "name": "GridSortArrow",
+            "module": "components/grid-column/grid-sort-arrow.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/grid-custom-cell/grid-custom-cell.tsx",
       "declarations": [
         {
@@ -9427,143 +9427,6 @@
           "declaration": {
             "name": "GridCustomCell",
             "module": "components/grid-custom-cell/grid-custom-cell.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/header/header.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The header component is an element that appears across the top of all pages on a website or application; it contains the logo, the site name and main actions.",
-          "name": "Header",
-          "cssProperties": [
-            {
-              "description": "Background color of the header",
-              "name": "--wcs-header-background-color"
-            },
-            {
-              "description": "Gap between elements in the header",
-              "name": "--wcs-header-gap"
-            },
-            {
-              "description": "Height of the header",
-              "name": "--wcs-header-height"
-            },
-            {
-              "description": "Height of the logo",
-              "name": "--wcs-header-logo-height"
-            },
-            {
-              "description": "Horizontal padding of the header",
-              "name": "--wcs-header-padding-horizontal"
-            },
-            {
-              "description": "Color of the title",
-              "name": "--wcs-header-title-color"
-            },
-            {
-              "description": "Font weight of the title",
-              "name": "--wcs-header-title-font-weight"
-            },
-            {
-              "description": "Font size of the title",
-              "name": "--wcs-header-title-font-size"
-            }
-          ],
-          "slots": [
-            {
-              "description": "SNCF Logo",
-              "name": "logo"
-            },
-            {
-              "description": "Title of your application",
-              "name": "title"
-            },
-            {
-              "description": "Content to display in the center of the header, useful for a search bar",
-              "name": "center"
-            },
-            {
-              "description": "Actions such as buttons, dropdown or any useful information to always display on your application",
-              "name": "actions"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "nativeHeader",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "hostData"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-header",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Header",
-          "declaration": {
-            "name": "Header",
-            "module": "components/header/header.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-header",
-          "declaration": {
-            "name": "Header",
-            "module": "components/header/header.tsx"
           }
         }
       ]
@@ -9916,6 +9779,143 @@
           "declaration": {
             "name": "GridPagination",
             "module": "components/grid-pagination/grid-pagination.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/header/header.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The header component is an element that appears across the top of all pages on a website or application; it contains the logo, the site name and main actions.",
+          "name": "Header",
+          "cssProperties": [
+            {
+              "description": "Background color of the header",
+              "name": "--wcs-header-background-color"
+            },
+            {
+              "description": "Gap between elements in the header",
+              "name": "--wcs-header-gap"
+            },
+            {
+              "description": "Height of the header",
+              "name": "--wcs-header-height"
+            },
+            {
+              "description": "Height of the logo",
+              "name": "--wcs-header-logo-height"
+            },
+            {
+              "description": "Horizontal padding of the header",
+              "name": "--wcs-header-padding-horizontal"
+            },
+            {
+              "description": "Color of the title",
+              "name": "--wcs-header-title-color"
+            },
+            {
+              "description": "Font weight of the title",
+              "name": "--wcs-header-title-font-weight"
+            },
+            {
+              "description": "Font size of the title",
+              "name": "--wcs-header-title-font-size"
+            }
+          ],
+          "slots": [
+            {
+              "description": "SNCF Logo",
+              "name": "logo"
+            },
+            {
+              "description": "Title of your application",
+              "name": "title"
+            },
+            {
+              "description": "Content to display in the center of the header, useful for a search bar",
+              "name": "center"
+            },
+            {
+              "description": "Actions such as buttons, dropdown or any useful information to always display on your application",
+              "name": "actions"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeHeader",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "hostData"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-header",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Header",
+          "declaration": {
+            "name": "Header",
+            "module": "components/header/header.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-header",
+          "declaration": {
+            "name": "Header",
+            "module": "components/header/header.tsx"
           }
         }
       ]
@@ -11584,7 +11584,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "A component used to display a [Material Icon](https://fonts.google.com/icons). Can be useful when used in wcs-grid or in a wcs-button.",
+          "description": "A component used to display a [Material Icon](https://fonts.google.com/icons?icon.set=Material+Icons). Can be useful when used in wcs-grid or in a wcs-button.",
           "name": "MatIcon",
           "members": [
             {
@@ -12135,6 +12135,107 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/nav/nav.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The nav component is a container for navigation links to other pages of the website.",
+          "name": "Nav",
+          "cssProperties": [
+            {
+              "description": "Background color of the nav",
+              "name": "--wcs-nav-background-color"
+            },
+            {
+              "description": "Width of the nav on desktop",
+              "name": "--wcs-nav-width-desktop"
+            },
+            {
+              "description": "Height of the nav on mobile",
+              "name": "--wcs-nav-height-mobile"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Bottom part of the nav to put to nav-items at the end",
+              "name": "bottom"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsProgressBarElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeNav",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-nav",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Nav",
+          "declaration": {
+            "name": "Nav",
+            "module": "components/nav/nav.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-nav",
+          "declaration": {
+            "name": "Nav",
+            "module": "components/nav/nav.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/native-select/native-select-interface.ts",
       "declarations": [],
       "exports": []
@@ -12614,107 +12715,6 @@
           "declaration": {
             "name": "NavItem",
             "module": "components/nav-item/nav-item.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/nav/nav.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The nav component is a container for navigation links to other pages of the website.",
-          "name": "Nav",
-          "cssProperties": [
-            {
-              "description": "Background color of the nav",
-              "name": "--wcs-nav-background-color"
-            },
-            {
-              "description": "Width of the nav on desktop",
-              "name": "--wcs-nav-width-desktop"
-            },
-            {
-              "description": "Height of the nav on mobile",
-              "name": "--wcs-nav-height-mobile"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Bottom part of the nav to put to nav-items at the end",
-              "name": "bottom"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsProgressBarElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "nativeNav",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-nav",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Nav",
-          "declaration": {
-            "name": "Nav",
-            "module": "components/nav/nav.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-nav",
-          "declaration": {
-            "name": "Nav",
-            "module": "components/nav/nav.tsx"
           }
         }
       ]
