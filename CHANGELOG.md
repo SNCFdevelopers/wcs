@@ -27,16 +27,22 @@ for now removed features.
 
 ### Fixed
 
+for any bug fixes.
+
+### Security
+
+in case of vulnerabilities.
+
+## [7.2.1] - 2025-06-12
+
+### Fixed
+
 - **alert**: is now declared in wcs-angular module
 - **alert-drawer**: is now declared in wcs-angular module
 - **card-header**: is now declared in wcs-angular module
 - **card-content**: is now declared in wcs-angular module
 - **card-footer**: is now declared in wcs-angular module
 - **card-media**: is now declared in wcs-angular module
-
-### Security
-
-in case of vulnerabilities.
 
 ## [7.2.0] - 2025-06-10
 
