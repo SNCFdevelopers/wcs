@@ -7,6 +7,8 @@ import { InputValueAccessorDirective } from './directives/input-value-accessor.d
 import { TextareaValueAccessorDirective } from './directives/textarea-value-accessor.directive';
 import { CounterValueAccessorDirective } from './directives/counter-value-accessor.directive';
 import {
+  WcsAlert,
+  WcsAlertDrawer,
   WcsAccordion, WcsAccordionContent, WcsAccordionHeader, WcsAccordionPanel,
   WcsActionBar,
   WcsApp,
@@ -72,10 +74,10 @@ import {
   WcsCardMedia,
 } from './proxies';
 import { GridValueAccessorDirective } from './directives/grid-value-accessor.directive';
-import { WcsAlertService } from './services/wcs-alert.service';
-
 
 const DECLARATIONS = [
+  WcsAlert,
+  WcsAlertDrawer,
   WcsActionBar,
   WcsAccordion,
   WcsAccordionContent,
@@ -153,7 +155,7 @@ const DECLARATIONS = [
   CheckboxValueAccessorDirective,
   SwitchValueAccessorDirective,
   CounterValueAccessorDirective,
-  GridValueAccessorDirective
+  GridValueAccessorDirective,
 ];
 
 @NgModule({
