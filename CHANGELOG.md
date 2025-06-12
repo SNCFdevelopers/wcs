@@ -27,7 +27,10 @@ for now removed features.
 
 ### Fixed
 
-for any bug fixes.
+- **card-header**: is now declared in wcs-angular module
+- **card-content**: is now declared in wcs-angular module
+- **card-footer**: is now declared in wcs-angular module
+- **card-media**: is now declared in wcs-angular module
 
 ### Security
 

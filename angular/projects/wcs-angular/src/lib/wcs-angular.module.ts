@@ -66,6 +66,10 @@ import {
   WcsTextarea,
   WcsTooltip,
   WcsNativeSelect,
+  WcsCardContent,
+  WcsCardHeader,
+  WcsCardFooter,
+  WcsCardMedia,
 } from './proxies';
 import { GridValueAccessorDirective } from './directives/grid-value-accessor.directive';
 import { WcsAlertService } from './services/wcs-alert.service';
@@ -84,6 +88,10 @@ const DECLARATIONS = [
   WcsButton,
   WcsCard,
   WcsCardBody,
+  WcsCardHeader,
+  WcsCardMedia,
+  WcsCardContent,
+  WcsCardFooter,
   WcsCheckbox,
   WcsComNav,
   WcsComNavItem,
