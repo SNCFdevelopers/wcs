@@ -12,6 +12,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 
 - **checkbox**: add `required` prop
+- **doc**: add browser support information in introduction
 
 ### Changed
 
