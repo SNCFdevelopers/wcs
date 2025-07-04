@@ -268,6 +268,65 @@ describe('Select component', () => {
         expect(availableOptions.length).toBe(4);
     });
 
+    it('[Autocomplete] should not opened when initial value is set', async () => {
+        // Given - When
+        const page = await newE2EPage();
+        await setWcsContent(page, `
+            <wcs-select autocomplete value="1">
+                <wcs-select-option value="1">One</wcs-select-option>
+                <wcs-select-option value="2">Two</wcs-select-option>
+                <wcs-select-option value="3">Three</wcs-select-option>
+                <wcs-select-option value="4">Four</wcs-select-option>
+            </wcs-select>
+        `);
+        const select = await page.find('wcs-select');
+
+        // Then
+        expect(select).not.toHaveClass('expanded');
+    });
+
+    it('[Autocomplete] should not opened when set value programmatically', async () => {
+        // Given - When
+        const page = await newE2EPage();
+        await setWcsContent(page, `
+            <wcs-select autocomplete value="1">
+                <wcs-select-option value="1">One</wcs-select-option>
+                <wcs-select-option value="2">Two</wcs-select-option>
+                <wcs-select-option value="3">Three</wcs-select-option>
+                <wcs-select-option value="4">Four</wcs-select-option>
+            </wcs-select>
+        `);
+        const select = await page.find('wcs-select');
+        select.setProperty('value', '1');
+        await page.waitForChanges();
+
+        // Then
+        expect(select).not.toHaveClass('expanded');
+    })
+
+    it('[Autocomplete] should opened when set value with user interaction', async () => {
+        // Given
+        const page = await newE2EPage();
+        await setWcsContent(page, `
+            <wcs-select autocomplete>
+                <wcs-select-option value="1">One</wcs-select-option>
+                <wcs-select-option value="2">Two</wcs-select-option>
+                <wcs-select-option value="3">Three</wcs-select-option>
+                <wcs-select-option value="4">Four</wcs-select-option>
+            </wcs-select>
+        `);
+        const select = await page.find('wcs-select');
+        const autocompleteInput = await page.find('wcs-select >>> input.autocomplete-field');
+
+        // When
+        await autocompleteInput.focus();
+        await page.keyboard.type('O');
+        await page.waitForChanges();
+
+        // Then
+        expect(select).toHaveClass('expanded');
+    })
+
     it(`Propagate wcsSelectChangeEvent when a new value is selected`, async () => {
         // Given
         const page = await newE2EPage({
@@ -634,7 +693,7 @@ describe('Select component', () => {
               </wcs-select>
             `);
             const select = await page.find('wcs-select');
-            
+
             // When
             await select.setProperty('value', 'option2');
             await page.waitForChanges();
@@ -820,7 +879,7 @@ describe('Select component', () => {
               </wcs-select>
             `);
             const select = await page.find('wcs-select');
-            
+
             // When
             await select.setProperty('value', ['option1', 'option2']);
             await page.waitForChanges();
@@ -1156,7 +1215,7 @@ describe('Select component', () => {
             `;
         });
         await page.waitForChanges();
-        
+
         expect(select.shadowRoot.querySelector('.wcs-select-value')).toEqualText("Two"); // Verify initial value is displayed
     });
 
@@ -1182,7 +1241,7 @@ describe('Select component', () => {
             `;
         });
         await page.waitForChanges();
-        
+
         expect(select.shadowRoot.querySelector('.wcs-select-value')).toEqualText("Two, Three"); // Verify initial value is displayed
     });
 

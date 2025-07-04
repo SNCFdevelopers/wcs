@@ -982,7 +982,7 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
     private onAutocompleteInputEvent(e: InputEvent) {
         const filter = this.autocompleteInput.value ?? '';
 
-        this.setAutocompleteValue(filter);
+        this.setAutocompleteValue(filter, false, true); // fromUserInteraction = true
         // Avoid the inputEvent event to bubble and be emitted, we rather use wcsFilterChange in this case :
         e.stopPropagation();
 
@@ -992,12 +992,14 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
      * Set the autocomplete value and open the select if needed.
      * @param filter - The new filter value
      * @param isReset - If true, the filter is reset and the select is closed
+     * @param fromUserInteraction - If true, the change comes from user interaction (typing), if false it's programmatic
      * @private
      */
-    private setAutocompleteValue(filter: string, isReset = false): void {
+    private setAutocompleteValue(filter: string, isReset = false, fromUserInteraction = false): void {
         this.clearHighlightOnLastHighlightedOption();
         const newValueIsDifferentFromLastModifiedOption = this.lastModifiedOptionElement == null || this.lastModifiedOptionElement?.textContent !== this.autocompleteValue;
-        if (!this.expanded && newValueIsDifferentFromLastModifiedOption && !isReset) {
+        // Only open the select automatically when the change comes from user interaction
+        if (!this.expanded && newValueIsDifferentFromLastModifiedOption && !isReset && fromUserInteraction) {
             this.open(); 
         }
 
