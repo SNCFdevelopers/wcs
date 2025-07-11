@@ -27,11 +27,17 @@ for now removed features.
 
 ### Fixed
 
-- **select**: prevent auto-open on programmatic autocomplete value changes
+for any bug fixes.
 
 ### Security
 
 in case of vulnerabilities.
+
+## [7.2.2] - 2025-07-11
+
+### Fixed
+
+- **select**: prevent auto-open on programmatic autocomplete value changes
 
 ## [7.2.1] - 2025-06-12
 
