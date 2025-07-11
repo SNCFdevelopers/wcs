@@ -9996,117 +9996,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/icon/icon.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The icon component is a graphic symbol designed to visually indicate the purpose of an interface element.",
-          "name": "Icon",
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "nativeIcon",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "icon",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px'"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "icon",
-              "fieldName": "icon",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "size",
-              "fieldName": "size",
-              "type": {
-                "text": "'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px'"
-              }
-            }
-          ],
-          "tagName": "wcs-icon",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Icon",
-          "declaration": {
-            "name": "Icon",
-            "module": "components/icon/icon.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-icon",
-          "declaration": {
-            "name": "Icon",
-            "module": "components/icon/icon.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/horizontal-stepper/horizontal-step.tsx",
       "declarations": [
         {
@@ -10385,6 +10274,117 @@
           "declaration": {
             "name": "HorizontalStepper",
             "module": "components/horizontal-stepper/horizontal-stepper.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/icon/icon.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The icon component is a graphic symbol designed to visually indicate the purpose of an interface element.",
+          "name": "Icon",
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeIcon",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px'"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "icon",
+              "fieldName": "icon",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "size",
+              "fieldName": "size",
+              "type": {
+                "text": "'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px'"
+              }
+            }
+          ],
+          "tagName": "wcs-icon",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Icon",
+          "declaration": {
+            "name": "Icon",
+            "module": "components/icon/icon.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-icon",
+          "declaration": {
+            "name": "Icon",
+            "module": "components/icon/icon.tsx"
           }
         }
       ]
@@ -11574,142 +11574,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/mat-icon/mat-icon-interface.tsx",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/mat-icon/mat-icon.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "A component used to display a [Material Icon](https://fonts.google.com/icons?icon.set=Material+Icons). Can be useful when used in wcs-grid or in a wcs-button.",
-          "name": "MatIcon",
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "nativeIcon",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "icon",
-              "type": {
-                "text": "string"
-              },
-              "description": "Use the icon name from Material Icons"
-            },
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "MaterialIconSize"
-              },
-              "default": "'m'",
-              "description": "Size of the icon"
-            },
-            {
-              "kind": "field",
-              "name": "family",
-              "type": {
-                "text": "MaterialIconFamily"
-              },
-              "default": "'filled'",
-              "description": "Family of the icon"
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "icon",
-              "fieldName": "icon",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "size",
-              "fieldName": "size",
-              "type": {
-                "text": "MaterialIconSize"
-              }
-            },
-            {
-              "name": "family",
-              "fieldName": "family",
-              "type": {
-                "text": "MaterialIconFamily"
-              }
-            }
-          ],
-          "tagName": "wcs-mat-icon",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "MatIcon",
-          "declaration": {
-            "name": "MatIcon",
-            "module": "components/mat-icon/mat-icon.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-mat-icon",
-          "declaration": {
-            "name": "MatIcon",
-            "module": "components/mat-icon/mat-icon.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/modal/modal-interface.ts",
       "declarations": [],
       "exports": []
@@ -12135,44 +11999,30 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/nav/nav.tsx",
+      "path": "components/mat-icon/mat-icon-interface.tsx",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/mat-icon/mat-icon.tsx",
       "declarations": [
         {
           "kind": "class",
-          "description": "The nav component is a container for navigation links to other pages of the website.",
-          "name": "Nav",
-          "cssProperties": [
-            {
-              "description": "Background color of the nav",
-              "name": "--wcs-nav-background-color"
-            },
-            {
-              "description": "Width of the nav on desktop",
-              "name": "--wcs-nav-width-desktop"
-            },
-            {
-              "description": "Height of the nav on mobile",
-              "name": "--wcs-nav-height-mobile"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Bottom part of the nav to put to nav-items at the end",
-              "name": "bottom"
-            }
-          ],
+          "description": "A component used to display a [Material Icon](https://fonts.google.com/icons?icon.set=Material+Icons). Can be useful when used in wcs-grid or in a wcs-button.",
+          "name": "MatIcon",
           "members": [
             {
               "kind": "field",
               "name": "el",
               "type": {
-                "text": "HTMLWcsProgressBarElement"
+                "text": "HTMLElement"
               },
               "privacy": "private"
             },
             {
               "kind": "field",
-              "name": "nativeNav",
+              "name": "nativeIcon",
               "type": {
                 "text": "HTMLElement"
               },
@@ -12186,6 +12036,32 @@
               },
               "privacy": "private",
               "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "description": "Use the icon name from Material Icons"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "MaterialIconSize"
+              },
+              "default": "'m'",
+              "description": "Size of the icon"
+            },
+            {
+              "kind": "field",
+              "name": "family",
+              "type": {
+                "text": "MaterialIconFamily"
+              },
+              "default": "'filled'",
+              "description": "Family of the icon"
             },
             {
               "kind": "method",
@@ -12210,7 +12086,30 @@
               "name": "render"
             }
           ],
-          "tagName": "wcs-nav",
+          "attributes": [
+            {
+              "name": "icon",
+              "fieldName": "icon",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "size",
+              "fieldName": "size",
+              "type": {
+                "text": "MaterialIconSize"
+              }
+            },
+            {
+              "name": "family",
+              "fieldName": "family",
+              "type": {
+                "text": "MaterialIconFamily"
+              }
+            }
+          ],
+          "tagName": "wcs-mat-icon",
           "events": [],
           "customElement": true
         }
@@ -12218,18 +12117,18 @@
       "exports": [
         {
           "kind": "js",
-          "name": "Nav",
+          "name": "MatIcon",
           "declaration": {
-            "name": "Nav",
-            "module": "components/nav/nav.tsx"
+            "name": "MatIcon",
+            "module": "components/mat-icon/mat-icon.tsx"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "wcs-nav",
+          "name": "wcs-mat-icon",
           "declaration": {
-            "name": "Nav",
-            "module": "components/nav/nav.tsx"
+            "name": "MatIcon",
+            "module": "components/mat-icon/mat-icon.tsx"
           }
         }
       ]
@@ -12555,6 +12454,107 @@
           "declaration": {
             "name": "NativeSelect",
             "module": "components/native-select/native-select.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/nav/nav.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The nav component is a container for navigation links to other pages of the website.",
+          "name": "Nav",
+          "cssProperties": [
+            {
+              "description": "Background color of the nav",
+              "name": "--wcs-nav-background-color"
+            },
+            {
+              "description": "Width of the nav on desktop",
+              "name": "--wcs-nav-width-desktop"
+            },
+            {
+              "description": "Height of the nav on mobile",
+              "name": "--wcs-nav-height-mobile"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Bottom part of the nav to put to nav-items at the end",
+              "name": "bottom"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsProgressBarElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeNav",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-nav",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Nav",
+          "declaration": {
+            "name": "Nav",
+            "module": "components/nav/nav.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-nav",
+          "declaration": {
+            "name": "Nav",
+            "module": "components/nav/nav.tsx"
           }
         }
       ]
@@ -13794,6 +13794,303 @@
           "declaration": {
             "name": "RadioGroup",
             "module": "components/radio-group/radio-group.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/select-option/select-option-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/select-option/select-option.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The select option is a subcomponent of `wcs-select` that represents a single option in a select list.",
+          "name": "SelectOption",
+          "cssProperties": [
+            {
+              "description": "Default background color of the option",
+              "name": "--wcs-select-option-background-color-default"
+            },
+            {
+              "description": "Background color of the option when hovered",
+              "name": "--wcs-select-option-background-color-hover"
+            },
+            {
+              "description": "Background color of the option when pressed",
+              "name": "--wcs-select-option-background-color-press"
+            },
+            {
+              "description": "Background color of the option when selected",
+              "name": "--wcs-select-option-background-color-selected"
+            },
+            {
+              "description": "Background color of the option when selected and hovered",
+              "name": "--wcs-select-option-background-color-selected-hover"
+            },
+            {
+              "description": "Background color of the option when selected and pressed",
+              "name": "--wcs-select-option-background-color-selected-press"
+            },
+            {
+              "description": "Background color of the option when selected and disabled",
+              "name": "--wcs-select-option-background-color-selected-disabled"
+            },
+            {
+              "description": "Background color of the option when focused",
+              "name": "--wcs-select-option-background-color-focus"
+            },
+            {
+              "description": "Border color for autocomplete mode",
+              "name": "--wcs-select-option-border-color-focus"
+            },
+            {
+              "description": "Border width for autocomplete mode",
+              "name": "--wcs-select-option-border-width-focus"
+            },
+            {
+              "description": "Border style of the option when focused",
+              "name": "--wcs-select-option-border-style-focus"
+            },
+            {
+              "description": "Height of the option",
+              "name": "--wcs-select-option-height"
+            },
+            {
+              "description": "Horizontal padding of the option",
+              "name": "--wcs-select-option-padding-horizontal"
+            },
+            {
+              "description": "Vertical padding of the option",
+              "name": "--wcs-select-option-padding-vertical"
+            },
+            {
+              "description": "Font size of the option text",
+              "name": "--wcs-select-option-text-font-size"
+            },
+            {
+              "description": "Font weight of the option text",
+              "name": "--wcs-select-option-text-font-weight"
+            },
+            {
+              "description": "Default color of the option text",
+              "name": "--wcs-select-option-text-color-default"
+            },
+            {
+              "description": "Color of the option text when focused",
+              "name": "--wcs-select-option-text-color-focus"
+            },
+            {
+              "description": "Color of the option text when hovered",
+              "name": "--wcs-select-option-text-color-hover"
+            },
+            {
+              "description": "Color of the option text when selected",
+              "name": "--wcs-select-option-text-color-selected"
+            },
+            {
+              "description": "Color of the option text when disabled",
+              "name": "--wcs-select-option-text-color-disabled"
+            },
+            {
+              "description": "Color of the checkbox",
+              "name": "--wcs-select-option-checkbox-color"
+            },
+            {
+              "description": "Gap between the checkbox and the text",
+              "name": "--wcs-select-option-gap"
+            },
+            {
+              "description": "Duration of the transition",
+              "name": "--wcs-select-option-transition-duration"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsSelectOptionElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "selectOptionId",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Whether this option can be selected."
+            },
+            {
+              "kind": "field",
+              "name": "selected",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Whether this option is selected."
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "any | undefined"
+              },
+              "description": "The option value, not what's displayed, use inner text instead."
+            },
+            {
+              "kind": "field",
+              "name": "chipColor",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "Chip's displayed text color."
+            },
+            {
+              "kind": "field",
+              "name": "chipBackgroundColor",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "Chip's background color."
+            },
+            {
+              "kind": "method",
+              "name": "chooseOption",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "UIEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "onMouseUp",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "handleKeydown",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  },
+                  "description": "keyboard event"
+                }
+              ],
+              "description": "Handles the keydown event to update the selection."
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "disabled",
+              "fieldName": "disabled",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "selected",
+              "fieldName": "selected",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "highlighted",
+              "fieldName": "highlighted",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "value",
+              "fieldName": "value",
+              "type": {
+                "text": "any"
+              }
+            },
+            {
+              "name": "chip-color",
+              "fieldName": "chipColor",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "chip-background-color",
+              "fieldName": "chipBackgroundColor",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "multiple",
+              "fieldName": "multiple",
+              "type": {
+                "text": "boolean"
+              }
+            }
+          ],
+          "tagName": "wcs-select-option",
+          "events": [
+            {
+              "name": "wcsSelectOptionClick",
+              "type": {
+                "text": "EventEmitter<SelectOptionChosedEvent>"
+              }
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SelectOption",
+          "declaration": {
+            "name": "SelectOption",
+            "module": "components/select-option/select-option.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-select-option",
+          "declaration": {
+            "name": "SelectOption",
+            "module": "components/select-option/select-option.tsx"
           }
         }
       ]
@@ -15096,303 +15393,6 @@
       "path": "components/skeleton/skeleton-interface.ts",
       "declarations": [],
       "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/select-option/select-option-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/select-option/select-option.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The select option is a subcomponent of `wcs-select` that represents a single option in a select list.",
-          "name": "SelectOption",
-          "cssProperties": [
-            {
-              "description": "Default background color of the option",
-              "name": "--wcs-select-option-background-color-default"
-            },
-            {
-              "description": "Background color of the option when hovered",
-              "name": "--wcs-select-option-background-color-hover"
-            },
-            {
-              "description": "Background color of the option when pressed",
-              "name": "--wcs-select-option-background-color-press"
-            },
-            {
-              "description": "Background color of the option when selected",
-              "name": "--wcs-select-option-background-color-selected"
-            },
-            {
-              "description": "Background color of the option when selected and hovered",
-              "name": "--wcs-select-option-background-color-selected-hover"
-            },
-            {
-              "description": "Background color of the option when selected and pressed",
-              "name": "--wcs-select-option-background-color-selected-press"
-            },
-            {
-              "description": "Background color of the option when selected and disabled",
-              "name": "--wcs-select-option-background-color-selected-disabled"
-            },
-            {
-              "description": "Background color of the option when focused",
-              "name": "--wcs-select-option-background-color-focus"
-            },
-            {
-              "description": "Border color for autocomplete mode",
-              "name": "--wcs-select-option-border-color-focus"
-            },
-            {
-              "description": "Border width for autocomplete mode",
-              "name": "--wcs-select-option-border-width-focus"
-            },
-            {
-              "description": "Border style of the option when focused",
-              "name": "--wcs-select-option-border-style-focus"
-            },
-            {
-              "description": "Height of the option",
-              "name": "--wcs-select-option-height"
-            },
-            {
-              "description": "Horizontal padding of the option",
-              "name": "--wcs-select-option-padding-horizontal"
-            },
-            {
-              "description": "Vertical padding of the option",
-              "name": "--wcs-select-option-padding-vertical"
-            },
-            {
-              "description": "Font size of the option text",
-              "name": "--wcs-select-option-text-font-size"
-            },
-            {
-              "description": "Font weight of the option text",
-              "name": "--wcs-select-option-text-font-weight"
-            },
-            {
-              "description": "Default color of the option text",
-              "name": "--wcs-select-option-text-color-default"
-            },
-            {
-              "description": "Color of the option text when focused",
-              "name": "--wcs-select-option-text-color-focus"
-            },
-            {
-              "description": "Color of the option text when hovered",
-              "name": "--wcs-select-option-text-color-hover"
-            },
-            {
-              "description": "Color of the option text when selected",
-              "name": "--wcs-select-option-text-color-selected"
-            },
-            {
-              "description": "Color of the option text when disabled",
-              "name": "--wcs-select-option-text-color-disabled"
-            },
-            {
-              "description": "Color of the checkbox",
-              "name": "--wcs-select-option-checkbox-color"
-            },
-            {
-              "description": "Gap between the checkbox and the text",
-              "name": "--wcs-select-option-gap"
-            },
-            {
-              "description": "Duration of the transition",
-              "name": "--wcs-select-option-transition-duration"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsSelectOptionElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "selectOptionId",
-              "type": {
-                "text": "string"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Whether this option can be selected."
-            },
-            {
-              "kind": "field",
-              "name": "selected",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Whether this option is selected."
-            },
-            {
-              "kind": "field",
-              "name": "value",
-              "type": {
-                "text": "any | undefined"
-              },
-              "description": "The option value, not what's displayed, use inner text instead."
-            },
-            {
-              "kind": "field",
-              "name": "chipColor",
-              "type": {
-                "text": "string | undefined"
-              },
-              "description": "Chip's displayed text color."
-            },
-            {
-              "kind": "field",
-              "name": "chipBackgroundColor",
-              "type": {
-                "text": "string | undefined"
-              },
-              "description": "Chip's background color."
-            },
-            {
-              "kind": "method",
-              "name": "chooseOption",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "UIEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "onMouseUp",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "handleKeydown",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  },
-                  "description": "keyboard event"
-                }
-              ],
-              "description": "Handles the keydown event to update the selection."
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "disabled",
-              "fieldName": "disabled",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "selected",
-              "fieldName": "selected",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "highlighted",
-              "fieldName": "highlighted",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "value",
-              "fieldName": "value",
-              "type": {
-                "text": "any"
-              }
-            },
-            {
-              "name": "chip-color",
-              "fieldName": "chipColor",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "chip-background-color",
-              "fieldName": "chipBackgroundColor",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "multiple",
-              "fieldName": "multiple",
-              "type": {
-                "text": "boolean"
-              }
-            }
-          ],
-          "tagName": "wcs-select-option",
-          "events": [
-            {
-              "name": "wcsSelectOptionClick",
-              "type": {
-                "text": "EventEmitter<SelectOptionChosedEvent>"
-              }
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "SelectOption",
-          "declaration": {
-            "name": "SelectOption",
-            "module": "components/select-option/select-option.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-select-option",
-          "declaration": {
-            "name": "SelectOption",
-            "module": "components/select-option/select-option.tsx"
-          }
-        }
-      ]
     },
     {
       "kind": "javascript-module",
