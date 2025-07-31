@@ -1,0 +1,289 @@
+@import '../../style/focus-outline.scss';
+
+:host {
+    // #region CSS Variables
+    --wcs-chip-height: var(--wcs-semantic-size-s);
+    --wcs-chip-font-size: var(--wcs-semantic-font-size-base);
+    --wcs-chip-font-weight: var(--wcs-semantic-font-weight-medium);
+
+    --wcs-chip-focus-outline-border-width: var(--wcs-semantic-border-width-large);
+
+    --wcs-chip-padding-vertical: var(--wcs-semantic-spacing-base);
+    --wcs-chip-padding-horizontal: var(--wcs-semantic-spacing-base-150);
+    --wcs-chip-padding-horizontal-dismissible: var(--wcs-semantic-spacing-base);
+
+    --wcs-chip-selectable-background-color: var(--wcs-semantic-color-background-action-secondary-default);
+    --wcs-chip-selectable-background-color-pressed: var(--wcs-semantic-color-background-action-secondary-press);
+    --wcs-chip-selectable-background-color-hover: var(--wcs-semantic-color-background-action-secondary-hover);
+    --wcs-chip-selectable-background-color-selected: var(--wcs-semantic-color-background-action-primary-default);
+    --wcs-chip-selectable-background-color-selected-hover: var(--wcs-semantic-color-background-action-primary-hover);
+    --wcs-chip-selectable-background-color-selected-pressed: var(--wcs-semantic-color-background-action-primary-press);
+    --wcs-chip-selectable-background-color-selected-disabled: var(--wcs-semantic-color-background-action-primary-disabled);
+
+    --wcs-chip-selectable-color: var(--wcs-semantic-color-foreground-action-secondary-default);
+    --wcs-chip-selectable-color-hover: var(--wcs-semantic-color-foreground-action-secondary-hover);
+    --wcs-chip-selectable-color-pressed: var(--wcs-semantic-color-foreground-action-secondary-press);
+    --wcs-chip-selectable-color-disabled: var(--wcs-semantic-color-text-disabled);
+    --wcs-chip-selectable-color-selected: var(--wcs-semantic-color-foreground-action-primary-default);
+    --wcs-chip-selectable-color-selected-hover: var(--wcs-semantic-color-foreground-action-primary-hover);
+    --wcs-chip-selectable-color-selected-pressed: var(--wcs-semantic-color-foreground-action-primary-press);
+
+    --wcs-chip-border-radius: var(--wcs-semantic-border-radius-base);
+    --wcs-chip-border-line-width: var(--wcs-semantic-border-width-default);
+    --wcs-chip-selectable-border-color: var(--wcs-semantic-color-border-action-secondary-default);
+    --wcs-chip-selectable-border-color-hover: var(--wcs-semantic-color-border-control-indicator-hover);
+    --wcs-chip-selectable-border-color-pressed: var(--wcs-semantic-color-border-action-secondary-press);
+    --wcs-chip-selectable-border-color-disabled: var(--wcs-semantic-color-border-action-secondary-disabled);
+
+    --wcs-chip-selectable-content-gap: var(--wcs-semantic-spacing-base);
+    --wcs-chip-selectable-focus-outline-color: var(--wcs-semantic-color-border-focus-base);
+
+    --wcs-chip-dismissible-content-gap: var(--wcs-semantic-spacing-base-05);
+    --wcs-chip-dismissible-padding-right: var(--wcs-semantic-spacing-base-05);
+    --wcs-chip-dismissible-button-outline-radius: var(--wcs-semantic-border-radius-full);
+
+    --wcs-chip-dismissible-primary-focus-outline-color: var(--wcs-semantic-color-border-focus-base-on-secondary);
+    --wcs-chip-dismissible-primary-border-color: var(--wcs-semantic-color-background-action-primary-default);
+    --wcs-chip-dismissible-primary-border-color-disabled: var(--wcs-semantic-color-background-action-primary-disabled);
+    --wcs-chip-dismissible-primary-color: var(--wcs-semantic-color-foreground-action-primary-default);
+    --wcs-chip-dismissible-primary-color-hover: var(--wcs-semantic-color-foreground-action-primary-hover);
+    --wcs-chip-dismissible-primary-color-pressed: var(--wcs-semantic-color-foreground-action-primary-press);
+    --wcs-chip-dismissible-primary-color-disabled: var(--wcs-semantic-color-text-disabled);
+    --wcs-chip-dismissible-primary-background-color: var(--wcs-semantic-color-background-action-primary-default);
+    --wcs-chip-dismissible-primary-background-color-hover: var(--wcs-semantic-color-background-action-primary-hover);
+    --wcs-chip-dismissible-primary-background-color-pressed: var(--wcs-semantic-color-background-action-primary-press);
+    --wcs-chip-dismissible-primary-background-color-disabled: var(--wcs-semantic-color-background-action-primary-disabled);
+
+    --wcs-chip-dismissible-secondary-button-focus-outline-color: var(--wcs-semantic-color-border-focus-base);
+    --wcs-chip-dismissible-secondary-border-color: var(--wcs-semantic-color-border-action-secondary-default);
+    --wcs-chip-dismissible-secondary-border-color-disabled: var(--wcs-semantic-color-border-action-secondary-disabled);
+    --wcs-chip-dismissible-secondary-color: var(--wcs-semantic-color-foreground-action-secondary-default);
+    --wcs-chip-dismissible-secondary-color-disabled: var(--wcs-semantic-color-foreground-disabled);
+    --wcs-chip-dismissible-secondary-background-color: var(--wcs-semantic-color-background-action-secondary-default);
+    --wcs-chip-dismissible-secondary-button-background-color: var(--wcs-semantic-color-background-action-secondary-default);
+    --wcs-chip-dismissible-secondary-button-background-color-hover: var(--wcs-semantic-color-background-surface-accent-lighter);
+    --wcs-chip-dismissible-secondary-button-background-color-pressed: var(--wcs-semantic-color-background-surface-accent-light);
+    --wcs-chip-dismissible-secondary-button-background-color-disabled: var(--wcs-semantic-color-background-action-secondary-disabled);
+
+    // #endregion
+
+    display: inline-flex;
+    // we set a 100% line-height to center the children text vertically
+    align-items: center;
+    // Prevents extra space below the line caused by baseline alignment of inline-flex elements when a component contains an inline SVG
+    vertical-align: middle;
+    overflow: hidden;
+    box-sizing: border-box;
+    height: var(--wcs-chip-height);
+    border-radius: var(--wcs-chip-border-radius);
+    font-size: var(--wcs-chip-font-size);
+    font-weight: var(--wcs-chip-font-weight);
+
+    // Default styles (selectable, not selected, not disabled)
+    padding: var(--wcs-chip-padding-vertical) var(--wcs-chip-padding-horizontal);
+    cursor: pointer;
+    user-select: none;
+
+    transition-property: color, background-color;
+    transition-duration: var(--wcs-semantic-motion-duration-feedback-base);
+    transition-timing-function: ease-out;
+}
+
+// SELECTABLE MODE
+:host([mode=selectable]) {
+    gap: var(--wcs-chip-selectable-content-gap);
+    border: solid var(--wcs-chip-border-line-width) var(--wcs-chip-selectable-border-color);
+    background-color: var(--wcs-chip-selectable-background-color);
+    color: var(--wcs-chip-selectable-color);
+
+    &:host(:focus-visible) {
+        @include focus-outline(
+            $outline-color: var(--wcs-chip-selectable-focus-outline-color),
+            $border-radius: var(--wcs-chip-border-radius),
+            $border-width: var(--wcs-chip-focus-outline-border-width)
+        );
+    }
+
+    &:host(:not([disabled])) {
+        &:host(:not([selected])) {
+            &:host(:hover) {
+                background-color: var(--wcs-chip-selectable-background-color-hover);
+                color: var(--wcs-chip-selectable-color-hover);
+                border-color: var(--wcs-chip-selectable-border-color-hover);
+            }
+
+            &:host(:active) {
+                background-color: var(--wcs-chip-selectable-background-color-pressed);
+                color: var(--wcs-chip-selectable-color-pressed);
+                border-color: var(--wcs-chip-selectable-border-color-pressed);
+            }
+        }
+
+        &:host([selected]) {
+            color: var(--wcs-chip-selectable-color-selected);
+            background-color: var(--wcs-chip-selectable-background-color-selected);
+            border-color: transparent;
+
+            svg path {
+                fill: var(--wcs-chip-selectable-color-selected);
+                // todo: check this issue with designers
+                // We optically lift the check icon a bit to center it better
+                transform: translateY(-1.5px);
+            }
+
+            &:host(:hover) {
+                background-color: var(--wcs-chip-selectable-background-color-selected-hover);
+                color: var(--wcs-chip-selectable-color-selected-hover);
+
+                svg path {
+                    fill: var(--wcs-chip-selectable-color-selected-hover);
+                }
+            }
+
+            &:host(:active) {
+                background-color: var(--wcs-chip-selectable-background-color-selected-pressed);
+                color: var(--wcs-chip-selectable-color-selected-pressed);
+
+                svg path {
+                    fill: var(--wcs-chip-selectable-color-selected-pressed);
+                }
+            }
+        }
+    }
+
+    &:host([disabled]) {
+        color: var(--wcs-chip-selectable-color-disabled);
+        cursor: not-allowed;
+
+        svg {
+            path {
+                fill: var(--wcs-chip-selectable-color-disabled);
+            }
+        }
+
+        &:host(:not([selected])) {
+            border-color: var(--wcs-chip-selectable-border-color-disabled);
+        }
+
+        &:host([selected]) {
+            background-color: var(--wcs-chip-selectable-background-color-selected-disabled);
+            border: 0;
+        }
+    }
+}
+
+// DISMISSIBLE MODE
+:host([mode=dismissible]) {
+    cursor: initial;
+    border: solid var(--wcs-chip-border-line-width) var(--wcs-chip-dismissible-primary-border-color);
+    color: var(--wcs-chip-dismissible-primary-color);
+    background-color: var(--wcs-chip-dismissible-primary-background-color);
+    gap: var(--wcs-chip-dismissible-content-gap);
+    padding-right: var(--wcs-chip-dismissible-padding-right);
+
+    button {
+        background: transparent;
+        border: none;
+        margin: 0;
+        padding: 0;
+        border-radius: var(--wcs-semantic-border-radius-full);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: inherit;
+        width: var(--wcs-semantic-size-xs);
+        height: var(--wcs-semantic-size-xs);
+
+        &:focus {
+            outline: none;
+
+            svg {
+                @include focus-outline(
+                    $outline-color: var(--wcs-chip-dismissible-primary-focus-outline-color),
+                    $border-radius: var(--wcs-chip-dismissible-button-outline-radius),
+                    $border-width: var(--wcs-chip-focus-outline-border-width)
+                );
+            }
+        }
+    }
+
+    &:host(:not([open])) {
+        display: none;
+        margin: 0;
+    }
+
+    &:host(:not([disabled])) {
+        button:hover {
+            background-color: var(--wcs-chip-dismissible-primary-background-color-hover);
+            color: var(--wcs-chip-dismissible-primary-color-hover);
+        }
+
+        button:active {
+            background-color: var(--wcs-chip-dismissible-primary-background-color-pressed);
+            color: var(--wcs-chip-dismissible-primary-color-pressed);
+        }
+    }
+
+    &:host([disabled]) {
+        color: var(--wcs-chip-dismissible-primary-color-disabled);
+        background-color: var(--wcs-chip-dismissible-primary-background-color-disabled);
+        cursor: not-allowed;
+        border: solid var(--wcs-chip-border-line-width) var(--wcs-chip-dismissible-primary-border-color-disabled);
+
+        svg {
+            cursor: not-allowed;
+
+            path {
+                fill: var(--wcs-chip-dismissible-primary-color-disabled);
+            }
+        }
+    }
+
+    // secondary override (colors only), based on the code above for the primary variant
+    &:host([variant=secondary]) {
+        color: var(--wcs-chip-dismissible-secondary-color);
+        background-color: var(--wcs-chip-dismissible-secondary-background-color);
+        border: solid var(--wcs-chip-border-line-width) var(--wcs-chip-dismissible-secondary-border-color);
+
+        button {
+            background: var(--wcs-chip-dismissible-secondary-button-background-color);
+
+            &:focus {
+                outline: none;
+
+                svg {
+                    @include focus-outline(
+                        $outline-color: var(--wcs-chip-dismissible-secondary-button-focus-outline-color),
+                        $border-radius: var(--wcs-chip-dismissible-button-outline-radius),
+                        $border-width: var(--wcs-chip-focus-outline-border-width)
+                    );
+                }
+            }
+        }
+
+        &:host(:not([disabled])) {
+            button:hover {
+                background-color: var(--wcs-chip-dismissible-secondary-button-background-color-hover);
+                color: var(--wcs-chip-dismissible-secondary-button-color-hover);
+            }
+
+            button:active {
+                background-color: var(--wcs-chip-dismissible-secondary-button-background-color-pressed);
+                color: var(--wcs-chip-dismissible-secondary-button-color-pressed);
+            }
+        }
+
+        &:host([disabled]) {
+            color: var(--wcs-chip-dismissible-secondary-color-disabled);
+            background-color: var(--wcs-chip-dismissible-secondary-background-color-disabled);
+            border: solid var(--wcs-chip-border-line-width) var(--wcs-chip-dismissible-secondary-border-color-disabled);
+
+            svg {
+                path {
+                    fill: var(--wcs-chip-dismissible-secondary-color-disabled);
+                }
+            }
+        }
+    }
+}

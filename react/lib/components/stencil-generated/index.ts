@@ -26,6 +26,7 @@ export const WcsCardFooter = /*@__PURE__*/createReactComponent<JSX.WcsCardFooter
 export const WcsCardHeader = /*@__PURE__*/createReactComponent<JSX.WcsCardHeader, HTMLWcsCardHeaderElement>('wcs-card-header');
 export const WcsCardMedia = /*@__PURE__*/createReactComponent<JSX.WcsCardMedia, HTMLWcsCardMediaElement>('wcs-card-media');
 export const WcsCheckbox = /*@__PURE__*/createReactComponent<JSX.WcsCheckbox, HTMLWcsCheckboxElement>('wcs-checkbox');
+export const WcsChip = /*@__PURE__*/createReactComponent<JSX.WcsChip, HTMLWcsChipElement>('wcs-chip');
 export const WcsComNav = /*@__PURE__*/createReactComponent<JSX.WcsComNav, HTMLWcsComNavElement>('wcs-com-nav');
 export const WcsComNavCategory = /*@__PURE__*/createReactComponent<JSX.WcsComNavCategory, HTMLWcsComNavCategoryElement>('wcs-com-nav-category');
 export const WcsComNavItem = /*@__PURE__*/createReactComponent<JSX.WcsComNavItem, HTMLWcsComNavItemElement>('wcs-com-nav-item');

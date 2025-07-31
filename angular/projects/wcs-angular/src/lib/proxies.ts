@@ -448,6 +448,38 @@ export declare interface WcsCheckbox extends Components.WcsCheckbox {
 
 
 @ProxyCmp({
+  inputs: ['disabled', 'label', 'mode', 'open', 'selected', 'value', 'variant']
+})
+@Component({
+  selector: 'wcs-chip',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['disabled', 'label', 'mode', 'open', 'selected', 'value', 'variant'],
+})
+export class WcsChip {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['wcsChipSelectChange', 'wcsChipDismiss']);
+  }
+}
+
+
+export declare interface WcsChip extends Components.WcsChip {
+  /**
+   * Emitted when the chip is clicked in 'selectable' mode.
+   */
+  wcsChipSelectChange: EventEmitter<CustomEvent<{ value: string; selected: boolean }>>;
+  /**
+   * Emitted when the dismiss icon is clicked in 'dismissible' mode.
+   */
+  wcsChipDismiss: EventEmitter<CustomEvent<{ value: string }>>;
+}
+
+
+@ProxyCmp({
   inputs: ['appName'],
   methods: ['setAriaAttribute']
 })

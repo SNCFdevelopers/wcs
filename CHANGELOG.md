@@ -13,6 +13,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - **checkbox**: add `required` prop
 - **doc**: add browser support information in introduction
+- **chip**: add new `Chip` component with two interaction modes: selectable for filtering and choosing elements, and dismissible for removing tags or filters
 
 ### Changed
 

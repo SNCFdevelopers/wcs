@@ -1,4 +1,4 @@
-export function isElementFocused(element: HTMLElement) {
+export function isElementFocused(element: HTMLElement): boolean {
     return element === document.activeElement;
 }
 
@@ -25,7 +25,7 @@ export function isWcsFocusableElement(element: any): boolean {
     return wcsFocusableElements.includes(element.tagName.toLowerCase());
 }
 
-export function isFocusable(element: any) {
+export function isFocusable(element: any): boolean {
     if (parseInt(element.getAttribute('tabindex')) < 0) {
         return false;
     }
@@ -73,4 +73,21 @@ export function isFocusable(element: any) {
         default:
             return false;
     }
+}
+
+/**
+ * Finds the next focusable element after the given startElement.
+ * It checks the next siblings of the startElement and returns the first focusable element found.
+ * If no focusable element is found, it returns null.
+ * @param startElement The element from which to start searching for the next focusable element.
+ */
+export function findNextFocusableElement(startElement: HTMLElement): HTMLElement | null {
+    let nextElement = startElement.nextElementSibling;
+    while (nextElement) {
+        if (isFocusable(nextElement) && nextElement instanceof HTMLElement) {
+            return nextElement;
+        }
+        nextElement = nextElement.nextElementSibling;
+    }
+    return null;
 }

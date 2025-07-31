@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-09-02T15:16:13",
+  "timestamp": "2025-09-05T14:30:14",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -2697,6 +2697,442 @@
           "wcs-checkbox"
         ]
       }
+    },
+    {
+      "filePath": "src/components/chip/chip.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-chip",
+      "readme": "# wcs-chip\r\n\r\n\r\n\r",
+      "docs": "The chip component is a small, interactive element that can be used to represent an input, filter, or tag.\r\nIt can be in one of two modes: 'selectable' or 'dismissible'.\r\n- In 'selectable' mode, the chip can be selected or deselected, and emits an event when clicked.\r\n- In 'dismissible' mode, the chip can be dismissed (removed) by clicking a dismiss icon, and emits an event when the dismiss icon is clicked.",
+      "docsTags": [
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-height - Height of the chip"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-font-size - Font size of the chip text"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-font-weight - Font weight of the chip text"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-focus-outline-border-width - Border width of the chip focus outline"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-padding-vertical - Vertical padding (top - bottom) of the chip"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-padding-horizontal - Horizontal padding (left - right) of the chip"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-padding-horizontal-dismissible - Horizontal padding (left - right) of the chip with 'dismissible' mode"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-selectable-background-color - Background color of the chip with 'selectable' mode in default state"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-selectable-background-color-pressed - Background color of the chip with 'selectable' mode when pressed"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-selectable-background-color-hover - Background color of the chip with 'selectable' mode when hovered"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-selectable-background-color-selected - Background color of the chip with 'selectable' mode when selected"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-selectable-background-color-selected-hover - Background color of the chip with 'selectable' mode when selected and hovered"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-selectable-background-color-selected-pressed - Background color of the chip with 'selectable' mode when selected and pressed"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-selectable-background-color-selected-disabled - Background color of the chip with 'selectable' mode when selected and disabled"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-selectable-color - Text color of the chip with 'selectable' mode in default state"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-selectable-color-hover - Text color of the chip with 'selectable' mode when hovered"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-selectable-color-pressed - Text color of the chip with 'selectable' mode when pressed"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-selectable-color-disabled - Text color of the chip with 'selectable' mode when disabled"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-selectable-color-selected - Text color of the chip with 'selectable' mode when selected"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-selectable-color-selected-hover - Text color of the chip with 'selectable' mode when selected and hovered"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-selectable-color-selected-pressed - Text color of the chip with 'selectable' mode when selected and pressed"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-border-radius - Border radius of the chip"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-border-line-width - Border line width of the chip"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-selectable-border-color - Border color of the chip with 'selectable' mode in default state"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-selectable-border-color-hover - Border color of the chip with 'selectable' mode when hovered"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-selectable-border-color-pressed - Border color of the chip with 'selectable' mode when pressed"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-selectable-border-color-disabled - Border color of the chip with 'selectable' mode when disabled"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-selectable-content-gap - Gap between content elements in chip with 'selectable' mode"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-selectable-focus-outline-color - Focus outline color of the chip with 'selectable' mode"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-dismissible-content-gap - Gap between content elements in chip with 'dismissible' mode"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-dismissible-padding-right - Right padding of the chip with 'dismissible' mode"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-dismissible-button-outline-radius - Outline radius of the button for the chip with 'dismissible' mode"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-dismissible-primary-focus-outline-color - Focus outline color of the chip with 'dismissible' mode and 'primary' variant"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-dismissible-primary-border-color - Border color of the chip with 'dismissible' mode and 'primary' variant"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-dismissible-primary-border-color-disabled - Border color of the chip with 'dismissible' mode and 'primary' variant when disabled"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-dismissible-primary-color - Text color of the chip with 'dismissible' mode and 'primary' variant"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-dismissible-primary-color-hover - Text color of the chip with 'dismissible' mode and 'primary' variant when hovered"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-dismissible-primary-color-pressed - Text color of the chip with 'dismissible' mode and 'primary' variant when pressed"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-dismissible-primary-color-disabled - Text color of the chip with 'dismissible' mode and 'primary' variant when disabled"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-dismissible-primary-background-color - Background color of the chip with 'dismissible' mode and 'primary' variant"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-dismissible-primary-background-color-hover - Background color of the chip with 'dismissible' mode and 'primary' variant when hovered"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-dismissible-primary-background-color-pressed - Background color of the chip with 'dismissible' mode and 'primary' variant when pressed"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-dismissible-primary-background-color-disabled - Background color of the chip with 'dismissible' mode and 'primary' variant when disabled"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-dismissible-secondary-button-focus-outline-color - Button focus outline color of the chip with 'dismissible' mode and 'secondary' variant"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-dismissible-secondary-border-color - Border color of the chip with 'dismissible' mode and 'secondary' variant"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-dismissible-secondary-border-color-disabled - Border color of the chip with 'dismissible' mode and 'secondary' variant when disabled"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-dismissible-secondary-color - Text color of the chip with 'dismissible' mode and 'secondary' variant"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-dismissible-secondary-color-disabled - Text color of the chip with 'dismissible' mode and 'secondary' variant when disabled"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-dismissible-secondary-background-color - Background color of the chip with 'dismissible' mode and 'secondary' variant"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-dismissible-secondary-button-background-color - Button background color of the chip with 'dismissible' mode and 'secondary' variant"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-dismissible-secondary-button-background-color-hover - Button background color of the chip with 'dismissible' mode and 'secondary' variant when hovered"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-dismissible-secondary-button-background-color-pressed - Button background color of the chip with 'dismissible' mode and 'secondary' variant when pressed"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-chip-dismissible-secondary-button-background-color-disabled - Button background color of the chip with 'dismissible' mode and 'secondary' variant when disabled"
+        }
+      ],
+      "usage": {},
+      "props": [
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": true,
+          "docs": "If `true`, the chip is disabled.\r\nThe chip will not respond to click events and will not emit any events.\r\nThis property is used in both 'selectable' and 'dismissible' modes.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "Text label displayed on the chip.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "mode",
+          "type": "\"dismissible\" | \"selectable\"",
+          "complexType": {
+            "original": "WcsChipMode",
+            "resolved": "\"dismissible\" | \"selectable\"",
+            "references": {
+              "WcsChipMode": {
+                "location": "import",
+                "path": "./chip-interface",
+                "id": "src/components/chip/chip-interface.ts::WcsChipMode"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "mode",
+          "reflectToAttr": true,
+          "docs": "Defines the mode of the chip.\r\nCan be 'selectable' or 'dismissible'.\r\n- 'selectable': The chip can be selected and emits an event when clicked.\r\n- 'dismissible': The chip can be dismissed (removed) and emits an event when the dismiss icon is clicked.",
+          "docsTags": [],
+          "default": "'selectable'",
+          "values": [
+            {
+              "value": "dismissible",
+              "type": "string"
+            },
+            {
+              "value": "selectable",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "open",
+          "reflectToAttr": true,
+          "docs": "If `true`, the chip is open.\r\nThis property is used to control the visibility of the chip in the dismissible mode.\r\nWhen the user clicks the dismiss icon, this property automatically becomes `false`, hiding the chip.",
+          "docsTags": [],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "selected",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "selected",
+          "reflectToAttr": true,
+          "docs": "If `true`, the chip is selected.\r\nThis property is only used in 'selectable' mode.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "Unique value representing the chip identifier in events.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\"primary\" | \"secondary\"",
+          "complexType": {
+            "original": "WcsChipVariant",
+            "resolved": "\"primary\" | \"secondary\"",
+            "references": {
+              "WcsChipVariant": {
+                "location": "import",
+                "path": "./chip-interface",
+                "id": "src/components/chip/chip-interface.ts::WcsChipVariant"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "variant",
+          "reflectToAttr": true,
+          "docs": "Defines the visual style of the chip for the dismissible mode.",
+          "docsTags": [],
+          "default": "'primary'",
+          "values": [
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "wcsChipDismiss",
+          "detail": "{ value: string; }",
+          "bubbles": true,
+          "complexType": {
+            "original": "{ value: string }",
+            "resolved": "{ value: string; }",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the dismiss icon is clicked in 'dismissible' mode.",
+          "docsTags": []
+        },
+        {
+          "event": "wcsChipSelectChange",
+          "detail": "{ value: string; selected: boolean; }",
+          "bubbles": true,
+          "complexType": {
+            "original": "{ value: string; selected: boolean }",
+            "resolved": "{ value: string; selected: boolean; }",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the chip is clicked in 'selectable' mode.",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
     },
     {
       "filePath": "src/components/com-nav/com-nav.tsx",
@@ -14787,6 +15223,16 @@
       "declaration": "export interface CheckboxChangeEventDetail {\r\n    checked: boolean;\r\n}",
       "docstring": "",
       "path": "src/components/checkbox/checkbox-interface.ts"
+    },
+    "src/components/chip/chip-interface.ts::WcsChipVariant": {
+      "declaration": "export type WcsChipVariant = 'primary' | 'secondary';",
+      "docstring": "",
+      "path": "src/components/chip/chip-interface.ts"
+    },
+    "src/components/chip/chip-interface.ts::WcsChipMode": {
+      "declaration": "export type WcsChipMode = 'selectable' | 'dismissible';",
+      "docstring": "",
+      "path": "src/components/chip/chip-interface.ts"
     },
     "src/components/com-nav/com-nav-interface.ts::MenuOpenedEventDetail": {
       "declaration": "export interface MenuOpenedEventDetail {\r\n    menuElement: HTMLWcsComNavSubmenuElement;\r\n}",

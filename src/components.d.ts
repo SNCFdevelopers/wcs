@@ -12,6 +12,7 @@ import { BadgeColor, BadgeShape, BadgeSize } from "./components/badge/badge-inte
 import { WcsButtonMode, WcsButtonShape, WcsButtonSize, WcsButtonType } from "./components/button/button-interface";
 import { CardMode, CardOrientation } from "./components/card/card-interface";
 import { CheckboxChangeEventDetail, CheckboxLabelAlignment } from "./components/checkbox/checkbox-interface";
+import { WcsChipMode, WcsChipVariant } from "./components/chip/chip-interface";
 import { CategoryOpenedEventDetail, MenuOpenedEventDetail } from "./components/com-nav/com-nav-interface";
 import { CounterChangeEventDetail, WcsCounterSize } from "./components/counter/counter-interface";
 import { WcsDropdownPlacement } from "./components/dropdown/dropdown-interface";
@@ -40,6 +41,7 @@ export { BadgeColor, BadgeShape, BadgeSize } from "./components/badge/badge-inte
 export { WcsButtonMode, WcsButtonShape, WcsButtonSize, WcsButtonType } from "./components/button/button-interface";
 export { CardMode, CardOrientation } from "./components/card/card-interface";
 export { CheckboxChangeEventDetail, CheckboxLabelAlignment } from "./components/checkbox/checkbox-interface";
+export { WcsChipMode, WcsChipVariant } from "./components/chip/chip-interface";
 export { CategoryOpenedEventDetail, MenuOpenedEventDetail } from "./components/com-nav/com-nav-interface";
 export { CounterChangeEventDetail, WcsCounterSize } from "./components/counter/counter-interface";
 export { WcsDropdownPlacement } from "./components/dropdown/dropdown-interface";
@@ -539,6 +541,95 @@ export namespace Components {
          */
         "required": boolean;
         "setAriaAttribute": (attr: AriaAttributeName, value: string | null | undefined) => Promise<void>;
+    }
+    /**
+     * The chip component is a small, interactive element that can be used to represent an input, filter, or tag.
+     * It can be in one of two modes: 'selectable' or 'dismissible'.
+     * - In 'selectable' mode, the chip can be selected or deselected, and emits an event when clicked.
+     * - In 'dismissible' mode, the chip can be dismissed (removed) by clicking a dismiss icon, and emits an event when the dismiss icon is clicked.
+     * @cssprop --wcs-chip-height - Height of the chip
+     * @cssprop --wcs-chip-font-size - Font size of the chip text
+     * @cssprop --wcs-chip-font-weight - Font weight of the chip text
+     * @cssprop --wcs-chip-focus-outline-border-width - Border width of the chip focus outline
+     * @cssprop --wcs-chip-padding-vertical - Vertical padding (top - bottom) of the chip
+     * @cssprop --wcs-chip-padding-horizontal - Horizontal padding (left - right) of the chip
+     * @cssprop --wcs-chip-padding-horizontal-dismissible - Horizontal padding (left - right) of the chip with 'dismissible' mode
+     * @cssprop --wcs-chip-selectable-background-color - Background color of the chip with 'selectable' mode in default state
+     * @cssprop --wcs-chip-selectable-background-color-pressed - Background color of the chip with 'selectable' mode when pressed
+     * @cssprop --wcs-chip-selectable-background-color-hover - Background color of the chip with 'selectable' mode when hovered
+     * @cssprop --wcs-chip-selectable-background-color-selected - Background color of the chip with 'selectable' mode when selected
+     * @cssprop --wcs-chip-selectable-background-color-selected-hover - Background color of the chip with 'selectable' mode when selected and hovered
+     * @cssprop --wcs-chip-selectable-background-color-selected-pressed - Background color of the chip with 'selectable' mode when selected and pressed
+     * @cssprop --wcs-chip-selectable-background-color-selected-disabled - Background color of the chip with 'selectable' mode when selected and disabled
+     * @cssprop --wcs-chip-selectable-color - Text color of the chip with 'selectable' mode in default state
+     * @cssprop --wcs-chip-selectable-color-hover - Text color of the chip with 'selectable' mode when hovered
+     * @cssprop --wcs-chip-selectable-color-pressed - Text color of the chip with 'selectable' mode when pressed
+     * @cssprop --wcs-chip-selectable-color-disabled - Text color of the chip with 'selectable' mode when disabled
+     * @cssprop --wcs-chip-selectable-color-selected - Text color of the chip with 'selectable' mode when selected
+     * @cssprop --wcs-chip-selectable-color-selected-hover - Text color of the chip with 'selectable' mode when selected and hovered
+     * @cssprop --wcs-chip-selectable-color-selected-pressed - Text color of the chip with 'selectable' mode when selected and pressed
+     * @cssprop --wcs-chip-border-radius - Border radius of the chip
+     * @cssprop --wcs-chip-border-line-width - Border line width of the chip
+     * @cssprop --wcs-chip-selectable-border-color - Border color of the chip with 'selectable' mode in default state
+     * @cssprop --wcs-chip-selectable-border-color-hover - Border color of the chip with 'selectable' mode when hovered
+     * @cssprop --wcs-chip-selectable-border-color-pressed - Border color of the chip with 'selectable' mode when pressed
+     * @cssprop --wcs-chip-selectable-border-color-disabled - Border color of the chip with 'selectable' mode when disabled
+     * @cssprop --wcs-chip-selectable-content-gap - Gap between content elements in chip with 'selectable' mode
+     * @cssprop --wcs-chip-selectable-focus-outline-color - Focus outline color of the chip with 'selectable' mode
+     * @cssprop --wcs-chip-dismissible-content-gap - Gap between content elements in chip with 'dismissible' mode
+     * @cssprop --wcs-chip-dismissible-padding-right - Right padding of the chip with 'dismissible' mode
+     * @cssprop --wcs-chip-dismissible-button-outline-radius - Outline radius of the button for the chip with 'dismissible' mode
+     * @cssprop --wcs-chip-dismissible-primary-focus-outline-color - Focus outline color of the chip with 'dismissible' mode and 'primary' variant
+     * @cssprop --wcs-chip-dismissible-primary-border-color - Border color of the chip with 'dismissible' mode and 'primary' variant
+     * @cssprop --wcs-chip-dismissible-primary-border-color-disabled - Border color of the chip with 'dismissible' mode and 'primary' variant when disabled
+     * @cssprop --wcs-chip-dismissible-primary-color - Text color of the chip with 'dismissible' mode and 'primary' variant
+     * @cssprop --wcs-chip-dismissible-primary-color-hover - Text color of the chip with 'dismissible' mode and 'primary' variant when hovered
+     * @cssprop --wcs-chip-dismissible-primary-color-pressed - Text color of the chip with 'dismissible' mode and 'primary' variant when pressed
+     * @cssprop --wcs-chip-dismissible-primary-color-disabled - Text color of the chip with 'dismissible' mode and 'primary' variant when disabled
+     * @cssprop --wcs-chip-dismissible-primary-background-color - Background color of the chip with 'dismissible' mode and 'primary' variant
+     * @cssprop --wcs-chip-dismissible-primary-background-color-hover - Background color of the chip with 'dismissible' mode and 'primary' variant when hovered
+     * @cssprop --wcs-chip-dismissible-primary-background-color-pressed - Background color of the chip with 'dismissible' mode and 'primary' variant when pressed
+     * @cssprop --wcs-chip-dismissible-primary-background-color-disabled - Background color of the chip with 'dismissible' mode and 'primary' variant when disabled
+     * @cssprop --wcs-chip-dismissible-secondary-button-focus-outline-color - Button focus outline color of the chip with 'dismissible' mode and 'secondary' variant
+     * @cssprop --wcs-chip-dismissible-secondary-border-color - Border color of the chip with 'dismissible' mode and 'secondary' variant
+     * @cssprop --wcs-chip-dismissible-secondary-border-color-disabled - Border color of the chip with 'dismissible' mode and 'secondary' variant when disabled
+     * @cssprop --wcs-chip-dismissible-secondary-color - Text color of the chip with 'dismissible' mode and 'secondary' variant
+     * @cssprop --wcs-chip-dismissible-secondary-color-disabled - Text color of the chip with 'dismissible' mode and 'secondary' variant when disabled
+     * @cssprop --wcs-chip-dismissible-secondary-background-color - Background color of the chip with 'dismissible' mode and 'secondary' variant
+     * @cssprop --wcs-chip-dismissible-secondary-button-background-color - Button background color of the chip with 'dismissible' mode and 'secondary' variant
+     * @cssprop --wcs-chip-dismissible-secondary-button-background-color-hover - Button background color of the chip with 'dismissible' mode and 'secondary' variant when hovered
+     * @cssprop --wcs-chip-dismissible-secondary-button-background-color-pressed - Button background color of the chip with 'dismissible' mode and 'secondary' variant when pressed
+     * @cssprop --wcs-chip-dismissible-secondary-button-background-color-disabled - Button background color of the chip with 'dismissible' mode and 'secondary' variant when disabled
+     */
+    interface WcsChip {
+        /**
+          * If `true`, the chip is disabled. The chip will not respond to click events and will not emit any events. This property is used in both 'selectable' and 'dismissible' modes.
+         */
+        "disabled": boolean;
+        /**
+          * Text label displayed on the chip.
+         */
+        "label": string;
+        /**
+          * Defines the mode of the chip. Can be 'selectable' or 'dismissible'. - 'selectable': The chip can be selected and emits an event when clicked. - 'dismissible': The chip can be dismissed (removed) and emits an event when the dismiss icon is clicked.
+         */
+        "mode": WcsChipMode;
+        /**
+          * If `true`, the chip is open. This property is used to control the visibility of the chip in the dismissible mode. When the user clicks the dismiss icon, this property automatically becomes `false`, hiding the chip.
+         */
+        "open": boolean;
+        /**
+          * If `true`, the chip is selected. This property is only used in 'selectable' mode.
+         */
+        "selected": boolean;
+        /**
+          * Unique value representing the chip identifier in events.
+         */
+        "value": string;
+        /**
+          * Defines the visual style of the chip for the dismissible mode.
+         */
+        "variant": WcsChipVariant;
     }
     /**
      * *Part of communication design system*
@@ -2488,6 +2579,10 @@ export interface WcsCheckboxCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLWcsCheckboxElement;
 }
+export interface WcsChipCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLWcsChipElement;
+}
 export interface WcsComNavCategoryCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLWcsComNavCategoryElement;
@@ -2994,6 +3089,83 @@ declare global {
     var HTMLWcsCheckboxElement: {
         prototype: HTMLWcsCheckboxElement;
         new (): HTMLWcsCheckboxElement;
+    };
+    interface HTMLWcsChipElementEventMap {
+        "wcsChipSelectChange": { value: string; selected: boolean };
+        "wcsChipDismiss": { value: string };
+    }
+    /**
+     * The chip component is a small, interactive element that can be used to represent an input, filter, or tag.
+     * It can be in one of two modes: 'selectable' or 'dismissible'.
+     * - In 'selectable' mode, the chip can be selected or deselected, and emits an event when clicked.
+     * - In 'dismissible' mode, the chip can be dismissed (removed) by clicking a dismiss icon, and emits an event when the dismiss icon is clicked.
+     * @cssprop --wcs-chip-height - Height of the chip
+     * @cssprop --wcs-chip-font-size - Font size of the chip text
+     * @cssprop --wcs-chip-font-weight - Font weight of the chip text
+     * @cssprop --wcs-chip-focus-outline-border-width - Border width of the chip focus outline
+     * @cssprop --wcs-chip-padding-vertical - Vertical padding (top - bottom) of the chip
+     * @cssprop --wcs-chip-padding-horizontal - Horizontal padding (left - right) of the chip
+     * @cssprop --wcs-chip-padding-horizontal-dismissible - Horizontal padding (left - right) of the chip with 'dismissible' mode
+     * @cssprop --wcs-chip-selectable-background-color - Background color of the chip with 'selectable' mode in default state
+     * @cssprop --wcs-chip-selectable-background-color-pressed - Background color of the chip with 'selectable' mode when pressed
+     * @cssprop --wcs-chip-selectable-background-color-hover - Background color of the chip with 'selectable' mode when hovered
+     * @cssprop --wcs-chip-selectable-background-color-selected - Background color of the chip with 'selectable' mode when selected
+     * @cssprop --wcs-chip-selectable-background-color-selected-hover - Background color of the chip with 'selectable' mode when selected and hovered
+     * @cssprop --wcs-chip-selectable-background-color-selected-pressed - Background color of the chip with 'selectable' mode when selected and pressed
+     * @cssprop --wcs-chip-selectable-background-color-selected-disabled - Background color of the chip with 'selectable' mode when selected and disabled
+     * @cssprop --wcs-chip-selectable-color - Text color of the chip with 'selectable' mode in default state
+     * @cssprop --wcs-chip-selectable-color-hover - Text color of the chip with 'selectable' mode when hovered
+     * @cssprop --wcs-chip-selectable-color-pressed - Text color of the chip with 'selectable' mode when pressed
+     * @cssprop --wcs-chip-selectable-color-disabled - Text color of the chip with 'selectable' mode when disabled
+     * @cssprop --wcs-chip-selectable-color-selected - Text color of the chip with 'selectable' mode when selected
+     * @cssprop --wcs-chip-selectable-color-selected-hover - Text color of the chip with 'selectable' mode when selected and hovered
+     * @cssprop --wcs-chip-selectable-color-selected-pressed - Text color of the chip with 'selectable' mode when selected and pressed
+     * @cssprop --wcs-chip-border-radius - Border radius of the chip
+     * @cssprop --wcs-chip-border-line-width - Border line width of the chip
+     * @cssprop --wcs-chip-selectable-border-color - Border color of the chip with 'selectable' mode in default state
+     * @cssprop --wcs-chip-selectable-border-color-hover - Border color of the chip with 'selectable' mode when hovered
+     * @cssprop --wcs-chip-selectable-border-color-pressed - Border color of the chip with 'selectable' mode when pressed
+     * @cssprop --wcs-chip-selectable-border-color-disabled - Border color of the chip with 'selectable' mode when disabled
+     * @cssprop --wcs-chip-selectable-content-gap - Gap between content elements in chip with 'selectable' mode
+     * @cssprop --wcs-chip-selectable-focus-outline-color - Focus outline color of the chip with 'selectable' mode
+     * @cssprop --wcs-chip-dismissible-content-gap - Gap between content elements in chip with 'dismissible' mode
+     * @cssprop --wcs-chip-dismissible-padding-right - Right padding of the chip with 'dismissible' mode
+     * @cssprop --wcs-chip-dismissible-button-outline-radius - Outline radius of the button for the chip with 'dismissible' mode
+     * @cssprop --wcs-chip-dismissible-primary-focus-outline-color - Focus outline color of the chip with 'dismissible' mode and 'primary' variant
+     * @cssprop --wcs-chip-dismissible-primary-border-color - Border color of the chip with 'dismissible' mode and 'primary' variant
+     * @cssprop --wcs-chip-dismissible-primary-border-color-disabled - Border color of the chip with 'dismissible' mode and 'primary' variant when disabled
+     * @cssprop --wcs-chip-dismissible-primary-color - Text color of the chip with 'dismissible' mode and 'primary' variant
+     * @cssprop --wcs-chip-dismissible-primary-color-hover - Text color of the chip with 'dismissible' mode and 'primary' variant when hovered
+     * @cssprop --wcs-chip-dismissible-primary-color-pressed - Text color of the chip with 'dismissible' mode and 'primary' variant when pressed
+     * @cssprop --wcs-chip-dismissible-primary-color-disabled - Text color of the chip with 'dismissible' mode and 'primary' variant when disabled
+     * @cssprop --wcs-chip-dismissible-primary-background-color - Background color of the chip with 'dismissible' mode and 'primary' variant
+     * @cssprop --wcs-chip-dismissible-primary-background-color-hover - Background color of the chip with 'dismissible' mode and 'primary' variant when hovered
+     * @cssprop --wcs-chip-dismissible-primary-background-color-pressed - Background color of the chip with 'dismissible' mode and 'primary' variant when pressed
+     * @cssprop --wcs-chip-dismissible-primary-background-color-disabled - Background color of the chip with 'dismissible' mode and 'primary' variant when disabled
+     * @cssprop --wcs-chip-dismissible-secondary-button-focus-outline-color - Button focus outline color of the chip with 'dismissible' mode and 'secondary' variant
+     * @cssprop --wcs-chip-dismissible-secondary-border-color - Border color of the chip with 'dismissible' mode and 'secondary' variant
+     * @cssprop --wcs-chip-dismissible-secondary-border-color-disabled - Border color of the chip with 'dismissible' mode and 'secondary' variant when disabled
+     * @cssprop --wcs-chip-dismissible-secondary-color - Text color of the chip with 'dismissible' mode and 'secondary' variant
+     * @cssprop --wcs-chip-dismissible-secondary-color-disabled - Text color of the chip with 'dismissible' mode and 'secondary' variant when disabled
+     * @cssprop --wcs-chip-dismissible-secondary-background-color - Background color of the chip with 'dismissible' mode and 'secondary' variant
+     * @cssprop --wcs-chip-dismissible-secondary-button-background-color - Button background color of the chip with 'dismissible' mode and 'secondary' variant
+     * @cssprop --wcs-chip-dismissible-secondary-button-background-color-hover - Button background color of the chip with 'dismissible' mode and 'secondary' variant when hovered
+     * @cssprop --wcs-chip-dismissible-secondary-button-background-color-pressed - Button background color of the chip with 'dismissible' mode and 'secondary' variant when pressed
+     * @cssprop --wcs-chip-dismissible-secondary-button-background-color-disabled - Button background color of the chip with 'dismissible' mode and 'secondary' variant when disabled
+     */
+    interface HTMLWcsChipElement extends Components.WcsChip, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLWcsChipElementEventMap>(type: K, listener: (this: HTMLWcsChipElement, ev: WcsChipCustomEvent<HTMLWcsChipElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLWcsChipElementEventMap>(type: K, listener: (this: HTMLWcsChipElement, ev: WcsChipCustomEvent<HTMLWcsChipElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLWcsChipElement: {
+        prototype: HTMLWcsChipElement;
+        new (): HTMLWcsChipElement;
     };
     /**
      * *Part of communication design system*
@@ -4540,6 +4712,7 @@ declare global {
         "wcs-card-header": HTMLWcsCardHeaderElement;
         "wcs-card-media": HTMLWcsCardMediaElement;
         "wcs-checkbox": HTMLWcsCheckboxElement;
+        "wcs-chip": HTMLWcsChipElement;
         "wcs-com-nav": HTMLWcsComNavElement;
         "wcs-com-nav-category": HTMLWcsComNavCategoryElement;
         "wcs-com-nav-item": HTMLWcsComNavItemElement;
@@ -5072,6 +5245,103 @@ declare namespace LocalJSX {
           * If `true`, the user must fill in a value before submitting a form.
          */
         "required"?: boolean;
+    }
+    /**
+     * The chip component is a small, interactive element that can be used to represent an input, filter, or tag.
+     * It can be in one of two modes: 'selectable' or 'dismissible'.
+     * - In 'selectable' mode, the chip can be selected or deselected, and emits an event when clicked.
+     * - In 'dismissible' mode, the chip can be dismissed (removed) by clicking a dismiss icon, and emits an event when the dismiss icon is clicked.
+     * @cssprop --wcs-chip-height - Height of the chip
+     * @cssprop --wcs-chip-font-size - Font size of the chip text
+     * @cssprop --wcs-chip-font-weight - Font weight of the chip text
+     * @cssprop --wcs-chip-focus-outline-border-width - Border width of the chip focus outline
+     * @cssprop --wcs-chip-padding-vertical - Vertical padding (top - bottom) of the chip
+     * @cssprop --wcs-chip-padding-horizontal - Horizontal padding (left - right) of the chip
+     * @cssprop --wcs-chip-padding-horizontal-dismissible - Horizontal padding (left - right) of the chip with 'dismissible' mode
+     * @cssprop --wcs-chip-selectable-background-color - Background color of the chip with 'selectable' mode in default state
+     * @cssprop --wcs-chip-selectable-background-color-pressed - Background color of the chip with 'selectable' mode when pressed
+     * @cssprop --wcs-chip-selectable-background-color-hover - Background color of the chip with 'selectable' mode when hovered
+     * @cssprop --wcs-chip-selectable-background-color-selected - Background color of the chip with 'selectable' mode when selected
+     * @cssprop --wcs-chip-selectable-background-color-selected-hover - Background color of the chip with 'selectable' mode when selected and hovered
+     * @cssprop --wcs-chip-selectable-background-color-selected-pressed - Background color of the chip with 'selectable' mode when selected and pressed
+     * @cssprop --wcs-chip-selectable-background-color-selected-disabled - Background color of the chip with 'selectable' mode when selected and disabled
+     * @cssprop --wcs-chip-selectable-color - Text color of the chip with 'selectable' mode in default state
+     * @cssprop --wcs-chip-selectable-color-hover - Text color of the chip with 'selectable' mode when hovered
+     * @cssprop --wcs-chip-selectable-color-pressed - Text color of the chip with 'selectable' mode when pressed
+     * @cssprop --wcs-chip-selectable-color-disabled - Text color of the chip with 'selectable' mode when disabled
+     * @cssprop --wcs-chip-selectable-color-selected - Text color of the chip with 'selectable' mode when selected
+     * @cssprop --wcs-chip-selectable-color-selected-hover - Text color of the chip with 'selectable' mode when selected and hovered
+     * @cssprop --wcs-chip-selectable-color-selected-pressed - Text color of the chip with 'selectable' mode when selected and pressed
+     * @cssprop --wcs-chip-border-radius - Border radius of the chip
+     * @cssprop --wcs-chip-border-line-width - Border line width of the chip
+     * @cssprop --wcs-chip-selectable-border-color - Border color of the chip with 'selectable' mode in default state
+     * @cssprop --wcs-chip-selectable-border-color-hover - Border color of the chip with 'selectable' mode when hovered
+     * @cssprop --wcs-chip-selectable-border-color-pressed - Border color of the chip with 'selectable' mode when pressed
+     * @cssprop --wcs-chip-selectable-border-color-disabled - Border color of the chip with 'selectable' mode when disabled
+     * @cssprop --wcs-chip-selectable-content-gap - Gap between content elements in chip with 'selectable' mode
+     * @cssprop --wcs-chip-selectable-focus-outline-color - Focus outline color of the chip with 'selectable' mode
+     * @cssprop --wcs-chip-dismissible-content-gap - Gap between content elements in chip with 'dismissible' mode
+     * @cssprop --wcs-chip-dismissible-padding-right - Right padding of the chip with 'dismissible' mode
+     * @cssprop --wcs-chip-dismissible-button-outline-radius - Outline radius of the button for the chip with 'dismissible' mode
+     * @cssprop --wcs-chip-dismissible-primary-focus-outline-color - Focus outline color of the chip with 'dismissible' mode and 'primary' variant
+     * @cssprop --wcs-chip-dismissible-primary-border-color - Border color of the chip with 'dismissible' mode and 'primary' variant
+     * @cssprop --wcs-chip-dismissible-primary-border-color-disabled - Border color of the chip with 'dismissible' mode and 'primary' variant when disabled
+     * @cssprop --wcs-chip-dismissible-primary-color - Text color of the chip with 'dismissible' mode and 'primary' variant
+     * @cssprop --wcs-chip-dismissible-primary-color-hover - Text color of the chip with 'dismissible' mode and 'primary' variant when hovered
+     * @cssprop --wcs-chip-dismissible-primary-color-pressed - Text color of the chip with 'dismissible' mode and 'primary' variant when pressed
+     * @cssprop --wcs-chip-dismissible-primary-color-disabled - Text color of the chip with 'dismissible' mode and 'primary' variant when disabled
+     * @cssprop --wcs-chip-dismissible-primary-background-color - Background color of the chip with 'dismissible' mode and 'primary' variant
+     * @cssprop --wcs-chip-dismissible-primary-background-color-hover - Background color of the chip with 'dismissible' mode and 'primary' variant when hovered
+     * @cssprop --wcs-chip-dismissible-primary-background-color-pressed - Background color of the chip with 'dismissible' mode and 'primary' variant when pressed
+     * @cssprop --wcs-chip-dismissible-primary-background-color-disabled - Background color of the chip with 'dismissible' mode and 'primary' variant when disabled
+     * @cssprop --wcs-chip-dismissible-secondary-button-focus-outline-color - Button focus outline color of the chip with 'dismissible' mode and 'secondary' variant
+     * @cssprop --wcs-chip-dismissible-secondary-border-color - Border color of the chip with 'dismissible' mode and 'secondary' variant
+     * @cssprop --wcs-chip-dismissible-secondary-border-color-disabled - Border color of the chip with 'dismissible' mode and 'secondary' variant when disabled
+     * @cssprop --wcs-chip-dismissible-secondary-color - Text color of the chip with 'dismissible' mode and 'secondary' variant
+     * @cssprop --wcs-chip-dismissible-secondary-color-disabled - Text color of the chip with 'dismissible' mode and 'secondary' variant when disabled
+     * @cssprop --wcs-chip-dismissible-secondary-background-color - Background color of the chip with 'dismissible' mode and 'secondary' variant
+     * @cssprop --wcs-chip-dismissible-secondary-button-background-color - Button background color of the chip with 'dismissible' mode and 'secondary' variant
+     * @cssprop --wcs-chip-dismissible-secondary-button-background-color-hover - Button background color of the chip with 'dismissible' mode and 'secondary' variant when hovered
+     * @cssprop --wcs-chip-dismissible-secondary-button-background-color-pressed - Button background color of the chip with 'dismissible' mode and 'secondary' variant when pressed
+     * @cssprop --wcs-chip-dismissible-secondary-button-background-color-disabled - Button background color of the chip with 'dismissible' mode and 'secondary' variant when disabled
+     */
+    interface WcsChip {
+        /**
+          * If `true`, the chip is disabled. The chip will not respond to click events and will not emit any events. This property is used in both 'selectable' and 'dismissible' modes.
+         */
+        "disabled"?: boolean;
+        /**
+          * Text label displayed on the chip.
+         */
+        "label"?: string;
+        /**
+          * Defines the mode of the chip. Can be 'selectable' or 'dismissible'. - 'selectable': The chip can be selected and emits an event when clicked. - 'dismissible': The chip can be dismissed (removed) and emits an event when the dismiss icon is clicked.
+         */
+        "mode"?: WcsChipMode;
+        /**
+          * Emitted when the dismiss icon is clicked in 'dismissible' mode.
+         */
+        "onWcsChipDismiss"?: (event: WcsChipCustomEvent<{ value: string }>) => void;
+        /**
+          * Emitted when the chip is clicked in 'selectable' mode.
+         */
+        "onWcsChipSelectChange"?: (event: WcsChipCustomEvent<{ value: string; selected: boolean }>) => void;
+        /**
+          * If `true`, the chip is open. This property is used to control the visibility of the chip in the dismissible mode. When the user clicks the dismiss icon, this property automatically becomes `false`, hiding the chip.
+         */
+        "open"?: boolean;
+        /**
+          * If `true`, the chip is selected. This property is only used in 'selectable' mode.
+         */
+        "selected"?: boolean;
+        /**
+          * Unique value representing the chip identifier in events.
+         */
+        "value"?: string;
+        /**
+          * Defines the visual style of the chip for the dismissible mode.
+         */
+        "variant"?: WcsChipVariant;
     }
     /**
      * *Part of communication design system*
@@ -7072,6 +7342,7 @@ declare namespace LocalJSX {
         "wcs-card-header": WcsCardHeader;
         "wcs-card-media": WcsCardMedia;
         "wcs-checkbox": WcsCheckbox;
+        "wcs-chip": WcsChip;
         "wcs-com-nav": WcsComNav;
         "wcs-com-nav-category": WcsComNavCategory;
         "wcs-com-nav-item": WcsComNavItem;
@@ -7426,6 +7697,66 @@ declare module "@stencil/core" {
              * @cssprop --wcs-checkbox-transition-duration - Duration of the transition
              */
             "wcs-checkbox": LocalJSX.WcsCheckbox & JSXBase.HTMLAttributes<HTMLWcsCheckboxElement>;
+            /**
+             * The chip component is a small, interactive element that can be used to represent an input, filter, or tag.
+             * It can be in one of two modes: 'selectable' or 'dismissible'.
+             * - In 'selectable' mode, the chip can be selected or deselected, and emits an event when clicked.
+             * - In 'dismissible' mode, the chip can be dismissed (removed) by clicking a dismiss icon, and emits an event when the dismiss icon is clicked.
+             * @cssprop --wcs-chip-height - Height of the chip
+             * @cssprop --wcs-chip-font-size - Font size of the chip text
+             * @cssprop --wcs-chip-font-weight - Font weight of the chip text
+             * @cssprop --wcs-chip-focus-outline-border-width - Border width of the chip focus outline
+             * @cssprop --wcs-chip-padding-vertical - Vertical padding (top - bottom) of the chip
+             * @cssprop --wcs-chip-padding-horizontal - Horizontal padding (left - right) of the chip
+             * @cssprop --wcs-chip-padding-horizontal-dismissible - Horizontal padding (left - right) of the chip with 'dismissible' mode
+             * @cssprop --wcs-chip-selectable-background-color - Background color of the chip with 'selectable' mode in default state
+             * @cssprop --wcs-chip-selectable-background-color-pressed - Background color of the chip with 'selectable' mode when pressed
+             * @cssprop --wcs-chip-selectable-background-color-hover - Background color of the chip with 'selectable' mode when hovered
+             * @cssprop --wcs-chip-selectable-background-color-selected - Background color of the chip with 'selectable' mode when selected
+             * @cssprop --wcs-chip-selectable-background-color-selected-hover - Background color of the chip with 'selectable' mode when selected and hovered
+             * @cssprop --wcs-chip-selectable-background-color-selected-pressed - Background color of the chip with 'selectable' mode when selected and pressed
+             * @cssprop --wcs-chip-selectable-background-color-selected-disabled - Background color of the chip with 'selectable' mode when selected and disabled
+             * @cssprop --wcs-chip-selectable-color - Text color of the chip with 'selectable' mode in default state
+             * @cssprop --wcs-chip-selectable-color-hover - Text color of the chip with 'selectable' mode when hovered
+             * @cssprop --wcs-chip-selectable-color-pressed - Text color of the chip with 'selectable' mode when pressed
+             * @cssprop --wcs-chip-selectable-color-disabled - Text color of the chip with 'selectable' mode when disabled
+             * @cssprop --wcs-chip-selectable-color-selected - Text color of the chip with 'selectable' mode when selected
+             * @cssprop --wcs-chip-selectable-color-selected-hover - Text color of the chip with 'selectable' mode when selected and hovered
+             * @cssprop --wcs-chip-selectable-color-selected-pressed - Text color of the chip with 'selectable' mode when selected and pressed
+             * @cssprop --wcs-chip-border-radius - Border radius of the chip
+             * @cssprop --wcs-chip-border-line-width - Border line width of the chip
+             * @cssprop --wcs-chip-selectable-border-color - Border color of the chip with 'selectable' mode in default state
+             * @cssprop --wcs-chip-selectable-border-color-hover - Border color of the chip with 'selectable' mode when hovered
+             * @cssprop --wcs-chip-selectable-border-color-pressed - Border color of the chip with 'selectable' mode when pressed
+             * @cssprop --wcs-chip-selectable-border-color-disabled - Border color of the chip with 'selectable' mode when disabled
+             * @cssprop --wcs-chip-selectable-content-gap - Gap between content elements in chip with 'selectable' mode
+             * @cssprop --wcs-chip-selectable-focus-outline-color - Focus outline color of the chip with 'selectable' mode
+             * @cssprop --wcs-chip-dismissible-content-gap - Gap between content elements in chip with 'dismissible' mode
+             * @cssprop --wcs-chip-dismissible-padding-right - Right padding of the chip with 'dismissible' mode
+             * @cssprop --wcs-chip-dismissible-button-outline-radius - Outline radius of the button for the chip with 'dismissible' mode
+             * @cssprop --wcs-chip-dismissible-primary-focus-outline-color - Focus outline color of the chip with 'dismissible' mode and 'primary' variant
+             * @cssprop --wcs-chip-dismissible-primary-border-color - Border color of the chip with 'dismissible' mode and 'primary' variant
+             * @cssprop --wcs-chip-dismissible-primary-border-color-disabled - Border color of the chip with 'dismissible' mode and 'primary' variant when disabled
+             * @cssprop --wcs-chip-dismissible-primary-color - Text color of the chip with 'dismissible' mode and 'primary' variant
+             * @cssprop --wcs-chip-dismissible-primary-color-hover - Text color of the chip with 'dismissible' mode and 'primary' variant when hovered
+             * @cssprop --wcs-chip-dismissible-primary-color-pressed - Text color of the chip with 'dismissible' mode and 'primary' variant when pressed
+             * @cssprop --wcs-chip-dismissible-primary-color-disabled - Text color of the chip with 'dismissible' mode and 'primary' variant when disabled
+             * @cssprop --wcs-chip-dismissible-primary-background-color - Background color of the chip with 'dismissible' mode and 'primary' variant
+             * @cssprop --wcs-chip-dismissible-primary-background-color-hover - Background color of the chip with 'dismissible' mode and 'primary' variant when hovered
+             * @cssprop --wcs-chip-dismissible-primary-background-color-pressed - Background color of the chip with 'dismissible' mode and 'primary' variant when pressed
+             * @cssprop --wcs-chip-dismissible-primary-background-color-disabled - Background color of the chip with 'dismissible' mode and 'primary' variant when disabled
+             * @cssprop --wcs-chip-dismissible-secondary-button-focus-outline-color - Button focus outline color of the chip with 'dismissible' mode and 'secondary' variant
+             * @cssprop --wcs-chip-dismissible-secondary-border-color - Border color of the chip with 'dismissible' mode and 'secondary' variant
+             * @cssprop --wcs-chip-dismissible-secondary-border-color-disabled - Border color of the chip with 'dismissible' mode and 'secondary' variant when disabled
+             * @cssprop --wcs-chip-dismissible-secondary-color - Text color of the chip with 'dismissible' mode and 'secondary' variant
+             * @cssprop --wcs-chip-dismissible-secondary-color-disabled - Text color of the chip with 'dismissible' mode and 'secondary' variant when disabled
+             * @cssprop --wcs-chip-dismissible-secondary-background-color - Background color of the chip with 'dismissible' mode and 'secondary' variant
+             * @cssprop --wcs-chip-dismissible-secondary-button-background-color - Button background color of the chip with 'dismissible' mode and 'secondary' variant
+             * @cssprop --wcs-chip-dismissible-secondary-button-background-color-hover - Button background color of the chip with 'dismissible' mode and 'secondary' variant when hovered
+             * @cssprop --wcs-chip-dismissible-secondary-button-background-color-pressed - Button background color of the chip with 'dismissible' mode and 'secondary' variant when pressed
+             * @cssprop --wcs-chip-dismissible-secondary-button-background-color-disabled - Button background color of the chip with 'dismissible' mode and 'secondary' variant when disabled
+             */
+            "wcs-chip": LocalJSX.WcsChip & JSXBase.HTMLAttributes<HTMLWcsChipElement>;
             /**
              * *Part of communication design system*
              * The com-nav component is a container for navigation links to external or internal pages of the website.
