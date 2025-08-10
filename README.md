@@ -18,6 +18,8 @@ It is built using  [Stencil](https://github.com/ionic-team/stencil) and document
 
 If you read this documentation on GitHub, only the development branch is updated at the moment. We use the [GitLab project](https://gitlab.com/SNCF/wcs/) for WCS development and releases.
 
+We support the latest version (and LTS if applicable) of the following browsers : Chrome, Firefox, Safari, Edge, Opera.
+
 ## Documentation archives
 
 If you are looking for the documentation of a specific version, you can find using the following links (we only keep the latest version of each major version) :
@@ -58,7 +60,7 @@ You can get a preview of what's planned for the following versions using our [bo
 
 Consult the [changelog](https://wcs.dev.sncf/?path=/docs/documentation-changelog--documentation) to know what's going on.
 
-### Example usage
+## Example usage
 
 There are example projects under `example` folder for angular and react.
 
@@ -95,7 +97,7 @@ npm run start
 
 If you have any question, don't hesitate to [fill an issue](https://gitlab.com/SNCF/wcs/-/issues/new).
 
-### Install in your project
+## Install in your project
 
 You can refer to the [official WCS documentation](https://wcs.dev.sncf/?path=/docs/documentation-getting-started-angular--documentation)
 to use the lib with Angular or React. For other, StencilJS offers many integrations with different JS frameworks.
@@ -106,8 +108,10 @@ You can refer to [their official documentation](https://stenciljs.com/docs/overv
 
 ### Bug, Feature request, etc...
 
-Don't hesitate to [fill in an issue](https://gitlab.com/SNCF/wcs/-/issues/new) and we'll discuss about it.
+Don't hesitate to [fill in an issue](https://gitlab.com/SNCF/wcs/-/issues/new) and we'll discuss it.
 If you want to contribute code, please fill in an issue first so we can handle it properly.
+
+Also, if you are an SNCF employee, you can join the `Web Components` group on Teams to discuss with us. We prefer to discuss in the open and easily searchable issues tracker on GitLab when possible, but we understand that some discussions are better suited for a chat or too sensitive to be public.
 
 ### Starting the project
 
