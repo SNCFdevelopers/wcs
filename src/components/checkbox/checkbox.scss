@@ -1,5 +1,11 @@
 @import '../../style/focus-outline.scss';
 
+@mixin alignCheckboxAndText($align) {
+    .wcs-container {
+        align-items: $align;
+    }
+}
+
 :host {
     --wcs-checkbox-border-color: var(--wcs-checkbox-border-color-default);
     --wcs-checkbox-border-color-default: var(--wcs-semantic-color-border-control-indicator-default);
@@ -44,6 +50,9 @@
     --wcs-checkbox-transition-duration: var(--wcs-semantic-motion-duration-feedback-base);
 
     display: inline-flex;
+
+    // if invalid or null value is set to label-alignment attribute, we fallback to center alignment
+    @include alignCheckboxAndText(center);
 }
 
 :host([disabled]) {
@@ -86,21 +95,15 @@
 
 /* Let the user choose the alignment of the checkbox with the label text */
 :host([label-alignment="top"]){
-    .wcs-container {
-        align-items: start;
-    }
+    @include alignCheckboxAndText(start);
 }
 
 :host([label-alignment="center"]){
-    .wcs-container {
-        align-items: center;
-    }
+    @include alignCheckboxAndText(center);
 }
 
 :host([label-alignment="bottom"]){
-    .wcs-container {
-        align-items: flex-end;
-    }
+    @include alignCheckboxAndText(flex-end);
 }
 
 /* Hide the browser's default checkbox */
