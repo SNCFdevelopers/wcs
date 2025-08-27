@@ -16,7 +16,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
-for changes in existing functionality.
+- **mat-icon**:
+    - update Material Icon link in storybook documentation
 
 ### Deprecated
 
