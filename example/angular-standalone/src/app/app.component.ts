@@ -17,7 +17,13 @@ import { WcsAlertService, WcsAngularModule } from 'wcs-angular';
 export class AppComponent {
   title = 'wcs-angular-standalone-example';
 
-  constructor(private readonly wcsAlertService: WcsAlertService) { }
+  constructor(private readonly wcsAlertService: WcsAlertService) {
+    this.wcsAlertService.setConfig({
+      showProgressBar: true,
+      timeout: 5000,
+      position: "bottom-right"
+    });
+  }
 
   onHelloButtonClick($event: MouseEvent) {
     window.alert("Hello from Angular Standalone App!");

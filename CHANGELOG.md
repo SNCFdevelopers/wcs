@@ -28,6 +28,7 @@ for now removed features.
 ### Fixed
 
 - **checkbox**: default alignment center if `label-alignment` prop's is set to `undefined` or `null`
+- **alert-service**: `setConfig` was not applied at initialization
 
 ### Security
 

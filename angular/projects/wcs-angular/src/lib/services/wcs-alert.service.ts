@@ -91,8 +91,8 @@ export class WcsAlertService implements OnDestroy {
    * ```
    */
   setConfig(config: WcsAlertDrawerConfig): void {
+    this.currentConfig = config;
     if (this.alertDrawer) {
-      this.currentConfig = config;
       this.alertDrawer.position = this.currentConfig.position;
       this.alertDrawer.showProgressBar = this.currentConfig.showProgressBar;
       this.alertDrawer.timeout = this.currentConfig.timeout;
