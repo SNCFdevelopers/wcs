@@ -1,119 +1,137 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import svg from '../components/header/sncf.svg';
+import React, { useEffect, useRef } from 'react';
+
 <Meta title="Documentation/Components Overview" />
 
-export default function ComponentsOverview() {
+export const ComponentsOverview = () => {
+    const gridRef = useRef(null);
+    const stepperRef = useRef(null);
+    const tooltipRef = useRef(null);
+
+    useEffect(() => {
+        if (gridRef.current) {
+            gridRef.current.data = [
+                { first_name: 'Léon', last_name: 'Bronchart' },
+                { first_name: 'Louis', last_name: 'Armand' },
+                { first_name: 'Pierre', last_name: 'Semard' },
+                { first_name: 'André', last_name: 'Chapelon' },
+                { first_name: 'Jean', last_name: 'Dupuy' },
+            ];
+        }
+
+        if (stepperRef.current) {
+            stepperRef.current.steps = [
+                { text: 'Step 1', button: { kind: "Icon", iconName: "location_on" } },
+                { text: 'Step 2', button: { kind: "Icon", iconName: "analytics" } }
+            ];
+            stepperRef.current.currentStep = 0;
+        }
+
+        if (tooltipRef.current) {
+             customElements.whenDefined('wcs-tooltip').then(() => {
+                 if (tooltipRef.current) {
+                     tooltipRef.current.show();
+                 }
+            });
+        }
+    }, []);
 
     const style = (
         <style>{`
             a:focus {
               outline: 2px dashed var(--wcs-semantic-color-border-focus-base);
             }
+
             .grid-container {
                 display: grid;
-                grid-template-columns: 1fr 1fr 1fr;
-                gap: 12px;
+                grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+                gap: var(--wcs-semantic-spacing-base);
             }
-            .img-container {
+
+            .component-container {
                 display: flex;
-                height: calc(100% - 24px);
+                height: 100%;
+                width: 100%;
                 margin: var(--wcs-semantic-spacing-base) 0;
-                & > img {
-                    margin: auto;
-                    max-height: 150px;
-                    display: block;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                color: var(--wcs-semantic-color-text-primary);
+            }
+
+            /* Apply width 100% to the first child if the container is marked as full-width */
+            .component-container.full-width > :first-child {
+                width: 100%;
+            }
+
+            @media (max-width: 776px) {
+                .grid-container {
+                    display: flex;
+                    flex-direction: column;
+                    gap: var(--wcs-semantic-spacing-base);
                 }
             }
+
+            .v-center {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
             .display-card {
-                height: 200px;
-                background-clip: border-box;
+                height: 300px;
                 border-radius: var(--wcs-semantic-border-radius-base);
                 border: solid 1px var(--wcs-semantic-color-border-secondary);
-                flex: 1 0 25%;
                 padding: var(--wcs-semantic-spacing-large);
-                & > p {
-                    margin: 0;
-                    font-weight: 700;
-                    font-size: 1rem;
-                }
+                display: flex;
+                flex-direction: column;
+
                 &:hover {
                     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .12), 0 1px 5px 0 rgba(0, 0, 0, .20)
                 }
             }
+
+            #modal-component-overview {
+                position: relative;
+                width: auto;
+                height: auto;
+            }
+
             .divider {
                 display: block;
                 border-bottom: solid 1px var(--wcs-semantic-color-border-secondary);
-            }
-            .spinner-container {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                grid-template-rows: repeat(3, 1fr);
-                justify-items: center;
+                margin-top: var(--wcs-semantic-spacing-base);
             }
         `}
         </style>
     );
 
-    /**
-     * The components array containing all the cards to be displayed on the components overview.
-     * name: The name of the component
-     * displayName (optional): Overrides the name of the component to be displayed
-     * link: (optional): Overrides the link of the story
-     * fileType (optional): Override the type of file in the assets folder (default is png)
-     */
-    const components = [
-        { name: "Alert" },
-        { name: "AlertDrawer", displayName: 'Alert Drawer' },
-        { name: 'Accordion' },
-        { name: 'Actionbar', displayName: 'Actionbar (business)' },
-        { name: 'Badge' },
-        { name: 'Breadcrumb' },
-        { name: 'Button' },
-        { name: 'Card' },
-        { name: 'Checkbox' },
-        { name: 'Chip' },
-        { name: 'Com-Nav', displayName: 'Com-Nav (communication)', link: '/docs/components-ds-communication-nav--documentation' },
-        { name: 'Counter' },
-        { name: 'Divider' },
-        { name: 'Dropdown' },
-        { name: 'Editable-Field' },
-        { name: 'Field' },
-        { name: 'Footer' },
-        { name: 'Form-Field' },
-        { name: 'Galactic', displayName: 'Galactic (communication)', link: '/docs/components-ds-communication-galactic--documentation' },
-        { name: 'Grid' },
-        { name: 'Header', displayName: 'Header (business)' },
-        { name: 'Horizontal Stepper', displayName: 'Horizontal-Stepper' },
-        { name: 'Input' },
-        { name: 'List-Item' },
-        { name: 'Mat-Icon' },
-        { name: 'Modal' },
-        { name: 'Native-Select' },
-        { name: 'Nav', displayName: 'Nav (business)' },
-        { name: 'Progress-Bar' },
-        { name: 'Progress-Radial' },
-        { name: 'Radio', link: '/docs/components-radio-group--documentation'},
-        { name: 'Select' },
-        { name: 'Skeleton', fileType: 'gif' },
-        { name: 'Spinner', fileType: 'gif' },
-        { name: 'Switch' },
-        { name: 'Tabs' },
-        { name: 'Textarea' },
-        { name: 'Tooltip' }
-    ].sort((a, b) => a.name.localeCompare(b.name));
-
-    const DisplayCard = ({ component }) => {
-        const { name, displayName, link, fileType } = component;
-
+    // ComponentCard centralizes common layout + link logic
+    // Props:
+    //  - name: display name of the component
+    //  - path: (optional) doc path WITHOUT the `?path=` prefix. Example: "/docs/components-button--documentation"
+    //          If omitted, it will be auto-generated from the name: /docs/components-${kebabName}--documentation
+    //  - scale: visual scale transform for the preview content (default 0.8)
+    //  - interactive: if true, enables pointer events (default false -> pointer-events: none)
+    //  - fullWidth: if true, applies width:100% to the FIRST direct child passed via CSS class
+    const ComponentCard = ({ name, children, path, scale, interactive = false, fullWidth = false }) => {
         const formattedComponentName = name?.toLowerCase().replace(/\s/g, '');
-        const formattedLink = (link ? `../?path=${link}` : `../?path=/docs/components-${formattedComponentName}--documentation`) + '#storybook-docs';
+        const docPath = path ? path : `/docs/components-${formattedComponentName}--documentation`;
+        const formattedLink = `/?path=${docPath}`;
+
+        const containerStyle = {
+            transform: `scale(${scale || 0.8})`,
+            pointerEvents: interactive ? 'auto' : 'none',
+        };
 
         return (
-            <a href={formattedLink} aria-label={name}>
+            <a href={formattedLink} target="_top" aria-label={name}>
                 <div className="display-card">
-                    <b>{displayName || name}</b>
+                    <b>{name}</b>
                     <div className="divider"></div>
-                    <div className="img-container">
-                        <img alt={`${name} preview`}
-                             src={`components-overview/${formattedComponentName}.${fileType || 'png'}`}/>
+                    <div className={`sb-unstyled component-container ${fullWidth ? 'full-width' : ''}`} style={containerStyle}>
+                        {children}
                     </div>
                 </div>
             </a>
@@ -124,12 +142,451 @@ export default function ComponentsOverview() {
         <>
             {style}
             <div className="grid-container">
-                {
-                    components.map((c) => (
-                        <DisplayCard component={c} key={c.name}></DisplayCard>
-                    ))
-                }
+                <ComponentCard name="Accordion" fullWidth>
+                    <wcs-accordion>
+                        <wcs-accordion-panel open>
+                            <wcs-accordion-header>Item 1</wcs-accordion-header>
+                            <wcs-accordion-content>This is the content for item 1.</wcs-accordion-content>
+                        </wcs-accordion-panel>
+                    </wcs-accordion>
+                </ComponentCard>
+                <ComponentCard name="Action Bar (business)" fullWidth path={"/docs/components-actionbar--documentation"}>
+                    <wcs-action-bar gutter>
+                        Title
+                        <div slot="actions" style={{ display: 'flex', gap: 'var(--wcs-semantic-spacing-base)' }}>
+                            <wcs-dropdown className="wcs-primary" mode="stroked" shape="small">
+                                <div slot="placeholder">Dropdown</div>
+                                <wcs-dropdown-item>Un</wcs-dropdown-item>
+                                <wcs-dropdown-item>Deux</wcs-dropdown-item>
+                                <wcs-dropdown-item>Trois</wcs-dropdown-item>
+                            </wcs-dropdown>
+                        </div>
+                    </wcs-action-bar>
+                </ComponentCard>
+                <ComponentCard name="Alert" fullWidth>
+                    <wcs-alert intent="information">
+                        <span slot="title">Info</span>
+                        <span slot="subtitle">Information alert</span>
+                    </wcs-alert>
+                </ComponentCard>
+                <ComponentCard name="Alert Drawer" scale={0.6} fullWidth>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--wcs-semantic-spacing-base)' }}>
+                        <wcs-alert intent="success">
+                            <span slot="title">Success</span>
+                            <span slot="subtitle">Success alert</span>
+                        </wcs-alert>
+                        <wcs-alert intent="information">
+                            <span slot="title">Info</span>
+                            <span slot="subtitle">Information alert</span>
+                        </wcs-alert>
+                        <wcs-alert intent="warning">
+                            <span slot="title">Warning</span>
+                            <span slot="subtitle">Warning alert</span>
+                        </wcs-alert>
+                        <wcs-alert intent="error">
+                            <span slot="title">Error</span>
+                            <span slot="subtitle">Error alert</span>
+                        </wcs-alert>
+                    </div>
+                </ComponentCard>
+                <ComponentCard name="Badge">
+                    <>
+                        <wcs-badge className="wcs-primary" shape="normal" color="initial" size="m">Primary</wcs-badge>
+                        <wcs-badge className="wcs-secondary" shape="normal" color="initial" size="m">Secondary</wcs-badge>
+                        <wcs-badge className="wcs-success" shape="normal" color="initial" size="m">Success</wcs-badge>
+                    </>
+                </ComponentCard>
+                <ComponentCard name="Breadcrumb">
+                    <wcs-breadcrumb>
+                        <wcs-breadcrumb-item>
+                            <a className="sb-unstyled" href="/">Accueil</a>
+                        </wcs-breadcrumb-item>
+                        <wcs-breadcrumb-item>
+                            <a className="sb-unstyled" href="/groupe">Découvrir le Groupe</a>
+                        </wcs-breadcrumb-item>
+                    </wcs-breadcrumb>
+                </ComponentCard>
+                <ComponentCard name="Button">
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                        <div>
+                            <wcs-button className="wcs-primary" mode="plain" shape="normal" size="m">
+                                Primary
+                            </wcs-button>
+                            <wcs-button className="wcs-secondary" mode="plain" shape="normal" size="m">
+                                Secondary
+                            </wcs-button>
+                            <wcs-button className="wcs-success" mode="plain" shape="normal" size="m">
+                                Success
+                            </wcs-button>
+                            <wcs-button loading className="wcs-primary" mode="plain" shape="normal" size="m">
+                                Loading
+                            </wcs-button>
+                        </div>
+                        <div>
+                            <wcs-button className="wcs-primary" mode="stroked" shape="normal" size="m">
+                                Primary
+                            </wcs-button>
+                            <wcs-button className="wcs-secondary" mode="stroked" shape="normal" size="m">
+                                Secondary
+                            </wcs-button>
+                            <wcs-button className="wcs-success" mode="stroked" shape="normal" size="m">
+                                Success
+                            </wcs-button>
+                            <wcs-button loading className="wcs-primary" mode="stroked" shape="normal" size="m">
+                                Loading
+                            </wcs-button>
+                        </div>
+                        <div>
+                            <wcs-button className="wcs-primary" mode="clear" shape="normal" size="m">
+                                Primary
+                            </wcs-button>
+                            <wcs-button className="wcs-secondary" mode="clear" shape="normal" size="m">
+                                Secondary
+                            </wcs-button>
+                            <wcs-button className="wcs-success" mode="clear" shape="normal" size="m">
+                                Success
+                            </wcs-button>
+                            <wcs-button loading className="wcs-primary" mode="clear" shape="normal" size="m">
+                                Loading
+                            </wcs-button>
+                        </div>
+                        <div style={{ display: 'flex', gap: '8px', justifyContent: 'space-between' }}>
+                            <wcs-button className="wcs-primary" aria-label="Example button plain" shape="round">
+                                <wcs-mat-icon icon="accessibility_new"></wcs-mat-icon>
+                            </wcs-button>
+                            <wcs-button mode="clear" className="wcs-primary" aria-label="Example button clear" shape="round">
+                                <wcs-mat-icon icon="accessibility_new"></wcs-mat-icon>
+                            </wcs-button>
+                            <wcs-button mode="stroked" className="wcs-primary" aria-label="Example button stroked" shape="round">
+                                <wcs-mat-icon icon="accessibility_new"></wcs-mat-icon>
+                            </wcs-button>
+                            <wcs-button className="wcs-primary" aria-label="Example button disabled" disabled shape="round">
+                                <wcs-mat-icon icon="accessibility_new"></wcs-mat-icon>
+                            </wcs-button>
+                        </div>
+                    </div>
+                </ComponentCard>
+                <ComponentCard name="Card" scale={0.65} fullWidth>
+                    <wcs-card orientation="vertical">
+                        <wcs-card-media>
+                            <img slot="vertical" alt="Train with landscape" src="train_autumn.jpg" style={{ objectPosition: '50% 70%', maxHeight: '200px' }} />
+                            <img slot="horizontal" alt="Train with landscape" src="train_autumn.jpg" style={{ objectPosition: '80% 50%' }} />
+                        </wcs-card-media>
+                        <wcs-card-body>
+                            <wcs-card-header>
+                                <span>Card Title</span>
+                            </wcs-card-header>
+                            <wcs-card-content>
+                                <p>This is some content inside the card.</p>
+                            </wcs-card-content>
+                            <wcs-card-footer>
+                                <wcs-button>Action</wcs-button>
+                            </wcs-card-footer>
+                        </wcs-card-body>
+                    </wcs-card>
+                </ComponentCard>
+                <ComponentCard name="Checkbox">
+                    <wcs-checkbox>Do you love trains?</wcs-checkbox>
+                </ComponentCard>
+                <ComponentCard name="Chip">
+                    <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                        <wcs-chip value="chip-id" label="Chip" mode="selectable" variant="primary"></wcs-chip>
+                        <wcs-chip selected value="chip-id" label="Chip" mode="selectable" variant="primary"></wcs-chip>
+                        <wcs-chip disabled value="chip-id" label="Chip" mode="selectable" variant="primary"></wcs-chip>
+                        <wcs-chip value="chip-id" label="Chip" mode="dismissible" variant="primary"></wcs-chip>
+                        <wcs-chip disabled value="chip-id" label="Chip" mode="dismissible" variant="primary"></wcs-chip>
+                        <wcs-chip value="chip-id" label="Chip" mode="dismissible" variant="secondary"></wcs-chip>
+                        <wcs-chip disabled value="chip-id" label="Chip" mode="dismissible" variant="secondary"></wcs-chip>
+                    </div>
+                </ComponentCard>
+                <ComponentCard name="Counter">
+                    <wcs-counter label="Number of passengers"></wcs-counter>
+                </ComponentCard>
+                <ComponentCard name="Divider" fullWidth>
+                    <div style={{ width: '100%' }}>
+                        <p>Text before divider</p>
+                        <wcs-divider></wcs-divider>
+                        <p>Text after divider</p>
+                    </div>
+                </ComponentCard>
+                <ComponentCard name="Dropdown">
+                    <wcs-dropdown className="wcs-primary" mode="plain" shape="small">
+                        <div slot="placeholder">Dropdown</div>
+                        <wcs-dropdown-item>Un</wcs-dropdown-item>
+                        <wcs-dropdown-item>Deux</wcs-dropdown-item>
+                        <wcs-dropdown-item>Trois</wcs-dropdown-item>
+                    </wcs-dropdown>
+                </ComponentCard>
+                <ComponentCard name="Editable-Field" fullWidth>
+                    <wcs-editable-field error-msg="SNCF must appear in the value" label="My input" type="input" value="Initial value" size="" id="editable-field-ex-1">
+                        <wcs-input id="test" size=""></wcs-input>
+                    </wcs-editable-field>
+                </ComponentCard>
+                <ComponentCard name="Field">
+                    <wcs-field>
+                        <wcs-field-label>Le nom du champ</wcs-field-label>
+                        <wcs-field-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec massa mi, hendrerit dictum
+                            dui
+                            sed, porttitor ullamcorper diam.
+                        </wcs-field-content>
+                    </wcs-field>
+                </ComponentCard>
+                <ComponentCard name="Form-Field" fullWidth>
+                    <div style={{ width: '100%' }}>
+                        <wcs-form-field is-error>
+                            <wcs-label>Enter your name</wcs-label>
+                            <wcs-input placeholder="John Doe"></wcs-input>
+
+                            <wcs-error style={{ display: 'inline-flex', gap: 'var(--wcs-semantic-spacing-base)' }}>
+                                <wcs-mat-icon icon="error" size="s"></wcs-mat-icon>
+                                <span>Your name is not valid, please do what is necessary&nbsp;
+                                <a href="https://www.service-public.fr/particuliers/vosdroits/F1656">here</a>.</span>
+                            </wcs-error>
+                        </wcs-form-field>
+                        <wcs-form-field>
+                            <wcs-label>Train Station</wcs-label>
+                            <wcs-select id="form-field-ex-3" slot="prefix" placeholder="Station" multiple style={{ width: '200px' }}>
+                                <wcs-select-option>Lyon Part Dieu</wcs-select-option>
+                                <wcs-select-option>Marseille Saint-Charles</wcs-select-option>
+                                <wcs-select-option>Paris Gare de Lyon</wcs-select-option>
+                            </wcs-select>
+                            <wcs-input placeholder="Region"></wcs-input>
+                            <wcs-button shape="square" slot="suffix" aria-label="Clear input">
+                                <wcs-mat-icon icon="clear"></wcs-mat-icon>
+                            </wcs-button>
+                            <wcs-hint>Select your departure station</wcs-hint>
+                        </wcs-form-field>
+                    </div>
+                </ComponentCard>
+                <ComponentCard name="Footer" scale={0.6} fullWidth>
+                    <wcs-footer>
+                        <p>Contenu libre</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel neque et dolor egestas posuere nec sed neque</p>
+                        <a slot="end-left" href="#">Plan du site</a>
+                        <a slot="end-left" href="#">Mentions légales &amp; CGU</a>
+                        <a slot="end-left" href="#">Données personnelles &amp; cookies</a>
+                        <a slot="end-left" href="#">Portail de la cybersécurité</a>
+                        <span slot="end-right" href="#">Séléction de la langue</span>
+                    </wcs-footer>
+                </ComponentCard>
+                <ComponentCard name="Galactic bar" path="/docs/components-ds-communication-galactic--documentation">
+                    <wcs-galactic text="Un site">
+                        <wcs-button id="accessibility-menu-button" mode="clear" size="s">
+                            Accessibilité
+                            <wcs-mat-icon size="s" icon="arrow_drop_down"></wcs-mat-icon>
+                        </wcs-button>
+                        <wcs-tooltip theme="light" trigger="click" interactive="" for="accessibility-menu-button">
+                            <h3>Accessibilité</h3>
+                            <wcs-switch>Police dyslexie</wcs-switch>
+                            <wcs-switch>Interlignage augmenté</wcs-switch>
+
+                            <h3>Constrastes</h3>
+                            <wcs-switch checked="">Contrastes renforcés</wcs-switch>
+                        </wcs-tooltip>
+                        <div id="tooltip-tippy">
+                        </div>
+                        <wcs-button mode="clear" size="s">Langue : FR</wcs-button>
+                    </wcs-galactic>
+                </ComponentCard>
+                <ComponentCard name="Grid" fullWidth>
+                    <wcs-grid id="grid-component-overview" ref={gridRef}>
+                        <wcs-grid-column name="First Name" path="first_name"></wcs-grid-column>
+                        <wcs-grid-column name="Last Name" path="last_name" sort></wcs-grid-column>
+                    </wcs-grid>
+                </ComponentCard>
+                <ComponentCard name="Header" fullWidth>
+                    <wcs-header>
+                        <img className="sb-unstyled" slot="logo" alt="SNCF" src={svg} />
+                        <span className="sb-unstyled" slot="title">Votre superbe application</span>
+                        <div slot="actions">
+                            <wcs-button mode="clear">
+                                <wcs-mat-icon icon="person_outline"></wcs-mat-icon>
+                                <span className="sb-unstyled">Connexion</span>
+                            </wcs-button>
+                        </div>
+                    </wcs-header>
+                </ComponentCard>
+                <ComponentCard name="Horizontal-Stepper" path="/docs/components-horizontalstepper--documentation">
+                    <wcs-horizontal-stepper id="horizontal-stepper-component-overview" mode="linear" ref={stepperRef}>
+                    </wcs-horizontal-stepper>
+                </ComponentCard>
+                <ComponentCard name="Input" fullWidth>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--wcs-semantic-spacing-base)' }}>
+                        <wcs-input placeholder="Enter text..."></wcs-input>
+                        <wcs-input type="password" value="test"></wcs-input>
+                        <wcs-input aria-label="Input field with prefix and suffix label" placeholder="Placeholder" prefix-label="https://" suffix-label=".sncf"></wcs-input>
+                        <wcs-input aria-label="Input field with prefix icon" icon="verified" placeholder="Placeholder"></wcs-input>
+                    </div>
+                </ComponentCard>
+                <ComponentCard name="List-Item" path="/docs/components-list-item--documentation">
+                    <wcs-list-item role="listitem">
+                        <wcs-mat-icon slot="icon" icon="description"></wcs-mat-icon>
+                        <div slot="title">Titre premier item</div>
+                        <div slot="actions">
+                            <wcs-button shape="square" mode="stroked" className="wcs-secondary" aria-label="Ouvrir dans un nouvel onglet">
+                                <wcs-mat-icon icon="open_in_new"></wcs-mat-icon>
+                            </wcs-button>
+                        </div>
+                        <wcs-list-item-properties>
+                            <wcs-list-item-property>Mise à jour le 4 avril 2017</wcs-list-item-property>
+                            <wcs-list-item-property>Entité : SNCF</wcs-list-item-property>
+                            <wcs-list-item-property>Agent : Marcel Patoulatchi</wcs-list-item-property>
+                        </wcs-list-item-properties>
+                        <div slot="description">
+                            <div className="sb-unstyled">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet libero
+                            </div>
+                        </div>
+                    </wcs-list-item>
+                </ComponentCard>
+                <ComponentCard name="Mat-Icon" path="/docs/components-mat-icon--documentation">
+                    <div
+                        style={{
+                            display: "grid",
+                            gridTemplateColumns: "repeat(4, 1fr)",
+                            gap: 'var(--wcs-semantic-spacing-base)',
+                        }}>
+                        <wcs-mat-icon style={{ color: 'var(--wcs-primitive-color-primary)' }} icon="edit"></wcs-mat-icon>
+                        <wcs-mat-icon icon="edit"></wcs-mat-icon>
+                        <wcs-mat-icon icon="edit"></wcs-mat-icon>
+                        <wcs-mat-icon icon="edit"></wcs-mat-icon>
+
+                        <wcs-mat-icon style={{ color: 'var(--wcs-primitive-color-primary)' }} icon="home"></wcs-mat-icon>
+                        <wcs-mat-icon icon="home"></wcs-mat-icon>
+                        <wcs-mat-icon icon="home"></wcs-mat-icon>
+                        <wcs-mat-icon icon="home"></wcs-mat-icon>
+
+                        <wcs-mat-icon style={{ color: 'var(--wcs-primitive-color-primary)' }} icon="person"></wcs-mat-icon>
+                        <wcs-mat-icon icon="person"></wcs-mat-icon>
+                        <wcs-mat-icon icon="person"></wcs-mat-icon>
+                        <wcs-mat-icon icon="person"></wcs-mat-icon>
+
+                        <wcs-mat-icon style={{ color: 'var(--wcs-primitive-color-primary)' }} icon="settings"></wcs-mat-icon>
+                        <wcs-mat-icon icon="settings"></wcs-mat-icon>
+                        <wcs-mat-icon icon="settings"></wcs-mat-icon>
+                        <wcs-mat-icon icon="settings"></wcs-mat-icon>
+                    </div>
+                </ComponentCard>
+                <ComponentCard name="Modal">
+                    <wcs-modal id="modal-component-overview" show>
+                        <div slot="header">Titre de la modale</div>
+                        <p>This is the content of the modal.</p>
+                        <div slot="actions" style={{ display: 'flex', gap: 'var(--wcs-semantic-spacing-base)' }}>
+                            <wcs-button mode="stroked" id="">Annuler</wcs-button>
+                            <wcs-button>OK</wcs-button>
+                        </div>
+                    </wcs-modal>
+                </ComponentCard>
+                <ComponentCard name="Native-Select" fullWidth>
+                    <wcs-native-select placeholder="Select an option...">
+                        <select>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                        </select>
+                    </wcs-native-select>
+                </ComponentCard>
+                <ComponentCard name="Navigation communication" path="/docs/components-ds-communication-nav--documentation" fullWidth>
+                    <wcs-nav>
+                        <wcs-nav-item>
+                            <a href="/favorite">
+                                <wcs-mat-icon icon="star"></wcs-mat-icon>
+                                <span>Favorite</span>
+                            </a>
+                        </wcs-nav-item>
+                        <wcs-nav-item className="active">
+                            <a href="/description" aria-current="page">
+                                <wcs-mat-icon icon="description"></wcs-mat-icon>
+                                <span>Description</span>
+                            </a>
+                        </wcs-nav-item>
+                        <wcs-nav-item slot="bottom">
+                            <button id="support-button">
+                                <wcs-mat-icon icon="support"></wcs-mat-icon>
+                                <span>Support</span>
+                            </button>
+                        </wcs-nav-item>
+                    </wcs-nav>
+                </ComponentCard>
+                <ComponentCard name="Navigation business" path="/docs/components-nav--documentation" fullWidth>
+                    <wcs-com-nav app-name="Application" aria-label="Menu principal">
+                        <wcs-com-nav-submenu label="Sous menu" panel-title="Sous Menu" panel-description="Description du sous menu">
+                        </wcs-com-nav-submenu>
+                        <wcs-com-nav-item>
+                            <a href="https://sncf.com" target="_blank">Ressource externe</a>
+                        </wcs-com-nav-item>
+                    </wcs-com-nav>
+                </ComponentCard>
+                <ComponentCard name="Progress bar" path="/docs/components-progress-bar--documentation" fullWidth>
+                    <wcs-progress-bar aria-label="My progress" size="m" value="25"></wcs-progress-bar>
+                </ComponentCard>
+                <ComponentCard name="Progress radial" path="/docs/components-progress-radial--documentation" fullWidth>
+                    <div className='v-center'>
+                        <wcs-progress-radial size="120" value="25" show-label></wcs-progress-radial>
+                    </div>
+                </ComponentCard>
+                <ComponentCard name="Radio" path="/docs/components-radio-group--documentation">
+                    <wcs-radio-group value="2">
+                        <wcs-radio label="Option 1" value="1"></wcs-radio>
+                        <wcs-radio label="Option 2" value="2"></wcs-radio>
+                    </wcs-radio-group>
+                </ComponentCard>
+                <ComponentCard name="Select" fullWidth>
+                    <wcs-select placeholder="Select a value">
+                        <wcs-select-option value="1">Option 1</wcs-select-option>
+                        <wcs-select-option value="2">Option 2</wcs-select-option>
+                        <wcs-select-option value="3">Option 3</wcs-select-option>
+                    </wcs-select>
+                </ComponentCard>
+                <ComponentCard name="Skeleton">
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--wcs-semantic-spacing-base)' }}>
+                        <wcs-card mode="flat">
+                            <wcs-card-body className="container" style={{ display: 'flex', flexDirection: 'column', gap: 'var(--wcs-semantic-spacing-base)' }}>
+                                <div className="heading" style={{ display: 'flex', alignItems: 'center', gap: 'var(--wcs-semantic-spacing-large)', marginBottom: 'var(--wcs-semantic-spacing-large)' }}>
+                                    <wcs-skeleton-circle radius="50"></wcs-skeleton-circle>
+                                    <wcs-skeleton-text className="title-skeleton" height="h1" style={{ width: '150px' }}></wcs-skeleton-text>
+                                </div>
+                                <wcs-skeleton-rectangle height="50px" width="270px"></wcs-skeleton-rectangle>
+                                <wcs-skeleton-text></wcs-skeleton-text>
+                                <wcs-skeleton-text></wcs-skeleton-text>
+                                <wcs-skeleton-text></wcs-skeleton-text>
+                                <wcs-skeleton-text className="last-skeleton" style={{ width: '70%' }}></wcs-skeleton-text>
+                            </wcs-card-body>
+                        </wcs-card>
+                    </div>
+                </ComponentCard>
+                <ComponentCard name="Spinner">
+                    <>
+                        <wcs-spinner className="wcs-primary" mode="border"></wcs-spinner>
+                        <wcs-spinner className="wcs-secondary" mode="border"></wcs-spinner>
+                        <wcs-spinner className="wcs-success" mode="border"></wcs-spinner>
+                    </>
+                </ComponentCard>
+                <ComponentCard name="Switch">
+                    <wcs-switch>Do you love trains?</wcs-switch>
+                </ComponentCard>
+                <ComponentCard name="Tabs">
+                    <wcs-tabs aria-label="Tabs par défaut" align="start">
+                        <wcs-tab header="Premier onglet" item-key="firstTab">
+                            Premier contenu
+                        </wcs-tab>
+                        <wcs-tab header="Deuxième onglet" item-key="secondTab">
+                            Deuxième contenu
+                        </wcs-tab>
+                    </wcs-tabs>
+                </ComponentCard>
+                <ComponentCard name="Textarea" fullWidth>
+                    <wcs-textarea placeholder="Enter text..."></wcs-textarea>
+                </ComponentCard>
+                <ComponentCard name="Tooltip">
+                    <div style={{ padding: '20px' }}>
+                        <wcs-button shape="small" id="tooltiped-button-1" aria-label="Hover">Hover to show tooltip</wcs-button>
+                        <wcs-tooltip id="tooltip-1" for="tooltiped-button-1" ref={tooltipRef}>Tooltip content</wcs-tooltip>
+                    </div>
+                </ComponentCard>
             </div>
         </>
     );
 }
+
+<ComponentsOverview />

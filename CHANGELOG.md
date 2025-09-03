@@ -19,6 +19,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Changed
 
 - **storybook**: upgrade to storybook v10
+- **doc**: improve components overview
 
 ### Deprecated
 
