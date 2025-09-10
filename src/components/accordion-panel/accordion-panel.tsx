@@ -78,6 +78,11 @@ export class AccordionPanel implements ComponentInterface, MutableAriaAttribute 
      */
     @Prop({reflect: true}) groupContentWithHeader: boolean = false;
 
+    /**
+     * Emitted when the open property changes.  
+     * Note that this event is stopped from propagating when using the component inside a wcs-accordion as the 
+     * accordion handles the open state of its accordion-panel children.
+     */
     @Event() wcsOpenChange!: EventEmitter<boolean>;
 
     @Watch('open')

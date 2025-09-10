@@ -21,9 +21,9 @@ The accordion-panel is a subcomponent of `wcs-accordion`. It represents every pa
 
 ## Events
 
-| Event           | Description | Type                   |
-| --------------- | ----------- | ---------------------- |
-| `wcsOpenChange` |             | `CustomEvent<boolean>` |
+| Event           | Description                                                                                                                                                                                                          | Type                   |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| `wcsOpenChange` | Emitted when the open property changes.   Note that this event is stopped from propagating when using the component inside a wcs-accordion as the  accordion handles the open state of its accordion-panel children. | `CustomEvent<boolean>` |
 
 
 ## Methods

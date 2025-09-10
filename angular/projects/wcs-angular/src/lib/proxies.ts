@@ -93,7 +93,11 @@ export class WcsAccordionPanel {
 
 
 export declare interface WcsAccordionPanel extends Components.WcsAccordionPanel {
-
+  /**
+   * Emitted when the open property changes.  
+Note that this event is stopped from propagating when using the component inside a wcs-accordion as the 
+accordion handles the open state of its accordion-panel children.
+   */
   wcsOpenChange: EventEmitter<CustomEvent<boolean>>;
 }
 

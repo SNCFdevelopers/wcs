@@ -4839,6 +4839,9 @@ declare namespace LocalJSX {
           * Specifies whether the component should highlight when open with primary color. if true, the background color will be the primary color. if false, the background color will be wcs-light.
          */
         "highlight"?: boolean;
+        /**
+          * Emitted when the open property changes.   Note that this event is stopped from propagating when using the component inside a wcs-accordion as the  accordion handles the open state of its accordion-panel children.
+         */
         "onWcsOpenChange"?: (event: WcsAccordionPanelCustomEvent<boolean>) => void;
         "open"?: boolean;
     }

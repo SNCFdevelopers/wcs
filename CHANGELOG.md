@@ -32,6 +32,7 @@ for now removed features.
 
 - **checkbox**: default alignment center if `label-alignment` prop's is set to `undefined` or `null`
 - **alert-service**: `setConfig` was not applied at initialization
+- **accordion**: nested accordions no longer close their parent when panel are toggled
 
 ### Security
 

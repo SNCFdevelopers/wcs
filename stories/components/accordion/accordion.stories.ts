@@ -118,3 +118,87 @@ export const PanelOnly: StoryObj<AccordionArgs> = {
         ...Default.args
     }
 }
+
+/**
+ * Accordions can be nested to create a hierarchy of information.
+ */
+export const NestedAccordions: StoryObj<AccordionArgs> = {
+    render: () => html`
+        <wcs-accordion>
+            <wcs-accordion-panel>
+                <wcs-accordion-header>Configuration générale</wcs-accordion-header>
+                <wcs-accordion-content>
+                    <p>Paramètres principaux de l'application :</p>
+                    
+                    <wcs-accordion>
+                        <wcs-accordion-panel>
+                            <wcs-accordion-header>Paramètres utilisateur</wcs-accordion-header>
+                            <wcs-accordion-content>
+                                <p>Gestion des préférences utilisateur :</p>
+                                
+                                <wcs-accordion>
+                                    <wcs-accordion-panel>
+                                        <wcs-accordion-header>Notifications</wcs-accordion-header>
+                                        <wcs-accordion-content>
+                                            <p>• Notifications par email</p>
+                                            <p>• Notifications push</p>
+                                            <p>• Fréquence des rappels</p>
+                                        </wcs-accordion-content>
+                                    </wcs-accordion-panel>
+                                    <wcs-accordion-panel>
+                                        <wcs-accordion-header>Interface</wcs-accordion-header>
+                                        <wcs-accordion-content>
+                                            <p>• Thème sombre/clair</p>
+                                            <p>• Langue d'affichage</p>
+                                            <p>• Taille de police</p>
+                                        </wcs-accordion-content>
+                                    </wcs-accordion-panel>
+                                </wcs-accordion>
+                            </wcs-accordion-content>
+                        </wcs-accordion-panel>
+                        
+                        <wcs-accordion-panel>
+                            <wcs-accordion-header>Sécurité</wcs-accordion-header>
+                            <wcs-accordion-content>
+                                <p>Configuration de la sécurité :</p>
+                                
+                                <wcs-accordion>
+                                    <wcs-accordion-panel>
+                                        <wcs-accordion-header>Authentification</wcs-accordion-header>
+                                        <wcs-accordion-content>
+                                            <p>• Authentification à deux facteurs</p>
+                                            <p>• Durée de session</p>
+                                            <p>• Politique de mot de passe</p>
+                                        </wcs-accordion-content>
+                                    </wcs-accordion-panel>
+                                </wcs-accordion>
+                            </wcs-accordion-content>
+                        </wcs-accordion-panel>
+                    </wcs-accordion>
+                </wcs-accordion-content>
+            </wcs-accordion-panel>
+            
+            <wcs-accordion-panel>
+                <wcs-accordion-header>Modules avancés</wcs-accordion-header>
+                <wcs-accordion-content>
+                    <p>Configuration des modules spécialisés :</p>
+                    
+                    <wcs-accordion>
+                        <wcs-accordion-panel>
+                            <wcs-accordion-header>Rapports</wcs-accordion-header>
+                            <wcs-accordion-content>
+                                <p>Génération et export de rapports personnalisés avec options de filtrage avancées.</p>
+                            </wcs-accordion-content>
+                        </wcs-accordion-panel>
+                        <wcs-accordion-panel>
+                            <wcs-accordion-header>Intégrations</wcs-accordion-header>
+                            <wcs-accordion-content>
+                                <p>API tierces et webhooks pour l'intégration avec d'autres systèmes.</p>
+                            </wcs-accordion-content>
+                        </wcs-accordion-panel>
+                    </wcs-accordion>
+                </wcs-accordion-content>
+            </wcs-accordion-panel>
+        </wcs-accordion>
+    `,
+}

@@ -46,6 +46,7 @@ export class Accordion {
 
     @Listen('wcsOpenChange')
     wcsOpenChangeHandler(event: CustomEvent<boolean>) {
+        event.stopImmediatePropagation();
         if (event.detail) {
             this.closeAllAccordionsExcept(event.target);
         }
