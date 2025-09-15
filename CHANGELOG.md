@@ -11,14 +11,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-- **checkbox**: add `required` prop
-- **doc**: add browser support information in introduction
-- **chip**: add new `Chip` component with two interaction modes: selectable for filtering and choosing elements, and dismissible for removing tags or filters
+for new features.
 
 ### Changed
 
-- **mat-icon**:
-    - update Material Icon link in storybook documentation
+for changes in existing functionality.
 
 ### Deprecated
 
@@ -30,13 +27,30 @@ for now removed features.
 
 ### Fixed
 
-- **checkbox**: default alignment center if `label-alignment` prop's is set to `undefined` or `null`
-- **alert-service**: `setConfig` was not applied at initialization
-- **accordion**: nested accordions no longer close their parent when panel are toggled
+for any bug fixes.
 
 ### Security
 
 in case of vulnerabilities.
+
+## [7.3.0] - 2025-09-15
+
+### Added
+
+- **checkbox**: add `required` prop
+- **doc**: add browser support information in introduction
+- **chip**: add new `Chip` component with two interaction modes: selectable for filtering and choosing elements, and dismissible for removing tags or filters
+
+### Changed
+
+- **mat-icon**:
+    - update Material Icon link in storybook documentation
+
+### Fixed
+
+- **checkbox**: default alignment center if `label-alignment` prop's is set to `undefined` or `null`
+- **alert-service**: `setConfig` was not applied at initialization
+- **accordion**: nested accordions no longer close their parent when panel are toggled
 
 ## [7.2.2] - 2025-07-11
 

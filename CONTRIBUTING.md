@@ -99,9 +99,9 @@ Don't forget to update the changelog and the StackBlitz templates version.
 git checkout develop
 # Pull latest changes
 git pull
+# Update the changelog by replacing the 'Unreleased' section with the released version number
 # Build the project to make sure that all automatically generated files are up-to-date
 npm run build
-# Update the changelog by replacing the 'Unreleased' section with the released version number
 # Commit your changes
 git add . && git commit -m "chore: prepare next release" 
 # Go on master
