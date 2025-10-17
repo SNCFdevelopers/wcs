@@ -179,6 +179,7 @@ export class Grid implements ComponentInterface, ComponentDidLoad, MutableAriaAt
     onDataChange(newValue: any[]): void {
         this.updateGridRows(newValue);
         this.refreshSort(false);
+        this.updatePageIndex();
     }
 
     @Watch('selectedItems')
@@ -411,7 +412,6 @@ export class Grid implements ComponentInterface, ComponentDidLoad, MutableAriaAt
                 rows.push(row);
             }
             this.rows = rows;
-            this.updatePageIndex();
         }
     }
 
@@ -425,6 +425,7 @@ export class Grid implements ComponentInterface, ComponentDidLoad, MutableAriaAt
             this.updateSelectionWithValues(this.selectedItems);
         }
         this.refreshSort(true);
+        this.updatePageIndex();
     }
 
     componentWillLoad(): Promise<void> | void {

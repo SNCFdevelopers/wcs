@@ -168,4 +168,32 @@ describe('Grid component', () => {
             });
         });
     });
+    describe('Sort', () => {
+        it('should well sort with pagination', async () => {
+            const page = await newE2EPage();
+            const data = [{ id: 1, first_name: 'John' }, { id: 2, first_name: 'Doe' }, { id: 3, first_name: 'Jane' }, { id: 4, first_name: 'Zoe' }]
+            await setWcsContent(page, `
+                    <wcs-grid id="simpleGrid" selection-config="multiple">
+                        <wcs-grid-column path="first_name" name="First Name" sort sort-order="desc"></wcs-grid-column>
+                        <wcs-grid-pagination available-page-sizes="2"></wcs-grid-pagination>
+                    </wcs-grid>
+                `);
+
+            const simpleGrid = await page.find('#simpleGrid');
+            simpleGrid.setProperty('data', data);
+
+            await page.waitForChanges();
+
+            // First page should contain 2 elements (page-size = 2) sorted descending by first_name
+            // Data order before sort: John, Doe, Jane, Zoe
+            // After descending sort: Zoe, John, Jane, Doe
+            // Page 1 should show Zoe, John
+
+            const firstRowFirstCell = await page.find('wcs-grid >>> table tbody tr:first-child td:last-child');
+            const secondRowFirstCell = await page.find('wcs-grid >>> table tbody tr:nth-child(2) td:last-child');
+
+            expect(firstRowFirstCell.textContent).toBe('Zoe');
+            expect(secondRowFirstCell.textContent).toBe('John');
+        });
+    })
 });

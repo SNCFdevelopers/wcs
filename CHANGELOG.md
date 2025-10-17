@@ -28,6 +28,7 @@ for now removed features.
 ### Fixed
 
 - **label**: fix extra-height and gap when using label with text and icon together
+- **grid**: default sort on a `wcs-grid-column` with grid pagination did not worked well
 
 ### Security
 

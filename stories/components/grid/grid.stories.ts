@@ -492,7 +492,7 @@ export const MultiSelection: StoryObj = {
 export const Pagination: StoryObj = {
     render: (args: GridArgs) => html`
         <wcs-grid id="grid-simple-1" .data=${args.data}>
-            <wcs-grid-column name="First Name" path="first_name" sort></wcs-grid-column>
+            <wcs-grid-column name="First Name" path="first_name" sort sort-order="desc"></wcs-grid-column>
             <wcs-grid-column name="Last Name" path="last_name" sort></wcs-grid-column>
             <wcs-grid-column name="Email" path="email" sort></wcs-grid-column>
             <wcs-grid-column name="IP Address" path="ip_address" sort></wcs-grid-column>
