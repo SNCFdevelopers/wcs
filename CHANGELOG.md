@@ -27,7 +27,7 @@ for now removed features.
 
 ### Fixed
 
-for any bug fixes.
+- **label**: fix extra-height and gap when using label with text and icon together
 
 ### Security
 

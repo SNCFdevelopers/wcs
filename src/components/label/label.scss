@@ -15,14 +15,11 @@
 }
 
 label {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--wcs-label-gap);
+    line-height: 0;
+    
     color: var(--wcs-label-color);
     font-weight: var(--wcs-label-font-weight);
-
-    // Add margin before tooltip icon
-    ::slotted(wcs-mat-icon) {
-        display: inline;
-        vertical-align: middle;
-        margin-left: var(--wcs-label-gap);
-    }
 }
