@@ -1,0 +1,12 @@
+{
+    "name": "wcs-core/composite-elements",
+    "version": "0.0.0",
+    "description": "WCS Components exported as single file that automatically registers all child components used. This package only serve as hint for IDE to provide better auto-completion and type checking when using WCS.",
+    "exports": {
+        "./*.js": {
+            "import": "./*.js",
+            "types": "./*.d.ts"
+        }
+    },
+    "private": true
+}

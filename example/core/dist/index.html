@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+        href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet"
+        lazyload
+    />
+    <script type="module" >
+        import { defineCustomElements } from 'https://cdn.jsdelivr.net/npm/wcs-core/loader/index.es2017.js';
+        defineCustomElements();
+    </script>
+    <link
+        rel="stylesheet"
+        type="text/css"
+        href="https://cdn.jsdelivr.net/npm/wcs-core/dist/wcs/wcs.css"
+    />
+    <link
+        rel="stylesheet"
+        type="text/css"
+        href="https://cdn.jsdelivr.net/npm/wcs-core/design-tokens/dist/sncf-holding.css"
+    />
+</head>
+<body class="sncf-holding">
+<h1>WCS Plain HTML Template <wcs-badge>Latest</wcs-badge></h1>
+<wcs-button>Button</wcs-button>
+
+<p>Notice that this exemple only fetch the source code of the badge and button components thanks to the loader script.</p>
+<p>You can check this behavior by opening the network tab of your browser devtools.</p>
+
+
+</body>
+</html>

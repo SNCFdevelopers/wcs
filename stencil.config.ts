@@ -16,7 +16,7 @@ export const config: Config = {
     testing: {
         rootDir: './src',
         testPathIgnorePatterns: ['/node_modules/', '/dist/', '/example/'],
-        browserArgs: ['--no-sandbox', '--disable-setuid-sandbox'],
+        browserArgs: ['--no-sandbox', '--disable-setuid-sandbox']
 
     },
     globalStyle: 'src/style/global.scss',
@@ -24,7 +24,7 @@ export const config: Config = {
         sass({
             // Allows to write @import '@material/*' from scss
             // Importing all node_modules stylesheet
-            includePaths: [path.join(__dirname, 'node_modules')],
+            includePaths: [path.join(__dirname, 'node_modules')]
         })
     ],
     outputTargets: [
@@ -35,7 +35,37 @@ export const config: Config = {
         }),
         {
             type: 'dist',
-            esmLoaderPath: '../loader',
+            esmLoaderPath: '../loader'
+        },
+        {
+            type: 'dist-custom-elements',
+            customElementsExportBehavior: 'bundle',
+            externalRuntime: false,
+            minify: true,
+            dir: 'bundle',
+            includeGlobalScripts: true,
+
+            // Add files for dev experience purposes (IDE auto-completion, types checking, ...)
+            copy: [{
+                src: '../publishing/bundle',
+                dest: 'bundle',
+                warn: true
+            }]
+        },
+        {
+            type: 'dist-custom-elements',
+            customElementsExportBehavior: 'auto-define-custom-elements',
+            externalRuntime: false,
+            minify: true,
+            dir: 'composite-elements',
+            includeGlobalScripts: true,
+
+            // Add files for dev experience purposes (IDE auto-completion, types checking, ...)
+            copy: [{
+                src: '../publishing/composite-elements',
+                dest: 'composite-elements',
+                warn: true
+            }]
         },
         {
             type: 'docs-readme'
@@ -46,7 +76,7 @@ export const config: Config = {
         },
         reactOutputTarget({
             componentCorePackage: 'wcs-core',
-            proxiesFile: './react/lib/components/stencil-generated/index.ts',
+            proxiesFile: './react/lib/components/stencil-generated/index.ts'
         })
     ]
 };

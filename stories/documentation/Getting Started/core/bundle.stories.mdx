@@ -1,0 +1,80 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Documentation/Getting Started/Core/Bundle"/>
+
+## `bundle`
+
+The `bundle` directory contains a single file that includes all WCS components. This is useful if you want to include all components in your project without lazy loading. With this bundle, all components are loaded upfront, which can be beneficial for applications that require immediate access to all components without the delay of lazy loading.
+
+**⚠️ Be aware that this approach can lead to a larger initial load size ⚠️**, as all components are included in the bundle regardless of whether they are used or not.
+
+### How to use
+
+There are two primary ways to use the components from the `dist` output: with a bundler or with a simple script tag.
+
+#### With a Bundler
+
+This is the recommended approach for modern web applications.
+
+1.  **Install the package:**
+
+```bash
+npm install wcs-core
+```
+
+2.  **Load the components:**
+
+In your application's entry point (e.g., `main.ts`, `index.js`), you need `defineCustomElements` from `bundle`. This will define all the WCS components for your application.
+As we said before, all components are registered at once, without lazy loading ⚠️.
+
+```javascript
+import { defineCustomElements } from 'wcs-core/bundle';
+
+defineCustomElements(); // all components are registered at once
+```
+
+Note that you can surround the `defineCustomElements` call with `applyPolyfills` if you need to support older browsers.
+
+3.  **Load assets and choose a theme:**
+
+You need to include the WCS assets (styles, ...) in your project. You can do this by importing the CSS files in your main stylesheet or directly in your HTML.
+
+4.  **Use the components:**
+
+You can now use the WCS components anywhere in your HTML templates. Since they are all registered, all the components has been loaded by the browser.
+
+```html
+<wcs-button>Click me</wcs-button>
+```
+
+#### With a `<script>` tag
+
+This method is great for static HTML pages or for quick integration without a build process.
+
+1.  **Add the script to your HTML:**
+
+Include the following script tag in your HTML file. You can link to a CDN like `jsdelivr`.
+
+```html
+<script type="module">
+    import { defineCustomElements } from 'wcs-core/bundle/index.js'
+
+    defineCustomElements(); // all components are registered at once
+</script>
+```
+
+Note that you can surround the `defineCustomElements` call with `applyPolyfills` if you need to support older browsers.
+
+As we already said earlier, all components are registered at once, without lazy loading ⚠️.
+
+2.  **Use the components:**
+
+You can now use any WCS component directly in your HTML.
+
+```html
+<wcs-card>
+  <wcs-card-body>
+    Hello from a script tag!
+  </wcs-card-body>
+</wcs-card>
+```

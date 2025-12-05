@@ -1,0 +1,123 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Documentation/Getting Started/Core/Introduction"/>
+
+
+# Wcs Core
+
+This documentation covers the features provided by the `wcs-core` package. The main goal of this package is to provide web components for direct use. Whether in SSR, without a framework, or by integrating them yourself into your favorite frontend library/framework. This package also provides all assets (styles, icons, etc.).
+
+## Components
+
+Several distribution formats are available to use WCS components, each with its own use cases and features. Each format is described in its own documentation, for more details, please refer to the corresponding page where you will find typical use cases and integration examples.
+
+The `wcs-core` package is structured as follows:
+- `dist`: Distributable and lazy-loaded components. Follow the [dist documentation](./?path=/docs/documentation-getting-started-core-dist--documentation) for more details.
+- `bundle`: Bundled components in an optimized single file with runtime and no lazy loading. Follow the [bundle documentation](./?path=/docs/documentation-getting-started-core-bundle--documentation) for more details.
+- `composite-elements`: All component are exported within a single file, a component and its children will be automatically defined when the component's module is imported. Follow the [composite-elements documentation](./?path=/docs/documentation-getting-started-core-composite-elements--documentation) for more details.
+
+## Assets
+
+The `wcs-core` package includes all the necessary assets for WCS components, such as styles and so on.
+
+If you are using scss preprocessor or a bundler, you can directly import the wcs styles from the node_modules by referencing the path to the package.
+
+```scss
+/* styles.scss */
+@import 'wcs-core/dist/wcs/wcs.css';
+
+```
+
+If it's not the case, you can directly link the css file in your html, served from a CDN like jsdelivr or you web server.
+
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    ...
+    <link rel="stylesheet" href="wcs-core/dist/wcs/wcs.css">
+    <link rel="stylesheet" href="wcs-core/design-tokens/dist/sncf-holding.css">
+</head>
+
+```
+
+Then, for both cases, you need to choose a theme and include the corresponding design tokens css file. Follow [this documentation](?path=/docs/documentation-theming--documentation).
+
+```scss
+@font-face {
+  font-family: Avenir;
+  src: url("assets/fonts/avenir-lighter.woff");
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: Avenir;
+  src: url("assets/fonts/avenir-book.woff");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: Avenir;
+  src: url("assets/fonts/avenir-roman.woff");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Avenir;
+  src: url("assets/fonts/avenir-medium.woff");
+  font-weight: 500;
+}
+
+@font-face {
+    font-family: Avenir;
+    src: url("assets/fonts/avenir-heavy.woff");
+    font-weight: 800;
+}
+
+@font-face {
+  font-family: Avenir;
+  src: url("assets/fonts/avenir-black.woff");
+  font-weight: 900;
+}
+
+@font-face {
+    font-family: "icons";
+    src: url("assets/fonts/icons/icons.eot?#iefix") format("embedded-opentype"),
+    url("assets/fonts/icons/icons.woff2") format("woff2"),
+    url("assets/fonts/icons/icons.woff") format("woff"),
+    url("assets/fonts/icons/icons.ttf") format("truetype"),
+    url("assets/fonts/icons/icons.svg#icons") format("svg");
+}
+
+/* Include material icons fonts */
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialicons/v139/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+}
+@font-face {
+    font-family: 'Material Icons Outlined';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialiconsoutlined/v108/gok-H7zzDkdnRel8-DQ6KAXJ69wP1tGnf4ZGhUce.woff2) format('woff2');
+}
+@font-face {
+    font-family: 'Material Icons Two Tone';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialiconstwotone/v111/hESh6WRmNCxEqUmNyh3JDeGxjVVyMg4tHGctNCu0.woff2) format('woff2');
+}
+@font-face {
+    font-family: 'Material Icons Round';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialiconsround/v107/LDItaoyNOAY6Uewc665JcIzCKsKc_M9flwmP.woff2) format('woff2');
+}
+@font-face {
+    font-family: 'Material Icons Sharp';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialiconssharp/v108/oPWQ_lt5nv4pWNJpghLP75WiFR4kLh3kvmvR.woff2) format('woff2');
+}
+```

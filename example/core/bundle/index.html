@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WCS Core bundle example</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/wcs-core/dist/wcs/wcs.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/wcs-core/design-tokens/dist/sncf-holding.css"/>
+    <script type="module">
+        import { defineCustomElements } from '../../../bundle/index.js'
+
+        defineCustomElements(); // all components are registered at once
+    </script>
+    <style>
+        @font-face {
+            font-family: Avenir;
+            src: url("../../../src/assets/fonts/avenir-lighter.woff");
+            font-weight: 100;
+        }
+
+        @font-face {
+            font-family: Avenir;
+            src: url("../../../src/assets/fonts/avenir-book.woff");
+            font-weight: 300;
+        }
+
+        @font-face {
+            font-family: Avenir;
+            src: url("../../../src/assets/fonts/avenir-roman.woff");
+            font-weight: 400;
+        }
+
+        @font-face {
+            font-family: Avenir;
+            src: url("../../../src/assets/fonts/avenir-medium.woff");
+            font-weight: 500;
+        }
+
+        @font-face {
+            font-family: Avenir;
+            src: url("../../../src/assets/fonts/avenir-heavy.woff");
+            font-weight: 800;
+        }
+
+        @font-face {
+            font-family: Avenir;
+            src: url("../../../src/assets/fonts/avenir-black.woff");
+            font-weight: 900;
+        }
+
+        @font-face {
+            font-family: "icons";
+            src: url("../../../src/assets/fonts/icons/icons.eot?#iefix") format("embedded-opentype"),
+            url("../../../src/assets/fonts/icons/icons.woff2") format("woff2"),
+            url("../../../src/assets/fonts/icons/icons.woff") format("woff"),
+            url("../../../src/assets/fonts/icons/icons.ttf") format("truetype"),
+            url("../../../src/assets/fonts/icons/icons.svg#icons") format("svg");
+        }
+
+        /* Include material icons fonts */
+        @font-face {
+            font-family: 'Material Icons';
+            font-style: normal;
+            font-weight: 400;
+            src: url(https://fonts.gstatic.com/s/materialicons/v139/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+        }
+
+        @font-face {
+            font-family: 'Material Icons Outlined';
+            font-style: normal;
+            font-weight: 400;
+            src: url(https://fonts.gstatic.com/s/materialiconsoutlined/v108/gok-H7zzDkdnRel8-DQ6KAXJ69wP1tGnf4ZGhUce.woff2) format('woff2');
+        }
+
+        @font-face {
+            font-family: 'Material Icons Two Tone';
+            font-style: normal;
+            font-weight: 400;
+            src: url(https://fonts.gstatic.com/s/materialiconstwotone/v111/hESh6WRmNCxEqUmNyh3JDeGxjVVyMg4tHGctNCu0.woff2) format('woff2');
+        }
+
+        @font-face {
+            font-family: 'Material Icons Round';
+            font-style: normal;
+            font-weight: 400;
+            src: url(https://fonts.gstatic.com/s/materialiconsround/v107/LDItaoyNOAY6Uewc665JcIzCKsKc_M9flwmP.woff2) format('woff2');
+        }
+
+        @font-face {
+            font-family: 'Material Icons Sharp';
+            font-style: normal;
+            font-weight: 400;
+            src: url(https://fonts.gstatic.com/s/materialiconssharp/v108/oPWQ_lt5nv4pWNJpghLP75WiFR4kLh3kvmvR.woff2) format('woff2');
+        }
+    </style>
+
+    <!-- app specific styles -->
+    <style>
+        body {
+            font-family: Avenir, Arial, sans-serif;
+            margin: 0;
+            display: grid;
+            grid-template-areas: "header header" "nav    content";
+            grid-template-columns: min-content 1fr;
+            background-color: var(--wcs-semantic-color-background-surface-primary);
+            color: var(--wcs-semantic-color-text-primary);
+        }
+
+        h2 {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            line-height: 1.2;
+            color: var(--wcs-semantic-color-text-primary);
+        }
+
+        html, body, h1, h2, h3, h4, h5 {
+            font-family: var(--wcs-font-sans-serif);
+        }
+
+        wcs-header {
+            grid-area: header;
+        }
+
+        wcs-nav {
+            grid-area: nav;
+            height: calc(100vh - 8 * var(--wcs-semantic-size-base)); /* Remove the header height in the calc */
+        }
+
+        .content {
+            grid-area: content;
+            height: calc(100vh - 8 * var(--wcs-semantic-size-base)); /* Remove the header height in the calc */
+            overflow-x: auto;
+        }
+
+        @media screen and (max-width: 1199px) {
+            body {
+                grid-template-areas: "header" "content" "nav";
+                grid-template-columns: 1fr;
+            }
+
+            .content {
+                height: calc(100vh - 8 * var(--wcs-semantic-size-base) - 6 * var(--wcs-semantic-size-base)); /* Remove the header and mobile-nav height in the calc */
+                max-width: 100vw;
+            }
+
+            wcs-nav {
+                height: initial;
+            }
+        }
+    </style>
+</head>
+<body class="sncf-holding">
+<wcs-header>
+    <img slot="logo" alt="SNCF" src="https://wcs.dev.sncf/sncf.svg">
+    <h1 slot="title">Votre superbe application</h1>
+    <div slot="actions">
+        <wcs-button mode="clear">
+            <wcs-mat-icon icon="person_outline"></wcs-mat-icon>
+            <span>Connexion</span>
+        </wcs-button>
+    </div>
+</wcs-header>
+<wcs-nav>
+    <wcs-nav-item>
+        <a href="#">
+            <wcs-mat-icon icon="train" role="img" aria-label="My trains"></wcs-mat-icon>
+            <span>Trains</span>
+        </a>
+    </wcs-nav-item>
+</wcs-nav>
+<div class="content">
+    <wcs-action-bar gutter>
+        Votre super page d'accueil
+        <div slot="actions" style="display: flex; gap: var(--wcs-semantic-spacing-base)">
+            <wcs-button mode="stroked" shape="small">Action</wcs-button>
+        </div>
+    </wcs-action-bar>
+    <div style="margin: var(--wcs-semantic-spacing-large)">
+        <p>Le contenu</p>
+        <wcs-button>Un bouton</wcs-button>
+    </div>
+</div>
+
+</body>
+</html>

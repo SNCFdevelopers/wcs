@@ -1,0 +1,121 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Documentation/Getting Started/Core/Composite elements"/>
+
+# Composite elements
+
+The `composite-elements` directory contains individual components with auto-definition. Each component automatically defines itself in the `CustomElementRegistry` when its module is imported, along with its dependencies (child components). This approach is ideal if you want to have fine-grained control over which components are included in your application while still benefiting from automatic registration.
+
+With this approach, you benefit from:
+- Manual Tree-shaking: Only imported components are included in your final bundle, but you have to manually import each component you want to use and keep track of their usage.
+- Auto-definition: No need to manually call `defineCustomElements()`, each component registers itself automatically
+- Dependency management: Child components are automatically defined with their parent
+- Optimized bundle: Minimal bundle size thanks to selective imports
+
+## How to use
+
+### With a Bundler
+
+This is the recommended approach for modern web applications.
+
+1.  **Install the package:**
+
+```bash
+npm install wcs-core
+```
+
+2. **Define components you need:**
+
+In your application's entry point (e.g., `main.ts`, `index.js`), you need to import differents components you need from `composite-elements`. Each component will automatically define itself and its children in the `CustomElementRegistry`.
+
+```javascript
+import { defineCustomElement as defineWcsNav } from 'wcs-core/composite-elements/wcs-nav.js';
+import { defineCustomElement as defineWcsNavItem } from 'wcs-core/composite-elements/wcs-nav-item.js';
+import { defineCustomElement as defineWcsMatIcon } from 'wcs-core/composite-elements/wcs-mat-icon.js';
+import { defineCustomElement as defineWcsButton } from 'wcs-core/composite-elements/wcs-button.js';
+
+defineWcsNav();
+defineWcsNavItem();
+defineWcsMatIcon();
+defineWcsButton();
+```
+
+Note that you can surround all `defineCustomElement` call with `applyPolyfills` if you need to support older browsers.
+
+```javascript
+applyPolyfills().then(() => {
+    defineWcsNav();
+    defineWcsNavItem();
+    defineWcsMatIcon();
+    defineWcsButton();
+});
+```
+
+3.  **Load assets and choose a theme:**
+
+You need to include the WCS assets (styles, ...) in your project. You can do this by importing the CSS files in your main stylesheet or directly in your HTML.
+
+4.  **Use the components:**
+
+You can now use the WCS components you define in your HTML. ⚠️ Only the components you imported and defined will be available.
+
+```html
+<wcs-button>Click me</wcs-button>
+```
+
+### With a `<script>` tag
+
+This method is great for static HTML pages or for quick integration without a build process.
+
+1.  **Define each component you want to import to your HTML:**
+
+Include the following script tag in your HTML file. You can link to a CDN like `jsdelivr`.
+
+```html
+<html>
+  <head>
+    <script type="module">
+      import { defineCustomElements } from 'https://cdn.jsdelivr.net/npm/wcs-core/loader/index.es2017.mjs';
+      defineCustomElements();
+        import { defineCustomElement as defineWcsNav } from 'https://cdn.jsdelivr.net/npm/wcs-core/composite-elements/wcs-nav.js';
+        import { defineCustomElement as defineWcsNavItem } from 'https://cdn.jsdelivr.net/npm/wcs-core/composite-elements/wcs-nav-item.js';
+        import { defineCustomElement as defineWcsMatIcon } from 'https://cdn.jsdelivr.net/npm/wcs-core/composite-elements/wcs-mat-icon.js';
+        import { defineCustomElement as defineWcsButton } from 'https://cdn.jsdelivr.net/npm/wcs-core/composite-elements/wcs-button.js';
+    
+        defineWcsNav();
+        defineWcsNavItem();
+        defineWcsMatIcon();
+        defineWcsButton();
+    </script>
+  </head>
+</html>
+```
+
+Note that you can surround all `defineCustomElement` call with `applyPolyfills` if you need to support older browsers.
+
+```javascript
+applyPolyfills().then(() => {
+    defineWcsNav();
+    defineWcsNavItem();
+    defineWcsMatIcon();
+    defineWcsButton();
+});
+```
+
+This method allows you to include only the components you need, keeping your page lightweight.
+
+2. **Use the components:**
+
+You can now use only WCS component you define directly in your HTML.
+
+```html
+<wcs-nav>
+    <wcs-nav-item>
+        <a href="#">
+            <wcs-mat-icon icon="train" role="img" aria-label="My trains"></wcs-mat-icon>
+            <span>Trains</span>
+        </a>
+    </wcs-nav-item>
+</wcs-nav>
+<wcs-button loading>Test button</wcs-button>
+```
