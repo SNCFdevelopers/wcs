@@ -28,6 +28,7 @@ for now removed features.
 ### Fixed
 
 - **label**: fix extra-height and gap when using label with text and icon together
+- **doc**: apply selected theme on MDX docs pages
 - **grid**: default sort on a `wcs-grid-column` with grid pagination did not worked well
 
 ### Security

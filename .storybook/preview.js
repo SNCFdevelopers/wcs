@@ -1,4 +1,6 @@
 import {setCustomElementsManifest} from '@storybook/web-components';
+import { addons } from '@storybook/preview-api';
+import { GLOBALS_UPDATED } from '@storybook/core-events';
 import customElements from '../custom-elements.json';
 
 // XXX: https://github.com/storybookjs/storybook/issues/15436#issuecomment-1272769983
@@ -88,54 +90,34 @@ export const globalTypes = {
     }
 }
 
-const withDesignTokens = (StoryFn, context) => {
-    const { design } = context.globals;
+const themeValues = globalTypes.design.toolbar.items.map(i => i.value);
 
-    globalTypes.design.toolbar.items.forEach(item => {
-       if (design === item.value) {
-           document?.body.classList.add(item.value);
-           parent?.document?.body?.classList.add(item.value);
-       } else {
-           document?.body.classList.remove(item.value);
-           parent?.document?.body?.classList.remove(item.value);
-       }
+const applyTheme = (theme) => {
+    if (!theme) return;
+    const bodies = [document?.body, parent?.document?.body].filter(Boolean);
+    bodies.forEach(b => {
+        // Remove all theme classes first to avoid accumulation
+        themeValues.forEach(v => b.classList.remove(v));
+        b.classList.add(theme);
     });
+};
 
+const withDesignTokens = (StoryFn, context) => {
+    applyTheme(context.globals.design || globalTypes.design.defaultValue);
     return StoryFn();
-}
+};
 
-/**
- * Apply function on element if it's a wcs elements
- * We explore all the children of base element to check if a child element is also a wcs-element to apply the function
- *
- * @param {HTMLElement} element must be a HTMLElement
- * @param {function} fn must be a function
- */
-function applyFunctionToWcsElement(element, fn, stack=0) {
-    if(stack === 0 && !element?.tagName?.startsWith('WCS')) {
-        throw new TypeError("Root element must be a wcs element");
-    }
-    if (!element || !(element instanceof HTMLElement)) return;
-
-    if (element.tagName.startsWith('WCS')) {
-        if (typeof fn !== 'function' || fn.length !== 1) {
-            throw new TypeError("The function is not applicable to the wcs element or one of it's wcs children");
+// Listen to globals updates so that switching theme while on an MDX docs page updates immediately
+if (typeof window !== 'undefined') {
+    const channel = addons.getChannel();
+    channel.on(GLOBALS_UPDATED, ({ globals }) => {
+        if (globals?.design) {
+            applyTheme(globals.design);
         }
-        fn(element)
-    }
-
-    if (element.shadowRoot) {
-        for (let child of element.children) { // slotted elements
-            applyFunctionToWcsElement(child, fn, ++stack);
-        }
-        for (let child of element.shadowRoot.children) {
-            applyFunctionToWcsElement(child, fn, ++stack);
-        }
-    } else if (element.hasChildNodes()) {
-        for (let child of element.children) {
-            applyFunctionToWcsElement(child, fn, ++stack);
-        }
-    }
+    });
+    // Ensure initial application (e.g. first load on a docs page)
+    // Defer to next microtask to let Storybook finish initial DOM setup
+    Promise.resolve().then(() => applyTheme(globalTypes.design.defaultValue));
 }
 
 export const decorators = [withDesignTokens];
