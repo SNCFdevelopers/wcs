@@ -299,11 +299,9 @@ export class Modal implements ComponentInterface, MutableAriaAttribute {
                     <div class="wcs-modal-content">
                         <slot onSlotchange={() => this.handleSlotContentChange()}></slot>
                     </div>
-                    {!this.hideActions && (
-                        <div class="wcs-modal-actions">
-                            <slot name="actions"></slot>
-                        </div>)
-                    }
+                    <div class="wcs-modal-actions">
+                        <slot name="actions"></slot>
+                    </div>
                 </div>
             </Host>
         );
