@@ -1,4 +1,5 @@
 @import '../../style/focus-outline.scss';
+@import '../../style/reset.scss';
 @import '../com-nav/com-nav-focus.scss';
 
 /* Default style and mobile behaviour */
@@ -23,12 +24,7 @@
 
     ::slotted(a) {
         /* Default */
-        user-select: none;
-        cursor: pointer;
-        text-decoration: none;
-        font-size: var(--wcs-com-nav-item-font-size);
-        color: inherit;
-        font-weight: inherit;
+        @include reset-anchor;
 
         display: flex;
         align-items: center;

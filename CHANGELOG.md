@@ -14,6 +14,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **horizontal-stepper**: add ariaLabel property to `HorizontalStepConfig`, allows providing a descriptive label for each step to improve accessibility
 - **Angular Formly**: add two new formly props to `WcsFormlyInputProps` => `maxDate` and `minDate` for date input type 
 - **core**: add bundle and composite-elements output targets in wcs-core package with documentation and examples
+- **com-nav**: default style for slotted app name anchor link
 
 ### Changed
 

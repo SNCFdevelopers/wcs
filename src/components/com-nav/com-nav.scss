@@ -1,6 +1,7 @@
 @import '../../style/focus-outline.scss';
 @import './com-nav-focus.scss';
 @import '../../style/breakpoints.scss';
+@import '../../style/reset.scss';
 
 :host {
     --wcs-com-nav-menu-bar-height: calc(var(--wcs-semantic-size-base) * 8);
@@ -71,6 +72,18 @@
         font-size: var(--wcs-com-nav-app-name-font-size);
         line-height: var(--wcs-com-nav-app-name-line-height);
         color: var(--wcs-com-nav-app-name-color);
+
+        ::slotted(a) {
+            @include reset-anchor;
+        }
+
+        ::slotted(a:focus-visible) {
+            outline: none;
+        }
+    }
+
+    .app-name:focus-within {
+        @include focus-outline($outline-color: var(--wcs-com-nav-focus-outline-color));
     }
 
     .menu-bar {

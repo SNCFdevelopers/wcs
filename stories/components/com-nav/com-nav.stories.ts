@@ -25,6 +25,7 @@ export default meta;
 
 type ComNavArgs = {
     appName: string,
+    isAppNameLink: boolean,
     ariaLabel: string,
     displayGalactic: boolean
 }
@@ -45,7 +46,8 @@ const Template: StoryFn<Partial<ComNavArgs>> = (args) => html`
             </wcs-galactic-menu>
         </wcs-galactic>
     ` : ''}
-    <wcs-com-nav app-name=${args.appName} aria-label="${args.ariaLabel}">
+    <wcs-com-nav app-name=${args.isAppNameLink ? '' : args.appName} aria-label="${args.ariaLabel}">
+        <a href="#" slot="app-name">${args.appName}</a>
         <wcs-com-nav-submenu label="Sous menu" panel-title="Sous Menu"
                              panel-description="Nullam id dolor id nibh ultricies vehicula ut id elit. Cras mattis consectetur purus sit amet fermentum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.">
             <wcs-com-nav-item>
@@ -173,5 +175,13 @@ export const OnlyTopLevelLinks: StoryObj<ComNavArgs> = {
     </div>`,
     args: {
         ...Default.args
+    }
+}
+
+export const ClickableAppName: StoryObj<ComNavArgs> = {
+    render: (args) => Template(args, this),
+    args: {
+        ...Default.args,
+        isAppNameLink: true
     }
 }

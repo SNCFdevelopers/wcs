@@ -121,7 +121,8 @@ export class ComNav implements ComponentInterface, MutableAriaAttribute {
             <Host>
                 <div class="container">
                     <div class="container-left">
-                        <div class="app-name">{this.appName}
+                        <div class="app-name">
+                            {this.appName}
                             <slot name="app-name"/>
                         </div>
                         {this.currentActiveSizing === 'desktop' ?
