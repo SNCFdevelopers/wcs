@@ -58,8 +58,8 @@ npm start --es5
 ### Launching the test suite
 ```bash
 npm test
-# Or in watch mode
-npm run test:watch
+# Or in watch mode and UI
+npm run test:playwright:ui
 ```
 
 ### Working on the merge request from a fork (as a maintainer)

@@ -1,15 +1,14 @@
-import { E2EPage, newE2EPage } from "@stencil/core/testing";
-import {KeyInput} from "puppeteer";
-import { setWcsContent } from "../../utils/tests";
+import { setWcsContent } from '../../utils/playwright/test';
+import { test, E2EPage } from "@stencil/playwright";
 
-describe('Com nav', () => {
-    describe('Keyboard navigation', () => {
-        describe('Mobile menu', () => {
-            let page!: E2EPage;
-            beforeEach(async () => {
+import { expect } from "@playwright/test";
+
+test.describe('Com nav', () => {
+    test.describe('Keyboard navigation', () => {
+        test.describe('Mobile menu', () => {
+            test.beforeEach(async ({ page }: { page: E2EPage }) => {
                 // Given
-                page = await newE2EPage();
-                await page.setViewport({
+                await page.setViewportSize({
                     width: 320,
                     height: 480,
                 });
@@ -67,61 +66,81 @@ describe('Com nav', () => {
                     </div>
                 </wcs-com-nav>
             `);
-            })
+            });
 
-            it.each(['Enter', 'Space'])('should open menu when press %s key on mobile menu icon', async (key: KeyInput) => {
-                // Given the content is set in beforeEach method
-
+            test('should open menu when press Enter key on mobile menu icon', async ({ page }: { page: E2EPage }) => {
                 // When
-                const menuIcon = await page.find('wcs-com-nav >>> #mobile-menu-icon');
+                const menuIcon = page.locator('wcs-com-nav #mobile-menu-icon');
                 await menuIcon.focus();
-                await page.keyboard.press(key);
-
+                await page.keyboard.press('Enter');
                 await page.waitForChanges();
 
                 // Then
-                const menu = await page.find('wcs-com-nav >>> .mobile-overlay');
-                expect(menu).toBeDefined();
-                expect(menu).toHaveAttribute('data-mobile-open');
+                const menu = page.locator('wcs-com-nav .mobile-overlay');
+                await expect(menu).toHaveAttribute('data-mobile-open');
             });
 
-            it.each(['Enter', 'Space'])('should close menu when it opens and press %s key on mobile menu icon', async (key: KeyInput) => {
-                // Given
-                // the content is set in beforeEach method
-                const menuIcon = await page.find('wcs-com-nav >>> #mobile-menu-icon');
+            test('should open menu when press Space key on mobile menu icon', async ({ page }: { page: E2EPage }) => {
+                // When
+                const menuIcon = page.locator('wcs-com-nav #mobile-menu-icon');
                 await menuIcon.focus();
-                await page.keyboard.press(key);
+                await page.keyboard.press('Space');
+                await page.waitForChanges();
 
-                // Wait for menu to open
+                // Then
+                const menu = page.locator('wcs-com-nav .mobile-overlay');
+                await expect(menu).toHaveAttribute('data-mobile-open');
+            });
+
+            test('should close menu when it opens and press Enter key on mobile menu icon', async ({ page }: { page: E2EPage }) => {
+                // Given
+                const menuIcon = page.locator('wcs-com-nav #mobile-menu-icon');
+                await menuIcon.focus();
+                await page.keyboard.press('Enter');
                 await page.waitForChanges();
 
                 // Close the menu
-                await page.keyboard.press(key);
+                await page.keyboard.press('Enter');
                 await page.waitForChanges();
 
                 // Then
-                const menu = await page.find('wcs-com-nav >>> .mobile-overlay');
-                expect(menu).not.toHaveAttribute('data-mobile-open');
+                const menu = page.locator('wcs-com-nav .mobile-overlay');
+                await expect(menu).not.toHaveAttribute('data-mobile-open');
             });
 
-            it('should be touchable on mobile and open the menu', async () => {
+            test('should close menu when it opens and press Space key on mobile menu icon', async ({ page }: { page: E2EPage }) => {
                 // Given
-                // the content is set in beforeEach method
-                const menuIcon = await page.find('wcs-com-nav >>> #mobile-menu-icon');
-                await menuIcon.tap();
+                const menuIcon = page.locator('wcs-com-nav #mobile-menu-icon');
+                await menuIcon.focus();
+                await page.keyboard.press('Space');
+                await page.waitForChanges();
+
+                // Close the menu
+                await page.keyboard.press('Space');
+                await page.waitForChanges();
 
                 // Then
-                const menu = await page.find('wcs-com-nav >>> .mobile-overlay');
-                expect(menu).toBeDefined();
-                expect(menu).toHaveAttribute('data-mobile-open');
+                const menu = page.locator('wcs-com-nav .mobile-overlay');
+                await expect(menu).not.toHaveAttribute('data-mobile-open');
             });
 
-            it('should close menu when it opens and press escape key anywhere', async () => {
+            test('should be touchable on mobile and open the menu', async ({ page }: { page: E2EPage }) => {
                 // Given
-                // the content is set in beforeEach method
-                const menuIcon = await page.find('wcs-com-nav >>> #mobile-menu-icon');
+                const menuIcon = page.locator('wcs-com-nav #mobile-menu-icon');
+                await menuIcon.click();
+                await page.waitForChanges();
+
+                // Then
+                const menu = page.locator('wcs-com-nav .mobile-overlay');
+                await expect(menu).toHaveAttribute('data-mobile-open');
+            });
+
+            test('should close menu when it opens and press escape key anywhere', async ({ page }: { page: E2EPage }) => {
+                // Given
+                const menuIcon = page.locator('wcs-com-nav #mobile-menu-icon');
                 await menuIcon.focus();
                 await page.keyboard.press('Enter');
+                await page.waitForChanges();
 
                 // When
                 // Navigate on menu
@@ -129,31 +148,27 @@ describe('Com nav', () => {
                 await page.keyboard.press('Tab');
                 await page.keyboard.press('Tab');
                 await page.keyboard.press('Escape');
-
                 await page.waitForChanges();
 
                 // Then
-                const menu = await page.find('wcs-com-nav >>> .mobile-overlay');
-                expect(menu).not.toHaveAttribute('data-mobile-open');
+                const menu = page.locator('wcs-com-nav .mobile-overlay');
+                await expect(menu).not.toHaveAttribute('data-mobile-open');
             });
 
-            it('should close the mobile menu when clicking on a wcs-com-nav-item', async () => {
+            test('should close the mobile menu when clicking on a wcs-com-nav-item', async ({ page }: { page: E2EPage }) => {
                 // Given
-                const menuIcon = await page.find('wcs-com-nav >>> #mobile-menu-icon');
-                await menuIcon.tap();
-
-                // Wait for menu to open
+                const menuIcon = page.locator('wcs-com-nav #mobile-menu-icon');
+                await menuIcon.click();
                 await page.waitForChanges();
 
                 // When
-                const navItem = await page.find('#com-nav-item-last-item');
+                const navItem = page.locator('#com-nav-item-last-item');
                 await navItem.click();
-
                 await page.waitForChanges();
 
                 // Then
-                const menu = await page.find('wcs-com-nav >>> .mobile-overlay');
-                expect(menu).not.toHaveAttribute('data-mobile-open');
+                const menu = page.locator('wcs-com-nav .mobile-overlay');
+                await expect(menu).not.toHaveAttribute('data-mobile-open');
             });
         });
     });

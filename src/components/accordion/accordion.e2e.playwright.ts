@@ -1,10 +1,10 @@
-import { newE2EPage } from '@stencil/core/testing';
-import { setWcsContent } from '../../utils/tests';
+import { setWcsContent } from '../../utils/playwright/test';
+import { test, E2EPage } from "@stencil/playwright";
+import { expect } from "@playwright/test";
 
-describe('accordion', () => {
-    it('should open and close accordion panels', async () => {
+test.describe('accordion', () => {
+    test('should open and close accordion panels', async ({ page }: { page: E2EPage }) => {
         // Given
-        const page = await newE2EPage();
         await setWcsContent(page, `
             <wcs-accordion>
                 <wcs-accordion-panel>
@@ -18,20 +18,19 @@ describe('accordion', () => {
             </wcs-accordion>
         `);
 
-        const panels = await page.findAll('wcs-accordion-panel');
+        const panels = page.locator('wcs-accordion-panel');
 
         // When
-        await panels[0].click();
+        await panels.nth(0).click();
         await page.waitForChanges();
 
         // Then
-        expect(await panels[0].getProperty('open')).toBe(true);
-        expect(await panels[1].getProperty('open')).toBe(false);
+        await expect(panels.nth(0)).toHaveJSProperty('open', true);
+        await expect(panels.nth(1)).toHaveJSProperty('open', false);
     });
 
-    it('should close other panels when opening a new one at the same level', async () => {
+    test('should close other panels when opening a new one at the same level', async ({ page }: { page: E2EPage }) => {
         // Given
-        const page = await newE2EPage();
         await setWcsContent(page, `
             <wcs-accordion>
                 <wcs-accordion-panel>
@@ -45,28 +44,27 @@ describe('accordion', () => {
             </wcs-accordion>
         `);
 
-        const panels = await page.findAll('wcs-accordion-panel');
+        const panels = page.locator('wcs-accordion-panel');
 
         // When - Open first panel
-        await panels[0].click();
+        await panels.nth(0).click();
         await page.waitForChanges();
 
         // Then
-        expect(await panels[0].getProperty('open')).toBe(true);
-        expect(await panels[1].getProperty('open')).toBe(false);
+        await expect(panels.nth(0)).toHaveJSProperty('open', true);
+        await expect(panels.nth(1)).toHaveJSProperty('open', false);
 
         // When - Open second panel
-        await panels[1].click();
+        await panels.nth(1).click();
         await page.waitForChanges();
 
         // Then - First panel should be closed
-        expect(await panels[0].getProperty('open')).toBe(false);
-        expect(await panels[1].getProperty('open')).toBe(true);
+        await expect(panels.nth(0)).toHaveJSProperty('open', false);
+        await expect(panels.nth(1)).toHaveJSProperty('open', true);
     });
 
-    it('should not close parent accordion when opening nested accordion', async () => {
+    test('should not close parent accordion when opening nested accordion', async ({ page }: { page: E2EPage }) => {
         // Given
-        const page = await newE2EPage();
         await setWcsContent(page, `
             <wcs-accordion>
                 <wcs-accordion-panel>
@@ -92,28 +90,27 @@ describe('accordion', () => {
             </wcs-accordion>
         `);
 
-        const parentPanels = await page.findAll('wcs-accordion > wcs-accordion-panel');
+        const parentPanels = page.locator('wcs-accordion > wcs-accordion-panel');
 
         // When - Open parent panel first
-        await parentPanels[0].click();
+        await parentPanels.nth(0).click();
         await page.waitForChanges();
 
         // Then
-        expect(await parentPanels[0].getProperty('open')).toBe(true);
+        await expect(parentPanels.nth(0)).toHaveJSProperty('open', true);
 
         // When - Open nested accordion panel
-        const nestedPanels = await page.findAll('wcs-accordion wcs-accordion wcs-accordion-panel');
-        await nestedPanels[0].click();
+        const nestedPanels = page.locator('wcs-accordion wcs-accordion wcs-accordion-panel');
+        await nestedPanels.nth(0).click();
         await page.waitForChanges();
 
         // Then - Parent should remain open, nested panel should be open
-        expect(await parentPanels[0].getProperty('open')).toBe(true);
-        expect(await nestedPanels[0].getProperty('open')).toBe(true);
+        await expect(parentPanels.nth(0)).toHaveJSProperty('open', true);
+        await expect(nestedPanels.nth(0)).toHaveJSProperty('open', true);
     });
 
-    it('should not close nested accordions when opening another parent panel', async () => {
+    test('should not close nested accordions when opening another parent panel', async ({ page }: { page: E2EPage }) => {
         // Given
-        const page = await newE2EPage();
         await setWcsContent(page, `
             <wcs-accordion id="parent-accordion">
                 <wcs-accordion-panel>
@@ -141,47 +138,46 @@ describe('accordion', () => {
             </wcs-accordion>
         `);
 
-        const parentPanels = await page.findAll('#parent-accordion > wcs-accordion-panel');
+        const parentPanels = page.locator('#parent-accordion > wcs-accordion-panel');
 
         // When - Open first parent and its nested panel
-        await parentPanels[0].click();
+        await parentPanels.nth(0).click();
         await page.waitForChanges();
 
-        const firstNestedPanel = await page.find('wcs-accordion > wcs-accordion-panel:first-child wcs-accordion-panel');
+        const firstNestedPanel = page.locator('wcs-accordion > wcs-accordion-panel:first-child wcs-accordion-panel');
         await firstNestedPanel.click();
         await page.waitForChanges();
 
         // Then
-        expect(await parentPanels[0].getProperty('open')).toBe(true);
-        expect(await firstNestedPanel.getProperty('open')).toBe(true);
+        await expect(parentPanels.nth(0)).toHaveJSProperty('open', true);
+        await expect(firstNestedPanel).toHaveJSProperty('open', true);
 
         // When - Open second parent
-        await parentPanels[1].click();
+        await parentPanels.nth(1).click();
         await page.waitForChanges();
 
-        const secondNestedPanel = await page.find('wcs-accordion > wcs-accordion-panel:nth-child(2) wcs-accordion-panel');
+        const secondNestedPanel = page.locator('wcs-accordion > wcs-accordion-panel:nth-child(2) wcs-accordion-panel');
 
         // Then - First parent should close but nested panel state should be preserved
-        expect(await parentPanels[0].getProperty('open')).toBe(false);
-        expect(await parentPanels[1].getProperty('open')).toBe(true);
-        expect(await firstNestedPanel.getProperty('open')).toBe(true); // Nested panel keeps its state
-        expect(await secondNestedPanel.getProperty('open')).toBe(false);
+        await expect(parentPanels.nth(0)).toHaveJSProperty('open', false);
+        await expect(parentPanels.nth(1)).toHaveJSProperty('open', true);
+        await expect(firstNestedPanel).toHaveJSProperty('open', true); // Nested panel keeps its state
+        await expect(secondNestedPanel).toHaveJSProperty('open', false);
     });
 
-    it('should handle deeply nested accordions independently', async () => {
+    test('should handle deeply nested accordions independently', async ({ page,  }) => {
         // Given
-        const page = await newE2EPage();
         await setWcsContent(page, `
-            <wcs-accordion>
-                <wcs-accordion-panel>
+            <wcs-accordion id="level1-accordion">
+                <wcs-accordion-panel id="level1-panel">
                     <wcs-accordion-header>Level 1</wcs-accordion-header>
                     <wcs-accordion-content>
-                        <wcs-accordion>
-                            <wcs-accordion-panel>
+                        <wcs-accordion id="level2-accordion">
+                            <wcs-accordion-panel id="level2-panel">
                                 <wcs-accordion-header>Level 2</wcs-accordion-header>
                                 <wcs-accordion-content>
-                                    <wcs-accordion>
-                                        <wcs-accordion-panel>
+                                    <wcs-accordion id="level3-accordion">
+                                        <wcs-accordion-panel id="level3-panel">
                                             <wcs-accordion-header>Level 3</wcs-accordion-header>
                                             <wcs-accordion-content>Deep content</wcs-accordion-content>
                                         </wcs-accordion-panel>
@@ -195,22 +191,21 @@ describe('accordion', () => {
         `);
 
         // When - Open all levels progressively
-        const level1Panel = await page.find('wcs-accordion > wcs-accordion-panel');
+        const level1Panel = page.locator('#level1-panel');
         await level1Panel.click();
         await page.waitForChanges();
 
-        const level2Panel = await page.find('wcs-accordion wcs-accordion > wcs-accordion-panel');
+        const level2Panel = page.locator('#level2-panel');
         await level2Panel.click();
         await page.waitForChanges();
 
-        const level3Panel = await page.find('wcs-accordion wcs-accordion wcs-accordion > wcs-accordion-panel');
+        const level3Panel = page.locator('#level3-panel');
         await level3Panel.click();
         await page.waitForChanges();
 
         // Then - All levels should be open
-        expect(await level1Panel.getProperty('open')).toBe(true);
-        expect(await level2Panel.getProperty('open')).toBe(true);
-        expect(await level3Panel.getProperty('open')).toBe(true);
+        await expect(level1Panel).toHaveJSProperty('open', true);
+        await expect(level2Panel).toHaveJSProperty('open', true);
+        await expect(level3Panel).toHaveJSProperty('open', true);
     });
 });
-

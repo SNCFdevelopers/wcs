@@ -29,7 +29,6 @@ declare const _exports: {
         "@stencil/sass": string;
         "@types/dom-inputevent": string;
         "@types/jest": string;
-        "@types/puppeteer": string;
         "chokidar": string;
         "concurrently": string;
         "glob": string;
@@ -38,7 +37,6 @@ declare const _exports: {
         "jest-cli": string;
         "markdown-it": string;
         "mem": string;
-        "puppeteer": string;
         "rollup": string;
         "rollup-plugin-typescript": string;
         "tslib": string;

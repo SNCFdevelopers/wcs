@@ -123,22 +123,20 @@ npm start -- --filter select
 
 ### Test
 
-The project uses stencil built-in facility for testing : https://stenciljs.com/docs/testing-overview.
+The project uses stencil playwright built-in facility for testing : https://stenciljs.com/docs/testing/playwright/overview.
 
 We encourage doing TDD on functional components. To launch the tests suite simply launch :
 
 ```sh
-npm run test:watch
+npm run test:playwright:ui
 # Or if you simply want to run them once
 npm test
 ```
 
-To launch a specific suite of tests you can simply launch
+To launch a specific suite of tests you can simply launch it in the UI playwright mode
 
 ```sh
-npm run test:e2e:file path_to_tests_file
-# Example: you must be at the root of the project
-npm run test:e2e:file src/components/tabs/tabs.e2e.ts
+npm run test:playwright:ui
 ```
 
 ### License

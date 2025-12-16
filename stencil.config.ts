@@ -13,6 +13,10 @@ export const config: Config = {
     nodeResolve: {
         browser: true
     },
+    devServer: {
+        port: 3333,
+        reloadStrategy: "pageReload"
+    },
     testing: {
         rootDir: './src',
         testPathIgnorePatterns: ['/node_modules/', '/dist/', '/example/'],
@@ -77,6 +81,16 @@ export const config: Config = {
         reactOutputTarget({
             componentCorePackage: 'wcs-core',
             proxiesFile: './react/lib/components/stencil-generated/index.ts'
-        })
+        }),
+        {
+            type: 'www',
+            serviceWorker: null,
+            copy: [
+                {
+                    src: '../design-tokens/dist',
+                    dest: 'design-tokens'
+                },
+            ],
+        }
     ]
 };

@@ -41,7 +41,7 @@ import {isEnterKey, generateUniqueId, isSpaceKey} from "../../utils/helpers";
 })
 export class SelectOption implements ComponentInterface {
     @Element() private el!: HTMLWcsSelectOptionElement;
-    private selectOptionId: string = generateUniqueId(this.el.tagName);
+    private selectOptionId: string;
 
     /** Whether this option can be selected. */
     @Prop({ mutable: true, reflect: true }) disabled: boolean = false;
@@ -80,6 +80,8 @@ export class SelectOption implements ComponentInterface {
     wcsSelectOptionClick: EventEmitter<SelectOptionChosedEvent>;
 
     componentWillLoad() {
+        this.selectOptionId = generateUniqueId(this.el.tagName);
+
         if (this.value === undefined) {
             // If no value was given we use the text content instead.
             this.value = this.el.innerText || '';

@@ -21,16 +21,15 @@ cache:
       # We do not cache node_modules for Angular projects until they are used between several jobs
       # - angular/.npm
 
-test:
+test-e2e-playwright:
   tags:
-    # - saas-linux-medium-amd64
     - sncf-runner
-  image: zenika/alpine-chrome:with-puppeteer
   stage: test
+  image: mcr.microsoft.com/playwright:v1.57.0-noble
   script:
     - npm ci --cache .npm --prefer-offline
     - npm run generate-design-tokens
-    - npm run test:ci
+    - npm run test:playwright
 
 build:
   tags:
