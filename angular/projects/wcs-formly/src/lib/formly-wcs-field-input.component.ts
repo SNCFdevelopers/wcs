@@ -28,6 +28,8 @@ export type WcsFormlyInputProps = WcsFormlyFieldWrapperProps & {
   spellcheck?: boolean,
   state?: WcsInputState,
   suffixLabel?: string,
+  minDate?: string | undefined,
+  maxDate?: string | undefined,
 };
 
 @Component({
@@ -49,9 +51,9 @@ export type WcsFormlyInputProps = WcsFormlyFieldWrapperProps & {
                  [icon]="props.icon"
                  [id]="id"
                  [inputmode]="props.inputMode"
-                 [max]="props.max"
+                 [max]="props.maxDate ? props.maxDate : props.max"
                  [maxlength]="props.maxLength"
-                 [min]="props.min"
+                 [min]="props.minDate ? props.minDate : props.min"
                  [minlength]="props.minLength"
                  [ngStyle]="props.styles?.input"
                  [pattern]="props.pattern"

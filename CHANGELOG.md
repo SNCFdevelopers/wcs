@@ -11,6 +11,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+- **Angular Formly**: add two new formly props to `WcsFormlyInputProps` => `maxDate` and `minDate` for date input type 
 - **core**: add bundle and composite-elements output targets in wcs-core package with documentation and examples
 
 ### Changed
