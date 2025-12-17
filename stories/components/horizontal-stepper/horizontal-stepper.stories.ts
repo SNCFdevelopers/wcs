@@ -104,6 +104,11 @@ export const Default: StoryObj<HorizontalStepperArgs> = {
     }
 };
 
+/**
+ * When using the stepper in `linear` mode with steps that do not have a descriptive text label (e.g., just numbers),
+ * it is mandatory (for accessibility reasons) to set the `ariaLabel` property for each step.
+ * This provides a descriptive label for screen readers, ensuring the component is accessible.
+ */
 export const TextWithoutLabelLinear: StoryObj<HorizontalStepperArgs> = {
     render: (args) => {
         const textWithoutLabelLinearHorizontalStepperRef = createRef();
@@ -113,13 +118,13 @@ export const TextWithoutLabelLinear: StoryObj<HorizontalStepperArgs> = {
         checkOnComplete: true,
         mode: 'linear',
         steps: [
-            {button: {kind: 'Text', text: '1'}},
-            {button: {kind: 'Text', text: '2'}},
-            {button: {kind: 'Text', text: '3'}},
-            {disable: true, button: {kind: 'Text', text: '4'}},
-            {button: {kind: 'Text', text: '5'}},
-            {complete: true, button: {kind: 'Text', text: '6'}},
-            {button: {kind: 'Text', text: '7'}},
+            {ariaLabel: "Étape 1", button: {kind: 'Text', text: '1'}},
+            {ariaLabel: "Étape 2", button: {kind: 'Text', text: '2'}},
+            {ariaLabel: "Étape 3", button: {kind: 'Text', text: '3'}},
+            {ariaLabel: "Étape 4", disable: true, button: {kind: 'Text', text: '4'}},
+            {ariaLabel: "Étape 5", button: {kind: 'Text', text: '5'}},
+            {ariaLabel: "Étape 6", complete: true, button: {kind: 'Text', text: '6'}},
+            {ariaLabel: "Étape 7", button: {kind: 'Text', text: '7'}},
         ]
     }
 }

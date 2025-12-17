@@ -17,6 +17,10 @@ import { HorizontalStep } from './horizontal-step';
 /**
  * The horizontal-stepper is a representation of a user’s progress through a series of discrete steps.
  *
+ * ## Accessibility guidelines 💡
+ * > - The `ariaLabel` property is available for every step to provide a more descriptive label for screen readers.
+ * > - It is **mandatory** in `linear` mode if the step's content is not descriptive enough (e.g., only a number).
+ * 
  * @cssprop --wcs-horizontal-step-text-color-default - Text color of the step by default
  * @cssprop --wcs-horizontal-step-text-color-active - Text color of the step when active
  * @cssprop --wcs-horizontal-step-text-color-disabled - Text color of step when disabled

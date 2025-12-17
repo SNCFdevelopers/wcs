@@ -6,6 +6,8 @@ import { MaterialIconFamily } from '../mat-icon/mat-icon-interface';
 export interface HorizontalStepConfig {
     /** Text displayed below the step button */
     text?: string;
+    /** Accessibility name applied on the step button **/
+    ariaLabel?: string;
     /** Specifies if the step is clickable or not */
     disable?: boolean;
     /** Specifies if the step is completed */

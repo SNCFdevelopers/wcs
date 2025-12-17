@@ -33,7 +33,7 @@ export const HorizontalStep: FunctionalComponent<HorizontalStepProps> = (
         <li role="listitem" class="graphic-step" data-first={first}>
             {first ? null : (<wcs-progress-bar value={passed ? 100 : 0} aria-hidden="true"></wcs-progress-bar>)}
             <wcs-button style={{'backgroundColor': 'white'}}
-                        aria-label={step.text}
+                        aria-label={step.ariaLabel ?? step.text}
                         onClick={_ => onClick(step)}
                         ref={(el: HTMLWcsButtonElement) => {
                             active ? el.setAriaAttribute('aria-current', 'step') : el.setAriaAttribute('aria-current', null)
