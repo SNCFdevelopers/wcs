@@ -1,6 +1,6 @@
-import {setCustomElementsManifest} from '@storybook/web-components';
-import { addons } from '@storybook/preview-api';
-import { GLOBALS_UPDATED } from '@storybook/core-events';
+import { setCustomElementsManifest } from '@storybook/web-components-vite';
+import { addons } from 'storybook/preview-api';
+import { GLOBALS_UPDATED } from 'storybook/internal/core-events';
 import customElements from '../custom-elements.json';
 
 // XXX: https://github.com/storybookjs/storybook/issues/15436#issuecomment-1272769983
@@ -56,17 +56,17 @@ export const parameters = {
         },
     },
     backgrounds: {
-        default: 'light',
-        values: [
-            {
+        options: {
+            light: {
                 name: 'light',
                 value: '#ffffff',
             },
-            {
+
+            dark: {
                 name: 'dark',
                 value: '#1b1c1d',
-            },
-        ],
+            }
+        }
     },
 }
 
@@ -121,3 +121,4 @@ if (typeof window !== 'undefined') {
 }
 
 export const decorators = [withDesignTokens];
+export const tags = ['autodocs'];

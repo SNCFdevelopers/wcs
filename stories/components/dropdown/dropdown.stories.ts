@@ -1,10 +1,10 @@
-import { Meta, StoryObj } from '@storybook/web-components';
+import { Meta, StoryObj } from '@storybook/web-components-vite';
 import { html } from 'lit-html';
 import { WcsButtonMode, WcsButtonShape, WcsButtonSize } from '../../../src/components/button/button-interface';
 // @ts-ignore
 import { WcsDropdownPlacement } from '../../../src/components/dropdown/dropdown-interface';
 // @ts-ignore
-import { withActions } from '@storybook/addon-actions/decorator';
+import { withActions } from 'storybook/actions/decorator';
 import { getComponentArgs } from '../../utils/args-generation';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 

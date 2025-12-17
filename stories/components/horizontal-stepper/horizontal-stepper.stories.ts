@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/web-components';
+import { Meta, StoryObj } from '@storybook/web-components-vite';
 import { html } from 'lit-html';
 import {
     HorizontalStepClickEvent,
@@ -8,7 +8,7 @@ import {
 import { createRef, Ref, ref } from 'lit-html/directives/ref.js';
 import { HorizontalStepper } from '../../../src/components/horizontal-stepper/horizontal-stepper';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
-import { withActions } from '@storybook/addon-actions/decorator';
+import { withActions } from 'storybook/actions/decorator';
 import { getComponentArgs } from '../../utils/args-generation';
 
 

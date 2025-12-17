@@ -1,9 +1,9 @@
-import { Meta } from '@storybook/web-components';
+import { Meta } from '@storybook/web-components-vite';
 import { html, nothing } from 'lit-html';
 // @ts-ignore
 import { RadioGroupMode } from '../../../src/components/radio-group/radio-group-interface';
 // @ts-ignore
-import { withActions } from '@storybook/addon-actions/decorator';
+import { withActions } from 'storybook/actions/decorator';
 import { getComponentArgs } from '../../utils/args-generation';
 import { ifDefined } from "lit-html/directives/if-defined.js";
 

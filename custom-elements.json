@@ -2779,12 +2779,7 @@
             {
               "kind": "method",
               "name": "renderExpandAllButton",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "JSX.Element"
-                }
-              }
+              "privacy": "private"
             },
             {
               "kind": "method",
@@ -4207,6 +4202,330 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/com-nav/com-nav-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/com-nav/com-nav-size.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/com-nav/com-nav-utils.ts",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "registerCloseHandlerForFocusOutEventOn",
+          "return": {
+            "type": {
+              "text": "void"
+            }
+          },
+          "parameters": [
+            {
+              "name": "navigableItems",
+              "type": {
+                "text": "NodeListOf<Element>"
+              },
+              "description": "items on which focusout event listeners must be added"
+            },
+            {
+              "name": "nodeNameToClose",
+              "type": {
+                "text": "string"
+              },
+              "description": "nodeName of the element we want to close in the event path"
+            }
+          ],
+          "description": "This function add event handlers on the navigableItems list. The handlers call the function close() on the nodeName.\r\n\r\nT: type class of the nodeNameToClose param (must have a close function)"
+        },
+        {
+          "kind": "function",
+          "name": "comNavDidLoadWithResizeObserver",
+          "return": {
+            "type": {
+              "text": "ResizeObserver"
+            }
+          },
+          "parameters": [
+            {
+              "name": "comNavElement",
+              "type": {
+                "text": "ComNav | ComNavSubmenu | ComNavCategory"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "registerCloseHandlerForFocusOutEventOn",
+          "declaration": {
+            "name": "registerCloseHandlerForFocusOutEventOn",
+            "module": "components/com-nav/com-nav-utils.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "comNavDidLoadWithResizeObserver",
+          "declaration": {
+            "name": "comNavDidLoadWithResizeObserver",
+            "module": "components/com-nav/com-nav-utils.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/com-nav/com-nav.e2e.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/com-nav/com-nav.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "*Part of communication design system*\r\n\r\nThe com-nav component is a container for navigation links to external or internal pages of the website.",
+          "name": "ComNav",
+          "cssProperties": [
+            {
+              "description": "Height of the menu bar",
+              "name": "--wcs-com-nav-menu-bar-height"
+            },
+            {
+              "description": "Border color of the bottom border of the com-nav",
+              "name": "--wcs-com-nav-border-color"
+            },
+            {
+              "description": "Border width of the border below com-nav",
+              "name": "--wcs-com-nav-border-width"
+            },
+            {
+              "description": "Background color of the com-nav;",
+              "name": "--wcs-com-nav-background-color"
+            },
+            {
+              "description": "App name color",
+              "name": "--wcs-com-nav-app-name-color"
+            },
+            {
+              "description": "App name font-weight",
+              "name": "--wcs-com-nav-app-name-font-weight"
+            },
+            {
+              "description": "Font size of the App name text",
+              "name": "--wcs-com-nav-app-name-font-size"
+            },
+            {
+              "description": "Line height of the App name text",
+              "name": "--wcs-com-nav-app-name-line-height"
+            },
+            {
+              "description": "Color of the wcs-nav-item inside menu-bar",
+              "name": "--wcs-com-nav-item-color"
+            },
+            {
+              "description": "Font weight of the wcs-nav-item inside menu-bar",
+              "name": "--wcs-com-nav-item-font-weight"
+            },
+            {
+              "description": "Focus outline color of the wcs-nav-item inside menu-bar",
+              "name": "--wcs-com-nav-focus-outline-color"
+            },
+            {
+              "description": "Horizontal padding of wcs-com-nav",
+              "name": "--wcs-com-nav-horizontal-padding"
+            },
+            {
+              "description": "Vertical padding of wcs-com-nav",
+              "name": "--wcs-com-nav-vertical-padding"
+            },
+            {
+              "description": "Gap between each items section in mobile overlay",
+              "name": "--wcs-com-nav-mobile-overlay-gap"
+            },
+            {
+              "description": "Padding inside mobile overlay",
+              "name": "--wcs-com-nav-mobile-overlay-padding"
+            },
+            {
+              "description": "Bar border color on the left of icon mobile menu",
+              "name": "--wcs-com-nav-mobile-menu-icon-border-color"
+            },
+            {
+              "description": "Gap between icon mobile menu and separator on the left",
+              "name": "--wcs-com-nav-mobile-menu-icon-gap-"
+            },
+            {
+              "description": "Margin left of icon mobile menu",
+              "name": "--wcs-com-nav-mobile-menu-icon-margin-left"
+            },
+            {
+              "description": "Gap between each item inside menu-bar",
+              "name": "--wcs-com-nav-menu-bar-gap"
+            },
+            {
+              "description": "Margin left between menu bar and the app-name section",
+              "name": "--wcs-com-nav-menu-bar-margin-left"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Default slot containing all the menu declarations",
+              "name": "<no-name>"
+            },
+            {
+              "description": "(Optional) Extra slot for the application name",
+              "name": "app-name"
+            },
+            {
+              "description": "Slot for actions placed on the right part of the container",
+              "name": "actions"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsComNavElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "appName",
+              "type": {
+                "text": "string"
+              },
+              "description": "Name of the application to be displayed in the menu bar"
+            },
+            {
+              "kind": "field",
+              "name": "mobileMenuOpen",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "currentActiveSizing",
+              "type": {
+                "text": "ComNavSize"
+              },
+              "privacy": "public"
+            },
+            {
+              "kind": "field",
+              "name": "resizeObserver",
+              "type": {
+                "text": "ResizeObserver"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "mobileMenuIconClick",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "closeMobileMenu",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "onClickOnFinalAction"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            },
+            {
+              "kind": "method",
+              "name": "exitMobileMenuOnKeyDown",
+              "parameters": [
+                {
+                  "name": "evt",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  },
+                  "description": "keydown event on window target."
+                }
+              ],
+              "description": "Close the mobile menu if the user press escape."
+            }
+          ],
+          "attributes": [
+            {
+              "name": "app-name",
+              "fieldName": "appName",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "tagName": "wcs-com-nav",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ComNav",
+          "declaration": {
+            "name": "ComNav",
+            "module": "components/com-nav/com-nav.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-com-nav",
+          "declaration": {
+            "name": "ComNav",
+            "module": "components/com-nav/com-nav.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/chip/chip-interface.ts",
       "declarations": [],
       "exports": []
@@ -4666,330 +4985,6 @@
           "declaration": {
             "name": "Chip",
             "module": "components/chip/chip.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/com-nav/com-nav-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/com-nav/com-nav-size.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/com-nav/com-nav-utils.ts",
-      "declarations": [
-        {
-          "kind": "function",
-          "name": "registerCloseHandlerForFocusOutEventOn",
-          "return": {
-            "type": {
-              "text": "void"
-            }
-          },
-          "parameters": [
-            {
-              "name": "navigableItems",
-              "type": {
-                "text": "NodeListOf<Element>"
-              },
-              "description": "items on which focusout event listeners must be added"
-            },
-            {
-              "name": "nodeNameToClose",
-              "type": {
-                "text": "string"
-              },
-              "description": "nodeName of the element we want to close in the event path"
-            }
-          ],
-          "description": "This function add event handlers on the navigableItems list. The handlers call the function close() on the nodeName.\r\n\r\nT: type class of the nodeNameToClose param (must have a close function)"
-        },
-        {
-          "kind": "function",
-          "name": "comNavDidLoadWithResizeObserver",
-          "return": {
-            "type": {
-              "text": "ResizeObserver"
-            }
-          },
-          "parameters": [
-            {
-              "name": "comNavElement",
-              "type": {
-                "text": "ComNav | ComNavSubmenu | ComNavCategory"
-              }
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "registerCloseHandlerForFocusOutEventOn",
-          "declaration": {
-            "name": "registerCloseHandlerForFocusOutEventOn",
-            "module": "components/com-nav/com-nav-utils.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "comNavDidLoadWithResizeObserver",
-          "declaration": {
-            "name": "comNavDidLoadWithResizeObserver",
-            "module": "components/com-nav/com-nav-utils.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/com-nav/com-nav.e2e.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/com-nav/com-nav.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "*Part of communication design system*\r\n\r\nThe com-nav component is a container for navigation links to external or internal pages of the website.",
-          "name": "ComNav",
-          "cssProperties": [
-            {
-              "description": "Height of the menu bar",
-              "name": "--wcs-com-nav-menu-bar-height"
-            },
-            {
-              "description": "Border color of the bottom border of the com-nav",
-              "name": "--wcs-com-nav-border-color"
-            },
-            {
-              "description": "Border width of the border below com-nav",
-              "name": "--wcs-com-nav-border-width"
-            },
-            {
-              "description": "Background color of the com-nav;",
-              "name": "--wcs-com-nav-background-color"
-            },
-            {
-              "description": "App name color",
-              "name": "--wcs-com-nav-app-name-color"
-            },
-            {
-              "description": "App name font-weight",
-              "name": "--wcs-com-nav-app-name-font-weight"
-            },
-            {
-              "description": "Font size of the App name text",
-              "name": "--wcs-com-nav-app-name-font-size"
-            },
-            {
-              "description": "Line height of the App name text",
-              "name": "--wcs-com-nav-app-name-line-height"
-            },
-            {
-              "description": "Color of the wcs-nav-item inside menu-bar",
-              "name": "--wcs-com-nav-item-color"
-            },
-            {
-              "description": "Font weight of the wcs-nav-item inside menu-bar",
-              "name": "--wcs-com-nav-item-font-weight"
-            },
-            {
-              "description": "Focus outline color of the wcs-nav-item inside menu-bar",
-              "name": "--wcs-com-nav-focus-outline-color"
-            },
-            {
-              "description": "Horizontal padding of wcs-com-nav",
-              "name": "--wcs-com-nav-horizontal-padding"
-            },
-            {
-              "description": "Vertical padding of wcs-com-nav",
-              "name": "--wcs-com-nav-vertical-padding"
-            },
-            {
-              "description": "Gap between each items section in mobile overlay",
-              "name": "--wcs-com-nav-mobile-overlay-gap"
-            },
-            {
-              "description": "Padding inside mobile overlay",
-              "name": "--wcs-com-nav-mobile-overlay-padding"
-            },
-            {
-              "description": "Bar border color on the left of icon mobile menu",
-              "name": "--wcs-com-nav-mobile-menu-icon-border-color"
-            },
-            {
-              "description": "Gap between icon mobile menu and separator on the left",
-              "name": "--wcs-com-nav-mobile-menu-icon-gap-"
-            },
-            {
-              "description": "Margin left of icon mobile menu",
-              "name": "--wcs-com-nav-mobile-menu-icon-margin-left"
-            },
-            {
-              "description": "Gap between each item inside menu-bar",
-              "name": "--wcs-com-nav-menu-bar-gap"
-            },
-            {
-              "description": "Margin left between menu bar and the app-name section",
-              "name": "--wcs-com-nav-menu-bar-margin-left"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Default slot containing all the menu declarations",
-              "name": "<no-name>"
-            },
-            {
-              "description": "(Optional) Extra slot for the application name",
-              "name": "app-name"
-            },
-            {
-              "description": "Slot for actions placed on the right part of the container",
-              "name": "actions"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsComNavElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "appName",
-              "type": {
-                "text": "string"
-              },
-              "description": "Name of the application to be displayed in the menu bar"
-            },
-            {
-              "kind": "field",
-              "name": "mobileMenuOpen",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "currentActiveSizing",
-              "type": {
-                "text": "ComNavSize"
-              },
-              "privacy": "public"
-            },
-            {
-              "kind": "field",
-              "name": "resizeObserver",
-              "type": {
-                "text": "ResizeObserver"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "mobileMenuIconClick",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "closeMobileMenu",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "onClickOnFinalAction"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            },
-            {
-              "kind": "method",
-              "name": "exitMobileMenuOnKeyDown",
-              "parameters": [
-                {
-                  "name": "evt",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  },
-                  "description": "keydown event on window target."
-                }
-              ],
-              "description": "Close the mobile menu if the user press escape."
-            }
-          ],
-          "attributes": [
-            {
-              "name": "app-name",
-              "fieldName": "appName",
-              "type": {
-                "text": "string"
-              }
-            }
-          ],
-          "tagName": "wcs-com-nav",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ComNav",
-          "declaration": {
-            "name": "ComNav",
-            "module": "components/com-nav/com-nav.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-com-nav",
-          "declaration": {
-            "name": "ComNav",
-            "module": "components/com-nav/com-nav.tsx"
           }
         }
       ]
@@ -12985,6 +12980,107 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/nav/nav.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The nav component is a container for navigation links to other pages of the website.",
+          "name": "Nav",
+          "cssProperties": [
+            {
+              "description": "Background color of the nav",
+              "name": "--wcs-nav-background-color"
+            },
+            {
+              "description": "Width of the nav on desktop",
+              "name": "--wcs-nav-width-desktop"
+            },
+            {
+              "description": "Height of the nav on mobile",
+              "name": "--wcs-nav-height-mobile"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Bottom part of the nav to put to nav-items at the end",
+              "name": "bottom"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsProgressBarElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeNav",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-nav",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Nav",
+          "declaration": {
+            "name": "Nav",
+            "module": "components/nav/nav.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-nav",
+          "declaration": {
+            "name": "Nav",
+            "module": "components/nav/nav.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/nav-item/nav-item.tsx",
       "declarations": [
         {
@@ -13139,107 +13235,6 @@
           "declaration": {
             "name": "NavItem",
             "module": "components/nav-item/nav-item.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/nav/nav.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The nav component is a container for navigation links to other pages of the website.",
-          "name": "Nav",
-          "cssProperties": [
-            {
-              "description": "Background color of the nav",
-              "name": "--wcs-nav-background-color"
-            },
-            {
-              "description": "Width of the nav on desktop",
-              "name": "--wcs-nav-width-desktop"
-            },
-            {
-              "description": "Height of the nav on mobile",
-              "name": "--wcs-nav-height-mobile"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Bottom part of the nav to put to nav-items at the end",
-              "name": "bottom"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsProgressBarElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "nativeNav",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-nav",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Nav",
-          "declaration": {
-            "name": "Nav",
-            "module": "components/nav/nav.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-nav",
-          "declaration": {
-            "name": "Nav",
-            "module": "components/nav/nav.tsx"
           }
         }
       ]

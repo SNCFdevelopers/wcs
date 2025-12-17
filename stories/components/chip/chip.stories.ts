@@ -1,8 +1,8 @@
-import { Meta, StoryFn } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components-vite';
 import { html, nothing } from 'lit-html';
 import { getComponentArgs } from '../../utils/args-generation';
 import { WcsChipMode, WcsChipVariant } from '../../../src/components/chip/chip-interface';
-import { withActions } from '@storybook/addon-actions/decorator';
+import { withActions } from 'storybook/actions/decorator';
 
 const meta: Meta = {
     title: 'Components/Chip',

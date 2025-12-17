@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/web-components';
+import { Meta } from '@storybook/web-components-vite';
 import { html, nothing } from "lit-html";
 import { WcsNativeSelectSize } from "../../../src";
 import { getComponentArgs } from "../../utils/args-generation";

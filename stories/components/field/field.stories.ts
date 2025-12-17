@@ -1,7 +1,7 @@
-import { Meta } from '@storybook/web-components';
+import { Meta } from '@storybook/web-components-vite';
 
 // @ts-ignore
-import fieldDocumentation from './field-documentation.md'
+import fieldDocumentation from './field-documentation.md?raw'
 import { html } from 'lit-html';
 import { getComponentArgs } from "../../utils/args-generation";
 

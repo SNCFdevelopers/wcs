@@ -1,4 +1,4 @@
-import { Meta, StoryFn, StoryObj } from '@storybook/web-components';
+import { Meta, StoryFn, StoryObj } from '@storybook/web-components-vite';
 import { html } from 'lit-html';
 import { BadgeColor, BadgeShape, BadgeSize } from '../../../src/components/badge/badge-interface';
 import { getComponentArgs } from '../../utils/args-generation';

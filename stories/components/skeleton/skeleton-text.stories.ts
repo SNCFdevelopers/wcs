@@ -1,4 +1,4 @@
-import {Meta, StoryObj} from "@storybook/web-components";
+import {Meta, StoryObj} from "@storybook/web-components-vite";
 import {getComponentArgs} from "../../utils/args-generation";
 import {html} from "lit-html";
 

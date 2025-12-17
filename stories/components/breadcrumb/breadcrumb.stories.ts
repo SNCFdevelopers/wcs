@@ -1,7 +1,7 @@
-import { Meta, StoryObj } from '@storybook/web-components';
+import { Meta, StoryObj } from '@storybook/web-components-vite';
 import { html, nothing } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
-import { useArgs } from '@storybook/preview-api';
+import { useArgs } from 'storybook/preview-api';
 
 import { getComponentArgs } from '../../utils/args-generation';
 import {

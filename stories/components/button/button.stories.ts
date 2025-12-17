@@ -1,4 +1,4 @@
-import { Meta, StoryFn } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components-vite';
 import { html } from 'lit-html';
 import { WcsButtonMode, WcsButtonShape, WcsButtonSize } from '../../../src/components/button/button-interface';
 import { createRef, ref, Ref } from 'lit-html/directives/ref.js';

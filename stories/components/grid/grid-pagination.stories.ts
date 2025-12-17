@@ -1,4 +1,4 @@
-import {Meta, StoryFn, StoryObj} from '@storybook/web-components';
+import {Meta, StoryFn, StoryObj} from '@storybook/web-components-vite';
 import { html } from 'lit-html';
 import { getComponentArgs } from '../../utils/args-generation';
 import { sampleData } from "./pagination-sample-data";

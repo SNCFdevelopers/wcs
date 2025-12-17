@@ -61,7 +61,7 @@ export default function ComponentsOverview() {
      */
     const components = [
         { name: "Alert" },
-        { name: "Alert-Drawer", displayName: 'AlertDrawer' },
+        { name: "AlertDrawer", displayName: 'Alert Drawer' },
         { name: 'Accordion' },
         { name: 'Actionbar', displayName: 'Actionbar (business)' },
         { name: 'Badge' },
@@ -104,7 +104,7 @@ export default function ComponentsOverview() {
         const { name, displayName, link, fileType } = component;
 
         const formattedComponentName = name?.toLowerCase().replace(/\s/g, '');
-        const formattedLink = (link || `../?path=/docs/components-${formattedComponentName}--documentation`) + '#storybook-docs';
+        const formattedLink = (link ? `../?path=${link}` : `../?path=/docs/components-${formattedComponentName}--documentation`) + '#storybook-docs';
 
         return (
             <a href={formattedLink} aria-label={name}>

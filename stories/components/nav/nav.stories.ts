@@ -1,8 +1,8 @@
-import { Meta, StoryFn, StoryObj } from '@storybook/web-components';
+import { Meta, StoryFn, StoryObj } from '@storybook/web-components-vite';
 import { html, nothing } from 'lit-html';
 import { createRef, ref } from 'lit-html/directives/ref.js';
 // @ts-ignore
-import navDocumentation from './nav-documentation.md';
+import navDocumentation from './nav-documentation.md?raw';
 import { getComponentArgs } from '../../utils/args-generation';
 
 const meta: Meta = {

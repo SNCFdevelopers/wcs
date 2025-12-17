@@ -1,4 +1,4 @@
-import { create } from '@storybook/theming';
+import { create } from 'storybook/theming';
 
 import logo from '../stories/assets/images/wcs-logo-white.png';
 

@@ -1,6 +1,6 @@
-import { Meta, StoryFn } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components-vite';
 // @ts-ignore
-import galacticDocumentation from './galactic-documentation.md'
+import galacticDocumentation from './galactic-documentation.md?raw'
 import { html } from 'lit-html';
 import { getComponentArgs } from '../../utils/args-generation';
 

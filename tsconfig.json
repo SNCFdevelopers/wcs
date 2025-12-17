@@ -16,11 +16,13 @@
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "jsx": "react",
-        "jsxFactory": "h"
+        "jsxFactory": "h",
+        "skipLibCheck": true
     },
     "include": [
         "src",
-        "types/jsx.d.ts"
+        "types/jsx.d.ts",
+        "stories/types/markdown.d.ts"
     ],
     "exclude": [
         "node_modules",

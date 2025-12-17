@@ -1,10 +1,10 @@
-import { Meta, StoryFn, StoryObj } from "@storybook/web-components";
-import { withActions } from "@storybook/addon-actions/decorator";
+import { Meta, StoryFn, StoryObj } from "@storybook/web-components-vite";
+import { withActions } from "storybook/actions/decorator";
 import { getComponentArgs } from "../../utils/args-generation";
 import { html } from "lit-html";
 import { WcsAlertIntent, WcsAlertConfig } from '../../../src/components/alert/alert-interface';
 import { WcsAlertDrawerPosition } from "../../../src/components/alert-drawer/alert-drawer-interface";
-import AlertDrawerDocumentation from "./alert-drawer-documentation.md";
+import AlertDrawerDocumentation from "./alert-drawer-documentation.md?raw";
 const meta: Meta = {
     title: 'Components/AlertDrawer',
     component: 'wcs-alert-drawer',

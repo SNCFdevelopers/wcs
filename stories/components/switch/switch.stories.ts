@@ -1,8 +1,8 @@
-import { Meta, StoryFn } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components-vite';
 import { html } from 'lit-html';
 import { SwitchLabelAlignment } from '../../../src/components/switch/switch-interface';
 // @ts-ignore
-import { withActions } from '@storybook/addon-actions/decorator';
+import { withActions } from 'storybook/actions/decorator';
 import { getComponentArgs } from '../../utils/args-generation';
 
 const meta: Meta = {

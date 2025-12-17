@@ -1,18 +1,18 @@
-import { Meta } from '@storybook/addon-docs';
+import { Meta } from '@storybook/addon-docs/blocks';
 
 <Meta title="Documentation/Getting Started/Core/Bundle"/>
 
-## `bundle`
+# `bundle`
 
 The `bundle` directory contains a single file that includes all WCS components. This is useful if you want to include all components in your project without lazy loading. With this bundle, all components are loaded upfront, which can be beneficial for applications that require immediate access to all components without the delay of lazy loading.
 
 **⚠️ Be aware that this approach can lead to a larger initial load size ⚠️**, as all components are included in the bundle regardless of whether they are used or not.
 
-### How to use
+## How to use
 
 There are two primary ways to use the components from the `dist` output: with a bundler or with a simple script tag.
 
-#### With a Bundler
+### With a Bundler
 
 This is the recommended approach for modern web applications.
 
@@ -47,7 +47,7 @@ You can now use the WCS components anywhere in your HTML templates. Since they a
 <wcs-button>Click me</wcs-button>
 ```
 
-#### With a `<script>` tag
+### With a `<script>` tag
 
 This method is great for static HTML pages or for quick integration without a build process.
 

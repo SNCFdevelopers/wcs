@@ -1,4 +1,4 @@
-import { Meta, StoryFn, StoryObj } from '@storybook/web-components';
+import { Meta, StoryFn, StoryObj } from '@storybook/web-components-vite';
 import { html, nothing } from 'lit-html';
 import { WcsTabChangeEvent, WcsTabsAlignment } from '../../../src/components/tabs/tabs-interface';
 // @ts-ignore

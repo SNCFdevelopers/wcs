@@ -1,7 +1,7 @@
-import { Meta, StoryFn, StoryObj } from '@storybook/web-components';
+import { Meta, StoryFn, StoryObj } from '@storybook/web-components-vite';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { html } from 'lit-html';
-import { withActions } from '@storybook/addon-actions/decorator';
+import { withActions } from 'storybook/actions/decorator';
 import { getComponentArgs } from '../../utils/args-generation';
 
 const meta: Meta = {

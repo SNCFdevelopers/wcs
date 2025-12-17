@@ -1,7 +1,7 @@
-import { Meta, StoryFn, StoryObj } from '@storybook/web-components';
+import { Meta, StoryFn, StoryObj } from '@storybook/web-components-vite';
 import { html } from 'lit-html';
 import { getComponentArgs } from '../../utils/args-generation';
-import comNavDocumentation from './com-nav-documentation.md';
+import comNavDocumentation from './com-nav-documentation.md?raw';
 
 const meta: Meta = {
     title: 'Components/DS Communication/Nav',

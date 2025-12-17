@@ -1,8 +1,8 @@
-import { Meta, StoryFn } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components-vite';
 import { html } from 'lit-html';
 import { MaterialIconFamily, MaterialIconSize } from '../../../src/components/mat-icon/mat-icon-interface';
 // @ts-ignore
-import matIconDocumentation from './mat-icon-documentation.md';
+import matIconDocumentation from './mat-icon-documentation.md?raw';
 import { getComponentArgs } from '../../utils/args-generation';
 
 const meta: Meta = {

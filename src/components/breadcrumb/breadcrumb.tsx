@@ -193,7 +193,7 @@ export class Breadcrumb implements ComponentInterface, MutableAriaAttribute {
         breadcrumbItemLinkToFocus?.focus();
     }
 
-    private renderExpandAllButton(): JSX.Element {
+    private renderExpandAllButton() {
         const expandBtnIsLastItem = this.itemsAfterCollapse === 0;
         return (
             <div role="listitem" class="item-not-slotted">

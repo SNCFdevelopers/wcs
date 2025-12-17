@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/web-components';
+import { Meta, StoryObj } from '@storybook/web-components-vite';
 import { html } from 'lit-html';
 import { DropdownStoryArgs } from "./dropdown.stories";
 import { getComponentArgs } from "../../utils/args-generation";

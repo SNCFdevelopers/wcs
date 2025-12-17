@@ -1,10 +1,10 @@
-import { Meta, StoryFn, StoryObj } from '@storybook/web-components';
+import { Meta, StoryFn, StoryObj } from '@storybook/web-components-vite';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { createRef, ref } from 'lit-html/directives/ref.js';
 import { ModalSize } from '../../../src/components/modal/modal-interface';
 import { html } from 'lit-html';
 // @ts-ignore
-import { withActions } from '@storybook/addon-actions/decorator';
+import { withActions } from 'storybook/actions/decorator';
 import { getComponentArgs } from '../../utils/args-generation';
 
 const meta: Meta = {

@@ -1,11 +1,11 @@
-import { Meta, StoryObj } from '@storybook/web-components';
+import { Meta, StoryObj } from '@storybook/web-components-vite';
 import { html } from 'lit-html';
 import { WcsTooltipAppendTo, WcsTooltipPosition } from '../../../src/components/tooltip/tooltip-interface';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { createRef, ref, Ref } from 'lit-html/directives/ref.js';
 import { getComponentArgs } from '../../utils/args-generation';
-import { useArgs } from '@storybook/preview-api';
+import { useArgs } from 'storybook/preview-api';
 
 const meta: Meta = {
     title: 'Components/Tooltip',

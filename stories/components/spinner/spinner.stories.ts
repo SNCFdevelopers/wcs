@@ -1,4 +1,4 @@
-import { Meta, StoryFn } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components-vite';
 import { html } from 'lit-html';
 import { WcsSpinnerMode } from '../../../src/components/spinner/spinner-interface';
 import { getComponentArgs } from '../../utils/args-generation';

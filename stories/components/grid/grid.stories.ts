@@ -1,6 +1,6 @@
-import {Meta, StoryFn, StoryObj} from '@storybook/web-components';
+import {Meta, StoryFn, StoryObj} from '@storybook/web-components-vite';
 import {html} from 'lit-html';
-import {withActions} from '@storybook/addon-actions/decorator';
+import {withActions} from 'storybook/actions/decorator';
 import {
     WcsGridColumnSortChangeEventDetails,
     WcsGridPaginationChangeEventDetails,

@@ -1,6 +1,6 @@
-import { Meta, StoryFn } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components-vite';
 // @ts-ignore
-import footerDocumentation from './footer-documentation.md'
+import footerDocumentation from './footer-documentation.md?raw'
 import { html } from 'lit-html';
 
 const meta: Meta = {

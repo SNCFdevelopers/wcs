@@ -1,7 +1,7 @@
-import { Meta, StoryObj } from '@storybook/web-components';
+import { Meta, StoryObj } from '@storybook/web-components-vite';
 import { html, nothing } from 'lit-html';
 import { getComponentArgs } from '../../utils/args-generation';
-import { withActions } from '@storybook/addon-actions/decorator';
+import { withActions } from 'storybook/actions/decorator';
 import { sampleDepartments } from "./select-sample-data";
 
 const meta: Meta = {

@@ -1,4 +1,4 @@
-import { Meta, StoryFn, StoryObj } from '@storybook/web-components';
+import { Meta, StoryFn, StoryObj } from '@storybook/web-components-vite';
 import { html, TemplateResult } from 'lit-html';
 import { getComponentArgs } from '../../utils/args-generation';
 const meta: Meta = {

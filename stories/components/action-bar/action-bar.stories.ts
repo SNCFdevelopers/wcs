@@ -1,7 +1,7 @@
-import { Meta, StoryFn } from '@storybook/web-components';
+import { Meta, StoryFn } from '@storybook/web-components-vite';
 import { html } from 'lit-html';
 // @ts-ignore
-import tabInsideDocumentation from './tab-inside-documentation.md';
+import tabInsideDocumentation from './tab-inside-documentation.md?raw';
 import { getComponentArgs } from '../../utils/args-generation';
 
 const meta: Meta = {

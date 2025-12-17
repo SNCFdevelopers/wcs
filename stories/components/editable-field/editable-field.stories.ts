@@ -1,4 +1,4 @@
-import { Meta, StoryFn, StoryObj } from '@storybook/web-components';
+import { Meta, StoryFn, StoryObj } from '@storybook/web-components-vite';
 import { html } from 'lit-html';
 import {
     EditableFieldType,
@@ -8,7 +8,7 @@ import {
 } from '../../../src/components/editable-field/editable-field-interface';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 // @ts-ignore
-import { withActions } from '@storybook/addon-actions/decorator';
+import { withActions } from 'storybook/actions/decorator';
 import { getComponentArgs } from '../../utils/args-generation';
 
 
