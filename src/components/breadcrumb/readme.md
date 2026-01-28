@@ -46,7 +46,7 @@ It helps users find their place within a website or web application. Breadcrumbs
 
 | Name    | Type                         | Description |
 | ------- | ---------------------------- | ----------- |
-| `attr`  | `"role" \| `aria-${string}`` |             |
+| `attr`  | ``aria-${string}` \| "role"` |             |
 | `value` | `string`                     |             |
 
 #### Returns

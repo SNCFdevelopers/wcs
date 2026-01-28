@@ -37,7 +37,7 @@ The radio component should always be wrapped in a `wcs-radio-group`.
 
 | Name    | Type                         | Description |
 | ------- | ---------------------------- | ----------- |
-| `attr`  | `"role" \| `aria-${string}`` |             |
+| `attr`  | ``aria-${string}` \| "role"` |             |
 | `value` | `string`                     |             |
 
 #### Returns

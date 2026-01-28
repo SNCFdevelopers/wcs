@@ -37,7 +37,7 @@ The grid pagination is a subcomponent of `wcs-grid`, slotted in `grid-pagination
 
 | Name    | Type                         | Description |
 | ------- | ---------------------------- | ----------- |
-| `attr`  | `"role" \| `aria-${string}`` |             |
+| `attr`  | ``aria-${string}` \| "role"` |             |
 | `value` | `string`                     |             |
 
 #### Returns

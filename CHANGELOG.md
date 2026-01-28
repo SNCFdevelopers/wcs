@@ -11,15 +11,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-- **horizontal-stepper**: add ariaLabel property to `HorizontalStepConfig`, allows providing a descriptive label for each step to improve accessibility
-- **Angular Formly**: add two new formly props to `WcsFormlyInputProps` => `maxDate` and `minDate` for date input type 
-- **core**: add bundle and composite-elements output targets in wcs-core package with documentation and examples
-- **com-nav**: default style for slotted app name anchor link
+for new features.
 
 ### Changed
 
-- **storybook**: upgrade to storybook v10
-- **doc**: improve components overview
+for changes in existing functionality.
 
 ### Deprecated
 
@@ -31,6 +27,28 @@ for now removed features.
 
 ### Fixed
 
+for any bug fixes.
+
+### Security
+
+in case of vulnerabilities.
+
+## [7.4.0] - 2026-01-28
+
+### Added
+
+- **horizontal-stepper**: add ariaLabel property to `HorizontalStepConfig`, allows providing a descriptive label for each step to improve accessibility
+- **Angular Formly**: add two new formly props to `WcsFormlyInputProps` => `maxDate` and `minDate` for date input type 
+- **core**: add bundle and composite-elements output targets in wcs-core package with documentation and examples
+- **com-nav**: default style for slotted app name anchor link
+
+### Changed
+
+- **storybook**: upgrade to storybook v10
+- **doc**: improve components overview
+
+### Fixed
+
 - **label**: fix extra-height and gap when using label with text and icon together
 - **doc**: apply selected theme on MDX docs pages
 - **grid**: default sort on a `wcs-grid-column` with grid pagination did not worked well
@@ -38,10 +56,6 @@ for now removed features.
 - **select**: 
   - filtering in autocomplete server mode was no longer possible
   - reselecting the current option or blurring the select did not reset value in the autocomplete field
-
-### Security
-
-in case of vulnerabilities.
 
 ## [7.3.0] - 2025-09-15
 

@@ -26,7 +26,7 @@ A component used to display a [Material Icon](https://fonts.google.com/icons?ico
 
 | Name    | Type                         | Description |
 | ------- | ---------------------------- | ----------- |
-| `attr`  | `"role" \| `aria-${string}`` |             |
+| `attr`  | ``aria-${string}` \| "role"` |             |
 | `value` | `string`                     |             |
 
 #### Returns

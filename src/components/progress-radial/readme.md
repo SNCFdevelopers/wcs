@@ -39,7 +39,7 @@ The progress-radial component is a circular progress bar that indicates the curr
 
 | Name    | Type                         | Description |
 | ------- | ---------------------------- | ----------- |
-| `attr`  | `"role" \| `aria-${string}`` |             |
+| `attr`  | ``aria-${string}` \| "role"` |             |
 | `value` | `string`                     |             |
 
 #### Returns

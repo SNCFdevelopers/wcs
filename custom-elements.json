@@ -1088,66 +1088,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "utils/tests.ts",
-      "declarations": [
-        {
-          "kind": "function",
-          "name": "findFocusedNode",
-          "return": {
-            "type": {
-              "text": "SerializedAXNode"
-            }
-          },
-          "parameters": [
-            {
-              "name": "node",
-              "type": {
-                "text": "SerializedAXNode"
-              }
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "setWcsContent",
-          "parameters": [
-            {
-              "name": "page",
-              "type": {
-                "text": "E2EPage"
-              }
-            },
-            {
-              "name": "content",
-              "type": {
-                "text": "string"
-              }
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "findFocusedNode",
-          "declaration": {
-            "name": "findFocusedNode",
-            "module": "utils/tests.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "setWcsContent",
-          "declaration": {
-            "name": "setWcsContent",
-            "module": "utils/tests.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/accordion/accordion.e2e.ts",
+      "path": "components/accordion/accordion.e2e.playwright.ts",
       "declarations": [],
       "exports": []
     },
@@ -1800,13 +1741,226 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/alert-drawer/alert-drawer-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/alert-drawer/alert-drawer.e2e.playwright.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/alert-drawer/alert-drawer.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Serve as a container for displaying `wcs-alert` components. Directly use this component to display alerts in your applications.\r\n\r\n## Usage\r\n\r\nYou can place the `wcs-alert-drawer` component anywhere in your application. It will be used to display alerts.\r\nYou need to set `position` property to define where the alert drawer will be displayed on the screen.\r\n\r\nAbout alerts order:\r\n- alerts are ordered up-bottom if the position is `top` and bottom-up if the position is `bottom`\r\n\r\n## Accessibility guidelines 💡\r\n\r\n- The component has `aria-live=\"polite\"` and `aria-atomic=\"true\"` attributes to announce the new alerts to screen readers\r\n\r\n## Configuration (on the web component)\r\n\r\nPer default, the `wcs-alert-drawer` is configured with:\r\n- `position: 'top-right'`\r\n- `showProgressBar: false`\r\n- `timeout: 5000`\r\n\r\nWhen using the `WcsAlertDrawer::show(alert: WcsAlertConfig)` method, you can override the default configuration by \r\noverriding it through the argument.\r\nYou can also set them in the `wcs-alert-drawer` component directly as attributes\r\n\r\n```html\r\n<wcs-alert-drawer position=\"top-right\" show-progress-bar timeout=\"10000\">\r\n```\r\nWith this configuration, all alerts will be displayed with a progress bar and a timeout of 10 seconds.",
+          "name": "AlertDrawer",
+          "cssProperties": [
+            {
+              "description": "Gap between alerts",
+              "name": "--wcs-alert-drawer-gap"
+            },
+            {
+              "description": "Margin horizontal of the alert drawer",
+              "name": "--wcs-alert-drawer-margin-horizontal"
+            },
+            {
+              "description": "Margin vertical of the alert drawer",
+              "name": "--wcs-alert-drawer-margin-vertical"
+            },
+            {
+              "description": "Duration of the hide alert animation",
+              "name": "--wcs-alert-drawer-hide-alert-animation-duration"
+            },
+            {
+              "description": "Minimum width of the alert drawer => define the width of the alerts",
+              "name": "--wcs-alert-drawer-min-width"
+            }
+          ],
+          "slots": [
+            {
+              "description": "the alert drawer content, where alerts you put as children will be displayed",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsAlertDrawerElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "position",
+              "type": {
+                "text": "WcsAlertDrawerPosition"
+              },
+              "default": "'bottom-right'",
+              "description": "Position of the alert drawer on the screen"
+            },
+            {
+              "kind": "field",
+              "name": "timeout",
+              "type": {
+                "text": "number"
+              },
+              "default": "5000",
+              "description": "Timeout for the alert to be dismissed automatically"
+            },
+            {
+              "kind": "field",
+              "name": "showProgressBar",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Whether to show the progress bar or not"
+            },
+            {
+              "kind": "field",
+              "name": "alertEventListeners",
+              "privacy": "private",
+              "default": "new WeakMap<HTMLElement, (evt: AnimationEvent) => void>()"
+            },
+            {
+              "kind": "field",
+              "name": "timeoutId",
+              "privacy": "private",
+              "default": "undefined"
+            },
+            {
+              "kind": "field",
+              "name": "userPrefersReducedMotion",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "alertsContainer",
+              "type": {
+                "text": "HTMLDivElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "close",
+              "privacy": "private",
+              "description": "Handles the dismissal of an alert",
+              "parameters": [
+                {
+                  "description": "The alert element",
+                  "name": "alert"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "show",
+              "return": {
+                "type": {
+                  "text": "Promise<void>"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "alert",
+                  "type": {
+                    "text": "WcsAlertConfig"
+                  },
+                  "description": "The alert to show"
+                }
+              ],
+              "description": "Method exposed on `wcs-alert-drawer` to show an alert programmatically via the JS API"
+            },
+            {
+              "kind": "method",
+              "name": "renderToast",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "HTMLWcsAlertElement"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "alert",
+                  "type": {
+                    "text": "WcsAlertConfig"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "position",
+              "fieldName": "position",
+              "type": {
+                "text": "WcsAlertDrawerPosition"
+              }
+            },
+            {
+              "name": "timeout",
+              "fieldName": "timeout",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "show-progress-bar",
+              "fieldName": "showProgressBar",
+              "type": {
+                "text": "boolean"
+              }
+            }
+          ],
+          "tagName": "wcs-alert-drawer",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "AlertDrawer",
+          "declaration": {
+            "name": "AlertDrawer",
+            "module": "components/alert-drawer/alert-drawer.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-alert-drawer",
+          "declaration": {
+            "name": "AlertDrawer",
+            "module": "components/alert-drawer/alert-drawer.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/alert/alert-interface.ts",
       "declarations": [],
       "exports": []
     },
     {
       "kind": "javascript-module",
-      "path": "components/alert/alert.e2e.ts",
+      "path": "components/alert/alert.e2e.playwright.ts",
       "declarations": [],
       "exports": []
     },
@@ -2088,219 +2242,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/alert-drawer/alert-drawer-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/alert-drawer/alert-drawer.e2e.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/alert-drawer/alert-drawer.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Serve as a container for displaying `wcs-alert` components. Directly use this component to display alerts in your applications.\r\n\r\n## Usage\r\n\r\nYou can place the `wcs-alert-drawer` component anywhere in your application. It will be used to display alerts.\r\nYou need to set `position` property to define where the alert drawer will be displayed on the screen.\r\n\r\nAbout alerts order:\r\n- alerts are ordered up-bottom if the position is `top` and bottom-up if the position is `bottom`\r\n\r\n## Accessibility guidelines 💡\r\n\r\n- The component has `aria-live=\"polite\"` and `aria-atomic=\"true\"` attributes to announce the new alerts to screen readers\r\n\r\n## Configuration (on the web component)\r\n\r\nPer default, the `wcs-alert-drawer` is configured with:\r\n- `position: 'top-right'`\r\n- `showProgressBar: false`\r\n- `timeout: 5000`\r\n\r\nWhen using the `WcsAlertDrawer::show(alert: WcsAlertConfig)` method, you can override the default configuration by \r\noverriding it through the argument.\r\nYou can also set them in the `wcs-alert-drawer` component directly as attributes\r\n\r\n```html\r\n<wcs-alert-drawer position=\"top-right\" show-progress-bar timeout=\"10000\">\r\n```\r\nWith this configuration, all alerts will be displayed with a progress bar and a timeout of 10 seconds.",
-          "name": "AlertDrawer",
-          "cssProperties": [
-            {
-              "description": "Gap between alerts",
-              "name": "--wcs-alert-drawer-gap"
-            },
-            {
-              "description": "Margin horizontal of the alert drawer",
-              "name": "--wcs-alert-drawer-margin-horizontal"
-            },
-            {
-              "description": "Margin vertical of the alert drawer",
-              "name": "--wcs-alert-drawer-margin-vertical"
-            },
-            {
-              "description": "Duration of the hide alert animation",
-              "name": "--wcs-alert-drawer-hide-alert-animation-duration"
-            },
-            {
-              "description": "Minimum width of the alert drawer => define the width of the alerts",
-              "name": "--wcs-alert-drawer-min-width"
-            }
-          ],
-          "slots": [
-            {
-              "description": "the alert drawer content, where alerts you put as children will be displayed",
-              "name": ""
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsAlertDrawerElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "position",
-              "type": {
-                "text": "WcsAlertDrawerPosition"
-              },
-              "default": "'bottom-right'",
-              "description": "Position of the alert drawer on the screen"
-            },
-            {
-              "kind": "field",
-              "name": "timeout",
-              "type": {
-                "text": "number"
-              },
-              "default": "5000",
-              "description": "Timeout for the alert to be dismissed automatically"
-            },
-            {
-              "kind": "field",
-              "name": "showProgressBar",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Whether to show the progress bar or not"
-            },
-            {
-              "kind": "field",
-              "name": "alertEventListeners",
-              "privacy": "private",
-              "default": "new WeakMap<HTMLElement, (evt: AnimationEvent) => void>()"
-            },
-            {
-              "kind": "field",
-              "name": "timeoutId",
-              "privacy": "private",
-              "default": "undefined"
-            },
-            {
-              "kind": "field",
-              "name": "userPrefersReducedMotion",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "alertsContainer",
-              "type": {
-                "text": "HTMLDivElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "close",
-              "privacy": "private",
-              "description": "Handles the dismissal of an alert",
-              "parameters": [
-                {
-                  "description": "The alert element",
-                  "name": "alert"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "show",
-              "return": {
-                "type": {
-                  "text": "Promise<void>"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "alert",
-                  "type": {
-                    "text": "WcsAlertConfig"
-                  },
-                  "description": "The alert to show"
-                }
-              ],
-              "description": "Method exposed on `wcs-alert-drawer` to show an alert programmatically via the JS API"
-            },
-            {
-              "kind": "method",
-              "name": "renderToast",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "HTMLWcsAlertElement"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "alert",
-                  "type": {
-                    "text": "WcsAlertConfig"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "position",
-              "fieldName": "position",
-              "type": {
-                "text": "WcsAlertDrawerPosition"
-              }
-            },
-            {
-              "name": "timeout",
-              "fieldName": "timeout",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "show-progress-bar",
-              "fieldName": "showProgressBar",
-              "type": {
-                "text": "boolean"
-              }
-            }
-          ],
-          "tagName": "wcs-alert-drawer",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "AlertDrawer",
-          "declaration": {
-            "name": "AlertDrawer",
-            "module": "components/alert-drawer/alert-drawer.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-alert-drawer",
-          "declaration": {
-            "name": "AlertDrawer",
-            "module": "components/alert-drawer/alert-drawer.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/app/app.tsx",
       "declarations": [
         {
@@ -2555,7 +2496,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/breadcrumb/breadcrumb.e2e.ts",
+      "path": "components/breadcrumb/breadcrumb.e2e.playwright.ts",
       "declarations": [],
       "exports": []
     },
@@ -2951,7 +2892,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/button/button.e2e.ts",
+      "path": "components/button/button.e2e.playwright.ts",
       "declarations": [],
       "exports": []
     },
@@ -3794,7 +3735,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/checkbox/checkbox.e2e.ts",
+      "path": "components/checkbox/checkbox.e2e.playwright.ts",
       "declarations": [],
       "exports": []
     },
@@ -4202,337 +4143,13 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/com-nav/com-nav-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/com-nav/com-nav-size.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/com-nav/com-nav-utils.ts",
-      "declarations": [
-        {
-          "kind": "function",
-          "name": "registerCloseHandlerForFocusOutEventOn",
-          "return": {
-            "type": {
-              "text": "void"
-            }
-          },
-          "parameters": [
-            {
-              "name": "navigableItems",
-              "type": {
-                "text": "NodeListOf<Element>"
-              },
-              "description": "items on which focusout event listeners must be added"
-            },
-            {
-              "name": "nodeNameToClose",
-              "type": {
-                "text": "string"
-              },
-              "description": "nodeName of the element we want to close in the event path"
-            }
-          ],
-          "description": "This function add event handlers on the navigableItems list. The handlers call the function close() on the nodeName.\r\n\r\nT: type class of the nodeNameToClose param (must have a close function)"
-        },
-        {
-          "kind": "function",
-          "name": "comNavDidLoadWithResizeObserver",
-          "return": {
-            "type": {
-              "text": "ResizeObserver"
-            }
-          },
-          "parameters": [
-            {
-              "name": "comNavElement",
-              "type": {
-                "text": "ComNav | ComNavSubmenu | ComNavCategory"
-              }
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "registerCloseHandlerForFocusOutEventOn",
-          "declaration": {
-            "name": "registerCloseHandlerForFocusOutEventOn",
-            "module": "components/com-nav/com-nav-utils.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "comNavDidLoadWithResizeObserver",
-          "declaration": {
-            "name": "comNavDidLoadWithResizeObserver",
-            "module": "components/com-nav/com-nav-utils.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/com-nav/com-nav.e2e.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/com-nav/com-nav.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "*Part of communication design system*\r\n\r\nThe com-nav component is a container for navigation links to external or internal pages of the website.",
-          "name": "ComNav",
-          "cssProperties": [
-            {
-              "description": "Height of the menu bar",
-              "name": "--wcs-com-nav-menu-bar-height"
-            },
-            {
-              "description": "Border color of the bottom border of the com-nav",
-              "name": "--wcs-com-nav-border-color"
-            },
-            {
-              "description": "Border width of the border below com-nav",
-              "name": "--wcs-com-nav-border-width"
-            },
-            {
-              "description": "Background color of the com-nav;",
-              "name": "--wcs-com-nav-background-color"
-            },
-            {
-              "description": "App name color",
-              "name": "--wcs-com-nav-app-name-color"
-            },
-            {
-              "description": "App name font-weight",
-              "name": "--wcs-com-nav-app-name-font-weight"
-            },
-            {
-              "description": "Font size of the App name text",
-              "name": "--wcs-com-nav-app-name-font-size"
-            },
-            {
-              "description": "Line height of the App name text",
-              "name": "--wcs-com-nav-app-name-line-height"
-            },
-            {
-              "description": "Color of the wcs-nav-item inside menu-bar",
-              "name": "--wcs-com-nav-item-color"
-            },
-            {
-              "description": "Font weight of the wcs-nav-item inside menu-bar",
-              "name": "--wcs-com-nav-item-font-weight"
-            },
-            {
-              "description": "Focus outline color of the wcs-nav-item inside menu-bar",
-              "name": "--wcs-com-nav-focus-outline-color"
-            },
-            {
-              "description": "Horizontal padding of wcs-com-nav",
-              "name": "--wcs-com-nav-horizontal-padding"
-            },
-            {
-              "description": "Vertical padding of wcs-com-nav",
-              "name": "--wcs-com-nav-vertical-padding"
-            },
-            {
-              "description": "Gap between each items section in mobile overlay",
-              "name": "--wcs-com-nav-mobile-overlay-gap"
-            },
-            {
-              "description": "Padding inside mobile overlay",
-              "name": "--wcs-com-nav-mobile-overlay-padding"
-            },
-            {
-              "description": "Bar border color on the left of icon mobile menu",
-              "name": "--wcs-com-nav-mobile-menu-icon-border-color"
-            },
-            {
-              "description": "Gap between icon mobile menu and separator on the left",
-              "name": "--wcs-com-nav-mobile-menu-icon-gap-"
-            },
-            {
-              "description": "Margin left of icon mobile menu",
-              "name": "--wcs-com-nav-mobile-menu-icon-margin-left"
-            },
-            {
-              "description": "Gap between each item inside menu-bar",
-              "name": "--wcs-com-nav-menu-bar-gap"
-            },
-            {
-              "description": "Margin left between menu bar and the app-name section",
-              "name": "--wcs-com-nav-menu-bar-margin-left"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Default slot containing all the menu declarations",
-              "name": "<no-name>"
-            },
-            {
-              "description": "(Optional) Extra slot for the application name",
-              "name": "app-name"
-            },
-            {
-              "description": "Slot for actions placed on the right part of the container",
-              "name": "actions"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsComNavElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "appName",
-              "type": {
-                "text": "string"
-              },
-              "description": "Name of the application to be displayed in the menu bar"
-            },
-            {
-              "kind": "field",
-              "name": "mobileMenuOpen",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "currentActiveSizing",
-              "type": {
-                "text": "ComNavSize"
-              },
-              "privacy": "public"
-            },
-            {
-              "kind": "field",
-              "name": "resizeObserver",
-              "type": {
-                "text": "ResizeObserver"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "mobileMenuIconClick",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "closeMobileMenu",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "onClickOnFinalAction"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            },
-            {
-              "kind": "method",
-              "name": "exitMobileMenuOnKeyDown",
-              "parameters": [
-                {
-                  "name": "evt",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  },
-                  "description": "keydown event on window target."
-                }
-              ],
-              "description": "Close the mobile menu if the user press escape."
-            }
-          ],
-          "attributes": [
-            {
-              "name": "app-name",
-              "fieldName": "appName",
-              "type": {
-                "text": "string"
-              }
-            }
-          ],
-          "tagName": "wcs-com-nav",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ComNav",
-          "declaration": {
-            "name": "ComNav",
-            "module": "components/com-nav/com-nav.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-com-nav",
-          "declaration": {
-            "name": "ComNav",
-            "module": "components/com-nav/com-nav.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/chip/chip-interface.ts",
       "declarations": [],
       "exports": []
     },
     {
       "kind": "javascript-module",
-      "path": "components/chip/chip.e2e.ts",
+      "path": "components/chip/chip.e2e.playwright.ts",
       "declarations": [],
       "exports": []
     },
@@ -4991,6 +4608,330 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/com-nav/com-nav-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/com-nav/com-nav-size.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/com-nav/com-nav-utils.ts",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "registerCloseHandlerForFocusOutEventOn",
+          "return": {
+            "type": {
+              "text": "void"
+            }
+          },
+          "parameters": [
+            {
+              "name": "navigableItems",
+              "type": {
+                "text": "NodeListOf<Element>"
+              },
+              "description": "items on which focusout event listeners must be added"
+            },
+            {
+              "name": "nodeNameToClose",
+              "type": {
+                "text": "string"
+              },
+              "description": "nodeName of the element we want to close in the event path"
+            }
+          ],
+          "description": "This function add event handlers on the navigableItems list. The handlers call the function close() on the nodeName.\r\n\r\nT: type class of the nodeNameToClose param (must have a close function)"
+        },
+        {
+          "kind": "function",
+          "name": "comNavDidLoadWithResizeObserver",
+          "return": {
+            "type": {
+              "text": "ResizeObserver"
+            }
+          },
+          "parameters": [
+            {
+              "name": "comNavElement",
+              "type": {
+                "text": "ComNav | ComNavSubmenu | ComNavCategory"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "registerCloseHandlerForFocusOutEventOn",
+          "declaration": {
+            "name": "registerCloseHandlerForFocusOutEventOn",
+            "module": "components/com-nav/com-nav-utils.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "comNavDidLoadWithResizeObserver",
+          "declaration": {
+            "name": "comNavDidLoadWithResizeObserver",
+            "module": "components/com-nav/com-nav-utils.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/com-nav/com-nav.e2e.playwright.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/com-nav/com-nav.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "*Part of communication design system*\r\n\r\nThe com-nav component is a container for navigation links to external or internal pages of the website.",
+          "name": "ComNav",
+          "cssProperties": [
+            {
+              "description": "Height of the menu bar",
+              "name": "--wcs-com-nav-menu-bar-height"
+            },
+            {
+              "description": "Border color of the bottom border of the com-nav",
+              "name": "--wcs-com-nav-border-color"
+            },
+            {
+              "description": "Border width of the border below com-nav",
+              "name": "--wcs-com-nav-border-width"
+            },
+            {
+              "description": "Background color of the com-nav;",
+              "name": "--wcs-com-nav-background-color"
+            },
+            {
+              "description": "App name color",
+              "name": "--wcs-com-nav-app-name-color"
+            },
+            {
+              "description": "App name font-weight",
+              "name": "--wcs-com-nav-app-name-font-weight"
+            },
+            {
+              "description": "Font size of the App name text",
+              "name": "--wcs-com-nav-app-name-font-size"
+            },
+            {
+              "description": "Line height of the App name text",
+              "name": "--wcs-com-nav-app-name-line-height"
+            },
+            {
+              "description": "Color of the wcs-nav-item inside menu-bar",
+              "name": "--wcs-com-nav-item-color"
+            },
+            {
+              "description": "Font weight of the wcs-nav-item inside menu-bar",
+              "name": "--wcs-com-nav-item-font-weight"
+            },
+            {
+              "description": "Focus outline color of the wcs-nav-item inside menu-bar",
+              "name": "--wcs-com-nav-focus-outline-color"
+            },
+            {
+              "description": "Horizontal padding of wcs-com-nav",
+              "name": "--wcs-com-nav-horizontal-padding"
+            },
+            {
+              "description": "Vertical padding of wcs-com-nav",
+              "name": "--wcs-com-nav-vertical-padding"
+            },
+            {
+              "description": "Gap between each items section in mobile overlay",
+              "name": "--wcs-com-nav-mobile-overlay-gap"
+            },
+            {
+              "description": "Padding inside mobile overlay",
+              "name": "--wcs-com-nav-mobile-overlay-padding"
+            },
+            {
+              "description": "Bar border color on the left of icon mobile menu",
+              "name": "--wcs-com-nav-mobile-menu-icon-border-color"
+            },
+            {
+              "description": "Gap between icon mobile menu and separator on the left",
+              "name": "--wcs-com-nav-mobile-menu-icon-gap-"
+            },
+            {
+              "description": "Margin left of icon mobile menu",
+              "name": "--wcs-com-nav-mobile-menu-icon-margin-left"
+            },
+            {
+              "description": "Gap between each item inside menu-bar",
+              "name": "--wcs-com-nav-menu-bar-gap"
+            },
+            {
+              "description": "Margin left between menu bar and the app-name section",
+              "name": "--wcs-com-nav-menu-bar-margin-left"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Default slot containing all the menu declarations",
+              "name": "<no-name>"
+            },
+            {
+              "description": "(Optional) Extra slot for the application name",
+              "name": "app-name"
+            },
+            {
+              "description": "Slot for actions placed on the right part of the container",
+              "name": "actions"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsComNavElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "appName",
+              "type": {
+                "text": "string"
+              },
+              "description": "Name of the application to be displayed in the menu bar"
+            },
+            {
+              "kind": "field",
+              "name": "mobileMenuOpen",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "currentActiveSizing",
+              "type": {
+                "text": "ComNavSize"
+              },
+              "privacy": "public"
+            },
+            {
+              "kind": "field",
+              "name": "resizeObserver",
+              "type": {
+                "text": "ResizeObserver"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "mobileMenuIconClick",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "closeMobileMenu",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "onClickOnFinalAction"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            },
+            {
+              "kind": "method",
+              "name": "exitMobileMenuOnKeyDown",
+              "parameters": [
+                {
+                  "name": "evt",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  },
+                  "description": "keydown event on window target."
+                }
+              ],
+              "description": "Close the mobile menu if the user press escape."
+            }
+          ],
+          "attributes": [
+            {
+              "name": "app-name",
+              "fieldName": "appName",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "tagName": "wcs-com-nav",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ComNav",
+          "declaration": {
+            "name": "ComNav",
+            "module": "components/com-nav/com-nav.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-com-nav",
+          "declaration": {
+            "name": "ComNav",
+            "module": "components/com-nav/com-nav.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/com-nav-category/com-nav-category.tsx",
       "declarations": [
         {
@@ -5366,397 +5307,6 @@
           "declaration": {
             "name": "ComNavItem",
             "module": "components/com-nav-item/com-nav-item.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/counter/counter-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/counter/counter.e2e.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/counter/counter.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Counter component, meant to be used for small range of values (e.g : 0 - 5).<br>\r\nFor larger or specific ranges, please use [wcs-input (type number)](.?path=/docs/components-input--documentation)",
-          "name": "Counter",
-          "cssProperties": [
-            {
-              "description": "Border radius of the counter",
-              "name": "--wcs-counter-border-radius"
-            },
-            {
-              "description": "Default color of the value",
-              "name": "--wcs-counter-value-color-default"
-            },
-            {
-              "description": "Color of the text when the counter is disabled",
-              "name": "--wcs-counter-value-color-disabled"
-            },
-            {
-              "description": "Font weight of the value",
-              "name": "--wcs-counter-font-weight"
-            },
-            {
-              "description": "Height medium of the counter",
-              "name": "--wcs-counter-height-m"
-            },
-            {
-              "description": "Height large of the counter",
-              "name": "--wcs-counter-height-l"
-            },
-            {
-              "description": "Font size medium of the counter",
-              "name": "--wcs-counter-font-size-m"
-            },
-            {
-              "description": "Font size large of the counter",
-              "name": "--wcs-counter-font-size-l"
-            },
-            {
-              "description": "Padding medium of the counter",
-              "name": "--wcs-counter-padding-m"
-            },
-            {
-              "description": "Padding large of the counter",
-              "name": "--wcs-counter-padding-l"
-            },
-            {
-              "description": "Background color of the counter",
-              "name": "--wcs-counter-background-color"
-            },
-            {
-              "description": "Gap between the buttons and the label",
-              "name": "--wcs-counter-gap"
-            },
-            {
-              "description": "Gap between the buttons and the label when the size is M",
-              "name": "--wcs-counter-gap-size-m"
-            },
-            {
-              "description": "Gap between the buttons and the label when the size is L",
-              "name": "--wcs-counter-gap-size-l"
-            },
-            {
-              "description": "Color of the focus outline",
-              "name": "--wcs-counter-outline-color-focus"
-            },
-            {
-              "description": "Duration of the animation",
-              "name": "--wcs-counter-transition-duration"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "spinButton",
-              "type": {
-                "text": "HTMLSpanElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "counterContainer",
-              "type": {
-                "text": "HTMLDivElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "ANIMATION_DURATION",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "default": "150",
-              "description": "Default animation duration, in milliseconds"
-            },
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "WcsCounterSize"
-              },
-              "default": "'m'",
-              "description": "Specify the size (height) of the counter."
-            },
-            {
-              "kind": "field",
-              "name": "label",
-              "type": {
-                "text": "string"
-              },
-              "description": "The label of the counter.<br/>\r\ne.g. Number of passengers, train carriages, railroad tracks..."
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Specify whether the counter is disabled or not."
-            },
-            {
-              "kind": "field",
-              "name": "min",
-              "type": {
-                "text": "number | undefined"
-              },
-              "description": "The minimum value of the counter.\r\nIf the value of the min attribute isn't set, then the element has no minimum value."
-            },
-            {
-              "kind": "field",
-              "name": "max",
-              "type": {
-                "text": "number | undefined"
-              },
-              "description": "The maximum value of the counter.\r\nIf the value of the max attribute isn't set, then the element has no maximum value."
-            },
-            {
-              "kind": "field",
-              "name": "step",
-              "type": {
-                "text": "number"
-              },
-              "default": "1",
-              "description": "Defines by how much the counter will be incremented or decremented."
-            },
-            {
-              "kind": "field",
-              "name": "value",
-              "type": {
-                "text": "number"
-              },
-              "description": "The current value of the counter."
-            },
-            {
-              "kind": "field",
-              "name": "displayedValue",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "description": "Only for animation and display purpose"
-            },
-            {
-              "kind": "field",
-              "name": "animateRunning",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "default": "false"
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "valueChange",
-              "parameters": [
-                {
-                  "name": "newVal",
-                  "type": {
-                    "text": "any"
-                  }
-                },
-                {
-                  "name": "oldVal",
-                  "type": {
-                    "text": "any"
-                  }
-                }
-              ],
-              "description": "Current value change => handle event and interval"
-            },
-            {
-              "kind": "method",
-              "name": "handleValueChange",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "updateDisplayValueIfNoAnimationRunning",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "ensureValueIsNotOutOfMinMax",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "setMinimumIfValueIsUndefinedOrNull",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "onKeyDown",
-              "parameters": [
-                {
-                  "name": "_event",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "notifyChange",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "handleDecrement",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "handleIncrement",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "animate",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "size",
-              "fieldName": "size",
-              "type": {
-                "text": "WcsCounterSize"
-              }
-            },
-            {
-              "name": "label",
-              "fieldName": "label",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "disabled",
-              "fieldName": "disabled",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "min",
-              "fieldName": "min",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "max",
-              "fieldName": "max",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "step",
-              "fieldName": "step",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "value",
-              "fieldName": "value",
-              "type": {
-                "text": "number"
-              }
-            }
-          ],
-          "tagName": "wcs-counter",
-          "events": [
-            {
-              "name": "wcsChange",
-              "type": {
-                "text": "EventEmitter<CounterChangeEventDetail>"
-              },
-              "description": "Emitted when the value of the counter has changed."
-            },
-            {
-              "name": "wcsBlur",
-              "type": {
-                "text": "EventEmitter<FocusEvent>"
-              },
-              "description": "Emitted when the counter loses focus."
-            }
-          ],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Counter",
-          "declaration": {
-            "name": "Counter",
-            "module": "components/counter/counter.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-counter",
-          "declaration": {
-            "name": "Counter",
-            "module": "components/counter/counter.tsx"
           }
         }
       ]
@@ -6164,6 +5714,397 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/counter/counter-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/counter/counter.e2e.playwright.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/counter/counter.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Counter component, meant to be used for small range of values (e.g : 0 - 5).<br>\r\nFor larger or specific ranges, please use [wcs-input (type number)](.?path=/docs/components-input--documentation)",
+          "name": "Counter",
+          "cssProperties": [
+            {
+              "description": "Border radius of the counter",
+              "name": "--wcs-counter-border-radius"
+            },
+            {
+              "description": "Default color of the value",
+              "name": "--wcs-counter-value-color-default"
+            },
+            {
+              "description": "Color of the text when the counter is disabled",
+              "name": "--wcs-counter-value-color-disabled"
+            },
+            {
+              "description": "Font weight of the value",
+              "name": "--wcs-counter-font-weight"
+            },
+            {
+              "description": "Height medium of the counter",
+              "name": "--wcs-counter-height-m"
+            },
+            {
+              "description": "Height large of the counter",
+              "name": "--wcs-counter-height-l"
+            },
+            {
+              "description": "Font size medium of the counter",
+              "name": "--wcs-counter-font-size-m"
+            },
+            {
+              "description": "Font size large of the counter",
+              "name": "--wcs-counter-font-size-l"
+            },
+            {
+              "description": "Padding medium of the counter",
+              "name": "--wcs-counter-padding-m"
+            },
+            {
+              "description": "Padding large of the counter",
+              "name": "--wcs-counter-padding-l"
+            },
+            {
+              "description": "Background color of the counter",
+              "name": "--wcs-counter-background-color"
+            },
+            {
+              "description": "Gap between the buttons and the label",
+              "name": "--wcs-counter-gap"
+            },
+            {
+              "description": "Gap between the buttons and the label when the size is M",
+              "name": "--wcs-counter-gap-size-m"
+            },
+            {
+              "description": "Gap between the buttons and the label when the size is L",
+              "name": "--wcs-counter-gap-size-l"
+            },
+            {
+              "description": "Color of the focus outline",
+              "name": "--wcs-counter-outline-color-focus"
+            },
+            {
+              "description": "Duration of the animation",
+              "name": "--wcs-counter-transition-duration"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "spinButton",
+              "type": {
+                "text": "HTMLSpanElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "counterContainer",
+              "type": {
+                "text": "HTMLDivElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "ANIMATION_DURATION",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "150",
+              "description": "Default animation duration, in milliseconds"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "WcsCounterSize"
+              },
+              "default": "'m'",
+              "description": "Specify the size (height) of the counter."
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "description": "The label of the counter.<br/>\r\ne.g. Number of passengers, train carriages, railroad tracks..."
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Specify whether the counter is disabled or not."
+            },
+            {
+              "kind": "field",
+              "name": "min",
+              "type": {
+                "text": "number | undefined"
+              },
+              "description": "The minimum value of the counter.\r\nIf the value of the min attribute isn't set, then the element has no minimum value."
+            },
+            {
+              "kind": "field",
+              "name": "max",
+              "type": {
+                "text": "number | undefined"
+              },
+              "description": "The maximum value of the counter.\r\nIf the value of the max attribute isn't set, then the element has no maximum value."
+            },
+            {
+              "kind": "field",
+              "name": "step",
+              "type": {
+                "text": "number"
+              },
+              "default": "1",
+              "description": "Defines by how much the counter will be incremented or decremented."
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "number"
+              },
+              "description": "The current value of the counter."
+            },
+            {
+              "kind": "field",
+              "name": "displayedValue",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "description": "Only for animation and display purpose"
+            },
+            {
+              "kind": "field",
+              "name": "animateRunning",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "valueChange",
+              "parameters": [
+                {
+                  "name": "newVal",
+                  "type": {
+                    "text": "any"
+                  }
+                },
+                {
+                  "name": "oldVal",
+                  "type": {
+                    "text": "any"
+                  }
+                }
+              ],
+              "description": "Current value change => handle event and interval"
+            },
+            {
+              "kind": "method",
+              "name": "handleValueChange",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "updateDisplayValueIfNoAnimationRunning",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "ensureValueIsNotOutOfMinMax",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "setMinimumIfValueIsUndefinedOrNull",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "onKeyDown",
+              "parameters": [
+                {
+                  "name": "_event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "notifyChange",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleDecrement",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "handleIncrement",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "animate",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "size",
+              "fieldName": "size",
+              "type": {
+                "text": "WcsCounterSize"
+              }
+            },
+            {
+              "name": "label",
+              "fieldName": "label",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "disabled",
+              "fieldName": "disabled",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "min",
+              "fieldName": "min",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "max",
+              "fieldName": "max",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "step",
+              "fieldName": "step",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "value",
+              "fieldName": "value",
+              "type": {
+                "text": "number"
+              }
+            }
+          ],
+          "tagName": "wcs-counter",
+          "events": [
+            {
+              "name": "wcsChange",
+              "type": {
+                "text": "EventEmitter<CounterChangeEventDetail>"
+              },
+              "description": "Emitted when the value of the counter has changed."
+            },
+            {
+              "name": "wcsBlur",
+              "type": {
+                "text": "EventEmitter<FocusEvent>"
+              },
+              "description": "Emitted when the counter loses focus."
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Counter",
+          "declaration": {
+            "name": "Counter",
+            "module": "components/counter/counter.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-counter",
+          "declaration": {
+            "name": "Counter",
+            "module": "components/counter/counter.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/dropdown/dropdown-interface.ts",
       "declarations": [],
       "exports": []
@@ -6213,7 +6154,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/dropdown/dropdown.e2e.ts",
+      "path": "components/dropdown/dropdown.e2e.playwright.ts",
       "declarations": [],
       "exports": []
     },
@@ -6958,7 +6899,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/editable-field/editable-field.e2e.ts",
+      "path": "components/editable-field/editable-field.e2e.playwright.ts",
       "declarations": [],
       "exports": []
     },
@@ -7861,7 +7802,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/form-field/form-field.e2e.ts",
+      "path": "components/form-field/form-field.e2e.playwright.ts",
       "declarations": [],
       "exports": []
     },
@@ -8561,7 +8502,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/grid/grid.e2e.ts",
+      "path": "components/grid/grid.e2e.playwright.ts",
       "declarations": [],
       "exports": []
     },
@@ -10551,7 +10492,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "The horizontal-stepper is a representation of a user’s progress through a series of discrete steps.",
+          "description": "The horizontal-stepper is a representation of a user’s progress through a series of discrete steps.\r\n\r\n## Accessibility guidelines 💡\r\n> - The `ariaLabel` property is available for every step to provide a more descriptive label for screen readers.\r\n> - It is **mandatory** in `linear` mode if the step's content is not descriptive enough (e.g., only a number).",
           "name": "HorizontalStepper",
           "cssProperties": [
             {
@@ -10917,7 +10858,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/input/input.e2e.ts",
+      "path": "components/input/input.e2e.playwright.ts",
       "declarations": [],
       "exports": []
     },
@@ -12236,7 +12177,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/modal/modal.e2e.ts",
+      "path": "components/modal/modal.e2e.playwright.ts",
       "declarations": [],
       "exports": []
     },
@@ -14094,7 +14035,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/radio-group/radio-group.e2e.ts",
+      "path": "components/radio-group/radio-group.e2e.playwright.ts",
       "declarations": [],
       "exports": []
     },
@@ -14493,7 +14434,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/select/select.e2e.ts",
+      "path": "components/select/select.e2e.playwright.ts",
       "declarations": [],
       "exports": []
     },
@@ -14991,6 +14932,10 @@
                   "name": "resetIfNoValue",
                   "default": "true",
                   "description": "When true and no value is provided, the select component will be reset\r\n Defaults to true"
+                },
+                {
+                  "name": "shouldEmitFilterChangeEvent",
+                  "default": "true"
                 }
               ],
               "description": "Updates the selected value(s) of the component and manages the internal state accordingly"
@@ -15315,6 +15260,12 @@
             },
             {
               "kind": "method",
+              "name": "syncOptionsElementsStateWithCurrentSelectedValue",
+              "privacy": "private",
+              "description": "This method only affect the option's selected state\r\n\r\nSet the selected state of each option to match the current selected value of the select"
+            },
+            {
+              "kind": "method",
               "name": "removeChip",
               "parameters": [
                 {
@@ -15411,6 +15362,10 @@
                   "name": "fromUserInteraction",
                   "default": "false",
                   "description": "If true, the change comes from user interaction (typing), if false it's programmatic"
+                },
+                {
+                  "name": "shouldEmitFilterChangeEvent",
+                  "default": "true"
                 }
               ],
               "description": "Set the autocomplete value and open the select if needed."
@@ -15453,19 +15408,6 @@
               "kind": "method",
               "name": "focusedAttributes",
               "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "onAutocompleteFieldBlur",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "_e",
-                  "type": {
-                    "text": "FocusEvent"
-                  }
-                }
-              ]
             },
             {
               "kind": "method",
@@ -15610,12 +15552,6 @@
           }
         }
       ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/skeleton/skeleton-interface.ts",
-      "declarations": [],
-      "exports": []
     },
     {
       "kind": "javascript-module",
@@ -15916,101 +15852,9 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/skeleton-circle/skeleton-circle.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Use a skeleton circle as a placeholder round images, illustrations or components",
-          "name": "SkeletonCircle",
-          "cssProperties": [
-            {
-              "description": "Border radius of the circle",
-              "name": "--wcs-skeleton-circle-border-radius"
-            },
-            {
-              "description": "_(Shared among all skeleton types)_<br/>Height of the skeleton",
-              "name": "--wcs-skeleton-height"
-            },
-            {
-              "description": "_(Shared among all skeleton types)_<br/> Minimum height of the skeleton",
-              "name": "--wcs-skeleton-min-height"
-            },
-            {
-              "description": "_(Shared among all skeleton types)_<br/> Width of the skeleton",
-              "name": "--wcs-skeleton-width"
-            },
-            {
-              "description": "_(Shared among all skeleton types)_<br/> Background color of the skeleton (default is a gradient)",
-              "name": "--wcs-skeleton-background-color"
-            },
-            {
-              "description": "_(Shared among all skeleton types)_<br/> Duration of the skeleton animation, if applicable",
-              "name": "--wcs-skeleton-animation-duration"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "animation",
-              "type": {
-                "text": "WcsSkeletonAnimation"
-              },
-              "default": "'glide'",
-              "description": "Specifies the animation of the skeleton"
-            },
-            {
-              "kind": "field",
-              "name": "radius",
-              "type": {
-                "text": "number"
-              },
-              "default": "50",
-              "description": "Specifies the radius of the circle in px"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "animation",
-              "fieldName": "animation",
-              "type": {
-                "text": "WcsSkeletonAnimation"
-              }
-            },
-            {
-              "name": "radius",
-              "fieldName": "radius",
-              "type": {
-                "text": "number"
-              }
-            }
-          ],
-          "tagName": "wcs-skeleton-circle",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "SkeletonCircle",
-          "declaration": {
-            "name": "SkeletonCircle",
-            "module": "components/skeleton-circle/skeleton-circle.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-skeleton-circle",
-          "declaration": {
-            "name": "SkeletonCircle",
-            "module": "components/skeleton-circle/skeleton-circle.tsx"
-          }
-        }
-      ]
+      "path": "components/skeleton/skeleton-interface.ts",
+      "declarations": [],
+      "exports": []
     },
     {
       "kind": "javascript-module",
@@ -16138,6 +15982,104 @@
           "declaration": {
             "name": "SkeletonRectangle",
             "module": "components/skeleton-rectangle/skeleton-rectangle.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/skeleton-circle/skeleton-circle.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Use a skeleton circle as a placeholder round images, illustrations or components",
+          "name": "SkeletonCircle",
+          "cssProperties": [
+            {
+              "description": "Border radius of the circle",
+              "name": "--wcs-skeleton-circle-border-radius"
+            },
+            {
+              "description": "_(Shared among all skeleton types)_<br/>Height of the skeleton",
+              "name": "--wcs-skeleton-height"
+            },
+            {
+              "description": "_(Shared among all skeleton types)_<br/> Minimum height of the skeleton",
+              "name": "--wcs-skeleton-min-height"
+            },
+            {
+              "description": "_(Shared among all skeleton types)_<br/> Width of the skeleton",
+              "name": "--wcs-skeleton-width"
+            },
+            {
+              "description": "_(Shared among all skeleton types)_<br/> Background color of the skeleton (default is a gradient)",
+              "name": "--wcs-skeleton-background-color"
+            },
+            {
+              "description": "_(Shared among all skeleton types)_<br/> Duration of the skeleton animation, if applicable",
+              "name": "--wcs-skeleton-animation-duration"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "animation",
+              "type": {
+                "text": "WcsSkeletonAnimation"
+              },
+              "default": "'glide'",
+              "description": "Specifies the animation of the skeleton"
+            },
+            {
+              "kind": "field",
+              "name": "radius",
+              "type": {
+                "text": "number"
+              },
+              "default": "50",
+              "description": "Specifies the radius of the circle in px"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "animation",
+              "fieldName": "animation",
+              "type": {
+                "text": "WcsSkeletonAnimation"
+              }
+            },
+            {
+              "name": "radius",
+              "fieldName": "radius",
+              "type": {
+                "text": "number"
+              }
+            }
+          ],
+          "tagName": "wcs-skeleton-circle",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SkeletonCircle",
+          "declaration": {
+            "name": "SkeletonCircle",
+            "module": "components/skeleton-circle/skeleton-circle.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-skeleton-circle",
+          "declaration": {
+            "name": "SkeletonCircle",
+            "module": "components/skeleton-circle/skeleton-circle.tsx"
           }
         }
       ]
@@ -16352,7 +16294,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/switch/switch.e2e.ts",
+      "path": "components/switch/switch.e2e.playwright.ts",
       "declarations": [],
       "exports": []
     },
@@ -16756,7 +16698,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/tabs/tabs.e2e.ts",
+      "path": "components/tabs/tabs.e2e.playwright.ts",
       "declarations": [],
       "exports": []
     },
@@ -17381,7 +17323,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/textarea/textarea.e2e.ts",
+      "path": "components/textarea/textarea.e2e.playwright.ts",
       "declarations": [],
       "exports": []
     },
@@ -18298,6 +18240,46 @@
           "declaration": {
             "name": "Tooltip",
             "module": "components/tooltip/tooltip.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "utils/playwright/test-expect.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "utils/playwright/test.ts",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "setWcsContent",
+          "parameters": [
+            {
+              "name": "page",
+              "type": {
+                "text": "E2EPage"
+              }
+            },
+            {
+              "name": "content",
+              "type": {
+                "text": "string"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "setWcsContent",
+          "declaration": {
+            "name": "setWcsContent",
+            "module": "utils/playwright/test.ts"
           }
         }
       ]
