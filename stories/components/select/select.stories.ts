@@ -300,21 +300,25 @@ export const AutocompleteWithServerMode: StoryObj = {
 }
 
 function handleFilterChangeServerMode(ev: any) {
-    // @ts-ignore
-    Array.from(ev.target.children).forEach((option: HTMLWcsSelectOptionElement) => {
-        option.remove();
-    });
-
-    const filterStr = ev.detail.value;
-    sampleDepartments.forEach((department) => {
-        if (department.name.toLowerCase().startsWith(filterStr.toLowerCase())) {
-            // @ts-ignore
-            const optionToAppend = document.createElement('wcs-select-option')
-            optionToAppend.textContent = department.name;
-            optionToAppend.value = department.value;
-            ev.target.appendChild(optionToAppend);
-        }
-    });
+    if ((window as any).__wcsSelectTimeout) {
+        clearTimeout((window as any).__wcsSelectTimeout);
+    }
+    (window as any).__wcsSelectTimeout = setTimeout(() => {
+        // @ts-ignore
+        Array.from(ev.target.children).forEach((option: HTMLWcsSelectOptionElement) => {
+            option.remove();
+        });
+        const filterStr = ev.detail.value;
+        sampleDepartments.forEach((department) => {
+            if (department.name.toLowerCase().startsWith(filterStr.toLowerCase())) {
+                // @ts-ignore
+                const optionToAppend = document.createElement('wcs-select-option');
+                optionToAppend.textContent = department.name;
+                optionToAppend.value = department.value;
+                ev.target.appendChild(optionToAppend);
+            }
+        });
+    }, 500);
 }
 
 /**

@@ -1310,6 +1310,9 @@ export namespace Components {
     }
     /**
      * The horizontal-stepper is a representation of a user’s progress through a series of discrete steps.
+     * ## Accessibility guidelines 💡
+     * > - The `ariaLabel` property is available for every step to provide a more descriptive label for screen readers.
+     * > - It is **mandatory** in `linear` mode if the step's content is not descriptive enough (e.g., only a number).
      * @cssprop --wcs-horizontal-step-text-color-default - Text color of the step by default
      * @cssprop --wcs-horizontal-step-text-color-active - Text color of the step when active
      * @cssprop --wcs-horizontal-step-text-color-disabled - Text color of step when disabled
@@ -2035,7 +2038,7 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
-          * **Only works with `autocomplete` mode.**   Customizable sort function to change the comparison of values. If not provided, uses the default behavior : `option.textContent.toLowerCase().startsWith(filter.toLowerCase())`
+          * **Only works with `autocomplete` mode.** Customizable sort function to change the comparison of values. If not provided, uses the default behavior : `option.textContent.toLowerCase().startsWith(filter.toLowerCase())`
          */
         "filterFn": WcsSelectFilterFn;
         /**
@@ -2059,7 +2062,7 @@ export namespace Components {
          */
         "required": boolean;
         /**
-          * **Only works with `autocomplete` mode.**   If `true`, the server mode disables the client-side filtering on your select and allows you to handle which options should be present in your DOM.
+          * **Only works with `autocomplete` mode.** If `true`, the server mode disables the client-side filtering on your select and allows you to handle which options should be present in your DOM.
          */
         "serverMode": boolean;
         "setAriaAttribute": (attr: AriaAttributeName, value: string | null | undefined) => Promise<void>;
@@ -3811,6 +3814,9 @@ declare global {
     }
     /**
      * The horizontal-stepper is a representation of a user’s progress through a series of discrete steps.
+     * ## Accessibility guidelines 💡
+     * > - The `ariaLabel` property is available for every step to provide a more descriptive label for screen readers.
+     * > - It is **mandatory** in `linear` mode if the step's content is not descriptive enough (e.g., only a number).
      * @cssprop --wcs-horizontal-step-text-color-default - Text color of the step by default
      * @cssprop --wcs-horizontal-step-text-color-active - Text color of the step when active
      * @cssprop --wcs-horizontal-step-text-color-disabled - Text color of step when disabled
@@ -6045,6 +6051,9 @@ declare namespace LocalJSX {
     }
     /**
      * The horizontal-stepper is a representation of a user’s progress through a series of discrete steps.
+     * ## Accessibility guidelines 💡
+     * > - The `ariaLabel` property is available for every step to provide a more descriptive label for screen readers.
+     * > - It is **mandatory** in `linear` mode if the step's content is not descriptive enough (e.g., only a number).
      * @cssprop --wcs-horizontal-step-text-color-default - Text color of the step by default
      * @cssprop --wcs-horizontal-step-text-color-active - Text color of the step when active
      * @cssprop --wcs-horizontal-step-text-color-disabled - Text color of step when disabled
@@ -6779,7 +6788,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * **Only works with `autocomplete` mode.**   Customizable sort function to change the comparison of values. If not provided, uses the default behavior : `option.textContent.toLowerCase().startsWith(filter.toLowerCase())`
+          * **Only works with `autocomplete` mode.** Customizable sort function to change the comparison of values. If not provided, uses the default behavior : `option.textContent.toLowerCase().startsWith(filter.toLowerCase())`
          */
         "filterFn"?: WcsSelectFilterFn;
         /**
@@ -6815,7 +6824,7 @@ declare namespace LocalJSX {
          */
         "required"?: boolean;
         /**
-          * **Only works with `autocomplete` mode.**   If `true`, the server mode disables the client-side filtering on your select and allows you to handle which options should be present in your DOM.
+          * **Only works with `autocomplete` mode.** If `true`, the server mode disables the client-side filtering on your select and allows you to handle which options should be present in your DOM.
          */
         "serverMode"?: boolean;
         /**
@@ -8172,6 +8181,9 @@ declare module "@stencil/core" {
             "wcs-hint": LocalJSX.WcsHint & JSXBase.HTMLAttributes<HTMLWcsHintElement>;
             /**
              * The horizontal-stepper is a representation of a user’s progress through a series of discrete steps.
+             * ## Accessibility guidelines 💡
+             * > - The `ariaLabel` property is available for every step to provide a more descriptive label for screen readers.
+             * > - It is **mandatory** in `linear` mode if the step's content is not descriptive enough (e.g., only a number).
              * @cssprop --wcs-horizontal-step-text-color-default - Text color of the step by default
              * @cssprop --wcs-horizontal-step-text-color-active - Text color of the step when active
              * @cssprop --wcs-horizontal-step-text-color-disabled - Text color of step when disabled

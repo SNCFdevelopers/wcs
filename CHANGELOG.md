@@ -34,6 +34,9 @@ for now removed features.
 - **doc**: apply selected theme on MDX docs pages
 - **grid**: default sort on a `wcs-grid-column` with grid pagination did not worked well
 - **modal**: actions was not re-render after setting `hide-action` attribute
+- **select**: 
+  - filtering in autocomplete server mode was no longer possible
+  - reselecting the current option or blurring the select did not reset value in the autocomplete field
 
 ### Security
 

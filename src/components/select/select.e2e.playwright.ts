@@ -1,6 +1,6 @@
-import { Locator, expect } from "@playwright/test";
+import { Locator, expect } from '@playwright/test';
 import { test, E2EPage } from '@stencil/playwright';
-import { setWcsContent } from "../../utils/playwright/test";
+import { setWcsContent } from '../../utils/playwright/test';
 
 async function focusAutocompleteInput(select: Locator) {
     await select.click();
@@ -247,7 +247,7 @@ test.describe('Select component', () => {
     });
 
     test.describe('Multiple', () => {
-        test("Musn't close when we select a value", async ({ page }: { page: E2EPage }) => {
+        test('Musn\'t close when we select a value', async ({ page }: { page: E2EPage }) => {
             // Given
             await setWcsContent(page, `
                 <wcs-select multiple>
@@ -502,7 +502,9 @@ test.describe('Select component', () => {
             await expect(select).toHaveClass(/expanded/);
         });
 
-        test('focuses last selected option when opening with keyboard after programmatic value change', async ({ page }: { page: E2EPage }) => {
+        test('focuses last selected option when opening with keyboard after programmatic value change', async ({ page }: {
+            page: E2EPage
+        }) => {
             // Given
             await setWcsContent(page, `
                 <wcs-select>
@@ -526,7 +528,9 @@ test.describe('Select component', () => {
     });
 
     test.describe('Keyboard navigation when select is opened and not multiple', () => {
-        test('close the overlay on Escape key pressed and focus select control', async ({ page }: { page: E2EPage }) => {
+        test('close the overlay on Escape key pressed and focus select control', async ({ page }: {
+            page: E2EPage
+        }) => {
             // Given
             await setWcsContent(page, `
                 <wcs-select>
@@ -550,7 +554,9 @@ test.describe('Select component', () => {
             await expect(select).toBeFocused();
         });
 
-        test('close the overlay on Alt + ArrowUp keys pressed and focus select control', async ({ page }: { page: E2EPage }) => {
+        test('close the overlay on Alt + ArrowUp keys pressed and focus select control', async ({ page }: {
+            page: E2EPage
+        }) => {
             // Given
             await setWcsContent(page, `
                 <wcs-select>
@@ -684,7 +690,9 @@ test.describe('Select component', () => {
     });
 
     test.describe('Keyboard navigation when select is closed and multiple', () => {
-        test('move focus into the first enabled option on Down Arrow key pressed', async ({ page }: { page: E2EPage }) => {
+        test('move focus into the first enabled option on Down Arrow key pressed', async ({ page }: {
+            page: E2EPage
+        }) => {
             // Given
             await setWcsContent(page, `
                 <wcs-select multiple="">
@@ -735,7 +743,9 @@ test.describe('Select component', () => {
             }).toPass();
         });
 
-        test('focuses last selected option when opening with keyboard after programmatic value change', async ({ page }: { page: E2EPage }) => {
+        test('focuses last selected option when opening with keyboard after programmatic value change', async ({ page }: {
+            page: E2EPage
+        }) => {
             // Given
             await setWcsContent(page, `
                 <wcs-select multiple>
@@ -911,7 +921,9 @@ test.describe('Select component', () => {
         await expect(nativeInput).toBeFocused();
     });
 
-    test('[Autocomplete] filter is cleared when the select value is set to a falsy value', async ({ page }: { page: E2EPage }) => {
+    test('[Autocomplete] filter is cleared when the select value is set to a falsy value', async ({ page }: {
+        page: E2EPage
+    }) => {
         // Given
         await setWcsContent(page, `
             <wcs-select autocomplete>
@@ -996,7 +1008,9 @@ test.describe('Select component', () => {
     });
 
     test.describe('[Autocomplete] Keyboard navigation when select closed', () => {
-        test('open listbox and move focus into the first enabled option on Arrow Down pressed', async ({ page }: { page: E2EPage }) => {
+        test('open listbox and move focus into the first enabled option on Arrow Down pressed', async ({ page }: {
+            page: E2EPage
+        }) => {
             // Given
             await setWcsContent(page, `
                 <wcs-select autocomplete="">
@@ -1108,7 +1122,9 @@ test.describe('Select component', () => {
             await expect(select).toHaveClass(/expanded/);
         });
 
-        test('Close overlay when an highlighted option is selected with Enter keypress', async ({ page }: { page: E2EPage }) => {
+        test('Close overlay when an highlighted option is selected with Enter keypress', async ({ page }: {
+            page: E2EPage
+        }) => {
             // Given
             await setWcsContent(page, `
                 <wcs-select autocomplete="">
@@ -1246,7 +1262,9 @@ test.describe('Select component', () => {
             await expect(visuallyFocusedOption).toHaveAttribute('value', 'option3');
         });
 
-        test('focus textbox, filter listbox, remove visual focus from listbox when any printable character', async ({ page }: { page: E2EPage }) => {
+        test('focus textbox, filter listbox, remove visual focus from listbox when any printable character', async ({ page }: {
+            page: E2EPage
+        }) => {
             // Given
             await setWcsContent(page, `
                 <wcs-select autocomplete="">
@@ -1327,7 +1345,9 @@ test.describe('Select component', () => {
             expect(cursorPositionAfter).toBe(typedText.length);
         });
 
-        test('focus textbox, move cursor to the start of the text when Home pressed', async ({ page }: { page: E2EPage }) => {
+        test('focus textbox, move cursor to the start of the text when Home pressed', async ({ page }: {
+            page: E2EPage
+        }) => {
             // Given
             await setWcsContent(page, `
                 <wcs-select autocomplete="">
@@ -1354,7 +1374,9 @@ test.describe('Select component', () => {
             expect(cursorPositionAfter).toBe(0);
         });
 
-        test('focus textbox, move cursor to the end of the text when End pressed', async ({ page }: { page: E2EPage }) => {
+        test('focus textbox, move cursor to the end of the text when End pressed', async ({ page }: {
+            page: E2EPage
+        }) => {
             // Given
             await setWcsContent(page, `
                 <wcs-select autocomplete="">
@@ -1385,7 +1407,9 @@ test.describe('Select component', () => {
         });
     });
 
-    test('Should handle asynchronous options loading with an initial value and update the label', async ({ page }: { page: E2EPage }) => {
+    test('Should handle asynchronous options loading with an initial value and update the label', async ({ page }: {
+        page: E2EPage
+    }) => {
         // Given
         await setWcsContent(page, `
             <wcs-select value="2">
@@ -1411,7 +1435,9 @@ test.describe('Select component', () => {
         await expect(label).toHaveText('Two');
     });
 
-    test('[Multiple] Should handle asynchronous options loading with an initial value and update the label', async ({ page }: { page: E2EPage }) => {
+    test('[Multiple] Should handle asynchronous options loading with an initial value and update the label', async ({ page }: {
+        page: E2EPage
+    }) => {
         // Given
         await setWcsContent(page, `
             <wcs-select multiple>
@@ -1437,5 +1463,640 @@ test.describe('Select component', () => {
 
         // Then - Verify label is updated
         await expect(label).toHaveText('Two, Three');
+    });
+
+    test('[ServerMode] Should synchronise selected value after slot change', async ({ page }: {
+        page: E2EPage
+    }) => {
+        await setWcsContent(page, `
+            <wcs-select autocomplete server-mode value="3">
+                <wcs-select-option value="1">One</wcs-select-option>
+                <wcs-select-option value="2">Two</wcs-select-option>
+                <wcs-select-option value="3">Three</wcs-select-option>
+                <wcs-select-option value="4">Four</wcs-select-option>
+            </wcs-select>
+        `);
+
+        const options: ({ value: any; displayText: string })[] = [
+            {
+                value: '1',
+                displayText: 'One'
+            },
+            {
+                value: '2',
+                displayText: 'Two'
+            },
+            {
+                value: '3',
+                displayText: 'Three'
+            },
+            {
+                value: '4',
+                displayText: 'Four'
+            }
+        ];
+
+        const select = page.locator('wcs-select');
+        const autocompleteInput = page.locator('input.autocomplete-field'); // initially the value is "Three"
+        const optionThree = page.locator('wcs-select-option[value="3"]');
+
+        await select.evaluate(
+            (
+                el: HTMLElement,
+                options: ({ value: any; displayText: string })[],
+            ) => {
+                el.addEventListener('wcsFilterChange', (event: any) => {
+                    const htmlSelectOptions = options
+                        .filter((o) => o.displayText.toLowerCase().includes(event.detail.value.toLowerCase()))
+                        .map((o) => `<wcs-select-option value="${o.value}">${o.displayText}</wcs-select-option>`);
+
+                    el.innerHTML = htmlSelectOptions.join('');
+                });
+            },
+            options,
+        );
+
+        await autocompleteInput.press('End'); // place at the end of input
+        await autocompleteInput.press('Backspace'); // "Thre"
+        await autocompleteInput.press('Backspace'); // "Thr"
+        await page.waitForChanges();
+
+        await expect(optionThree).toHaveAttribute('selected');
+    });
+
+    test('[ServerMode] Should not reset displayText if options are changes asynchronously', async ({ page }: {
+        page: E2EPage
+    }) => {
+        await setWcsContent(page, `
+            <wcs-select autocomplete server-mode>
+            </wcs-select>
+        `);
+        const select = page.locator('wcs-select');
+        await select.evaluate((el: any) => el.value = '2');
+        await page.waitForChanges();
+
+        const options: ({ value: any; displayText: string })[] = [
+            {
+                value: '1',
+                displayText: 'One'
+            },
+            {
+                value: '2',
+                displayText: 'Two'
+            },
+            {
+                value: '3',
+                displayText: 'Three'
+            },
+            {
+                value: '4',
+                displayText: 'Four'
+            }
+        ];
+
+        await select.evaluate(
+            (
+                el: HTMLElement,
+                options: ({ value: any; displayText: string })[],
+            ) => {
+                el.addEventListener('wcsFilterChange', (event: any) => {
+                    const htmlSelectOptions = options
+                        .filter((o) => o.displayText.toLowerCase().includes(event.detail.value))
+                        .map((o) => `<wcs-select-option value="${o.value}">${o.displayText}</wcs-select-option>`);
+                    el.innerHTML = htmlSelectOptions.join('');
+                });
+            },
+            options,
+        );
+
+        const autocompleteInput = select.locator('input.autocomplete-field');
+        // Before options are asynchronously added, the input value should still be empty (no matching option yet)
+        await expect(autocompleteInput).toHaveJSProperty('value', '');
+
+        // Add options
+        await page.$eval('wcs-select', (el: HTMLElement) => {
+            el.innerHTML = `
+            <wcs-select-option value="1">One</wcs-select-option>
+            <wcs-select-option value="2">Two</wcs-select-option>
+            <wcs-select-option value="3">Three</wcs-select-option>
+            <wcs-select-option value="4">Four</wcs-select-option>
+            `;
+        });
+        await page.waitForChanges();
+
+        // After async insertion, the component should have propagated the displayText to the input value
+        await expect(autocompleteInput).toHaveJSProperty('value', 'Two');
+
+        await autocompleteInput.press('End'); // place at the end of input
+        await autocompleteInput.press('Backspace'); // "Tw"
+        await autocompleteInput.press('Backspace'); // "T"
+        await autocompleteInput.press('Backspace'); // ""
+        await autocompleteInput.press('o');
+        await autocompleteInput.press('n');
+
+        await page.waitForChanges();
+
+        await select.evaluate((el: any) => el.value = '3');
+        await page.waitForChanges();
+
+        await expect(autocompleteInput).toHaveJSProperty('value', 'Three');
+    });
+
+    test('[ServerMode][Autocomplete] Emits filter change events while typing and when clearing after selection', async ({ page }: {
+        page: E2EPage
+    }) => {
+        await setWcsContent(page, `
+            <wcs-select autocomplete server-mode>
+                <wcs-select-option value="ain">Ain</wcs-select-option>
+                <wcs-select-option value="aude">Aude</wcs-select-option>
+                <wcs-select-option value="ardeche">Ardèche</wcs-select-option>
+                <wcs-select-option value="bas-rhin">Bas-Rhin</wcs-select-option>
+            </wcs-select>
+        `);
+        const options: ({ value: any; displayText: string })[] = [
+            {
+                value: 'ain',
+                displayText: 'Ain'
+            },
+            {
+                value: 'aude',
+                displayText: 'Aude'
+            },
+            {
+                value: 'ardeche',
+                displayText: 'Ardèche'
+            },
+            {
+                value: 'bas-rhin',
+                displayText: 'Bas-Rhin'
+            }
+        ];
+
+        const select = page.locator('wcs-select');
+
+        await select.evaluate((el: any) => el.open());
+        await page.waitForChanges();
+
+        await select.evaluate(
+            (
+                el: HTMLElement,
+                options: ({ value: any; displayText: string })[],
+            ) => {
+                el.addEventListener('wcsFilterChange', (event: any) => {
+                    const htmlSelectOptions = options
+                        .filter((o) => o.displayText.toLowerCase().includes(event.detail.value.toLowerCase()))
+                        .map((o) => `<wcs-select-option value="${o.value}">${o.displayText}</wcs-select-option>`);
+                    el.innerHTML = htmlSelectOptions.join('');
+                });
+            },
+            options,
+        );
+
+        const filterChangeSpy = await select.spyOnEvent('wcsFilterChange');
+
+        const input = page.locator('input.autocomplete-field');
+
+        // Type 'ain' to filter
+        await input.press('a');
+        await input.press('i');
+        await input.press('n');
+        await page.waitForChanges();
+
+        expect(filterChangeSpy).toHaveReceivedEventTimes(3);
+        expect(filterChangeSpy).toHaveNthReceivedEventDetail(0, { value: 'a' });
+        expect(filterChangeSpy).toHaveNthReceivedEventDetail(1, { value: 'ai' });
+        expect(filterChangeSpy).toHaveNthReceivedEventDetail(2, { value: 'ain' });
+
+        // Select Ain: find option and click (should emit a filter event)
+        const optionAin = page.locator('wcs-select > wcs-select-option[value="ain"]');
+        expect(optionAin).not.toBeNull();
+        await optionAin.click();
+        await page.waitForChanges();
+        // We ensure that we receive 3 typing events + 1 event of selection. It's important for consummers
+        // in order to re-fetch the value of the selected option
+        expect(filterChangeSpy).toHaveReceivedEventTimes(4);
+        // Input value replaced by selected option label
+        await expect(input).toHaveJSProperty('value', 'Ain');
+        expect(filterChangeSpy).toHaveNthReceivedEventDetail(3, { value: 'Ain' });
+
+        await input.press('Backspace'); // Ai
+        await page.waitForChanges();
+        expect(filterChangeSpy).toHaveNthReceivedEventDetail(4, { value: 'Ai' });
+
+        await input.press('Backspace'); // A
+        await page.waitForChanges();
+        expect(filterChangeSpy).toHaveNthReceivedEventDetail(5, { value: 'A' });
+
+        await input.press('Backspace'); // vide
+        await page.waitForChanges();
+        expect(filterChangeSpy).toHaveNthReceivedEventDetail(6, { value: '' });
+
+        // Field must stay empty (no hydration after manual clear)
+        await expect(input).toHaveJSProperty('value', '');
+    });
+
+    test('[ServerMode][Autocomplete] Should not override user input with the selected option label when the options list changes', async ({ page }: {
+        page: E2EPage
+    }) => {
+        await setWcsContent(page, `
+            <wcs-select autocomplete server-mode>
+                <wcs-select-option value="ain">Ain</wcs-select-option>
+                <wcs-select-option value="aude">Aude</wcs-select-option>
+                <wcs-select-option value="ardeche">Ardèche</wcs-select-option>
+                <wcs-select-option value="bas-rhin">Bas-Rhin</wcs-select-option>
+            </wcs-select>
+        `);
+
+        const options: ({ value: any; displayText: string })[] = [
+            {
+                value: 'ain',
+                displayText: 'Ain'
+            },
+            {
+                value: 'aude',
+                displayText: 'Aude'
+            },
+            {
+                value: 'ardeche',
+                displayText: 'Ardèche'
+            },
+            {
+                value: 'bas-rhin',
+                displayText: 'Bas-Rhin'
+            }
+        ];
+
+        const select = page.locator('wcs-select');
+        await select.evaluate((el: any) => el.value = 'ain');
+        await page.waitForChanges();
+
+        await select.evaluate(
+            (
+                el: HTMLElement,
+                options: ({ value: any; displayText: string })[],
+            ) => {
+                el.addEventListener('wcsFilterChange', (event: any) => {
+                    const htmlSelectOptions = options
+                        .filter((o) => o.displayText.includes(event.detail.value))
+                        .map((o) => `<wcs-select-option value="${o.value}">${o.displayText}</wcs-select-option>`);
+                    el.innerHTML = htmlSelectOptions.join('');
+                });
+            },
+            options,
+        );
+
+        const input = page.locator('input.autocomplete-field');
+
+        // on sélectionne une valeur => autocomplete = valeur qu'on a sélectionné
+        await expect(input).toHaveJSProperty('value', 'Ain');
+
+        await input.press('End'); // place at the end of input
+        await input.press('Backspace');
+        await input.press('Backspace');
+        await page.waitForChanges();
+
+        await expect(input).toHaveJSProperty('value', 'A');
+    });
+
+    test('[ServerMode][Autocomplete] should display option label in input when dynamically adding options', async ({ page }: {
+        page: E2EPage
+    }) => {
+        await setWcsContent(page, `
+            <wcs-select autocomplete server-mode>
+            </wcs-select>
+        `);
+
+        const select = page.locator('wcs-select');
+        const input = page.locator('input.autocomplete-field');
+
+        await select.evaluate((el: any) => el.value = '1');
+        await page.waitForChanges();
+
+        await expect(input).toHaveJSProperty('value', '');
+
+        await page.$eval('wcs-select', (el: HTMLElement) => {
+            el.innerHTML = `
+                <wcs-select-option value="1">Un</wcs-select-option>
+            `;
+        });
+        await page.waitForChanges();
+        await expect(input).toHaveJSProperty('value', 'Un');
+
+        await input.evaluate((el: any) => el.value = 'Trois');
+
+        await select.evaluate((el: any) => el.value = '2');
+        await page.waitForChanges();
+        await expect(input).toHaveJSProperty('value', '');
+
+        await page.$eval('wcs-select', (el: HTMLElement) => {
+            el.innerHTML = `
+                <wcs-select-option value="2">Deux</wcs-select-option>
+            `;
+        });
+        await expect(input).toHaveJSProperty('value', 'Deux');
+    });
+
+    test('[ServerMode][Autocomplete] should restore selected option label on blur when current value is not in filtered options', async ({ page }: {
+        page: E2EPage
+    }) => {
+        await setWcsContent(
+            page,
+            `
+            <wcs-select autocomplete server-mode value="3">
+                <wcs-select-option value="1">Un</wcs-select-option>
+                <wcs-select-option value="2">Deux</wcs-select-option>
+                <wcs-select-option value="3">Trois</wcs-select-option>
+                <wcs-select-option value="4">Quatre</wcs-select-option>
+                <wcs-select-option value="5">Cinq</wcs-select-option>
+            </wcs-select>
+            <button style="margin-top: 600px">Test</button>
+        `
+        );
+
+        const options: ({ value: number; displayText: string })[] = [
+            {
+            value: 1,
+            displayText: 'Un'
+            },
+            {
+                value: 2,
+                displayText: 'Deux'
+            },
+            {
+                value: 3,
+                displayText: 'Trois'
+            },
+            {
+                value: 4,
+                displayText: 'Quatre'
+            },
+            {
+                value: 5,
+                displayText: 'Cinq'
+            },
+            {
+                value: 6,
+                displayText: 'Six'
+            },
+        ];
+
+        const select = page.locator('wcs-select');
+        const button = page.locator('button');
+        const input = page.locator('input.autocomplete-field');
+
+        await select.evaluate(
+            (
+                el: HTMLElement,
+                options: ({ value: number; displayText: string })[],
+            ) => {
+                el.addEventListener('wcsFilterChange', (event: any) => {
+                    const htmlSelectOptions = options
+                        .filter((o) => o.displayText.includes(event.detail.value))
+                        .map((o) => `<wcs-select-option value="${o.value}">${o.displayText}</wcs-select-option>`);
+                    el.innerHTML = htmlSelectOptions.join('');
+                });
+            },
+            options,
+        );
+
+        await expect(input).toHaveJSProperty('value', 'Trois');
+
+        await input.press('End'); // place at the end of input
+        await input.press('Backspace'); // Troi
+        await input.press('Backspace'); // tro
+        await input.press('Backspace'); // tr
+        await input.press('Backspace'); // t
+        await input.press('Backspace'); //
+        await input.press('u'); // u
+        await page.waitForChanges();
+
+        await expect(select).toHaveJSProperty('value', '3');
+        await expect(input).toHaveJSProperty('value', 'u');
+
+        await button.focus();
+        await button.click(); // blur the select
+        await expect(input).toHaveJSProperty('value', 'Trois');
+    });
+
+    test('[ServerMode][Autocomplete] should clear and restore input label when value is changed and options are updated during component lifecycle', async ({
+                                                                                                                                                                page
+                                                                                                                                                            }: {
+        page: E2EPage;
+    }) => {
+        await setWcsContent(
+            page,
+            `
+            <wcs-select autocomplete server-mode value="3">
+            </wcs-select>
+            <button style="margin-top: 600px">Test</button>
+        `
+        );
+
+        const select = page.locator('wcs-select');
+        const button = page.locator('button');
+        const input = page.locator('input.autocomplete-field');
+
+        await page.$eval('wcs-select', (el: HTMLElement) => {
+            el.innerHTML = `
+                <wcs-select-option value="1">Un</wcs-select-option>
+                <wcs-select-option value="2">Deux</wcs-select-option>
+                <wcs-select-option value="3">Trois</wcs-select-option>
+            `;
+        });
+        await page.waitForChanges();
+
+        await expect(select).toHaveJSProperty('value', '3');
+        await expect(input).toHaveJSProperty('value', 'Trois');
+
+        await input.press('End'); // place at the end of input
+        await input.press('Backspace'); // Troi
+        await input.press('Backspace'); // Tro
+
+        await select.evaluate((el: any) => (el.value = '4'));
+
+        await page.waitForChanges();
+
+        await expect(select).toHaveJSProperty('value', '4');
+        await expect(input).toHaveJSProperty('value', '');
+
+        await page.$eval('wcs-select', (el: HTMLElement) => {
+            el.innerHTML = `
+                <wcs-select-option value="4">Quatre</wcs-select-option>
+                <wcs-select-option value="5">Cinq</wcs-select-option>
+                <wcs-select-option value="6">Six</wcs-select-option>
+            `;
+        });
+
+        await page.waitForChanges();
+
+        await expect(select).toHaveJSProperty('value', '4');
+        await expect(input).toHaveJSProperty('value', 'Quatre');
+
+        await button.focus();
+        await expect(input).toHaveJSProperty('value', 'Quatre');
+    });
+
+    test('[ServerMode][Autocomplete] should assign the filter again and emit the filterChange event when the user reselects the current value after filtering', async ({ page }: {
+        page: E2EPage;
+    }) => {
+        const options: ({ value: number; displayText: string })[] = [{
+            value: 1,
+            displayText: 'Ain'
+        },
+            {
+                value: 2,
+                displayText: 'Aisne'
+            },
+            {
+                value: 3,
+                displayText: 'Rhône'
+            }
+        ];
+
+        await setWcsContent(
+            page,
+            `
+            <wcs-select autocomplete server-mode>
+                <wcs-select-option value="1">Ain</wcs-select-option>
+                <wcs-select-option value="2">Aisne</wcs-select-option>
+                <wcs-select-option value="3">Rhône</wcs-select-option>
+            </wcs-select>
+        `
+        );
+
+        const select = page.locator('wcs-select');
+        const ainOption = page.locator('wcs-select-option[value="1"]');
+        const aisneOption = page.locator('wcs-select-option[value="2"]');
+        const rhoneOption = page.locator('wcs-select-option[value="3"]');
+        const input = page.locator('input.autocomplete-field');
+
+        await select.evaluate(
+            (
+                el: HTMLElement,
+                options: ({ value: number; displayText: string })[],
+            ) => {
+                el.addEventListener('wcsFilterChange', (event: any) => {
+                    const htmlSelectOptions = options
+                        .filter((o) => o.displayText.includes(event.detail.value))
+                        .map((o) => `<wcs-select-option value="${o.value}">${o.displayText}</wcs-select-option>`);
+                    el.innerHTML = htmlSelectOptions.join('');
+                });
+            },
+            options,
+        );
+
+        await select.click(); // open
+        await aisneOption.click();
+
+        await expect(select).toHaveJSProperty('value', '2');
+        await expect(input).toHaveJSProperty('value', 'Aisne');
+
+        await select.click(); // the select juste close because we select options open
+        await page.waitForChanges();
+        await expect(ainOption).not.toBeVisible();
+        await expect(aisneOption).toBeVisible();
+        await expect(rhoneOption).not.toBeVisible();
+
+        await input.press('Backspace'); // Aisn
+        await input.press('Backspace'); // Ais
+        await input.press('Backspace'); // Ai
+        await input.press('Backspace'); // A
+        await input.press('Backspace'); //
+
+        await expect(ainOption).toBeVisible();
+        await expect(aisneOption).toBeVisible();
+        await expect(rhoneOption).toBeVisible();
+
+        await aisneOption.click();
+        await select.click();
+        await page.waitForChanges();
+
+        await expect(ainOption).not.toBeVisible();
+        await expect(aisneOption).toBeVisible();
+        await expect(rhoneOption).not.toBeVisible();
+    });
+
+    test('[ServerMode][Autocomplete] should reset autocompleteValue to value when blurring', async ({ page }: { page: E2EPage }) => {
+        await setWcsContent(
+            page,
+            `
+            <wcs-select autocomplete server-mode>
+                <wcs-select-option value="1">Ain</wcs-select-option>
+                <wcs-select-option value="2">Aisne</wcs-select-option>
+                <wcs-select-option value="3">Rhône</wcs-select-option>
+            </wcs-select>
+
+            <button id="element-to-blur" style="margin: 500px">Blur me</button>
+        `
+        );
+        const options: ({ value: number; displayText: string })[] = [{
+            value: 1,
+            displayText: 'Ain'
+        },
+            {
+                value: 2,
+                displayText: 'Aisne'
+            },
+            {
+                value: 3,
+                displayText: 'Rhône'
+            }
+        ];
+
+        const select = page.locator('wcs-select');
+        const ainOption = page.locator('wcs-select-option[value="1"]');
+        const aisneOption = page.locator('wcs-select-option[value="2"]');
+        const rhoneOption = page.locator('wcs-select-option[value="3"]');
+        const input = page.locator('input.autocomplete-field');
+        const blurButton = page.locator('#element-to-blur');
+
+        await select.evaluate(
+            (
+                el: HTMLElement,
+                options: ({ value: number; displayText: string })[],
+            ) => {
+                el.addEventListener('wcsFilterChange', (event: any) => {
+                    const htmlSelectOptions = options
+                        .filter((o) => o.displayText.includes(event.detail.value))
+                        .map((o) => `<wcs-select-option value="${o.value}">${o.displayText}</wcs-select-option>`);
+                    el.innerHTML = htmlSelectOptions.join('');
+                });
+            },
+            options,
+        );
+
+        await select.click(); // open
+        await aisneOption.click();
+        await page.waitForChanges();
+
+        await expect(select).toHaveJSProperty('value', '2');
+        await expect(input).toHaveJSProperty('value', 'Aisne');
+
+        await select.click(); // the select juste close because we select options open
+        await page.waitForChanges();
+        await expect(ainOption).not.toBeVisible();
+        await expect(aisneOption).toBeVisible();
+        await expect(rhoneOption).not.toBeVisible();
+
+        await input.press('Backspace'); // Aisn
+        await input.press('Backspace'); // Ais
+        await input.press('Backspace'); // Ai
+        await input.press('Backspace'); // A
+        await input.press('Backspace'); //
+
+        await expect(ainOption).toBeVisible();
+        await expect(aisneOption).toBeVisible();
+        await expect(rhoneOption).toBeVisible();
+
+        await blurButton.click();
+
+        await expect(select).toHaveJSProperty('value', '2');
+        await expect(input).toHaveJSProperty('value', 'Aisne');
+
+        await select.click();
+
+        await expect(ainOption).not.toBeVisible();
+        await expect(aisneOption).toBeVisible();
+        await expect(rhoneOption).not.toBeVisible();
     });
 });

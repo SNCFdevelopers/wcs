@@ -314,7 +314,7 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
      * @param resetIfNoValue - When true and no value is provided, the select component will be reset
      *                        Defaults to true
      */
-    private updateSelectedValue(value: any, resetIfNoValue = true) {
+    private updateSelectedValue(value: any, resetIfNoValue = true, shouldEmitFilterChangeEvent = true) {
         // If no value is passed, the select is reset.
         if (!value && resetIfNoValue) {
             this.reset();
@@ -344,13 +344,15 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
                         option.selected = true;
                     }
                 });
-                
+
+
                 // We update the selected options when the slot changes to keep the selected options in sync with the current value
                 compareResult.kept.forEach((keptOption: string) => {
                     const option = Array.from(this.options).find(opt => this.compareWith(opt.value, keptOption));
                     if (option) {
                         option.selected = true;
                     }
+
                 })
                 
                 compareResult.removed.forEach(removedOption => {
@@ -383,19 +385,29 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
                 ? this.values.map(v => v.displayText).join(', ')
                 : undefined;
         } else {
+            let hasFoundCurrentValueInOptionList = false;
             this.options.forEach((opt: HTMLWcsSelectOptionElement) => {
                 const isSelected = this.compareWith(opt.value, value);
                 if (isSelected) {
+                    hasFoundCurrentValueInOptionList = true;
                     this.displayText = opt.innerText;
                     this.lastModifiedOptionElement = opt;
                     if (this.autocomplete) {
-                        this.setAutocompleteValue(opt.innerText);
+                        this.setAutocompleteValue(opt.innerText, false, false, shouldEmitFilterChangeEvent);
                     }
                 }
                 opt.selected = isSelected;
             });
+            // we are in server mode and the current select value hasn't been found, we set the AutocompleteValue (filter) to undefined
+            // This is important to preserve the same state logic as when a value change and we set the filter to that value
+            // Not doing that implies the displayText is not updated because of the check in le slot change handler
+            if (this.serverMode && !hasFoundCurrentValueInOptionList) {
+                this.setAutocompleteValue('', false, false, shouldEmitFilterChangeEvent);
+                this.displayText = '';
+            }
         }
     }
+
 
     /**
      * Reset the select: unselects all options for multiple mode and displays the placeholder
@@ -584,6 +596,10 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
                             }
                             this.focused = true;
                         }
+
+                        if (this.autocomplete && this.displayText && this.multiple === false) {
+                            this.setAutocompleteValue(this.displayText);
+                        }
                     }
                     this.expanded = false;
                 },
@@ -602,7 +618,8 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
                                     this.autocompleteInput.focus();
                                 })
                             } else {
-                                this.autocompleteValue = event.value.option.displayText;
+                                // Emit the filter change immediately so that server-side filtering can refresh options.
+                                this.setAutocompleteValue(event.value.option.displayText);
                             }
                         }
                         this.emitChange(this.value);
@@ -730,7 +747,7 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
                 }
                 break;
             case "ClearAutocompleteInput":
-                this.autocompleteValue = '';
+                this.setAutocompleteValue('', false, false);
                 break;
             case "ClearHighlight":
                 this.clearHighlightOnLastHighlightedOption();
@@ -910,10 +927,14 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
     }
 
     onSlotchange() {
-        // We call updateSelectedValue to update the selected options when the slot changes to keep the selected options in sync with the current value.
-        // This also update the displayText value according to the options data.
-        // Finally, this update the internal models for multiple mode and handle the server mode correctly.
-        this.updateSelectedValue(this.value, false);
+        if (!this.serverMode || (this.autocomplete && this.displayText === this.autocompleteValue)) {
+            // We call updateSelectedValue to update the selected options when the slot changes to keep the selected options in sync with the current value.
+            // This also update the displayText value according to the options data.
+            // Finally, this update the internal models for multiple mode and handle the server mode correctly.
+            this.updateSelectedValue(this.value, false, false);
+        } else {
+            this.syncOptionsElementsStateWithCurrentSelectedValue();
+        }
 
         // Server-mode only : "no result" slot should be visible dynamically if no option is present in the slot
         if (this.autocomplete && this.serverMode) {
@@ -924,6 +945,18 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
             this.options
                 .forEach((opt: HTMLWcsSelectOptionElement) => opt.multiple = true);
         }
+    }
+
+    /**
+     * This method only affect the option's selected state
+     * 
+     * Set the selected state of each option to match the current selected value of the select
+     */
+    private syncOptionsElementsStateWithCurrentSelectedValue() {
+        this.options.forEach((opt: HTMLWcsSelectOptionElement) => {
+            const isSelected = this.compareWith(opt.value, this.value);
+            opt.selected = isSelected;
+        });
     }
 
     removeChip(v: SelectOptionValue) {
@@ -993,9 +1026,10 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
      * @param filter - The new filter value
      * @param isReset - If true, the filter is reset and the select is closed
      * @param fromUserInteraction - If true, the change comes from user interaction (typing), if false it's programmatic
+     * @param shouldEmitFilterChangeEvent
      * @private
      */
-    private setAutocompleteValue(filter: string, isReset = false, fromUserInteraction = false): void {
+    private setAutocompleteValue(filter: string, isReset = false, fromUserInteraction = false, shouldEmitFilterChangeEvent = true): void {
         this.clearHighlightOnLastHighlightedOption();
         const newValueIsDifferentFromLastModifiedOption = this.lastModifiedOptionElement == null || this.lastModifiedOptionElement?.textContent !== this.autocompleteValue;
         // Only open the select automatically when the change comes from user interaction
@@ -1029,9 +1063,15 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
                 });
             }
         }
-        
-        if (this.autocompleteValue !== filter) {
-            this.autocompleteValue = filter ?? '';
+
+        const newAutocompleteValue = filter ?? '';
+        const valueHasChanged = this.autocompleteValue !== newAutocompleteValue;
+
+        if (valueHasChanged) {
+            this.autocompleteValue = newAutocompleteValue;
+        }
+
+        if (shouldEmitFilterChangeEvent && valueHasChanged) {
             this.wcsFilterChange.emit({
                 value: filter,
             });
@@ -1068,13 +1108,7 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
     }
 
     private focusedAttributes() {
-        return !this.disabled ? {tabIndex: 0} : {};
-    }
-
-    private onAutocompleteFieldBlur(_e: FocusEvent) {
-        if (this.multiple === false && this.autocomplete === true && this.hasValue) {
-            this.autocompleteValue = this.displayText;
-        }
+        return !this.disabled ? { tabIndex: 0 } : {};
     }
 
     render() {
@@ -1122,7 +1156,6 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
                                                          autocomplete="off"
                                                          disabled={this.disabled}
                                                          required={this.required}
-                                                         onBlur={(e) => this.onAutocompleteFieldBlur(e)}
                                                          placeholder={this.values?.length ? null : this.placeholder}
                                                          onInput={(e) => this.onAutocompleteInputEvent(e)}
                                                          ref={el => this.autocompleteInput = el}
