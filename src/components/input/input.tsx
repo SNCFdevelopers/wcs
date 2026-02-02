@@ -14,7 +14,6 @@ import {
 } from '@stencil/core';
 import {
     debounceEvent,
-    findItemLabel,
     inheritAriaAttributes,
     inheritAttributes,
     setOrRemoveAttribute
@@ -383,11 +382,6 @@ export class Input implements ComponentInterface, MutableAriaAttribute {
 
     render() {
         const value = this.getValueAsString();
-        const labelId = this.inputId + '-lbl';
-        const label = findItemLabel(this.el);
-        if (label) {
-            label.id = labelId;
-        }
 
         return (
             <Host
@@ -400,7 +394,6 @@ export class Input implements ComponentInterface, MutableAriaAttribute {
                 <input
                     class="native-input"
                     ref={input => this.nativeInput = input}
-                    aria-labelledby={label ? labelId : null}
                     disabled={this.disabled}
                     accept={this.accept}
                     autoCapitalize={this.autocapitalize}
