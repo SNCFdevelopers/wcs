@@ -28,11 +28,12 @@ type AccordionArgs = {
     open: boolean,
     hideActionText: boolean,
     highlight: boolean,
-    groupContentWithHeader: boolean
+    groupContentWithHeader: boolean,
+    multiExpandable: boolean
 }
 
 const Template: StoryFn<Partial<AccordionArgs>> = (args: Partial<AccordionArgs>) => html`
-    <wcs-accordion hide-action-text="${ifDefined(args.hideActionText)}" ?highlight="${args.highlight}" ?group-content-with-header="${args.groupContentWithHeader}">
+    <wcs-accordion hide-action-text="${ifDefined(args.hideActionText)}" ?highlight="${args.highlight}" ?group-content-with-header="${args.groupContentWithHeader}" ?multi-expandable="${args.multiExpandable}">
         <wcs-accordion-panel ?open=${args.open}>
             <wcs-accordion-header>Un premier panel</wcs-accordion-header>
             <wcs-accordion-content>Logoden biniou degemer mat an penn ar bed krib, brudet kontell e outañ doujañ darev
@@ -85,19 +86,41 @@ const Template: StoryFn<Partial<AccordionArgs>> = (args: Partial<AccordionArgs>)
     </wcs-accordion>
 `;
 
-export const Default: StoryObj<AccordionArgs> = {
+/**
+ * By default, opening a new panel within a `wcs-accordion` automatically closes the previously open panel.
+ * This single expansion mode is ideal when users need to focus on one content section at a time.
+ */
+export const SingleExpansionMode: StoryObj<AccordionArgs> = {
     render: (args: AccordionArgs) => Template(args, this),
     args: {
         open: false,
         highlight: false,
-        groupContentWithHeader: false
+        groupContentWithHeader: false,
+        multiExpandable: false
+    }
+}
+
+/**
+ * Multiple expansion mode allows opening several panels within a `wcs-accordion` simultaneously without having to close other panels before opening a new one.
+ * This mode is particularly suited for:
+ * - Forms with multiple sections that users may need to reference simultaneously
+ * - Comparing content across different panels
+ * - Workflows where users need visibility into multiple sections at once
+ */
+export const MultipleExpansionMode: StoryObj<AccordionArgs> = {
+    render: (args: AccordionArgs) => Template(args, this),
+    args: {
+        open: false,
+        highlight: false,
+        groupContentWithHeader: false,
+        multiExpandable: true
     }
 }
 
 export const WithActionText: StoryObj<AccordionArgs> = {
     render: (args: AccordionArgs) => Template(args, this),
     args: {
-        ...Default.args,
+        ...SingleExpansionMode.args,
         hideActionText: false,
     }
 }
@@ -115,7 +138,7 @@ export const PanelOnly: StoryObj<AccordionArgs> = {
         </wcs-accordion-panel>
     `,
     args: {
-        ...Default.args
+        ...SingleExpansionMode.args
     }
 }
 
@@ -123,8 +146,8 @@ export const PanelOnly: StoryObj<AccordionArgs> = {
  * Accordions can be nested to create a hierarchy of information.
  */
 export const NestedAccordions: StoryObj<AccordionArgs> = {
-    render: () => html`
-        <wcs-accordion>
+    render: (args: AccordionArgs) => html`
+        <wcs-accordion ?multi-expandable="${args.multiExpandable}">
             <wcs-accordion-panel>
                 <wcs-accordion-header>Configuration générale</wcs-accordion-header>
                 <wcs-accordion-content>
@@ -201,6 +224,9 @@ export const NestedAccordions: StoryObj<AccordionArgs> = {
             </wcs-accordion-panel>
         </wcs-accordion>
     `,
+    args: {
+        ...SingleExpansionMode.args
+    }
 }
 
 /**
@@ -208,7 +234,7 @@ export const NestedAccordions: StoryObj<AccordionArgs> = {
  * Click the button to add new panels - each new panel opens automatically and closes the previously open panel.
  */
 export const NestedWithDynamicPanels: StoryObj<AccordionArgs> = {
-    render: () => {
+    render: (args: AccordionArgs) => {
         let panelIndex = 1;
         
         const addDynamicPanel = () => {
@@ -229,14 +255,14 @@ export const NestedWithDynamicPanels: StoryObj<AccordionArgs> = {
         };
         
         return html`
-            <wcs-accordion>
+            <wcs-accordion ?multi-expandable="${args.multiExpandable}">
                 <wcs-accordion-panel>
                     <wcs-accordion-header>Configuration générale</wcs-accordion-header>
                     <wcs-accordion-content>
                         <div style="display: flex; flex-direction: column; gap: var(--wcs-base-margin);">
                             <p>Paramètres principaux de l'application :</p>
                             
-                            <wcs-accordion id="dynamic-accordion">
+                            <wcs-accordion id="dynamic-accordion" ?multi-expandable="${args.multiExpandable}">
                                 <wcs-accordion-panel>
                                     <wcs-accordion-header>Paramètres utilisateur (statique)</wcs-accordion-header>
                                     <wcs-accordion-content>
@@ -254,4 +280,7 @@ export const NestedWithDynamicPanels: StoryObj<AccordionArgs> = {
             </wcs-accordion>
         `;
     },
+    args: {
+        ...SingleExpansionMode.args
+    }
 }

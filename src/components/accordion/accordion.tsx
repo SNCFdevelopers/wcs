@@ -36,6 +36,12 @@ export class Accordion {
      */
     @Prop({reflect: true}) groupContentWithHeader: boolean = false;
 
+    /**
+     * Specifies whether multiple wcs-accordion-panel can be expanded at the same time.
+     * Default to false, meaning only one panel can be expanded at a time
+     */
+    @Prop() multiExpandable: boolean = false;
+
     componentWillLoad(): Promise<void> | void {
         this.accordionPanels = this.getAllAccordionPanelsFromHostElement();
 
@@ -47,7 +53,7 @@ export class Accordion {
     @Listen('wcsOpenChange')
     wcsOpenChangeHandler(event: CustomEvent<boolean>) {
         event.stopImmediatePropagation();
-        if (event.detail) {
+        if (!this.multiExpandable && event.detail) {
             this.closeAllAccordionsExcept(event.target);
         }
     }

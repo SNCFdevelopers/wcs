@@ -8,14 +8,14 @@ import { Components } from 'wcs-core';
 
 
 @ProxyCmp({
-  inputs: ['groupContentWithHeader', 'hideActionText', 'highlight']
+  inputs: ['groupContentWithHeader', 'hideActionText', 'highlight', 'multiExpandable']
 })
 @Component({
   selector: 'wcs-accordion',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['groupContentWithHeader', 'hideActionText', 'highlight'],
+  inputs: ['groupContentWithHeader', 'hideActionText', 'highlight', 'multiExpandable'],
 })
 export class WcsAccordion {
   protected el: HTMLElement;

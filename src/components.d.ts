@@ -81,6 +81,10 @@ export namespace Components {
           * Specifies whether accordion-panel components should highlight when open with primary color. if true, the background color of the accordion-panel will be the primary color. if false, the background color of the accordion-panel will be wcs-light.
          */
         "highlight": boolean;
+        /**
+          * Specifies whether multiple wcs-accordion-panel can be expanded at the same time. Default to false, meaning only one panel can be expanded at a time
+         */
+        "multiExpandable": boolean;
     }
     /**
      * The accordion-content is a subcomponent of `wcs-accordion`. It represents the text / content below an expanded accordion.
@@ -4791,6 +4795,10 @@ declare namespace LocalJSX {
           * Specifies whether accordion-panel components should highlight when open with primary color. if true, the background color of the accordion-panel will be the primary color. if false, the background color of the accordion-panel will be wcs-light.
          */
         "highlight"?: boolean;
+        /**
+          * Specifies whether multiple wcs-accordion-panel can be expanded at the same time. Default to false, meaning only one panel can be expanded at a time
+         */
+        "multiExpandable"?: boolean;
     }
     /**
      * The accordion-content is a subcomponent of `wcs-accordion`. It represents the text / content below an expanded accordion.
