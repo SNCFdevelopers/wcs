@@ -27,7 +27,7 @@ for now removed features.
 
 ### Fixed
 
-for any bug fixes.
+- **core**: fix missing exports in wcs-core package for bundle and composite-elements output targets
 
 ### Security
 
