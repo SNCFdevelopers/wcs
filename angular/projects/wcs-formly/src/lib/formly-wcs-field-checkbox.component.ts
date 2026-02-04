@@ -19,6 +19,7 @@ export type WcsFormlyCheckboxProps = WcsFormlyBooleanFieldWrapperProps & {
         [attr.required]="props.required ? true : null"
         [checked]="props.checked ? true : null"
         [formControl]="formControl"
+        [formlyAttributes]="field"
         [id]="id"
         [indeterminate]="props.indeterminate ? true : null"
         [labelAlignment]="props.labelAlignment"

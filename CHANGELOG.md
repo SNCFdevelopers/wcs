@@ -27,7 +27,12 @@ for now removed features.
 
 ### Fixed
 
-for any bug fixes.
+- - **Angular Formly**: 
+  - wcs-checkbox: inherit all passed attributes from formly config props attribute level to the component
+  - wcs-counter: inherit all passed attributes from formly config props attribute level to the component
+  - wcs-native-select: inherit all passed attributes from formly config props attribute level to the component
+  - wcs-select: inherit all passed attributes from formly config props attribute level to the component
+  - wcs-switch: inherit all passed attributes from formly config props attribute level to the component
 
 ### Security
 

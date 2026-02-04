@@ -24,6 +24,7 @@ export type WcsFormlySelectProps = WcsFormlyFieldWrapperProps & {
         [attr.placeholder]="props.placeholder"
         [size]="props.size ?? 'm'"
         [formControl]="formControl"
+        [formlyAttributes]="field"
         [filterFn]="props.filterFn"
         [attr.autocomplete]="props.autocomplete ? true : null"
         [attr.server-mode]="props.serverMode ? true : null"

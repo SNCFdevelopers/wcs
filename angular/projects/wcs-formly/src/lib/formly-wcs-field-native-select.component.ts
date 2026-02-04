@@ -17,7 +17,7 @@ export type WcsFormlySelectNativeProps = WcsFormlyFieldWrapperProps & {
       <wcs-native-select
         [ngStyle]="props.styles?.input"
         [size]="props.size">
-        <select [name]="props.name" [id]="id" [formControl]="formControl">
+        <select [name]="props.name" [id]="id" [formControl]="formControl" [formlyAttributes]="field">
           <option *ngFor="let option of props.options | wcsFormlyOptions | async"
                   [value]="option.value"
                   [ngClass]="option.class"

@@ -20,6 +20,7 @@ export type WcsFormlyCounterProps = WcsFormlyFieldWrapperProps & {
       <wcs-counter
         [attr.disabled]="props.disabled ? true : null"
         [formControl]="formControl"
+        [formlyAttributes]="field"
         [id]="id"
         [label]="props.label"
         [max]="props.max"

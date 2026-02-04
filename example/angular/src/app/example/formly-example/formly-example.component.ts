@@ -72,7 +72,10 @@ export class FormlyExampleComponent implements OnInit {
             label: 'Champ de type input',
             prefixLabel: 'prefix',
             suffixLabel: 'suffix',
-            placeholder: 'Placeholder'
+            placeholder: 'Placeholder',
+            attributes: {
+              'test-id': 'email-input'
+            }
           },
           expressions: {
             'props.disabled': 'model.disabled',
@@ -84,7 +87,10 @@ export class FormlyExampleComponent implements OnInit {
           key: 'fieldCheckbox',
           type: 'checkbox',
           props: {
-            label: 'Champ de type checkbox'
+            label: 'Champ de type checkbox',
+            attributes: {
+              'test-id': 'checkbox-input'
+            }
           },
           expressions: {
             'props.disabled': 'model.disabled',
@@ -98,7 +104,10 @@ export class FormlyExampleComponent implements OnInit {
           name: 'choice1',
           props: {
             label: 'Champ de type radio',
-            options: this.options
+            options: this.options,
+            attributes: {
+              'test-id': 'radio-input'
+            }
           },
           expressions: {
             'props.disabled': 'model.disabled',
@@ -112,7 +121,8 @@ export class FormlyExampleComponent implements OnInit {
           name: 'choice2',
           props: {
             attributes: {
-              mode: 'horizontal'
+              mode: 'horizontal',
+              'test-id': 'radio-horizontal-input'
             },
             label: 'Champ de type radio',
             options: this.options,
@@ -132,7 +142,8 @@ export class FormlyExampleComponent implements OnInit {
           name: 'choice3',
           props: {
             attributes: {
-              mode: 'option'
+              mode: 'option',
+              'test-id': 'radio-option-input'
             },
             label: 'Champ de type radio option',
             options: this.options
@@ -149,7 +160,10 @@ export class FormlyExampleComponent implements OnInit {
           props: {
             label: 'Champ de type select',
             placeholder: 'Choisissez',
-            options: this.options
+            options: this.options,
+            attributes: {
+              'test-id': 'select-input'
+            }
           },
           expressions: {
             'props.disabled': 'model.disabled',
@@ -163,7 +177,10 @@ export class FormlyExampleComponent implements OnInit {
           props: {
             label: 'Champ de type select (avec récupération asynchrone des options)',
             placeholder: 'Choisissez',
-            options: this.asynchronousOptionsSubject
+            options: this.asynchronousOptionsSubject,
+            attributes: {
+              'test-id': 'select-asynchronous-input'
+            }
           },
           expressions: {
             'props.disabled': 'model.disabled',
@@ -175,7 +192,10 @@ export class FormlyExampleComponent implements OnInit {
           key: 'fieldSwitch',
           type: 'switch',
           props: {
-            label: 'Champ de type switch'
+            label: 'Champ de type switch',
+            attributes: {
+              'test-id': 'switch-input'
+            }
           },
           expressions: {
             'props.disabled': 'model.disabled',
@@ -195,6 +215,9 @@ export class FormlyExampleComponent implements OnInit {
               color: 'var(--wcs-semantic-color-text-inverse)',
               icon: 'help',
               size: 'm',
+            },
+            attributes: {
+              'test-id': 'input-text'
             }
           },
           expressions: {
@@ -215,6 +238,9 @@ export class FormlyExampleComponent implements OnInit {
               color: 'var(--wcs-semantic-color-text-inverse)',
               icon: 'help',
               size: 'm',
+            },
+            attributes: {
+              'test-id': 'input-text-with-dynamic-tooltip'
             }
           },
           expressions: {
@@ -231,7 +257,10 @@ export class FormlyExampleComponent implements OnInit {
           type: 'textarea',
           props: {
             label: 'Champ de type textarea',
-            placeholder: 'Placeholder'
+            placeholder: 'Placeholder',
+            attributes: {
+              'test-id': 'textarea-input'
+            }
           },
           expressions: {
             'props.disabled': 'model.disabled',
@@ -245,7 +274,10 @@ export class FormlyExampleComponent implements OnInit {
           type: 'radio',
           props: {
             label: 'Champ de type radio (avec récupération asynchrone des options)',
-            options: this.asynchronousOptionsSubject
+            options: this.asynchronousOptionsSubject,
+            attributes: {
+              'test-id': 'radio-asynchronous-input'
+            }
           },
           expressions: {
             'props.disabled': 'model.disabled',

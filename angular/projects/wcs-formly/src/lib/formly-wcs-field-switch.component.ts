@@ -19,6 +19,7 @@ export type WcsFormlySwitchProps = WcsFormlyBooleanFieldWrapperProps & {
         [attr.disabled]="props.disabled ? true : null"
         [checked]="props.checked ? true : null"
         [formControl]="formControl"
+        [formlyAttributes]="field"
         [id]="id"
         [labelAlignment]="props.labelAlignment"
         [ngStyle]="props.styles?.input">
