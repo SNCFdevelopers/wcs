@@ -95,6 +95,7 @@ export class AccordionPanel implements ComponentInterface, MutableAriaAttribute 
             ...inheritAriaAttributes(this.el),
             ...inheritAttributes(this.el, ACCORDION_INHERITED_ATTRS),
         };
+        this.openChange(this.open);
     }
 
     @Method()

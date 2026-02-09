@@ -202,3 +202,56 @@ export const NestedAccordions: StoryObj<AccordionArgs> = {
         </wcs-accordion>
     `,
 }
+
+/**
+ * This story demonstrates dynamically adding accordion panels at runtime.
+ * Click the button to add new panels - each new panel opens automatically and closes the previously open panel.
+ */
+export const NestedWithDynamicPanels: StoryObj<AccordionArgs> = {
+    render: () => {
+        let panelIndex = 1;
+        
+        const addDynamicPanel = () => {
+            const nestedAccordion = document.querySelector('#dynamic-accordion');
+            if (!nestedAccordion) return;
+            
+            const dynamicPanel = document.createElement('wcs-accordion-panel');
+            dynamicPanel.setAttribute('open', 'true');
+            dynamicPanel.innerHTML = `
+                <wcs-accordion-header>Panel dynamique #${panelIndex}</wcs-accordion-header>
+                <wcs-accordion-content>
+                    <p>Contenu du panel dynamique #${panelIndex}</p>
+                    <p>Ce panel a été ajouté dynamiquement via JavaScript.</p>
+                </wcs-accordion-content>
+            `;
+            nestedAccordion.appendChild(dynamicPanel);
+            panelIndex++;
+        };
+        
+        return html`
+            <wcs-accordion>
+                <wcs-accordion-panel>
+                    <wcs-accordion-header>Configuration générale</wcs-accordion-header>
+                    <wcs-accordion-content>
+                        <div style="display: flex; flex-direction: column; gap: var(--wcs-base-margin);">
+                            <p>Paramètres principaux de l'application :</p>
+                            
+                            <wcs-accordion id="dynamic-accordion">
+                                <wcs-accordion-panel>
+                                    <wcs-accordion-header>Paramètres utilisateur (statique)</wcs-accordion-header>
+                                    <wcs-accordion-content>
+                                        <p>Gestion des préférences utilisateur</p>
+                                    </wcs-accordion-content>
+                                </wcs-accordion-panel>
+                            </wcs-accordion>
+                            
+                            <wcs-button @click=${addDynamicPanel}>
+                                Ajouter un panel dynamique
+                            </wcs-button>
+                        </div>
+                    </wcs-accordion-content>
+                </wcs-accordion-panel>
+            </wcs-accordion>
+        `;
+    },
+}

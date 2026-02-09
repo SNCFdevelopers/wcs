@@ -72,11 +72,15 @@ export class Accordion {
         })
     }
 
+    private handleSlotChange() {
+        // Refresh the list of accordion panels to include dynamically added ones
+        this.accordionPanels = this.getAllAccordionPanelsFromHostElement();
+    }
 
     render() {
         return (
             <Host>
-                <slot/>
+                <slot onSlotchange={this.handleSlotChange.bind(this)} />
             </Host>
         );
     }

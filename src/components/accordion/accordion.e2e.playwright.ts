@@ -208,4 +208,76 @@ test.describe('accordion', () => {
         await expect(level2Panel).toHaveJSProperty('open', true);
         await expect(level3Panel).toHaveJSProperty('open', true);
     });
+
+    test('should close other panels when dynamically adding a new open panel', async ({ page }: { page: E2EPage }) => {
+        // Given
+        await setWcsContent(page, `
+            <wcs-accordion id="parent-accordion">
+                <wcs-accordion-panel id="parent-panel">
+                    <wcs-accordion-header>Configuration générale</wcs-accordion-header>
+                    <wcs-accordion-content>
+                        <wcs-accordion id="nested-accordion">
+                            <wcs-accordion-panel id="static-panel">
+                                <wcs-accordion-header>Paramètres utilisateur</wcs-accordion-header>
+                                <wcs-accordion-content>Gestion des préférences utilisateur</wcs-accordion-content>
+                            </wcs-accordion-panel>
+                        </wcs-accordion>
+                    </wcs-accordion-content>
+                </wcs-accordion-panel>
+            </wcs-accordion>
+        `);
+
+        // When - Open parent panel first
+        const parentPanel = page.locator('#parent-panel');
+        await parentPanel.click();
+        await page.waitForChanges();
+
+        // Then
+        await expect(parentPanel).toHaveJSProperty('open', true);
+
+        // When - Add first dynamic panel with open=true
+        await page.evaluate(() => {
+            const nestedAccordion = document.querySelector('#nested-accordion');
+            const dynamicPanel1 = document.createElement('wcs-accordion-panel');
+            dynamicPanel1.id = 'dynamic-panel-1';
+            dynamicPanel1.setAttribute('open', 'true');
+            dynamicPanel1.innerHTML = `
+                <wcs-accordion-header>Panel dynamique #1</wcs-accordion-header>
+                <wcs-accordion-content>Contenu dynamique 1</wcs-accordion-content>
+            `;
+            nestedAccordion.appendChild(dynamicPanel1);
+        });
+        await page.waitForChanges();
+
+        const staticPanel = page.locator('#static-panel');
+        const dynamicPanel1 = page.locator('#dynamic-panel-1');
+
+        // Then - Static panel should be closed, dynamic panel 1 should be open
+        await expect(staticPanel).toHaveJSProperty('open', false);
+        await expect(dynamicPanel1).toHaveJSProperty('open', true);
+
+        // When - Add second dynamic panel with open=true
+        await page.evaluate(() => {
+            const nestedAccordion = document.querySelector('#nested-accordion');
+            const dynamicPanel2 = document.createElement('wcs-accordion-panel');
+            dynamicPanel2.id = 'dynamic-panel-2';
+            dynamicPanel2.setAttribute('open', 'true');
+            dynamicPanel2.innerHTML = `
+                <wcs-accordion-header>Panel dynamique #2</wcs-accordion-header>
+                <wcs-accordion-content>Contenu dynamique 2</wcs-accordion-content>
+            `;
+            nestedAccordion.appendChild(dynamicPanel2);
+        });
+        await page.waitForChanges();
+
+        const dynamicPanel2 = page.locator('#dynamic-panel-2');
+
+        // Then - Dynamic panel 1 should be closed, dynamic panel 2 should be open
+        await expect(staticPanel).toHaveJSProperty('open', false);
+        await expect(dynamicPanel1).toHaveJSProperty('open', false);
+        await expect(dynamicPanel2).toHaveJSProperty('open', true);
+
+        // And - Parent panel should remain open (different accordion level)
+        await expect(parentPanel).toHaveJSProperty('open', true);
+    });
 });
