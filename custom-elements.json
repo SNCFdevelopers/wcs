@@ -1180,6 +1180,11 @@
             },
             {
               "kind": "method",
+              "name": "handleSlotChange",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
               "name": "render"
             },
             {
@@ -1741,219 +1746,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/alert-drawer/alert-drawer-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/alert-drawer/alert-drawer.e2e.playwright.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/alert-drawer/alert-drawer.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Serve as a container for displaying `wcs-alert` components. Directly use this component to display alerts in your applications.\r\n\r\n## Usage\r\n\r\nYou can place the `wcs-alert-drawer` component anywhere in your application. It will be used to display alerts.\r\nYou need to set `position` property to define where the alert drawer will be displayed on the screen.\r\n\r\nAbout alerts order:\r\n- alerts are ordered up-bottom if the position is `top` and bottom-up if the position is `bottom`\r\n\r\n## Accessibility guidelines 💡\r\n\r\n- The component has `aria-live=\"polite\"` and `aria-atomic=\"true\"` attributes to announce the new alerts to screen readers\r\n\r\n## Configuration (on the web component)\r\n\r\nPer default, the `wcs-alert-drawer` is configured with:\r\n- `position: 'top-right'`\r\n- `showProgressBar: false`\r\n- `timeout: 5000`\r\n\r\nWhen using the `WcsAlertDrawer::show(alert: WcsAlertConfig)` method, you can override the default configuration by \r\noverriding it through the argument.\r\nYou can also set them in the `wcs-alert-drawer` component directly as attributes\r\n\r\n```html\r\n<wcs-alert-drawer position=\"top-right\" show-progress-bar timeout=\"10000\">\r\n```\r\nWith this configuration, all alerts will be displayed with a progress bar and a timeout of 10 seconds.",
-          "name": "AlertDrawer",
-          "cssProperties": [
-            {
-              "description": "Gap between alerts",
-              "name": "--wcs-alert-drawer-gap"
-            },
-            {
-              "description": "Margin horizontal of the alert drawer",
-              "name": "--wcs-alert-drawer-margin-horizontal"
-            },
-            {
-              "description": "Margin vertical of the alert drawer",
-              "name": "--wcs-alert-drawer-margin-vertical"
-            },
-            {
-              "description": "Duration of the hide alert animation",
-              "name": "--wcs-alert-drawer-hide-alert-animation-duration"
-            },
-            {
-              "description": "Minimum width of the alert drawer => define the width of the alerts",
-              "name": "--wcs-alert-drawer-min-width"
-            }
-          ],
-          "slots": [
-            {
-              "description": "the alert drawer content, where alerts you put as children will be displayed",
-              "name": ""
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsAlertDrawerElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "position",
-              "type": {
-                "text": "WcsAlertDrawerPosition"
-              },
-              "default": "'bottom-right'",
-              "description": "Position of the alert drawer on the screen"
-            },
-            {
-              "kind": "field",
-              "name": "timeout",
-              "type": {
-                "text": "number"
-              },
-              "default": "5000",
-              "description": "Timeout for the alert to be dismissed automatically"
-            },
-            {
-              "kind": "field",
-              "name": "showProgressBar",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Whether to show the progress bar or not"
-            },
-            {
-              "kind": "field",
-              "name": "alertEventListeners",
-              "privacy": "private",
-              "default": "new WeakMap<HTMLElement, (evt: AnimationEvent) => void>()"
-            },
-            {
-              "kind": "field",
-              "name": "timeoutId",
-              "privacy": "private",
-              "default": "undefined"
-            },
-            {
-              "kind": "field",
-              "name": "userPrefersReducedMotion",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "alertsContainer",
-              "type": {
-                "text": "HTMLDivElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "close",
-              "privacy": "private",
-              "description": "Handles the dismissal of an alert",
-              "parameters": [
-                {
-                  "description": "The alert element",
-                  "name": "alert"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "show",
-              "return": {
-                "type": {
-                  "text": "Promise<void>"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "alert",
-                  "type": {
-                    "text": "WcsAlertConfig"
-                  },
-                  "description": "The alert to show"
-                }
-              ],
-              "description": "Method exposed on `wcs-alert-drawer` to show an alert programmatically via the JS API"
-            },
-            {
-              "kind": "method",
-              "name": "renderToast",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "HTMLWcsAlertElement"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "alert",
-                  "type": {
-                    "text": "WcsAlertConfig"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "position",
-              "fieldName": "position",
-              "type": {
-                "text": "WcsAlertDrawerPosition"
-              }
-            },
-            {
-              "name": "timeout",
-              "fieldName": "timeout",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "show-progress-bar",
-              "fieldName": "showProgressBar",
-              "type": {
-                "text": "boolean"
-              }
-            }
-          ],
-          "tagName": "wcs-alert-drawer",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "AlertDrawer",
-          "declaration": {
-            "name": "AlertDrawer",
-            "module": "components/alert-drawer/alert-drawer.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-alert-drawer",
-          "declaration": {
-            "name": "AlertDrawer",
-            "module": "components/alert-drawer/alert-drawer.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/alert/alert-interface.ts",
       "declarations": [],
       "exports": []
@@ -2236,6 +2028,219 @@
           "declaration": {
             "name": "Alert",
             "module": "components/alert/alert.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/alert-drawer/alert-drawer-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/alert-drawer/alert-drawer.e2e.playwright.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/alert-drawer/alert-drawer.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Serve as a container for displaying `wcs-alert` components. Directly use this component to display alerts in your applications.\r\n\r\n## Usage\r\n\r\nYou can place the `wcs-alert-drawer` component anywhere in your application. It will be used to display alerts.\r\nYou need to set `position` property to define where the alert drawer will be displayed on the screen.\r\n\r\nAbout alerts order:\r\n- alerts are ordered up-bottom if the position is `top` and bottom-up if the position is `bottom`\r\n\r\n## Accessibility guidelines 💡\r\n\r\n- The component has `aria-live=\"polite\"` and `aria-atomic=\"true\"` attributes to announce the new alerts to screen readers\r\n\r\n## Configuration (on the web component)\r\n\r\nPer default, the `wcs-alert-drawer` is configured with:\r\n- `position: 'top-right'`\r\n- `showProgressBar: false`\r\n- `timeout: 5000`\r\n\r\nWhen using the `WcsAlertDrawer::show(alert: WcsAlertConfig)` method, you can override the default configuration by \r\noverriding it through the argument.\r\nYou can also set them in the `wcs-alert-drawer` component directly as attributes\r\n\r\n```html\r\n<wcs-alert-drawer position=\"top-right\" show-progress-bar timeout=\"10000\">\r\n```\r\nWith this configuration, all alerts will be displayed with a progress bar and a timeout of 10 seconds.",
+          "name": "AlertDrawer",
+          "cssProperties": [
+            {
+              "description": "Gap between alerts",
+              "name": "--wcs-alert-drawer-gap"
+            },
+            {
+              "description": "Margin horizontal of the alert drawer",
+              "name": "--wcs-alert-drawer-margin-horizontal"
+            },
+            {
+              "description": "Margin vertical of the alert drawer",
+              "name": "--wcs-alert-drawer-margin-vertical"
+            },
+            {
+              "description": "Duration of the hide alert animation",
+              "name": "--wcs-alert-drawer-hide-alert-animation-duration"
+            },
+            {
+              "description": "Minimum width of the alert drawer => define the width of the alerts",
+              "name": "--wcs-alert-drawer-min-width"
+            }
+          ],
+          "slots": [
+            {
+              "description": "the alert drawer content, where alerts you put as children will be displayed",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsAlertDrawerElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "position",
+              "type": {
+                "text": "WcsAlertDrawerPosition"
+              },
+              "default": "'bottom-right'",
+              "description": "Position of the alert drawer on the screen"
+            },
+            {
+              "kind": "field",
+              "name": "timeout",
+              "type": {
+                "text": "number"
+              },
+              "default": "5000",
+              "description": "Timeout for the alert to be dismissed automatically"
+            },
+            {
+              "kind": "field",
+              "name": "showProgressBar",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Whether to show the progress bar or not"
+            },
+            {
+              "kind": "field",
+              "name": "alertEventListeners",
+              "privacy": "private",
+              "default": "new WeakMap<HTMLElement, (evt: AnimationEvent) => void>()"
+            },
+            {
+              "kind": "field",
+              "name": "timeoutId",
+              "privacy": "private",
+              "default": "undefined"
+            },
+            {
+              "kind": "field",
+              "name": "userPrefersReducedMotion",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "alertsContainer",
+              "type": {
+                "text": "HTMLDivElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "close",
+              "privacy": "private",
+              "description": "Handles the dismissal of an alert",
+              "parameters": [
+                {
+                  "description": "The alert element",
+                  "name": "alert"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "show",
+              "return": {
+                "type": {
+                  "text": "Promise<void>"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "alert",
+                  "type": {
+                    "text": "WcsAlertConfig"
+                  },
+                  "description": "The alert to show"
+                }
+              ],
+              "description": "Method exposed on `wcs-alert-drawer` to show an alert programmatically via the JS API"
+            },
+            {
+              "kind": "method",
+              "name": "renderToast",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "HTMLWcsAlertElement"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "alert",
+                  "type": {
+                    "text": "WcsAlertConfig"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "position",
+              "fieldName": "position",
+              "type": {
+                "text": "WcsAlertDrawerPosition"
+              }
+            },
+            {
+              "name": "timeout",
+              "fieldName": "timeout",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "show-progress-bar",
+              "fieldName": "showProgressBar",
+              "type": {
+                "text": "boolean"
+              }
+            }
+          ],
+          "tagName": "wcs-alert-drawer",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "AlertDrawer",
+          "declaration": {
+            "name": "AlertDrawer",
+            "module": "components/alert-drawer/alert-drawer.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-alert-drawer",
+          "declaration": {
+            "name": "AlertDrawer",
+            "module": "components/alert-drawer/alert-drawer.tsx"
           }
         }
       ]
@@ -5666,54 +5671,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/divider/divider.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The divider is a separator between two elements, consisting of a horizontal line.",
-          "name": "Divider",
-          "cssProperties": [
-            {
-              "description": "Color of the divider",
-              "name": "--wcs-divider-color"
-            },
-            {
-              "description": "Height (border-width) of the divider",
-              "name": "--wcs-divider-height"
-            }
-          ],
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-divider",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Divider",
-          "declaration": {
-            "name": "Divider",
-            "module": "components/divider/divider.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-divider",
-          "declaration": {
-            "name": "Divider",
-            "module": "components/divider/divider.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/counter/counter-interface.ts",
       "declarations": [],
       "exports": []
@@ -6099,6 +6056,54 @@
           "declaration": {
             "name": "Counter",
             "module": "components/counter/counter.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/divider/divider.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The divider is a separator between two elements, consisting of a horizontal line.",
+          "name": "Divider",
+          "cssProperties": [
+            {
+              "description": "Color of the divider",
+              "name": "--wcs-divider-color"
+            },
+            {
+              "description": "Height (border-width) of the divider",
+              "name": "--wcs-divider-height"
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-divider",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Divider",
+          "declaration": {
+            "name": "Divider",
+            "module": "components/divider/divider.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-divider",
+          "declaration": {
+            "name": "Divider",
+            "module": "components/divider/divider.tsx"
           }
         }
       ]
@@ -15858,6 +15863,104 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/skeleton-circle/skeleton-circle.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Use a skeleton circle as a placeholder round images, illustrations or components",
+          "name": "SkeletonCircle",
+          "cssProperties": [
+            {
+              "description": "Border radius of the circle",
+              "name": "--wcs-skeleton-circle-border-radius"
+            },
+            {
+              "description": "_(Shared among all skeleton types)_<br/>Height of the skeleton",
+              "name": "--wcs-skeleton-height"
+            },
+            {
+              "description": "_(Shared among all skeleton types)_<br/> Minimum height of the skeleton",
+              "name": "--wcs-skeleton-min-height"
+            },
+            {
+              "description": "_(Shared among all skeleton types)_<br/> Width of the skeleton",
+              "name": "--wcs-skeleton-width"
+            },
+            {
+              "description": "_(Shared among all skeleton types)_<br/> Background color of the skeleton (default is a gradient)",
+              "name": "--wcs-skeleton-background-color"
+            },
+            {
+              "description": "_(Shared among all skeleton types)_<br/> Duration of the skeleton animation, if applicable",
+              "name": "--wcs-skeleton-animation-duration"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "animation",
+              "type": {
+                "text": "WcsSkeletonAnimation"
+              },
+              "default": "'glide'",
+              "description": "Specifies the animation of the skeleton"
+            },
+            {
+              "kind": "field",
+              "name": "radius",
+              "type": {
+                "text": "number"
+              },
+              "default": "50",
+              "description": "Specifies the radius of the circle in px"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "animation",
+              "fieldName": "animation",
+              "type": {
+                "text": "WcsSkeletonAnimation"
+              }
+            },
+            {
+              "name": "radius",
+              "fieldName": "radius",
+              "type": {
+                "text": "number"
+              }
+            }
+          ],
+          "tagName": "wcs-skeleton-circle",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SkeletonCircle",
+          "declaration": {
+            "name": "SkeletonCircle",
+            "module": "components/skeleton-circle/skeleton-circle.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-skeleton-circle",
+          "declaration": {
+            "name": "SkeletonCircle",
+            "module": "components/skeleton-circle/skeleton-circle.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/skeleton-rectangle/skeleton-rectangle.tsx",
       "declarations": [
         {
@@ -15982,104 +16085,6 @@
           "declaration": {
             "name": "SkeletonRectangle",
             "module": "components/skeleton-rectangle/skeleton-rectangle.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/skeleton-circle/skeleton-circle.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Use a skeleton circle as a placeholder round images, illustrations or components",
-          "name": "SkeletonCircle",
-          "cssProperties": [
-            {
-              "description": "Border radius of the circle",
-              "name": "--wcs-skeleton-circle-border-radius"
-            },
-            {
-              "description": "_(Shared among all skeleton types)_<br/>Height of the skeleton",
-              "name": "--wcs-skeleton-height"
-            },
-            {
-              "description": "_(Shared among all skeleton types)_<br/> Minimum height of the skeleton",
-              "name": "--wcs-skeleton-min-height"
-            },
-            {
-              "description": "_(Shared among all skeleton types)_<br/> Width of the skeleton",
-              "name": "--wcs-skeleton-width"
-            },
-            {
-              "description": "_(Shared among all skeleton types)_<br/> Background color of the skeleton (default is a gradient)",
-              "name": "--wcs-skeleton-background-color"
-            },
-            {
-              "description": "_(Shared among all skeleton types)_<br/> Duration of the skeleton animation, if applicable",
-              "name": "--wcs-skeleton-animation-duration"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "animation",
-              "type": {
-                "text": "WcsSkeletonAnimation"
-              },
-              "default": "'glide'",
-              "description": "Specifies the animation of the skeleton"
-            },
-            {
-              "kind": "field",
-              "name": "radius",
-              "type": {
-                "text": "number"
-              },
-              "default": "50",
-              "description": "Specifies the radius of the circle in px"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "animation",
-              "fieldName": "animation",
-              "type": {
-                "text": "WcsSkeletonAnimation"
-              }
-            },
-            {
-              "name": "radius",
-              "fieldName": "radius",
-              "type": {
-                "text": "number"
-              }
-            }
-          ],
-          "tagName": "wcs-skeleton-circle",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "SkeletonCircle",
-          "declaration": {
-            "name": "SkeletonCircle",
-            "module": "components/skeleton-circle/skeleton-circle.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-skeleton-circle",
-          "declaration": {
-            "name": "SkeletonCircle",
-            "module": "components/skeleton-circle/skeleton-circle.tsx"
           }
         }
       ]

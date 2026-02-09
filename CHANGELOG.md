@@ -27,12 +27,18 @@ for now removed features.
 
 ### Fixed
 
-- **core**: fix missing exports in wcs-core package for bundle and composite-elements output targets
-- **accordion**: ensure dynamically added accordion panels are recognized by the parent accordion for proper open/close behavior
+for any bug fixes.
 
 ### Security
 
 in case of vulnerabilities.
+
+## [7.4.1] - 2026-02-09
+
+### Fixed
+
+- **core**: fix missing exports in wcs-core package for bundle and composite-elements output targets
+- **accordion**: ensure dynamically added accordion panels are recognized by the parent accordion for proper open/close behavior
 
 ## [7.4.0] - 2026-01-28
 
