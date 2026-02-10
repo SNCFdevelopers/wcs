@@ -33,6 +33,7 @@ for now removed features.
   - wcs-native-select: inherit all passed attributes from formly config props attribute level to the component
   - wcs-select: inherit all passed attributes from formly config props attribute level to the component
   - wcs-switch: inherit all passed attributes from formly config props attribute level to the component
+- **button**: when setting `ripple` to `false`, the ripple effect is now correctly disabled
 
 ### Security
 

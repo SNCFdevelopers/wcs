@@ -160,6 +160,7 @@ export class Button implements ComponentInterface, MutableAriaAttribute {
 
     componentDidLoad() {
         this.mdcRipple = new MDCRipple(this.el.shadowRoot.querySelector('.wcs-inner-button'));
+        this.updateRippleState();
     }
     
     @Method()
@@ -167,12 +168,8 @@ export class Button implements ComponentInterface, MutableAriaAttribute {
         setOrRemoveAttribute(this.nativeButton, attr, value);
     }
 
-    private enabledRippleEffect() {
-        this.mdcRipple.disabled = false;
-    }
-
-    private disabledRippleEffect() {
-        this.mdcRipple.disabled = true;
+    private updateRippleState() {
+        this.mdcRipple.disabled = !this.ripple;
     }
 
     private getTagName() {
@@ -180,12 +177,8 @@ export class Button implements ComponentInterface, MutableAriaAttribute {
     }
 
     @Watch('ripple')
-    onRippleChange(): void {
-        if (this.ripple) {
-            this.enabledRippleEffect();
-        } else {
-            this.disabledRippleEffect();
-        }
+    onRippleChange() {
+        this.updateRippleState();
     }
 
     render() {

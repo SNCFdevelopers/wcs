@@ -70,7 +70,7 @@ const Template: StoryFn<Partial<{ innerText: string, mode: WcsButtonMode, size: 
 `;
 
 export const Default = Template.bind({});
-Default.args = {innerText: 'Primary', loading: false, shape: 'normal'};
+Default.args = {innerText: 'Primary', loading: false, shape: 'normal', ripple: true};
 
 export const clear = Template.bind({});
 clear.args = {innerText: 'Primary', mode: 'clear', loading: false};
