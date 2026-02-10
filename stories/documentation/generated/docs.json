@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-09T11:21:54",
+  "timestamp": "2026-02-10T16:09:39",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -82,6 +82,28 @@
           "attr": "highlight",
           "reflectToAttr": true,
           "docs": "Specifies whether accordion-panel components should highlight when open with primary color.\r\nif true, the background color of the accordion-panel will be the primary color.\r\nif false, the background color of the accordion-panel will be wcs-light.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "multiExpandable",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "multi-expandable",
+          "reflectToAttr": false,
+          "docs": "Specifies whether multiple wcs-accordion-panel can be expanded at the same time.\r\nDefault to false, meaning only one panel can be expanded at a time",
           "docsTags": [],
           "default": "false",
           "values": [

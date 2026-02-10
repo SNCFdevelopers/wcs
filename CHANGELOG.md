@@ -11,7 +11,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-- **accordion**: add `multiExpandable` property to allow multiple panels to be expanded at the same time
+for new features.
 
 ### Changed
 
@@ -27,6 +27,20 @@ for now removed features.
 
 ### Fixed
 
+for any bug fixes.
+
+### Security
+
+in case of vulnerabilities.
+
+## [7.5.0] - 2026-02-10
+
+### Added
+
+- **accordion**: add `multiExpandable` property to allow multiple panels to be expanded at the same time
+
+### Fixed
+
 - - **Angular Formly**: 
   - wcs-checkbox: inherit all passed attributes from formly config props attribute level to the component
   - wcs-counter: inherit all passed attributes from formly config props attribute level to the component
@@ -34,10 +48,6 @@ for now removed features.
   - wcs-select: inherit all passed attributes from formly config props attribute level to the component
   - wcs-switch: inherit all passed attributes from formly config props attribute level to the component
 - **button**: when setting `ripple` to `false`, the ripple effect is now correctly disabled
-
-### Security
-
-in case of vulnerabilities.
 
 ## [7.4.1] - 2026-02-09
 

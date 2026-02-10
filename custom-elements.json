@@ -1152,6 +1152,15 @@
               "deprecated": "**The content is now always grouped with the panel header**\r\n\r\n~~Specifies whether accordion-panel components should group the content with header in one card~~\r\n~~if true, there will be only one card with the header and the content~~\r\n~~Nothing change when the panel is close~~"
             },
             {
+              "kind": "field",
+              "name": "multiExpandable",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Specifies whether multiple wcs-accordion-panel can be expanded at the same time.\r\nDefault to false, meaning only one panel can be expanded at a time"
+            },
+            {
               "kind": "method",
               "name": "wcsOpenChangeHandler",
               "parameters": [
@@ -1235,6 +1244,13 @@
             {
               "name": "group-content-with-header",
               "fieldName": "groupContentWithHeader",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "multi-expandable",
+              "fieldName": "multiExpandable",
               "type": {
                 "text": "boolean"
               }
@@ -3169,12 +3185,7 @@
             },
             {
               "kind": "method",
-              "name": "enabledRippleEffect",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "disabledRippleEffect",
+              "name": "updateRippleState",
               "privacy": "private"
             },
             {
@@ -3184,12 +3195,7 @@
             },
             {
               "kind": "method",
-              "name": "onRippleChange",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              }
+              "name": "onRippleChange"
             },
             {
               "kind": "method",
