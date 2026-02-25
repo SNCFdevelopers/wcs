@@ -27,7 +27,7 @@ for now removed features.
 
 ### Fixed
 
-for any bug fixes.
+- **label**: fix line-height to revert the possibility to have multi-line label
 
 ### Security
 
