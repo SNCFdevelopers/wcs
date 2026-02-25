@@ -90,6 +90,18 @@ export const config: Config = {
                     src: '../design-tokens/dist',
                     dest: 'design-tokens'
                 },
+                {
+                    src: './assets',
+                    dest: 'assets',
+                },
+                {
+                    src: './utils/playwright/test.css',
+                    dest: 'test.css',
+                },
+                {
+                    src: './utils/playwright/icons/**',
+                    dest: 'assets/fonts/icons',
+                }
             ],
         }
     ]

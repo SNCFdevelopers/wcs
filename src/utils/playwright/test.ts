@@ -13,5 +13,11 @@ export async function setWcsContent(page: E2EPage, content: string) {
     await page.addStyleTag({
         url: '/design-tokens/sncf-holding.css',
     });
+    await page.addStyleTag({
+        url: '/build/wcs.css',
+    });
+    await page.addStyleTag({
+        url: '/test.css',
+    });
     await page.waitForChanges();
 }
