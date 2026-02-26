@@ -5677,6 +5677,54 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/divider/divider.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The divider is a separator between two elements, consisting of a horizontal line.",
+          "name": "Divider",
+          "cssProperties": [
+            {
+              "description": "Color of the divider",
+              "name": "--wcs-divider-color"
+            },
+            {
+              "description": "Height (border-width) of the divider",
+              "name": "--wcs-divider-height"
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-divider",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Divider",
+          "declaration": {
+            "name": "Divider",
+            "module": "components/divider/divider.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-divider",
+          "declaration": {
+            "name": "Divider",
+            "module": "components/divider/divider.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/counter/counter-interface.ts",
       "declarations": [],
       "exports": []
@@ -6068,20 +6116,20 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/divider/divider.tsx",
+      "path": "components/dropdown-divider/dropdown-divider.tsx",
       "declarations": [
         {
           "kind": "class",
-          "description": "The divider is a separator between two elements, consisting of a horizontal line.",
-          "name": "Divider",
+          "description": "You can add a divider between groups of items",
+          "name": "DropdownDivider",
           "cssProperties": [
             {
-              "description": "Color of the divider",
-              "name": "--wcs-divider-color"
+              "description": "Margin of the divider",
+              "name": "--wcs-dropdown-divider-margin"
             },
             {
-              "description": "Height (border-width) of the divider",
-              "name": "--wcs-divider-height"
+              "description": "Color of the divider",
+              "name": "--wcs-dropdown-divider-color"
             }
           ],
           "members": [
@@ -6090,7 +6138,7 @@
               "name": "render"
             }
           ],
-          "tagName": "wcs-divider",
+          "tagName": "wcs-dropdown-divider",
           "events": [],
           "customElement": true
         }
@@ -6098,18 +6146,18 @@
       "exports": [
         {
           "kind": "js",
-          "name": "Divider",
+          "name": "DropdownDivider",
           "declaration": {
-            "name": "Divider",
-            "module": "components/divider/divider.tsx"
+            "name": "DropdownDivider",
+            "module": "components/dropdown-divider/dropdown-divider.tsx"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "wcs-divider",
+          "name": "wcs-dropdown-divider",
           "declaration": {
-            "name": "Divider",
-            "module": "components/divider/divider.tsx"
+            "name": "DropdownDivider",
+            "module": "components/dropdown-divider/dropdown-divider.tsx"
           }
         }
       ]
@@ -6597,54 +6645,6 @@
           "declaration": {
             "name": "Dropdown",
             "module": "components/dropdown/dropdown.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/dropdown-divider/dropdown-divider.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "You can add a divider between groups of items",
-          "name": "DropdownDivider",
-          "cssProperties": [
-            {
-              "description": "Margin of the divider",
-              "name": "--wcs-dropdown-divider-margin"
-            },
-            {
-              "description": "Color of the divider",
-              "name": "--wcs-dropdown-divider-color"
-            }
-          ],
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-dropdown-divider",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "DropdownDivider",
-          "declaration": {
-            "name": "DropdownDivider",
-            "module": "components/dropdown-divider/dropdown-divider.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-dropdown-divider",
-          "declaration": {
-            "name": "DropdownDivider",
-            "module": "components/dropdown-divider/dropdown-divider.tsx"
           }
         }
       ]
@@ -11678,6 +11678,12 @@
           }
         }
       ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/label/label.e2e.playwright.ts",
+      "declarations": [],
+      "exports": []
     },
     {
       "kind": "javascript-module",

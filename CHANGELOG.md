@@ -27,11 +27,17 @@ for now removed features.
 
 ### Fixed
 
-- **label**: fix line-height to revert the possibility to have multi-line label
+for any bug fixes.
 
 ### Security
 
 in case of vulnerabilities.
+
+## [7.5.1] - 2026-02-26
+
+### Fixed
+
+- **label**: fix line-height to revert the possibility to have multi-line label
 
 ## [7.5.0] - 2026-02-10
 
