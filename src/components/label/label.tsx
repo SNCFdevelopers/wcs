@@ -52,6 +52,7 @@ export class Label implements ComponentInterface, MutableAriaAttribute {
             <Host slot="label">
                 <label ref={(el) => this.nativeLabel = el} {...this.inheritedAttributes}>
                     <slot />
+                    {this.required && <span aria-hidden="true" class="required-marker">*</span>}
                 </label>
             </Host>
         );

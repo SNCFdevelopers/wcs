@@ -8,17 +8,18 @@
     font-weight: var(--wcs-label-font-weight);
 }
 
-:host([required]) > label::after {
-    font-weight: var(--wcs-label-font-weight);
-    color: var(--wcs-label-required-marker-color);
-    content: ' *';
-}
-
 label {
     display: inline-flex;
     align-items: center;
     gap: var(--wcs-label-gap);
     
     color: var(--wcs-label-color);
+    font-weight: var(--wcs-label-font-weight);
+}
+
+.required-marker {
+    margin-left: 4px;
+    vertical-align: text-top;
+    color: var(--wcs-label-required-marker-color);
     font-weight: var(--wcs-label-font-weight);
 }
