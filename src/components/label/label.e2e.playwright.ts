@@ -117,6 +117,6 @@ test.describe('Label component', () => {
         await wcsInput.evaluate((el: any) => el.required = false);
 
         // Then
-        expect(requiredMarker).toHaveCount(0);
+        await expect(requiredMarker).toBeHidden();
     });
 });

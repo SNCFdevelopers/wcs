@@ -27,7 +27,7 @@ for now removed features.
 
 ### Fixed
 
-for any bug fixes.
+- **label**: fix alignment of required marker and last word of the label
 
 ### Security
 

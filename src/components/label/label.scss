@@ -9,12 +9,16 @@
 }
 
 label {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--wcs-label-gap);
+    display: inline-block;
     
     color: var(--wcs-label-color);
     font-weight: var(--wcs-label-font-weight);
+
+    ::slotted(wcs-mat-icon) {
+        display: inline-flex;
+        vertical-align: text-top;
+        margin-left: var(--wcs-label-gap);
+    }
 }
 
 .required-marker {
