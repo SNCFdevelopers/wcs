@@ -28,6 +28,7 @@ for now removed features.
 ### Fixed
 
 - **label**: fix alignment of required marker and last word of the label
+- **radio**: fix a behavior where clicking on a radio button inside a scrollable container would cause the window to scroll to the bottom of the page. Now, the window scroll position is preserved when clicking on a radio button.
 
 ### Security
 

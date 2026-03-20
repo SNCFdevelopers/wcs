@@ -280,4 +280,38 @@ test.describe('Radio Group', () => {
             await expect(lastRadioInput).toHaveAttribute('aria-checked', 'true');
         });
     });
+
+    test.describe('Behavior in window with scroll', () => {
+        [
+            { mode: 'radio' },
+            { mode: 'horizontal' },
+            { mode: 'option' }
+        ].forEach(({ mode }) => {
+                test(`should preserve the window scroll position when clicking a radio inside a scrollable container - mode: ${mode}`, async ({ page }: { page: E2EPage }) => {
+                // Given
+                await setWcsContent(page, `
+                    <div id="scroll-container" style="height: 100vh; overflow-y: auto;">
+                        <div style="margin-top: 150vh;">
+                            <wcs-radio-group mode="${mode}">
+                                <wcs-radio id="radio-1" value="1">Radio 1</wcs-radio>
+                                <wcs-radio id="radio-2" value="2">Radio 2</wcs-radio>
+                                <wcs-radio id="radio-3" value="3">Radio 3</wcs-radio>
+                            </wcs-radio-group>
+                        </div>
+                        <div style="margin-top: 200vh;">Other content</div>
+                    </div>
+            `);
+                const body = page.locator('body');
+                const radio2 = page.locator('#radio-2');
+                await radio2.scrollIntoViewIfNeeded();
+
+                // When
+                await radio2.click();
+
+                // Then
+                const scrollY = await body.evaluate(() => window.scrollY);
+                expect(scrollY).toBe(0);
+            });
+        });
+    });
 });

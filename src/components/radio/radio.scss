@@ -75,6 +75,15 @@
     --wcs-radio-option-padding-bottom: var(--wcs-semantic-spacing-base);
     --wcs-radio-option-padding-left: var(--wcs-semantic-spacing-large);
     // endregion
+
+    /*
+    * DO NOT REMOVE:
+    * The native input is absolutely positioned.
+    * This `position: relative` makes `wcs-radio` its containing block.
+    * Without it, the input can be laid out relative to another ancestor higher in the DOM,
+    * so when the browser focuses the native control it may scroll the window unexpectedly.
+    */
+    position: relative;
 }
 
 :host([mode=radio]),
