@@ -32,6 +32,7 @@ for now removed features.
 - **dropdown**: fix a behavior where tabbing to a dropdown inside a scrollable container could cause the window to scroll unexpectedly. The window scroll position is now preserved.
 - **grid**: fix a behavior where tabbing to the single-selection radio or clicking on it, inside a grid in a scrollable container, could cause the window to scroll unexpectedly. The window scroll position is now preserved.
 - **radio**: fix a behavior where clicking on a radio button inside a scrollable container would cause the window to scroll to the bottom of the page. Now, the window scroll position is preserved when clicking on a radio button.
+- **radio-group**: fix a11y issues with the hierarchy announcement of radio options by screen readers
 
 ### Security
 

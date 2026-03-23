@@ -12,10 +12,8 @@ import {
 } from '@stencil/core';
 import { RadioChosedEvent } from './radio-interface';
 import { RadioGroupMode } from '../radio-group/radio-group-interface';
-import { inheritAriaAttributes, inheritAttributes, setOrRemoveAttribute } from "../../utils/helpers";
+import { setOrRemoveAttribute } from "../../utils/helpers";
 import { AriaAttributeName, MutableAriaAttribute } from "../../utils/mutable-aria-attribute";
-
-const RADIO_INHERITED_ATTRS = ['title'];
 
 /**
  * The radio component should always be wrapped in a `wcs-radio-group`.
@@ -86,15 +84,10 @@ const RADIO_INHERITED_ATTRS = ['title'];
 @Component({
     tag: 'wcs-radio',
     styleUrl: 'radio.scss',
-    shadow: {
-        delegatesFocus: true
-    }
+    shadow: true
 })
 export class Radio implements ComponentInterface, MutableAriaAttribute {
-    private inputId = `wcs-rb-${radioButtonIds++}`;
-    @Element() private el!: HTMLWcsRadioElement;
-    private nativeRadio!: HTMLInputElement;
-    private inheritedAttributes: { [k: string]: any } = {};
+    @Element() private readonly el!: HTMLWcsRadioElement;
     
     /**
      * If `true`, the radio is selected. 
@@ -173,7 +166,7 @@ export class Radio implements ComponentInterface, MutableAriaAttribute {
 
     @Method()
     async setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) {
-        setOrRemoveAttribute(this.nativeRadio, attr, value);
+        setOrRemoveAttribute(this.el, attr, value);
     }
 
     onFocus(ev: FocusEvent) {
@@ -193,23 +186,6 @@ export class Radio implements ComponentInterface, MutableAriaAttribute {
             // If no value was given we use the text content instead.
             this.value = this.el.innerText || '';
         }
-        
-        this.inheritedAttributes = {
-            ...inheritAriaAttributes(this.el),
-            ...inheritAttributes(this.el, RADIO_INHERITED_ATTRS),
-        };
-    }
-    
-    private onChange(_: Event) {
-        if (this.disabled) return;
-
-        // If the radio is unchecked, then the change represents its transition to the check state.
-        // Only emit the change event when going from unchecked to checked, like the native behavior.
-        // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event
-        if (!this.checked) {
-            this.checked = true;
-            this.emitRadioChangeEvent();
-        }
     }
 
     emitRadioChangeEvent() {
@@ -220,31 +196,46 @@ export class Radio implements ComponentInterface, MutableAriaAttribute {
         });
     }
 
+    private selectRadio() {
+        if (this.disabled || this.checked) {
+            return;
+        }
+
+        this.checked = true;
+        // Only emit the change event when going from unchecked to checked, like the native behavior.
+        // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event
+        this.emitRadioChangeEvent();
+    }
+
+    private readonly handleClick = () => {
+        this.selectRadio();
+    };
+
+    private readonly handleKeyDown = (event: KeyboardEvent) => {
+        if (this.disabled) return;
+
+        if (event.key === ' ' || event.key === 'Enter') {
+            event.preventDefault();
+            event.stopPropagation();
+            this.selectRadio();
+        }
+    };
+
     render() {
         
         return (
             <Host slot="option"
+                  role="radio"
+                  aria-checked={this.checked ? 'true' : 'false'}
+                  aria-disabled={this.disabled ? 'true' : 'false'}
                   tabIndex={this.disabled ? -1 : this.radioTabIndex}
-                  class={this.checked ? 'checked' : ''}>
-                <input
-                    id={this.inputId}
-                    type="radio"
-                    name={this.name}
-                    value={this.value}
-                    checked={this.checked} // Initial checked state of native input
-                    disabled={this.disabled}
-                    onChange={this.onChange.bind(this)}
-                    onFocus={this.onFocus.bind(this)}
-                    onBlur={this.onBlur.bind(this)}
-                    aria-disabled={this.disabled ? 'true' : null}
-                    aria-checked={`${this.checked}`}
-                    ref={(el) => (this.nativeRadio = el)}
-                    {...this.inheritedAttributes}
-                />
-                <label htmlFor={`${this.inputId}`}>{this.label}</label>
+                  class={this.checked ? 'checked' : ''}
+                  onClick={this.handleClick.bind(this)}
+                  onFocus={this.onFocus.bind(this)}
+                  onBlur={this.onBlur.bind(this)}
+                  onKeyDown={this.handleKeyDown.bind(this)}>
+                <span class="label">{this.label}</span>
             </Host>
         );
     }
 }
-
-let radioButtonIds = 0;

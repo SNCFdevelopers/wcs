@@ -4,6 +4,21 @@ import { test, E2EPage } from "@stencil/playwright";
 import { expect } from "@playwright/test";
 
 test.describe('Radio Group', () => {
+    test('should not render an interactive radio descendant inside wcs-radio', async ({ page }: { page: E2EPage }) => {
+        // Given
+        await setWcsContent(page, `
+            <wcs-radio-group>
+                <wcs-radio id="radio-1" label="SNCF" value="1"></wcs-radio>
+            </wcs-radio-group>
+        `);
+
+        const radio = page.locator('#radio-1');
+
+        // Then
+        await expect(radio).toHaveAttribute('role', 'radio');
+        await expect(radio.locator('input[type="radio"]')).toHaveCount(0);
+    });
+
     test('should navigate to the first not disabled radio when pressing tab key', async ({ page }: { page: E2EPage }) => {
         // Given
         await setWcsContent(page, `
@@ -70,8 +85,7 @@ test.describe('Radio Group', () => {
 
         // Then
         await expect(firstRadio).toBeFocused(); // Ensure focus is on the first radio
-        const firstRadioNativeInput = page.locator('#radio-1 input');
-        await expect(firstRadioNativeInput).toHaveAttribute('aria-checked', 'true');
+        await expect(firstRadio).toHaveAttribute('aria-checked', 'true');
     });
 
     test('should navigate to the checked radio when pressing tab key', async ({ page }: { page: E2EPage }) => {
@@ -109,7 +123,6 @@ test.describe('Radio Group', () => {
 
             const firstRadio = page.locator('#radio-1');
             await firstRadio.focus();
-            const thirdRadioNativeInput = page.locator('#radio-3 input');
             const thirdRadio = page.locator('#radio-3');
 
             // When
@@ -117,7 +130,7 @@ test.describe('Radio Group', () => {
 
             // Then
             await expect(thirdRadio).toBeFocused(); // Ensure focus is on the third radio
-            await expect(thirdRadioNativeInput).toHaveAttribute('aria-checked', 'true');
+            await expect(thirdRadio).toHaveAttribute('aria-checked', 'true');
         });
 
         test('should checked the first not disabled radio when we are on the last radio', async ({ page }: { page: E2EPage }) => {
@@ -136,7 +149,7 @@ test.describe('Radio Group', () => {
             await lastRadio.focus();
             await expect(lastRadio).toBeFocused();
             const secondRadio = page.locator('#radio-2');
-            const secondRadioNativeInputInput = page.locator('#radio-2 input');
+            const secondRadioNativeInputInput = page.locator('#radio-2');
 
             // When
             await page.keyboard.press('ArrowDown');
@@ -170,6 +183,30 @@ test.describe('Radio Group', () => {
             expect(radioClickSpy).toHaveReceivedEventTimes(1);
         });
 
+        test('should keep only the last clicked radio checked in the same group', async ({ page }: { page: E2EPage }) => {
+            // Given
+            await setWcsContent(page, `
+                <wcs-radio-group>
+                    <wcs-radio id="radio-1" value="1"></wcs-radio>
+                    <wcs-radio id="radio-2" value="2"></wcs-radio>
+                    <wcs-radio id="radio-3" value="3"></wcs-radio>
+                </wcs-radio-group>
+            `);
+
+            const radio1 = page.locator('#radio-1');
+            const radio2 = page.locator('#radio-2');
+
+            // When
+            await radio1.click();
+            await page.waitForChanges();
+            await radio2.click();
+            await page.waitForChanges();
+
+            // Then
+            await expect(radio1).toHaveAttribute('aria-checked', 'false');
+            await expect(radio2).toHaveAttribute('aria-checked', 'true');
+        });
+
         test('should fire wcsChange when we click or move to an unchecked radio', async ({ page }: { page: E2EPage }) => {
             // Given
             await setWcsContent(page, `
@@ -200,6 +237,34 @@ test.describe('Radio Group', () => {
             const radio3 = page.locator('#radio-3');
             await expect(radio3).toBeFocused(); // Ensure focus is on the third radio (next radio after radio2)
             expect(changeSpy).toHaveReceivedEventTimes(2);
+        });
+
+        test('should keep only the last keyboard-selected radio checked in the same group', async ({ page }: { page: E2EPage }) => {
+            // Given
+            await setWcsContent(page, `
+                <wcs-radio-group>
+                    <wcs-radio id="radio-1" value="1"></wcs-radio>
+                    <wcs-radio id="radio-2" value="2"></wcs-radio>
+                    <wcs-radio id="radio-3" value="3"></wcs-radio>
+                </wcs-radio-group>
+            `);
+
+            const radio1 = page.locator('#radio-1');
+            const radio2 = page.locator('#radio-2');
+            const radio3 = page.locator('#radio-3');
+
+            // When
+            await radio1.focus();
+            await page.keyboard.press('Space');
+            await page.waitForChanges();
+            await page.keyboard.press('ArrowDown');
+            await page.waitForChanges();
+
+            // Then
+            await expect(radio2).toBeFocused();
+            await expect(radio1).toHaveAttribute('aria-checked', 'false');
+            await expect(radio2).toHaveAttribute('aria-checked', 'true');
+            await expect(radio3).toHaveAttribute('aria-checked', 'false');
         });
 
         test('should fire wcsBlur and wcsFocus from the radios', async ({ page }: { page: E2EPage }) => {
@@ -255,7 +320,7 @@ test.describe('Radio Group', () => {
             await page.keyboard.press('ArrowUp');
 
             // Then
-            const secondRadioInput = page.locator('#radio-2 input');
+            const secondRadioInput = page.locator('#radio-2');
             await expect(secondRadioInput).toHaveAttribute('aria-checked', 'true');
         });
 
@@ -276,7 +341,7 @@ test.describe('Radio Group', () => {
             await page.keyboard.press('ArrowUp');
 
             // Then
-            const lastRadioInput = page.locator('#radio-3 input');
+            const lastRadioInput = page.locator('#radio-3');
             await expect(lastRadioInput).toHaveAttribute('aria-checked', 'true');
         });
     });

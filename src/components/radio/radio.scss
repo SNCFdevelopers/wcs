@@ -98,7 +98,7 @@
         white-space: nowrap;
     }
 
-    label {
+    .label {
         margin-bottom: 0;
         color: var(--wcs-radio-text-color-default);
         font-weight: var(--wcs-radio-text-font-weight-default) !important;
@@ -115,15 +115,19 @@
             background-color: var(--wcs-radio-checkmark-background-color-default);
         }
     }
+}
 
-    input:focus-visible + label {
+:host(:focus-visible) {
+    outline: none;
+
+    .label {
         transition: none;
         @include focus-outline($outline-color: var(--wcs-radio-outline-color-focus), $border-radius: var(--wcs-radio-border-radius));
     }
 }
 
 :host([disabled]) {
-    label {
+    .label {
         color: var(--wcs-radio-text-color-disabled);
         cursor: not-allowed;
 
@@ -134,14 +138,14 @@
 }
 
 :host(:not([disabled])) {
-    label {
+    .label {
         cursor: pointer;
     }
 }
 
 :host([mode=radio].checked),
 :host([mode=horizontal].checked) {
-    label {
+    .label {
         color: var(--wcs-radio-text-color-selected);
         font-weight: var(--wcs-radio-text-font-weight-selected) !important;
 
@@ -156,7 +160,7 @@
 
 :host([mode=radio][disabled].checked),
 :host([mode=horizontal][disabled].checked) {
-    label {
+    .label {
         color: var(--wcs-radio-text-color-disabled);
 
         &:before {
@@ -168,7 +172,7 @@
 
 :host([mode=radio]:hover:not([disabled])),
 :host([mode=horizontal]:hover:not([disabled])) {
-    label {
+    .label {
         color: var(--wcs-radio-text-color-hover);
 
         &:before {
@@ -180,13 +184,13 @@
 
 :host([mode=radio]:hover:not([disabled]):not(.checked)),
 :host([mode=horizontal]:hover:not([disabled]):not(.checked)) {
-    label:before {
+    .label:before {
         background-color: var(--wcs-radio-checkmark-background-color-default);
     }
 }
 
 :host([mode=radio]) {
-    label {
+    .label {
         border: none;
 
         &:before {
@@ -206,7 +210,7 @@
 :host([mode=horizontal]) {
     height: fit-content;
 
-    label {
+    .label {
         &:before {
             transition: background-color var(--wcs-radio-transition-duration) ease-in-out;
             margin: auto auto var(--wcs-radio-gap);
@@ -230,7 +234,7 @@
         padding: 0;
     }
 
-    label {
+    .label {
         padding: var(--wcs-radio-option-padding-top) var(--wcs-radio-option-padding-right) var(--wcs-radio-option-padding-bottom) var(--wcs-radio-option-padding-left);
         margin-bottom: 0;
         color: var(--wcs-radio-option-text-color-default);
@@ -240,27 +244,27 @@
         background-color: var(--wcs-radio-option-background-color-default);
     }
 
-    input:focus-visible + label {
+    input:focus-visible + .label {
         @include focus-outline($outline-color: var(--wcs-radio-outline-color-focus), $border-radius: var(--wcs-radio-border-radius), $outline-offset: 0);
     }
 }
 
 :host([mode=option][disabled]) {
-    label {
+    .label {
         color: var(--wcs-radio-option-text-color-disabled);
         background-color: var(--wcs-radio-option-background-color-disabled);
     }
 }
 
 :host([mode=option][disabled].checked) {
-    label {
+    .label {
         color: var(--wcs-radio-option-text-color-disabled);
         background-color: var(--wcs-radio-option-background-color-selected-disabled);
     }
 }
 
 :host([mode=option].checked) {
-    label {
+    .label {
         font-weight: var(--wcs-radio-option-text-font-weight-selected) !important;
         color: var(--wcs-radio-option-text-color-selected-default);
         background-color: var(--wcs-radio-option-background-color-selected-default);
@@ -268,21 +272,21 @@
 }
 
 :host([mode=option]:hover.checked:not([disabled])) {
-    label {
+    .label {
         color: var(--wcs-radio-option-text-color-selected-hover);
         background-color: var(--wcs-radio-option-background-color-selected-hover);
     }
 }
 
 :host([mode=option]:active.checked:not([disabled])) {
-    label {
+    .label {
         color: var(--wcs-radio-option-text-color-selected-press);
         background-color: var(--wcs-radio-option-background-color-selected-press);
     }
 }
 
 :host([mode=option]:hover:not(.checked):not([disabled])) {
-    label {
+    .label {
         color: var(--wcs-radio-option-text-color-hover);
         background-color: var(--wcs-radio-option-background-color-hover);
         outline: var(--wcs-radio-option-border-width) solid var(--wcs-radio-option-border-color-hover);
@@ -290,7 +294,7 @@
 }
 
 :host([mode=option]:active:not(.checked):not([disabled])) {
-    label {
+    .label {
         color: var(--wcs-radio-option-text-color-press);
         background-color: var(--wcs-radio-option-background-color-press);
         outline: var(--wcs-radio-option-border-width) solid var(--wcs-radio-option-border-color-press);
