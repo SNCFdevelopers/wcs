@@ -16,6 +16,14 @@
     width: fit-content;
     cursor: pointer;
     padding: var(--wcs-grid-radio-padding, 0.125rem);
+    /*
+    * DO NOT REMOVE:
+    * The native radio input is absolutely positioned.
+    * This `position: relative` makes `.grid-radio` its containing block.
+    * Without it, the input can be laid out relative to another ancestor higher in the DOM,
+    * so when the browser focuses the native control it may scroll the window unexpectedly.
+    */
+    position: relative;
 
     &:has(input:focus-visible) {
         @include focus-outline($outline-color: var(--wcs-grid-radio-outline-color));

@@ -28,7 +28,9 @@ for now removed features.
 ### Fixed
 
 - **label**: fix alignment of required marker and last word of the label
+- **grid**: fix a behavior where tabbing to the single-selection radio or clicking on it, inside a grid in a scrollable container, could cause the window to scroll unexpectedly. The window scroll position is now preserved.
 - **radio**: fix a behavior where clicking on a radio button inside a scrollable container would cause the window to scroll to the bottom of the page. Now, the window scroll position is preserved when clicking on a radio button.
+
 
 ### Security
 

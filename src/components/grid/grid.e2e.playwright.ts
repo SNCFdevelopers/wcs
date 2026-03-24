@@ -182,4 +182,71 @@ test.describe('Grid component', () => {
             }).toPass();
         });
     });
+
+    test.describe('Behavior in window with scroll', () => {
+        test('should preserve the window scroll position when clicking on a single-selection radio inside a scrollable container', async ({ page }: { page: E2EPage }) => {
+            // Given
+            const data = [{ id: 1, first_name: 'John' }, { id: 2, first_name: 'Doe' }];
+            await setWcsContent(page, `
+                <div id="scroll-container" style="height: 100vh; overflow-y: auto;">
+                    <div style="margin-top: 150vh; display: flex; flex-direction: column; gap: 16px;">
+                        <wcs-grid id="simpleGrid" selection-config="single" sort="">
+                            <wcs-grid-column path="first_name" name="First Name"></wcs-grid-column>
+                        </wcs-grid>
+                    </div>
+                    <div style="margin-top: 200vh;">Other content</div>
+                </div>
+            `);
+
+            const simpleGrid = page.locator('#simpleGrid');
+            await simpleGrid.evaluate((el: any, d) => el.data = d, data);
+
+            const body = page.locator('body');
+            const gridRadioFirstRow = simpleGrid.locator('table tbody tr:first-child td .grid-radio');
+
+            await gridRadioFirstRow.scrollIntoViewIfNeeded();
+
+            // When
+            await gridRadioFirstRow.click();
+            await page.waitForChanges();
+
+            // Then
+            const scrollY = await body.evaluate(() => window.scrollY);
+            expect(scrollY).toBe(0);
+        });
+
+        test('should preserve the window scroll position when tabbing to a single-selection grid inside a scrollable container', async ({ page }: { page: E2EPage }) => {
+            // Given
+            const data = [{ id: 1, first_name: 'John' }, { id: 2, first_name: 'Doe' }];
+            await setWcsContent(page, `
+                <div id="scroll-container" style="height: 100vh; overflow-y: auto;">
+                    <div style="margin-top: 150vh; display: flex; flex-direction: column; gap: 16px;">
+                        <button id="before-grid">Before grid</button>
+                        <wcs-grid id="simpleGrid" selection-config="single" sort="">
+                            <wcs-grid-column path="first_name" name="First Name"></wcs-grid-column>
+                        </wcs-grid>
+                    </div>
+                    <div style="margin-top: 200vh;">Other content</div>
+                </div>
+            `);
+
+            const simpleGrid = page.locator('#simpleGrid');
+            await simpleGrid.evaluate((el: any, d) => el.data = d, data);
+
+            const body = page.locator('body');
+            const beforeGridButton = page.locator('#before-grid');
+            const firstGridRadio = simpleGrid.locator('table tbody tr:first-child td .grid-radio input');
+
+            await beforeGridButton.scrollIntoViewIfNeeded();
+            await beforeGridButton.focus();
+
+            // When
+            await page.keyboard.press('Tab');
+
+            // Then
+            await expect(firstGridRadio).toBeFocused();
+            const scrollY = await body.evaluate(() => window.scrollY);
+            expect(scrollY).toBe(0);
+        });
+    });
 });
