@@ -15,7 +15,8 @@ for new features.
 
 ### Changed
 
-for changes in existing functionality.
+- **doc**
+  - **card**: clarify the use of `wcs-card-content` vs `wcs-card-body` for rich content
 
 ### Deprecated
 

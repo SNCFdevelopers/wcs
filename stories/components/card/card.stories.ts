@@ -2,6 +2,8 @@ import { Meta, StoryObj } from '@storybook/web-components-vite';
 import { html } from 'lit-html';
 import { CardMode, CardOrientation } from '../../../src/components/card/card-interface';
 import { getComponentArgs } from '../../utils/args-generation';
+// @ts-ignore
+import formInCardDocumentation from './form-in-card-documentation.md?raw';
 
 const meta: Meta = {
     title: 'Components/Card',
@@ -65,6 +67,24 @@ const Template = (args: CardStoryArgs) => html`
             ` : null}
         </wcs-card-body>
     </wcs-card>
+`;
+
+const FormFields = () => html`
+    <wcs-form-field>
+        <wcs-label>Enter your name</wcs-label>
+        <wcs-input placeholder="John Doe"></wcs-input>
+        <wcs-hint>A name is something that describes a person</wcs-hint>
+    </wcs-form-field>
+
+    <wcs-form-field>
+        <wcs-label>What country are you coming from?</wcs-label>
+        <wcs-select placeholder="Select a country" required>
+            <wcs-select-option>France</wcs-select-option>
+            <wcs-select-option>Germany</wcs-select-option>
+            <wcs-select-option>Japan</wcs-select-option>
+        </wcs-select>
+        <wcs-hint>You can identify the person by the country they live in</wcs-hint>
+    </wcs-form-field>
 `;
 
 export const Default: StoryObj<CardStoryArgs> = {
@@ -180,4 +200,21 @@ export const TwoBodyAndDivider: StoryObj<CardStoryArgs> = {
     args: {
         mode: 'flat'
     }
+}
+
+export const FormUsage: StoryObj = {
+    render: () => html`
+        <wcs-card mode="flat" orientation="vertical">
+            <wcs-card-body>
+                ${FormFields()}
+            </wcs-card-body>
+        </wcs-card>
+    `,
+    parameters: {
+        docs: {
+            description: {
+                story: formInCardDocumentation,
+            },
+        },
+    },
 }

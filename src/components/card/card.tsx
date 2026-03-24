@@ -2,11 +2,18 @@ import { Component, ComponentInterface, h, Prop, Element, Watch } from '@stencil
 import { CardMode, CardOrientation } from './card-interface';
 
 /**
- * The card component is a container that display content such as text, images, buttons, and lists.  
+ * The card component is a container that displays content such as text, images, buttons, and lists.
  * A card can be a single component, but is often made up of a header, title, subtitle, and content.
- * 
- * While they're very flexible, it's important to use them consistently. You may use `wcs-card-media` outside `wcs-card-body`
- * and `wcs-card-header` `wcs-card-content` `wcs-card-footer` within `wcs-card-body` to make sure the card is well-designed.
+ *
+ * While cards are flexible, it is important to use them consistently. You may use `wcs-card-media` outside
+ * `wcs-card-body`, and `wcs-card-header`, `wcs-card-content`, and `wcs-card-footer` within `wcs-card-body`
+ * to keep the card structure clear and well-designed.
+ *
+ * `wcs-card-content` is intended for textual content only. If you need to display a form or other rich interactive
+ * content inside a card, place it directly inside `wcs-card-body` instead of wrapping it in `wcs-card-content`.
+ *
+ * A card can also be used as a visual wrapper to get the card border, radius, and background. In that case, prefer a
+ * direct child `wcs-card-body` when you need to host structured content.
  *
  * @slot - Default slot for the card content
  * 

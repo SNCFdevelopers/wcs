@@ -423,10 +423,15 @@ export namespace Components {
         "type": WcsButtonType;
     }
     /**
-     * The card component is a container that display content such as text, images, buttons, and lists.  
+     * The card component is a container that displays content such as text, images, buttons, and lists.
      * A card can be a single component, but is often made up of a header, title, subtitle, and content.
-     * While they're very flexible, it's important to use them consistently. You may use `wcs-card-media` outside `wcs-card-body`
-     * and `wcs-card-header` `wcs-card-content` `wcs-card-footer` within `wcs-card-body` to make sure the card is well-designed.
+     * While cards are flexible, it is important to use them consistently. You may use `wcs-card-media` outside
+     * `wcs-card-body`, and `wcs-card-header`, `wcs-card-content`, and `wcs-card-footer` within `wcs-card-body`
+     * to keep the card structure clear and well-designed.
+     * `wcs-card-content` is intended for textual content only. If you need to display a form or other rich interactive
+     * content inside a card, place it directly inside `wcs-card-body` instead of wrapping it in `wcs-card-content`.
+     * A card can also be used as a visual wrapper to get the card border, radius, and background. In that case, prefer a
+     * direct child `wcs-card-body` when you need to host structured content.
      * @cssprop --wcs-card-border-color - Border color of the card
      * @cssprop --wcs-card-border-radius - Border radius of the card
      * @cssprop --wcs-card-border-width - Border width of the card
@@ -450,8 +455,12 @@ export namespace Components {
         "setOrientation": (orientation: CardOrientation) => Promise<void>;
     }
     /**
-     * A content for a card inside card-body. Commonly used to provide more details about the card content. 
+     * A text content container for a card inside `wcs-card-body`.
+     * Commonly used to provide additional details about the card content.
      * The information provided should be concise and easy to read.
+     * Use `wcs-card-content` for text only. It applies text-oriented layout rules and overflow behavior.
+     * Forms and other rich interactive content should be placed directly inside `wcs-card-body`, not inside
+     * `wcs-card-content`.
      * By default, the margin is removed from the top and bottom of the card description.
      * @cssprop --wcs-card-content-color - The color of the card description.
      * @cssprop --wcs-card-content-font-size - The font size of the card description.
@@ -2966,10 +2975,15 @@ declare global {
         new (): HTMLWcsButtonElement;
     };
     /**
-     * The card component is a container that display content such as text, images, buttons, and lists.  
+     * The card component is a container that displays content such as text, images, buttons, and lists.
      * A card can be a single component, but is often made up of a header, title, subtitle, and content.
-     * While they're very flexible, it's important to use them consistently. You may use `wcs-card-media` outside `wcs-card-body`
-     * and `wcs-card-header` `wcs-card-content` `wcs-card-footer` within `wcs-card-body` to make sure the card is well-designed.
+     * While cards are flexible, it is important to use them consistently. You may use `wcs-card-media` outside
+     * `wcs-card-body`, and `wcs-card-header`, `wcs-card-content`, and `wcs-card-footer` within `wcs-card-body`
+     * to keep the card structure clear and well-designed.
+     * `wcs-card-content` is intended for textual content only. If you need to display a form or other rich interactive
+     * content inside a card, place it directly inside `wcs-card-body` instead of wrapping it in `wcs-card-content`.
+     * A card can also be used as a visual wrapper to get the card border, radius, and background. In that case, prefer a
+     * direct child `wcs-card-body` when you need to host structured content.
      * @cssprop --wcs-card-border-color - Border color of the card
      * @cssprop --wcs-card-border-radius - Border radius of the card
      * @cssprop --wcs-card-border-width - Border width of the card
@@ -2995,8 +3009,12 @@ declare global {
         new (): HTMLWcsCardBodyElement;
     };
     /**
-     * A content for a card inside card-body. Commonly used to provide more details about the card content. 
+     * A text content container for a card inside `wcs-card-body`.
+     * Commonly used to provide additional details about the card content.
      * The information provided should be concise and easy to read.
+     * Use `wcs-card-content` for text only. It applies text-oriented layout rules and overflow behavior.
+     * Forms and other rich interactive content should be placed directly inside `wcs-card-body`, not inside
+     * `wcs-card-content`.
      * By default, the margin is removed from the top and bottom of the card description.
      * @cssprop --wcs-card-content-color - The color of the card description.
      * @cssprop --wcs-card-content-font-size - The font size of the card description.
@@ -5135,10 +5153,15 @@ declare namespace LocalJSX {
         "type"?: WcsButtonType;
     }
     /**
-     * The card component is a container that display content such as text, images, buttons, and lists.  
+     * The card component is a container that displays content such as text, images, buttons, and lists.
      * A card can be a single component, but is often made up of a header, title, subtitle, and content.
-     * While they're very flexible, it's important to use them consistently. You may use `wcs-card-media` outside `wcs-card-body`
-     * and `wcs-card-header` `wcs-card-content` `wcs-card-footer` within `wcs-card-body` to make sure the card is well-designed.
+     * While cards are flexible, it is important to use them consistently. You may use `wcs-card-media` outside
+     * `wcs-card-body`, and `wcs-card-header`, `wcs-card-content`, and `wcs-card-footer` within `wcs-card-body`
+     * to keep the card structure clear and well-designed.
+     * `wcs-card-content` is intended for textual content only. If you need to display a form or other rich interactive
+     * content inside a card, place it directly inside `wcs-card-body` instead of wrapping it in `wcs-card-content`.
+     * A card can also be used as a visual wrapper to get the card border, radius, and background. In that case, prefer a
+     * direct child `wcs-card-body` when you need to host structured content.
      * @cssprop --wcs-card-border-color - Border color of the card
      * @cssprop --wcs-card-border-radius - Border radius of the card
      * @cssprop --wcs-card-border-width - Border width of the card
@@ -5161,8 +5184,12 @@ declare namespace LocalJSX {
     interface WcsCardBody {
     }
     /**
-     * A content for a card inside card-body. Commonly used to provide more details about the card content. 
+     * A text content container for a card inside `wcs-card-body`.
+     * Commonly used to provide additional details about the card content.
      * The information provided should be concise and easy to read.
+     * Use `wcs-card-content` for text only. It applies text-oriented layout rules and overflow behavior.
+     * Forms and other rich interactive content should be placed directly inside `wcs-card-body`, not inside
+     * `wcs-card-content`.
      * By default, the margin is removed from the top and bottom of the card description.
      * @cssprop --wcs-card-content-color - The color of the card description.
      * @cssprop --wcs-card-content-font-size - The font size of the card description.
@@ -7634,10 +7661,15 @@ declare module "@stencil/core" {
              */
             "wcs-button": LocalJSX.WcsButton & JSXBase.HTMLAttributes<HTMLWcsButtonElement>;
             /**
-             * The card component is a container that display content such as text, images, buttons, and lists.  
+             * The card component is a container that displays content such as text, images, buttons, and lists.
              * A card can be a single component, but is often made up of a header, title, subtitle, and content.
-             * While they're very flexible, it's important to use them consistently. You may use `wcs-card-media` outside `wcs-card-body`
-             * and `wcs-card-header` `wcs-card-content` `wcs-card-footer` within `wcs-card-body` to make sure the card is well-designed.
+             * While cards are flexible, it is important to use them consistently. You may use `wcs-card-media` outside
+             * `wcs-card-body`, and `wcs-card-header`, `wcs-card-content`, and `wcs-card-footer` within `wcs-card-body`
+             * to keep the card structure clear and well-designed.
+             * `wcs-card-content` is intended for textual content only. If you need to display a form or other rich interactive
+             * content inside a card, place it directly inside `wcs-card-body` instead of wrapping it in `wcs-card-content`.
+             * A card can also be used as a visual wrapper to get the card border, radius, and background. In that case, prefer a
+             * direct child `wcs-card-body` when you need to host structured content.
              * @cssprop --wcs-card-border-color - Border color of the card
              * @cssprop --wcs-card-border-radius - Border radius of the card
              * @cssprop --wcs-card-border-width - Border width of the card
@@ -7653,8 +7685,12 @@ declare module "@stencil/core" {
              */
             "wcs-card-body": LocalJSX.WcsCardBody & JSXBase.HTMLAttributes<HTMLWcsCardBodyElement>;
             /**
-             * A content for a card inside card-body. Commonly used to provide more details about the card content. 
+             * A text content container for a card inside `wcs-card-body`.
+             * Commonly used to provide additional details about the card content.
              * The information provided should be concise and easy to read.
+             * Use `wcs-card-content` for text only. It applies text-oriented layout rules and overflow behavior.
+             * Forms and other rich interactive content should be placed directly inside `wcs-card-body`, not inside
+             * `wcs-card-content`.
              * By default, the margin is removed from the top and bottom of the card description.
              * @cssprop --wcs-card-content-color - The color of the card description.
              * @cssprop --wcs-card-content-font-size - The font size of the card description.
