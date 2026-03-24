@@ -366,4 +366,67 @@ test.describe('Dropdown component', () => {
             await expect(dropdown).toBeFocused();
         });
     });
+
+    test.describe('Behavior in window with scroll', () => {
+        test('should preserve the window scroll position when clicking on a dropdown inside a scrollable container', async ({ page }: { page: E2EPage }) => {
+            // Given
+            await setWcsContent(page, `
+                <div id="scroll-container" style="height: 100vh; overflow-y: auto;">
+                    <div style="margin-top: 150vh; display: flex; gap: 16px; align-items: center;">
+                        <wcs-dropdown id="dropdown" mode="plain" shape="normal" size="m">
+                            <span slot="placeholder">Dropdown</span>
+                            <wcs-dropdown-item id="first-item">Premier item</wcs-dropdown-item>
+                            <wcs-dropdown-item>Second item</wcs-dropdown-item>
+                        </wcs-dropdown>
+                    </div>
+                    <div style="margin-top: 200vh;">Other content</div>
+                </div>
+            `);
+
+            const body = page.locator('body');
+            const dropdown = page.locator('wcs-dropdown');
+
+            await dropdown.scrollIntoViewIfNeeded();
+
+            // When
+            await dropdown.click();
+            await page.waitForChanges();
+
+            // Then
+            const scrollY = await body.evaluate(() => window.scrollY);
+            expect(scrollY).toBe(0);
+        });
+
+        test('should preserve the window scroll position when tabbing to a dropdown inside a scrollable container', async ({ page }: { page: E2EPage }) => {
+            // Given
+            await setWcsContent(page, `
+                <div id="scroll-container" style="height: 100vh; overflow-y: auto;">
+                    <div style="margin-top: 150vh; display: flex; gap: 16px; align-items: center;">
+                        <button id="before-dropdown">Before dropdown</button>
+                        <wcs-dropdown id="dropdown" mode="plain" shape="normal" size="m">
+                            <span slot="placeholder">Dropdown</span>
+                            <wcs-dropdown-item id="first-item">Premier item</wcs-dropdown-item>
+                            <wcs-dropdown-item>Second item</wcs-dropdown-item>
+                        </wcs-dropdown>
+                    </div>
+                    <div style="margin-top: 200vh;">Other content</div>
+                </div>
+            `);
+
+            const body = page.locator('body');
+            const beforeDropdownButton = page.locator('#before-dropdown');
+            const dropdownButton = page.locator('wcs-dropdown #dropdown-button');
+
+            await beforeDropdownButton.scrollIntoViewIfNeeded();
+            await beforeDropdownButton.focus();
+
+            // When
+            await page.keyboard.press('Tab');
+
+            // Then
+            await expect(dropdownButton).toBeFocused();
+            const scrollY = await body.evaluate(() => window.scrollY);
+            expect(scrollY).toBe(0);
+        });
+    });
 });

@@ -2,6 +2,14 @@
 
 :host {
     display: flex;
+    /*
+    * DO NOT REMOVE:
+    * The native button is absolutely positioned.
+    * This `position: relative` makes `wcs-dropdown` its containing block.
+    * Without it, the button can be laid out relative to another ancestor higher in the DOM,
+    * so when the browser focuses the native button it may scroll the window unexpectedly.
+    */
+    position: relative;
 
     --wcs-dropdown-outline-color-focus: var(--wcs-semantic-color-border-focus-base);
 
