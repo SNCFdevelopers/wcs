@@ -42,7 +42,7 @@ export class BreadcrumbService {
       const routeUrl = parentUrl.concat(route.url.map(url => url.path));
 
       // Add an element for the current route part
-      if (route.data.breadcrumb) {
+      if (route.data['breadcrumb']) {
         const breadcrumbItemData = {
           label: this.getLabel(route.data),
           url: '/' + routeUrl.join('/')
@@ -51,11 +51,13 @@ export class BreadcrumbService {
       }
 
       // Add another element for the next route part
-      this.addBreadcrumb(route.firstChild, routeUrl, breadcrumbs);
+      if (route.firstChild) {
+        this.addBreadcrumb(route.firstChild, routeUrl, breadcrumbs);
+      }
     }
   }
 
   private getLabel(data: Data) {
-    return typeof data.breadcrumb === 'function' ? data.breadcrumb(data) : data.breadcrumb;
+    return typeof data['breadcrumb'] === 'function' ? data['breadcrumb'](data) : data['breadcrumb'];
   }
 }

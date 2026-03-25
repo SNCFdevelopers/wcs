@@ -4,6 +4,7 @@ import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-counter-formly-passengers-example',
+  standalone: false,
   template: `
     <h2>Avec Formly</h2>
     <form [formGroup]="form" (ngSubmit)="onSubmit(model)">
@@ -69,7 +70,7 @@ export class CounterFormlyPassengersExampleComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.form.get('counter').valueChanges.subscribe((value: number) => {
+    this.form.get('counter')?.valueChanges.subscribe((value: number) => {
       this.updateCount(value);
     });
   }
@@ -86,7 +87,7 @@ export class CounterFormlyPassengersExampleComponent implements AfterViewInit {
     this.fields = allFields;
   }
 
-  onSubmit(model) {
+  onSubmit(model: any) {
     console.log(model);
   }
 

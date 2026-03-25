@@ -6,6 +6,7 @@ import aboutArticles, { AboutArticle } from '../data/aboutArticles';
 
 @Component({
   selector: 'app-about-article',
+  standalone: false,
   template: `
     <h2>{{ article.title }}</h2>
     <p>{{ article.textContent }}</p>
@@ -15,7 +16,7 @@ import aboutArticles, { AboutArticle } from '../data/aboutArticles';
 })
 export class AboutArticleComponent implements OnInit {
   slug: string | null = null;
-  article: AboutArticle;
+  article!: AboutArticle;
 
   constructor(private router: Router, private route: ActivatedRoute, private location: Location) {}
 

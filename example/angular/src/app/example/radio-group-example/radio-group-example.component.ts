@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { FormControl, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-radio-group-example',
+  standalone: false,
   template: `
     <wcs-card style="margin-top: 8px">
       <wcs-card-body>
         <h3>ngModel</h3>
-        Current select value : {{currentValue ? currentValue : 'none'}}
+        Current select value : {{currentValue() ? currentValue() : 'none'}}
         <wcs-radio-group [(ngModel)]="currentValue">
           <wcs-radio value="1" label="Option 1"></wcs-radio>
           <wcs-radio value="2" label="Option 2"></wcs-radio>
@@ -15,7 +16,7 @@ import { FormControl, Validators } from "@angular/forms";
           <wcs-radio value="4" label="Option 4"></wcs-radio>
         </wcs-radio-group>
         <br/>
-        <wcs-button class="wcs-primary" mode="stroked" (click)="currentValue = '4'">Choose option 4</wcs-button>
+        <wcs-button class="wcs-primary" mode="stroked" (click)="currentValue.set('4')">Choose option 4</wcs-button>
       </wcs-card-body>
     </wcs-card>
     <wcs-card style="margin-top: 8px">
@@ -37,7 +38,7 @@ import { FormControl, Validators } from "@angular/forms";
   styles: []
 })
 export class RadioGroupExampleComponent implements OnInit {
-  currentValue: string;
+  currentValue = signal('');
   public radioGroup = new FormControl('', []);
 
 

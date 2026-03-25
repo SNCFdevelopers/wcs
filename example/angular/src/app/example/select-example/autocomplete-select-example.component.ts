@@ -5,6 +5,7 @@ import { WcsFormlySelectProps } from "wcs-formly";
 
 @Component({
   selector: 'app-autocomplete-select-example',
+  standalone: false,
   template: `
     <h2>Exemple d'utilisation du select autocomplete</h2>
     <wcs-card>

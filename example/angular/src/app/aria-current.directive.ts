@@ -2,7 +2,8 @@ import { Directive, HostBinding, Host } from "@angular/core";
 import { RouterLinkActive } from "@angular/router";
 
 @Directive({
-  selector: '[routerLinkActive]'
+  selector: '[routerLinkActive]',
+  standalone: false,
 })
 export class AriaCurrentDirective {
   constructor(@Host() private rla: RouterLinkActive) {}

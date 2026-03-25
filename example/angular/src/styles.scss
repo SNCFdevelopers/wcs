@@ -1,81 +1,148 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'wcs-core/dist/wcs/wcs.css';
-@import 'wcs-core/design-tokens/dist/sncf-holding.css';
-
-body {
-  margin: 0;
-}
+@import "wcs-core/dist/wcs/wcs.css";
+@import "wcs-core/design-tokens/dist/sncf-holding-root-scoped.css";
 
 @font-face {
   font-family: Avenir;
-  src: url("assets/fonts/avenir-lighter.woff");
+  src: url("/fonts/avenir-lighter.woff");
   font-weight: 100;
 }
 
 @font-face {
   font-family: Avenir;
-  src: url("assets/fonts/avenir-book.woff");
+  src: url("/fonts/avenir-book.woff");
   font-weight: 300;
 }
 
 @font-face {
   font-family: Avenir;
-  src: url("assets/fonts/avenir-roman.woff");
+  src: url("/fonts/avenir-roman.woff");
   font-weight: 400;
 }
 
 @font-face {
   font-family: Avenir;
-  src: url("assets/fonts/avenir-medium.woff");
+  src: url("/fonts/avenir-medium.woff");
   font-weight: 500;
 }
 
 @font-face {
   font-family: Avenir;
-  src: url("assets/fonts/avenir-heavy.woff");
+  src: url("/fonts/avenir-heavy.woff");
   font-weight: 800;
 }
 
 @font-face {
   font-family: Avenir;
-  src: url("assets/fonts/avenir-black.woff");
+  src: url("/fonts/avenir-black.woff");
   font-weight: 900;
 }
 
 @font-face {
   font-family: "icons";
-  src: url("assets/fonts/icons/icons.eot?#iefix") format("embedded-opentype"),
-       url("assets/fonts/icons/icons.woff2") format("woff2"),
-       url("assets/fonts/icons/icons.woff") format("woff"),
-       url("assets/fonts/icons/icons.ttf") format("truetype"),
-       url("assets/fonts/icons/icons.svg#icons") format("svg");
+  src: url("/fonts/icons/icons.eot?#iefix") format("embedded-opentype"),
+  url("/fonts/icons/icons.woff2") format("woff2"),
+  url("/fonts/icons/icons.woff") format("woff"),
+  url("/fonts/icons/icons.ttf") format("truetype"),
+  url("/fonts/icons/icons.svg#icons") format("svg");
 }
 
-// Examples for class passed in template option of formly radio
-.value1 {
-  --wcs-semantic-color-text-primary: var(--wcs-semantic-color-foreground-success);
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialicons/v139/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
 }
 
-.value2 {
-  --wcs-semantic-color-text-primary: var(--wcs-semantic-color-foreground-warning);
+@font-face {
+  font-family: 'Material Icons Outlined';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialiconsoutlined/v108/gok-H7zzDkdnRel8-DQ6KAXJ69wP1tGnf4ZGhUce.woff2) format('woff2');
 }
 
-.value3 {
-  --wcs-semantic-color-text-primary: var(--wcs-semantic-color-foreground-error);
+@font-face {
+  font-family: 'Material Icons Two Tone';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialiconstwotone/v111/hESh6WRmNCxEqUmNyh3JDeGxjVVyMg4tHGctNCu0.woff2) format('woff2');
 }
 
-.formly-group-flex-col-with-gap {
+@font-face {
+  font-family: 'Material Icons Round';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialiconsround/v107/LDItaoyNOAY6Uewc665JcIzCKsKc_M9flwmP.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Material Icons Sharp';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialiconssharp/v108/oPWQ_lt5nv4pWNJpghLP75WiFR4kLh3kvmvR.woff2) format('woff2');
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--wcs-semantic-color-background-surface-body);
+  color: var(--wcs-semantic-color-text-primary);
+}
+
+/** fonts */
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--wcs-font-sans-serif);
+  color: var(--wcs-semantic-color-text-primary);
+}
+
+h2 {
+  margin-bottom: var(--wcs-semantic-spacing-base);
+  font-weight: var(--wcs-semantic-font-weight-medium);
+  line-height: var(--wcs-semantic-font-line-height-medium);
+}
+
+.link {
+  color: var(--wcs-semantic-color-text-link-default);
+  font-weight: var(--wcs-semantic-font-weight-medium);
+  text-decoration: none;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+
+  &:hover {
+    color: var(--wcs-semantic-color-text-link-hover);
+  }
+
+  &:visited {
+    color: var(--wcs-semantic-color-text-link-visited);
+  }
+
+  &[disabled] {
+    color: var(--wcs-semantic-color-text-disabled);
+  }
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: var(--wcs-semantic-spacing-base);
+}
+
+.column {
   display: flex;
   flex-direction: column;
-  row-gap: var(--wcs-semantic-spacing-large);
-}
-
-.grid-auto-column {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: 1fr;
-}
-
-.column-gap-x-2 {
-  column-gap: var(--wcs-semantic-spacing-large);
-}
+  gap: var(--wcs-semantic-spacing-base);
+}/* You can add global styles to this file, and also import other style files */

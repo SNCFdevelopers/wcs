@@ -4,6 +4,7 @@ import aboutArticles from '../data/aboutArticles';
 
 @Component({
   selector: 'app-about',
+  standalone: false,
   template: `
     <h2>About</h2>
     <p>Découvrir le groupe SNCF.</p>
@@ -25,7 +26,7 @@ import aboutArticles from '../data/aboutArticles';
   `]
 })
 export class AboutIntroComponent implements OnInit {
-  aboutArticles = [];
+  aboutArticles: any[] = [];
 
   ngOnInit(): void {
     this.aboutArticles = this.getAllAboutArticles();

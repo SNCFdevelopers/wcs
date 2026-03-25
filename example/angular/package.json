@@ -5,47 +5,48 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "singleQuote": true,
+    "overrides": [
+      {
+        "files": "*.html",
+        "options": {
+          "parser": "angular"
+        }
+      }
+    ]
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^14.2.8",
-    "@angular/cdk": "^14.2.7",
-    "@angular/common": "^14.2.8",
-    "@angular/compiler": "^14.2.8",
-    "@angular/core": "^14.2.8",
-    "@angular/forms": "^14.2.8",
-    "@angular/platform-browser": "^14.2.8",
-    "@angular/platform-browser-dynamic": "^14.2.8",
-    "@angular/router": "^14.2.8",
-    "@ngx-formly/core": "^6.0.1",
-    "@ngx-formly/schematics": "^6.0.1",
-    "rxjs": "~7.5.0",
+    "@angular/common": "^20.3.0",
+    "@angular/compiler": "^20.3.0",
+    "@angular/core": "^20.3.0",
+    "@angular/forms": "^20.3.0",
+    "@angular/platform-browser": "^20.3.0",
+    "@angular/router": "^20.3.0",
+    "@ngx-formly/core": "^6.3.12",
+    "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4",
-    "wcs-core": "file:../../",
     "wcs-angular": "file:../../angular/dist/wcs-angular/",
-    "wcs-formly": "file:../../angular/dist/wcs-formly/"
+    "wcs-core": "file:../../",
+    "wcs-formly": "file:../../angular/dist/wcs-formly/",
+    "zone.js": "~0.15.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^14.2.7",
-    "@angular/cli": "^14.2.7",
-    "@angular/compiler-cli": "^14.2.8",
-    "@angular/language-service": "^14.2.8",
-    "@types/jasmine": "~4.0.0",
-    "@types/node": "^12.11.1",
-    "codelyzer": "^6.0.0",
-    "jasmine-core": "~4.3.0",
+    "@angular/build": "^20.3.4",
+    "@angular/cli": "^20.3.4",
+    "@angular/compiler-cli": "^20.3.0",
+    "@types/jasmine": "~5.1.0",
+    "jasmine-core": "~5.9.0",
     "karma": "~6.4.0",
-    "karma-chrome-launcher": "~3.1.0",
+    "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
-    "karma-jasmine-html-reporter": "~2.0.0",
-    "protractor": "~7.0.0",
-    "ts-node": "~7.0.0",
-    "tslint": "~6.1.0",
-    "typescript": "~4.7.2"
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "typescript": "~5.9.2"
   }
 }

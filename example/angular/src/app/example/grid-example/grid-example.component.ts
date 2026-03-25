@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { HyperFunc, WcsGridRowData } from "wcs-core/dist/types/components/grid/grid-interface";
 import { VNode } from "wcs-core/dist/types/stencil-public-runtime";
 import { FormControl } from "@angular/forms";
@@ -6,6 +6,7 @@ import { FormControl } from "@angular/forms";
 
 @Component({
   selector: 'app-grid-example',
+  standalone: false,
   template: `
     <h2>Grid</h2>
     <p>
@@ -23,9 +24,9 @@ import { FormControl } from "@angular/forms";
     </wcs-button>
     <wcs-grid id="grid-1"
               [formControl]="gridFormControl"
-              [data]="users"
+              [data]="users()"
               selectionConfig="multiple"
-              [selectedItems]="selectedItems">
+              [selectedItems]="selectedItems()">
       <wcs-grid-column path="name"
                        name="Nom"
                        sort
@@ -49,18 +50,18 @@ import { FormControl } from "@angular/forms";
 })
 export class GridExampleComponent implements OnInit {
   readonly pageSize: number = 5;
-  selectedItems = {};
-  users: { name: string, idAdmin: boolean, id: number }[] = [];
+  selectedItems = signal({});
+  users = signal<{ name: string, idAdmin: boolean, id: number }[]>([]);
 
   gridFormControl: FormControl<{ name: string, idAdmin: boolean, id: number } | {
     name: string,
     idAdmin: boolean,
     id: number
-  }[]> = new FormControl<{ name: string, idAdmin: boolean, id: number } | {
+  }[] | null> = new FormControl<{ name: string, idAdmin: boolean, id: number } | {
     name: string,
     idAdmin: boolean,
     id: number
-  }[]>(null, {
+  }[] | null>({ value: null, disabled: false }, {
     nonNullable: false
   });
 
@@ -69,21 +70,22 @@ export class GridExampleComponent implements OnInit {
 
   ngOnInit(): void {
     setTimeout(() =>
-        this.generateData(5)
+      this.generateData(5)
       , 3000);
     console.log(this.gridFormControl.valueChanges.subscribe(value => console.log(value)));
-    setTimeout(() => this.gridFormControl.setValue(this.users[0]), 5000);
+    setTimeout(() => this.gridFormControl.setValue(this.users()[0]), 5000);
   }
 
   generateData(nbPage: number) {
-    this.users = [];
+    const newUsers = [];
     for (let i = 0; i < this.pageSize * nbPage; i++) {
-      this.users.push({
+      newUsers.push({
         name: Math.random().toString(36).slice(2),
         idAdmin: Math.random() < 0.5,
         id: Math.floor(Math.random() * 100)
       });
     }
+    this.users.set(newUsers);
   }
 
   surbrillanceFormatter = (createElement: HyperFunc<VNode>, column: HTMLWcsGridColumnElement, rowData: WcsGridRowData) => {
@@ -111,7 +113,7 @@ export class GridExampleComponent implements OnInit {
   }
 
   removeSelection() {
-    this.selectedItems = {};
+    this.selectedItems.set({});
   }
 
 }

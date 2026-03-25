@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { FormGroup } from "@angular/forms";
 import { FormlyFieldConfig } from "@ngx-formly/core";
 import { Subject } from "rxjs";
@@ -7,25 +7,26 @@ type Option = { value: string, label: string, disabled: boolean };
 
 @Component({
   selector: 'app-select-example',
+  standalone: false,
   template: `
     <h2>Exemple d'utilisation du select</h2>
     <wcs-card>
       <wcs-card-body>
         <h3>Valeur par défaut</h3>
-        <wcs-select placeholder="Le select" [value]="value" name="sel-30" multiple>
+        <wcs-select placeholder="Le select" [value]="value()" name="sel-30" multiple>
           <wcs-select-option [value]="1">One</wcs-select-option>
           <wcs-select-option [value]="2">Two</wcs-select-option>
           <wcs-select-option [value]="3">Three</wcs-select-option>
         </wcs-select>
         <h3>Binding</h3>
-        <p>Selected values : {{bindingCustomSelect}}</p>
-        <wcs-select placeholder="Le select" [(ngModel)]="bindingCustomSelect" name="sel-893" multiple>
+        <p>Selected values : {{bindingCustomSelect()}}</p>
+        <wcs-select placeholder="Le select" [ngModel]="bindingCustomSelect()" (ngModelChange)="bindingCustomSelect.set($event)" name="sel-893" multiple>
           <wcs-select-option value="1">One</wcs-select-option>
           <wcs-select-option value="2">Two</wcs-select-option>
           <wcs-select-option value="3">Three</wcs-select-option>
         </wcs-select>
         <h3>Set value</h3>
-        <wcs-select placeholder="Le select" [(ngModel)]="random" name="sel-763">
+        <wcs-select placeholder="Le select" [ngModel]="random()" (ngModelChange)="random.set($event)" name="sel-763">
           <wcs-select-option [value]="1">One</wcs-select-option>
           <wcs-select-option [value]="2">Two</wcs-select-option>
           <wcs-select-option [value]="3">Three</wcs-select-option>
@@ -59,11 +60,10 @@ export class SelectExampleComponent implements OnInit {
   private asynchronousOptionsSubject = new Subject<Option[]>();
 
 
-
-  value = [1, 2];
-  bindingCustomSelect: any;
-  bindingNativeSelect: any = 'Intercités';
-  random = this.randomIntFromInterval(1, 3);
+  value = signal([1, 2]);
+  bindingCustomSelect = signal<any>(undefined);
+  bindingNativeSelect = signal<any>('Intercités');
+  random = signal(this.randomIntFromInterval(1, 3));
 
   form = new FormGroup({});
   fields: FormlyFieldConfig[] = [
@@ -92,17 +92,17 @@ export class SelectExampleComponent implements OnInit {
     setTimeout(() => this.asynchronousOptionsSubject.next(this.optionsFormly), 1000);
   }
 
-  randomIntFromInterval(min, max): number { // min and max included
+  randomIntFromInterval(min: number, max: number): number { // min and max included
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
   onRandomButtonClick() {
-    this.random = this.randomIntFromInterval(1, 3);
+    this.random.set(this.randomIntFromInterval(1, 3));
   }
 
   onResetButtonClick() {
-    this.bindingCustomSelect = null;
-    this.bindingNativeSelect = null;
-    this.random = null;
+    this.bindingCustomSelect.set(null);
+    this.bindingNativeSelect.set(null);
+    this.random.set(1);
   }
 }

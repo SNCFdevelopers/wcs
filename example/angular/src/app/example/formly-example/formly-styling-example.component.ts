@@ -6,6 +6,7 @@ type Option = { value: string, label: string, disabled: boolean, class: string }
 
 @Component({
   selector: 'app-formly-styling-example',
+  standalone: false,
   template: `
     <h2>Formly styling examples</h2>
     <form [formGroup]="form">

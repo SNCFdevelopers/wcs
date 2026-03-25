@@ -1,19 +1,24 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, signal } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
   selector: 'app-counter-example',
+  standalone: false,
   template: `
     <h2>Exemple utilisation compteur</h2>
-    <wcs-counter [value]="1" [min]="0" [max]="5" (wcsChange)="counterValueChanged($event)"></wcs-counter>
+    <wcs-counter [label]="'Le label'" [value]="1" [min]="0" [max]="5" (wcsChange)="counterValueChanged($event)"></wcs-counter>
     <div class="cards">
-      <span *ngIf="cardsIds.length < 1" class="info">Incrémentez le compteur !</span>
-      <wcs-card *ngFor="let card of cardsIds; let i = index">
-        <wcs-card-body>
-          Élément {{ i + 1 }}
-        </wcs-card-body>
-      </wcs-card>
+      @if (cardsIds().length < 1) {
+        <span class="info">Incrémentez le compteur !</span>
+      }
+      @for (card of cardsIds(); track $index; let i = $index) {
+        <wcs-card>
+          <wcs-card-body>
+            Élément {{ i + 1 }}
+          </wcs-card-body>
+        </wcs-card>
+      }
     </div>
 
     <app-counter-formly-passengers-example></app-counter-formly-passengers-example>
@@ -24,11 +29,11 @@ import { FormlyFieldConfig } from '@ngx-formly/core';
     <h1>Two way binding</h1>
     <div class="two-way-binding-container">
       <div class="counter-group">
-        <wcs-counter [(ngModel)]="counterBidirectionalBinding" [min]="0" [max]="20" [step]="1"></wcs-counter>
-        <input type="number" [(ngModel)]="counterBidirectionalBinding" min="0" max="20" step="1"/>
+        <wcs-counter [label]="'Le label'" [ngModel]="counterBidirectionalBinding()" (ngModelChange)="counterBidirectionalBinding.set($event)" [min]="0" [max]="20" [step]="1"></wcs-counter>
+        <input type="number" [ngModel]="counterBidirectionalBinding()" (ngModelChange)="counterBidirectionalBinding.set($event)" min="0" max="20" step="1"/>
       </div>
-      <b>Compteur:</b> <output>{{counterBidirectionalBinding}}</output>
-      <wcs-button (click)="counterBidirectionalBinding = 0">Reset value</wcs-button>
+      <b>Compteur:</b> <output>{{counterBidirectionalBinding()}}</output>
+      <wcs-button (click)="counterBidirectionalBinding.set(0)">Reset value</wcs-button>
     </div>
   `,
   styles: [`
@@ -64,11 +69,11 @@ import { FormlyFieldConfig } from '@ngx-formly/core';
   `]
 })
 export class CounterExampleComponent {
-  public cardsIds = [0];
-  counterBidirectionalBinding = 0;
+  public cardsIds = signal([0]);
+  counterBidirectionalBinding = signal(0);
 
   counterValueChanged($event: any) {
-    this.cardsIds = new Array($event.detail.value);
+    this.cardsIds.set(new Array($event.detail.value));
   }
 
 }

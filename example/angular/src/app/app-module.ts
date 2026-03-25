@@ -1,12 +1,13 @@
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+
+import { AppRoutingModule } from './app-routing-module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { WcsAngularModule } from 'wcs-angular';
 import { FormlyModule } from '@ngx-formly/core';
 import { WcsFormlyModule } from 'wcs-formly';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { App } from './app';
 import { MainLayoutComponent } from './layouts/main-layout.component';
 import { AboutComponent } from './about/about.component';
 import { AboutIntroComponent } from './about/about-intro.component';
@@ -31,7 +32,7 @@ import { AriaCurrentDirective } from './aria-current.directive';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    App,
     MainLayoutComponent,
     AboutComponent,
     AboutIntroComponent,
@@ -57,6 +58,8 @@ import { AriaCurrentDirective } from './aria-current.directive';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserModule,
+    AppRoutingModule,
     FormsModule,
     WcsAngularModule,
     FormlyModule.forRoot({
@@ -65,11 +68,12 @@ import { AriaCurrentDirective } from './aria-current.directive';
       ]
     }),
     WcsFormlyModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  providers: [
+    provideBrowserGlobalErrorListeners()
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  bootstrap: [App]
 })
-export class AppModule {
-}
+export class AppModule { }

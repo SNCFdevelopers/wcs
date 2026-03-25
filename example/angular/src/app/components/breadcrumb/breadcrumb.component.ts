@@ -1,35 +1,40 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, signal } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { BreadcrumbService, BreadcrumbItemData } from './breadcrumb.service';
 
 @Component({
   selector: 'app-breadcrumb',
+  standalone: false,
   template: `
     <wcs-breadcrumb>
-      <wcs-breadcrumb-item
-        *ngFor="let breadcrumb of breadcrumbs; let last = last"
-      >
-        <a *ngIf="!last && breadcrumb.url" [routerLink]="breadcrumb.url">
-          {{ breadcrumb.label }}
-        </a>
-        <ng-container *ngIf="last">
-          {{ breadcrumb.label }}
-        </ng-container>
-      </wcs-breadcrumb-item>
+      @for (breadcrumb of breadcrumbs(); track $index; let last = $last) {
+        <wcs-breadcrumb-item>
+          @if (!last && breadcrumb.url) {
+            <a [routerLink]="breadcrumb.url">
+              {{ breadcrumb.label }}
+            </a>
+          }
+          @if (last) {
+            <ng-container>
+              {{ breadcrumb.label }}
+            </ng-container>
+          }
+        </wcs-breadcrumb-item>
+      }
     </wcs-breadcrumb>
   `,
 })
 export class BreadcrumbComponent implements OnInit, OnDestroy {
-  breadcrumbs: BreadcrumbItemData[] = [];
+  breadcrumbs = signal<BreadcrumbItemData[]>([]);
   private subscription: Subscription | null = null;
 
-  constructor(private breadcrumbService: BreadcrumbService) {}
+  constructor(private breadcrumbService: BreadcrumbService) { }
 
   ngOnInit(): void {
     this.subscription = this.breadcrumbService.breadcrumbs$.subscribe(
       (breadcrumbs) => {
-        this.breadcrumbs = breadcrumbs;
+        this.breadcrumbs.set(breadcrumbs);
       }
     );
   }

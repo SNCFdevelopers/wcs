@@ -4,6 +4,7 @@ import { FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
   selector: 'app-counter-formly-default-value',
+  standalone: false,
   template: `
     <h2>Avec Formly : démonstration valeur par défaut</h2>
     <form [formGroup]="form">
@@ -34,7 +35,7 @@ export class CounterFormlyDefaultValueComponent {
       validators: {
         notEqualsOne: {
           expression: (c: AbstractControl) => c.value !== 1,
-          message: (_, field: FormlyFieldConfig) => `"${field.formControl.value}" n'est pas une valeur valide`
+          message: (_: any, field: FormlyFieldConfig) => `"${field.formControl!.value}" n'est pas une valeur valide`
         }
       },
       props: {

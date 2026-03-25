@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-input-example',
+  standalone: false,
   template: `
     <h2>Exemple utilisation input</h2>
     <h3>Input bindé avec un ngModel</h3>
@@ -34,8 +35,8 @@ import { FormControl, Validators } from '@angular/forms';
   styles: []
 })
 export class InputExampleComponent implements OnInit {
-  public inputText1: string;
-  public textareaText1: string;
+  public inputText1 = signal('');
+  public textareaText1 = signal('');
   public isChecked = new FormControl(false, [Validators.requiredTrue]);
 
   constructor() {

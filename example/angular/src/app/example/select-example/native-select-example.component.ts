@@ -4,6 +4,7 @@ import { FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
   selector: 'app-native-select-example',
+  standalone: false,
   template: `
     <h2>Exemple d'utilisation du select natif</h2>
     <wcs-card>

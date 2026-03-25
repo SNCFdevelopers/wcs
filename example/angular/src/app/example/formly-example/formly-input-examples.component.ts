@@ -4,6 +4,7 @@ import { FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
   selector: 'app-formly-input-examples',
+  standalone: false,
   template: `
     <form [formGroup]="form" (ngSubmit)="onSubmit(model)">
       <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
@@ -70,7 +71,7 @@ export class FormlyInputExamplesComponent {
     }
   ];
 
-  onSubmit(model) {
+  onSubmit(model: any) {
     console.log(model);
   }
 

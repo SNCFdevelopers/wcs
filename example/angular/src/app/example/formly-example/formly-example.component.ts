@@ -7,6 +7,7 @@ type Option = { value: string, label: string, disabled: boolean };
 
 @Component({
   selector: 'app-formly-example',
+  standalone: false,
   template: `
     <h2>Formly</h2>
     <wcs-switch [checked]="model.disabled" (wcsChange)="toggleDisabled()">Disabled</wcs-switch>
