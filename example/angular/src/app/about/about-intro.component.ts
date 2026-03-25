@@ -10,20 +10,22 @@ import aboutArticles from '../data/aboutArticles';
     <p>Découvrir le groupe SNCF.</p>
     <div>Détails :</div>
     <div class="links-container">
-      <a *ngFor="let article of aboutArticles; let i = index"
-        [routerLink]="['/about', article.slug]"
-      >
-        {{ article.title }}
-      </a>
+      @for (article of aboutArticles; track article; let i = $index) {
+        <a [routerLink]="['/about', article.slug]">
+          {{ article.title }}
+        </a>
+      }
     </div>
   `,
-  styles: [`
-    .links-container {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  `]
+  styles: [
+    `
+      .links-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    `,
+  ],
 })
 export class AboutIntroComponent implements OnInit {
   aboutArticles: any[] = [];

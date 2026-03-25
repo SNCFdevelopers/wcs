@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from "@angular/forms";
-import { FormlyFieldConfig } from "@ngx-formly/core";
-import { WcsFormlySelectProps } from "wcs-formly";
+import { FormGroup } from '@angular/forms';
+import { FormlyFieldConfig } from '@ngx-formly/core';
+import { WcsFormlySelectProps } from 'wcs-formly';
 
 @Component({
   selector: 'app-autocomplete-select-example',
@@ -11,60 +11,76 @@ import { WcsFormlySelectProps } from "wcs-formly";
     <wcs-card>
       <wcs-card-body>
         <h3>Autocomplete</h3>
-        <wcs-select id="select-autocomplete"
-                    placeholder="Choose a train"
-                    autocomplete>
+        <wcs-select id="select-autocomplete" placeholder="Choose a train" autocomplete>
           <wcs-select-option value="TGV">TGV</wcs-select-option>
           <wcs-select-option value="TER">TER</wcs-select-option>
           <wcs-select-option value="Intercités">Intercités</wcs-select-option>
         </wcs-select>
 
         <h3>Autocomplete multiple + chips</h3>
-        <wcs-select id="select-autocomplete-multiple-chips"
-                    placeholder="Choose a train"
-                    autocomplete multiple chips>
+        <wcs-select
+          id="select-autocomplete-multiple-chips"
+          placeholder="Choose a train"
+          autocomplete
+          multiple
+          chips
+        >
           <wcs-select-option value="TGV">TGV</wcs-select-option>
           <wcs-select-option value="TER">TER</wcs-select-option>
           <wcs-select-option value="Intercités">Intercités</wcs-select-option>
         </wcs-select>
 
         <h3>Autocomplete server-mode</h3>
-        <wcs-select id="select-autocomplete-servermode"
-                    placeholder="Choose a train"
-                    (wcsFilterChange)="onFilterChange($event)"
-                    autocomplete server-mode>
-          <wcs-select-option *ngFor="let opt of myOptions" [value]="opt.value">{{ opt.label }}</wcs-select-option>
+        <wcs-select
+          id="select-autocomplete-servermode"
+          placeholder="Choose a train"
+          (wcsFilterChange)="onFilterChange($event)"
+          autocomplete
+          server-mode
+        >
+          @for (opt of myOptions; track opt) {
+            <wcs-select-option [value]="opt.value">{{ opt.label }}</wcs-select-option>
+          }
         </wcs-select>
 
         <h3>Binding</h3>
-        <p>Selected values : {{bindingAutocomplete}}</p>
-        <wcs-select id="select-autocomplete-binding"
-                    (wcsChange)="handleChange($event)"
-                    (wcsFilterChange)="handleFilterChange($event)"
-                    placeholder="Choose a train"
-                    autocomplete
-                    [(ngModel)]="bindingAutocomplete">
+        <p>Selected values : {{ bindingAutocomplete }}</p>
+        <wcs-select
+          id="select-autocomplete-binding"
+          (wcsChange)="handleChange($event)"
+          (wcsFilterChange)="handleFilterChange($event)"
+          placeholder="Choose a train"
+          autocomplete
+          [(ngModel)]="bindingAutocomplete"
+        >
           <wcs-select-option value="TGV">TGV</wcs-select-option>
           <wcs-select-option value="TER">TER</wcs-select-option>
           <wcs-select-option value="Intercités">Intercités</wcs-select-option>
         </wcs-select>
-          <br/>
-          <wcs-button id="reset-form" (click)="bindingAutocomplete = undefined">Reset form</wcs-button>
+        <br />
+        <wcs-button id="reset-form" (click)="bindingAutocomplete = undefined"
+          >Reset form</wcs-button
+        >
 
         <h3>Valeur par défaut</h3>
         <div class="select-container">
-          <wcs-select id="select-autocomplete-2"
-                      placeholder="Choose a train"
-                      [value]="'TER'"
-                      autocomplete>
+          <wcs-select
+            id="select-autocomplete-2"
+            placeholder="Choose a train"
+            [value]="'TER'"
+            autocomplete
+          >
             <wcs-select-option value="TGV">TGV</wcs-select-option>
             <wcs-select-option value="TER">TER</wcs-select-option>
             <wcs-select-option value="Intercités">Intercités</wcs-select-option>
           </wcs-select>
-          <wcs-select id="select-autocomplete-multiple-chips-2"
-                      placeholder="Choose a train"
-                      [value]="['TER', 'TGV']"
-                      autocomplete multiple>
+          <wcs-select
+            id="select-autocomplete-multiple-chips-2"
+            placeholder="Choose a train"
+            [value]="['TER', 'TGV']"
+            autocomplete
+            multiple
+          >
             <wcs-select-option value="TGV">TGV</wcs-select-option>
             <wcs-select-option value="TER">TER</wcs-select-option>
             <wcs-select-option value="Intercités">Intercités</wcs-select-option>
@@ -73,25 +89,30 @@ import { WcsFormlySelectProps } from "wcs-formly";
 
         <h3>Formly</h3>
         <form [formGroup]="form">
-            <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
-            <wcs-button style="margin-top: var(--wcs-semantic-spacing-large)" (click)="resetFormlyForm()">Reset form</wcs-button>
+          <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
+          <wcs-button
+            style="margin-top: var(--wcs-semantic-spacing-large)"
+            (click)="resetFormlyForm()"
+            >Reset form</wcs-button
+          >
         </form>
       </wcs-card-body>
     </wcs-card>
   `,
-  styles: [`
-    .select-container {
-      display: flex;
-      gap: var(--wcs-semantic-spacing-large);
+  styles: [
+    `
+      .select-container {
+        display: flex;
+        gap: var(--wcs-semantic-spacing-large);
 
-      wcs-select {
-        width: 100%
+        wcs-select {
+          width: 100%;
+        }
       }
-    }
-  `]
+    `,
+  ],
 })
 export class AutocompleteSelectExampleComponent implements OnInit {
-
   bindingAutocomplete: any = 'Intercités';
   form = new FormGroup({});
   fields: FormlyFieldConfig<WcsFormlySelectProps>[] = [
@@ -112,14 +133,14 @@ export class AutocompleteSelectExampleComponent implements OnInit {
               { label: 'Black Widow', value: 'black_widow' },
               { label: 'Hulk', value: 'hulk' },
               { label: 'Captain Marvel', value: 'captain_marvel', disabled: true },
-            ]
-          }
-        }
-      ]
-    }
+            ],
+          },
+        },
+      ],
+    },
   ];
   model = {
-    fieldNativeSelect: undefined
+    fieldNativeSelect: undefined,
   };
 
   handleChange($event: any) {
@@ -134,10 +155,9 @@ export class AutocompleteSelectExampleComponent implements OnInit {
     console.log(this.form);
   }
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   // For server-mode
 
@@ -147,13 +167,15 @@ export class AutocompleteSelectExampleComponent implements OnInit {
     { label: 'RER', value: 'rer' },
     { label: 'Charrette', value: 'charrette' },
     { label: 'Intercités', value: 'intercites' },
-  ]
+  ];
 
   public myOptions = this.mockOptions;
 
   onFilterChange($event: any) {
     const filter = $event.detail.value;
     // Simulate a call to the backend server that should return me a filtered list of options
-    this.myOptions = this.mockOptions.filter(opt => opt.value.toLowerCase().startsWith(filter.toLowerCase()));
+    this.myOptions = this.mockOptions.filter((opt) =>
+      opt.value.toLowerCase().startsWith(filter.toLowerCase()),
+    );
   }
 }
