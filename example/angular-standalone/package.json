@@ -1,5 +1,5 @@
 {
-  "name": "wcs-angular-standalone-example",
+  "name": "angular-standalone-18",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -10,31 +10,33 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^18.0.0",
-    "@angular/common": "^18.0.0",
-    "@angular/compiler": "^18.0.0",
-    "@angular/core": "^18.0.0",
-    "@angular/forms": "^18.0.0",
-    "@angular/platform-browser": "^18.0.0",
-    "@angular/platform-browser-dynamic": "^18.0.0",
-    "@angular/router": "^18.0.0",
+    "@angular/animations": "20.3.0",
+    "@angular/common": "20.3.0",
+    "@angular/compiler": "20.3.0",
+    "@angular/core": "20.3.0",
+    "@angular/forms": "20.3.0",
+    "@angular/platform-browser": "20.3.0",
+    "@angular/platform-browser-dynamic": "20.3.0",
+    "@angular/router": "20.3.0",
+    "@ngx-formly/core": "^6.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.14.3",
+    "wcs-angular": "file:../../angular/dist/wcs-angular/",
     "wcs-core": "file:../../",
-    "wcs-angular": "file:../../angular/dist/wcs-angular/"
+    "wcs-formly": "file:../../angular/dist/wcs-formly/",
+    "zone.js": "~0.15.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^18.0.3",
-    "@angular/cli": "^18.0.3",
-    "@angular/compiler-cli": "^18.0.0",
+    "@angular/build": "20.3.0",
+    "@angular/cli": "20.3.0",
+    "@angular/compiler-cli": "20.3.0",
     "@types/jasmine": "~5.1.0",
-    "jasmine-core": "~5.1.0",
+    "jasmine-core": "~5.2.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.4.2"
+    "typescript": "~5.9.3"
   }
 }

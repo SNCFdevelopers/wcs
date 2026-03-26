@@ -3,15 +3,14 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "wcs-angular-standalone-example": {
+    "angular-standalone-18": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "inlineTemplate": true,
           "inlineStyle": true,
           "style": "scss",
-          "skipTests": true,
-          "flat": true
+          "skipTests": true
         },
         "@schematics/angular:class": {
           "skipTests": true
@@ -22,9 +21,13 @@
         "@schematics/angular:guard": {
           "skipTests": true
         },
-        "@schematics/angular:module": {
+        "@schematics/angular:interceptor": {
+          "skipTests": true
         },
         "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:resolver": {
           "skipTests": true
         },
         "@schematics/angular:service": {
@@ -36,10 +39,9 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular/build:application",
           "options": {
-            "preserveSymlinks": true,
-            "outputPath": "dist/wcs-angular-standalone-example",
+            "outputPath": "dist/angular-standalone-18",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -47,6 +49,7 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+            "preserveSymlinks": true,
             "assets": [
               {
                 "glob": "**/*",
@@ -83,22 +86,28 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "wcs-angular-standalone-example:build:production"
+              "buildTarget": "angular-standalone-18:build:production"
             },
             "development": {
-              "buildTarget": "wcs-angular-standalone-example:build:development"
+              "buildTarget": "angular-standalone-18:build:development"
+            }
+          },
+          "options": {
+            "buildTarget": "ng:build",
+            "prebundle": {
+              "exclude": ["wcs-angular", "wcs-formly", "wcs-core"]
             }
           },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n"
+          "builder": "@angular/build:extract-i18n"
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular/build:karma",
           "options": {
             "polyfills": [
               "zone.js",
@@ -119,6 +128,32 @@
           }
         }
       }
+    }
+  },
+  "schematics": {
+    "@schematics/angular:component": {
+      "type": "component"
+    },
+    "@schematics/angular:directive": {
+      "type": "directive"
+    },
+    "@schematics/angular:service": {
+      "type": "service"
+    },
+    "@schematics/angular:guard": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:interceptor": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:module": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:pipe": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:resolver": {
+      "typeSeparator": "."
     }
   }
 }
