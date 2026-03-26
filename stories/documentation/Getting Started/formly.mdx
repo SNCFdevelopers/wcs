@@ -19,57 +19,121 @@ enhancing flexibility and reducing boilerplate code, which is ideal for form cre
 
 1. **Install Formly with `ng` or `npm` with no default theme:**  
 
+⚠️ IMPORTANT: Formly 7.x is not yet compatible with `wcs-formly` which relies on Formly 6.x. Please install version `6.x.x` of Formly for now.
+
 ```
-ng add @ngx-formly/schematics
+ng add @ngx-formly/schematics@6
 // or
-npm install @angular/forms @ngx-formly/core --save
+npm install @angular/forms @ngx-formly/core@6 --save
 ```
 
-2. **Check that `FormlyModule` is imported in your `AppModule` :** 
+The getting started below rely on Formly 6.x version. Double check with the official Formly documentation during your installation process.
 
-```js
-@NgModule({
-  imports: [
-    BrowserModule,
-    ReactiveFormsModule,
-    FormlyModule.forRoot()
-  ],
-  ...
-```
+<wcs-tabs aria-label="Formly installation steps">
+  <wcs-tab header="Angular Standalone" item-key="formlyStandaloneTab">
+    2. **Import providers in `importProvidersFrom` :**
 
-3. **Add a `formly-form` inside your template form**
+    ```js
+      importProvidersFrom(
+        FormlyModule.forRoot({
+          validationMessages: [
+            { name: 'required', message: 'Ce champ est obligatoire' },
+          ],
+        })
+      )
+    ```
 
-```html
-<form [formGroup]="form" (ngSubmit)="onSubmit(model)">
-  <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
-  <button type="submit" class="btn btn-default">Submit</button>
-</form>
-```
+    3. **Import `FormlyModule` in each component using Formly form :**
 
-4. **Configure your form in the component definition**
-```ts
-export class AppComponent {
-  form = new FormGroup({});
-  model = { email: 'email@gmail.com' };
-  fields: FormlyFieldConfig[] = [
-    {
-      key: 'email',
-      type: 'input',
-      props: {
-        label: 'Email address',
-        placeholder: 'Enter email',
-        required: true,
+    ```js
+    @Component({
+      selector: 'component-name-selector',
+      standalone: true,
+      imports: [
+        WcsFormlyModule,
+        ...
+        FormlyModule,
+      ],
+    ```
+
+    4. **Add a `formly-form` inside your template form**
+
+    ```html
+    <form [formGroup]="form" (ngSubmit)="onSubmit(model)">
+      <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+    ```
+
+    5. **Configure your form in the component definition**
+    ```ts
+    export class AppComponent {
+      form = new FormGroup({});
+      model = { email: 'email@gmail.com' };
+      fields: FormlyFieldConfig[] = [
+        {
+          key: 'email',
+          type: 'input',
+          props: {
+            label: 'Email address',
+            placeholder: 'Enter email',
+            required: true,
+          }
+        }
+      ];
+
+      onSubmit(model) {
+        console.log(model);
       }
     }
-  ];
+    ```
+  </wcs-tab>
+  <wcs-tab header="Angular Module" item-key="formlyModuleTab">
+    2. **Check that `FormlyModule` is imported in your `AppModule` :** 
 
-  onSubmit(model) {
-    console.log(model);
-  }
-}
-```
+    ```js
+    @NgModule({
+      imports: [
+        BrowserModule,
+        ReactiveFormsModule,
+        FormlyModule.forRoot()
+      ],
+      ...
+    ```
 
+    3. **Add a `formly-form` inside your template form**
 
+    ```html
+    <form [formGroup]="form" (ngSubmit)="onSubmit(model)">
+      <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+    ```
+
+    4. **Configure your form in the component definition**
+    ```ts
+    export class AppComponent {
+      form = new FormGroup({});
+      model = { email: 'email@gmail.com' };
+      fields: FormlyFieldConfig[] = [
+        {
+          key: 'email',
+          type: 'input',
+          props: {
+            label: 'Email address',
+            placeholder: 'Enter email',
+            required: true,
+          }
+        }
+      ];
+
+      onSubmit(model) {
+        console.log(model);
+      }
+    }
+    ```
+  </wcs-tab>
+</wcs-tabs>
 
 ## Adding wcs-formly to your project
 
@@ -77,20 +141,40 @@ In order to make WCS work with Formly, **first install the package in your proje
 
 ```
 npm install wcs-formly
-``` 
-
-**Then import the `WcsFormlyModule` in your module declaration :** 
-
-```js
-import { WcsFormlyModule } from 'wcs-formly';
-
-@NgModule({
-  imports: [
-    ...
-    WcsFormlyModule
-  ],
-  ...
 ```
+
+<wcs-tabs aria-label="Formly installation steps">
+  <wcs-tab header="Angular Standalone" item-key="formlyStandaloneTab">
+    6. **Import `WcsFormlyModule` in each component using Formly form :**
+    
+    ```js
+    @Component({
+      selector: 'app-root',
+      standalone: true,
+      imports: [
+        WcsFormlyModule,
+        ...
+        FormlyModule,
+      ],
+      ...
+    ```
+
+  </wcs-tab>
+  <wcs-tab header="Angular Module" item-key="formlyModuleTab">
+    6. **Import the `WcsFormlyModule` in your module declaration :** 
+
+    ```js
+    import { WcsFormlyModule } from 'wcs-formly';
+
+    @NgModule({
+      imports: [
+        ...
+        WcsFormlyModule
+      ],
+      ...
+    ```
+  </wcs-tab>
+</wcs-tabs>
 
 <center>
 
@@ -280,7 +364,7 @@ Sometimes, you need to create your own Formly field types or wrappers made with 
 Don't forget to add these wrappers in the module declaration of your app :  
 
 ```ts
-// app.module.ts
+// app.module.ts or in importProvidersFrom
 FormlyModule.forRoot({
       types: [
         {
