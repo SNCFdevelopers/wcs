@@ -52,7 +52,7 @@ const Template: StoryFn<Partial<ModalStoryArgs>> = (args) => {
                    ?show-close-button=${args.showCloseButton}
                    close-button-aria-label=${args.closeButtonAriaLabel}
                    initial-focus-element-id=${args.initialFocusElementId}
-                   disable-auto-focus=${args.disableAutoFocus}
+                   ?disable-auto-focus=${args.disableAutoFocus}
                    size=${ifDefined(args.size)}
                    ?hide-actions=${args.hideActions}>
             <div slot="header">Titre de la modale</div>
