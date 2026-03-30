@@ -127,7 +127,7 @@ test.describe('Select component', () => {
 
         // Then
         expect(changeSpy).toHaveReceivedEventTimes(1);
-        expect(changeSpy).toHaveReceivedEventDetail({ value: '1' });
+        expect(changeSpy.lastEvent.detail.value).toBe('1');
 
         // Vérifier le label dans le shadow DOM
         const label = select.locator('label').first();
@@ -290,7 +290,7 @@ test.describe('Select component', () => {
 
             // Then
             expect(changeSpy).toHaveReceivedEventTimes(2);
-            expect(changeSpy).toHaveNthReceivedEventDetail(1, { value: ['1', '2'] });
+            expect(changeSpy.events[1].detail.value).toEqual(['1', '2']);
         });
 
         test('Allows to unselect a value', async ({ page }: { page: E2EPage }) => {
@@ -319,7 +319,7 @@ test.describe('Select component', () => {
 
             // Then
             expect(changeSpy).toHaveReceivedEventTimes(3);
-            expect(changeSpy).toHaveNthReceivedEventDetail(2, { value: ['2'] });
+            expect(changeSpy.events[2].detail.value).toEqual(['2']);
         });
 
         test('Displays all values separated by a comma', async ({ page }: { page: E2EPage }) => {
@@ -382,7 +382,7 @@ test.describe('Select component', () => {
 
             // Then
             expect(changeSpy).toHaveReceivedEventTimes(2);
-            expect(changeSpy).toHaveNthReceivedEventDetail(1, { value: ['1', '2'] });
+            expect(changeSpy.events[1].detail.value).toEqual(['1', '2']);
         });
     });
 
@@ -409,7 +409,7 @@ test.describe('Select component', () => {
             const label = select.locator('label').first();
             await expect(label).toHaveText('Option 2');
             expect(changeSpy).toHaveReceivedEventTimes(1);
-            expect(changeSpy).toHaveFirstReceivedEventDetail({ value: 'option2' });
+            expect(changeSpy.firstEvent.detail.value).toBe('option2');
         });
 
         test('select value of last option enabled on PageDown key pressed', async ({ page }: { page: E2EPage }) => {
@@ -434,7 +434,7 @@ test.describe('Select component', () => {
             const label = select.locator('label').first();
             await expect(label).toHaveText('Option 3');
             expect(changeSpy).toHaveReceivedEventTimes(1);
-            expect(changeSpy).toHaveFirstReceivedEventDetail({ value: 'option3' });
+            expect(changeSpy.firstEvent.detail.value).toBe('option3');
         });
 
         test('select value of first option enabled on PageUp key pressed', async ({ page }: { page: E2EPage }) => {
@@ -459,7 +459,7 @@ test.describe('Select component', () => {
             const label = select.locator('label').first();
             await expect(label).toHaveText('Option 2');
             expect(changeSpy).toHaveReceivedEventTimes(1);
-            expect(changeSpy).toHaveFirstReceivedEventDetail({ value: 'option2' });
+            expect(changeSpy.firstEvent.detail.value).toBe('option2');
         });
 
         test('open the overlay on Enter key press', async ({ page }: { page: E2EPage }) => {
@@ -656,7 +656,7 @@ test.describe('Select component', () => {
             const label = select.locator('label').first();
             await expect(label).toHaveText('Option 2');
             expect(changeSpy).toHaveReceivedEventTimes(1);
-            expect(changeSpy).toHaveFirstReceivedEventDetail({ value: 'option2' });
+            expect(changeSpy.firstEvent.detail.value).toBe('option2');
         });
 
         test('move focus to next option on Down Arrow key down', async ({ page }: { page: E2EPage }) => {
@@ -878,7 +878,7 @@ test.describe('Select component', () => {
 
         // Then
         expect(changeSpy).toHaveReceivedEventTimes(1);
-        expect(changeSpy).toHaveFirstReceivedEventDetail({ value: '1' });
+        expect(changeSpy.firstEvent.detail.value).toBe('1');
     });
 
     test.describe('Focus management', () => {

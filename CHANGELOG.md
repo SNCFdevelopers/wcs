@@ -11,7 +11,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-for new features.
+- **select**: add `selectedOptions` property to the `wcsChange` event detail to provide the selected option(s) when the select value changes
 
 ### Changed
 

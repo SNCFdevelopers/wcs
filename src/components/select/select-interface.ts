@@ -2,6 +2,10 @@ import { WcsSize } from "../../shared-types";
 
 export interface SelectChangeEventDetail {
     value: any | any[] | undefined | null;
+    /**
+     * Could be undefined if the wcs-select is in server mode, as the selected options are not rendered in the DOM
+     */
+    selectedOptions: HTMLWcsSelectOptionElement[] | undefined;
 }
 
 export interface SelectFilterChangeEventDetail {

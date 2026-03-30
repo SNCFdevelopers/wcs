@@ -477,9 +477,18 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
     }
 
     private emitChange(newValue: any): void {
-        this.wcsChange.emit({
-            value: newValue
-        });
+        if (this.serverMode) {
+            // In server mode with autocomplete, we don't know all the options, so we only emit the value(s) without the selected options elements
+            this.wcsChange.emit({
+                value: newValue,
+                selectedOptions: undefined
+            });
+        } else {
+            this.wcsChange.emit({
+                value: newValue,
+                selectedOptions: Array.from(this.options).filter(opt => opt.selected)
+            });
+        }
     }
 
     private replaceOptions_firefoxBefore63() {
