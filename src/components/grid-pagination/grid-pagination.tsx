@@ -28,6 +28,9 @@ const GRID_PAGINATION_INHERITED_ATTRS = ['tabindex', 'title'];
  * @cssprop --wcs-grid-pagination-margin-top - Margin between the grid and the pagination
  * @cssprop --wcs-grid-pagination-arrow-color-inactive - Color of the inactive arrow
  * @cssprop --wcs-grid-pagination-arrow-color-active - Color of the active arrow
+ * 
+ * @slot elements-per-page-text - Text following the page size select. Default text is " éléments par page". You may want to add a non-breaking space before the text to separate it from the number.
+ * @slot items-count-text - Text following the number of elements. Default text is " éléments". You may want to add a non-breaking space before the text to separate it from the number.
  */
 @Component({
     tag: 'wcs-grid-pagination',
@@ -171,11 +174,19 @@ export class GridPagination implements ComponentInterface, MutableAriaAttribute 
                         }
                     </wcs-select>
                     <span id="elements-per-page-number" hidden>{this.pageSize}</span>
-                    <span id="elements-per-page-text">éléments par page</span>
+                    <span id="elements-per-page-text">    
+                        <slot name="elements-per-page-text">
+                            <span> éléments par page</span>
+                        </slot>
+                    </span>
                 </div>
 
                 <div class="items-count">
-                    <span>{this.itemsCount} éléments</span>
+                    <span>{this.itemsCount}
+                        <slot name="items-count-text">
+                            <span> éléments</span>
+                        </slot>
+                    </span>
                 </div>
 
                 <nav aria-label="pagination" ref={(el) => (this.nativeNav = el)} {...this.inheritedAttributes}>

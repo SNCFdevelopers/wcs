@@ -12,6 +12,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 
 - **select**: add `selectedOptions` property to the `wcsChange` event detail to provide the selected option(s) when the select value changes
+- **grid-pagination**: add `elements-per-page-text` and `items-count-text` slots to allow customizing the text after page size selector and items count. Useful for i18n or to match specific wording in your project. See documentation for more information.
 
 ### Changed
 

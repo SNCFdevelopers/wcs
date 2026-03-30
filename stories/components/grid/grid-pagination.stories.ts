@@ -22,6 +22,8 @@ type GridPaginationArgs = {
     pageSize: number;
     itemsCount: number;
     pageCount: number;
+    elementsPerPageText?: string;
+    itemsCountText?: string;
 }
 
 const Template: StoryFn<Partial<GridPaginationArgs>> = (args: Partial<GridPaginationArgs>) => html`
@@ -35,7 +37,10 @@ const Template: StoryFn<Partial<GridPaginationArgs>> = (args: Partial<GridPagina
                                  current-page=${args.currentPage}
                                  page-size=${args.pageSize}
                                  items-count=${args.itemsCount}
-                                 page-count=${args.pageCount}></wcs-grid-pagination>
+                                 page-count=${args.pageCount}>
+                ${args.elementsPerPageText ? html`<span slot="elements-per-page-text">${args.elementsPerPageText}</span>` : ''}
+                ${args.itemsCountText ? html`<span slot="items-count-text">${args.itemsCountText}</span>` : ''}
+            </wcs-grid-pagination>
         </wcs-grid>
 `;
 
@@ -65,5 +70,21 @@ export const AvailablePageSizes: StoryObj = {
         ...Default.args,
         availablePageSizes: [5,10,15,20],
         pageSize: 5
+    }
+}
+
+/**
+ * You can customize the texts of the pagination by using slots `elements-per-page-text` and `items-count-text`.
+ * 
+ * Show code below to see how to use these slots in your code.
+ */
+export const CustomSlotTexts: StoryObj = {
+    render: (args: GridPaginationArgs) => Template(args, this),
+    args: {
+        ...Default.args,
+        availablePageSizes: [5,10,15,20],
+        pageSize: 5,
+        elementsPerPageText: ' items per page',
+        itemsCountText: ' items'
     }
 }
