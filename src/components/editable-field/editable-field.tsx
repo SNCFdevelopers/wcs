@@ -338,6 +338,7 @@ export class EditableField implements ComponentInterface {
     @Watch('value')
     onValueChange(): void {
         this.currentState = EditableComponentState.DISPLAY;
+        this.currentValue = this.value;
     }
 
     private onDisplayContainerClick(): void {

@@ -189,4 +189,115 @@ test.describe('wcs-editable-field', () => {
         const displayContainer = page.locator('wcs-editable-field .display-container');
         await expect(displayContainer).toContainText('TEST VALUE');
     });
+
+    test('displays correct input value after external value change', async ({ page }: { page: E2EPage }) => {
+        await setWcsContent(page, `
+            <wcs-editable-field label="Test" value="old" type="input">
+                <wcs-input></wcs-input>
+            </wcs-editable-field>
+        `);
+
+        await page.evaluate(() => {
+            (document.querySelector('wcs-editable-field') as any).value = 'new';
+        });
+        await page.waitForChanges();
+
+        const displayValue = page.locator('wcs-editable-field .display-container span');
+        await expect(displayValue).toHaveText('new');
+    });
+
+    test('syncs input value when entering edit mode after external value change', async ({ page }: { page: E2EPage }) => {
+        await setWcsContent(page, `
+            <wcs-editable-field label="Test" value="old" type="input">
+                <wcs-input></wcs-input>
+            </wcs-editable-field>
+        `);
+
+        await page.evaluate(() => {
+            (document.querySelector('wcs-editable-field') as any).value = 'new';
+        });
+        await page.waitForChanges();
+
+        await page.locator('wcs-editable-field .display-container').click();
+        await page.waitForChanges();
+
+        const inputValue = await page.locator('wcs-input').evaluate((el: HTMLWcsInputElement) => el.value);
+        expect(inputValue).toBe('new');
+    });
+
+    test('displays correct textarea value after external value change', async ({ page }: { page: E2EPage }) => {
+        await setWcsContent(page, `
+            <wcs-editable-field label="Test" value="old" type="textarea">
+                <wcs-textarea></wcs-textarea>
+            </wcs-editable-field>
+        `);
+
+        await page.evaluate(() => {
+            (document.querySelector('wcs-editable-field') as any).value = 'new';
+        });
+        await page.waitForChanges();
+
+        const displayValue = page.locator('wcs-editable-field .display-container span');
+        await expect(displayValue).toHaveText('new');
+    });
+
+    test('syncs textarea value when entering edit mode after external value change', async ({ page }: { page: E2EPage }) => {
+        await setWcsContent(page, `
+            <wcs-editable-field label="Test" value="old" type="textarea">
+                <wcs-textarea></wcs-textarea>
+            </wcs-editable-field>
+        `);
+
+        await page.evaluate(() => {
+            (document.querySelector('wcs-editable-field') as any).value = 'new';
+        });
+        await page.waitForChanges();
+
+        await page.locator('wcs-editable-field .display-container').click();
+        await page.waitForChanges();
+
+        const textareaValue = await page.locator('wcs-textarea').evaluate((el: HTMLWcsTextareaElement) => el.value);
+        expect(textareaValue).toBe('new');
+    });
+
+    test('displays correct select value after external value change', async ({ page }: { page: E2EPage }) => {
+        await setWcsContent(page, `
+            <wcs-editable-field label="Test" value="1" type="select">
+                <wcs-select>
+                    <wcs-select-option value="1">Option 1</wcs-select-option>
+                    <wcs-select-option value="2">Option 2</wcs-select-option>
+                </wcs-select>
+            </wcs-editable-field>
+        `);
+
+        await page.evaluate(() => {
+            (document.querySelector('wcs-editable-field') as any).value = '2';
+        });
+        await page.waitForChanges();
+
+        const displayValue = page.locator('wcs-editable-field .display-container span');
+        await expect(displayValue).toHaveText('2');
+    });
+
+    test('syncs select value when entering edit mode after external value change', async ({ page }: { page: E2EPage }) => {
+        await setWcsContent(page, `
+            <wcs-editable-field label="Test" value="1" type="select">
+                <wcs-select>
+                    <wcs-select-option value="1">Option 1</wcs-select-option>
+                    <wcs-select-option value="2">Option 2</wcs-select-option>
+                </wcs-select>
+            </wcs-editable-field>
+        `);
+
+        await page.evaluate(() => {
+            (document.querySelector('wcs-editable-field') as any).value = '2';
+        });
+        await page.waitForChanges();
+
+        await page.locator('wcs-editable-field .display-container').click();
+        await page.waitForChanges();
+
+        const selectValue = await page.locator('wcs-select').evaluate((el: HTMLWcsSelectElement) => el.value);
+        expect(selectValue).toBe('2');
+    });
 });
