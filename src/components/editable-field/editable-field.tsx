@@ -167,7 +167,7 @@ export class EditableField implements ComponentInterface {
                 this.initWithTextArea(assignedElements);
                 break;
             case 'select':
-                this.initWithSelect(assignedElements)
+                this.initWithSelect(assignedElements);
                 break;
         }
     }
@@ -373,19 +373,51 @@ export class EditableField implements ComponentInterface {
         </svg>;
     }
 
-    private formatValues() {
-        let formattedValue = this.value;
-        let formattedCurrentValue = this.currentValue;
+    private getSelectElement(): HTMLWcsSelectElement {
+        return (this.spiedElement ?? this.el.querySelector('wcs-select')) as HTMLWcsSelectElement;
+    }
+    
+    private computeSelectDisplayTextFromSlottedSelectOptions(value: any): string {
+        const selectElement = this.getSelectElement();
+        
+        // in server mode, selected options could be not found in the DOM so we could not find innerText of option
+        // so we fall back on the value 
+        if (selectElement.serverMode) {
+            return value;
+        }
+        
+        const options = Array.from(selectElement?.querySelectorAll('wcs-select-option') ?? []);
+        const compareWith = selectElement?.compareWith ?? ((optionValue: any, selectedValue: any) => optionValue === selectedValue);
+
+        if (Array.isArray(value)) {
+            return value
+                .map(selectedValue => options.find(option => compareWith(option.value, selectedValue))?.innerText ?? selectedValue)
+                .join(', ');
+        }
+
+        return options.find(option => compareWith(option.value, value))?.innerText ?? value;
+    }
+    
+    private getDisplayValue(value: any) {
         if (this.formatFn) {
-            formattedValue = this.formatFn(this.value);
-            formattedCurrentValue = this.formatFn(this.currentValue);
+            return this.formatFn(value);
         }
-        if (Array.isArray(this.value)) {
-            formattedValue = this.value.join(', ');
+
+        if (this.type === 'select') {
+            return this.computeSelectDisplayTextFromSlottedSelectOptions(value);
         }
-        if (Array.isArray(this.currentValue)) {
-            formattedCurrentValue = this.currentValue.join(', ');
+
+        if (Array.isArray(value)) {
+            return value.join(', ');
         }
+
+        return value;
+    }
+
+    private formatValues() {
+        const formattedValue = this.getDisplayValue(this.value);
+        const formattedCurrentValue = this.getDisplayValue(this.currentValue);
+
         return {
             formattedValue: (formattedValue ? (<span>{formattedValue}</span>) : (<span></span>)),
             formattedValueText: formattedValue,

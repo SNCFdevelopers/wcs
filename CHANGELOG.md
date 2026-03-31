@@ -36,7 +36,9 @@ for now removed features.
 - **radio**: fix a behavior where clicking on a radio button inside a scrollable container would cause the window to scroll to the bottom of the page. Now, the window scroll position is preserved when clicking on a radio button.
 - **radio-group**: fix a11y issues with the hierarchy announcement of radio options by screen readers
 - **input**: remove `aria-labelledby` attribute setting to avoid conflicts with `wcs-form-field` label association
-- **editable-field**: fix value not being synced internally when changed externally, causing the slotted component (input, textarea, select) to display old values when entering edit mode
+- **editable-field**: 
+  - fix value not being synced internally when changed externally, causing the slotted component (input, textarea, select) to display old values when entering edit mode
+  - with `wcs-select` keep `formatFn(value)` based on the raw value and otherwise align display mode with the select displayed text
 
 ### Security
 

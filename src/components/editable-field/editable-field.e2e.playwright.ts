@@ -172,6 +172,157 @@ test.describe('wcs-editable-field', () => {
         await expect(loadContainer).toBeVisible();
     });
 
+    test('displays selected option label for select in display mode', async ({ page }: { page: E2EPage }) => {
+        await setWcsContent(page, `
+            <wcs-editable-field label="My select" type="select" value="1" id="select-label-test">
+                <wcs-select>
+                    <wcs-select-option value="1">One</wcs-select-option>
+                    <wcs-select-option value="2">Two</wcs-select-option>
+                    <wcs-select-option value="3">Three</wcs-select-option>
+                </wcs-select>
+            </wcs-editable-field>
+        `);
+
+        const displayValue = page.locator('wcs-editable-field .display-container span');
+        await expect(displayValue).toHaveText('One');
+
+        const displayContainer = page.locator('wcs-editable-field .display-container');
+        await displayContainer.click();
+        await page.waitForChanges();
+
+        const selectValue = await page.locator('wcs-select').evaluate((element: HTMLWcsSelectElement) => element.value);
+        expect(selectValue).toBe('1');
+    });
+
+    test('displays selected option labels for multiple select in display mode', async ({ page }: { page: E2EPage }) => {
+        await setWcsContent(page, `
+            <wcs-editable-field label="My multiple select" type="select" id="multiple-select-label-test">
+                <wcs-select multiple>
+                    <wcs-select-option value="1">One</wcs-select-option>
+                    <wcs-select-option value="2">Two</wcs-select-option>
+                    <wcs-select-option value="3">Three</wcs-select-option>
+                </wcs-select>
+            </wcs-editable-field>
+        `);
+
+        await page.locator('wcs-editable-field').evaluate((element: HTMLWcsEditableFieldElement) => {
+            element.value = ['1', '3'];
+        });
+        await page.waitForChanges();
+
+        const displayValue = page.locator('wcs-editable-field .display-container span');
+        await expect(displayValue).toHaveText('One, Three');
+    });
+
+    test('keeps the updated single select value in edit mode', async ({ page }: { page: E2EPage }) => {
+        await setWcsContent(page, `
+            <wcs-editable-field label="My select" type="select" value="1" id="single-select-edit-mode-test">
+                <wcs-select>
+                    <wcs-select-option value="1">One</wcs-select-option>
+                    <wcs-select-option value="2">Two</wcs-select-option>
+                    <wcs-select-option value="3">Three</wcs-select-option>
+                </wcs-select>
+            </wcs-editable-field>
+        `);
+
+        await page.locator('#single-select-edit-mode-test').evaluate((element: HTMLWcsEditableFieldElement) => {
+            element.value = '2';
+        });
+        await page.waitForChanges();
+
+        const displayValue = page.locator('#single-select-edit-mode-test .display-container span');
+        await expect(displayValue).toHaveText('Two');
+
+        await page.locator('#single-select-edit-mode-test .display-container').click();
+        await page.waitForChanges();
+
+        const selectValue = await page.locator('#single-select-edit-mode-test wcs-select').evaluate((element: HTMLWcsSelectElement) => element.value);
+        expect(selectValue).toBe('2');
+    });
+
+    test('keeps the updated multiple select values in edit mode', async ({ page }: { page: E2EPage }) => {
+        await setWcsContent(page, `
+            <wcs-editable-field label="My multiple select" type="select" id="multiple-select-edit-mode-test">
+                <wcs-select multiple>
+                    <wcs-select-option value="1">One</wcs-select-option>
+                    <wcs-select-option value="2">Two</wcs-select-option>
+                    <wcs-select-option value="3">Three</wcs-select-option>
+                </wcs-select>
+            </wcs-editable-field>
+        `);
+
+        await page.locator('#multiple-select-edit-mode-test').evaluate((element: HTMLWcsEditableFieldElement) => {
+            element.value = ['1', '3'];
+        });
+        await page.waitForChanges();
+
+        const displayValue = page.locator('#multiple-select-edit-mode-test .display-container span');
+        await expect(displayValue).toHaveText('One, Three');
+
+        await page.locator('#multiple-select-edit-mode-test .display-container').click();
+        await page.waitForChanges();
+
+        const selectedOptionValues = await page.locator('#multiple-select-edit-mode-test wcs-select-option').evaluateAll(options =>
+            options
+                .filter((option: HTMLWcsSelectOptionElement) => option.selected)
+                .map((option: HTMLWcsSelectOptionElement) => option.value)
+        );
+        expect(selectedOptionValues).toEqual(['1', '3']);
+    });
+
+    test('uses raw single select value when formatFn is provided', async ({ page }: { page: E2EPage }) => {
+        await setWcsContent(page, `
+            <wcs-editable-field label="Train select" type="select" value="train-1" id="format-select-test">
+                <wcs-select>
+                    <wcs-select-option value="train-1">TGV INOUI 8391</wcs-select-option>
+                    <wcs-select-option value="train-2">TER 84621</wcs-select-option>
+                </wcs-select>
+            </wcs-editable-field>
+        `);
+
+        await page.evaluate(() => {
+            const trains = new Map([
+                ['train-1', { name: 'TGV INOUI 8391', destination: 'Bordeaux' }],
+                ['train-2', { name: 'TER 84621', destination: 'Nantes' }],
+            ]);
+
+            const el = document.querySelector('#format-select-test') as any;
+            el.formatFn = (value: string) => `Train ${value} - ${trains.get(value)?.destination}`;
+        });
+        await page.waitForChanges();
+
+        const displayValue = page.locator('#format-select-test .display-container span');
+        await expect(displayValue).toHaveText('Train train-1 - Bordeaux');
+    });
+
+    test('uses raw multiple select values when formatFn is provided', async ({ page }: { page: E2EPage }) => {
+        await setWcsContent(page, `
+            <wcs-editable-field label="Train select" type="select" id="format-multiple-select-test">
+                <wcs-select multiple>
+                    <wcs-select-option value="train-1">TGV INOUI 8391</wcs-select-option>
+                    <wcs-select-option value="train-2">TER 84621</wcs-select-option>
+                    <wcs-select-option value="train-3">OUIGO 7823</wcs-select-option>
+                </wcs-select>
+            </wcs-editable-field>
+        `);
+
+        await page.evaluate(() => {
+            const trains = new Map([
+                ['train-1', { name: 'TGV INOUI 8391' }],
+                ['train-2', { name: 'TER 84621' }],
+                ['train-3', { name: 'OUIGO 7823' }],
+            ]);
+
+            const el = document.querySelector('#format-multiple-select-test') as any;
+            el.value = ['train-1', 'train-3'];
+            el.formatFn = (value: string[]) => value.map(trainId => trains.get(trainId)?.name).join(' | ');
+        });
+        await page.waitForChanges();
+
+        const displayValue = page.locator('#format-multiple-select-test .display-container span');
+        await expect(displayValue).toHaveText('TGV INOUI 8391 | OUIGO 7823');
+    });
+
     test('properly handles custom formatting function', async ({ page }: { page: E2EPage }) => {
         await setWcsContent(page, `
             <wcs-editable-field id="format-test" label="Formatting Test" value="test value" type="input">
@@ -276,7 +427,7 @@ test.describe('wcs-editable-field', () => {
         await page.waitForChanges();
 
         const displayValue = page.locator('wcs-editable-field .display-container span');
-        await expect(displayValue).toHaveText('2');
+        await expect(displayValue).toHaveText('Option 2');
     });
 
     test('syncs select value when entering edit mode after external value change', async ({ page }: { page: E2EPage }) => {

@@ -27,6 +27,12 @@ const meta: Meta = {
 };
 export default meta;
 
+const trains = new Map([
+    ['train-8391', { name: 'TGV INOUI 8391' }],
+    ['train-84621', { name: 'TER 84621' }],
+    ['train-7823', { name: 'OUIGO 7823' }]
+]);
+
 function handleChange($event: any, id: string) {
     setTimeout(() => {
         // @ts-ignore
@@ -177,6 +183,52 @@ export const Select: StoryObj = {
         value: '1',
         type: 'select'
     }
+}
+
+/**
+ * `formatFn` allows you to format the value displayed in the input when the field is not being edited.
+ * 
+ * In this example, we receive a train id as a value and we use the `formatFn` to display customized displayText in the input based on the argument passed into the function.
+ * 
+ * Use it if :
+ * - you want to display a value into specific format that differs that the normal display text, like the displayText of a select option for example
+ * - you want to provide additional context or details about the selected value
+ */
+export const WithFormatFn: StoryObj = {
+    args: {
+        ...Default.args,
+        validateFn: undefined,
+        label: 'Sélectionner un train',
+        value: 'train-8391',
+        type: 'select',
+        formatFn: (value) => {
+            const train = trains.get(value);
+            return train ? `Train ${train.name}` : value;
+        }
+    },
+    render: (args) => html`
+        <style>
+            #editable-field-ex-6 {
+                height: 200px;
+            }
+        </style>
+        <wcs-editable-field error-msg=${args.errorMsg}
+                            @wcsChange=${(e) => handleChange(e, 'editable-field-ex-6')}
+                            .validateFn=${ifDefined(args.validateFn)}
+                            .formatFn=${ifDefined(args.formatFn)}
+                            label=${args.label}
+                            ?readonly=${args.readonly}
+                            type=${args.type}
+                            value=${args.value}
+                            size=${args.size}
+                            id="editable-field-ex-6">
+            <wcs-select placeholder="Choisir un train" size=${args.size} style="width: 100%">
+                <wcs-select-option value="train-8391">TGV INOUI 8391</wcs-select-option>
+                <wcs-select-option value="train-84621">TER 84621</wcs-select-option>
+                <wcs-select-option value="train-7823">OUIGO 7823</wcs-select-option>
+            </wcs-select>
+        </wcs-editable-field>
+    `
 }
 
 /**
