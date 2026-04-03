@@ -20,6 +20,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   - **card**: clarify the use of `wcs-card-content` vs `wcs-card-body` for rich content
   - **formly**: update documentation for Angular Formly integration with Angular standalone
   - **formly**: indicates that `wcs-formly` is not yet compatible with Formly 7.x and that version 6.x.x should be used for now
+  - bolder text is now visually bolder to improve readability
 
 ### Deprecated
 
