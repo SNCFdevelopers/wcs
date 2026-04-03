@@ -1,0 +1,153 @@
+import {Meta} from '@storybook/addon-docs/blocks';
+
+<Meta title="Internal Docs/ADR/ADR-0001 Resolving wcs-select Display Text in wcs-editable-field DISPLAY Mode" />
+
+# ADR-0001: Resolving `wcs-select` Display Text in `wcs-editable-field` DISPLAY Mode
+
+<table>
+    <tr>
+        <td>Status</td>
+        <td>Accepted</td>
+    </tr>
+    <tr>
+        <td>Date</td>
+        <td>2026-04-03</td>
+    </tr>
+    <tr>
+        <td>Decision Makers</td>
+        <td>Mathis PONCET, Antoine PETOT</td>
+    </tr>
+</table>
+
+## Context and Problem Statement
+
+The `wcs-editable-field` is a component that wraps a slotted editing component (`wcs-input`, `wcs-textarea`, or `wcs-select`) and toggles between two modes:
+- **DISPLAY**: shows the current value as text
+- **EDIT**: shows the slotted component to allow editing
+
+For `wcs-input` and `wcs-textarea`, displaying the value in `DISPLAY` mode is trivial: we simply display the `value` (which is a string and can be directly rendered because it's what the user has entered).
+
+For `wcs-select`, it's more complex: the `value` is the `value` of the selected option (e.g., `'1'`) but what we want to show the user is the **label of the selected option** (e.g., `'One'`). In multi-select mode, it's an array of values that must be resolved into a list of labels (e.g., `'One, Two'`).
+
+The question is: **how does the `wcs-editable-field` retrieve the display text corresponding to the selected value of the `wcs-select`?**
+
+Related issue: [#485](https://gitlab.com/SNCF/wcs/-/issues/485)
+Related MR: [!661](https://gitlab.com/SNCF/wcs/-/merge_requests/661)
+
+## Decision Drivers
+
+- We want to **minimize coupling** between `wcs-select` and `wcs-editable-field`. The `wcs-select` should not need to care about who consumes its display text
+- We want to **avoid extra re-renders** that impact performance. Stencil [recommends](https://stenciljs.com/docs/component-lifecycle#rendering-state) performing rendered state updates in `componentWillRender()` rather than in `componentDidLoad()`, `componentDidUpdate()`, or `componentDidRender()`, which trigger a re-render
+- We want **as little code added as possible** to existing components
+- The solution must handle the **multi-select** case (array of values)
+- The solution must account for the `wcs-select`'s **`serverMode`**, where selected options may not be present in the DOM
+
+## Considered Options
+
+### Option 1: Parent → child communication via `@Method() getDisplayText`
+
+The idea is to add a `@Method() getDisplayText` on `wcs-select` and call it from `wcs-editable-field`.
+
+We would have a `@State selectDisplayText` on `wcs-editable-field` that we would mutate every time we mutate `spiedElement.value`, by calling `wcs-select.getDisplayText()`.
+
+What worked:
+- We successfully implemented this approach by having a `@State selectDisplayText` on `wcs-editable-field` and mutating it whenever we mutated `spiedElement.value` via `wcs-select.getDisplayText()`
+
+What was problematic:
+- The `@State selectDisplayText` is mutated after a `@Method` call (which is asynchronous), causing an extra re-render. Stencil recommends performing rendered state updates in `componentWillRender()` to avoid this
+- We add a `@Method` on `wcs-select` that creates coupling: `wcs-select` must expose an API specifically for `wcs-editable-field`
+
+Pros:
+- The display text resolution logic stays in `wcs-select`, which knows its own options
+
+Cons:
+- Parent → child coupling via an additional `@Method` on `wcs-select`
+- Extra re-render caused by mutating `@State` after the asynchronous `@Method` call
+
+### Option 2: Child → parent communication via a `wcsDisplayTextChange` event
+
+The idea is for `wcs-select` to emit a `wcsDisplayTextChange` event whenever its display text changes. The `wcs-editable-field` listens for this event via a `@Listen()` and mutates an internal `@State`.
+
+This seemed like the most natural approach for an asynchronous flow: child → parent communication via events is the standard pattern in web components.
+
+What was problematic:
+- We add an additional event on `wcs-select` that is only useful for `wcs-editable-field`
+- The event timing must be aligned with the `wcs-editable-field` render cycle, which adds complexity
+
+Pros:
+- Standard child → parent communication pattern in web components
+- Natural asynchronous flow
+
+Cons:
+- Addition of an extra event on `wcs-select` that increases the public API surface
+- `wcs-select` must concern itself with emitting an event for a specific consumer
+
+### Option 3: Direct DOM-based text resolution by `wcs-editable-field`
+
+Unlike the first two approaches, we don't touch `wcs-select` at all (no `@Method`, no additional event). The `wcs-editable-field` itself resolves the display text by querying the `wcs-select-option` elements in the DOM and retrieving their `innerText`.
+
+We use the `compareWith` function from `wcs-select` to match the current `value` against the available options. If it's an array (multi-select), we map each selected value to the `innerText` of the corresponding option and join with `', '`.
+
+```js
+const selectElement = this.getSelectElement();
+
+// in server mode, selected options could be not found in the DOM
+// so we fall back on the value
+if (selectElement.serverMode) {
+    return value;
+}
+
+const options = Array.from(
+    selectElement?.querySelectorAll('wcs-select-option') ?? []
+);
+const compareWith = selectElement?.compareWith
+    ?? ((optionValue, selectedValue) => optionValue === selectedValue);
+
+if (Array.isArray(value)) {
+    return value
+        .map(selectedValue =>
+            options.find(option => compareWith(option.value, selectedValue))
+                ?.innerText ?? selectedValue
+        )
+        .join(', ');
+}
+
+return options.find(option => compareWith(option.value, value))
+    ?.innerText ?? value;
+```
+
+#### Known Limitation in serverMode
+
+Since the server is the source of truth, selected options may not be present in the DOM when we try to resolve the text. In this case, we fall back to the raw value. It is up to the project to define a `formatFn` function for a more user-friendly display.
+
+Pros:
+- No modifications to `wcs-select`: no `@Method`, no additional event
+- All display text resolution logic stays in `wcs-editable-field`, where it's needed
+- No additional coupling between `wcs-select` and `wcs-editable-field`
+- No extra re-render: the text is resolved directly when needed
+
+Cons:
+- `wcs-editable-field` must know the internal structure of `wcs-select` (its `wcs-select-option` children and its `compareWith` function)
+- In `serverMode`, the text cannot be resolved → falls back to the raw value
+
+## Decision
+
+We chose the third approach (DOM-based resolution by `wcs-editable-field`) for the following reasons:
+
+- We keep the select as it: We don't add any `@Method` or additional event on `wcs-select`. All display text resolution logic stays in `wcs-editable-field`, where it's needed
+- Easier to maintain: no additional coupling between `wcs-select` and `wcs-editable-field`. The `wcs-select` doesn't need to care about who consumes its display text, and `wcs-editable-field` is self-sufficient in resolving it
+- No extra re-render: unlike Option 1 where we had to deal with a `@State` mutated after a `@Method` call (which causes a re-render), here we resolve the text directly when needed
+- The `serverMode` limitation is an acceptable trade-off: it is up to the project to define a `formatFn` function for custom display in that case
+
+## Consequences
+
+### Positive
+
+- `wcs-select` undergoes no modifications. Its public API surface remains unchanged
+- `wcs-editable-field` now displays the label of selected options in `DISPLAY` mode instead of the raw value, which is the behavior expected by users
+- `formatFn` remains available for projects that want custom display (especially in `serverMode`)
+
+### Negative
+
+- `wcs-editable-field` has implicit knowledge of the `wcs-select` internal structure: it knows that it contains `wcs-select-option` elements with a `value` attribute and `innerText`, and that it exposes a `compareWith` function. If the internal structure of `wcs-select` changes, `wcs-editable-field` will need to be updated
+- In `serverMode`, the `DISPLAY` mode shows the raw value (e.g., `'train-1'`) instead of the human-readable label. Projects using `serverMode` will need to define a `formatFn` for proper display
