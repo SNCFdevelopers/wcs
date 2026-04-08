@@ -21,6 +21,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   - **formly**: update documentation for Angular Formly integration with Angular standalone
   - **formly**: indicates that `wcs-formly` is not yet compatible with Formly 7.x and that version 6.x.x should be used for now
   - bolder text is now visually bolder to improve readability
+- **loadash-es**: update to 4.18.1 to address security vulnerabilities in previous versions. See [CVE-2026-4800](https://nvd.nist.gov/vuln/detail/CVE-2026-4800) for more details. IMPORTANT: WCS is not vulnerable to this CVE as it only uses `lodash-es` in the `select` and `grid` components, which are not using parts of the library affected by this vulnerability
 
 ### Deprecated
 
