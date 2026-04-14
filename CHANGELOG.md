@@ -11,6 +11,32 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+for new features.
+
+### Changed
+
+for changes in existing functionality.
+
+### Deprecated
+
+for soon-to-be removed features.
+
+### Removed
+
+for now removed features.
+
+### Fixed
+
+for any bug fixes.
+
+### Security
+
+in case of vulnerabilities.
+
+## [7.6.0] - 2026-04-14
+
+### Added
+
 - **select**: add `selectedOptions` property to the `wcsChange` event detail to provide the selected option(s) when the select value changes
 - **grid-pagination**: add `elements-per-page-text` and `items-count-text` slots to allow customizing the text after page size selector and items count. Useful for i18n or to match specific wording in your project. See documentation for more information.
 
@@ -23,14 +49,6 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   - bolder text is now visually bolder to improve readability
 - **loadash-es**: update to 4.18.1 to address security vulnerabilities in previous versions. See [CVE-2026-4800](https://nvd.nist.gov/vuln/detail/CVE-2026-4800) for more details. IMPORTANT: WCS is not vulnerable to this CVE as it only uses `lodash-es` in the `select` and `grid` components, which are not using parts of the library affected by this vulnerability
 
-### Deprecated
-
-for soon-to-be removed features.
-
-### Removed
-
-for now removed features.
-
 ### Fixed
 
 - **label**: fix alignment of required marker and last word of the label
@@ -42,10 +60,6 @@ for now removed features.
 - **editable-field**: 
   - fix value not being synced internally when changed externally, causing the slotted component (input, textarea, select) to display old values when entering edit mode
   - with `wcs-select` keep `formatFn(value)` based on the raw value and otherwise align display mode with the select displayed text
-
-### Security
-
-in case of vulnerabilities.
 
 ## [7.5.1] - 2026-02-26
 

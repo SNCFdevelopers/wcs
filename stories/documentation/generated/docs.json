@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-03-23T17:30:04",
+  "timestamp": "2026-04-14T15:25:07",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -7015,6 +7015,14 @@
         {
           "name": "cssprop",
           "text": "--wcs-grid-pagination-arrow-color-active - Color of the active arrow"
+        },
+        {
+          "name": "slot",
+          "text": "elements-per-page-text - Text following the page size select. Default text is \" éléments par page\". You may want to add a non-breaking space before the text to separate it from the number."
+        },
+        {
+          "name": "slot",
+          "text": "items-count-text - Text following the number of elements. Default text is \" éléments\". You may want to add a non-breaking space before the text to separate it from the number."
         }
       ],
       "usage": {},
@@ -7204,7 +7212,16 @@
       ],
       "listeners": [],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "elements-per-page-text",
+          "docs": "Text following the page size select. Default text is \" éléments par page\". You may want to add a non-breaking space before the text to separate it from the number."
+        },
+        {
+          "name": "items-count-text",
+          "docs": "Text following the number of elements. Default text is \" éléments\". You may want to add a non-breaking space before the text to separate it from the number."
+        }
+      ],
       "parts": [],
       "dependents": [],
       "dependencies": [
@@ -15457,7 +15474,7 @@
       "path": "src/components/select/select-interface.ts"
     },
     "src/components/select/select-interface.ts::SelectChangeEventDetail": {
-      "declaration": "export interface SelectChangeEventDetail {\r\n    value: any | any[] | undefined | null;\r\n}",
+      "declaration": "export interface SelectChangeEventDetail {\r\n    value: any | any[] | undefined | null;\r\n    /**\r\n     * Could be undefined if the wcs-select is in server mode, as the selected options are not rendered in the DOM\r\n     */\r\n    selectedOptions: HTMLWcsSelectOptionElement[] | undefined;\r\n}",
       "docstring": "",
       "path": "src/components/select/select-interface.ts"
     },

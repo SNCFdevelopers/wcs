@@ -47,6 +47,14 @@ Type: `Promise<void>`
 
 
 
+## Slots
+
+| Slot                       | Description                                                                                                                                                         |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `"elements-per-page-text"` | Text following the page size select. Default text is " éléments par page". You may want to add a non-breaking space before the text to separate it from the number. |
+| `"items-count-text"`       | Text following the number of elements. Default text is " éléments". You may want to add a non-breaking space before the text to separate it from the number.        |
+
+
 ## Dependencies
 
 ### Depends on
