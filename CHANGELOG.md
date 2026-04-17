@@ -27,7 +27,7 @@ for now removed features.
 
 ### Fixed
 
-for any bug fixes.
+- **Angular**: set `compilationMode` to `partial` for `wcs-angular` and `wcs-formly` libraries to fix `AsyncPipe` import issues in consuming applications
 
 ### Security
 
