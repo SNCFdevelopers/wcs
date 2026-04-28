@@ -67,6 +67,7 @@ graph TD;
   wcs-horizontal-stepper --> wcs-button
   wcs-horizontal-stepper --> wcs-mat-icon
   wcs-button --> wcs-spinner
+  wcs-button --> wcs-mat-icon
   style wcs-horizontal-stepper fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

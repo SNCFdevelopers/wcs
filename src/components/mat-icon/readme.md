@@ -42,6 +42,7 @@ Type: `Promise<void>`
 
  - [wcs-alert](../alert)
  - [wcs-breadcrumb](../breadcrumb)
+ - [wcs-button](../button)
  - [wcs-counter](../counter)
  - [wcs-editable-field](../editable-field)
  - [wcs-galactic-menu](../galactic-menu)
@@ -55,6 +56,7 @@ Type: `Promise<void>`
 graph TD;
   wcs-alert --> wcs-mat-icon
   wcs-breadcrumb --> wcs-mat-icon
+  wcs-button --> wcs-mat-icon
   wcs-counter --> wcs-mat-icon
   wcs-editable-field --> wcs-mat-icon
   wcs-galactic-menu --> wcs-mat-icon

@@ -95,6 +95,7 @@ graph TD;
   wcs-alert --> wcs-mat-icon
   wcs-alert --> wcs-button
   wcs-button --> wcs-spinner
+  wcs-button --> wcs-mat-icon
   style wcs-alert-drawer fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

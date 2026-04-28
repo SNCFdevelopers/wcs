@@ -2050,6 +2050,44 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/app/app.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "App",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-app",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "App",
+          "declaration": {
+            "name": "App",
+            "module": "components/app/app.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-app",
+          "declaration": {
+            "name": "App",
+            "module": "components/app/app.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/alert-drawer/alert-drawer-interface.ts",
       "declarations": [],
       "exports": []
@@ -2257,44 +2295,6 @@
           "declaration": {
             "name": "AlertDrawer",
             "module": "components/alert-drawer/alert-drawer.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/app/app.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "App",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-app",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "App",
-          "declaration": {
-            "name": "App",
-            "module": "components/app/app.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-app",
-          "declaration": {
-            "name": "App",
-            "module": "components/app/app.tsx"
           }
         }
       ]
@@ -3037,6 +3037,10 @@
             {
               "description": "font weight of a plain,stroked,clear button",
               "name": "--wcs-button-font-weight"
+            },
+            {
+              "description": "gap between button content (text and icons)",
+              "name": "--wcs-button-gap"
             }
           ],
           "members": [
@@ -3081,6 +3085,22 @@
                 "text": "string | undefined"
               },
               "description": "Set a URL to point to.<br/>\r\nIf specified use a `a` tag instead of `btn`."
+            },
+            {
+              "kind": "field",
+              "name": "startIcon",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "Name of a wcs-mat-icon to display at the start (left) of the button."
+            },
+            {
+              "kind": "field",
+              "name": "endIcon",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "Name of a wcs-mat-icon to display at the end (right) of the button."
             },
             {
               "kind": "field",
@@ -3213,6 +3233,20 @@
             {
               "name": "href",
               "fieldName": "href",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "start-icon",
+              "fieldName": "startIcon",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "end-icon",
+              "fieldName": "endIcon",
               "type": {
                 "text": "string"
               }
@@ -7695,62 +7729,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/field-label/field-label.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The field-label is a subcomponent of `wcs-field`. It represents the label or title of the field.",
-          "name": "FieldLabel",
-          "cssProperties": [
-            {
-              "description": "Color of the label",
-              "name": "--wcs-field-label-color"
-            },
-            {
-              "description": "Font weight of the label",
-              "name": "--wcs-field-label-font-weight"
-            },
-            {
-              "description": "Font size of the label",
-              "name": "--wcs-field-label-font-size"
-            },
-            {
-              "description": "Line height of the label",
-              "name": "--wcs-field-label-line-height"
-            }
-          ],
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-field-label",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "FieldLabel",
-          "declaration": {
-            "name": "FieldLabel",
-            "module": "components/field-label/field-label.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-field-label",
-          "declaration": {
-            "name": "FieldLabel",
-            "module": "components/field-label/field-label.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/footer/footer.tsx",
       "declarations": [
         {
@@ -7848,6 +7826,62 @@
           "declaration": {
             "name": "Footer",
             "module": "components/footer/footer.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/field-label/field-label.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The field-label is a subcomponent of `wcs-field`. It represents the label or title of the field.",
+          "name": "FieldLabel",
+          "cssProperties": [
+            {
+              "description": "Color of the label",
+              "name": "--wcs-field-label-color"
+            },
+            {
+              "description": "Font weight of the label",
+              "name": "--wcs-field-label-font-weight"
+            },
+            {
+              "description": "Font size of the label",
+              "name": "--wcs-field-label-font-size"
+            },
+            {
+              "description": "Line height of the label",
+              "name": "--wcs-field-label-line-height"
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-field-label",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "FieldLabel",
+          "declaration": {
+            "name": "FieldLabel",
+            "module": "components/field-label/field-label.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-field-label",
+          "declaration": {
+            "name": "FieldLabel",
+            "module": "components/field-label/field-label.tsx"
           }
         }
       ]
@@ -13090,166 +13124,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/nav-item/nav-item.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The nav-item component is a subcomponent of `wcs-nav` and should always be used inside it.  \r\nThey contain links to navigate to other pages of the website.",
-          "name": "NavItem",
-          "cssProperties": [
-            {
-              "description": "Font weight of the nav item",
-              "name": "--wcs-nav-item-font-weight"
-            },
-            {
-              "description": "Height of the nav item on desktop",
-              "name": "--wcs-nav-item-height-desktop"
-            },
-            {
-              "description": "Height of the nav item on mobile",
-              "name": "--wcs-nav-item-height-mobile"
-            },
-            {
-              "description": "Gap between items in nav-item on desktop (e.g. icon and label)",
-              "name": "--wcs-nav-item-gap-desktop"
-            },
-            {
-              "description": "Gap between items in nav-item on mobile (e.g. icon and label)",
-              "name": "--wcs-nav-item-gap-mobile"
-            },
-            {
-              "description": "Font size of the nav item on desktop",
-              "name": "--wcs-nav-item-font-size-desktop"
-            },
-            {
-              "description": "Font size of the nav item on mobile",
-              "name": "--wcs-nav-item-font-size-mobile"
-            },
-            {
-              "description": "Default background color of the nav item",
-              "name": "--wcs-nav-item-background-color-default"
-            },
-            {
-              "description": "Background color of the nav item when hovered",
-              "name": "--wcs-nav-item-background-color-hover"
-            },
-            {
-              "description": "Background color of the nav item when pressed",
-              "name": "--wcs-nav-item-background-color-press"
-            },
-            {
-              "description": "Background color of the nav item when active",
-              "name": "--wcs-nav-item-background-color-active"
-            },
-            {
-              "description": "Color of the nav item when default",
-              "name": "--wcs-nav-item-color-default"
-            },
-            {
-              "description": "Color of the nav item when active",
-              "name": "--wcs-nav-item-color-active"
-            },
-            {
-              "description": "Color of the nav item when hovered",
-              "name": "--wcs-nav-item-color-hover"
-            },
-            {
-              "description": "Color of the nav item when pressed",
-              "name": "--wcs-nav-item-color-press"
-            },
-            {
-              "description": "Border color of the nav item when focused",
-              "name": "--wcs-nav-item-border-color-focus"
-            },
-            {
-              "description": "Border width of the nav item when focused",
-              "name": "--wcs-nav-item-border-width-focus"
-            },
-            {
-              "description": "Background color of the nav item indicator",
-              "name": "--wcs-nav-item-indicator-background-color"
-            },
-            {
-              "description": "Width of the nav item indicator on desktop",
-              "name": "--wcs-nav-item-indicator-width-desktop"
-            },
-            {
-              "description": "Width of the nav item indicator on mobile",
-              "name": "--wcs-nav-item-indicator-width-mobile"
-            },
-            {
-              "description": "Height of the nav item indicator on desktop",
-              "name": "--wcs-nav-item-indicator-height-desktop"
-            },
-            {
-              "description": "Height of the nav item indicator on mobile",
-              "name": "--wcs-nav-item-indicator-height-mobile"
-            },
-            {
-              "description": "Border radius of the nav item indicator on desktop",
-              "name": "--wcs-nav-item-indicator-border-radius-desktop"
-            },
-            {
-              "description": "Border radius of the nav item indicator on mobile",
-              "name": "--wcs-nav-item-indicator-border-radius-mobile"
-            },
-            {
-              "description": "Transition duration of the nav item",
-              "name": "--wcs-nav-item-transition-duration"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "onKeyDown",
-              "parameters": [
-                {
-                  "name": "_event",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-nav-item",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "NavItem",
-          "declaration": {
-            "name": "NavItem",
-            "module": "components/nav-item/nav-item.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-nav-item",
-          "declaration": {
-            "name": "NavItem",
-            "module": "components/nav-item/nav-item.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/progress-bar/progress-bar.tsx",
       "declarations": [
         {
@@ -13458,6 +13332,166 @@
           "declaration": {
             "name": "ProgressBar",
             "module": "components/progress-bar/progress-bar.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/nav-item/nav-item.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The nav-item component is a subcomponent of `wcs-nav` and should always be used inside it.  \r\nThey contain links to navigate to other pages of the website.",
+          "name": "NavItem",
+          "cssProperties": [
+            {
+              "description": "Font weight of the nav item",
+              "name": "--wcs-nav-item-font-weight"
+            },
+            {
+              "description": "Height of the nav item on desktop",
+              "name": "--wcs-nav-item-height-desktop"
+            },
+            {
+              "description": "Height of the nav item on mobile",
+              "name": "--wcs-nav-item-height-mobile"
+            },
+            {
+              "description": "Gap between items in nav-item on desktop (e.g. icon and label)",
+              "name": "--wcs-nav-item-gap-desktop"
+            },
+            {
+              "description": "Gap between items in nav-item on mobile (e.g. icon and label)",
+              "name": "--wcs-nav-item-gap-mobile"
+            },
+            {
+              "description": "Font size of the nav item on desktop",
+              "name": "--wcs-nav-item-font-size-desktop"
+            },
+            {
+              "description": "Font size of the nav item on mobile",
+              "name": "--wcs-nav-item-font-size-mobile"
+            },
+            {
+              "description": "Default background color of the nav item",
+              "name": "--wcs-nav-item-background-color-default"
+            },
+            {
+              "description": "Background color of the nav item when hovered",
+              "name": "--wcs-nav-item-background-color-hover"
+            },
+            {
+              "description": "Background color of the nav item when pressed",
+              "name": "--wcs-nav-item-background-color-press"
+            },
+            {
+              "description": "Background color of the nav item when active",
+              "name": "--wcs-nav-item-background-color-active"
+            },
+            {
+              "description": "Color of the nav item when default",
+              "name": "--wcs-nav-item-color-default"
+            },
+            {
+              "description": "Color of the nav item when active",
+              "name": "--wcs-nav-item-color-active"
+            },
+            {
+              "description": "Color of the nav item when hovered",
+              "name": "--wcs-nav-item-color-hover"
+            },
+            {
+              "description": "Color of the nav item when pressed",
+              "name": "--wcs-nav-item-color-press"
+            },
+            {
+              "description": "Border color of the nav item when focused",
+              "name": "--wcs-nav-item-border-color-focus"
+            },
+            {
+              "description": "Border width of the nav item when focused",
+              "name": "--wcs-nav-item-border-width-focus"
+            },
+            {
+              "description": "Background color of the nav item indicator",
+              "name": "--wcs-nav-item-indicator-background-color"
+            },
+            {
+              "description": "Width of the nav item indicator on desktop",
+              "name": "--wcs-nav-item-indicator-width-desktop"
+            },
+            {
+              "description": "Width of the nav item indicator on mobile",
+              "name": "--wcs-nav-item-indicator-width-mobile"
+            },
+            {
+              "description": "Height of the nav item indicator on desktop",
+              "name": "--wcs-nav-item-indicator-height-desktop"
+            },
+            {
+              "description": "Height of the nav item indicator on mobile",
+              "name": "--wcs-nav-item-indicator-height-mobile"
+            },
+            {
+              "description": "Border radius of the nav item indicator on desktop",
+              "name": "--wcs-nav-item-indicator-border-radius-desktop"
+            },
+            {
+              "description": "Border radius of the nav item indicator on mobile",
+              "name": "--wcs-nav-item-indicator-border-radius-mobile"
+            },
+            {
+              "description": "Transition duration of the nav item",
+              "name": "--wcs-nav-item-transition-duration"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "onKeyDown",
+              "parameters": [
+                {
+                  "name": "_event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-nav-item",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "NavItem",
+          "declaration": {
+            "name": "NavItem",
+            "module": "components/nav-item/nav-item.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-nav-item",
+          "declaration": {
+            "name": "NavItem",
+            "module": "components/nav-item/nav-item.tsx"
           }
         }
       ]
@@ -16254,90 +16288,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/spinner/spinner-interface.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/spinner/spinner.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The spinner component is visual indicator that showing a process is happening in the background but the interface is\r\nnot yet ready for interaction.  \r\nIf your page structure is simple or the loading time is long (> 300ms), use [wcs-skeleton](.?path=/docs/components-skeleton--documentation) instead.",
-          "name": "Spinner",
-          "cssProperties": [
-            {
-              "description": "The color of the dashed circle in the background",
-              "name": "--wcs-spinner-dashed-background-circle"
-            },
-            {
-              "description": "The color of the rotating circle",
-              "name": "--wcs-spinner-rotating-circle-color"
-            },
-            {
-              "description": "The duration of the rotation animation",
-              "name": "--wcs-spinner-rotate-animation-duration"
-            },
-            {
-              "description": "The duration of the dash animation",
-              "name": "--wcs-spinner-dashed-animation-duration"
-            },
-            {
-              "description": "The duration of the growing animation",
-              "name": "--wcs-spinner-growing-animation-duration"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "mode",
-              "type": {
-                "text": "WcsSpinnerMode"
-              },
-              "default": "'border'",
-              "description": "Indicates the spinner display mode.\r\nAccepted values: `border` or `growing`"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "mode",
-              "fieldName": "mode",
-              "type": {
-                "text": "WcsSpinnerMode"
-              }
-            }
-          ],
-          "tagName": "wcs-spinner",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Spinner",
-          "declaration": {
-            "name": "Spinner",
-            "module": "components/spinner/spinner.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-spinner",
-          "declaration": {
-            "name": "Spinner",
-            "module": "components/spinner/spinner.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "components/switch/switch-interface.ts",
       "declarations": [],
       "exports": []
@@ -16666,6 +16616,90 @@
           "declaration": {
             "name": "Switch",
             "module": "components/switch/switch.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/spinner/spinner-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/spinner/spinner.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The spinner component is visual indicator that showing a process is happening in the background but the interface is\r\nnot yet ready for interaction.  \r\nIf your page structure is simple or the loading time is long (> 300ms), use [wcs-skeleton](.?path=/docs/components-skeleton--documentation) instead.",
+          "name": "Spinner",
+          "cssProperties": [
+            {
+              "description": "The color of the dashed circle in the background",
+              "name": "--wcs-spinner-dashed-background-circle"
+            },
+            {
+              "description": "The color of the rotating circle",
+              "name": "--wcs-spinner-rotating-circle-color"
+            },
+            {
+              "description": "The duration of the rotation animation",
+              "name": "--wcs-spinner-rotate-animation-duration"
+            },
+            {
+              "description": "The duration of the dash animation",
+              "name": "--wcs-spinner-dashed-animation-duration"
+            },
+            {
+              "description": "The duration of the growing animation",
+              "name": "--wcs-spinner-growing-animation-duration"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "mode",
+              "type": {
+                "text": "WcsSpinnerMode"
+              },
+              "default": "'border'",
+              "description": "Indicates the spinner display mode.\r\nAccepted values: `border` or `growing`"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "mode",
+              "fieldName": "mode",
+              "type": {
+                "text": "WcsSpinnerMode"
+              }
+            }
+          ],
+          "tagName": "wcs-spinner",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Spinner",
+          "declaration": {
+            "name": "Spinner",
+            "module": "components/spinner/spinner.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-spinner",
+          "declaration": {
+            "name": "Spinner",
+            "module": "components/spinner/spinner.tsx"
           }
         }
       ]

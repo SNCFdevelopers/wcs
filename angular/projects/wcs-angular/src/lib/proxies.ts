@@ -263,7 +263,7 @@ export declare interface WcsBreadcrumbItem extends Components.WcsBreadcrumbItem 
 
 
 @ProxyCmp({
-  inputs: ['disabled', 'href', 'loading', 'mode', 'ripple', 'shape', 'size', 'target', 'type'],
+  inputs: ['disabled', 'endIcon', 'href', 'loading', 'mode', 'ripple', 'shape', 'size', 'startIcon', 'target', 'type'],
   methods: ['setAriaAttribute']
 })
 @Component({
@@ -271,7 +271,7 @@ export declare interface WcsBreadcrumbItem extends Components.WcsBreadcrumbItem 
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['disabled', 'href', 'loading', 'mode', 'ripple', 'shape', 'size', 'target', 'type'],
+  inputs: ['disabled', 'endIcon', 'href', 'loading', 'mode', 'ripple', 'shape', 'size', 'startIcon', 'target', 'type'],
 })
 export class WcsButton {
   protected el: HTMLElement;

@@ -92,6 +92,7 @@ graph TD;
   wcs-grid --> wcs-spinner
   wcs-grid --> wcs-button
   wcs-button --> wcs-spinner
+  wcs-button --> wcs-mat-icon
   style wcs-grid fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

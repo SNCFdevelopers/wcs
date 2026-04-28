@@ -20,17 +20,19 @@ To fix this problem, we plan to provide a wcsClick event in addition to the nati
 
 ## Properties
 
-| Property   | Attribute  | Description                                                                                                                                                         | Type                              | Default     |
-| ---------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- | ----------- |
-| `disabled` | `disabled` | Specify whether the button is disabled or not.                                                                                                                      | `boolean`                         | `false`     |
-| `href`     | `href`     | Set a URL to point to.<br/> If specified use a `a` tag instead of `btn`.                                                                                            | `string`                          | `undefined` |
-| `loading`  | `loading`  | Flag to display spinner until the end of action                                                                                                                     | `boolean`                         | `false`     |
-| `mode`     | `mode`     | This attribute specify the appearance of the button.                                                                                                                | `"clear" \| "plain" \| "stroked"` | `'plain'`   |
-| `ripple`   | `ripple`   | Specify whether the button should have a ripple effect or not.                                                                                                      | `boolean`                         | `true`      |
-| `shape`    | `shape`    | Specify the shape of the button.                                                                                                                                    | `"normal" \| "round" \| "square"` | `'normal'`  |
-| `size`     | `size`     | Specify the size of the button.                                                                                                                                     | `"l" \| "m" \| "s"`               | `'m'`       |
-| `target`   | `target`   | Specifies where to open the linked document when using href (see prop above)<br/> Default '_self' will open the linked document in the same frame as it was clicked | `"_blank" \| "_self"`             | `undefined` |
-| `type`     | `type`     | Specify the button type.                                                                                                                                            | `"button" \| "submit"`            | `'button'`  |
+| Property    | Attribute    | Description                                                                                                                                                         | Type                              | Default     |
+| ----------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- | ----------- |
+| `disabled`  | `disabled`   | Specify whether the button is disabled or not.                                                                                                                      | `boolean`                         | `false`     |
+| `endIcon`   | `end-icon`   | Name of a wcs-mat-icon to display at the end (right) of the button.                                                                                                 | `string`                          | `undefined` |
+| `href`      | `href`       | Set a URL to point to.<br/> If specified use a `a` tag instead of `btn`.                                                                                            | `string`                          | `undefined` |
+| `loading`   | `loading`    | Flag to display spinner until the end of action                                                                                                                     | `boolean`                         | `false`     |
+| `mode`      | `mode`       | This attribute specify the appearance of the button.                                                                                                                | `"clear" \| "plain" \| "stroked"` | `'plain'`   |
+| `ripple`    | `ripple`     | Specify whether the button should have a ripple effect or not.                                                                                                      | `boolean`                         | `true`      |
+| `shape`     | `shape`      | Specify the shape of the button.                                                                                                                                    | `"normal" \| "round" \| "square"` | `'normal'`  |
+| `size`      | `size`       | Specify the size of the button.                                                                                                                                     | `"l" \| "m" \| "s"`               | `'m'`       |
+| `startIcon` | `start-icon` | Name of a wcs-mat-icon to display at the start (left) of the button.                                                                                                | `string`                          | `undefined` |
+| `target`    | `target`     | Specifies where to open the linked document when using href (see prop above)<br/> Default '_self' will open the linked document in the same frame as it was clicked | `"_blank" \| "_self"`             | `undefined` |
+| `type`      | `type`       | Specify the button type.                                                                                                                                            | `"button" \| "submit"`            | `'button'`  |
 
 
 ## Methods
@@ -69,11 +71,13 @@ Type: `Promise<void>`
 ### Depends on
 
 - [wcs-spinner](../spinner)
+- [wcs-mat-icon](../mat-icon)
 
 ### Graph
 ```mermaid
 graph TD;
   wcs-button --> wcs-spinner
+  wcs-button --> wcs-mat-icon
   wcs-alert --> wcs-button
   wcs-breadcrumb --> wcs-button
   wcs-counter --> wcs-button

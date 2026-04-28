@@ -1,5 +1,5 @@
-import { Meta, StoryFn } from '@storybook/web-components-vite';
-import { html } from 'lit-html';
+import {Meta, StoryFn, StoryObj} from '@storybook/web-components-vite';
+import { html, nothing } from 'lit-html';
 import { WcsButtonMode, WcsButtonShape, WcsButtonSize } from '../../../src/components/button/button-interface';
 import { createRef, ref, Ref } from 'lit-html/directives/ref.js';
 import { getComponentArgs } from '../../utils/args-generation';
@@ -11,52 +11,81 @@ const meta: Meta = {
 };
 export default meta;
 
-const Template: StoryFn<Partial<{ innerText: string, mode: WcsButtonMode, size: WcsButtonSize, loading: boolean, shape: WcsButtonShape, href: string, disabled: boolean, ripple: boolean }>> = (args) => html`
+type ButtonArgs = {
+    innerText: string,
+    mode: WcsButtonMode,
+    size: WcsButtonSize,
+    loading: boolean,
+    shape: WcsButtonShape,
+    href: string,
+    disabled: boolean,
+    ripple: boolean,
+    endIcon: string,
+    startIcon: string
+}
+
+const Template: StoryFn<Partial<ButtonArgs>> = (args) => html`
     <wcs-button mode=${args.mode} shape=${args.shape} size=${args.size ?? 'm'} ?ripple=${args.ripple}
                 ?disabled=${args.disabled}
                 ?loading="${args.loading}"
+                start-icon="${args.startIcon || nothing}"
+                end-icon="${args.endIcon || nothing}"
                 class="wcs-primary">
         ${args.innerText}
     </wcs-button>
     <wcs-button mode=${args.mode} shape=${args.shape} size=${args.size ?? 'm'} ?ripple=${args.ripple}
                 ?disabled=${args.disabled}
                 ?loading="${args.loading}"
+                start-icon="${args.startIcon || nothing}"
+                end-icon="${args.endIcon || nothing}"
                 class="wcs-secondary">
         Secondary
     </wcs-button>
     <wcs-button mode=${args.mode} shape=${args.shape} size=${args.size ?? 'm'} ?ripple=${args.ripple}
                 ?disabled=${args.disabled}
                 ?loading="${args.loading}"
+                start-icon="${args.startIcon || nothing}"
+                end-icon="${args.endIcon || nothing}"
                 class="wcs-success">
         Success
     </wcs-button>
     <wcs-button mode=${args.mode} shape=${args.shape} size=${args.size ?? 'm'} ?ripple=${args.ripple}
                 ?disabled=${args.disabled}
                 ?loading="${args.loading}"
+                start-icon="${args.startIcon || nothing}"
+                end-icon="${args.endIcon || nothing}"
                 class="wcs-warning">
         Warning
     </wcs-button>
     <wcs-button mode=${args.mode} shape=${args.shape} size=${args.size ?? 'm'} ?ripple=${args.ripple}
                 ?disabled=${args.disabled}
                 ?loading="${args.loading}"
+                start-icon="${args.startIcon || nothing}"
+                end-icon="${args.endIcon || nothing}"
                 class="wcs-critical">
         Critical
     </wcs-button>
     <wcs-button mode=${args.mode} shape=${args.shape} size=${args.size ?? 'm'} ?ripple=${args.ripple}
                 ?disabled=${args.disabled}
                 ?loading="${args.loading}"
+                start-icon="${args.startIcon || nothing}"
+                end-icon="${args.endIcon || nothing}"
                 class="wcs-info">
         Info
     </wcs-button>
     <wcs-button mode=${args.mode} shape=${args.shape} size=${args.size ?? 'm'} ?ripple=${args.ripple}
                 ?disabled=${args.disabled}
                 ?loading="${args.loading}"
+                start-icon="${args.startIcon || nothing}"
+                end-icon="${args.endIcon || nothing}"
                 class="wcs-dark">
         Dark
     </wcs-button>
     <wcs-button mode=${args.mode} shape=${args.shape} size=${args.size ?? 'm'} ?ripple=${args.ripple}
                 ?disabled=${args.disabled}
                 ?loading="${args.loading}"
+                start-icon="${args.startIcon || nothing}"
+                end-icon="${args.endIcon || nothing}"
                 class="wcs-light">
         Light
     </wcs-button>
@@ -64,22 +93,24 @@ const Template: StoryFn<Partial<{ innerText: string, mode: WcsButtonMode, size: 
     <wcs-button style="width: 100%" mode=${args.mode} shape=${args.shape} size=${args.size ?? 'm'} ?ripple=${args.ripple}
                 ?disabled=${args.disabled}
                 ?loading="${args.loading}"
+                start-icon="${args.startIcon || nothing}"
+                end-icon="${args.endIcon || nothing}"
                 class="wcs-primary">
         ${args.innerText}
     </wcs-button>
 `;
 
 export const Default = Template.bind({});
-Default.args = {innerText: 'Primary', loading: false, shape: 'normal', ripple: true};
+Default.args = {innerText: 'Primary', loading: false, shape: 'normal', ripple: true, startIcon: '', endIcon: ''};
 
 export const clear = Template.bind({});
-clear.args = {innerText: 'Primary', mode: 'clear', loading: false};
+clear.args = {innerText: 'Primary', mode: 'clear', loading: false, startIcon: '', endIcon: ''};
 
 export const stroked = Template.bind({});
-stroked.args = {innerText: 'Primary', mode: 'stroked', loading: false};
+stroked.args = {innerText: 'Primary', mode: 'stroked', loading: false, startIcon: '', endIcon: ''};
 
 export const disabled = Template.bind({});
-disabled.args = {innerText: 'Primary', disabled: true, loading: false};
+disabled.args = {innerText: 'Primary', disabled: true, loading: false, startIcon: '', endIcon: ''};
 
 const TemplateSizes: StoryFn<Partial<{ loading: boolean }>> = (args) => html`
     <wcs-button size="l" ?loading="${args.loading}">Button L</wcs-button>
@@ -150,3 +181,18 @@ ManualFocus.args = {innerText: 'Button to focus', loading: false};
 
 export const Loading = Template.bind({});
 Loading.args = {innerText: 'Loading button', loading: true};
+
+const TemplateIcon: StoryFn<Partial<{ startIcon: string, endIcon: string }>> = (args) => html`
+    <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
+        <wcs-button start-icon="${args.startIcon || nothing}" end-icon="${args.endIcon || nothing}" class="wcs-primary">Plain</wcs-button>
+        <wcs-button start-icon="${args.startIcon || nothing}" end-icon="${args.endIcon || nothing}" mode="stroked" class="wcs-primary">Stroked</wcs-button>
+        <wcs-button start-icon="${args.startIcon || nothing}" end-icon="${args.endIcon || nothing}" mode="clear" class="wcs-primary">Clear</wcs-button>
+        <wcs-button start-icon="${args.startIcon || nothing}" end-icon="${args.endIcon || nothing}" class="wcs-primary" disabled>Disabled</wcs-button>
+    </div>
+`;
+
+export const StartIcon: StoryObj<ButtonArgs> = TemplateIcon.bind({});
+StartIcon.args = { startIcon: 'arrow_back' };
+
+export const EndIcon: StoryObj<ButtonArgs> = TemplateIcon.bind({});
+EndIcon.args = { endIcon: 'arrow_forward' };

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-04-14T15:25:07",
+  "timestamp": "2026-05-04T09:08:35",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -795,7 +795,8 @@
           "wcs-button"
         ],
         "wcs-button": [
-          "wcs-spinner"
+          "wcs-spinner",
+          "wcs-mat-icon"
         ],
         "wcs-alert-drawer": [
           "wcs-alert"
@@ -1003,7 +1004,8 @@
           "wcs-button"
         ],
         "wcs-button": [
-          "wcs-spinner"
+          "wcs-spinner",
+          "wcs-mat-icon"
         ]
       }
     },
@@ -1395,7 +1397,8 @@
           "wcs-mat-icon"
         ],
         "wcs-button": [
-          "wcs-spinner"
+          "wcs-spinner",
+          "wcs-mat-icon"
         ]
       }
     },
@@ -1594,6 +1597,10 @@
         {
           "name": "cssprop",
           "text": "--wcs-button-font-weight - font weight of a plain,stroked,clear button"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-button-gap - gap between button content (text and icons)"
         }
       ],
       "usage": {},
@@ -1618,6 +1625,27 @@
             }
           ],
           "optional": false,
+          "required": false
+        },
+        {
+          "name": "endIcon",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "end-icon",
+          "reflectToAttr": false,
+          "docs": "Name of a wcs-mat-icon to display at the end (right) of the button.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
           "required": false
         },
         {
@@ -1797,6 +1825,27 @@
           "required": false
         },
         {
+          "name": "startIcon",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "start-icon",
+          "reflectToAttr": false,
+          "docs": "Name of a wcs-mat-icon to display at the start (left) of the button.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "target",
           "type": "\"_blank\" | \"_self\"",
           "complexType": {
@@ -1929,11 +1978,13 @@
         "wcs-modal"
       ],
       "dependencies": [
-        "wcs-spinner"
+        "wcs-spinner",
+        "wcs-mat-icon"
       ],
       "dependencyGraph": {
         "wcs-button": [
-          "wcs-spinner"
+          "wcs-spinner",
+          "wcs-mat-icon"
         ],
         "wcs-alert": [
           "wcs-button"
@@ -4326,7 +4377,8 @@
           "wcs-mat-icon"
         ],
         "wcs-button": [
-          "wcs-spinner"
+          "wcs-spinner",
+          "wcs-mat-icon"
         ]
       }
     },
@@ -4761,7 +4813,8 @@
           "wcs-button"
         ],
         "wcs-button": [
-          "wcs-spinner"
+          "wcs-spinner",
+          "wcs-mat-icon"
         ]
       }
     },
@@ -6568,7 +6621,8 @@
           "wcs-button"
         ],
         "wcs-button": [
-          "wcs-spinner"
+          "wcs-spinner",
+          "wcs-mat-icon"
         ]
       }
     },
@@ -7239,7 +7293,8 @@
           "wcs-checkbox"
         ],
         "wcs-button": [
-          "wcs-spinner"
+          "wcs-spinner",
+          "wcs-mat-icon"
         ]
       }
     },
@@ -7647,7 +7702,8 @@
           "wcs-mat-icon"
         ],
         "wcs-button": [
-          "wcs-spinner"
+          "wcs-spinner",
+          "wcs-mat-icon"
         ]
       }
     },
@@ -9677,6 +9733,7 @@
       "dependents": [
         "wcs-alert",
         "wcs-breadcrumb",
+        "wcs-button",
         "wcs-counter",
         "wcs-editable-field",
         "wcs-galactic-menu",
@@ -9691,6 +9748,9 @@
           "wcs-mat-icon"
         ],
         "wcs-breadcrumb": [
+          "wcs-mat-icon"
+        ],
+        "wcs-button": [
           "wcs-mat-icon"
         ],
         "wcs-counter": [
@@ -10138,7 +10198,8 @@
           "wcs-mat-icon"
         ],
         "wcs-button": [
-          "wcs-spinner"
+          "wcs-spinner",
+          "wcs-mat-icon"
         ]
       }
     },

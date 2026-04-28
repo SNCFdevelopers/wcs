@@ -59,6 +59,7 @@ Type: `Promise<void>`
 graph TD;
   wcs-dropdown --> wcs-button
   wcs-button --> wcs-spinner
+  wcs-button --> wcs-mat-icon
   style wcs-dropdown fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

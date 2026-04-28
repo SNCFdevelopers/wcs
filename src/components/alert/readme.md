@@ -45,6 +45,7 @@ graph TD;
   wcs-alert --> wcs-mat-icon
   wcs-alert --> wcs-button
   wcs-button --> wcs-spinner
+  wcs-button --> wcs-mat-icon
   wcs-alert-drawer --> wcs-alert
   style wcs-alert fill:#f9f,stroke:#333,stroke-width:4px
 ```

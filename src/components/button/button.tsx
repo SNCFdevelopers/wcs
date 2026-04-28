@@ -15,10 +15,10 @@ const BUTTON_INHERITED_ATTRS = ['tabindex', 'title'];
 
 /**
  * The button component is used to trigger an action. It can also be a link when specifying href.
- * 
+ *
  * ## Accessibility guidelines 💡
  * > If your button doesn't contain text but only an image, you must set a relevant aria-label on the icon 👉 [see "Square" story below](#square)
- * 
+ *
  * ## Click event
  *
  * The WCS button relies on the native click event to pass a user click to your app.
@@ -30,7 +30,7 @@ const BUTTON_INHERITED_ATTRS = ['tabindex', 'title'];
  * @cssprop --wcs-button-plain-color-default - Text/icon color of a plain button
  * @cssprop --wcs-button-stroked-color-default - text/icon color of a stroked button
  * @cssprop --wcs-button-clear-color-default - text/icon color of a clear button
- * 
+ *
  * @cssprop --wcs-button-color-disabled - text/icon color disabled for mode plain, stroked, clear
  *
  * @cssprop --wcs-button-plain-background-color-default background color of a plain button
@@ -39,7 +39,7 @@ const BUTTON_INHERITED_ATTRS = ['tabindex', 'title'];
  * @cssprop --wcs-button-stroked-background-color-disabled - disabled background color of a stroked button
  * @cssprop --wcs-button-clear-background-color-default background color of a clear button
  * @cssprop --wcs-button-clear-background-color-disabled - disabled background color of a clear button
- * 
+ *
  * @cssprop --wcs-button-plain-ripple-color-default - ripple background color of a plain button
  * @cssprop --wcs-button-stroked-ripple-color-default - ripple background color of a stroked button
  * @cssprop --wcs-button-clear-ripple-color-default - ripple background color of a clear button
@@ -63,6 +63,16 @@ const BUTTON_INHERITED_ATTRS = ['tabindex', 'title'];
  * @cssprop --wcs-button-padding-size-l - padding for a size l button
  *
  * @cssprop --wcs-button-font-weight - font weight of a plain,stroked,clear button
+ * 
+ * @cssprop --wcs-button-gap - gap between button content (text and icons)
+ * 
+ * @cssprop --wcs-button-start-icon-size-s - size of the start icon for a size s button
+ * @cssprop --wcs-button-start-icon-size-m - size of the start icon for a size m button
+ * @cssprop --wcs-button-start-icon-size-l - size of the start icon for a size l button
+ * 
+ * @cssprop --wcs-button-end-icon-size-s - size of the end icon for a size s button
+ * @cssprop --wcs-button-end-icon-size-m - size of the end icon for a size m button
+ * @cssprop --wcs-button-end-icon-size-l - size of the end icon for a size l button
  */
 @Component({
     tag: 'wcs-button',
@@ -86,6 +96,16 @@ export class Button implements ComponentInterface, MutableAriaAttribute {
      * If specified use a `a` tag instead of `btn`.
      */
     @Prop() href?: string;
+
+    /**
+     * Name of a wcs-mat-icon to display at the start (left) of the button.
+     */
+    @Prop() startIcon?: string;
+
+    /**
+     * Name of a wcs-mat-icon to display at the end (right) of the button.
+     */
+    @Prop() endIcon?: string;
 
     /**
      * Specifies where to open the linked document when using href (see prop above)<br/>
@@ -162,7 +182,7 @@ export class Button implements ComponentInterface, MutableAriaAttribute {
         this.mdcRipple = new MDCRipple(this.el.shadowRoot.querySelector('.wcs-inner-button'));
         this.updateRippleState();
     }
-    
+
     @Method()
     async setAriaAttribute(attr: AriaAttributeName, value: string | null | undefined) {
         setOrRemoveAttribute(this.nativeButton, attr, value);
@@ -194,10 +214,11 @@ export class Button implements ComponentInterface, MutableAriaAttribute {
                 ref={(el: HTMLButtonElement | HTMLAnchorElement) => this.nativeButton = el}
                 {...this.inheritedAttributes}
             >
-                {
-                    this.loading && <wcs-spinner></wcs-spinner>
-                }
+                {this.loading && <wcs-spinner></wcs-spinner>}
+                {/* We decide to keep icon to size m, because we want to manually handle the font size based on the button one's */}
+                {this.startIcon && <wcs-mat-icon id="start-icon" size='m' icon={this.startIcon}></wcs-mat-icon>}
                 <slot/>
+                {this.endIcon && <wcs-mat-icon id="end-icon" size='m' icon={this.endIcon}></wcs-mat-icon>}
             </TagType>
         );
     }

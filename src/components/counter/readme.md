@@ -62,6 +62,7 @@ graph TD;
   wcs-counter --> wcs-button
   wcs-counter --> wcs-mat-icon
   wcs-button --> wcs-spinner
+  wcs-button --> wcs-mat-icon
   style wcs-counter fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -11,7 +11,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-for new features.
+- **button**: add `endIcon` and `startIcon` properties to allow adding an icon at the start or the end of the button text
+- **mat-icon**: add css variables for sizes of icons
 
 ### Changed
 

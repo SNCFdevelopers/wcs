@@ -103,6 +103,7 @@ graph TD;
   wcs-modal --> wcs-button
   wcs-modal --> wcs-mat-icon
   wcs-button --> wcs-spinner
+  wcs-button --> wcs-mat-icon
   style wcs-modal fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

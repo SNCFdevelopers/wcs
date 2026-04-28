@@ -69,6 +69,7 @@ graph TD;
   wcs-breadcrumb --> wcs-button
   wcs-breadcrumb --> wcs-mat-icon
   wcs-button --> wcs-spinner
+  wcs-button --> wcs-mat-icon
   style wcs-breadcrumb fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

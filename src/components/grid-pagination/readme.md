@@ -71,6 +71,7 @@ graph TD;
   wcs-grid-pagination --> wcs-button
   wcs-select-option --> wcs-checkbox
   wcs-button --> wcs-spinner
+  wcs-button --> wcs-mat-icon
   style wcs-grid-pagination fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

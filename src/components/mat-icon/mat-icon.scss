@@ -1,24 +1,29 @@
 @use 'mat-icon-google-stylesheets';
 
 :host {
+    --wcs-mat-icon-font-size-s: 18px;
+    --wcs-mat-icon-font-size-m: 24px;
+    --wcs-mat-icon-font-size-l: 36px;
+    --wcs-mat-icon-font-size-xl: 48px;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
 
     .size-s {
-        font-size: 18px !important;
+        font-size: var(--wcs-mat-icon-font-size-s) !important;
     }
 
     .size-m {
-        font-size: 24px !important;
+        font-size: var(--wcs-mat-icon-font-size-m) !important;
     }
 
     .size-l {
-        font-size: 36px !important;
+        font-size: var(--wcs-mat-icon-font-size-l) !important;
     }
 
     .size-xl {
-        font-size: 48px !important;
+        font-size: var(--wcs-mat-icon-font-size-xl) !important;
     }
 
     @include mat-icon-google-stylesheets.material-icons-classes

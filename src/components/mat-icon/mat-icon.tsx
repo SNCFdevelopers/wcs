@@ -15,6 +15,11 @@ const MAT_ICON_INHERITED_ATTRS = ['title'];
 
 /**
  * A component used to display a [Material Icon](https://fonts.google.com/icons?icon.set=Material+Icons). Can be useful when used in wcs-grid or in a wcs-button.
+ * 
+ * @cssprop --wcs-mat-icon-font-size-s - font size for a size s icon
+ * @cssprop --wcs-mat-icon-font-size-m - font size for a size m icon
+ * @cssprop --wcs-mat-icon-font-size-l - font size for a size l icon
+ * @cssprop --wcs-mat-icon-font-size-xl - font size for a size xl icon
  */
 @Component({
     tag: 'wcs-mat-icon',
