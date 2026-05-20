@@ -15,6 +15,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
     <h2>Controls</h2>
     <wcs-button (click)="onHelloButtonClick($event)">Hello From Angular Standalone App</wcs-button>
     <wcs-button (click)="onAlertButtonClick()">Display info alert</wcs-button>
+    <wcs-button (click)="onClearAlertsButtonClick()">Clear alerts</wcs-button>
     <form class="column" [formGroup]="formGroup">
       <wcs-input placeholder="Enter text" formControlName="input"></wcs-input>
       <wcs-select placeholder="Select an option" formControlName="number">
@@ -79,5 +80,9 @@ export class ControlsPageComponent {
 
   onButtonClick($event: MouseEvent) {
     window.alert("Hello from Angular Standalone App!");
+  }
+
+  onClearAlertsButtonClick() {
+    this.alertService.clear();
   }
 }

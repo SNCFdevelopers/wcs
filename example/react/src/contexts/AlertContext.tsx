@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useRef, useEffect, ReactNode } from 'react';
+import React, { createContext, useContext, useRef, useEffect, ReactNode, useMemo } from 'react';
 import { WcsAlertDrawerPosition, WcsAlertConfig } from 'wcs-core';
 import { WcsAlertDrawer } from "wcs-react";
 
@@ -10,10 +10,12 @@ interface AlertDrawerConfig {
 
 interface AlertDrawerContextValue {
     showAlert: (params: WcsAlertConfig) => void;
+    clearAlerts: () => void;
 }
 
 const AlertDrawerContext = createContext<AlertDrawerContextValue>({
-    showAlert: () => { console.error("AlertDrawerContext not initialized") }
+    showAlert: () => { console.error("AlertDrawerContext not initialized") },
+    clearAlerts: () => { console.error("AlertDrawerContext not initialized") }
 });
 
 export const AlertDrawerProvider: React.FC<{
@@ -29,14 +31,21 @@ export const AlertDrawerProvider: React.FC<{
         }
     }, []);
 
-    const showAlert = (params: WcsAlertConfig) => {
-        if (alertDrawerRef.current) {
-            alertDrawerRef.current.show(params);
+    const contextValue = useMemo(() => ({
+        showAlert: (params: WcsAlertConfig) => {
+            if (alertDrawerRef.current) {
+                alertDrawerRef.current.show(params);
+            }
+        },
+        clearAlerts: () => {
+            if (alertDrawerRef.current) {
+                alertDrawerRef.current.clear();
+            }
         }
-    };
+    }), []);
 
     return (
-        <AlertDrawerContext.Provider value={{showAlert}}>
+        <AlertDrawerContext.Provider value={contextValue}>
             {children}
             <WcsAlertDrawer position={config.position} showProgressBar={config.showProgressBar} timeout={config.timeout} ref={alertDrawerRef} />
         </AlertDrawerContext.Provider>

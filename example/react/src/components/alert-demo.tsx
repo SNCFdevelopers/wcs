@@ -3,7 +3,7 @@ import { WcsButton} from 'wcs-react';
 import { useAlertDrawer } from '../contexts/AlertContext';
 
 export function AlertDemo(): ReactElement {
-    const {showAlert} = useAlertDrawer();
+    const {showAlert, clearAlerts} = useAlertDrawer();
 
     return (
             <div>
@@ -24,6 +24,10 @@ export function AlertDemo(): ReactElement {
                 <WcsButton onClick={() => {
                     showAlert({intent: 'error', title: 'Alert Title', subtitle: 'Subtitle'});
                 }}>Show error</WcsButton>
+
+                <WcsButton onClick={() => {
+                    clearAlerts();
+                }}>Clear Alerts</WcsButton>
             </div>
     );
 }

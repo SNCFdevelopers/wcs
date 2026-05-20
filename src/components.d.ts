@@ -227,12 +227,17 @@ export namespace Components {
      */
     interface WcsAlertDrawer {
         /**
+          * Method exposed on `wcs-alert-drawer` to clear all `wcs-alert` which are inside, via the JS API
+          * @example Plain javascript (example inside a script tag): ```javascript  document.querySelector('wcs-alert-drawer').clear(); ```
+         */
+        "clear": () => Promise<void>;
+        /**
           * Position of the alert drawer on the screen
          */
         "position": WcsAlertDrawerPosition;
         /**
           * Method exposed on `wcs-alert-drawer` to show an alert programmatically via the JS API
-          * @example Plain javascript (example inside a script tag): ```javascript  document.querySelector('wcs-alert-drawer').show({      title: 'Alert title',      subtitle: 'Alert subtitle',      intent: 'info',      showProgressBar: true,      timeout: 5000  });
+          * @example Plain javascript (example inside a script tag): ```javascript  document.querySelector('wcs-alert-drawer').show({      title: 'Alert title',      subtitle: 'Alert subtitle',      intent: 'info',      showProgressBar: true,      timeout: 5000  }); ```
           * @param alert The alert to show
          */
         "show": (alert: WcsAlertConfig) => Promise<void>;

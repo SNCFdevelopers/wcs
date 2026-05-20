@@ -189,7 +189,7 @@ export class WcsAlertService implements OnDestroy {
    */
   clear(): void {
     if (this.alertDrawer) {
-      this.alertDrawer.innerHTML = '';
+      this.alertDrawer.clear();
     }
   }
 

@@ -48,6 +48,16 @@ With this configuration, all alerts will be displayed with a progress bar and a 
 
 ## Methods
 
+### `clear() => Promise<void>`
+
+Method exposed on `wcs-alert-drawer` to clear all `wcs-alert` which are inside, via the JS API
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
 ### `show(alert: WcsAlertConfig) => Promise<void>`
 
 Method exposed on `wcs-alert-drawer` to show an alert programmatically via the JS API

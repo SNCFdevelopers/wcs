@@ -106,11 +106,25 @@ export class AlertDrawer {
      *      showProgressBar: true,
      *      timeout: 5000
      *  });
+     * ```
      * @param alert The alert to show
      */
     @Method()
     async show(alert: WcsAlertConfig): Promise<void> {
         this.alertsContainer.appendChild(this.renderToast(alert));
+    }
+
+    /**
+     * Method exposed on `wcs-alert-drawer` to clear all `wcs-alert` which are inside, via the JS API
+     * @example
+     * Plain javascript (example inside a script tag):
+     * ```javascript
+     *  document.querySelector('wcs-alert-drawer').clear();
+     * ```
+     */
+    @Method()
+    async clear(): Promise<void> {
+        this.alertsContainer.replaceChildren();
     }
 
     private renderToast(alert: WcsAlertConfig): HTMLWcsAlertElement {

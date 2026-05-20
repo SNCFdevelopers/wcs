@@ -25,6 +25,12 @@ function showAlert() {
 <wcs-button onclick="showAlert()">Show Alert</wcs-button>
 ```
 
+You can clear all alerts programmatically using the `clear()` method:
+
+```javascript
+alertDrawer.clear();
+```
+
 ## Integration
 
 <wcs-tabs gutter>
@@ -37,7 +43,10 @@ function showAlert() {
         
         @Component({
             selector: 'app-example',
-            template: '<wcs-button (click)="showAlert()">Show Alert</wcs-button>'
+            template: `
+                <wcs-button (click)="showAlert()">Show Alert</wcs-button>
+                <wcs-button (click)="clearAlerts()">Clear Alerts</wcs-button>
+            `
         })
         export class ExampleComponent {
             constructor(private alertService: WcsAlertService) {
@@ -55,6 +64,10 @@ function showAlert() {
                     'Your changes have been saved', // subtitle
                     { timeout: 3000 } // options
                 );
+            }
+
+            clearAlerts(): void {
+                this.alertService.clear();
             }
         }
         ```
@@ -81,7 +94,7 @@ function showAlert() {
         You can create a context provider to manage the alert drawer in your React application. This allows you to show alerts from anywhere in your app.
 
         ```tsx
-        import React, { createContext, useContext, useRef, useEffect, ReactNode } from 'react';
+        import React, { createContext, useContext, useRef, useEffect, useMemo, ReactNode } from 'react';
         import { WcsAlertDrawerPosition, WcsAlertConfig } from 'wcs-core';
         import { WcsAlertDrawer } from "wcs-react";
 
@@ -93,10 +106,12 @@ function showAlert() {
 
         interface AlertDrawerContextValue {
             showAlert: (params: WcsAlertConfig) => void;
+            clearAlerts: () => void;
         }
 
         const AlertDrawerContext = createContext<AlertDrawerContextValue>({
-            showAlert: () => { console.error("AlertDrawerContext not initialized") }
+            showAlert: () => { console.error("AlertDrawerContext not initialized") },
+            clearAlerts: () => { console.error("AlertDrawerContext not initialized") }
         });
 
         export const AlertDrawerProvider: React.FC<{
@@ -112,14 +127,21 @@ function showAlert() {
                 }
             }, []);
 
-            const showAlert = (params: WcsAlertConfig) => {
-                if (alertDrawerRef.current) {
-                    alertDrawerRef.current.show(params);
+            const contextValue = useMemo(() => ({
+                showAlert: (params: WcsAlertConfig) => {
+                    if (alertDrawerRef.current) {
+                        alertDrawerRef.current.show(params);
+                    }
+                },
+                clearAlerts: () => {
+                    if (alertDrawerRef.current) {
+                        alertDrawerRef.current.clear();
+                    }
                 }
-            };
+            }), []);
 
             return (
-                <AlertDrawerContext.Provider value={{showAlert}}>
+                <AlertDrawerContext.Provider value={contextValue}>
                     {children}
                     <WcsAlertDrawer position={config.position} showProgressBar={config.showProgressBar} timeout={config.timeout} ref={alertDrawerRef} />
                 </AlertDrawerContext.Provider>
@@ -158,9 +180,9 @@ function showAlert() {
         import { useAlertDrawer } from './contexts/AlertContext';
 
         function ExampleComponent() {
-            const { showAlert } = useAlertDrawer();
+            const { showAlert, clearAlerts } = useAlertDrawer();
 
-            const handleClick = () => {
+            const handleShow = () => {
                 showAlert({
                     title: 'Operation completed',
                     subtitle: 'Your changes have been saved',
@@ -168,8 +190,15 @@ function showAlert() {
                 });
             };
 
+            const handleClear = () => {
+                clearAlerts();
+            };
+
             return (
-            <WcsButton onClick={handleClick}>Show Alert</WcsButton>
+                <>
+                    <WcsButton onClick={handleShow}>Show Alert</WcsButton>
+                    <WcsButton onClick={handleClear}>Clear Alerts</WcsButton>
+                </>
             );
         }
         ```

@@ -154,7 +154,7 @@ export declare interface WcsAlert extends Components.WcsAlert {
 
 @ProxyCmp({
   inputs: ['position', 'showProgressBar', 'timeout'],
-  methods: ['show']
+  methods: ['show', 'clear']
 })
 @Component({
   selector: 'wcs-alert-drawer',
