@@ -13,6 +13,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - **button**: add `endIcon` and `startIcon` properties to allow adding an icon at the start or the end of the button text
 - **mat-icon**: add css variables for sizes of icons
+- **doc**: clarify the getting started documentation for Angular regarding the assets folder and paths to static assets
 
 ### Changed
 

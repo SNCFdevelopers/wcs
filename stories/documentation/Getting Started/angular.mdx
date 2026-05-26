@@ -82,10 +82,24 @@ export class AppModule { }
 
 ### 5. **Add the font faces**
 
-* Create a folder **containing the fonts** _(e.g.: `src/assets/fonts`)_
-* Download the **Avenir** font from the Angular example project : [wcs/example/angular/src/fonts](https://gitlab.com/SNCF/wcs/-/tree/master/example/angular/src/assets/fonts)
-* Create a folder **containing the icons** _(e.g.: `src/assets/fonts/icons`)_
-* Download the **SNCF** icons from the Angular example project : [wcs/example/angular/src/fonts/icons](https://gitlab.com/SNCF/wcs/-/tree/master/example/angular/src/assets/fonts/icons)
+<div style={{ 
+  padding: '1rem', 
+  backgroundColor: 'var(--wcs-semantic-color-background-surface-warning-lighter)', 
+  borderLeft: 'var(--wcs-semantic-border-width-larger) solid var(--wcs-semantic-color-border-warning)', 
+  borderRadius: 'var(--wcs-semantic-border-radius-base)',
+}}>
+⚠️ This documentation uses the Angular 18+ structure where static assets are placed in the root public/ folder. Because Angular maps this folder directly to the root (**/*), do not include public/ in your paths.
+
+<ul>
+  <li>For Angular 18+: src="/fonts/avenir-lighter.woff" (stored in public/fonts/avenir-lighter.woff)</li>
+  <li>For Angular < 18: src="assets/fonts/avenir-lighter.woff" (stored in src/assets/fonts/avenir-lighter.woff)</li>
+</ul>
+</div>
+
+* Create a folder **containing the fonts** _(e.g.: `public/fonts`)_ if it doesn't already exist
+* Download the **Avenir** font from the Angular example project : [wcs/example/angular/public/fonts](https://gitlab.com/SNCF/wcs/-/tree/master/example/angular/public/fonts)
+* Create a folder **containing the icons** _(e.g.: `public/fonts/icons`)_
+* Download the **SNCF** icons from the Angular example project : [wcs/example/angular/public/fonts/icons](https://gitlab.com/SNCF/wcs/-/tree/master/example/angular/public/fonts/icons)
 * Add the font faces in your `styles.scss` or `styles.css` :
 
 ```css
@@ -95,47 +109,47 @@ export class AppModule { }
 
 @font-face {
   font-family: Avenir;
-  src: url("assets/fonts/avenir-lighter.woff");
+  src: url("/fonts/avenir-lighter.woff");
   font-weight: 100;
 }
 
 @font-face {
   font-family: Avenir;
-  src: url("assets/fonts/avenir-book.woff");
+  src: url("/fonts/avenir-book.woff");
   font-weight: 300;
 }
 
 @font-face {
   font-family: Avenir;
-  src: url("assets/fonts/avenir-roman.woff");
+  src: url("/fonts/avenir-roman.woff");
   font-weight: 400;
 }
 
 @font-face {
   font-family: Avenir;
-  src: url("assets/fonts/avenir-medium.woff");
+  src: url("/fonts/avenir-medium.woff");
   font-weight: 500;
 }
 
 @font-face {
     font-family: Avenir;
-    src: url("assets/fonts/avenir-heavy.woff");
+    src: url("/fonts/avenir-heavy.woff");
     font-weight: 800;
 }
 
 @font-face {
   font-family: Avenir;
-  src: url("assets/fonts/avenir-black.woff");
+  src: url("/fonts/avenir-black.woff");
   font-weight: 900;
 }
 
 @font-face {
     font-family: "icons";
-    src: url("assets/fonts/icons/icons.eot?#iefix") format("embedded-opentype"),
-    url("assets/fonts/icons/icons.woff2") format("woff2"),
-    url("assets/fonts/icons/icons.woff") format("woff"),
-    url("assets/fonts/icons/icons.ttf") format("truetype"),
-    url("assets/fonts/icons/icons.svg#icons") format("svg");
+    src: url("/fonts/icons/icons.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/icons/icons.woff2") format("woff2"),
+    url("/fonts/icons/icons.woff") format("woff"),
+    url("/fonts/icons/icons.ttf") format("truetype"),
+    url("/fonts/icons/icons.svg#icons") format("svg");
 }
 
 /* Include material icons fonts */
@@ -332,10 +346,24 @@ export class AppComponent {
 
 ### 5. **Add the font faces**
 
-* Create a folder **containing the fonts** _(e.g.: `src/assets/fonts`)_
-* Download the **Avenir** font from the Angular example project : [wcs/example/angular/src/fonts](https://gitlab.com/SNCF/wcs/-/tree/master/example/angular/src/assets/fonts)
-* Create a folder **containing the icons** _(e.g.: `src/assets/fonts/icons`)_
-* Download the **SNCF** icons from the Angular example project : [wcs/example/angular/src/fonts/icons](https://gitlab.com/SNCF/wcs/-/tree/master/example/angular/src/assets/fonts/icons)
+<div style={{ 
+  padding: '1rem', 
+  backgroundColor: 'var(--wcs-semantic-color-background-surface-warning-lighter)', 
+  borderLeft: 'var(--wcs-semantic-border-width-larger) solid var(--wcs-semantic-color-border-warning)', 
+  borderRadius: 'var(--wcs-semantic-border-radius-base)',
+}}>
+⚠️ This documentation uses the Angular 18+ structure where static assets are placed in the root public/ folder. Because Angular maps this folder directly to the root (**/*), do not include public/ in your paths.
+
+<ul>
+  <li>For Angular 18+: src="/fonts/avenir-lighter.woff" (stored in public/fonts/avenir-lighter.woff)</li>
+  <li>For Angular < 18: src="assets/fonts/avenir-lighter.woff" (stored in src/assets/fonts/avenir-lighter.woff)</li>
+</ul>
+</div>
+
+* Create a folder **containing the fonts** _(e.g.: `public/fonts`)_ if it doesn't already exist
+* Download the **Avenir** font from the Angular example project : [wcs/example/angular/public/fonts](https://gitlab.com/SNCF/wcs/-/tree/master/example/angular-standalone/public/fonts)
+* Create a folder **containing the icons** _(e.g.: `public/fonts/icons`)_
+* Download the **SNCF** icons from the Angular example project : [wcs/example/angular/public/fonts/icons](https://gitlab.com/SNCF/wcs/-/tree/master/example/angular-standalone/public/fonts/icons)
 * Add the font faces in your `styles.scss` or `styles.css` :
 
 ```css
@@ -345,47 +373,47 @@ export class AppComponent {
 
 @font-face {
   font-family: Avenir;
-  src: url("assets/fonts/avenir-lighter.woff");
+  src: url("/fonts/avenir-lighter.woff");
   font-weight: 100;
 }
 
 @font-face {
   font-family: Avenir;
-  src: url("assets/fonts/avenir-book.woff");
+  src: url("/fonts/avenir-book.woff");
   font-weight: 300;
 }
 
 @font-face {
   font-family: Avenir;
-  src: url("assets/fonts/avenir-roman.woff");
+  src: url("/fonts/avenir-roman.woff");
   font-weight: 400;
 }
 
 @font-face {
   font-family: Avenir;
-  src: url("assets/fonts/avenir-medium.woff");
+  src: url("/fonts/avenir-medium.woff");
   font-weight: 500;
 }
 
 @font-face {
     font-family: Avenir;
-    src: url("assets/fonts/avenir-heavy.woff");
+    src: url("/fonts/avenir-heavy.woff");
     font-weight: 800;
 }
 
 @font-face {
   font-family: Avenir;
-  src: url("assets/fonts/avenir-black.woff");
+  src: url("/fonts/avenir-black.woff");
   font-weight: 900;
 }
 
 @font-face {
     font-family: "icons";
-    src: url("assets/fonts/icons/icons.eot?#iefix") format("embedded-opentype"),
-    url("assets/fonts/icons/icons.woff2") format("woff2"),
-    url("assets/fonts/icons/icons.woff") format("woff"),
-    url("assets/fonts/icons/icons.ttf") format("truetype"),
-    url("assets/fonts/icons/icons.svg#icons") format("svg");
+    src: url("/fonts/icons/icons.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/icons/icons.woff2") format("woff2"),
+    url("/fonts/icons/icons.woff") format("woff"),
+    url("/fonts/icons/icons.ttf") format("truetype"),
+    url("/fonts/icons/icons.svg#icons") format("svg");
 }
 
 /* Include material icons fonts */
