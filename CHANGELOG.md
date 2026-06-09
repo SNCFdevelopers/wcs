@@ -37,6 +37,7 @@ for now removed features.
 - **alert-service**: fix `clear` method which did not clear alerts
 - **dropdown**: popover was sized to the button width and wraps content instead of widening to fit its content
 - **grid-pagination**: show 0/0 on page indicator if data is not set or is empty
+- **select**: remove unnecessary label to improve accessibility
 
 ### Security
 

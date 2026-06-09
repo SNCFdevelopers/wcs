@@ -28,7 +28,6 @@ import { SelectOptionChosedEvent, SelectOptionValue } from '../select-option/sel
 import {
     isElement,
     generateUniqueId,
-    findItemLabel,
     inheritAriaAttributes,
     inheritAttributes, setOrRemoveAttribute, compareLists
 } from '../../utils/helpers';
@@ -155,8 +154,6 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
     
     private stateService!: Interpreter<any, SelectStateSchema, SelectEvent>;
 
-    private selectId = `wcs-select-${selectIds++}`;
-    private labelElement: HTMLWcsLabelElement;
     private optionsEl!: HTMLDivElement;
     private optionsId = generateUniqueId("OPTIONS");
     private controlEl!: HTMLDivElement;
@@ -453,13 +450,6 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
         }
 
         this.popper = this.createPopperInstance();
-
-        // if the select is inside a wcs-form-field, we set an id to the wcs-label if present
-        // the wcs-label element reference is kept to compute aria-label value during the rendering
-        this.labelElement = findItemLabel(this.el);
-        if (this.labelElement) {
-            this.labelElement.id = this.selectId + "-lbl";
-        }
     }
 
     private createPopperInstance() {
@@ -1122,7 +1112,6 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
     }
 
     render() {
-        const ariaLabelValue = `${this.labelElement ? this.labelElement.innerText : ''} ${this.hasValue ? this.displayText : ''}`.trimEnd();
         const noResultContainerId = 'no-result-container';
         
         return (
@@ -1136,8 +1125,7 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
                   aria-disabled={!this.autocomplete ? (this.disabled ? 'true' : null) : null}
                   aria-required={!this.autocomplete ? (this.required ? 'true' : 'false') : null}
                   aria-expanded={!this.autocomplete ? (this.expanded ? 'true' : 'false') : null}
-                  aria-multiselectable={!this.autocomplete ? (this.multiple ? 'true' : 'false') : null}
-                  aria-label={!this.autocomplete ? ariaLabelValue : null}>
+                  aria-multiselectable={!this.autocomplete ? (this.multiple ? 'true' : 'false') : null}>
                 <div class="wcs-select-control">
                     <div class="wcs-select-value-container">
                         {this.hasValue
@@ -1155,7 +1143,6 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
                                                          value={this.autocompleteValue}
                                                          role="combobox"
                                                          aria-haspopup="listbox"
-                                                         aria-label={ariaLabelValue}
                                                          aria-describedby={noResultContainerId}
                                                          aria-disabled={this.disabled ? 'true' : null}
                                                          aria-expanded={this.expanded ? 'true' : 'false'}
@@ -1188,5 +1175,3 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
         );
     }
 }
-
-let selectIds = 0;

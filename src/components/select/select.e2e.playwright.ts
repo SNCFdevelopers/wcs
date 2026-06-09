@@ -2175,4 +2175,116 @@ test.describe('Select component', () => {
 
         expect(filterChangeSpy).toHaveNthReceivedEventDetail(2, { value: 'Ain', trigger: 'selection' });
     });
+
+    test.describe('Accessibility', () => {
+        test('[single] should use current value as accessible name when no form-field nor wcs-label', async ({ page }: { page: E2EPage }) => {
+            await setWcsContent(page, `
+                <wcs-select value="1">
+                    <wcs-select-option value="1">Ain</wcs-select-option>
+                    <wcs-select-option value="2">Aisne</wcs-select-option>
+                    <wcs-select-option value="3">Rhône</wcs-select-option>
+                </wcs-select>
+            `);
+
+            const select = page.locator('wcs-select');
+            
+            await expect(select).toMatchAriaSnapshot(`
+                - combobox: Ain
+            `)
+        });
+
+        test('[single] should not use wcs-label as accessible name without form-field', async ({ page }: { page: E2EPage }) => {
+            await setWcsContent(page, `
+                <wcs-label>Label</wcs-label>
+                <wcs-select value="1">
+                    <wcs-select-option value="1">Ain</wcs-select-option>
+                    <wcs-select-option value="2">Aisne</wcs-select-option>
+                    <wcs-select-option value="3">Rhône</wcs-select-option>
+                </wcs-select>
+            `);
+
+            const select = page.locator('wcs-select');
+            
+            await expect(select).toMatchAriaSnapshot(`
+                - combobox: Ain
+            `)
+        });
+
+        test('[single] should use wcs-label as accessible name when wrapped in form-field', async ({ page }: { page: E2EPage }) => {
+            await setWcsContent(page, `
+                <wcs-form-field>
+                    <wcs-label>Label</wcs-label>
+                    <wcs-select value="1">
+                        <wcs-select-option value="1">Ain</wcs-select-option>
+                        <wcs-select-option value="2">Aisne</wcs-select-option>
+                        <wcs-select-option value="3">Rhône</wcs-select-option>
+                    </wcs-select>
+                </wcs-form-field>
+            `);
+
+            const select = page.locator('wcs-select');
+            
+            await expect(select).toMatchAriaSnapshot(`
+                - combobox "Label": Ain
+            `)
+        });
+
+        test('[multiple] should use current values as accessible name when no form-field nor wcs-label', async ({ page }: { page: E2EPage }) => {
+            await setWcsContent(page, `
+                <wcs-select multiple value="1,2">
+                    <wcs-select-option value="1">Ain</wcs-select-option>
+                    <wcs-select-option value="2">Aisne</wcs-select-option>
+                    <wcs-select-option value="3">Rhône</wcs-select-option>
+                </wcs-select>
+            `);
+
+            const select = page.locator('wcs-select');
+            await select.evaluate((el: any) => el.value = ['1', '2']);
+            await page.waitForChanges();
+
+            await expect(select).toMatchAriaSnapshot(`
+                - combobox: Ain, Aisne
+            `)
+        });
+
+        test('[multiple] should not use wcs-label as accessible name without form-field', async ({ page }: { page: E2EPage }) => {
+            await setWcsContent(page, `
+                <wcs-label>Label</wcs-label>
+                <wcs-select multiple>
+                    <wcs-select-option value="1">Ain</wcs-select-option>
+                    <wcs-select-option value="2">Aisne</wcs-select-option>
+                    <wcs-select-option value="3">Rhône</wcs-select-option>
+                </wcs-select>
+            `);
+
+            const select = page.locator('wcs-select');
+            await select.evaluate((el: any) => el.value = ['1', '2']);
+            await page.waitForChanges();
+
+            await expect(select).toMatchAriaSnapshot(`
+                - combobox: Ain, Aisne
+            `)
+        });
+
+        test('[multiple] should use wcs-label as accessible name when wrapped in form-field', async ({ page }: { page: E2EPage }) => {
+            await setWcsContent(page, `
+                <wcs-form-field>
+                    <wcs-label>Label</wcs-label>
+                    <wcs-select multiple>
+                        <wcs-select-option value="1">Ain</wcs-select-option>
+                        <wcs-select-option value="2">Aisne</wcs-select-option>
+                        <wcs-select-option value="3">Rhône</wcs-select-option>
+                    </wcs-select>
+                </wcs-form-field>
+            `);
+
+            const select = page.locator('wcs-select');
+            await select.evaluate((el: any) => el.value = ['1', '2']);
+            await page.waitForChanges();
+
+            await expect(select).toMatchAriaSnapshot(`
+                - combobox "Label": Ain, Aisne
+            `)
+        });
+    });
 });
