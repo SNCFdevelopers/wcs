@@ -455,6 +455,13 @@ export const SpecialCases: StoryObj = {
  * 
  * Even if this is supported by the component, we recommend not using this UX pattern because it can be confusing for the user. It is better to use a skeleton loader or a loading spinner to indicate that the options are being loaded and displaying the select only when the options are fully loaded.
  * 
+ * 💡 **To improve UX**, you can also add a default option with a label like "No options are available for now" to let the user know that the options are being loaded, and then replace it with the real options when they are loaded.
+ * 
+ * ```html
+ * <wcs-select-option disabled value="no-options">No options are available for now ...</wcs-select-option>
+ * ```
+ * 
+ * 
  * Note that the handling of asynchronous options is available in both server and non-server modes.
  * 
  */
@@ -479,6 +486,11 @@ export const AsynchronousOptions: StoryObj = {
         const loadOptions = () => {
             const select = document.querySelector('#select-asynchronous-options');
             setTimeout(() => {
+                if(select) {
+                    while (select.firstChild) {
+                        select.firstChild.remove();
+                    }
+                }
                 options.forEach(option => {
                     const selectOption = document.createElement('wcs-select-option');
                     selectOption.setAttribute('value', option.value);
@@ -501,8 +513,15 @@ export const AsynchronousOptions: StoryObj = {
                     id="select-asynchronous-options"
                     value="lyo-aura"
                     server-mode>
+                    <wcs-select-option disabled value="no-options">No options are available for now ...</wcs-select-option>
                 </wcs-select>
             </div>
+            <p>
+            💡To improve UX, in this example and before the options are loaded, a default disabled <code>wcs-select-option</code> is displayed to inform the user that no options are available yet.
+            </p>
+            <p>
+            You can replicate this pattern in your project while keeping in mind that it is important to provide feedback to the user during loading times and that displaying a select with no options can be confusing.
+            </p>
         `;
     },
     args: {
