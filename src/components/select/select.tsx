@@ -926,7 +926,7 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
     }
 
     onSlotchange() {
-        if (!this.serverMode || (this.autocomplete && this.displayText === this.autocompleteValue)) {
+        if (!this.serverMode || !this.autocomplete || this.displayText === this.autocompleteValue) {
             // We call updateSelectedValue to update the selected options when the slot changes to keep the selected options in sync with the current value.
             // This also update the displayText value according to the options data.
             // Finally, this update the internal models for multiple mode and handle the server mode correctly.

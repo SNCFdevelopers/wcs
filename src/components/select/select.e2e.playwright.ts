@@ -1465,6 +1465,38 @@ test.describe('Select component', () => {
         await expect(label).toHaveText('Two, Three');
     });
 
+    test('[ServerMode] Should update displayText when options are loaded asynchronously (no autocomplete)', async ({ page }: {
+        page: E2EPage
+    }) => {
+        await setWcsContent(page, `
+            <wcs-select server-mode value="3">
+            </wcs-select>
+        `);
+
+        const label = page.locator('label').first();
+
+        // Initially, no options are loaded, so displayText should be empty
+        await expect(label).toHaveText('');
+
+        // Load options asynchronously
+        await page.$eval('wcs-select', (el: HTMLElement) => {
+            el.innerHTML = `
+                <wcs-select-option value="1">One</wcs-select-option>
+                <wcs-select-option value="2">Two</wcs-select-option>
+                <wcs-select-option value="3">Three</wcs-select-option>
+                <wcs-select-option value="4">Four</wcs-select-option>
+            `;
+        });
+        await page.waitForChanges();
+
+        // After async insertion, the component should display the label of the selected option
+        await expect(label).toHaveText('Three');
+
+        // The matching option should be selected
+        const optionThree = page.locator('wcs-select-option[value="3"]');
+        await expect(optionThree).toHaveAttribute('selected');
+    });
+
     test('[ServerMode] Should synchronise selected value after slot change', async ({ page }: {
         page: E2EPage
     }) => {
