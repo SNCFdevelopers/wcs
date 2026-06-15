@@ -69,6 +69,8 @@ button:focus-visible + wcs-button {
 }
 
 .popover {
+    width: max-content; // We want the popover to shrink to fit its content, but not to grow wider than necessary
+
     display: none;
     border: var(--wcs-dropdown-overlay-border-width) solid var(--wcs-dropdown-overlay-border-color);
     border-radius: var(--wcs-dropdown-overlay-border-radius);

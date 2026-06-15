@@ -429,4 +429,32 @@ test.describe('Dropdown component', () => {
             expect(scrollY).toBe(0);
         });
     });
+
+    test.describe('Overlay positionning', () => {
+        test('should display the popover wider than the trigger button when items have long labels', async ({ page }: { page: E2EPage }) => {
+            // Given
+            await setWcsContent(page, `
+                <div style="display: flex; width: 100%;">
+                    <wcs-dropdown id="dropdown" mode="plain" shape="normal" size="m">
+                        <span slot="placeholder">OK</span>
+                        <wcs-dropdown-item>Un libellé vraiment très très long qui dépasse la taille du bouton</wcs-dropdown-item>
+                        <wcs-dropdown-item>Autre item</wcs-dropdown-item>
+                    </wcs-dropdown>
+                </div>
+            `);
+
+            const dropdown = page.locator('wcs-dropdown');
+            const wcsButton = dropdown.locator('wcs-button');
+
+            // When
+            await wcsButton.click();
+            await page.waitForChanges();
+
+            // Then
+            const buttonWidth = await wcsButton.evaluate((el) => el.getBoundingClientRect().width);
+            const popoverWidth = await dropdown.locator('.popover').evaluate((el) => el.getBoundingClientRect().width);
+
+            expect(popoverWidth).toBeGreaterThan(buttonWidth + 50 /* some margin */);
+        });
+    })
 });
