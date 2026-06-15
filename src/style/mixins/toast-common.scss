@@ -1,0 +1,17 @@
+@mixin toast-common {
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .icon-content-container {
+        display: flex;
+        align-items: center;
+    }
+}

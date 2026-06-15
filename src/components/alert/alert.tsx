@@ -1,11 +1,12 @@
-import { Component, Event, EventEmitter, h, Host, Prop, Element, Listen } from '@stencil/core';
-import { WcsAlertIntent } from "./alert-interface";
+import {Component, Event, EventEmitter, h, Host, Prop, Element, Listen} from '@stencil/core';
+import {WcsAlertIntent} from "./alert-interface";
+import {AlertCloseButton} from "./alert-close-button";
 
 /**
  * Alerts are used to communicate a state or an action that has been performed.
- * It has to be used conjunction with the `wcs-alert-drawer` component, or you can use it independently by taking care of 
+ * It has to be used conjunction with the `wcs-alert-drawer` component, or you can use it independently by taking care of
  * the alert visibility
- * 
+ *
  * @cssprop --wcs-alert-background-color - Background color of the alert
  * @cssprop --wcs-alert-icon-background-color - Background color of the icon
  * @cssprop --wcs-alert-title-color - Color of the title
@@ -38,13 +39,13 @@ export class Alert {
      * - Used by wcs-alert-drawer to coordinate exit animations when the alert is dismissed
      * - Can be used directly for custom implementations (though using wcs-alert-drawer is recommended)
      * - When set to false, it triggers the exit animation if implemented
-     * 
+     *
      * Note: While direct usage is possible for custom implementations, it's recommended to use
      * wcs-alert-drawer for consistent alert management and animations.
      */
-    @Prop({ mutable: true, reflect: true }) show: boolean = true;
+    @Prop({mutable: true, reflect: true}) show: boolean = true;
 
-    @Prop({ reflect: true })
+    @Prop({reflect: true})
     intent: WcsAlertIntent = 'success';
 
     /**
@@ -54,7 +55,7 @@ export class Alert {
 
     /**
      * Time duration of the alert visibility
-     * 
+     *
      * 5000ms by default
      * If 0, the alert will not emit `wcsAlertDismiss` event automatically
      */
@@ -177,21 +178,17 @@ export class Alert {
             <Host>
                 <div class="icon-content-container">
                     <wcs-mat-icon class="announcement-icon"
-                        ref={(el) => this.annoucementIconHtmlElement = el}
-                        icon={this.getMaterialIcon()}
-                        aria-label={this.getAriaLabel()}
-                        role="img"
-                        aria-hidden={false}></wcs-mat-icon>
+                                  ref={(el) => this.annoucementIconHtmlElement = el}
+                                  icon={this.getMaterialIcon()}
+                                  aria-label={this.getAriaLabel()}
+                                  role="img"
+                                  aria-hidden={false}></wcs-mat-icon>
                     <div class="content">
                         <slot name="title"></slot>
                         <slot name="subtitle"></slot>
                     </div>
                 </div>
-                <wcs-button shape="round" size="s" mode="clear" class="close-button wcs-dark"
-                    aria-label="Fermer cette notification"
-                    onClick={($event) => this.onCloseButtonClick($event)}>
-                    <wcs-mat-icon icon="close"></wcs-mat-icon>
-                </wcs-button>
+                <AlertCloseButton onClick={($event) => this.onCloseButtonClick($event)}/>
                 <div class={'progress-bar' + (!this.showProgressBar ? ' hidden' : '')}>
                     <div class="progress-bar-track"></div>
                 </div>

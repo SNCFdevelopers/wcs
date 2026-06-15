@@ -1327,6 +1327,34 @@ export declare interface WcsMatIcon extends Components.WcsMatIcon {}
 
 
 @ProxyCmp({
+  inputs: ['background', 'intent', 'showBorder', 'showCloseButton']
+})
+@Component({
+  selector: 'wcs-message',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['background', 'intent', 'showBorder', 'showCloseButton'],
+})
+export class WcsMessage {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['wcsMessageDismiss']);
+  }
+}
+
+
+export declare interface WcsMessage extends Components.WcsMessage {
+  /**
+   * Event emitted when the message is dismissed.
+   */
+  wcsMessageDismiss: EventEmitter<CustomEvent<void>>;
+}
+
+
+@ProxyCmp({
   inputs: ['closeButtonAriaLabel', 'disableAutoFocus', 'hideActions', 'initialFocusElementId', 'modalTriggerControlsId', 'show', 'showCloseButton', 'size', 'withoutBackdrop'],
   methods: ['setAriaAttribute']
 })

@@ -8,7 +8,7 @@
 ## Overview
 
 Alerts are used to communicate a state or an action that has been performed.
-It has to be used conjunction with the `wcs-alert-drawer` component, or you can use it independently by taking care of 
+It has to be used conjunction with the `wcs-alert-drawer` component, or you can use it independently by taking care of
 the alert visibility
 
 ## Properties

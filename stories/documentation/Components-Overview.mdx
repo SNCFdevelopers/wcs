@@ -467,6 +467,26 @@ export const ComponentsOverview = () => {
                         <wcs-mat-icon icon="settings"></wcs-mat-icon>
                     </div>
                 </ComponentCard>
+                <ComponentCard name="Message" scale={0.6} fullWidth>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--wcs-semantic-spacing-base)' }}>
+                        <wcs-message intent="success">
+                            <span slot="title">Success</span>
+                            <span slot="subtitle">This is a success message in plain page.</span>
+                        </wcs-message>
+                        <wcs-message intent="information">
+                            <span slot="title">Info</span>
+                            <span slot="subtitle">This is an information message in plain page.</span>
+                        </wcs-message>
+                        <wcs-message intent="warning">
+                            <span slot="title">Warning</span>
+                            <span slot="subtitle">This is a warning message in plain page.</span>
+                        </wcs-message>
+                        <wcs-message intent="error">
+                            <span slot="title">Error</span>
+                            <span slot="subtitle">This is an error message in plain page.</span>
+                        </wcs-message>
+                    </div>
+                </ComponentCard>
                 <ComponentCard name="Modal">
                     <wcs-modal id="modal-component-overview" show>
                         <div slot="header">Titre de la modale</div>

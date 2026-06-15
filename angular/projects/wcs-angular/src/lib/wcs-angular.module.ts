@@ -73,6 +73,7 @@ import {
   WcsCardHeader,
   WcsCardFooter,
   WcsCardMedia,
+  WcsMessage,
 } from './proxies';
 import { GridValueAccessorDirective } from './directives/grid-value-accessor.directive';
 
@@ -130,6 +131,7 @@ const DECLARATIONS = [
   WcsListItemProperties,
   WcsListItemProperty,
   WcsMatIcon,
+  WcsMessage,
   WcsModal,
   WcsNav,
   WcsNavItem,

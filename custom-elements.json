@@ -1762,6 +1762,31 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/alert/alert-close-button.tsx",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "AlertCloseButton",
+          "parameters": [
+            {
+              "name": "{ onClick }"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "AlertCloseButton",
+          "declaration": {
+            "name": "AlertCloseButton",
+            "module": "components/alert/alert-close-button.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/alert/alert-interface.ts",
       "declarations": [],
       "exports": []
@@ -1778,7 +1803,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "Alerts are used to communicate a state or an action that has been performed.\r\nIt has to be used conjunction with the `wcs-alert-drawer` component, or you can use it independently by taking care of \r\nthe alert visibility",
+          "description": "Alerts are used to communicate a state or an action that has been performed.\r\nIt has to be used conjunction with the `wcs-alert-drawer` component, or you can use it independently by taking care of\r\nthe alert visibility",
           "name": "Alert",
           "cssProperties": [
             {
@@ -12273,6 +12298,211 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/message/message-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/message/message.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Messages are used to communicate contextual information to users.\r\nThey can display information, success, warning, or error states.\r\n\r\nUnlike alerts, messages are static feedback elements and are not automatically dismissed.",
+          "name": "Message",
+          "cssProperties": [
+            {
+              "description": "Lightest background color of the message",
+              "name": "--wcs-message-background-color-lightest"
+            },
+            {
+              "description": "Lighter background color of the message",
+              "name": "--wcs-message-background-color-lighter"
+            },
+            {
+              "description": "Text color of the title",
+              "name": "--wcs-message-title-color"
+            },
+            {
+              "description": "Text color of the subtitle",
+              "name": "--wcs-message-subtitle-color"
+            },
+            {
+              "description": "Icon color of the message",
+              "name": "--wcs-message-icon-color"
+            },
+            {
+              "description": "Font weight of the title",
+              "name": "--wcs-message-title-font-weight"
+            },
+            {
+              "description": "Font weight of the subtitle",
+              "name": "--wcs-message-subtitle-font-weight"
+            },
+            {
+              "description": "Font size of the title",
+              "name": "--wcs-message-title-font-size"
+            },
+            {
+              "description": "Font size of the subtitle",
+              "name": "--wcs-message-subtitle-font-size"
+            },
+            {
+              "description": "Color of the dismiss button",
+              "name": "--wcs-message-dismiss-button-color"
+            },
+            {
+              "description": "Border radius of the message",
+              "name": "--wcs-message-border-radius"
+            },
+            {
+              "description": "Border width of the message (apply when `border` attribute is set)",
+              "name": "--wcs-message-border-width"
+            },
+            {
+              "description": "Border color of the message (apply when `border` attribute is set). Based on the intent of the message",
+              "name": "--wcs-message-border-color"
+            },
+            {
+              "description": "Padding of the message",
+              "name": "--wcs-message-padding"
+            },
+            {
+              "description": "Gap between icon and content",
+              "name": "--wcs-message-gap"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Title content of the message",
+              "name": "title"
+            },
+            {
+              "description": "Subtitle content of the message",
+              "name": "subtitle"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "intent",
+              "type": {
+                "text": "WcsAlertIntent"
+              },
+              "default": "'information'",
+              "description": "Defines the semantic intent of the message.\r\n- Non-disruptive messages (`information`, `success`) use `role=\"status\"`\r\n- Disruptive messages (`warning`, `error`) use `role=\"alert\"`"
+            },
+            {
+              "kind": "field",
+              "name": "background",
+              "type": {
+                "text": "WcsMessageBackground"
+              },
+              "default": "'lightest'",
+              "description": "Defines the background appearance of the message."
+            },
+            {
+              "kind": "field",
+              "name": "showCloseButton",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Specifies whether the component should display a close button."
+            },
+            {
+              "kind": "field",
+              "name": "showBorder",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Defines whether the message should have a border. The border color is determined by the intent of the message."
+            },
+            {
+              "kind": "method",
+              "name": "close",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "getMaterialIcon",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "getAriaLabel",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "intent",
+              "fieldName": "intent",
+              "type": {
+                "text": "WcsAlertIntent"
+              }
+            },
+            {
+              "name": "background",
+              "fieldName": "background",
+              "type": {
+                "text": "WcsMessageBackground"
+              }
+            },
+            {
+              "name": "show-close-button",
+              "fieldName": "showCloseButton",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "show-border",
+              "fieldName": "showBorder",
+              "type": {
+                "text": "boolean"
+              }
+            }
+          ],
+          "tagName": "wcs-message",
+          "events": [
+            {
+              "name": "wcsMessageDismiss",
+              "type": {
+                "text": "EventEmitter<void>"
+              },
+              "description": "Event emitted when the message is dismissed."
+            }
+          ],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Message",
+          "declaration": {
+            "name": "Message",
+            "module": "components/message/message.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-message",
+          "declaration": {
+            "name": "Message",
+            "module": "components/message/message.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/modal/modal-interface.ts",
       "declarations": [],
       "exports": []
@@ -13124,6 +13354,166 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/nav-item/nav-item.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The nav-item component is a subcomponent of `wcs-nav` and should always be used inside it.  \r\nThey contain links to navigate to other pages of the website.",
+          "name": "NavItem",
+          "cssProperties": [
+            {
+              "description": "Font weight of the nav item",
+              "name": "--wcs-nav-item-font-weight"
+            },
+            {
+              "description": "Height of the nav item on desktop",
+              "name": "--wcs-nav-item-height-desktop"
+            },
+            {
+              "description": "Height of the nav item on mobile",
+              "name": "--wcs-nav-item-height-mobile"
+            },
+            {
+              "description": "Gap between items in nav-item on desktop (e.g. icon and label)",
+              "name": "--wcs-nav-item-gap-desktop"
+            },
+            {
+              "description": "Gap between items in nav-item on mobile (e.g. icon and label)",
+              "name": "--wcs-nav-item-gap-mobile"
+            },
+            {
+              "description": "Font size of the nav item on desktop",
+              "name": "--wcs-nav-item-font-size-desktop"
+            },
+            {
+              "description": "Font size of the nav item on mobile",
+              "name": "--wcs-nav-item-font-size-mobile"
+            },
+            {
+              "description": "Default background color of the nav item",
+              "name": "--wcs-nav-item-background-color-default"
+            },
+            {
+              "description": "Background color of the nav item when hovered",
+              "name": "--wcs-nav-item-background-color-hover"
+            },
+            {
+              "description": "Background color of the nav item when pressed",
+              "name": "--wcs-nav-item-background-color-press"
+            },
+            {
+              "description": "Background color of the nav item when active",
+              "name": "--wcs-nav-item-background-color-active"
+            },
+            {
+              "description": "Color of the nav item when default",
+              "name": "--wcs-nav-item-color-default"
+            },
+            {
+              "description": "Color of the nav item when active",
+              "name": "--wcs-nav-item-color-active"
+            },
+            {
+              "description": "Color of the nav item when hovered",
+              "name": "--wcs-nav-item-color-hover"
+            },
+            {
+              "description": "Color of the nav item when pressed",
+              "name": "--wcs-nav-item-color-press"
+            },
+            {
+              "description": "Border color of the nav item when focused",
+              "name": "--wcs-nav-item-border-color-focus"
+            },
+            {
+              "description": "Border width of the nav item when focused",
+              "name": "--wcs-nav-item-border-width-focus"
+            },
+            {
+              "description": "Background color of the nav item indicator",
+              "name": "--wcs-nav-item-indicator-background-color"
+            },
+            {
+              "description": "Width of the nav item indicator on desktop",
+              "name": "--wcs-nav-item-indicator-width-desktop"
+            },
+            {
+              "description": "Width of the nav item indicator on mobile",
+              "name": "--wcs-nav-item-indicator-width-mobile"
+            },
+            {
+              "description": "Height of the nav item indicator on desktop",
+              "name": "--wcs-nav-item-indicator-height-desktop"
+            },
+            {
+              "description": "Height of the nav item indicator on mobile",
+              "name": "--wcs-nav-item-indicator-height-mobile"
+            },
+            {
+              "description": "Border radius of the nav item indicator on desktop",
+              "name": "--wcs-nav-item-indicator-border-radius-desktop"
+            },
+            {
+              "description": "Border radius of the nav item indicator on mobile",
+              "name": "--wcs-nav-item-indicator-border-radius-mobile"
+            },
+            {
+              "description": "Transition duration of the nav item",
+              "name": "--wcs-nav-item-transition-duration"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "onKeyDown",
+              "parameters": [
+                {
+                  "name": "_event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-nav-item",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "NavItem",
+          "declaration": {
+            "name": "NavItem",
+            "module": "components/nav-item/nav-item.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-nav-item",
+          "declaration": {
+            "name": "NavItem",
+            "module": "components/nav-item/nav-item.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/progress-bar/progress-bar.tsx",
       "declarations": [
         {
@@ -13332,166 +13722,6 @@
           "declaration": {
             "name": "ProgressBar",
             "module": "components/progress-bar/progress-bar.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/nav-item/nav-item.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The nav-item component is a subcomponent of `wcs-nav` and should always be used inside it.  \r\nThey contain links to navigate to other pages of the website.",
-          "name": "NavItem",
-          "cssProperties": [
-            {
-              "description": "Font weight of the nav item",
-              "name": "--wcs-nav-item-font-weight"
-            },
-            {
-              "description": "Height of the nav item on desktop",
-              "name": "--wcs-nav-item-height-desktop"
-            },
-            {
-              "description": "Height of the nav item on mobile",
-              "name": "--wcs-nav-item-height-mobile"
-            },
-            {
-              "description": "Gap between items in nav-item on desktop (e.g. icon and label)",
-              "name": "--wcs-nav-item-gap-desktop"
-            },
-            {
-              "description": "Gap between items in nav-item on mobile (e.g. icon and label)",
-              "name": "--wcs-nav-item-gap-mobile"
-            },
-            {
-              "description": "Font size of the nav item on desktop",
-              "name": "--wcs-nav-item-font-size-desktop"
-            },
-            {
-              "description": "Font size of the nav item on mobile",
-              "name": "--wcs-nav-item-font-size-mobile"
-            },
-            {
-              "description": "Default background color of the nav item",
-              "name": "--wcs-nav-item-background-color-default"
-            },
-            {
-              "description": "Background color of the nav item when hovered",
-              "name": "--wcs-nav-item-background-color-hover"
-            },
-            {
-              "description": "Background color of the nav item when pressed",
-              "name": "--wcs-nav-item-background-color-press"
-            },
-            {
-              "description": "Background color of the nav item when active",
-              "name": "--wcs-nav-item-background-color-active"
-            },
-            {
-              "description": "Color of the nav item when default",
-              "name": "--wcs-nav-item-color-default"
-            },
-            {
-              "description": "Color of the nav item when active",
-              "name": "--wcs-nav-item-color-active"
-            },
-            {
-              "description": "Color of the nav item when hovered",
-              "name": "--wcs-nav-item-color-hover"
-            },
-            {
-              "description": "Color of the nav item when pressed",
-              "name": "--wcs-nav-item-color-press"
-            },
-            {
-              "description": "Border color of the nav item when focused",
-              "name": "--wcs-nav-item-border-color-focus"
-            },
-            {
-              "description": "Border width of the nav item when focused",
-              "name": "--wcs-nav-item-border-width-focus"
-            },
-            {
-              "description": "Background color of the nav item indicator",
-              "name": "--wcs-nav-item-indicator-background-color"
-            },
-            {
-              "description": "Width of the nav item indicator on desktop",
-              "name": "--wcs-nav-item-indicator-width-desktop"
-            },
-            {
-              "description": "Width of the nav item indicator on mobile",
-              "name": "--wcs-nav-item-indicator-width-mobile"
-            },
-            {
-              "description": "Height of the nav item indicator on desktop",
-              "name": "--wcs-nav-item-indicator-height-desktop"
-            },
-            {
-              "description": "Height of the nav item indicator on mobile",
-              "name": "--wcs-nav-item-indicator-height-mobile"
-            },
-            {
-              "description": "Border radius of the nav item indicator on desktop",
-              "name": "--wcs-nav-item-indicator-border-radius-desktop"
-            },
-            {
-              "description": "Border radius of the nav item indicator on mobile",
-              "name": "--wcs-nav-item-indicator-border-radius-mobile"
-            },
-            {
-              "description": "Transition duration of the nav item",
-              "name": "--wcs-nav-item-transition-duration"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "onKeyDown",
-              "parameters": [
-                {
-                  "name": "_event",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-nav-item",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "NavItem",
-          "declaration": {
-            "name": "NavItem",
-            "module": "components/nav-item/nav-item.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-nav-item",
-          "declaration": {
-            "name": "NavItem",
-            "module": "components/nav-item/nav-item.tsx"
           }
         }
       ]

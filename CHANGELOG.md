@@ -16,6 +16,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **doc**: 
   - clarify the getting started documentation for Angular regarding the assets folder and paths to static assets
   - add ux guidance for asynchronous options in wcs-select, to indicate to use info `wcs-select-option` during loading
+- **message**: add new `wcs-message` component
 
 ### Changed
 

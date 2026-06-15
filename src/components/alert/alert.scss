@@ -1,6 +1,8 @@
 @import './alert-keyframes.scss';
+@import '../../style/mixins/toast-common';
 
 :host {
+    @include toast-common;
     --wcs-alert-background-color: var(--wcs-semantic-color-background-surface-accent-lighter);
     --wcs-alert-icon-background-color: var(--wcs-semantic-color-background-surface-brand-default);
 
@@ -27,30 +29,23 @@
 
     --wcs-alert-internal-progress-bar-animation-duration: 5s;
 
-    box-sizing: border-box;
-
     background-color: var(--wcs-alert-background-color);
     border-radius: var(--wcs-alert-border-radius);
     padding: var(--wcs-alert-padding);
     width: 100%;
     min-width: var(--wcs-alert-min-width);
 
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     gap: var(--wcs-alert-gap);
     border: solid var(--wcs-alert-border-width) var(--wcs-alert-border-color);
 
     overflow: hidden; // to avoid overflow of progress bar especially with voyageurs theme
 
-    .content {
-        display: flex;
-        flex-direction: column;
-    }
-
     .announcement-icon {
         color: var(--wcs-alert-icon-background-color);
+    }
+
+    .icon-content-container{
+        gap: var(--wcs-alert-gap);
     }
 
     ::slotted([slot=title]) {
@@ -109,12 +104,6 @@
 
 :host > * {
     box-sizing: border-box;
-}
-
-.icon-content-container {
-    display: flex;
-    gap: var(--wcs-alert-gap);
-    align-items: center;
 }
 
 .close-button {

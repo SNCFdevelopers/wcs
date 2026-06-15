@@ -60,6 +60,7 @@ export const WcsListItem = /*@__PURE__*/createReactComponent<JSX.WcsListItem, HT
 export const WcsListItemProperties = /*@__PURE__*/createReactComponent<JSX.WcsListItemProperties, HTMLWcsListItemPropertiesElement>('wcs-list-item-properties');
 export const WcsListItemProperty = /*@__PURE__*/createReactComponent<JSX.WcsListItemProperty, HTMLWcsListItemPropertyElement>('wcs-list-item-property');
 export const WcsMatIcon = /*@__PURE__*/createReactComponent<JSX.WcsMatIcon, HTMLWcsMatIconElement>('wcs-mat-icon');
+export const WcsMessage = /*@__PURE__*/createReactComponent<JSX.WcsMessage, HTMLWcsMessageElement>('wcs-message');
 export const WcsModal = /*@__PURE__*/createReactComponent<JSX.WcsModal, HTMLWcsModalElement>('wcs-modal');
 export const WcsNativeSelect = /*@__PURE__*/createReactComponent<JSX.WcsNativeSelect, HTMLWcsNativeSelectElement>('wcs-native-select');
 export const WcsNav = /*@__PURE__*/createReactComponent<JSX.WcsNav, HTMLWcsNavElement>('wcs-nav');

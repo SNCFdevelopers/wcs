@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-04T09:08:35",
+  "timestamp": "2026-05-21T13:34:13",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -569,7 +569,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-alert",
       "readme": "# wcs-alert\r\n\r\n\r\n\r",
-      "docs": "Alerts are used to communicate a state or an action that has been performed.\r\nIt has to be used conjunction with the `wcs-alert-drawer` component, or you can use it independently by taking care of \r\nthe alert visibility",
+      "docs": "Alerts are used to communicate a state or an action that has been performed.\r\nIt has to be used conjunction with the `wcs-alert-drawer` component, or you can use it independently by taking care of\r\nthe alert visibility",
       "docsTags": [
         {
           "name": "cssprop",
@@ -1975,6 +1975,7 @@
         "wcs-grid",
         "wcs-grid-pagination",
         "wcs-horizontal-stepper",
+        "wcs-message",
         "wcs-modal"
       ],
       "dependencies": [
@@ -2005,6 +2006,9 @@
           "wcs-button"
         ],
         "wcs-horizontal-stepper": [
+          "wcs-button"
+        ],
+        "wcs-message": [
           "wcs-button"
         ],
         "wcs-modal": [
@@ -9739,6 +9743,7 @@
         "wcs-galactic-menu",
         "wcs-horizontal-stepper",
         "wcs-input",
+        "wcs-message",
         "wcs-modal",
         "wcs-textarea"
       ],
@@ -9768,11 +9773,256 @@
         "wcs-input": [
           "wcs-mat-icon"
         ],
+        "wcs-message": [
+          "wcs-mat-icon"
+        ],
         "wcs-modal": [
           "wcs-mat-icon"
         ],
         "wcs-textarea": [
           "wcs-mat-icon"
+        ]
+      }
+    },
+    {
+      "filePath": "src/components/message/message.tsx",
+      "encapsulation": "shadow",
+      "tag": "wcs-message",
+      "readme": "# wcs-message\r\n\r\n\r\n\r",
+      "docs": "Messages are used to communicate contextual information to users.\r\nThey can display information, success, warning, or error states.\r\n\r\nUnlike alerts, messages are static feedback elements and are not automatically dismissed.",
+      "docsTags": [
+        {
+          "name": "cssprop",
+          "text": "--wcs-message-background-color-lightest - Lightest background color of the message"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-message-background-color-lighter - Lighter background color of the message"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-message-title-color - Text color of the title"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-message-subtitle-color - Text color of the subtitle"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-message-icon-color - Icon color of the message"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-message-title-font-weight - Font weight of the title"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-message-subtitle-font-weight - Font weight of the subtitle"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-message-title-font-size - Font size of the title"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-message-subtitle-font-size - Font size of the subtitle"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-message-dismiss-button-color - Color of the dismiss button"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-message-border-radius - Border radius of the message"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-message-border-width - Border width of the message (apply when `border` attribute is set)"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-message-border-color - Border color of the message (apply when `border` attribute is set). Based on the intent of the message"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-message-padding - Padding of the message"
+        },
+        {
+          "name": "cssprop",
+          "text": "--wcs-message-gap - Gap between icon and content"
+        },
+        {
+          "name": "slot",
+          "text": "title - Title content of the message"
+        },
+        {
+          "name": "slot",
+          "text": "subtitle - Subtitle content of the message"
+        }
+      ],
+      "usage": {},
+      "props": [
+        {
+          "name": "background",
+          "type": "\"lighter\" | \"lightest\"",
+          "complexType": {
+            "original": "WcsMessageBackground",
+            "resolved": "\"lighter\" | \"lightest\"",
+            "references": {
+              "WcsMessageBackground": {
+                "location": "import",
+                "path": "./message-interface",
+                "id": "src/components/message/message-interface.ts::WcsMessageBackground"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "background",
+          "reflectToAttr": true,
+          "docs": "Defines the background appearance of the message.",
+          "docsTags": [],
+          "default": "'lightest'",
+          "values": [
+            {
+              "value": "lighter",
+              "type": "string"
+            },
+            {
+              "value": "lightest",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "intent",
+          "type": "\"error\" | \"information\" | \"success\" | \"warning\"",
+          "complexType": {
+            "original": "WcsAlertIntent",
+            "resolved": "\"error\" | \"information\" | \"success\" | \"warning\"",
+            "references": {
+              "WcsAlertIntent": {
+                "location": "import",
+                "path": "../alert/alert-interface",
+                "id": "src/components/alert/alert-interface.ts::WcsAlertIntent"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "intent",
+          "reflectToAttr": true,
+          "docs": "Defines the semantic intent of the message.\r\n- Non-disruptive messages (`information`, `success`) use `role=\"status\"`\r\n- Disruptive messages (`warning`, `error`) use `role=\"alert\"`",
+          "docsTags": [],
+          "default": "'information'",
+          "values": [
+            {
+              "value": "error",
+              "type": "string"
+            },
+            {
+              "value": "information",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "warning",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "showBorder",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "show-border",
+          "reflectToAttr": true,
+          "docs": "Defines whether the message should have a border. The border color is determined by the intent of the message.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "showCloseButton",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "show-close-button",
+          "reflectToAttr": true,
+          "docs": "Specifies whether the component should display a close button.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "wcsMessageDismiss",
+          "detail": "void",
+          "bubbles": true,
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Event emitted when the message is dismissed.",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [
+        {
+          "name": "subtitle",
+          "docs": "Subtitle content of the message"
+        },
+        {
+          "name": "title",
+          "docs": "Title content of the message"
+        }
+      ],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "wcs-mat-icon",
+        "wcs-button"
+      ],
+      "dependencyGraph": {
+        "wcs-message": [
+          "wcs-mat-icon",
+          "wcs-button"
+        ],
+        "wcs-button": [
+          "wcs-spinner"
         ]
       }
     },
@@ -15493,6 +15743,11 @@
       "declaration": "export type MaterialIconFamily = 'filled' | 'outlined' | 'twotone' | 'rounded' | 'sharp';",
       "docstring": "",
       "path": "src/components/mat-icon/mat-icon-interface.tsx"
+    },
+    "src/components/message/message-interface.ts::WcsMessageBackground": {
+      "declaration": "export type WcsMessageBackground = 'lighter' | 'lightest';",
+      "docstring": "",
+      "path": "src/components/message/message-interface.ts"
     },
     "src/components/modal/modal-interface.ts::ModalSize": {
       "declaration": "export type ModalSize = Extract<WcsSize, 's' | 'm' | 'l' | 'xl'>;",

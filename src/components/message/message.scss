@@ -1,0 +1,103 @@
+@import '../../style/mixins/toast-common';
+
+:host {
+    @include toast-common;
+    --wcs-message-border-width: var(--wcs-semantic-border-width-default);
+    --wcs-message-border-radius: var(--wcs-semantic-border-radius-base);
+    --wcs-message-padding: var(--wcs-semantic-spacing-base-150);
+    --wcs-message-gap: var(--wcs-semantic-spacing-base-150);
+
+    --wcs-message-title-color: var(--wcs-semantic-color-text-primary);
+    --wcs-message-subtitle-color: var(--wcs-semantic-color-text-secondary);
+
+    --wcs-message-border-color-success: var(--wcs-semantic-color-border-success);
+    --wcs-message-icon-color-success: var(--wcs-semantic-color-background-surface-success-default);
+    --wcs-message-background-color-lightest-success: var(--wcs-semantic-color-background-surface-success-lightest);
+    --wcs-message-background-color-lighter-success: var(--wcs-semantic-color-background-surface-success-lighter);
+
+    --wcs-message-border-color-information: var(--wcs-semantic-color-border-information);
+    --wcs-message-icon-color-information: var(--wcs-semantic-color-background-surface-information-default);
+    --wcs-message-background-color-lightest-information: var(--wcs-semantic-color-background-surface-information-lightest);
+    --wcs-message-background-color-lighter-information: var(--wcs-semantic-color-background-surface-information-lighter);
+
+    --wcs-message-border-color-warning: var(--wcs-semantic-color-border-warning);
+    --wcs-message-icon-color-warning: var(--wcs-semantic-color-background-surface-warning-default);
+    --wcs-message-background-color-lightest-warning: var(--wcs-semantic-color-background-surface-warning-lightest);
+    --wcs-message-background-color-lighter-warning: var(--wcs-semantic-color-background-surface-warning-lighter);
+
+    --wcs-message-border-color-error: var(--wcs-semantic-color-border-critical);
+    --wcs-message-icon-color-error: var(--wcs-semantic-color-background-surface-critical-default);
+    --wcs-message-background-color-lightest-error: var(--wcs-semantic-color-background-surface-critical-lightest);
+    --wcs-message-background-color-lighter-error: var(--wcs-semantic-color-background-surface-critical-lighter);
+
+    font-size: var(--wcs-message-font-size);
+    padding: var(--wcs-message-padding);
+    gap: var(--wcs-message-gap);
+    border-radius: var(--wcs-message-border-radius);
+
+    .icon-content-container {
+        gap: var(--wcs-message-gap);
+    }
+
+    ::slotted([slot=title]) {
+        color: var(--wcs-message-title-color);
+        font-size: var(--wcs-message-title-font-size);
+        font-weight: var(--wcs-message-title-font-weight);
+    }
+
+    ::slotted([slot=subtitle]) {
+        font-weight: var(--wcs-message-subtitle-font-weight);
+        color: var(--wcs-message-subtitle-color);
+        font-size: var(--wcs-message-subtitle-font-size);
+    }
+
+    .announcement-icon {
+        color: var(--wcs-internal-message-icon-color);
+    }
+}
+
+.close-button {
+    wcs-mat-icon {
+        color: var(--wcs-message-dismiss-button-color);
+    }
+}
+
+:host([background='lightest']) {
+    background-color: var(--wcs-internal-message-background-color-lightest);
+}
+
+:host([background='lighter']) {
+    background-color: var(--wcs-internal-message-background-color-lighter);
+}
+
+:host([show-border]) {
+    border: var(--wcs-message-border-width) solid var(--wcs-internal-message-border-color);
+}
+
+:host([intent='success']) {
+    --wcs-internal-message-border-color: var(--wcs-message-border-color-success);
+    --wcs-internal-message-icon-color: var(--wcs-message-icon-color-success);
+    --wcs-internal-message-background-color-lightest: var(--wcs-message-background-color-lightest-success);
+    --wcs-internal-message-background-color-lighter: var(--wcs-message-background-color-lighter-success);
+}
+
+:host([intent='information']) {
+    --wcs-internal-message-border-color: var(--wcs-message-border-color-information);
+    --wcs-internal-message-icon-color: var(--wcs-message-icon-color-information);
+    --wcs-internal-message-background-color-lightest: var(--wcs-message-background-color-lightest-information);
+    --wcs-internal-message-background-color-lighter: var(--wcs-message-background-color-lighter-information);
+}
+
+:host([intent='warning']) {
+    --wcs-internal-message-border-color: var(--wcs-message-border-color-warning);
+    --wcs-internal-message-icon-color: var(--wcs-message-icon-color-warning);
+    --wcs-internal-message-background-color-lightest: var(--wcs-message-background-color-lightest-warning);
+    --wcs-internal-message-background-color-lighter: var(--wcs-message-background-color-lighter-warning);
+}
+
+:host([intent='error']) {
+    --wcs-internal-message-border-color: var(--wcs-message-border-color-error);
+    --wcs-internal-message-icon-color: var(--wcs-message-icon-color-error);
+    --wcs-internal-message-background-color-lightest: var(--wcs-message-background-color-lightest-error);
+    --wcs-internal-message-background-color-lighter: var(--wcs-message-background-color-lighter-error);
+}

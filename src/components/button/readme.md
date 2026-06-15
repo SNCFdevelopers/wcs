@@ -66,6 +66,7 @@ Type: `Promise<void>`
  - [wcs-grid](../grid)
  - [wcs-grid-pagination](../grid-pagination)
  - [wcs-horizontal-stepper](../horizontal-stepper)
+ - [wcs-message](../message)
  - [wcs-modal](../modal)
 
 ### Depends on
@@ -85,6 +86,7 @@ graph TD;
   wcs-grid --> wcs-button
   wcs-grid-pagination --> wcs-button
   wcs-horizontal-stepper --> wcs-button
+  wcs-message --> wcs-button
   wcs-modal --> wcs-button
   style wcs-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
