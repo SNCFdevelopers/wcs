@@ -20,7 +20,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
-for changes in existing functionality.
+- **chip**: try focus on previous chip if no next chip
 
 ### Deprecated
 

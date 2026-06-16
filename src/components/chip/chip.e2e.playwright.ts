@@ -232,5 +232,46 @@ test.describe('Chip component', () => {
             const c3 = page.locator('#c3');
             await expect(c3).toBeFocused();
         });
+
+        test('after dismissing the last chip, focus moves to previous actionable chip', async ({ page }: { page: E2EPage }) => {
+            // Given
+            await setWcsContent(page, `
+                <div>
+                    <wcs-chip id="c1" value="c1" label="One"></wcs-chip>
+                    <wcs-chip id="c2" mode="dismissible" value="c2" label="Two"></wcs-chip>
+                </div>
+            `);
+
+            const c2 = page.locator('#c2 button');
+
+            // When
+            await c2.click();
+            await page.waitForChanges();
+
+            // Then
+            const c1 = page.locator('#c1');
+            await expect(c1).toBeFocused();
+        });
+
+        test('skips disabled previous chips when moving focus after dismissing the last chip', async ({ page }: { page: E2EPage }) => {
+            // Given
+            await setWcsContent(page, `
+                <div>
+                    <wcs-chip id="c1" value="c1" label="One"></wcs-chip>
+                    <wcs-chip id="c2" disabled value="c2" label="Two"></wcs-chip>
+                    <wcs-chip id="c3" mode="dismissible" value="c3" label="Three"></wcs-chip>
+                </div>
+            `);
+
+            const c3 = page.locator('#c3 button');
+
+            // When
+            await c3.click();
+            await page.waitForChanges();
+
+            // Then
+            const c1 = page.locator('#c1');
+            await expect(c1).toBeFocused();
+        });
     });
 });

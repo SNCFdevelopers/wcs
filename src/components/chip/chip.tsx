@@ -1,6 +1,8 @@
 import { Component, ComponentInterface, EventEmitter, Prop, Event, Element, Host, h } from '@stencil/core';
 import { WcsChipMode, WcsChipVariant } from './chip-interface';
 
+type ChipFocusDirection = 'previous' | 'next';
+
 /**
  * The chip component is a small, interactive element that can be used to represent an input, filter, or tag.
  * It can be in one of two modes: 'selectable' or 'dismissible'.
@@ -139,19 +141,33 @@ export class Chip implements ComponentInterface {
     private dismiss() {
         this.open = false;
         this.wcsChipDismiss.emit({ value: this.value });
-        this.focusNextChip();
+
+        const nextChip = this.findAdjacentActionableChip('next');
+        if (nextChip) {
+            this.focusChip(nextChip);
+        } else {
+            const previousChip = this.findAdjacentActionableChip('previous');
+            if (previousChip) {
+                this.focusChip(previousChip)
+            };
+        }
     }
 
-    private focusNextChip(): void {
-        let currentElement = this.el.nextElementSibling;
+    private findAdjacentActionableChip(direction: ChipFocusDirection): HTMLWcsChipElement | null {
+        const getSibling = (el: Element) => direction === 'next' 
+            ? el.nextElementSibling 
+            : el.previousElementSibling;
+
+        let currentElement = getSibling(this.el);
 
         while (currentElement) {
             if (this.isActionableChip(currentElement)) {
-                this.focusChip(currentElement as HTMLWcsChipElement);
-                return;
+                return currentElement;
             }
-            currentElement = currentElement.nextElementSibling;
+            currentElement = getSibling(currentElement);
         }
+
+        return null;
     }
 
     private isActionableChip(element: Element | null): element is HTMLWcsChipElement {
