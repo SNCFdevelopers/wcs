@@ -1663,9 +1663,9 @@ test.describe('Select component', () => {
         await page.waitForChanges();
 
         expect(filterChangeSpy).toHaveReceivedEventTimes(3);
-        expect(filterChangeSpy).toHaveNthReceivedEventDetail(0, { value: 'a' });
-        expect(filterChangeSpy).toHaveNthReceivedEventDetail(1, { value: 'ai' });
-        expect(filterChangeSpy).toHaveNthReceivedEventDetail(2, { value: 'ain' });
+        expect(filterChangeSpy).toHaveNthReceivedEventDetail(0, { value: 'a', trigger: 'input' });
+        expect(filterChangeSpy).toHaveNthReceivedEventDetail(1, { value: 'ai', trigger: 'input' });
+        expect(filterChangeSpy).toHaveNthReceivedEventDetail(2, { value: 'ain', trigger: 'input' });
 
         // Select Ain: find option and click (should emit a filter event)
         const optionAin = page.locator('wcs-select > wcs-select-option[value="ain"]');
@@ -1677,19 +1677,19 @@ test.describe('Select component', () => {
         expect(filterChangeSpy).toHaveReceivedEventTimes(4);
         // Input value replaced by selected option label
         await expect(input).toHaveJSProperty('value', 'Ain');
-        expect(filterChangeSpy).toHaveNthReceivedEventDetail(3, { value: 'Ain' });
+        expect(filterChangeSpy).toHaveNthReceivedEventDetail(3, { value: 'Ain', trigger: 'selection' });
 
         await input.press('Backspace'); // Ai
         await page.waitForChanges();
-        expect(filterChangeSpy).toHaveNthReceivedEventDetail(4, { value: 'Ai' });
+        expect(filterChangeSpy).toHaveNthReceivedEventDetail(4, { value: 'Ai', trigger: 'input' });
 
         await input.press('Backspace'); // A
         await page.waitForChanges();
-        expect(filterChangeSpy).toHaveNthReceivedEventDetail(5, { value: 'A' });
+        expect(filterChangeSpy).toHaveNthReceivedEventDetail(5, { value: 'A', trigger: 'input' });
 
         await input.press('Backspace'); // vide
         await page.waitForChanges();
-        expect(filterChangeSpy).toHaveNthReceivedEventDetail(6, { value: '' });
+        expect(filterChangeSpy).toHaveNthReceivedEventDetail(6, { value: '', trigger: 'input' });
 
         // Field must stay empty (no hydration after manual clear)
         await expect(input).toHaveJSProperty('value', '');
@@ -2098,5 +2098,81 @@ test.describe('Select component', () => {
         await expect(ainOption).not.toBeVisible();
         await expect(aisneOption).toBeVisible();
         await expect(rhoneOption).not.toBeVisible();
+    });
+
+    test('[Autocomplete] should emit filter change event with trigger "selection" when selecting an option', async ({ page }: { page: E2EPage }) => {
+        await setWcsContent(
+            page,
+            `
+            <wcs-select autocomplete>
+                <wcs-select-option value="1">Ain</wcs-select-option>
+                <wcs-select-option value="2">Aisne</wcs-select-option>
+                <wcs-select-option value="3">Rhône</wcs-select-option>
+            </wcs-select>
+        `
+        );
+
+        const select = page.locator('wcs-select');
+        const ainOption = page.locator('wcs-select-option[value="1"]');
+        const filterChangeSpy = await select.spyOnEvent('wcsFilterChange');
+        await select.click(); // open
+        await ainOption.click();
+        await page.waitForChanges();
+
+        expect(filterChangeSpy).toHaveNthReceivedEventDetail(0, { value: 'Ain', trigger: 'selection' });
+    });
+
+    test('[Autocomplete] should emit filter change event with trigger "input" when typing in the autocomplete input', async ({ page }: { page: E2EPage }) => {
+        await setWcsContent(
+            page,
+            `
+            <wcs-select autocomplete>
+                <wcs-select-option value="1">Ain</wcs-select-option>
+                <wcs-select-option value="2">Aisne</wcs-select-option>
+                <wcs-select-option value="3">Rhône</wcs-select-option>
+            </wcs-select>
+        `
+        );
+
+        const select = page.locator('wcs-select');
+        const input = page.locator('input.autocomplete-field');
+        const filterChangeSpy = await select.spyOnEvent('wcsFilterChange');
+        await select.click(); // open
+        await input.press('a');
+        await input.press('i');
+        await input.press('n');
+        await page.waitForChanges();
+
+        expect(filterChangeSpy).toHaveNthReceivedEventDetail(0, { value: 'a', trigger: 'input' });
+        expect(filterChangeSpy).toHaveNthReceivedEventDetail(1, { value: 'ai', trigger: 'input' });
+        expect(filterChangeSpy).toHaveNthReceivedEventDetail(2, { value: 'ain', trigger: 'input' });
+    });
+
+    test('[Autocomplete] should emit filter change event with trigger "selection" when reselecting the current selected option', async ({ page }: { page: E2EPage }) => {
+        await setWcsContent(
+            page,
+            `
+            <wcs-select autocomplete>
+                <wcs-select-option value="1">Ain</wcs-select-option>
+                <wcs-select-option value="2">Aisne</wcs-select-option>
+                <wcs-select-option value="3">Rhône</wcs-select-option>
+            </wcs-select>
+        `
+        );
+
+        const select = page.locator('wcs-select');
+        const input = page.locator('input.autocomplete-field');
+        const filterChangeSpy = await select.spyOnEvent('wcsFilterChange');
+        await select.click(); // open
+        const ainOption = page.locator('wcs-select-option[value="1"]');
+        await ainOption.click();
+        await page.waitForChanges();
+
+        await input.press('Backspace'); // Ai
+        await select.click(); // open
+        await ainOption.click();
+        await page.waitForChanges();
+
+        expect(filterChangeSpy).toHaveNthReceivedEventDetail(2, { value: 'Ain', trigger: 'selection' });
     });
 });

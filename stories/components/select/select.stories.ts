@@ -221,7 +221,7 @@ export const Autocomplete: StoryObj = {
                         value="${args.value ?? nothing}"
                         placeholder="${args.placeholder ?? nothing}"
                         .filterFn="${args.filterFn ?? nothing}"
-                        @wcsFilterChange="${args.serverMode ? (event) => handleFilterChangeServerMode(event) : nothing}"
+                        @wcsFilterChange="${args.serverMode ? args.id === "select-autocomplete-server-mode-filter-origin" ? (event) => handleFilterChangeServerModeFilterOrigin(event) : (event) => handleFilterChangeServerMode(event) : nothing}"
                         ?autocomplete="${args.autocomplete}"
                         ?server-mode="${args.serverMode}"
                         ?disabled="${args.disabled}"
@@ -319,6 +319,88 @@ function handleFilterChangeServerMode(ev: any) {
             }
         });
     }, 500);
+}
+
+function handleFilterChangeServerModeFilterOrigin(ev: any) {
+    const { value: filterStr, trigger } = ev.detail;
+
+    const triggerLog = document.getElementById('filter-origin-trigger-log');
+    const requestLog = document.getElementById('filter-origin-request-log');
+
+    if (triggerLog) triggerLog.textContent = trigger;
+
+    if (trigger === 'selection') {
+        if (requestLog) requestLog.textContent = 'No request send to the server (trigger === selection)';
+        return;
+    }
+
+    if (requestLog) requestLog.textContent = `request sent to the server (trigger === input)`;
+
+    if ((window as any).__wcsSelectFilterOriginTimeout) {
+        clearTimeout((window as any).__wcsSelectFilterOriginTimeout);
+    }
+    (window as any).__wcsSelectFilterOriginTimeout = setTimeout(() => {
+        Array.from(ev.target.children).forEach((option: HTMLWcsSelectOptionElement) => {
+            option.remove();
+        });
+        sampleDepartments.forEach((department) => {
+            if (department.name.toLowerCase().startsWith(filterStr.toLowerCase())) {
+                const optionToAppend = document.createElement('wcs-select-option');
+                optionToAppend.textContent = department.name;
+                optionToAppend.value = department.value;
+                ev.target.appendChild(optionToAppend);
+            }
+        });
+        if (requestLog) requestLog.textContent = `${ev.target.children.length} options loaded from the server (trigger === input)`;
+    }, 500);
+}
+
+/**
+ * When using `server-mode`, `wcsFilterChange` is emitted **both** when the user
+ * types and when the user selects an option. In most cases, this is the expected behavior.
+ *
+ * However, some applications may need to distinguish between these two situations —
+ * for example, to avoid triggering a server request when the user selects an option. Warning ! In UI terms,
+ * it means that when the user selects an options, it will not update the options list with the server response.
+ * So use this pattern with caution and make sure it fits your use case.
+ *
+ * For this purpose, the event detail exposes a `trigger` property that indicates the origin of the event:
+ *
+ * | `trigger`     | Situation                   |
+ * |---------------|-----------------------------|
+ * | `"input"`     | User is typing in the input |
+ * | `"selection"` | User selected an option     |
+ *
+ * Pseudo code example :
+ * 
+ * ```ts
+ * onFilterChange($event: CustomEvent<SelectFilterChangeEventDetail>) {
+ *   if ($event.detail.trigger === 'selection') return; // avoid sending a request to server when the user selects an option
+ *
+ *   const filter = $event.detail.value;
+ *   this.myOptions = this.fetchFromServer(filter);
+ * }
+ * ```
+ *
+ * > 💡 In this story, the **Last trigger** and **Server request** indicators update in real time
+ * > so you can observe the difference in behavior between typing and selecting an option.
+ */
+export const AutocompleteWithServerModeFilterOrigin: StoryObj = {
+    render: (args) => html`
+        ${Autocomplete.render(args, this)}
+        <div>
+            <span>Last trigger: </span>
+            <strong id="filter-origin-trigger-log">–</strong>
+            <span>Server request: </span>
+            <strong id="filter-origin-request-log">–</strong>
+        </div>
+    `,
+    args: {
+        ...Autocomplete.args,
+        id: 'select-autocomplete-server-mode-filter-origin',
+        serverMode: true,
+        departments: sampleDepartments.slice(0, 10)
+    }
 }
 
 /**

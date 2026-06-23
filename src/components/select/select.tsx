@@ -393,7 +393,7 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
                     this.displayText = opt.innerText;
                     this.lastModifiedOptionElement = opt;
                     if (this.autocomplete) {
-                        this.setAutocompleteValue(opt.innerText, false, false, shouldEmitFilterChangeEvent);
+                        this.setAutocompleteValue(opt.innerText, false, false, shouldEmitFilterChangeEvent, 'selection');
                     }
                 }
                 opt.selected = isSelected;
@@ -628,7 +628,7 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
                                 })
                             } else {
                                 // Emit the filter change immediately so that server-side filtering can refresh options.
-                                this.setAutocompleteValue(event.value.option.displayText);
+                                this.setAutocompleteValue(event.value.option.displayText, false, false, true, 'selection');
                             }
                         }
                         this.emitChange(this.value);
@@ -1038,7 +1038,7 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
      * @param shouldEmitFilterChangeEvent
      * @private
      */
-    private setAutocompleteValue(filter: string, isReset = false, fromUserInteraction = false, shouldEmitFilterChangeEvent = true): void {
+    private setAutocompleteValue(filter: string, isReset = false, fromUserInteraction = false, shouldEmitFilterChangeEvent = true, trigger: 'input' | 'selection' = 'input'): void {
         this.clearHighlightOnLastHighlightedOption();
         const newValueIsDifferentFromLastModifiedOption = this.lastModifiedOptionElement == null || this.lastModifiedOptionElement?.textContent !== this.autocompleteValue;
         // Only open the select automatically when the change comes from user interaction
@@ -1083,6 +1083,7 @@ export class Select implements ComponentInterface, MutableAriaAttribute {
         if (shouldEmitFilterChangeEvent && valueHasChanged) {
             this.wcsFilterChange.emit({
                 value: filter,
+                trigger
             });
         }
     }

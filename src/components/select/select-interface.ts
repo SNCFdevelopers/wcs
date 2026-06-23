@@ -10,6 +10,7 @@ export interface SelectChangeEventDetail {
 
 export interface SelectFilterChangeEventDetail {
     value: string | number | undefined | null;
+    trigger: 'input' | 'selection';
 }
 
 export type WcsSelectFilterFn = (optionEl: HTMLWcsSelectOptionElement, filter: string) => boolean;
