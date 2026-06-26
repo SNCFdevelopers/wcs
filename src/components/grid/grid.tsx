@@ -537,6 +537,13 @@ export class Grid implements ComponentInterface, ComponentDidLoad, MutableAriaAt
      */
     private updatePageIndex(): void {
         if (!this.serverMode && this.paginationEl) {
+            if(!this.data || this.data?.length === 0) {
+                this.paginationEl.itemsCount = 0;
+                this.paginationEl.pageCount = 0;
+                this.paginationEl.currentPage = -1;
+                return;
+            }
+
             this.paginationEl.itemsCount = this.data.length;
             this.paginationEl.pageCount = Math.ceil(this.data.length / this.paginationEl.pageSize);
 

@@ -36,6 +36,7 @@ for now removed features.
 - **Angular**: set `compilationMode` to `partial` for `wcs-angular` and `wcs-formly` libraries to fix `AsyncPipe` import issues in consuming applications
 - **alert-service**: fix `clear` method which did not clear alerts
 - **dropdown**: popover was sized to the button width and wraps content instead of widening to fit its content
+- **grid-pagination**: show 0/0 on page indicator if data is not set or is empty
 
 ### Security
 

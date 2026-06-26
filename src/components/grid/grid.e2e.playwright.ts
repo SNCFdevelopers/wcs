@@ -249,4 +249,94 @@ test.describe('Grid component', () => {
             expect(scrollY).toBe(0);
         });
     });
+
+    test.describe('Pagination', () => {
+        test('should display 0/0 when no data is bound to the grid', async ({ page }: { page: E2EPage }) => {
+            // Given
+            await setWcsContent(page, `
+                <wcs-grid id="grid">
+                    <wcs-grid-column path="first_name" name="First Name"></wcs-grid-column>
+                    <wcs-grid-pagination id="pagination" available-page-sizes="2"></wcs-grid-pagination>
+                </wcs-grid>
+            `);
+
+            // When - no data is set at all
+            await page.waitForChanges();
+
+            // Then
+            const pagination = page.locator('#pagination');
+            const { currentPage, pageCount } = await pagination.evaluate((el: HTMLWcsGridPaginationElement) => ({
+                currentPage: el.currentPage,
+                pageCount: el.pageCount
+            }));
+            expect(currentPage).toBe(-1);
+            expect(pageCount).toBe(0);
+
+            // The displayed counter should show "0 / 0"
+            const counter = pagination.locator('.pagination-counter span');
+            await expect(counter).toHaveText('0 / 0');
+        });
+
+        test('should display 0/0 when data is set to an empty array', async ({ page }: { page: E2EPage }) => {
+            // Given
+            await setWcsContent(page, `
+                <wcs-grid id="grid">
+                    <wcs-grid-column path="first_name" name="First Name"></wcs-grid-column>
+                    <wcs-grid-pagination id="pagination" available-page-sizes="2"></wcs-grid-pagination>
+                </wcs-grid>
+            `);
+
+            const grid = page.locator('#grid');
+
+            // When
+            await grid.evaluate((el: HTMLWcsGridElement) => el.data = []);
+            await page.waitForChanges();
+
+            // Then
+            const pagination = page.locator('#pagination');
+            const { currentPage, pageCount } = await pagination.evaluate((el: HTMLWcsGridPaginationElement) => ({
+                currentPage: el.currentPage,
+                pageCount: el.pageCount
+            }));
+            expect(currentPage).toBe(-1);
+            expect(pageCount).toBe(0);
+
+            const counter = pagination.locator('.pagination-counter span');
+            await expect(counter).toHaveText('0 / 0');
+        });
+
+        test('should reset to 0/0 when data is cleared after being populated', async ({ page }: { page: E2EPage }) => {
+            // Given
+            const data = [{ id: 1, first_name: 'John' }, { id: 2, first_name: 'Doe' }, { id: 3, first_name: 'Jane' }];
+            await setWcsContent(page, `
+                <wcs-grid id="grid">
+                    <wcs-grid-column path="first_name" name="First Name"></wcs-grid-column>
+                    <wcs-grid-pagination id="pagination" available-page-sizes="2"></wcs-grid-pagination>
+                </wcs-grid>
+            `);
+
+            const grid = page.locator('#grid');
+            await grid.evaluate((el: HTMLWcsGridElement, d) => el.data = d, data);
+            await page.waitForChanges();
+
+            // Sanity check: pagination should show data
+            const pagination = page.locator('#pagination');
+            const counterAfterData = pagination.locator('.pagination-counter span');
+            await expect(counterAfterData).toHaveText('1 / 1');
+
+            // When
+            await grid.evaluate((el: HTMLWcsGridElement) => el.data = []);
+            await page.waitForChanges();
+
+            // Then
+            const { currentPage, pageCount } = await pagination.evaluate((el: HTMLWcsGridPaginationElement) => ({
+                currentPage: el.currentPage,
+                pageCount: el.pageCount
+            }));
+            expect(currentPage).toBe(-1);
+            expect(pageCount).toBe(0);
+
+            await expect(counterAfterData).toHaveText('0 / 0');
+        });
+    });
 });
