@@ -182,11 +182,11 @@ export class GridPagination implements ComponentInterface, MutableAriaAttribute 
                 </div>
 
                 <div class="items-count">
-                    <span>{this.itemsCount}
+                    <p>{this.itemsCount}
                         <slot name="items-count-text">
                             <span> éléments</span>
                         </slot>
-                    </span>
+                    </p>
                 </div>
 
                 <nav aria-label="pagination" ref={(el) => (this.nativeNav = el)} {...this.inheritedAttributes}>
