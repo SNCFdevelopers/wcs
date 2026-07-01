@@ -11,6 +11,32 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+for new features.
+
+### Changed
+
+for changes in existing functionality.
+
+### Deprecated
+
+for soon-to-be removed features.
+
+### Removed
+
+for now removed features.
+
+### Fixed
+
+for any bug fixes.
+
+### Security
+
+in case of vulnerabilities.
+
+## [7.7.0] - 2026-07-01
+
+### Added
+
 - **button**: add `endIcon` and `startIcon` properties to allow adding an icon at the start or the end of the button text
 - **mat-icon**: add css variables for sizes of icons
 - **select**: add a `trigger` property to the `wcsFilterChange` event detail to indicate what caused the filter change (user input or option selection)
@@ -23,14 +49,6 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - **chip**: try focus on previous chip if no next chip
 
-### Deprecated
-
-for soon-to-be removed features.
-
-### Removed
-
-for now removed features.
-
 ### Fixed
 
 - **Angular**: set `compilationMode` to `partial` for `wcs-angular` and `wcs-formly` libraries to fix `AsyncPipe` import issues in consuming applications
@@ -40,10 +58,6 @@ for now removed features.
   - show 0/0 on page indicator if data is not set or is empty
   - now use `p` instead of `span` to display the total element to improve accessibility
 - **select**: remove unnecessary label to improve accessibility
-
-### Security
-
-in case of vulnerabilities.
 
 ## [7.6.0] - 2026-04-14
 

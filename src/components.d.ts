@@ -21,7 +21,6 @@ import { RowCssPartsFn, WcsCellFormatter, WcsGridAllRowSelectedEventDetails, Wcs
 import { HorizontalStepClickEvent, HorizontalStepConfig, HorizontalStepperMode } from "./components/horizontal-stepper/horizontal-stepper-interface";
 import { AutocompleteTypes, InputChangeEventDetail, TextFieldTypes, WcsInputAutocorrect, WcsInputEnterKeyHint, WcsInputInputMode, WcsInputSize, WcsInputState } from "./components/input/input-interface";
 import { MaterialIconFamily, MaterialIconSize } from "./components/mat-icon/mat-icon-interface";
-import { WcsMessageBackground } from "./components/message/message-interface";
 import { ModalSize } from "./components/modal/modal-interface";
 import { WcsNativeSelectSize } from "./components/native-select/native-select-interface";
 import { CssTypes, WcsSize } from "./shared-types";
@@ -51,7 +50,6 @@ export { RowCssPartsFn, WcsCellFormatter, WcsGridAllRowSelectedEventDetails, Wcs
 export { HorizontalStepClickEvent, HorizontalStepConfig, HorizontalStepperMode } from "./components/horizontal-stepper/horizontal-stepper-interface";
 export { AutocompleteTypes, InputChangeEventDetail, TextFieldTypes, WcsInputAutocorrect, WcsInputEnterKeyHint, WcsInputInputMode, WcsInputSize, WcsInputState } from "./components/input/input-interface";
 export { MaterialIconFamily, MaterialIconSize } from "./components/mat-icon/mat-icon-interface";
-export { WcsMessageBackground } from "./components/message/message-interface";
 export { ModalSize } from "./components/modal/modal-interface";
 export { WcsNativeSelectSize } from "./components/native-select/native-select-interface";
 export { CssTypes, WcsSize } from "./shared-types";
@@ -390,6 +388,12 @@ export namespace Components {
      * @cssprop --wcs-button-padding-size-l - padding for a size l button
      * @cssprop --wcs-button-font-weight - font weight of a plain,stroked,clear button
      * @cssprop --wcs-button-gap - gap between button content (text and icons)
+     * @cssprop --wcs-button-start-icon-size-s - size of the start icon for a size s button
+     * @cssprop --wcs-button-start-icon-size-m - size of the start icon for a size m button
+     * @cssprop --wcs-button-start-icon-size-l - size of the start icon for a size l button
+     * @cssprop --wcs-button-end-icon-size-s - size of the end icon for a size s button
+     * @cssprop --wcs-button-end-icon-size-m - size of the end icon for a size m button
+     * @cssprop --wcs-button-end-icon-size-l - size of the end icon for a size l button
      */
     interface WcsButton {
         /**
@@ -1611,6 +1615,10 @@ export namespace Components {
     }
     /**
      * A component used to display a [Material Icon](https://fonts.google.com/icons?icon.set=Material+Icons). Can be useful when used in wcs-grid or in a wcs-button.
+     * @cssprop --wcs-mat-icon-font-size-s - font size for a size s icon
+     * @cssprop --wcs-mat-icon-font-size-m - font size for a size m icon
+     * @cssprop --wcs-mat-icon-font-size-l - font size for a size l icon
+     * @cssprop --wcs-mat-icon-font-size-xl - font size for a size xl icon
      */
     interface WcsMatIcon {
         /**
@@ -1626,44 +1634,6 @@ export namespace Components {
           * Size of the icon
          */
         "size": MaterialIconSize;
-    }
-    /**
-     * Messages are used to communicate contextual information to users.
-     * They can display information, success, warning, or error states.
-     * Unlike alerts, messages are static feedback elements and are not automatically dismissed.
-     * @cssprop --wcs-message-background-color-lightest - Lightest background color of the message
-     * @cssprop --wcs-message-background-color-lighter - Lighter background color of the message
-     * @cssprop --wcs-message-title-color - Text color of the title
-     * @cssprop --wcs-message-subtitle-color - Text color of the subtitle
-     * @cssprop --wcs-message-icon-color - Icon color of the message
-     * @cssprop --wcs-message-title-font-weight - Font weight of the title
-     * @cssprop --wcs-message-subtitle-font-weight - Font weight of the subtitle
-     * @cssprop --wcs-message-title-font-size - Font size of the title
-     * @cssprop --wcs-message-subtitle-font-size - Font size of the subtitle
-     * @cssprop --wcs-message-dismiss-button-color - Color of the dismiss button
-     * @cssprop --wcs-message-border-radius - Border radius of the message
-     * @cssprop --wcs-message-border-width - Border width of the message (apply when `border` attribute is set)
-     * @cssprop --wcs-message-border-color - Border color of the message (apply when `border` attribute is set). Based on the intent of the message
-     * @cssprop --wcs-message-padding - Padding of the message
-     * @cssprop --wcs-message-gap - Gap between icon and content
-     */
-    interface WcsMessage {
-        /**
-          * Defines the background appearance of the message.
-         */
-        "background": WcsMessageBackground;
-        /**
-          * Defines the semantic intent of the message. - Non-disruptive messages (`information`, `success`) use `role="status"` - Disruptive messages (`warning`, `error`) use `role="alert"`
-         */
-        "intent": WcsAlertIntent;
-        /**
-          * Defines whether the message should have a border. The border color is determined by the intent of the message.
-         */
-        "showBorder": boolean;
-        /**
-          * Specifies whether the component should display a close button.
-         */
-        "showCloseButton": boolean;
     }
     /**
      * The modal component (also named dialog or popup) is an interface element that appears on top of the page content.
@@ -2697,10 +2667,6 @@ export interface WcsInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLWcsInputElement;
 }
-export interface WcsMessageCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLWcsMessageElement;
-}
 export interface WcsModalCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLWcsModalElement;
@@ -3026,6 +2992,12 @@ declare global {
      * @cssprop --wcs-button-padding-size-l - padding for a size l button
      * @cssprop --wcs-button-font-weight - font weight of a plain,stroked,clear button
      * @cssprop --wcs-button-gap - gap between button content (text and icons)
+     * @cssprop --wcs-button-start-icon-size-s - size of the start icon for a size s button
+     * @cssprop --wcs-button-start-icon-size-m - size of the start icon for a size m button
+     * @cssprop --wcs-button-start-icon-size-l - size of the start icon for a size l button
+     * @cssprop --wcs-button-end-icon-size-s - size of the end icon for a size s button
+     * @cssprop --wcs-button-end-icon-size-m - size of the end icon for a size m button
+     * @cssprop --wcs-button-end-icon-size-l - size of the end icon for a size l button
      */
     interface HTMLWcsButtonElement extends Components.WcsButton, HTMLStencilElement {
     }
@@ -4060,49 +4032,16 @@ declare global {
     };
     /**
      * A component used to display a [Material Icon](https://fonts.google.com/icons?icon.set=Material+Icons). Can be useful when used in wcs-grid or in a wcs-button.
+     * @cssprop --wcs-mat-icon-font-size-s - font size for a size s icon
+     * @cssprop --wcs-mat-icon-font-size-m - font size for a size m icon
+     * @cssprop --wcs-mat-icon-font-size-l - font size for a size l icon
+     * @cssprop --wcs-mat-icon-font-size-xl - font size for a size xl icon
      */
     interface HTMLWcsMatIconElement extends Components.WcsMatIcon, HTMLStencilElement {
     }
     var HTMLWcsMatIconElement: {
         prototype: HTMLWcsMatIconElement;
         new (): HTMLWcsMatIconElement;
-    };
-    interface HTMLWcsMessageElementEventMap {
-        "wcsMessageDismiss": void;
-    }
-    /**
-     * Messages are used to communicate contextual information to users.
-     * They can display information, success, warning, or error states.
-     * Unlike alerts, messages are static feedback elements and are not automatically dismissed.
-     * @cssprop --wcs-message-background-color-lightest - Lightest background color of the message
-     * @cssprop --wcs-message-background-color-lighter - Lighter background color of the message
-     * @cssprop --wcs-message-title-color - Text color of the title
-     * @cssprop --wcs-message-subtitle-color - Text color of the subtitle
-     * @cssprop --wcs-message-icon-color - Icon color of the message
-     * @cssprop --wcs-message-title-font-weight - Font weight of the title
-     * @cssprop --wcs-message-subtitle-font-weight - Font weight of the subtitle
-     * @cssprop --wcs-message-title-font-size - Font size of the title
-     * @cssprop --wcs-message-subtitle-font-size - Font size of the subtitle
-     * @cssprop --wcs-message-dismiss-button-color - Color of the dismiss button
-     * @cssprop --wcs-message-border-radius - Border radius of the message
-     * @cssprop --wcs-message-border-width - Border width of the message (apply when `border` attribute is set)
-     * @cssprop --wcs-message-border-color - Border color of the message (apply when `border` attribute is set). Based on the intent of the message
-     * @cssprop --wcs-message-padding - Padding of the message
-     * @cssprop --wcs-message-gap - Gap between icon and content
-     */
-    interface HTMLWcsMessageElement extends Components.WcsMessage, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLWcsMessageElementEventMap>(type: K, listener: (this: HTMLWcsMessageElement, ev: WcsMessageCustomEvent<HTMLWcsMessageElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLWcsMessageElementEventMap>(type: K, listener: (this: HTMLWcsMessageElement, ev: WcsMessageCustomEvent<HTMLWcsMessageElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLWcsMessageElement: {
-        prototype: HTMLWcsMessageElement;
-        new (): HTMLWcsMessageElement;
     };
     interface HTMLWcsModalElementEventMap {
         "wcsDialogClosed": void;
@@ -4870,7 +4809,6 @@ declare global {
         "wcs-list-item-properties": HTMLWcsListItemPropertiesElement;
         "wcs-list-item-property": HTMLWcsListItemPropertyElement;
         "wcs-mat-icon": HTMLWcsMatIconElement;
-        "wcs-message": HTMLWcsMessageElement;
         "wcs-modal": HTMLWcsModalElement;
         "wcs-native-select": HTMLWcsNativeSelectElement;
         "wcs-nav": HTMLWcsNavElement;
@@ -5211,6 +5149,12 @@ declare namespace LocalJSX {
      * @cssprop --wcs-button-padding-size-l - padding for a size l button
      * @cssprop --wcs-button-font-weight - font weight of a plain,stroked,clear button
      * @cssprop --wcs-button-gap - gap between button content (text and icons)
+     * @cssprop --wcs-button-start-icon-size-s - size of the start icon for a size s button
+     * @cssprop --wcs-button-start-icon-size-m - size of the start icon for a size m button
+     * @cssprop --wcs-button-start-icon-size-l - size of the start icon for a size l button
+     * @cssprop --wcs-button-end-icon-size-s - size of the end icon for a size s button
+     * @cssprop --wcs-button-end-icon-size-m - size of the end icon for a size m button
+     * @cssprop --wcs-button-end-icon-size-l - size of the end icon for a size l button
      */
     interface WcsButton {
         /**
@@ -6471,6 +6415,10 @@ declare namespace LocalJSX {
     }
     /**
      * A component used to display a [Material Icon](https://fonts.google.com/icons?icon.set=Material+Icons). Can be useful when used in wcs-grid or in a wcs-button.
+     * @cssprop --wcs-mat-icon-font-size-s - font size for a size s icon
+     * @cssprop --wcs-mat-icon-font-size-m - font size for a size m icon
+     * @cssprop --wcs-mat-icon-font-size-l - font size for a size l icon
+     * @cssprop --wcs-mat-icon-font-size-xl - font size for a size xl icon
      */
     interface WcsMatIcon {
         /**
@@ -6485,48 +6433,6 @@ declare namespace LocalJSX {
           * Size of the icon
          */
         "size"?: MaterialIconSize;
-    }
-    /**
-     * Messages are used to communicate contextual information to users.
-     * They can display information, success, warning, or error states.
-     * Unlike alerts, messages are static feedback elements and are not automatically dismissed.
-     * @cssprop --wcs-message-background-color-lightest - Lightest background color of the message
-     * @cssprop --wcs-message-background-color-lighter - Lighter background color of the message
-     * @cssprop --wcs-message-title-color - Text color of the title
-     * @cssprop --wcs-message-subtitle-color - Text color of the subtitle
-     * @cssprop --wcs-message-icon-color - Icon color of the message
-     * @cssprop --wcs-message-title-font-weight - Font weight of the title
-     * @cssprop --wcs-message-subtitle-font-weight - Font weight of the subtitle
-     * @cssprop --wcs-message-title-font-size - Font size of the title
-     * @cssprop --wcs-message-subtitle-font-size - Font size of the subtitle
-     * @cssprop --wcs-message-dismiss-button-color - Color of the dismiss button
-     * @cssprop --wcs-message-border-radius - Border radius of the message
-     * @cssprop --wcs-message-border-width - Border width of the message (apply when `border` attribute is set)
-     * @cssprop --wcs-message-border-color - Border color of the message (apply when `border` attribute is set). Based on the intent of the message
-     * @cssprop --wcs-message-padding - Padding of the message
-     * @cssprop --wcs-message-gap - Gap between icon and content
-     */
-    interface WcsMessage {
-        /**
-          * Defines the background appearance of the message.
-         */
-        "background"?: WcsMessageBackground;
-        /**
-          * Defines the semantic intent of the message. - Non-disruptive messages (`information`, `success`) use `role="status"` - Disruptive messages (`warning`, `error`) use `role="alert"`
-         */
-        "intent"?: WcsAlertIntent;
-        /**
-          * Event emitted when the message is dismissed.
-         */
-        "onWcsMessageDismiss"?: (event: WcsMessageCustomEvent<void>) => void;
-        /**
-          * Defines whether the message should have a border. The border color is determined by the intent of the message.
-         */
-        "showBorder"?: boolean;
-        /**
-          * Specifies whether the component should display a close button.
-         */
-        "showCloseButton"?: boolean;
     }
     /**
      * The modal component (also named dialog or popup) is an interface element that appears on top of the page content.
@@ -7571,7 +7477,6 @@ declare namespace LocalJSX {
         "wcs-list-item-properties": WcsListItemProperties;
         "wcs-list-item-property": WcsListItemProperty;
         "wcs-mat-icon": WcsMatIcon;
-        "wcs-message": WcsMessage;
         "wcs-modal": WcsModal;
         "wcs-native-select": WcsNativeSelect;
         "wcs-nav": WcsNav;
@@ -7808,6 +7713,12 @@ declare module "@stencil/core" {
              * @cssprop --wcs-button-padding-size-l - padding for a size l button
              * @cssprop --wcs-button-font-weight - font weight of a plain,stroked,clear button
              * @cssprop --wcs-button-gap - gap between button content (text and icons)
+             * @cssprop --wcs-button-start-icon-size-s - size of the start icon for a size s button
+             * @cssprop --wcs-button-start-icon-size-m - size of the start icon for a size m button
+             * @cssprop --wcs-button-start-icon-size-l - size of the start icon for a size l button
+             * @cssprop --wcs-button-end-icon-size-s - size of the end icon for a size s button
+             * @cssprop --wcs-button-end-icon-size-m - size of the end icon for a size m button
+             * @cssprop --wcs-button-end-icon-size-l - size of the end icon for a size l button
              */
             "wcs-button": LocalJSX.WcsButton & JSXBase.HTMLAttributes<HTMLWcsButtonElement>;
             /**
@@ -8483,29 +8394,12 @@ declare module "@stencil/core" {
             "wcs-list-item-property": LocalJSX.WcsListItemProperty & JSXBase.HTMLAttributes<HTMLWcsListItemPropertyElement>;
             /**
              * A component used to display a [Material Icon](https://fonts.google.com/icons?icon.set=Material+Icons). Can be useful when used in wcs-grid or in a wcs-button.
+             * @cssprop --wcs-mat-icon-font-size-s - font size for a size s icon
+             * @cssprop --wcs-mat-icon-font-size-m - font size for a size m icon
+             * @cssprop --wcs-mat-icon-font-size-l - font size for a size l icon
+             * @cssprop --wcs-mat-icon-font-size-xl - font size for a size xl icon
              */
             "wcs-mat-icon": LocalJSX.WcsMatIcon & JSXBase.HTMLAttributes<HTMLWcsMatIconElement>;
-            /**
-             * Messages are used to communicate contextual information to users.
-             * They can display information, success, warning, or error states.
-             * Unlike alerts, messages are static feedback elements and are not automatically dismissed.
-             * @cssprop --wcs-message-background-color-lightest - Lightest background color of the message
-             * @cssprop --wcs-message-background-color-lighter - Lighter background color of the message
-             * @cssprop --wcs-message-title-color - Text color of the title
-             * @cssprop --wcs-message-subtitle-color - Text color of the subtitle
-             * @cssprop --wcs-message-icon-color - Icon color of the message
-             * @cssprop --wcs-message-title-font-weight - Font weight of the title
-             * @cssprop --wcs-message-subtitle-font-weight - Font weight of the subtitle
-             * @cssprop --wcs-message-title-font-size - Font size of the title
-             * @cssprop --wcs-message-subtitle-font-size - Font size of the subtitle
-             * @cssprop --wcs-message-dismiss-button-color - Color of the dismiss button
-             * @cssprop --wcs-message-border-radius - Border radius of the message
-             * @cssprop --wcs-message-border-width - Border width of the message (apply when `border` attribute is set)
-             * @cssprop --wcs-message-border-color - Border color of the message (apply when `border` attribute is set). Based on the intent of the message
-             * @cssprop --wcs-message-padding - Padding of the message
-             * @cssprop --wcs-message-gap - Gap between icon and content
-             */
-            "wcs-message": LocalJSX.WcsMessage & JSXBase.HTMLAttributes<HTMLWcsMessageElement>;
             /**
              * The modal component (also named dialog or popup) is an interface element that appears on top of the page content.
              * Use it to show a message, a confirmation dialog, or any other content like forms.

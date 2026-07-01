@@ -50,6 +50,7 @@ graph TD;
   wcs-message --> wcs-mat-icon
   wcs-message --> wcs-button
   wcs-button --> wcs-spinner
+  wcs-button --> wcs-mat-icon
   style wcs-message fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
