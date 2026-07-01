@@ -387,23 +387,12 @@ export namespace Components {
      * @cssprop --wcs-button-font-size-l - font-size for a size l button
      * @cssprop --wcs-button-padding-size-l - padding for a size l button
      * @cssprop --wcs-button-font-weight - font weight of a plain,stroked,clear button
-     * @cssprop --wcs-button-gap - gap between button content (text and icons)
-     * @cssprop --wcs-button-start-icon-size-s - size of the start icon for a size s button
-     * @cssprop --wcs-button-start-icon-size-m - size of the start icon for a size m button
-     * @cssprop --wcs-button-start-icon-size-l - size of the start icon for a size l button
-     * @cssprop --wcs-button-end-icon-size-s - size of the end icon for a size s button
-     * @cssprop --wcs-button-end-icon-size-m - size of the end icon for a size m button
-     * @cssprop --wcs-button-end-icon-size-l - size of the end icon for a size l button
      */
     interface WcsButton {
         /**
           * Specify whether the button is disabled or not.
          */
         "disabled": boolean;
-        /**
-          * Name of a wcs-mat-icon to display at the end (right) of the button.
-         */
-        "endIcon"?: string;
         /**
           * Set a URL to point to.<br/> If specified use a `a` tag instead of `btn`.
          */
@@ -429,10 +418,6 @@ export namespace Components {
           * Specify the size of the button.
          */
         "size": WcsButtonSize;
-        /**
-          * Name of a wcs-mat-icon to display at the start (left) of the button.
-         */
-        "startIcon"?: string;
         /**
           * Specifies where to open the linked document when using href (see prop above)<br/> Default '_self' will open the linked document in the same frame as it was clicked
          */
@@ -2991,13 +2976,6 @@ declare global {
      * @cssprop --wcs-button-font-size-l - font-size for a size l button
      * @cssprop --wcs-button-padding-size-l - padding for a size l button
      * @cssprop --wcs-button-font-weight - font weight of a plain,stroked,clear button
-     * @cssprop --wcs-button-gap - gap between button content (text and icons)
-     * @cssprop --wcs-button-start-icon-size-s - size of the start icon for a size s button
-     * @cssprop --wcs-button-start-icon-size-m - size of the start icon for a size m button
-     * @cssprop --wcs-button-start-icon-size-l - size of the start icon for a size l button
-     * @cssprop --wcs-button-end-icon-size-s - size of the end icon for a size s button
-     * @cssprop --wcs-button-end-icon-size-m - size of the end icon for a size m button
-     * @cssprop --wcs-button-end-icon-size-l - size of the end icon for a size l button
      */
     interface HTMLWcsButtonElement extends Components.WcsButton, HTMLStencilElement {
     }
@@ -5148,23 +5126,12 @@ declare namespace LocalJSX {
      * @cssprop --wcs-button-font-size-l - font-size for a size l button
      * @cssprop --wcs-button-padding-size-l - padding for a size l button
      * @cssprop --wcs-button-font-weight - font weight of a plain,stroked,clear button
-     * @cssprop --wcs-button-gap - gap between button content (text and icons)
-     * @cssprop --wcs-button-start-icon-size-s - size of the start icon for a size s button
-     * @cssprop --wcs-button-start-icon-size-m - size of the start icon for a size m button
-     * @cssprop --wcs-button-start-icon-size-l - size of the start icon for a size l button
-     * @cssprop --wcs-button-end-icon-size-s - size of the end icon for a size s button
-     * @cssprop --wcs-button-end-icon-size-m - size of the end icon for a size m button
-     * @cssprop --wcs-button-end-icon-size-l - size of the end icon for a size l button
      */
     interface WcsButton {
         /**
           * Specify whether the button is disabled or not.
          */
         "disabled"?: boolean;
-        /**
-          * Name of a wcs-mat-icon to display at the end (right) of the button.
-         */
-        "endIcon"?: string;
         /**
           * Set a URL to point to.<br/> If specified use a `a` tag instead of `btn`.
          */
@@ -5189,10 +5156,6 @@ declare namespace LocalJSX {
           * Specify the size of the button.
          */
         "size"?: WcsButtonSize;
-        /**
-          * Name of a wcs-mat-icon to display at the start (left) of the button.
-         */
-        "startIcon"?: string;
         /**
           * Specifies where to open the linked document when using href (see prop above)<br/> Default '_self' will open the linked document in the same frame as it was clicked
          */
@@ -7712,13 +7675,6 @@ declare module "@stencil/core" {
              * @cssprop --wcs-button-font-size-l - font-size for a size l button
              * @cssprop --wcs-button-padding-size-l - padding for a size l button
              * @cssprop --wcs-button-font-weight - font weight of a plain,stroked,clear button
-             * @cssprop --wcs-button-gap - gap between button content (text and icons)
-             * @cssprop --wcs-button-start-icon-size-s - size of the start icon for a size s button
-             * @cssprop --wcs-button-start-icon-size-m - size of the start icon for a size m button
-             * @cssprop --wcs-button-start-icon-size-l - size of the start icon for a size l button
-             * @cssprop --wcs-button-end-icon-size-s - size of the end icon for a size s button
-             * @cssprop --wcs-button-end-icon-size-m - size of the end icon for a size m button
-             * @cssprop --wcs-button-end-icon-size-l - size of the end icon for a size l button
              */
             "wcs-button": LocalJSX.WcsButton & JSXBase.HTMLAttributes<HTMLWcsButtonElement>;
             /**
