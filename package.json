@@ -30,6 +30,8 @@
         "test": "npm run test:playwright",
         "test:playwright": "playwright test",
         "test:playwright:ui": "playwright test --ui",
+        "test:visual": "playwright test --config playwright.visual.spec.config.ts",
+        "test:visual:update": "playwright test --config playwright.visual.spec.config.ts --update-snapshots",
         "update-version": "node scripts/update-version.js",
         "update-develop": "node scripts/update-develop-from-master.js",
         "storybook": "storybook dev -p 6006",

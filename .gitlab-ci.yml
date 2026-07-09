@@ -31,6 +31,22 @@ test-e2e-playwright:
     - npm run generate-design-tokens
     - npm run test:playwright
 
+test-visual-spec:
+  tags:
+    - sncf-runner
+  stage: test
+  image: mcr.microsoft.com/playwright:v1.57.0-noble
+  script:
+    - npm ci --cache .npm --prefer-offline
+    - npm run test:visual
+  artifacts:
+    name: "visual-report"
+    when: always
+    expose_as: 'Visual HTML Report'
+    paths:
+      - playwright-report-visual-spec/
+    expire_in: 1 day
+
 build:
   tags:
     - sncf-runner

@@ -62,6 +62,39 @@ npm test
 npm run test:playwright:ui
 ```
 
+#### Visual testing
+
+**Docker CLI must be installed on your system**
+
+Visual spec testing serve to assert that wcs components contain no visual regression.
+
+1. Starts the playwright docker container and mount the root directory of WCS into the container
+```shell
+docker run -v $(pwd):/work/ -w /work -it mcr.microsoft.com/playwright:v1.57.0-noble /bin/bash
+```
+2. Install chromium browser within the container: `npx playwright install chromium`
+3. Run visuals tests
+```shell
+npm run test:visual
+```
+4. If you made an update on a component, you must update the snapshot
+```shell
+npm run test:visual:update
+```
+5. Check playwright report in `playwright-report-visual-spec/index.html`
+
+If you want to run / update visual tests for one specific component :
+
+```shell
+npx playwright test --config playwright.visual.spec.config.ts src/components/button
+```
+
+And to update snapshot
+
+```shell
+npx playwright test --config playwright.visual.spec.config.ts src/components/button --update-snapshots
+```
+
 ### Working on the merge request from a fork (as a maintainer)
 
 First of all, you have to make sure that the person who created the fork allow commits from upstream members, see : https://docs.gitlab.com/ee/user/project/merge_requests/allow_collaboration.html#allow-commits-from-upstream-members
