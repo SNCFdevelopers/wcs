@@ -27,6 +27,7 @@ for now removed features.
 
 ### Fixed
 
+- **message**: `--wcs-message-title-font-weight` and `--wcs-message-subtitle-font-weight` was not defined
 - **grid-pagination**: fix the incoherent state 0/X when asynchronous data is set on the grid
 - **form-field**: dynamic label is now well handled on spied element
 
