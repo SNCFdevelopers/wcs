@@ -24,6 +24,7 @@ test.describe('wcs-alert-drawer · visual spec', () => {
             timeout: 0
         }));
         await page.waitForChanges();
+        await page.waitForTimeout(500);
 
         await expect(page).toHaveScreenshot('position-top.png', { fullPage: true });
     });
@@ -49,6 +50,7 @@ test.describe('wcs-alert-drawer · visual spec', () => {
             timeout: 0
         }));
         await page.waitForChanges();
+        await page.waitForTimeout(500);
 
         await expect(page).toHaveScreenshot('position-bottom.png', { fullPage: true });
     });
@@ -74,6 +76,7 @@ test.describe('wcs-alert-drawer · visual spec', () => {
             timeout: 0
         }));
         await page.waitForChanges();
+        await page.waitForTimeout(500);
 
         await expect(page).toHaveScreenshot('position-top-left.png', { fullPage: true });
     });
@@ -99,6 +102,8 @@ test.describe('wcs-alert-drawer · visual spec', () => {
             timeout: 0
         }));
         await page.waitForChanges();
+        await page.waitForTimeout(500);
+
         await expect(page).toHaveScreenshot('position-top-right.png', { fullPage: true });
     });
 
@@ -123,6 +128,7 @@ test.describe('wcs-alert-drawer · visual spec', () => {
             timeout: 0
         }));
         await page.waitForChanges();
+        await page.waitForTimeout(500);
 
         await expect(page).toHaveScreenshot('position-bottom-left.png', { fullPage: true });
     });
@@ -148,6 +154,7 @@ test.describe('wcs-alert-drawer · visual spec', () => {
             timeout: 0
         }));
         await page.waitForChanges();
+        await page.waitForTimeout(500);
 
         await expect(page).toHaveScreenshot('position-bottom-right.png', { fullPage: true });
     });
@@ -171,6 +178,7 @@ test.describe('wcs-alert-drawer · visual spec', () => {
             timeout: 0
         }));
         await page.waitForChanges();
+        await page.waitForTimeout(500);
 
         await expect(page).toHaveScreenshot('show-progress-bar.png', { fullPage: true });
     });
