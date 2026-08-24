@@ -159,6 +159,8 @@ export class GridPagination implements ComponentInterface, MutableAriaAttribute 
     }
 
     render(): any {
+        const displayedCurrentPage = this.itemsCount === 0 ? 0 : this.currentPage + 1;
+
         return (<Host slot="grid-pagination">
             <div class="container">
                 <div class="page-size">
@@ -199,8 +201,8 @@ export class GridPagination implements ComponentInterface, MutableAriaAttribute 
                         </li>
     
                         <li class="pagination-counter">
-                            <span aria-label={`Page ${this.currentPage + 1} sur ${this.pageCount}`} aria-current="page">
-                                {this.currentPage + 1} / {this.pageCount}
+                            <span aria-label={`Page ${displayedCurrentPage} sur ${this.pageCount}`} aria-current="page">
+                                {displayedCurrentPage} / {this.pageCount}
                             </span>
                         </li>
     

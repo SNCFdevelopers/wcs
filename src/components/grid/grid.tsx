@@ -540,7 +540,7 @@ export class Grid implements ComponentInterface, ComponentDidLoad, MutableAriaAt
             if(!this.data || this.data?.length === 0) {
                 this.paginationEl.itemsCount = 0;
                 this.paginationEl.pageCount = 0;
-                this.paginationEl.currentPage = -1;
+                this.paginationEl.currentPage = GridPagination.INDEX_FIRST_PAGE;
                 return;
             }
 

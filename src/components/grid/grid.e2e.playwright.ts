@@ -269,7 +269,7 @@ test.describe('Grid component', () => {
                 currentPage: el.currentPage,
                 pageCount: el.pageCount
             }));
-            expect(currentPage).toBe(-1);
+            expect(currentPage).toBe(0);
             expect(pageCount).toBe(0);
 
             // The displayed counter should show "0 / 0"
@@ -298,7 +298,7 @@ test.describe('Grid component', () => {
                 currentPage: el.currentPage,
                 pageCount: el.pageCount
             }));
-            expect(currentPage).toBe(-1);
+            expect(currentPage).toBe(0);
             expect(pageCount).toBe(0);
 
             const counter = pagination.locator('.pagination-counter span');
@@ -333,10 +333,42 @@ test.describe('Grid component', () => {
                 currentPage: el.currentPage,
                 pageCount: el.pageCount
             }));
-            expect(currentPage).toBe(-1);
+            expect(currentPage).toBe(0);
             expect(pageCount).toBe(0);
 
             await expect(counterAfterData).toHaveText('0 / 0');
+        });
+
+        test('should set 0/0 when no data and well set the pagination when data is set after', async ({ page }: { page: E2EPage }) => {
+            // Given
+            await setWcsContent(page, `
+                <wcs-grid id="grid">
+                    <wcs-grid-column path="first_name" name="First Name"></wcs-grid-column>
+                    <wcs-grid-pagination id="pagination"></wcs-grid-pagination>
+                </wcs-grid>
+            `);
+
+            const grid = page.locator('#grid');
+            const pagination = page.locator('#pagination');
+            await grid.evaluate((el: HTMLWcsGridElement, d) => el.data = d, []);
+            await pagination.evaluate((el: HTMLWcsGridPaginationElement, pageSize) => el.pageSize = pageSize, 2);
+            await pagination.evaluate((el: HTMLWcsGridPaginationElement, availablePageSizes) => el.availablePageSizes = availablePageSizes, [2]);
+
+            // When - no data is set at all
+            await page.waitForChanges();
+
+            // Then
+            const counter = pagination.locator('.pagination-counter span');
+            await expect(counter).toHaveText('0 / 0');
+
+            // When - data is set after
+            const data = [{ id: 1, first_name: 'John' }, { id: 2, first_name: 'Doe' }, { id: 3, first_name: 'Jane' }];
+            await grid.evaluate((el: HTMLWcsGridElement, d) => el.data = d, data);
+            await page.waitForChanges();
+
+            // Then
+            const counterAfterData = pagination.locator('.pagination-counter span');
+            await expect(counterAfterData).toHaveText('1 / 2');
         });
     });
 });

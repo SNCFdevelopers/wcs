@@ -27,7 +27,7 @@ for now removed features.
 
 ### Fixed
 
-for any bug fixes.
+- **grid-pagination**: fix the incoherent state 0/X when asynchronous data is set on the grid
 
 ### Security
 
