@@ -27,6 +27,7 @@ for now removed features.
 
 ### Fixed
 
+- **input**: border radius was unset for suffix / prefix
 - **message**
   - `--wcs-message-title-font-weight` and `--wcs-message-subtitle-font-weight` was not defined
   - bad color for close button
