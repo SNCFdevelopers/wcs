@@ -53,6 +53,91 @@ test.describe('Form field component', () => {
                 // Then
                 await expect(switchInput).toHaveAttribute('aria-label', 'Label switch');
             });
+
+            [
+                {
+                    name: 'select',
+                    control: `
+                        <wcs-select>
+                            <wcs-select-option value="1">Option 1</wcs-select-option>
+                            <wcs-select-option value="2">Option 2</wcs-select-option>
+                            <wcs-select-option value="3">Option 3</wcs-select-option>
+                        </wcs-select>
+                    `,
+                    ariaLabelSelector: 'wcs-select'
+                },
+                {
+                    name: 'input',
+                    control: '<wcs-input/>',
+                    ariaLabelSelector: 'wcs-input input'
+                },
+                {
+                    name: 'textarea',
+                    control: '<wcs-textarea/>',
+                    ariaLabelSelector: 'wcs-textarea textarea'
+                },
+                {
+                    name: 'native-select',
+                    control: `
+                        <wcs-native-select>
+                            <select>
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                            </select>
+                        </wcs-native-select>
+                    `,
+                    ariaLabelSelector: 'wcs-native-select select'
+                },
+                {
+                    name: 'radio-group',
+                    control: `
+                        <wcs-radio-group>
+                            <wcs-radio name="group" label="Option 1" value="1"></wcs-radio>
+                            <wcs-radio name="group" label="Option 2" value="2"></wcs-radio>
+                        </wcs-radio-group>
+                    `,
+                    ariaLabelSelector: 'wcs-radio-group'
+                },
+                {
+                    name: 'counter',
+                    control: '<wcs-counter></wcs-counter>',
+                    ariaLabelSelector: 'wcs-counter [role="spinbutton"]'
+                },
+                {
+                    name: 'switch',
+                    control: '<wcs-switch>Label switch</wcs-switch>',
+                    ariaLabelSelector: 'wcs-switch input',
+                    innerLabel: 'Label switch'
+                },
+                {
+                    name: 'checkbox',
+                    control: '<wcs-checkbox>Label checkbox</wcs-checkbox>',
+                    ariaLabelSelector: 'wcs-checkbox input',
+                    innerLabel: 'Label checkbox'
+                }
+            ].forEach(({name, control, ariaLabelSelector, innerLabel}) => {
+                test(`Should update aria-label of ${name} when form-field label changes`, async ({ page }: { page: E2EPage }) => {
+                    // Given
+                    await setWcsContent(page, `
+                        <wcs-form-field>
+                            <wcs-label>Label form field</wcs-label>
+                            ${control}
+                        </wcs-form-field>
+                    `);
+
+                    const formControl = page.locator(ariaLabelSelector);
+                    const initialAriaLabel = ['Label form field', innerLabel].filter(Boolean).join(' ');
+                    await expect(formControl).toHaveAttribute('aria-label', initialAriaLabel);
+
+                    // When
+                    const updatedLabel = 'New label form field';
+                    await page.locator('wcs-label').evaluate((label, value) => label.textContent = value, updatedLabel);
+
+                    // Then
+                    const updatedAriaLabel = [updatedLabel, innerLabel].filter(Boolean).join(' ');
+                    await expect(formControl).toHaveAttribute('aria-label', updatedAriaLabel);
+                });
+            });
         });
     });
 

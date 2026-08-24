@@ -28,6 +28,7 @@ for now removed features.
 ### Fixed
 
 - **grid-pagination**: fix the incoherent state 0/X when asynchronous data is set on the grid
+- **form-field**: dynamic label is now well handled on spied element
 
 ### Security
 

@@ -66,7 +66,8 @@ export class FormField implements ComponentInterface {
     @State() private hasSuffix: boolean = false;
     @State() private spiedElement: Element;
 
-    private observer: MutationObserver;
+    private requiredAttributeOnSpiedElementObserver: MutationObserver;
+    private labelContentObserver: MutationObserver;
 
     componentWillLoad() {
         this.hasSuffix = this.el.querySelector('[slot=suffix]') !== null;
@@ -75,6 +76,7 @@ export class FormField implements ComponentInterface {
 
     componentDidLoad() {
         this.initSpiedElement();
+        this.observeLabelContent();
         this.addRequiredMarkerToLabel();
         this.updateErrorStateOnInput(this.isError);
     }
@@ -112,14 +114,14 @@ export class FormField implements ComponentInterface {
     private addRequiredMarkerToLabel() {
         // TODO: deprecate this in favor of the 'required' component attribute
         const label = this.el.querySelector('wcs-label');
-        this.observer = new MutationObserver(mutations => {
+        this.requiredAttributeOnSpiedElementObserver = new MutationObserver(mutations => {
             const requiredAttMutation = mutations.filter(m => m.attributeName === 'required')[0];
             if (requiredAttMutation) {
                 this.updateLabelRequiredFlag(this.spiedElement?.hasAttribute('required'), label);
             }
         });
         if (this.spiedElement) {
-            this.observer.observe(this.spiedElement, {attributes: true});
+            this.requiredAttributeOnSpiedElementObserver.observe(this.spiedElement, {attributes: true});
         }
 
         const isRequired = this.spiedElement?.hasAttribute('required');
@@ -180,6 +182,20 @@ export class FormField implements ComponentInterface {
             this.spiedElement.setAriaAttribute('aria-label', ariaLabelParts.length > 0 ? ariaLabelParts.join(' ') : null);
         }
     }
+
+    private observeLabelContent(): void {
+        this.labelContentObserver?.disconnect();
+
+        const label = this.el.querySelector('wcs-label');
+        if (label) {
+            this.labelContentObserver = new MutationObserver(() => this.updateAriaAttributes());
+            this.labelContentObserver.observe(label, {
+                childList: true,
+                characterData: true,
+                subtree: true
+            });
+        }
+    }
     
     private get label(): string | null {
         return this.el.querySelector('wcs-label')?.textContent || null;
@@ -202,7 +218,8 @@ export class FormField implements ComponentInterface {
     }
 
     disconnectedCallback() {
-        this.observer?.disconnect();
+        this.requiredAttributeOnSpiedElementObserver?.disconnect();
+        this.labelContentObserver?.disconnect();
     }
 
     render() {
@@ -217,7 +234,7 @@ export class FormField implements ComponentInterface {
         }
         return (
             <Host class={classes}>
-                <slot name="label"/>
+                <slot name="label" onSlotchange={this.onLabelSlotChange.bind(this)}/>
                 <div class="input-container">
                     <slot name="prefix"/>
                     <slot onSlotchange={() => this.onFormInputSlotChange()}/>
@@ -236,5 +253,10 @@ export class FormField implements ComponentInterface {
         this.updateAriaAttributes()
         this.addRequiredMarkerToLabel();
         this.updateErrorStateOnInput(this.isError);
+    }
+
+    private onLabelSlotChange() {
+        this.observeLabelContent();
+        this.updateAriaAttributes();
     }
 }
