@@ -44,4 +44,8 @@ export class SelectValueAccessor implements ControlValueAccessor {
       this.onTouched();
     }
   }
+
+  setDisabledState(isDisabled: boolean): void {
+    this.el.nativeElement.disabled = isDisabled;
+  }
 }

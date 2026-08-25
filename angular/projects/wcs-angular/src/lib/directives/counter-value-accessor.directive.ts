@@ -44,4 +44,8 @@ export class CounterValueAccessorDirective implements ControlValueAccessor {
   registerOnTouched(fn): void {
     this.onTouched = fn;
   }
+
+  setDisabledState(isDisabled: boolean): void {
+    this.el.nativeElement.disabled = isDisabled;
+  }
 }

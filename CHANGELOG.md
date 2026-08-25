@@ -33,6 +33,7 @@ for now removed features.
   - bad color for close button
 - **grid-pagination**: fix the incoherent state 0/X when asynchronous data is set on the grid
 - **form-field**: dynamic label is now well handled on spied element
+- **Angular**: propagate the disabled state from Angular forms to checkbox, counter, input, select, switch, and textarea components
 
 ### Security
 
