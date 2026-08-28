@@ -2,6 +2,7 @@ import { JsonPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { WcsAlertService, WcsAngularModule } from 'wcs-angular';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { HorizontalStepConfig } from 'wcs-core';
 
 @Component({
   selector: 'app-controls',
@@ -37,6 +38,16 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
     <div>
       {{ formGroup.value | json }}
     </div>
+
+    <section>
+      <h3>Horizontal stepper</h3>
+      <wcs-horizontal-stepper [(currentStep)]="currentStep" [steps]="stepperSteps"></wcs-horizontal-stepper>
+      <p>Current step: {{ currentStep }}</p>
+      <div class="row">
+        <wcs-button mode="clear" [disabled]="currentStep === 0" (click)="currentStep = currentStep - 1">Previous</wcs-button>
+        <wcs-button mode="clear" [disabled]="currentStep === stepperSteps.length - 1" (click)="currentStep = currentStep + 1">Next</wcs-button>
+      </div>
+    </section>
   `,
   styles: [`
     :host {
@@ -47,6 +58,8 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
   `]
 })
 export class ControlsPageComponent {
+  currentStep = 1;
+
   formGroup: FormGroup = new FormGroup({
     input: new FormControl('test'),
     number: new FormControl('0'),
@@ -58,6 +71,11 @@ export class ControlsPageComponent {
   });
   title = 'wcs-angular-standalone-example';
   readonly pageSize: number = 5;
+  readonly stepperSteps: HorizontalStepConfig[] = [
+    { text: 'Step 1', button: { kind: 'Text', text: '1' } },
+    { text: 'Step 2', button: { kind: 'Text', text: '2' } },
+    { text: 'Step 3', button: { kind: 'Text', text: '3' } },
+  ];
 
   private alertService: WcsAlertService = inject(WcsAlertService);
 

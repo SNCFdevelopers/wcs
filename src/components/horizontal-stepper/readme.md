@@ -26,6 +26,7 @@ The horizontal-stepper is a representation of a user’s progress through a seri
 
 | Event                    | Description                             | Type                                    |
 | ------------------------ | --------------------------------------- | --------------------------------------- |
+| `currentStepChange`      | Emits when currentStep changes.         | `CustomEvent<number>`                   |
 | `wcsHorizontalStepClick` | Emits when the user selects a new step. | `CustomEvent<HorizontalStepClickEvent>` |
 
 

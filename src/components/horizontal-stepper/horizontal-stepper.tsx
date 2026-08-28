@@ -53,6 +53,10 @@ export class HorizontalStepper implements ComponentInterface {
      * Emits when the user selects a new step.
      */
     @Event() wcsHorizontalStepClick!: EventEmitter<HorizontalStepClickEvent>
+    /**
+     * Emits when currentStep changes.
+     */
+    @Event() currentStepChange!: EventEmitter<number>
 
     /**
      * Used to know which current step index is selected (component internal calculations mainly for the animation)
@@ -69,6 +73,10 @@ export class HorizontalStepper implements ComponentInterface {
 
     @Watch('currentStep')
     onCurrentStepChange(newValue: number, oldValue: number) {
+        if (newValue !== oldValue) {
+            this.currentStepChange.emit(newValue);
+        }
+
         //Check if the function is called before the component has finished its initialization in which case we do nothing
         if (this.internalCurrentStepIndex !== undefined) {
             const stepInterval = Math.abs(oldValue - newValue);

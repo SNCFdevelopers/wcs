@@ -3920,6 +3920,7 @@ declare global {
     };
     interface HTMLWcsHorizontalStepperElementEventMap {
         "wcsHorizontalStepClick": HorizontalStepClickEvent;
+        "currentStepChange": number;
     }
     /**
      * The horizontal-stepper is a representation of a user’s progress through a series of discrete steps.
@@ -6262,6 +6263,10 @@ declare namespace LocalJSX {
           * Specifies if the stepper is in linear mode (the user can only click on the next step) or non-linear (the user can click on any step)
          */
         "mode"?: HorizontalStepperMode;
+        /**
+          * Emits when currentStep changes.
+         */
+        "onCurrentStepChange"?: (event: WcsHorizontalStepperCustomEvent<number>) => void;
         /**
           * Emits when the user selects a new step.
          */

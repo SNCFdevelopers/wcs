@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-01T08:23:07",
+  "timestamp": "2026-08-21T14:23:52",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -7719,6 +7719,20 @@
         }
       ],
       "events": [
+        {
+          "event": "currentStepChange",
+          "detail": "number",
+          "bubbles": true,
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emits when currentStep changes.",
+          "docsTags": []
+        },
         {
           "event": "wcsHorizontalStepClick",
           "detail": "HorizontalStepClickEvent",

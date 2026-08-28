@@ -1129,13 +1129,15 @@ export declare interface WcsHint extends Components.WcsHint {}
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['checkOnComplete', 'currentStep', 'mode', 'steps'],
+  // eslint-disable-next-line @angular-eslint/no-outputs-metadata-property
+  outputs: ['currentStepChange'],
 })
 export class WcsHorizontalStepper {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['wcsHorizontalStepClick']);
+    proxyOutputs(this, this.el, ['wcsHorizontalStepClick', 'currentStepChange']);
   }
 }
 
@@ -1147,6 +1149,10 @@ export declare interface WcsHorizontalStepper extends Components.WcsHorizontalSt
    * Emits when the user selects a new step.
    */
   wcsHorizontalStepClick: EventEmitter<CustomEvent<IWcsHorizontalStepperHorizontalStepClickEvent>>;
+  /**
+   * Emits when currentStep changes.
+   */
+  currentStepChange: EventEmitter<CustomEvent<number>>;
 }
 
 
@@ -1888,5 +1894,4 @@ export class WcsTooltip {
 
 
 export declare interface WcsTooltip extends Components.WcsTooltip {}
-
 
