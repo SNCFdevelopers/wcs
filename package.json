@@ -15,13 +15,16 @@
         "loader/",
         "design-tokens/dist/",
         "bundle/",
-        "composite-elements/"
+        "composite-elements/",
+        "skills/"
     ],
     "scripts": {
         "build:stencil": "stencil build",
         "generate-custom-element-manifest": "cd src && custom-elements-manifest analyze --stencil --outdir ../",
         "generate-docs-json": "stencil build --docs-json ./stories/documentation/generated/docs.json",
-        "build": "npm run generate-design-tokens && stencil build && npm run generate-custom-element-manifest && npm run build-storybook",
+        "generate-skills": "node scripts/generate-core-skill.mjs",
+        "ensure-skill-dir": "node scripts/ensure-skill-dir.mjs",
+        "build": "npm run generate-design-tokens && npm run ensure-skill-dir && stencil build && npm run generate-custom-element-manifest && npm run generate-skills && npm run build-storybook",
         "json-to-dtf": "node design-tokens/json-to-dtf/index.mjs",
         "generate-design-tokens": "node design-tokens/index.mjs ",
         "watch:stencil": "stencil build --dev --watch",

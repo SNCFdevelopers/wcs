@@ -12,6 +12,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 
 - **horizontal-stepper**: add `currentStepChange` event and `onCurrentStepChange` callback
+- **ai**: add skills systems
 
 ### Changed
 

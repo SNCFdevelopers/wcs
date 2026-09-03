@@ -3,7 +3,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:wcs-angular": "ng build --configuration production wcs-angular",
+    "build:wcs-angular": "ng build --configuration production wcs-angular && node projects/wcs-angular/scripts/generate-skill.mjs",
     "build:wcs-formly": "ng build --configuration production wcs-formly",
     "test": "ng test",
     "lint": "ng lint"

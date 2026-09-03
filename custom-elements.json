@@ -1088,6 +1088,44 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/accordion-header/accordion-header.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The accordion-header is a subcomponent of `wcs-accordion`. It represents the heading text inside the accordion panel.",
+          "name": "AccordionHeader",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-accordion-header",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "AccordionHeader",
+          "declaration": {
+            "name": "AccordionHeader",
+            "module": "components/accordion-header/accordion-header.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-accordion-header",
+          "declaration": {
+            "name": "AccordionHeader",
+            "module": "components/accordion-header/accordion-header.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/accordion/accordion.e2e.playwright.ts",
       "declarations": [],
       "exports": []
@@ -1282,6 +1320,12 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/accordion/accordion.visual.spec.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/accordion-content/accordion-content.tsx",
       "declarations": [
         {
@@ -1324,44 +1368,6 @@
           "declaration": {
             "name": "AccordionContent",
             "module": "components/accordion-content/accordion-content.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/accordion-header/accordion-header.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The accordion-header is a subcomponent of `wcs-accordion`. It represents the heading text inside the accordion panel.",
-          "name": "AccordionHeader",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-accordion-header",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "AccordionHeader",
-          "declaration": {
-            "name": "AccordionHeader",
-            "module": "components/accordion-header/accordion-header.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-accordion-header",
-          "declaration": {
-            "name": "AccordionHeader",
-            "module": "components/accordion-header/accordion-header.tsx"
           }
         }
       ]
@@ -1640,6 +1646,12 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/accordion-panel/accordion-panel.visual.spec.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/action-bar/action-bar.tsx",
       "declarations": [
         {
@@ -1759,6 +1771,241 @@
           }
         }
       ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/action-bar/action-bar.visual.spec.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/alert-drawer/alert-drawer-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/alert-drawer/alert-drawer.e2e.playwright.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/alert-drawer/alert-drawer.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Serve as a container for displaying `wcs-alert` components. Directly use this component to display alerts in your applications.\r\n\r\n## Usage\r\n\r\nYou can place the `wcs-alert-drawer` component anywhere in your application. It will be used to display alerts.\r\nYou need to set `position` property to define where the alert drawer will be displayed on the screen.\r\n\r\nAbout alerts order:\r\n- alerts are ordered up-bottom if the position is `top` and bottom-up if the position is `bottom`\r\n\r\n## Accessibility guidelines 💡\r\n\r\n- The component has `aria-live=\"polite\"` and `aria-atomic=\"true\"` attributes to announce the new alerts to screen readers\r\n\r\n## Configuration (on the web component)\r\n\r\nPer default, the `wcs-alert-drawer` is configured with:\r\n- `position: 'top-right'`\r\n- `showProgressBar: false`\r\n- `timeout: 5000`\r\n\r\nWhen using the `WcsAlertDrawer::show(alert: WcsAlertConfig)` method, you can override the default configuration by \r\noverriding it through the argument.\r\nYou can also set them in the `wcs-alert-drawer` component directly as attributes\r\n\r\n```html\r\n<wcs-alert-drawer position=\"top-right\" show-progress-bar timeout=\"10000\">\r\n```\r\nWith this configuration, all alerts will be displayed with a progress bar and a timeout of 10 seconds.",
+          "name": "AlertDrawer",
+          "cssProperties": [
+            {
+              "description": "Gap between alerts",
+              "name": "--wcs-alert-drawer-gap"
+            },
+            {
+              "description": "Margin horizontal of the alert drawer",
+              "name": "--wcs-alert-drawer-margin-horizontal"
+            },
+            {
+              "description": "Margin vertical of the alert drawer",
+              "name": "--wcs-alert-drawer-margin-vertical"
+            },
+            {
+              "description": "Duration of the hide alert animation",
+              "name": "--wcs-alert-drawer-hide-alert-animation-duration"
+            },
+            {
+              "description": "Minimum width of the alert drawer => define the width of the alerts",
+              "name": "--wcs-alert-drawer-min-width"
+            }
+          ],
+          "slots": [
+            {
+              "description": "the alert drawer content, where alerts you put as children will be displayed",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsAlertDrawerElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "position",
+              "type": {
+                "text": "WcsAlertDrawerPosition"
+              },
+              "default": "'bottom-right'",
+              "description": "Position of the alert drawer on the screen"
+            },
+            {
+              "kind": "field",
+              "name": "timeout",
+              "type": {
+                "text": "number"
+              },
+              "default": "5000",
+              "description": "Timeout for the alert to be dismissed automatically"
+            },
+            {
+              "kind": "field",
+              "name": "showProgressBar",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Whether to show the progress bar or not"
+            },
+            {
+              "kind": "field",
+              "name": "alertEventListeners",
+              "privacy": "private",
+              "default": "new WeakMap<HTMLElement, (evt: AnimationEvent) => void>()"
+            },
+            {
+              "kind": "field",
+              "name": "timeoutId",
+              "privacy": "private",
+              "default": "undefined"
+            },
+            {
+              "kind": "field",
+              "name": "userPrefersReducedMotion",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "alertsContainer",
+              "type": {
+                "text": "HTMLDivElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "close",
+              "privacy": "private",
+              "description": "Handles the dismissal of an alert",
+              "parameters": [
+                {
+                  "description": "The alert element",
+                  "name": "alert"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "show",
+              "return": {
+                "type": {
+                  "text": "Promise<void>"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "alert",
+                  "type": {
+                    "text": "WcsAlertConfig"
+                  },
+                  "description": "The alert to show"
+                }
+              ],
+              "description": "Method exposed on `wcs-alert-drawer` to show an alert programmatically via the JS API"
+            },
+            {
+              "kind": "method",
+              "name": "clear",
+              "return": {
+                "type": {
+                  "text": "Promise<void>"
+                }
+              },
+              "description": "Method exposed on `wcs-alert-drawer` to clear all `wcs-alert` which are inside, via the JS API"
+            },
+            {
+              "kind": "method",
+              "name": "renderToast",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "HTMLWcsAlertElement"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "alert",
+                  "type": {
+                    "text": "WcsAlertConfig"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "position",
+              "fieldName": "position",
+              "type": {
+                "text": "WcsAlertDrawerPosition"
+              }
+            },
+            {
+              "name": "timeout",
+              "fieldName": "timeout",
+              "type": {
+                "text": "number"
+              }
+            },
+            {
+              "name": "show-progress-bar",
+              "fieldName": "showProgressBar",
+              "type": {
+                "text": "boolean"
+              }
+            }
+          ],
+          "tagName": "wcs-alert-drawer",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "AlertDrawer",
+          "declaration": {
+            "name": "AlertDrawer",
+            "module": "components/alert-drawer/alert-drawer.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-alert-drawer",
+          "declaration": {
+            "name": "AlertDrawer",
+            "module": "components/alert-drawer/alert-drawer.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/alert-drawer/alert-drawer.visual.spec.ts",
+      "declarations": [],
+      "exports": []
     },
     {
       "kind": "javascript-module",
@@ -2075,226 +2322,9 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/alert-drawer/alert-drawer-interface.ts",
+      "path": "components/alert/alert.visual.spec.ts",
       "declarations": [],
       "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/alert-drawer/alert-drawer.e2e.playwright.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/alert-drawer/alert-drawer.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Serve as a container for displaying `wcs-alert` components. Directly use this component to display alerts in your applications.\r\n\r\n## Usage\r\n\r\nYou can place the `wcs-alert-drawer` component anywhere in your application. It will be used to display alerts.\r\nYou need to set `position` property to define where the alert drawer will be displayed on the screen.\r\n\r\nAbout alerts order:\r\n- alerts are ordered up-bottom if the position is `top` and bottom-up if the position is `bottom`\r\n\r\n## Accessibility guidelines 💡\r\n\r\n- The component has `aria-live=\"polite\"` and `aria-atomic=\"true\"` attributes to announce the new alerts to screen readers\r\n\r\n## Configuration (on the web component)\r\n\r\nPer default, the `wcs-alert-drawer` is configured with:\r\n- `position: 'top-right'`\r\n- `showProgressBar: false`\r\n- `timeout: 5000`\r\n\r\nWhen using the `WcsAlertDrawer::show(alert: WcsAlertConfig)` method, you can override the default configuration by \r\noverriding it through the argument.\r\nYou can also set them in the `wcs-alert-drawer` component directly as attributes\r\n\r\n```html\r\n<wcs-alert-drawer position=\"top-right\" show-progress-bar timeout=\"10000\">\r\n```\r\nWith this configuration, all alerts will be displayed with a progress bar and a timeout of 10 seconds.",
-          "name": "AlertDrawer",
-          "cssProperties": [
-            {
-              "description": "Gap between alerts",
-              "name": "--wcs-alert-drawer-gap"
-            },
-            {
-              "description": "Margin horizontal of the alert drawer",
-              "name": "--wcs-alert-drawer-margin-horizontal"
-            },
-            {
-              "description": "Margin vertical of the alert drawer",
-              "name": "--wcs-alert-drawer-margin-vertical"
-            },
-            {
-              "description": "Duration of the hide alert animation",
-              "name": "--wcs-alert-drawer-hide-alert-animation-duration"
-            },
-            {
-              "description": "Minimum width of the alert drawer => define the width of the alerts",
-              "name": "--wcs-alert-drawer-min-width"
-            }
-          ],
-          "slots": [
-            {
-              "description": "the alert drawer content, where alerts you put as children will be displayed",
-              "name": ""
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsAlertDrawerElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "position",
-              "type": {
-                "text": "WcsAlertDrawerPosition"
-              },
-              "default": "'bottom-right'",
-              "description": "Position of the alert drawer on the screen"
-            },
-            {
-              "kind": "field",
-              "name": "timeout",
-              "type": {
-                "text": "number"
-              },
-              "default": "5000",
-              "description": "Timeout for the alert to be dismissed automatically"
-            },
-            {
-              "kind": "field",
-              "name": "showProgressBar",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Whether to show the progress bar or not"
-            },
-            {
-              "kind": "field",
-              "name": "alertEventListeners",
-              "privacy": "private",
-              "default": "new WeakMap<HTMLElement, (evt: AnimationEvent) => void>()"
-            },
-            {
-              "kind": "field",
-              "name": "timeoutId",
-              "privacy": "private",
-              "default": "undefined"
-            },
-            {
-              "kind": "field",
-              "name": "userPrefersReducedMotion",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "alertsContainer",
-              "type": {
-                "text": "HTMLDivElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "close",
-              "privacy": "private",
-              "description": "Handles the dismissal of an alert",
-              "parameters": [
-                {
-                  "description": "The alert element",
-                  "name": "alert"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "show",
-              "return": {
-                "type": {
-                  "text": "Promise<void>"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "alert",
-                  "type": {
-                    "text": "WcsAlertConfig"
-                  },
-                  "description": "The alert to show"
-                }
-              ],
-              "description": "Method exposed on `wcs-alert-drawer` to show an alert programmatically via the JS API"
-            },
-            {
-              "kind": "method",
-              "name": "clear",
-              "return": {
-                "type": {
-                  "text": "Promise<void>"
-                }
-              },
-              "description": "Method exposed on `wcs-alert-drawer` to clear all `wcs-alert` which are inside, via the JS API"
-            },
-            {
-              "kind": "method",
-              "name": "renderToast",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "HTMLWcsAlertElement"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "alert",
-                  "type": {
-                    "text": "WcsAlertConfig"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "position",
-              "fieldName": "position",
-              "type": {
-                "text": "WcsAlertDrawerPosition"
-              }
-            },
-            {
-              "name": "timeout",
-              "fieldName": "timeout",
-              "type": {
-                "text": "number"
-              }
-            },
-            {
-              "name": "show-progress-bar",
-              "fieldName": "showProgressBar",
-              "type": {
-                "text": "boolean"
-              }
-            }
-          ],
-          "tagName": "wcs-alert-drawer",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "AlertDrawer",
-          "declaration": {
-            "name": "AlertDrawer",
-            "module": "components/alert-drawer/alert-drawer.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-alert-drawer",
-          "declaration": {
-            "name": "AlertDrawer",
-            "module": "components/alert-drawer/alert-drawer.tsx"
-          }
-        }
-      ]
     },
     {
       "kind": "javascript-module",
@@ -2493,6 +2523,12 @@
           }
         }
       ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/badge/badge.visual.spec.ts",
+      "declarations": [],
+      "exports": []
     },
     {
       "kind": "javascript-module",
@@ -2836,6 +2872,12 @@
           }
         }
       ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/breadcrumb/breadcrumb.visual.spec.ts",
+      "declarations": [],
+      "exports": []
     },
     {
       "kind": "javascript-module",
@@ -3383,6 +3425,12 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/button/button.visual.spec.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/card/card-interface.ts",
       "declarations": [],
       "exports": []
@@ -3536,6 +3584,12 @@
           }
         }
       ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/card/card.visual.spec.ts",
+      "declarations": [],
+      "exports": []
     },
     {
       "kind": "javascript-module",
@@ -3763,6 +3817,12 @@
           }
         }
       ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/card-header/card-header.visual.spec.ts",
+      "declarations": [],
+      "exports": []
     },
     {
       "kind": "javascript-module",
@@ -4247,6 +4307,12 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/checkbox/checkbox.visual.spec.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/chip/chip-interface.ts",
       "declarations": [],
       "exports": []
@@ -4720,6 +4786,12 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/chip/chip.visual.spec.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/com-nav/com-nav-interface.ts",
       "declarations": [],
       "exports": []
@@ -5044,6 +5116,12 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/com-nav/com-nav.visual.spec.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/com-nav-category/com-nav-category.tsx",
       "declarations": [
         {
@@ -5357,6 +5435,12 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/com-nav-category/com-nav-category.visual.spec.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/com-nav-item/com-nav-item.tsx",
       "declarations": [
         {
@@ -5422,6 +5506,12 @@
           }
         }
       ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/com-nav-item/com-nav-item.visual.spec.ts",
+      "declarations": [],
+      "exports": []
     },
     {
       "kind": "javascript-module",
@@ -5775,6 +5865,12 @@
           }
         }
       ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/com-nav-submenu/com-nav-submenu.visual.spec.ts",
+      "declarations": [],
+      "exports": []
     },
     {
       "kind": "javascript-module",
@@ -6169,6 +6265,12 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/counter/counter.visual.spec.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/divider/divider.tsx",
       "declarations": [
         {
@@ -6214,6 +6316,12 @@
           }
         }
       ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/divider/divider.visual.spec.ts",
+      "declarations": [],
+      "exports": []
     },
     {
       "kind": "javascript-module",
@@ -6704,6 +6812,12 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/dropdown/dropdown.visual.spec.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/dropdown-divider/dropdown-divider.tsx",
       "declarations": [
         {
@@ -6749,6 +6863,12 @@
           }
         }
       ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/dropdown-divider/dropdown-divider.visual.spec.ts",
+      "declarations": [],
+      "exports": []
     },
     {
       "kind": "javascript-module",
@@ -6815,6 +6935,12 @@
           }
         }
       ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/dropdown-header/dropdown-header.visual.spec.ts",
+      "declarations": [],
+      "exports": []
     },
     {
       "kind": "javascript-module",
@@ -6959,6 +7085,12 @@
           }
         }
       ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/dropdown-item/dropdown-item.visual.spec.ts",
+      "declarations": [],
+      "exports": []
     },
     {
       "kind": "javascript-module",
@@ -7598,6 +7730,12 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/editable-field/editable-field.visual.spec.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/error/error.tsx",
       "declarations": [
         {
@@ -7647,6 +7785,12 @@
           }
         }
       ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/error/error.visual.spec.ts",
+      "declarations": [],
+      "exports": []
     },
     {
       "kind": "javascript-module",
@@ -7737,6 +7881,12 @@
           }
         }
       ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/field/field.visual.spec.ts",
+      "declarations": [],
+      "exports": []
     },
     {
       "kind": "javascript-module",
@@ -7955,6 +8105,12 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/footer/footer.visual.spec.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/form-field/form-field.e2e.playwright.ts",
       "declarations": [],
       "exports": []
@@ -8089,7 +8245,15 @@
             },
             {
               "kind": "field",
-              "name": "observer",
+              "name": "requiredAttributeOnSpiedElementObserver",
+              "type": {
+                "text": "MutationObserver"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "labelContentObserver",
               "type": {
                 "text": "MutationObserver"
               },
@@ -8161,6 +8325,16 @@
               }
             },
             {
+              "kind": "method",
+              "name": "observeLabelContent",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
               "kind": "field",
               "name": "label",
               "type": {
@@ -8214,6 +8388,11 @@
               "kind": "method",
               "name": "onFormInputSlotChange",
               "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "onLabelSlotChange",
+              "privacy": "private"
             }
           ],
           "attributes": [
@@ -8248,6 +8427,12 @@
           }
         }
       ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/form-field/form-field.visual.spec.ts",
+      "declarations": [],
+      "exports": []
     },
     {
       "kind": "javascript-module",
@@ -8360,6 +8545,12 @@
           }
         }
       ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/galactic/galactic.visual.spec.ts",
+      "declarations": [],
+      "exports": []
     },
     {
       "kind": "javascript-module",
@@ -8559,6 +8750,12 @@
           }
         }
       ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/galactic-menu/galactic-menu.visual.spec.ts",
+      "declarations": [],
+      "exports": []
     },
     {
       "kind": "javascript-module",
@@ -9604,6 +9801,12 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/grid/grid.visual.spec.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/grid-column/grid-column.tsx",
       "declarations": [
         {
@@ -10047,6 +10250,149 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/header/header.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The header component is an element that appears across the top of all pages on a website or application; it contains the logo, the site name and main actions.",
+          "name": "Header",
+          "cssProperties": [
+            {
+              "description": "Background color of the header",
+              "name": "--wcs-header-background-color"
+            },
+            {
+              "description": "Gap between elements in the header",
+              "name": "--wcs-header-gap"
+            },
+            {
+              "description": "Height of the header",
+              "name": "--wcs-header-height"
+            },
+            {
+              "description": "Height of the logo",
+              "name": "--wcs-header-logo-height"
+            },
+            {
+              "description": "Horizontal padding of the header",
+              "name": "--wcs-header-padding-horizontal"
+            },
+            {
+              "description": "Color of the title",
+              "name": "--wcs-header-title-color"
+            },
+            {
+              "description": "Font weight of the title",
+              "name": "--wcs-header-title-font-weight"
+            },
+            {
+              "description": "Font size of the title",
+              "name": "--wcs-header-title-font-size"
+            }
+          ],
+          "slots": [
+            {
+              "description": "SNCF Logo",
+              "name": "logo"
+            },
+            {
+              "description": "Title of your application",
+              "name": "title"
+            },
+            {
+              "description": "Content to display in the center of the header, useful for a search bar",
+              "name": "center"
+            },
+            {
+              "description": "Actions such as buttons, dropdown or any useful information to always display on your application",
+              "name": "actions"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeHeader",
+              "type": {
+                "text": "HTMLElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "hostData"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-header",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Header",
+          "declaration": {
+            "name": "Header",
+            "module": "components/header/header.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-header",
+          "declaration": {
+            "name": "Header",
+            "module": "components/header/header.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/header/header.visual.spec.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/grid-pagination/grid-pagination-arrow.tsx",
       "declarations": [
         {
@@ -10409,64 +10755,18 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/header/header.tsx",
+      "path": "components/grid-pagination/grid-pagination.visual.spec.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/icon/icon.tsx",
       "declarations": [
         {
           "kind": "class",
-          "description": "The header component is an element that appears across the top of all pages on a website or application; it contains the logo, the site name and main actions.",
-          "name": "Header",
-          "cssProperties": [
-            {
-              "description": "Background color of the header",
-              "name": "--wcs-header-background-color"
-            },
-            {
-              "description": "Gap between elements in the header",
-              "name": "--wcs-header-gap"
-            },
-            {
-              "description": "Height of the header",
-              "name": "--wcs-header-height"
-            },
-            {
-              "description": "Height of the logo",
-              "name": "--wcs-header-logo-height"
-            },
-            {
-              "description": "Horizontal padding of the header",
-              "name": "--wcs-header-padding-horizontal"
-            },
-            {
-              "description": "Color of the title",
-              "name": "--wcs-header-title-color"
-            },
-            {
-              "description": "Font weight of the title",
-              "name": "--wcs-header-title-font-weight"
-            },
-            {
-              "description": "Font size of the title",
-              "name": "--wcs-header-title-font-size"
-            }
-          ],
-          "slots": [
-            {
-              "description": "SNCF Logo",
-              "name": "logo"
-            },
-            {
-              "description": "Title of your application",
-              "name": "title"
-            },
-            {
-              "description": "Content to display in the center of the header, useful for a search bar",
-              "name": "center"
-            },
-            {
-              "description": "Actions such as buttons, dropdown or any useful information to always display on your application",
-              "name": "actions"
-            }
-          ],
+          "description": "The icon component is a graphic symbol designed to visually indicate the purpose of an interface element.",
+          "name": "Icon",
           "members": [
             {
               "kind": "field",
@@ -10478,7 +10778,7 @@
             },
             {
               "kind": "field",
-              "name": "nativeHeader",
+              "name": "nativeIcon",
               "type": {
                 "text": "HTMLElement"
               },
@@ -10492,6 +10792,20 @@
               },
               "privacy": "private",
               "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px'"
+              }
             },
             {
               "kind": "method",
@@ -10513,88 +10827,26 @@
             },
             {
               "kind": "method",
-              "name": "hostData"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-header",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Header",
-          "declaration": {
-            "name": "Header",
-            "module": "components/header/header.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-header",
-          "declaration": {
-            "name": "Header",
-            "module": "components/header/header.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/hint/hint.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The `wcs-hint` should always be wrapped in a `wcs-form-field`.\r\nIt is used to display an informative message under the field indicating an incorrect user input.\r\n\r\n## Accessibility guidelines 💡\r\n- Provide a relevant hint message to inform the users about the format, how the data should be filled in, or what is the purpose of the field\r\n- `aria-description` will be automatically added to the field for screen readers",
-          "name": "Hint",
-          "cssProperties": [
-            {
-              "description": "Color of the text",
-              "name": "--wcs-hint-color"
-            },
-            {
-              "description": "Font weight of the text",
-              "name": "--wcs-hint-font-weight"
-            },
-            {
-              "description": "Font size default of the text",
-              "name": "--wcs-hint-font-size-default"
-            },
-            {
-              "description": "Font size small of the text",
-              "name": "--wcs-hint-font-size-small"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "small",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Whether the component should display the small version of the hint"
-            },
-            {
-              "kind": "method",
               "name": "render"
             }
           ],
           "attributes": [
             {
-              "name": "small",
-              "fieldName": "small",
+              "name": "icon",
+              "fieldName": "icon",
               "type": {
-                "text": "boolean"
+                "text": "string"
+              }
+            },
+            {
+              "name": "size",
+              "fieldName": "size",
+              "type": {
+                "text": "'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px'"
               }
             }
           ],
-          "tagName": "wcs-hint",
+          "tagName": "wcs-icon",
           "events": [],
           "customElement": true
         }
@@ -10602,18 +10854,18 @@
       "exports": [
         {
           "kind": "js",
-          "name": "Hint",
+          "name": "Icon",
           "declaration": {
-            "name": "Hint",
-            "module": "components/hint/hint.tsx"
+            "name": "Icon",
+            "module": "components/icon/icon.tsx"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "wcs-hint",
+          "name": "wcs-icon",
           "declaration": {
-            "name": "Hint",
-            "module": "components/hint/hint.tsx"
+            "name": "Icon",
+            "module": "components/icon/icon.tsx"
           }
         }
       ]
@@ -10904,114 +11156,9 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/icon/icon.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The icon component is a graphic symbol designed to visually indicate the purpose of an interface element.",
-          "name": "Icon",
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "nativeIcon",
-              "type": {
-                "text": "HTMLElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "icon",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px'"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "icon",
-              "fieldName": "icon",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "size",
-              "fieldName": "size",
-              "type": {
-                "text": "'x5' | 'x75' | '1x' | '1x2' | '1x5' | '1x7' | '2x' | '3x' | '30px' | '50px' | '66px' | '90px' | '96px' | '140px'"
-              }
-            }
-          ],
-          "tagName": "wcs-icon",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "Icon",
-          "declaration": {
-            "name": "Icon",
-            "module": "components/icon/icon.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-icon",
-          "declaration": {
-            "name": "Icon",
-            "module": "components/icon/icon.tsx"
-          }
-        }
-      ]
+      "path": "components/horizontal-stepper/horizontal-stepper.visual.spec.ts",
+      "declarations": [],
+      "exports": []
     },
     {
       "kind": "javascript-module",
@@ -11833,6 +11980,12 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/input/input.visual.spec.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/label/label.e2e.playwright.ts",
       "declarations": [],
       "exports": []
@@ -11953,6 +12106,92 @@
           }
         }
       ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/label/label.visual.spec.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/hint/hint.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The `wcs-hint` should always be wrapped in a `wcs-form-field`.\r\nIt is used to display an informative message under the field indicating an incorrect user input.\r\n\r\n## Accessibility guidelines 💡\r\n- Provide a relevant hint message to inform the users about the format, how the data should be filled in, or what is the purpose of the field\r\n- `aria-description` will be automatically added to the field for screen readers",
+          "name": "Hint",
+          "cssProperties": [
+            {
+              "description": "Color of the text",
+              "name": "--wcs-hint-color"
+            },
+            {
+              "description": "Font weight of the text",
+              "name": "--wcs-hint-font-weight"
+            },
+            {
+              "description": "Font size default of the text",
+              "name": "--wcs-hint-font-size-default"
+            },
+            {
+              "description": "Font size small of the text",
+              "name": "--wcs-hint-font-size-small"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "small",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Whether the component should display the small version of the hint"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "small",
+              "fieldName": "small",
+              "type": {
+                "text": "boolean"
+              }
+            }
+          ],
+          "tagName": "wcs-hint",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "Hint",
+          "declaration": {
+            "name": "Hint",
+            "module": "components/hint/hint.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-hint",
+          "declaration": {
+            "name": "Hint",
+            "module": "components/hint/hint.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/hint/hint.visual.spec.ts",
+      "declarations": [],
+      "exports": []
     },
     {
       "kind": "javascript-module",
@@ -12088,6 +12327,66 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/list-item/list-item.visual.spec.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/list-item-property/list-item-property.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The list-item-property is a subcomponent of `wcs-list-item`.\r\nWrapped in a `wcs-list-item-properties`, it represents a property to describe an item.",
+          "name": "ListItemProperty",
+          "cssProperties": [
+            {
+              "description": "Font weight of the property",
+              "name": "--wcs-list-item-property-font-weight"
+            },
+            {
+              "description": "Color of the property",
+              "name": "--wcs-list-item-property-color"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Main container slot",
+              "name": "<no-name>"
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "tagName": "wcs-list-item-property",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ListItemProperty",
+          "declaration": {
+            "name": "ListItemProperty",
+            "module": "components/list-item-property/list-item-property.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-list-item-property",
+          "declaration": {
+            "name": "ListItemProperty",
+            "module": "components/list-item-property/list-item-property.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/list-item-properties/list-item-properties.tsx",
       "declarations": [
         {
@@ -12144,60 +12443,6 @@
           "declaration": {
             "name": "ListItemProperties",
             "module": "components/list-item-properties/list-item-properties.tsx"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/list-item-property/list-item-property.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The list-item-property is a subcomponent of `wcs-list-item`.\r\nWrapped in a `wcs-list-item-properties`, it represents a property to describe an item.",
-          "name": "ListItemProperty",
-          "cssProperties": [
-            {
-              "description": "Font weight of the property",
-              "name": "--wcs-list-item-property-font-weight"
-            },
-            {
-              "description": "Color of the property",
-              "name": "--wcs-list-item-property-color"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Main container slot",
-              "name": "<no-name>"
-            }
-          ],
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "tagName": "wcs-list-item-property",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ListItemProperty",
-          "declaration": {
-            "name": "ListItemProperty",
-            "module": "components/list-item-property/list-item-property.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-list-item-property",
-          "declaration": {
-            "name": "ListItemProperty",
-            "module": "components/list-item-property/list-item-property.tsx"
           }
         }
       ]
@@ -12355,6 +12600,12 @@
           }
         }
       ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/mat-icon/mat-icon.visual.spec.ts",
+      "declarations": [],
+      "exports": []
     },
     {
       "kind": "javascript-module",
@@ -12611,328 +12862,9 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/native-select/native-select-interface.ts",
+      "path": "components/message/message.visual.spec.ts",
       "declarations": [],
       "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "components/native-select/native-select.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The `wcs-native-select` component is designed to accept a native `<select>` element as a slotted child. This choice\r\nallows developers to bind the `<select>` element using the framework of their choice, without the need to re-expose all the\r\nproperties of the `<select>` and `<option>` elements in this component.\r\n\r\nThe component wraps the native `<select>` element and provides custom styles and behavior, while preserving the native\r\nfunctionality and accessibility.\r\n\r\n### ✅ Guidance\r\n\r\n- To have a placeholder, you must have an option as child which has `selected` attribute and `disabled`\r\nattribute. You can add the `hidden` attribute to don't show the placeholder option in the options overlay.\r\n\r\n### Example usage\r\n\r\n```html\r\n<wcs-native-select>\r\n  <select>\r\n    <option value=\"option1\">Option 1</option>\r\n    <option value=\"option2\">Option 2</option>\r\n    <option value=\"option3\">Option 3</option>\r\n  </select>\r\n</wcs-native-select>\r\n```\r\n\r\n### Note\r\n- We did not find a way to detect when the select is reset, if you want to apply the placeholder style when the\r\nselect is reset, you have to call the `updateStyles()` method manually.\r\n- It is strongly recommended to use native-select when you don't have to support the multi-selection feature\r\n- Use a native-select instead of a wcs-select if your application is mainly on mobile / tablet. The native behavior of the device will be used.",
-          "name": "NativeSelect",
-          "cssProperties": [
-            {
-              "description": "Line height of the select",
-              "name": "--wcs-native-select-line-height"
-            },
-            {
-              "description": "Height of the select when size is 'm'",
-              "name": "--wcs-native-select-size-m"
-            },
-            {
-              "description": "Font size of the select when size is 'm'",
-              "name": "--wcs-native-select-font-size-m"
-            },
-            {
-              "description": "Height of the select when size is 'l'",
-              "name": "--wcs-native-select-size-l"
-            },
-            {
-              "description": "Font size of the select when size is 'l'",
-              "name": "--wcs-native-select-font-size-l"
-            },
-            {
-              "description": "Border radius of the select",
-              "name": "--wcs-native-select-border-radius"
-            },
-            {
-              "description": "Background color of the select",
-              "name": "--wcs-native-select-background-color"
-            },
-            {
-              "description": "Border color of the select when not focused",
-              "name": "--wcs-native-select-border-color-default"
-            },
-            {
-              "description": "Border color of the select when disabled",
-              "name": "--wcs-native-select-border-color-disabled"
-            },
-            {
-              "description": "Border color of the select when focused",
-              "name": "--wcs-native-select-border-color-focus"
-            },
-            {
-              "description": "Border color of the select when in error state",
-              "name": "--wcs-native-select-border-color-error"
-            },
-            {
-              "description": "Border style of the select when not focused",
-              "name": "--wcs-native-select-border-style-default"
-            },
-            {
-              "description": "Border style of the select when focused",
-              "name": "--wcs-native-select-border-style-focus"
-            },
-            {
-              "description": "Border width of the select when not focused",
-              "name": "--wcs-native-select-border-width"
-            },
-            {
-              "description": "Border width of the select when focused",
-              "name": "--wcs-native-select-border-width-focus"
-            },
-            {
-              "description": "Color of the selected value",
-              "name": "--wcs-native-select-value-color"
-            },
-            {
-              "description": "Font weight of the selected value",
-              "name": "--wcs-native-select-value-font-weight"
-            },
-            {
-              "description": "Font style of the selected value",
-              "name": "--wcs-native-select-value-font-style"
-            },
-            {
-              "description": "Padding horizontal of the select when size is 'm'",
-              "name": "--wcs-native-select-padding-horizontal-m"
-            },
-            {
-              "description": "Padding horizontal of the select when size is 'l'",
-              "name": "--wcs-native-select-padding-horizontal-l"
-            },
-            {
-              "description": "Color of the select arrow",
-              "name": "--wcs-native-select-arrow-color"
-            },
-            {
-              "description": "Color of the select arrow when the select is disabled",
-              "name": "--wcs-native-select-arrow-color-disabled"
-            },
-            {
-              "description": "Color of the text when the select is disabled",
-              "name": "--wcs-native-select-text-color-disabled"
-            },
-            {
-              "description": "Color of the placeholder",
-              "name": "--wcs-native-select-placeholder-color"
-            },
-            {
-              "description": "Font weight of the placeholder",
-              "name": "--wcs-native-select-placeholder-font-weight"
-            },
-            {
-              "description": "Font style of the placeholder",
-              "name": "--wcs-native-select-placeholder-font-style"
-            },
-            {
-              "description": "Text color of the options",
-              "name": "--wcs-native-select-option-color"
-            },
-            {
-              "description": "Font style of the options",
-              "name": "--wcs-native-select-option-font-style"
-            },
-            {
-              "description": "Text color of the selected option",
-              "name": "--wcs-native-select-option-selected-color"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "WcsNativeSelectSize"
-              },
-              "default": "'m'",
-              "description": "The `size` property controls the size of the slotted `select` element by adjusting its padding.\r\nThere are two possible size options:\r\n- 'm': medium size\r\n- 'l': large size\r\n\r\nThe default value is 'm'."
-            },
-            {
-              "kind": "field",
-              "name": "required",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "If `true`, the user must fill in a value before submitting a form.\r\nIt is propagated to the slotted select element"
-            },
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsNativeSelectElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "expanded",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "selectElement",
-              "type": {
-                "text": "HTMLSelectElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "observer",
-              "type": {
-                "text": "MutationObserver"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "SLOTTED_SELECT_TRACKED_ATTRIBUTES_LIST",
-              "type": {
-                "text": "array"
-              },
-              "privacy": "private",
-              "readonly": true,
-              "default": "['disabled']"
-            },
-            {
-              "kind": "method",
-              "name": "requiredChanged",
-              "parameters": [
-                {
-                  "name": "newValue",
-                  "type": {
-                    "text": "boolean"
-                  }
-                },
-                {
-                  "name": "oldValue",
-                  "type": {
-                    "text": "boolean"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "onSelectedOptionChange",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "_updateStyles",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "isPlaceholderOptionSelected",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "applySelectedOptionStylesOnNativeSlottedSelectElement",
-              "privacy": "private",
-              "description": "This method should always unset all styles modified by the `applyPlaceholderStylesOnNativeSlottedSelectElement()`"
-            },
-            {
-              "kind": "method",
-              "name": "applyPlaceholderStylesOnNativeSlottedSelectElement",
-              "privacy": "private",
-              "description": "This method apply styles when the placeholder is shown.\r\n\r\nWe use javascript because we cannot achieve that behaviour in pure css when the native select is not required"
-            },
-            {
-              "kind": "method",
-              "name": "updateHostAttributeWithSlottedSelect",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "updateStyles",
-              "description": "Use this method to force the component to update its styles. It can be useful when the select is reset (with a placeholder)."
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "size",
-              "fieldName": "size",
-              "type": {
-                "text": "WcsNativeSelectSize"
-              }
-            },
-            {
-              "name": "required",
-              "fieldName": "required",
-              "type": {
-                "text": "boolean"
-              }
-            }
-          ],
-          "tagName": "wcs-native-select",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "NativeSelect",
-          "declaration": {
-            "name": "NativeSelect",
-            "module": "components/native-select/native-select.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-native-select",
-          "declaration": {
-            "name": "NativeSelect",
-            "module": "components/native-select/native-select.tsx"
-          }
-        }
-      ]
     },
     {
       "kind": "javascript-module",
@@ -13361,6 +13293,343 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/modal/modal.visual.spec.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/native-select/native-select-interface.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/native-select/native-select.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The `wcs-native-select` component is designed to accept a native `<select>` element as a slotted child. This choice\r\nallows developers to bind the `<select>` element using the framework of their choice, without the need to re-expose all the\r\nproperties of the `<select>` and `<option>` elements in this component.\r\n\r\nThe component wraps the native `<select>` element and provides custom styles and behavior, while preserving the native\r\nfunctionality and accessibility.\r\n\r\n### ✅ Guidance\r\n\r\n- To have a placeholder, you must have an option as child which has `selected` attribute and `disabled`\r\nattribute. You can add the `hidden` attribute to don't show the placeholder option in the options overlay.\r\n\r\n### Example usage\r\n\r\n```html\r\n<wcs-native-select>\r\n  <select>\r\n    <option value=\"option1\">Option 1</option>\r\n    <option value=\"option2\">Option 2</option>\r\n    <option value=\"option3\">Option 3</option>\r\n  </select>\r\n</wcs-native-select>\r\n```\r\n\r\n### Note\r\n- We did not find a way to detect when the select is reset, if you want to apply the placeholder style when the\r\nselect is reset, you have to call the `updateStyles()` method manually.\r\n- It is strongly recommended to use native-select when you don't have to support the multi-selection feature\r\n- Use a native-select instead of a wcs-select if your application is mainly on mobile / tablet. The native behavior of the device will be used.",
+          "name": "NativeSelect",
+          "cssProperties": [
+            {
+              "description": "Line height of the select",
+              "name": "--wcs-native-select-line-height"
+            },
+            {
+              "description": "Height of the select when size is 'm'",
+              "name": "--wcs-native-select-size-m"
+            },
+            {
+              "description": "Font size of the select when size is 'm'",
+              "name": "--wcs-native-select-font-size-m"
+            },
+            {
+              "description": "Height of the select when size is 'l'",
+              "name": "--wcs-native-select-size-l"
+            },
+            {
+              "description": "Font size of the select when size is 'l'",
+              "name": "--wcs-native-select-font-size-l"
+            },
+            {
+              "description": "Border radius of the select",
+              "name": "--wcs-native-select-border-radius"
+            },
+            {
+              "description": "Background color of the select",
+              "name": "--wcs-native-select-background-color"
+            },
+            {
+              "description": "Border color of the select when not focused",
+              "name": "--wcs-native-select-border-color-default"
+            },
+            {
+              "description": "Border color of the select when disabled",
+              "name": "--wcs-native-select-border-color-disabled"
+            },
+            {
+              "description": "Border color of the select when focused",
+              "name": "--wcs-native-select-border-color-focus"
+            },
+            {
+              "description": "Border color of the select when in error state",
+              "name": "--wcs-native-select-border-color-error"
+            },
+            {
+              "description": "Border style of the select when not focused",
+              "name": "--wcs-native-select-border-style-default"
+            },
+            {
+              "description": "Border style of the select when focused",
+              "name": "--wcs-native-select-border-style-focus"
+            },
+            {
+              "description": "Border width of the select when not focused",
+              "name": "--wcs-native-select-border-width"
+            },
+            {
+              "description": "Border width of the select when focused",
+              "name": "--wcs-native-select-border-width-focus"
+            },
+            {
+              "description": "Color of the selected value",
+              "name": "--wcs-native-select-value-color"
+            },
+            {
+              "description": "Font weight of the selected value",
+              "name": "--wcs-native-select-value-font-weight"
+            },
+            {
+              "description": "Font style of the selected value",
+              "name": "--wcs-native-select-value-font-style"
+            },
+            {
+              "description": "Padding horizontal of the select when size is 'm'",
+              "name": "--wcs-native-select-padding-horizontal-m"
+            },
+            {
+              "description": "Padding horizontal of the select when size is 'l'",
+              "name": "--wcs-native-select-padding-horizontal-l"
+            },
+            {
+              "description": "Color of the select arrow",
+              "name": "--wcs-native-select-arrow-color"
+            },
+            {
+              "description": "Color of the select arrow when the select is disabled",
+              "name": "--wcs-native-select-arrow-color-disabled"
+            },
+            {
+              "description": "Color of the text when the select is disabled",
+              "name": "--wcs-native-select-text-color-disabled"
+            },
+            {
+              "description": "Color of the placeholder",
+              "name": "--wcs-native-select-placeholder-color"
+            },
+            {
+              "description": "Font weight of the placeholder",
+              "name": "--wcs-native-select-placeholder-font-weight"
+            },
+            {
+              "description": "Font style of the placeholder",
+              "name": "--wcs-native-select-placeholder-font-style"
+            },
+            {
+              "description": "Text color of the options",
+              "name": "--wcs-native-select-option-color"
+            },
+            {
+              "description": "Font style of the options",
+              "name": "--wcs-native-select-option-font-style"
+            },
+            {
+              "description": "Text color of the selected option",
+              "name": "--wcs-native-select-option-selected-color"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "WcsNativeSelectSize"
+              },
+              "default": "'m'",
+              "description": "The `size` property controls the size of the slotted `select` element by adjusting its padding.\r\nThere are two possible size options:\r\n- 'm': medium size\r\n- 'l': large size\r\n\r\nThe default value is 'm'."
+            },
+            {
+              "kind": "field",
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "If `true`, the user must fill in a value before submitting a form.\r\nIt is propagated to the slotted select element"
+            },
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsNativeSelectElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "expanded",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "selectElement",
+              "type": {
+                "text": "HTMLSelectElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "observer",
+              "type": {
+                "text": "MutationObserver"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "SLOTTED_SELECT_TRACKED_ATTRIBUTES_LIST",
+              "type": {
+                "text": "array"
+              },
+              "privacy": "private",
+              "readonly": true,
+              "default": "['disabled']"
+            },
+            {
+              "kind": "method",
+              "name": "requiredChanged",
+              "parameters": [
+                {
+                  "name": "newValue",
+                  "type": {
+                    "text": "boolean"
+                  }
+                },
+                {
+                  "name": "oldValue",
+                  "type": {
+                    "text": "boolean"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "onSelectedOptionChange",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "_updateStyles",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "isPlaceholderOptionSelected",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "applySelectedOptionStylesOnNativeSlottedSelectElement",
+              "privacy": "private",
+              "description": "This method should always unset all styles modified by the `applyPlaceholderStylesOnNativeSlottedSelectElement()`"
+            },
+            {
+              "kind": "method",
+              "name": "applyPlaceholderStylesOnNativeSlottedSelectElement",
+              "privacy": "private",
+              "description": "This method apply styles when the placeholder is shown.\r\n\r\nWe use javascript because we cannot achieve that behaviour in pure css when the native select is not required"
+            },
+            {
+              "kind": "method",
+              "name": "updateHostAttributeWithSlottedSelect",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "updateStyles",
+              "description": "Use this method to force the component to update its styles. It can be useful when the select is reset (with a placeholder)."
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "size",
+              "fieldName": "size",
+              "type": {
+                "text": "WcsNativeSelectSize"
+              }
+            },
+            {
+              "name": "required",
+              "fieldName": "required",
+              "type": {
+                "text": "boolean"
+              }
+            }
+          ],
+          "tagName": "wcs-native-select",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "NativeSelect",
+          "declaration": {
+            "name": "NativeSelect",
+            "module": "components/native-select/native-select.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-native-select",
+          "declaration": {
+            "name": "NativeSelect",
+            "module": "components/native-select/native-select.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/native-select/native-select.visual.spec.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/nav/nav.tsx",
       "declarations": [
         {
@@ -13459,6 +13728,12 @@
           }
         }
       ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/nav/nav.visual.spec.ts",
+      "declarations": [],
+      "exports": []
     },
     {
       "kind": "javascript-module",
@@ -13619,6 +13894,232 @@
           }
         }
       ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/nav-item/nav-item.visual.spec.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/progress-bar/progress-bar.tsx",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The progress-bar component is a horizontal bar that indicates the current completion of a task.\r\n\r\n## Accessibility guidelines 💡\r\n> Aria attributes and how to display the progress-bar depend on the use case in your application :\r\n>\r\n> - **Case 1 : decorative**\r\n> If the progress-bar is used as a decoration _(if removed, the user doesn't lose any relevant information)_ or in the\r\n> context of another component _(such as progress-bar in a card, stepper, ...)_ => **you don't need to show the label nor add an aria-label**.\r\n>\r\n> - **Case 2 : informative**\r\n> If the progress-bar is used to convey important information _(e.g., form completion status, dashboard KPI)_, you need to :\r\n>   - **Provide a visible label** that describes the purpose of the progress-bar.\r\n>   - **Set the `showLabel` property to `true`** to show the percentage above the progress-bar.\r\n>   - Optionally, use aria-label to provide an accessible name if a visible label is not present.",
+          "name": "ProgressBar",
+          "cssProperties": [
+            {
+              "description": "Border radius",
+              "name": "--wcs-progress-bar-border-radius"
+            },
+            {
+              "description": "Border radius for size small",
+              "name": "--wcs-progress-bar-border-radius-small"
+            },
+            {
+              "description": "Animation duration",
+              "name": "--wcs-progress-bar-animation-duration"
+            },
+            {
+              "description": "Height for size medium",
+              "name": "--wcs-progress-bar-height-m"
+            },
+            {
+              "description": "Height for size small",
+              "name": "--wcs-progress-bar-height-s"
+            },
+            {
+              "description": "Background color of the progress bar",
+              "name": "--wcs-progress-bar-background-color"
+            },
+            {
+              "description": "Rail color (dashed line)",
+              "name": "--wcs-progress-bar-rail-color"
+            },
+            {
+              "description": "Space between the rail dashes",
+              "name": "--wcs-progress-bar-rail-spacing"
+            },
+            {
+              "description": "Gap between the progress bar and the label for size small",
+              "name": "--wcs-progress-bar-gap-s"
+            },
+            {
+              "description": "Gap between the progress bar and the label for size medium",
+              "name": "--wcs-progress-bar-gap-m"
+            },
+            {
+              "description": "Color of the progress bar indicator (bar on top of the rail)",
+              "name": "--wcs-progress-bar-indicator-color"
+            },
+            {
+              "description": "Color of the label",
+              "name": "--wcs-progress-bar-label-color"
+            },
+            {
+              "description": "Font size of the label for size small",
+              "name": "--wcs-progress-bar-label-font-size-s"
+            },
+            {
+              "description": "Font size of the label for size medium",
+              "name": "--wcs-progress-bar-label-font-size-m"
+            },
+            {
+              "description": "Font weight of the label",
+              "name": "--wcs-progress-bar-label-font-weight"
+            },
+            {
+              "description": "Font size of the percentage for size small",
+              "name": "--wcs-progress-bar-label-percentage-font-size-s"
+            },
+            {
+              "description": "Font size of the percentage for size medium",
+              "name": "--wcs-progress-bar-label-percentage-font-size-m"
+            },
+            {
+              "description": "Space on top of the progress bar when label is displayed",
+              "name": "--wcs-progress-bar-label-top-space"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "el",
+              "type": {
+                "text": "HTMLWcsProgressBarElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "nativeProgress",
+              "type": {
+                "text": "HTMLDivElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "inheritedAttributes",
+              "type": {
+                "text": "{ [k: string]: any }"
+              },
+              "privacy": "private",
+              "default": "{}"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "Extract<WcsSize, 'm' | 's'>"
+              },
+              "default": "'m'",
+              "description": "Specify the size of the progress bar.\r\nm = default, s = smaller"
+            },
+            {
+              "kind": "field",
+              "name": "showLabel",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Whether it displays a label indicating the percentage of progress above the bar."
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "description": "The actual value of the progress.\r\nRanging from 0 to 100."
+            },
+            {
+              "kind": "method",
+              "name": "setAriaAttribute",
+              "parameters": [
+                {
+                  "name": "attr",
+                  "type": {
+                    "text": "AriaAttributeName"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "string | null | undefined"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            },
+            {
+              "kind": "method",
+              "name": "rootClasses",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "size",
+              "fieldName": "size",
+              "type": {
+                "text": "Extract<WcsSize, 'm' | 's'>"
+              }
+            },
+            {
+              "name": "show-label",
+              "fieldName": "showLabel",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "name": "value",
+              "fieldName": "value",
+              "type": {
+                "text": "number"
+              }
+            }
+          ],
+          "tagName": "wcs-progress-bar",
+          "events": [],
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ProgressBar",
+          "declaration": {
+            "name": "ProgressBar",
+            "module": "components/progress-bar/progress-bar.tsx"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcs-progress-bar",
+          "declaration": {
+            "name": "ProgressBar",
+            "module": "components/progress-bar/progress-bar.tsx"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/progress-bar/progress-bar.visual.spec.ts",
+      "declarations": [],
+      "exports": []
     },
     {
       "kind": "javascript-module",
@@ -13806,6 +14307,12 @@
           }
         }
       ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/progress-radial/progress-radial.visual.spec.ts",
+      "declarations": [],
+      "exports": []
     },
     {
       "kind": "javascript-module",
@@ -14237,6 +14744,12 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/radio/radio.visual.spec.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/radio-group/radio-group-interface.ts",
       "declarations": [],
       "exports": []
@@ -14469,217 +14982,9 @@
     },
     {
       "kind": "javascript-module",
-      "path": "components/progress-bar/progress-bar.tsx",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "The progress-bar component is a horizontal bar that indicates the current completion of a task.\r\n\r\n## Accessibility guidelines 💡\r\n> Aria attributes and how to display the progress-bar depend on the use case in your application :\r\n>\r\n> - **Case 1 : decorative**\r\n> If the progress-bar is used as a decoration _(if removed, the user doesn't lose any relevant information)_ or in the\r\n> context of another component _(such as progress-bar in a card, stepper, ...)_ => **you don't need to show the label nor add an aria-label**.\r\n>\r\n> - **Case 2 : informative**\r\n> If the progress-bar is used to convey important information _(e.g., form completion status, dashboard KPI)_, you need to :\r\n>   - **Provide a visible label** that describes the purpose of the progress-bar.\r\n>   - **Set the `showLabel` property to `true`** to show the percentage above the progress-bar.\r\n>   - Optionally, use aria-label to provide an accessible name if a visible label is not present.",
-          "name": "ProgressBar",
-          "cssProperties": [
-            {
-              "description": "Border radius",
-              "name": "--wcs-progress-bar-border-radius"
-            },
-            {
-              "description": "Border radius for size small",
-              "name": "--wcs-progress-bar-border-radius-small"
-            },
-            {
-              "description": "Animation duration",
-              "name": "--wcs-progress-bar-animation-duration"
-            },
-            {
-              "description": "Height for size medium",
-              "name": "--wcs-progress-bar-height-m"
-            },
-            {
-              "description": "Height for size small",
-              "name": "--wcs-progress-bar-height-s"
-            },
-            {
-              "description": "Background color of the progress bar",
-              "name": "--wcs-progress-bar-background-color"
-            },
-            {
-              "description": "Rail color (dashed line)",
-              "name": "--wcs-progress-bar-rail-color"
-            },
-            {
-              "description": "Space between the rail dashes",
-              "name": "--wcs-progress-bar-rail-spacing"
-            },
-            {
-              "description": "Gap between the progress bar and the label for size small",
-              "name": "--wcs-progress-bar-gap-s"
-            },
-            {
-              "description": "Gap between the progress bar and the label for size medium",
-              "name": "--wcs-progress-bar-gap-m"
-            },
-            {
-              "description": "Color of the progress bar indicator (bar on top of the rail)",
-              "name": "--wcs-progress-bar-indicator-color"
-            },
-            {
-              "description": "Color of the label",
-              "name": "--wcs-progress-bar-label-color"
-            },
-            {
-              "description": "Font size of the label for size small",
-              "name": "--wcs-progress-bar-label-font-size-s"
-            },
-            {
-              "description": "Font size of the label for size medium",
-              "name": "--wcs-progress-bar-label-font-size-m"
-            },
-            {
-              "description": "Font weight of the label",
-              "name": "--wcs-progress-bar-label-font-weight"
-            },
-            {
-              "description": "Font size of the percentage for size small",
-              "name": "--wcs-progress-bar-label-percentage-font-size-s"
-            },
-            {
-              "description": "Font size of the percentage for size medium",
-              "name": "--wcs-progress-bar-label-percentage-font-size-m"
-            },
-            {
-              "description": "Space on top of the progress bar when label is displayed",
-              "name": "--wcs-progress-bar-label-top-space"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "el",
-              "type": {
-                "text": "HTMLWcsProgressBarElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "nativeProgress",
-              "type": {
-                "text": "HTMLDivElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "inheritedAttributes",
-              "type": {
-                "text": "{ [k: string]: any }"
-              },
-              "privacy": "private",
-              "default": "{}"
-            },
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "Extract<WcsSize, 'm' | 's'>"
-              },
-              "default": "'m'",
-              "description": "Specify the size of the progress bar.\r\nm = default, s = smaller"
-            },
-            {
-              "kind": "field",
-              "name": "showLabel",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Whether it displays a label indicating the percentage of progress above the bar."
-            },
-            {
-              "kind": "field",
-              "name": "value",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "description": "The actual value of the progress.\r\nRanging from 0 to 100."
-            },
-            {
-              "kind": "method",
-              "name": "setAriaAttribute",
-              "parameters": [
-                {
-                  "name": "attr",
-                  "type": {
-                    "text": "AriaAttributeName"
-                  }
-                },
-                {
-                  "name": "value",
-                  "type": {
-                    "text": "string | null | undefined"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            },
-            {
-              "kind": "method",
-              "name": "rootClasses",
-              "return": {
-                "type": {
-                  "text": "string"
-                }
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "size",
-              "fieldName": "size",
-              "type": {
-                "text": "Extract<WcsSize, 'm' | 's'>"
-              }
-            },
-            {
-              "name": "show-label",
-              "fieldName": "showLabel",
-              "type": {
-                "text": "boolean"
-              }
-            },
-            {
-              "name": "value",
-              "fieldName": "value",
-              "type": {
-                "text": "number"
-              }
-            }
-          ],
-          "tagName": "wcs-progress-bar",
-          "events": [],
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ProgressBar",
-          "declaration": {
-            "name": "ProgressBar",
-            "module": "components/progress-bar/progress-bar.tsx"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "wcs-progress-bar",
-          "declaration": {
-            "name": "ProgressBar",
-            "module": "components/progress-bar/progress-bar.tsx"
-          }
-        }
-      ]
+      "path": "components/radio-group/radio-group.visual.spec.ts",
+      "declarations": [],
+      "exports": []
     },
     {
       "kind": "javascript-module",
@@ -15970,6 +16275,12 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/select/select.visual.spec.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/select-option/select-option-interface.ts",
       "declarations": [],
       "exports": []
@@ -16267,6 +16578,12 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/select-option/select-option.visual.spec.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/skeleton/skeleton-interface.ts",
       "declarations": [],
       "exports": []
@@ -16368,6 +16685,12 @@
           }
         }
       ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/skeleton-circle/skeleton-circle.visual.spec.ts",
+      "declarations": [],
+      "exports": []
     },
     {
       "kind": "javascript-module",
@@ -16501,6 +16824,12 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/skeleton-rectangle/skeleton-rectangle.visual.spec.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/skeleton-text/skeleton-text.tsx",
       "declarations": [
         {
@@ -16619,6 +16948,12 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/skeleton-text/skeleton-text.visual.spec.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/spinner/spinner-interface.ts",
       "declarations": [],
       "exports": []
@@ -16700,6 +17035,12 @@
           }
         }
       ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/spinner/spinner.visual.spec.ts",
+      "declarations": [],
+      "exports": []
     },
     {
       "kind": "javascript-module",
@@ -17037,6 +17378,12 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/switch/switch.visual.spec.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/tab/tab.tsx",
       "declarations": [
         {
@@ -17104,6 +17451,12 @@
           }
         }
       ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/tab/tab.visual.spec.ts",
+      "declarations": [],
+      "exports": []
     },
     {
       "kind": "javascript-module",
@@ -17729,6 +18082,12 @@
           }
         }
       ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/tabs/tabs.visual.spec.ts",
+      "declarations": [],
+      "exports": []
     },
     {
       "kind": "javascript-module",
@@ -18363,6 +18722,12 @@
     },
     {
       "kind": "javascript-module",
+      "path": "components/textarea/textarea.visual.spec.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "components/tooltip/tooltip-interface.ts",
       "declarations": [],
       "exports": []
@@ -18658,6 +19023,12 @@
           }
         }
       ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/tooltip/tooltip.visual.spec.ts",
+      "declarations": [],
+      "exports": []
     },
     {
       "kind": "javascript-module",

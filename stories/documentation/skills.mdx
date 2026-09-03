@@ -1,0 +1,153 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Documentation/Skills" />
+
+# Skills
+
+WCS ships **Agent Skills**: packaged, version-exact knowledge that lets an AI coding assistant work with WCS
+without guessing an API. A skill is a folder containing a `SKILL.md` file plus reference files, following the
+[Agent Skills open standard](https://agentskills.io). Because the format is standardized, the same skill works
+across compatible tools such as GitHub Copilot, Claude Code and other tools.
+
+The key idea is **version-matching**: the skill is generated from the same source as this documentation and
+shipped inside the WCS npm packages, so it always describes the exact version your project has installed. This
+prevents an assistant from suggesting APIs that do not exist in your version, or replacing your WCS usage with
+outdated patterns.
+
+## Available skills
+
+There is one skill per published package. A project only needs the one matching how it consumes WCS.
+
+<table>
+    <thead>
+        <tr>
+            <th>Package</th>
+            <th>Skill directory (inside the package)</th>
+            <th>Covers</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>wcs-core</code></td>
+            <td><code>skills/wcs-core</code></td>
+            <td>Web components (plain HTML / no framework)</td>
+        </tr>
+        <tr>
+            <td><code>wcs-angular</code></td>
+            <td><code>skills/wcs-angular</code></td>
+            <td>Angular usage via the <code>wcs-angular</code> wrapper</td>
+        </tr>
+        <tr>
+            <td><code>wcs-react</code></td>
+            <td><code>skills/wcs-react</code></td>
+            <td>React usage via the <code>wcs-react</code> wrapper</td>
+        </tr>
+    </tbody>
+</table>
+
+## Installing a skill
+
+The skills ship inside the WCS npm packages (under their `skills/` directory), so installing or updating WCS also
+installs or updates the skills. What is left to do is point your AI assistant at the skill. Follow the first case
+below that applies to you.
+
+### 1. You use VS Code (GitHub Copilot)
+
+Point Copilot directly at the package's skills folder — no symlink needed. In `.vscode/settings.json`, add:
+
+Use the folder of the package you actually depend on
+(`wcs-angular` / `wcs-react` / `wcs-core`).
+
+```json
+{
+  "chat.agentSkillsLocations": ["./node_modules/wcs-angular/skills"]
+}
+```
+
+Then reload the window (**Developer: Reload Window**)
+
+### 2. You use another IDE or assistant
+
+Check whether it can register an extra skills lookup location (a "skills directory" / "skills location" setting). If
+it does, add `node_modules/wcs-core/skills` there, the same way as for VS Code, and reload.
+
+### 3. No such setting is available
+
+Link the skill into the directory your tool reads for skills:
+
+- `.github/skills` — GitHub Copilot
+- `.agents/skills` — the Agent Skills standard (also read by Copilot and Codex)
+- `.claude/skills` — Claude Code
+
+On macOS or Linux, create a relative symlink from the repository root (here into `.agents/skills`):
+
+```bash
+mkdir -p .agents/skills
+ln -s ../../node_modules/wcs-angular/skills/wcs-angular .agents/skills/wcs-angular
+```
+
+On Windows, create a directory junction instead:
+
+```text
+mklink /J .agents\skills\wcs-angular node_modules\wcs-angular\skills\wcs-angular
+```
+
+## Using the skills
+
+Once linked, a skill can be used in two ways:
+
+- **Automatic** — your assistant activates the skill when a task matches its description (e.g. building or reviewing
+  a WCS interface).
+- **Manual** — invoke it explicitly with your tool's skill-selection syntax, for example `/wcs-core`, to be sure it
+  is used.
+
+Use a WCS skill whenever a task touches UI in a project that uses WCS.
+
+## Recommended workflow: plan first, then implement
+
+From our own testing, the most reliable results come from **splitting the work in two phases**:
+
+1. **Plan with a stronger (reasoning) model.** Ask the assistant to produce a plan rather than code. Have it list the
+   WCS components it will use, the accessibility requirements, the files it will touch and the edge cases.
+2. **Review the plan yourself.** Read it critically, correct wrong assumptions and add anything it missed. Anticipate
+   as much as possible at this stage — it is far cheaper to fix a plan than to fix generated code.
+3. **Implement with a lighter model** once you are confident in the plan. A faster, lighter model is usually enough to
+   execute a plan that is already well-specified.
+
+In our tests, this **plan-then-implement** approach produced fewer mistakes than asking a single model to design and
+write the code in one pass.
+
+## Example prompts
+
+These use slash-command syntax; adapt it to your tool. Prompts can be written in your own language.
+
+Make an existing component accessible:
+
+```text
+/wcs-angular Make the wcs-modal in my project accessible.
+```
+
+Build a page from WCS components:
+
+```text
+/wcs-angular I need to build a page with a table and an action bar containing an
+"add" button. Use the appropriate WCS components and follow my project's conventions.
+```
+
+Review existing code:
+
+```text
+/wcs-core Review this page for incorrect or deprecated WCS usage, accessibility
+issues, and places where a WCS component would replace custom-built code.
+```
+
+## Limitations and your responsibility
+
+> ⚠️ **A skill improves an assistant's answers, it does not make them correct.** Large language models remain
+> prediction engines: **hallucinations are always possible**, and we did encounter some in our own tests. The
+> plan-then-implement workflow above reduces them, but does not eliminate them.
+>
+> **Always double-check the final result** — correctness, accessibility, and compliance with the SNCF design system —
+> before shipping it. What the assistant produces is, and remains, **your** work as the person who prompted it, and
+> you are responsible for it !
+

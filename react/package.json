@@ -7,13 +7,14 @@
   "types": "./dist/types/index.d.ts",
   "scripts": {
     "test": "node ./__tests__/react-library.test.js",
-    "build": "npm run clean && npm run compile",
+    "build": "npm run clean && npm run compile && node scripts/generate-skill.mjs",
     "tsc": "tsc -p .",
     "clean": "rimraf dist && rimraf dist-transpiled",
     "compile": "npm run tsc && rollup -c"
   },
   "files": [
-    "dist/"
+    "dist/",
+    "skills/"
   ],
   "workspaces": [
     "../"
