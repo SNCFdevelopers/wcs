@@ -9,6 +9,12 @@ type ChipFocusDirection = 'previous' | 'next';
  * - In 'selectable' mode, the chip can be selected or deselected, and emits an event when clicked.
  * - In 'dismissible' mode, the chip can be dismissed (removed) by clicking a dismiss icon, and emits an event when the dismiss icon is clicked.
  *
+ * ## Usage guidelines
+ *
+ * **Primary** - Use in a context where the chip should stand out and be more easily noticed by the user.
+ *
+ * **Secondary** - Use in a context where the chip should stay more in the background and be more discreet.
+ *
  * @cssprop --wcs-chip-height - Height of the chip
  * @cssprop --wcs-chip-font-size - Font size of the chip text
  * @cssprop --wcs-chip-font-weight - Font weight of the chip text

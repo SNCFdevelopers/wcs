@@ -3,6 +3,11 @@ import { Component, Element, h, Host, Listen, Prop, Watch } from '@stencil/core'
 /**
  * The accordion component is a vertical stack of interactive headings used to toggle the display of further information.
  * 
+ * ## Usage guidelines
+ * 
+ * - Use accordions within dense content pages to optimize screen space and minimize cognitive load
+ * - Favor simple interactions within accordions.
+ * 
  * @cssprop --wcs-accordion-gap - Gap between accordion panels
  */
 @Component({

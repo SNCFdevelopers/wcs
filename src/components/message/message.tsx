@@ -9,6 +9,10 @@ import {AlertCloseButton} from "../alert/alert-close-button";
  *
  * Unlike alerts, messages are static feedback elements and are not automatically dismissed.
  *
+ * ## Usage guidelines
+ *
+ * - Use messages to highlight information, success, warning or error content directly within the page, in a more contextual way than alerts.
+ *
  * @cssprop --wcs-message-title-color - Text color of the title
  * @cssprop --wcs-message-subtitle-color - Text color of the subtitle
  *
