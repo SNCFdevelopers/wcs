@@ -9,10 +9,15 @@
 }
 
 .sncf-groupe wcs-galactic {
-    --wcs-galactic-background-color: var(--wcs-primitive-color-bleu-700);
+    --wcs-galactic-background-color: var(--wcs-primitive-color-bleu-100);
+    --wcs-galactic-text-color: var(--wcs-semantic-color-text-primary);
+
+    /* To enforce contrast color on dropdown / buttons added in the galactic slot */
+    --wcs-semantic-color-foreground-action-tertiary-default: var(--wcs-semantic-color-text-primary);
 }
 
 .sncf-groupe wcs-galactic-menu {
+    --wcs-galactic-menu-background-color: var(--wcs-primitive-color-bleu-200);
     --wcs-semantic-color-border-focus-base: var(--wcs-semantic-color-border-focus-base-on-secondary);
 }
 
