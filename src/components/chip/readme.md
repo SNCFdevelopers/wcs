@@ -12,6 +12,12 @@ It can be in one of two modes: 'selectable' or 'dismissible'.
 - In 'selectable' mode, the chip can be selected or deselected, and emits an event when clicked.
 - In 'dismissible' mode, the chip can be dismissed (removed) by clicking a dismiss icon, and emits an event when the dismiss icon is clicked.
 
+## Usage guidelines
+
+**Primary** - Use in a context where the chip should stand out and be more easily noticed by the user.
+
+**Secondary** - Use in a context where the chip should stay more in the background and be more discreet.
+
 ## Properties
 
 | Property   | Attribute  | Description                                                                                                                                                                                                                                             | Type                            | Default        |

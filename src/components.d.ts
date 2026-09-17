@@ -68,6 +68,9 @@ export { WcsTooltipAppendTo, WcsTooltipPosition } from "./components/tooltip/too
 export namespace Components {
     /**
      * The accordion component is a vertical stack of interactive headings used to toggle the display of further information.
+     * ## Usage guidelines
+     * - Use accordions within dense content pages to optimize screen space and minimize cognitive load
+     * - Favor simple interactions within accordions.
      * @cssprop --wcs-accordion-gap - Gap between accordion panels
      */
     interface WcsAccordion {
@@ -170,6 +173,27 @@ export namespace Components {
      * Alerts are used to communicate a state or an action that has been performed.
      * It has to be used conjunction with the `wcs-alert-drawer` component, or you can use it independently by taking care of
      * the alert visibility
+     * ## Usage guidelines
+     * **Success**
+     * - When to use: to confirm that an action completed successfully; when feedback is necessary to reassure the user.
+     * - When to avoid: for obvious or repetitive actions (e.g. frequent auto-save); if no user action triggered the state.
+     * - Content: clearly state what succeeded; emphasize the outcome, not the system.
+     * - Tone: positive, understated, reassuring, with no exaggeration or jargon.
+     * **Information**
+     * - When to use: to explain a state, a rule or how something works; to warn without urgency.
+     * - When to avoid: if the information can be integrated directly into the interface; to report an error or a risk.
+     * - Content: factual and neutral, giving context without overloading.
+     * - Tone: calm, pedagogical, with no alarming character.
+     * **Warning**
+     * - When to use: to signal a potential risk or an action with consequences; before a reversible or partially reversible action.
+     * - When to avoid: for errors that already happened; for cases without real impact.
+     * - Content: clearly explain the risk and indicate what the user can do to avoid it.
+     * - Tone: serious but not anxiety-inducing, prevention-oriented.
+     * **Critical (error)**
+     * - When to use: when an action has failed; in case of data loss, a blocking issue or a system error; for irreversible actions.
+     * - When to avoid: for minor or recoverable errors without impact.
+     * - Content: state what didn't work, explain why if possible, and suggest a solution.
+     * - Tone: clear, empathetic, holding the system accountable rather than the user, never accusatory.
      * @cssprop --wcs-alert-background-color - Background color of the alert
      * @cssprop --wcs-alert-icon-background-color - Background color of the icon
      * @cssprop --wcs-alert-title-color - Color of the title
@@ -353,6 +377,15 @@ export namespace Components {
     }
     /**
      * The button component is used to trigger an action. It can also be a link when specifying href.
+     * ## Usage guidelines
+     * - Position a primary button next to a secondary button, never two primary buttons side by side.
+     * - Use critical buttons for every critical action (delete, clear, etc.).
+     * - Use neutral buttons for actions of lesser importance.
+     * **Primary** - Use in a context where the action is important; it emphasizes the action compared to a secondary or tertiary button.
+     * **Secondary** - Use in a context where the action is less important and needs to be more discreet while remaining visible.
+     * **Tertiary** - Use in a context where the action is almost optional for the user.
+     * **Neutral** - Use for actions of lesser importance that don't need to stand out.
+     * **Critical** - Use for actions that are critical or destructive for the user.
      * ## Accessibility guidelines 💡
      * > If your button doesn't contain text but only an image, you must set a relevant aria-label on the icon 👉 [see "Square" story below](#square)
      * ## Click event
@@ -582,6 +615,9 @@ export namespace Components {
      * It can be in one of two modes: 'selectable' or 'dismissible'.
      * - In 'selectable' mode, the chip can be selected or deselected, and emits an event when clicked.
      * - In 'dismissible' mode, the chip can be dismissed (removed) by clicking a dismiss icon, and emits an event when the dismiss icon is clicked.
+     * ## Usage guidelines
+     * **Primary** - Use in a context where the chip should stand out and be more easily noticed by the user.
+     * **Secondary** - Use in a context where the chip should stay more in the background and be more discreet.
      * @cssprop --wcs-chip-height - Height of the chip
      * @cssprop --wcs-chip-font-size - Font size of the chip text
      * @cssprop --wcs-chip-font-weight - Font weight of the chip text
@@ -1641,6 +1677,8 @@ export namespace Components {
      * Messages are used to communicate contextual information to users.
      * They can display information, success, warning, or error states.
      * Unlike alerts, messages are static feedback elements and are not automatically dismissed.
+     * ## Usage guidelines
+     * - Use messages to highlight information, success, warning or error content directly within the page, in a more contextual way than alerts.
      * @cssprop --wcs-message-title-color - Text color of the title
      * @cssprop --wcs-message-subtitle-color - Text color of the subtitle
      * @cssprop --wcs-message-title-font-weight - Font weight of the title
@@ -2762,6 +2800,9 @@ export interface WcsTextareaCustomEvent<T> extends CustomEvent<T> {
 declare global {
     /**
      * The accordion component is a vertical stack of interactive headings used to toggle the display of further information.
+     * ## Usage guidelines
+     * - Use accordions within dense content pages to optimize screen space and minimize cognitive load
+     * - Favor simple interactions within accordions.
      * @cssprop --wcs-accordion-gap - Gap between accordion panels
      */
     interface HTMLWcsAccordionElement extends Components.WcsAccordion, HTMLStencilElement {
@@ -2863,6 +2904,27 @@ declare global {
      * Alerts are used to communicate a state or an action that has been performed.
      * It has to be used conjunction with the `wcs-alert-drawer` component, or you can use it independently by taking care of
      * the alert visibility
+     * ## Usage guidelines
+     * **Success**
+     * - When to use: to confirm that an action completed successfully; when feedback is necessary to reassure the user.
+     * - When to avoid: for obvious or repetitive actions (e.g. frequent auto-save); if no user action triggered the state.
+     * - Content: clearly state what succeeded; emphasize the outcome, not the system.
+     * - Tone: positive, understated, reassuring, with no exaggeration or jargon.
+     * **Information**
+     * - When to use: to explain a state, a rule or how something works; to warn without urgency.
+     * - When to avoid: if the information can be integrated directly into the interface; to report an error or a risk.
+     * - Content: factual and neutral, giving context without overloading.
+     * - Tone: calm, pedagogical, with no alarming character.
+     * **Warning**
+     * - When to use: to signal a potential risk or an action with consequences; before a reversible or partially reversible action.
+     * - When to avoid: for errors that already happened; for cases without real impact.
+     * - Content: clearly explain the risk and indicate what the user can do to avoid it.
+     * - Tone: serious but not anxiety-inducing, prevention-oriented.
+     * **Critical (error)**
+     * - When to use: when an action has failed; in case of data loss, a blocking issue or a system error; for irreversible actions.
+     * - When to avoid: for minor or recoverable errors without impact.
+     * - Content: state what didn't work, explain why if possible, and suggest a solution.
+     * - Tone: clear, empathetic, holding the system accountable rather than the user, never accusatory.
      * @cssprop --wcs-alert-background-color - Background color of the alert
      * @cssprop --wcs-alert-icon-background-color - Background color of the icon
      * @cssprop --wcs-alert-title-color - Color of the title
@@ -3011,6 +3073,15 @@ declare global {
     };
     /**
      * The button component is used to trigger an action. It can also be a link when specifying href.
+     * ## Usage guidelines
+     * - Position a primary button next to a secondary button, never two primary buttons side by side.
+     * - Use critical buttons for every critical action (delete, clear, etc.).
+     * - Use neutral buttons for actions of lesser importance.
+     * **Primary** - Use in a context where the action is important; it emphasizes the action compared to a secondary or tertiary button.
+     * **Secondary** - Use in a context where the action is less important and needs to be more discreet while remaining visible.
+     * **Tertiary** - Use in a context where the action is almost optional for the user.
+     * **Neutral** - Use for actions of lesser importance that don't need to stand out.
+     * **Critical** - Use for actions that are critical or destructive for the user.
      * ## Accessibility guidelines 💡
      * > If your button doesn't contain text but only an image, you must set a relevant aria-label on the icon 👉 [see "Square" story below](#square)
      * ## Click event
@@ -3211,6 +3282,9 @@ declare global {
      * It can be in one of two modes: 'selectable' or 'dismissible'.
      * - In 'selectable' mode, the chip can be selected or deselected, and emits an event when clicked.
      * - In 'dismissible' mode, the chip can be dismissed (removed) by clicking a dismiss icon, and emits an event when the dismiss icon is clicked.
+     * ## Usage guidelines
+     * **Primary** - Use in a context where the chip should stand out and be more easily noticed by the user.
+     * **Secondary** - Use in a context where the chip should stay more in the background and be more discreet.
      * @cssprop --wcs-chip-height - Height of the chip
      * @cssprop --wcs-chip-font-size - Font size of the chip text
      * @cssprop --wcs-chip-font-weight - Font weight of the chip text
@@ -4107,6 +4181,8 @@ declare global {
      * Messages are used to communicate contextual information to users.
      * They can display information, success, warning, or error states.
      * Unlike alerts, messages are static feedback elements and are not automatically dismissed.
+     * ## Usage guidelines
+     * - Use messages to highlight information, success, warning or error content directly within the page, in a more contextual way than alerts.
      * @cssprop --wcs-message-title-color - Text color of the title
      * @cssprop --wcs-message-subtitle-color - Text color of the subtitle
      * @cssprop --wcs-message-title-font-weight - Font weight of the title
@@ -4940,6 +5016,9 @@ declare global {
 declare namespace LocalJSX {
     /**
      * The accordion component is a vertical stack of interactive headings used to toggle the display of further information.
+     * ## Usage guidelines
+     * - Use accordions within dense content pages to optimize screen space and minimize cognitive load
+     * - Favor simple interactions within accordions.
      * @cssprop --wcs-accordion-gap - Gap between accordion panels
      */
     interface WcsAccordion {
@@ -5044,6 +5123,27 @@ declare namespace LocalJSX {
      * Alerts are used to communicate a state or an action that has been performed.
      * It has to be used conjunction with the `wcs-alert-drawer` component, or you can use it independently by taking care of
      * the alert visibility
+     * ## Usage guidelines
+     * **Success**
+     * - When to use: to confirm that an action completed successfully; when feedback is necessary to reassure the user.
+     * - When to avoid: for obvious or repetitive actions (e.g. frequent auto-save); if no user action triggered the state.
+     * - Content: clearly state what succeeded; emphasize the outcome, not the system.
+     * - Tone: positive, understated, reassuring, with no exaggeration or jargon.
+     * **Information**
+     * - When to use: to explain a state, a rule or how something works; to warn without urgency.
+     * - When to avoid: if the information can be integrated directly into the interface; to report an error or a risk.
+     * - Content: factual and neutral, giving context without overloading.
+     * - Tone: calm, pedagogical, with no alarming character.
+     * **Warning**
+     * - When to use: to signal a potential risk or an action with consequences; before a reversible or partially reversible action.
+     * - When to avoid: for errors that already happened; for cases without real impact.
+     * - Content: clearly explain the risk and indicate what the user can do to avoid it.
+     * - Tone: serious but not anxiety-inducing, prevention-oriented.
+     * **Critical (error)**
+     * - When to use: when an action has failed; in case of data loss, a blocking issue or a system error; for irreversible actions.
+     * - When to avoid: for minor or recoverable errors without impact.
+     * - Content: state what didn't work, explain why if possible, and suggest a solution.
+     * - Tone: clear, empathetic, holding the system accountable rather than the user, never accusatory.
      * @cssprop --wcs-alert-background-color - Background color of the alert
      * @cssprop --wcs-alert-icon-background-color - Background color of the icon
      * @cssprop --wcs-alert-title-color - Color of the title
@@ -5219,6 +5319,15 @@ declare namespace LocalJSX {
     }
     /**
      * The button component is used to trigger an action. It can also be a link when specifying href.
+     * ## Usage guidelines
+     * - Position a primary button next to a secondary button, never two primary buttons side by side.
+     * - Use critical buttons for every critical action (delete, clear, etc.).
+     * - Use neutral buttons for actions of lesser importance.
+     * **Primary** - Use in a context where the action is important; it emphasizes the action compared to a secondary or tertiary button.
+     * **Secondary** - Use in a context where the action is less important and needs to be more discreet while remaining visible.
+     * **Tertiary** - Use in a context where the action is almost optional for the user.
+     * **Neutral** - Use for actions of lesser importance that don't need to stand out.
+     * **Critical** - Use for actions that are critical or destructive for the user.
      * ## Accessibility guidelines 💡
      * > If your button doesn't contain text but only an image, you must set a relevant aria-label on the icon 👉 [see "Square" story below](#square)
      * ## Click event
@@ -5452,6 +5561,9 @@ declare namespace LocalJSX {
      * It can be in one of two modes: 'selectable' or 'dismissible'.
      * - In 'selectable' mode, the chip can be selected or deselected, and emits an event when clicked.
      * - In 'dismissible' mode, the chip can be dismissed (removed) by clicking a dismiss icon, and emits an event when the dismiss icon is clicked.
+     * ## Usage guidelines
+     * **Primary** - Use in a context where the chip should stand out and be more easily noticed by the user.
+     * **Secondary** - Use in a context where the chip should stay more in the background and be more discreet.
      * @cssprop --wcs-chip-height - Height of the chip
      * @cssprop --wcs-chip-font-size - Font size of the chip text
      * @cssprop --wcs-chip-font-weight - Font weight of the chip text
@@ -6549,6 +6661,8 @@ declare namespace LocalJSX {
      * Messages are used to communicate contextual information to users.
      * They can display information, success, warning, or error states.
      * Unlike alerts, messages are static feedback elements and are not automatically dismissed.
+     * ## Usage guidelines
+     * - Use messages to highlight information, success, warning or error content directly within the page, in a more contextual way than alerts.
      * @cssprop --wcs-message-title-color - Text color of the title
      * @cssprop --wcs-message-subtitle-color - Text color of the subtitle
      * @cssprop --wcs-message-title-font-weight - Font weight of the title
@@ -7670,6 +7784,9 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             /**
              * The accordion component is a vertical stack of interactive headings used to toggle the display of further information.
+             * ## Usage guidelines
+             * - Use accordions within dense content pages to optimize screen space and minimize cognitive load
+             * - Favor simple interactions within accordions.
              * @cssprop --wcs-accordion-gap - Gap between accordion panels
              */
             "wcs-accordion": LocalJSX.WcsAccordion & JSXBase.HTMLAttributes<HTMLWcsAccordionElement>;
@@ -7732,6 +7849,27 @@ declare module "@stencil/core" {
              * Alerts are used to communicate a state or an action that has been performed.
              * It has to be used conjunction with the `wcs-alert-drawer` component, or you can use it independently by taking care of
              * the alert visibility
+             * ## Usage guidelines
+             * **Success**
+             * - When to use: to confirm that an action completed successfully; when feedback is necessary to reassure the user.
+             * - When to avoid: for obvious or repetitive actions (e.g. frequent auto-save); if no user action triggered the state.
+             * - Content: clearly state what succeeded; emphasize the outcome, not the system.
+             * - Tone: positive, understated, reassuring, with no exaggeration or jargon.
+             * **Information**
+             * - When to use: to explain a state, a rule or how something works; to warn without urgency.
+             * - When to avoid: if the information can be integrated directly into the interface; to report an error or a risk.
+             * - Content: factual and neutral, giving context without overloading.
+             * - Tone: calm, pedagogical, with no alarming character.
+             * **Warning**
+             * - When to use: to signal a potential risk or an action with consequences; before a reversible or partially reversible action.
+             * - When to avoid: for errors that already happened; for cases without real impact.
+             * - Content: clearly explain the risk and indicate what the user can do to avoid it.
+             * - Tone: serious but not anxiety-inducing, prevention-oriented.
+             * **Critical (error)**
+             * - When to use: when an action has failed; in case of data loss, a blocking issue or a system error; for irreversible actions.
+             * - When to avoid: for minor or recoverable errors without impact.
+             * - Content: state what didn't work, explain why if possible, and suggest a solution.
+             * - Tone: clear, empathetic, holding the system accountable rather than the user, never accusatory.
              * @cssprop --wcs-alert-background-color - Background color of the alert
              * @cssprop --wcs-alert-icon-background-color - Background color of the icon
              * @cssprop --wcs-alert-title-color - Color of the title
@@ -7842,6 +7980,15 @@ declare module "@stencil/core" {
             "wcs-breadcrumb-item": LocalJSX.WcsBreadcrumbItem & JSXBase.HTMLAttributes<HTMLWcsBreadcrumbItemElement>;
             /**
              * The button component is used to trigger an action. It can also be a link when specifying href.
+             * ## Usage guidelines
+             * - Position a primary button next to a secondary button, never two primary buttons side by side.
+             * - Use critical buttons for every critical action (delete, clear, etc.).
+             * - Use neutral buttons for actions of lesser importance.
+             * **Primary** - Use in a context where the action is important; it emphasizes the action compared to a secondary or tertiary button.
+             * **Secondary** - Use in a context where the action is less important and needs to be more discreet while remaining visible.
+             * **Tertiary** - Use in a context where the action is almost optional for the user.
+             * **Neutral** - Use for actions of lesser importance that don't need to stand out.
+             * **Critical** - Use for actions that are critical or destructive for the user.
              * ## Accessibility guidelines 💡
              * > If your button doesn't contain text but only an image, you must set a relevant aria-label on the icon 👉 [see "Square" story below](#square)
              * ## Click event
@@ -7985,6 +8132,9 @@ declare module "@stencil/core" {
              * It can be in one of two modes: 'selectable' or 'dismissible'.
              * - In 'selectable' mode, the chip can be selected or deselected, and emits an event when clicked.
              * - In 'dismissible' mode, the chip can be dismissed (removed) by clicking a dismiss icon, and emits an event when the dismiss icon is clicked.
+             * ## Usage guidelines
+             * **Primary** - Use in a context where the chip should stand out and be more easily noticed by the user.
+             * **Secondary** - Use in a context where the chip should stay more in the background and be more discreet.
              * @cssprop --wcs-chip-height - Height of the chip
              * @cssprop --wcs-chip-font-size - Font size of the chip text
              * @cssprop --wcs-chip-font-weight - Font weight of the chip text
@@ -8570,6 +8720,8 @@ declare module "@stencil/core" {
              * Messages are used to communicate contextual information to users.
              * They can display information, success, warning, or error states.
              * Unlike alerts, messages are static feedback elements and are not automatically dismissed.
+             * ## Usage guidelines
+             * - Use messages to highlight information, success, warning or error content directly within the page, in a more contextual way than alerts.
              * @cssprop --wcs-message-title-color - Text color of the title
              * @cssprop --wcs-message-subtitle-color - Text color of the subtitle
              * @cssprop --wcs-message-title-font-weight - Font weight of the title

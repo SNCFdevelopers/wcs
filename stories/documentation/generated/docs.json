@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-21T14:23:52",
+  "timestamp": "2026-09-17T15:42:45",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -11,7 +11,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-accordion",
       "readme": "# wcs-accordion\r\n\r\n\r\n\r",
-      "docs": "The accordion component is a vertical stack of interactive headings used to toggle the display of further information.",
+      "docs": "The accordion component is a vertical stack of interactive headings used to toggle the display of further information.\r\n\r\n## Usage guidelines\r\n\r\n- Use accordions within dense content pages to optimize screen space and minimize cognitive load\r\n- Favor simple interactions within accordions.",
       "docsTags": [
         {
           "name": "cssprop",
@@ -569,7 +569,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-alert",
       "readme": "# wcs-alert\r\n\r\n\r\n\r",
-      "docs": "Alerts are used to communicate a state or an action that has been performed.\r\nIt has to be used conjunction with the `wcs-alert-drawer` component, or you can use it independently by taking care of\r\nthe alert visibility",
+      "docs": "Alerts are used to communicate a state or an action that has been performed.\r\nIt has to be used conjunction with the `wcs-alert-drawer` component, or you can use it independently by taking care of\r\nthe alert visibility\r\n\r\n## Usage guidelines\r\n\r\n**Success**\r\n- When to use: to confirm that an action completed successfully; when feedback is necessary to reassure the user.\r\n- When to avoid: for obvious or repetitive actions (e.g. frequent auto-save); if no user action triggered the state.\r\n- Content: clearly state what succeeded; emphasize the outcome, not the system.\r\n- Tone: positive, understated, reassuring, with no exaggeration or jargon.\r\n\r\n**Information**\r\n- When to use: to explain a state, a rule or how something works; to warn without urgency.\r\n- When to avoid: if the information can be integrated directly into the interface; to report an error or a risk.\r\n- Content: factual and neutral, giving context without overloading.\r\n- Tone: calm, pedagogical, with no alarming character.\r\n\r\n**Warning**\r\n- When to use: to signal a potential risk or an action with consequences; before a reversible or partially reversible action.\r\n- When to avoid: for errors that already happened; for cases without real impact.\r\n- Content: clearly explain the risk and indicate what the user can do to avoid it.\r\n- Tone: serious but not anxiety-inducing, prevention-oriented.\r\n\r\n**Critical (error)**\r\n- When to use: when an action has failed; in case of data loss, a blocking issue or a system error; for irreversible actions.\r\n- When to avoid: for minor or recoverable errors without impact.\r\n- Content: state what didn't work, explain why if possible, and suggest a solution.\r\n- Tone: clear, empathetic, holding the system accountable rather than the user, never accusatory.",
       "docsTags": [
         {
           "name": "cssprop",
@@ -1511,7 +1511,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-button",
       "readme": "# Button\r\n\r",
-      "docs": "The button component is used to trigger an action. It can also be a link when specifying href.\r\n\r\n## Accessibility guidelines 💡\r\n> If your button doesn't contain text but only an image, you must set a relevant aria-label on the icon 👉 [see \"Square\" story below](#square)\r\n\r\n## Click event\r\n\r\nThe WCS button relies on the native click event to pass a user click to your app.\r\nFor now, it's not possible for us to prevent the click event to be fired when the button's disabled attribute is true.\r\nThis means you'll receive click events on a disabled wcs button.\r\nIf you're using the button with a library like Angular or React, they have internal mechanisms to prevent this behavior. Your callbacks will therefore not be called.\r\nTo fix this problem, we plan to provide a wcsClick event in addition to the native click for applications developed without frameworks.",
+      "docs": "The button component is used to trigger an action. It can also be a link when specifying href.\r\n\r\n## Usage guidelines\r\n\r\n- Position a primary button next to a secondary button, never two primary buttons side by side.\r\n- Use critical buttons for every critical action (delete, clear, etc.).\r\n- Use neutral buttons for actions of lesser importance.\r\n\r\n**Primary** - Use in a context where the action is important; it emphasizes the action compared to a secondary or tertiary button.\r\n\r\n**Secondary** - Use in a context where the action is less important and needs to be more discreet while remaining visible.\r\n\r\n**Tertiary** - Use in a context where the action is almost optional for the user.\r\n\r\n**Neutral** - Use for actions of lesser importance that don't need to stand out.\r\n\r\n**Critical** - Use for actions that are critical or destructive for the user.\r\n\r\n## Accessibility guidelines 💡\r\n> If your button doesn't contain text but only an image, you must set a relevant aria-label on the icon 👉 [see \"Square\" story below](#square)\r\n\r\n## Click event\r\n\r\nThe WCS button relies on the native click event to pass a user click to your app.\r\nFor now, it's not possible for us to prevent the click event to be fired when the button's disabled attribute is true.\r\nThis means you'll receive click events on a disabled wcs button.\r\nIf you're using the button with a library like Angular or React, they have internal mechanisms to prevent this behavior. Your callbacks will therefore not be called.\r\nTo fix this problem, we plan to provide a wcsClick event in addition to the native click for applications developed without frameworks.",
       "docsTags": [
         {
           "name": "cssprop",
@@ -2831,7 +2831,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-chip",
       "readme": "# wcs-chip\r\n\r\n\r\n\r",
-      "docs": "The chip component is a small, interactive element that can be used to represent an input, filter, or tag.\r\nIt can be in one of two modes: 'selectable' or 'dismissible'.\r\n- In 'selectable' mode, the chip can be selected or deselected, and emits an event when clicked.\r\n- In 'dismissible' mode, the chip can be dismissed (removed) by clicking a dismiss icon, and emits an event when the dismiss icon is clicked.",
+      "docs": "The chip component is a small, interactive element that can be used to represent an input, filter, or tag.\r\nIt can be in one of two modes: 'selectable' or 'dismissible'.\r\n- In 'selectable' mode, the chip can be selected or deselected, and emits an event when clicked.\r\n- In 'dismissible' mode, the chip can be dismissed (removed) by clicking a dismiss icon, and emits an event when the dismiss icon is clicked.\r\n\r\n## Usage guidelines\r\n\r\n**Primary** - Use in a context where the chip should stand out and be more easily noticed by the user.\r\n\r\n**Secondary** - Use in a context where the chip should stay more in the background and be more discreet.",
       "docsTags": [
         {
           "name": "cssprop",
@@ -9871,7 +9871,7 @@
       "encapsulation": "shadow",
       "tag": "wcs-message",
       "readme": "# wcs-message\r\n\r\n\r\n\r",
-      "docs": "Messages are used to communicate contextual information to users.\r\nThey can display information, success, warning, or error states.\r\n\r\nUnlike alerts, messages are static feedback elements and are not automatically dismissed.",
+      "docs": "Messages are used to communicate contextual information to users.\r\nThey can display information, success, warning, or error states.\r\n\r\nUnlike alerts, messages are static feedback elements and are not automatically dismissed.\r\n\r\n## Usage guidelines\r\n\r\n- Use messages to highlight information, success, warning or error content directly within the page, in a more contextual way than alerts.",
       "docsTags": [
         {
           "name": "cssprop",

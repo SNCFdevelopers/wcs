@@ -7,6 +7,22 @@
 
 The button component is used to trigger an action. It can also be a link when specifying href.
 
+## Usage guidelines
+
+- Position a primary button next to a secondary button, never two primary buttons side by side.
+- Use critical buttons for every critical action (delete, clear, etc.).
+- Use neutral buttons for actions of lesser importance.
+
+**Primary** - Use in a context where the action is important; it emphasizes the action compared to a secondary or tertiary button.
+
+**Secondary** - Use in a context where the action is less important and needs to be more discreet while remaining visible.
+
+**Tertiary** - Use in a context where the action is almost optional for the user.
+
+**Neutral** - Use for actions of lesser importance that don't need to stand out.
+
+**Critical** - Use for actions that are critical or destructive for the user.
+
 ## Accessibility guidelines 💡
 > If your button doesn't contain text but only an image, you must set a relevant aria-label on the icon 👉 [see "Square" story below](#square)
 

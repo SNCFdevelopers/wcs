@@ -9,6 +9,11 @@
 
 The accordion component is a vertical stack of interactive headings used to toggle the display of further information.
 
+## Usage guidelines
+
+- Use accordions within dense content pages to optimize screen space and minimize cognitive load
+- Favor simple interactions within accordions.
+
 ## Properties
 
 | Property                 | Attribute                   | Description                                                                                                                                                                                                                                                                                                                                  | Type      | Default |

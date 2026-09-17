@@ -1129,8 +1129,6 @@ export declare interface WcsHint extends Components.WcsHint {}
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['checkOnComplete', 'currentStep', 'mode', 'steps'],
-  // eslint-disable-next-line @angular-eslint/no-outputs-metadata-property
-  outputs: ['currentStepChange'],
 })
 export class WcsHorizontalStepper {
   protected el: HTMLElement;
@@ -1894,4 +1892,5 @@ export class WcsTooltip {
 
 
 export declare interface WcsTooltip extends Components.WcsTooltip {}
+
 

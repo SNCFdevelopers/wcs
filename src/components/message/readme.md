@@ -12,6 +12,10 @@ They can display information, success, warning, or error states.
 
 Unlike alerts, messages are static feedback elements and are not automatically dismissed.
 
+## Usage guidelines
+
+- Use messages to highlight information, success, warning or error content directly within the page, in a more contextual way than alerts.
+
 ## Properties
 
 | Property          | Attribute           | Description                                                                                                                                                                        | Type                                                 | Default         |

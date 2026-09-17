@@ -11,13 +11,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-- **horizontal-stepper**: add `currentStepChange` event and `onCurrentStepChange` callback
-- **ai**: add skills systems
-- **doc**: add usage guidelines for accordion, alert, button, chip, message
+for new features.
 
 ### Changed
 
-- **galactic**: change background color for theme sncf-groupe to align with design team
+for changes in existing functionality.
 
 ### Deprecated
 
@@ -29,6 +27,26 @@ for now removed features.
 
 ### Fixed
 
+for any bug fixes.
+
+### Security
+
+in case of vulnerabilities.
+
+## [7.8.0] - 2026-09-17
+
+### Added
+
+- **horizontal-stepper**: add `currentStepChange` event and `onCurrentStepChange` callback
+- **ai**: add skills systems
+- **doc**: add usage guidelines for accordion, alert, button, chip, message
+
+### Changed
+
+- **galactic**: change background color for theme sncf-groupe to align with design team
+
+### Fixed
+
 - **input**: border radius was unset for suffix / prefix
 - **message**
   - `--wcs-message-title-font-weight` and `--wcs-message-subtitle-font-weight` was not defined
@@ -37,10 +55,6 @@ for now removed features.
 - **form-field**: dynamic label is now well handled on spied element
 - **Angular**: propagate the disabled state from Angular forms to checkbox, counter, input, select, switch, and textarea components
 - **select**: `displayText` was not updated when options were loaded asynchronously in `server-mode` (without `autocomplete`)
-
-### Security
-
-in case of vulnerabilities.
 
 ## [7.7.0] - 2026-07-01
 
